@@ -1,0 +1,2607 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMP-TARGET-MIB": [
+      "SnmpTagValue",
+      "SnmpTagList"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "hh3cSystemMan": {
+    "name": "hh3cSystemMan",
+    "oid": "1.3.6.1.4.1.25506.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-02-21 00:00",
+        "description": "added 'gnss' attribute for hh3cSysClockProtocol in hh3cSysClockProtocolGroup."
+      },
+      {
+        "revision": "2018-01-10 00:00",
+        "description": "added 'interface' attribute for hh3cSysClockProtocol in hh3cSysClockProtocolGroup."
+      },
+      {
+        "revision": "2017-06-12 00:00",
+        "description": "Add hh3cSysLocalClockString2."
+      },
+      {
+        "revision": "2015-07-27 00:00",
+        "description": "Add hh3cSysClockProtocolGroup, hh3cSysClockProtocol, hh3cSysClockProtocolSrcMdc -- and hh3cSysClockProtocolSrcContext."
+      },
+      {
+        "revision": "2004-04-08 13:45",
+        "description": " "
+      }
+    ]
+  },
+  "hh3cSystemManMIBObjects": {
+    "name": "hh3cSystemManMIBObjects",
+    "oid": "1.3.6.1.4.1.25506.2.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cSysClock": {
+    "name": "hh3cSysClock",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cSysLocalClock": {
+    "name": "hh3cSysLocalClock",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSummerTime": {
+    "name": "hh3cSysSummerTime",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cSysSummerTimeEnable": {
+    "name": "hh3cSysSummerTimeEnable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysSummerTimeZone": {
+    "name": "hh3cSysSummerTimeZone",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSummerTimeMethod": {
+    "name": "hh3cSysSummerTimeMethod",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneOff": 1,
+          "repeating": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSummerTimeStart": {
+    "name": "hh3cSysSummerTimeStart",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSummerTimeEnd": {
+    "name": "hh3cSysSummerTimeEnd",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSummerTimeOffset": {
+    "name": "hh3cSysSummerTimeOffset",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86399
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysLocalClockString": {
+    "name": "hh3cSysLocalClockString",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysClockProtocolGroup": {
+    "name": "hh3cSysClockProtocolGroup",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cSysLocalClockString2": {
+    "name": "hh3cSysLocalClockString2",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 14,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysClockProtocol": {
+    "name": "hh3cSysClockProtocol",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ntp": 2,
+          "ptp": 3,
+          "interface": 4,
+          "gnss": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysClockProtocolSrcMdc": {
+    "name": "hh3cSysClockProtocolSrcMdc",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysClockProtocolSrcContext": {
+    "name": "hh3cSysClockProtocolSrcContext",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysCurrent": {
+    "name": "hh3cSysCurrent",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cSysCurTable": {
+    "name": "hh3cSysCurTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysCurEntry": {
+    "name": "hh3cSysCurEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCurEntPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysCurEntPhysicalIndex": {
+    "name": "hh3cSysCurEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysCurCFGFileIndex": {
+    "name": "hh3cSysCurCFGFileIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysCurImageIndex": {
+    "name": "hh3cSysCurImageIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysCurBtmFileName": {
+    "name": "hh3cSysCurBtmFileName",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysCurUpdateBtmFileName": {
+    "name": "hh3cSysCurUpdateBtmFileName",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysReload": {
+    "name": "hh3cSysReload",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cSysReloadSchedule": {
+    "name": "hh3cSysReloadSchedule",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysReloadAction": {
+    "name": "hh3cSysReloadAction",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reloadUnavailable": 1,
+          "reloadOnSchedule": 2,
+          "reloadAtOnce": 3,
+          "reloadCancel": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysReloadScheduleTable": {
+    "name": "hh3cSysReloadScheduleTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysReloadScheduleEntry": {
+    "name": "hh3cSysReloadScheduleEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadScheduleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysReloadScheduleIndex": {
+    "name": "hh3cSysReloadScheduleIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysReloadEntity": {
+    "name": "hh3cSysReloadEntity",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysReloadCfgFile": {
+    "name": "hh3cSysReloadCfgFile",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysReloadImage": {
+    "name": "hh3cSysReloadImage",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysReloadReason": {
+    "name": "hh3cSysReloadReason",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysReloadScheduleTime": {
+    "name": "hh3cSysReloadScheduleTime",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysReloadRowStatus": {
+    "name": "hh3cSysReloadRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysReloadScheduleTagList": {
+    "name": "hh3cSysReloadScheduleTagList",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysReloadTag": {
+    "name": "hh3cSysReloadTag",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysImage": {
+    "name": "hh3cSysImage",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cSysImageNum": {
+    "name": "hh3cSysImageNum",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysImageTable": {
+    "name": "hh3cSysImageTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysImageEntry": {
+    "name": "hh3cSysImageEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysImageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysImageIndex": {
+    "name": "hh3cSysImageIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysImageName": {
+    "name": "hh3cSysImageName",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysImageSize": {
+    "name": "hh3cSysImageSize",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysImageLocation": {
+    "name": "hh3cSysImageLocation",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysImageType": {
+    "name": "hh3cSysImageType",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 1,
+          "backup": 2,
+          "none": 3,
+          "secure": 4,
+          "main-backup": 5,
+          "main-secure": 6,
+          "backup-secure": 7,
+          "main-backup-secure": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysCFGFile": {
+    "name": "hh3cSysCFGFile",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.5",
+    "class": "objectidentity"
+  },
+  "hh3cSysCFGFileNum": {
+    "name": "hh3cSysCFGFileNum",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysCFGFileTable": {
+    "name": "hh3cSysCFGFileTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysCFGFileEntry": {
+    "name": "hh3cSysCFGFileEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCFGFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysCFGFileIndex": {
+    "name": "hh3cSysCFGFileIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysCFGFileName": {
+    "name": "hh3cSysCFGFileName",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysCFGFileSize": {
+    "name": "hh3cSysCFGFileSize",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysCFGFileLocation": {
+    "name": "hh3cSysCFGFileLocation",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysBtmFile": {
+    "name": "hh3cSysBtmFile",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6",
+    "class": "objectidentity"
+  },
+  "hh3cSysBtmFileLoad": {
+    "name": "hh3cSysBtmFileLoad",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.1",
+    "class": "objectidentity"
+  },
+  "hh3cSysBtmLoadMaxNumber": {
+    "name": "hh3cSysBtmLoadMaxNumber",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysBtmLoadTable": {
+    "name": "hh3cSysBtmLoadTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysBtmLoadEntry": {
+    "name": "hh3cSysBtmLoadEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBtmLoadIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysBtmLoadIndex": {
+    "name": "hh3cSysBtmLoadIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysBtmFileName": {
+    "name": "hh3cSysBtmFileName",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysBtmFileType": {
+    "name": "hh3cSysBtmFileType",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 1,
+          "none": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysBtmRowStatus": {
+    "name": "hh3cSysBtmRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysBtmErrorStatus": {
+    "name": "hh3cSysBtmErrorStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidFile": 1,
+          "inProgress": 2,
+          "success": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysBtmLoadTime": {
+    "name": "hh3cSysBtmLoadTime",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackage": {
+    "name": "hh3cSysPackage",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7",
+    "class": "objectidentity"
+  },
+  "hh3cSysPackageNum": {
+    "name": "hh3cSysPackageNum",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageTable": {
+    "name": "hh3cSysPackageTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysPackageEntry": {
+    "name": "hh3cSysPackageEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysPackageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysPackageIndex": {
+    "name": "hh3cSysPackageIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysPackageName": {
+    "name": "hh3cSysPackageName",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageSize": {
+    "name": "hh3cSysPackageSize",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageLocation": {
+    "name": "hh3cSysPackageLocation",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageType": {
+    "name": "hh3cSysPackageType",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "boot": 1,
+          "system": 2,
+          "feature": 3,
+          "patch": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageAttribute": {
+    "name": "hh3cSysPackageAttribute",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "primary": 2,
+          "secondary": 3,
+          "primarySecondary": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysPackageStatus": {
+    "name": "hh3cSysPackageStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageDescription": {
+    "name": "hh3cSysPackageDescription",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageFeature": {
+    "name": "hh3cSysPackageFeature",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageVersion": {
+    "name": "hh3cSysPackageVersion",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageLoadAttribute": {
+    "name": "hh3cSysPackageLoadAttribute",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "primary": 2,
+          "secondary": 3,
+          "primarySecondary": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysPackageModel": {
+    "name": "hh3cSysPackageModel",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysPackageOperateEntryLimit": {
+    "name": "hh3cSysPackageOperateEntryLimit",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysPackageOperateTable": {
+    "name": "hh3cSysPackageOperateTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysPackageOperateEntry": {
+    "name": "hh3cSysPackageOperateEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysPackageOperateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysPackageOperateIndex": {
+    "name": "hh3cSysPackageOperateIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysPackageOperatePackIndex": {
+    "name": "hh3cSysPackageOperatePackIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysPackageOperateStatus": {
+    "name": "hh3cSysPackageOperateStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysPackageOperateRowStatus": {
+    "name": "hh3cSysPackageOperateRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysPackageOperateResult": {
+    "name": "hh3cSysPackageOperateResult",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccess": 2,
+          "opUnknownFailure": 3,
+          "opInvalidFile": 4,
+          "opNotSupport": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpeFile": {
+    "name": "hh3cSysIpeFile",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8",
+    "class": "objectidentity"
+  },
+  "hh3cSysIpeFileNum": {
+    "name": "hh3cSysIpeFileNum",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpeFileTable": {
+    "name": "hh3cSysIpeFileTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysIpeFileEntry": {
+    "name": "hh3cSysIpeFileEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysIpeFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysIpeFileIndex": {
+    "name": "hh3cSysIpeFileIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysIpeFileName": {
+    "name": "hh3cSysIpeFileName",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpeFileSize": {
+    "name": "hh3cSysIpeFileSize",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpeFileLocation": {
+    "name": "hh3cSysIpeFileLocation",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpeFileModel": {
+    "name": "hh3cSysIpeFileModel",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpePackageTable": {
+    "name": "hh3cSysIpePackageTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysIpePackageEntry": {
+    "name": "hh3cSysIpePackageEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysIpeFileIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysIpePackageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysIpePackageIndex": {
+    "name": "hh3cSysIpePackageIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysIpePackageName": {
+    "name": "hh3cSysIpePackageName",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpePackageSize": {
+    "name": "hh3cSysIpePackageSize",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpePackageType": {
+    "name": "hh3cSysIpePackageType",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "boot": 1,
+          "system": 2,
+          "feature": 3,
+          "patch": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpePackageDescription": {
+    "name": "hh3cSysIpePackageDescription",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpePackageFeature": {
+    "name": "hh3cSysIpePackageFeature",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpePackageVersion": {
+    "name": "hh3cSysIpePackageVersion",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpePackageModel": {
+    "name": "hh3cSysIpePackageModel",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysIpeFileOperateTable": {
+    "name": "hh3cSysIpeFileOperateTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysIpeFileOperateEntry": {
+    "name": "hh3cSysIpeFileOperateEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysIpeFileOperateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysIpeFileOperateIndex": {
+    "name": "hh3cSysIpeFileOperateIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysIpeFileOperateFileIndex": {
+    "name": "hh3cSysIpeFileOperateFileIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysIpeFileOperateAttribute": {
+    "name": "hh3cSysIpeFileOperateAttribute",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "primary": 2,
+          "secondary": 3,
+          "primarySecondary": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysIpeFileOperateRowStatus": {
+    "name": "hh3cSysIpeFileOperateRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysIpeFileOperateResult": {
+    "name": "hh3cSysIpeFileOperateResult",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccess": 2,
+          "opUnknownFailure": 3,
+          "opInvalidFile": 4,
+          "opDeviceFull": 5,
+          "opFileOpenError": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysSetBootImage": {
+    "name": "hh3cSysSetBootImage",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9",
+    "class": "objectidentity"
+  },
+  "hh3cSysSetBootImageOp": {
+    "name": "hh3cSysSetBootImageOp",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.1",
+    "class": "objectidentity"
+  },
+  "hh3cSysSetBootImageAction": {
+    "name": "hh3cSysSetBootImageAction",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "done": 2,
+          "bootLoadPrimary": 3,
+          "bootLoadSecondary": 4,
+          "bootLoadPrimarySecondary": 5,
+          "bootPrimary": 6,
+          "bootSecondary": 7,
+          "bootPrimarySecondary": 8,
+          "loadPrimary": 9,
+          "loadSecondary": 10,
+          "loadPrimarySecondary": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSetBootImageFileOverWrite": {
+    "name": "hh3cSysSetBootImageFileOverWrite",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSetBootImageRemoveIpeFile": {
+    "name": "hh3cSysSetBootImageRemoveIpeFile",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSetBootImageStatus": {
+    "name": "hh3cSysSetBootImageStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "doing": 2,
+          "success": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysSetBootImageFailedReason": {
+    "name": "hh3cSysSetBootImageFailedReason",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysBootPackageTable": {
+    "name": "hh3cSysBootPackageTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysBootPackageEntry": {
+    "name": "hh3cSysBootPackageEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBootPackageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysBootPackageIndex": {
+    "name": "hh3cSysBootPackageIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysBootPackageRowStatus": {
+    "name": "hh3cSysBootPackageRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysBootIpeTable": {
+    "name": "hh3cSysBootIpeTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysBootIpeEntry": {
+    "name": "hh3cSysBootIpeEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBootIpeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysBootIpeIndex": {
+    "name": "hh3cSysBootIpeIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysBootIpeRowStatus": {
+    "name": "hh3cSysBootIpeRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSysSetBootImageResultTable": {
+    "name": "hh3cSysSetBootImageResultTable",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysSetBootImageResultEntry": {
+    "name": "hh3cSysSetBootImageResultEntry",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysSetBootImageResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysSetBootImageResultIndex": {
+    "name": "hh3cSysSetBootImageResultIndex",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSysSetBootImageResultStatusOfEachCard": {
+    "name": "hh3cSysSetBootImageResultStatusOfEachCard",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "doing": 2,
+          "success": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysSetBootImageFailedReasonOfEachCard": {
+    "name": "hh3cSysSetBootImageFailedReasonOfEachCard",
+    "oid": "1.3.6.1.4.1.25506.2.3.1.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemManMIBNotifications": {
+    "name": "hh3cSystemManMIBNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cSysClockChangedNotification": {
+    "name": "hh3cSysClockChangedNotification",
+    "oid": "1.3.6.1.4.1.25506.2.3.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysLocalClock"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysReloadNotification": {
+    "name": "hh3cSysReloadNotification",
+    "oid": "1.3.6.1.4.1.25506.2.3.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadImage"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadCfgFile"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadReason"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadScheduleTime"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadAction"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysStartUpNotification": {
+    "name": "hh3cSysStartUpNotification",
+    "oid": "1.3.6.1.4.1.25506.2.3.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysImageType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSystemManMIBConformance": {
+    "name": "hh3cSystemManMIBConformance",
+    "oid": "1.3.6.1.4.1.25506.2.3.3",
+    "class": "objectidentity"
+  },
+  "hh3cSystemManMIBCompliances": {
+    "name": "hh3cSystemManMIBCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cSystemManMIBCompliance": {
+    "name": "hh3cSystemManMIBCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cSysClockGroup",
+        "module": "HH3C-SYS-MAN-MIB"
+      },
+      {
+        "object": "hh3cSysReloadGroup",
+        "module": "HH3C-SYS-MAN-MIB"
+      },
+      {
+        "object": "hh3cSysImageGroup",
+        "module": "HH3C-SYS-MAN-MIB"
+      },
+      {
+        "object": "hh3cSysCFGFileGroup",
+        "module": "HH3C-SYS-MAN-MIB"
+      },
+      {
+        "object": "hh3cSystemManNotificationGroup",
+        "module": "HH3C-SYS-MAN-MIB"
+      },
+      {
+        "object": "hh3cSysCurGroup",
+        "module": "HH3C-SYS-MAN-MIB"
+      },
+      {
+        "object": "hh3cSystemBtmLoadGroup",
+        "module": "HH3C-SYS-MAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSystemManMIBGroups": {
+    "name": "hh3cSystemManMIBGroups",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cSysClockGroup": {
+    "name": "hh3cSysClockGroup",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysLocalClock"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysSummerTimeEnable"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysSummerTimeZone"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysSummerTimeMethod"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysSummerTimeStart"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysSummerTimeEnd"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysSummerTimeOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysReloadGroup": {
+    "name": "hh3cSysReloadGroup",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadSchedule"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadAction"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadImage"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadCfgFile"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadReason"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadScheduleTagList"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadTag"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadScheduleTime"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadEntity"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysImageGroup": {
+    "name": "hh3cSysImageGroup",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysImageNum"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysImageName"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysImageSize"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysImageLocation"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysImageType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysCFGFileGroup": {
+    "name": "hh3cSysCFGFileGroup",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCFGFileNum"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCFGFileName"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCFGFileSize"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCFGFileLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysCurGroup": {
+    "name": "hh3cSysCurGroup",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCurCFGFileIndex"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCurImageIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSystemManNotificationGroup": {
+    "name": "hh3cSystemManNotificationGroup",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysClockChangedNotification"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysReloadNotification"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysStartUpNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSystemBtmLoadGroup": {
+    "name": "hh3cSystemBtmLoadGroup",
+    "oid": "1.3.6.1.4.1.25506.2.3.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCurBtmFileName"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysCurUpdateBtmFileName"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBtmLoadMaxNumber"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBtmFileName"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBtmFileType"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBtmRowStatus"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBtmErrorStatus"
+      },
+      {
+        "module": "HH3C-SYS-MAN-MIB",
+        "object": "hh3cSysBtmLoadTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SYS-MAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-SYS-MAN-MIB"
+  }
+}

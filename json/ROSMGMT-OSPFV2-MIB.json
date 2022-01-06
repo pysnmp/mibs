@@ -1,0 +1,5505 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "RAISECOM-BASE-MIB": [
+      "rosMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "SWITCH-TC": [
+      "EnableVar"
+    ]
+  },
+  "rosMgmtOspf": {
+    "name": "rosMgmtOspf",
+    "oid": "1.3.6.1.4.1.8886.60.47",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-05-07 00:00",
+        "description": "Initial MIB creation."
+      }
+    ]
+  },
+  "ProcessID": {
+    "name": "ProcessID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "AreaID": {
+    "name": "AreaID",
+    "class": "textualconvention",
+    "type": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "displayhint": "1d.1d.1d.1d",
+    "status": "current"
+  },
+  "RouterID": {
+    "name": "RouterID",
+    "class": "textualconvention",
+    "type": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "displayhint": "1d.1d.1d.1d",
+    "status": "current"
+  },
+  "Metric": {
+    "name": "Metric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "BigMetric": {
+    "name": "BigMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "Status": {
+    "name": "Status",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "HelloRange": {
+    "name": "HelloRange",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "UpToMaxAge": {
+    "name": "UpToMaxAge",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "DesignatedRouterPriority": {
+    "name": "DesignatedRouterPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "OspfAuthenticationType": {
+    "name": "OspfAuthenticationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "simplePassword": 1,
+          "md5": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rosMgmtOspfNotifications": {
+    "name": "rosMgmtOspfNotifications",
+    "oid": "1.3.6.1.4.1.8886.60.47.1",
+    "class": "objectidentity"
+  },
+  "rosMgmtOspfObjects": {
+    "name": "rosMgmtOspfObjects",
+    "oid": "1.3.6.1.4.1.8886.60.47.2",
+    "class": "objectidentity"
+  },
+  "rosMgmtOspfConformance": {
+    "name": "rosMgmtOspfConformance",
+    "oid": "1.3.6.1.4.1.8886.60.47.3",
+    "class": "objectidentity"
+  },
+  "rosMgmtOspfTrapControlTable": {
+    "name": "rosMgmtOspfTrapControlTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfTrapControlEntry": {
+    "name": "rosMgmtOspfTrapControlEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfSetTrap": {
+    "name": "rosMgmtOspfSetTrap",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOspfConfigErrorType": {
+    "name": "rosMgmtOspfConfigErrorType",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "badVersion": 1,
+          "areaMismatch": 2,
+          "unknownNbmaNbr": 3,
+          "unknownVirtualNbr": 4,
+          "authTypeMismatch": 5,
+          "authFailure": 6,
+          "netMaskMismatch": 7,
+          "helloIntervalMismatch": 8,
+          "deadIntervalMismatch": 9,
+          "optionMismatch": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfPacketType": {
+    "name": "rosMgmtOspfPacketType",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hello": 1,
+          "dbDescript": 2,
+          "lsReq": 3,
+          "lsUpdate": 4,
+          "lsAck": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfPacketSrc": {
+    "name": "rosMgmtOspfPacketSrc",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfTraps": {
+    "name": "rosMgmtOspfTraps",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0",
+    "class": "objectidentity"
+  },
+  "rosMgmtOspfIfStateChange": {
+    "name": "rosMgmtOspfIfStateChange",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfIpAddress"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAddressLessIf"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfState"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfStateChange": {
+    "name": "rosMgmtOspfVirtIfStateChange",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfNeighbor"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfState"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfNbrStateChange": {
+    "name": "rosMgmtOspfNbrStateChange",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNbrIpAddr"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNbrAddressLessIndex"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNbrRtrId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNbrState"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrStateChange": {
+    "name": "rosMgmtOspfVirtNbrStateChange",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtNbrArea"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtNbrRtrId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtNbrState"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfIfConfigError": {
+    "name": "rosMgmtOspfIfConfigError",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfIpAddress"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAddressLessIf"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketSrc"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfConfigErrorType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfConfigError": {
+    "name": "rosMgmtOspfVirtIfConfigError",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfNeighbor"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfConfigErrorType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfIfAuthFailure": {
+    "name": "rosMgmtOspfIfAuthFailure",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfIpAddress"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAddressLessIf"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketSrc"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfConfigErrorType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAuthFailure": {
+    "name": "rosMgmtOspfVirtIfAuthFailure",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfNeighbor"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfConfigErrorType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfIfRxBadPacket": {
+    "name": "rosMgmtOspfIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfIpAddress"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAddressLessIf"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketSrc"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfRxBadPacket": {
+    "name": "rosMgmtOspfVirtIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfNeighbor"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketType"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfTxRetransmit": {
+    "name": "rosMgmtOspfTxRetransmit",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfIpAddress"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAddressLessIf"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNbrRtrId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbLsId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfTxRetransmit": {
+    "name": "rosMgmtOspfVirtIfTxRetransmit",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfNeighbor"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbLsId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfOriginateLsa": {
+    "name": "rosMgmtOspfOriginateLsa",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbLsId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfMaxAgeLsa": {
+    "name": "rosMgmtOspfMaxAgeLsa",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbType"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbLsId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbOverflow": {
+    "name": "rosMgmtOspfLsdbOverflow",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfExtLsdbLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbApproachingOverflow": {
+    "name": "rosMgmtOspfLsdbApproachingOverflow",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfExtLsdbLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfIfKeyValid": {
+    "name": "rosMgmtOspfIfKeyValid",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfIpAddress"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAddressLessIf"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfAuthKeyChain"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfIfLastKeyExpiration": {
+    "name": "rosMgmtOspfIfLastKeyExpiration",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfIpAddress"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAddressLessIf"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfIfAuthKeyChain"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfKeyValid": {
+    "name": "rosMgmtOspfVirtIfKeyValid",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfNeighbor"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAuthKeyChain"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfLastKeyExpiration": {
+    "name": "rosMgmtOspfVirtIfLastKeyExpiration",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouterId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAreaId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfNeighbor"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAuthKeyChain"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeOverflow": {
+    "name": "rosMgmtOspfRedistributeOverflow",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRedistributeProtocol"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRedistributeProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRedistributeRouteLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeNotOverflow": {
+    "name": "rosMgmtOspfRedistributeNotOverflow",
+    "oid": "1.3.6.1.4.1.8886.60.47.1.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRedistributeProtocol"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRedistributeProcessId"
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRedistributeRouteLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfGlobalTable": {
+    "name": "rosMgmtOspfGlobalTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfGlobalEntry": {
+    "name": "rosMgmtOspfGlobalEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfProcessId": {
+    "name": "rosMgmtOspfProcessId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProcessID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRouterId": {
+    "name": "rosMgmtOspfRouterId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfAdminStat": {
+    "name": "rosMgmtOspfAdminStat",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVersionNumber": {
+    "name": "rosMgmtOspfVersionNumber",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaBdrRtrStatus": {
+    "name": "rosMgmtOspfAreaBdrRtrStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfASBdrRtrStatus": {
+    "name": "rosMgmtOspfASBdrRtrStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfExternLsaCount": {
+    "name": "rosMgmtOspfExternLsaCount",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfExternLsaCksumSum": {
+    "name": "rosMgmtOspfExternLsaCksumSum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfOriginateNewLsas": {
+    "name": "rosMgmtOspfOriginateNewLsas",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRxNewLsas": {
+    "name": "rosMgmtOspfRxNewLsas",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfExtLsdbLimit": {
+    "name": "rosMgmtOspfExtLsdbLimit",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfExitOverflowInterval": {
+    "name": "rosMgmtOspfExitOverflowInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfReferenceBandwidth": {
+    "name": "rosMgmtOspfReferenceBandwidth",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4296967
+          }
+        ]
+      }
+    },
+    "units": "millionbits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsaCount": {
+    "name": "rosMgmtOspfAsLsaCount",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsaCksumSum": {
+    "name": "rosMgmtOspfAsLsaCksumSum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfStubRouterSupport": {
+    "name": "rosMgmtOspfStubRouterSupport",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfStubRouterAdvertisement": {
+    "name": "rosMgmtOspfStubRouterAdvertisement",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNotAdvertise": 1,
+          "advertise": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAdminDistance": {
+    "name": "rosMgmtOspfAdminDistance",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfSpfInterval": {
+    "name": "rosMgmtOspfSpfInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfReset": {
+    "name": "rosMgmtOspfReset",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "general": 1,
+          "gr": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfExportMetric": {
+    "name": "rosMgmtOspfExportMetric",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfExportTag": {
+    "name": "rosMgmtOspfExportTag",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfExportType": {
+    "name": "rosMgmtOspfExportType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type1": 1,
+          "type2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "type2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfNetCounts": {
+    "name": "rosMgmtOspfNetCounts",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaCounts": {
+    "name": "rosMgmtOspfAreaCounts",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNssaAreaCounts": {
+    "name": "rosMgmtOspfNssaAreaCounts",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfSpfCounts": {
+    "name": "rosMgmtOspfSpfCounts",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfGlobalStatus": {
+    "name": "rosMgmtOspfGlobalStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeRouteLimit": {
+    "name": "rosMgmtOspfRedistributeRouteLimit",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistanceIntra": {
+    "name": "rosMgmtOspfDistanceIntra",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistanceInter": {
+    "name": "rosMgmtOspfDistanceInter",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistanceExtern": {
+    "name": "rosMgmtOspfDistanceExtern",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfRfc1583Compatible": {
+    "name": "rosMgmtOspfRfc1583Compatible",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfSpfHode": {
+    "name": "rosMgmtOspfSpfHode",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfBfdAllItfs": {
+    "name": "rosMgmtOspfBfdAllItfs",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfOpaqueCapability": {
+    "name": "rosMgmtOspfOpaqueCapability",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfTECapability": {
+    "name": "rosMgmtOspfTECapability",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfTEAreaID": {
+    "name": "rosMgmtOspfTEAreaID",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rosMgmtOspfTERouterId": {
+    "name": "rosMgmtOspfTERouterId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfGRCapability": {
+    "name": "rosMgmtOspfGRCapability",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "graceful": 1,
+          "signaling": 2,
+          "never": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfGRPeriod": {
+    "name": "rosMgmtOspfGRPeriod",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfGRHelper": {
+    "name": "rosMgmtOspfGRHelper",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "general": 0,
+          "never": 1,
+          "plannedonly": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfGRHelperMaxPeriod": {
+    "name": "rosMgmtOspfGRHelperMaxPeriod",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfMaximumLoadBalancing": {
+    "name": "rosMgmtOspfMaximumLoadBalancing",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfMaxMetric": {
+    "name": "rosMgmtOspfMaxMetric",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfMaxMetricType": {
+    "name": "rosMgmtOspfMaxMetricType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfMaxMetricTime": {
+    "name": "rosMgmtOspfMaxMetricTime",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 90,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfMaxMetricTypeStartup": {
+    "name": "rosMgmtOspfMaxMetricTypeStartup",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbOverflowLimit": {
+    "name": "rosMgmtOspfLsdbOverflowLimit",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfTrafficAdjustType": {
+    "name": "rosMgmtOspfTrafficAdjustType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "shortcut": 1,
+          "fa": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteTagValue": {
+    "name": "rosMgmtOspfRouteTagValue",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteTagCheckDisable": {
+    "name": "rosMgmtOspfRouteTagCheckDisable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitSetDisableSummary": {
+    "name": "rosMgmtOspfDNBitSetDisableSummary",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitSetDisableAse": {
+    "name": "rosMgmtOspfDNBitSetDisableAse",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitSetDisableNssa": {
+    "name": "rosMgmtOspfDNBitSetDisableNssa",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitCheckDisableSummary": {
+    "name": "rosMgmtOspfDNBitCheckDisableSummary",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitCheckDisableAse": {
+    "name": "rosMgmtOspfDNBitCheckDisableAse",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitCheckDisableNssa": {
+    "name": "rosMgmtOspfDNBitCheckDisableNssa",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfSpfMilliInterval": {
+    "name": "rosMgmtOspfSpfMilliInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfSpfMilliHode": {
+    "name": "rosMgmtOspfSpfMilliHode",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfLoopFreeAlt": {
+    "name": "rosMgmtOspfLoopFreeAlt",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaTable": {
+    "name": "rosMgmtOspfAreaTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaEntry": {
+    "name": "rosMgmtOspfAreaEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfAreaId": {
+    "name": "rosMgmtOspfAreaId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAuthType": {
+    "name": "rosMgmtOspfAuthType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfImportAsExtern": {
+    "name": "rosMgmtOspfImportAsExtern",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "importExternal": 1,
+          "importNoExternal": 2,
+          "importNssa": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "importExternal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfSpfRuns": {
+    "name": "rosMgmtOspfSpfRuns",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaBdrRtrCount": {
+    "name": "rosMgmtOspfAreaBdrRtrCount",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAsBdrRtrCount": {
+    "name": "rosMgmtOspfAsBdrRtrCount",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaLsaCount": {
+    "name": "rosMgmtOspfAreaLsaCount",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaLsaCksumSum": {
+    "name": "rosMgmtOspfAreaLsaCksumSum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaSummary": {
+    "name": "rosMgmtOspfAreaSummary",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAreaSummary": 1,
+          "sendAreaSummary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sendAreaSummary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaNssaTranslatorRole": {
+    "name": "rosMgmtOspfAreaNssaTranslatorRole",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "candidate": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "candidate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaNssaTranslatorState": {
+    "name": "rosMgmtOspfAreaNssaTranslatorState",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "elected": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaNssaTranslatorStabilityInterval": {
+    "name": "rosMgmtOspfAreaNssaTranslatorStabilityInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaNssaTranslatorEvents": {
+    "name": "rosMgmtOspfAreaNssaTranslatorEvents",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaDefaultCost": {
+    "name": "rosMgmtOspfAreaDefaultCost",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaType": {
+    "name": "rosMgmtOspfAreaType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backbone": 1,
+          "normal": 2,
+          "stub": 3,
+          "nssa": 4,
+          "transmit": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaStatus": {
+    "name": "rosMgmtOspfAreaStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaFilterInIpPrefixListName": {
+    "name": "rosMgmtOspfAreaFilterInIpPrefixListName",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaFilterOutIpPrefixListName": {
+    "name": "rosMgmtOspfAreaFilterOutIpPrefixListName",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaTeCapability": {
+    "name": "rosMgmtOspfAreaTeCapability",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfNetWorkTable": {
+    "name": "rosMgmtOspfNetWorkTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfNetWorkEntry": {
+    "name": "rosMgmtOspfNetWorkEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAreaId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNet",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfNet": {
+    "name": "rosMgmtOspfNet",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfMask": {
+    "name": "rosMgmtOspfMask",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfNetWorkStatus": {
+    "name": "rosMgmtOspfNetWorkStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfStubAreaTable": {
+    "name": "rosMgmtOspfStubAreaTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfStubAreaEntry": {
+    "name": "rosMgmtOspfStubAreaEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfStubAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfStubAreaId": {
+    "name": "rosMgmtOspfStubAreaId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfStubAreaOption": {
+    "name": "rosMgmtOspfStubAreaOption",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfStubAreaStatus": {
+    "name": "rosMgmtOspfStubAreaStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfNssaAreaTable": {
+    "name": "rosMgmtOspfNssaAreaTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfNssaAreaEntry": {
+    "name": "rosMgmtOspfNssaAreaEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNssaAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfNssaAreaId": {
+    "name": "rosMgmtOspfNssaAreaId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfNssaAreaOption": {
+    "name": "rosMgmtOspfNssaAreaOption",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "summarysend": 0,
+          "nosummary": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfNssaAreaStatus": {
+    "name": "rosMgmtOspfNssaAreaStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfTable": {
+    "name": "rosMgmtOspfIfTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfIfEntry": {
+    "name": "rosMgmtOspfIfEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAddressLessIf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfAddressLessIf": {
+    "name": "rosMgmtOspfAddressLessIf",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfIpAddress": {
+    "name": "rosMgmtOspfIfIpAddress",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAreaId": {
+    "name": "rosMgmtOspfIfAreaId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfType": {
+    "name": "rosMgmtOspfIfType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pointToPoint": 1,
+          "broadcast": 2,
+          "nbma": 3,
+          "pointToMultipoint": 4,
+          "virtuallink": 5,
+          "loopback": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "broadcast",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAdminStat": {
+    "name": "rosMgmtOspfIfAdminStat",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Status",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfRtrPriority": {
+    "name": "rosMgmtOspfIfRtrPriority",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfTransitDelay": {
+    "name": "rosMgmtOspfIfTransitDelay",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfRetransInterval": {
+    "name": "rosMgmtOspfIfRetransInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfHelloInterval": {
+    "name": "rosMgmtOspfIfHelloInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfRtrDeadInterval": {
+    "name": "rosMgmtOspfIfRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfPollInterval": {
+    "name": "rosMgmtOspfIfPollInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfState": {
+    "name": "rosMgmtOspfIfState",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "loopback": 2,
+          "waiting": 3,
+          "pointToPoint": 4,
+          "designatedRouter": 5,
+          "backupDesignatedRouter": 6,
+          "otherDesignatedRouter": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfDesignatedRouter": {
+    "name": "rosMgmtOspfIfDesignatedRouter",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfBackupDesignatedRouter": {
+    "name": "rosMgmtOspfIfBackupDesignatedRouter",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfEvents": {
+    "name": "rosMgmtOspfIfEvents",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAuthKeyId": {
+    "name": "rosMgmtOspfIfAuthKeyId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAuthSimpleKeyType": {
+    "name": "rosMgmtOspfIfAuthSimpleKeyType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plain": 0,
+          "cipher": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAuthMd5KeyType": {
+    "name": "rosMgmtOspfIfAuthMd5KeyType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plain": 0,
+          "cipher": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAuthSimpleKey": {
+    "name": "rosMgmtOspfIfAuthSimpleKey",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAuthMd5Key": {
+    "name": "rosMgmtOspfIfAuthMd5Key",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAuthKeyChain": {
+    "name": "rosMgmtOspfIfAuthKeyChain",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfAuthType": {
+    "name": "rosMgmtOspfIfAuthType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfLsaCount": {
+    "name": "rosMgmtOspfIfLsaCount",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfLsaCksumSum": {
+    "name": "rosMgmtOspfIfLsaCksumSum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfDesignatedRouterId": {
+    "name": "rosMgmtOspfIfDesignatedRouterId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfBackupDesignatedRouterId": {
+    "name": "rosMgmtOspfIfBackupDesignatedRouterId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfIfPassive": {
+    "name": "rosMgmtOspfIfPassive",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfMtu": {
+    "name": "rosMgmtOspfIfMtu",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfMetric": {
+    "name": "rosMgmtOspfIfMetric",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfBfd": {
+    "name": "rosMgmtOspfIfBfd",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfIfGRResync": {
+    "name": "rosMgmtOspfIfGRResync",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfTable": {
+    "name": "rosMgmtOspfVirtIfTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfEntry": {
+    "name": "rosMgmtOspfVirtIfEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfAreaId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtIfNeighbor",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAreaId": {
+    "name": "rosMgmtOspfVirtIfAreaId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfNeighbor": {
+    "name": "rosMgmtOspfVirtIfNeighbor",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfTransitDelay": {
+    "name": "rosMgmtOspfVirtIfTransitDelay",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfRetransInterval": {
+    "name": "rosMgmtOspfVirtIfRetransInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfHelloInterval": {
+    "name": "rosMgmtOspfVirtIfHelloInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfRtrDeadInterval": {
+    "name": "rosMgmtOspfVirtIfRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfState": {
+    "name": "rosMgmtOspfVirtIfState",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "pointToPoint": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfEvents": {
+    "name": "rosMgmtOspfVirtIfEvents",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAuthKeyId": {
+    "name": "rosMgmtOspfVirtIfAuthKeyId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAuthSimpleKeyType": {
+    "name": "rosMgmtOspfVirtIfAuthSimpleKeyType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plain": 0,
+          "cipher": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAuthMd5KeyType": {
+    "name": "rosMgmtOspfVirtIfAuthMd5KeyType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plain": 0,
+          "cipher": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAuthSimpleKey": {
+    "name": "rosMgmtOspfVirtIfAuthSimpleKey",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAuthMd5Key": {
+    "name": "rosMgmtOspfVirtIfAuthMd5Key",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAuthKeyChain": {
+    "name": "rosMgmtOspfVirtIfAuthKeyChain",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfAuthType": {
+    "name": "rosMgmtOspfVirtIfAuthType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfLsaCount": {
+    "name": "rosMgmtOspfVirtIfLsaCount",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfLsaCksumSum": {
+    "name": "rosMgmtOspfVirtIfLsaCksumSum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfCost": {
+    "name": "rosMgmtOspfVirtIfCost",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtIfStatus": {
+    "name": "rosMgmtOspfVirtIfStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrTable": {
+    "name": "rosMgmtOspfNbrTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrEntry": {
+    "name": "rosMgmtOspfNbrEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNbrIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNbrAddressLessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfNbrIpAddr": {
+    "name": "rosMgmtOspfNbrIpAddr",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrAddressLessIndex": {
+    "name": "rosMgmtOspfNbrAddressLessIndex",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrRtrId": {
+    "name": "rosMgmtOspfNbrRtrId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrOptions": {
+    "name": "rosMgmtOspfNbrOptions",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrPriority": {
+    "name": "rosMgmtOspfNbrPriority",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrState": {
+    "name": "rosMgmtOspfNbrState",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrEvents": {
+    "name": "rosMgmtOspfNbrEvents",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrLsRetransQLen": {
+    "name": "rosMgmtOspfNbrLsRetransQLen",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbrMode": {
+    "name": "rosMgmtOspfNbrMode",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "slave",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfNbmaCfgNbrTable": {
+    "name": "rosMgmtOspfNbmaCfgNbrTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfNbmaCfgNbrEntry": {
+    "name": "rosMgmtOspfNbmaCfgNbrEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfNbmaCfgNbrIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfNbmaCfgNbrIpAddr": {
+    "name": "rosMgmtOspfNbmaCfgNbrIpAddr",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfNbmaCfgNbrPriority": {
+    "name": "rosMgmtOspfNbmaCfgNbrPriority",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfNbmaCfgNbrStatus": {
+    "name": "rosMgmtOspfNbmaCfgNbrStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrTable": {
+    "name": "rosMgmtOspfVirtNbrTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrEntry": {
+    "name": "rosMgmtOspfVirtNbrEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtNbrArea",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfVirtNbrRtrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrArea": {
+    "name": "rosMgmtOspfVirtNbrArea",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrRtrId": {
+    "name": "rosMgmtOspfVirtNbrRtrId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrIpAddr": {
+    "name": "rosMgmtOspfVirtNbrIpAddr",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrOptions": {
+    "name": "rosMgmtOspfVirtNbrOptions",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrState": {
+    "name": "rosMgmtOspfVirtNbrState",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrEvents": {
+    "name": "rosMgmtOspfVirtNbrEvents",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrLsRetransQLen": {
+    "name": "rosMgmtOspfVirtNbrLsRetransQLen",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrLessIf": {
+    "name": "rosMgmtOspfVirtNbrLessIf",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfVirtNbrMode": {
+    "name": "rosMgmtOspfVirtNbrMode",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "slave",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaAggregateTable": {
+    "name": "rosMgmtOspfAreaAggregateTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaAggregateEntry": {
+    "name": "rosMgmtOspfAreaAggregateEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAreaAggregateAreaID",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAreaAggregateLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAreaAggregateNet",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAreaAggregateMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfAreaAggregateAreaID": {
+    "name": "rosMgmtOspfAreaAggregateAreaID",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaAggregateLsdbType": {
+    "name": "rosMgmtOspfAreaAggregateLsdbType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "summaryLink": 3,
+          "nssaExternalLink": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaAggregateNet": {
+    "name": "rosMgmtOspfAreaAggregateNet",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaAggregateMask": {
+    "name": "rosMgmtOspfAreaAggregateMask",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaAggregateEffect": {
+    "name": "rosMgmtOspfAreaAggregateEffect",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertiseMatching": 1,
+          "doNotAdvertiseMatching": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "advertiseMatching",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaAggregateStatus": {
+    "name": "rosMgmtOspfAreaAggregateStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfExternalAggregateTable": {
+    "name": "rosMgmtOspfExternalAggregateTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfExternalAggregateEntry": {
+    "name": "rosMgmtOspfExternalAggregateEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfExternalAggregateNet",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfExternalAggregateMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfExternalAggregateNet": {
+    "name": "rosMgmtOspfExternalAggregateNet",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfExternalAggregateMask": {
+    "name": "rosMgmtOspfExternalAggregateMask",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfExternalAggregateEffect": {
+    "name": "rosMgmtOspfExternalAggregateEffect",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNotAdvertise": 1,
+          "advertise": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "advertise",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfExternalAggregateCost": {
+    "name": "rosMgmtOspfExternalAggregateCost",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfExternalAggregateStatus": {
+    "name": "rosMgmtOspfExternalAggregateStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbTable": {
+    "name": "rosMgmtOspfLsdbTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbEntry": {
+    "name": "rosMgmtOspfLsdbEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbLsId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbAreaId": {
+    "name": "rosMgmtOspfLsdbAreaId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbType": {
+    "name": "rosMgmtOspfLsdbType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "asExternalLink": 5,
+          "multicastLink": 6,
+          "nssaExternalLink": 7,
+          "linkOpaqueLink": 9,
+          "areaOpaqueLink": 10,
+          "asOpaqueLink": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbLsId": {
+    "name": "rosMgmtOspfLsdbLsId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbRouterId": {
+    "name": "rosMgmtOspfLsdbRouterId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbSequence": {
+    "name": "rosMgmtOspfLsdbSequence",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbAge": {
+    "name": "rosMgmtOspfLsdbAge",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbChecksum": {
+    "name": "rosMgmtOspfLsdbChecksum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfLsdbAdvertisement": {
+    "name": "rosMgmtOspfLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbTable": {
+    "name": "rosMgmtOspfAsLsdbTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbEntry": {
+    "name": "rosMgmtOspfAsLsdbEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAsLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAsLsdbLsId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAsLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbType": {
+    "name": "rosMgmtOspfAsLsdbType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asExternalLink": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbLsId": {
+    "name": "rosMgmtOspfAsLsdbLsId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbRouterId": {
+    "name": "rosMgmtOspfAsLsdbRouterId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbSequence": {
+    "name": "rosMgmtOspfAsLsdbSequence",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbAge": {
+    "name": "rosMgmtOspfAsLsdbAge",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbChecksum": {
+    "name": "rosMgmtOspfAsLsdbChecksum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAsLsdbAdvertisement": {
+    "name": "rosMgmtOspfAsLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaLsaCountTable": {
+    "name": "rosMgmtOspfAreaLsaCountTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaLsaCountEntry": {
+    "name": "rosMgmtOspfAreaLsaCountEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAreaLsaCountAreaId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfAreaLsaCountLsaType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfAreaLsaCountAreaId": {
+    "name": "rosMgmtOspfAreaLsaCountAreaId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaLsaCountLsaType": {
+    "name": "rosMgmtOspfAreaLsaCountLsaType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "nssaExternalLink": 7,
+          "linkOpaqueLink": 9,
+          "areaOpaqueLink": 10
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfAreaLsaCountNumber": {
+    "name": "rosMgmtOspfAreaLsaCountNumber",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeTable": {
+    "name": "rosMgmtOspfRedistributeTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeEntry": {
+    "name": "rosMgmtOspfRedistributeEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRedistributeProtocol",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRedistributeProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeProtocol": {
+    "name": "rosMgmtOspfRedistributeProtocol",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "icmp": 4,
+          "egp": 5,
+          "ggp": 6,
+          "hello": 7,
+          "rip": 8,
+          "isis": 9,
+          "esis": 10,
+          "ciscoIgrp": 11,
+          "bbnSpfIgp": 12,
+          "ospf": 13,
+          "bgp": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeProcessId": {
+    "name": "rosMgmtOspfRedistributeProcessId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProcessID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeCost": {
+    "name": "rosMgmtOspfRedistributeCost",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeType": {
+    "name": "rosMgmtOspfRedistributeType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1": 1,
+          "e2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "e2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeStatus": {
+    "name": "rosMgmtOspfRedistributeStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeRouteMapName": {
+    "name": "rosMgmtOspfRedistributeRouteMapName",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfRedistributeTag": {
+    "name": "rosMgmtOspfRedistributeTag",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDefaultInfoTable": {
+    "name": "rosMgmtOspfDefaultInfoTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfDefaultInfoEntry": {
+    "name": "rosMgmtOspfDefaultInfoEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfDefaultInfoAlways": {
+    "name": "rosMgmtOspfDefaultInfoAlways",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDefaultInfoCost": {
+    "name": "rosMgmtOspfDefaultInfoCost",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDefaultInfoType": {
+    "name": "rosMgmtOspfDefaultInfoType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1": 1,
+          "e2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "e2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDefaultInfoStatus": {
+    "name": "rosMgmtOspfDefaultInfoStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfPacketIoStatisTable": {
+    "name": "rosMgmtOspfPacketIoStatisTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfPacketIoStatisEntry": {
+    "name": "rosMgmtOspfPacketIoStatisEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketIoStatisIoType",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfPacketIoStatisPktType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfPacketIoStatisIoType": {
+    "name": "rosMgmtOspfPacketIoStatisIoType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfPacketIoStatisPktType": {
+    "name": "rosMgmtOspfPacketIoStatisPktType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hello": 1,
+          "dbDescript": 2,
+          "lsReq": 3,
+          "lsUpdate": 4,
+          "lsAck": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfPacketIoStatisNumber": {
+    "name": "rosMgmtOspfPacketIoStatisNumber",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteTable": {
+    "name": "rosMgmtOspfRouteTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteEntry": {
+    "name": "rosMgmtOspfRouteEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfRouteType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfRouteDest": {
+    "name": "rosMgmtOspfRouteDest",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteMask": {
+    "name": "rosMgmtOspfRouteMask",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteType": {
+    "name": "rosMgmtOspfRouteType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 55
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteLsType": {
+    "name": "rosMgmtOspfRouteLsType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stub": 0,
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "asExternalLink": 5,
+          "multicastLink": 6,
+          "nssaExternalLink": 7,
+          "areaOpaqueLink": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteMetric": {
+    "name": "rosMgmtOspfRouteMetric",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteNextHop": {
+    "name": "rosMgmtOspfRouteNextHop",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteAdvRtr": {
+    "name": "rosMgmtOspfRouteAdvRtr",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfRouteArea": {
+    "name": "rosMgmtOspfRouteArea",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfBdrRouteTable": {
+    "name": "rosMgmtOspfBdrRouteTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfBdrRouteEntry": {
+    "name": "rosMgmtOspfBdrRouteEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfBdrRouteRtrType",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfBdrRouteArea",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfBdrRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfBdrRouteNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfBdrRouteRtrType": {
+    "name": "rosMgmtOspfBdrRouteRtrType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 119
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfBdrRouteArea": {
+    "name": "rosMgmtOspfBdrRouteArea",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfBdrRouteDest": {
+    "name": "rosMgmtOspfBdrRouteDest",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfBdrRouteNextHop": {
+    "name": "rosMgmtOspfBdrRouteNextHop",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfBdrRouteLsType": {
+    "name": "rosMgmtOspfBdrRouteLsType",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "asExternalLink": 5,
+          "multicastLink": 6,
+          "nssaExternalLink": 7,
+          "areaOpaqueLink": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfBdrRouteMetric": {
+    "name": "rosMgmtOspfBdrRouteMetric",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOspfDistributeListGroup": {
+    "name": "rosMgmtOspfDistributeListGroup",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21",
+    "class": "objectidentity"
+  },
+  "rosMgmtOspfDistributeListInTable": {
+    "name": "rosMgmtOspfDistributeListInTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfDistributeListInEntry": {
+    "name": "rosMgmtOspfDistributeListInEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfDistrInIpPrefixListName": {
+    "name": "rosMgmtOspfDistrInIpPrefixListName",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistrInAclNum": {
+    "name": "rosMgmtOspfDistrInAclNum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistrInRowStatus": {
+    "name": "rosMgmtOspfDistrInRowStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistributeListOutTable": {
+    "name": "rosMgmtOspfDistributeListOutTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfDistributeListOutEntry": {
+    "name": "rosMgmtOspfDistributeListOutEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfDistrOutIpPrefixListName": {
+    "name": "rosMgmtOspfDistrOutIpPrefixListName",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistrOutAclNum": {
+    "name": "rosMgmtOspfDistrOutAclNum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistrOutRowStatus": {
+    "name": "rosMgmtOspfDistrOutRowStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistributeListOutProtocolTable": {
+    "name": "rosMgmtOspfDistributeListOutProtocolTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfDistributeListOutProtocolEntry": {
+    "name": "rosMgmtOspfDistributeListOutProtocolEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfDistrOutProtocol",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfDistrOutProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfDistrOutProtocol": {
+    "name": "rosMgmtOspfDistrOutProtocol",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "icmp": 4,
+          "egp": 5,
+          "ggp": 6,
+          "hello": 7,
+          "rip": 8,
+          "isis": 9,
+          "esis": 10,
+          "ciscoIgrp": 11,
+          "bbnSpfIgp": 12,
+          "ospf": 13,
+          "bgp": 14
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfDistrOutProcessId": {
+    "name": "rosMgmtOspfDistrOutProcessId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProcessID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfDistrOutProIpPrefixListName": {
+    "name": "rosMgmtOspfDistrOutProIpPrefixListName",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistrOutProAclNum": {
+    "name": "rosMgmtOspfDistrOutProAclNum",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDistrOutProRowStatus": {
+    "name": "rosMgmtOspfDistrOutProRowStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.21.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitCheckDisableSummaryTable": {
+    "name": "rosMgmtOspfDNBitCheckDisableSummaryTable",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitCheckDisableSummaryEntry": {
+    "name": "rosMgmtOspfDNBitCheckDisableSummaryEntry",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OSPFV2-MIB",
+        "object": "rosMgmtOspfDNBitCheckDisableSummaryRtrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitCheckDisableSummaryRtrId": {
+    "name": "rosMgmtOspfDNBitCheckDisableSummaryRtrId",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOspfDNBitCheckDisableSummaryStatus": {
+    "name": "rosMgmtOspfDNBitCheckDisableSummaryStatus",
+    "oid": "1.3.6.1.4.1.8886.60.47.2.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/ROSMGMT-OSPFv2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ROSMGMT-OSPFV2-MIB"
+  }
+}

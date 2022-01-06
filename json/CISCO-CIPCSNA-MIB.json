@@ -1,0 +1,1150 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CHANNEL-MIB": [
+      "cipCardEntryIndex",
+      "cipCardDtrBrdIndex",
+      "cipCardSubChannelIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-SNA-LLC-MIB": [
+      "llcPortVirtualIndex",
+      "llcSapNumber"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCipCsnaMIB": {
+    "name": "ciscoCipCsnaMIB",
+    "oid": "1.3.6.1.4.1.9.9.33",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-01-06 00:00",
+        "description": "With the addition of Cisco's new Channel Port Adapter cards, all the references to CIP in the MIB description and object descriptions are changed to CMCC (Cisco Mainframe Channel Connection). The object names in the form of cip... or cipCard... will remain the same, but will be valid objects for the Channel Port Adapter cards. Change the maximum number of llc2 sessions supported from 4000 to 6000."
+      },
+      {
+        "revision": "1995-08-21 00:00",
+        "description": "Minor cleanups to pacify mib compiler."
+      },
+      {
+        "revision": "1995-04-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ChannelPath": {
+    "name": "ChannelPath",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "ChannelDevice": {
+    "name": "ChannelDevice",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "cipCsnaObjects": {
+    "name": "cipCsnaObjects",
+    "oid": "1.3.6.1.4.1.9.9.33.1",
+    "class": "objectidentity"
+  },
+  "cipCsnaChannel": {
+    "name": "cipCsnaChannel",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1",
+    "class": "objectidentity"
+  },
+  "cipSession": {
+    "name": "cipSession",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2",
+    "class": "objectidentity"
+  },
+  "cipCsnaConnection": {
+    "name": "cipCsnaConnection",
+    "oid": "1.3.6.1.4.1.9.9.33.1.3",
+    "class": "objectidentity"
+  },
+  "cipCardCsnaAdminTable": {
+    "name": "cipCardCsnaAdminTable",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardCsnaAdminEntry": {
+    "name": "cipCardCsnaAdminEntry",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardCsnaAdminPath": {
+    "name": "cipCardCsnaAdminPath",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelPath",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardCsnaAdminDevice": {
+    "name": "cipCardCsnaAdminDevice",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelDevice",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardCsnaAdminBlockDelayTime": {
+    "name": "cipCardCsnaAdminBlockDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardCsnaAdminBlockDelayLength": {
+    "name": "cipCardCsnaAdminBlockDelayLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20470,
+        "format": "decimal"
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardCsnaAdminMaxBlockLength": {
+    "name": "cipCardCsnaAdminMaxBlockLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4096,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20470,
+        "format": "decimal"
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardCsnaAdminRowStatus": {
+    "name": "cipCardCsnaAdminRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardCsnaOperTable": {
+    "name": "cipCardCsnaOperTable",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardCsnaOperEntry": {
+    "name": "cipCardCsnaOperEntry",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardCsnaOperState": {
+    "name": "cipCardCsnaOperState",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 0,
+          "pendingOpen": 1,
+          "open": 2,
+          "pendingSetup": 3,
+          "setupComplete": 4,
+          "pendingClose": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaOperSlowDownState": {
+    "name": "cipCardCsnaOperSlowDownState",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "slowDownSent": 1,
+          "slowDownReceived": 2,
+          "slowDownSentAndReceived": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaOperBlockDelayTime": {
+    "name": "cipCardCsnaOperBlockDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaOperBlockDelayLength": {
+    "name": "cipCardCsnaOperBlockDelayLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaOperMaxBlockLength": {
+    "name": "cipCardCsnaOperMaxBlockLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4096,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsTable": {
+    "name": "cipCardCsnaStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardCsnaStatsEntry": {
+    "name": "cipCardCsnaStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardCsnaStatsBlocksTxd": {
+    "name": "cipCardCsnaStatsBlocksTxd",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBlocksRxd": {
+    "name": "cipCardCsnaStatsBlocksRxd",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBytesTxd": {
+    "name": "cipCardCsnaStatsBytesTxd",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsHCBytesTxd": {
+    "name": "cipCardCsnaStatsHCBytesTxd",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBytesRxd": {
+    "name": "cipCardCsnaStatsBytesRxd",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsHCBytesRxd": {
+    "name": "cipCardCsnaStatsHCBytesRxd",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBlocksTxByBlockDelayTime": {
+    "name": "cipCardCsnaStatsBlocksTxByBlockDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBytesTxByBlockDelayTime": {
+    "name": "cipCardCsnaStatsBytesTxByBlockDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsHCBytesTxByBlockDelayTime": {
+    "name": "cipCardCsnaStatsHCBytesTxByBlockDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBlocksTxByBlockDelayLength": {
+    "name": "cipCardCsnaStatsBlocksTxByBlockDelayLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBytesTxByBlockDelayLength": {
+    "name": "cipCardCsnaStatsBytesTxByBlockDelayLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsHCBytesTxByBlockDelayLength": {
+    "name": "cipCardCsnaStatsHCBytesTxByBlockDelayLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBlocksTxByMaxBlockLength": {
+    "name": "cipCardCsnaStatsBlocksTxByMaxBlockLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsBytesTxByMaxBlockLength": {
+    "name": "cipCardCsnaStatsBytesTxByMaxBlockLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsHCBytesTxByMaxBlockLength": {
+    "name": "cipCardCsnaStatsHCBytesTxByMaxBlockLength",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsSlowDownsReceived": {
+    "name": "cipCardCsnaStatsSlowDownsReceived",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaStatsSlowDownsSent": {
+    "name": "cipCardCsnaStatsSlowDownsSent",
+    "oid": "1.3.6.1.4.1.9.9.33.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSessionsAdminTable": {
+    "name": "cipCardSessionsAdminTable",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardSessionsAdminEntry": {
+    "name": "cipCardSessionsAdminEntry",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardAdminMaxLlc2Sessions": {
+    "name": "cipCardAdminMaxLlc2Sessions",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipCardSessionsOperTable": {
+    "name": "cipCardSessionsOperTable",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardSessionsOperEntry": {
+    "name": "cipCardSessionsOperEntry",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardOperMaxLlc2Sessions": {
+    "name": "cipCardOperMaxLlc2Sessions",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSessionsStatsTable": {
+    "name": "cipCardSessionsStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardSessionsStatsEntry": {
+    "name": "cipCardSessionsStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardStatsHiWaterLlc2Sessions": {
+    "name": "cipCardStatsHiWaterLlc2Sessions",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardStatsLlc2SessionAllocationErrs": {
+    "name": "cipCardStatsLlc2SessionAllocationErrs",
+    "oid": "1.3.6.1.4.1.9.9.33.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaConnTable": {
+    "name": "cipCardCsnaConnTable",
+    "oid": "1.3.6.1.4.1.9.9.33.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardCsnaConnEntry": {
+    "name": "cipCardCsnaConnEntry",
+    "oid": "1.3.6.1.4.1.9.9.33.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardCsnaConnActiveSessions": {
+    "name": "cipCardCsnaConnActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.33.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaSlot": {
+    "name": "cipCardCsnaSlot",
+    "oid": "1.3.6.1.4.1.9.9.33.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaPort": {
+    "name": "cipCardCsnaPort",
+    "oid": "1.3.6.1.4.1.9.9.33.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaConnPath": {
+    "name": "cipCardCsnaConnPath",
+    "oid": "1.3.6.1.4.1.9.9.33.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelPath",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardCsnaConnDevice": {
+    "name": "cipCardCsnaConnDevice",
+    "oid": "1.3.6.1.4.1.9.9.33.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelDevice",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCsnaNotificationPrefix": {
+    "name": "cipCsnaNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.33.2",
+    "class": "objectidentity"
+  },
+  "cipCsnaNotifications": {
+    "name": "cipCsnaNotifications",
+    "oid": "1.3.6.1.4.1.9.9.33.2.0",
+    "class": "objectidentity"
+  },
+  "cipCsnaOpenDuplicateSapFailure": {
+    "name": "cipCsnaOpenDuplicateSapFailure",
+    "oid": "1.3.6.1.4.1.9.9.33.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaSlot"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaPort"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaConnPath"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaConnDevice"
+      }
+    ],
+    "status": "current"
+  },
+  "cipCsnaLlc2ConnectionLimitExceeded": {
+    "name": "cipCsnaLlc2ConnectionLimitExceeded",
+    "oid": "1.3.6.1.4.1.9.9.33.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardAdminMaxLlc2Sessions"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardOperMaxLlc2Sessions"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardStatsHiWaterLlc2Sessions"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardStatsLlc2SessionAllocationErrs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCipCsnaMibConformance": {
+    "name": "ciscoCipCsnaMibConformance",
+    "oid": "1.3.6.1.4.1.9.9.33.3",
+    "class": "objectidentity"
+  },
+  "ciscoCipCsnaMibCompliances": {
+    "name": "ciscoCipCsnaMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.33.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoCipCsnaMibGroups": {
+    "name": "ciscoCipCsnaMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.33.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoCipCsnaMibCompliance": {
+    "name": "ciscoCipCsnaMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.33.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCsnaGroup",
+        "module": "CISCO-CIPCSNA-MIB"
+      },
+      {
+        "object": "ciscoMaxSessionsGroup",
+        "module": "CISCO-CIPCSNA-MIB"
+      },
+      {
+        "object": "ciscoCsnaConnGroup",
+        "module": "CISCO-CIPCSNA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCsnaGroup": {
+    "name": "ciscoCsnaGroup",
+    "oid": "1.3.6.1.4.1.9.9.33.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaAdminPath"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaAdminDevice"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaAdminBlockDelayTime"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaAdminBlockDelayLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaAdminMaxBlockLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaAdminRowStatus"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaOperState"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaOperSlowDownState"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaOperBlockDelayTime"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaOperBlockDelayLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaOperMaxBlockLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBlocksTxd"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBlocksRxd"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBytesTxd"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsHCBytesTxd"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBytesRxd"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsHCBytesRxd"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBlocksTxByBlockDelayTime"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBytesTxByBlockDelayTime"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsHCBytesTxByBlockDelayTime"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBlocksTxByBlockDelayLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBytesTxByBlockDelayLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsHCBytesTxByBlockDelayLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBlocksTxByMaxBlockLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsBytesTxByMaxBlockLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsHCBytesTxByMaxBlockLength"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsSlowDownsSent"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaStatsSlowDownsReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMaxSessionsGroup": {
+    "name": "ciscoMaxSessionsGroup",
+    "oid": "1.3.6.1.4.1.9.9.33.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardAdminMaxLlc2Sessions"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardOperMaxLlc2Sessions"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardStatsHiWaterLlc2Sessions"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardStatsLlc2SessionAllocationErrs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCsnaConnGroup": {
+    "name": "ciscoCsnaConnGroup",
+    "oid": "1.3.6.1.4.1.9.9.33.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaConnActiveSessions"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaSlot"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaPort"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaConnPath"
+      },
+      {
+        "module": "CISCO-CIPCSNA-MIB",
+        "object": "cipCardCsnaConnDevice"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CIPCSNA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CIPCSNA-MIB"
+  }
+}

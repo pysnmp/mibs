@@ -1,0 +1,426 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-TARGET-MIB": [
+      "snmpTargetAddrName",
+      "snmpTargetAddrEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSnmpTargetExtMIB": {
+    "name": "ciscoSnmpTargetExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.412",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-07 00:00",
+        "description": "-Added 'cExtSnmpNotifGblTrapSrcIfIndex' and 'cExtSnmpNotifGblInformSrcIfIndex' for supporting source interface configuration for the SNMP notifications. -Added OBJECT-GROUP 'ciscoSnmpTargetNotifSrcIntGroup' and MODULE-COMPLIANCE 'ciscoSnmpTargetExtMIBComplianceRev2'."
+      },
+      {
+        "revision": "2007-08-20 00:00",
+        "description": "Added the following to support management of VRF based reachability and filtering for SNMP targets: - cExtSnmpTargetVrfTable for VRF related configuration of SNMP targets."
+      },
+      {
+        "revision": "2004-04-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSnmpTargetExtMIBObjects": {
+    "name": "ciscoSnmpTargetExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.412.1",
+    "class": "objectidentity"
+  },
+  "cExtSnmpTargetAuthAddr": {
+    "name": "cExtSnmpTargetAuthAddr",
+    "oid": "1.3.6.1.4.1.9.9.412.1.1",
+    "class": "objectidentity"
+  },
+  "cExtSnmpTargetAuthInetType": {
+    "name": "cExtSnmpTargetAuthInetType",
+    "oid": "1.3.6.1.4.1.9.9.412.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cExtSnmpTargetAuthInetAddr": {
+    "name": "cExtSnmpTargetAuthInetAddr",
+    "oid": "1.3.6.1.4.1.9.9.412.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cExtSnmpTargetAddrTable": {
+    "name": "cExtSnmpTargetAddrTable",
+    "oid": "1.3.6.1.4.1.9.9.412.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cExtSnmpTargetAddrEntry": {
+    "name": "cExtSnmpTargetAddrEntry",
+    "oid": "1.3.6.1.4.1.9.9.412.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cExtSnmpTargetAddrEntry",
+      "module": "CISCO-SNMP-TARGET-EXT-MIB",
+      "object": "snmpTargetAddrEntry"
+    },
+    "status": "current"
+  },
+  "cExtSnmpTargetAddrIntIfIndex": {
+    "name": "cExtSnmpTargetAddrIntIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.412.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cExtSnmpTargetVrfTable": {
+    "name": "cExtSnmpTargetVrfTable",
+    "oid": "1.3.6.1.4.1.9.9.412.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cExtSnmpTargetVrfEntry": {
+    "name": "cExtSnmpTargetVrfEntry",
+    "oid": "1.3.6.1.4.1.9.9.412.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpTargetVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cExtSnmpTargetVrfName": {
+    "name": "cExtSnmpTargetVrfName",
+    "oid": "1.3.6.1.4.1.9.9.412.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cExtSnmpTargetVrfRoute": {
+    "name": "cExtSnmpTargetVrfRoute",
+    "oid": "1.3.6.1.4.1.9.9.412.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cExtSnmpTargetVrfFilter": {
+    "name": "cExtSnmpTargetVrfFilter",
+    "oid": "1.3.6.1.4.1.9.9.412.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cExtSnmpTargetVrfStorage": {
+    "name": "cExtSnmpTargetVrfStorage",
+    "oid": "1.3.6.1.4.1.9.9.412.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cExtSnmpTargetVrfStatus": {
+    "name": "cExtSnmpTargetVrfStatus",
+    "oid": "1.3.6.1.4.1.9.9.412.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cExtSnmpNotifGblTrapSrcIfIndex": {
+    "name": "cExtSnmpNotifGblTrapSrcIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.412.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cExtSnmpNotifGblInformSrcIfIndex": {
+    "name": "cExtSnmpNotifGblInformSrcIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.412.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSnmpTargetExtMIBConformance": {
+    "name": "ciscoSnmpTargetExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.412.2",
+    "class": "objectidentity"
+  },
+  "ciscoSnmpTargetExtMIBCompliances": {
+    "name": "ciscoSnmpTargetExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.412.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSnmpTargetExtMIBGroups": {
+    "name": "ciscoSnmpTargetExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.412.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSnmpTargetExtMIBCompliance": {
+    "name": "ciscoSnmpTargetExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.412.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSnmpTargetExtMIBGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      },
+      {
+        "object": "ciscoSnmpTargetAuthFailureGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSnmpTargetExtMIBComplianceRev1": {
+    "name": "ciscoSnmpTargetExtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.412.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSnmpTargetExtMIBGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      },
+      {
+        "object": "ciscoSnmpTargetAuthFailureGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      },
+      {
+        "object": "ciscoSnmpTargetExtVrfMIBGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSnmpTargetExtMIBComplianceRev2": {
+    "name": "ciscoSnmpTargetExtMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.412.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSnmpTargetExtMIBGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      },
+      {
+        "object": "ciscoSnmpTargetAuthFailureGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      },
+      {
+        "object": "ciscoSnmpTargetExtVrfMIBGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      },
+      {
+        "object": "ciscoSnmpTargetNotifSrcIntGroup",
+        "module": "CISCO-SNMP-TARGET-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSnmpTargetAuthFailureGroup": {
+    "name": "ciscoSnmpTargetAuthFailureGroup",
+    "oid": "1.3.6.1.4.1.9.9.412.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpTargetAuthInetType"
+      },
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpTargetAuthInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSnmpTargetExtMIBGroup": {
+    "name": "ciscoSnmpTargetExtMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.412.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpTargetAddrIntIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSnmpTargetExtVrfMIBGroup": {
+    "name": "ciscoSnmpTargetExtVrfMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.412.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpTargetVrfRoute"
+      },
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpTargetVrfFilter"
+      },
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpTargetVrfStorage"
+      },
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpTargetVrfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSnmpTargetNotifSrcIntGroup": {
+    "name": "ciscoSnmpTargetNotifSrcIntGroup",
+    "oid": "1.3.6.1.4.1.9.9.412.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpNotifGblTrapSrcIfIndex"
+      },
+      {
+        "module": "CISCO-SNMP-TARGET-EXT-MIB",
+        "object": "cExtSnmpNotifGblInformSrcIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SNMP-TARGET-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SNMP-TARGET-EXT-MIB"
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "imports": {
+    "class": "imports",
+    "MDS-ORBIT-SMI-MIB": [
+      "mdsSystem"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime"
+    ]
+  },
+  "mdsSystemMIB": {
+    "name": "mdsSystemMIB",
+    "oid": "1.3.6.1.4.1.4130.10.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-11-18 00:00",
+        "description": "Added boot and current time."
+      },
+      {
+        "revision": "2018-05-16 00:00",
+        "description": "Updated conformance statments based on smilint."
+      },
+      {
+        "revision": "2014-02-10 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "mSysMIBObjects": {
+    "name": "mSysMIBObjects",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1",
+    "class": "objectidentity"
+  },
+  "mSysConfig": {
+    "name": "mSysConfig",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "mSysStatus": {
+    "name": "mSysStatus",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "FirmwareLocation": {
+    "name": "FirmwareLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "mSysSerialNumberCore": {
+    "name": "mSysSerialNumberCore",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysSerialNumberPlatform": {
+    "name": "mSysSerialNumberPlatform",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysProductConfiguration": {
+    "name": "mSysProductConfiguration",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysGuid": {
+    "name": "mSysGuid",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysUptime": {
+    "name": "mSysUptime",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysTemperature": {
+    "name": "mSysTemperature",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysFirmwareVersionTable": {
+    "name": "mSysFirmwareVersionTable",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mSysPowerSupplyVoltage": {
+    "name": "mSysPowerSupplyVoltage",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysCurrentDateTime": {
+    "name": "mSysCurrentDateTime",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysBootDateTime": {
+    "name": "mSysBootDateTime",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysFirmwareVersionEntry": {
+    "name": "mSysFirmwareVersionEntry",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysLocation",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mSysLocation": {
+    "name": "mSysLocation",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FirmwareLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysVersion": {
+    "name": "mSysVersion",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysActive": {
+    "name": "mSysActive",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysAutoUpdateState": {
+    "name": "mSysAutoUpdateState",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysAutoUpdateDetails": {
+    "name": "mSysAutoUpdateDetails",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysMprStatus": {
+    "name": "mSysMprStatus",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.8",
+    "class": "objectidentity"
+  },
+  "mSysMprHeatsinkTemperature1": {
+    "name": "mSysMprHeatsinkTemperature1",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysMprHeatsinkTemperature2": {
+    "name": "mSysMprHeatsinkTemperature2",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysMprPowerSupplyVoltage1": {
+    "name": "mSysMprPowerSupplyVoltage1",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysMprPowerSupplyVoltage2": {
+    "name": "mSysMprPowerSupplyVoltage2",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mSysMprRelaySwitchPosition": {
+    "name": "mSysMprRelaySwitchPosition",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.1.2.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdsSysMIBConformance": {
+    "name": "mdsSysMIBConformance",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.3",
+    "class": "objectidentity"
+  },
+  "mdsSysMIBCompliances": {
+    "name": "mdsSysMIBCompliances",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "mdsSysMIBGroups": {
+    "name": "mdsSysMIBGroups",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "mSysCompliance": {
+    "name": "mSysCompliance",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mSysStatusGroup",
+        "module": "MDS-SYSTEM-MIB"
+      },
+      {
+        "object": "mSysMprStatusGroup",
+        "module": "MDS-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mSysStatusGroup": {
+    "name": "mSysStatusGroup",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysSerialNumberCore"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysSerialNumberPlatform"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysProductConfiguration"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysGuid"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysUptime"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysTemperature"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysPowerSupplyVoltage"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysLocation"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysVersion"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysActive"
+      }
+    ],
+    "status": "current"
+  },
+  "mSysMprStatusGroup": {
+    "name": "mSysMprStatusGroup",
+    "oid": "1.3.6.1.4.1.4130.10.1.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysMprHeatsinkTemperature1"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysMprHeatsinkTemperature2"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysMprPowerSupplyVoltage1"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysMprPowerSupplyVoltage2"
+      },
+      {
+        "module": "MDS-SYSTEM-MIB",
+        "object": "mSysMprRelaySwitchPosition"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:32:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MDS-SYSTEM-MIB"
+  }
+}

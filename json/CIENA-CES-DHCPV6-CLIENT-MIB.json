@@ -1,0 +1,2532 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState",
+      "CienaStatsClear"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "cienaCesDhcpv6ClientMIB": {
+    "name": "cienaCesDhcpv6ClientMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-06-21 00:00",
+        "description": "LDRA - updated cienaCesDhcpv6LdraMplsVcName to allow the VC name length up to 31 characters."
+      },
+      {
+        "revision": "2016-01-19 00:00",
+        "description": "LDRA - updated Dhcpv6LdraVsName and Dhcpv6LdraMplsName to allow the VS name length up to 31 characters."
+      },
+      {
+        "revision": "2015-11-02 00:00",
+        "description": "LDRA - added missing DHCP Relay global statistic."
+      },
+      {
+        "revision": "2015-08-06 00:00",
+        "description": "LDRA - added support for Q-in-Q VS and MPLS VS relay agents."
+      },
+      {
+        "revision": "2013-10-17 00:00",
+        "description": "LDRA - added new global statistics, ability to clear global stats."
+      },
+      {
+        "revision": "2013-09-24 00:00",
+        "description": "Added length checks for LDRA IntId, rid values. EnterpriseID can be unsigned 32"
+      },
+      {
+        "revision": "2013-07-19 00:00",
+        "description": "Added support for Lightweight DHCPv6 Relay Agent (LDRA). The functionality is similar to that for the L2 relay agent."
+      },
+      {
+        "revision": "2013-02-11 19:00",
+        "description": "The ReconfigureState was included by mistake. It should not be visible to the SNMP user until the feature is completed."
+      },
+      {
+        "revision": "2013-02-11 00:00",
+        "description": "The OptionCodeIndex incorrectly began at 0. It was changed to begin at 1."
+      },
+      {
+        "revision": "2013-02-08 00:00",
+        "description": "The notification cienaCesDhcpv6ClientOptionDisabledNotification, neither implemented nor released, was removed."
+      },
+      {
+        "revision": "2012-11-15 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesDhcpv6ClientMIBObjects": {
+    "name": "cienaCesDhcpv6ClientMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6Client": {
+    "name": "cienaCesDhcpv6Client",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6RelayAgent": {
+    "name": "cienaCesDhcpv6RelayAgent",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6RelayAgentGlobalAttrs": {
+    "name": "cienaCesDhcpv6RelayAgentGlobalAttrs",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6ClientMIBNotificationPrefix": {
+    "name": "cienaCesDhcpv6ClientMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.30",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6ClientMIBNotifications": {
+    "name": "cienaCesDhcpv6ClientMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.30.0",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6ClientMIBConformance": {
+    "name": "cienaCesDhcpv6ClientMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.2",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6ClientMIBCompliances": {
+    "name": "cienaCesDhcpv6ClientMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.2.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6ClientMIBGroups": {
+    "name": "cienaCesDhcpv6ClientMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.2.2",
+    "class": "objectidentity"
+  },
+  "cienaCesDhcpv6AdminState": {
+    "name": "cienaCesDhcpv6AdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6IfName": {
+    "name": "cienaCesDhcpv6IfName",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6RapidCommitState": {
+    "name": "cienaCesDhcpv6RapidCommitState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6PrefLifetimeReq": {
+    "name": "cienaCesDhcpv6PrefLifetimeReq",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ValidLifetimeReq": {
+    "name": "cienaCesDhcpv6ValidLifetimeReq",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientOptionTable": {
+    "name": "cienaCesDhcpv6ClientOptionTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientOptionEntry": {
+    "name": "cienaCesDhcpv6ClientOptionEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6OptionCodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6OptionCodeIndex": {
+    "name": "cienaCesDhcpv6OptionCodeIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6OptionDesc": {
+    "name": "cienaCesDhcpv6OptionDesc",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6OptionCode": {
+    "name": "cienaCesDhcpv6OptionCode",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6OptionState": {
+    "name": "cienaCesDhcpv6OptionState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessTable": {
+    "name": "cienaCesDhcpv6ClientSessTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessEntry": {
+    "name": "cienaCesDhcpv6ClientSessEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6ClientSessMgmtIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessMgmtIntfIndex": {
+    "name": "cienaCesDhcpv6ClientSessMgmtIntfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessState": {
+    "name": "cienaCesDhcpv6ClientSessState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "init": 2,
+          "bound": 3,
+          "renewing": 4,
+          "rebinding": 5,
+          "solicit": 6,
+          "request": 7,
+          "reconfigure": 8,
+          "unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessAutoConfigState": {
+    "name": "cienaCesDhcpv6ClientSessAutoConfigState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "stateless": 2,
+          "stateful": 3,
+          "unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessUpTime": {
+    "name": "cienaCesDhcpv6ClientSessUpTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessPrefLifetime": {
+    "name": "cienaCesDhcpv6ClientSessPrefLifetime",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessValidLifetime": {
+    "name": "cienaCesDhcpv6ClientSessValidLifetime",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessLeaseExpire": {
+    "name": "cienaCesDhcpv6ClientSessLeaseExpire",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessClientId": {
+    "name": "cienaCesDhcpv6ClientSessClientId",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessServerIpAddrType": {
+    "name": "cienaCesDhcpv6ClientSessServerIpAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessServerIpAddr": {
+    "name": "cienaCesDhcpv6ClientSessServerIpAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessServerId": {
+    "name": "cienaCesDhcpv6ClientSessServerId",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessT1Time": {
+    "name": "cienaCesDhcpv6ClientSessT1Time",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessT2Time": {
+    "name": "cienaCesDhcpv6ClientSessT2Time",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsTable": {
+    "name": "cienaCesDhcpv6ClientSessStatsTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsEntry": {
+    "name": "cienaCesDhcpv6ClientSessStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6ClientSessStatsMgmtIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsMgmtIntfIndex": {
+    "name": "cienaCesDhcpv6ClientSessStatsMgmtIntfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsClear": {
+    "name": "cienaCesDhcpv6ClientSessStatsClear",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaStatsClear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsPktsRx": {
+    "name": "cienaCesDhcpv6ClientSessStatsPktsRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsReply": {
+    "name": "cienaCesDhcpv6ClientSessStatsReply",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsAdvert": {
+    "name": "cienaCesDhcpv6ClientSessStatsAdvert",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsRecfg": {
+    "name": "cienaCesDhcpv6ClientSessStatsRecfg",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsInvalid": {
+    "name": "cienaCesDhcpv6ClientSessStatsInvalid",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsPktsTx": {
+    "name": "cienaCesDhcpv6ClientSessStatsPktsTx",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsSolicit": {
+    "name": "cienaCesDhcpv6ClientSessStatsSolicit",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsRequest": {
+    "name": "cienaCesDhcpv6ClientSessStatsRequest",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsConfirm": {
+    "name": "cienaCesDhcpv6ClientSessStatsConfirm",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsRenew": {
+    "name": "cienaCesDhcpv6ClientSessStatsRenew",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsRebind": {
+    "name": "cienaCesDhcpv6ClientSessStatsRebind",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsInfoReq": {
+    "name": "cienaCesDhcpv6ClientSessStatsInfoReq",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsRelease": {
+    "name": "cienaCesDhcpv6ClientSessStatsRelease",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsDecline": {
+    "name": "cienaCesDhcpv6ClientSessStatsDecline",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6ClientSessStatsTxFail": {
+    "name": "cienaCesDhcpv6ClientSessStatsTxFail",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraState": {
+    "name": "cienaCesDhcpv6LdraState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraInterfaceId": {
+    "name": "cienaCesDhcpv6LdraInterfaceId",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slotAndPort": 1,
+          "slotAndPortAndVlan": 2,
+          "intidString": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRemoteId": {
+    "name": "cienaCesDhcpv6LdraRemoteId",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macAddress": 1,
+          "hostName": 2,
+          "ridString": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRemoteIdOption": {
+    "name": "cienaCesDhcpv6LdraRemoteIdOption",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRemoteIdEnterpriseNo": {
+    "name": "cienaCesDhcpv6LdraRemoteIdEnterpriseNo",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraForward": {
+    "name": "cienaCesDhcpv6LdraForward",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRelayed": {
+    "name": "cienaCesDhcpv6LdraRelayed",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraDropped": {
+    "name": "cienaCesDhcpv6LdraDropped",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraGlobalStatsClear": {
+    "name": "cienaCesDhcpv6LdraGlobalStatsClear",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaStatsClear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraNotForRelay": {
+    "name": "cienaCesDhcpv6LdraNotForRelay",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraStateTable": {
+    "name": "cienaCesDhcpv6LdraStateTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraStateEntry": {
+    "name": "cienaCesDhcpv6LdraStateEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVlan": {
+    "name": "cienaCesDhcpv6LdraVlan",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24576
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraAdminState": {
+    "name": "cienaCesDhcpv6LdraAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraOperState": {
+    "name": "cienaCesDhcpv6LdraOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRowStatus": {
+    "name": "cienaCesDhcpv6LdraRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraTrustTable": {
+    "name": "cienaCesDhcpv6LdraTrustTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cienaCesDhcpv6LdraTrustEntry": {
+    "name": "cienaCesDhcpv6LdraTrustEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVlan",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraPort",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cienaCesDhcpv6LdraPort": {
+    "name": "cienaCesDhcpv6LdraPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraTrustMode": {
+    "name": "cienaCesDhcpv6LdraTrustMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "clientTrust": 2,
+          "serverTrust": 3,
+          "dualRoleTrust": 4,
+          "unTrust": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cienaCesDhcpv6LdraStatsTable": {
+    "name": "cienaCesDhcpv6LdraStatsTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraStatsEntry": {
+    "name": "cienaCesDhcpv6LdraStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraPktsForRelay": {
+    "name": "cienaCesDhcpv6LdraPktsForRelay",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRelayedClient": {
+    "name": "cienaCesDhcpv6LdraRelayedClient",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRelayedServer": {
+    "name": "cienaCesDhcpv6LdraRelayedServer",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraUntrustedClientPortPktsRx": {
+    "name": "cienaCesDhcpv6LdraUntrustedClientPortPktsRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraUntrustedServerPortPktsRx": {
+    "name": "cienaCesDhcpv6LdraUntrustedServerPortPktsRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraFailedValidationPktDrop": {
+    "name": "cienaCesDhcpv6LdraFailedValidationPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraInvalidConfigPktDrop": {
+    "name": "cienaCesDhcpv6LdraInvalidConfigPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraExceededHopCountPktDrop": {
+    "name": "cienaCesDhcpv6LdraExceededHopCountPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraExceedMTUPktDrop": {
+    "name": "cienaCesDhcpv6LdraExceedMTUPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraNoTrustedServerPktDrop": {
+    "name": "cienaCesDhcpv6LdraNoTrustedServerPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraNoTrustedClientPktDrop": {
+    "name": "cienaCesDhcpv6LdraNoTrustedClientPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraIPv6FragBadExtHdrPktDrop": {
+    "name": "cienaCesDhcpv6LdraIPv6FragBadExtHdrPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraGeneralErrors": {
+    "name": "cienaCesDhcpv6LdraGeneralErrors",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraStatsClear": {
+    "name": "cienaCesDhcpv6LdraStatsClear",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaStatsClear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraIntidStringTable": {
+    "name": "cienaCesDhcpv6LdraIntidStringTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraIntidStringEntry": {
+    "name": "cienaCesDhcpv6LdraIntidStringEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVlan",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraIntidStringPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraIntidStringPort": {
+    "name": "cienaCesDhcpv6LdraIntidStringPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraIntidString": {
+    "name": "cienaCesDhcpv6LdraIntidString",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraIntidStringRowStatus": {
+    "name": "cienaCesDhcpv6LdraIntidStringRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRidStringTable": {
+    "name": "cienaCesDhcpv6LdraRidStringTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRidStringEntry": {
+    "name": "cienaCesDhcpv6LdraRidStringEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVlan",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraRidStringPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRidStringPort": {
+    "name": "cienaCesDhcpv6LdraRidStringPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRidString": {
+    "name": "cienaCesDhcpv6LdraRidString",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraRidStringRowStatus": {
+    "name": "cienaCesDhcpv6LdraRidStringRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraExtTrustTable": {
+    "name": "cienaCesDhcpv6LdraExtTrustTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraExtTrustEntry": {
+    "name": "cienaCesDhcpv6LdraExtTrustEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVlan",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraExtPortState": {
+    "name": "cienaCesDhcpv6LdraExtPortState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraExtTrustMode": {
+    "name": "cienaCesDhcpv6LdraExtTrustMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "clientTrust": 2,
+          "serverTrust": 3,
+          "dualRoleTrust": 4,
+          "unTrust": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsStateTable": {
+    "name": "cienaCesDhcpv6LdraVsStateTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsStateEntry": {
+    "name": "cienaCesDhcpv6LdraVsStateEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVsVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsVlan": {
+    "name": "cienaCesDhcpv6LdraVsVlan",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24576
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsName": {
+    "name": "cienaCesDhcpv6LdraVsName",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsAdminState": {
+    "name": "cienaCesDhcpv6LdraVsAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsOperState": {
+    "name": "cienaCesDhcpv6LdraVsOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsRowStatus": {
+    "name": "cienaCesDhcpv6LdraVsRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsTrustTable": {
+    "name": "cienaCesDhcpv6LdraVsTrustTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsTrustEntry": {
+    "name": "cienaCesDhcpv6LdraVsTrustEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVsVlan",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVsPort",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVsSubVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsPort": {
+    "name": "cienaCesDhcpv6LdraVsPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsSubVlan": {
+    "name": "cienaCesDhcpv6LdraVsSubVlan",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24576
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsPortState": {
+    "name": "cienaCesDhcpv6LdraVsPortState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsTrustMode": {
+    "name": "cienaCesDhcpv6LdraVsTrustMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "clientTrust": 2,
+          "serverTrust": 3,
+          "dualRoleTrust": 4,
+          "unTrust": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsStatsTable": {
+    "name": "cienaCesDhcpv6LdraVsStatsTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsStatsEntry": {
+    "name": "cienaCesDhcpv6LdraVsStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVsVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsPktsForRelay": {
+    "name": "cienaCesDhcpv6LdraVsPktsForRelay",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsRelayedClient": {
+    "name": "cienaCesDhcpv6LdraVsRelayedClient",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsRelayedServer": {
+    "name": "cienaCesDhcpv6LdraVsRelayedServer",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsUntrustedClientPortPktsRx": {
+    "name": "cienaCesDhcpv6LdraVsUntrustedClientPortPktsRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsUntrustedServerPortPktsRx": {
+    "name": "cienaCesDhcpv6LdraVsUntrustedServerPortPktsRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsFailedValidationPktDrop": {
+    "name": "cienaCesDhcpv6LdraVsFailedValidationPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsInvalidConfigPktDrop": {
+    "name": "cienaCesDhcpv6LdraVsInvalidConfigPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsExceededHopCountPktDrop": {
+    "name": "cienaCesDhcpv6LdraVsExceededHopCountPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsExceedMTUPktDrop": {
+    "name": "cienaCesDhcpv6LdraVsExceedMTUPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsNoTrustedServerPktDrop": {
+    "name": "cienaCesDhcpv6LdraVsNoTrustedServerPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsNoTrustedClientPktDrop": {
+    "name": "cienaCesDhcpv6LdraVsNoTrustedClientPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsIPv6FragBadExtHdrPktDrop": {
+    "name": "cienaCesDhcpv6LdraVsIPv6FragBadExtHdrPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsGeneralErrors": {
+    "name": "cienaCesDhcpv6LdraVsGeneralErrors",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsStatsClear": {
+    "name": "cienaCesDhcpv6LdraVsStatsClear",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaStatsClear",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsIntidStringTable": {
+    "name": "cienaCesDhcpv6LdraVsIntidStringTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsIntidStringEntry": {
+    "name": "cienaCesDhcpv6LdraVsIntidStringEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVlan",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVsPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsIntidString": {
+    "name": "cienaCesDhcpv6LdraVsIntidString",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsIntidStringRowStatus": {
+    "name": "cienaCesDhcpv6LdraVsIntidStringRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsRidStringTable": {
+    "name": "cienaCesDhcpv6LdraVsRidStringTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsRidStringEntry": {
+    "name": "cienaCesDhcpv6LdraVsRidStringEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVlan",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraVsPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsRidString": {
+    "name": "cienaCesDhcpv6LdraVsRidString",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraVsRidStringRowStatus": {
+    "name": "cienaCesDhcpv6LdraVsRidStringRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsStateTable": {
+    "name": "cienaCesDhcpv6LdraMplsStateTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsStateEntry": {
+    "name": "cienaCesDhcpv6LdraMplsStateEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraMplsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsId": {
+    "name": "cienaCesDhcpv6LdraMplsId",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1677215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsName": {
+    "name": "cienaCesDhcpv6LdraMplsName",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsAdminState": {
+    "name": "cienaCesDhcpv6LdraMplsAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsOperState": {
+    "name": "cienaCesDhcpv6LdraMplsOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsRowStatus": {
+    "name": "cienaCesDhcpv6LdraMplsRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsTrustTable": {
+    "name": "cienaCesDhcpv6LdraMplsTrustTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsTrustEntry": {
+    "name": "cienaCesDhcpv6LdraMplsTrustEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraMplsId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraMplsInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsInterface": {
+    "name": "cienaCesDhcpv6LdraMplsInterface",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsVcName": {
+    "name": "cienaCesDhcpv6LdraMplsVcName",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsInterfaceState": {
+    "name": "cienaCesDhcpv6LdraMplsInterfaceState",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsTrustMode": {
+    "name": "cienaCesDhcpv6LdraMplsTrustMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "clientTrust": 2,
+          "serverTrust": 3,
+          "dualRoleTrust": 4,
+          "unTrust": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsStatsTable": {
+    "name": "cienaCesDhcpv6LdraMplsStatsTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsStatsEntry": {
+    "name": "cienaCesDhcpv6LdraMplsStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraMplsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsPktsForRelay": {
+    "name": "cienaCesDhcpv6LdraMplsPktsForRelay",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsRelayedClient": {
+    "name": "cienaCesDhcpv6LdraMplsRelayedClient",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsRelayedServer": {
+    "name": "cienaCesDhcpv6LdraMplsRelayedServer",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsUntrustedClientInterfacePktsRx": {
+    "name": "cienaCesDhcpv6LdraMplsUntrustedClientInterfacePktsRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsUntrustedServerInterfacePktsRx": {
+    "name": "cienaCesDhcpv6LdraMplsUntrustedServerInterfacePktsRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsFailedValidationPktDrop": {
+    "name": "cienaCesDhcpv6LdraMplsFailedValidationPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsInvalidConfigPktDrop": {
+    "name": "cienaCesDhcpv6LdraMplsInvalidConfigPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsExceededHopCountPktDrop": {
+    "name": "cienaCesDhcpv6LdraMplsExceededHopCountPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsExceedMTUPktDrop": {
+    "name": "cienaCesDhcpv6LdraMplsExceedMTUPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsNoTrustedServerPktDrop": {
+    "name": "cienaCesDhcpv6LdraMplsNoTrustedServerPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsNoTrustedClientPktDrop": {
+    "name": "cienaCesDhcpv6LdraMplsNoTrustedClientPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsIPv6FragBadExtHdrPktDrop": {
+    "name": "cienaCesDhcpv6LdraMplsIPv6FragBadExtHdrPktDrop",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsGeneralErrors": {
+    "name": "cienaCesDhcpv6LdraMplsGeneralErrors",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsStatsClear": {
+    "name": "cienaCesDhcpv6LdraMplsStatsClear",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaStatsClear",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsIntidStringTable": {
+    "name": "cienaCesDhcpv6LdraMplsIntidStringTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsIntidStringEntry": {
+    "name": "cienaCesDhcpv6LdraMplsIntidStringEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraMplsId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraMplsInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsIntidString": {
+    "name": "cienaCesDhcpv6LdraMplsIntidString",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsIntidStringRowStatus": {
+    "name": "cienaCesDhcpv6LdraMplsIntidStringRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsRidStringTable": {
+    "name": "cienaCesDhcpv6LdraMplsRidStringTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsRidStringEntry": {
+    "name": "cienaCesDhcpv6LdraMplsRidStringEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraMplsId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DHCPV6-CLIENT-MIB",
+        "object": "cienaCesDhcpv6LdraMplsInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsRidString": {
+    "name": "cienaCesDhcpv6LdraMplsRidString",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cienaCesDhcpv6LdraMplsRidStringRowStatus": {
+    "name": "cienaCesDhcpv6LdraMplsRidStringRowStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.30.1.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-DHCPV6-CLIENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-DHCPV6-CLIENT-MIB"
+  }
+}

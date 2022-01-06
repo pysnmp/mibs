@@ -1,0 +1,924 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwLineMIB": {
+    "name": "hwLineMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.207",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-07-25 16:39",
+        "description": "Modify MAX-ACCESS of hwMaxVtyNumber ."
+      },
+      {
+        "revision": "2017-01-18 10:43",
+        "description": "Modify Trap of hwVtyHostPermitRowState for compile error."
+      },
+      {
+        "revision": "2016-03-31 10:43",
+        "description": "Modify Trap of hwIpUnLocked and hwIpLocked."
+      },
+      {
+        "revision": "2016-03-16 10:43",
+        "description": "New Trap added for hwIpUnLocked."
+      },
+      {
+        "revision": "2016-03-07 10:43",
+        "description": "New Trap added for hwIpLocked."
+      },
+      {
+        "revision": "2015-07-28 15:20",
+        "description": "New Trap added for SSH and Telnet for frequent authentication failure."
+      },
+      {
+        "revision": "2014-05-06 16:24",
+        "description": "New Trap added for SSH login/logout."
+      },
+      {
+        "revision": "2014-04-29 16:24",
+        "description": "VB description updated"
+      },
+      {
+        "revision": "2014-04-25 16:24",
+        "description": "New VBs added in HwLoginUserInfoEntry"
+      },
+      {
+        "revision": "2014-04-22 16:24",
+        "description": "Modified to add nodes for wlan npe trusted host."
+      },
+      {
+        "revision": "2014-04-08 16:24",
+        "description": "Modified to support Trap in VRP V8R8."
+      },
+      {
+        "revision": "2009-07-31 16:24",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "hwLineObjects": {
+    "name": "hwLineObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1",
+    "class": "objectidentity"
+  },
+  "hwTelnetSet": {
+    "name": "hwTelnetSet",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.1",
+    "class": "objectidentity"
+  },
+  "hwMaxVtyNumber": {
+    "name": "hwMaxVtyNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoginUserInfo": {
+    "name": "hwLoginUserInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2",
+    "class": "objectidentity"
+  },
+  "hwLoginUserInfoTable": {
+    "name": "hwLoginUserInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLoginUserInfoEntry": {
+    "name": "hwLoginUserInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserInfoIndex": {
+    "name": "hwUserInfoIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserInfoName": {
+    "name": "hwUserInfoName",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserInfoIpAddr": {
+    "name": "hwUserInfoIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserInfoChannel": {
+    "name": "hwUserInfoChannel",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAuthType": {
+    "name": "hwAuthType",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVpnInstName": {
+    "name": "hwVpnInstName",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserInterface": {
+    "name": "hwUserInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3",
+    "class": "objectidentity"
+  },
+  "hwUserInterfaceTable": {
+    "name": "hwUserInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwUserInterfaceEntry": {
+    "name": "hwUserInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwInterfaceType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInterfaceType": {
+    "name": "hwInterfaceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vty": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwUserInterfaceIndex": {
+    "name": "hwUserInterfaceIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAuthenticationMode": {
+    "name": "hwAuthenticationMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "none": 1,
+          "password": 2,
+          "aaa": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwProtocol": {
+    "name": "hwProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "telnet": 1,
+          "ssh": 2,
+          "all": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwUserInterfaceRowStatus": {
+    "name": "hwUserInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVtyHostPermit": {
+    "name": "hwVtyHostPermit",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.4",
+    "class": "objectidentity"
+  },
+  "hwVtyHostPermitTable": {
+    "name": "hwVtyHostPermitTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVtyHostPermitEntry": {
+    "name": "hwVtyHostPermitEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwVtyHostPermitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVtyHostPermitIndex": {
+    "name": "hwVtyHostPermitIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVtyHostPermitIpAddress": {
+    "name": "hwVtyHostPermitIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVtyHostPermitMaskAddress": {
+    "name": "hwVtyHostPermitMaskAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVtyHostPermitInformation": {
+    "name": "hwVtyHostPermitInformation",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVtyHostPermitRowState": {
+    "name": "hwVtyHostPermitRowState",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLineMibTrapObjects": {
+    "name": "hwLineMibTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.5",
+    "class": "objectidentity"
+  },
+  "hwUserInfoLoginFailedTimes": {
+    "name": "hwUserInfoLoginFailedTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwUserInfoStatisticPeriod": {
+    "name": "hwUserInfoStatisticPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwUserInfoIpAddress": {
+    "name": "hwUserInfoIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwUserInfoVpnName": {
+    "name": "hwUserInfoVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwLineNotification": {
+    "name": "hwLineNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2",
+    "class": "objectidentity"
+  },
+  "hwVtyNumExceed": {
+    "name": "hwVtyNumExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwMaxVtyNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserLogin": {
+    "name": "hwUserLogin",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwAuthType"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwVpnInstName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserLoginFail": {
+    "name": "hwUserLoginFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwAuthType"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwVpnInstName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserLogout": {
+    "name": "hwUserLogout",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwAuthType"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwVpnInstName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserSshLogin": {
+    "name": "hwUserSshLogin",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwAuthType"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwVpnInstName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserSshLogout": {
+    "name": "hwUserSshLogout",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwAuthType"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwVpnInstName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTelnetLoginFailed": {
+    "name": "hwTelnetLoginFailed",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoLoginFailedTimes"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoStatisticPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHLoginFailed": {
+    "name": "hwSSHLoginFailed",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoLoginFailedTimes"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoStatisticPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTelnetLoginFailedClear": {
+    "name": "hwTelnetLoginFailedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoLoginFailedTimes"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoStatisticPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHLoginFailedClear": {
+    "name": "hwSSHLoginFailedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoLoginFailedTimes"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoStatisticPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpLocked": {
+    "name": "hwIpLocked",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddress"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoVpnName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoStatisticPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpUnLocked": {
+    "name": "hwIpUnLocked",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddress"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLineConformance": {
+    "name": "hwLineConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3",
+    "class": "objectidentity"
+  },
+  "hwLineCompliances": {
+    "name": "hwLineCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.1",
+    "class": "objectidentity"
+  },
+  "hwLineCompliance": {
+    "name": "hwLineCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.1.1",
+    "class": "modulecompliance",
+    "status": "current"
+  },
+  "hwLineGroups": {
+    "name": "hwLineGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.2",
+    "class": "objectidentity"
+  },
+  "hwLineNotificationGroup": {
+    "name": "hwLineNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwVtyNumExceed"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserLogin"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserLoginFail"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserLogout"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserSshLogin"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserSshLogout"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwIpLocked"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwIpUnLocked"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLineUserInfoGroup": {
+    "name": "hwLineUserInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIndex"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMaxVtyNumberGroup": {
+    "name": "hwMaxVtyNumberGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwMaxVtyNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-LINE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-LINE-MIB"
+  }
+}

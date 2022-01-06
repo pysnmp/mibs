@@ -1,0 +1,846 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "swi": {
+    "name": "swi",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-12 12:22",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "swiPortTable": {
+    "name": "swiPortTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swiPortEntry": {
+    "name": "swiPortEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-SWITCH-MIB",
+        "object": "swiPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swiPortNumber": {
+    "name": "swiPortNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swiPortIngressLimit": {
+    "name": "swiPortIngressLimit",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swiPortEgressLimit": {
+    "name": "swiPortEgressLimit",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swiPortVlanTable": {
+    "name": "swiPortVlanTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swiPortVlanEntry": {
+    "name": "swiPortVlanEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-SWITCH-MIB",
+        "object": "swiPortVlanPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "AT-SWITCH-MIB",
+        "object": "swiPortVlanVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swiPortVlanPortNumber": {
+    "name": "swiPortVlanPortNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swiPortVlanVlanId": {
+    "name": "swiPortVlanVlanId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swiPortVlanControl": {
+    "name": "swiPortVlanControl",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swiPortVlanStateNotify": {
+    "name": "swiPortVlanStateNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SWITCH-MIB",
+        "object": "swiPortVlanPortNumber"
+      },
+      {
+        "module": "AT-SWITCH-MIB",
+        "object": "swiPortVlanVlanId"
+      },
+      {
+        "module": "AT-SWITCH-MIB",
+        "object": "swiPortVlanControl"
+      }
+    ],
+    "status": "current"
+  },
+  "swi56xxPortCounterTable": {
+    "name": "swi56xxPortCounterTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swi56xxPortCounterEntry": {
+    "name": "swi56xxPortCounterEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-SWITCH-MIB",
+        "object": "swi56xxPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swi56xxPortNumber": {
+    "name": "swi56xxPortNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxRxTx64kPkts": {
+    "name": "swi56xxRxTx64kPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxRxTx65To127kPkts": {
+    "name": "swi56xxRxTx65To127kPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxRxTx128To255kPkts": {
+    "name": "swi56xxRxTx128To255kPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxRxTx256To511kPkts": {
+    "name": "swi56xxRxTx256To511kPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxRxTx512To1023kPkts": {
+    "name": "swi56xxRxTx512To1023kPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxRxTx1024ToMaxPktSzPkts": {
+    "name": "swi56xxRxTx1024ToMaxPktSzPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxRxTx519To1522kPkts": {
+    "name": "swi56xxRxTx519To1522kPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxOctets": {
+    "name": "swi56xxPortRxOctets",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxPkts": {
+    "name": "swi56xxPortRxPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxFCSErrors": {
+    "name": "swi56xxPortRxFCSErrors",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxMulticastPkts": {
+    "name": "swi56xxPortRxMulticastPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxBroadcastPkts": {
+    "name": "swi56xxPortRxBroadcastPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxPauseMACCtlFrms": {
+    "name": "swi56xxPortRxPauseMACCtlFrms",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxOversizePkts": {
+    "name": "swi56xxPortRxOversizePkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxFragments": {
+    "name": "swi56xxPortRxFragments",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxJabbers": {
+    "name": "swi56xxPortRxJabbers",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxMACControlFrms": {
+    "name": "swi56xxPortRxMACControlFrms",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxUnsupportOpcode": {
+    "name": "swi56xxPortRxUnsupportOpcode",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxAlignmentErrors": {
+    "name": "swi56xxPortRxAlignmentErrors",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxOutOfRngeLenFld": {
+    "name": "swi56xxPortRxOutOfRngeLenFld",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxSymErDurCarrier": {
+    "name": "swi56xxPortRxSymErDurCarrier",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxCarrierSenseErr": {
+    "name": "swi56xxPortRxCarrierSenseErr",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxUndersizePkts": {
+    "name": "swi56xxPortRxUndersizePkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortRxIpInHdrErrors": {
+    "name": "swi56xxPortRxIpInHdrErrors",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxOctets": {
+    "name": "swi56xxPortTxOctets",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxPkts": {
+    "name": "swi56xxPortTxPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxFCSErrors": {
+    "name": "swi56xxPortTxFCSErrors",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxMulticastPkts": {
+    "name": "swi56xxPortTxMulticastPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxBroadcastPkts": {
+    "name": "swi56xxPortTxBroadcastPkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxPauseMACCtlFrms": {
+    "name": "swi56xxPortTxPauseMACCtlFrms",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxOversizePkts": {
+    "name": "swi56xxPortTxOversizePkts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxFragments": {
+    "name": "swi56xxPortTxFragments",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxJabbers": {
+    "name": "swi56xxPortTxJabbers",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxPauseCtrlFrms": {
+    "name": "swi56xxPortTxPauseCtrlFrms",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxFrameWDeferrdTx": {
+    "name": "swi56xxPortTxFrameWDeferrdTx",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxFrmWExcesDefer": {
+    "name": "swi56xxPortTxFrmWExcesDefer",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxSingleCollsnFrm": {
+    "name": "swi56xxPortTxSingleCollsnFrm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxMultCollsnFrm": {
+    "name": "swi56xxPortTxMultCollsnFrm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxLateCollsns": {
+    "name": "swi56xxPortTxLateCollsns",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxExcessivCollsns": {
+    "name": "swi56xxPortTxExcessivCollsns",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortTxCollisionFrames": {
+    "name": "swi56xxPortTxCollisionFrames",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortMiscDropEvents": {
+    "name": "swi56xxPortMiscDropEvents",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortMiscTaggedPktTx": {
+    "name": "swi56xxPortMiscTaggedPktTx",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortMiscTotalPktTxAbort": {
+    "name": "swi56xxPortMiscTotalPktTxAbort",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortHWMultiTTLexpired": {
+    "name": "swi56xxPortHWMultiTTLexpired",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortHWMultiBridgedFrames": {
+    "name": "swi56xxPortHWMultiBridgedFrames",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortHWMultiRxDrops": {
+    "name": "swi56xxPortHWMultiRxDrops",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swi56xxPortHWMultiTxDrops": {
+    "name": "swi56xxPortHWMultiTxDrops",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swiDebugVariables": {
+    "name": "swiDebugVariables",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.3",
+    "class": "objectidentity"
+  },
+  "swiTrap": {
+    "name": "swiTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.0",
+    "class": "objectidentity"
+  },
+  "swiDebugMemoryParityErrors": {
+    "name": "swiDebugMemoryParityErrors",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swiIntrusionDetectionTrap": {
+    "name": "swiIntrusionDetectionTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.87.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SWITCH-MIB",
+        "object": "swiPortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-SWITCH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-SWITCH-MIB"
+  }
+}

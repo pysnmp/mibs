@@ -1,0 +1,696 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSCommon",
+      "adGenAOSConformance"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adGenAOSMuxID": {
+    "name": "adGenAOSMuxID",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.1.5",
+    "class": "moduleidentity"
+  },
+  "adGenAOSMux": {
+    "name": "adGenAOSMux",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5",
+    "class": "objectidentity"
+  },
+  "adGenAOSXConnect": {
+    "name": "adGenAOSXConnect",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSTdmGroup": {
+    "name": "adGenAOSTdmGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSMuxConformance": {
+    "name": "adGenAOSMuxConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.99",
+    "class": "objectidentity"
+  },
+  "adGenAOSMuxCompliance": {
+    "name": "adGenAOSMuxCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.99.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSMuxMibGroups": {
+    "name": "adGenAOSMuxMibGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.99.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSXConnectTable": {
+    "name": "adGenAOSXConnectTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSXConnectEntry": {
+    "name": "adGenAOSXConnectEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSXConnectIndex": {
+    "name": "adGenAOSXConnectIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectFirstIfType": {
+    "name": "adGenAOSXConnectFirstIfType",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAssigned": 0,
+          "dds": 1,
+          "t1E1": 2,
+          "eth": 3,
+          "serial": 4,
+          "shdsl": 5,
+          "fxs": 6,
+          "frameRelay": 7,
+          "ppp": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectFirstIfNumber": {
+    "name": "adGenAOSXConnectFirstIfNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectFirstSubIfNumber": {
+    "name": "adGenAOSXConnectFirstSubIfNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectFirstIfSlot": {
+    "name": "adGenAOSXConnectFirstIfSlot",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectFirstIfPort": {
+    "name": "adGenAOSXConnectFirstIfPort",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectFirstTdmGroup": {
+    "name": "adGenAOSXConnectFirstTdmGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectFirstTdmGroupDS0": {
+    "name": "adGenAOSXConnectFirstTdmGroupDS0",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectSecondIfType": {
+    "name": "adGenAOSXConnectSecondIfType",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAssigned": 0,
+          "dds": 1,
+          "t1E1": 2,
+          "eth": 3,
+          "serial": 4,
+          "shdsl": 5,
+          "fxs": 6,
+          "frameRelay": 7,
+          "ppp": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectSecondIfNumber": {
+    "name": "adGenAOSXConnectSecondIfNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectSecondSubIfNumber": {
+    "name": "adGenAOSXConnectSecondSubIfNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectSecondIfSlot": {
+    "name": "adGenAOSXConnectSecondIfSlot",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectSecondIfPort": {
+    "name": "adGenAOSXConnectSecondIfPort",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectSecondTdmGroup": {
+    "name": "adGenAOSXConnectSecondTdmGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectSecondTdmGroupDS0": {
+    "name": "adGenAOSXConnectSecondTdmGroupDS0",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectPreserveRbs": {
+    "name": "adGenAOSXConnectPreserveRbs",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSXConnectRowStatus": {
+    "name": "adGenAOSXConnectRowStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSTdmGroupTable": {
+    "name": "adGenAOSTdmGroupTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSTdmGroupEntry": {
+    "name": "adGenAOSTdmGroupEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSTdmGroupIfSlot",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSTdmGroupIfPort",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSTdmGroupID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSTdmGroupIfSlot": {
+    "name": "adGenAOSTdmGroupIfSlot",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSTdmGroupIfPort": {
+    "name": "adGenAOSTdmGroupIfPort",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSTdmGroupID": {
+    "name": "adGenAOSTdmGroupID",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSTdmGroupMask": {
+    "name": "adGenAOSTdmGroupMask",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSTdmGroupUsage": {
+    "name": "adGenAOSTdmGroupUsage",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiftySixKbps": 1,
+          "sixtyFourKbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSMuxConformancemModule": {
+    "name": "adGenAOSMuxConformancemModule",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.99.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenAOSXConnectGrp",
+        "module": "ADTRAN-AOS-MUX-MIB"
+      },
+      {
+        "object": "adGenAOSTdmGroupGrp",
+        "module": "ADTRAN-AOS-MUX-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSXConnectGrp": {
+    "name": "adGenAOSXConnectGrp",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.99.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectFirstIfType"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectFirstIfNumber"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectFirstSubIfNumber"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectFirstIfSlot"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectFirstIfPort"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectFirstTdmGroup"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectFirstTdmGroupDS0"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectSecondIfType"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectSecondIfNumber"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectSecondSubIfNumber"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectSecondIfSlot"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectSecondIfPort"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectSecondTdmGroup"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectSecondTdmGroupDS0"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectPreserveRbs"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSXConnectRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSTdmGroupGrp": {
+    "name": "adGenAOSTdmGroupGrp",
+    "oid": "1.3.6.1.4.1.664.5.53.1.5.99.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSTdmGroupIfSlot"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSTdmGroupIfPort"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSTdmGroupID"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSTdmGroupMask"
+      },
+      {
+        "module": "ADTRAN-AOS-MUX-MIB",
+        "object": "adGenAOSTdmGroupUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-MUX-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS-MUX-MIB"
+  }
+}

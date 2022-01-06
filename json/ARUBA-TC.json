@@ -1,0 +1,1556 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "ObjectSyntax",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ArubaEnableValue": {
+    "name": "ArubaEnableValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaFrameType": {
+    "name": "ArubaFrameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "associateRequest": 0,
+          "associateResponse": 1,
+          "reassociateRequest": 2,
+          "reassociateResponse": 3,
+          "probeRequest": 4,
+          "probeResponse": 5,
+          "beacon": 8,
+          "atim": 9,
+          "disassociate": 10,
+          "auth": 11,
+          "deauth": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaPhyType": {
+    "name": "ArubaPhyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot11a": 1,
+          "dot11b": 2,
+          "dot11g": 3,
+          "dot11ag": 4,
+          "wired": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaHTMode": {
+    "name": "ArubaHTMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ht20": 2,
+          "ht40": 3,
+          "vht20": 4,
+          "vht40": 5,
+          "vht80": 6,
+          "vht160": 7,
+          "vht80plus80": 8,
+          "he20": 9,
+          "he40": 10,
+          "he80": 11,
+          "he160": 12,
+          "he80plus80": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaHTExtChannel": {
+    "name": "ArubaHTExtChannel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "above": 2,
+          "below": 3,
+          "eighty": 4,
+          "onesixty": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaMonEncryptionType": {
+    "name": "ArubaMonEncryptionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 0,
+          "wep": 1,
+          "wpa": 2,
+          "wpa2": 3,
+          "wpa3": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaMonEncryptionCipher": {
+    "name": "ArubaMonEncryptionCipher",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "wep40": 1,
+          "wep104": 2,
+          "tkip": 3,
+          "aesccmp": 4,
+          "other": 5,
+          "gcm256": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaMonAuthAlgorithm": {
+    "name": "ArubaMonAuthAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "psk": 1,
+          "dot1x": 2,
+          "ftdot1x": 3,
+          "ftpsk": 4,
+          "dot1x256": 5,
+          "psk256": 6,
+          "tdls": 7,
+          "sae": 8,
+          "ftsae": 9,
+          "other": 10,
+          "suiteb": 11,
+          "owe": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaSwitchRole": {
+    "name": "ArubaSwitchRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "local": 2,
+          "backupmaster": 3,
+          "standalone": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaSupportStatus": {
+    "name": "ArubaSupportStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsupported": 1,
+          "supported": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaActiveState": {
+    "name": "ArubaActiveState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaACLDomain": {
+    "name": "ArubaACLDomain",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alias": 1,
+          "any": 2,
+          "user": 3,
+          "host": 4,
+          "network": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaACLNetworkServiceType": {
+    "name": "ArubaACLNetworkServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alias": 1,
+          "any": 2,
+          "tcp": 3,
+          "udp": 4,
+          "protocol": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaACLAction": {
+    "name": "ArubaACLAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2,
+          "srcNAT": 3,
+          "dstNAT": 4,
+          "redirect": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaDaysOfWeek": {
+    "name": "ArubaDaysOfWeek",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sun": 1,
+          "mon": 2,
+          "tue": 3,
+          "wed": 4,
+          "thu": 5,
+          "fri": 6,
+          "sat": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAuthenticationMethods": {
+    "name": "ArubaAuthenticationMethods",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "web": 1,
+          "mac": 2,
+          "vpn": 3,
+          "dot1x": 4,
+          "kerberos": 5,
+          "secureId": 7,
+          "pubcookie": 15,
+          "xSec": 16,
+          "xSecMachine": 17,
+          "via-vpn": 28,
+          "other": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaSubAuthenticationMethods": {
+    "name": "ArubaSubAuthenticationMethods",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authPAP": 1,
+          "authCHAP": 2,
+          "authMSCHAP": 3,
+          "authMSCHAPv2": 4,
+          "eapTLS": 5,
+          "eapTTLS": 6,
+          "eapLEAP": 7,
+          "eapMD5": 8,
+          "eapPEAP": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaEncryptionType": {
+    "name": "ArubaEncryptionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "static-wep": 1,
+          "dynamic-wep": 2,
+          "wpa-psk-tkip": 3,
+          "wpa-tkip": 4,
+          "wpa-psk-aes": 5,
+          "wpa-aes": 6,
+          "wpa2-psk-tkip": 7,
+          "wpa2-tkip": 8,
+          "wpa2-psk-aes": 9,
+          "wpa2-aes": 10,
+          "xSec": 11,
+          "bSec-128": 12,
+          "bSec-256": 13,
+          "aes-128-cmac": 14,
+          "unknown": 15,
+          "ft-psk": 16,
+          "ft-8021x": 17,
+          "wpa3-cnsa": 18,
+          "owe-aes": 20,
+          "wpa3-sae-aes": 21,
+          "wpa3-aes-gcmp-256": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaUserForwardMode": {
+    "name": "ArubaUserForwardMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel-encrypted": 0,
+          "bridge": 1,
+          "tunnel-decrypted": 2,
+          "split-tunnel": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaRogueApType": {
+    "name": "ArubaRogueApType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "interfering": 2,
+          "unsecure": 3,
+          "dos": 4,
+          "unknown": 5,
+          "knownInterfering": 6,
+          "suspectedUnsecure": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAPMatchType": {
+    "name": "ArubaAPMatchType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "configuredWiredMac": 1,
+          "ethernetWiredMac": 2,
+          "apWiredMac": 3,
+          "externalWiredMac": 4,
+          "manual": 5,
+          "baseBSSIDOverride": 6,
+          "mms": 7,
+          "ethernetGatewayWiredMac": 8,
+          "classificationDisabled": 9,
+          "apBSSID": 10,
+          "propagatedEthernetWiredMac": 11,
+          "apRule": 12,
+          "systemWiredMac": 13,
+          "systemGatewayMac": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAPMatchMethod": {
+    "name": "ArubaAPMatchMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "exactMatch": 1,
+          "plusOneMatch": 2,
+          "minusOneMatch": 3,
+          "ouiMatch": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaStationType": {
+    "name": "ArubaStationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "valid": 1,
+          "interfering": 2,
+          "dos": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaEncryptionMethods": {
+    "name": "ArubaEncryptionMethods",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "disabled": 0,
+        "static-wep": 1,
+        "dynamic-wep": 2,
+        "static-wpa": 3,
+        "dynamic-wpa": 4,
+        "wpa2-psk-aes": 5,
+        "wpa2-8021x-aes": 6,
+        "wpa2PreAuth": 7,
+        "xsec": 8,
+        "wpa-psk-aes": 9,
+        "wpa-aes": 10,
+        "wpa2-psk-tkip": 11,
+        "wpa2-8021x-tkip": 12,
+        "bSec-128": 13,
+        "bSec-256": 14,
+        "owe-aes": 16,
+        "wpa3-sae-aes": 17,
+        "wpa3-cnsa": 18,
+        "wpa3-aes-ccm-128": 19,
+        "mpsk-aes": 21,
+        "wpa3-aes-gcm-256": 22
+      }
+    },
+    "status": "current"
+  },
+  "ArubaHashAlgorithms": {
+    "name": "ArubaHashAlgorithms",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "md5": 1,
+          "sha": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaVlanValidRange": {
+    "name": "ArubaVlanValidRange",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ArubaPortMode": {
+    "name": "ArubaPortMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "access": 1,
+          "dot1q": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaDot1dState": {
+    "name": "ArubaDot1dState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocked": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAPDot1dState": {
+    "name": "ArubaAPDot1dState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "off": 2,
+          "disabled": 3,
+          "listening": 4,
+          "learning": 5,
+          "forwarding": 6,
+          "blocking": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaPoeState": {
+    "name": "ArubaPoeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "enabledCisco": 3,
+          "notAvailable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaCardType": {
+    "name": "ArubaCardType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lc1": 1,
+          "lc2": 2,
+          "sc1": 3,
+          "sc2": 4,
+          "sw2400": 5,
+          "sw800": 6,
+          "sw200": 7,
+          "m3mk1": 8,
+          "sw3200": 9,
+          "sw3400": 10,
+          "sw3600": 11,
+          "sw650": 12,
+          "sw651": 13,
+          "reserved1": 14,
+          "reserved2": 15,
+          "sw620": 16,
+          "sw7210": 17,
+          "sw7220": 18,
+          "sw7240": 19,
+          "sw3500": 20,
+          "sw2500": 21,
+          "sw1500": 22,
+          "sw7010": 23,
+          "sw7005": 24,
+          "sw7030": 25,
+          "sw7205": 26,
+          "sw7024": 27,
+          "sw7024xm": 28
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaESIServerMode": {
+    "name": "ArubaESIServerMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridged": 1,
+          "routed": 2,
+          "nat": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaESIServerStatus": {
+    "name": "ArubaESIServerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaIfType": {
+    "name": "ArubaIfType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "vlan": 2,
+          "tunnel": 3,
+          "loopback": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaVoipProtocolType": {
+    "name": "ArubaVoipProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sccp": 1,
+          "svp": 2,
+          "vocera": 3,
+          "sip": 9,
+          "ua": 11,
+          "h323": 13,
+          "unknown": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAccessPointMode": {
+    "name": "ArubaAccessPointMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "airMonitor": 1,
+          "accessPoint": 2,
+          "accessPointAndMonitor": 3,
+          "meshPortal": 4,
+          "meshPoint": 5,
+          "rfprotectSensor": 6,
+          "spectrumSensor": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAuthServerType": {
+    "name": "ArubaAuthServerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internaldb": 1,
+          "radius": 2,
+          "ldap": 3,
+          "kerberos": 4,
+          "tacacs": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAddressType": {
+    "name": "ArubaAddressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srcAddress": 1,
+          "dstAddress": 2,
+          "bssid": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaBlackListReason": {
+    "name": "ArubaBlackListReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "userDefined": 1,
+          "mitmAttack": 2,
+          "authFailure": 3,
+          "pingFlood": 4,
+          "sessionFlood": 5,
+          "synFlood": 6,
+          "sessionBlacklist": 7,
+          "ipSpoofing": 8,
+          "esiBlacklist": 9,
+          "other": 100
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaDBType": {
+    "name": "ArubaDBType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mssql": 1,
+          "mysql": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaVrrpState": {
+    "name": "ArubaVrrpState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaOperStateValue": {
+    "name": "ArubaOperStateValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAntennaSetting": {
+    "name": "ArubaAntennaSetting",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 1,
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAPStatus": {
+    "name": "ArubaAPStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaPortSpeed": {
+    "name": "ArubaPortSpeed",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed10Mbps": 1,
+          "speed100Mbps": 2,
+          "speed1000Mbps": 3,
+          "speedAuto": 4,
+          "speed10Gbps": 5,
+          "speed2Point5Gbps": 6,
+          "speed5Gbps": 7,
+          "speed40Gbps": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaPortDuplex": {
+    "name": "ArubaPortDuplex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2,
+          "auto": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaPortType": {
+    "name": "ArubaPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fastethernet": 1,
+          "gigabitethernet": 2,
+          "xgigabitethernet": 3,
+          "twogigabitethernet": 4,
+          "fivegigabitethernet": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaEnet1Mode": {
+    "name": "ArubaEnet1Mode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activeStandby": 1,
+          "tunnel": 2,
+          "bridge": 3,
+          "notApplicable": 4,
+          "split": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaUnprovisionedStatus": {
+    "name": "ArubaUnprovisionedStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaMonitorMode": {
+    "name": "ArubaMonitorMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "all": 1,
+          "none": 2,
+          "mixed": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaConfigurationState": {
+    "name": "ArubaConfigurationState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "error": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaConfigurationChangeType": {
+    "name": "ArubaConfigurationChangeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 2,
+          "modify": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaCallStates": {
+    "name": "ArubaCallStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "initiated": 1,
+          "connecting": 2,
+          "delivered": 3,
+          "connected": 4,
+          "offered": 5,
+          "alerting": 6,
+          "releasing": 7,
+          "cancelling": 8,
+          "challenging": 9,
+          "transient": 10,
+          "blockwait": 11,
+          "succ": 12,
+          "fail": 13,
+          "aborted": 14,
+          "blocked": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaVoipProtocol": {
+    "name": "ArubaVoipProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sccp": 1,
+          "svp": 2,
+          "vocera": 3,
+          "sip": 9,
+          "ua": 11,
+          "h323": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaVoipRegState": {
+    "name": "ArubaVoipRegState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "registering": 1,
+          "unregistering": 2,
+          "challenge": 3,
+          "registered": 4,
+          "unregistered": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaVoiceCdrDirection": {
+    "name": "ArubaVoiceCdrDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "og": 0,
+          "ic": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaVoiceCacBit": {
+    "name": "ArubaVoiceCacBit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cacActiveLoadBalancing": 0,
+        "cacHighCapThresholdReached": 1,
+        "cacHandRsrvThresholdReached": 2,
+        "cacPeakCapacityReached": 3
+      }
+    },
+    "status": "current"
+  },
+  "ArubaMeshRole": {
+    "name": "ArubaMeshRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonmesh": 0,
+          "point": 1,
+          "portal": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaHTRate": {
+    "name": "ArubaHTRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ht6dot5": 1,
+          "ht13": 2,
+          "ht13dot5": 3,
+          "ht15": 4,
+          "ht19dot5": 5,
+          "ht26": 6,
+          "ht27": 7,
+          "ht30": 8,
+          "ht39": 9,
+          "ht40dot5": 10,
+          "ht45": 11,
+          "ht52": 12,
+          "ht54": 13,
+          "ht58dot5": 14,
+          "ht60": 15,
+          "ht65": 16,
+          "ht78": 17,
+          "ht81": 18,
+          "ht90": 19,
+          "ht104": 20,
+          "ht108": 21,
+          "ht117": 22,
+          "ht120": 23,
+          "ht121dot5": 24,
+          "ht130": 25,
+          "ht135": 26,
+          "ht150": 27,
+          "ht162": 28,
+          "ht180": 29,
+          "ht216": 30,
+          "ht240": 31,
+          "ht243": 32,
+          "ht270": 33,
+          "ht300": 34
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaARMChangeReason": {
+    "name": "ArubaARMChangeReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radarDetected": 1,
+          "radarCleared": 2,
+          "txHang": 3,
+          "txHangClear": 4,
+          "fortyMhzIntol": 5,
+          "cancel40mhzIntol": 6,
+          "fortyMhzAlign": 7,
+          "armInterference": 8,
+          "armInvalidCh": 9,
+          "armErrorThresh": 10,
+          "armNoiseThresh": 11,
+          "armEmptyCh": 12,
+          "armRogueCont": 13,
+          "armDecreasePower": 14,
+          "armIncreasePower": 15,
+          "armTurnOffRadio": 16,
+          "armTurnOnRadio": 17,
+          "armChannelQualityThresh": 18,
+          "armDynamicBW": 19,
+          "armInterferenceCCA": 20,
+          "airmatchNoise": 21,
+          "airmatchSolver": 22,
+          "airmatchFreeze": 23,
+          "airmatchUnfreeze": 24,
+          "random": 25,
+          "airmatchInit": 26,
+          "unknown": 27,
+          "airmatchNoiseCleared": 28,
+          "airmatchRogueCont": 29
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAPMasterStatus": {
+    "name": "ArubaAPMasterStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "move": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaDot3azStatus": {
+    "name": "ArubaDot3azStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "disabled": 0,
+        "unsupported": 1,
+        "eee100BaseTX": 2,
+        "eee1000BaseT": 3,
+        "eee10GBaseT": 4,
+        "eee1000BaseKX": 5,
+        "eee10GBaseKX4": 6,
+        "eee10GBaseKR": 7
+      }
+    },
+    "status": "current"
+  },
+  "ArubaDot3bzStatus": {
+    "name": "ArubaDot3bzStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsupported": 0,
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaThresholdResourceType": {
+    "name": "ArubaThresholdResourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dataPathCpu": 0,
+          "controlPathCpu": 1,
+          "controlPathMemory": 2,
+          "totalTunnelCapacity": 3,
+          "userCapacity": 4,
+          "noofAps": 5,
+          "noofLocals": 6,
+          "noofVaps": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaStackState": {
+    "name": "ArubaStackState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "linecard": 3,
+          "away": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaStackChangeEvent": {
+    "name": "ArubaStackChangeEvent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "primarySlotChanged": 2,
+          "secondarySlotChanged": 3,
+          "lineCardSlotChanged": 4,
+          "roleChanged": 5,
+          "priorityChanged": 6,
+          "versionMismatch": 7,
+          "slotExceeded": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaStackIfTopoJoined": {
+    "name": "ArubaStackIfTopoJoined",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "disconnected": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InterfaceIndex": {
+    "name": "InterfaceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ArubaIfState": {
+    "name": "ArubaIfState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkUp": 1,
+          "linkDown": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaIfStateChangeReason": {
+    "name": "ArubaIfStateChangeReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admin": 1,
+          "loopProtect": 2,
+          "macLimit": 3,
+          "raGuard": 4,
+          "bpduGuard": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAPUplinkType": {
+    "name": "ArubaAPUplinkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "usb": 2,
+          "pppoe": 3,
+          "wifi": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaAPUplinkChangeReason": {
+    "name": "ArubaAPUplinkChangeReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkFailure": 1,
+          "vpnFailure": 2,
+          "preemption": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaPortalServerDownReason": {
+    "name": "ArubaPortalServerDownReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectFail": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaHaRole": {
+    "name": "ArubaHaRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dual": 0,
+          "active": 1,
+          "standby": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaHaConnectivityStatus": {
+    "name": "ArubaHaConnectivityStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "haSuccess": 0,
+          "haNetUnreach": 1,
+          "haCpUnreach": 2,
+          "haImageMissMatch": 3,
+          "haApDenied": 4,
+          "haHbtFailure": 5,
+          "haInvalidHelloResponse": 6,
+          "haStandbyTunnelDown": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaFlexRadioMode": {
+    "name": "ArubaFlexRadioMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single2GHzBand": 0,
+          "single5GHzBand": 1,
+          "dual2GHzplus5GHzBand": 2,
+          "unknown": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaDual5GMode": {
+    "name": "ArubaDual5GMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "unknown": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ArubaSplit5GMode": {
+    "name": "ArubaSplit5GMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "unknown": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/ARUBA-TC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARUBA-TC"
+  }
+}

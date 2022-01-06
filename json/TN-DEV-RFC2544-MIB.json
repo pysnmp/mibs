@@ -1,0 +1,847 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "TN-MGMT-MIB": [
+      "tnDevMgmt"
+    ]
+  },
+  "tnDevRFC2544": {
+    "name": "tnDevRFC2544",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-08-22 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnDevRFC2544ProfileTable": {
+    "name": "tnDevRFC2544ProfileTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileEntry": {
+    "name": "tnDevRFC2544ProfileEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-RFC2544-MIB",
+        "object": "tnDevRFC2544ProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileIndex": {
+    "name": "tnDevRFC2544ProfileIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileName": {
+    "name": "tnDevRFC2544ProfileName",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersTable": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersEntry": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-RFC2544-MIB",
+        "object": "tnDevRFC2544ProfileConfigurationCommonParametersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersIndex": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersDescription": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersDescription",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersMEGLevel": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersMEGLevel",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersEgressPort": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersEgressPort",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersSequenceNumberCheck": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersSequenceNumberCheck",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersDwellTime": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersDwellTime",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersType": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersType",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portDownMEP": 0,
+          "vlanBasedDownMEP": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersVLANID": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersVLANID",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersPCP": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersPCP",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersDEI": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersDEI",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersDMAC": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersDMAC",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersFrameSizeMask": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersFrameSizeMask",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationCommonParametersTestsToRunMask": {
+    "name": "tnDevRFC2544ProfileConfigurationCommonParametersTestsToRunMask",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationThroughputTestParametersTable": {
+    "name": "tnDevRFC2544ProfileConfigurationThroughputTestParametersTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationThroughputTestParametersEntry": {
+    "name": "tnDevRFC2544ProfileConfigurationThroughputTestParametersEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-RFC2544-MIB",
+        "object": "tnDevRFC2544ProfileConfigurationThroughputTestParametersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationThroughputTestParametersIndex": {
+    "name": "tnDevRFC2544ProfileConfigurationThroughputTestParametersIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialDuration": {
+    "name": "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialDuration",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialMinimumRate": {
+    "name": "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialMinimumRate",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialMaximumRate": {
+    "name": "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialMaximumRate",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialAccuracy": {
+    "name": "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialAccuracy",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialAllowedFrameLoss": {
+    "name": "tnDevRFC2544ProfileConfigurationThroughputTestParametersTrialAllowedFrameLoss",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationLatencyTestParametersTable": {
+    "name": "tnDevRFC2544ProfileConfigurationLatencyTestParametersTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationLatencyTestParametersEntry": {
+    "name": "tnDevRFC2544ProfileConfigurationLatencyTestParametersEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-RFC2544-MIB",
+        "object": "tnDevRFC2544ProfileConfigurationLatencyTestParametersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationLatencyTestParametersIndex": {
+    "name": "tnDevRFC2544ProfileConfigurationLatencyTestParametersIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationLatencyTestParametersTrialDuration": {
+    "name": "tnDevRFC2544ProfileConfigurationLatencyTestParametersTrialDuration",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationLatencyTestParametersDelayMeasurementInterval": {
+    "name": "tnDevRFC2544ProfileConfigurationLatencyTestParametersDelayMeasurementInterval",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationLatencyTestParametersAllowedFrameLoss": {
+    "name": "tnDevRFC2544ProfileConfigurationLatencyTestParametersAllowedFrameLoss",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationFrameLossTestParametersTable": {
+    "name": "tnDevRFC2544ProfileConfigurationFrameLossTestParametersTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationFrameLossTestParametersEntry": {
+    "name": "tnDevRFC2544ProfileConfigurationFrameLossTestParametersEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-RFC2544-MIB",
+        "object": "tnDevRFC2544ProfileConfigurationFrameLossTestParametersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationFrameLossTestParametersIndex": {
+    "name": "tnDevRFC2544ProfileConfigurationFrameLossTestParametersIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationFrameLossTestParametersTrialDuration": {
+    "name": "tnDevRFC2544ProfileConfigurationFrameLossTestParametersTrialDuration",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationFrameLossTestParametersMinimumRate": {
+    "name": "tnDevRFC2544ProfileConfigurationFrameLossTestParametersMinimumRate",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationFrameLossTestParametersMaximumRate": {
+    "name": "tnDevRFC2544ProfileConfigurationFrameLossTestParametersMaximumRate",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationFrameLossTestParametersRateStep": {
+    "name": "tnDevRFC2544ProfileConfigurationFrameLossTestParametersRateStep",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationBackToBackTestParametersTable": {
+    "name": "tnDevRFC2544ProfileConfigurationBackToBackTestParametersTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationBackToBackTestParametersEntry": {
+    "name": "tnDevRFC2544ProfileConfigurationBackToBackTestParametersEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-RFC2544-MIB",
+        "object": "tnDevRFC2544ProfileConfigurationBackToBackTestParametersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationBackToBackTestParametersIndex": {
+    "name": "tnDevRFC2544ProfileConfigurationBackToBackTestParametersIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationBackToBackTestParametersTrialDuration": {
+    "name": "tnDevRFC2544ProfileConfigurationBackToBackTestParametersTrialDuration",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevRFC2544ProfileConfigurationBackToBackTestParametersTrialCount": {
+    "name": "tnDevRFC2544ProfileConfigurationBackToBackTestParametersTrialCount",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.42.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DEV-RFC2544-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-DEV-RFC2544-MIB"
+  }
+}

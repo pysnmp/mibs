@@ -1,0 +1,428 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcLinksetId",
+      "CItpTcPointCode",
+      "CItpTcServiceIndicator",
+      "CItpTcGtaAddr",
+      "CItpTcGlobalTitleSelectorName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpActMIB": {
+    "name": "ciscoItpActMIB",
+    "oid": "1.3.6.1.4.1.9.9.230",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-12-18 00:00",
+        "description": "The ability to allow multiple instances of Signalling Points to run in the same device has introduce a new index structure. All objects in this MIB will be deprecated and replaced by objects in the CISCO-ITP-GACT-MIB.my MIB."
+      },
+      {
+        "revision": "2001-09-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cItpActMIBNotifs": {
+    "name": "cItpActMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.230.0",
+    "class": "objectidentity"
+  },
+  "cItpActMIBObjects": {
+    "name": "cItpActMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.230.1",
+    "class": "objectidentity"
+  },
+  "cItpActMIBConformance": {
+    "name": "cItpActMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.230.2",
+    "class": "objectidentity"
+  },
+  "cItpActMtp3": {
+    "name": "cItpActMtp3",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1",
+    "class": "objectidentity"
+  },
+  "cItpActGtt": {
+    "name": "cItpActGtt",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2",
+    "class": "objectidentity"
+  },
+  "cItpActMtp3Table": {
+    "name": "cItpActMtp3Table",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActMtp3TableEntry": {
+    "name": "cItpActMtp3TableEntry",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3TableId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3LinksetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3Dpc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3Opc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3SI",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpActMtp3TableId": {
+    "name": "cItpActMtp3TableId",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passed": 1,
+          "violation": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActMtp3LinksetName": {
+    "name": "cItpActMtp3LinksetName",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinksetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActMtp3Dpc": {
+    "name": "cItpActMtp3Dpc",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActMtp3Opc": {
+    "name": "cItpActMtp3Opc",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActMtp3SI": {
+    "name": "cItpActMtp3SI",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcServiceIndicator",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActMtp3RcvdPackets": {
+    "name": "cItpActMtp3RcvdPackets",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpActMtp3SentPackets": {
+    "name": "cItpActMtp3SentPackets",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpActMtp3RcvdBytes": {
+    "name": "cItpActMtp3RcvdBytes",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpActMtp3SentBytes": {
+    "name": "cItpActMtp3SentBytes",
+    "oid": "1.3.6.1.4.1.9.9.230.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpActGttTable": {
+    "name": "cItpActGttTable",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActGttTableEntry": {
+    "name": "cItpActGttTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActGttLinksetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActGttSelectorName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActGttGta",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActGttTranslatedPc",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpActGttLinksetName": {
+    "name": "cItpActGttLinksetName",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinksetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActGttSelectorName": {
+    "name": "cItpActGttSelectorName",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGlobalTitleSelectorName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActGttGta": {
+    "name": "cItpActGttGta",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGtaAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActGttTranslatedPc": {
+    "name": "cItpActGttTranslatedPc",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpActGttPackets": {
+    "name": "cItpActGttPackets",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpActGttBytes": {
+    "name": "cItpActGttBytes",
+    "oid": "1.3.6.1.4.1.9.9.230.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpActMIBCompliances": {
+    "name": "cItpActMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.230.2.1",
+    "class": "objectidentity"
+  },
+  "cItpActMIBGroups": {
+    "name": "cItpActMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.230.2.2",
+    "class": "objectidentity"
+  },
+  "cItpActMIBCompliance": {
+    "name": "cItpActMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.230.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cItpActMtp3Group",
+        "module": "CISCO-ITP-ACT-MIB"
+      },
+      {
+        "object": "cItpActGttGroup",
+        "module": "CISCO-ITP-ACT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpActMtp3Group": {
+    "name": "cItpActMtp3Group",
+    "oid": "1.3.6.1.4.1.9.9.230.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3RcvdPackets"
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3SentPackets"
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3RcvdBytes"
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActMtp3SentBytes"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpActGttGroup": {
+    "name": "cItpActGttGroup",
+    "oid": "1.3.6.1.4.1.9.9.230.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActGttPackets"
+      },
+      {
+        "module": "CISCO-ITP-ACT-MIB",
+        "object": "cItpActGttBytes"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-ACT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-ACT-MIB"
+  }
+}

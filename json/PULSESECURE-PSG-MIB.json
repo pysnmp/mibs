@@ -1,0 +1,1289 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "Integer32",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pulsesecure_gateway": {
+    "name": "pulsesecure_gateway",
+    "oid": "1.3.6.1.4.1.12532",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-07 16:10",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "logFullPercent": {
+    "name": "logFullPercent",
+    "oid": "1.3.6.1.4.1.12532.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signedInWebUsers": {
+    "name": "signedInWebUsers",
+    "oid": "1.3.6.1.4.1.12532.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signedInMailUsers": {
+    "name": "signedInMailUsers",
+    "oid": "1.3.6.1.4.1.12532.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "blockedIP": {
+    "name": "blockedIP",
+    "oid": "1.3.6.1.4.1.12532.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "authServerName": {
+    "name": "authServerName",
+    "oid": "1.3.6.1.4.1.12532.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "productName": {
+    "name": "productName",
+    "oid": "1.3.6.1.4.1.12532.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productVersion": {
+    "name": "productVersion",
+    "oid": "1.3.6.1.4.1.12532.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileName": {
+    "name": "fileName",
+    "oid": "1.3.6.1.4.1.12532.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meetingUserCount": {
+    "name": "meetingUserCount",
+    "oid": "1.3.6.1.4.1.12532.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "iveCpuUtil": {
+    "name": "iveCpuUtil",
+    "oid": "1.3.6.1.4.1.12532.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveMemoryUtil": {
+    "name": "iveMemoryUtil",
+    "oid": "1.3.6.1.4.1.12532.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveConcurrentUsers": {
+    "name": "iveConcurrentUsers",
+    "oid": "1.3.6.1.4.1.12532.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clusterConcurrentUsers": {
+    "name": "clusterConcurrentUsers",
+    "oid": "1.3.6.1.4.1.12532.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveTotalHits": {
+    "name": "iveTotalHits",
+    "oid": "1.3.6.1.4.1.12532.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveFileHits": {
+    "name": "iveFileHits",
+    "oid": "1.3.6.1.4.1.12532.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveWebHits": {
+    "name": "iveWebHits",
+    "oid": "1.3.6.1.4.1.12532.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveAppletHits": {
+    "name": "iveAppletHits",
+    "oid": "1.3.6.1.4.1.12532.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ivetermHits": {
+    "name": "ivetermHits",
+    "oid": "1.3.6.1.4.1.12532.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveSAMHits": {
+    "name": "iveSAMHits",
+    "oid": "1.3.6.1.4.1.12532.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveNCHits": {
+    "name": "iveNCHits",
+    "oid": "1.3.6.1.4.1.12532.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meetingHits": {
+    "name": "meetingHits",
+    "oid": "1.3.6.1.4.1.12532.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meetingCount": {
+    "name": "meetingCount",
+    "oid": "1.3.6.1.4.1.12532.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "logName": {
+    "name": "logName",
+    "oid": "1.3.6.1.4.1.12532.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "iveSwapUtil": {
+    "name": "iveSwapUtil",
+    "oid": "1.3.6.1.4.1.12532.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskFullPercent": {
+    "name": "diskFullPercent",
+    "oid": "1.3.6.1.4.1.12532.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "blockedIPList": {
+    "name": "blockedIPList",
+    "oid": "1.3.6.1.4.1.12532.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipEntry": {
+    "name": "ipEntry",
+    "oid": "1.3.6.1.4.1.12532.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "ipIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipIndex": {
+    "name": "ipIndex",
+    "oid": "1.3.6.1.4.1.12532.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipValue": {
+    "name": "ipValue",
+    "oid": "1.3.6.1.4.1.12532.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logID": {
+    "name": "logID",
+    "oid": "1.3.6.1.4.1.12532.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "logType": {
+    "name": "logType",
+    "oid": "1.3.6.1.4.1.12532.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "logDescription": {
+    "name": "logDescription",
+    "oid": "1.3.6.1.4.1.12532.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ivsName": {
+    "name": "ivsName",
+    "oid": "1.3.6.1.4.1.12532.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "ocspResponderURL": {
+    "name": "ocspResponderURL",
+    "oid": "1.3.6.1.4.1.12532.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fanDescription": {
+    "name": "fanDescription",
+    "oid": "1.3.6.1.4.1.12532.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "psDescription": {
+    "name": "psDescription",
+    "oid": "1.3.6.1.4.1.12532.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "raidDescription": {
+    "name": "raidDescription",
+    "oid": "1.3.6.1.4.1.12532.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clusterName": {
+    "name": "clusterName",
+    "oid": "1.3.6.1.4.1.12532.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "nodeList": {
+    "name": "nodeList",
+    "oid": "1.3.6.1.4.1.12532.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vipType": {
+    "name": "vipType",
+    "oid": "1.3.6.1.4.1.12532.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "currentVIP": {
+    "name": "currentVIP",
+    "oid": "1.3.6.1.4.1.12532.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "newVIP": {
+    "name": "newVIP",
+    "oid": "1.3.6.1.4.1.12532.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "nicEvent": {
+    "name": "nicEvent",
+    "oid": "1.3.6.1.4.1.12532.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "nodeName": {
+    "name": "nodeName",
+    "oid": "1.3.6.1.4.1.12532.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "iveTemperature": {
+    "name": "iveTemperature",
+    "oid": "1.3.6.1.4.1.12532.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveVPNTunnels": {
+    "name": "iveVPNTunnels",
+    "oid": "1.3.6.1.4.1.12532.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iveSSLConnections": {
+    "name": "iveSSLConnections",
+    "oid": "1.3.6.1.4.1.12532.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esapVersion": {
+    "name": "esapVersion",
+    "oid": "1.3.6.1.4.1.12532.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipChangeReason": {
+    "name": "vipChangeReason",
+    "oid": "1.3.6.1.4.1.12532.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "processName": {
+    "name": "processName",
+    "oid": "1.3.6.1.4.1.12532.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "iveTotalSignedInUsers": {
+    "name": "iveTotalSignedInUsers",
+    "oid": "1.3.6.1.4.1.12532.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnACLSPercentage": {
+    "name": "vpnACLSPercentage",
+    "oid": "1.3.6.1.4.1.12532.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vpnACLSCount": {
+    "name": "vpnACLSCount",
+    "oid": "1.3.6.1.4.1.12532.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "blockedIPv6": {
+    "name": "blockedIPv6",
+    "oid": "1.3.6.1.4.1.12532.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "iveTraps": {
+    "name": "iveTraps",
+    "oid": "1.3.6.1.4.1.12532.251",
+    "class": "objectidentity"
+  },
+  "iveLogNearlyFull": {
+    "name": "iveLogNearlyFull",
+    "oid": "1.3.6.1.4.1.12532.251.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "logFullPercent"
+      },
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "logName"
+      }
+    ],
+    "status": "current"
+  },
+  "iveLogFull": {
+    "name": "iveLogFull",
+    "oid": "1.3.6.1.4.1.12532.251.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "logName"
+      }
+    ],
+    "status": "current"
+  },
+  "iveMaxConcurrentUsersSignedIn": {
+    "name": "iveMaxConcurrentUsersSignedIn",
+    "oid": "1.3.6.1.4.1.12532.251.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "iveConcurrentUsers"
+      }
+    ],
+    "status": "current"
+  },
+  "iveTooManyFailedLoginAttempts": {
+    "name": "iveTooManyFailedLoginAttempts",
+    "oid": "1.3.6.1.4.1.12532.251.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "blockedIP"
+      }
+    ],
+    "status": "current"
+  },
+  "externalAuthServerUnreachable": {
+    "name": "externalAuthServerUnreachable",
+    "oid": "1.3.6.1.4.1.12532.251.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "authServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "iveStart": {
+    "name": "iveStart",
+    "oid": "1.3.6.1.4.1.12532.251.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "iveShutdown": {
+    "name": "iveShutdown",
+    "oid": "1.3.6.1.4.1.12532.251.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "iveReboot": {
+    "name": "iveReboot",
+    "oid": "1.3.6.1.4.1.12532.251.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "archiveServerUnreachable": {
+    "name": "archiveServerUnreachable",
+    "oid": "1.3.6.1.4.1.12532.251.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "archiveServerLoginFailed": {
+    "name": "archiveServerLoginFailed",
+    "oid": "1.3.6.1.4.1.12532.251.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "archiveFileTransferFailed": {
+    "name": "archiveFileTransferFailed",
+    "oid": "1.3.6.1.4.1.12532.251.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "fileName"
+      }
+    ],
+    "status": "current"
+  },
+  "meetingUserLimit": {
+    "name": "meetingUserLimit",
+    "oid": "1.3.6.1.4.1.12532.251.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "meetingUserCount"
+      }
+    ],
+    "status": "current"
+  },
+  "iveRestart": {
+    "name": "iveRestart",
+    "oid": "1.3.6.1.4.1.12532.251.16",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meetingLimit": {
+    "name": "meetingLimit",
+    "oid": "1.3.6.1.4.1.12532.251.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "meetingCount"
+      }
+    ],
+    "status": "current"
+  },
+  "iveDiskNearlyFull": {
+    "name": "iveDiskNearlyFull",
+    "oid": "1.3.6.1.4.1.12532.251.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "diskFullPercent"
+      }
+    ],
+    "status": "current"
+  },
+  "iveDiskFull": {
+    "name": "iveDiskFull",
+    "oid": "1.3.6.1.4.1.12532.251.19",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "logMessageTrap": {
+    "name": "logMessageTrap",
+    "oid": "1.3.6.1.4.1.12532.251.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "logID"
+      },
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "logType"
+      },
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "logDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "memUtilNotify": {
+    "name": "memUtilNotify",
+    "oid": "1.3.6.1.4.1.12532.251.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "iveMemoryUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "cpuUtilNotify": {
+    "name": "cpuUtilNotify",
+    "oid": "1.3.6.1.4.1.12532.251.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "iveCpuUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "swapUtilNotify": {
+    "name": "swapUtilNotify",
+    "oid": "1.3.6.1.4.1.12532.251.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "iveSwapUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "iveMaxConcurrentUsersVirtualSystem": {
+    "name": "iveMaxConcurrentUsersVirtualSystem",
+    "oid": "1.3.6.1.4.1.12532.251.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "ivsName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ocspResponderConnectionFailed": {
+    "name": "ocspResponderConnectionFailed",
+    "oid": "1.3.6.1.4.1.12532.251.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "ocspResponderURL"
+      }
+    ],
+    "status": "current"
+  },
+  "iveFanNotify": {
+    "name": "iveFanNotify",
+    "oid": "1.3.6.1.4.1.12532.251.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "fanDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ivePowerSupplyNotify": {
+    "name": "ivePowerSupplyNotify",
+    "oid": "1.3.6.1.4.1.12532.251.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "psDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "iveRaidNotify": {
+    "name": "iveRaidNotify",
+    "oid": "1.3.6.1.4.1.12532.251.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "raidDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "iveClusterDisableNodeTrap": {
+    "name": "iveClusterDisableNodeTrap",
+    "oid": "1.3.6.1.4.1.12532.251.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "clusterName"
+      },
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "nodeList"
+      }
+    ],
+    "status": "current"
+  },
+  "iveClusterChangedVIPTrap": {
+    "name": "iveClusterChangedVIPTrap",
+    "oid": "1.3.6.1.4.1.12532.251.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "vipType"
+      },
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "currentVIP"
+      },
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "newVIP"
+      }
+    ],
+    "status": "current"
+  },
+  "iveNetExternalInterfaceDownTrap": {
+    "name": "iveNetExternalInterfaceDownTrap",
+    "oid": "1.3.6.1.4.1.12532.251.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "nicEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "iveClusterDeleteTrap": {
+    "name": "iveClusterDeleteTrap",
+    "oid": "1.3.6.1.4.1.12532.251.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "nodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "iveNetInternalInterfaceDownTrap": {
+    "name": "iveNetInternalInterfaceDownTrap",
+    "oid": "1.3.6.1.4.1.12532.251.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "nicEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "iveNetManagementInterfaceDownTrap": {
+    "name": "iveNetManagementInterfaceDownTrap",
+    "oid": "1.3.6.1.4.1.12532.251.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "nicEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "iveTemperatureNotify": {
+    "name": "iveTemperatureNotify",
+    "oid": "1.3.6.1.4.1.12532.251.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "iveTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "iveVIPNodeChanged": {
+    "name": "iveVIPNodeChanged",
+    "oid": "1.3.6.1.4.1.12532.251.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "nodeName"
+      },
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "vipChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "iveProcessesNearMaxLimit": {
+    "name": "iveProcessesNearMaxLimit",
+    "oid": "1.3.6.1.4.1.12532.251.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "processName"
+      }
+    ],
+    "status": "current"
+  },
+  "iveProcessesReachedMaxLimit": {
+    "name": "iveProcessesReachedMaxLimit",
+    "oid": "1.3.6.1.4.1.12532.251.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "processName"
+      }
+    ],
+    "status": "current"
+  },
+  "iveACLsNearMaxLimit": {
+    "name": "iveACLsNearMaxLimit",
+    "oid": "1.3.6.1.4.1.12532.251.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "vpnACLSPercentage"
+      }
+    ],
+    "status": "current"
+  },
+  "iveACLsCrossedMaxLimit": {
+    "name": "iveACLsCrossedMaxLimit",
+    "oid": "1.3.6.1.4.1.12532.251.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "vpnACLSCount"
+      }
+    ],
+    "status": "current"
+  },
+  "iveTooManyFailedLoginAttemptsIPv6": {
+    "name": "iveTooManyFailedLoginAttemptsIPv6",
+    "oid": "1.3.6.1.4.1.12532.251.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PULSESECURE-PSG-MIB",
+        "object": "blockedIPv6"
+      }
+    ],
+    "status": "current"
+  },
+  "iveSAProduct": {
+    "name": "iveSAProduct",
+    "oid": "1.3.6.1.4.1.12532.252",
+    "class": "objectidentity"
+  },
+  "iveICProduct": {
+    "name": "iveICProduct",
+    "oid": "1.3.6.1.4.1.12532.253",
+    "class": "objectidentity"
+  },
+  "iveMAGProduct": {
+    "name": "iveMAGProduct",
+    "oid": "1.3.6.1.4.1.12532.254",
+    "class": "objectidentity"
+  },
+  "iveVAProduct": {
+    "name": "iveVAProduct",
+    "oid": "1.3.6.1.4.1.12532.255",
+    "class": "objectidentity"
+  },
+  "ivePSAProduct": {
+    "name": "ivePSAProduct",
+    "oid": "1.3.6.1.4.1.12532.256",
+    "class": "objectidentity"
+  },
+  "iveProductMAG2600": {
+    "name": "iveProductMAG2600",
+    "oid": "1.3.6.1.4.1.12532.254.1",
+    "class": "objectidentity"
+  },
+  "iveProductMAG4610": {
+    "name": "iveProductMAG4610",
+    "oid": "1.3.6.1.4.1.12532.254.2",
+    "class": "objectidentity"
+  },
+  "iveProductSM160": {
+    "name": "iveProductSM160",
+    "oid": "1.3.6.1.4.1.12532.254.3",
+    "class": "objectidentity"
+  },
+  "iveProductSM360": {
+    "name": "iveProductSM360",
+    "oid": "1.3.6.1.4.1.12532.254.4",
+    "class": "objectidentity"
+  },
+  "iveProductVASPE": {
+    "name": "iveProductVASPE",
+    "oid": "1.3.6.1.4.1.12532.255.1",
+    "class": "objectidentity"
+  },
+  "iveProductVADTE": {
+    "name": "iveProductVADTE",
+    "oid": "1.3.6.1.4.1.12532.255.2",
+    "class": "objectidentity"
+  },
+  "iveProductPSA300": {
+    "name": "iveProductPSA300",
+    "oid": "1.3.6.1.4.1.12532.256.1",
+    "class": "objectidentity"
+  },
+  "iveProductPSA3000": {
+    "name": "iveProductPSA3000",
+    "oid": "1.3.6.1.4.1.12532.256.2",
+    "class": "objectidentity"
+  },
+  "iveProductPSA5000": {
+    "name": "iveProductPSA5000",
+    "oid": "1.3.6.1.4.1.12532.256.3",
+    "class": "objectidentity"
+  },
+  "iveProductPSA7000f": {
+    "name": "iveProductPSA7000f",
+    "oid": "1.3.6.1.4.1.12532.256.4",
+    "class": "objectidentity"
+  },
+  "iveProductPSA7000c": {
+    "name": "iveProductPSA7000c",
+    "oid": "1.3.6.1.4.1.12532.256.5",
+    "class": "objectidentity"
+  },
+  "iveProductPSA10000": {
+    "name": "iveProductPSA10000",
+    "oid": "1.3.6.1.4.1.12532.256.6",
+    "class": "objectidentity"
+  },
+  "iveMAG2600": {
+    "name": "iveMAG2600",
+    "oid": "1.3.6.1.4.1.12532.254.1.1",
+    "class": "objectidentity"
+  },
+  "iveMAG4610": {
+    "name": "iveMAG4610",
+    "oid": "1.3.6.1.4.1.12532.254.2.1",
+    "class": "objectidentity"
+  },
+  "iveMAGSM160": {
+    "name": "iveMAGSM160",
+    "oid": "1.3.6.1.4.1.12532.254.3.1",
+    "class": "objectidentity"
+  },
+  "iveMAGSM360": {
+    "name": "iveMAGSM360",
+    "oid": "1.3.6.1.4.1.12532.254.4.1",
+    "class": "objectidentity"
+  },
+  "iveVASPE": {
+    "name": "iveVASPE",
+    "oid": "1.3.6.1.4.1.12532.255.1.1",
+    "class": "objectidentity"
+  },
+  "iveVADTE": {
+    "name": "iveVADTE",
+    "oid": "1.3.6.1.4.1.12532.255.2.1",
+    "class": "objectidentity"
+  },
+  "ivePSA300": {
+    "name": "ivePSA300",
+    "oid": "1.3.6.1.4.1.12532.256.1.1",
+    "class": "objectidentity"
+  },
+  "ivePSA3000": {
+    "name": "ivePSA3000",
+    "oid": "1.3.6.1.4.1.12532.256.2.1",
+    "class": "objectidentity"
+  },
+  "ivePSA5000": {
+    "name": "ivePSA5000",
+    "oid": "1.3.6.1.4.1.12532.256.3.1",
+    "class": "objectidentity"
+  },
+  "ivePSA7000f": {
+    "name": "ivePSA7000f",
+    "oid": "1.3.6.1.4.1.12532.256.4.1",
+    "class": "objectidentity"
+  },
+  "ivePSA7000c": {
+    "name": "ivePSA7000c",
+    "oid": "1.3.6.1.4.1.12532.256.5.1",
+    "class": "objectidentity"
+  },
+  "ivePSA10000": {
+    "name": "ivePSA10000",
+    "oid": "1.3.6.1.4.1.12532.256.6.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pulse/PULSESECURE-PSG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:47:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PULSESECURE-PSG-MIB"
+  }
+}

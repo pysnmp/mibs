@@ -1,0 +1,1468 @@
+{
+  "imports": {
+    "class": "imports",
+    "FC-MGMT-MIB": [
+      "FcDomainIdOrZero",
+      "fcmSwitchIndex",
+      "fcmInstanceIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
+    ],
+    "T11-FC-FABRIC-ADDR-MGR-MIB": [
+      "t11FamConfigDomainId"
+    ],
+    "T11-TC-MIB": [
+      "T11FabricIndex"
+    ]
+  },
+  "t11FcFspfMIB": {
+    "name": "t11FcFspfMIB",
+    "oid": "1.3.6.1.2.1.143",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-14 00:00",
+        "description": "Initial version of this MIB module published as RFC4626."
+      }
+    ]
+  },
+  "t11FspfNotifications": {
+    "name": "t11FspfNotifications",
+    "oid": "1.3.6.1.2.1.143.0",
+    "class": "objectidentity"
+  },
+  "t11FspfObjects": {
+    "name": "t11FspfObjects",
+    "oid": "1.3.6.1.2.1.143.1",
+    "class": "objectidentity"
+  },
+  "t11FspfConformance": {
+    "name": "t11FspfConformance",
+    "oid": "1.3.6.1.2.1.143.2",
+    "class": "objectidentity"
+  },
+  "t11FspfConfiguration": {
+    "name": "t11FspfConfiguration",
+    "oid": "1.3.6.1.2.1.143.1.1",
+    "class": "objectidentity"
+  },
+  "t11FspfDatabase": {
+    "name": "t11FspfDatabase",
+    "oid": "1.3.6.1.2.1.143.1.2",
+    "class": "objectidentity"
+  },
+  "T11FspfLsrType": {
+    "name": "T11FspfLsrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "T11FspfLinkType": {
+    "name": "T11FspfLinkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "T11FspfInterfaceState": {
+    "name": "T11FspfInterfaceState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "init": 2,
+          "dbExchange": 3,
+          "dbAckwait": 4,
+          "dbWait": 5,
+          "full": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FspfLastCreationTime": {
+    "name": "T11FspfLastCreationTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "t11FspfTable": {
+    "name": "t11FspfTable",
+    "oid": "1.3.6.1.2.1.143.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfEntry": {
+    "name": "t11FspfEntry",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfFabricIndex": {
+    "name": "t11FspfFabricIndex",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfMinLsArrival": {
+    "name": "t11FspfMinLsArrival",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliSeconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FspfMinLsInterval": {
+    "name": "t11FspfMinLsInterval",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliSeconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FspfLsRefreshTime": {
+    "name": "t11FspfLsRefreshTime",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfMaxAge": {
+    "name": "t11FspfMaxAge",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfMaxAgeDiscards": {
+    "name": "t11FspfMaxAgeDiscards",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfPathComputations": {
+    "name": "t11FspfPathComputations",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfChecksumErrors": {
+    "name": "t11FspfChecksumErrors",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLsrs": {
+    "name": "t11FspfLsrs",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfCreateTime": {
+    "name": "t11FspfCreateTime",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FspfLastCreationTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfAdminStatus": {
+    "name": "t11FspfAdminStatus",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FspfOperStatus": {
+    "name": "t11FspfOperStatus",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfNbrStateChangNotifyEnable": {
+    "name": "t11FspfNbrStateChangNotifyEnable",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FspfSetToDefault": {
+    "name": "t11FspfSetToDefault",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FspfStorageType": {
+    "name": "t11FspfStorageType",
+    "oid": "1.3.6.1.2.1.143.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FspfIfTable": {
+    "name": "t11FspfIfTable",
+    "oid": "1.3.6.1.2.1.143.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfIfEntry": {
+    "name": "t11FspfIfEntry",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfIfIndex": {
+    "name": "t11FspfIfIndex",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfIfHelloInterval": {
+    "name": "t11FspfIfHelloInterval",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FspfIfDeadInterval": {
+    "name": "t11FspfIfDeadInterval",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FspfIfRetransmitInterval": {
+    "name": "t11FspfIfRetransmitInterval",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FspfIfInLsuPkts": {
+    "name": "t11FspfIfInLsuPkts",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfInLsaPkts": {
+    "name": "t11FspfIfInLsaPkts",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfOutLsuPkts": {
+    "name": "t11FspfIfOutLsuPkts",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfOutLsaPkts": {
+    "name": "t11FspfIfOutLsaPkts",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfOutHelloPkts": {
+    "name": "t11FspfIfOutHelloPkts",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfInHelloPkts": {
+    "name": "t11FspfIfInHelloPkts",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfRetransmittedLsuPkts": {
+    "name": "t11FspfIfRetransmittedLsuPkts",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfInErrorPkts": {
+    "name": "t11FspfIfInErrorPkts",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfNbrState": {
+    "name": "t11FspfIfNbrState",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FspfInterfaceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfNbrDomainId": {
+    "name": "t11FspfIfNbrDomainId",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfNbrPortIndex": {
+    "name": "t11FspfIfNbrPortIndex",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfAdminStatus": {
+    "name": "t11FspfIfAdminStatus",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FspfIfCreateTime": {
+    "name": "t11FspfIfCreateTime",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FspfLastCreationTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfSetToDefault": {
+    "name": "t11FspfIfSetToDefault",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FspfIfLinkCostFactor": {
+    "name": "t11FspfIfLinkCostFactor",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FspfIfStorageType": {
+    "name": "t11FspfIfStorageType",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FspfIfRowStatus": {
+    "name": "t11FspfIfRowStatus",
+    "oid": "1.3.6.1.2.1.143.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FspfLsrTable": {
+    "name": "t11FspfLsrTable",
+    "oid": "1.3.6.1.2.1.143.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfLsrEntry": {
+    "name": "t11FspfLsrEntry",
+    "oid": "1.3.6.1.2.1.143.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrDomainId",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfLsrDomainId": {
+    "name": "t11FspfLsrDomainId",
+    "oid": "1.3.6.1.2.1.143.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfLsrType": {
+    "name": "t11FspfLsrType",
+    "oid": "1.3.6.1.2.1.143.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FspfLsrType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfLsrAdvDomainId": {
+    "name": "t11FspfLsrAdvDomainId",
+    "oid": "1.3.6.1.2.1.143.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLsrAge": {
+    "name": "t11FspfLsrAge",
+    "oid": "1.3.6.1.2.1.143.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLsrIncarnationNumber": {
+    "name": "t11FspfLsrIncarnationNumber",
+    "oid": "1.3.6.1.2.1.143.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLsrCheckSum": {
+    "name": "t11FspfLsrCheckSum",
+    "oid": "1.3.6.1.2.1.143.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLsrLinks": {
+    "name": "t11FspfLsrLinks",
+    "oid": "1.3.6.1.2.1.143.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65355
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLinkNumber": {
+    "name": "t11FspfLinkNumber",
+    "oid": "1.3.6.1.2.1.143.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLinkTable": {
+    "name": "t11FspfLinkTable",
+    "oid": "1.3.6.1.2.1.143.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfLinkEntry": {
+    "name": "t11FspfLinkEntry",
+    "oid": "1.3.6.1.2.1.143.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrDomainId",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrType",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfLinkIndex": {
+    "name": "t11FspfLinkIndex",
+    "oid": "1.3.6.1.2.1.143.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FspfLinkNbrDomainId": {
+    "name": "t11FspfLinkNbrDomainId",
+    "oid": "1.3.6.1.2.1.143.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLinkPortIndex": {
+    "name": "t11FspfLinkPortIndex",
+    "oid": "1.3.6.1.2.1.143.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLinkNbrPortIndex": {
+    "name": "t11FspfLinkNbrPortIndex",
+    "oid": "1.3.6.1.2.1.143.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLinkType": {
+    "name": "t11FspfLinkType",
+    "oid": "1.3.6.1.2.1.143.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FspfLinkType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfLinkCost": {
+    "name": "t11FspfLinkCost",
+    "oid": "1.3.6.1.2.1.143.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FspfIfPrevNbrState": {
+    "name": "t11FspfIfPrevNbrState",
+    "oid": "1.3.6.1.2.1.143.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FspfInterfaceState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "t11FspfNbrStateChangNotify": {
+    "name": "t11FspfNbrStateChangNotify",
+    "oid": "1.3.6.1.2.1.143.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamConfigDomainId"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfNbrDomainId"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfNbrState"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfPrevNbrState"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfMIBCompliances": {
+    "name": "t11FspfMIBCompliances",
+    "oid": "1.3.6.1.2.1.143.2.1",
+    "class": "objectidentity"
+  },
+  "t11FspfMIBGroups": {
+    "name": "t11FspfMIBGroups",
+    "oid": "1.3.6.1.2.1.143.2.2",
+    "class": "objectidentity"
+  },
+  "t11FspfMIBCompliance": {
+    "name": "t11FspfMIBCompliance",
+    "oid": "1.3.6.1.2.1.143.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "t11FspfGeneralGroup",
+        "module": "T11-FC-FSPF-MIB"
+      },
+      {
+        "object": "t11FspfIfGroup",
+        "module": "T11-FC-FSPF-MIB"
+      },
+      {
+        "object": "t11FspfDatabaseGroup",
+        "module": "T11-FC-FSPF-MIB"
+      },
+      {
+        "object": "t11FspfNotificationGroup",
+        "module": "T11-FC-FSPF-MIB"
+      },
+      {
+        "object": "t11FspfIfCounterGroup",
+        "module": "T11-FC-FSPF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfGeneralGroup": {
+    "name": "t11FspfGeneralGroup",
+    "oid": "1.3.6.1.2.1.143.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfMinLsArrival"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfMinLsInterval"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsRefreshTime"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfMaxAge"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfMaxAgeDiscards"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfPathComputations"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfChecksumErrors"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrs"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfCreateTime"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfAdminStatus"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfOperStatus"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfNbrStateChangNotifyEnable"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfSetToDefault"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfIfGroup": {
+    "name": "t11FspfIfGroup",
+    "oid": "1.3.6.1.2.1.143.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfHelloInterval"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfDeadInterval"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfRetransmitInterval"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfNbrState"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfNbrDomainId"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfNbrPortIndex"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfAdminStatus"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfCreateTime"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfSetToDefault"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfLinkCostFactor"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfRowStatus"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfStorageType"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfPrevNbrState"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfIfCounterGroup": {
+    "name": "t11FspfIfCounterGroup",
+    "oid": "1.3.6.1.2.1.143.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfInLsuPkts"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfInLsaPkts"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfOutLsuPkts"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfOutLsaPkts"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfOutHelloPkts"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfInHelloPkts"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfRetransmittedLsuPkts"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfIfInErrorPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfDatabaseGroup": {
+    "name": "t11FspfDatabaseGroup",
+    "oid": "1.3.6.1.2.1.143.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrAdvDomainId"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrAge"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrIncarnationNumber"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrCheckSum"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLsrLinks"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLinkNbrDomainId"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLinkPortIndex"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLinkNbrPortIndex"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLinkType"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLinkCost"
+      },
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfLinkNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FspfNotificationGroup": {
+    "name": "t11FspfNotificationGroup",
+    "oid": "1.3.6.1.2.1.143.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FSPF-MIB",
+        "object": "t11FspfNbrStateChangNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-FC-FSPF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "T11-FC-FSPF-MIB"
+  }
+}

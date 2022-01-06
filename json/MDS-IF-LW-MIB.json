@@ -1,0 +1,1512 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "MDS-ORBIT-SMI-MIB": [
+      "mdsInterfaces"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TruthValue"
+    ]
+  },
+  "mdsIfLwMIB": {
+    "name": "mdsIfLwMIB",
+    "oid": "1.3.6.1.4.1.4130.10.2.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-09-13 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "mIfLwMIBObjects": {
+    "name": "mIfLwMIBObjects",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1",
+    "class": "objectidentity"
+  },
+  "mIfLwConfig": {
+    "name": "mIfLwConfig",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.1",
+    "class": "objectidentity"
+  },
+  "mIfLwStatus": {
+    "name": "mIfLwStatus",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2",
+    "class": "objectidentity"
+  },
+  "UnsignedByte": {
+    "name": "UnsignedByte",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "UnsignedShort": {
+    "name": "UnsignedShort",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "LinkStatus": {
+    "name": "LinkStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 0,
+          "scanning": 1,
+          "negotiating": 2,
+          "authenticating": 3,
+          "associated": 4,
+          "disassociated": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InitStatus": {
+    "name": "InitStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "initializing": 1,
+          "discovering": 2,
+          "reprogramming": 3,
+          "configuring": 4,
+          "complete": 5,
+          "error": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DeviceModeType": {
+    "name": "DeviceModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remote": 0,
+          "accessPoint": 1,
+          "storeAndForward": 2,
+          "test": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ModulationModeType": {
+    "name": "ModulationModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qpsk25": 2,
+          "qpsk50": 3,
+          "qpsk75": 4,
+          "qam16r50": 5,
+          "qam16r75": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlarmFlags": {
+    "name": "AlarmFlags",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "temperature": 0,
+        "notCalibrated": 23
+      }
+    },
+    "status": "current"
+  },
+  "FirmwareRevision": {
+    "name": "FirmwareRevision",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "32a",
+    "status": "current"
+  },
+  "InetIpAddress": {
+    "name": "InetIpAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FrequencyType": {
+    "name": "FrequencyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ChannelType": {
+    "name": "ChannelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FecType": {
+    "name": "FecType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "adaptiveGain": 1,
+          "lowGain": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RateType": {
+    "name": "RateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "mIfLwStatusTable": {
+    "name": "mIfLwStatusTable",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mIfLwStatusEntry": {
+    "name": "mIfLwStatusEntry",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mIfLwLinkStatus": {
+    "name": "mIfLwLinkStatus",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwInitStatus": {
+    "name": "mIfLwInitStatus",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InitStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwCurrentDeviceMode": {
+    "name": "mIfLwCurrentDeviceMode",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwAlarms": {
+    "name": "mIfLwAlarms",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwSerialNumber": {
+    "name": "mIfLwSerialNumber",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwFirmwareRevision": {
+    "name": "mIfLwFirmwareRevision",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FirmwareRevision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwHardwareId": {
+    "name": "mIfLwHardwareId",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwHardwareRevision": {
+    "name": "mIfLwHardwareRevision",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwTemperature": {
+    "name": "mIfLwTemperature",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwApInfoApAddress": {
+    "name": "mIfLwApInfoApAddress",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwApInfoIpAddress": {
+    "name": "mIfLwApInfoIpAddress",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwApInfoConnectedTime": {
+    "name": "mIfLwApInfoConnectedTime",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwApInfoRssi": {
+    "name": "mIfLwApInfoRssi",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwApInfoSnr": {
+    "name": "mIfLwApInfoSnr",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwApInfoMod": {
+    "name": "mIfLwApInfoMod",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwMacStatsTxSuccess": {
+    "name": "mIfLwMacStatsTxSuccess",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwMacStatsTxQueueFull": {
+    "name": "mIfLwMacStatsTxQueueFull",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwMacStatsTxError": {
+    "name": "mIfLwMacStatsTxError",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwMacStatsTxRetry": {
+    "name": "mIfLwMacStatsTxRetry",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwMacStatsRxSuccess": {
+    "name": "mIfLwMacStatsRxSuccess",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwMacStatsRxError": {
+    "name": "mIfLwMacStatsRxError",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwModemStatsTxSuccess": {
+    "name": "mIfLwModemStatsTxSuccess",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwModemStatsTxError": {
+    "name": "mIfLwModemStatsTxError",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwModemStatsRxSuccess": {
+    "name": "mIfLwModemStatsRxSuccess",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwModemStatsRxError": {
+    "name": "mIfLwModemStatsRxError",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwLastRssi": {
+    "name": "mIfLwLastRssi",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwLastSnr": {
+    "name": "mIfLwLastSnr",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwLastMod": {
+    "name": "mIfLwLastMod",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwLastRate": {
+    "name": "mIfLwLastRate",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwActiveNic": {
+    "name": "mIfLwActiveNic",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemTable": {
+    "name": "mIfLwStatusConnRemTable",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemEntry": {
+    "name": "mIfLwStatusConnRemEntry",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mIfLwStatusConnRemAddress": {
+    "name": "mIfLwStatusConnRemAddress",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemIpAddress": {
+    "name": "mIfLwStatusConnRemIpAddress",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemTimeToLive": {
+    "name": "mIfLwStatusConnRemTimeToLive",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemLinkStatus": {
+    "name": "mIfLwStatusConnRemLinkStatus",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemNicId": {
+    "name": "mIfLwStatusConnRemNicId",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemRssi": {
+    "name": "mIfLwStatusConnRemRssi",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemSnr": {
+    "name": "mIfLwStatusConnRemSnr",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemMod": {
+    "name": "mIfLwStatusConnRemMod",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsTxPackets": {
+    "name": "mIfLwStatusConnRemStatsTxPackets",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsTxBytes": {
+    "name": "mIfLwStatusConnRemStatsTxBytes",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsRxPackets": {
+    "name": "mIfLwStatusConnRemStatsRxPackets",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsRxBytes": {
+    "name": "mIfLwStatusConnRemStatsRxBytes",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsTxError": {
+    "name": "mIfLwStatusConnRemStatsTxError",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsRxError": {
+    "name": "mIfLwStatusConnRemStatsRxError",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsTxDrop": {
+    "name": "mIfLwStatusConnRemStatsTxDrop",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsRxDrop": {
+    "name": "mIfLwStatusConnRemStatsRxDrop",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsGateway": {
+    "name": "mIfLwStatusConnRemStatsGateway",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsAllIp": {
+    "name": "mIfLwStatusConnRemStatsAllIp",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsName": {
+    "name": "mIfLwStatusConnRemStatsName",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsAlarmed": {
+    "name": "mIfLwStatusConnRemStatsAlarmed",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsVersion": {
+    "name": "mIfLwStatusConnRemStatsVersion",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsTemp": {
+    "name": "mIfLwStatusConnRemStatsTemp",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32768,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsDwnRssi": {
+    "name": "mIfLwStatusConnRemStatsDwnRssi",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsDwnSnr": {
+    "name": "mIfLwStatusConnRemStatsDwnSnr",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusConnRemStatsDwnMod": {
+    "name": "mIfLwStatusConnRemStatsDwnMod",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointTable": {
+    "name": "mIfLwStatusEndpointTable",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointEntry": {
+    "name": "mIfLwStatusEndpointEntry",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mIfLwStatusEndpointAddress": {
+    "name": "mIfLwStatusEndpointAddress",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointIpAddress": {
+    "name": "mIfLwStatusEndpointIpAddress",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointTimeToLive": {
+    "name": "mIfLwStatusEndpointTimeToLive",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointRemAddress": {
+    "name": "mIfLwStatusEndpointRemAddress",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointStatsTxPackets": {
+    "name": "mIfLwStatusEndpointStatsTxPackets",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointStatsTxBytes": {
+    "name": "mIfLwStatusEndpointStatsTxBytes",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointStatsRxPackets": {
+    "name": "mIfLwStatusEndpointStatsRxPackets",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointStatsRxBytes": {
+    "name": "mIfLwStatusEndpointStatsRxBytes",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointStatsTxError": {
+    "name": "mIfLwStatusEndpointStatsTxError",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointStatsRxError": {
+    "name": "mIfLwStatusEndpointStatsRxError",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointStatsTxDrop": {
+    "name": "mIfLwStatusEndpointStatsTxDrop",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfLwStatusEndpointStatsRxDrop": {
+    "name": "mIfLwStatusEndpointStatsRxDrop",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdsIfLwMIBConformance": {
+    "name": "mdsIfLwMIBConformance",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.3",
+    "class": "objectidentity"
+  },
+  "mdsIfLwMIBCompliances": {
+    "name": "mdsIfLwMIBCompliances",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.3.1",
+    "class": "objectidentity"
+  },
+  "mdsIfLwMIBGroups": {
+    "name": "mdsIfLwMIBGroups",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.3.2",
+    "class": "objectidentity"
+  },
+  "mIfLwCompliance": {
+    "name": "mIfLwCompliance",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mIfLwStatusGroup",
+        "module": "MDS-IF-LW-MIB"
+      },
+      {
+        "object": "mIfLwStatusConnRemGroup",
+        "module": "MDS-IF-LW-MIB"
+      },
+      {
+        "object": "mIfLwStatusEndpointGroup",
+        "module": "MDS-IF-LW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mIfLwStatusGroup": {
+    "name": "mIfLwStatusGroup",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwLinkStatus"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwInitStatus"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwCurrentDeviceMode"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwAlarms"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwSerialNumber"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwFirmwareRevision"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwHardwareId"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwHardwareRevision"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwTemperature"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwApInfoApAddress"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwApInfoIpAddress"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwApInfoConnectedTime"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwApInfoRssi"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwApInfoSnr"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwApInfoMod"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwMacStatsTxSuccess"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwMacStatsTxQueueFull"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwMacStatsTxError"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwMacStatsTxRetry"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwMacStatsRxSuccess"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwMacStatsRxError"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwModemStatsTxSuccess"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwModemStatsTxError"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwModemStatsRxSuccess"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwModemStatsRxError"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwLastRssi"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwLastSnr"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwLastMod"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwLastRate"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwActiveNic"
+      }
+    ],
+    "status": "current"
+  },
+  "mIfLwStatusConnRemGroup": {
+    "name": "mIfLwStatusConnRemGroup",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemAddress"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemIpAddress"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemTimeToLive"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemLinkStatus"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemNicId"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemRssi"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemSnr"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemMod"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsTxPackets"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsTxBytes"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsRxPackets"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsRxBytes"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsTxError"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsRxError"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsTxDrop"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsRxDrop"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsGateway"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsAllIp"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsName"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsAlarmed"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsVersion"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsTemp"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsDwnRssi"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsDwnSnr"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusConnRemStatsDwnMod"
+      }
+    ],
+    "status": "current"
+  },
+  "mIfLwStatusEndpointGroup": {
+    "name": "mIfLwStatusEndpointGroup",
+    "oid": "1.3.6.1.4.1.4130.10.2.6.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointAddress"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointIpAddress"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointTimeToLive"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointRemAddress"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointStatsTxPackets"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointStatsTxBytes"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointStatsRxPackets"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointStatsRxBytes"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointStatsTxError"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointStatsRxError"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointStatsTxDrop"
+      },
+      {
+        "module": "MDS-IF-LW-MIB",
+        "object": "mIfLwStatusEndpointStatsRxDrop"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-IF-LW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:32:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MDS-IF-LW-MIB"
+  }
+}

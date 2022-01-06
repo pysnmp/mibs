@@ -1,0 +1,2188 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "dsx1Line"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMgx82xxDsx1MIB": {
+    "name": "ciscoMgx82xxDsx1MIB",
+    "oid": "1.3.6.1.4.1.351.150.58",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-03-31 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in SMIv1 version. The MIB has been converted to SMIv2 version and descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "dsx1CnfGrp": {
+    "name": "dsx1CnfGrp",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1",
+    "class": "objectidentity"
+  },
+  "dsx1AlmCnfGrp": {
+    "name": "dsx1AlmCnfGrp",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2",
+    "class": "objectidentity"
+  },
+  "dsx1AlmGrp": {
+    "name": "dsx1AlmGrp",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3",
+    "class": "objectidentity"
+  },
+  "dsx1CntGrp": {
+    "name": "dsx1CntGrp",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4",
+    "class": "objectidentity"
+  },
+  "dsx1CnfGrpTable": {
+    "name": "dsx1CnfGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx1CnfGrpEntry": {
+    "name": "dsx1CnfGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lineNum": {
+    "name": "lineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineConnectorType": {
+    "name": "lineConnectorType",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "db15": 1,
+          "bnc": 2,
+          "rj48": 3,
+          "unused": 4,
+          "smb": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineEnable": {
+    "name": "lineEnable",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "modify": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineType": {
+    "name": "lineType",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx1ESF": 1,
+          "dsx1D4": 2,
+          "dsx1E1": 3,
+          "dsx1E1CRC": 4,
+          "dsx1E1MF": 5,
+          "dsx1E1CRC-MF": 6,
+          "dsx1E1clearchannel": 7,
+          "dsx1E1Q50": 8,
+          "dsx1E1Q50CRC": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineCoding": {
+    "name": "lineCoding",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx1JBZS": 1,
+          "dsx1B8ZS": 2,
+          "dsx1HDB3": 3,
+          "dsx1AMI": 4,
+          "unused": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineLength": {
+    "name": "lineLength",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lineLength0To110Feet": 1,
+          "lineLength110To220Feet": 2,
+          "lineLength220To330Feet": 3,
+          "lineLength330To440Feet": 4,
+          "lineLength440To550Feet": 5,
+          "lineLength550To660Feet": 6,
+          "lineLength660FeetPlus": 7,
+          "lineLength-75-Ohm": 8,
+          "lineLength-120-Ohm": 9,
+          "lineLength0To131Feet": 10,
+          "lineLength131To262Feet": 11,
+          "lineLength262To393Feet": 12,
+          "lineLength393To524Feet": 13,
+          "lineLength524To655Feet": 14,
+          "lineLength655FeetPlus": 15,
+          "notRequired": 16
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineXmtClockSource": {
+    "name": "lineXmtClockSource",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopTiming": 1,
+          "localTiming": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "loopTiming",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineLoopbackCommand": {
+    "name": "lineLoopbackCommand",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx1NoLoop": 1,
+          "dsx1RemoteLoop": 2,
+          "dsx1LocalLoop": 3,
+          "dsx1PayloadLoop": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dsx1NoLoop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineSendCode": {
+    "name": "lineSendCode",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx1SendNoCode": 1,
+          "dsx1SendLineCode": 2,
+          "dsx1SendPayloadCode": 3,
+          "dsx1SendResetCode": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dsx1SendNoCode",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineUsedTimeslotsBitMap": {
+    "name": "lineUsedTimeslotsBitMap",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineLoopbackCodeDetection": {
+    "name": "lineLoopbackCodeDetection",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "codeDetectDisabled": 1,
+          "codeDetectEnabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "codeDetectDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineBERTEnable": {
+    "name": "lineBERTEnable",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineBERTPattern": {
+    "name": "lineBERTPattern",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allZeros": 1,
+          "allOnes": 2,
+          "alternateONeZero": 3,
+          "doubleOneZero": 4,
+          "userOneWords": 5,
+          "userTwoWords": 6,
+          "userThreeWords": 7,
+          "userFourWords": 8,
+          "fifteenBit": 9,
+          "twentyBit": 10,
+          "twentyBitQRSS": 11,
+          "twentythreeBit": 12
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allZeros",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineBERTResult": {
+    "name": "lineBERTResult",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "passed": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "failed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bERTResultClrButton": {
+    "name": "bERTResultClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noaction",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineNumofValidEntries": {
+    "name": "lineNumofValidEntries",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx1CntGrpTable": {
+    "name": "dsx1CntGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx1CntGrpEntry": {
+    "name": "dsx1CntGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cntLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cntLineNum": {
+    "name": "cntLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcvLOSCount": {
+    "name": "rcvLOSCount",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcvOOFCount": {
+    "name": "rcvOOFCount",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcvRAICount": {
+    "name": "rcvRAICount",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcvFECount": {
+    "name": "rcvFECount",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "counterClearButton": {
+    "name": "counterClearButton",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx1AlmCnfGrpTable": {
+    "name": "dsx1AlmCnfGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx1AlmCnfGrpEntry": {
+    "name": "dsx1AlmCnfGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "almCnfLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "almCnfLineNum": {
+    "name": "almCnfLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "redSeverity": {
+    "name": "redSeverity",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "major",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rAISeverity": {
+    "name": "rAISeverity",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "minor",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nEAlarmUpCount": {
+    "name": "nEAlarmUpCount",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nEAlarmDownCount": {
+    "name": "nEAlarmDownCount",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nEAlarmThreshold": {
+    "name": "nEAlarmThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fEAlarmUpCount": {
+    "name": "fEAlarmUpCount",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fEAlarmDownCount": {
+    "name": "fEAlarmDownCount",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fEAlarmThreshold": {
+    "name": "fEAlarmThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "statisticalAlarmSeverity": {
+    "name": "statisticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2,
+          "inhibit": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lCV15MinThreshold": {
+    "name": "lCV15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 14,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lCV24HrThreshold": {
+    "name": "lCV24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 134,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lES15MinThreshold": {
+    "name": "lES15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lES24HrThreshold": {
+    "name": "lES24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 121,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lSES15MinThreshold": {
+    "name": "lSES15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lSES24HrThreshold": {
+    "name": "lSES24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRC15MinThreshold": {
+    "name": "cRC15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 14,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRC24HrThreshold": {
+    "name": "cRC24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 134,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRCES15MinThreshold": {
+    "name": "cRCES15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRCES24HrThreshold": {
+    "name": "cRCES24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 121,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRCSES15MinThreshold": {
+    "name": "cRCSES15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cRCSES24HrThreshold": {
+    "name": "cRCSES24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sEFS15MinThreshold": {
+    "name": "sEFS15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sEFS24HrThreshold": {
+    "name": "sEFS24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 17,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aISS15MinThreshold": {
+    "name": "aISS15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aISS24HrThreshold": {
+    "name": "aISS24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 17,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "uAS15MinThreshold": {
+    "name": "uAS15MinThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "uAS24HrThreshold": {
+    "name": "uAS24HrThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx1AlmGrpTable": {
+    "name": "dsx1AlmGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx1AlmGrpEntry": {
+    "name": "dsx1AlmGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "almLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "almLineNum": {
+    "name": "almLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineAlarmState": {
+    "name": "lineAlarmState",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineStatisticalAlarmState": {
+    "name": "lineStatisticalAlarmState",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lCVCurrent": {
+    "name": "lCVCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lCV15MinBucket": {
+    "name": "lCV15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lCV24HrBucket": {
+    "name": "lCV24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lESCurrent": {
+    "name": "lESCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lES15MinBucket": {
+    "name": "lES15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lES24HrBucket": {
+    "name": "lES24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lSESCurrent": {
+    "name": "lSESCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lSES15MinBucket": {
+    "name": "lSES15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lSES24HrBucket": {
+    "name": "lSES24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRCCurrent": {
+    "name": "cRCCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRC15MinBucket": {
+    "name": "cRC15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRC24HrBucket": {
+    "name": "cRC24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRCESCurrent": {
+    "name": "cRCESCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRCES15MinBucket": {
+    "name": "cRCES15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRCES24HrBucket": {
+    "name": "cRCES24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRCSESCurrent": {
+    "name": "cRCSESCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRCSES15MinBucket": {
+    "name": "cRCSES15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRCSES24HrBucket": {
+    "name": "cRCSES24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sEFSCurrent": {
+    "name": "sEFSCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sEFS15MinBucket": {
+    "name": "sEFS15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sEFS24HrBucket": {
+    "name": "sEFS24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aISSCurrent": {
+    "name": "aISSCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aISS15MinBucket": {
+    "name": "aISS15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aISS24HrBucket": {
+    "name": "aISS24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "uASCurrent": {
+    "name": "uASCurrent",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "uAS15MinBucket": {
+    "name": "uAS15MinBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "uAS24HrBucket": {
+    "name": "uAS24HrBucket",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "percentEFS": {
+    "name": "percentEFS",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClrButton": {
+    "name": "alarmClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.3.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmDsx1MIBConformance": {
+    "name": "cmDsx1MIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.58.2",
+    "class": "objectidentity"
+  },
+  "cmDsx1MIBGroups": {
+    "name": "cmDsx1MIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.58.2.1",
+    "class": "objectidentity"
+  },
+  "cmDsx1MIBCompliances": {
+    "name": "cmDsx1MIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.58.2.2",
+    "class": "objectidentity"
+  },
+  "cmDsx1Compliance": {
+    "name": "cmDsx1Compliance",
+    "oid": "1.3.6.1.4.1.351.150.58.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmDsx1GeneralGroup",
+        "module": "CISCO-MGX82XX-DSX1-MIB"
+      },
+      {
+        "object": "cmDsx1ConfGroup",
+        "module": "CISCO-MGX82XX-DSX1-MIB"
+      },
+      {
+        "object": "cmDsx1CountGroup",
+        "module": "CISCO-MGX82XX-DSX1-MIB"
+      },
+      {
+        "object": "cmDsx1AlarmConfGroup",
+        "module": "CISCO-MGX82XX-DSX1-MIB"
+      },
+      {
+        "object": "cmDsx1AlarmGroup",
+        "module": "CISCO-MGX82XX-DSX1-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmDsx1GeneralGroup": {
+    "name": "cmDsx1GeneralGroup",
+    "oid": "1.3.6.1.4.1.351.150.58.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineNumofValidEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "cmDsx1ConfGroup": {
+    "name": "cmDsx1ConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.58.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineNum"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineConnectorType"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineEnable"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineType"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineCoding"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineLength"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineXmtClockSource"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineLoopbackCommand"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineSendCode"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineLoopbackCodeDetection"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineUsedTimeslotsBitMap"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineBERTEnable"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineBERTPattern"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineBERTResult"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "bERTResultClrButton"
+      }
+    ],
+    "status": "current"
+  },
+  "cmDsx1CountGroup": {
+    "name": "cmDsx1CountGroup",
+    "oid": "1.3.6.1.4.1.351.150.58.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cntLineNum"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "rcvLOSCount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "rcvOOFCount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "rcvRAICount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "rcvFECount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "counterClearButton"
+      }
+    ],
+    "status": "current"
+  },
+  "cmDsx1AlarmConfGroup": {
+    "name": "cmDsx1AlarmConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.58.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "almCnfLineNum"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "redSeverity"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "rAISeverity"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "nEAlarmUpCount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "nEAlarmDownCount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "nEAlarmThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "fEAlarmUpCount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "fEAlarmDownCount"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "fEAlarmThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "statisticalAlarmSeverity"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lCV15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lCV24HrThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lES15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lES24HrThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lSES15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lSES24HrThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRC15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRC24HrThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCES15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCES24HrThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCSES15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCSES24HrThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "sEFS15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "sEFS24HrThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "aISS15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "aISS24HrThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "uAS15MinThreshold"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "uAS24HrThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cmDsx1AlarmGroup": {
+    "name": "cmDsx1AlarmGroup",
+    "oid": "1.3.6.1.4.1.351.150.58.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "almLineNum"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineAlarmState"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lineStatisticalAlarmState"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lCVCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lCV15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lCV24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lESCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lES15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lES24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lSESCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lSES15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "lSES24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRC15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRC24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCESCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCES15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCES24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCSESCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCSES15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "cRCSES24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "sEFSCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "sEFS15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "sEFS24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "aISSCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "aISS15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "aISS24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "uASCurrent"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "uAS15MinBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "uAS24HrBucket"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "percentEFS"
+      },
+      {
+        "module": "CISCO-MGX82XX-DSX1-MIB",
+        "object": "alarmClrButton"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MGX82XX-DSX1-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MGX82XX-DSX1-MIB"
+  }
+}

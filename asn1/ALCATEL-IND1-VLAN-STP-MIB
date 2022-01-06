@@ -1,65 +1,72 @@
 
-	ALCATEL-IND1-VLAN-STP-MIB DEFINITIONS ::= BEGIN
+        ALCATEL-IND1-VLAN-STP-MIB DEFINITIONS ::= BEGIN
 
 
-	IMPORTS
-		Counter32, TimeTicks, MODULE-IDENTITY, OBJECT-IDENTITY,
-		OBJECT-TYPE, Integer32, NOTIFICATION-TYPE
-			FROM SNMPv2-SMI
-		OBJECT-GROUP, NOTIFICATION-GROUP, MODULE-COMPLIANCE
-			FROM SNMPv2-CONF
-		DisplayString, MacAddress, TEXTUAL-CONVENTION, RowStatus
-        	FROM SNMPv2-TC
-		BridgeId, Timeout
-			FROM BRIDGE-MIB
-		softentIND1VlanStp, spanningTreeTraps
-			FROM ALCATEL-IND1-BASE
+        IMPORTS
+                Counter32, TimeTicks, MODULE-IDENTITY, OBJECT-IDENTITY,
+                OBJECT-TYPE, Integer32, NOTIFICATION-TYPE
+                        FROM SNMPv2-SMI
+                OBJECT-GROUP, NOTIFICATION-GROUP, MODULE-COMPLIANCE
+                        FROM SNMPv2-CONF
+                MacAddress, TEXTUAL-CONVENTION, RowStatus
+                        FROM SNMPv2-TC
+                SnmpAdminString
+                        FROM SNMP-FRAMEWORK-MIB
+                BridgeId, Timeout
+                        FROM BRIDGE-MIB
+                softentIND1VlanStp
+                        FROM ALCATEL-IND1-BASE
         InterfaceIndex
             FROM IF-MIB
-			;
+                        ;
 
-	alcatelIND1VLANSTPMIB MODULE-IDENTITY
-		LAST-UPDATED "200704030000Z"
-		ORGANIZATION "Alcatel-Lucent"
-		CONTACT-INFO
-		    "Please consult with Customer Service to ensure the most appropriate
-		     version of this document is used with the products in question:
+        alcatelIND1VLANSTPMIB MODULE-IDENTITY
+                LAST-UPDATED "201005130000Z"
+                ORGANIZATION "Alcatel-Lucent"
+                CONTACT-INFO
+                    "Please consult with Customer Service to ensure the most appropriate
+                     version of this document is used with the products in question:
 
-				Alcatel-Lucent, Enterprise Solutions Division
-			       (Formerly Alcatel Internetworking, Incorporated)
-				       26801 West Agoura Road
-			 	   Agoura Hills, CA  91301-5122
-			      		United States Of America
+                                Alcatel-Lucent, Enterprise Solutions Division
+                               (Formerly Alcatel Internetworking, Incorporated)
+                                       26801 West Agoura Road
+                                   Agoura Hills, CA  91301-5122
+                                        United States Of America
 
-	    	     Telephone:              North America  +1 800 995 2696
-			 	     	     Latin America  +1 877 919 9526
-					         Europe         +31 23 556 0100
-				     	     Asia           +65 394 7933
-				     	     All Other      +1 818 878 4507
+                     Telephone:              North America  +1 800 995 2696
+                                             Latin America  +1 877 919 9526
+                                                 Europe         +31 23 556 0100
+                                             Asia           +65 394 7933
+                                             All Other      +1 818 878 4507
 
-	             Electronic Mail:         support@ind.alcatel.com
-	             World Wide Web:          http://alcatel-lucent.com/wps/portal/enterprise
-	             File Transfer Protocol:  ftp://ftp.ind.alcatel.com/pub/products/mibs"
-		DESCRIPTION
-			         "The Spanning Tree parameters for Vlans and ports that
-			          support the Spanning Tree protocol.
-			          Large percentage of this group is lifted from rfc1493.
-			          Implementation of this group is mandatory for AOS products.
-                
+                     Electronic Mail:         support@ind.alcatel.com
+                     World Wide Web:          http://alcatel-lucent.com/wps/portal/enterprise
+                     File Transfer Protocol:  ftp://ftp.ind.alcatel.com/pub/products/mibs"
+                DESCRIPTION
+                                 "The Spanning Tree parameters for Vlans and ports that
+                                  support the Spanning Tree protocol.
+                                  Large percentage of this group is lifted from rfc1493.
+                                  Implementation of this group is mandatory for AOS products.
+
                 The right to make changes in specification and other information
                 contained in this document without prior notice is reserved.
 
                 No liability shall be assumed for any incidental, indirect, special, or
-                consequential damages whatsoever arising from or related to this 
+                consequential damages whatsoever arising from or related to this
                 document or the information contained herein.
 
                 Vendors, end-users, and other interested parties are granted
-                non-exclusive license to use this specification in connection with 
+                non-exclusive license to use this specification in connection with
                 management of the products for which it is intended to be used.
 
                                Copyright (C) 1995-2006 Alcatel-Lucent
-	                                 ALL RIGHTS RESERVED WORLDWIDE"
-		::= { softentIND1VlanStp 1}
+                                         ALL RIGHTS RESERVED WORLDWIDE"
+
+        REVISION      "201005130000Z"
+        DESCRIPTION
+            "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+
+                ::= { softentIND1VlanStp 1}
 
 -- -------------------------------------------------------------
 -- Textual Conventions
@@ -1093,12 +1100,6 @@ vl4095(4095)
 
                 }
 
-MstList ::= TEXTUAL-CONVENTION
-    STATUS      current
-    DESCRIPTION
-        "Each Mst Instance will be displayed in a
-         seperated by comas. (maximum 64 Msti) "
-    SYNTAX      DisplayString(SIZE (0..128))
 
 
 
@@ -1112,7 +1113,13 @@ MstList ::= TEXTUAL-CONVENTION
 -- -------------------------------------------------------------
 
 
-	alcatelIND1VLANSTPMIBObjects OBJECT-IDENTITY
+        alcatelIND1VLANSTPMIBNotifications OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION
+            "Branch For VLAN STP MIB Subsystem Notifications."
+        ::= { alcatelIND1VLANSTPMIB 0 }
+
+        alcatelIND1VLANSTPMIBObjects OBJECT-IDENTITY
         STATUS current
         DESCRIPTION
             "Branch For Spanning Tree
@@ -1144,353 +1151,49 @@ MstList ::= TEXTUAL-CONVENTION
         ::= { alcatelIND1VLANSTPMIBConformance 2 }
 
 
-	vStpInfo OBJECT IDENTIFIER ::= { alcatelIND1VLANSTPMIBObjects 1 }
-
-
-	vStpTable  OBJECT-TYPE
-	    SYNTAX  SEQUENCE OF VStpEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS deprecated
-	    DESCRIPTION
-		 "A list of Spanning Tree instances in this physical Switch."
-	    ::= { vStpInfo 1 }
-
-	vStpEntry  OBJECT-TYPE
-	    SYNTAX  VStpEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS deprecated
-	    DESCRIPTION
-		 "A STP entry."
-	    INDEX { vStpNumber }
-	    ::= { vStpTable 1 }
-
-	VStpEntry ::=
-	   SEQUENCE {
-	    vStpNumber
-		INTEGER,
-	    vStpMode
-		INTEGER,
-	    vStpProtocolSpecification
-		INTEGER,
-	    vStpPriority
-		INTEGER,
-	    vStpBridgeAddress
-		BridgeId,
-	    vStpTimeSinceTopologyChange
-		TimeTicks,
-	    vStpTopChanges
-		Counter32,
-	    vStpDesignatedRoot
-		BridgeId,
-            vStpRootCost
-                Integer32,
-	    vStpRootPortNumber
-		Integer32,
-            vStpNextBestRootCost
-                Integer32,
-            vStpNextBestRootPortNumber
-                Integer32,
-            vStpMaxAge
-                Timeout,
-            vStpHelloTime
-                Timeout,
-            vStpHoldTime
-                Integer32,
-            vStpForwardDelay
-                Integer32,
-            vStpBridgeMaxAge
-                Timeout,
-            vStpBridgeHelloTime
-                Timeout,
-            vStpBridgeForwardDelay
-                Timeout
-	    }
-
-	vStpNumber  OBJECT-TYPE
-	    SYNTAX  INTEGER (1..65535)
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		 "The Spanning Tree number identifying this instance. Valid
-		  range from 1 to 65535."
-	    ::= { vStpEntry 1 }
-
-	vStpMode OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			flat(1),
-			onePerVlan(2),
-			multiple(3)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The mode of the Spanning Tree Protocol implemented
-		 for this bridge.  The multiple mode (IEEE 802.1s
-		 multiple spanning tree) is to be implemented
-		 in a future version."
-	    DEFVAL { onePerVlan }
-	    ::= { vStpEntry 2 }
-
-	vStpProtocolSpecification OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			unknown(1),
-			decLb100(2),
-			ieee8021d(3),
-			ieee8021w(4)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The version of the Spanning Tree Protocol implemented
-		 for this instance.  The IEEE 802.1d and 802.1w (fast
-		 spanning tree) implementation are the only versions supported.
-		 If future versions of the IEEE Spanning Tree Protocol
-		 are released that are incompatible with the current
-		 version a new value will be defined."
-	    DEFVAL { ieee8021d }
-	    ::= { vStpEntry 3 }
-
-	vStpPriority OBJECT-TYPE
-	    SYNTAX  INTEGER (0..65535)
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The value of the write-able portion of the Bridge
-		 ID, i.e., the first two octets of the (8 octet
-		 long) Bridge ID (vStpBridgeAddress).  The other (last)
-		 6 octets of the Bridge ID are recommended to be the
-		 numerically smallest MAC address of all ports that
-		 belong to this Spanning tree instance."
-	    DEFVAL { 32768 }
-	    ::= { vStpEntry 4 }
-
-	vStpBridgeAddress OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The bridge identifier of this spanning tree instance
-		 as determined by the Spanning Tree Protocol."
-	    ::= { vStpEntry 5 }
-
-
-	vStpTimeSinceTopologyChange OBJECT-TYPE
-	    SYNTAX  TimeTicks
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The time (in hundredths of a second) since the
-		 last time a topology change was detected by this
-		 spanning tree instance."
-	    ::= { vStpEntry 6 }
-
-	vStpTopChanges OBJECT-TYPE
-	    SYNTAX  Counter32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The total number of topology changes detected by
-		 this spanning tree instance since the management
-		 entity was last reset or initialized."
-	    ::= { vStpEntry 7 }
-
-	vStpDesignatedRoot OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The bridge identifier of the root of the spanning
-		 tree as determined by the Spanning Tree Protocol as executed
-		 by this instance.
-		 This value is used as the Root Identifier parameter in all
-		 Configuration Bridge PDUs originated by this node for this
-		 instance."
-	    ::= { vStpEntry 8 }
-
-	vStpRootCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The cost of the path to the root as seen from
-		 this bridge for this spanning tree instance."
-	    ::= { vStpEntry 9 }
-
-	vStpRootPortNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The  port ifindex of the port which offers the
-		 lowest cost path from this bridge to the root
-		 bridge for this spanning tree instance."
-	    ::= { vStpEntry 10 }
-
-	vStpNextBestRootCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The cost of the path to the root through the next
-		 best root port as seen from this bridge
-		 for this spanning tree instance."
-	    ::= { vStpEntry 11 }
-
-	vStpNextBestRootPortNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The  port ifindex of the next port which offers
-		 the lowestcost path from this bridge to the root
-		 bridge for this spanning tree instance. This port
-		 will become root port if the actual root port goes down."
-	    ::= { vStpEntry 12 }
-
-	vStpMaxAge OBJECT-TYPE
-	    SYNTAX  Timeout
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The maximum age of Spanning Tree Protocol
-		 information learned from the network on any port
-		 before it is discarded, in units of hundredths of
-		 a second.  This is the actual value that this
-		 spanning tree instance is currently using."
-	    ::= { vStpEntry 13 }
-
-	vStpHelloTime OBJECT-TYPE
-	    SYNTAX  Timeout
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The amount of time between the transmission of
-		 Configuration bridge PDUs by this instance on any port
-		 when it is the root of the spanning tree or trying
-		 to become so, in units of hundredths of a second.
-		 This is the actual value that this instance is
-		 currently using."
-	    ::= { vStpEntry 14 }
-
-	vStpHoldTime OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"This time value determines the interval length
-		 during which no more than two Configuration bridge
-		 PDUs shall be transmitted by this instance, in units
-		 of hundredths of a second."
-	    ::= { vStpEntry 15 }
-
-	vStpForwardDelay OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"This time value, measured in units of hundredths
-		 of a second, controls how fast a port changes its
-		 spanning state when moving towards the Forwarding
-		 state.  The value determines how long the port
-		 stays in each of the Listening and Learning
-		 states, which precede the Forwarding state.  This
-		 value is also used, when a topology change has
-		 been detected and is underway, to age all dynamic
-		 entries in the Forwarding Database.  [Note that
-		 this value is the one that this instance is
-		 currently using, in contrast to
-		 vStpBridgeForwardDelay which is the value that
-		 this instance and all others would start using
-		 if/when this bridge were to become the root.]"
-	    ::= { vStpEntry 16 }
-
-	vStpBridgeMaxAge OBJECT-TYPE
-	    SYNTAX  Timeout (600..4000)
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The value that all bridges use for MaxAge when
-		 this bridge is acting as the root.  Note that
-		 802.1D-1990 specifies that the range for this
-		 parameter is related to the value of
-		 vStpBridgeHelloTime. The granularity of this
-		 timer is specified by 802.1D-1990 to be 1 second.
-		 An agent may return a badValue error if a set is
-		 attempted to a value which is not a whole number
-		 of seconds."
-	    DEFVAL { 2000 }
-	    ::= { vStpEntry 17 }
-
-	vStpBridgeHelloTime OBJECT-TYPE
-	    SYNTAX  Timeout (100..1000)
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The value that all bridges use for HelloTime when
-		 this bridge is acting as the root.  The
-		 granularity of this timer is specified by 802.1D-
-		 1990 to be 1 second.  An agent may return a
-		 badValue error if a set is attempted to a value
-		 which is not a whole number of seconds."
-	    DEFVAL { 200 }
-	    ::= { vStpEntry 18 }
-
-	vStpBridgeForwardDelay OBJECT-TYPE
-	    SYNTAX  Timeout (400..3000)
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The value that all bridges use for ForwardDelay
-		 when this bridge is acting as the root.  Note that
-		 802.1D-1990 specifies that the range for this
-		 parameter is related to the value of
-		 vStpBridgeMaxAge.  The granularity of this
-		 timer is specified by 802.1D-1990 to be 1 second.
-		 An agent may return a badValue error if a set is
-		 attempted to a value which is not a whole number
-		 of seconds."
-	    DEFVAL { 1500 }
-	    ::= { vStpEntry 19 }
+        vStpInfo OBJECT IDENTIFIER ::= { alcatelIND1VLANSTPMIBObjects 1 }
 
 -- New STP Instance table to handle multiple instances and modes --
 
-	vStpInsTable  OBJECT-TYPE
-	    SYNTAX  SEQUENCE OF VStpInsEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		 "A list of Spanning Tree instances on this bridge."
-	    ::= { vStpInfo 3 }
+        vStpInsTable  OBJECT-TYPE
+            SYNTAX  SEQUENCE OF VStpInsEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                 "A list of Spanning Tree instances on this bridge."
+            ::= { vStpInfo 1 }
 
-	vStpInsEntry  OBJECT-TYPE
-	    SYNTAX  VStpInsEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		 "A STP instance entry. Either one multiple spanning tree
+        vStpInsEntry  OBJECT-TYPE
+            SYNTAX  VStpInsEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                 "A STP instance entry. Either one multiple spanning tree
           instance, or a per VLAN instance."
-	    INDEX { vStpBridgeMode, vStpInsNumber }
-	    ::= { vStpInsTable 1 }
+            INDEX { vStpInsBridgeMode, vStpInsNumber }
+            ::= { vStpInsTable 1 }
 
-	VStpInsEntry ::=
+        VStpInsEntry ::=
         SEQUENCE {
+        vStpInsBridgeMode
+            INTEGER,
         vStpInsNumber
+            Integer32,
+            vStpInsProtocolSpecification
             INTEGER,
-	    vStpInsProtocolSpecification
-            INTEGER,
-	    vStpInsPriority
-            INTEGER,
-	    vStpInsBridgeAddress
+            vStpInsPriority
+            Integer32,
+            vStpInsBridgeAddress
             BridgeId,
-	    vStpInsTimeSinceTopologyChange
+            vStpInsTimeSinceTopologyChange
             TimeTicks,
-	    vStpInsTopChanges
+            vStpInsTopChanges
             Counter32,
-	    vStpInsDesignatedRoot
+            vStpInsDesignatedRoot
             BridgeId,
         vStpInsRootCost
             Integer32,
-	    vStpInsRootPortNumber
+            vStpInsRootPortNumber
             Integer32,
         vStpInsNextBestRootCost
             Integer32,
@@ -1518,252 +1221,265 @@ MstList ::= TEXTUAL-CONVENTION
             Integer32,
         vStpIns1x1VlanNumber
             Integer32,
-	    vStpInsMstiNumber
+        vStpInsMstiNumber
             Integer32,
-	    vStpInsMode
+        vStpInsMode
             INTEGER,
-	    vStpInsAutoVlanContainment
+        vStpInsAutoVlanContainment
             INTEGER,
-            vStpInsBridgeTxHoldCount
-            INTEGER,
-	vStpInsStatus
-	    INTEGER
-	    }
+        vStpInsBridgeTxHoldCount
+            Integer32,
+        vStpInsAdminState
+            INTEGER
+        }
 
-	vStpInsNumber  OBJECT-TYPE
-	    SYNTAX  INTEGER (0..4095)
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		 "The Spanning Tree number identifying this instance.
+        vStpInsBridgeMode OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        flat(1),
+                        onePerVlan(2)
+                        }
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                "The mode of the Spanning Tree Protocol activated
+                 on this bridge.Only the instances matching the current
+                 value of vStpBridgeMode are active"
+            ::= { vStpInsEntry 1 }
+
+        vStpInsNumber  OBJECT-TYPE
+            SYNTAX  Integer32 (0..4095)
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                 "The Spanning Tree number identifying this instance.
           In 1x1 mode the accepted range is 1-4095 and corresponds
           to the VLAN.  In Flat mode the range is 0-4095 and corresponds to the
           Spanning tree instance."
-	    ::= { vStpInsEntry 1 }
+            ::= { vStpInsEntry 2 }
 
-	vStpInsProtocolSpecification OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			unknown(1),
-			decLb100(2),
-			ieeeSTP(3),
-			ieeeRSTP(4),
-			ieeeMSTP(5)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The version of the Spanning Tree Protocol implemented
-		 for this instance. ieeeSTP represents standard STP of 802.1d 1998.
+        vStpInsProtocolSpecification OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        unknown(1),
+                        decLb100(2),
+                        ieeeSTP(3),
+                        ieeeRSTP(4),
+                        ieeeMSTP(5)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The version of the Spanning Tree Protocol implemented
+                 for this instance. ieeeSTP represents standard STP of 802.1d 1998.
          ieeeRSTP stands for Rapid STP.  Multiple STP or
          MSTP (802.1s) is only supported in flat
          mode, using instance 0.  If future versions of the
          IEEE Spanning Tree Protocol are released that are
          incompatible with the current version, a new value will
          be defined."
-	    DEFVAL { ieeeSTP }
-	    ::= { vStpInsEntry 2 }
+            DEFVAL { ieeeSTP }
+            ::= { vStpInsEntry 3 }
 
-	vStpInsPriority OBJECT-TYPE
-	    SYNTAX  INTEGER (0..65535)
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The value of the write-able portion of the Bridge
-		 ID, i.e., the first two octets of the (8 octet
-		 long) Bridge ID (vStpBridgeAddress).  The other (last)
-		 6 octets of the Bridge ID are recommended to be the
-		 numerically smallest MAC address of all ports that
-		 belong to this Spanning tree instance."
-	    DEFVAL { 32768 }
-	    ::= { vStpInsEntry 3 }
+        vStpInsPriority OBJECT-TYPE
+            SYNTAX  Integer32 (0..65535)
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The value of the write-able portion of the Bridge
+                 ID, i.e., the first two octets of the (8 octet
+                 long) Bridge ID (vStpBridgeAddress).  The other (last)
+                 6 octets of the Bridge ID are recommended to be the
+                 numerically smallest MAC address of all ports that
+                 belong to this Spanning tree instance."
+            DEFVAL { 32768 }
+            ::= { vStpInsEntry 4 }
 
-	vStpInsBridgeAddress OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The bridge identifier of this spanning tree instance
-		 as determined by the Spanning Tree Protocol."
-	    ::= { vStpInsEntry 4 }
+        vStpInsBridgeAddress OBJECT-TYPE
+            SYNTAX  BridgeId
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The bridge identifier of this spanning tree instance
+                 as determined by the Spanning Tree Protocol."
+            ::= { vStpInsEntry 5 }
 
 
-	vStpInsTimeSinceTopologyChange OBJECT-TYPE
-	    SYNTAX  TimeTicks
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The time (in hundredths of a second) since the
-		 last time a topology change was detected by this
-		 spanning tree instance."
-	    ::= { vStpInsEntry 5 }
+        vStpInsTimeSinceTopologyChange OBJECT-TYPE
+            SYNTAX  TimeTicks
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The time (in hundredths of a second) since the
+                 last time a topology change was detected by this
+                 spanning tree instance."
+            ::= { vStpInsEntry 6 }
 
-	vStpInsTopChanges OBJECT-TYPE
-	    SYNTAX  Counter32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The total number of topology changes detected by
-		 this spanning tree instance since the management
-		 entity was last reset or initialized."
-	    ::= { vStpInsEntry 6 }
+        vStpInsTopChanges OBJECT-TYPE
+            SYNTAX  Counter32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The total number of topology changes detected by
+                 this spanning tree instance since the management
+                 entity was last reset or initialized."
+            ::= { vStpInsEntry 7 }
 
-	vStpInsDesignatedRoot OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The bridge identifier of the root of the spanning
-		 tree as determined by the Spanning Tree Protocol as executed
-		 by this instance.
-		 This value is used as the Root Identifier parameter in all
-		 Configuration Bridge PDUs originated by this node for this
-		 instance."
-	    ::= { vStpInsEntry 7 }
+        vStpInsDesignatedRoot OBJECT-TYPE
+            SYNTAX  BridgeId
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The bridge identifier of the root of the spanning
+                 tree as determined by the Spanning Tree Protocol as executed
+                 by this instance.
+                 This value is used as the Root Identifier parameter in all
+                 Configuration Bridge PDUs originated by this node for this
+                 instance."
+            ::= { vStpInsEntry 8 }
 
-	vStpInsRootCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The cost of the path to the root as seen from
-		 this bridge for this spanning tree instance."
-	    ::= { vStpInsEntry 8 }
+        vStpInsRootCost OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The cost of the path to the root as seen from
+                 this bridge for this spanning tree instance."
+            ::= { vStpInsEntry 9 }
 
-	vStpInsRootPortNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The ifindex of the port which offers the
-		 lowest cost path from this bridge to the root
-		 bridge for this spanning tree instance."
-	    ::= { vStpInsEntry 9 }
+        vStpInsRootPortNumber OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The ifindex of the port which offers the
+                 lowest cost path from this bridge to the root
+                 bridge for this spanning tree instance."
+            ::= { vStpInsEntry 10 }
 
-	vStpInsNextBestRootCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The cost of the path to the root through the next
-		 best root port as seen from this bridge
-		 for this spanning tree instance."
-	    ::= { vStpInsEntry 10 }
+        vStpInsNextBestRootCost OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The cost of the path to the root through the next
+                 best root port as seen from this bridge
+                 for this spanning tree instance."
+            ::= { vStpInsEntry 11 }
 
-	vStpInsNextBestRootPortNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The ifindex of the next port which offers
-		 the lowest cost path from this bridge to the root
-		 bridge for this spanning tree instance. This port
-		 will become root port if the actual root port goes down."
-	    ::= { vStpInsEntry 11 }
+        vStpInsNextBestRootPortNumber OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The ifindex of the next port which offers
+                 the lowest cost path from this bridge to the root
+                 bridge for this spanning tree instance. This port
+                 will become root port if the actual root port goes down."
+            ::= { vStpInsEntry 12 }
 
-	vStpInsMaxAge OBJECT-TYPE
-	    SYNTAX  Timeout
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The maximum age of Spanning Tree Protocol
-		 information learned from the network on any port
-		 before it is discarded, in units of hundredths of
-		 a second.  This is the actual value that this
-		 spanning tree instance is currently using."
-	    ::= { vStpInsEntry 12 }
+        vStpInsMaxAge OBJECT-TYPE
+            SYNTAX  Timeout
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The maximum age of Spanning Tree Protocol
+                 information learned from the network on any port
+                 before it is discarded, in units of hundredths of
+                 a second.  This is the actual value that this
+                 spanning tree instance is currently using."
+            ::= { vStpInsEntry 13 }
 
-	vStpInsHelloTime OBJECT-TYPE
-	    SYNTAX  Timeout
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The amount of time between the transmission of
-		 Configuration bridge PDUs by this instance on any port
-		 when it is the root of the spanning tree or trying
-		 to become so, in units of hundredths of a second.
-		 This is the actual value that this instance is
-		 currently using."
-	    ::= { vStpInsEntry 13 }
+        vStpInsHelloTime OBJECT-TYPE
+            SYNTAX  Timeout
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The amount of time between the transmission of
+                 Configuration bridge PDUs by this instance on any port
+                 when it is the root of the spanning tree or trying
+                 to become so, in units of hundredths of a second.
+                 This is the actual value that this instance is
+                 currently using."
+            ::= { vStpInsEntry 14 }
 
-	vStpInsHoldTime OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"This time value determines the interval length
-		 during which no more than two Configuration bridge
-		 PDUs shall be transmitted by this instance, in units
-		 of hundredths of a second."
-	    ::= { vStpInsEntry 14 }
+        vStpInsHoldTime OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "This time value determines the interval length
+                 during which no more than two Configuration bridge
+                 PDUs shall be transmitted by this instance, in units
+                 of hundredths of a second."
+            ::= { vStpInsEntry 15 }
 
-	vStpInsForwardDelay OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"This time value, measured in units of hundredths
-		 of a second, controls how fast a port changes its
-		 spanning state when moving towards the Forwarding
-		 state.  The value determines how long the port
-		 stays in each of the Listening and Learning
-		 states, which precede the Forwarding state.  This
-		 value is also used, when a topology change has
-		 been detected and is underway, to age all dynamic
-		 entries in the Forwarding Database.  (Note that
-		 this value is the one that this instance is
-		 currently using, in contrast to
-		 vStpBridgeForwardDelay which is the value that
-		 this instance and all others would start using
-		 if/when this bridge were to become the root.)"
-	    ::= { vStpInsEntry 15 }
+        vStpInsForwardDelay OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "This time value, measured in units of hundredths
+                 of a second, controls how fast a port changes its
+                 spanning state when moving towards the Forwarding
+                 state.  The value determines how long the port
+                 stays in each of the Listening and Learning
+                 states, which precede the Forwarding state.  This
+                 value is also used, when a topology change has
+                 been detected and is underway, to age all dynamic
+                 entries in the Forwarding Database.  (Note that
+                 this value is the one that this instance is
+                 currently using, in contrast to
+                 vStpBridgeForwardDelay which is the value that
+                 this instance and all others would start using
+                 if/when this bridge were to become the root.)"
+            ::= { vStpInsEntry 16 }
 
-	vStpInsBridgeMaxAge OBJECT-TYPE
-	    SYNTAX  Timeout (600..4000)
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The value that all bridges use for MaxAge when
-		 this bridge is acting as the root.  Note that
-		 802.1D-1990 specifies that the range for this
-		 parameter is related to the value of
-		 vStpBridgeHelloTime. The granularity of this
-		 timer is specified by 802.1D-1990 to be 1 second.
-		 An agent may return a badValue error if a set is
-		 attempted to a value which is not a whole number
-		 of seconds."
-	    DEFVAL { 2000 }
-	    ::= { vStpInsEntry 16 }
+        vStpInsBridgeMaxAge OBJECT-TYPE
+            SYNTAX  Timeout (600..4000)
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The value that all bridges use for MaxAge when
+                 this bridge is acting as the root.  Note that
+                 802.1D-1990 specifies that the range for this
+                 parameter is related to the value of
+                 vStpBridgeHelloTime. The granularity of this
+                 timer is specified by 802.1D-1990 to be 1 second.
+                 An agent may return a badValue error if a set is
+                 attempted to a value which is not a whole number
+                 of seconds."
+            DEFVAL { 2000 }
+            ::= { vStpInsEntry 17 }
 
-	vStpInsBridgeHelloTime OBJECT-TYPE
-	    SYNTAX  Timeout (100..1000)
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The value that all bridges use for HelloTime when
-		 this bridge is acting as the root.  The
-		 granularity of this timer is specified by 802.1D-
-		 1990 to be 1 second.  An agent may return a
-		 badValue error if a set is attempted to a value
-		 which is not a whole number of seconds."
-	    DEFVAL { 200 }
-	    ::= { vStpInsEntry 17 }
+        vStpInsBridgeHelloTime OBJECT-TYPE
+            SYNTAX  Timeout (100..1000)
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The value that all bridges use for HelloTime when
+                 this bridge is acting as the root.  The
+                 granularity of this timer is specified by 802.1D-
+                 1990 to be 1 second.  An agent may return a
+                 badValue error if a set is attempted to a value
+                 which is not a whole number of seconds."
+            DEFVAL { 200 }
+            ::= { vStpInsEntry 18 }
 
-	vStpInsBridgeForwardDelay OBJECT-TYPE
-	    SYNTAX  Timeout (400..3000)
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The value that all bridges use for ForwardDelay
-		 when this bridge is acting as the root.  Note that
-		 802.1D-1990 specifies that the range for this
-		 parameter is related to the value of
-		 vStpBridgeMaxAge.  The granularity of this
-		 timer is specified by 802.1D-1990 to be 1 second.
-		 An agent may return a badValue error if a set is
-		 attempted to a value which is not a whole number
-		 of seconds."
-	    DEFVAL { 1500 }
-	    ::= { vStpInsEntry 18 }
+        vStpInsBridgeForwardDelay OBJECT-TYPE
+            SYNTAX  Timeout (400..3000)
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The value that all bridges use for ForwardDelay
+                 when this bridge is acting as the root.  Note that
+                 802.1D-1990 specifies that the range for this
+                 parameter is related to the value of
+                 vStpBridgeMaxAge.  The granularity of this
+                 timer is specified by 802.1D-1990 to be 1 second.
+                 An agent may return a badValue error if a set is
+                 attempted to a value which is not a whole number
+                 of seconds."
+            DEFVAL { 1500 }
+            ::= { vStpInsEntry 19 }
 
     vStpInsBpduSwitching OBJECT-TYPE
         SYNTAX INTEGER {
@@ -1778,422 +1494,159 @@ MstList ::= TEXTUAL-CONVENTION
         When the field is disabled, the BPDUs received on this
         instance will be dropped if spanning tree is disabled."
         DEFVAL { disabled }
-        ::= { vStpInsEntry 19 }
+        ::= { vStpInsEntry 20 }
 
-	vStpInsCistRegionalRootId OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The bridge identifier of the regional CIST root bridge of
-		 the spanning tree as determined by the Spanning Tree
-         Protocol. This value is only used in flat mode"
-	    ::= { vStpInsEntry 20 }
-
-
-	vStpInsCistPathCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The cost of the path to the cist regional root.
-         This value is only used in flat mode"
-	    ::= { vStpInsEntry 21 }
-
-
-	vStpIns1x1VlanNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The Vlan number of this instance.  Only valid in
-        1x1 mode."
-	    ::= { vStpInsEntry 22 }
-
-	vStpInsMstiNumber  OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The Mst instance.  Only valid in Flat Mode."
-	    ::= { vStpInsEntry 23 }
-
-	vStpInsMode  OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			flat(1),
-			onePerVlan(2)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The current mode of the Spanning Tree Protocol this instance
-         is a part of."
-	    ::= { vStpInsEntry 24 }
-
-	vStpInsAutoVlanContainment  OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enable(1),
-			disable(2)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The current enabled status for this instance of the Auto
-                Vlan containment feature which controls path costs in MSTP."
-	    ::= { vStpInsEntry 25 }
-	
-        vStpInsBridgeTxHoldCount  OBJECT-TYPE
-	    SYNTAX  INTEGER (1..10)
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		 "A limit controlling the number of PDUs transmitted per port
-                 per second for this instance."
-            DEFVAL { 6 }
-	    ::= { vStpInsEntry 26 }
-
-	vStpInsStatus OBJECT-TYPE
-            SYNTAX  INTEGER
-			{
-			enabled(1),
-			disabled(2)
-			}
+        vStpInsCistRegionalRootId OBJECT-TYPE
+            SYNTAX  BridgeId
             MAX-ACCESS  read-only
             STATUS  current
             DESCRIPTION
-                 "This object specifies if the STP status is enabled (1) or 
-		 disabled (2) on this STP instance." 
-	    ::= { vStpInsEntry 27 }
- 
-	--  The Spanning Tree Port Table for Omniswitch VLAN implementation
+                "The bridge identifier of the regional CIST root bridge of
+                 the spanning tree as determined by the Spanning Tree
+         Protocol. This value is only used in flat mode"
+            ::= { vStpInsEntry 21 }
 
-	vStpPortTable OBJECT-TYPE
-	    SYNTAX  SEQUENCE OF VStpPortEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  deprecated
-	    DESCRIPTION
-		"A table that contains port-specific information
-		 for the Spanning Tree Protocol."
-	    ::= { vStpInfo 2 }
 
-	vStpPortEntry OBJECT-TYPE
-	    SYNTAX  VStpPortEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  deprecated
-	    DESCRIPTION
-		"A list of information maintained for every Spanning Tree
-   		 instance by every port about the Spanning Tree Protocol state
-		 for that port."
-	    INDEX   { vStpNumber, vStpPortNumber }
-	    ::= { vStpPortTable 1 }
+        vStpInsCistPathCost OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The cost of the path to the cist regional root.
+         This value is only used in flat mode"
+            ::= { vStpInsEntry 22 }
 
-	VStpPortEntry ::=
-	    SEQUENCE {
-		vStpPortNumber
-		    Integer32,
-		vStpPortPriority
-		    INTEGER,
-		vStpPortState
-		    INTEGER,
-		vStpPortEnable
-		    INTEGER,
-		vStpPortPathCost
-		    INTEGER,
-		vStpPortDesignatedRoot
-		    BridgeId,
-		vStpPortDesignatedCost
-		    Integer32,
-		vStpPortDesignatedBridge
-		    BridgeId,
-		vStpPortDesignatedPtPrio
-		    Integer32,
-		vStpPortDesignatedPtNumber
-		    Integer32,
-		vStpPortForwardTransitions
-		    Integer32,
-		vStpPortManualMode
-		    INTEGER,
-		vStpPortRole
-		    INTEGER,
-		vStpPortPrimaryPortNumber
-		    Integer32,
-		vStpPortAdminConnectionType
-		    INTEGER,
-		vStpPortOperConnectionType
-		    INTEGER
-	    }
 
-	vStpPortNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The  port ifindex of the port for which this
-		 entry contains Spanning Tree Protocol management
-		 information."
-	    ::= { vStpPortEntry 1 }
+        vStpIns1x1VlanNumber OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The Vlan number of this instance.  Only valid in
+        1x1 mode."
+            ::= { vStpInsEntry 23 }
 
-	vStpPortPriority OBJECT-TYPE
-	    SYNTAX  INTEGER (0..15)
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The priority of this port which used originally as
-		 part of the port ID specified in 802.1D."
-	    DEFVAL { 8 }
-	    ::= { vStpPortEntry 2 }
+        vStpInsMstiNumber  OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The Mst instance.  Only valid in Flat Mode."
+            ::= { vStpInsEntry 24 }
 
-	vStpPortState OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			disabled(1),
-			blocking(2),
-			listening(3),
-			learning(4),
-			forwarding(5)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The port's current state as defined by
-		 application of the Spanning Tree Protocol.  This
-		 state controls what action a port takes on
-		 reception of a frame.  For ports which are disabled
-		 (see vStpPortEnable), this object will have a value
-                 of disabled(1).  Falcon does not support the broken(6)
-		 state as defined in RFC1493."
-	    ::= { vStpPortEntry 3 }
+        vStpInsMode  OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        flat(1),
+                        onePerVlan(2)
+                        }
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The current mode of the Spanning Tree Protocol this instance
+         is a part of."
+            ::= { vStpInsEntry 25 }
 
-	vStpPortEnable OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enabled(1),
-			disabled(2)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The enabled/disabled status of the port."
-	    DEFVAL { enabled }
-	    ::= { vStpPortEntry 4 }
+        vStpInsAutoVlanContainment  OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The current enabled status for this instance of the Auto
+                Vlan containment feature which controls path costs in MSTP."
+            ::= { vStpInsEntry 26 }
 
-	vStpPortPathCost OBJECT-TYPE
-	    SYNTAX  INTEGER (0..65535)
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The contribution of this port to the path cost of
-		 paths towards the spanning tree root which include
-		 this port.  802.1D-1990 recommends that the
-		 default value of this parameter be in inverse
-		 proportion to the speed of the attached LAN."
-	    DEFVAL { 0 }
-	    ::= { vStpPortEntry 5 }
+        vStpInsBridgeTxHoldCount  OBJECT-TYPE
+            SYNTAX  Integer32 (1..10)
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                 "A limit controlling the number of PDUs transmitted per port
+                 per second for this instance."
+            DEFVAL { 6 }
+            ::= { vStpInsEntry 27 }
 
-	vStpPortDesignatedRoot OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The unique Bridge Identifier of the Bridge
-		 recorded as the Root in the Configuration BPDUs
-		 transmitted by the Designated Bridge for the
-		 segment to which the port is attached."
-	    ::= { vStpPortEntry 6 }
-
-	vStpPortDesignatedCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The path cost of the Designated Port of the
-		 segment connected to this port.  This value is
-		 compared to the Root Path Cost field in received
-		 bridge PDUs."
-	    ::= { vStpPortEntry 7 }
-
-	vStpPortDesignatedBridge OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The Bridge Identifier of the bridge which this
-		 port considers to be the Designated Bridge for
-		 this port's segment."
-	    ::= { vStpPortEntry 8 }
-
-	vStpPortDesignatedPtPrio OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The priority portion of the port ID on the Designated
-		 Bridge for this port's segment."
-	    ::= { vStpPortEntry 9 }
-
-	vStpPortDesignatedPtNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The Port Identifier of the port on the Designated
-		 Bridge for this port's segment (defined in IEEE
-		 802.1D-1998: Section 8.5.5.7)."
-	    ::= { vStpPortEntry 10 }
-
-	vStpPortForwardTransitions OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The number of times this port has transitioned
-		 from the Learning state to the Forwarding state."
-	    ::= { vStpPortEntry 11 }
-
-	vStpPortManualMode OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			no(1),
-			blocking(2),
-			forwarding(3)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The port's manual mode for this spanning tree
-		 instance. This mode defines the way the state
-		 of the port(vStpPortState) is managed.
-		 The mode can be dynamic (1) (managed by the Spanning Tree), or
-		 manual (blocking(2) or forwarding(3)). In manual mode,
-		 the port is not involved in the Spanning tree algorithm
-		 computation."
-	    DEFVAL { no }
-	    ::= { vStpPortEntry 12 }
-
-	vStpPortRole OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			root(1),
-			designated(2),
-			alternate(3),
-			backup(4),
-			disabled(5)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The port's role for this spanning tree
-		 instance."
-	    ::= { vStpPortEntry 13 }
-
-	vStpPortPrimaryPortNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The  port ifindex of the associated primary port
-		 for this spanning tree instance. This information is
-		 only available if the port role is backup
-		 (vStpPortRole = 4)"
-	    ::= { vStpPortEntry 14 }
-
-	vStpPortAdminConnectionType OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			nopointtopoint(1),
-			pointtopoint(2),
-			autopointtopoint(3),
-			edgeport(4)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The administrative port's connection type for this
-		 spanning tree instance. This parameter is used to
-		 optimise the fast Spanning Tree (6.4.3 of P802.1w).
-		 The default value is nopointtopoint(1). The value
-		 pointtopoint(2) forces the port to be treated as if
-		 it is connected through a point-to-point LAN segment
-		 to another switch. Set this parameter to autopointtopoint(3)
-		 makes the point-to-point status to be determined automatically
-		 by the MAC entity. The value edgeport(4) indicates that the
-		 port is considered to be an edge port (18.3.3 of P802.1t)."
-	    DEFVAL { nopointtopoint }
-	    ::= { vStpPortEntry 15 }
-
-	vStpPortOperConnectionType OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			nopointtopoint(1),
-			pointtopoint(2),
-		  	nonsignificant(3),
-			edgeport(4)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  deprecated
-	    DESCRIPTION
-		"The operational port's connection type for this
-		 spanning tree instance.This parameter is used to
-		 optimise the fast Spanning Tree."
-	    ::= { vStpPortEntry 16 }
+        vStpInsAdminState OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        notapplicable(0),
+                        enabled(1),
+                        disabled(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The enabled/disabled status of the STP instance;
+                applicable only to per VLAN Spanning Tree instances.
+                Default values are enabled(1) for per VLAN instances and
+                notapplicable(0) for the rest."
+            DEFVAL { enabled }
+            ::= { vStpInsEntry 28 }
 
 -- New Spanning Tree Port table for mst --
 
-	vStpInsPortTable OBJECT-TYPE
-	    SYNTAX  SEQUENCE OF VStpInsPortEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		"A table that contains port-specific information
-		 for the Spanning Tree Protocol."
-	    ::= { vStpInfo 4 }
+        vStpInsPortTable OBJECT-TYPE
+            SYNTAX  SEQUENCE OF VStpInsPortEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                "A table that contains port-specific information
+                 for the Spanning Tree Protocol."
+            ::= { vStpInfo 2 }
 
-	vStpInsPortEntry OBJECT-TYPE
-	    SYNTAX  VStpInsPortEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		"A list of information maintained for every Spanning Tree
-   		 instance by every port about the Spanning Tree Protocol state
-		 for that port."
-	    INDEX   { vStpBridgeMode, vStpInsNumber, vStpInsPortNumber }
-	    ::= { vStpInsPortTable 1 }
+        vStpInsPortEntry OBJECT-TYPE
+            SYNTAX  VStpInsPortEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                "A list of information maintained for every Spanning Tree
+                 instance by every port about the Spanning Tree Protocol state
+                 for that port."
+            INDEX   { vStpInsBridgeMode, vStpInsNumber, vStpInsPortNumber }
+            ::= { vStpInsPortTable 1 }
 
-	VStpInsPortEntry ::=
-	    SEQUENCE {
-		vStpInsPortNumber
-		    Integer32,
-		vStpInsPortPriority
-		    INTEGER,
-		vStpInsPortState
-		    INTEGER,
-		vStpInsPortEnable
-		    INTEGER,
-		vStpInsPortPathCost
-		    Integer32,
-		vStpInsPortDesignatedRoot
-		    BridgeId,
-		vStpInsPortDesignatedCost
-		    Integer32,
-		vStpInsPortDesignatedBridge
-		    BridgeId,
-		vStpInsPortDesignatedPtPrio
-		    Integer32,
-		vStpInsPortDesignatedPtNumber
-		    Integer32,
-		vStpInsPortForwardTransitions
-		    Integer32,
-		vStpInsPortManualMode
-		    INTEGER,
-		vStpInsPortRole
-		    INTEGER,
-		vStpInsPortPrimaryPortNumber
-		    Integer32,
-		vStpInsPortAdminConnectionType
-		    INTEGER,
-		vStpInsPortOperConnectionType
-		    INTEGER,
+        VStpInsPortEntry ::=
+            SEQUENCE {
+                vStpInsPortNumber
+                    Integer32,
+                vStpInsPortPriority
+                    Integer32,
+                vStpInsPortState
+                    INTEGER,
+                vStpInsPortEnable
+                    INTEGER,
+                vStpInsPortPathCost
+                    Integer32,
+                vStpInsPortDesignatedRoot
+                    BridgeId,
+                vStpInsPortDesignatedCost
+                    Integer32,
+                vStpInsPortDesignatedBridge
+                    BridgeId,
+                vStpInsPortDesignatedPtPrio
+                    Integer32,
+                vStpInsPortDesignatedPtNumber
+                    Integer32,
+                vStpInsPortForwardTransitions
+                    Integer32,
+                vStpInsPortManualMode
+                    INTEGER,
+                vStpInsPortRole
+                    INTEGER,
+                vStpInsPortPrimaryPortNumber
+                    Integer32,
+                vStpInsPortAdminConnectionType
+                    INTEGER,
+                vStpInsPortOperConnectionType
+                    INTEGER,
         vStpInsPortCistRegionRootId
             BridgeId,
         vStpInsPortCistPathCost
             Integer32,
-		vStpInsPortHelloTime
+                vStpInsPortHelloTime
             Timeout,
-		vStpInsPortBridgeHelloTime
+                vStpInsPortBridgeHelloTime
             Timeout,
         vstpInsPortRcvdInternal
             INTEGER,
@@ -2205,400 +1658,400 @@ MstList ::= TEXTUAL-CONVENTION
                 INTEGER,
             vStpInsPortRestrictedTcn
                 INTEGER
-	    }
+            }
 
 
-	vStpInsPortNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The ifindex of the port for which this
-		 entry contains Spanning Tree Protocol management
-		 information."
-	    ::= { vStpInsPortEntry 1 }
+        vStpInsPortNumber OBJECT-TYPE
+            SYNTAX  Integer32 (1..2147483647)
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The ifindex of the port for which this
+                 entry contains Spanning Tree Protocol management
+                 information."
+            ::= { vStpInsPortEntry 1 }
 
-	vStpInsPortPriority OBJECT-TYPE
-	    SYNTAX  INTEGER (0..15)
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The priority of this port which was used originally as
-		 part of the port ID specified in 802.1D."
-	    DEFVAL { 8 }
-	    ::= { vStpInsPortEntry 2 }
+        vStpInsPortPriority OBJECT-TYPE
+            SYNTAX  Integer32 (0..15)
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The priority of this port which was used originally as
+                 part of the port ID specified in 802.1D."
+            DEFVAL { 8 }
+            ::= { vStpInsPortEntry 2 }
 
-	vStpInsPortState OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			disabled(1),
-			blocking(2),
-			listening(3),
-			learning(4),
-			forwarding(5)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The port's current state as defined by
-		 application of the Spanning Tree Protocol.  This
-		 state controls what action a port takes on
-		 reception of a frame.  For ports which are disabled
-		 (see vStpInsPortEnable), this object will have a value
+        vStpInsPortState OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        disabled(1),
+                        blocking(2),
+                        listening(3),
+                        learning(4),
+                        forwarding(5)
+                        }
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The port's current state as defined by
+                 application of the Spanning Tree Protocol.  This
+                 state controls what action a port takes on
+                 reception of a frame.  For ports which are disabled
+                 (see vStpInsPortEnable), this object will have a value
          of disabled(1).  AOS does not support the broken(6)
-		 state as defined in RFC1493."
-	    ::= { vStpInsPortEntry 3 }
+                 state as defined in RFC1493."
+            ::= { vStpInsPortEntry 3 }
 
-	vStpInsPortEnable OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enabled(1),
-			disabled(2)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The enabled/disabled status of the port."
-	    DEFVAL { enabled }
-	    ::= { vStpInsPortEntry 4 }
+        vStpInsPortEnable OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        enabled(1),
+                        disabled(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The enabled/disabled status of the port."
+            DEFVAL { enabled }
+            ::= { vStpInsPortEntry 4 }
 
-	vStpInsPortPathCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The contribution of this port to the path cost of
-		 paths towards the spanning tree root which include
-		 this port.  802.1D-1990 recommends that the
-		 default value of this parameter be in inverse
-		 proportion to the speed of the attached LAN."
-	    DEFVAL { 0 }
-	    ::= { vStpInsPortEntry 5 }
+        vStpInsPortPathCost OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The contribution of this port to the path cost of
+                 paths towards the spanning tree root which include
+                 this port.  802.1D-1990 recommends that the
+                 default value of this parameter be in inverse
+                 proportion to the speed of the attached LAN."
+            DEFVAL { 0 }
+            ::= { vStpInsPortEntry 5 }
 
-	vStpInsPortDesignatedRoot OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The unique Bridge Identifier of the Bridge
-		 recorded as the Root in the Configuration BPDUs
-		 transmitted by the Designated Bridge for the
-		 segment to which the port is attached."
-	    ::= { vStpInsPortEntry 6 }
+        vStpInsPortDesignatedRoot OBJECT-TYPE
+            SYNTAX  BridgeId
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The unique Bridge Identifier of the Bridge
+                 recorded as the Root in the Configuration BPDUs
+                 transmitted by the Designated Bridge for the
+                 segment to which the port is attached."
+            ::= { vStpInsPortEntry 6 }
 
-	vStpInsPortDesignatedCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The path cost of the Designated Port of the
-		 segment connected to this port.  This value is
-		 compared to the Root Path Cost field in received
-		 bridge PDUs."
-	    ::= { vStpInsPortEntry 7 }
+        vStpInsPortDesignatedCost OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The path cost of the Designated Port of the
+                 segment connected to this port.  This value is
+                 compared to the Root Path Cost field in received
+                 bridge PDUs."
+            ::= { vStpInsPortEntry 7 }
 
-	vStpInsPortDesignatedBridge OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The Bridge Identifier of the bridge which this
-		 port considers to be the Designated Bridge for
-		 this port's segment."
-	    ::= { vStpInsPortEntry 8 }
+        vStpInsPortDesignatedBridge OBJECT-TYPE
+            SYNTAX  BridgeId
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The Bridge Identifier of the bridge which this
+                 port considers to be the Designated Bridge for
+                 this port's segment."
+            ::= { vStpInsPortEntry 8 }
 
-	vStpInsPortDesignatedPtPrio OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The priority portion of the port ID on the Designated
-		 Bridge for this port's segment."
-	    ::= { vStpInsPortEntry 9 }
+        vStpInsPortDesignatedPtPrio OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The priority portion of the port ID on the Designated
+                 Bridge for this port's segment."
+            ::= { vStpInsPortEntry 9 }
 
-	vStpInsPortDesignatedPtNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The Port Identifier of the port on the Designated
-		 Bridge for this port's segment (defined in IEEE
-		 802.1D-1998: Section 8.5.5.7)."
-	    ::= { vStpInsPortEntry 10 }
+        vStpInsPortDesignatedPtNumber OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The Port Identifier of the port on the Designated
+                 Bridge for this port's segment (defined in IEEE
+                 802.1D-1998: Section 8.5.5.7)."
+            ::= { vStpInsPortEntry 10 }
 
-	vStpInsPortForwardTransitions OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The number of times this port has transitioned
-		 from the Learning state to the Forwarding state."
-	    ::= { vStpInsPortEntry 11 }
+        vStpInsPortForwardTransitions OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The number of times this port has transitioned
+                 from the Learning state to the Forwarding state."
+            ::= { vStpInsPortEntry 11 }
 
-	vStpInsPortManualMode OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			no(1),
-			blocking(2),
-			forwarding(3)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The port's manual mode for this spanning tree
-		 instance. This mode defines the way the state
-		 of the port(vStpPortState) is managed.
-		 The mode can be dynamic (1) (managed by the Spanning Tree), or
-		 manual (blocking(2) or forwarding(3)). In manual mode,
-		 the port is not involved in the Spanning tree algorithm
-		 computation."
-	    DEFVAL { no }
-	    ::= { vStpInsPortEntry 12 }
+        vStpInsPortManualMode OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        no(1),
+                        blocking(2),
+                        forwarding(3)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The port's manual mode for this spanning tree
+                 instance. This mode defines the way the state
+                 of the port(vStpPortState) is managed.
+                 The mode can be dynamic (1) (managed by the Spanning Tree), or
+                 manual (blocking(2) or forwarding(3)). In manual mode,
+                 the port is not involved in the Spanning tree algorithm
+                 computation."
+            DEFVAL { no }
+            ::= { vStpInsPortEntry 12 }
 
-	vStpInsPortRole OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			root(1),
-			designated(2),
-			alternate(3),
-			backup(4),
-			disabled(5),
+        vStpInsPortRole OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        root(1),
+                        designated(2),
+                        alternate(3),
+                        backup(4),
+                        disabled(5),
                         master(6)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The port's role for this spanning tree
-		 instance."
-	    ::= { vStpInsPortEntry 13 }
+                        }
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The port's role for this spanning tree
+                 instance."
+            ::= { vStpInsPortEntry 13 }
 
-	vStpInsPortPrimaryPortNumber OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The ifindex of the associated primary port
-		 for this spanning tree instance. This information is
-		 only available if the port role is backup
-		 (vStpInsPortRole = 4)"
-	    ::= { vStpInsPortEntry 14 }
+        vStpInsPortPrimaryPortNumber OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The ifindex of the associated primary port
+                 for this spanning tree instance. This information is
+                 only available if the port role is backup
+                 (vStpInsPortRole = 4)"
+            ::= { vStpInsPortEntry 14 }
 
-	vStpInsPortAdminConnectionType OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			nopointtopoint(1),
-			pointtopoint(2),
-			autopointtopoint(3),
-			edgeport(4)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The administrative port's connection type for this
-		 spanning tree instance. This parameter is used to
-		 optimise the fast Spanning Tree (6.4.3 of P802.1w).
-		 The default value is nopointtopoint(1). The value
-		 pointtopoint(2) forces the port to be treated as if
-		 it is connected through a point-to-point LAN segment
-		 to another switch. Set this parameter to autopointtopoint(3)
-		 makes the point-to-point status to be determined automatically
-		 by the MAC entity. The value edgeport(4) indicates that the
-		 port is considered to be an edge port (18.3.3 of P802.1t)."
-	    DEFVAL { nopointtopoint }
-	    ::= { vStpInsPortEntry 15 }
+        vStpInsPortAdminConnectionType OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        nopointtopoint(1),
+                        pointtopoint(2),
+                        autopointtopoint(3),
+                        edgeport(4)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The administrative port's connection type for this
+                 spanning tree instance. This parameter is used to
+                 optimise the fast Spanning Tree (6.4.3 of P802.1w).
+                 The default value is nopointtopoint(1). The value
+                 pointtopoint(2) forces the port to be treated as if
+                 it is connected through a point-to-point LAN segment
+                 to another switch. Set this parameter to autopointtopoint(3)
+                 makes the point-to-point status to be determined automatically
+                 by the MAC entity. The value edgeport(4) indicates that the
+                 port is considered to be an edge port (18.3.3 of P802.1t)."
+            DEFVAL { nopointtopoint }
+            ::= { vStpInsPortEntry 15 }
 
-	vStpInsPortOperConnectionType OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			nopointtopoint(1),
-			pointtopoint(2),
-		  	nonsignificant(3),
-			edgeport(4)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The operational port's connection type for this
-		 spanning tree instance.This parameter is used to
-		 optimise the fast Spanning Tree."
-	    ::= { vStpInsPortEntry 16 }
+        vStpInsPortOperConnectionType OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        nopointtopoint(1),
+                        pointtopoint(2),
+                        nonsignificant(3),
+                        edgeport(4)
+                        }
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The operational port's connection type for this
+                 spanning tree instance.This parameter is used to
+                 optimise the fast Spanning Tree."
+            ::= { vStpInsPortEntry 16 }
 
 
-	vStpInsPortCistRegionRootId OBJECT-TYPE
-	    SYNTAX  BridgeId
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The bridge identifier of the regional CIST root bridge as
+        vStpInsPortCistRegionRootId OBJECT-TYPE
+            SYNTAX  BridgeId
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The bridge identifier of the regional CIST root bridge as
          determined by the Spanning Tree Protocol.
          This value is only used in flat mode"
-	    ::= { vStpInsPortEntry 17 }
+            ::= { vStpInsPortEntry 17 }
 
 
-	vStpInsPortCistPathCost OBJECT-TYPE
-	    SYNTAX  Integer32
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The cost of the path to the cist regional root.
+        vStpInsPortCistPathCost OBJECT-TYPE
+            SYNTAX  Integer32
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The cost of the path to the cist regional root.
          This value is only used in flat mode"
-	    ::= { vStpInsPortEntry 18 }
+            ::= { vStpInsPortEntry 18 }
 
-	vStpInsPortHelloTime OBJECT-TYPE
-	    SYNTAX  Timeout (100..1000)
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The value that is used by the  port for HelloTime when
-		 this bridge is acting as the root.  The
-		 granularity of this timer is specified by 802.1D-
-		 1990 to be 1 second.  An agent may return a
-		 badValue error if a set is attempted to a value
-		 which is not a whole number of seconds."
-	    DEFVAL { 200 }
-	    ::= { vStpInsPortEntry 19 }
+        vStpInsPortHelloTime OBJECT-TYPE
+            SYNTAX  Timeout (100..1000)
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The value that is used by the  port for HelloTime when
+                 this bridge is acting as the root.  The
+                 granularity of this timer is specified by 802.1D-
+                 1990 to be 1 second.  An agent may return a
+                 badValue error if a set is attempted to a value
+                 which is not a whole number of seconds."
+            DEFVAL { 200 }
+            ::= { vStpInsPortEntry 19 }
 
-	vStpInsPortBridgeHelloTime OBJECT-TYPE
-	    SYNTAX  Timeout (100..1000)
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The value that all bridges use for HelloTime when
-		 this bridge is acting as the root.  The
-		 granularity of this timer is specified by 802.1D-
-		 1990 to be 1 second.  An agent may return a
-		 badValue error if a set is attempted to a value
-		 which is not a whole number of seconds."
-	    DEFVAL { 200 }
-	    ::= { vStpInsPortEntry 20 }
+        vStpInsPortBridgeHelloTime OBJECT-TYPE
+            SYNTAX  Timeout (100..1000)
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The value that all bridges use for HelloTime when
+                 this bridge is acting as the root.  The
+                 granularity of this timer is specified by 802.1D-
+                 1990 to be 1 second.  An agent may return a
+                 badValue error if a set is attempted to a value
+                 which is not a whole number of seconds."
+            DEFVAL { 200 }
+            ::= { vStpInsPortEntry 20 }
 
 
 
-	vstpInsPortRcvdInternal OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			external(1),
-			internal(2),
-		  	unkown(3)
-			}
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The operational port's connection type for this
-		 spanning tree instance.This parameter is used to
-		 optimise the fast Spanning Tree."
-	    ::= { vStpInsPortEntry 21 }
-	
+        vstpInsPortRcvdInternal OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        external(1),
+                        internal(2),
+                        unkown(3)
+                        }
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The operational port's connection type for this
+                 spanning tree instance.This parameter is used to
+                 optimise the fast Spanning Tree."
+            ::= { vStpInsPortEntry 21 }
+
          vStpInsPortAdminEdge OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enable(1),
-			disable(2)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
+            SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
                 "Upon intiliazation of the port, this will be
-                the default setting of the operational edge 
+                the default setting of the operational edge
                 status of the port.  May change depending on
                 AutoEdge setting.  Will not change status after
                 link is up on port."
-	    DEFVAL { disable }
-	    ::= { vStpInsPortEntry 22 }
+            DEFVAL { disable }
+            ::= { vStpInsPortEntry 22 }
 
          vStpInsPortAutoEdge OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enable(1),
-			disable(2)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-                "When enabled STP will determine the operational 
-                edge status of the port.  May overwrite the 
-                AdminEdge status, if enabled.  If disabled, port 
+            SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "When enabled STP will determine the operational
+                edge status of the port.  May overwrite the
+                AdminEdge status, if enabled.  If disabled, port
                 will remain as the AdminEdge state."
-	    DEFVAL { enable }
-	    ::= { vStpInsPortEntry 23 }
+            DEFVAL { enable }
+            ::= { vStpInsPortEntry 23 }
 
          vStpInsPortRestrictedRole OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enable(1),
-			disable(2)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
+            SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
                 "When enabled, this port will not be selected as
-                the Root port and will be selected as Alternate 
+                the Root port and will be selected as Alternate
                 after the Root port is selected."
-	    DEFVAL { disable }
-	    ::= { vStpInsPortEntry 24 }
-         
+            DEFVAL { disable }
+            ::= { vStpInsPortEntry 24 }
+
          vStpInsPortRestrictedTcn OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enable(1),
-			disable(2)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
+            SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
                 "When set to enable, this port will not propogate
                 any topology changes or notifications to other ports.
                 Is used to prevent bridges outside of a core network
                 from causing flushes within the core network."
-	    DEFVAL { disable }
-	    ::= { vStpInsPortEntry 25 }
-	-- -------------------------------------------------------------
+            DEFVAL { disable }
+            ::= { vStpInsPortEntry 25 }
+        -- -------------------------------------------------------------
 
-	-- -------------------------------------------------------------
-	-- The stp bridge Table
-	-- -------------------------------------------------------------
+        -- -------------------------------------------------------------
+        -- The stp bridge Table
+        -- -------------------------------------------------------------
 
---	DESCRIPTION
---			"The bridge group specific
+--      DESCRIPTION
+--                      "The bridge group specific
 --           information for the spanning tree
 --           protocol"
 
 
-	vStpBridge      OBJECT IDENTIFIER ::= { vStpInfo 5 }
+        vStpBridge      OBJECT IDENTIFIER ::= { vStpInfo 3 }
 
-	vStpBridgeMode OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			flat(1),
-			onePerVlan(2)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The mode of the Spanning Tree Protocol activated
-		 on this bridge."
-	    DEFVAL { onePerVlan }
-	    ::= { vStpBridge 1 }
+        vStpBridgeMode OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        flat(1),
+                        onePerVlan(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The mode of the Spanning Tree Protocol activated
+                 on this bridge."
+            DEFVAL { onePerVlan }
+            ::= { vStpBridge 1 }
 
 
-	vStpBridgeAddressId OBJECT-TYPE
-	    SYNTAX  MacAddress
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The bridge identifier as determined
-	     by the Spanning Tree Protocol."
-	    ::= { vStpBridge 2 }
+        vStpBridgeAddressId OBJECT-TYPE
+            SYNTAX  MacAddress
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The bridge identifier as determined
+             by the Spanning Tree Protocol."
+            ::= { vStpBridge 2 }
 
 
         vStpBridgeLastChanged OBJECT-TYPE
             SYNTAX    TimeTicks
-	    MAX-ACCESS read-only
-	    STATUS current
-	    DESCRIPTION
-	    "This object indicates the time of the
-		 most recent change to the vStpBridge group
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION
+            "This object indicates the time of the
+                 most recent change to the vStpBridge group
          vStpMstRegionTable"
-	::= { vStpBridge 3 }
+        ::= { vStpBridge 3 }
 
         vStpBridgePathCostMode OBJECT-TYPE
             SYNTAX    INTEGER {
                 thrityTwoBit(1),
                 auto(2)
             }
-	    MAX-ACCESS read-write
-	    STATUS current
-	    DESCRIPTION
-	    "This object describes what the default
-		 path costs the bridge gives to ports upon link
+            MAX-ACCESS read-write
+            STATUS current
+            DESCRIPTION
+            "This object describes what the default
+                 path costs the bridge gives to ports upon link
          up.  thirtyTwoBit designates 32 bit path cost value range
          in accordance with IEEE 802.1w standard and newer.  Auto
          designates 16 bit path cost value range in accordance
@@ -2606,588 +2059,634 @@ MstList ::= TEXTUAL-CONVENTION
          operating in MSTP protocol when 32 bit values will be in
          effect"
          DEFVAL { auto }
-	::= { vStpBridge 4 }
-	
+        ::= { vStpBridge 4 }
+
         vStpBridgeAutoVlanContainment  OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enable(1),
-			disable(2),
-			notApplicable(3)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The current enabled status for the whole bridge
+            SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The current enabled status for the whole bridge
                 of the Auto Vlan containment feature
-                which controls path costs in MSTP. This object is 
-		applicable only when bridge mode is flat."
-	    ::= { vStpBridge 5 }
+                which controls path costs in MSTP."
+            ::= { vStpBridge 5 }
 
-	vStpBridgeModePVST OBJECT-TYPE
-	    SYNTAX  INTEGER {
-			enable(1),
-			disable(2)
-			}
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"When enabled, Spanning Tree can interoperate with Cisco switch
-		 in PVST+ mode. When disabled, Spanning Tree is back to normal
-		 1x1 mode."
-	    DEFVAL { disable }
-	    ::= { vStpBridge 6 }
+        vStpBridgeModePVST OBJECT-TYPE
+            SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                        }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "When enabled, Spanning Tree can interoperate with Cisco switch
+                 in PVST+ mode. When disabled, Spanning Tree is back to normal
+                 1x1 mode."
+            DEFVAL { disable }
+            ::= { vStpBridge 6 }
 
-	-- -------------------------------------------------------------
+        -- -------------------------------------------------------------
 
-	-- -------------------------------------------------------------
-	-- The stp Mst region Table
-	-- -------------------------------------------------------------
-
+        -- -------------------------------------------------------------
+        -- The stp Mst region Table
+        -- -------------------------------------------------------------
 
 
-	vStpMstRegionTable OBJECT-TYPE
-		SYNTAX SEQUENCE OF VStpMstRegionEntry
-		MAX-ACCESS not-accessible
-		STATUS current
-		DESCRIPTION
-			"This table contains Region-specific
+
+        vStpMstRegionTable OBJECT-TYPE
+                SYNTAX SEQUENCE OF VStpMstRegionEntry
+                MAX-ACCESS not-accessible
+                STATUS current
+                DESCRIPTION
+                        "This table contains Region-specific
              information for the spanning tree
              protocol 802.1s"
-	::= { vStpInfo 6 }
+        ::= { vStpInfo 4 }
 
-	vStpMstRegionEntry  OBJECT-TYPE
-	    SYNTAX  VStpMstRegionEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		 "A Region entry."
-	    INDEX { vStpMstRegionNumber }
-	    ::= { vStpMstRegionTable 1 }
+        vStpMstRegionEntry  OBJECT-TYPE
+            SYNTAX  VStpMstRegionEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                 "A Region entry."
+            INDEX { vStpMstRegionNumber }
+            ::= { vStpMstRegionTable 1 }
 
-	VStpMstRegionEntry ::=
-	   SEQUENCE {
-	   vStpMstRegionNumber
-                INTEGER,
-	    vStpMstRegionConfigFormatSelector
-                INTEGER,
-	    vStpMstRegionConfigDigest
+        VStpMstRegionEntry ::=
+           SEQUENCE {
+           vStpMstRegionNumber
+                Integer32,
+            vStpMstRegionConfigFormatSelector
+                Integer32,
+            vStpMstRegionConfigDigest
                 DigestId,
         vStpMstRegionConfigName
-                DisplayString,
-	    vStpMstRegionConfigRevisionLevel
-                INTEGER,
+                SnmpAdminString,
+            vStpMstRegionConfigRevisionLevel
+                Integer32,
         vStpMstRegionMstiList
-                MstList,
+                SnmpAdminString,
         vStpMstRegionCistInstanceNumber
-                INTEGER,
-	    vStpMstRegionMaxHops
-                INTEGER
-	    }
+                Integer32,
+            vStpMstRegionMaxHops
+                Integer32
+            }
 
 
-	vStpMstRegionNumber  OBJECT-TYPE
-	    SYNTAX  INTEGER (0..4)
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		 "The 802.1s spec. defines only 1 region. However, for
+        vStpMstRegionNumber  OBJECT-TYPE
+            SYNTAX  Integer32 (0..4)
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                 "The 802.1s spec. defines only 1 region. However, for
           possible future enhancements it may be desired to have
           the ability to configure more than one region on the
           the same bridge."
-	    ::= { vStpMstRegionEntry 1 }
+            ::= { vStpMstRegionEntry 1 }
 
 
-	vStpMstRegionConfigFormatSelector OBJECT-TYPE
-	    SYNTAX  INTEGER (0..255)
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The Mst format selector. When 0, this field indicates
+        vStpMstRegionConfigFormatSelector OBJECT-TYPE
+            SYNTAX  Integer32 (0..255)
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The Mst format selector. When 0, this field indicates
          the use of the following components as specified in
          802.1s standard; config name, revision level, and
          config digest."
-	    ::= { vStpMstRegionEntry 2 }
+            ::= { vStpMstRegionEntry 2 }
 
          vStpMstRegionConfigDigest OBJECT-TYPE
-	    SYNTAX  DigestId
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The Mst Region identifier, a 16 octet field of type
+            SYNTAX  DigestId
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The Mst Region identifier, a 16 octet field of type
          HMAC-MD5. It is an encoding of the VID to MSTID table
          and sent in the MSTP BPDU to allow bridges to recognize
          their neighbors region."
-	    ::= { vStpMstRegionEntry 3 }
+            ::= { vStpMstRegionEntry 3 }
 
-	vStpMstRegionConfigName OBJECT-TYPE
-		SYNTAX DisplayString (SIZE (0..31))
-		MAX-ACCESS read-write
-		 STATUS current
-		DESCRIPTION
-			"Name of the region defined by the
+        vStpMstRegionConfigName OBJECT-TYPE
+                SYNTAX SnmpAdminString (SIZE (0..31))
+                MAX-ACCESS read-write
+                 STATUS current
+                DESCRIPTION
+                        "Name of the region defined by the
              802.1s standard"
-		REFERENCE
-			" specific to ALCATEL"
-		::= { vStpMstRegionEntry  4 }
+                REFERENCE
+                        " specific to ALCATEL"
+                ::= { vStpMstRegionEntry  4 }
 
 
-	vStpMstRegionConfigRevisionLevel OBJECT-TYPE
-		SYNTAX INTEGER  (0..65535)
-		MAX-ACCESS read-write
-		 STATUS current
-		DESCRIPTION
-			"Revision level of the region defined by the
+        vStpMstRegionConfigRevisionLevel OBJECT-TYPE
+                SYNTAX Integer32  (0..65535)
+                MAX-ACCESS read-write
+                 STATUS current
+                DESCRIPTION
+                        "Revision level of the region defined by the
              802.1s standard"
-		REFERENCE
-			" specific to ALCATEL"
-		::= { vStpMstRegionEntry  5 }
+                REFERENCE
+                        " specific to ALCATEL"
+                ::= { vStpMstRegionEntry  5 }
 
-	vStpMstRegionMstiList OBJECT-TYPE
-		SYNTAX MstList
-		MAX-ACCESS read-only
-		 STATUS current
-		DESCRIPTION
-			"List of Mst instances configured
-             in this region"
-		REFERENCE
-			" specific to ALCATEL"
-		::= { vStpMstRegionEntry  6 }
+        vStpMstRegionMstiList OBJECT-TYPE
+                SYNTAX SnmpAdminString (SIZE (0..128))
+                MAX-ACCESS read-only
+                 STATUS current
+                DESCRIPTION
+                        "List of Mst instances configured
+             in this region. Each Mst Instance will be displayed in a
+             seperated by comas. (maximum 64 Msti)"
+                REFERENCE
+                        " specific to ALCATEL"
+                ::= { vStpMstRegionEntry  6 }
 
 
-	vStpMstRegionCistInstanceNumber OBJECT-TYPE
-		SYNTAX INTEGER (0..4095)
-		MAX-ACCESS read-only
-		 STATUS current
-		DESCRIPTION
-			"Number of the CIST instance. Always
+        vStpMstRegionCistInstanceNumber OBJECT-TYPE
+                SYNTAX Integer32 (0..4095)
+                MAX-ACCESS read-only
+                 STATUS current
+                DESCRIPTION
+                        "Number of the CIST instance. Always
              0 in this release and limited to one region"
-		REFERENCE
-			" specific to ALCATEL"
-		::= { vStpMstRegionEntry  7 }
+                REFERENCE
+                        " specific to ALCATEL"
+                ::= { vStpMstRegionEntry  7 }
 
 
-	vStpMstRegionMaxHops OBJECT-TYPE
+        vStpMstRegionMaxHops OBJECT-TYPE
 
-	    SYNTAX  INTEGER (1..40)
-	    MAX-ACCESS  read-write
-		 STATUS current
-		DESCRIPTION
-		"The value that all bridges use for MaxHops in
+            SYNTAX  Integer32 (1..40)
+            MAX-ACCESS  read-write
+                 STATUS current
+                DESCRIPTION
+                "The value that all bridges use for MaxHops in
          the region when this bridge is acting as the
          root."
-		REFERENCE
-			" specific to ALCATEL"
-	    DEFVAL { 20 }
-		::= { vStpMstRegionEntry  8 }
+                REFERENCE
+                        " specific to ALCATEL"
+            DEFVAL { 20 }
+                ::= { vStpMstRegionEntry  8 }
 
 
-	-- -------------------------------------------------------------
-	-- The stp Mst Instance Table
-	-- -------------------------------------------------------------
+        -- -------------------------------------------------------------
+        -- The stp Mst Instance Table
+        -- -------------------------------------------------------------
 
 
 
-	vStpMstInstanceTable OBJECT-TYPE
-		SYNTAX  SEQUENCE OF VStpMstInstanceEntry
-		MAX-ACCESS  not-accessible
-		STATUS current
-		DESCRIPTION
-			"This table contains Mst Instance-specific
+        vStpMstInstanceTable OBJECT-TYPE
+                SYNTAX  SEQUENCE OF VStpMstInstanceEntry
+                MAX-ACCESS  not-accessible
+                STATUS current
+                DESCRIPTION
+                        "This table contains Mst Instance-specific
              information for the spanning tree
              protocol 802.1s"
-	::= { vStpInfo 7 }
+        ::= { vStpInfo 5 }
 
-	vStpMstInstanceEntry  OBJECT-TYPE
-	    SYNTAX  VStpMstInstanceEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		 "A Mst Instance entry."
-	    INDEX { vStpMstInstanceNumber }
-	    ::= { vStpMstInstanceTable 1 }
+        vStpMstInstanceEntry  OBJECT-TYPE
+            SYNTAX  VStpMstInstanceEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                 "A Mst Instance entry."
+            INDEX { vStpMstInstanceNumber }
+            ::= { vStpMstInstanceTable 1 }
 
-	VStpMstInstanceEntry ::=
-	   SEQUENCE {
-	    vStpMstInstanceNumber
-		INTEGER,
-	     vStpMstInstanceName
-            DisplayString,
-	     vStpMstInstanceVlanBitmapAddition
+        VStpMstInstanceEntry ::=
+           SEQUENCE {
+            vStpMstInstanceNumber
+                Integer32,
+             vStpMstInstanceName
+            SnmpAdminString,
+             vStpMstInstanceVlanBitmapAddition
             VlanBitmap,
-	     vStpMstInstanceVlanBitmapDeletion
+             vStpMstInstanceVlanBitmapDeletion
             VlanBitmap,
          vStpMstInstanceVlanBitmapState
             VlanBitmap,
-	     vStpMstInstanceRowStatus
-	        RowStatus
-	    }
+             vStpMstInstanceRowStatus
+                RowStatus
+            }
 
-	 vStpMstInstanceNumber  OBJECT-TYPE
-	        SYNTAX  INTEGER (0..63)
-	        MAX-ACCESS  read-write
-	        STATUS  current
-	        DESCRIPTION
-		       "The Mst Instance number identfies a Spanning Tree instance and
+         vStpMstInstanceNumber  OBJECT-TYPE
+                SYNTAX  Integer32 (0..63)
+                MAX-ACCESS  not-accessible
+                STATUS  current
+                DESCRIPTION
+                       "The Mst Instance number identfies a Spanning Tree instance and
                 its vlan range assocaited. To create a new instance a rowStatus
                 is required. The instance 0 is reserved for the CIST.  See also
                 the vStpTable. By default all vlans are associated to the CIST
                 instance 0"
-	    ::= { vStpMstInstanceEntry 1 }
+            ::= { vStpMstInstanceEntry 1 }
 
-	 vStpMstInstanceName  OBJECT-TYPE
-		SYNTAX DisplayString (SIZE (0..31))
-		MAX-ACCESS read-write
-		STATUS current
-		DESCRIPTION
-			"An optional 32 character string assignable by the
+         vStpMstInstanceName  OBJECT-TYPE
+                SYNTAX SnmpAdminString (SIZE (0..31))
+                MAX-ACCESS read-create
+                STATUS current
+                DESCRIPTION
+                        "An optional 32 character string assignable by the
              operator."
-		REFERENCE
-			" specific to ALCATEL "
-		::= { vStpMstInstanceEntry 2 }
+                REFERENCE
+                        " specific to ALCATEL "
+                ::= { vStpMstInstanceEntry 2 }
 
-	 vStpMstInstanceVlanBitmapAddition  OBJECT-TYPE
-		SYNTAX VlanBitmap
-		MAX-ACCESS read-write
-		STATUS current
-		DESCRIPTION
-			"A string of 4096 bits forming a bitmap which defines a
+         vStpMstInstanceVlanBitmapAddition  OBJECT-TYPE
+                SYNTAX VlanBitmap
+                MAX-ACCESS read-create
+                STATUS current
+                DESCRIPTION
+                        "A string of 4096 bits forming a bitmap which defines a
              set of VLANs to be added to the membership of the MSTI."
-		REFERENCE
-			" specific to ALCATEL "
-		::= { vStpMstInstanceEntry 3 }
+                REFERENCE
+                        " specific to ALCATEL "
+                ::= { vStpMstInstanceEntry 3 }
 
-	 vStpMstInstanceVlanBitmapDeletion  OBJECT-TYPE
-		SYNTAX VlanBitmap
-		MAX-ACCESS read-write
-		STATUS current
-		DESCRIPTION
-			"A string of 4096 bits forming a bitmap which defines a
+         vStpMstInstanceVlanBitmapDeletion  OBJECT-TYPE
+                SYNTAX VlanBitmap
+                MAX-ACCESS read-create
+                STATUS current
+                DESCRIPTION
+                        "A string of 4096 bits forming a bitmap which defines a
              set of VLANs to revoke membership from the MSTI."
-		REFERENCE
-			" specific to ALCATEL "
-		::= { vStpMstInstanceEntry 4 }
+                REFERENCE
+                        " specific to ALCATEL "
+                ::= { vStpMstInstanceEntry 4 }
 
-	 vStpMstInstanceVlanBitmapState  OBJECT-TYPE
-		SYNTAX VlanBitmap
-		MAX-ACCESS read-only
-		STATUS current
-		DESCRIPTION
-			"A string of 4096 bits forming a bitmap which defines the
+         vStpMstInstanceVlanBitmapState  OBJECT-TYPE
+                SYNTAX VlanBitmap
+                MAX-ACCESS read-only
+                STATUS current
+                DESCRIPTION
+                        "A string of 4096 bits forming a bitmap which defines the
             set of VLANs that are members of this MSTI."
-		REFERENCE
-			" specific to ALCATEL "
-		::= { vStpMstInstanceEntry 5 }
+                REFERENCE
+                        " specific to ALCATEL "
+                ::= { vStpMstInstanceEntry 5 }
 
-	vStpMstInstanceRowStatus OBJECT-TYPE
+        vStpMstInstanceRowStatus OBJECT-TYPE
                 SYNTAX RowStatus
-      		MAX-ACCESS read-write
-      		STATUS current
-      		DESCRIPTION
-         		"This object is the RowStatus (locking flag) for creating or
-  			     deleting Mst Instance objects"
-		REFERENCE
-			" specific to ALCATEL "
-		::= { vStpMstInstanceEntry 6 }
+                MAX-ACCESS read-create
+                STATUS current
+                DESCRIPTION
+                        "This object is the RowStatus (locking flag) for creating or
+                             deleting Mst Instance objects"
+                REFERENCE
+                        " specific to ALCATEL "
+                ::= { vStpMstInstanceEntry 6 }
 
 
 
-	-- -------------------------------------------------------------
-	-- The stp Mst Vlan Assignment Table
-	-- -------------------------------------------------------------
+        -- -------------------------------------------------------------
+        -- The stp Mst Vlan Assignment Table
+        -- -------------------------------------------------------------
 
 
-	vStpMstVlanAssignmentTable OBJECT-TYPE
-		SYNTAX SEQUENCE OF VStpMstVlanAssignmentEntry
-		MAX-ACCESS not-accessible
-		STATUS current
-		DESCRIPTION
-			"This table displays the VLAN to MSTI assignment."
-	::= { vStpInfo 8 }
+        vStpMstVlanAssignmentTable OBJECT-TYPE
+                SYNTAX SEQUENCE OF VStpMstVlanAssignmentEntry
+                MAX-ACCESS not-accessible
+                STATUS current
+                DESCRIPTION
+                        "This table displays the VLAN to MSTI assignment."
+        ::= { vStpInfo 6 }
 
-	vStpMstVlanAssignmentEntry  OBJECT-TYPE
-	    SYNTAX  VStpMstVlanAssignmentEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		 "A Mst Instance entry."
-	    INDEX { vStpMstVlanAssignmentVlanNumber }
-	    ::= { vStpMstVlanAssignmentTable 1 }
+        vStpMstVlanAssignmentEntry  OBJECT-TYPE
+            SYNTAX  VStpMstVlanAssignmentEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                 "A Mst Instance entry."
+            INDEX { vStpMstVlanAssignmentVlanNumber }
+            ::= { vStpMstVlanAssignmentTable 1 }
 
-	VStpMstVlanAssignmentEntry ::=
-	   SEQUENCE {
-	    vStpMstVlanAssignmentVlanNumber
-		INTEGER,
-	     vStpMstVlanAssignmentMstiNumber
-                INTEGER
-	    }
+        VStpMstVlanAssignmentEntry ::=
+           SEQUENCE {
+            vStpMstVlanAssignmentVlanNumber
+                Integer32,
+             vStpMstVlanAssignmentMstiNumber
+                Integer32
+            }
 
-	vStpMstVlanAssignmentVlanNumber  OBJECT-TYPE
-	    SYNTAX  INTEGER (1..4095)
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		 "The VLAN number identifying this instance. Valid
-		  range from 1 to 4095."
-	    ::= { vStpMstVlanAssignmentEntry 1 }
+        vStpMstVlanAssignmentVlanNumber  OBJECT-TYPE
+            SYNTAX  Integer32 (1..4095)
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                 "The VLAN number identifying this instance. Valid
+                  range from 1 to 4095."
+            ::= { vStpMstVlanAssignmentEntry 1 }
 
-	vStpMstVlanAssignmentMstiNumber  OBJECT-TYPE
-	    SYNTAX  INTEGER (0..63)
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		 "The Msti number assigned to this vlan.
-		  All VLANs by default are placed in MSTI 0.
+        vStpMstVlanAssignmentMstiNumber  OBJECT-TYPE
+            SYNTAX  Integer32 (0..63)
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                 "The Msti number assigned to this vlan.
+                  All VLANs by default are placed in MSTI 0.
           An MSTI must exist for the assignment to occur."
-	--     DEFVAL { 0 }
-	   ::= { vStpMstVlanAssignmentEntry 2 }
+        --     DEFVAL { 0 }
+           ::= { vStpMstVlanAssignmentEntry 2 }
 
-	-- -------------------------------------------------------------
-	-- The stp port instance independant table.
-	-- -------------------------------------------------------------
+        -- -------------------------------------------------------------
+        -- The stp port instance independant table.
+        -- -------------------------------------------------------------
 
 
-	vStpPortConfigTable OBJECT-TYPE
-	    SYNTAX  SEQUENCE OF VStpPortConfigEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		"A table that contains protocol independant
+        vStpPortConfigTable OBJECT-TYPE
+            SYNTAX  SEQUENCE OF VStpPortConfigEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                "A table that contains protocol independant
         port-specific information for the Spanning
         Tree Protocol."
-	    ::= { vStpInfo 9 }
+            ::= { vStpInfo 7 }
 
-	vStpPortConfigEntry OBJECT-TYPE
-	    SYNTAX  VStpPortConfigEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		"A list of information maintained for every Spanning Tree
-   		 instance by every port about the protocol independant state
-		 for that port."
-	    INDEX   { vStpPortConfigIfIndex }
-	    ::= { vStpPortConfigTable 1 }
+        vStpPortConfigEntry OBJECT-TYPE
+            SYNTAX  VStpPortConfigEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                "A list of information maintained for every Spanning Tree
+                 instance by every port about the protocol independant state
+                 for that port."
+            INDEX   { vStpPortConfigIfIndex }
+            ::= { vStpPortConfigTable 1 }
 
-	VStpPortConfigEntry ::=
-	    SEQUENCE {
-		vStpPortConfigIfIndex
-		    InterfaceIndex,
-		vStpPortConfigTenGigOs8800Opt
-		    INTEGER,
-		vStpPortConfigPVST
-		    INTEGER,
-		vStpPortConfigStatePVST
-		    INTEGER
-	    }
+        VStpPortConfigEntry ::=
+            SEQUENCE {
+                vStpPortConfigIfIndex
+                    InterfaceIndex,
+                vStpPortConfigTenGigOs8800Opt
+                    INTEGER,
+                vStpPortConfigPVST
+                    INTEGER,
+                vStpPortConfigStatePVST
+                    INTEGER,
+                vStpPortConfigLoopGuard
+                    INTEGER,
+                vStpPortConfigLoopGuardNote
+                    SnmpAdminString
+            }
 
 
-	vStpPortConfigIfIndex OBJECT-TYPE
-	    SYNTAX  InterfaceIndex
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The ifindex of the port for which this
-		 entry contains Spanning Tree Protocol management
-		 information."
-	    ::= { vStpPortConfigEntry 1 }
+        vStpPortConfigIfIndex OBJECT-TYPE
+            SYNTAX  InterfaceIndex
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The ifindex of the port for which this
+                 entry contains Spanning Tree Protocol management
+                 information."
+            ::= { vStpPortConfigEntry 1 }
 
-	vStpPortConfigTenGigOs8800Opt OBJECT-TYPE
-	    SYNTAX  INTEGER {
+        vStpPortConfigTenGigOs8800Opt OBJECT-TYPE
+            SYNTAX  INTEGER {
             enable(1),
             disable(2)
             }
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The status of whether this port is interacting
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The status of whether this port is interacting
         with a 10 gigabit link to a OS8800 switch."
-	    DEFVAL { enable }
-	    ::= { vStpPortConfigEntry 2 }    
+            DEFVAL { enable }
+            ::= { vStpPortConfigEntry 2 }
 
-	vStpPortConfigPVST OBJECT-TYPE
-	    SYNTAX  INTEGER {
-	    auto(1),
-	    enable(2),
-	    disable(3)
-	    }
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"Configure a port what type of BPDU to use when PVST+ mode
-		 is enabled:
-		 Auto: Use IEEE BPDUs until a PVST+ BPDU is detected.
-		 Enable: Use PVST+ BPDUs.
-		 Disable: Use IEEE BPDUs."
-	    DEFVAL { auto }
-	    ::= { vStpPortConfigEntry 3 }
+        vStpPortConfigPVST OBJECT-TYPE
+            SYNTAX  INTEGER {
+            auto(1),
+            enable(2),
+            disable(3)
+            }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "Configure a port what type of BPDU to use when PVST+ mode
+                 is enabled:
+                 Auto: Use IEEE BPDUs until a PVST+ BPDU is detected.
+                 Enable: Use PVST+ BPDUs.
+                 Disable: Use IEEE BPDUs."
+            DEFVAL { auto }
+            ::= { vStpPortConfigEntry 3 }
 
-	vStpPortConfigStatePVST OBJECT-TYPE
-	    SYNTAX  INTEGER {
-	    on(1),
-	    off(2)
-	    }
-	    MAX-ACCESS  read-only
-	    STATUS  current
-	    DESCRIPTION
-		"The status of whether the type of PVST+ BPDU is on or off for
-		 this port."
-	    DEFVAL { off }
-	    ::= { vStpPortConfigEntry 4 }
+        vStpPortConfigStatePVST OBJECT-TYPE
+            SYNTAX  INTEGER {
+            on(1),
+            off(2)
+            }
+            MAX-ACCESS  read-only
+            STATUS  current
+            DESCRIPTION
+                "The status of whether the type of PVST+ BPDU is on or off for
+                 this port."
+            DEFVAL { off }
+            ::= { vStpPortConfigEntry 4 }
+
+        vStpPortConfigLoopGuard OBJECT-TYPE
+            SYNTAX  INTEGER {
+            enable(1),
+            disable(2)
+            }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "Configure STP loop guard on the port."
+            DEFVAL { disable }
+            ::= { vStpPortConfigEntry 5 }
+
+        vStpPortConfigLoopGuardNote OBJECT-TYPE
+            SYNTAX SnmpAdminString (SIZE (0..32))
+            MAX-ACCESS read-only
+            STATUS current
+            DESCRIPTION
+                "STP loop guard status to signify if the port is in loop inconsistency state(Err) or not."
+            ::= { vStpPortConfigEntry  6 }
+
 
 -- -------------------------------------------------------------
-	-- The Ring Rapid spanning tree global state
+        -- The Ring Rapid spanning tree global state
 
-	    vStpRrstpGlobalState OBJECT-TYPE
-	    SYNTAX  INTEGER {
+            vStpRrstpGlobalState OBJECT-TYPE
+            SYNTAX  INTEGER {
             enable(1),
             disable(2)
-	    }
-	    MAX-ACCESS  read-write
-	    STATUS  current
-	    DESCRIPTION
-		"The state of Ring rapid spanning tree on a global level. 
-		When the RRSTP is disabled gobally, all the rings get disabled. 		When the RRSTP is enabled globally, the rings can be 
-		individually configured to be enabled or disabled."
-	    DEFVAL { disable }
-	    ::= { vStpInfo 10}
+            }
+            MAX-ACCESS  read-write
+            STATUS  current
+            DESCRIPTION
+                "The state of Ring rapid spanning tree on a global level.
+                When the RRSTP is disabled gobally, all the rings get disabled.                 When the RRSTP is enabled globally, the rings can be
+                individually configured to be enabled or disabled."
+            DEFVAL { disable }
+            ::= { vStpInfo 8}
 
-	-- The Ring Rapid spanning tree ring configuration table
-	-- -------------------------------------------------------------
+        -- The Ring Rapid spanning tree ring configuration table
+        -- -------------------------------------------------------------
 
 
-	vStpRrstpRingConfigTable OBJECT-TYPE
-	    SYNTAX  SEQUENCE OF VStpRrstpRingConfigEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		"A table that contains RRSTP ring configuration related
-		 information."
-	    ::= { vStpInfo 11 }
+        vStpRrstpRingConfigTable OBJECT-TYPE
+            SYNTAX  SEQUENCE OF VStpRrstpRingConfigEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                "A table that contains RRSTP ring configuration related
+                 information."
+            ::= { vStpInfo 9 }
 
-	vStpRrstpRingConfigEntry OBJECT-TYPE
-	    SYNTAX  VStpRrstpRingConfigEntry
-	    MAX-ACCESS  not-accessible
-	    STATUS  current
-	    DESCRIPTION
-		"A list of information maintained for each RRSTP ring
-   		 about ports that are part of the ring."
-	    INDEX   { vStpRrstpRingId }
-	    ::= { vStpRrstpRingConfigTable 1 }
+        vStpRrstpRingConfigEntry OBJECT-TYPE
+            SYNTAX  VStpRrstpRingConfigEntry
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                "A list of information maintained for each RRSTP ring
+                 about ports that are part of the ring."
+            INDEX   { vStpRrstpRingId }
+            ::= { vStpRrstpRingConfigTable 1 }
 
-	VStpRrstpRingConfigEntry ::=
-	    SEQUENCE {
-		vStpRrstpRingId
-		    INTEGER,
-		vStpRrstpRingPort1
-		    InterfaceIndex,
-		vStpRrstpRingPort2
-		    InterfaceIndex,
-		vStpRrstpRingVlanTag
-		    INTEGER,
-		vStpRrstpRingState
-		    INTEGER,
-		vStpRrstpRingRowStatus
-			RowStatus
-	    }
+        VStpRrstpRingConfigEntry ::=
+            SEQUENCE {
+                vStpRrstpRingId
+                    Integer32,
+                vStpRrstpRingPort1
+                    InterfaceIndex,
+                vStpRrstpRingPort2
+                    InterfaceIndex,
+                vStpRrstpRingVlanTag
+                    Integer32,
+                vStpRrstpRingState
+                    INTEGER,
+                vStpRrstpRingRowStatus
+                        RowStatus
+            }
 
-	vStpRrstpRingId OBJECT-TYPE
-	    SYNTAX  INTEGER (1..128)
-	    MAX-ACCESS  read-create
-	    STATUS  current
-	    DESCRIPTION
-		"The identifier of the RRSTP ring."
-	    ::= { vStpRrstpRingConfigEntry 1 }
+        vStpRrstpRingId OBJECT-TYPE
+            SYNTAX  Integer32 (1..128)
+            MAX-ACCESS  not-accessible
+            STATUS  current
+            DESCRIPTION
+                "The identifier of the RRSTP ring."
+            ::= { vStpRrstpRingConfigEntry 1 }
 
-	vStpRrstpRingPort1 OBJECT-TYPE
-	    SYNTAX  InterfaceIndex 
-	    MAX-ACCESS  read-create
-	    STATUS  current
-	    DESCRIPTION
-		"The interface index of first port that belongs
-		to the ring."
-	    ::= { vStpRrstpRingConfigEntry 2 }	  
-	    
-	vStpRrstpRingPort2 OBJECT-TYPE
-	    SYNTAX  InterfaceIndex 
-	    MAX-ACCESS  read-create
-	    STATUS  current
-	    DESCRIPTION
-		"The interface index of second port that belongs
-		to the ring."
-	    ::= { vStpRrstpRingConfigEntry 3 }	      
+        vStpRrstpRingPort1 OBJECT-TYPE
+            SYNTAX  InterfaceIndex
+            MAX-ACCESS  read-create
+            STATUS  current
+            DESCRIPTION
+                "The interface index of first port that belongs
+                to the ring."
+            ::= { vStpRrstpRingConfigEntry 2 }
 
-	vStpRrstpRingVlanTag OBJECT-TYPE
-            SYNTAX INTEGER (1..4094)
-	    MAX-ACCESS  read-create
-	    STATUS  current
-	    DESCRIPTION
-		"The VLAN tag applied to the ring with which RRSTP
-		 ring frames shall be tagged. Valid range from
-		 1 to 4094"  
-	    ::= { vStpRrstpRingConfigEntry 4 }	      
+        vStpRrstpRingPort2 OBJECT-TYPE
+            SYNTAX  InterfaceIndex
+            MAX-ACCESS  read-create
+            STATUS  current
+            DESCRIPTION
+                "The interface index of second port that belongs
+                to the ring."
+            ::= { vStpRrstpRingConfigEntry 3 }
 
-	vStpRrstpRingState OBJECT-TYPE
-	    SYNTAX  INTEGER {
+        vStpRrstpRingVlanTag OBJECT-TYPE
+            SYNTAX Integer32 (1..4094)
+            MAX-ACCESS  read-create
+            STATUS  current
+            DESCRIPTION
+                "The VLAN tag applied to the ring with which RRSTP
+                 ring frames shall be tagged. Valid range from
+                 1 to 4094"
+            ::= { vStpRrstpRingConfigEntry 4 }
+
+        vStpRrstpRingState OBJECT-TYPE
+            SYNTAX  INTEGER {
             enable(1),
             disable(2)
-	    } 
-	    MAX-ACCESS  read-create
-	    STATUS  current
-	    DESCRIPTION
-		"The state of the ring. A ring can be created but can be made
-		active or inactive."
-	    DEFVAL { disable }
-	    ::= { vStpRrstpRingConfigEntry 5 }
+            }
+            MAX-ACCESS  read-create
+            STATUS  current
+            DESCRIPTION
+                "The state of the ring. A ring can be created but can be made
+                active or inactive."
+            DEFVAL { disable }
+            ::= { vStpRrstpRingConfigEntry 5 }
 
-	vStpRrstpRingRowStatus OBJECT-TYPE
+        vStpRrstpRingRowStatus OBJECT-TYPE
                 SYNTAX RowStatus
-      		MAX-ACCESS read-create
-      		STATUS current
-      		DESCRIPTION
-         		"This object is the RowStatus (locking flag) for creating or
-  			     deleting RRSTP Ring"
-		REFERENCE
-			" specific to ALCATEL "
-		::= { vStpRrstpRingConfigEntry 6 }
-		
+                MAX-ACCESS read-create
+                STATUS current
+                DESCRIPTION
+                        "This object is the RowStatus (locking flag) for creating or
+                             deleting RRSTP Ring"
+                REFERENCE
+                        " specific to ALCATEL "
+                ::= { vStpRrstpRingConfigEntry 6 }
+
 -- Traps for the Spanning Tree Protocol*********************
 
  stpNewRoot NOTIFICATION-TYPE
     OBJECTS    {
-                  vStpNumber
+                  vStpInsNumber
                }
     STATUS  current
     DESCRIPTION
            "The NewRoot trap indicates that the bridge has
             become the new root for this Spanning Tree instance;
-	    the trap is sent by a bridge soon after its election
+            the trap is sent by a bridge soon after its election
             as the new root, upon expiration of the
             Topology Change Timer immediately subsequent to
             its election."
-    ::= { spanningTreeTraps 0 1 }
+    ::= { alcatelIND1VLANSTPMIBNotifications 1 }
 
 
  stpRootPortChange NOTIFICATION-TYPE
     OBJECTS    {
-                  vStpNumber,
-		  vStpRootPortNumber
+                  vStpInsNumber,
+                  vStpInsRootPortNumber
                }
     STATUS  current
     DESCRIPTION
             "A RootPortChange trap is sent for a Spannnig Tree
             instance by a bridge when its root port has changed.
-	    The root port is the port which offers the
-	    lowest cost path from this bridge to the root
-	    bridge."
-    ::= { spanningTreeTraps 0 2 }
+            The root port is the port which offers the
+            lowest cost path from this bridge to the root
+            bridge."
+    ::= { alcatelIND1VLANSTPMIBNotifications 2 }
+
+    alaSTPLoopGuardError NOTIFICATION-TYPE
+    OBJECTS    {
+                  vStpPortConfigIfIndex,
+                  vStpInsNumber
+               }
+    STATUS  current
+    DESCRIPTION
+            "This trap is sent by a bridge when a port
+            enters the Loop inconsistent state (ERR state)."
+    ::= { alcatelIND1VLANSTPMIBNotifications 3 }
+
+    alaSTPLoopGuardRecovery NOTIFICATION-TYPE
+    OBJECTS    {
+                 vStpPortConfigIfIndex,
+                 vStpInsNumber
+               }
+    STATUS  current
+    DESCRIPTION
+            "This trap is sent by a bridge when a port
+            leaves the Loop inconsistent state (ERR state)."
+    ::= { alcatelIND1VLANSTPMIBNotifications 4 }
 
 
 
 -- Conformance Information
 
-   vStpGroup OBJECT-GROUP
+   vStpInsGroup OBJECT-GROUP
         OBJECTS
         {
-          vStpInsNumber,	                   -- vStp table
+          vStpInsNumber,                           -- vStp table
           vStpInsProtocolSpecification,
           vStpInsPriority,
           vStpInsBridgeAddress,
@@ -3211,7 +2710,9 @@ MstList ::= TEXTUAL-CONVENTION
           vStpIns1x1VlanNumber,
           vStpInsMstiNumber,
           vStpInsMode,
-          vStpInsAutoVlanContainment
+          vStpInsAutoVlanContainment,
+          vStpInsBridgeTxHoldCount,
+          vStpInsAdminState
         }
         STATUS  current
         DESCRIPTION
@@ -3219,30 +2720,34 @@ MstList ::= TEXTUAL-CONVENTION
         ::= { alcatelIND1VLANSTPMIBGroups 1 }
 
 
-    vStpPortGroup OBJECT-GROUP
+    vStpInsPortGroup OBJECT-GROUP
         OBJECTS
         {
-	    	vStpInsPortNumber,		   -- vStpPort table
-	    	vStpInsPortPriority,
-	    	vStpInsPortState,
-	    	vStpInsPortEnable,
-	    	vStpInsPortPathCost,
-	     	vStpInsPortDesignatedRoot,
-	    	vStpInsPortDesignatedCost,
-	    	vStpInsPortDesignatedBridge,
-	    	vStpInsPortDesignatedPtPrio,
-	    	vStpInsPortDesignatedPtNumber,
-	    	vStpInsPortForwardTransitions,
-	    	vStpInsPortManualMode,
-	    	vStpInsPortRole,
-	    	vStpInsPortPrimaryPortNumber,
-	    	vStpInsPortAdminConnectionType,
-	        vStpInsPortOperConnectionType,
+                vStpInsPortNumber,                 -- vStpPort table
+                vStpInsPortPriority,
+                vStpInsPortState,
+                vStpInsPortEnable,
+                vStpInsPortPathCost,
+                vStpInsPortDesignatedRoot,
+                vStpInsPortDesignatedCost,
+                vStpInsPortDesignatedBridge,
+                vStpInsPortDesignatedPtPrio,
+                vStpInsPortDesignatedPtNumber,
+                vStpInsPortForwardTransitions,
+                vStpInsPortManualMode,
+                vStpInsPortRole,
+                vStpInsPortPrimaryPortNumber,
+                vStpInsPortAdminConnectionType,
+                vStpInsPortOperConnectionType,
                 vStpInsPortCistRegionRootId,
                 vStpInsPortCistPathCost,
                 vStpInsPortHelloTime,
-            vStpInsBridgeHelloTime,
-            vstpInsPortRcvdInternal
+            vStpInsPortBridgeHelloTime,
+            vstpInsPortRcvdInternal,
+            vStpInsPortAdminEdge,
+            vStpInsPortAutoEdge,
+            vStpInsPortRestrictedRole,
+            vStpInsPortRestrictedTcn
         }
         STATUS  current
         DESCRIPTION
@@ -3250,58 +2755,60 @@ MstList ::= TEXTUAL-CONVENTION
         ::= { alcatelIND1VLANSTPMIBGroups 2 }
 
     vStpMstRegionGroup OBJECT-GROUP
-	OBJECTS
+        OBJECTS
         {
-	      vStpMstRegionNumber,
-	      vStpMstRegionConfigFormatSelector,
-	      vStpMstRegionConfigDigest,
+              vStpMstRegionNumber,
+              vStpMstRegionConfigFormatSelector,
+              vStpMstRegionConfigDigest,
               vStpMstRegionConfigName,
-	      vStpMstRegionConfigRevisionLevel,
+              vStpMstRegionConfigRevisionLevel,
               vStpMstRegionMstiList,
               vStpMstRegionCistInstanceNumber,
               vStpMstRegionMaxHops
-	 }
-	 STATUS  current
+         }
+         STATUS  current
          DESCRIPTION
             "Collection of objects for management of Spanning Tree mst region instances."
          ::= { alcatelIND1VLANSTPMIBGroups 6 }
 
 
-	vStpMstInstanceGroup OBJECT-GROUP
-	OBJECTS
-	{
-	    vStpMstInstanceNumber,
-	    vStpMstInstanceName,
-	    vStpMstInstanceVlanBitmapAddition,
-	    vStpMstInstanceVlanBitmapDeletion,
+        vStpMstInstanceGroup OBJECT-GROUP
+        OBJECTS
+        {
+            vStpMstInstanceName,
+            vStpMstInstanceVlanBitmapAddition,
+            vStpMstInstanceVlanBitmapDeletion,
             vStpMstInstanceVlanBitmapState,
-	    vStpMstInstanceRowStatus
-	 }
-	 STATUS  current
+            vStpMstInstanceRowStatus
+         }
+         STATUS  current
          DESCRIPTION
             "Collection of objects for management of Spanning Tree mst instances."
          ::= { alcatelIND1VLANSTPMIBGroups 4 }
 
 
-	vStpMstVlanAssignmentGroup OBJECT-GROUP
-	OBJECTS
-	{
-	    vStpMstVlanAssignmentVlanNumber,
-	    vStpMstVlanAssignmentMstiNumber
-	}
-	 STATUS  current
+        vStpMstVlanAssignmentGroup OBJECT-GROUP
+        OBJECTS
+        {
+            vStpMstVlanAssignmentMstiNumber
+        }
+         STATUS  current
          DESCRIPTION
             "Collection of objects for management of Spanning Tree
               assignment vlan to msti instances."
          ::= { alcatelIND1VLANSTPMIBGroups 5 }
 
-	vStpPortConfigGroup OBJECT-GROUP
-	OBJECTS
-	{
-	    vStpPortConfigIfIndex,
-	    vStpPortConfigTenGigOs8800Opt
-	}
-	 STATUS  current
+        vStpPortConfigGroup OBJECT-GROUP
+        OBJECTS
+        {
+            vStpPortConfigIfIndex,
+            vStpPortConfigTenGigOs8800Opt,
+            vStpPortConfigPVST,
+            vStpPortConfigStatePVST,
+            vStpPortConfigLoopGuard,
+            vStpPortConfigLoopGuardNote
+        }
+         STATUS  current
          DESCRIPTION
             "Collection of objects for management of protocol
             indepentant port configuration."
@@ -3310,27 +2817,29 @@ MstList ::= TEXTUAL-CONVENTION
 
     vStpNotificationGroup NOTIFICATION-GROUP
     NOTIFICATIONS {
-	  stpNewRoot,
-          stpRootPortChange
-	}
+          stpNewRoot,
+          stpRootPortChange,
+          alaSTPLoopGuardError,
+          alaSTPLoopGuardRecovery
+        }
     STATUS current
     DESCRIPTION
- 	    "The Spanning Tree Notification Group."
+            "The Spanning Tree Notification Group."
     ::= { alcatelIND1VLANSTPMIBGroups 3 }
 
 vStpRrstpRingConfigGroup OBJECT-GROUP
-	OBJECTS
-	{
-         vStpRrstpRingId,
-	 vStpRrstpRingPort1,
-         vStpRrstpRingPort2,    
-         vStpRrstpRingState, 
-         vStpRrstpRingRowStatus	    
-	}
-	 STATUS  current
+        OBJECTS
+        {
+         vStpRrstpRingPort1,
+         vStpRrstpRingPort2,
+         vStpRrstpRingVlanTag,
+         vStpRrstpRingState,
+         vStpRrstpRingRowStatus
+        }
+         STATUS  current
          DESCRIPTION
             "Collection of objects maintained for each RRSTP ring
-   		 about ports that are part of the ring."
+                 about ports that are part of the ring."
          ::= { alcatelIND1VLANSTPMIBGroups 8 }
 
 vStpRrstpRingBaseGroup OBJECT-GROUP
@@ -3343,6 +2852,20 @@ vStpRrstpRingBaseGroup OBJECT-GROUP
    ::= { alcatelIND1VLANSTPMIBGroups 9 }
 
 
+   vStpBridgeGroup OBJECT-GROUP
+        OBJECTS
+        {
+         vStpBridgeMode,
+         vStpBridgeAddressId,
+         vStpBridgeLastChanged,
+         vStpBridgePathCostMode,
+         vStpBridgeAutoVlanContainment,
+         vStpBridgeModePVST
+        }
+         STATUS  current
+         DESCRIPTION
+            "Collection of objects maintained for VLAN STP configuration."
+         ::= { alcatelIND1VLANSTPMIBGroups 10 }
 
     alcatelIND1VLANSTPMIBCompliance MODULE-COMPLIANCE
         STATUS  current
@@ -3352,20 +2875,21 @@ vStpRrstpRingBaseGroup OBJECT-GROUP
         MODULE
             MANDATORY-GROUPS
             {
-                vStpGroup,
-                vStpPortGroup,
-	        vStpMstRegionGroup,
+                vStpInsGroup,
+                vStpInsPortGroup,
+                vStpMstRegionGroup,
                 vStpMstInstanceGroup,
-		vStpMstVlanAssignmentGroup,
+                vStpMstVlanAssignmentGroup,
                 vStpPortConfigGroup,
                 vStpNotificationGroup,
                 vStpRrstpRingConfigGroup,
-                vStpRrstpRingBaseGroup 
+                vStpRrstpRingBaseGroup,
+                vStpBridgeGroup
             }
 
         ::= { alcatelIND1VLANSTPMIBCompliances 1 }
 
-	END
+        END
 
 
 

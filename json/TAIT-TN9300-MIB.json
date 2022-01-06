@@ -1,0 +1,5267 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ],
+    "TAIT-COMMON-MIB": [
+      "taitModules",
+      "taitProducts"
+    ],
+    "TAIT-TN9300-TC": [
+      "LicenseValidity",
+      "NetworkCheckState",
+      "Mpt1327LinkState",
+      "NgwLinkState",
+      "EventSeverity",
+      "SipLineRegistrationType",
+      "NodeState",
+      "ChannelState",
+      "SipLineIncomingType",
+      "SipCallSpeechVotingPriority",
+      "RemoteNodeState",
+      "SipLineState",
+      "NodeRequestedState",
+      "Mpt1327ChannelState",
+      "DipLineState",
+      "RemoteNodeSyncState",
+      "UnitStatusMessageId",
+      "UnitAuthentication"
+    ]
+  },
+  "tn9300MibModule": {
+    "name": "tn9300MibModule",
+    "oid": "1.3.6.1.4.1.3570.1.1.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-03-18 14:00",
+        "description": "Added four new site and channel objects for the alternate channel."
+      },
+      {
+        "revision": "2019-01-28 16:30",
+        "description": "Defined a new tn9300ChannelBaseStationNumber object then added it as a channel table index. Also updated some of the description text."
+      },
+      {
+        "revision": "2019-01-09 12:00",
+        "description": "Added the description for tn9300LicenseValidity."
+      },
+      {
+        "revision": "2018-12-04 12:00",
+        "description": "Defined a new set of events, 19 in total, and its corresponding groups and objects. These new events are intended to be an alternative to the original set."
+      },
+      {
+        "revision": "2018-11-23 12:00",
+        "description": "Defined the channel stuck mute event."
+      },
+      {
+        "revision": "2018-11-21 12:00",
+        "description": "Created a new tn9300EventBaseStationNumber object and added it to the channel jammed/unjammed traps. For the other channel traps, the channel number object previously added was replaced with this."
+      },
+      {
+        "revision": "2018-10-25 12:00",
+        "description": "Replaced the added site number in site failure/ok events with site name. Added the site name and channel number to all of the channel related events. Defined tn9300EventChannelNumber to serve as the channel number object specifically for events. Changed the OID of tn9300EventUnitAddress to use the tn9300ObjectsForEvents subtree instead. Defined a new group for event objects and added the two mentioned above. Fixed some errors and warnings, and corrected some descriptions."
+      },
+      {
+        "revision": "2018-07-31 12:00",
+        "description": "Added the site number to the site failure event and the channel number to the channel failure event"
+      },
+      {
+        "revision": "2018-07-17 10:05",
+        "description": "Changed to Tait International Limited"
+      },
+      {
+        "revision": "2018-05-29 12:00",
+        "description": "Added dual CC and syscode for dynamic adjacent site"
+      },
+      {
+        "revision": "2018-04-23 12:00",
+        "description": "Fixed range restriction for tn9300UnitAddress. Removed tn9300UnitAddress from tn9300UnitAddressGroup."
+      },
+      {
+        "revision": "2018-04-17 12:00",
+        "description": "Fixed identifier for tn9300UnitGroup. Fixed ranage restriction for tn9300AdjSiteSendOrder and tn9300UnitAddress. Changed to use tn9300EventIUnitAddress in the tn9300UnitStatusMessageEvent. Changed to accessible-for-notify for tn9300UnitAddress Set tn9300EventIUnitAddress to tn9300UnitGroup "
+      },
+      {
+        "revision": "2018-03-18 22:03",
+        "description": "Added identifiers to conformance group. Fixed inconsistency in type of 'tn9300SipLineProxyAddress'. Changed some naming conventions."
+      },
+      {
+        "revision": "2018-03-08 12:00",
+        "description": "Added table for adjacent site and added site alias in site table"
+      },
+      {
+        "revision": "2018-03-05 12:00",
+        "description": "Added traps for deregistration by system"
+      },
+      {
+        "revision": "2018-01-26 00:00",
+        "description": "Added traps for remote node database sync"
+      },
+      {
+        "revision": "2017-11-22 00:00",
+        "description": "Fixed format and description for dual control channel"
+      },
+      {
+        "revision": "2017-05-24 00:00",
+        "description": "Added CPU and memory utilization monitoring."
+      },
+      {
+        "revision": "2017-03-16 00:54",
+        "description": "Fixed uppercase/lowercase inconsistencies."
+      },
+      {
+        "revision": "2016-08-22 12:00",
+        "description": "Added 3 Terminal alarm descriptions"
+      },
+      {
+        "revision": "2015-10-30 12:00",
+        "description": "Added SipLine objects and changed the term FxoLine to SipLine. Changed some descriptions."
+      },
+      {
+        "revision": "2015-03-17 22:08",
+        "description": "added Unit object, table and status notification"
+      },
+      {
+        "revision": "2014-04-04 23:07",
+        "description": "Added authentication ok and failure notifications."
+      },
+      {
+        "revision": "2012-11-29 22:01",
+        "description": "Object descriptions updated."
+      },
+      {
+        "revision": "2012-06-28 22:28",
+        "description": "Removed digital io tables and notifications. Changed format of notifications to include a newline between the DESCRIPTION tag and the description text."
+      },
+      {
+        "revision": "2012-06-27 09:02",
+        "description": "Changed type of the syscode value to string"
+      },
+      {
+        "revision": "2012-05-28 23:17",
+        "description": "Initial revision of this module"
+      }
+    ]
+  },
+  "tn9300MIB": {
+    "name": "tn9300MIB",
+    "oid": "1.3.6.1.4.1.3570.3.6",
+    "class": "objectidentity"
+  },
+  "tn9300Confs": {
+    "name": "tn9300Confs",
+    "oid": "1.3.6.1.4.1.3570.3.6.1",
+    "class": "objectidentity"
+  },
+  "tn9300Groups": {
+    "name": "tn9300Groups",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1",
+    "class": "objectidentity"
+  },
+  "tn9300Compl": {
+    "name": "tn9300Compl",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.2",
+    "class": "objectidentity"
+  },
+  "tn9300Objs": {
+    "name": "tn9300Objs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2",
+    "class": "objectidentity"
+  },
+  "tn9300NodeObjs": {
+    "name": "tn9300NodeObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1",
+    "class": "objectidentity"
+  },
+  "tn9300SiteObjs": {
+    "name": "tn9300SiteObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2",
+    "class": "objectidentity"
+  },
+  "tn9300SipLineObjs": {
+    "name": "tn9300SipLineObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3",
+    "class": "objectidentity"
+  },
+  "tn9300DipLineObjs": {
+    "name": "tn9300DipLineObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4",
+    "class": "objectidentity"
+  },
+  "tn9300Mpt1327Objs": {
+    "name": "tn9300Mpt1327Objs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5",
+    "class": "objectidentity"
+  },
+  "tn9300Mpt1327ChObjs": {
+    "name": "tn9300Mpt1327ChObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6",
+    "class": "objectidentity"
+  },
+  "tn9300RemoteNodeObjs": {
+    "name": "tn9300RemoteNodeObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7",
+    "class": "objectidentity"
+  },
+  "tn9300MobileIpObjs": {
+    "name": "tn9300MobileIpObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8",
+    "class": "objectidentity"
+  },
+  "tn9300UnitObjs": {
+    "name": "tn9300UnitObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.9",
+    "class": "objectidentity"
+  },
+  "tn9300NetworkGwObjs": {
+    "name": "tn9300NetworkGwObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.10",
+    "class": "objectidentity"
+  },
+  "tn9300EventObjs": {
+    "name": "tn9300EventObjs",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.99",
+    "class": "objectidentity"
+  },
+  "tn9300Events": {
+    "name": "tn9300Events",
+    "oid": "1.3.6.1.4.1.3570.3.6.3",
+    "class": "objectidentity"
+  },
+  "tn9300EventsV2": {
+    "name": "tn9300EventsV2",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0",
+    "class": "objectidentity"
+  },
+  "tn9300ObjectsForEvents": {
+    "name": "tn9300ObjectsForEvents",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.99",
+    "class": "objectidentity"
+  },
+  "tn9300CgmMIB": {
+    "name": "tn9300CgmMIB",
+    "oid": "1.3.6.1.4.1.3570.3.6.4",
+    "class": "objectidentity"
+  },
+  "tn9300Version": {
+    "name": "tn9300Version",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Name": {
+    "name": "tn9300Name",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Priority": {
+    "name": "tn9300Priority",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RequestedState": {
+    "name": "tn9300RequestedState",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NodeRequestedState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300State": {
+    "name": "tn9300State",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NodeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300NetCheckAddressAType": {
+    "name": "tn9300NetCheckAddressAType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300NetCheckAddressA": {
+    "name": "tn9300NetCheckAddressA",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300NetCheckStateA": {
+    "name": "tn9300NetCheckStateA",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkCheckState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300NetCheckAddressBType": {
+    "name": "tn9300NetCheckAddressBType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300NetCheckAddressB": {
+    "name": "tn9300NetCheckAddressB",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300NetCheckStateB": {
+    "name": "tn9300NetCheckStateB",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkCheckState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300CallsSwitching": {
+    "name": "tn9300CallsSwitching",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ConnectionsSwitching": {
+    "name": "tn9300ConnectionsSwitching",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MemoryUsage": {
+    "name": "tn9300MemoryUsage",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300CpuUsage": {
+    "name": "tn9300CpuUsage",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DiskSpaceOk": {
+    "name": "tn9300DiskSpaceOk",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300LicenseValidity": {
+    "name": "tn9300LicenseValidity",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicenseValidity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteTable": {
+    "name": "tn9300SiteTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300SiteEntry": {
+    "name": "tn9300SiteEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SiteNumber": {
+    "name": "tn9300SiteNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300SiteName": {
+    "name": "tn9300SiteName",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteSyscode": {
+    "name": "tn9300SiteSyscode",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteEnabled": {
+    "name": "tn9300SiteEnabled",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteOk": {
+    "name": "tn9300SiteOk",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteAutoQueueDepth": {
+    "name": "tn9300SiteAutoQueueDepth",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteQueueDepth": {
+    "name": "tn9300SiteQueueDepth",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteZone": {
+    "name": "tn9300SiteZone",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteExtraWaitSlots": {
+    "name": "tn9300SiteExtraWaitSlots",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteCCReassignTimeout": {
+    "name": "tn9300SiteCCReassignTimeout",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteTCRotation": {
+    "name": "tn9300SiteTCRotation",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteRxActivityTimeout": {
+    "name": "tn9300SiteRxActivityTimeout",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteRxInactiveTimeout": {
+    "name": "tn9300SiteRxInactiveTimeout",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteFramelength": {
+    "name": "tn9300SiteFramelength",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteMinFramelength": {
+    "name": "tn9300SiteMinFramelength",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteMaxFramelength": {
+    "name": "tn9300SiteMaxFramelength",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteDualCC": {
+    "name": "tn9300SiteDualCC",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteOpenMuteTimeout": {
+    "name": "tn9300SiteOpenMuteTimeout",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteManAdjSiteRF": {
+    "name": "tn9300SiteManAdjSiteRF",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteManAdjSiteSyscode": {
+    "name": "tn9300SiteManAdjSiteSyscode",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNChannels": {
+    "name": "tn9300SiteNChannels",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNControlChannels": {
+    "name": "tn9300SiteNControlChannels",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNTrafficChannels": {
+    "name": "tn9300SiteNTrafficChannels",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNIdleChannels": {
+    "name": "tn9300SiteNIdleChannels",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNDisabledChannels": {
+    "name": "tn9300SiteNDisabledChannels",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNFailedChannels": {
+    "name": "tn9300SiteNFailedChannels",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNOnAirCalls": {
+    "name": "tn9300SiteNOnAirCalls",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNRingingCalls": {
+    "name": "tn9300SiteNRingingCalls",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNQueuedCalls": {
+    "name": "tn9300SiteNQueuedCalls",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteTotalCalls": {
+    "name": "tn9300SiteTotalCalls",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteTotalChannelCalls": {
+    "name": "tn9300SiteTotalChannelCalls",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteTotalQueueTime": {
+    "name": "tn9300SiteTotalQueueTime",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteChannelTimeFailed": {
+    "name": "tn9300SiteChannelTimeFailed",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteChannelTimeTraffic": {
+    "name": "tn9300SiteChannelTimeTraffic",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteChannelTimeControl": {
+    "name": "tn9300SiteChannelTimeControl",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteChannelTimeIdle": {
+    "name": "tn9300SiteChannelTimeIdle",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteCallsQueuedUnder5": {
+    "name": "tn9300SiteCallsQueuedUnder5",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteCallsQueued5To10": {
+    "name": "tn9300SiteCallsQueued5To10",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteCallsQueued10To20": {
+    "name": "tn9300SiteCallsQueued10To20",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteCallsQueuedOver20": {
+    "name": "tn9300SiteCallsQueuedOver20",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteAlias": {
+    "name": "tn9300SiteAlias",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteControlChCountOk": {
+    "name": "tn9300SiteControlChCountOk",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteNAlternateChannels": {
+    "name": "tn9300SiteNAlternateChannels",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SiteChannelTimeAlternate": {
+    "name": "tn9300SiteChannelTimeAlternate",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelTable": {
+    "name": "tn9300ChannelTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300ChannelEntry": {
+    "name": "tn9300ChannelEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNumber",
+        "implied": 0
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelBaseStationNumber",
+        "implied": 0
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelNumber": {
+    "name": "tn9300ChannelNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300ChannelIpAddressType": {
+    "name": "tn9300ChannelIpAddressType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelIpAddress": {
+    "name": "tn9300ChannelIpAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelPort": {
+    "name": "tn9300ChannelPort",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelRf": {
+    "name": "tn9300ChannelRf",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelEnabled": {
+    "name": "tn9300ChannelEnabled",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelControlAllowed": {
+    "name": "tn9300ChannelControlAllowed",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelTrafficAllowed": {
+    "name": "tn9300ChannelTrafficAllowed",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelInhibitIfJammed": {
+    "name": "tn9300ChannelInhibitIfJammed",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelState": {
+    "name": "tn9300ChannelState",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelJammed": {
+    "name": "tn9300ChannelJammed",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelMinorAlarm": {
+    "name": "tn9300ChannelMinorAlarm",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelMajorAlarm": {
+    "name": "tn9300ChannelMajorAlarm",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelAParty": {
+    "name": "tn9300ChannelAParty",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelBParty": {
+    "name": "tn9300ChannelBParty",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelBspRxPackets": {
+    "name": "tn9300ChannelBspRxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelBspTxPackets": {
+    "name": "tn9300ChannelBspTxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelBspLostPackets": {
+    "name": "tn9300ChannelBspLostPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelRtpRxPackets": {
+    "name": "tn9300ChannelRtpRxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelRtpTxPackets": {
+    "name": "tn9300ChannelRtpTxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelRtpLostPackets": {
+    "name": "tn9300ChannelRtpLostPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelRtpRtt": {
+    "name": "tn9300ChannelRtpRtt",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelRtpRttJitter": {
+    "name": "tn9300ChannelRtpRttJitter",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelTimeFailed": {
+    "name": "tn9300ChannelTimeFailed",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelTimeTraffic": {
+    "name": "tn9300ChannelTimeTraffic",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelTimeControl": {
+    "name": "tn9300ChannelTimeControl",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelTimeIdle": {
+    "name": "tn9300ChannelTimeIdle",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelAlternateAllowed": {
+    "name": "tn9300ChannelAlternateAllowed",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelTimeAlternate": {
+    "name": "tn9300ChannelTimeAlternate",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300ChannelBaseStationNumber": {
+    "name": "tn9300ChannelBaseStationNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300AdjacentSiteTable": {
+    "name": "tn9300AdjacentSiteTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300AdjacentSiteEntry": {
+    "name": "tn9300AdjacentSiteEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNumber",
+        "implied": 0
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300AdjSiteSendOrder",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300AdjSiteSendOrder": {
+    "name": "tn9300AdjSiteSendOrder",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300AdjSiteAlias": {
+    "name": "tn9300AdjSiteAlias",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300AdjSiteSyscode1": {
+    "name": "tn9300AdjSiteSyscode1",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300AdjSiteRF1": {
+    "name": "tn9300AdjSiteRF1",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300AdjSiteSyscode2": {
+    "name": "tn9300AdjSiteSyscode2",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300AdjSiteRF2": {
+    "name": "tn9300AdjSiteRF2",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327IpAddressType": {
+    "name": "tn9300Mpt1327IpAddressType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327IpAddress": {
+    "name": "tn9300Mpt1327IpAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327Port": {
+    "name": "tn9300Mpt1327Port",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327State": {
+    "name": "tn9300Mpt1327State",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mpt1327LinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327RxBytes": {
+    "name": "tn9300Mpt1327RxBytes",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327TxBytes": {
+    "name": "tn9300Mpt1327TxBytes",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327LinkErrors": {
+    "name": "tn9300Mpt1327LinkErrors",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327Connections": {
+    "name": "tn9300Mpt1327Connections",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChTable": {
+    "name": "tn9300Mpt1327ChTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChEntry": {
+    "name": "tn9300Mpt1327ChEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300Mpt1327ChNumber": {
+    "name": "tn9300Mpt1327ChNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChIpAddressType": {
+    "name": "tn9300Mpt1327ChIpAddressType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChIpAddress": {
+    "name": "tn9300Mpt1327ChIpAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChPort": {
+    "name": "tn9300Mpt1327ChPort",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChState": {
+    "name": "tn9300Mpt1327ChState",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mpt1327ChannelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChLinkState": {
+    "name": "tn9300Mpt1327ChLinkState",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgwLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChAParty": {
+    "name": "tn9300Mpt1327ChAParty",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChBParty": {
+    "name": "tn9300Mpt1327ChBParty",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChNgpRxPackets": {
+    "name": "tn9300Mpt1327ChNgpRxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChNgpTxPackets": {
+    "name": "tn9300Mpt1327ChNgpTxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChNgpLostPackets": {
+    "name": "tn9300Mpt1327ChNgpLostPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChRtpRxPackets": {
+    "name": "tn9300Mpt1327ChRtpRxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChRtpTxPackets": {
+    "name": "tn9300Mpt1327ChRtpTxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChRtpLostPackets": {
+    "name": "tn9300Mpt1327ChRtpLostPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChRtpRtt": {
+    "name": "tn9300Mpt1327ChRtpRtt",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300Mpt1327ChRtpJitter": {
+    "name": "tn9300Mpt1327ChRtpJitter",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineTable": {
+    "name": "tn9300SipLineTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300SipLineEntry": {
+    "name": "tn9300SipLineEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SipLineNumber": {
+    "name": "tn9300SipLineNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300SipLineName": {
+    "name": "tn9300SipLineName",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineRegistrationType": {
+    "name": "tn9300SipLineRegistrationType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SipLineRegistrationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineUserName": {
+    "name": "tn9300SipLineUserName",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineEnabled": {
+    "name": "tn9300SipLineEnabled",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineSpchVotePri": {
+    "name": "tn9300SipLineSpchVotePri",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SipCallSpeechVotingPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineAisMultipartContents": {
+    "name": "tn9300SipLineAisMultipartContents",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineAisMonitor": {
+    "name": "tn9300SipLineAisMonitor",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineSipGroup": {
+    "name": "tn9300SipLineSipGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineInphoneTable": {
+    "name": "tn9300SipLineInphoneTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineIncomingType": {
+    "name": "tn9300SipLineIncomingType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SipLineIncomingType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineProxyAddressType": {
+    "name": "tn9300SipLineProxyAddressType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineProxyAddress": {
+    "name": "tn9300SipLineProxyAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineIpAddressType": {
+    "name": "tn9300SipLineIpAddressType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineIpAddress": {
+    "name": "tn9300SipLineIpAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineState": {
+    "name": "tn9300SipLineState",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SipLineState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineUptime": {
+    "name": "tn9300SipLineUptime",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineConnects": {
+    "name": "tn9300SipLineConnects",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300SipLineCalls": {
+    "name": "tn9300SipLineCalls",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineTable": {
+    "name": "tn9300DipLineTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300DipLineEntry": {
+    "name": "tn9300DipLineEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300DipLineNumber": {
+    "name": "tn9300DipLineNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300DipLineName": {
+    "name": "tn9300DipLineName",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineNgwIpAddrType": {
+    "name": "tn9300DipLineNgwIpAddrType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineNgwIpAddr": {
+    "name": "tn9300DipLineNgwIpAddr",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineAddress": {
+    "name": "tn9300DipLineAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLinePilotAddress": {
+    "name": "tn9300DipLinePilotAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineSpchVotePri": {
+    "name": "tn9300DipLineSpchVotePri",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SipCallSpeechVotingPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineState": {
+    "name": "tn9300DipLineState",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DipLineState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineNgwLinkState": {
+    "name": "tn9300DipLineNgwLinkState",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NgwLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineAParty": {
+    "name": "tn9300DipLineAParty",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineBParty": {
+    "name": "tn9300DipLineBParty",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLnClientIpAddrType": {
+    "name": "tn9300DipLnClientIpAddrType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLnClientIpAddr": {
+    "name": "tn9300DipLnClientIpAddr",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineClientUptime": {
+    "name": "tn9300DipLineClientUptime",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineClientConnects": {
+    "name": "tn9300DipLineClientConnects",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineNgpRxPackets": {
+    "name": "tn9300DipLineNgpRxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineNgpTxPackets": {
+    "name": "tn9300DipLineNgpTxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineNgpLostPackets": {
+    "name": "tn9300DipLineNgpLostPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineRtpRxPackets": {
+    "name": "tn9300DipLineRtpRxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineRtpTxPackets": {
+    "name": "tn9300DipLineRtpTxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineRtpLostPackets": {
+    "name": "tn9300DipLineRtpLostPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineRtpRtt": {
+    "name": "tn9300DipLineRtpRtt",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300DipLineRtpJitter": {
+    "name": "tn9300DipLineRtpJitter",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RemoteNodeTable": {
+    "name": "tn9300RemoteNodeTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300RemoteNodeEntry": {
+    "name": "tn9300RemoteNodeEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300RemoteNodeNumber": {
+    "name": "tn9300RemoteNodeNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300RemoteNodeName": {
+    "name": "tn9300RemoteNodeName",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RemoteNodeIpAddrType": {
+    "name": "tn9300RemoteNodeIpAddrType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RemoteNodeIpAddr": {
+    "name": "tn9300RemoteNodeIpAddr",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RemoteNodePriority": {
+    "name": "tn9300RemoteNodePriority",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RemoteNodeState": {
+    "name": "tn9300RemoteNodeState",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RemoteNodeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RemoteNodeCallSw": {
+    "name": "tn9300RemoteNodeCallSw",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RemoteNodeConnectSw": {
+    "name": "tn9300RemoteNodeConnectSw",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300RemoteNodeSynced": {
+    "name": "tn9300RemoteNodeSynced",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RemoteNodeSyncState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300UnitTable": {
+    "name": "tn9300UnitTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300UnitEntry": {
+    "name": "tn9300UnitEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300UnitAddress": {
+    "name": "tn9300UnitAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300UnitAlias": {
+    "name": "tn9300UnitAlias",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300UnitAuthentication": {
+    "name": "tn9300UnitAuthentication",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitAuthentication",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300UnitStatusMessageId": {
+    "name": "tn9300UnitStatusMessageId",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitStatusMessageId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300MipRegistered": {
+    "name": "tn9300MipRegistered",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipFailing": {
+    "name": "tn9300MipFailing",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipTimeouts": {
+    "name": "tn9300MipTimeouts",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipRejections": {
+    "name": "tn9300MipRejections",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipIcmpRxPackets": {
+    "name": "tn9300MipIcmpRxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipIcmpTxPackets": {
+    "name": "tn9300MipIcmpTxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipUdpRxPackets": {
+    "name": "tn9300MipUdpRxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipUdpTxPackets": {
+    "name": "tn9300MipUdpTxPackets",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipRxBytes": {
+    "name": "tn9300MipRxBytes",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300MipTxBytes": {
+    "name": "tn9300MipTxBytes",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn9300NetworkGwTable": {
+    "name": "tn9300NetworkGwTable",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300NetworkGwEntry": {
+    "name": "tn9300NetworkGwEntry",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGwId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NetworkGwId": {
+    "name": "tn9300NetworkGwId",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn9300NetworkGwConnOk": {
+    "name": "tn9300NetworkGwConnOk",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300NetworkGwIpAddrType": {
+    "name": "tn9300NetworkGwIpAddrType",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300NetworkGwIpAddr": {
+    "name": "tn9300NetworkGwIpAddr",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300EventSeverity": {
+    "name": "tn9300EventSeverity",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.99.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300EventUnitAddress": {
+    "name": "tn9300EventUnitAddress",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.99.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300EventBaseStationNumber": {
+    "name": "tn9300EventBaseStationNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.99.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300EventChannelNumber": {
+    "name": "tn9300EventChannelNumber",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.99.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300EventNetworkGwId": {
+    "name": "tn9300EventNetworkGwId",
+    "oid": "1.3.6.1.4.1.3570.3.6.2.99.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tn9300NodeActivationEvent": {
+    "name": "tn9300NodeActivationEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300State"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SiteFailureEvent": {
+    "name": "tn9300SiteFailureEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SiteOkEvent": {
+    "name": "tn9300SiteOkEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelMinorAlarmEvent": {
+    "name": "tn9300ChannelMinorAlarmEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelMinorAlarm"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelMajorAlarmEvent": {
+    "name": "tn9300ChannelMajorAlarmEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelMajorAlarm"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelFailureEvent": {
+    "name": "tn9300ChannelFailureEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelOkEvent": {
+    "name": "tn9300ChannelOkEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelJammedEvent": {
+    "name": "tn9300ChannelJammedEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelJammed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventChannelNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelUnjammedEvent": {
+    "name": "tn9300ChannelUnjammedEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelJammed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventChannelNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SipLinkUpEvent": {
+    "name": "tn9300SipLinkUpEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineIpAddressType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SipLinkDownEvent": {
+    "name": "tn9300SipLinkDownEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineState"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300DipLinkUpEvent": {
+    "name": "tn9300DipLinkUpEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLnClientIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLnClientIpAddr"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300DipLinkDownEvent": {
+    "name": "tn9300DipLinkDownEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLnClientIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLnClientIpAddr"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ControlChannelEvent": {
+    "name": "tn9300ControlChannelEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNControlChannels"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NetworkErrorEvent": {
+    "name": "tn9300NetworkErrorEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressAType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateB"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressBType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressB"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300RemoteNodeUpEvent": {
+    "name": "tn9300RemoteNodeUpEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300RemoteNodeDownEvent": {
+    "name": "tn9300RemoteNodeDownEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300LowDiskSpaceEvent": {
+    "name": "tn9300LowDiskSpaceEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.22",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tn9300LicenseCheckFailedEvent": {
+    "name": "tn9300LicenseCheckFailedEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.23",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tn9300NetworkGatewayUpEvent": {
+    "name": "tn9300NetworkGatewayUpEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.24",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tn9300NetworkGatewayDownEvent": {
+    "name": "tn9300NetworkGatewayDownEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.25",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tn9300NodeFailedEvent": {
+    "name": "tn9300NodeFailedEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressAType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateB"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressBType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressB"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NetworkUpEvent": {
+    "name": "tn9300NetworkUpEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressAType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateB"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressBType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressB"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300AuthenticationOkEvent": {
+    "name": "tn9300AuthenticationOkEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.28",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tn9300AuthenticationFailureEvent": {
+    "name": "tn9300AuthenticationFailureEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.29",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "tn9300UnitStatusMessageEvent": {
+    "name": "tn9300UnitStatusMessageEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitStatusMessageId"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventUnitAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300RemoteNodeSyncFailedEvent": {
+    "name": "tn9300RemoteNodeSyncFailedEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300RemoteNodeSyncOkEvent": {
+    "name": "tn9300RemoteNodeSyncOkEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300UnitDeregisteredBySystemEvent": {
+    "name": "tn9300UnitDeregisteredBySystemEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventUnitAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NodeStateEvent": {
+    "name": "tn9300NodeStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300State"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NodeIpNetworkStateEvent": {
+    "name": "tn9300NodeIpNetworkStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressAType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateB"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressBType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressB"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NodeDiskSpaceEvent": {
+    "name": "tn9300NodeDiskSpaceEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DiskSpaceOk"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NodeLicenseEvent": {
+    "name": "tn9300NodeLicenseEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300LicenseValidity"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SiteStateEvent": {
+    "name": "tn9300SiteStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SiteControlChCountEvent": {
+    "name": "tn9300SiteControlChCountEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteControlChCountOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNControlChannels"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300BSMinorAlarmStateEvent": {
+    "name": "tn9300BSMinorAlarmStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelMinorAlarm"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300BSMajorAlarmStateEvent": {
+    "name": "tn9300BSMajorAlarmStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelMajorAlarm"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300BSStateEvent": {
+    "name": "tn9300BSStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelJammedStateEvent": {
+    "name": "tn9300ChannelJammedStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelJammed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventChannelNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelStuckMuteEvent": {
+    "name": "tn9300ChannelStuckMuteEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventChannelNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SipLinkStateEvent": {
+    "name": "tn9300SipLinkStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineIpAddressType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300DipLinkStateEvent": {
+    "name": "tn9300DipLinkStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLnClientIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLnClientIpAddr"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300RemoteNodeStateEvent": {
+    "name": "tn9300RemoteNodeStateEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300RemoteNodeSyncEvent": {
+    "name": "tn9300RemoteNodeSyncEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeSynced"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NetworkGwConnEvent": {
+    "name": "tn9300NetworkGwConnEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGwConnOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventNetworkGwId"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGwIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGwIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300UnitAuthenticationEvent": {
+    "name": "tn9300UnitAuthenticationEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitAuthentication"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventUnitAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300UnitStatusMsgEvent": {
+    "name": "tn9300UnitStatusMsgEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitStatusMessageId"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventUnitAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300UnitRegTimeoutEvent": {
+    "name": "tn9300UnitRegTimeoutEvent",
+    "oid": "1.3.6.1.4.1.3570.3.6.3.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventUnitAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300StatusGroup": {
+    "name": "tn9300StatusGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Version"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Name"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Priority"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RequestedState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300State"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressAType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateA"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressBType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckAddressB"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetCheckStateB"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300CallsSwitching"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ConnectionsSwitching"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MemoryUsage"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300CpuUsage"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DiskSpaceOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300LicenseValidity"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SiteGroup": {
+    "name": "tn9300SiteGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteSyscode"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteEnabled"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteAutoQueueDepth"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteQueueDepth"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteZone"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteExtraWaitSlots"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteCCReassignTimeout"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteTCRotation"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteRxActivityTimeout"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteRxInactiveTimeout"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteFramelength"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteMinFramelength"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteMaxFramelength"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteDualCC"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteOpenMuteTimeout"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteManAdjSiteRF"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteManAdjSiteSyscode"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNChannels"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNControlChannels"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNTrafficChannels"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNIdleChannels"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNDisabledChannels"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNFailedChannels"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNOnAirCalls"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNRingingCalls"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNQueuedCalls"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteTotalCalls"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteTotalChannelCalls"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteTotalQueueTime"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteChannelTimeFailed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteChannelTimeTraffic"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteChannelTimeControl"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteChannelTimeIdle"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteCallsQueuedUnder5"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteCallsQueued5To10"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteCallsQueued10To20"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteCallsQueuedOver20"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteAlias"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300AdjSiteAlias"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300AdjSiteSyscode1"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300AdjSiteSyscode2"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300AdjSiteRF1"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300AdjSiteRF2"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteControlChCountOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteNAlternateChannels"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteChannelTimeAlternate"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ChannelGroup": {
+    "name": "tn9300ChannelGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelIpAddressType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelIpAddress"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelPort"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelRf"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelEnabled"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelControlAllowed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelTrafficAllowed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelInhibitIfJammed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelJammed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelMinorAlarm"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelMajorAlarm"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelAParty"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelBParty"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelBspRxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelBspTxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelBspLostPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelRtpRxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelRtpTxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelRtpLostPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelRtpRtt"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelRtpRttJitter"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelTimeFailed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelTimeTraffic"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelTimeControl"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelTimeIdle"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelAlternateAllowed"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelTimeAlternate"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300Mpt1327Group": {
+    "name": "tn9300Mpt1327Group",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327IpAddressType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327IpAddress"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327Port"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327State"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327RxBytes"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327TxBytes"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327LinkErrors"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327Connections"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300Mpt1327ChGroup": {
+    "name": "tn9300Mpt1327ChGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChIpAddressType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChIpAddress"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChPort"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChLinkState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChAParty"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChBParty"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChNgpRxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChNgpTxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChNgpLostPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChRtpRxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChRtpTxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChRtpLostPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChRtpRtt"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300Mpt1327ChRtpJitter"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300SipLineGroup": {
+    "name": "tn9300SipLineGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineIncomingType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineSpchVotePri"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineIpAddressType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineIpAddress"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineUptime"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineConnects"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineRegistrationType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineUserName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineEnabled"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineAisMultipartContents"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineAisMonitor"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineSipGroup"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineInphoneTable"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineProxyAddressType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineProxyAddress"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLineCalls"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300DipLineGroup": {
+    "name": "tn9300DipLineGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineNgwIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineNgwIpAddr"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineAddress"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLinePilotAddress"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineSpchVotePri"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineNgwLinkState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineAParty"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineBParty"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLnClientIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLnClientIpAddr"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineClientUptime"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineClientConnects"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineNgpRxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineNgpTxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineNgpLostPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineRtpRxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineRtpTxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineRtpLostPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineRtpRtt"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLineRtpJitter"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300RemoteNodeGroup": {
+    "name": "tn9300RemoteNodeGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeName"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeIpAddr"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodePriority"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeState"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeCallSw"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeConnectSw"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeSynced"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300EventGroup": {
+    "name": "tn9300EventGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NodeActivationEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteFailureEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteOkEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelMinorAlarmEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelMajorAlarmEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelFailureEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelOkEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelJammedEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelUnjammedEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLinkUpEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLinkDownEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLinkUpEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLinkDownEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ControlChannelEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkErrorEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeUpEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeDownEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300LowDiskSpaceEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300LicenseCheckFailedEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGatewayUpEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGatewayDownEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NodeFailedEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkUpEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300AuthenticationOkEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300AuthenticationFailureEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitStatusMessageEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeSyncFailedEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeSyncOkEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitDeregisteredBySystemEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300MobileIpGroup": {
+    "name": "tn9300MobileIpGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipRegistered"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipFailing"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipTimeouts"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipRejections"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipIcmpRxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipIcmpTxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipUdpRxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipUdpTxPackets"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipRxBytes"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300MipTxBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300UnitGroup": {
+    "name": "tn9300UnitGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitAlias"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitStatusMessageId"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitAuthentication"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300EventObjectGroup": {
+    "name": "tn9300EventObjectGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventSeverity"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventUnitAddress"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventBaseStationNumber"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventChannelNumber"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300EventNetworkGwId"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300EventGroupV2": {
+    "name": "tn9300EventGroupV2",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NodeStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NodeIpNetworkStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NodeDiskSpaceEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NodeLicenseEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SiteControlChCountEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300BSMinorAlarmStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300BSMajorAlarmStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300BSStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelJammedStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300ChannelStuckMuteEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300SipLinkStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300DipLinkStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeStateEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300RemoteNodeSyncEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGwConnEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitAuthenticationEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitStatusMsgEvent"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300UnitRegTimeoutEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300NetworkGwGroup": {
+    "name": "tn9300NetworkGwGroup",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGwConnOk"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGwIpAddrType"
+      },
+      {
+        "module": "TAIT-TN9300-MIB",
+        "object": "tn9300NetworkGwIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "tn9300ComplianceV1": {
+    "name": "tn9300ComplianceV1",
+    "oid": "1.3.6.1.4.1.3570.3.6.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tn9300StatusGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300SiteGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300ChannelGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300SipLineGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300DipLineGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300Mpt1327Group",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300Mpt1327ChGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300RemoteNodeGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300EventGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300MobileIpGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300UnitGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300EventObjectGroup",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300EventGroupV2",
+        "module": "TAIT-TN9300-MIB"
+      },
+      {
+        "object": "tn9300NetworkGwGroup",
+        "module": "TAIT-TN9300-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-TN9300-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TAIT-TN9300-MIB"
+  }
+}

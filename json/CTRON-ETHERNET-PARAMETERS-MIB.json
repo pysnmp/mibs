@@ -1,0 +1,504 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTIF-EXT-MIB": [
+      "ctIfPortIfNumber",
+      "ctIfPortPortNumber"
+    ],
+    "CTRON-MIB-NAMES": [
+      "ctEthernetCtlParameters"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctAutoNegCtl": {
+    "name": "ctAutoNegCtl",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1",
+    "class": "objectidentity"
+  },
+  "ctAutoNegCtlTable": {
+    "name": "ctAutoNegCtlTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctAutoNegCtlEntry": {
+    "name": "ctAutoNegCtlEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfPortIfNumber",
+        "implied": 0
+      },
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfPortPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctAutoNegAdminStatus": {
+    "name": "ctAutoNegAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctAutoNegRemoteSignalling": {
+    "name": "ctAutoNegRemoteSignalling",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detected": 1,
+          "notdetected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctAutoNegAutoConfig": {
+    "name": "ctAutoNegAutoConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "configuring": 2,
+          "complete": 3,
+          "disabled": 4,
+          "paralleldetectfailed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctAutoNegLocalTechnologyAbility": {
+    "name": "ctAutoNegLocalTechnologyAbility",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctAutoNegAdvertisedTechnologyAbility": {
+    "name": "ctAutoNegAdvertisedTechnologyAbility",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctAutoNegReceivedTechnologyAbility": {
+    "name": "ctAutoNegReceivedTechnologyAbility",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFlowControl": {
+    "name": "ctFlowControl",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2",
+    "class": "objectidentity"
+  },
+  "ctFlowCtlTable": {
+    "name": "ctFlowCtlTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctFlowCtlEntry": {
+    "name": "ctFlowCtlEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfPortIfNumber",
+        "implied": 0
+      },
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfPortPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctFlowCtlHalfDuplexAdminStatus": {
+    "name": "ctFlowCtlHalfDuplexAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFlowCtlHalfDuplexOperStatus": {
+    "name": "ctFlowCtlHalfDuplexOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notsupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctEtherSupportedPauseModes": {
+    "name": "ctEtherSupportedPauseModes",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFlowCtlPauseAdminStatus": {
+    "name": "ctFlowCtlPauseAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symmetric": 1,
+          "asymmetricRx": 2,
+          "asymmetricTx": 3,
+          "disabled": 4,
+          "autonegotiate": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autonegotiate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctFlowCtlPauseOperStatus": {
+    "name": "ctFlowCtlPauseOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symmetric": 1,
+          "asymmetricRx": 2,
+          "asymmetricTx": 3,
+          "disabled": 4,
+          "unknown": 5,
+          "notsupported": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFlowCtlPauseTimer": {
+    "name": "ctFlowCtlPauseTimer",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFlowCtlRxPauseFrames": {
+    "name": "ctFlowCtlRxPauseFrames",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctFlowCtlTxPauseFrames": {
+    "name": "ctFlowCtlTxPauseFrames",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctEtherManualConfig": {
+    "name": "ctEtherManualConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3",
+    "class": "objectidentity"
+  },
+  "ctEtherManualConfigTable": {
+    "name": "ctEtherManualConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctEtherManualConfigEntry": {
+    "name": "ctEtherManualConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfPortIfNumber",
+        "implied": 0
+      },
+      {
+        "module": "CTIF-EXT-MIB",
+        "object": "ctIfPortPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctEtherSupportedSpeed": {
+    "name": "ctEtherSupportedSpeed",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctEtherSpeedAdminStatus": {
+    "name": "ctEtherSpeedAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenmegabit": 2,
+          "hundredmegabit": 3,
+          "gigabit": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctEtherSpeedOperStatus": {
+    "name": "ctEtherSpeedOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "tenmegabit": 2,
+          "hundredmegabit": 3,
+          "gigabit": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctEtherSupportedDuplex": {
+    "name": "ctEtherSupportedDuplex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halfduplex": 1,
+          "fullduplex": 2,
+          "halfandfullduplex": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctEtherDuplexAdminStatus": {
+    "name": "ctEtherDuplexAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halfduplex": 2,
+          "fullduplex": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "halfduplex",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctEtherDuplexOperStatus": {
+    "name": "ctEtherDuplexOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.4.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "halfduplex": 2,
+          "fullduplex": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ETHERNET-PARAMETERS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-ETHERNET-PARAMETERS-MIB"
+  }
+}

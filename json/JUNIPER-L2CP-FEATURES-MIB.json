@@ -1,0 +1,531 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dStpPortEntry",
+      "dot1dStpPort"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxL2cpMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxL2cpFeaturesMIB": {
+    "name": "jnxL2cpFeaturesMIB",
+    "oid": "1.3.6.1.4.1.2636.3.53.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-06-25 00:00",
+        "description": "Modifying max access for LacpTimeOut trap objects."
+      },
+      {
+        "revision": "2012-08-15 00:00",
+        "description": "Added new mib jnxLacpAggTimeout."
+      },
+      {
+        "revision": "2010-06-11 00:00",
+        "description": "Added new trap jnxLacpTimeOut."
+      },
+      {
+        "revision": "2016-09-23 00:00",
+        "description": "Adding jnxL2cpLoopDetectObjects"
+      }
+    ]
+  },
+  "jnxL2cpObjects": {
+    "name": "jnxL2cpObjects",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1",
+    "class": "objectidentity"
+  },
+  "jnxL2cpNotifications": {
+    "name": "jnxL2cpNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.2",
+    "class": "objectidentity"
+  },
+  "jnxL2cpStpProtectObjects": {
+    "name": "jnxL2cpStpProtectObjects",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxL2cpBpduProtectObjects": {
+    "name": "jnxL2cpBpduProtectObjects",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxDot1dStpPortProtectTable": {
+    "name": "jnxDot1dStpPortProtectTable",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxDot1dStpPortProtectEntry": {
+    "name": "jnxDot1dStpPortProtectEntry",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxDot1dStpPortProtectEntry",
+      "module": "JUNIPER-L2CP-FEATURES-MIB",
+      "object": "dot1dStpPortEntry"
+    },
+    "status": "current"
+  },
+  "jnxDot1dStpPortRootProtectEnabled": {
+    "name": "jnxDot1dStpPortRootProtectEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxDot1dStpPortRootProtectState": {
+    "name": "jnxDot1dStpPortRootProtectState",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "root-prevented": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxDot1dStpPortLoopProtectEnabled": {
+    "name": "jnxDot1dStpPortLoopProtectEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxDot1dStpPortLoopProtectState": {
+    "name": "jnxDot1dStpPortLoopProtectState",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "loop-prevented": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2cpBpduProtectPortTable": {
+    "name": "jnxL2cpBpduProtectPortTable",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxL2cpBpduProtectPortEntry": {
+    "name": "jnxL2cpBpduProtectPortEntry",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxL2cpBpduProtectPortEnabled": {
+    "name": "jnxL2cpBpduProtectPortEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2cpPortBpduError": {
+    "name": "jnxL2cpPortBpduError",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "detected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2cpBpduProtectDisableTimeout": {
+    "name": "jnxL2cpBpduProtectDisableTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2cpProtectTraps": {
+    "name": "jnxL2cpProtectTraps",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.2.0",
+    "class": "objectidentity"
+  },
+  "jnxPortRootProtectStateChangeTrap": {
+    "name": "jnxPortRootProtectStateChangeTrap",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2CP-FEATURES-MIB",
+        "object": "jnxDot1dStpPortRootProtectState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPortLoopProtectStateChangeTrap": {
+    "name": "jnxPortLoopProtectStateChangeTrap",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2CP-FEATURES-MIB",
+        "object": "jnxDot1dStpPortLoopProtectState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPortBpduErrorStatusChangeTrap": {
+    "name": "jnxPortBpduErrorStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2CP-FEATURES-MIB",
+        "object": "jnxL2cpPortBpduError"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLacpNotifyVars": {
+    "name": "jnxLacpNotifyVars",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.3",
+    "class": "objectidentity"
+  },
+  "jnxLacpAggTimeout": {
+    "name": "jnxLacpAggTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.4",
+    "class": "objectidentity"
+  },
+  "jnxLacpNotificationsPrefix": {
+    "name": "jnxLacpNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.2.1",
+    "class": "objectidentity"
+  },
+  "LacpState": {
+    "name": "LacpState",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "lacpActivity": 0,
+        "lacpTimeout": 1,
+        "aggregation": 2,
+        "synchronization": 3,
+        "collecting": 4,
+        "distributing": 5,
+        "defaulted": 6,
+        "expired": 7
+      }
+    },
+    "status": "current"
+  },
+  "jnxLacpInterfaceName": {
+    "name": "jnxLacpInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLacpifIndex": {
+    "name": "jnxLacpifIndex",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLacpAggregateInterfaceName": {
+    "name": "jnxLacpAggregateInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLacpAggregateifIndex": {
+    "name": "jnxLacpAggregateifIndex",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLacpAggPortActorOperState": {
+    "name": "jnxLacpAggPortActorOperState",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLacpTimeOut": {
+    "name": "jnxLacpTimeOut",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2CP-FEATURES-MIB",
+        "object": "jnxLacpInterfaceName"
+      },
+      {
+        "module": "JUNIPER-L2CP-FEATURES-MIB",
+        "object": "jnxLacpifIndex"
+      },
+      {
+        "module": "JUNIPER-L2CP-FEATURES-MIB",
+        "object": "jnxLacpAggregateInterfaceName"
+      },
+      {
+        "module": "JUNIPER-L2CP-FEATURES-MIB",
+        "object": "jnxLacpAggregateifIndex"
+      },
+      {
+        "module": "JUNIPER-L2CP-FEATURES-MIB",
+        "object": "jnxLacpAggPortActorOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortTimeoutTable": {
+    "name": "dot3adAggPortTimeoutTable",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggPortTimeoutEntry": {
+    "name": "dot3adAggPortTimeoutEntry",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adInterfaceName": {
+    "name": "dot3adInterfaceName",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adOperState": {
+    "name": "dot3adOperState",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggname": {
+    "name": "dot3adAggname",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adInterfaceTimeout": {
+    "name": "dot3adInterfaceTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2cpLoopDetectObjects": {
+    "name": "jnxL2cpLoopDetectObjects",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.5",
+    "class": "objectidentity"
+  },
+  "jnxL2cpLoopDetectPortTable": {
+    "name": "jnxL2cpLoopDetectPortTable",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxL2cpLoopDetectPortEntry": {
+    "name": "jnxL2cpLoopDetectPortEntry",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxL2cpLoopDetectPortEnabled": {
+    "name": "jnxL2cpLoopDetectPortEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2cpLoopDetectPduError": {
+    "name": "jnxL2cpLoopDetectPduError",
+    "oid": "1.3.6.1.4.1.2636.3.53.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "detected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-L2CP-FEATURES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-L2CP-FEATURES-MIB"
+  }
+}

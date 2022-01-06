@@ -1,0 +1,291 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "PNNI-MIB": [
+      "PnniNodeId",
+      "PnniPortId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoWanATMPrefRouteMIB": {
+    "name": "ciscoWanATMPrefRouteMIB",
+    "oid": "1.3.6.1.4.1.9.9.99996",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-06-25 00:00",
+        "description": "Initial version of the preferred routes MIB. Preferred Route allows the user an improved control over the Soft Permanent Virtual Circuit (SPVC) or Soft Permanent Virtual Path (SPVP) connections. The use of network resources by these connections can be explicitly specified through the exact lowest-level nodes and the associated links the connection has to traverse. In subsequent discussion, the term SPVC implicitly applies also to SPVP. Preferred route is specified only at originating node. When an originating node selects a connection to be rerouted, the node searches for a route. If a preferred route is configured for the connection, the originating node uses the configured route as the basis of routing. Terminologies used: Network Element (NE): The pair of a node identifier and the egress port Identifier associated to the node. Master node of a connection: It is the node which owns the connection and is responsible to establish a data path from its end to the remote end. Route Identifier: It is a number uniquely identifying a preferred route within the master node. A preferred route consists of up to 20 network elements. The number of network elements valid within the route is specified by the user. Contextually, the node at the first network element is the originating node; the node at the last network element (as specified by the user in the number of valid network elements) is the destination node."
+      }
+    ]
+  },
+  "ciscoWanATMPrefRouteMIBNotifs": {
+    "name": "ciscoWanATMPrefRouteMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.99996.0",
+    "class": "objectidentity"
+  },
+  "ciscoWanATMPrefRouteMIBObjects": {
+    "name": "ciscoWanATMPrefRouteMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.99996.1",
+    "class": "objectidentity"
+  },
+  "cwaPrefRouteConformance": {
+    "name": "cwaPrefRouteConformance",
+    "oid": "1.3.6.1.4.1.9.9.99996.2",
+    "class": "objectidentity"
+  },
+  "RouteId": {
+    "name": "RouteId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cwaPrefRouteConfTable": {
+    "name": "cwaPrefRouteConfTable",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaPrefRouteConfEntry": {
+    "name": "cwaPrefRouteConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB",
+        "object": "cwaPrefRouteId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwaPrefRouteId": {
+    "name": "cwaPrefRouteId",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouteId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaPrefRouteNwElemCount": {
+    "name": "cwaPrefRouteNwElemCount",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaPrefRouteRowStatus": {
+    "name": "cwaPrefRouteRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaPrefRouteNwElemTable": {
+    "name": "cwaPrefRouteNwElemTable",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaPrefRouteNwElemEntry": {
+    "name": "cwaPrefRouteNwElemEntry",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB",
+        "object": "cwaPrefRouteId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB",
+        "object": "cwaPrefRouteNwElemPos",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwaPrefRouteNwElemPos": {
+    "name": "cwaPrefRouteNwElemPos",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaPrefRouteNwElemNodeId": {
+    "name": "cwaPrefRouteNwElemNodeId",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaPrefRouteNwElemPortId": {
+    "name": "cwaPrefRouteNwElemPortId",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaPrefRouteNwElemRowStatus": {
+    "name": "cwaPrefRouteNwElemRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaPrefRouteCompliances": {
+    "name": "cwaPrefRouteCompliances",
+    "oid": "1.3.6.1.4.1.9.9.99996.2.1",
+    "class": "objectidentity"
+  },
+  "cwaPrefMIBGroups": {
+    "name": "cwaPrefMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.99996.2.2",
+    "class": "objectidentity"
+  },
+  "cwaPrefMIBCompliance": {
+    "name": "cwaPrefMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.99996.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwaPrefRouteMIBGroups",
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwaPrefRouteMIBGroups": {
+    "name": "cwaPrefRouteMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.99996.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB",
+        "object": "cwaPrefRouteNwElemCount"
+      },
+      {
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB",
+        "object": "cwaPrefRouteRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB",
+        "object": "cwaPrefRouteNwElemNodeId"
+      },
+      {
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB",
+        "object": "cwaPrefRouteNwElemPortId"
+      },
+      {
+        "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB",
+        "object": "cwaPrefRouteNwElemRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-ATM-PREF-ROUTE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-ATM-PREF-ROUTE-MIB"
+  }
+}

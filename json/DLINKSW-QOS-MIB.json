@@ -1,0 +1,2711 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dBasePort"
+    ],
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwQosMIB": {
+    "name": "dlinkSwQosMIB",
+    "oid": "1.3.6.1.4.1.171.14.61",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-02-21 00:00",
+        "description": "Initial version of this MIB module."
+      },
+      {
+        "revision": "2013-05-30 00:00",
+        "description": "1.Add a new parameter, percent <value 1-100 >, to set the rate by percentage. -- dQosBandwidthRxRateMode,dQosBandwidthTxRateMode, -- dQosQueueBandwidthMinRateMode,dQosQueueBandwidthMinRateMode 2.change the value range of -- dQosBandwidthRxRate,dQosBandwidthTxRate, -- dQosQueueBandwidthMinRate,dQosQueueBandwidthMaxRate "
+      },
+      {
+        "revision": "2013-07-09 00:00",
+        "description": "1.Add police action: replaceCos,replaceAll -- DlinkQosPoliceActionType -- dQosAggPolicerEntry -- dQosAggPolicerConformReplaceCos -- dQosAggPolicerExceedReplaceCos -- dQosAggPolicerViolateReplaceCos -- dQosPoliceEntry -- dQosPoliceConformReplaceCos -- dQosPoliceExceedReplaceCos -- dQosPoliceViolateReplaceCos "
+      }
+    ]
+  },
+  "DlinkQosPoliceActionType": {
+    "name": "DlinkQosPoliceActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "drop": 1,
+          "permit": 2,
+          "replaceDscp": 3,
+          "replaceCos": 4,
+          "replaceAll": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dQosMIBNotifications": {
+    "name": "dQosMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.61.0",
+    "class": "objectidentity"
+  },
+  "dQosMIBObjects": {
+    "name": "dQosMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.61.1",
+    "class": "objectidentity"
+  },
+  "dQosMIBConformance": {
+    "name": "dQosMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.61.2",
+    "class": "objectidentity"
+  },
+  "dQosClassMap": {
+    "name": "dQosClassMap",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1",
+    "class": "objectidentity"
+  },
+  "dQosPolicyMap": {
+    "name": "dQosPolicyMap",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2",
+    "class": "objectidentity"
+  },
+  "dQosServicePolicy": {
+    "name": "dQosServicePolicy",
+    "oid": "1.3.6.1.4.1.171.14.61.1.3",
+    "class": "objectidentity"
+  },
+  "dQosScheduling": {
+    "name": "dQosScheduling",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4",
+    "class": "objectidentity"
+  },
+  "dQosBandwidthCtrl": {
+    "name": "dQosBandwidthCtrl",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5",
+    "class": "objectidentity"
+  },
+  "dQosQueueBandwidthCtrl": {
+    "name": "dQosQueueBandwidthCtrl",
+    "oid": "1.3.6.1.4.1.171.14.61.1.6",
+    "class": "objectidentity"
+  },
+  "dQosQueuingCfg": {
+    "name": "dQosQueuingCfg",
+    "oid": "1.3.6.1.4.1.171.14.61.1.7",
+    "class": "objectidentity"
+  },
+  "dQosDscpMap": {
+    "name": "dQosDscpMap",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8",
+    "class": "objectidentity"
+  },
+  "dQosCosMap": {
+    "name": "dQosCosMap",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9",
+    "class": "objectidentity"
+  },
+  "dQosPolicyMapTable": {
+    "name": "dQosPolicyMapTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosPolicyMapEntry": {
+    "name": "dQosPolicyMapEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosPolicyMapName": {
+    "name": "dQosPolicyMapName",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosPolicyMapRowStatus": {
+    "name": "dQosPolicyMapRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPolicyMapCfgTable": {
+    "name": "dQosPolicyMapCfgTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosPolicyMapCfgEntry": {
+    "name": "dQosPolicyMapCfgEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosPolicyMapCfgSetCosQueue": {
+    "name": "dQosPolicyMapCfgSetCosQueue",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPolicyMapCfgSetCos": {
+    "name": "dQosPolicyMapCfgSetCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPolicyMapCfgSetDscpOnlyIp": {
+    "name": "dQosPolicyMapCfgSetDscpOnlyIp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPolicyMapCfgSetDscp": {
+    "name": "dQosPolicyMapCfgSetDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPolicyMapCfgSetPreceOnlyIp": {
+    "name": "dQosPolicyMapCfgSetPreceOnlyIp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPolicyMapCfgSetPrecedence": {
+    "name": "dQosPolicyMapCfgSetPrecedence",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPolicyMapCfgRowStatus": {
+    "name": "dQosPolicyMapCfgRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosClassMapTable": {
+    "name": "dQosClassMapTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosClassMapEntry": {
+    "name": "dQosClassMapEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosClassMapName": {
+    "name": "dQosClassMapName",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosClassMapType": {
+    "name": "dQosClassMapType",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "matchAny": 1,
+          "matchAll": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "matchAny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosClassMapRowStaus": {
+    "name": "dQosClassMapRowStaus",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosClassMapCfgTable": {
+    "name": "dQosClassMapCfgTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosClassMapCfgEntry": {
+    "name": "dQosClassMapCfgEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapCfgMatchId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosClassMapCfgMatchId": {
+    "name": "dQosClassMapCfgMatchId",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosClassMapCfgMatchType": {
+    "name": "dQosClassMapCfgMatchType",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accessList": 1,
+          "cos": 2,
+          "innerCos": 3,
+          "dscp": 4,
+          "ipDscp": 5,
+          "precedence": 6,
+          "ipPrecedence": 7,
+          "protocol": 8,
+          "vlan": 9,
+          "innerVlan": 10
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosClassMapCfgMatchValue": {
+    "name": "dQosClassMapCfgMatchValue",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosClassMapCfgRowStaus": {
+    "name": "dQosClassMapCfgRowStaus",
+    "oid": "1.3.6.1.4.1.171.14.61.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosServicePolicyTable": {
+    "name": "dQosServicePolicyTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosServicePolicyEntry": {
+    "name": "dQosServicePolicyEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosServicePolicyDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosServicePolicyDirection": {
+    "name": "dQosServicePolicyDirection",
+    "oid": "1.3.6.1.4.1.171.14.61.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosServicePolicyName": {
+    "name": "dQosServicePolicyName",
+    "oid": "1.3.6.1.4.1.171.14.61.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosServicePolicyRowStaus": {
+    "name": "dQosServicePolicyRowStaus",
+    "oid": "1.3.6.1.4.1.171.14.61.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosSchedulingModeTable": {
+    "name": "dQosSchedulingModeTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosSchedulingModeEntry": {
+    "name": "dQosSchedulingModeEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosSchedulingMode": {
+    "name": "dQosSchedulingMode",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sp": 1,
+          "rr": 2,
+          "wrr": 3,
+          "wdrr": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosScheduleWrrWeightTable": {
+    "name": "dQosScheduleWrrWeightTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosScheduleWrrWeightEntry": {
+    "name": "dQosScheduleWrrWeightEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosScheduleWrrWeightQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosScheduleWrrWeightQueueId": {
+    "name": "dQosScheduleWrrWeightQueueId",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosScheduleWrrWeightValue": {
+    "name": "dQosScheduleWrrWeightValue",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosScheduleWdrrWeightTable": {
+    "name": "dQosScheduleWdrrWeightTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosScheduleWdrrWeightEntry": {
+    "name": "dQosScheduleWdrrWeightEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosScheduleWdrrWeightQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosScheduleWdrrWeightQueueId": {
+    "name": "dQosScheduleWdrrWeightQueueId",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosScheduleWdrrWeightValue": {
+    "name": "dQosScheduleWdrrWeightValue",
+    "oid": "1.3.6.1.4.1.171.14.61.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosBandwidthCtrlTable": {
+    "name": "dQosBandwidthCtrlTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosBandwidthCtrlEntry": {
+    "name": "dQosBandwidthCtrlEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosBandwidthRxRate": {
+    "name": "dQosBandwidthRxRate",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosBandwidthRxBurst": {
+    "name": "dQosBandwidthRxBurst",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 128000
+          }
+        ]
+      }
+    },
+    "units": "kbyte",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosBandwidthTxRate": {
+    "name": "dQosBandwidthTxRate",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosBandwidthTxBurst": {
+    "name": "dQosBandwidthTxBurst",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 128000
+          }
+        ]
+      }
+    },
+    "units": "kbyte",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosBandwidthRxRateMode": {
+    "name": "dQosBandwidthRxRateMode",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate": 1,
+          "percent": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosBandwidthTxRateMode": {
+    "name": "dQosBandwidthTxRateMode",
+    "oid": "1.3.6.1.4.1.171.14.61.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate": 1,
+          "percent": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosQueueBandwidthCtrlTable": {
+    "name": "dQosQueueBandwidthCtrlTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosQueueBandwidthCtrlEntry": {
+    "name": "dQosQueueBandwidthCtrlEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosQueueBandwidthQueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosQueueBandwidthQueId": {
+    "name": "dQosQueueBandwidthQueId",
+    "oid": "1.3.6.1.4.1.171.14.61.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosQueueBandwidthMinRate": {
+    "name": "dQosQueueBandwidthMinRate",
+    "oid": "1.3.6.1.4.1.171.14.61.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosQueueBandwidthMaxRate": {
+    "name": "dQosQueueBandwidthMaxRate",
+    "oid": "1.3.6.1.4.1.171.14.61.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosQueueBandwidthMinRateMode": {
+    "name": "dQosQueueBandwidthMinRateMode",
+    "oid": "1.3.6.1.4.1.171.14.61.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate": 1,
+          "percent": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosQueueBandwidthMaxRateMode": {
+    "name": "dQosQueueBandwidthMaxRateMode",
+    "oid": "1.3.6.1.4.1.171.14.61.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate": 1,
+          "percent": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosPortIfQueuingTable": {
+    "name": "dQosPortIfQueuingTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosPortIfQueuingEntry": {
+    "name": "dQosPortIfQueuingEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosPortIf8021pOverride": {
+    "name": "dQosPortIf8021pOverride",
+    "oid": "1.3.6.1.4.1.171.14.61.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosPortIfTrustMode": {
+    "name": "dQosPortIfTrustMode",
+    "oid": "1.3.6.1.4.1.171.14.61.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosDscpMutationMapTable": {
+    "name": "dQosDscpMutationMapTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosDscpMutationMapEntry": {
+    "name": "dQosDscpMutationMapEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMutationMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosDscpMutationMapName": {
+    "name": "dQosDscpMutationMapName",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosDscpMutationMapRowStatus": {
+    "name": "dQosDscpMutationMapRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosDscpMutationMapCfgTable": {
+    "name": "dQosDscpMutationMapCfgTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosDscpMutationMapCfgEntry": {
+    "name": "dQosDscpMutationMapCfgEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMutationMapName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMutationOldDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosDscpMutationOldDscp": {
+    "name": "dQosDscpMutationOldDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosDscpMutationNewDscp": {
+    "name": "dQosDscpMutationNewDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosDscpMutationMapAttachTable": {
+    "name": "dQosDscpMutationMapAttachTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosDscpMutationMapAttachEntry": {
+    "name": "dQosDscpMutationMapAttachEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosDscpMutationMapAttachName": {
+    "name": "dQosDscpMutationMapAttachName",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosDscpMapCtrlTable": {
+    "name": "dQosDscpMapCtrlTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosDscpMapCtrlEntry": {
+    "name": "dQosDscpMapCtrlEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMapCtrlDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosDscpMapCtrlDscp": {
+    "name": "dQosDscpMapCtrlDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosDscpMapCtrlCos": {
+    "name": "dQosDscpMapCtrlCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosDscpMapCtrlColor": {
+    "name": "dQosDscpMapCtrlColor",
+    "oid": "1.3.6.1.4.1.171.14.61.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2,
+          "red": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "green",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosCosToColorMapTable": {
+    "name": "dQosCosToColorMapTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosCosToColorMapEntry": {
+    "name": "dQosCosToColorMapEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosCosMapCos",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosCosMapCos": {
+    "name": "dQosCosMapCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosCosMapColor": {
+    "name": "dQosCosMapColor",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2,
+          "red": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosCosToQueueMapTable": {
+    "name": "dQosCosToQueueMapTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosCosToQueueMapEntry": {
+    "name": "dQosCosToQueueMapEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosCosToQueueCos",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosCosToQueueCos": {
+    "name": "dQosCosToQueueCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosCosToQueueQID": {
+    "name": "dQosCosToQueueQID",
+    "oid": "1.3.6.1.4.1.171.14.61.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dQosAggPolicerTable": {
+    "name": "dQosAggPolicerTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosAggPolicerEntry": {
+    "name": "dQosAggPolicerEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosAggPolicerName": {
+    "name": "dQosAggPolicerName",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosAggPolicerType": {
+    "name": "dQosAggPolicerType",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trTcm": 1,
+          "singleRate": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerCir": {
+    "name": "dQosAggPolicerCir",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerCbs": {
+    "name": "dQosAggPolicerCbs",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "units": "kbyte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerSrtcmEbs": {
+    "name": "dQosAggPolicerSrtcmEbs",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "units": "kbyte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerTrtcmPir": {
+    "name": "dQosAggPolicerTrtcmPir",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerTrtcmPbs": {
+    "name": "dQosAggPolicerTrtcmPbs",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "units": "kbyte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerConformAction": {
+    "name": "dQosAggPolicerConformAction",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkQosPoliceActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerConformReplaceDscp": {
+    "name": "dQosAggPolicerConformReplaceDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerExceedAction": {
+    "name": "dQosAggPolicerExceedAction",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkQosPoliceActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerExceedReplaceDscp": {
+    "name": "dQosAggPolicerExceedReplaceDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerViolateAction": {
+    "name": "dQosAggPolicerViolateAction",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkQosPoliceActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerViolateReplaceDscp": {
+    "name": "dQosAggPolicerViolateReplaceDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerColorAware": {
+    "name": "dQosAggPolicerColorAware",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerRowStatus": {
+    "name": "dQosAggPolicerRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerConformReplaceCos": {
+    "name": "dQosAggPolicerConformReplaceCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerExceedReplaceCos": {
+    "name": "dQosAggPolicerExceedReplaceCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosAggPolicerViolateReplaceCos": {
+    "name": "dQosAggPolicerViolateReplaceCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceTable": {
+    "name": "dQosPoliceTable",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dQosPoliceEntry": {
+    "name": "dQosPoliceEntry",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dQosPoliceType": {
+    "name": "dQosPoliceType",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trTcm": 1,
+          "singleRate": 2,
+          "aggregate": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceNamedAggPolicer": {
+    "name": "dQosPoliceNamedAggPolicer",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceCir": {
+    "name": "dQosPoliceCir",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceCbs": {
+    "name": "dQosPoliceCbs",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "units": "kbyte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceSrtcmEbs": {
+    "name": "dQosPoliceSrtcmEbs",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "units": "kbyte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceTrtcmPir": {
+    "name": "dQosPoliceTrtcmPir",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceTrtcmPbs": {
+    "name": "dQosPoliceTrtcmPbs",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "units": "kbyte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceConformAction": {
+    "name": "dQosPoliceConformAction",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkQosPoliceActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceConformReplaceDscp": {
+    "name": "dQosPoliceConformReplaceDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceExceedAction": {
+    "name": "dQosPoliceExceedAction",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkQosPoliceActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceExceedReplaceDscp": {
+    "name": "dQosPoliceExceedReplaceDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceViolateAction": {
+    "name": "dQosPoliceViolateAction",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkQosPoliceActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceViolateReplaceDscp": {
+    "name": "dQosPoliceViolateReplaceDscp",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceColorAware": {
+    "name": "dQosPoliceColorAware",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceRowStatus": {
+    "name": "dQosPoliceRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceConformReplaceCos": {
+    "name": "dQosPoliceConformReplaceCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceExceedReplaceCos": {
+    "name": "dQosPoliceExceedReplaceCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosPoliceViolateReplaceCos": {
+    "name": "dQosPoliceViolateReplaceCos",
+    "oid": "1.3.6.1.4.1.171.14.61.1.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dQosCompliances": {
+    "name": "dQosCompliances",
+    "oid": "1.3.6.1.4.1.171.14.61.2.1",
+    "class": "objectidentity"
+  },
+  "dQosCompliance": {
+    "name": "dQosCompliance",
+    "oid": "1.3.6.1.4.1.171.14.61.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dQosPolicyGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosSchedulingGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosWrrGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosWdrrGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosPortBandwidthCtrlGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosQueueBandwidthCtrlGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosAggregatePolicingGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosPolicingGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosColorAwarePolicingGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosQueuingGroup",
+        "module": "DLINKSW-QOS-MIB"
+      },
+      {
+        "object": "dQosDscpMutationGroup",
+        "module": "DLINKSW-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosGroups": {
+    "name": "dQosGroups",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2",
+    "class": "objectidentity"
+  },
+  "dQosPolicyGroup": {
+    "name": "dQosPolicyGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapType"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapRowStaus"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapCfgMatchType"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapCfgMatchValue"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosClassMapCfgRowStaus"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapRowStatus"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapCfgSetCosQueue"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapCfgSetCos"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapCfgSetDscpOnlyIp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapCfgSetDscp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapCfgSetPreceOnlyIp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapCfgSetPrecedence"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPolicyMapCfgRowStatus"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosServicePolicyDirection"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosServicePolicyName"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosServicePolicyRowStaus"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosSchedulingGroup": {
+    "name": "dQosSchedulingGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosSchedulingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosWrrGroup": {
+    "name": "dQosWrrGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosScheduleWrrWeightValue"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosWdrrGroup": {
+    "name": "dQosWdrrGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosScheduleWdrrWeightValue"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosPortBandwidthCtrlGroup": {
+    "name": "dQosPortBandwidthCtrlGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosBandwidthRxRate"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosBandwidthRxBurst"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosBandwidthTxRate"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosBandwidthTxBurst"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosBandwidthRxRateMode"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosBandwidthTxRateMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosQueueBandwidthCtrlGroup": {
+    "name": "dQosQueueBandwidthCtrlGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosQueueBandwidthMinRate"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosQueueBandwidthMaxRate"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosQueueBandwidthMinRateMode"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosQueueBandwidthMaxRateMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosAggregatePolicingGroup": {
+    "name": "dQosAggregatePolicingGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerType"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerCir"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerCbs"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerSrtcmEbs"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerTrtcmPir"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerTrtcmPbs"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerConformAction"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerConformReplaceDscp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerExceedAction"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerExceedReplaceDscp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerViolateAction"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerViolateReplaceDscp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerColorAware"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerRowStatus"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceNamedAggPolicer"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerConformReplaceCos"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerExceedReplaceCos"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosAggPolicerViolateReplaceCos"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosPolicingGroup": {
+    "name": "dQosPolicingGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceType"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceCir"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceCbs"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceSrtcmEbs"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceTrtcmPir"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceTrtcmPbs"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceConformAction"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceConformReplaceDscp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceExceedAction"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceExceedReplaceDscp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceViolateAction"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceViolateReplaceDscp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceRowStatus"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMapCtrlColor"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceConformReplaceCos"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceExceedReplaceCos"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceViolateReplaceCos"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosColorAwarePolicingGroup": {
+    "name": "dQosColorAwarePolicingGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPoliceColorAware"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMapCtrlColor"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosCosMapColor"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosQueuingGroup": {
+    "name": "dQosQueuingGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPortIf8021pOverride"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosPortIfTrustMode"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMapCtrlCos"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosCosToQueueQID"
+      }
+    ],
+    "status": "current"
+  },
+  "dQosDscpMutationGroup": {
+    "name": "dQosDscpMutationGroup",
+    "oid": "1.3.6.1.4.1.171.14.61.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMutationMapRowStatus"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMutationNewDscp"
+      },
+      {
+        "module": "DLINKSW-QOS-MIB",
+        "object": "dQosDscpMutationMapAttachName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-QOS-MIB"
+  }
+}

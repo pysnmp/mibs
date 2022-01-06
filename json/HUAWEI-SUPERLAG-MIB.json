@@ -1,0 +1,810 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "huaweiMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "PhysAddress",
+      "TimeStamp"
+    ]
+  },
+  "hwSuperLagMIB": {
+    "name": "hwSuperLagMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.178",
+    "class": "moduleidentity"
+  },
+  "hwDatacomm": {
+    "name": "hwDatacomm",
+    "oid": "1.3.6.1.4.1.2011.5.25",
+    "class": "objectidentity"
+  },
+  "hwSuperLagObjects": {
+    "name": "hwSuperLagObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1",
+    "class": "objectidentity"
+  },
+  "hwSuperLagTable": {
+    "name": "hwSuperLagTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSuperLagEntry": {
+    "name": "hwSuperLagEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSuperLagId": {
+    "name": "hwSuperLagId",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSuperLagSystemId": {
+    "name": "hwSuperLagSystemId",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagPri": {
+    "name": "hwSuperLagPri",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagStatus": {
+    "name": "hwSuperLagStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagStatusReason": {
+    "name": "hwSuperLagStatusReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pri": 1,
+          "timeout": 2,
+          "bfdDown": 3,
+          "peerTimeout": 4,
+          "peerBfdDown": 5,
+          "allMemberDown": 6,
+          "init": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagPeerIpAddr": {
+    "name": "hwSuperLagPeerIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagSourceIpAddr": {
+    "name": "hwSuperLagSourceIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagReceiveFailTimeMultiple": {
+    "name": "hwSuperLagReceiveFailTimeMultiple",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagSendPeriod": {
+    "name": "hwSuperLagSendPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagPacketReceive": {
+    "name": "hwSuperLagPacketReceive",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagPacketSend": {
+    "name": "hwSuperLagPacketSend",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagPacketRecDrop": {
+    "name": "hwSuperLagPacketRecDrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagPacketSndDrop": {
+    "name": "hwSuperLagPacketSndDrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagPeerSystemId": {
+    "name": "hwSuperLagPeerSystemId",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagPeerPri": {
+    "name": "hwSuperLagPeerPri",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagPeerReceiveFailTime": {
+    "name": "hwSuperLagPeerReceiveFailTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagSecurityKeyType": {
+    "name": "hwSuperLagSecurityKeyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 1,
+          "cipher": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagSecurityKey": {
+    "name": "hwSuperLagSecurityKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagBfdSessId": {
+    "name": "hwSuperLagBfdSessId",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagResetCounter": {
+    "name": "hwSuperLagResetCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagRowStatus": {
+    "name": "hwSuperLagRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagMemberTable": {
+    "name": "hwSuperLagMemberTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSuperLagMemberEntry": {
+    "name": "hwSuperLagMemberEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberParentSuperLagId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSuperLagMemberParentSuperLagId": {
+    "name": "hwSuperLagMemberParentSuperLagId",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSuperLagMemberType": {
+    "name": "hwSuperLagMemberType",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSuperLagMemberId": {
+    "name": "hwSuperLagMemberId",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSuperLagMemberStatus": {
+    "name": "hwSuperLagMemberStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 1,
+          "master": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagMemberStatusReason": {
+    "name": "hwSuperLagMemberStatusReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceBackup": 1,
+          "forceMaster": 2,
+          "suplagInit": 3,
+          "suplagBackup": 4,
+          "suplagMaster": 5,
+          "peerMemberDown": 6,
+          "peerMemberUp": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagMemberWorkMode": {
+    "name": "hwSuperLagMemberWorkMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "forceBackup": 2,
+          "forceMaster": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagMemberLocaPhylLinkStatus": {
+    "name": "hwSuperLagMemberLocaPhylLinkStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSuperLagMemberRowStatus": {
+    "name": "hwSuperLagMemberRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSuperLagTraps": {
+    "name": "hwSuperLagTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2",
+    "class": "objectidentity"
+  },
+  "hwSuperLagStatusChange": {
+    "name": "hwSuperLagStatusChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSuperLagMemberStatusChange": {
+    "name": "hwSuperLagMemberStatusChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSuperLagConformance": {
+    "name": "hwSuperLagConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3",
+    "class": "objectidentity"
+  },
+  "hwSuperLagCompliances": {
+    "name": "hwSuperLagCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.1",
+    "class": "objectidentity"
+  },
+  "hwSuperLagFullCompliance": {
+    "name": "hwSuperLagFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwSuperLagGroup",
+        "module": "HUAWEI-SUPERLAG-MIB"
+      },
+      {
+        "object": "hwSuperLagMemberGroup",
+        "module": "HUAWEI-SUPERLAG-MIB"
+      },
+      {
+        "object": "hwSuperLagNotificationGroup",
+        "module": "HUAWEI-SUPERLAG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSuperLagGroups": {
+    "name": "hwSuperLagGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2",
+    "class": "objectidentity"
+  },
+  "hwSuperLagGroup": {
+    "name": "hwSuperLagGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSystemId"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPri"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatusReason"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPeerIpAddr"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSourceIpAddr"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagReceiveFailTimeMultiple"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSendPeriod"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPacketReceive"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPacketSend"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPacketRecDrop"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPacketSndDrop"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPeerSystemId"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPeerPri"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPeerReceiveFailTime"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSecurityKeyType"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSecurityKey"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagBfdSessId"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagResetCounter"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSuperLagMemberGroup": {
+    "name": "hwSuperLagMemberGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatusReason"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberWorkMode"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberLocaPhylLinkStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSuperLagNotificationGroup": {
+    "name": "hwSuperLagNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatusChange"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SUPERLAG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-SUPERLAG-MIB"
+  }
+}

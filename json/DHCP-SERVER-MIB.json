@@ -1,0 +1,1515 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "lucent": {
+    "name": "lucent",
+    "oid": "1.3.6.1.4.1.1751",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.1751.1",
+    "class": "objectidentity"
+  },
+  "mibs": {
+    "name": "mibs",
+    "oid": "1.3.6.1.4.1.1751.2",
+    "class": "objectidentity"
+  },
+  "ipspg": {
+    "name": "ipspg",
+    "oid": "1.3.6.1.4.1.1751.1.48",
+    "class": "objectidentity"
+  },
+  "ipspgServices": {
+    "name": "ipspgServices",
+    "oid": "1.3.6.1.4.1.1751.1.48.1",
+    "class": "objectidentity"
+  },
+  "ipspgDHCP": {
+    "name": "ipspgDHCP",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1",
+    "class": "objectidentity"
+  },
+  "ipspgDNS": {
+    "name": "ipspgDNS",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.2",
+    "class": "objectidentity"
+  },
+  "ipspgTrap": {
+    "name": "ipspgTrap",
+    "oid": "1.3.6.1.4.1.1751.1.48.2",
+    "class": "objectidentity"
+  },
+  "dhcpServMib": {
+    "name": "dhcpServMib",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1",
+    "class": "moduleidentity"
+  },
+  "dhcpServMibTraps": {
+    "name": "dhcpServMibTraps",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServMibObjects": {
+    "name": "dhcpServMibObjects",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServSystem": {
+    "name": "dhcpServSystem",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServSubnetCounters": {
+    "name": "dhcpServSubnetCounters",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServBootpCounters": {
+    "name": "dhcpServBootpCounters",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServDhcpCounters": {
+    "name": "dhcpServDhcpCounters",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServBootpStatistics": {
+    "name": "dhcpServBootpStatistics",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServDhcpStatistics": {
+    "name": "dhcpServDhcpStatistics",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServConfiguration": {
+    "name": "dhcpServConfiguration",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dhcpServFailover": {
+    "name": "dhcpServFailover",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "DhcpServTimeInterval": {
+    "name": "DhcpServTimeInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "dhcpServSystemDescr": {
+    "name": "dhcpServSystemDescr",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServSystemStatus": {
+    "name": "dhcpServSystemStatus",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "starting": 0,
+          "running": 1,
+          "stopping": 2,
+          "stopped": 3,
+          "reload": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServSystemUpTime": {
+    "name": "dhcpServSystemUpTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServSystemResetTime": {
+    "name": "dhcpServSystemResetTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServCountUsedSubnets": {
+    "name": "dhcpServCountUsedSubnets",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServCountUnusedSubnets": {
+    "name": "dhcpServCountUnusedSubnets",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServCountFullSubnets": {
+    "name": "dhcpServCountFullSubnets",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpCountRequests": {
+    "name": "dhcpServBootpCountRequests",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpCountInvalids": {
+    "name": "dhcpServBootpCountInvalids",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpCountReplies": {
+    "name": "dhcpServBootpCountReplies",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpCountDroppedUnknownClients": {
+    "name": "dhcpServBootpCountDroppedUnknownClients",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpCountDroppedNotServingSubnet": {
+    "name": "dhcpServBootpCountDroppedNotServingSubnet",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountDiscovers": {
+    "name": "dhcpServDhcpCountDiscovers",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountRequests": {
+    "name": "dhcpServDhcpCountRequests",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountReleases": {
+    "name": "dhcpServDhcpCountReleases",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountDeclines": {
+    "name": "dhcpServDhcpCountDeclines",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountInforms": {
+    "name": "dhcpServDhcpCountInforms",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountInvalids": {
+    "name": "dhcpServDhcpCountInvalids",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountOffers": {
+    "name": "dhcpServDhcpCountOffers",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountAcks": {
+    "name": "dhcpServDhcpCountAcks",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountNacks": {
+    "name": "dhcpServDhcpCountNacks",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountDroppedUnknownClient": {
+    "name": "dhcpServDhcpCountDroppedUnknownClient",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpCountDroppedNotServingSubnet": {
+    "name": "dhcpServDhcpCountDroppedNotServingSubnet",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpStatMinArrivalInterval": {
+    "name": "dhcpServBootpStatMinArrivalInterval",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpStatMaxArrivalInterval": {
+    "name": "dhcpServBootpStatMaxArrivalInterval",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpStatLastArrivalTime": {
+    "name": "dhcpServBootpStatLastArrivalTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpStatMinResponseTime": {
+    "name": "dhcpServBootpStatMinResponseTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpStatMaxResponseTime": {
+    "name": "dhcpServBootpStatMaxResponseTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServBootpStatSumResponseTime": {
+    "name": "dhcpServBootpStatSumResponseTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpStatMinArrivalInterval": {
+    "name": "dhcpServDhcpStatMinArrivalInterval",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpStatMaxArrivalInterval": {
+    "name": "dhcpServDhcpStatMaxArrivalInterval",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpStatLastArrivalTime": {
+    "name": "dhcpServDhcpStatLastArrivalTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpStatMinResponseTime": {
+    "name": "dhcpServDhcpStatMinResponseTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpStatMaxResponseTime": {
+    "name": "dhcpServDhcpStatMaxResponseTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServDhcpStatSumResponseTime": {
+    "name": "dhcpServDhcpStatSumResponseTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DhcpServTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeTable": {
+    "name": "dhcpServRangeTable",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpServRangeEntry": {
+    "name": "dhcpServRangeEntry",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "dhcpServRangeSubnetAddr",
+        "implied": 0
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "dhcpServRangeStart",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServRangeSubnetAddr": {
+    "name": "dhcpServRangeSubnetAddr",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeSubnetMask": {
+    "name": "dhcpServRangeSubnetMask",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeStart": {
+    "name": "dhcpServRangeStart",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeEnd": {
+    "name": "dhcpServRangeEnd",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeInUse": {
+    "name": "dhcpServRangeInUse",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeOutstandingOffers": {
+    "name": "dhcpServRangeOutstandingOffers",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeUnavailable": {
+    "name": "dhcpServRangeUnavailable",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeType": {
+    "name": "dhcpServRangeType",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manBootp": 1,
+          "autoBootp": 2,
+          "manDhcp": 3,
+          "autoDhcp": 4,
+          "dynamicDhcp": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServRangeUnused": {
+    "name": "dhcpServRangeUnused",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServFailoverTable": {
+    "name": "dhcpServFailoverTable",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpServFailoverEntry": {
+    "name": "dhcpServFailoverEntry",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "dhcpServFailoverPartnerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServFailoverPartnerAddr": {
+    "name": "dhcpServFailoverPartnerAddr",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServFailoverPartnerType": {
+    "name": "dhcpServFailoverPartnerType",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "failover": 2,
+          "unconfigured": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServFailoverPartnerStatus": {
+    "name": "dhcpServFailoverPartnerStatus",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "syncing": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServFailoverPartnerPolltime": {
+    "name": "dhcpServFailoverPartnerPolltime",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrapTable": {
+    "name": "ipspgDhcpTrapTable",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipspgDhcpTrapEntry": {
+    "name": "ipspgDhcpTrapEntry",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipspgDhcpTrIndex": {
+    "name": "ipspgDhcpTrIndex",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrSequence": {
+    "name": "ipspgDhcpTrSequence",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrId": {
+    "name": "ipspgDhcpTrId",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monitor": 1,
+          "analyzer": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrText": {
+    "name": "ipspgDhcpTrText",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrPriority": {
+    "name": "ipspgDhcpTrPriority",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inform": 1,
+          "warning": 2,
+          "minor": 3,
+          "major": 4,
+          "critical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrClass": {
+    "name": "ipspgDhcpTrClass",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrType": {
+    "name": "ipspgDhcpTrType",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrTime": {
+    "name": "ipspgDhcpTrTime",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrSuspect": {
+    "name": "ipspgDhcpTrSuspect",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipspgDhcpTrDiagId": {
+    "name": "ipspgDhcpTrDiagId",
+    "oid": "1.3.6.1.4.1.1751.1.48.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpServerStarted": {
+    "name": "dhcpServerStarted",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerStopped": {
+    "name": "dhcpServerStopped",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerReload": {
+    "name": "dhcpServerReload",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerSubnetDepleted": {
+    "name": "dhcpServerSubnetDepleted",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerBadPacket": {
+    "name": "dhcpServerBadPacket",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerFailoverActive": {
+    "name": "dhcpServerFailoverActive",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerFailoverReturnedControl": {
+    "name": "dhcpServerFailoverReturnedControl",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerSubnetThresholdExceeded": {
+    "name": "dhcpServerSubnetThresholdExceeded",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerSubnetThresholdDescent": {
+    "name": "dhcpServerSubnetThresholdDescent",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerDropUnknownClient": {
+    "name": "dhcpServerDropUnknownClient",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpServerPingResponseReceived": {
+    "name": "dhcpServerPingResponseReceived",
+    "oid": "1.3.6.1.4.1.1751.1.48.1.1.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSequence"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrId"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrText"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrPriority"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrClass"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrType"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrTime"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrSuspect"
+      },
+      {
+        "module": "DHCP-SERVER-MIB",
+        "object": "ipspgDhcpTrDiagId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DHCP-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DHCP-SERVER-MIB"
+  }
+}

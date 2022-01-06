@@ -1,0 +1,486 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlSLA": {
+    "name": "rlSLA",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-02-28 00:00",
+        "description": "Added this MODULE-IDENTITY clause."
+      }
+    ]
+  },
+  "rlSLAOperTable": {
+    "name": "rlSLAOperTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSLAOperEntry": {
+    "name": "rlSLAOperEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IP-SLA",
+        "object": "rlSLAOperId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSLAOperId": {
+    "name": "rlSLAOperId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSLAOperType": {
+    "name": "rlSLAOperType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "icmp-echo": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAOperState": {
+    "name": "rlSLAOperState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 0,
+          "scheduled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAOperTimeout": {
+    "name": "rlSLAOperTimeout",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAOperFrequency": {
+    "name": "rlSLAOperFrequency",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAOperReqDataSize": {
+    "name": "rlSLAOperReqDataSize",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 28,
+            "max": 1472
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 28,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAOperReturnCode": {
+    "name": "rlSLAOperReturnCode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLAOperDestAddrType": {
+    "name": "rlSLAOperDestAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAOperDestAddr": {
+    "name": "rlSLAOperDestAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAOperSrcAddr": {
+    "name": "rlSLAOperSrcAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAOperSuccessCounter": {
+    "name": "rlSLAOperSuccessCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLAOperFailureCounter": {
+    "name": "rlSLAOperFailureCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLAICMPEchoRequestCounter": {
+    "name": "rlSLAICMPEchoRequestCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLAICMPEchoReplyCounter": {
+    "name": "rlSLAICMPEchoReplyCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLAICMPErrorCounter": {
+    "name": "rlSLAICMPErrorCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLARowStatus": {
+    "name": "rlSLARowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSLAOperNextHopAddr": {
+    "name": "rlSLAOperNextHopAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAICMPEchoHostUnreachCounter": {
+    "name": "rlSLAICMPEchoHostUnreachCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLAICMPEchoNonHostUnreachCounter": {
+    "name": "rlSLAICMPEchoNonHostUnreachCounter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLATrackTable": {
+    "name": "rlSLATrackTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSLATrackEntry": {
+    "name": "rlSLATrackEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IP-SLA",
+        "object": "rlSLATrackObj",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSLATrackObj": {
+    "name": "rlSLATrackObj",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSLATrackOperId": {
+    "name": "rlSLATrackOperId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLAUpDelay": {
+    "name": "rlSLAUpDelay",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLADownDelay": {
+    "name": "rlSLADownDelay",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSLADelayReminder": {
+    "name": "rlSLADelayReminder",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLATrackObjState": {
+    "name": "rlSLATrackObjState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 0,
+          "down": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSLATrackRowStatus": {
+    "name": "rlSLATrackRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSLAClearCounters": {
+    "name": "rlSLAClearCounters",
+    "oid": "1.3.6.1.4.1.9.6.1.101.231.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IP-SLA",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-IP-SLA"
+  }
+}

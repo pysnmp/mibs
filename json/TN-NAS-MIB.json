@@ -1,0 +1,1066 @@
+{
+  "imports": {
+    "class": "imports",
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "TnNASAdminStateType": {
+    "name": "TnNASAdminStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceAuthorized": 1,
+          "portBased802dot1x": 2,
+          "forceUnauthorized": 3,
+          "macBasedAuth": 4,
+          "single802dot1x": 5,
+          "multi802dot1x": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tnNASMIB": {
+    "name": "tnNASMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.125",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "tnNASMIBNotifications": {
+    "name": "tnNASMIBNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.125.0",
+    "class": "objectidentity"
+  },
+  "tnNASMIBObjects": {
+    "name": "tnNASMIBObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1",
+    "class": "objectidentity"
+  },
+  "tnNASMIBConformance": {
+    "name": "tnNASMIBConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.125.2",
+    "class": "objectidentity"
+  },
+  "tnNASSysMgmt": {
+    "name": "tnNASSysMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1",
+    "class": "objectidentity"
+  },
+  "tnNASPortMgmt": {
+    "name": "tnNASPortMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2",
+    "class": "objectidentity"
+  },
+  "tnNASAuthCountMgmt": {
+    "name": "tnNASAuthCountMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.3",
+    "class": "objectidentity"
+  },
+  "tnNASPortStatus": {
+    "name": "tnNASPortStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.4",
+    "class": "objectidentity"
+  },
+  "tnNASClientStatus": {
+    "name": "tnNASClientStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.5",
+    "class": "objectidentity"
+  },
+  "tnNASSelectedBackendServerCounter": {
+    "name": "tnNASSelectedBackendServerCounter",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.6",
+    "class": "objectidentity"
+  },
+  "tnNASSelectedEapolCounter": {
+    "name": "tnNASSelectedEapolCounter",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7",
+    "class": "objectidentity"
+  },
+  "tnNASAttachedClientStatus": {
+    "name": "tnNASAttachedClientStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8",
+    "class": "objectidentity"
+  },
+  "tnNASClearCounter": {
+    "name": "tnNASClearCounter",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.9",
+    "class": "objectidentity"
+  },
+  "tnNASSysReAuthEnabled": {
+    "name": "tnNASSysReAuthEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysReAuthPeriod": {
+    "name": "tnNASSysReAuthPeriod",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysEAPOLTimeout": {
+    "name": "tnNASSysEAPOLTimeout",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysAgingPeriod": {
+    "name": "tnNASSysAgingPeriod",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysHoldTime": {
+    "name": "tnNASSysHoldTime",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysRadiusAssignedQosEnable": {
+    "name": "tnNASSysRadiusAssignedQosEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysRadiusAssignedVlanEnable": {
+    "name": "tnNASSysRadiusAssignedVlanEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysGuestVlanEnable": {
+    "name": "tnNASSysGuestVlanEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysGuestVlanId": {
+    "name": "tnNASSysGuestVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysMaxReAuthCount": {
+    "name": "tnNASSysMaxReAuthCount",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASSysAllowGuestVlanIFEAPOLSeen": {
+    "name": "tnNASSysAllowGuestVlanIFEAPOLSeen",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASPortCfgTable": {
+    "name": "tnNASPortCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASPortCfgEntry": {
+    "name": "tnNASPortCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnNASPortNum": {
+    "name": "tnNASPortNum",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASAdminState": {
+    "name": "tnNASAdminState",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnNASAdminStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASRadiusAssignedQosEnabled": {
+    "name": "tnNASRadiusAssignedQosEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASRadiusAssignedVlanEnabled": {
+    "name": "tnNASRadiusAssignedVlanEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASGuestVlanEnabled": {
+    "name": "tnNASGuestVlanEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASPortCfgState": {
+    "name": "tnNASPortCfgState",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkDown": 0,
+          "authorized": 1,
+          "unauthorized": 2,
+          "globallyDisabled": 3,
+          "authOrUnauth": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASAuthCountTable": {
+    "name": "tnNASAuthCountTable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASAuthCountEntry": {
+    "name": "tnNASAuthCountEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnNASAuthCount": {
+    "name": "tnNASAuthCount",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASUnauthCount": {
+    "name": "tnNASUnauthCount",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASPortStatusTable": {
+    "name": "tnNASPortStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASPortStatusEntry": {
+    "name": "tnNASPortStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnNASPortAdminState": {
+    "name": "tnNASPortAdminState",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnNASAdminStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASPortState": {
+    "name": "tnNASPortState",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkDown": 0,
+          "authorized": 1,
+          "unauthorized": 2,
+          "globallyDisabled": 3,
+          "authOrUnauth": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASQosClass": {
+    "name": "tnNASQosClass",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASPortVlanId": {
+    "name": "tnNASPortVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASClientStatusTable": {
+    "name": "tnNASClientStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASClientStatusEntry": {
+    "name": "tnNASClientStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASPortNum",
+        "implied": 0
+      },
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASClientNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnNASClientNum": {
+    "name": "tnNASClientNum",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASMacAddr": {
+    "name": "tnNASMacAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASVlanId": {
+    "name": "tnNASVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASIdentify": {
+    "name": "tnNASIdentify",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASSelectedBackendServerCounterTable": {
+    "name": "tnNASSelectedBackendServerCounterTable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASSelectedBackendServerCounterEntry": {
+    "name": "tnNASSelectedBackendServerCounterEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnNASRxAccessChallenges": {
+    "name": "tnNASRxAccessChallenges",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxOtherRequests": {
+    "name": "tnNASRxOtherRequests",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxAuthSuccesses": {
+    "name": "tnNASRxAuthSuccesses",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxAuthFailures": {
+    "name": "tnNASRxAuthFailures",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASTxResponses": {
+    "name": "tnNASTxResponses",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASSelectedEapolCounterTable": {
+    "name": "tnNASSelectedEapolCounterTable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASSelectedEapolCounterEntry": {
+    "name": "tnNASSelectedEapolCounterEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnNASRxTotal": {
+    "name": "tnNASRxTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxResponseId": {
+    "name": "tnNASRxResponseId",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxResponses": {
+    "name": "tnNASRxResponses",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxStart": {
+    "name": "tnNASRxStart",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxLogoff": {
+    "name": "tnNASRxLogoff",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxInvalidType": {
+    "name": "tnNASRxInvalidType",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASRxInvalidLength": {
+    "name": "tnNASRxInvalidLength",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASTxTotal": {
+    "name": "tnNASTxTotal",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASTxRequestId": {
+    "name": "tnNASTxRequestId",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASTxRequests": {
+    "name": "tnNASTxRequests",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASAttachedClientStatusTable": {
+    "name": "tnNASAttachedClientStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASAttachedClientStatusEntry": {
+    "name": "tnNASAttachedClientStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASPortNum",
+        "implied": 0
+      },
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASAttachedNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnNASAttachedNum": {
+    "name": "tnNASAttachedNum",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASAttachedIdentify": {
+    "name": "tnNASAttachedIdentify",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASMacAddress": {
+    "name": "tnNASMacAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASAttachedVlanId": {
+    "name": "tnNASAttachedVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASState": {
+    "name": "tnNASState",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkDown": 0,
+          "authorized": 1,
+          "unauthorized": 2,
+          "globallyDisabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASLastAuthentication": {
+    "name": "tnNASLastAuthentication",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnNASSelected": {
+    "name": "tnNASSelected",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unselected": 0,
+          "selected": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnNASClearCounterTable": {
+    "name": "tnNASClearCounterTable",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnNASClearCounterEntry": {
+    "name": "tnNASClearCounterEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-NAS-MIB",
+        "object": "tnNASPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnNASClear": {
+    "name": "tnNASClear",
+    "oid": "1.3.6.1.4.1.868.2.5.125.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unclear": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-NAS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-NAS-MIB"
+  }
+}

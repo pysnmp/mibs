@@ -1,0 +1,2242 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfMpls"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfMplsLdp": {
+    "name": "hpnicfMplsLdp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1996-11-08 21:55",
+        "description": "The MIB for MPLS LDP module. This MIB has been derived from the MPLS Working group LDP MIB <drst-ietf-mpls-ldp-mib-01.txt> and MPLS Working group TE MIB <draft-ietf-mpls-te-mib -01.txt>."
+      }
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "PhysAddress": {
+    "name": "PhysAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "BitRate": {
+    "name": "BitRate",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "BurstSize": {
+    "name": "BurstSize",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "MplsLsrIdentifier": {
+    "name": "MplsLsrIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsLdpGenAddr": {
+    "name": "MplsLdpGenAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsLdpIdentifier": {
+    "name": "MplsLdpIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AtmVpIdentifier": {
+    "name": "AtmVpIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AtmVcIdentifier": {
+    "name": "AtmVcIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AddressFamilyNumbers": {
+    "name": "AddressFamilyNumbers",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "nsap": 3,
+          "hdlc": 4,
+          "bbn1822": 5,
+          "ieee802": 6,
+          "e163": 7,
+          "e164": 8,
+          "f69": 9,
+          "x121": 10,
+          "ipx": 11,
+          "appleTalk": 12,
+          "decnetIV": 13,
+          "banyanVines": 14,
+          "e164WithNsap": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MplsLabel": {
+    "name": "MplsLabel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "MplsTunnelIndex": {
+    "name": "MplsTunnelIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfMplsLdpObjects": {
+    "name": "hpnicfMplsLdpObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpNotifications": {
+    "name": "hpnicfMplsLdpNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpLsrObjects": {
+    "name": "hpnicfMplsLdpLsrObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpEntityObjects": {
+    "name": "hpnicfMplsLdpEntityObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpPeerObjects": {
+    "name": "hpnicfMplsLdpPeerObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpSessionObjects": {
+    "name": "hpnicfMplsLdpSessionObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpHelloAdjacencyObjects": {
+    "name": "hpnicfMplsLdpHelloAdjacencyObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.5",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpCrlspTnlObjects": {
+    "name": "hpnicfMplsLdpCrlspTnlObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpLsrIncarnTable": {
+    "name": "hpnicfMplsLdpLsrIncarnTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrIncarnEntry": {
+    "name": "hpnicfMplsLdpLsrIncarnEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrID": {
+    "name": "hpnicfMplsLdpLsrID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrLoopDetectionPresent": {
+    "name": "hpnicfMplsLdpLsrLoopDetectionPresent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrLoopDetectionAdminStatus": {
+    "name": "hpnicfMplsLdpLsrLoopDetectionAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrPathVectorLimit": {
+    "name": "hpnicfMplsLdpLsrPathVectorLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrHopCountLimit": {
+    "name": "hpnicfMplsLdpLsrHopCountLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrLoopPreventionPresent": {
+    "name": "hpnicfMplsLdpLsrLoopPreventionPresent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrLoopPreventionAdminStatus": {
+    "name": "hpnicfMplsLdpLsrLoopPreventionAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrLabelRetentionMode": {
+    "name": "hpnicfMplsLdpLsrLabelRetentionMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conservative": 1,
+          "liberal": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "conservative",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrIncarnID": {
+    "name": "hpnicfMplsLdpLsrIncarnID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrMaxLdpEntities": {
+    "name": "hpnicfMplsLdpLsrMaxLdpEntities",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrMaxLocalPeers": {
+    "name": "hpnicfMplsLdpLsrMaxLocalPeers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrMaxRemotePeers": {
+    "name": "hpnicfMplsLdpLsrMaxRemotePeers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrMaxIfaces": {
+    "name": "hpnicfMplsLdpLsrMaxIfaces",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrMaxLsps": {
+    "name": "hpnicfMplsLdpLsrMaxLsps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrMaxCrlspTnls": {
+    "name": "hpnicfMplsLdpLsrMaxCrlspTnls",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrMaxErhopPerCrlspTnl": {
+    "name": "hpnicfMplsLdpLsrMaxErhopPerCrlspTnl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrRowStatus": {
+    "name": "hpnicfMplsLdpLsrRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrMaxVcmCapability": {
+    "name": "hpnicfMplsLdpLsrMaxVcmCapability",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrVcmPathVecInAllLblMapPresent": {
+    "name": "hpnicfMplsLdpLsrVcmPathVecInAllLblMapPresent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrRequestRetrytimerValue": {
+    "name": "hpnicfMplsLdpLsrRequestRetrytimerValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpLsrNumOfRequestRetryAttempts": {
+    "name": "hpnicfMplsLdpLsrNumOfRequestRetryAttempts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityTable": {
+    "name": "hpnicfMplsLdpEntityTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityEntry": {
+    "name": "hpnicfMplsLdpEntityEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityID": {
+    "name": "hpnicfMplsLdpEntityID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityLabelSpaceType": {
+    "name": "hpnicfMplsLdpEntityLabelSpaceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "perInterface": 2,
+          "perPlatform": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityDefVpi": {
+    "name": "hpnicfMplsLdpEntityDefVpi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityDefVci": {
+    "name": "hpnicfMplsLdpEntityDefVci",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityUnlabTrafVpi": {
+    "name": "hpnicfMplsLdpEntityUnlabTrafVpi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityUnlabTrafVci": {
+    "name": "hpnicfMplsLdpEntityUnlabTrafVci",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityMergeCapability": {
+    "name": "hpnicfMplsLdpEntityMergeCapability",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMerge": 0,
+          "vpMerge": 1,
+          "vcMerge": 2,
+          "vpVcMerge": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityVcDirectionality": {
+    "name": "hpnicfMplsLdpEntityVcDirectionality",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bidirectional": 1,
+          "unidirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityWellKnownDiscoveryPort": {
+    "name": "hpnicfMplsLdpEntityWellKnownDiscoveryPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityMtu": {
+    "name": "hpnicfMplsLdpEntityMtu",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityKeepAliveHoldTimer": {
+    "name": "hpnicfMplsLdpEntityKeepAliveHoldTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityFailedInitSessionThreshold": {
+    "name": "hpnicfMplsLdpEntityFailedInitSessionThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityLabelDistributionMethod": {
+    "name": "hpnicfMplsLdpEntityLabelDistributionMethod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downstreamOnDemand": 1,
+          "downstreamUnsolicited": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityLabelAllocationMethod": {
+    "name": "hpnicfMplsLdpEntityLabelAllocationMethod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ordered": 1,
+          "independent": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ordered",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityHelloHoldTimer": {
+    "name": "hpnicfMplsLdpEntityHelloHoldTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityRowStatus": {
+    "name": "hpnicfMplsLdpEntityRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityIfTable": {
+    "name": "hpnicfMplsLdpEntityIfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityIfEntry": {
+    "name": "hpnicfMplsLdpEntityIfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityIfIndex": {
+    "name": "hpnicfMplsLdpEntityIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityIfIpv4Address": {
+    "name": "hpnicfMplsLdpEntityIfIpv4Address",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityIfRowStatus": {
+    "name": "hpnicfMplsLdpEntityIfRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityConfAtmLabelRangeTable": {
+    "name": "hpnicfMplsLdpEntityConfAtmLabelRangeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityConfAtmLabelRangeEntry": {
+    "name": "hpnicfMplsLdpEntityConfAtmLabelRangeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityConfAtmLabelRangeLowerBoundVPI",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityConfAtmLabelRangeLowerBoundVCI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityConfAtmLabelRangeLowerBoundVPI": {
+    "name": "hpnicfMplsLdpEntityConfAtmLabelRangeLowerBoundVPI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityConfAtmLabelRangeLowerBoundVCI": {
+    "name": "hpnicfMplsLdpEntityConfAtmLabelRangeLowerBoundVCI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityConfAtmLabelRangeUpperBoundVPI": {
+    "name": "hpnicfMplsLdpEntityConfAtmLabelRangeUpperBoundVPI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityConfAtmLabelRangeUpperBoundVCI": {
+    "name": "hpnicfMplsLdpEntityConfAtmLabelRangeUpperBoundVCI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityConfAtmLabelRangeRowStatus": {
+    "name": "hpnicfMplsLdpEntityConfAtmLabelRangeRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityStatsTable": {
+    "name": "hpnicfMplsLdpEntityStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityStatsEntry": {
+    "name": "hpnicfMplsLdpEntityStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hpnicfMplsLdpEntityStatsEntry",
+      "module": "HPN-ICF-MPLS-LDP-MIB",
+      "object": "hpnicfMplsLdpEntityEntry"
+    },
+    "status": "current"
+  },
+  "hpnicfMplsLdpAttemptedSessions": {
+    "name": "hpnicfMplsLdpAttemptedSessions",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerTable": {
+    "name": "hpnicfMplsLdpPeerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerEntry": {
+    "name": "hpnicfMplsLdpPeerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerIndex": {
+    "name": "hpnicfMplsLdpPeerIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerID": {
+    "name": "hpnicfMplsLdpPeerID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerInternetworkAddrType": {
+    "name": "hpnicfMplsLdpPeerInternetworkAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerInternetworkAddr": {
+    "name": "hpnicfMplsLdpPeerInternetworkAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpGenAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerDefaultMtu": {
+    "name": "hpnicfMplsLdpPeerDefaultMtu",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerKeepAliveHoldTimer": {
+    "name": "hpnicfMplsLdpPeerKeepAliveHoldTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerLabelDistributionMethod": {
+    "name": "hpnicfMplsLdpPeerLabelDistributionMethod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downstreamOnDemand": 1,
+          "downstreamUnsolicited": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerType": {
+    "name": "hpnicfMplsLdpPeerType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerRowStatus": {
+    "name": "hpnicfMplsLdpPeerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerConfAtmLabelRangeTable": {
+    "name": "hpnicfMplsLdpPeerConfAtmLabelRangeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerConfAtmLabelRangeEntry": {
+    "name": "hpnicfMplsLdpPeerConfAtmLabelRangeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpPeerConfAtmLabelRangeLowerBoundVPI",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpPeerConfAtmLabelRangeLowerBoundVCI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerConfAtmLabelRangeLowerBoundVPI": {
+    "name": "hpnicfMplsLdpPeerConfAtmLabelRangeLowerBoundVPI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerConfAtmLabelRangeLowerBoundVCI": {
+    "name": "hpnicfMplsLdpPeerConfAtmLabelRangeLowerBoundVCI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerConfAtmLabelRangeUpperBoundVPI": {
+    "name": "hpnicfMplsLdpPeerConfAtmLabelRangeUpperBoundVPI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpPeerConfAtmLabelRangeUpperBoundVCI": {
+    "name": "hpnicfMplsLdpPeerConfAtmLabelRangeUpperBoundVCI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionTable": {
+    "name": "hpnicfMplsLdpSessionTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionEntry": {
+    "name": "hpnicfMplsLdpSessionEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionIndex": {
+    "name": "hpnicfMplsLdpSessionIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionID": {
+    "name": "hpnicfMplsLdpSessionID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionProtocolVersion": {
+    "name": "hpnicfMplsLdpSessionProtocolVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionKeepAliveHoldTimeRemaining": {
+    "name": "hpnicfMplsLdpSessionKeepAliveHoldTimeRemaining",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionRole": {
+    "name": "hpnicfMplsLdpSessionRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "passive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionState": {
+    "name": "hpnicfMplsLdpSessionState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonexistent": 1,
+          "initialized": 2,
+          "openrec": 3,
+          "opensent": 4,
+          "operational": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionAtmLabelRangeLowerBoundVPI": {
+    "name": "hpnicfMplsLdpSessionAtmLabelRangeLowerBoundVPI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionAtmLabelRangeLowerBoundVCI": {
+    "name": "hpnicfMplsLdpSessionAtmLabelRangeLowerBoundVCI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionAtmLabelRangeUpperBoundVPI": {
+    "name": "hpnicfMplsLdpSessionAtmLabelRangeUpperBoundVPI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionAtmLabelRangeUpperBoundVCI": {
+    "name": "hpnicfMplsLdpSessionAtmLabelRangeUpperBoundVCI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpHelloAdjacencyTable": {
+    "name": "hpnicfMplsLdpHelloAdjacencyTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpHelloAdjacencyEntry": {
+    "name": "hpnicfMplsLdpHelloAdjacencyEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpSessionIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpHelloAdjacencyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpHelloAdjacencyIndex": {
+    "name": "hpnicfMplsLdpHelloAdjacencyIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpHelloAdjacencyHoldTimeRemaining": {
+    "name": "hpnicfMplsLdpHelloAdjacencyHoldTimeRemaining",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlTable": {
+    "name": "hpnicfMplsLdpCrlspTnlTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlEntry": {
+    "name": "hpnicfMplsLdpCrlspTnlEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpCrlspTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlIndex": {
+    "name": "hpnicfMplsLdpCrlspTnlIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlName": {
+    "name": "hpnicfMplsLdpCrlspTnlName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlDirection": {
+    "name": "hpnicfMplsLdpCrlspTnlDirection",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2,
+          "inOut": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlSignallingProto": {
+    "name": "hpnicfMplsLdpCrlspTnlSignallingProto",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ldp": 2,
+          "rsvp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlSetupPrio": {
+    "name": "hpnicfMplsLdpCrlspTnlSetupPrio",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlHoldingPrio": {
+    "name": "hpnicfMplsLdpCrlspTnlHoldingPrio",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlPeakDataRate": {
+    "name": "hpnicfMplsLdpCrlspTnlPeakDataRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlPeakBurstSize": {
+    "name": "hpnicfMplsLdpCrlspTnlPeakBurstSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlCommittedDataRate": {
+    "name": "hpnicfMplsLdpCrlspTnlCommittedDataRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlCommittedBurstSize": {
+    "name": "hpnicfMplsLdpCrlspTnlCommittedBurstSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlExcessBurstSize": {
+    "name": "hpnicfMplsLdpCrlspTnlExcessBurstSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlIsPinned": {
+    "name": "hpnicfMplsLdpCrlspTnlIsPinned",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlFrequency": {
+    "name": "hpnicfMplsLdpCrlspTnlFrequency",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlWeight": {
+    "name": "hpnicfMplsLdpCrlspTnlWeight",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTnlRowStatus": {
+    "name": "hpnicfMplsLdpCrlspTnlRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspErHopTable": {
+    "name": "hpnicfMplsLdpCrlspErHopTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspErHopEntry": {
+    "name": "hpnicfMplsLdpCrlspErHopEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpCrlspTnlIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpCrlspErHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspErHopIndex": {
+    "name": "hpnicfMplsLdpCrlspErHopIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspErHopAddrType": {
+    "name": "hpnicfMplsLdpCrlspErHopAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipV4": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ipV4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspErHopIpv4Addr": {
+    "name": "hpnicfMplsLdpCrlspErHopIpv4Addr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspErHopIpv4PrefixLen": {
+    "name": "hpnicfMplsLdpCrlspErHopIpv4PrefixLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspErHopStrictOrLoose": {
+    "name": "hpnicfMplsLdpCrlspErHopStrictOrLoose",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "loose": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspErHopRowStatus": {
+    "name": "hpnicfMplsLdpCrlspErHopRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMplsLdpNotificationPrefix": {
+    "name": "hpnicfMplsLdpNotificationPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0",
+    "class": "objectidentity"
+  },
+  "hpnicfMplsLdpFailedInitSessionThresholdExceeded": {
+    "name": "hpnicfMplsLdpFailedInitSessionThresholdExceeded",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityFailedInitSessionThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTunnelUp": {
+    "name": "hpnicfMplsLdpCrlspTunnelUp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpCrlspTnlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTunnelDown": {
+    "name": "hpnicfMplsLdpCrlspTunnelDown",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpCrlspTnlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpCrlspTunnelSetupFailure": {
+    "name": "hpnicfMplsLdpCrlspTunnelSetupFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpCrlspTnlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpIncarnUpEventFailure": {
+    "name": "hpnicfMplsLdpIncarnUpEventFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpIncarnDownEventFailure": {
+    "name": "hpnicfMplsLdpIncarnDownEventFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityUpEventFailure": {
+    "name": "hpnicfMplsLdpEntityUpEventFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityID"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpEntityDownEventFailure": {
+    "name": "hpnicfMplsLdpEntityDownEventFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpLsrIncarnID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpEntityID"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionUpEventFailure": {
+    "name": "hpnicfMplsLdpSessionUpEventFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpSessionID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpSessionState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMplsLdpSessionDownEventFailure": {
+    "name": "hpnicfMplsLdpSessionDownEventFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.2.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpSessionID"
+      },
+      {
+        "module": "HPN-ICF-MPLS-LDP-MIB",
+        "object": "hpnicfMplsLdpSessionState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MPLS-LDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-MPLS-LDP-MIB"
+  }
+}

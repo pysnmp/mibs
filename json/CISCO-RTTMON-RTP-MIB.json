@@ -1,0 +1,1427 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-RTTMON-MIB": [
+      "rttMonLatestOper",
+      "rttMonStats",
+      "rttMonCtrlAdminIndex"
+    ],
+    "CISCO-RTTMON-TC-MIB": [
+      "RttResponseSense"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRttMonRtpMIB": {
+    "name": "ciscoRttMonRtpMIB",
+    "oid": "1.3.6.1.4.1.9.9.487",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoRttMonRtpMIBNotifs": {
+    "name": "ciscoRttMonRtpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.487.0",
+    "class": "objectidentity"
+  },
+  "ciscoRttMonRtpMIBObjects": {
+    "name": "ciscoRttMonRtpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.487.1",
+    "class": "objectidentity"
+  },
+  "rttMonLatestRtpOperTable": {
+    "name": "rttMonLatestRtpOperTable",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperEntry": {
+    "name": "rttMonLatestRtpOperEntry",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "object": "rttMonCtrlAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rttMonLatestRtpOperRTT": {
+    "name": "rttMonLatestRtpOperRTT",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperIAJitterDS": {
+    "name": "rttMonLatestRtpOperIAJitterDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperPacketLossDS": {
+    "name": "rttMonLatestRtpOperPacketLossDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperPacketLateDS": {
+    "name": "rttMonLatestRtpOperPacketLateDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperPacketEarlyDS": {
+    "name": "rttMonLatestRtpOperPacketEarlyDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperPacketOOSDS": {
+    "name": "rttMonLatestRtpOperPacketOOSDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperFrameLossDS": {
+    "name": "rttMonLatestRtpOperFrameLossDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperRFactorDS": {
+    "name": "rttMonLatestRtpOperRFactorDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperMOSCQDS": {
+    "name": "rttMonLatestRtpOperMOSCQDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperMOSLQDS": {
+    "name": "rttMonLatestRtpOperMOSLQDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperSense": {
+    "name": "rttMonLatestRtpOperSense",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttResponseSense",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpErrorSenseDescription": {
+    "name": "rttMonLatestRtpErrorSenseDescription",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperIAJitterSD": {
+    "name": "rttMonLatestRtpOperIAJitterSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperPacketLossSD": {
+    "name": "rttMonLatestRtpOperPacketLossSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperPacketsMIA": {
+    "name": "rttMonLatestRtpOperPacketsMIA",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperRFactorSD": {
+    "name": "rttMonLatestRtpOperRFactorSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperMOSCQSD": {
+    "name": "rttMonLatestRtpOperMOSCQSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperMinOWSD": {
+    "name": "rttMonLatestRtpOperMinOWSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperMaxOWSD": {
+    "name": "rttMonLatestRtpOperMaxOWSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperAvgOWSD": {
+    "name": "rttMonLatestRtpOperAvgOWSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperMinOWDS": {
+    "name": "rttMonLatestRtpOperMinOWDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperMaxOWDS": {
+    "name": "rttMonLatestRtpOperMaxOWDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperAvgOWDS": {
+    "name": "rttMonLatestRtpOperAvgOWDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperTotalPaksSD": {
+    "name": "rttMonLatestRtpOperTotalPaksSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonLatestRtpOperTotalPaksDS": {
+    "name": "rttMonLatestRtpOperTotalPaksDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.5.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsTable": {
+    "name": "rttMonRtpStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rttMonRtpStatsEntry": {
+    "name": "rttMonRtpStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "object": "rttMonCtrlAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsStartTimeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rttMonRtpStatsStartTimeIndex": {
+    "name": "rttMonRtpStatsStartTimeIndex",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rttMonRtpStatsRTTAvg": {
+    "name": "rttMonRtpStatsRTTAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsRTTMin": {
+    "name": "rttMonRtpStatsRTTMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsRTTMax": {
+    "name": "rttMonRtpStatsRTTMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsIAJitterDSAvg": {
+    "name": "rttMonRtpStatsIAJitterDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsIAJitterDSMin": {
+    "name": "rttMonRtpStatsIAJitterDSMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsIAJitterDSMax": {
+    "name": "rttMonRtpStatsIAJitterDSMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketLossDSAvg": {
+    "name": "rttMonRtpStatsPacketLossDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketLossDSMin": {
+    "name": "rttMonRtpStatsPacketLossDSMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketLossDSMax": {
+    "name": "rttMonRtpStatsPacketLossDSMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketLateDSAvg": {
+    "name": "rttMonRtpStatsPacketLateDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketEarlyDSAvg": {
+    "name": "rttMonRtpStatsPacketEarlyDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketOOSDSAvg": {
+    "name": "rttMonRtpStatsPacketOOSDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsFrameLossDSAvg": {
+    "name": "rttMonRtpStatsFrameLossDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsFrameLossDSMin": {
+    "name": "rttMonRtpStatsFrameLossDSMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsFrameLossDSMax": {
+    "name": "rttMonRtpStatsFrameLossDSMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsRFactorDSAvg": {
+    "name": "rttMonRtpStatsRFactorDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsRFactorDSMin": {
+    "name": "rttMonRtpStatsRFactorDSMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsRFactorDSMax": {
+    "name": "rttMonRtpStatsRFactorDSMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSCQDSAvg": {
+    "name": "rttMonRtpStatsMOSCQDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSCQDSMin": {
+    "name": "rttMonRtpStatsMOSCQDSMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSCQDSMax": {
+    "name": "rttMonRtpStatsMOSCQDSMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSLQDSAvg": {
+    "name": "rttMonRtpStatsMOSLQDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSLQDSMin": {
+    "name": "rttMonRtpStatsMOSLQDSMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSLQDSMax": {
+    "name": "rttMonRtpStatsMOSLQDSMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsIAJitterSDAvg": {
+    "name": "rttMonRtpStatsIAJitterSDAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsIAJitterSDMin": {
+    "name": "rttMonRtpStatsIAJitterSDMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsIAJitterSDMax": {
+    "name": "rttMonRtpStatsIAJitterSDMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketLossSDAvg": {
+    "name": "rttMonRtpStatsPacketLossSDAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketLossSDMin": {
+    "name": "rttMonRtpStatsPacketLossSDMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketLossSDMax": {
+    "name": "rttMonRtpStatsPacketLossSDMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsPacketsMIAAvg": {
+    "name": "rttMonRtpStatsPacketsMIAAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsRFactorSDAvg": {
+    "name": "rttMonRtpStatsRFactorSDAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsRFactorSDMin": {
+    "name": "rttMonRtpStatsRFactorSDMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsRFactorSDMax": {
+    "name": "rttMonRtpStatsRFactorSDMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSCQSDAvg": {
+    "name": "rttMonRtpStatsMOSCQSDAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSCQSDMin": {
+    "name": "rttMonRtpStatsMOSCQSDMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsMOSCQSDMax": {
+    "name": "rttMonRtpStatsMOSCQSDMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "voice quality",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsOperAvgOWSD": {
+    "name": "rttMonRtpStatsOperAvgOWSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsOperMinOWSD": {
+    "name": "rttMonRtpStatsOperMinOWSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsOperMaxOWSD": {
+    "name": "rttMonRtpStatsOperMaxOWSD",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsOperAvgOWDS": {
+    "name": "rttMonRtpStatsOperAvgOWDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsOperMinOWDS": {
+    "name": "rttMonRtpStatsOperMinOWDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsOperMaxOWDS": {
+    "name": "rttMonRtpStatsOperMaxOWDS",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsTotalPacketsSDAvg": {
+    "name": "rttMonRtpStatsTotalPacketsSDAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsTotalPacketsSDMin": {
+    "name": "rttMonRtpStatsTotalPacketsSDMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsTotalPacketsSDMax": {
+    "name": "rttMonRtpStatsTotalPacketsSDMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsTotalPacketsDSAvg": {
+    "name": "rttMonRtpStatsTotalPacketsDSAvg",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsTotalPacketsDSMax": {
+    "name": "rttMonRtpStatsTotalPacketsDSMax",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rttMonRtpStatsTotalPacketsDSMin": {
+    "name": "rttMonRtpStatsTotalPacketsDSMin",
+    "oid": "1.3.6.1.4.1.9.9.42.1.3.6.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoRttMonRtpMIBConformance": {
+    "name": "ciscoRttMonRtpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.487.2",
+    "class": "objectidentity"
+  },
+  "ciscoRttMonRtpMIBCompliances": {
+    "name": "ciscoRttMonRtpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.487.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoRttMonRtpMIBGroups": {
+    "name": "ciscoRttMonRtpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.487.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoRttMonRtpMIBCompliance": {
+    "name": "ciscoRttMonRtpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.487.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoRttMonRtpGroup",
+        "module": "CISCO-RTTMON-RTP-MIB"
+      },
+      {
+        "object": "ciscoRttMonRtpGroupRev1",
+        "module": "CISCO-RTTMON-RTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRttMonRtpGroup": {
+    "name": "ciscoRttMonRtpGroup",
+    "oid": "1.3.6.1.4.1.9.9.487.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperRTT"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperIAJitterDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperPacketLossDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperPacketLateDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperPacketEarlyDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperPacketOOSDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperFrameLossDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperRFactorDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperMOSCQDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperMOSLQDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperSense"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpErrorSenseDescription"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRTTAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRTTMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRTTMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsIAJitterDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsIAJitterDSMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsIAJitterDSMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketLossDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketLossDSMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketLossDSMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketLateDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketEarlyDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketOOSDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsFrameLossDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsFrameLossDSMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsFrameLossDSMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRFactorDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRFactorDSMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRFactorDSMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSCQDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSCQDSMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSCQDSMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSLQDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSLQDSMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSLQDSMax"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRttMonRtpGroupRev1": {
+    "name": "ciscoRttMonRtpGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.487.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperIAJitterSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperPacketLossSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperPacketsMIA"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperRFactorSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperMOSCQSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperMinOWSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperMaxOWSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperAvgOWSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperMinOWDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperMaxOWDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperAvgOWDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperTotalPaksSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonLatestRtpOperTotalPaksDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsIAJitterSDAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsIAJitterSDMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsIAJitterSDMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketLossSDAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketLossSDMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketLossSDMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsPacketsMIAAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRFactorSDAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRFactorSDMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsRFactorSDMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSCQSDAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSCQSDMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsMOSCQSDMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsOperAvgOWSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsOperMinOWSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsOperMaxOWSD"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsOperAvgOWDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsOperMinOWDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsOperMaxOWDS"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsTotalPacketsSDAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsTotalPacketsSDMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsTotalPacketsSDMax"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsTotalPacketsDSAvg"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsTotalPacketsDSMin"
+      },
+      {
+        "module": "CISCO-RTTMON-RTP-MIB",
+        "object": "rttMonRtpStatsTotalPacketsDSMax"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-RTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-RTTMON-RTP-MIB"
+  }
+}

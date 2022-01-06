@@ -1,0 +1,1373 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "BridgeId",
+      "Timeout"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "UBIQUOSS-INTERFACE-MIB": [
+      "ubiPortIndex"
+    ],
+    "UBIQUOSS-SWITCH-INTERFACE-MIB": [
+      "ubiVlanId"
+    ],
+    "UBIQUOSS-SYSINFO-MIB": [
+      "ubiSysIndex"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmt"
+    ]
+  },
+  "ubiStpMIB": {
+    "name": "ubiStpMIB",
+    "oid": "1.3.6.1.4.1.7800.2.21",
+    "class": "moduleidentity"
+  },
+  "ubiStpMIBObjects": {
+    "name": "ubiStpMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.2.21.1",
+    "class": "objectidentity"
+  },
+  "ubiStpTable": {
+    "name": "ubiStpTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1",
+    "class": "objectidentity"
+  },
+  "stpInfoTable": {
+    "name": "stpInfoTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpInfoEntry": {
+    "name": "stpInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpModeConfig": {
+    "name": "stpModeConfig",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "stp": 1,
+          "rstp": 2,
+          "mstp": 3,
+          "pvstp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stpExtPortConfigTable": {
+    "name": "stpExtPortConfigTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpExtPortConfigEntry": {
+    "name": "stpExtPortConfigEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-INTERFACE-MIB",
+        "object": "ubiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpPortForceVersion": {
+    "name": "stpPortForceVersion",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stp": 0,
+          "rstp": 2,
+          "mstp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mstp": {
+    "name": "mstp",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3",
+    "class": "objectidentity"
+  },
+  "mstpInfoTable": {
+    "name": "mstpInfoTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mstpInfoEntry": {
+    "name": "mstpInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mstRegionName": {
+    "name": "mstRegionName",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mstRevisionLevel": {
+    "name": "mstRevisionLevel",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mstDigest": {
+    "name": "mstDigest",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstBridgeMaxHops": {
+    "name": "mstBridgeMaxHops",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mstConfigTable": {
+    "name": "mstConfigTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mstConfigEntry": {
+    "name": "mstConfigEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "mstConfigInstanceId",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "mstConfigVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mstConfigInstanceId": {
+    "name": "mstConfigInstanceId",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstConfigVlanIndex": {
+    "name": "mstConfigVlanIndex",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstConfigRowStatus": {
+    "name": "mstConfigRowStatus",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mstiTable": {
+    "name": "mstiTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mstiEntry": {
+    "name": "mstiEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "mstConfigInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mstiPriority": {
+    "name": "mstiPriority",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mstiRootCost": {
+    "name": "mstiRootCost",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiRootPort": {
+    "name": "mstiRootPort",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiRoot": {
+    "name": "mstiRoot",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiBridge": {
+    "name": "mstiBridge",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiPortTable": {
+    "name": "mstiPortTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mstiPortEntry": {
+    "name": "mstiPortEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "mstConfigInstanceId",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-INTERFACE-MIB",
+        "object": "ubiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mstiPortId": {
+    "name": "mstiPortId",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiPortPathCost": {
+    "name": "mstiPortPathCost",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mstiPortPriority": {
+    "name": "mstiPortPriority",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mstiPortRole": {
+    "name": "mstiPortRole",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "masterport": 1,
+          "alternate": 2,
+          "rootport": 3,
+          "designated": 4,
+          "disabled": 5,
+          "backup": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiPortState": {
+    "name": "mstiPortState",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiPortDesignatedPathCost": {
+    "name": "mstiPortDesignatedPathCost",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiPortDesignatedPort": {
+    "name": "mstiPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiPortDesignatedRoot": {
+    "name": "mstiPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiPortDesignatedBridge": {
+    "name": "mstiPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mstiPortConfigRowStatus": {
+    "name": "mstiPortConfigRowStatus",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pvstp": {
+    "name": "pvstp",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4",
+    "class": "objectidentity"
+  },
+  "pvStpTable": {
+    "name": "pvStpTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvStpEntry": {
+    "name": "pvStpEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-SWITCH-INTERFACE-MIB",
+        "object": "ubiVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pvStpPriority": {
+    "name": "pvStpPriority",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pvStpTimeSinceTopologyChange": {
+    "name": "pvStpTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpTopChanges": {
+    "name": "pvStpTopChanges",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpDesignatedRoot": {
+    "name": "pvStpDesignatedRoot",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpRootCost": {
+    "name": "pvStpRootCost",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpRootPort": {
+    "name": "pvStpRootPort",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpMaxAge": {
+    "name": "pvStpMaxAge",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpHelloTime": {
+    "name": "pvStpHelloTime",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpHoldTime": {
+    "name": "pvStpHoldTime",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpForwardDelay": {
+    "name": "pvStpForwardDelay",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpBridgeMaxAge": {
+    "name": "pvStpBridgeMaxAge",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pvStpBridgeHelloTime": {
+    "name": "pvStpBridgeHelloTime",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pvStpBridgeForwardDelay": {
+    "name": "pvStpBridgeForwardDelay",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pvStpBridgeRowStatus": {
+    "name": "pvStpBridgeRowStatus",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pvStpPortTable": {
+    "name": "pvStpPortTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvStpPortEntry": {
+    "name": "pvStpPortEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "pvStpVlanId",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-INTERFACE-MIB",
+        "object": "ubiPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "pvStpPortPriority",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "pvStpPortPathCost",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pvStpVlanId": {
+    "name": "pvStpVlanId",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpPortPriority": {
+    "name": "pvStpPortPriority",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pvStpPortState": {
+    "name": "pvStpPortState",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpPortEnable": {
+    "name": "pvStpPortEnable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpPortPathCost": {
+    "name": "pvStpPortPathCost",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pvStpPortDesignatedRoot": {
+    "name": "pvStpPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpPortDesignatedCost": {
+    "name": "pvStpPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpPortDesignatedBridge": {
+    "name": "pvStpPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpPortDesignatedPort": {
+    "name": "pvStpPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpPortForwardTransitions": {
+    "name": "pvStpPortForwardTransitions",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpPortRowStatus": {
+    "name": "pvStpPortRowStatus",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pvStpConfigTable": {
+    "name": "pvStpConfigTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvStpConfigEntry": {
+    "name": "pvStpConfigEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "pvStpConfigVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pvStpConfigVlanIndex": {
+    "name": "pvStpConfigVlanIndex",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pvStpConfigInstanceId": {
+    "name": "pvStpConfigInstanceId",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pvStpConfigRowStatus": {
+    "name": "pvStpConfigRowStatus",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiSldTable": {
+    "name": "ubiSldTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.2",
+    "class": "objectidentity"
+  },
+  "ubiSldPortTable": {
+    "name": "ubiSldPortTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiSldPortEntry": {
+    "name": "ubiSldPortEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-INTERFACE-MIB",
+        "object": "ubiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiSldPortEnable": {
+    "name": "ubiSldPortEnable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiSldVlanTable": {
+    "name": "ubiSldVlanTable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiSldVlanEntry": {
+    "name": "ubiSldVlanEntry",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBIQUOSS-SYSINFO-MIB",
+        "object": "ubiSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBIQUOSS-SWITCH-INTERFACE-MIB",
+        "object": "ubiVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiSldVlanEnable": {
+    "name": "ubiSldVlanEnable",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiStpMIBNotificationPrefix": {
+    "name": "ubiStpMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.3",
+    "class": "objectidentity"
+  },
+  "ubiStpMIBNotifications": {
+    "name": "ubiStpMIBNotifications",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.3.0",
+    "class": "objectidentity"
+  },
+  "ubiStpMIBConformance": {
+    "name": "ubiStpMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.4",
+    "class": "objectidentity"
+  },
+  "ubiStpMIBCompliances": {
+    "name": "ubiStpMIBCompliances",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.4.1",
+    "class": "objectidentity"
+  },
+  "ubiStpMIBGroups": {
+    "name": "ubiStpMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.4.2",
+    "class": "objectidentity"
+  },
+  "ubiSldMIBGroups": {
+    "name": "ubiSldMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.4.3",
+    "class": "objectidentity"
+  },
+  "ubiStpMIBCompliance": {
+    "name": "ubiStpMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiStpMIBGroup",
+        "module": "UBIQUOSS-STP-MIB"
+      },
+      {
+        "object": "ubiSldMIBGroup",
+        "module": "UBIQUOSS-STP-MIB"
+      },
+      {
+        "object": "ubiStpMIBGroup",
+        "module": "UBIQUOSS-STP-MIB"
+      },
+      {
+        "object": "ubiSldMIBGroup",
+        "module": "UBIQUOSS-STP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiStpMIBGroup": {
+    "name": "ubiStpMIBGroup",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "stpModeConfig"
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "stpPortForceVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiSldMIBGroup": {
+    "name": "ubiSldMIBGroup",
+    "oid": "1.3.6.1.4.1.7800.2.21.1.4.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "stpModeConfig"
+      },
+      {
+        "module": "UBIQUOSS-STP-MIB",
+        "object": "stpPortForceVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBIQUOSS-STP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "UBIQUOSS-STP-MIB"
+  }
+}

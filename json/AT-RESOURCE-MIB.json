@@ -1,0 +1,303 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "sysinfo"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "resource": {
+    "name": "resource",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-05-26 00:00",
+        "description": "Updated decriptions for hostInfoTable and hostInfoEntry"
+      },
+      {
+        "revision": "2014-04-30 00:00",
+        "description": "Updated decriptions to refer to chassisMappingTable"
+      },
+      {
+        "revision": "2014-04-16 00:00",
+        "description": "Added more descriptions to rscStkId for VCStack Plus and increase the range to 1-24."
+      },
+      {
+        "revision": "2012-09-21 00:00",
+        "description": "Added chassis switch (e.g. SBx8100) descriptions to stack-related MIB objects"
+      },
+      {
+        "revision": "2012-05-22 03:00",
+        "description": "rscStkId range now 1..12 (from 1..8)."
+      },
+      {
+        "revision": "2010-06-15 00:15",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2009-10-22 23:00",
+        "description": "In standalone mode the AT-RESOURCE-MIB was indexed by the default stack member ID of 1. This has been updated to index by the stack member ID of the device."
+      },
+      {
+        "revision": "2008-10-20 10:00",
+        "description": "Add objects for displaying host information. "
+      },
+      {
+        "revision": "1920-08-09 04:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "rscBoardTable": {
+    "name": "rscBoardTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rscBoardEntry": {
+    "name": "rscBoardEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-RESOURCE-MIB",
+        "object": "rscStkId",
+        "implied": 0
+      },
+      {
+        "module": "AT-RESOURCE-MIB",
+        "object": "rscResourceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rscStkId": {
+    "name": "rscStkId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rscResourceId": {
+    "name": "rscResourceId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967294
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rscBoardType": {
+    "name": "rscBoardType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rscBoardName": {
+    "name": "rscBoardName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rscBoardID": {
+    "name": "rscBoardID",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rscBoardBay": {
+    "name": "rscBoardBay",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rscBoardRevision": {
+    "name": "rscBoardRevision",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rscBoardSerialNumber": {
+    "name": "rscBoardSerialNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostInfoTable": {
+    "name": "hostInfoTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hostInfoEntry": {
+    "name": "hostInfoEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-RESOURCE-MIB",
+        "object": "rscStkId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hostInfoDRAM": {
+    "name": "hostInfoDRAM",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostInfoFlash": {
+    "name": "hostInfoFlash",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostInfoUptime": {
+    "name": "hostInfoUptime",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostInfoBootloaderVersion": {
+    "name": "hostInfoBootloaderVersion",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.21.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-RESOURCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-RESOURCE-MIB"
+  }
+}

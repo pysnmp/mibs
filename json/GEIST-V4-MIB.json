@@ -1,0 +1,2603 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "geist": {
+    "name": "geist",
+    "oid": "1.3.6.1.4.1.21239",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-11 00:00",
+        "description": "Original version"
+      }
+    ]
+  },
+  "blackbird": {
+    "name": "blackbird",
+    "oid": "1.3.6.1.4.1.21239.5",
+    "class": "objectidentity"
+  },
+  "watchdog100": {
+    "name": "watchdog100",
+    "oid": "1.3.6.1.4.1.21239.5.1",
+    "class": "objectidentity"
+  },
+  "deviceInfo": {
+    "name": "deviceInfo",
+    "oid": "1.3.6.1.4.1.21239.5.1.1",
+    "class": "objectidentity"
+  },
+  "productTitle": {
+    "name": "productTitle",
+    "oid": "1.3.6.1.4.1.21239.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productVersion": {
+    "name": "productVersion",
+    "oid": "1.3.6.1.4.1.21239.5.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productFriendlyName": {
+    "name": "productFriendlyName",
+    "oid": "1.3.6.1.4.1.21239.5.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productMacAddress": {
+    "name": "productMacAddress",
+    "oid": "1.3.6.1.4.1.21239.5.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productUrl": {
+    "name": "productUrl",
+    "oid": "1.3.6.1.4.1.21239.5.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCount": {
+    "name": "deviceCount",
+    "oid": "1.3.6.1.4.1.21239.5.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureUnits": {
+    "name": "temperatureUnits",
+    "oid": "1.3.6.1.4.1.21239.5.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "internalTable": {
+    "name": "internalTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "internalEntry": {
+    "name": "internalEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "internalIndex": {
+    "name": "internalIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalSerial": {
+    "name": "internalSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalName": {
+    "name": "internalName",
+    "oid": "1.3.6.1.4.1.21239.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalAvail": {
+    "name": "internalAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalTemp": {
+    "name": "internalTemp",
+    "oid": "1.3.6.1.4.1.21239.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalHumidity": {
+    "name": "internalHumidity",
+    "oid": "1.3.6.1.4.1.21239.5.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalDewPoint": {
+    "name": "internalDewPoint",
+    "oid": "1.3.6.1.4.1.21239.5.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorTable": {
+    "name": "tempSensorTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempSensorEntry": {
+    "name": "tempSensorEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "tempSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorIndex": {
+    "name": "tempSensorIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorSerial": {
+    "name": "tempSensorSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorName": {
+    "name": "tempSensorName",
+    "oid": "1.3.6.1.4.1.21239.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorAvail": {
+    "name": "tempSensorAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorTemp": {
+    "name": "tempSensorTemp",
+    "oid": "1.3.6.1.4.1.21239.5.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "airFlowSensorTable": {
+    "name": "airFlowSensorTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "airFlowSensorEntry": {
+    "name": "airFlowSensorEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorIndex": {
+    "name": "airFlowSensorIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "airFlowSensorSerial": {
+    "name": "airFlowSensorSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "airFlowSensorName": {
+    "name": "airFlowSensorName",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "airFlowSensorAvail": {
+    "name": "airFlowSensorAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "airFlowSensorTemp": {
+    "name": "airFlowSensorTemp",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "airFlowSensorFlow": {
+    "name": "airFlowSensorFlow",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "airFlowSensorHumidity": {
+    "name": "airFlowSensorHumidity",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "airFlowSensorDewPoint": {
+    "name": "airFlowSensorDewPoint",
+    "oid": "1.3.6.1.4.1.21239.5.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dewPointSensorTable": {
+    "name": "dewPointSensorTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dewPointSensorEntry": {
+    "name": "dewPointSensorEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorIndex": {
+    "name": "dewPointSensorIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dewPointSensorSerial": {
+    "name": "dewPointSensorSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dewPointSensorName": {
+    "name": "dewPointSensorName",
+    "oid": "1.3.6.1.4.1.21239.5.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dewPointSensorAvail": {
+    "name": "dewPointSensorAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dewPointSensorTemp": {
+    "name": "dewPointSensorTemp",
+    "oid": "1.3.6.1.4.1.21239.5.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dewPointSensorHumidity": {
+    "name": "dewPointSensorHumidity",
+    "oid": "1.3.6.1.4.1.21239.5.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dewPointSensorDewPoint": {
+    "name": "dewPointSensorDewPoint",
+    "oid": "1.3.6.1.4.1.21239.5.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccatSensorTable": {
+    "name": "ccatSensorTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccatSensorEntry": {
+    "name": "ccatSensorEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "ccatSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccatSensorIndex": {
+    "name": "ccatSensorIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccatSensorSerial": {
+    "name": "ccatSensorSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccatSensorName": {
+    "name": "ccatSensorName",
+    "oid": "1.3.6.1.4.1.21239.5.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccatSensorAvail": {
+    "name": "ccatSensorAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccatSensorValue": {
+    "name": "ccatSensorValue",
+    "oid": "1.3.6.1.4.1.21239.5.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccatSensorType": {
+    "name": "ccatSensorType",
+    "oid": "1.3.6.1.4.1.21239.5.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccatSensorDescription": {
+    "name": "ccatSensorDescription",
+    "oid": "1.3.6.1.4.1.21239.5.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorTable": {
+    "name": "t3hdSensorTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t3hdSensorEntry": {
+    "name": "t3hdSensorEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorIndex": {
+    "name": "t3hdSensorIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorSerial": {
+    "name": "t3hdSensorSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorName": {
+    "name": "t3hdSensorName",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorAvail": {
+    "name": "t3hdSensorAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorIntName": {
+    "name": "t3hdSensorIntName",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorIntTemp": {
+    "name": "t3hdSensorIntTemp",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorIntHumidity": {
+    "name": "t3hdSensorIntHumidity",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorIntDewPoint": {
+    "name": "t3hdSensorIntDewPoint",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorExtAAvail": {
+    "name": "t3hdSensorExtAAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorExtAName": {
+    "name": "t3hdSensorExtAName",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorExtATemp": {
+    "name": "t3hdSensorExtATemp",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorExtBAvail": {
+    "name": "t3hdSensorExtBAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorExtBName": {
+    "name": "t3hdSensorExtBName",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t3hdSensorExtBTemp": {
+    "name": "t3hdSensorExtBTemp",
+    "oid": "1.3.6.1.4.1.21239.5.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thdSensorTable": {
+    "name": "thdSensorTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "thdSensorEntry": {
+    "name": "thdSensorEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorIndex": {
+    "name": "thdSensorIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thdSensorSerial": {
+    "name": "thdSensorSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thdSensorName": {
+    "name": "thdSensorName",
+    "oid": "1.3.6.1.4.1.21239.5.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thdSensorAvail": {
+    "name": "thdSensorAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thdSensorTemp": {
+    "name": "thdSensorTemp",
+    "oid": "1.3.6.1.4.1.21239.5.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thdSensorHumidity": {
+    "name": "thdSensorHumidity",
+    "oid": "1.3.6.1.4.1.21239.5.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "thdSensorDewPoint": {
+    "name": "thdSensorDewPoint",
+    "oid": "1.3.6.1.4.1.21239.5.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "0.1 Degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorTable": {
+    "name": "rpmSensorTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rpmSensorEntry": {
+    "name": "rpmSensorEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorIndex": {
+    "name": "rpmSensorIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorSerial": {
+    "name": "rpmSensorSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorName": {
+    "name": "rpmSensorName",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorAvail": {
+    "name": "rpmSensorAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorEnergy": {
+    "name": "rpmSensorEnergy",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kWh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorVoltage": {
+    "name": "rpmSensorVoltage",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Volts (rms)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorVoltageMax": {
+    "name": "rpmSensorVoltageMax",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Volts (rms)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorVoltageMin": {
+    "name": "rpmSensorVoltageMin",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Volts (rms)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorVoltagePeak": {
+    "name": "rpmSensorVoltagePeak",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorCurrent": {
+    "name": "rpmSensorCurrent",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "0.1 Amps (rms)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorRealPower": {
+    "name": "rpmSensorRealPower",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorApparentPower": {
+    "name": "rpmSensorApparentPower",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Volt-Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorPowerFactor": {
+    "name": "rpmSensorPowerFactor",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorOutlet1": {
+    "name": "rpmSensorOutlet1",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmSensorOutlet2": {
+    "name": "rpmSensorOutlet2",
+    "oid": "1.3.6.1.4.1.21239.5.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "a2dSensorTable": {
+    "name": "a2dSensorTable",
+    "oid": "1.3.6.1.4.1.21239.5.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "a2DSensorEntry": {
+    "name": "a2DSensorEntry",
+    "oid": "1.3.6.1.4.1.21239.5.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "a2dSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "a2dSensorIndex": {
+    "name": "a2dSensorIndex",
+    "oid": "1.3.6.1.4.1.21239.5.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "a2dSensorSerial": {
+    "name": "a2dSensorSerial",
+    "oid": "1.3.6.1.4.1.21239.5.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "a2dSensorName": {
+    "name": "a2dSensorName",
+    "oid": "1.3.6.1.4.1.21239.5.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "a2dSensorAvail": {
+    "name": "a2dSensorAvail",
+    "oid": "1.3.6.1.4.1.21239.5.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "a2dSensorValue": {
+    "name": "a2dSensorValue",
+    "oid": "1.3.6.1.4.1.21239.5.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000000,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trap": {
+    "name": "trap",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767",
+    "class": "objectidentity"
+  },
+  "trapPrefix": {
+    "name": "trapPrefix",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0",
+    "class": "objectidentity"
+  },
+  "internalTestNOTIFY": {
+    "name": "internalTestNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10101",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "internalAvailNOTIFY": {
+    "name": "internalAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "internalAvailCLEAR": {
+    "name": "internalAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "internalTempNOTIFY": {
+    "name": "internalTempNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "internalTempCLEAR": {
+    "name": "internalTempCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "internalHumidityNOTIFY": {
+    "name": "internalHumidityNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "internalHumidityCLEAR": {
+    "name": "internalHumidityCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "internalDewPointNOTIFY": {
+    "name": "internalDewPointNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "internalDewPointCLEAR": {
+    "name": "internalDewPointCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "internalDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorAvailNOTIFY": {
+    "name": "tempSensorAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10404",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "tempSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorAvailCLEAR": {
+    "name": "tempSensorAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20404",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "tempSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorTempNOTIFY": {
+    "name": "tempSensorTempNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10405",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "tempSensorTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorTempCLEAR": {
+    "name": "tempSensorTempCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20405",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "tempSensorTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorAvailNOTIFY": {
+    "name": "airFlowSensorAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10504",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorAvailCLEAR": {
+    "name": "airFlowSensorAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20504",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorTempNOTIFY": {
+    "name": "airFlowSensorTempNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10505",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorTempCLEAR": {
+    "name": "airFlowSensorTempCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20505",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorFlowNOTIFY": {
+    "name": "airFlowSensorFlowNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10506",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorFlow"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorFlowCLEAR": {
+    "name": "airFlowSensorFlowCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20506",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorFlow"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorHumidityNOTIFY": {
+    "name": "airFlowSensorHumidityNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10507",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorHumidityCLEAR": {
+    "name": "airFlowSensorHumidityCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20507",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorDewPointNOTIFY": {
+    "name": "airFlowSensorDewPointNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10508",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "airFlowSensorDewPointCLEAR": {
+    "name": "airFlowSensorDewPointCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20508",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "airFlowSensorDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorAvailNOTIFY": {
+    "name": "dewPointSensorAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10604",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorAvailCLEAR": {
+    "name": "dewPointSensorAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20604",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorTempNOTIFY": {
+    "name": "dewPointSensorTempNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10605",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorTempCLEAR": {
+    "name": "dewPointSensorTempCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20605",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorHumidityNOTIFY": {
+    "name": "dewPointSensorHumidityNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10606",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorHumidityCLEAR": {
+    "name": "dewPointSensorHumidityCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20606",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorDewPointNOTIFY": {
+    "name": "dewPointSensorDewPointNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10607",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "dewPointSensorDewPointCLEAR": {
+    "name": "dewPointSensorDewPointCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20607",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "dewPointSensorDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "ccatSensorAvailNOTIFY": {
+    "name": "ccatSensorAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10704",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "ccatSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "ccatSensorAvailCLEAR": {
+    "name": "ccatSensorAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20704",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "ccatSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "ccatSensorValueNOTIFY": {
+    "name": "ccatSensorValueNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10705",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "ccatSensorValue"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "ccatSensorType"
+      }
+    ],
+    "status": "current"
+  },
+  "ccatSensorValueCLEAR": {
+    "name": "ccatSensorValueCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20705",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "ccatSensorValue"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "ccatSensorType"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorAvailNOTIFY": {
+    "name": "t3hdSensorAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10804",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorAvailCLEAR": {
+    "name": "t3hdSensorAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20804",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorIntTempNOTIFY": {
+    "name": "t3hdSensorIntTempNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10806",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorIntTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorIntTempCLEAR": {
+    "name": "t3hdSensorIntTempCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20806",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorIntTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorIntHumidityNOTIFY": {
+    "name": "t3hdSensorIntHumidityNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10807",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorIntHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorIntHumidityCLEAR": {
+    "name": "t3hdSensorIntHumidityCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20807",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorIntHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorIntDewPointNOTIFY": {
+    "name": "t3hdSensorIntDewPointNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10808",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorIntDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorIntDewPointCLEAR": {
+    "name": "t3hdSensorIntDewPointCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20808",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorIntDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorExtATempNOTIFY": {
+    "name": "t3hdSensorExtATempNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10811",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorExtATemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorExtATempCLEAR": {
+    "name": "t3hdSensorExtATempCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20811",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorExtATemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorExtBTempNOTIFY": {
+    "name": "t3hdSensorExtBTempNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10814",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorExtBTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "t3hdSensorExtBTempCLEAR": {
+    "name": "t3hdSensorExtBTempCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20814",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "t3hdSensorExtBTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorAvailNOTIFY": {
+    "name": "thdSensorAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10904",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorAvailCLEAR": {
+    "name": "thdSensorAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20904",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorTempNOTIFY": {
+    "name": "thdSensorTempNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10905",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorTempCLEAR": {
+    "name": "thdSensorTempCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20905",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorTemp"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorHumidityNOTIFY": {
+    "name": "thdSensorHumidityNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10906",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorHumidityCLEAR": {
+    "name": "thdSensorHumidityCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20906",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorDewPointNOTIFY": {
+    "name": "thdSensorDewPointNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.10907",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "thdSensorDewPointCLEAR": {
+    "name": "thdSensorDewPointCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.20907",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "thdSensorDewPoint"
+      },
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "temperatureUnits"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorAvailNOTIFY": {
+    "name": "rpmSensorAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorAvailCLEAR": {
+    "name": "rpmSensorAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorEnergyNOTIFY": {
+    "name": "rpmSensorEnergyNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11005",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorEnergy"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorEnergyCLEAR": {
+    "name": "rpmSensorEnergyCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21005",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorEnergy"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorVoltageNOTIFY": {
+    "name": "rpmSensorVoltageNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorVoltageCLEAR": {
+    "name": "rpmSensorVoltageCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorVoltageMaxNOTIFY": {
+    "name": "rpmSensorVoltageMaxNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11007",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorVoltageMax"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorVoltageMaxCLEAR": {
+    "name": "rpmSensorVoltageMaxCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21007",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorVoltageMax"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorVoltageMinNOTIFY": {
+    "name": "rpmSensorVoltageMinNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorVoltageMin"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorVoltageMinCLEAR": {
+    "name": "rpmSensorVoltageMinCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorVoltageMin"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorVoltagePeakNOTIFY": {
+    "name": "rpmSensorVoltagePeakNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11009",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorVoltagePeak"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorVoltagePeakCLEAR": {
+    "name": "rpmSensorVoltagePeakCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21009",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorVoltagePeak"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorCurrentNOTIFY": {
+    "name": "rpmSensorCurrentNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11010",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorCurrentCLEAR": {
+    "name": "rpmSensorCurrentCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21010",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorRealPowerNOTIFY": {
+    "name": "rpmSensorRealPowerNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11011",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorRealPower"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorRealPowerCLEAR": {
+    "name": "rpmSensorRealPowerCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21011",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorRealPower"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorApparentPowerNOTIFY": {
+    "name": "rpmSensorApparentPowerNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11012",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorApparentPower"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorApparentPowerCLEAR": {
+    "name": "rpmSensorApparentPowerCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21012",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorApparentPower"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorPowerFactorNOTIFY": {
+    "name": "rpmSensorPowerFactorNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11013",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorPowerFactor"
+      }
+    ],
+    "status": "current"
+  },
+  "rpmSensorPowerFactorCLEAR": {
+    "name": "rpmSensorPowerFactorCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21013",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "rpmSensorPowerFactor"
+      }
+    ],
+    "status": "current"
+  },
+  "a2dSensorAvailNOTIFY": {
+    "name": "a2dSensorAvailNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "a2dSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "a2dSensorAvailCLEAR": {
+    "name": "a2dSensorAvailCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "a2dSensorAvail"
+      }
+    ],
+    "status": "current"
+  },
+  "a2dSensorValueNOTIFY": {
+    "name": "a2dSensorValueNOTIFY",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.11105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "a2dSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "a2dSensorValueCLEAR": {
+    "name": "a2dSensorValueCLEAR",
+    "oid": "1.3.6.1.4.1.21239.5.1.32767.0.21105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GEIST-V4-MIB",
+        "object": "a2dSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/geist/GEIST-V4-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:31:58 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "GEIST-V4-MIB"
+  }
+}

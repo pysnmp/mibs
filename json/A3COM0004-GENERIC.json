@@ -1,0 +1,281 @@
+{
+  "imports": {
+    "class": "imports",
+    "A3Com-products-MIB": [
+      "generic"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "setup": {
+    "name": "setup",
+    "oid": "1.3.6.1.4.1.43.10.2",
+    "class": "objectidentity"
+  },
+  "sysLoader": {
+    "name": "sysLoader",
+    "oid": "1.3.6.1.4.1.43.10.3",
+    "class": "objectidentity"
+  },
+  "security": {
+    "name": "security",
+    "oid": "1.3.6.1.4.1.43.10.4",
+    "class": "objectidentity"
+  },
+  "gauges": {
+    "name": "gauges",
+    "oid": "1.3.6.1.4.1.43.10.5",
+    "class": "objectidentity"
+  },
+  "asciiAgent": {
+    "name": "asciiAgent",
+    "oid": "1.3.6.1.4.1.43.10.6",
+    "class": "objectidentity"
+  },
+  "serialIf": {
+    "name": "serialIf",
+    "oid": "1.3.6.1.4.1.43.10.7",
+    "class": "objectidentity"
+  },
+  "repeaterMgmt": {
+    "name": "repeaterMgmt",
+    "oid": "1.3.6.1.4.1.43.10.8",
+    "class": "objectidentity"
+  },
+  "endStation": {
+    "name": "endStation",
+    "oid": "1.3.6.1.4.1.43.10.9",
+    "class": "objectidentity"
+  },
+  "localSnmp": {
+    "name": "localSnmp",
+    "oid": "1.3.6.1.4.1.43.10.10",
+    "class": "objectidentity"
+  },
+  "manager": {
+    "name": "manager",
+    "oid": "1.3.6.1.4.1.43.10.11",
+    "class": "objectidentity"
+  },
+  "unusedGeneric12": {
+    "name": "unusedGeneric12",
+    "oid": "1.3.6.1.4.1.43.10.12",
+    "class": "objectidentity"
+  },
+  "chassis": {
+    "name": "chassis",
+    "oid": "1.3.6.1.4.1.43.10.14",
+    "class": "objectidentity"
+  },
+  "mrmResilience": {
+    "name": "mrmResilience",
+    "oid": "1.3.6.1.4.1.43.10.15",
+    "class": "objectidentity"
+  },
+  "tokenRing": {
+    "name": "tokenRing",
+    "oid": "1.3.6.1.4.1.43.10.16",
+    "class": "objectidentity"
+  },
+  "multiRepeater": {
+    "name": "multiRepeater",
+    "oid": "1.3.6.1.4.1.43.10.17",
+    "class": "objectidentity"
+  },
+  "bridgeMgmt": {
+    "name": "bridgeMgmt",
+    "oid": "1.3.6.1.4.1.43.10.18",
+    "class": "objectidentity"
+  },
+  "fault": {
+    "name": "fault",
+    "oid": "1.3.6.1.4.1.43.10.19",
+    "class": "objectidentity"
+  },
+  "poll": {
+    "name": "poll",
+    "oid": "1.3.6.1.4.1.43.10.20",
+    "class": "objectidentity"
+  },
+  "powerSupply": {
+    "name": "powerSupply",
+    "oid": "1.3.6.1.4.1.43.10.21",
+    "class": "objectidentity"
+  },
+  "securePort": {
+    "name": "securePort",
+    "oid": "1.3.6.1.4.1.43.10.22",
+    "class": "objectidentity"
+  },
+  "alertLed": {
+    "name": "alertLed",
+    "oid": "1.3.6.1.4.1.43.10.23",
+    "class": "objectidentity"
+  },
+  "remoteControl": {
+    "name": "remoteControl",
+    "oid": "1.3.6.1.4.1.43.10.24",
+    "class": "objectidentity"
+  },
+  "rmonExtensions": {
+    "name": "rmonExtensions",
+    "oid": "1.3.6.1.4.1.43.10.25",
+    "class": "objectidentity"
+  },
+  "rfc1516extensions": {
+    "name": "rfc1516extensions",
+    "oid": "1.3.6.1.4.1.43.10.26",
+    "class": "objectidentity"
+  },
+  "superStackIIconfig": {
+    "name": "superStackIIconfig",
+    "oid": "1.3.6.1.4.1.43.10.27",
+    "class": "objectidentity"
+  },
+  "extendedIfInfo": {
+    "name": "extendedIfInfo",
+    "oid": "1.3.6.1.4.1.43.10.28",
+    "class": "objectidentity"
+  },
+  "a3ComVlan": {
+    "name": "a3ComVlan",
+    "oid": "1.3.6.1.4.1.43.10.29",
+    "class": "objectidentity"
+  },
+  "vlanServerClient": {
+    "name": "vlanServerClient",
+    "oid": "1.3.6.1.4.1.43.10.30",
+    "class": "objectidentity"
+  },
+  "segmentLoadBalancing": {
+    "name": "segmentLoadBalancing",
+    "oid": "1.3.6.1.4.1.43.10.31",
+    "class": "objectidentity"
+  },
+  "virtualFileSystem": {
+    "name": "virtualFileSystem",
+    "oid": "1.3.6.1.4.1.43.10.32",
+    "class": "objectidentity"
+  },
+  "smartAutosensing": {
+    "name": "smartAutosensing",
+    "oid": "1.3.6.1.4.1.43.10.33",
+    "class": "objectidentity"
+  },
+  "brasica2": {
+    "name": "brasica2",
+    "oid": "1.3.6.1.4.1.43.10.34",
+    "class": "objectidentity"
+  },
+  "smaVlanSupport": {
+    "name": "smaVlanSupport",
+    "oid": "1.3.6.1.4.1.43.10.35",
+    "class": "objectidentity"
+  },
+  "a3ComBridgeExt": {
+    "name": "a3ComBridgeExt",
+    "oid": "1.3.6.1.4.1.43.10.36",
+    "class": "objectidentity"
+  },
+  "igmpMIB": {
+    "name": "igmpMIB",
+    "oid": "1.3.6.1.4.1.43.10.37",
+    "class": "objectidentity"
+  },
+  "mibSummary": {
+    "name": "mibSummary",
+    "oid": "1.3.6.1.4.1.43.10.38",
+    "class": "objectidentity"
+  },
+  "qosProfiles": {
+    "name": "qosProfiles",
+    "oid": "1.3.6.1.4.1.43.10.39",
+    "class": "objectidentity"
+  },
+  "l4Redirect": {
+    "name": "l4Redirect",
+    "oid": "1.3.6.1.4.1.43.10.40",
+    "class": "objectidentity"
+  },
+  "a3ComTrafficStats": {
+    "name": "a3ComTrafficStats",
+    "oid": "1.3.6.1.4.1.43.10.41",
+    "class": "objectidentity"
+  },
+  "a3ComRadiusMIB": {
+    "name": "a3ComRadiusMIB",
+    "oid": "1.3.6.1.4.1.43.10.42",
+    "class": "objectidentity"
+  },
+  "a3ComBackup_mib": {
+    "name": "a3ComBackup_mib",
+    "oid": "1.3.6.1.4.1.43.10.43",
+    "class": "objectidentity"
+  },
+  "a3comLicenseGroup": {
+    "name": "a3comLicenseGroup",
+    "oid": "1.3.6.1.4.1.43.10.44",
+    "class": "objectidentity"
+  },
+  "a3ComPowerEthernetExt": {
+    "name": "a3ComPowerEthernetExt",
+    "oid": "1.3.6.1.4.1.43.10.45",
+    "class": "objectidentity"
+  },
+  "a3ComQBridgeMIB": {
+    "name": "a3ComQBridgeMIB",
+    "oid": "1.3.6.1.4.1.43.10.46",
+    "class": "objectidentity"
+  },
+  "a3ComFabric": {
+    "name": "a3ComFabric",
+    "oid": "1.3.6.1.4.1.43.10.47",
+    "class": "objectidentity"
+  },
+  "a3ComLinkAgg": {
+    "name": "a3ComLinkAgg",
+    "oid": "1.3.6.1.4.1.43.10.48",
+    "class": "objectidentity"
+  },
+  "a3ComPaeMIB": {
+    "name": "a3ComPaeMIB",
+    "oid": "1.3.6.1.4.1.43.10.49",
+    "class": "objectidentity"
+  },
+  "a3ComSntpGroup": {
+    "name": "a3ComSntpGroup",
+    "oid": "1.3.6.1.4.1.43.10.50",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/3com/A3COM0004-GENERIC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:39 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "A3COM0004-GENERIC"
+  }
+}

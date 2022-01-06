@@ -1,0 +1,751 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlPNP": {
+    "name": "rlPNP",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-02-09 00:00",
+        "description": "Added this MODULE-IDENTITY clause."
+      }
+    ]
+  },
+  "RlOwnerType": {
+    "name": "RlOwnerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rlOwnerNone": 0,
+          "rlOwnerDefault": 1,
+          "rlOwnerStatic": 2,
+          "rlOwnerDHCP": 3,
+          "rlOwnerProtocol": 4,
+          "rlOwnerDelete": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlPNPParamsTable": {
+    "name": "rlPNPParamsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPNPParamsEntry": {
+    "name": "rlPNPParamsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-PNP",
+        "object": "rlPNPParamsAvailability",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPNPParamsAvailability": {
+    "name": "rlPNPParamsAvailability",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "next": 1,
+          "current": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPNPServerAddrType": {
+    "name": "rlPNPServerAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPServerAddr": {
+    "name": "rlPNPServerAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "706e70736572766572",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPServerAddrOwner": {
+    "name": "rlPNPServerAddrOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "rlOwnerDefault",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPProtocol": {
+    "name": "rlPNPProtocol",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "http": 0,
+          "https": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPProtocolOwner": {
+    "name": "rlPNPProtocolOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPHTTPPort": {
+    "name": "rlPNPHTTPPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPHTTPPortOwner": {
+    "name": "rlPNPHTTPPortOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPHTTPSPort": {
+    "name": "rlPNPHTTPSPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 443,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPHTTPSPortOwner": {
+    "name": "rlPNPHTTPSPortOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPUserName": {
+    "name": "rlPNPUserName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPUserNameOwner": {
+    "name": "rlPNPUserNameOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPPassword": {
+    "name": "rlPNPPassword",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPPasswordOwner": {
+    "name": "rlPNPPasswordOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPDiscoveryTimeout": {
+    "name": "rlPNPDiscoveryTimeout",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPDiscoveryTimeoutOwner": {
+    "name": "rlPNPDiscoveryTimeoutOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPDiscoveryExpoFactor": {
+    "name": "rlPNPDiscoveryExpoFactor",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPDiscoveryExpoFactorOwner": {
+    "name": "rlPNPDiscoveryExpoFactorOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPDiscoveryTimeoutMax": {
+    "name": "rlPNPDiscoveryTimeoutMax",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 540,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPDiscoveryTimeoutMaxOwner": {
+    "name": "rlPNPDiscoveryTimeoutMaxOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPReconnectTimeout": {
+    "name": "rlPNPReconnectTimeout",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPReconnectTimeoutOwner": {
+    "name": "rlPNPReconnectTimeoutOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPSrcAddrTyp": {
+    "name": "rlPNPSrcAddrTyp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPSrcAddr": {
+    "name": "rlPNPSrcAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPSrcAddrOwner": {
+    "name": "rlPNPSrcAddrOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPWatchdogTimeout": {
+    "name": "rlPNPWatchdogTimeout",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPWatchdogTimeoutOwner": {
+    "name": "rlPNPWatchdogTimeoutOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPAdminState": {
+    "name": "rlPNPAdminState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 0,
+          "disable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPAdminStateOwner": {
+    "name": "rlPNPAdminStateOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlOwnerType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPRowStatus": {
+    "name": "rlPNPRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlPNPResume": {
+    "name": "rlPNPResume",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPNPNreadyReason": {
+    "name": "rlPNPNreadyReason",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serverIP": 0,
+          "certificate": 1,
+          "tod": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPNPState": {
+    "name": "rlPNPState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootup": 0,
+          "discovery": 1,
+          "discoveryWait": 2,
+          "session": 3,
+          "sessionWait": 4,
+          "disabled": 5,
+          "notReady": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPNPTimerRemainder": {
+    "name": "rlPNPTimerRemainder",
+    "oid": "1.3.6.1.4.1.9.6.1.101.234.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-PNP",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-PNP"
+  }
+}

@@ -1,0 +1,1292 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPortList",
+      "CiscoPortListRange"
+    ],
+    "CISCO-VTP-MIB": [
+      "VlanIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoVlanMembershipMIB": {
+    "name": "ciscoVlanMembershipMIB",
+    "oid": "1.3.6.1.4.1.9.9.68",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-12-14 00:00",
+        "description": "Add vmVlanCreationGroup."
+      },
+      {
+        "revision": "2004-07-16 00:00",
+        "description": "Add vmMembershipSummaryExtTable."
+      },
+      {
+        "revision": "2004-04-07 00:00",
+        "description": "Change the SYNTAX of vmMembershipSummaryMember2kPorts from PortList to CiscoPortList."
+      },
+      {
+        "revision": "2003-10-10 00:00",
+        "description": "Add vmVoiceVlanCdpVerifyEnable to support the feature of voice VLANs' detection through CDP packets."
+      },
+      {
+        "revision": "2003-06-05 00:00",
+        "description": "Deprecate vmMembershipSummaryMemberPorts and define vmMembershipSummaryMember2kPorts to support up to 2k bridge ports."
+      },
+      {
+        "revision": "2002-03-28 00:00",
+        "description": "Add vmVoiceVlanTable to support VVID feature"
+      },
+      {
+        "revision": "2001-05-01 00:00",
+        "description": "Import VlanIndex from CISCO-VTP-MIB"
+      },
+      {
+        "revision": "2001-01-30 00:00",
+        "description": "Corrected description of vmVmpsReconfirmResult"
+      },
+      {
+        "revision": "2000-01-06 00:00",
+        "description": "Added 4k VLAN support"
+      },
+      {
+        "revision": "1999-01-18 00:00",
+        "description": "Add vmNotificationsEnabled. Add support for multi-vlan ports. Other minor edits."
+      },
+      {
+        "revision": "1996-12-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoVlanMembershipMIBObjects": {
+    "name": "ciscoVlanMembershipMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.68.1",
+    "class": "objectidentity"
+  },
+  "vmVmps": {
+    "name": "vmVmps",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1",
+    "class": "objectidentity"
+  },
+  "vmMembership": {
+    "name": "vmMembership",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2",
+    "class": "objectidentity"
+  },
+  "vmStatistics": {
+    "name": "vmStatistics",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3",
+    "class": "objectidentity"
+  },
+  "vmStatus": {
+    "name": "vmStatus",
+    "oid": "1.3.6.1.4.1.9.9.68.1.4",
+    "class": "objectidentity"
+  },
+  "vmVoiceVlan": {
+    "name": "vmVoiceVlan",
+    "oid": "1.3.6.1.4.1.9.9.68.1.5",
+    "class": "objectidentity"
+  },
+  "vmVmpsVQPVersion": {
+    "name": "vmVmpsVQPVersion",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVmpsRetries": {
+    "name": "vmVmpsRetries",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVmpsReconfirmInterval": {
+    "name": "vmVmpsReconfirmInterval",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVmpsReconfirm": {
+    "name": "vmVmpsReconfirm",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "execute": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVmpsReconfirmResult": {
+    "name": "vmVmpsReconfirmResult",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "inProgress": 2,
+          "success": 3,
+          "noResponse": 4,
+          "noVmps": 5,
+          "noDynamicPort": 6,
+          "noHostConnected": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVmpsCurrent": {
+    "name": "vmVmpsCurrent",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVmpsTable": {
+    "name": "vmVmpsTable",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmVmpsEntry": {
+    "name": "vmVmpsEntry",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmVmpsIpAddress": {
+    "name": "vmVmpsIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVmpsPrimary": {
+    "name": "vmVmpsPrimary",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmVmpsRowStatus": {
+    "name": "vmVmpsRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.68.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmMembershipSummaryTable": {
+    "name": "vmMembershipSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmMembershipSummaryEntry": {
+    "name": "vmMembershipSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmMembershipSummaryVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmMembershipSummaryVlanIndex": {
+    "name": "vmMembershipSummaryVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmMembershipSummaryMemberPorts": {
+    "name": "vmMembershipSummaryMemberPorts",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vmMembershipSummaryMember2kPorts": {
+    "name": "vmMembershipSummaryMember2kPorts",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmMembershipTable": {
+    "name": "vmMembershipTable",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmMembershipEntry": {
+    "name": "vmMembershipEntry",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmVlanType": {
+    "name": "vmVlanType",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "multiVlan": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVlan": {
+    "name": "vmVlan",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmPortStatus": {
+    "name": "vmPortStatus",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "shutdown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVlans": {
+    "name": "vmVlans",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVlans2k": {
+    "name": "vmVlans2k",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVlans3k": {
+    "name": "vmVlans3k",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVlans4k": {
+    "name": "vmVlans4k",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmMembershipSummaryExtTable": {
+    "name": "vmMembershipSummaryExtTable",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmMembershipSummaryExtEntry": {
+    "name": "vmMembershipSummaryExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmMembershipSummaryVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmMembershipPortRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmMembershipPortRangeIndex": {
+    "name": "vmMembershipPortRangeIndex",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortListRange",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmMembershipSummaryExtPorts": {
+    "name": "vmMembershipSummaryExtPorts",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVlanCreationMode": {
+    "name": "vmVlanCreationMode",
+    "oid": "1.3.6.1.4.1.9.9.68.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatic": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVQPQueries": {
+    "name": "vmVQPQueries",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVQPResponses": {
+    "name": "vmVQPResponses",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVmpsChanges": {
+    "name": "vmVmpsChanges",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVQPShutdown": {
+    "name": "vmVQPShutdown",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVQPDenied": {
+    "name": "vmVQPDenied",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVQPWrongDomain": {
+    "name": "vmVQPWrongDomain",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmVQPWrongVersion": {
+    "name": "vmVQPWrongVersion",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmInsufficientResources": {
+    "name": "vmInsufficientResources",
+    "oid": "1.3.6.1.4.1.9.9.68.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmNotificationsEnabled": {
+    "name": "vmNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.68.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVoiceVlanTable": {
+    "name": "vmVoiceVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.68.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmVoiceVlanEntry": {
+    "name": "vmVoiceVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.68.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmVoiceVlanId": {
+    "name": "vmVoiceVlanId",
+    "oid": "1.3.6.1.4.1.9.9.68.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmVoiceVlanCdpVerifyEnable": {
+    "name": "vmVoiceVlanCdpVerifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.68.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmNotifications": {
+    "name": "vmNotifications",
+    "oid": "1.3.6.1.4.1.9.9.68.2",
+    "class": "objectidentity"
+  },
+  "vmNotificationsPrefix": {
+    "name": "vmNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.68.2.0",
+    "class": "objectidentity"
+  },
+  "vmVmpsChange": {
+    "name": "vmVmpsChange",
+    "oid": "1.3.6.1.4.1.9.9.68.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "vmMIBConformance": {
+    "name": "vmMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.68.3",
+    "class": "objectidentity"
+  },
+  "vmMIBCompliances": {
+    "name": "vmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.68.3.1",
+    "class": "objectidentity"
+  },
+  "vmMIBGroups": {
+    "name": "vmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2",
+    "class": "objectidentity"
+  },
+  "vmMIBCompliance": {
+    "name": "vmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.68.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmMembershipGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPClientGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPNotificationsGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmMIBCompliance2": {
+    "name": "vmMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.68.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmMembershipGroup2",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPClientGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPNotificationsGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmMIBCompliance3": {
+    "name": "vmMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.68.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmMembershipGroup2",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPClientGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPNotificationsGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm4kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmMIBCompliance4": {
+    "name": "vmMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.68.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmMembershipGroup3",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPClientGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPNotificationsGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm1kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm4kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmStatusGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVoiceVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmMIBCompliance5": {
+    "name": "vmMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.68.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmMembershipGroup3",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPClientGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPNotificationsGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm1kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm4kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmStatusGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVoiceVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVoiceVlanExtGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmMIBCompliance6": {
+    "name": "vmMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.68.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmMembershipGroup3",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPClientGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPNotificationsGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm1kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm4kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmStatusGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVoiceVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVoiceVlanExtGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmMembershipExtGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmMIBCompliance7": {
+    "name": "vmMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.68.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmMembershipGroup3",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPClientGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVQPNotificationsGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm1kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vm4kVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmStatusGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVoiceVlanGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVoiceVlanExtGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmMembershipExtGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      },
+      {
+        "object": "vmVlanCreationGroup",
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vmMembershipGroup": {
+    "name": "vmMembershipGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmMembershipSummaryMemberPorts"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlan"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlanType"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmPortStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vmVQPClientGroup": {
+    "name": "vmVQPClientGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsVQPVersion"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsRetries"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsReconfirm"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsReconfirmInterval"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsReconfirmResult"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsCurrent"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsIpAddress"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsPrimary"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsRowStatus"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVQPQueries"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVQPResponses"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsChanges"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVQPShutdown"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVQPDenied"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVQPWrongDomain"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVQPWrongVersion"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmInsufficientResources"
+      }
+    ],
+    "status": "current"
+  },
+  "vmVQPNotificationsGroup": {
+    "name": "vmVQPNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVmpsChange"
+      }
+    ],
+    "status": "current"
+  },
+  "vmStatusGroup": {
+    "name": "vmStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmNotificationsEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "vmMembershipGroup2": {
+    "name": "vmMembershipGroup2",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmMembershipSummaryMemberPorts"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlan"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlans"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlanType"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmPortStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vm4kVlanGroup": {
+    "name": "vm4kVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlans2k"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlans3k"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlans4k"
+      }
+    ],
+    "status": "current"
+  },
+  "vmVoiceVlanGroup": {
+    "name": "vmVoiceVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVoiceVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "vm1kVlanGroup": {
+    "name": "vm1kVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlans"
+      }
+    ],
+    "status": "current"
+  },
+  "vmMembershipGroup3": {
+    "name": "vmMembershipGroup3",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmMembershipSummaryMember2kPorts"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlan"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlanType"
+      },
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmPortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vmVoiceVlanExtGroup": {
+    "name": "vmVoiceVlanExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVoiceVlanCdpVerifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "vmMembershipExtGroup": {
+    "name": "vmMembershipExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmMembershipSummaryExtPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "vmVlanCreationGroup": {
+    "name": "vmVlanCreationGroup",
+    "oid": "1.3.6.1.4.1.9.9.68.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VLAN-MEMBERSHIP-MIB",
+        "object": "vmVlanCreationMode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VLAN-MEMBERSHIP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VLAN-MEMBERSHIP-MIB"
+  }
+}

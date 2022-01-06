@@ -1,0 +1,792 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1qStaticUnicastAddress",
+      "VlanId",
+      "PortList",
+      "dot1qFdbId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwL2FdbMIB": {
+    "name": "dlinkSwL2FdbMIB",
+    "oid": "1.3.6.1.4.1.171.14.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-12-26 00:00",
+        "description": "This is the first version of the MIB file for 'L2FDB' functionality."
+      }
+    ]
+  },
+  "dL2FdbMIBNotifications": {
+    "name": "dL2FdbMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.3.0",
+    "class": "objectidentity"
+  },
+  "dL2FdbMIBObjects": {
+    "name": "dL2FdbMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.3.1",
+    "class": "objectidentity"
+  },
+  "dL2FdbMIBConformance": {
+    "name": "dL2FdbMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.3.2",
+    "class": "objectidentity"
+  },
+  "dL2FdbGblCtrl": {
+    "name": "dL2FdbGblCtrl",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1",
+    "class": "objectidentity"
+  },
+  "dL2FdbClearCtrl": {
+    "name": "dL2FdbClearCtrl",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "dL2FdbClearMacAddrByMacAddr": {
+    "name": "dL2FdbClearMacAddrByMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbClearMacAddrByIf": {
+    "name": "dL2FdbClearMacAddrByIf",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbClearAllMacAddr": {
+    "name": "dL2FdbClearAllMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbAgingTime": {
+    "name": "dL2FdbAgingTime",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbMacChangeEnabled": {
+    "name": "dL2FdbMacChangeEnabled",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbMacChangeNotifInterval": {
+    "name": "dL2FdbMacChangeNotifInterval",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbMacChangeNotifyEnabled": {
+    "name": "dL2FdbMacChangeNotifyEnabled",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbMacChangeHistorySize": {
+    "name": "dL2FdbMacChangeHistorySize",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbDestHitEnabled": {
+    "name": "dL2FdbDestHitEnabled",
+    "oid": "1.3.6.1.4.1.171.14.3.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbStaticUnicastTable": {
+    "name": "dL2FdbStaticUnicastTable",
+    "oid": "1.3.6.1.4.1.171.14.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dL2FdbStaticUnicastEntry": {
+    "name": "dL2FdbStaticUnicastEntry",
+    "oid": "1.3.6.1.4.1.171.14.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbStaticUnicastVlanID",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbStaticUnicastMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbStaticUnicastVlanID": {
+    "name": "dL2FdbStaticUnicastVlanID",
+    "oid": "1.3.6.1.4.1.171.14.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dL2FdbStaticUnicastMacAddr": {
+    "name": "dL2FdbStaticUnicastMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dL2FdbStaticUnicastType": {
+    "name": "dL2FdbStaticUnicastType",
+    "oid": "1.3.6.1.4.1.171.14.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "self": 1,
+          "permanent": 2,
+          "permanentDrop": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dL2FdbStaticUnicastPortNum": {
+    "name": "dL2FdbStaticUnicastPortNum",
+    "oid": "1.3.6.1.4.1.171.14.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dL2FdbStaticUnicastRowStatus": {
+    "name": "dL2FdbStaticUnicastRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dL2FdbIfCtrlTable": {
+    "name": "dL2FdbIfCtrlTable",
+    "oid": "1.3.6.1.4.1.171.14.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dL2FdbIfCtrlEntry": {
+    "name": "dL2FdbIfCtrlEntry",
+    "oid": "1.3.6.1.4.1.171.14.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbIfCtrlNotifyEnable": {
+    "name": "dL2FdbIfCtrlNotifyEnable",
+    "oid": "1.3.6.1.4.1.171.14.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "added": 0,
+        "removed": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbIfMacLearningEnabled": {
+    "name": "dL2FdbIfMacLearningEnabled",
+    "oid": "1.3.6.1.4.1.171.14.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbMulticastFilterModeTable": {
+    "name": "dL2FdbMulticastFilterModeTable",
+    "oid": "1.3.6.1.4.1.171.14.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dL2FdbMulticastFilterModeEntry": {
+    "name": "dL2FdbMulticastFilterModeEntry",
+    "oid": "1.3.6.1.4.1.171.14.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMcastFilterModeIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbMcastFilterModeIfIndex": {
+    "name": "dL2FdbMcastFilterModeIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dL2FdbMcastFilterMode": {
+    "name": "dL2FdbMcastFilterMode",
+    "oid": "1.3.6.1.4.1.171.14.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwardAll": 1,
+          "forwardUnregistered": 2,
+          "filterUnregistered": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dL2FdbMacChangeHistoryTable": {
+    "name": "dL2FdbMacChangeHistoryTable",
+    "oid": "1.3.6.1.4.1.171.14.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dL2FdbMacChangeHistoryEntry": {
+    "name": "dL2FdbMacChangeHistoryEntry",
+    "oid": "1.3.6.1.4.1.171.14.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbMacChangeHistoryIndex": {
+    "name": "dL2FdbMacChangeHistoryIndex",
+    "oid": "1.3.6.1.4.1.171.14.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dL2FdbMacChangeHistoryOp": {
+    "name": "dL2FdbMacChangeHistoryOp",
+    "oid": "1.3.6.1.4.1.171.14.3.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "added": 1,
+          "removed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dL2FdbMacChangeHistoryVlanID": {
+    "name": "dL2FdbMacChangeHistoryVlanID",
+    "oid": "1.3.6.1.4.1.171.14.3.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dL2FdbMacChangeHistoryMacAddr": {
+    "name": "dL2FdbMacChangeHistoryMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.3.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dL2FdbMacChangeHistoryPortNum": {
+    "name": "dL2FdbMacChangeHistoryPortNum",
+    "oid": "1.3.6.1.4.1.171.14.3.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dL2FdbNotifyInfo": {
+    "name": "dL2FdbNotifyInfo",
+    "oid": "1.3.6.1.4.1.171.14.3.1.6",
+    "class": "objectidentity"
+  },
+  "dL2FdbMacChangeNotifyInfo": {
+    "name": "dL2FdbMacChangeNotifyInfo",
+    "oid": "1.3.6.1.4.1.171.14.3.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dL2FdbMacNotification": {
+    "name": "dL2FdbMacNotification",
+    "oid": "1.3.6.1.4.1.171.14.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeNotifyInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbCompliances": {
+    "name": "dL2FdbCompliances",
+    "oid": "1.3.6.1.4.1.171.14.3.2.1",
+    "class": "objectidentity"
+  },
+  "dL2FdbCompliance": {
+    "name": "dL2FdbCompliance",
+    "oid": "1.3.6.1.4.1.171.14.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dL2FdbGlobalGroup",
+        "module": "DLINKSW-L2FDB-MIB"
+      },
+      {
+        "object": "dL2FdbMacAddrTableGroup",
+        "module": "DLINKSW-L2FDB-MIB"
+      },
+      {
+        "object": "dL2FdbInterfaceGroup",
+        "module": "DLINKSW-L2FDB-MIB"
+      },
+      {
+        "object": "dL2FdbMcastFilterModeCfgGroup",
+        "module": "DLINKSW-L2FDB-MIB"
+      },
+      {
+        "object": "dL2FdbMacChangeNotifyCfgGroup",
+        "module": "DLINKSW-L2FDB-MIB"
+      },
+      {
+        "object": "dL2FdbMacChangeNotifyGroup",
+        "module": "DLINKSW-L2FDB-MIB"
+      },
+      {
+        "object": "dL2FdbMacChgNotificationGroup",
+        "module": "DLINKSW-L2FDB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbGroups": {
+    "name": "dL2FdbGroups",
+    "oid": "1.3.6.1.4.1.171.14.3.2.2",
+    "class": "objectidentity"
+  },
+  "dL2FdbGlobalGroup": {
+    "name": "dL2FdbGlobalGroup",
+    "oid": "1.3.6.1.4.1.171.14.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbClearMacAddrByMacAddr"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbClearMacAddrByIf"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbClearAllMacAddr"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbAgingTime"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbDestHitEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbMacAddrTableGroup": {
+    "name": "dL2FdbMacAddrTableGroup",
+    "oid": "1.3.6.1.4.1.171.14.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbStaticUnicastType"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbStaticUnicastPortNum"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbStaticUnicastRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbInterfaceGroup": {
+    "name": "dL2FdbInterfaceGroup",
+    "oid": "1.3.6.1.4.1.171.14.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbIfMacLearningEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbMacChangeNotifyCfgGroup": {
+    "name": "dL2FdbMacChangeNotifyCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeEnabled"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeNotifInterval"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeNotifyEnabled"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeHistorySize"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeNotifyInfo"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbIfCtrlNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbMcastFilterModeCfgGroup": {
+    "name": "dL2FdbMcastFilterModeCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.3.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMcastFilterMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbMacChangeNotifyGroup": {
+    "name": "dL2FdbMacChangeNotifyGroup",
+    "oid": "1.3.6.1.4.1.171.14.3.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeHistoryOp"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeHistoryVlanID"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeHistoryMacAddr"
+      },
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacChangeHistoryPortNum"
+      }
+    ],
+    "status": "current"
+  },
+  "dL2FdbMacChgNotificationGroup": {
+    "name": "dL2FdbMacChgNotificationGroup",
+    "oid": "1.3.6.1.4.1.171.14.3.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-L2FDB-MIB",
+        "object": "dL2FdbMacNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-L2FDB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-L2FDB-MIB"
+  }
+}

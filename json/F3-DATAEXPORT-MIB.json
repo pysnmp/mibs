@@ -1,0 +1,400 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "PerfCounter64",
+      "IpVersion"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "f3DataExportMIB": {
+    "name": "f3DataExportMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-10-31 00:00",
+        "description": " Notes from release 201312090000Z, (1) Added new object: f3DataExportClearStatsAction Notes from release 201310310000Z, (1) MIB version ready for release FSP150CC 6.1.CC."
+      }
+    ]
+  },
+  "f3DataExportConfigObjects": {
+    "name": "f3DataExportConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1",
+    "class": "objectidentity"
+  },
+  "f3DataExportCounterObjects": {
+    "name": "f3DataExportCounterObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.2",
+    "class": "objectidentity"
+  },
+  "f3DataExportActionObjects": {
+    "name": "f3DataExportActionObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.3",
+    "class": "objectidentity"
+  },
+  "f3DataExportConformance": {
+    "name": "f3DataExportConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.4",
+    "class": "objectidentity"
+  },
+  "DataExportType": {
+    "name": "DataExportType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "esal3pm": 1,
+        "twamppm": 2,
+        "flowbyteratepm": 3
+      }
+    },
+    "status": "current"
+  },
+  "f3DataExportTypes": {
+    "name": "f3DataExportTypes",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataExportType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportReportInterval": {
+    "name": "f3DataExportReportInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportIpVersion": {
+    "name": "f3DataExportIpVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportServerIpv4Addr": {
+    "name": "f3DataExportServerIpv4Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportServerIpv6Addr": {
+    "name": "f3DataExportServerIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportUserName": {
+    "name": "f3DataExportUserName",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportPassword": {
+    "name": "f3DataExportPassword",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportPath": {
+    "name": "f3DataExportPath",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportConfigObjectTable": {
+    "name": "f3DataExportConfigObjectTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3DataExportConfigObjectEntry": {
+    "name": "f3DataExportConfigObjectEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportConfigObjectEntity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3DataExportConfigObjectEntity": {
+    "name": "f3DataExportConfigObjectEntity",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3DataExportConfigObjectStorageType": {
+    "name": "f3DataExportConfigObjectStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3DataExportConfigObjectRowStatus": {
+    "name": "f3DataExportConfigObjectRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3DataExportServerXferPass": {
+    "name": "f3DataExportServerXferPass",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3DataExportServerXferFail": {
+    "name": "f3DataExportServerXferFail",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3DataExportClearStatsAction": {
+    "name": "f3DataExportClearStatsAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DataExportCompliances": {
+    "name": "f3DataExportCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.4.1",
+    "class": "objectidentity"
+  },
+  "f3DataExportGroups": {
+    "name": "f3DataExportGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.4.2",
+    "class": "objectidentity"
+  },
+  "f3DataExportCompliance": {
+    "name": "f3DataExportCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3DataExportConfigGroup",
+        "module": "F3-DATAEXPORT-MIB"
+      },
+      {
+        "object": "f3DataExportCounterGroup",
+        "module": "F3-DATAEXPORT-MIB"
+      },
+      {
+        "object": "f3DataExportActionGroup",
+        "module": "F3-DATAEXPORT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3DataExportConfigGroup": {
+    "name": "f3DataExportConfigGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportTypes"
+      },
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportReportInterval"
+      },
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportIpVersion"
+      },
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportServerIpv4Addr"
+      },
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportServerIpv6Addr"
+      },
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportUserName"
+      },
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportPassword"
+      },
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportPath"
+      }
+    ],
+    "status": "current"
+  },
+  "f3DataExportCounterGroup": {
+    "name": "f3DataExportCounterGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportServerXferPass"
+      },
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportServerXferFail"
+      }
+    ],
+    "status": "current"
+  },
+  "f3DataExportActionGroup": {
+    "name": "f3DataExportActionGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.30.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-DATAEXPORT-MIB",
+        "object": "f3DataExportClearStatsAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-DATAEXPORT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-DATAEXPORT-MIB"
+  }
+}

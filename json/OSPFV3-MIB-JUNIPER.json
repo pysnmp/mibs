@@ -1,0 +1,3832 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "JUNIPER-EXPERIMENT-MIB": [
+      "jnxOspfv3Experiment"
+    ],
+    "OSPF-MIB": [
+      "Metric",
+      "Status",
+      "BigMetric",
+      "HelloRange",
+      "DesignatedRouterPriority"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxOspfv3MIB": {
+    "name": "jnxOspfv3MIB",
+    "oid": "1.3.6.1.4.1.2636.5.4.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-09 12:00",
+        "description": "Initial version, published as RFC xxxx"
+      },
+      {
+        "revision": "2011-03-30 12:00",
+        "description": "Deprecating all objects. New mib file rfc5643.mib takes care of these objects."
+      }
+    ]
+  },
+  "JnxOspfv3UpToRefreshIntervalTc": {
+    "name": "JnxOspfv3UpToRefreshIntervalTc",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "JnxOspfv3DeadIntRangeTc": {
+    "name": "JnxOspfv3DeadIntRangeTc",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "JnxOspfv3RouterIdTc": {
+    "name": "JnxOspfv3RouterIdTc",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "JnxOspfv3AreaIdTc": {
+    "name": "JnxOspfv3AreaIdTc",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "JnxOspfv3IfInstIdTc": {
+    "name": "JnxOspfv3IfInstIdTc",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "deprecated"
+  },
+  "jnxOspfv3Notifications": {
+    "name": "jnxOspfv3Notifications",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0",
+    "class": "objectidentity"
+  },
+  "jnxOspfv3Objects": {
+    "name": "jnxOspfv3Objects",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1",
+    "class": "objectidentity"
+  },
+  "jnxOspfv3Conformance": {
+    "name": "jnxOspfv3Conformance",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2",
+    "class": "objectidentity"
+  },
+  "jnxOspfv3GeneralGroup": {
+    "name": "jnxOspfv3GeneralGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxOspfv3RouterId": {
+    "name": "jnxOspfv3RouterId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AdminStat": {
+    "name": "jnxOspfv3AdminStat",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VersionNumber": {
+    "name": "jnxOspfv3VersionNumber",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaBdrRtrStatus": {
+    "name": "jnxOspfv3AreaBdrRtrStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3ASBdrRtrStatus": {
+    "name": "jnxOspfv3ASBdrRtrStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsScopeLsaCount": {
+    "name": "jnxOspfv3AsScopeLsaCount",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsScopeLsaCksumSum": {
+    "name": "jnxOspfv3AsScopeLsaCksumSum",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3OriginateNewLsas": {
+    "name": "jnxOspfv3OriginateNewLsas",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3RxNewLsas": {
+    "name": "jnxOspfv3RxNewLsas",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3ExtLsaCount": {
+    "name": "jnxOspfv3ExtLsaCount",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3ExtAreaLsdbLimit": {
+    "name": "jnxOspfv3ExtAreaLsdbLimit",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3MulticastExtensions": {
+    "name": "jnxOspfv3MulticastExtensions",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "intraAreaMulticast": 0,
+        "interAreaMulticast": 1,
+        "interAsMulticast": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3ExitOverflowInterval": {
+    "name": "jnxOspfv3ExitOverflowInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3DemandExtensions": {
+    "name": "jnxOspfv3DemandExtensions",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3ReferenceBandwidth": {
+    "name": "jnxOspfv3ReferenceBandwidth",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3RestartSupport": {
+    "name": "jnxOspfv3RestartSupport",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "plannedOnly": 2,
+          "plannedAndUnplanned": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3RestartInterval": {
+    "name": "jnxOspfv3RestartInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3UpToRefreshIntervalTc",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3RestartStatus": {
+    "name": "jnxOspfv3RestartStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRestarting": 1,
+          "plannedRestart": 2,
+          "unplannedRestart": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3RestartAge": {
+    "name": "jnxOspfv3RestartAge",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3UpToRefreshIntervalTc",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3RestartExitRc": {
+    "name": "jnxOspfv3RestartExitRc",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "completed": 3,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NotificationEnable": {
+    "name": "jnxOspfv3NotificationEnable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaTable": {
+    "name": "jnxOspfv3AreaTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaEntry": {
+    "name": "jnxOspfv3AreaEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaId": {
+    "name": "jnxOspfv3AreaId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3AreaIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3ImportAsExtern": {
+    "name": "jnxOspfv3ImportAsExtern",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "importExternal": 1,
+          "importNoExternal": 2,
+          "importNssa": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "importExternal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaSpfRuns": {
+    "name": "jnxOspfv3AreaSpfRuns",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaBdrRtrCount": {
+    "name": "jnxOspfv3AreaBdrRtrCount",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAsBdrRtrCount": {
+    "name": "jnxOspfv3AreaAsBdrRtrCount",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaScopeLsaCount": {
+    "name": "jnxOspfv3AreaScopeLsaCount",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaScopeLsaCksumSum": {
+    "name": "jnxOspfv3AreaScopeLsaCksumSum",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaSummary": {
+    "name": "jnxOspfv3AreaSummary",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAreaSummary": 1,
+          "sendAreaSummary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sendAreaSummary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaStatus": {
+    "name": "jnxOspfv3AreaStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3StubMetric": {
+    "name": "jnxOspfv3StubMetric",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaNssaTranslatorRole": {
+    "name": "jnxOspfv3AreaNssaTranslatorRole",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "candidate": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "candidate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaNssaTranslatorState": {
+    "name": "jnxOspfv3AreaNssaTranslatorState",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "elected": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaNssaTranslatorStabInt": {
+    "name": "jnxOspfv3AreaNssaTranslatorStabInt",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaNssaTranslatorEvents": {
+    "name": "jnxOspfv3AreaNssaTranslatorEvents",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaStubMetricType": {
+    "name": "jnxOspfv3AreaStubMetricType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ospfv3Metric": 1,
+          "comparableCost": 2,
+          "nonComparable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ospfv3Metric",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbTable": {
+    "name": "jnxOspfv3AsLsdbTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbEntry": {
+    "name": "jnxOspfv3AsLsdbEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsLsdbRouterId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsLsdbLsid",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbType": {
+    "name": "jnxOspfv3AsLsdbType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbRouterId": {
+    "name": "jnxOspfv3AsLsdbRouterId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbLsid": {
+    "name": "jnxOspfv3AsLsdbLsid",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbSequence": {
+    "name": "jnxOspfv3AsLsdbSequence",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbAge": {
+    "name": "jnxOspfv3AsLsdbAge",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbChecksum": {
+    "name": "jnxOspfv3AsLsdbChecksum",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbAdvertisement": {
+    "name": "jnxOspfv3AsLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbTypeKnown": {
+    "name": "jnxOspfv3AsLsdbTypeKnown",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbTable": {
+    "name": "jnxOspfv3AreaLsdbTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbEntry": {
+    "name": "jnxOspfv3AreaLsdbEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbRouterId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbLsid",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbAreaId": {
+    "name": "jnxOspfv3AreaLsdbAreaId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3AreaIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbType": {
+    "name": "jnxOspfv3AreaLsdbType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbRouterId": {
+    "name": "jnxOspfv3AreaLsdbRouterId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbLsid": {
+    "name": "jnxOspfv3AreaLsdbLsid",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbSequence": {
+    "name": "jnxOspfv3AreaLsdbSequence",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbAge": {
+    "name": "jnxOspfv3AreaLsdbAge",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbChecksum": {
+    "name": "jnxOspfv3AreaLsdbChecksum",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbAdvertisement": {
+    "name": "jnxOspfv3AreaLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbTypeKnown": {
+    "name": "jnxOspfv3AreaLsdbTypeKnown",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbTable": {
+    "name": "jnxOspfv3LinkLsdbTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbEntry": {
+    "name": "jnxOspfv3LinkLsdbEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbIfInstId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbRouterId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbLsid",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbIfIndex": {
+    "name": "jnxOspfv3LinkLsdbIfIndex",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbIfInstId": {
+    "name": "jnxOspfv3LinkLsdbIfInstId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3IfInstIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbType": {
+    "name": "jnxOspfv3LinkLsdbType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbRouterId": {
+    "name": "jnxOspfv3LinkLsdbRouterId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbLsid": {
+    "name": "jnxOspfv3LinkLsdbLsid",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbSequence": {
+    "name": "jnxOspfv3LinkLsdbSequence",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbAge": {
+    "name": "jnxOspfv3LinkLsdbAge",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbChecksum": {
+    "name": "jnxOspfv3LinkLsdbChecksum",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbAdvertisement": {
+    "name": "jnxOspfv3LinkLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbTypeKnown": {
+    "name": "jnxOspfv3LinkLsdbTypeKnown",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3HostTable": {
+    "name": "jnxOspfv3HostTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3HostEntry": {
+    "name": "jnxOspfv3HostEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3HostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3HostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3HostAddressType": {
+    "name": "jnxOspfv3HostAddressType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3HostAddress": {
+    "name": "jnxOspfv3HostAddress",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3HostMetric": {
+    "name": "jnxOspfv3HostMetric",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3HostStatus": {
+    "name": "jnxOspfv3HostStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3HostAreaID": {
+    "name": "jnxOspfv3HostAreaID",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3AreaIdTc",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfTable": {
+    "name": "jnxOspfv3IfTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfEntry": {
+    "name": "jnxOspfv3IfEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfInstId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfIndex": {
+    "name": "jnxOspfv3IfIndex",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfInstId": {
+    "name": "jnxOspfv3IfInstId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3IfInstIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfAreaId": {
+    "name": "jnxOspfv3IfAreaId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3AreaIdTc",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfType": {
+    "name": "jnxOspfv3IfType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "nbma": 2,
+          "pointToPoint": 3,
+          "pointToMultipoint": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfAdminStat": {
+    "name": "jnxOspfv3IfAdminStat",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Status",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfRtrPriority": {
+    "name": "jnxOspfv3IfRtrPriority",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfTransitDelay": {
+    "name": "jnxOspfv3IfTransitDelay",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3UpToRefreshIntervalTc",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfRetransInterval": {
+    "name": "jnxOspfv3IfRetransInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3UpToRefreshIntervalTc",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfHelloInterval": {
+    "name": "jnxOspfv3IfHelloInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfRtrDeadInterval": {
+    "name": "jnxOspfv3IfRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3DeadIntRangeTc",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfPollInterval": {
+    "name": "jnxOspfv3IfPollInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfState": {
+    "name": "jnxOspfv3IfState",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "loopback": 2,
+          "waiting": 3,
+          "pointToPoint": 4,
+          "designatedRouter": 5,
+          "backupDesignatedRouter": 6,
+          "otherDesignatedRouter": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfDesignatedRouter": {
+    "name": "jnxOspfv3IfDesignatedRouter",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfBackupDesignatedRouter": {
+    "name": "jnxOspfv3IfBackupDesignatedRouter",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfEvents": {
+    "name": "jnxOspfv3IfEvents",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfStatus": {
+    "name": "jnxOspfv3IfStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfMulticastForwarding": {
+    "name": "jnxOspfv3IfMulticastForwarding",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocked": 1,
+          "multicast": 2,
+          "unicast": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "blocked",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfDemand": {
+    "name": "jnxOspfv3IfDemand",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfMetricValue": {
+    "name": "jnxOspfv3IfMetricValue",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfLinkScopeLsaCount": {
+    "name": "jnxOspfv3IfLinkScopeLsaCount",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfLinkLsaCksumSum": {
+    "name": "jnxOspfv3IfLinkLsaCksumSum",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfDemandNbrProbe": {
+    "name": "jnxOspfv3IfDemandNbrProbe",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfDemandNbrProbeRetxLimit": {
+    "name": "jnxOspfv3IfDemandNbrProbeRetxLimit",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfDemandNbrProbeInterval": {
+    "name": "jnxOspfv3IfDemandNbrProbeInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfTable": {
+    "name": "jnxOspfv3VirtIfTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfEntry": {
+    "name": "jnxOspfv3VirtIfEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfNeighbor",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfAreaId": {
+    "name": "jnxOspfv3VirtIfAreaId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3AreaIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfNeighbor": {
+    "name": "jnxOspfv3VirtIfNeighbor",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfIndex": {
+    "name": "jnxOspfv3VirtIfIndex",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfInstId": {
+    "name": "jnxOspfv3VirtIfInstId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3IfInstIdTc",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfTransitDelay": {
+    "name": "jnxOspfv3VirtIfTransitDelay",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3UpToRefreshIntervalTc",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfRetransInterval": {
+    "name": "jnxOspfv3VirtIfRetransInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3UpToRefreshIntervalTc",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfHelloInterval": {
+    "name": "jnxOspfv3VirtIfHelloInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfRtrDeadInterval": {
+    "name": "jnxOspfv3VirtIfRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3DeadIntRangeTc",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfState": {
+    "name": "jnxOspfv3VirtIfState",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "pointToPoint": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfEvents": {
+    "name": "jnxOspfv3VirtIfEvents",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfStatus": {
+    "name": "jnxOspfv3VirtIfStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfLinkScopeLsaCount": {
+    "name": "jnxOspfv3VirtIfLinkScopeLsaCount",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfLinkLsaCksumSum": {
+    "name": "jnxOspfv3VirtIfLinkLsaCksumSum",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrTable": {
+    "name": "jnxOspfv3NbrTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrEntry": {
+    "name": "jnxOspfv3NbrEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrIfInstId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrRtrId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrIfIndex": {
+    "name": "jnxOspfv3NbrIfIndex",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrIfInstId": {
+    "name": "jnxOspfv3NbrIfInstId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3IfInstIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrRtrId": {
+    "name": "jnxOspfv3NbrRtrId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrAddressType": {
+    "name": "jnxOspfv3NbrAddressType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrAddress": {
+    "name": "jnxOspfv3NbrAddress",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrOptions": {
+    "name": "jnxOspfv3NbrOptions",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrPriority": {
+    "name": "jnxOspfv3NbrPriority",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrState": {
+    "name": "jnxOspfv3NbrState",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrEvents": {
+    "name": "jnxOspfv3NbrEvents",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrLsRetransQLen": {
+    "name": "jnxOspfv3NbrLsRetransQLen",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrHelloSuppressed": {
+    "name": "jnxOspfv3NbrHelloSuppressed",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrIfId": {
+    "name": "jnxOspfv3NbrIfId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrRestartHelperStatus": {
+    "name": "jnxOspfv3NbrRestartHelperStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notHelping": 1,
+          "helping": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrRestartHelperAge": {
+    "name": "jnxOspfv3NbrRestartHelperAge",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3UpToRefreshIntervalTc",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrRestartHelperExitRc": {
+    "name": "jnxOspfv3NbrRestartHelperExitRc",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "completed": 3,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrTable": {
+    "name": "jnxOspfv3CfgNbrTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrEntry": {
+    "name": "jnxOspfv3CfgNbrEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3CfgNbrIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3CfgNbrIfInstId",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3CfgNbrAddressType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3CfgNbrAddress",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrIfIndex": {
+    "name": "jnxOspfv3CfgNbrIfIndex",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrIfInstId": {
+    "name": "jnxOspfv3CfgNbrIfInstId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3IfInstIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrAddressType": {
+    "name": "jnxOspfv3CfgNbrAddressType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrAddress": {
+    "name": "jnxOspfv3CfgNbrAddress",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrPriority": {
+    "name": "jnxOspfv3CfgNbrPriority",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrStatus": {
+    "name": "jnxOspfv3CfgNbrStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrTable": {
+    "name": "jnxOspfv3VirtNbrTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrEntry": {
+    "name": "jnxOspfv3VirtNbrEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrArea",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrRtrId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrArea": {
+    "name": "jnxOspfv3VirtNbrArea",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3AreaIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrRtrId": {
+    "name": "jnxOspfv3VirtNbrRtrId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3RouterIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrIfIndex": {
+    "name": "jnxOspfv3VirtNbrIfIndex",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrIfInstId": {
+    "name": "jnxOspfv3VirtNbrIfInstId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3IfInstIdTc",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrAddressType": {
+    "name": "jnxOspfv3VirtNbrAddressType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrAddress": {
+    "name": "jnxOspfv3VirtNbrAddress",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrOptions": {
+    "name": "jnxOspfv3VirtNbrOptions",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrState": {
+    "name": "jnxOspfv3VirtNbrState",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrEvents": {
+    "name": "jnxOspfv3VirtNbrEvents",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrLsRetransQLen": {
+    "name": "jnxOspfv3VirtNbrLsRetransQLen",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrHelloSuppressed": {
+    "name": "jnxOspfv3VirtNbrHelloSuppressed",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrIfId": {
+    "name": "jnxOspfv3VirtNbrIfId",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrRestartHelperStatus": {
+    "name": "jnxOspfv3VirtNbrRestartHelperStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notHelping": 1,
+          "helping": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrRestartHelperAge": {
+    "name": "jnxOspfv3VirtNbrRestartHelperAge",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3UpToRefreshIntervalTc",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrRestartHelperExitRc": {
+    "name": "jnxOspfv3VirtNbrRestartHelperExitRc",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "completed": 3,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregateTable": {
+    "name": "jnxOspfv3AreaAggregateTable",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregateEntry": {
+    "name": "jnxOspfv3AreaAggregateEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAggregateAreaID",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAggregateAreaLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAggregatePrefixType",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAggregatePrefix",
+        "implied": 0
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAggregatePrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregateAreaID": {
+    "name": "jnxOspfv3AreaAggregateAreaID",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxOspfv3AreaIdTc",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregateAreaLsdbType": {
+    "name": "jnxOspfv3AreaAggregateAreaLsdbType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interAreaPrefixLsa": 8195,
+          "nssaExternalLsa": 8199
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregatePrefixType": {
+    "name": "jnxOspfv3AreaAggregatePrefixType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregatePrefix": {
+    "name": "jnxOspfv3AreaAggregatePrefix",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregatePrefixLength": {
+    "name": "jnxOspfv3AreaAggregatePrefixLength",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregateStatus": {
+    "name": "jnxOspfv3AreaAggregateStatus",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregateEffect": {
+    "name": "jnxOspfv3AreaAggregateEffect",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertiseMatching": 1,
+          "doNotAdvertiseMatching": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "advertiseMatching",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregateRouteTag": {
+    "name": "jnxOspfv3AreaAggregateRouteTag",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxOspfv3NotificationEntry": {
+    "name": "jnxOspfv3NotificationEntry",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.13",
+    "class": "objectidentity"
+  },
+  "jnxOspfv3ConfigErrorType": {
+    "name": "jnxOspfv3ConfigErrorType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "badVersion": 1,
+          "areaMismatch": 2,
+          "unknownNbmaNbr": 3,
+          "unknownVirtualNbr": 4,
+          "helloIntervalMismatch": 5,
+          "deadIntervalMismatch": 6,
+          "optionMismatch": 7,
+          "mtuMismatch": 8,
+          "duplicateRouterId": 9,
+          "noError": 10
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "jnxOspfv3PacketType": {
+    "name": "jnxOspfv3PacketType",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hello": 1,
+          "dbDescript": 2,
+          "lsReq": 3,
+          "lsUpdate": 4,
+          "lsAck": 5,
+          "nullPacket": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "jnxOspfv3PacketSrc": {
+    "name": "jnxOspfv3PacketSrc",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfStateChange": {
+    "name": "jnxOspfv3VirtIfStateChange",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrStateChange": {
+    "name": "jnxOspfv3NbrStateChange",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrStateChange": {
+    "name": "jnxOspfv3VirtNbrStateChange",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfConfigError": {
+    "name": "jnxOspfv3IfConfigError",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3PacketSrc"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ConfigErrorType"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3PacketType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfConfigError": {
+    "name": "jnxOspfv3VirtIfConfigError",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ConfigErrorType"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3PacketType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfRxBadPacket": {
+    "name": "jnxOspfv3IfRxBadPacket",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3PacketSrc"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3PacketType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfRxBadPacket": {
+    "name": "jnxOspfv3VirtIfRxBadPacket",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3PacketType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3LsdbOverflow": {
+    "name": "jnxOspfv3LsdbOverflow",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ExtAreaLsdbLimit"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3LsdbApproachingOverflow": {
+    "name": "jnxOspfv3LsdbApproachingOverflow",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ExtAreaLsdbLimit"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfStateChange": {
+    "name": "jnxOspfv3IfStateChange",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3NssaTranslatorStatusChange": {
+    "name": "jnxOspfv3NssaTranslatorStatusChange",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaNssaTranslatorState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3RestartStatusChange": {
+    "name": "jnxOspfv3RestartStatusChange",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartExitRc"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrRestartHelperStatusChange": {
+    "name": "jnxOspfv3NbrRestartHelperStatusChange",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrRestartHelperStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrRestartHelperAge"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrRestartHelperExitRc"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrRestartHelperStatusChange": {
+    "name": "jnxOspfv3VirtNbrRestartHelperStatusChange",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrRestartHelperStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrRestartHelperAge"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrRestartHelperExitRc"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3Groups": {
+    "name": "jnxOspfv3Groups",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "jnxOspfv3Compliances": {
+    "name": "jnxOspfv3Compliances",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "jnxOspfv3Compliance": {
+    "name": "jnxOspfv3Compliance",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "jnxOspfv3BasicGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3AreaGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3IfGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3VirtIfGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3NbrGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3CfgNbrGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3VirtNbrGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3AreaAggregateGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3NotificationObjectGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3NotificationGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3AsLsdbGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3AreaLsdbGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3LinkLsdbGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxOspfv3HostGroup",
+        "module": "OSPFV3-MIB-JUNIPER"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3BasicGroup": {
+    "name": "jnxOspfv3BasicGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RouterId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AdminStat"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VersionNumber"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaBdrRtrStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ASBdrRtrStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsScopeLsaCount"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsScopeLsaCksumSum"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3OriginateNewLsas"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RxNewLsas"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ExtLsaCount"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ExtAreaLsdbLimit"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3MulticastExtensions"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ExitOverflowInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3DemandExtensions"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ReferenceBandwidth"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartSupport"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartAge"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartExitRc"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NotificationEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaGroup": {
+    "name": "jnxOspfv3AreaGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ImportAsExtern"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaSpfRuns"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaBdrRtrCount"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAsBdrRtrCount"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaScopeLsaCount"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaScopeLsaCksumSum"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaSummary"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3StubMetric"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaNssaTranslatorRole"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaNssaTranslatorState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaNssaTranslatorStabInt"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaNssaTranslatorEvents"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaStubMetricType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3AsLsdbGroup": {
+    "name": "jnxOspfv3AsLsdbGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsLsdbSequence"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsLsdbAge"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsLsdbChecksum"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsLsdbAdvertisement"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AsLsdbTypeKnown"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaLsdbGroup": {
+    "name": "jnxOspfv3AreaLsdbGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbSequence"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbAge"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbChecksum"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbAdvertisement"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaLsdbTypeKnown"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3LinkLsdbGroup": {
+    "name": "jnxOspfv3LinkLsdbGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbSequence"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbAge"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbChecksum"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbAdvertisement"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LinkLsdbTypeKnown"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3HostGroup": {
+    "name": "jnxOspfv3HostGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3HostMetric"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3HostStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3HostAreaID"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3IfGroup": {
+    "name": "jnxOspfv3IfGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfAreaId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfType"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfAdminStat"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfRtrPriority"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfTransitDelay"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfRetransInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfHelloInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfRtrDeadInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfPollInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfDesignatedRouter"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfBackupDesignatedRouter"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfEvents"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfMulticastForwarding"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfDemand"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfMetricValue"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfLinkScopeLsaCount"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfLinkLsaCksumSum"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfDemandNbrProbe"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfDemandNbrProbeRetxLimit"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfDemandNbrProbeInterval"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtIfGroup": {
+    "name": "jnxOspfv3VirtIfGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfIndex"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfInstId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfTransitDelay"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfRetransInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfHelloInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfRtrDeadInterval"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfEvents"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfLinkScopeLsaCount"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfLinkLsaCksumSum"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3NbrGroup": {
+    "name": "jnxOspfv3NbrGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrAddressType"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrAddress"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrOptions"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrPriority"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrEvents"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrLsRetransQLen"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrHelloSuppressed"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrIfId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrRestartHelperStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrRestartHelperAge"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrRestartHelperExitRc"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3CfgNbrGroup": {
+    "name": "jnxOspfv3CfgNbrGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3CfgNbrPriority"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3CfgNbrStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3VirtNbrGroup": {
+    "name": "jnxOspfv3VirtNbrGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrIfIndex"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrIfInstId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrAddressType"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrAddress"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrOptions"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrState"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrEvents"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrLsRetransQLen"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrHelloSuppressed"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrIfId"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrRestartHelperStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrRestartHelperAge"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrRestartHelperExitRc"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3AreaAggregateGroup": {
+    "name": "jnxOspfv3AreaAggregateGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAggregateStatus"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAggregateEffect"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3AreaAggregateRouteTag"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3NotificationObjectGroup": {
+    "name": "jnxOspfv3NotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3ConfigErrorType"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3PacketType"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3PacketSrc"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxOspfv3NotificationGroup": {
+    "name": "jnxOspfv3NotificationGroup",
+    "oid": "1.3.6.1.4.1.2636.5.4.1.2.1.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfStateChange"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrStateChange"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrStateChange"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfConfigError"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfConfigError"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfRxBadPacket"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtIfRxBadPacket"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LsdbOverflow"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3LsdbApproachingOverflow"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3IfStateChange"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NssaTranslatorStatusChange"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3RestartStatusChange"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3NbrRestartHelperStatusChange"
+      },
+      {
+        "module": "OSPFV3-MIB-JUNIPER",
+        "object": "jnxOspfv3VirtNbrRestartHelperStatusChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/OSPFV3-MIB-JUNIPER",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OSPFV3-MIB-JUNIPER"
+  }
+}

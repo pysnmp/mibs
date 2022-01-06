@@ -1,0 +1,629 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtLmmMIB": {
+    "name": "prvtLmmMIB",
+    "oid": "1.3.6.1.4.1.738.1.5.172",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-10-11 00:00",
+        "description": "Initial release"
+      }
+    ]
+  },
+  "prvtLmmNotifications": {
+    "name": "prvtLmmNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.172.0",
+    "class": "objectidentity"
+  },
+  "prvtLmmObjects": {
+    "name": "prvtLmmObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1",
+    "class": "objectidentity"
+  },
+  "prvtLmmShutdown": {
+    "name": "prvtLmmShutdown",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmDebug": {
+    "name": "prvtLmmDebug",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmPeriod": {
+    "name": "prvtLmmPeriod",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmTrap": {
+    "name": "prvtLmmTrap",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmLog": {
+    "name": "prvtLmmLog",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmLed": {
+    "name": "prvtLmmLed",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmTemperatureHighThreshold": {
+    "name": "prvtLmmTemperatureHighThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmTemperatureLowThreshold": {
+    "name": "prvtLmmTemperatureLowThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmRxPowerLowThreshold": {
+    "name": "prvtLmmRxPowerLowThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmRxPowerHighThreshold": {
+    "name": "prvtLmmRxPowerHighThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmTxPowerLowThreshold": {
+    "name": "prvtLmmTxPowerLowThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmTxPowerHighThreshold": {
+    "name": "prvtLmmTxPowerHighThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTable": {
+    "name": "prvtLmmInterfaceTable",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLmmInterfaceEntry": {
+    "name": "prvtLmmInterfaceEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtLmmInterfaceShutdown": {
+    "name": "prvtLmmInterfaceShutdown",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTempLowThreshold": {
+    "name": "prvtLmmInterfaceTempLowThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTempHighThreshold": {
+    "name": "prvtLmmInterfaceTempHighThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTempValue": {
+    "name": "prvtLmmInterfaceTempValue",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTempThresholdLo": {
+    "name": "prvtLmmInterfaceTempThresholdLo",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTempThresholdHi": {
+    "name": "prvtLmmInterfaceTempThresholdHi",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTempTestState": {
+    "name": "prvtLmmInterfaceTempTestState",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceRxPowerLowThreshold": {
+    "name": "prvtLmmInterfaceRxPowerLowThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmInterfaceRxPowerHighThreshold": {
+    "name": "prvtLmmInterfaceRxPowerHighThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmInterfaceRxPowerValue": {
+    "name": "prvtLmmInterfaceRxPowerValue",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceRxPowerThresholdRxLo": {
+    "name": "prvtLmmInterfaceRxPowerThresholdRxLo",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceRxPowerThresholdRxHi": {
+    "name": "prvtLmmInterfaceRxPowerThresholdRxHi",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceRxPowerTestState": {
+    "name": "prvtLmmInterfaceRxPowerTestState",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTxPowerLowThreshold": {
+    "name": "prvtLmmInterfaceTxPowerLowThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTxPowerHighThreshold": {
+    "name": "prvtLmmInterfaceTxPowerHighThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTxPowerValue": {
+    "name": "prvtLmmInterfaceTxPowerValue",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTxPowerThresholdTxLo": {
+    "name": "prvtLmmInterfaceTxPowerThresholdTxLo",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTxPowerThresholdTxHi": {
+    "name": "prvtLmmInterfaceTxPowerThresholdTxHi",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceTxPowerTestState": {
+    "name": "prvtLmmInterfaceTxPowerTestState",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmInterfaceOperStatus": {
+    "name": "prvtLmmInterfaceOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.172.1.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmmTemperatureThresholdCrossed": {
+    "name": "prvtLmmTemperatureThresholdCrossed",
+    "oid": "1.3.6.1.4.1.738.1.5.172.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceTempValue"
+      },
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceTempThresholdHi"
+      },
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceTempThresholdLo"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtLmmTxPowerThresholdCrossed": {
+    "name": "prvtLmmTxPowerThresholdCrossed",
+    "oid": "1.3.6.1.4.1.738.1.5.172.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceTxPowerValue"
+      },
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceTxPowerThresholdTxHi"
+      },
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceTxPowerThresholdTxLo"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtLmmRxPowerThresholdCrossed": {
+    "name": "prvtLmmRxPowerThresholdCrossed",
+    "oid": "1.3.6.1.4.1.738.1.5.172.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceRxPowerValue"
+      },
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceRxPowerThresholdRxHi"
+      },
+      {
+        "module": "PRVT-LMM-MIB",
+        "object": "prvtLmmInterfaceRxPowerThresholdRxLo"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-LMM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-LMM-MIB"
+  }
+}

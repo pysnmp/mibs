@@ -1,0 +1,2228 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dell": {
+    "name": "dell",
+    "oid": "1.3.6.1.4.1.10418",
+    "class": "objectidentity"
+  },
+  "dellrcsg2": {
+    "name": "dellrcsg2",
+    "oid": "1.3.6.1.4.1.10418.18",
+    "class": "objectidentity"
+  },
+  "dellrcsg2Products": {
+    "name": "dellrcsg2Products",
+    "oid": "1.3.6.1.4.1.10418.18.21",
+    "class": "objectidentity"
+  },
+  "dellrcsg2Management": {
+    "name": "dellrcsg2Management",
+    "oid": "1.3.6.1.4.1.10418.18.22",
+    "class": "objectidentity"
+  },
+  "dellrcs1082ds": {
+    "name": "dellrcs1082ds",
+    "oid": "1.3.6.1.4.1.10418.18.21.17",
+    "class": "objectidentity"
+  },
+  "dellrcs2162ds": {
+    "name": "dellrcs2162ds",
+    "oid": "1.3.6.1.4.1.10418.18.21.24",
+    "class": "objectidentity"
+  },
+  "dellrcs4322ds": {
+    "name": "dellrcs4322ds",
+    "oid": "1.3.6.1.4.1.10418.18.21.26",
+    "class": "objectidentity"
+  },
+  "dellrcsg2TrapObject": {
+    "name": "dellrcsg2TrapObject",
+    "oid": "1.3.6.1.4.1.10418.18.22.6",
+    "class": "objectidentity"
+  },
+  "UTF8String": {
+    "name": "UTF8String",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "ImageFileUpgradeResultsEnum": {
+    "name": "ImageFileUpgradeResultsEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "imageUpgradeTftpNoSocket": 1,
+          "imageUpgradeTftpConnectFailure": 2,
+          "imageUpgradeTftpRequestDenied": 3,
+          "imageUpgradeTftpBadPacket": 4,
+          "imageUpgradeTftpOOS": 5,
+          "imageUpgradeTftpTooBig": 6,
+          "imageUpgradeTftpTimeout": 7,
+          "imageUpgradeAlreadyInProgress": 8,
+          "imageUpgradeCannotStart": 9,
+          "imageUpgradeMemoryError": 10,
+          "imageUpgradeTftpProtocolError": 11,
+          "imageUpgradeBadType": 12,
+          "imageUpgradeInvalidAppDowngrade": 13,
+          "imageUpgradeChecksumError": 14,
+          "imageUpgradeFlashError": 15,
+          "imageUpgradeInternalError": 16,
+          "imageUpgradeFileNotFound": 17,
+          "imageUpgradeBadHeader": 18,
+          "imageUpgradeIncompatibleHeader": 19,
+          "imageUpgradeTftpXferFail": 20,
+          "imageUpgradeTftpSvrNoResponse": 21,
+          "imageUpgradeNetworkUnreachable": 22,
+          "imageUpgradeSuccess": 9999
+        }
+      }
+    }
+  },
+  "SIPUpgradeResultsEnum": {
+    "name": "SIPUpgradeResultsEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sipUpgradeNoFirmwareImage": 1,
+          "sipUpgradeLostContact": 2,
+          "sipUpgradeFailedRestart": 3,
+          "sipUpgradeFailedVerify": 4,
+          "sipUpgradeSuccess": 9999
+        }
+      }
+    }
+  },
+  "dellrcsg2TrapObjectUserName": {
+    "name": "dellrcsg2TrapObjectUserName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectTargetUserName": {
+    "name": "dellrcsg2TrapObjectTargetUserName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectImageType": {
+    "name": "dellrcsg2TrapObjectImageType",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectImageNewVersion": {
+    "name": "dellrcsg2TrapObjectImageNewVersion",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectImageCurrentVersion": {
+    "name": "dellrcsg2TrapObjectImageCurrentVersion",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectSessionIdentifier": {
+    "name": "dellrcsg2TrapObjectSessionIdentifier",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectSIPId": {
+    "name": "dellrcsg2TrapObjectSIPId",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectTieredSwitchName": {
+    "name": "dellrcsg2TrapObjectTieredSwitchName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectOldTieredSwitchName": {
+    "name": "dellrcsg2TrapObjectOldTieredSwitchName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectTargetDeviceName": {
+    "name": "dellrcsg2TrapObjectTargetDeviceName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectOldTargetDeviceName": {
+    "name": "dellrcsg2TrapObjectOldTargetDeviceName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectFileName": {
+    "name": "dellrcsg2TrapObjectFileName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectLockReason": {
+    "name": "dellrcsg2TrapObjectLockReason",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectUnlockReason": {
+    "name": "dellrcsg2TrapObjectUnlockReason",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectUserAddress": {
+    "name": "dellrcsg2TrapObjectUserAddress",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectSIPImageUpgradeResult": {
+    "name": "dellrcsg2TrapObjectSIPImageUpgradeResult",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SIPUpgradeResultsEnum",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectTypeOfImage": {
+    "name": "dellrcsg2TrapObjectTypeOfImage",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "boot": 1,
+          "app": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectVirtualMediaDriveAccessMode": {
+    "name": "dellrcsg2TrapObjectVirtualMediaDriveAccessMode",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readonly": 1,
+          "readwrite": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectVirtualMediaDriveType": {
+    "name": "dellrcsg2TrapObjectVirtualMediaDriveType",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "floppyMemoryKey": 1,
+          "cdDvdRom": 2,
+          "generic": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectImageFileUpgradeResult": {
+    "name": "dellrcsg2TrapObjectImageFileUpgradeResult",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImageFileUpgradeResultsEnum",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectPduDevicePort": {
+    "name": "dellrcsg2TrapObjectPduDevicePort",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectPduOutlet": {
+    "name": "dellrcsg2TrapObjectPduOutlet",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectOldName": {
+    "name": "dellrcsg2TrapObjectOldName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectItemName": {
+    "name": "dellrcsg2TrapObjectItemName",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectPduDeviceInlet": {
+    "name": "dellrcsg2TrapObjectPduDeviceInlet",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectPduDeviceNumber": {
+    "name": "dellrcsg2TrapObjectPduDeviceNumber",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectInputPort": {
+    "name": "dellrcsg2TrapObjectInputPort",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectOldInputPort": {
+    "name": "dellrcsg2TrapObjectOldInputPort",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectPowerSupply": {
+    "name": "dellrcsg2TrapObjectPowerSupply",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectPreviousScreenResolution": {
+    "name": "dellrcsg2TrapObjectPreviousScreenResolution",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectCurrentScreenResolution": {
+    "name": "dellrcsg2TrapObjectCurrentScreenResolution",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectAggregatedTargetDeviceStatusChanged": {
+    "name": "dellrcsg2TrapObjectAggregatedTargetDeviceStatusChanged",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 5122
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectPduDeviceCircuit": {
+    "name": "dellrcsg2TrapObjectPduDeviceCircuit",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2TrapObjectSessionType": {
+    "name": "dellrcsg2TrapObjectSessionType",
+    "oid": "1.3.6.1.4.1.10418.18.22.6.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dellrcsg2RebootStartedTrap": {
+    "name": "dellrcsg2RebootStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      }
+    ]
+  },
+  "dellrcsg2UserLoginTrap": {
+    "name": "dellrcsg2UserLoginTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      }
+    ]
+  },
+  "dellrcsg2UserLogoutTrap": {
+    "name": "dellrcsg2UserLogoutTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      }
+    ]
+  },
+  "dellrcsg2TargetSessionStartedTrap": {
+    "name": "dellrcsg2TargetSessionStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionType"
+      }
+    ]
+  },
+  "dellrcsg2TargetSessionStoppedTrap": {
+    "name": "dellrcsg2TargetSessionStoppedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionType"
+      }
+    ]
+  },
+  "dellrcsg2TargetSessionTerminatedTrap": {
+    "name": "dellrcsg2TargetSessionTerminatedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionType"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortSessionStartedTrap": {
+    "name": "dellrcsg2LocalPortSessionStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortSessionStoppedTrap": {
+    "name": "dellrcsg2LocalPortSessionStoppedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortSessionTerminatedTrap": {
+    "name": "dellrcsg2LocalPortSessionTerminatedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      }
+    ]
+  },
+  "dellrcsg2ImageFileUpgradeStarted": {
+    "name": "dellrcsg2ImageFileUpgradeStarted",
+    "oid": "1.3.6.1.4.1.10418.18.210.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectFileName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageNewVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageCurrentVersion"
+      }
+    ]
+  },
+  "dellrcsg2ImageFileUpgradeResultsTrap": {
+    "name": "dellrcsg2ImageFileUpgradeResultsTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageFileUpgradeResult"
+      }
+    ]
+  },
+  "dellrcsg2UserAddedTrap": {
+    "name": "dellrcsg2UserAddedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetUserName"
+      }
+    ]
+  },
+  "dellrcsg2UserDeletedTrap": {
+    "name": "dellrcsg2UserDeletedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetUserName"
+      }
+    ]
+  },
+  "dellrcsg2UserModifiedTrap": {
+    "name": "dellrcsg2UserModifiedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetUserName"
+      }
+    ]
+  },
+  "dellrcsg2UserLockedTrap": {
+    "name": "dellrcsg2UserLockedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectLockReason"
+      }
+    ]
+  },
+  "dellrcsg2UserUnlockedTrap": {
+    "name": "dellrcsg2UserUnlockedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUnlockReason"
+      }
+    ]
+  },
+  "dellrcsg2UserAuthenticationFailureTrap": {
+    "name": "dellrcsg2UserAuthenticationFailureTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      }
+    ]
+  },
+  "dellrcsg2SIPAddedTrap": {
+    "name": "dellrcsg2SIPAddedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2SIPRemovedTrap": {
+    "name": "dellrcsg2SIPRemovedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2SIPMovedTrap": {
+    "name": "dellrcsg2SIPMovedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectInputPort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectOldInputPort"
+      }
+    ]
+  },
+  "dellrcsg2TargetDeviceNameChangedTrap": {
+    "name": "dellrcsg2TargetDeviceNameChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectOldTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2TieredSwitchAddedTrap": {
+    "name": "dellrcsg2TieredSwitchAddedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTieredSwitchName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2TieredSwitchRemovedTrap": {
+    "name": "dellrcsg2TieredSwitchRemovedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTieredSwitchName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2TieredSwitchNameChangedTrap": {
+    "name": "dellrcsg2TieredSwitchNameChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectOldTieredSwitchName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTieredSwitchName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2ConfigurationFileLoadedTrap": {
+    "name": "dellrcsg2ConfigurationFileLoadedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectFileName"
+      }
+    ]
+  },
+  "dellrcsg2UserDatabaseFileLoadedTrap": {
+    "name": "dellrcsg2UserDatabaseFileLoadedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectFileName"
+      }
+    ]
+  },
+  "dellrcsg2CaCertificateLoaded": {
+    "name": "dellrcsg2CaCertificateLoaded",
+    "oid": "1.3.6.1.4.1.10418.18.210.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      }
+    ]
+  },
+  "dellrcsg2SIPImageUpgradeStarted": {
+    "name": "dellrcsg2SIPImageUpgradeStarted",
+    "oid": "1.3.6.1.4.1.10418.18.210.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTypeOfImage"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageNewVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageCurrentVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2SIPImageUpgradeResultTrap": {
+    "name": "dellrcsg2SIPImageUpgradeResultTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPImageUpgradeResult"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTypeOfImage"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageNewVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageCurrentVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2SIPRestartedTrap": {
+    "name": "dellrcsg2SIPRestartedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2VirtualMediaSessionStartedTrap": {
+    "name": "dellrcsg2VirtualMediaSessionStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "dellrcsg2VirtualMediaSessionStoppedTrap": {
+    "name": "dellrcsg2VirtualMediaSessionStoppedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "dellrcsg2VirtualMediaSessionTerminatedTrap": {
+    "name": "dellrcsg2VirtualMediaSessionTerminatedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "dellrcsg2VirtualMediaSessionReservedTrap": {
+    "name": "dellrcsg2VirtualMediaSessionReservedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "dellrcsg2VirtualMediaSessionUnreservedTrap": {
+    "name": "dellrcsg2VirtualMediaSessionUnreservedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "dellrcsg2VirtualMediaDriveMapped": {
+    "name": "dellrcsg2VirtualMediaDriveMapped",
+    "oid": "1.3.6.1.4.1.10418.18.210.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectVirtualMediaDriveType"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectVirtualMediaDriveAccessMode"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "dellrcsg2VirtualMediaDriveUnmapped": {
+    "name": "dellrcsg2VirtualMediaDriveUnmapped",
+    "oid": "1.3.6.1.4.1.10418.18.210.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectVirtualMediaDriveType"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectVirtualMediaDriveAccessMode"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortVirtualMediaSessionStartedTrap": {
+    "name": "dellrcsg2LocalPortVirtualMediaSessionStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSIPId"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortVirtualMediaSessionStoppedTrap": {
+    "name": "dellrcsg2LocalPortVirtualMediaSessionStoppedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortVirtualMediaSessionTerminatedTrap": {
+    "name": "dellrcsg2LocalPortVirtualMediaSessionTerminatedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortVirtualMediaDriveMapped": {
+    "name": "dellrcsg2LocalPortVirtualMediaDriveMapped",
+    "oid": "1.3.6.1.4.1.10418.18.210.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectVirtualMediaDriveType"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectVirtualMediaDriveAccessMode"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortVirtualMediaDriveUnmapped": {
+    "name": "dellrcsg2LocalPortVirtualMediaDriveUnmapped",
+    "oid": "1.3.6.1.4.1.10418.18.210.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectVirtualMediaDriveType"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectVirtualMediaDriveAccessMode"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortVirtualMediaSessionReservedTrap": {
+    "name": "dellrcsg2LocalPortVirtualMediaSessionReservedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      }
+    ]
+  },
+  "dellrcsg2LocalPortVirtualMediaSessionUnreservedTrap": {
+    "name": "dellrcsg2LocalPortVirtualMediaSessionUnreservedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      }
+    ]
+  },
+  "dellrcsg2ScreenResolutionChangedTrap": {
+    "name": "dellrcsg2ScreenResolutionChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPreviousScreenResolution"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectCurrentScreenResolution"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      }
+    ]
+  },
+  "dellrcsg2AggregatedTargetDeviceStatusChangedTrap": {
+    "name": "dellrcsg2AggregatedTargetDeviceStatusChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectAggregatedTargetDeviceStatusChanged"
+      }
+    ]
+  },
+  "dellrcsg2FactoryDefaultsSetTrap": {
+    "name": "dellrcsg2FactoryDefaultsSetTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.47",
+    "class": "notificationtype"
+  },
+  "dellrcsg2PowerSupplyFailureTrap": {
+    "name": "dellrcsg2PowerSupplyFailureTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPowerSupply"
+      }
+    ]
+  },
+  "dellrcsg2PowerSupplyRestoredTrap": {
+    "name": "dellrcsg2PowerSupplyRestoredTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPowerSupply"
+      }
+    ]
+  },
+  "dellrcsg2PduDeviceOnlineTrap": {
+    "name": "dellrcsg2PduDeviceOnlineTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      }
+    ]
+  },
+  "dellrcsg2PduDeviceOfflineTrap": {
+    "name": "dellrcsg2PduDeviceOfflineTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletOnCommandTrap": {
+    "name": "dellrcsg2PduOutletOnCommandTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletOffCommandTrap": {
+    "name": "dellrcsg2PduOutletOffCommandTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletRebootCommandTrap": {
+    "name": "dellrcsg2PduOutletRebootCommandTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletOnSenseFailTrap": {
+    "name": "dellrcsg2PduOutletOnSenseFailTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletOffSenseFailTrap": {
+    "name": "dellrcsg2PduOutletOffSenseFailTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduStatusOutletOnTrap": {
+    "name": "dellrcsg2PduStatusOutletOnTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduStatusOutletOffTrap": {
+    "name": "dellrcsg2PduStatusOutletOffTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduPortNameChangedTrap": {
+    "name": "dellrcsg2PduPortNameChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectOldName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectItemName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletNameChangedTrap": {
+    "name": "dellrcsg2PduOutletNameChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectOldName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectItemName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduInletTotalLoadHighTrap": {
+    "name": "dellrcsg2PduInletTotalLoadHighTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceInlet"
+      }
+    ]
+  },
+  "dellrcsg2PduInletTotalLoadLowTrap": {
+    "name": "dellrcsg2PduInletTotalLoadLowTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceInlet"
+      }
+    ]
+  },
+  "dellrcsg2PduDeviceNameChangedTrap": {
+    "name": "dellrcsg2PduDeviceNameChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectOldName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectItemName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      }
+    ]
+  },
+  "dellrcsg2PduInletNameChangedTrap": {
+    "name": "dellrcsg2PduInletNameChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectOldName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectItemName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceInlet"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletLockCommandTrap": {
+    "name": "dellrcsg2PduOutletLockCommandTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletUnlockCommandTrap": {
+    "name": "dellrcsg2PduOutletUnlockCommandTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduStatusOutletLockTrap": {
+    "name": "dellrcsg2PduStatusOutletLockTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.67",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduStatusOutletUnlockTrap": {
+    "name": "dellrcsg2PduStatusOutletUnlockTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.68",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTargetDeviceName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2PduImageFileUpgradeStartedTrap": {
+    "name": "dellrcsg2PduImageFileUpgradeStartedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.69",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTypeOfImage"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageNewVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageCurrentVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      }
+    ]
+  },
+  "dellrcsg2PduImageFileUpgradeResultTrap": {
+    "name": "dellrcsg2PduImageFileUpgradeResultTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.70",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageFileUpgradeResult"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectTypeOfImage"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageNewVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectImageCurrentVersion"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      }
+    ]
+  },
+  "dellrcsg2PduCircuitNameChangedTrap": {
+    "name": "dellrcsg2PduCircuitNameChangedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.71",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectOldName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectItemName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceCircuit"
+      }
+    ]
+  },
+  "dellrcsg2PduDeviceTotalLoadHighTrap": {
+    "name": "dellrcsg2PduDeviceTotalLoadHighTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.72",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      }
+    ]
+  },
+  "dellrcsg2PduCircuitTotalLoadHighTrap": {
+    "name": "dellrcsg2PduCircuitTotalLoadHighTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.73",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceCircuit"
+      }
+    ]
+  },
+  "dellrcsg2PduOutletTotalLoadHighTrap": {
+    "name": "dellrcsg2PduOutletTotalLoadHighTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.74",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDevicePort"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduDeviceNumber"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectPduOutlet"
+      }
+    ]
+  },
+  "dellrcsg2FanFailureTrap": {
+    "name": "dellrcsg2FanFailureTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.75",
+    "class": "notificationtype"
+  },
+  "dellrcsg2TemperatureRangeTrap": {
+    "name": "dellrcsg2TemperatureRangeTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.76",
+    "class": "notificationtype"
+  },
+  "dellrcsg2SmartCardInsertedTrap": {
+    "name": "dellrcsg2SmartCardInsertedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.77",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "dellrcsg2SmartCardRemovedTrap": {
+    "name": "dellrcsg2SmartCardRemovedTrap",
+    "oid": "1.3.6.1.4.1.10418.18.210.78",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserName"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectSessionIdentifier"
+      },
+      {
+        "module": "DELLRCSG2-TRAP-MIB",
+        "object": "dellrcsg2TrapObjectUserAddress"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELLRCSG2-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELLRCSG2-TRAP-MIB"
+  }
+}

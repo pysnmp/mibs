@@ -1,0 +1,864 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressIPv4",
+      "InetAddressPrefixLength"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwJwacMIB": {
+    "name": "dlinkSwJwacMIB",
+    "oid": "1.3.6.1.4.1.171.14.155",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-10-08 00:00",
+        "description": "This is the first version of the MIB file."
+      }
+    ]
+  },
+  "dJwacNotifications": {
+    "name": "dJwacNotifications",
+    "oid": "1.3.6.1.4.1.171.14.155.0",
+    "class": "objectidentity"
+  },
+  "dJwacObjects": {
+    "name": "dJwacObjects",
+    "oid": "1.3.6.1.4.1.171.14.155.1",
+    "class": "objectidentity"
+  },
+  "dJwacConformance": {
+    "name": "dJwacConformance",
+    "oid": "1.3.6.1.4.1.171.14.155.2",
+    "class": "objectidentity"
+  },
+  "dJwacCommonCtrl": {
+    "name": "dJwacCommonCtrl",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1",
+    "class": "objectidentity"
+  },
+  "dJwacInterfaceCtrl": {
+    "name": "dJwacInterfaceCtrl",
+    "oid": "1.3.6.1.4.1.171.14.155.1.2",
+    "class": "objectidentity"
+  },
+  "dJwacPageElementsCtrl": {
+    "name": "dJwacPageElementsCtrl",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3",
+    "class": "objectidentity"
+  },
+  "dJwacUpdateServerCtrl": {
+    "name": "dJwacUpdateServerCtrl",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4",
+    "class": "objectidentity"
+  },
+  "dJwacSystemAuthEnabled": {
+    "name": "dJwacSystemAuthEnabled",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacVirtualIpv4": {
+    "name": "dJwacVirtualIpv4",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacVirtualIpv6": {
+    "name": "dJwacVirtualIpv6",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacVirtualUrl": {
+    "name": "dJwacVirtualUrl",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacAuthMethod": {
+    "name": "dJwacAuthMethod",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "md5": 1,
+          "chap": 2,
+          "pap": 3,
+          "msChap": 4,
+          "msChapv2": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacForcibleLogout": {
+    "name": "dJwacForcibleLogout",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacQserverV4Url": {
+    "name": "dJwacQserverV4Url",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacQserverV6Url": {
+    "name": "dJwacQserverV6Url",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacQserverMonitorEnabled": {
+    "name": "dJwacQserverMonitorEnabled",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacQserverTimeOut": {
+    "name": "dJwacQserverTimeOut",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacRedirectEnabled": {
+    "name": "dJwacRedirectEnabled",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacRedirectDestination": {
+    "name": "dJwacRedirectDestination",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "quarantineServer": 1,
+          "jwacLoginPage": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacRedirectDelayTime": {
+    "name": "dJwacRedirectDelayTime",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacUdpFiltering": {
+    "name": "dJwacUdpFiltering",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacAuthPageLanguage": {
+    "name": "dJwacAuthPageLanguage",
+    "oid": "1.3.6.1.4.1.171.14.155.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "japanese": 1,
+          "english": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacIfCfgTable": {
+    "name": "dJwacIfCfgTable",
+    "oid": "1.3.6.1.4.1.171.14.155.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dJwacIfCfgEntry": {
+    "name": "dJwacIfCfgEntry",
+    "oid": "1.3.6.1.4.1.171.14.155.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dJwacIfAuthEnabled": {
+    "name": "dJwacIfAuthEnabled",
+    "oid": "1.3.6.1.4.1.171.14.155.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacMaxAuthingUser": {
+    "name": "dJwacMaxAuthingUser",
+    "oid": "1.3.6.1.4.1.171.14.155.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageElementTable": {
+    "name": "dJwacPageElementTable",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dJwacPageElementEntry": {
+    "name": "dJwacPageElementEntry",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageLanguage",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dJwacPageLanguage": {
+    "name": "dJwacPageLanguage",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "japanese": 1,
+          "english": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dJwacPageTitle": {
+    "name": "dJwacPageTitle",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageLoginWindowTitle": {
+    "name": "dJwacPageLoginWindowTitle",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageUserName": {
+    "name": "dJwacPageUserName",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPagePassWord": {
+    "name": "dJwacPagePassWord",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageLogoutWindowTitle": {
+    "name": "dJwacPageLogoutWindowTitle",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageCopyrightLine1": {
+    "name": "dJwacPageCopyrightLine1",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageCopyrightLine2": {
+    "name": "dJwacPageCopyrightLine2",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageCopyrightLine3": {
+    "name": "dJwacPageCopyrightLine3",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageCopyrightLine4": {
+    "name": "dJwacPageCopyrightLine4",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacPageCopyrightLine5": {
+    "name": "dJwacPageCopyrightLine5",
+    "oid": "1.3.6.1.4.1.171.14.155.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dJwacUpdateServerTable": {
+    "name": "dJwacUpdateServerTable",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dJwacUpdateServerEntry": {
+    "name": "dJwacUpdateServerEntry",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerProtocol",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dJwacUpdateServerAddrType": {
+    "name": "dJwacUpdateServerAddrType",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dJwacUpdateServerAddr": {
+    "name": "dJwacUpdateServerAddr",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dJwacUpdateServerPrefixLen": {
+    "name": "dJwacUpdateServerPrefixLen",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dJwacUpdateServerProtocol": {
+    "name": "dJwacUpdateServerProtocol",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "tcp": 2,
+          "udp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dJwacUpdateServerPort": {
+    "name": "dJwacUpdateServerPort",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dJwacupdateServerRowStatus": {
+    "name": "dJwacupdateServerRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.155.1.4.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dJwacMIBCompliances": {
+    "name": "dJwacMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.155.2.1",
+    "class": "objectidentity"
+  },
+  "dJwacMIBGroups": {
+    "name": "dJwacMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.155.2.2",
+    "class": "objectidentity"
+  },
+  "dJwacMIBCompliance": {
+    "name": "dJwacMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.155.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dJwacCfgGroup",
+        "module": "DLINKSW-JWAC-MIB"
+      },
+      {
+        "object": "dJwacIfCfgGroup",
+        "module": "DLINKSW-JWAC-MIB"
+      },
+      {
+        "object": "dJwacPageElementsGroup",
+        "module": "DLINKSW-JWAC-MIB"
+      },
+      {
+        "object": "dJwacUpdateServerGroup",
+        "module": "DLINKSW-JWAC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dJwacCfgGroup": {
+    "name": "dJwacCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.155.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacSystemAuthEnabled"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacVirtualIpv4"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacVirtualIpv6"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacVirtualUrl"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacAuthMethod"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacForcibleLogout"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacQserverV4Url"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacQserverV6Url"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacQserverMonitorEnabled"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacQserverTimeOut"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacRedirectEnabled"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacRedirectDestination"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacRedirectDelayTime"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUdpFiltering"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacAuthPageLanguage"
+      }
+    ],
+    "status": "current"
+  },
+  "dJwacIfCfgGroup": {
+    "name": "dJwacIfCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.155.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacIfAuthEnabled"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacMaxAuthingUser"
+      }
+    ],
+    "status": "current"
+  },
+  "dJwacPageElementsGroup": {
+    "name": "dJwacPageElementsGroup",
+    "oid": "1.3.6.1.4.1.171.14.155.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageTitle"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageLoginWindowTitle"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageUserName"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPagePassWord"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageLogoutWindowTitle"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageCopyrightLine1"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageCopyrightLine2"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageCopyrightLine3"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageCopyrightLine4"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacPageCopyrightLine5"
+      }
+    ],
+    "status": "current"
+  },
+  "dJwacUpdateServerGroup": {
+    "name": "dJwacUpdateServerGroup",
+    "oid": "1.3.6.1.4.1.171.14.155.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerAddrType"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerAddr"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerPrefixLen"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerProtocol"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacUpdateServerPort"
+      },
+      {
+        "module": "DLINKSW-JWAC-MIB",
+        "object": "dJwacupdateServerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-JWAC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-JWAC-MIB"
+  }
+}

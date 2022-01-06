@@ -1,0 +1,2679 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-QOS-PIB-MIB": [
+      "Percent"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDspMgmtMIB": {
+    "name": "ciscoDspMgmtMIB",
+    "oid": "1.3.6.1.4.1.9.9.86",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-02-17 00:00",
+        "description": "1. Added cdspCardVideoPoolUtilization and cdspCardVideoPoolUtilizationThreshold to cdspCardStatusTable. 2. Added cdspVideoUsageNotificationEnable and cdspVideoOutOfResourceNotificationEnable to cdspMIBNotificationEnables. 4. Added 2 new notifications: cdspVideoUsageNotification and cdspVideoOutOfResourceNotification. 5. Deprecated cdspMgmtComplianceRev10 and added cdspMgmtComplianceRev11. 7. Added cdspMgmtVideoInfoGroup and cdspMgmtVideoNotificationsGroup."
+      },
+      {
+        "revision": "2009-04-09 00:00",
+        "description": "1. Added the following new OBJECT IDENTIFIERs: cdspDspfarmObjects, cdspDspfarmUtilObjects. 2. Added the following objects to cdspDspfarmObjects: cdspGlobMaxConfTranscodeSess, cdspGlobMaxAvailTranscodeSess. 3. Added cdspTranscodeProfileTable. 4. Added cdspMtpProfileTable. 5. Added the following objects to cdspDspfarmUtilObjects: cdspTotAvailTranscodeSess, cdspTotUnusedTranscodeSess, cdspTotAvailMtpSess, cdspTotUnusedMtpSess. 6. Added OBJECT-GROUP cdspDspfarmInfoGroup. 7. Deprecated MODULE-COMPLIANCE cdspMgmtComplianceRev9. 8. Added MODULE-COMPLIANCE cdspMgmtComplianceRev10."
+      },
+      {
+        "revision": "2007-09-03 00:05",
+        "description": "Added cdspUtilTable to have MIB support for utilised and free DSP channels corresponding to codec pools available in codec template currently active on VXSM."
+      },
+      {
+        "revision": "2007-06-25 00:00",
+        "description": "Added two values to object cdspCodecTemplateSupported to support TGW2 and FMC codec templates."
+      },
+      {
+        "revision": "2007-06-20 00:00",
+        "description": "1. Added cdspVoiceModeIpIp object in cdspVoiceParamTable. 2. Deprecated cdspTransparentIpIp."
+      },
+      {
+        "revision": "2006-04-14 00:00",
+        "description": "Added following objects in cdspVoiceParamTable: cdspTransparentIpIp"
+      },
+      {
+        "revision": "2005-11-02 00:00",
+        "description": "Added following objects in cdspVoiceParamTable: cdspVqmThreshSES Modified the following objects in cdspVoiceParamTable: cdspVqmControl"
+      },
+      {
+        "revision": "2005-08-17 00:00",
+        "description": "Added following objects to cdspVoiceParamTable: cdspPktLossConcealment"
+      },
+      {
+        "revision": "2005-08-04 00:00",
+        "description": "Added following objects to cdspVoiceParamTable: cdspVqmControl cdspRtcpXrControl cdspRtcpXrTransMultiplier cdspRtcpXrGminDefault cdspRtcpXrExtRfactor"
+      },
+      {
+        "revision": "2005-06-20 00:00",
+        "description": "Added entPhysicalName to the OBJECTS clause of cdspOperStateNotification."
+      },
+      {
+        "revision": "2005-05-18 00:00",
+        "description": "Added object cdspEnableOperStateNotification to enable cdspOperStateNotification. Added cdspOperStateNotification to reflect cdspOperState in 'normal' or 'shutdown' state."
+      },
+      {
+        "revision": "2005-04-18 00:00",
+        "description": "Added object cdspCodecTemplateSupported to cdspCardStatusTable."
+      },
+      {
+        "revision": "2004-10-21 00:00",
+        "description": "Added object cdspRtcpTimerControl to cdspVoiceParamTable."
+      },
+      {
+        "revision": "2003-10-10 00:00",
+        "description": "Added object cdspDspNum to cdspStatusTable."
+      },
+      {
+        "revision": "2003-08-20 00:00",
+        "description": "Changing the DESCRIPTION of cdspMIBCardStateNotification to notify Manager whenever cdspCardState enters normal."
+      },
+      {
+        "revision": "2003-08-14 00:00",
+        "description": "(1) Added following objects to cdspCardStatusTable: cdspTotalDsp cdspFailedDsp cdspCongestedDsp cdspNormalDsp cdspNx64Dsp cdspDspSwitchOverThreshold (2) Added cdspVoiceParamTable (3) Added following objects to cdspStatusTable: cdspSigBearerChannelSplit cdspNumCongestionOccurrence (4) Added following enumerations to cdspOperState: congested (3) failed (4) (5) Added cdspStatusXTable"
+      },
+      {
+        "revision": "2000-08-14 00:00",
+        "description": "Fix typo in the DESCRIPTION clause of cdspMIBEnableCardStatusNotification object; change 'cdspFatalNotification' to 'cdspMIBCardStateNotification'."
+      },
+      {
+        "revision": "1998-10-17 00:00",
+        "description": "Add new objects to support channelized DSP features."
+      }
+    ]
+  },
+  "cdspMgmtNotifications": {
+    "name": "cdspMgmtNotifications",
+    "oid": "1.3.6.1.4.1.9.9.86.0",
+    "class": "objectidentity"
+  },
+  "cdspMgmtObjects": {
+    "name": "cdspMgmtObjects",
+    "oid": "1.3.6.1.4.1.9.9.86.1",
+    "class": "objectidentity"
+  },
+  "cdspCardObjects": {
+    "name": "cdspCardObjects",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1",
+    "class": "objectidentity"
+  },
+  "cdspObjects": {
+    "name": "cdspObjects",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2",
+    "class": "objectidentity"
+  },
+  "cdspMIBNotificationEnables": {
+    "name": "cdspMIBNotificationEnables",
+    "oid": "1.3.6.1.4.1.9.9.86.1.3",
+    "class": "objectidentity"
+  },
+  "cdspVoiceObjects": {
+    "name": "cdspVoiceObjects",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4",
+    "class": "objectidentity"
+  },
+  "cdspUtilObjects": {
+    "name": "cdspUtilObjects",
+    "oid": "1.3.6.1.4.1.9.9.86.1.5",
+    "class": "objectidentity"
+  },
+  "cdspDspfarmObjects": {
+    "name": "cdspDspfarmObjects",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6",
+    "class": "objectidentity"
+  },
+  "cdspDspfarmUtilObjects": {
+    "name": "cdspDspfarmUtilObjects",
+    "oid": "1.3.6.1.4.1.9.9.86.1.7",
+    "class": "objectidentity"
+  },
+  "cdspCardStatusTable": {
+    "name": "cdspCardStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspCardStatusEntry": {
+    "name": "cdspCardStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdspCardIndex": {
+    "name": "cdspCardIndex",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspCardState": {
+    "name": "cdspCardState",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3,
+          "fatal": 4,
+          "offLine": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspCardResourceUtilization": {
+    "name": "cdspCardResourceUtilization",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspCardLastHiWaterUtilization": {
+    "name": "cdspCardLastHiWaterUtilization",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspCardLastResetTime": {
+    "name": "cdspCardLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspCardMaxChanPerDSP": {
+    "name": "cdspCardMaxChanPerDSP",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspTotalDsp": {
+    "name": "cdspTotalDsp",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspFailedDsp": {
+    "name": "cdspFailedDsp",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspDspSwitchOverThreshold": {
+    "name": "cdspDspSwitchOverThreshold",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspCongestedDsp": {
+    "name": "cdspCongestedDsp",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspNormalDsp": {
+    "name": "cdspNormalDsp",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspNx64Dsp": {
+    "name": "cdspNx64Dsp",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspCodecTemplateSupported": {
+    "name": "cdspCodecTemplateSupported",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tgw": 1,
+          "cable": 2,
+          "umts3G": 3,
+          "cdma3G": 4,
+          "tgw2": 5,
+          "fmc": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspCardVideoPoolUtilization": {
+    "name": "cdspCardVideoPoolUtilization",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspCardVideoPoolUtilizationThreshold": {
+    "name": "cdspCardVideoPoolUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.9.9.86.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspStatusTable": {
+    "name": "cdspStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspStatusEntry": {
+    "name": "cdspStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdspOperState": {
+    "name": "cdspOperState",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "shutdown": 2,
+          "congested": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspAlarms": {
+    "name": "cdspAlarms",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspLastAlarmCause": {
+    "name": "cdspLastAlarmCause",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noAlarm": 2,
+          "dspFatalError": 3,
+          "dspMemoryError": 4,
+          "dspBufferError": 5,
+          "dspDownloadError": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspLastAlarmCauseText": {
+    "name": "cdspLastAlarmCauseText",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspLastAlarmTime": {
+    "name": "cdspLastAlarmTime",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspTotalChannels": {
+    "name": "cdspTotalChannels",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspInUseChannels": {
+    "name": "cdspInUseChannels",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspActiveChannels": {
+    "name": "cdspActiveChannels",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspSigBearerChannelSplit": {
+    "name": "cdspSigBearerChannelSplit",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspNumCongestionOccurrence": {
+    "name": "cdspNumCongestionOccurrence",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspDspNum": {
+    "name": "cdspDspNum",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspStatusXTable": {
+    "name": "cdspStatusXTable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspStatusXEntry": {
+    "name": "cdspStatusXEntry",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdspStatusXEntry",
+      "module": "CISCO-DSP-MGMT-MIB",
+      "object": "cdspStatusEntry"
+    },
+    "status": "current"
+  },
+  "cdspXNumberOfBearerCalls": {
+    "name": "cdspXNumberOfBearerCalls",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspXNumberOfSigCalls": {
+    "name": "cdspXNumberOfSigCalls",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspXAvailableBearerBandwidth": {
+    "name": "cdspXAvailableBearerBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspXAvailableSigBandwidth": {
+    "name": "cdspXAvailableSigBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.86.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspVoiceParamTable": {
+    "name": "cdspVoiceParamTable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspVoiceParamEntry": {
+    "name": "cdspVoiceParamEntry",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdspRtpSidPayloadType": {
+    "name": "cdspRtpSidPayloadType",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "decimal": 13,
+          "hexadecimal": 19
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "decimal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspRtcpControl": {
+    "name": "cdspRtcpControl",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspRtcpTransInterval": {
+    "name": "cdspRtcpTransInterval",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspRtcpRecvMultiplier": {
+    "name": "cdspRtcpRecvMultiplier",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspVadAdaptive": {
+    "name": "cdspVadAdaptive",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspDtmfPowerLevel": {
+    "name": "cdspDtmfPowerLevel",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -250,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -120,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspDtmfPowerTwist": {
+    "name": "cdspDtmfPowerTwist",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspRtcpTimerControl": {
+    "name": "cdspRtcpTimerControl",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "startImmediately": 2,
+          "startRtpOrRtcpPktRcvd": 3,
+          "startRtcpPktRcvd": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "startRtcpPktRcvd",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspVqmControl": {
+    "name": "cdspVqmControl",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "rfc3611Vqm": 2,
+          "xnq": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspRtcpXrControl": {
+    "name": "cdspRtcpXrControl",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspRtcpXrTransMultiplier": {
+    "name": "cdspRtcpXrTransMultiplier",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspRtcpXrGminDefault": {
+    "name": "cdspRtcpXrGminDefault",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspRtcpXrExtRfactor": {
+    "name": "cdspRtcpXrExtRfactor",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 127,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspPktLossConcealment": {
+    "name": "cdspPktLossConcealment",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "simple": 2,
+          "g711A1": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "simple",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspVqmThreshSES": {
+    "name": "cdspVqmThreshSES",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspTransparentIpIp": {
+    "name": "cdspTransparentIpIp",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cdspVoiceModeIpIp": {
+    "name": "cdspVoiceModeIpIp",
+    "oid": "1.3.6.1.4.1.9.9.86.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fastRoute": 2,
+          "transparent": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspUtilTable": {
+    "name": "cdspUtilTable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspUtilEntry": {
+    "name": "cdspUtilEntry",
+    "oid": "1.3.6.1.4.1.9.9.86.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCodecPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdspCodecPoolIndex": {
+    "name": "cdspCodecPoolIndex",
+    "oid": "1.3.6.1.4.1.9.9.86.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspCurrentUtilCap": {
+    "name": "cdspCurrentUtilCap",
+    "oid": "1.3.6.1.4.1.9.9.86.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspCurrentAvlbCap": {
+    "name": "cdspCurrentAvlbCap",
+    "oid": "1.3.6.1.4.1.9.9.86.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspGlobMaxConfTranscodeSess": {
+    "name": "cdspGlobMaxConfTranscodeSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspGlobMaxAvailTranscodeSess": {
+    "name": "cdspGlobMaxAvailTranscodeSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspTranscodeProfileTable": {
+    "name": "cdspTranscodeProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspTranscodeProfileEntry": {
+    "name": "cdspTranscodeProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTranscodeProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdspTranscodeProfileId": {
+    "name": "cdspTranscodeProfileId",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspTranscodeProfileMaxConfSess": {
+    "name": "cdspTranscodeProfileMaxConfSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdspTranscodeProfileMaxAvailSess": {
+    "name": "cdspTranscodeProfileMaxAvailSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspTranscodeProfileRowStatus": {
+    "name": "cdspTranscodeProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdspMtpProfileTable": {
+    "name": "cdspMtpProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspMtpProfileEntry": {
+    "name": "cdspMtpProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMtpProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdspMtpProfileId": {
+    "name": "cdspMtpProfileId",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdspMtpProfileMaxConfSoftSess": {
+    "name": "cdspMtpProfileMaxConfSoftSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdspMtpProfileMaxConfHardSess": {
+    "name": "cdspMtpProfileMaxConfHardSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdspMtpProfileMaxAvailHardSess": {
+    "name": "cdspMtpProfileMaxAvailHardSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspMtpProfileRowStatus": {
+    "name": "cdspMtpProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.86.1.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdspTotAvailTranscodeSess": {
+    "name": "cdspTotAvailTranscodeSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspTotUnusedTranscodeSess": {
+    "name": "cdspTotUnusedTranscodeSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspTotAvailMtpSess": {
+    "name": "cdspTotAvailMtpSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspTotUnusedMtpSess": {
+    "name": "cdspTotUnusedMtpSess",
+    "oid": "1.3.6.1.4.1.9.9.86.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdspMIBEnableCardStatusNotification": {
+    "name": "cdspMIBEnableCardStatusNotification",
+    "oid": "1.3.6.1.4.1.9.9.86.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspEnableOperStateNotification": {
+    "name": "cdspEnableOperStateNotification",
+    "oid": "1.3.6.1.4.1.9.9.86.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspVideoUsageNotificationEnable": {
+    "name": "cdspVideoUsageNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspVideoOutOfResourceNotificationEnable": {
+    "name": "cdspVideoOutOfResourceNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.9.86.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdspMIBNotificationPrefix": {
+    "name": "cdspMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.86.2",
+    "class": "objectidentity"
+  },
+  "cdspMIBNotifications": {
+    "name": "cdspMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.86.2.0",
+    "class": "objectidentity"
+  },
+  "cdspMIBCardStateNotification": {
+    "name": "cdspMIBCardStateNotification",
+    "oid": "1.3.6.1.4.1.9.9.86.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardState"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspOperStateNotification": {
+    "name": "cdspOperStateNotification",
+    "oid": "1.3.6.1.4.1.9.9.86.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspOperState"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspVideoUsageNotification": {
+    "name": "cdspVideoUsageNotification",
+    "oid": "1.3.6.1.4.1.9.9.86.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardVideoPoolUtilization"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardVideoPoolUtilizationThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspVideoOutOfResourceNotification": {
+    "name": "cdspVideoOutOfResourceNotification",
+    "oid": "1.3.6.1.4.1.9.9.86.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardVideoPoolUtilization"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardVideoPoolUtilizationThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspMgmtConformance": {
+    "name": "cdspMgmtConformance",
+    "oid": "1.3.6.1.4.1.9.9.86.3",
+    "class": "objectidentity"
+  },
+  "cdspMgmtCompliances": {
+    "name": "cdspMgmtCompliances",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1",
+    "class": "objectidentity"
+  },
+  "cdspMgmtGroups": {
+    "name": "cdspMgmtGroups",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2",
+    "class": "objectidentity"
+  },
+  "cdspMgmtCompliance": {
+    "name": "cdspMgmtCompliance",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev1": {
+    "name": "cdspMgmtComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev2": {
+    "name": "cdspMgmtComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev3": {
+    "name": "cdspMgmtComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev4": {
+    "name": "cdspMgmtComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtExtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev5": {
+    "name": "cdspMgmtComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVQMGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev6": {
+    "name": "cdspMgmtComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVQMGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev2",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev7": {
+    "name": "cdspMgmtComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVQMGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev2",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspTransCodingGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev8": {
+    "name": "cdspMgmtComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVQMGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev2",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspTransCodingGroup1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev9": {
+    "name": "cdspMgmtComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVQMGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev2",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspTransCodingGroup1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspUtilInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev10": {
+    "name": "cdspMgmtComplianceRev10",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVQMGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev2",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspTransCodingGroup1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspUtilInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspDspfarmInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtComplianceRev11": {
+    "name": "cdspMgmtComplianceRev11",
+    "oid": "1.3.6.1.4.1.9.9.86.3.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdspMgmtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtNotificationsGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtExtGeneralInfoGroupRev1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspChannelExtGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVQMGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspVoiceInfoGroupRev2",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspTransCodingGroup1",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspUtilInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspDspfarmInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtVideoInfoGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      },
+      {
+        "object": "cdspMgmtVideoNotificationsGroup",
+        "module": "CISCO-DSP-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspMgmtGeneralInfoGroup": {
+    "name": "cdspMgmtGeneralInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardIndex"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardState"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardResourceUtilization"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardLastHiWaterUtilization"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardLastResetTime"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspOperState"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspAlarms"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspLastAlarmCause"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspLastAlarmCauseText"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspLastAlarmTime"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMIBEnableCardStatusNotification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspChannelGroup": {
+    "name": "cdspChannelGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardMaxChanPerDSP"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTotalChannels"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspInUseChannels"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspActiveChannels"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspMgmtExtGeneralInfoGroup": {
+    "name": "cdspMgmtExtGeneralInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTotalDsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspFailedDsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCongestedDsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspNormalDsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDspSwitchOverThreshold"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspNx64Dsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDspNum"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspVoiceInfoGroup": {
+    "name": "cdspVoiceInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtpSidPayloadType"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpControl"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpTransInterval"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpRecvMultiplier"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVadAdaptive"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDtmfPowerLevel"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDtmfPowerTwist"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtNotificationsGroup": {
+    "name": "cdspMgmtNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMIBCardStateNotification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspChannelExtGroup": {
+    "name": "cdspChannelExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspSigBearerChannelSplit"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspNumCongestionOccurrence"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspXNumberOfBearerCalls"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspXNumberOfSigCalls"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspXAvailableBearerBandwidth"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspXAvailableSigBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspVoiceInfoGroupRev1": {
+    "name": "cdspVoiceInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtpSidPayloadType"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpControl"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpTransInterval"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpRecvMultiplier"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVadAdaptive"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDtmfPowerLevel"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDtmfPowerTwist"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpTimerControl"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspMgmtExtGeneralInfoGroupRev1": {
+    "name": "cdspMgmtExtGeneralInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTotalDsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspFailedDsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCongestedDsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspNormalDsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDspSwitchOverThreshold"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspNx64Dsp"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDspNum"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCodecTemplateSupported"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspMgmtGeneralInfoGroupRev1": {
+    "name": "cdspMgmtGeneralInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardIndex"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardState"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardResourceUtilization"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardLastHiWaterUtilization"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardLastResetTime"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspOperState"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspAlarms"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspLastAlarmCause"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspLastAlarmCauseText"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspLastAlarmTime"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMIBEnableCardStatusNotification"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspEnableOperStateNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspMgmtNotificationsGroupRev1": {
+    "name": "cdspMgmtNotificationsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMIBCardStateNotification"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspOperStateNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspVQMGroup": {
+    "name": "cdspVQMGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVqmControl"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpXrControl"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpXrTransMultiplier"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpXrGminDefault"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpXrExtRfactor"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVqmThreshSES"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspVoiceInfoGroupRev2": {
+    "name": "cdspVoiceInfoGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtpSidPayloadType"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpControl"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpTransInterval"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpRecvMultiplier"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVadAdaptive"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDtmfPowerLevel"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspDtmfPowerTwist"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspRtcpTimerControl"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspPktLossConcealment"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspTransCodingGroup": {
+    "name": "cdspTransCodingGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTransparentIpIp"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdspTransCodingGroup1": {
+    "name": "cdspTransCodingGroup1",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVoiceModeIpIp"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspUtilInfoGroup": {
+    "name": "cdspUtilInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCurrentUtilCap"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCurrentAvlbCap"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspDspfarmInfoGroup": {
+    "name": "cdspDspfarmInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspGlobMaxConfTranscodeSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspGlobMaxAvailTranscodeSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTranscodeProfileRowStatus"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTranscodeProfileMaxConfSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTranscodeProfileMaxAvailSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMtpProfileRowStatus"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMtpProfileMaxConfSoftSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMtpProfileMaxConfHardSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspMtpProfileMaxAvailHardSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTotAvailTranscodeSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTotUnusedTranscodeSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTotAvailMtpSess"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspTotUnusedMtpSess"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspMgmtVideoNotificationsGroup": {
+    "name": "cdspMgmtVideoNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.17",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVideoUsageNotification"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVideoOutOfResourceNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cdspMgmtVideoInfoGroup": {
+    "name": "cdspMgmtVideoInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.86.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardVideoPoolUtilization"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspCardVideoPoolUtilizationThreshold"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVideoUsageNotificationEnable"
+      },
+      {
+        "module": "CISCO-DSP-MGMT-MIB",
+        "object": "cdspVideoOutOfResourceNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DSP-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DSP-MGMT-MIB"
+  }
+}

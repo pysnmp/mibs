@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NBS-TUNABLE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-TUNABLE-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:29:21 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:42:09 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, IpAddress, MibIdentifier, Counter32, Counter64, ModuleIdentity, iso, Integer32, NotificationType, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "IpAddress", "MibIdentifier", "Counter32", "Counter64", "ModuleIdentity", "iso", "Integer32", "NotificationType", "Unsigned32", "Gauge32")
+Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier, Gauge32, iso, Bits, ObjectIdentity, TimeTicks, IpAddress, Counter32, Counter64, NotificationType, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier", "Gauge32", "iso", "Bits", "ObjectIdentity", "TimeTicks", "IpAddress", "Counter32", "Counter64", "NotificationType", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nbsTunableMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 203))
 if mibBuilder.loadTexts: nbsTunableMib.setLastUpdated('201706280000Z')
@@ -40,4 +40,4 @@ nbsTunableChannelFreqOper = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 203, 1, 2, 1,
 if mibBuilder.loadTexts: nbsTunableChannelFreqOper.setStatus('current')
 nbsTunableChannelFreqDefault = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 203, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: nbsTunableChannelFreqDefault.setStatus('current')
-mibBuilder.exportSymbols("NBS-TUNABLE-MIB", PYSNMP_MODULE_ID=nbsTunableMib, nbsTunableChannelFreqStart=nbsTunableChannelFreqStart, nbsTunableChannelIfIndex=nbsTunableChannelIfIndex, nbsTunableChannelFreqDefault=nbsTunableChannelFreqDefault, nbsTunableChannelFreqAdmin=nbsTunableChannelFreqAdmin, nbsTunableChannelFreqStep=nbsTunableChannelFreqStep, nbsTunableChannelFreqExponent=nbsTunableChannelFreqExponent, nbsTunableChannelTableSize=nbsTunableChannelTableSize, nbsTunableChannelFreqEnd=nbsTunableChannelFreqEnd, nbsTunableChannelEntry=nbsTunableChannelEntry, nbsTunableChannelTable=nbsTunableChannelTable, nbsTunableMib=nbsTunableMib, nbsTunableGrp=nbsTunableGrp, nbsTunableChannelFreqOper=nbsTunableChannelFreqOper)
+mibBuilder.exportSymbols("NBS-TUNABLE-MIB", nbsTunableChannelTableSize=nbsTunableChannelTableSize, nbsTunableChannelEntry=nbsTunableChannelEntry, PYSNMP_MODULE_ID=nbsTunableMib, nbsTunableChannelFreqStart=nbsTunableChannelFreqStart, nbsTunableMib=nbsTunableMib, nbsTunableChannelFreqOper=nbsTunableChannelFreqOper, nbsTunableChannelFreqAdmin=nbsTunableChannelFreqAdmin, nbsTunableChannelFreqDefault=nbsTunableChannelFreqDefault, nbsTunableChannelFreqEnd=nbsTunableChannelFreqEnd, nbsTunableChannelTable=nbsTunableChannelTable, nbsTunableChannelFreqStep=nbsTunableChannelFreqStep, nbsTunableChannelIfIndex=nbsTunableChannelIfIndex, nbsTunableGrp=nbsTunableGrp, nbsTunableChannelFreqExponent=nbsTunableChannelFreqExponent)

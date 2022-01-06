@@ -1,0 +1,6497 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IF-EXTENSION-MIB": [
+      "cieIfOperStatusCause"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcPortModuleTypes",
+      "FcIfServiceStateType",
+      "FcNameId",
+      "FcAddressId",
+      "FcPortTypes",
+      "FcPortTxTypes",
+      "FcClassOfServices",
+      "FcIfSpeed"
+    ],
+    "CISCO-TC": [
+      "MicroSeconds"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "CISCO-ZS-MIB": [
+      "FcList"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFcFeMIB": {
+    "name": "ciscoFcFeMIB",
+    "oid": "1.3.6.1.4.1.9.9.289",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-06 00:00",
+        "description": "-Added the following objects to FcIfEntry: fcIfAdminFECState, fcIfOperFECState -Added the following objects to FcIfErrorEntry: fcIfFECCorrectedBlks, fcIfFECUncorrectedBlks -Added the following new groups: fcIfGroupRev4 fcIfErrorGroupRev3 -Deprecated cffFcFeMIBComplianceRev13 compliance statement. -Added cffFcFeMIBComplianceRev14 compliance statement."
+      },
+      {
+        "revision": "2013-04-09 00:00",
+        "description": "-Added the following objects to FcIfErrorEntry: fcIfBBCreditTransistionToZero, fcHCIfBBCreditTransistionFromZero, fcHCIfBBCreditTransistionToZero."
+      },
+      {
+        "revision": "2012-11-19 00:00",
+        "description": "-Added the following enums for FcIfOperStatusReason: ficonNoPortSwapLogicalPort, ficonInvalidPortNum, remotePortInL2vpnDown, suspendedDueToNoLacpPdus, fcotValidationFailedAtDriver, unsupportedTransceiverMd5DigestNotSame, unsupportedTransceiver, adminStateConfigChange, vlanAllowedList, vlanAllowedListOverride, vlanAllowedListAdd, vlanAllowedRemove, vlanCfgStateChange, vlanCfgDelete, pppPeerNotResponding, pppAuthFailed, xcvrAuthFailed, badFramesRcvdFromLink. Also changed the description for fcIfTxWtAvgBBCreditTransitionToZero and fcIfBBCreditTransistionFromZero."
+      },
+      {
+        "revision": "2011-06-15 00:00",
+        "description": "-Added the following enums for FcIfOperStatusReason: xcvrInitializing, xcvrAbsent, xcvrInvalid, vfcBindingInvalid, vlanNotFcoeEnabled, pvlanNativeVlanErr, ethL2VlanDown, ethIntfInvalidBinding, pmonFailure, l3NotReady, speedMismatch, flowControlMismatch, vdcMode, suspendedDueToMinLinks, enmPinFailLinkDown, inactiveM1PortFpathActiveVlan, parentPortDown, moduleRemoved, corePortMct, nonCorePortMct, ficonInorderNotActive, invalidEncapsulation, modemLineDeasserted, ipSecHndshkInProgress, sfpEthCompliantErr, cellularModemUnattached, outOfGlblRxBuffers, sfpFcCompliantErr, ethIntfNotLicensed, domainIdsInvalid, fabricNameInvalid"
+      },
+      {
+        "revision": "2010-08-18 09:00",
+        "description": "-Added the following objects to FcIfErrorEntry: fcIfTimeOutDiscards, fcIfOutDiscards, fcIfCreditLoss, fcIfTxWtAvgBBCreditTransitionToZero. -Added the following object to FcIfGigEEntry: fcIfGigConnectorType. -Added the following new groups: fcIfGigEinfoExtGroupRev1 fcIfErrorGroupRev2 -Deprecated cffFcFeMIBComplianceRev11 compliance statement. -Added cffFcFeMIBComplianceRev12 compliance statement."
+      },
+      {
+        "revision": "2010-03-04 09:00",
+        "description": "-Added the following enums for FcIfOperStatusReason: ipQosMgrPolicyAppFailure, pauseRateLimitErrDisabled, lstGrpUplinkDown, stickyDnLinkFailure, routerMacFailure, dcxMultipleMsapIds, dcxHundredPdusRcvdNoAck, enmSatIncompatibleUplink, enmLoopDetected, nonStickyExternallyDisabled, subGroupIdNotAssigned, vemUnlicensed, profileNotFound, nonExistentVlan, vlanInvalidType, vlanDown, vpcPeerUpgrade, ipQosDcbxpCompatFailure, nonCiscoHbaVfTag, domainIdConfigMismatch and sfpSpeedMismatch."
+      },
+      {
+        "revision": "2009-05-13 09:00",
+        "description": "-Added the following enums for FcIfOperStatusReason: portDisabled, tunnelModeNotConfigured, tunnelSrcNotConfigured, tunnelDstNotConfigured, tunnelUnableToResolveSrcIP tunnelUnableToResolveDstIP, tunnelVrfDown, sifAdminDown, phyIntfDown, ifSifLimitExceeded, sifHoldDown, noFcoe, dcxCompatMismatch, isolateBundleLimitExceeded, sifNotBound, errDisabledLacpMiscfg, satFabricIfDown, invalidSatFabricIf, noRemoteChassis, vicEnableNotReceived, vicDisableReceived, vlanVsanMappingNotEnabled, stpNotFwdingInFcoeMappedVlan, moduleOffline, udldAggModeLinkFailure, stpInconsVpcPeerDisabled, setPortStateFailed, suspendedByVpc, vpcCfgInProgress, vpcPeerLinkDown, vpcNoRspFromPeer, protoPortSuspend, tunnelSrcDown, cdpInfoUnavailable, fexSfpInvalid, errDisabledIpConflict, fcotClkRateMismatch, portGuardTrustSecViolation, sdpTimeout, satIncompatTopo, waitForFlogi, satNotConfigured, npivNotEnabledInUpstream, vsanMismatchWithUpstreamSwPort, portGuardBitErrRate, portGuardSigLoss, portGuardSyncLoss, portGuardLinkReset and portGuardCreditLoss. -Added the following new enums to fcIfFlapCtrlConfigReason: bitErrorRate, signalLoss, syncLoss, linkReset and creditLoss."
+      },
+      {
+        "revision": "2009-02-05 09:00",
+        "description": "-Added new object fcIfModuleXcvrFrequencyConfig to fcIfModuleTable. -Deprecated fcIfToggleCtrlConfigTable -Added fcIfFlapCtrlConfigTable -Deprecated fcIfModuleGroup -Added the following new groups: fcIfFlapCtrlConfigGroup fcIfModuleGroupRev1 -Deprecated cffFcFeMIBComplianceRev10 compliance statement. -Added cffFcFeMIBComplianceRev11 compliance statement."
+      },
+      {
+        "revision": "2008-12-03 09:00",
+        "description": "-Added the following enums for FcIfOperStatusReason: sfpReadError, stickyDownOnLinkFailure, tooManyLinkFlapsErr, unidirectionalUDLD, txRxLoopUDLD, neighborMismatchUDLD, authzPending, hotStdbyInBundle, incompleteConfig, incompleteTunnelCfg, hwProgrammingFailed, tunnelDstUnreachable, suspendByMtu, sfpInvalid, sfpAbsent, portCapabilitiesUnknown, channelErrDisabled, vrfMismatch, vrfForwardReferencing, dupTunnelConfigDetected, primaryVLANDown, vrfUnusable, errDisableHandShkFailure, errDisabledBPDUGuard, dot1xSecViolationErrDisabled, emptyEchoUDLD and vfTaggingCapErr. -Added fcIfToggleCtrlConfigTable. Deprecated cffFcFeMIBComplianceRev8 compliance statement. Deprecated cffFcFeMIBComplianceRev9 compliance statement. Added cffFcFeMIBComplianceRev10 compliance statement."
+      },
+      {
+        "revision": "2007-08-02 00:00",
+        "description": "-Added the following enums for FcIfOperStatusReason: unavailableNPVUpstreamPort unavailableNPVPrefUpstreamPort."
+      },
+      {
+        "revision": "2007-01-18 00:00",
+        "description": "-Added new object fcIfModuleBandwidthFairnessOper to fcIfModuleTable."
+      },
+      {
+        "revision": "2007-01-09 00:00",
+        "description": "-Added new object fcIfModuleBandwidthFairnessConfig to fcIfModuleTable. -Added the following enums for FcIfOperStatusReason: fcidAllocationFailed, externallyDisabled."
+      },
+      {
+        "revision": "2006-11-26 00:00",
+        "description": "-Added fcIfModuleTable. -Added following objects to fcIfCapTable: fcIfIsServiceStateCapable fcIfIsPortRateModeCapable fcIfIsAdminRxBbCreditExtendedCapable -Added following objects to fcIfTable: fcIfPortType -Added the following enums for FcIfOperStatusReason: fcRedirectIsolation, portActLicenseNotAvailable, sdmIsolation. -Added the following OBJECT-GROUPS: fcIfCapableGroup fcIfInfoPortGroup fcIfModuleGroup -Added cffFcFeMIBComplianceRev9 MODULE-COMPLIANCE."
+      },
+      {
+        "revision": "2006-05-10 00:00",
+        "description": "Added new object fcIfAdminBbScnMode to fcIfTable. fcIfBbScnGroup OBJECT-GROUP added. cffFcFeMIBComplianceRev8 MODULE-COMPLIANCE added."
+      },
+      {
+        "revision": "2006-04-13 00:00",
+        "description": "Added the following enums to FcIfOperStatusReason: localRcf, twoSwitchesWithSameWWN, invalidOtherSidePrincEFPReqRecd, domainOther."
+      },
+      {
+        "revision": "2006-02-20 00:00",
+        "description": "- Added the following objects to fcIfTable: fcIfServiceState, fcIfFcTunnelIfIndex and fcIfAdminRxBbCreditExtended. - Updated the description of the following objects: fcIfAdminRxBbCreditModeISL, fcIfAdminRxBbCreditModeFx and fcIfOperRxBbCredit. - Changed the enums for object fcIfPortRateMode from 'frm' to 'dedicated' and 'osm' to 'shared'. - Added the following objects to FcIfGigEEntry: fcIfGigEAutoNegotiate, fcIfGigEBeaconMode. - Added the following enums to FcIfOperStatusReason: portBringupIsolation, domainNotAllowedIsolated, virtualIvrDomainOverlapIsolation, outOfService, portAuthFailed, bundleStandby, portConnectorTypeErr, errorDisabledReInitLimitReached, ficonDupPortNum."
+      },
+      {
+        "revision": "2005-02-15 00:00",
+        "description": "In FcIfOperStatusReason, corrected typo. isolatedBundel changed to isolatedBundle."
+      },
+      {
+        "revision": "2004-10-19 00:00",
+        "description": "Added new table 'fcIfGigETable' to provide the port channel information for the Gigabit Ethernet (GigE) interfaces in the fibre channel switch. Added two new notifications 'fcotInserted' and 'fcotRemoved'. Added new enums to FcIfOperStatusReason."
+      },
+      {
+        "revision": "2004-03-30 00:00",
+        "description": "Added new object fcIfPortInitStatus to fcIfTable. Added new enums to FcIfOperStatusReason. Added fcIfRNIDInfoTable."
+      },
+      {
+        "revision": "2003-11-14 00:00",
+        "description": "Added new enums to FcIfOperStatusReason."
+      },
+      {
+        "revision": "2003-11-06 00:00",
+        "description": "Added Compliance statement for fcIfAdminRxBbCreditModeISL and fcIfAdminRxBbCreditModeFx."
+      },
+      {
+        "revision": "2003-10-17 00:00",
+        "description": "Updated Compliance statement."
+      },
+      {
+        "revision": "2003-09-22 00:00",
+        "description": "Added the following objects for Loop Initialization Primitive Sequence (LIP) counters to 'fcIfErrorTable': fcIfLipF8In, fcIfLipF8Out, fcIfNonLipF8In and fcIfNonLipF8Out. Added new enums to FcIfOperStatusReason. Modified conformance information."
+      },
+      {
+        "revision": "2003-08-18 00:00",
+        "description": "Added fcIfStatTable. Modified conformance information."
+      },
+      {
+        "revision": "2003-06-12 00:00",
+        "description": "Added FcPerfBuffer TC. Added the following to fcIfTable: fcIfPortRateMode,fcIfAdminRxPerfBuffer, fcIfOperRxPerfBuffer,fcIfBbScn. Added the following to fcIfCapTable: fcIfCapBbScnCapable,fcIfCapBbScnMax, fcIfCapOsmFrmCapable. Added fcIfCapOsmTable,fcIfCapFrmTable. Added more reason codes in FcIfOperStatusReason. Replaced AUGMENTS clause with INDEX clause for the following tables: fcIfCapTable,fcIfErrorTable. Modified conformance information. Deprecated following objects in fcIfCapTable: fcIfCapRxBbCreditMax, fcIfCapRxBbCreditMin, fcIfCapISLRxBbCreditMax,fcIfCapISLRxBbCreditMin, fcIfCapRxBbCreditWriteable,fcIfCapRxBbCreditDefault, fcIfCapISLRxBbCreditDefault."
+      },
+      {
+        "revision": "2003-05-14 00:00",
+        "description": "Modified description of fcIfAllowedVsanList2k, fcIfAllowedVsanList4k, fcIfAdminSpeed, fcIfAdminRxBbCredit."
+      },
+      {
+        "revision": "2003-04-18 00:00",
+        "description": "updated the textual convention, FcIfOperStatusReason. Added enumerations: firstPortUpAsEport,firstPortNotUp, peerFCIPPortClosedConnection,peerFCIPPortResetConnection, fcipPortMaxReTx,fcipPortKeepAliveTimerExpire, fcipPortPersistTimerExpire,fcipPortSrcLinkDown, fcipPortSrcAdminDown,fcipPortAdminCfgChange, fcipSrcPortRemoved,fcipSrcModuleNotOnline,invalidConfig, portBindFailure,portFabricBindFailure, noCommonVsanIsolation."
+      },
+      {
+        "revision": "2003-03-25 00:00",
+        "description": "Added: fcIfActiveVsanUpList2k, fcIfActiveVsanUpList4k. Modified conformance information."
+      },
+      {
+        "revision": "2002-11-11 00:00",
+        "description": "Modified fcTrunkIfUpNotify description."
+      },
+      {
+        "revision": "2002-11-01 00:00",
+        "description": "Modifed fcIfTable, fcIfCapTable."
+      },
+      {
+        "revision": "2002-10-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFcFeObjects": {
+    "name": "ciscoFcFeObjects",
+    "oid": "1.3.6.1.4.1.9.9.289.1",
+    "class": "objectidentity"
+  },
+  "cffFcFeMIBConformance": {
+    "name": "cffFcFeMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.289.2",
+    "class": "objectidentity"
+  },
+  "cffFcFeConfig": {
+    "name": "cffFcFeConfig",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1",
+    "class": "objectidentity"
+  },
+  "cffFcFeStatistics": {
+    "name": "cffFcFeStatistics",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2",
+    "class": "objectidentity"
+  },
+  "cffFcFeNotification": {
+    "name": "cffFcFeNotification",
+    "oid": "1.3.6.1.4.1.9.9.289.1.3",
+    "class": "objectidentity"
+  },
+  "cffFcFeNotifications": {
+    "name": "cffFcFeNotifications",
+    "oid": "1.3.6.1.4.1.9.9.289.1.3.0",
+    "class": "objectidentity"
+  },
+  "FcphVersion": {
+    "name": "FcphVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcBbCredit": {
+    "name": "FcBbCredit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcRxDataFieldSize": {
+    "name": "FcRxDataFieldSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 2112
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcBbCreditModel": {
+    "name": "FcBbCreditModel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regular": 1,
+          "alternate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcIfOperStatusReason": {
+    "name": "FcIfOperStatusReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "hwFailure": 3,
+          "loopbackDiagFailure": 4,
+          "errorDisabled": 5,
+          "swFailure": 6,
+          "linkFailure": 7,
+          "offline": 8,
+          "nonParticipating": 9,
+          "initializing": 10,
+          "vsanInactive": 11,
+          "adminDown": 12,
+          "channelAdminDown": 13,
+          "channelOperSuspended": 14,
+          "channelConfigurationInProgress": 15,
+          "rcfInProgress": 16,
+          "elpFailureIsolation": 17,
+          "escFailureIsolation": 18,
+          "domainOverlapIsolation": 19,
+          "domainAddrAssignFailureIsolation": 20,
+          "domainOtherSideEportIsolation": 21,
+          "domainInvalidRCFReceived": 22,
+          "domainManagerDisabled": 23,
+          "zoneMergeFailureIsolation": 24,
+          "vsanMismatchIsolation": 25,
+          "parentDown": 26,
+          "srcPortNotBound": 27,
+          "interfaceRemoved": 28,
+          "fcotNotPresent": 29,
+          "fcotVendorNotSupported": 30,
+          "incompatibleAdminMode": 31,
+          "incompatibleAdminSpeed": 32,
+          "suspendedByMode": 33,
+          "suspendedBySpeed": 34,
+          "suspendedByWWN": 35,
+          "domainMaxReTxFailure": 36,
+          "eppFailure": 37,
+          "portVsanMismatchIsolation": 38,
+          "loopbackIsolation": 39,
+          "upgradeInProgress": 40,
+          "incompatibleAdminRxBBCredit": 41,
+          "incompatibleAdminRxBufferSize": 42,
+          "portChannelMembersDown": 43,
+          "zoneRemoteNoRespIsolation": 44,
+          "firstPortUpAsEport": 45,
+          "firstPortNotUp": 46,
+          "peerFCIPPortClosedConnection": 47,
+          "peerFCIPPortResetConnection": 48,
+          "fcipPortMaxReTx": 49,
+          "fcipPortKeepAliveTimerExpire": 50,
+          "fcipPortPersistTimerExpire": 51,
+          "fcipPortSrcLinkDown": 52,
+          "fcipPortSrcAdminDown": 53,
+          "fcipPortAdminCfgChange": 54,
+          "fcipSrcPortRemoved": 55,
+          "fcipSrcModuleNotOnline": 56,
+          "invalidConfig": 57,
+          "portBindFailure": 58,
+          "portFabricBindFailure": 59,
+          "noCommonVsanIsolation": 60,
+          "ficonVsanDown": 61,
+          "invalidAttachment": 62,
+          "portBlocked": 63,
+          "incomAdminRxBBCreditPerBuf": 64,
+          "tooManyInvalidFLOGIs": 65,
+          "deniedDueToPortBinding": 66,
+          "elpFailureRevMismatch": 67,
+          "elpFailureClassFParamErr": 68,
+          "elpFailureClassNParamErr": 69,
+          "elpFailureUnknownFlowCTLCode": 70,
+          "elpFailureInvalidFlowCTLParam": 71,
+          "elpFailureInvalidPortName": 72,
+          "elpFailureInvalidSwitchName": 73,
+          "elpFailureRatovEdtovMismatch": 74,
+          "elpFailureLoopbackDetected": 75,
+          "elpFailureInvalidTxBBCredit": 76,
+          "elpFailureInvalidPayloadSize": 77,
+          "bundleMisCfg": 78,
+          "bitErrRTThresExceeded": 79,
+          "linkFailLinkReset": 80,
+          "linkFailPortInitFail": 81,
+          "linkFailPortUnusable": 82,
+          "linkFailLossOfSignal": 83,
+          "linkFailLossOfSync": 84,
+          "linkFailNOSRcvd": 85,
+          "linkFailOLSRcvd": 86,
+          "linkFailDebounceTimeout": 87,
+          "linkFailLRRcvdB2B": 88,
+          "linkFailCreditLoss": 89,
+          "linkFailRxQOverFlow": 90,
+          "linkFailTooManyINTR": 91,
+          "linkFailLIPRcvdB2B": 92,
+          "linkFailCreditLossB2B": 93,
+          "linkFailOPNYTMOB2B": 94,
+          "linkFailOPNYRETB2B": 95,
+          "linkFailLIPF8Rcvd": 96,
+          "linkFailLineCardPortShutdown": 97,
+          "fcspAuthenfailure": 98,
+          "fcotChksumErr": 99,
+          "ohmsExtLBTest": 100,
+          "invalidFabricBindExh": 101,
+          "tovMismatch": 102,
+          "ficonNotEnabled": 103,
+          "ficonNoPortnumber": 104,
+          "ficonBeingEnabled": 105,
+          "ePortProhibited": 106,
+          "portGracefulShutdown": 107,
+          "trunkNotFullyActive": 108,
+          "fabricBindingSWWNNotFound": 109,
+          "fabricBindingDomainInvalid": 110,
+          "fabricBindingDBMismatch": 111,
+          "fabricBindingNoRspFromPeer": 112,
+          "vsanSuspended": 113,
+          "vsanNotFound": 114,
+          "trackedPortDown": 115,
+          "ecSuspendedLoop": 116,
+          "isolatedBundle": 117,
+          "peerNotSupportBundle": 118,
+          "portBringupIsolation": 119,
+          "domainNotAllowedIsolated": 120,
+          "virtualIvrDomainOverlapIsolation": 121,
+          "outOfService": 122,
+          "portAuthFailed": 123,
+          "bundleStandby": 124,
+          "portConnectorTypeErr": 125,
+          "errorDisabledReInitLimitReached": 126,
+          "ficonDupPortNum": 127,
+          "localRcf": 128,
+          "twoSwitchesWithSameWWN": 129,
+          "invalidOtherSidePrincEFPReqRecd": 130,
+          "domainOther": 131,
+          "elpFailureAllZeroPeerWWNRcvd": 132,
+          "preferredPathIsolation": 133,
+          "fcRedirectIsolation": 134,
+          "portActLicenseNotAvailable": 135,
+          "sdmIsolation": 136,
+          "fcidAllocationFailed": 137,
+          "externallyDisabled": 138,
+          "unavailableNPVUpstreamPort": 139,
+          "unavailableNPVPrefUpstreamPort": 140,
+          "sfpReadError": 141,
+          "stickyDownOnLinkFailure": 142,
+          "tooManyLinkFlapsErr": 143,
+          "unidirectionalUDLD": 144,
+          "txRxLoopUDLD": 145,
+          "neighborMismatchUDLD": 146,
+          "authzPending": 147,
+          "hotStdbyInBundle": 148,
+          "incompleteConfig": 149,
+          "incompleteTunnelCfg": 150,
+          "hwProgrammingFailed": 151,
+          "tunnelDstUnreachable": 152,
+          "suspendByMtu": 153,
+          "sfpInvalid": 154,
+          "sfpAbsent": 155,
+          "portCapabilitiesUnknown": 156,
+          "channelErrDisabled": 157,
+          "vrfMismatch": 158,
+          "vrfForwardReferencing": 159,
+          "dupTunnelConfigDetected": 160,
+          "primaryVLANDown": 161,
+          "vrfUnusable": 162,
+          "errDisableHandShkFailure": 163,
+          "errDisabledBPDUGuard": 164,
+          "dot1xSecViolationErrDisabled": 165,
+          "emptyEchoUDLD": 166,
+          "vfTaggingCapErr": 167,
+          "portDisabled": 168,
+          "tunnelModeNotConfigured": 169,
+          "tunnelSrcNotConfigured": 170,
+          "tunnelDstNotConfigured": 171,
+          "tunnelUnableToResolveSrcIP": 172,
+          "tunnelUnableToResolveDstIP": 173,
+          "tunnelVrfDown": 174,
+          "sifAdminDown": 175,
+          "phyIntfDown": 176,
+          "ifSifLimitExceeded": 177,
+          "sifHoldDown": 178,
+          "noFcoe": 179,
+          "dcxCompatMismatch": 180,
+          "isolateBundleLimitExceeded": 181,
+          "sifNotBound": 182,
+          "errDisabledLacpMiscfg": 183,
+          "satFabricIfDown": 184,
+          "invalidSatFabricIf": 185,
+          "noRemoteChassis": 186,
+          "vicEnableNotReceived": 187,
+          "vicDisableReceived": 188,
+          "vlanVsanMappingNotEnabled": 189,
+          "stpNotFwdingInFcoeMappedVlan": 190,
+          "moduleOffline": 191,
+          "udldAggModeLinkFailure": 192,
+          "stpInconsVpcPeerDisabled": 193,
+          "setPortStateFailed": 194,
+          "suspendedByVpc": 195,
+          "vpcCfgInProgress": 196,
+          "vpcPeerLinkDown": 197,
+          "vpcNoRspFromPeer": 198,
+          "protoPortSuspend": 199,
+          "tunnelSrcDown": 200,
+          "cdpInfoUnavailable": 201,
+          "fexSfpInvalid": 202,
+          "errDisabledIpConflict": 203,
+          "fcotClkRateMismatch": 204,
+          "portGuardTrustSecViolation": 205,
+          "sdpTimeout": 206,
+          "satIncompatTopo": 207,
+          "waitForFlogi": 208,
+          "satNotConfigured": 209,
+          "npivNotEnabledInUpstream": 210,
+          "vsanMismatchWithUpstreamSwPort": 211,
+          "portGuardBitErrRate": 212,
+          "portGuardSigLoss": 213,
+          "portGuardSyncLoss": 214,
+          "portGuardLinkReset": 215,
+          "portGuardCreditLoss": 216,
+          "ipQosMgrPolicyAppFailure": 217,
+          "pauseRateLimitErrDisabled": 218,
+          "lstGrpUplinkDown": 219,
+          "stickyDnLinkFailure": 220,
+          "routerMacFailure": 221,
+          "dcxMultipleMsapIds": 222,
+          "dcxHundredPdusRcvdNoAck": 223,
+          "enmSatIncompatibleUplink": 224,
+          "enmLoopDetected": 225,
+          "nonStickyExternallyDisabled": 226,
+          "subGroupIdNotAssigned": 227,
+          "vemUnlicensed": 228,
+          "profileNotFound": 229,
+          "nonExistentVlan": 230,
+          "vlanInvalidType": 231,
+          "vlanDown": 232,
+          "vpcPeerUpgrade": 233,
+          "ipQosDcbxpCompatFailure": 234,
+          "nonCiscoHbaVfTag": 235,
+          "domainIdConfigMismatch": 236,
+          "sfpSpeedMismatch": 237,
+          "xcvrInitializing": 238,
+          "xcvrAbsent": 239,
+          "xcvrInvalid": 240,
+          "vfcBindingInvalid": 241,
+          "vlanNotFcoeEnabled": 242,
+          "pvlanNativeVlanErr": 243,
+          "ethL2VlanDown": 244,
+          "ethIntfInvalidBinding": 245,
+          "pmonFailure": 246,
+          "l3NotReady": 247,
+          "speedMismatch": 248,
+          "flowControlMismatch": 249,
+          "vdcMode": 250,
+          "suspendedDueToMinLinks": 251,
+          "enmPinFailLinkDown": 252,
+          "inactiveM1PortFpathActiveVlan": 253,
+          "parentPortDown": 254,
+          "moduleRemoved": 255,
+          "corePortMct": 256,
+          "nonCorePortMct": 257,
+          "ficonInorderNotActive": 258,
+          "invalidEncapsulation": 259,
+          "modemLineDeasserted": 260,
+          "ipSecHndshkInProgress": 261,
+          "sfpEthCompliantErr": 262,
+          "cellularModemUnattached": 263,
+          "outOfGlblRxBuffers": 264,
+          "sfpFcCompliantErr": 265,
+          "ethIntfNotLicensed": 266,
+          "domainIdsInvalid": 267,
+          "fabricNameInvalid": 268,
+          "ficonNoPortSwapLogicalPort": 269,
+          "ficonInvalidPortNum": 270,
+          "remotePortInL2vpnDown": 271,
+          "suspendedDueToNoLacpPdus": 272,
+          "fcotValidationFailedAtDriver": 273,
+          "unsupportedTransceiverMd5DigestNotSame": 274,
+          "unsupportedTransceiver": 275,
+          "adminStateConfigChange": 276,
+          "vlanAllowedList": 277,
+          "vlanAllowedListOverride": 278,
+          "vlanAllowedListAdd": 279,
+          "vlanAllowedRemove": 280,
+          "vlanCfgStateChange": 281,
+          "vlanCfgDelete": 282,
+          "pppPeerNotResponding": 283,
+          "pppAuthFailed": 284,
+          "xcvrAuthFailed": 285,
+          "badFramesRcvdFromLink": 286
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcPerfBuffer": {
+    "name": "FcPerfBuffer",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 145
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cffFcFeElementName": {
+    "name": "cffFcFeElementName",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfTable": {
+    "name": "fcIfTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfEntry": {
+    "name": "fcIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfWwn": {
+    "name": "fcIfWwn",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAdminMode": {
+    "name": "fcIfAdminMode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortTypes",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfOperMode": {
+    "name": "fcIfOperMode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAdminSpeed": {
+    "name": "fcIfAdminSpeed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcIfSpeed",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfBeaconMode": {
+    "name": "fcIfBeaconMode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfPortChannelIfIndex": {
+    "name": "fcIfPortChannelIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfOperStatusCause": {
+    "name": "fcIfOperStatusCause",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcIfOperStatusReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfOperStatusCauseDescr": {
+    "name": "fcIfOperStatusCauseDescr",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAdminTrunkMode": {
+    "name": "fcIfAdminTrunkMode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonTrunk": 1,
+          "trunk": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nonTrunk",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfOperTrunkMode": {
+    "name": "fcIfOperTrunkMode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonTrunk": 1,
+          "trunk": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAllowedVsanList2k": {
+    "name": "fcIfAllowedVsanList2k",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfAllowedVsanList4k": {
+    "name": "fcIfAllowedVsanList4k",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfActiveVsanList2k": {
+    "name": "fcIfActiveVsanList2k",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfActiveVsanList4k": {
+    "name": "fcIfActiveVsanList4k",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfBbCreditModel": {
+    "name": "fcIfBbCreditModel",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCreditModel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfHoldTime": {
+    "name": "fcIfHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MicroSeconds",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfTransmitterType": {
+    "name": "fcIfTransmitterType",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortTxTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfConnectorType": {
+    "name": "fcIfConnectorType",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortModuleTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfSerialNo": {
+    "name": "fcIfSerialNo",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRevision": {
+    "name": "fcIfRevision",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfVendor": {
+    "name": "fcIfVendor",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfSFPSerialIDData": {
+    "name": "fcIfSFPSerialIDData",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfPartNumber": {
+    "name": "fcIfPartNumber",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAdminRxBbCredit": {
+    "name": "fcIfAdminRxBbCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfAdminRxBbCreditModeISL": {
+    "name": "fcIfAdminRxBbCreditModeISL",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfAdminRxBbCreditModeFx": {
+    "name": "fcIfAdminRxBbCreditModeFx",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfOperRxBbCredit": {
+    "name": "fcIfOperRxBbCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRxDataFieldSize": {
+    "name": "fcIfRxDataFieldSize",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfActiveVsanUpList2k": {
+    "name": "fcIfActiveVsanUpList2k",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfActiveVsanUpList4k": {
+    "name": "fcIfActiveVsanUpList4k",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfPortRateMode": {
+    "name": "fcIfPortRateMode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dedicated": 1,
+          "shared": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfAdminRxPerfBuffer": {
+    "name": "fcIfAdminRxPerfBuffer",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfOperRxPerfBuffer": {
+    "name": "fcIfOperRxPerfBuffer",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfBbScn": {
+    "name": "fcIfBbScn",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfPortInitStatus": {
+    "name": "fcIfPortInitStatus",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAdminRxBbCreditExtended": {
+    "name": "fcIfAdminRxBbCreditExtended",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfFcTunnelIfIndex": {
+    "name": "fcIfFcTunnelIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfServiceState": {
+    "name": "fcIfServiceState",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcIfServiceStateType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "inService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfAdminBbScnMode": {
+    "name": "fcIfAdminBbScnMode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfPortType": {
+    "name": "fcIfPortType",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAdminFECState": {
+    "name": "fcIfAdminFECState",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfOperFECState": {
+    "name": "fcIfOperFECState",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTrunkIfTable": {
+    "name": "fcTrunkIfTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcTrunkIfEntry": {
+    "name": "fcTrunkIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcTrunkIfOperStatus": {
+    "name": "fcTrunkIfOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTrunkIfOperStatusCause": {
+    "name": "fcTrunkIfOperStatusCause",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcIfOperStatusReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTrunkIfOperStatusCauseDescr": {
+    "name": "fcTrunkIfOperStatusCauseDescr",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfLoginEntryCount": {
+    "name": "fcIfLoginEntryCount",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfFLoginTable": {
+    "name": "fcIfFLoginTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfFLoginEntry": {
+    "name": "fcIfFLoginEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxLoginIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfNxLoginIndex": {
+    "name": "fcIfNxLoginIndex",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfNxPortNodeName": {
+    "name": "fcIfNxPortNodeName",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxPortName": {
+    "name": "fcIfNxPortName",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxPortAddress": {
+    "name": "fcIfNxPortAddress",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxFcphVersionAgreed": {
+    "name": "fcIfNxFcphVersionAgreed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcphVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxRxBbCredit": {
+    "name": "fcIfNxRxBbCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxTxBbCredit": {
+    "name": "fcIfNxTxBbCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxClass2RxDataFieldSize": {
+    "name": "fcIfNxClass2RxDataFieldSize",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxClass3RxDataFieldSize": {
+    "name": "fcIfNxClass3RxDataFieldSize",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxCosSuppAgreed": {
+    "name": "fcIfNxCosSuppAgreed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcClassOfServices",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxClass2SeqDelivAgreed": {
+    "name": "fcIfNxClass2SeqDelivAgreed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNxClass3SeqDelivAgreed": {
+    "name": "fcIfNxClass3SeqDelivAgreed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpTable": {
+    "name": "fcIfElpTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfElpEntry": {
+    "name": "fcIfElpEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfElpNbrNodeName": {
+    "name": "fcIfElpNbrNodeName",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpNbrPortName": {
+    "name": "fcIfElpNbrPortName",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpRxBbCredit": {
+    "name": "fcIfElpRxBbCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpTxBbCredit": {
+    "name": "fcIfElpTxBbCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpCosSuppAgreed": {
+    "name": "fcIfElpCosSuppAgreed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcClassOfServices",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClass2SeqDelivAgreed": {
+    "name": "fcIfElpClass2SeqDelivAgreed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClass2RxDataFieldSize": {
+    "name": "fcIfElpClass2RxDataFieldSize",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClass3SeqDelivAgreed": {
+    "name": "fcIfElpClass3SeqDelivAgreed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClass3RxDataFieldSize": {
+    "name": "fcIfElpClass3RxDataFieldSize",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClassFXII": {
+    "name": "fcIfElpClassFXII",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClassFRxDataFieldSize": {
+    "name": "fcIfElpClassFRxDataFieldSize",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClassFConcurrentSeq": {
+    "name": "fcIfElpClassFConcurrentSeq",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClassFEndToEndCredit": {
+    "name": "fcIfElpClassFEndToEndCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfElpClassFOpenSeq": {
+    "name": "fcIfElpClassFOpenSeq",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapTable": {
+    "name": "fcIfCapTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfCapEntry": {
+    "name": "fcIfCapEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCapFcphVersionHigh": {
+    "name": "fcIfCapFcphVersionHigh",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcphVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFcphVersionLow": {
+    "name": "fcIfCapFcphVersionLow",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcphVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapRxBbCreditMax": {
+    "name": "fcIfCapRxBbCreditMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "fcIfCapRxBbCreditMin": {
+    "name": "fcIfCapRxBbCreditMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "fcIfCapRxDataFieldSizeMax": {
+    "name": "fcIfCapRxDataFieldSizeMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapRxDataFieldSizeMin": {
+    "name": "fcIfCapRxDataFieldSizeMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcRxDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapCos": {
+    "name": "fcIfCapCos",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcClassOfServices",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapClass2SeqDeliv": {
+    "name": "fcIfCapClass2SeqDeliv",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapClass3SeqDeliv": {
+    "name": "fcIfCapClass3SeqDeliv",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapHoldTimeMax": {
+    "name": "fcIfCapHoldTimeMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MicroSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapHoldTimeMin": {
+    "name": "fcIfCapHoldTimeMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MicroSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapISLRxBbCreditMax": {
+    "name": "fcIfCapISLRxBbCreditMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "fcIfCapISLRxBbCreditMin": {
+    "name": "fcIfCapISLRxBbCreditMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "fcIfCapRxBbCreditWriteable": {
+    "name": "fcIfCapRxBbCreditWriteable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "fcIfCapRxBbCreditDefault": {
+    "name": "fcIfCapRxBbCreditDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "fcIfCapISLRxBbCreditDefault": {
+    "name": "fcIfCapISLRxBbCreditDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "fcIfCapBbScnCapable": {
+    "name": "fcIfCapBbScnCapable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapBbScnMax": {
+    "name": "fcIfCapBbScnMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmFrmCapable": {
+    "name": "fcIfCapOsmFrmCapable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfIsServiceStateCapable": {
+    "name": "fcIfIsServiceStateCapable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfIsPortRateModeCapable": {
+    "name": "fcIfIsPortRateModeCapable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfIsAdminRxBbCreditExtendedCapable": {
+    "name": "fcIfIsAdminRxBbCreditExtendedCapable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adminTrunkProtocol": {
+    "name": "adminTrunkProtocol",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfElpRejectReasonCode": {
+    "name": "fcIfElpRejectReasonCode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fcIfElpRejectReasonCodeExpl": {
+    "name": "fcIfElpRejectReasonCodeExpl",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fcIfCapOsmTable": {
+    "name": "fcIfCapOsmTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfCapOsmEntry": {
+    "name": "fcIfCapOsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCapOsmRxBbCreditWriteable": {
+    "name": "fcIfCapOsmRxBbCreditWriteable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmRxBbCreditMax": {
+    "name": "fcIfCapOsmRxBbCreditMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmRxBbCreditMin": {
+    "name": "fcIfCapOsmRxBbCreditMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmRxBbCreditDefault": {
+    "name": "fcIfCapOsmRxBbCreditDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmISLRxBbCreditMax": {
+    "name": "fcIfCapOsmISLRxBbCreditMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmISLRxBbCreditMin": {
+    "name": "fcIfCapOsmISLRxBbCreditMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmISLRxBbCreditDefault": {
+    "name": "fcIfCapOsmISLRxBbCreditDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmRxPerfBufWriteable": {
+    "name": "fcIfCapOsmRxPerfBufWriteable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmRxPerfBufMax": {
+    "name": "fcIfCapOsmRxPerfBufMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmRxPerfBufMin": {
+    "name": "fcIfCapOsmRxPerfBufMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmRxPerfBufDefault": {
+    "name": "fcIfCapOsmRxPerfBufDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmISLRxPerfBufMax": {
+    "name": "fcIfCapOsmISLRxPerfBufMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmISLRxPerfBufMin": {
+    "name": "fcIfCapOsmISLRxPerfBufMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapOsmISLRxPerfBufDefault": {
+    "name": "fcIfCapOsmISLRxPerfBufDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmTable": {
+    "name": "fcIfCapFrmTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfCapFrmEntry": {
+    "name": "fcIfCapFrmEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCapFrmRxBbCreditWriteable": {
+    "name": "fcIfCapFrmRxBbCreditWriteable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmRxBbCreditMax": {
+    "name": "fcIfCapFrmRxBbCreditMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmRxBbCreditMin": {
+    "name": "fcIfCapFrmRxBbCreditMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmRxBbCreditDefault": {
+    "name": "fcIfCapFrmRxBbCreditDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmISLRxBbCreditMax": {
+    "name": "fcIfCapFrmISLRxBbCreditMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmISLRxBbCreditMin": {
+    "name": "fcIfCapFrmISLRxBbCreditMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmISLRxBbCreditDefault": {
+    "name": "fcIfCapFrmISLRxBbCreditDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmRxPerfBufWriteable": {
+    "name": "fcIfCapFrmRxPerfBufWriteable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmRxPerfBufMax": {
+    "name": "fcIfCapFrmRxPerfBufMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmRxPerfBufMin": {
+    "name": "fcIfCapFrmRxPerfBufMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmRxPerfBufDefault": {
+    "name": "fcIfCapFrmRxPerfBufDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmISLRxPerfBufMax": {
+    "name": "fcIfCapFrmISLRxPerfBufMax",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmISLRxPerfBufMin": {
+    "name": "fcIfCapFrmISLRxPerfBufMin",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCapFrmISLRxPerfBufDefault": {
+    "name": "fcIfCapFrmISLRxPerfBufDefault",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPerfBuffer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRNIDInfoTable": {
+    "name": "fcIfRNIDInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfRNIDInfoEntry": {
+    "name": "fcIfRNIDInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfRNIDInfoStatus": {
+    "name": "fcIfRNIDInfoStatus",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2,
+          "old": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfRNIDInfoTypeNumber": {
+    "name": "fcIfRNIDInfoTypeNumber",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRNIDInfoModelNumber": {
+    "name": "fcIfRNIDInfoModelNumber",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRNIDInfoManufacturer": {
+    "name": "fcIfRNIDInfoManufacturer",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRNIDInfoPlantOfMfg": {
+    "name": "fcIfRNIDInfoPlantOfMfg",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRNIDInfoSerialNumber": {
+    "name": "fcIfRNIDInfoSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRNIDInfoUnitType": {
+    "name": "fcIfRNIDInfoUnitType",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channel": 1,
+          "controlUnit": 2,
+          "fabric": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRNIDInfoPortId": {
+    "name": "fcIfRNIDInfoPortId",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfGigETable": {
+    "name": "fcIfGigETable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfGigEEntry": {
+    "name": "fcIfGigEEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGigEPortChannelIfIndex": {
+    "name": "fcIfGigEPortChannelIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfGigEAutoNegotiate": {
+    "name": "fcIfGigEAutoNegotiate",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfGigEBeaconMode": {
+    "name": "fcIfGigEBeaconMode",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfGigConnectorType": {
+    "name": "fcIfGigConnectorType",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortModuleTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfModuleTable": {
+    "name": "fcIfModuleTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfModuleEntry": {
+    "name": "fcIfModuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfModuleOverSubscriptionRatioConfig": {
+    "name": "fcIfModuleOverSubscriptionRatioConfig",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfModuleBandwidthFairnessConfig": {
+    "name": "fcIfModuleBandwidthFairnessConfig",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfModuleBandwidthFairnessOper": {
+    "name": "fcIfModuleBandwidthFairnessOper",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfModuleXcvrFrequencyConfig": {
+    "name": "fcIfModuleXcvrFrequencyConfig",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "xcvrFreqX2FC": 2,
+          "xcvrFreqX2Eth": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfToggleCtrlConfigTable": {
+    "name": "fcIfToggleCtrlConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "fcIfToggleCtrlConfigEntry": {
+    "name": "fcIfToggleCtrlConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fcIfToggleCtrlConfigEnable": {
+    "name": "fcIfToggleCtrlConfigEnable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "fcIfToggleCtrlConfigReason": {
+    "name": "fcIfToggleCtrlConfigReason",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "linkFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "fcIfToggleCtrlConfigDuration": {
+    "name": "fcIfToggleCtrlConfigDuration",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "fcIfToggleCtrlConfigNumFlaps": {
+    "name": "fcIfToggleCtrlConfigNumFlaps",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "fcIfFlapCtrlConfigTable": {
+    "name": "fcIfFlapCtrlConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfFlapCtrlConfigEntry": {
+    "name": "fcIfFlapCtrlConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFlapCtrlConfigReason",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfFlapCtrlConfigReason": {
+    "name": "fcIfFlapCtrlConfigReason",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkFailure": 1,
+          "trustSecViolation": 2,
+          "bitErrorRate": 3,
+          "signalLoss": 4,
+          "syncLoss": 5,
+          "linkReset": 6,
+          "creditLoss": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfFlapCtrlConfigEnable": {
+    "name": "fcIfFlapCtrlConfigEnable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfFlapCtrlConfigDuration": {
+    "name": "fcIfFlapCtrlConfigDuration",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfFlapCtrlConfigNumFlaps": {
+    "name": "fcIfFlapCtrlConfigNumFlaps",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfErrorTable": {
+    "name": "fcIfErrorTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfErrorEntry": {
+    "name": "fcIfErrorEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfLinkFailures": {
+    "name": "fcIfLinkFailures",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfSyncLosses": {
+    "name": "fcIfSyncLosses",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfSigLosses": {
+    "name": "fcIfSigLosses",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfPrimSeqProtoErrors": {
+    "name": "fcIfPrimSeqProtoErrors",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfInvalidTxWords": {
+    "name": "fcIfInvalidTxWords",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfInvalidCrcs": {
+    "name": "fcIfInvalidCrcs",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfDelimiterErrors": {
+    "name": "fcIfDelimiterErrors",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAddressIdErrors": {
+    "name": "fcIfAddressIdErrors",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfLinkResetIns": {
+    "name": "fcIfLinkResetIns",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfLinkResetOuts": {
+    "name": "fcIfLinkResetOuts",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfOlsIns": {
+    "name": "fcIfOlsIns",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfOlsOuts": {
+    "name": "fcIfOlsOuts",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfRuntFramesIn": {
+    "name": "fcIfRuntFramesIn",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfJabberFramesIn": {
+    "name": "fcIfJabberFramesIn",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfTxWaitCount": {
+    "name": "fcIfTxWaitCount",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfFramesTooLong": {
+    "name": "fcIfFramesTooLong",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfFramesTooShort": {
+    "name": "fcIfFramesTooShort",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfLRRIn": {
+    "name": "fcIfLRRIn",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfLRROut": {
+    "name": "fcIfLRROut",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNOSIn": {
+    "name": "fcIfNOSIn",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNOSOut": {
+    "name": "fcIfNOSOut",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfFragFrames": {
+    "name": "fcIfFragFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfEOFaFrames": {
+    "name": "fcIfEOFaFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfUnknownClassFrames": {
+    "name": "fcIfUnknownClassFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIf8b10bDisparityErrors": {
+    "name": "fcIf8b10bDisparityErrors",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfFramesDiscard": {
+    "name": "fcIfFramesDiscard",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfELPFailures": {
+    "name": "fcIfELPFailures",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfBBCreditTransistionFromZero": {
+    "name": "fcIfBBCreditTransistionFromZero",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfEISLFramesDiscard": {
+    "name": "fcIfEISLFramesDiscard",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfFramingErrorFrames": {
+    "name": "fcIfFramingErrorFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfLipF8In": {
+    "name": "fcIfLipF8In",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfLipF8Out": {
+    "name": "fcIfLipF8Out",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNonLipF8In": {
+    "name": "fcIfNonLipF8In",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfNonLipF8Out": {
+    "name": "fcIfNonLipF8Out",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfTimeOutDiscards": {
+    "name": "fcIfTimeOutDiscards",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfOutDiscards": {
+    "name": "fcIfOutDiscards",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCreditLoss": {
+    "name": "fcIfCreditLoss",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfTxWtAvgBBCreditTransitionToZero": {
+    "name": "fcIfTxWtAvgBBCreditTransitionToZero",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfBBCreditTransistionToZero": {
+    "name": "fcIfBBCreditTransistionToZero",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcHCIfBBCreditTransistionFromZero": {
+    "name": "fcHCIfBBCreditTransistionFromZero",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcHCIfBBCreditTransistionToZero": {
+    "name": "fcHCIfBBCreditTransistionToZero",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfFECCorrectedBlks": {
+    "name": "fcIfFECCorrectedBlks",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfFECUncorrectedBlks": {
+    "name": "fcIfFECUncorrectedBlks",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2AccountingTable": {
+    "name": "fcIfC2AccountingTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfC2AccountingEntry": {
+    "name": "fcIfC2AccountingEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfC2InFrames": {
+    "name": "fcIfC2InFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2OutFrames": {
+    "name": "fcIfC2OutFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2InOctets": {
+    "name": "fcIfC2InOctets",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2OutOctets": {
+    "name": "fcIfC2OutOctets",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2Discards": {
+    "name": "fcIfC2Discards",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2FbsyFrames": {
+    "name": "fcIfC2FbsyFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2FrjtFrames": {
+    "name": "fcIfC2FrjtFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2PBSYFrames": {
+    "name": "fcIfC2PBSYFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC2PRJTFrames": {
+    "name": "fcIfC2PRJTFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC3AccountingTable": {
+    "name": "fcIfC3AccountingTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfC3AccountingEntry": {
+    "name": "fcIfC3AccountingEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfC3InFrames": {
+    "name": "fcIfC3InFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC3OutFrames": {
+    "name": "fcIfC3OutFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC3InOctets": {
+    "name": "fcIfC3InOctets",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC3OutOctets": {
+    "name": "fcIfC3OutOctets",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfC3Discards": {
+    "name": "fcIfC3Discards",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCfAccountingTable": {
+    "name": "fcIfCfAccountingTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfCfAccountingEntry": {
+    "name": "fcIfCfAccountingEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCfInFrames": {
+    "name": "fcIfCfInFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCfOutFrames": {
+    "name": "fcIfCfOutFrames",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCfInOctets": {
+    "name": "fcIfCfInOctets",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCfOutOctets": {
+    "name": "fcIfCfOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCfDiscards": {
+    "name": "fcIfCfDiscards",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfStatTable": {
+    "name": "fcIfStatTable",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcIfStatEntry": {
+    "name": "fcIfStatEntry",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCurrRxBbCredit": {
+    "name": "fcIfCurrRxBbCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfCurrTxBbCredit": {
+    "name": "fcIfCurrTxBbCredit",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTrunkIfDownNotify": {
+    "name": "fcTrunkIfDownNotify",
+    "oid": "1.3.6.1.4.1.9.9.289.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatus"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatusCause"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatusCauseDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "fcTrunkIfUpNotify": {
+    "name": "fcTrunkIfUpNotify",
+    "oid": "1.3.6.1.4.1.9.9.289.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatus"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatusCause"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatusCauseDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfElpReject": {
+    "name": "fcIfElpReject",
+    "oid": "1.3.6.1.4.1.9.9.289.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpNbrNodeName"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpNbrPortName"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpRejectReasonCode"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpRejectReasonCodeExpl"
+      }
+    ],
+    "status": "current"
+  },
+  "fcotInserted": {
+    "name": "fcotInserted",
+    "oid": "1.3.6.1.4.1.9.9.289.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfOperStatusCause"
+      }
+    ],
+    "status": "current"
+  },
+  "fcotRemoved": {
+    "name": "fcotRemoved",
+    "oid": "1.3.6.1.4.1.9.9.289.1.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfOperStatusCause"
+      }
+    ],
+    "status": "current"
+  },
+  "cffFcFeMIBCompliances": {
+    "name": "cffFcFeMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1",
+    "class": "objectidentity"
+  },
+  "cffFcFeMIBGroups": {
+    "name": "cffFcFeMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2",
+    "class": "objectidentity"
+  },
+  "cffFcFeMIBCompliance": {
+    "name": "cffFcFeMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBCompliance1": {
+    "name": "cffFcFeMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBCompliance2": {
+    "name": "cffFcFeMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBCompliance3": {
+    "name": "cffFcFeMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBCompliance4": {
+    "name": "cffFcFeMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBCompliance5": {
+    "name": "cffFcFeMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev6": {
+    "name": "cffFcFeMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev7": {
+    "name": "cffFcFeMIBComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev8": {
+    "name": "cffFcFeMIBComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev9": {
+    "name": "cffFcFeMIBComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev10": {
+    "name": "cffFcFeMIBComplianceRev10",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfToggleCtrlConfigGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev11": {
+    "name": "cffFcFeMIBComplianceRev11",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfFlapCtrlConfigGroup",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev12": {
+    "name": "cffFcFeMIBComplianceRev12",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfFlapCtrlConfigGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev13": {
+    "name": "cffFcFeMIBComplianceRev13",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.14",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfFlapCtrlConfigGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev14": {
+    "name": "cffFcFeMIBComplianceRev14",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.15",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfFlapCtrlConfigGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fcFeGroup": {
+    "name": "fcFeGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "cffFcFeElementName"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "adminTrunkProtocol"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpRejectReasonCode"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpRejectReasonCodeExpl"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGroup": {
+    "name": "fcIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfWwn"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminMode"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOperMode"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminSpeed"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfBeaconMode"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfPortChannelIfIndex"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOperStatusCause"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOperStatusCauseDescr"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminTrunkMode"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOperTrunkMode"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAllowedVsanList2k"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAllowedVsanList4k"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfActiveVsanList2k"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfActiveVsanList4k"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfBbCreditModel"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfHoldTime"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfTransmitterType"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfConnectorType"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfSerialNo"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRevision"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfVendor"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfSFPSerialIDData"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfPartNumber"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminRxBbCredit"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminRxBbCreditModeISL"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminRxBbCreditModeFx"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOperRxBbCredit"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRxDataFieldSize"
+      }
+    ],
+    "status": "current"
+  },
+  "fcTrunkIfGroup": {
+    "name": "fcTrunkIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatus"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatusCause"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfOperStatusCauseDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfLoginGroup": {
+    "name": "fcIfLoginGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfLoginEntryCount"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxPortNodeName"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxPortName"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxPortAddress"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxFcphVersionAgreed"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxRxBbCredit"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxTxBbCredit"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxClass2RxDataFieldSize"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxClass3RxDataFieldSize"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxCosSuppAgreed"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxClass2SeqDelivAgreed"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNxClass3SeqDelivAgreed"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfElpGroup": {
+    "name": "fcIfElpGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpNbrNodeName"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpNbrPortName"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpRxBbCredit"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpTxBbCredit"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpCosSuppAgreed"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClass2SeqDelivAgreed"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClass2RxDataFieldSize"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClass3SeqDelivAgreed"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClass3RxDataFieldSize"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClassFXII"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClassFRxDataFieldSize"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClassFConcurrentSeq"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClassFEndToEndCredit"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpClassFOpenSeq"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCapGroup": {
+    "name": "fcIfCapGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFcphVersionHigh"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFcphVersionLow"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapRxBbCreditMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapRxBbCreditMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapRxDataFieldSizeMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapRxDataFieldSizeMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapCos"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapClass2SeqDeliv"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapClass3SeqDeliv"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapHoldTimeMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapHoldTimeMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapISLRxBbCreditMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapISLRxBbCreditMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapRxBbCreditWriteable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapRxBbCreditDefault"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapISLRxBbCreditDefault"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fcIfErrorGroup": {
+    "name": "fcIfErrorGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfLinkFailures"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfSyncLosses"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfSigLosses"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfPrimSeqProtoErrors"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfInvalidTxWords"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfInvalidCrcs"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfDelimiterErrors"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAddressIdErrors"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfLinkResetIns"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfLinkResetOuts"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOlsIns"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOlsOuts"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRuntFramesIn"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfJabberFramesIn"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfTxWaitCount"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFramesTooLong"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFramesTooShort"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfLRRIn"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfLRROut"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNOSIn"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNOSOut"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFragFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfEOFaFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfUnknownClassFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIf8b10bDisparityErrors"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFramesDiscard"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfELPFailures"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfBBCreditTransistionFromZero"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfEISLFramesDiscard"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFramingErrorFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfC2AccountingGroup": {
+    "name": "fcIfC2AccountingGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2InFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2OutFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2InOctets"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2OutOctets"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2Discards"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2FbsyFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2FrjtFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2PBSYFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC2PRJTFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfC3AccountingGroup": {
+    "name": "fcIfC3AccountingGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC3InFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC3OutFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC3InOctets"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC3OutOctets"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfC3Discards"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCfAccountingGroup": {
+    "name": "fcIfCfAccountingGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCfInFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCfOutFrames"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCfInOctets"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCfOutOctets"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCfDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfNotificationGroup": {
+    "name": "fcIfNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfDownNotify"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcTrunkIfUpNotify"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfElpReject"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGroupRev1": {
+    "name": "fcIfGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfActiveVsanUpList2k"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfActiveVsanUpList4k"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCapGroupRev1": {
+    "name": "fcIfCapGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFcphVersionHigh"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFcphVersionLow"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapRxDataFieldSizeMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapRxDataFieldSizeMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapCos"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapClass2SeqDeliv"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapClass3SeqDeliv"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapHoldTimeMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapHoldTimeMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapBbScnCapable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapBbScnMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmFrmCapable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmRxBbCreditWriteable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmRxBbCreditMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmRxBbCreditMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmRxBbCreditDefault"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmISLRxBbCreditMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmISLRxBbCreditMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmISLRxBbCreditDefault"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmRxPerfBufWriteable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmRxPerfBufMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmRxPerfBufMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmRxPerfBufDefault"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmISLRxPerfBufMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmISLRxPerfBufMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapOsmISLRxPerfBufDefault"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmRxBbCreditWriteable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmRxBbCreditMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmRxBbCreditMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmRxBbCreditDefault"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmISLRxBbCreditMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmISLRxBbCreditMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmISLRxBbCreditDefault"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmRxPerfBufWriteable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmRxPerfBufMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmRxPerfBufMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmRxPerfBufDefault"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmISLRxPerfBufMax"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmISLRxPerfBufMin"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCapFrmISLRxPerfBufDefault"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGroupRev2": {
+    "name": "fcIfGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfPortRateMode"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminRxPerfBuffer"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOperRxPerfBuffer"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfBbScn"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfStatGroup": {
+    "name": "fcIfStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCurrRxBbCredit"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCurrTxBbCredit"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfErrorGroupRev1": {
+    "name": "fcIfErrorGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfLipF8In"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfLipF8Out"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNonLipF8In"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfNonLipF8Out"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGroupRev3": {
+    "name": "fcIfGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfPortInitStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfRNIDInfoGroup": {
+    "name": "fcIfRNIDInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRNIDInfoStatus"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRNIDInfoTypeNumber"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRNIDInfoModelNumber"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRNIDInfoManufacturer"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRNIDInfoPlantOfMfg"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRNIDInfoSerialNumber"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRNIDInfoUnitType"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfRNIDInfoPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGigEInfoGroup": {
+    "name": "fcIfGigEInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfGigEPortChannelIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fcotInfoNotificationGroup": {
+    "name": "fcotInfoNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.20",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcotInserted"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcotRemoved"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfInfoGroup": {
+    "name": "fcIfInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminRxBbCreditExtended"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFcTunnelIfIndex"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfServiceState"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGigEinfoExtGroup": {
+    "name": "fcIfGigEinfoExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfGigEAutoNegotiate"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfGigEBeaconMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfBbScnGroup": {
+    "name": "fcIfBbScnGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminBbScnMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfCapableGroup": {
+    "name": "fcIfCapableGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfIsServiceStateCapable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfIsPortRateModeCapable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfIsAdminRxBbCreditExtendedCapable"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfInfoPortGroup": {
+    "name": "fcIfInfoPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfPortType"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfModuleGroup": {
+    "name": "fcIfModuleGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfModuleOverSubscriptionRatioConfig"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfModuleBandwidthFairnessConfig"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfModuleBandwidthFairnessOper"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fcIfToggleCtrlConfigGroup": {
+    "name": "fcIfToggleCtrlConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfToggleCtrlConfigEnable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfToggleCtrlConfigReason"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfToggleCtrlConfigDuration"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfToggleCtrlConfigNumFlaps"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fcIfFlapCtrlConfigGroup": {
+    "name": "fcIfFlapCtrlConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFlapCtrlConfigEnable"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFlapCtrlConfigDuration"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFlapCtrlConfigNumFlaps"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfModuleGroupRev1": {
+    "name": "fcIfModuleGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfModuleOverSubscriptionRatioConfig"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfModuleBandwidthFairnessConfig"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfModuleBandwidthFairnessOper"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfModuleXcvrFrequencyConfig"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGigEinfoExtGroupRev1": {
+    "name": "fcIfGigEinfoExtGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfGigConnectorType"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfErrorGroupRev2": {
+    "name": "fcIfErrorGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfTimeOutDiscards"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOutDiscards"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfCreditLoss"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfTxWtAvgBBCreditTransitionToZero"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfErrorGroupRev3": {
+    "name": "fcIfErrorGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfBBCreditTransistionToZero"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcHCIfBBCreditTransistionFromZero"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcHCIfBBCreditTransistionToZero"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGroupRev4": {
+    "name": "fcIfGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminFECState"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOperFECState"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfErrorGroupRev4": {
+    "name": "fcIfErrorGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFECCorrectedBlks"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfFECUncorrectedBlks"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-FE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FC-FE-MIB"
+  }
+}

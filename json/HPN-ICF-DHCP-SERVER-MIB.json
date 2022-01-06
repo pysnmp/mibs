@@ -1,0 +1,1388 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDHCPServer": {
+    "name": "hpnicfDHCPServer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-05-06 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "hpnicfDHCPServerObjects": {
+    "name": "hpnicfDHCPServerObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDHCPServerIPPoolUsage": {
+    "name": "hpnicfDHCPServerIPPoolUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPServerReqTimes": {
+    "name": "hpnicfDHCPServerReqTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPServerReqSuccessTimes": {
+    "name": "hpnicfDHCPServerReqSuccessTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPServerAvgIpUseThreshold": {
+    "name": "hpnicfDHCPServerAvgIpUseThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPServerMaxIpUseThreshold": {
+    "name": "hpnicfDHCPServerMaxIpUseThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPServerAllocateThreshold": {
+    "name": "hpnicfDHCPServerAllocateThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPServerTables": {
+    "name": "hpnicfDHCPServerTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2",
+    "class": "objectidentity"
+  },
+  "hpnicfDHCPServerPoolName": {
+    "name": "hpnicfDHCPServerPoolName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolTable": {
+    "name": "hpnicfDHCPSrvGlobalPoolTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolEntry": {
+    "name": "hpnicfDHCPSrvGlobalPoolEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSrvGlobalPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolName": {
+    "name": "hpnicfDHCPSrvGlobalPoolName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolRowStatus": {
+    "name": "hpnicfDHCPSrvGlobalPoolRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolConfigTable": {
+    "name": "hpnicfDHCPSrvGlobalPoolConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolConfigEntry": {
+    "name": "hpnicfDHCPSrvGlobalPoolConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSrvGlobalPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolType": {
+    "name": "hpnicfDHCPSrvGlobalPoolType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "host": 1,
+          "network": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolNetwork": {
+    "name": "hpnicfDHCPSrvGlobalPoolNetwork",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolNetworkMask": {
+    "name": "hpnicfDHCPSrvGlobalPoolNetworkMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolHostIPAddr": {
+    "name": "hpnicfDHCPSrvGlobalPoolHostIPAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolHostMask": {
+    "name": "hpnicfDHCPSrvGlobalPoolHostMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolHostHAddr": {
+    "name": "hpnicfDHCPSrvGlobalPoolHostHAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolCfgUndoFlag": {
+    "name": "hpnicfDHCPSrvGlobalPoolCfgUndoFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undonetworkip": 1,
+          "undohostip": 2,
+          "undohosthaddr": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolStartAddr": {
+    "name": "hpnicfDHCPSrvGlobalPoolStartAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolEndAddr": {
+    "name": "hpnicfDHCPSrvGlobalPoolEndAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolParaTable": {
+    "name": "hpnicfDHCPSrvGlobalPoolParaTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolParaEntry": {
+    "name": "hpnicfDHCPSrvGlobalPoolParaEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSrvGlobalPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolLeaseDay": {
+    "name": "hpnicfDHCPSrvGlbPoolLeaseDay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 365
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolLeaseHour": {
+    "name": "hpnicfDHCPSrvGlbPoolLeaseHour",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolLeaseMinute": {
+    "name": "hpnicfDHCPSrvGlbPoolLeaseMinute",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolLeaseUnlimited": {
+    "name": "hpnicfDHCPSrvGlbPoolLeaseUnlimited",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "unlimited": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolDomainName": {
+    "name": "hpnicfDHCPSrvGlbPoolDomainName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolCliGWIPStr": {
+    "name": "hpnicfDHCPSrvGlbPoolCliGWIPStr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolCliGWIPUndo": {
+    "name": "hpnicfDHCPSrvGlbPoolCliGWIPUndo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolCliDNSIPStr": {
+    "name": "hpnicfDHCPSrvGlbPoolCliDNSIPStr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolCliDNSIPUndo": {
+    "name": "hpnicfDHCPSrvGlbPoolCliDNSIPUndo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolCliNetbiosType": {
+    "name": "hpnicfDHCPSrvGlbPoolCliNetbiosType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "bnode": 1,
+          "pnode": 2,
+          "mnode": 4,
+          "hnode": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolCliNbnsIPStr": {
+    "name": "hpnicfDHCPSrvGlbPoolCliNbnsIPStr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolCliNbnsIPUndo": {
+    "name": "hpnicfDHCPSrvGlbPoolCliNbnsIPUndo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolParaUndoFlag": {
+    "name": "hpnicfDHCPSrvGlbPoolParaUndoFlag",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undoDomain": 1,
+          "undoLease": 2,
+          "undoGateway": 3,
+          "undoDns": 4,
+          "undoNbns": 5,
+          "undoNbType": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolIPInUseReset": {
+    "name": "hpnicfDHCPSrvGlbPoolIPInUseReset",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolLeaseTime": {
+    "name": "hpnicfDHCPSrvGlbPoolLeaseTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolPrimaryDNSIP": {
+    "name": "hpnicfDHCPSrvGlbPoolPrimaryDNSIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolSecondaryDNSIP": {
+    "name": "hpnicfDHCPSrvGlbPoolSecondaryDNSIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolLeaseSecond": {
+    "name": "hpnicfDHCPSrvGlbPoolLeaseSecond",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolOptionTable": {
+    "name": "hpnicfDHCPSrvGlobalPoolOptionTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolOptionEntry": {
+    "name": "hpnicfDHCPSrvGlobalPoolOptionEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSrvGlobalPoolName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSrvGlbPoolOptCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolOptCode": {
+    "name": "hpnicfDHCPSrvGlbPoolOptCode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolOptType": {
+    "name": "hpnicfDHCPSrvGlbPoolOptType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "hex": 2,
+          "ip": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolOptAscii": {
+    "name": "hpnicfDHCPSrvGlbPoolOptAscii",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolOptHexString": {
+    "name": "hpnicfDHCPSrvGlbPoolOptHexString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 573
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolOptIPString": {
+    "name": "hpnicfDHCPSrvGlbPoolOptIPString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolOptRowStatus": {
+    "name": "hpnicfDHCPSrvGlbPoolOptRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolStatTable": {
+    "name": "hpnicfDHCPSrvGlobalPoolStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlobalPoolStatEntry": {
+    "name": "hpnicfDHCPSrvGlobalPoolStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSrvGlobalPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolIPPoolUsage": {
+    "name": "hpnicfDHCPSrvGlbPoolIPPoolUsage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolReqTimes": {
+    "name": "hpnicfDHCPSrvGlbPoolReqTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolSuccessTimes": {
+    "name": "hpnicfDHCPSrvGlbPoolSuccessTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolDiscoverTimes": {
+    "name": "hpnicfDHCPSrvGlbPoolDiscoverTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolOfferTimes": {
+    "name": "hpnicfDHCPSrvGlbPoolOfferTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolACKTimes": {
+    "name": "hpnicfDHCPSrvGlbPoolACKTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolTotalIpNum": {
+    "name": "hpnicfDHCPSrvGlbPoolTotalIpNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSrvGlbPoolInUsedIpNum": {
+    "name": "hpnicfDHCPSrvGlbPoolInUsedIpNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionGroupTable": {
+    "name": "hpnicfDHCPSvrOptionGroupTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionGroupEntry": {
+    "name": "hpnicfDHCPSvrOptionGroupEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSvrOptionGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionGroupIndex": {
+    "name": "hpnicfDHCPSvrOptionGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionGroupRowstatus": {
+    "name": "hpnicfDHCPSvrOptionGroupRowstatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionTable": {
+    "name": "hpnicfDHCPSvrOptionTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionEntry": {
+    "name": "hpnicfDHCPSvrOptionEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSvrOptionGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSvrOptionCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionCode": {
+    "name": "hpnicfDHCPSvrOptionCode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionType": {
+    "name": "hpnicfDHCPSvrOptionType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "hex": 2,
+          "ip": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionAsciiString": {
+    "name": "hpnicfDHCPSvrOptionAsciiString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionHexString": {
+    "name": "hpnicfDHCPSvrOptionHexString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 573
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionIPString": {
+    "name": "hpnicfDHCPSvrOptionIPString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrOptionRowstatus": {
+    "name": "hpnicfDHCPSvrOptionRowstatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrVerifyMacTable": {
+    "name": "hpnicfDHCPSvrVerifyMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrVerifyMacEntry": {
+    "name": "hpnicfDHCPSvrVerifyMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSrvGlobalPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSvrVerifyMacSwitch": {
+    "name": "hpnicfDHCPSvrVerifyMacSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrPoolMacTable": {
+    "name": "hpnicfDHCPSvrPoolMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrPoolMacEntry": {
+    "name": "hpnicfDHCPSvrPoolMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSrvGlobalPoolName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSvrPoolMac",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPSvrPoolMacMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPSvrPoolMac": {
+    "name": "hpnicfDHCPSvrPoolMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrPoolMacMask": {
+    "name": "hpnicfDHCPSvrPoolMacMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrPoolMacOptIndex": {
+    "name": "hpnicfDHCPSvrPoolMacOptIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDHCPSvrPoolMacRowstatus": {
+    "name": "hpnicfDHCPSvrPoolMacRowstatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDHCPServerTraps": {
+    "name": "hpnicfDHCPServerTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3",
+    "class": "objectidentity"
+  },
+  "hpnicfDHCPServerTrapPrefix": {
+    "name": "hpnicfDHCPServerTrapPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfDHCPServerAddrExhaust": {
+    "name": "hpnicfDHCPServerAddrExhaust",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPServerPoolName"
+      },
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPServerFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPServerAddrExhaustRecover": {
+    "name": "hpnicfDHCPServerAddrExhaustRecover",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPServerPoolName"
+      },
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPServerFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPServerAvgIpUsageOverflow": {
+    "name": "hpnicfDHCPServerAvgIpUsageOverflow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPServerPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPServerMaxIpUsageOverflow": {
+    "name": "hpnicfDHCPServerMaxIpUsageOverflow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DHCP-SERVER-MIB",
+        "object": "hpnicfDHCPServerPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDHCPServerAllocateOverflow": {
+    "name": "hpnicfDHCPServerAllocateOverflow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpnicfDHCPServerTrapObjects": {
+    "name": "hpnicfDHCPServerTrapObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDHCPServerFirstTrapTime": {
+    "name": "hpnicfDHCPServerFirstTrapTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.101.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DHCP-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:35 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DHCP-SERVER-MIB"
+  }
+}

@@ -1,0 +1,1997 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-MIB": [
+      "AtmTrafficDescrParamIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Unsigned32"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoAtmSwitchFrIwfMIB": {
+    "name": "ciscoAtmSwitchFrIwfMIB",
+    "oid": "1.3.6.1.4.1.9.9.112",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-05-20 00:00",
+        "description": "Added objects casfVcSignalStandardCalledIe, casfConfIfCledSpvcDeModeDef, casfConfIfCledSpvcClpModeDef."
+      },
+      {
+        "revision": "2000-02-29 00:00",
+        "description": "New UPC values of 'tag' and 'drop' were added for IDSL support."
+      },
+      {
+        "revision": "1998-07-09 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ciscoAtmSwitchFrIwfMIBObjects": {
+    "name": "ciscoAtmSwitchFrIwfMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.112.1",
+    "class": "objectidentity"
+  },
+  "casfFrTraffic": {
+    "name": "casfFrTraffic",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1",
+    "class": "objectidentity"
+  },
+  "casfFrVC": {
+    "name": "casfFrVC",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2",
+    "class": "objectidentity"
+  },
+  "casfFrInterface": {
+    "name": "casfFrInterface",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3",
+    "class": "objectidentity"
+  },
+  "casfFrCounts": {
+    "name": "casfFrCounts",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4",
+    "class": "objectidentity"
+  },
+  "casfMapping": {
+    "name": "casfMapping",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5",
+    "class": "objectidentity"
+  },
+  "CasfTrafficDescrRow": {
+    "name": "CasfTrafficDescrRow",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DlciValue": {
+    "name": "DlciValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4194303
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ConnectionKind": {
+    "name": "ConnectionKind",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svcIncoming": 2,
+          "svcOutgoing": 3,
+          "spvcInitiator": 4,
+          "spvcTarget": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtmAddr": {
+    "name": "AtmAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "casfTrafficDescrTable": {
+    "name": "casfTrafficDescrTable",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfTrafficDescrEntry": {
+    "name": "casfTrafficDescrEntry",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfTrafficDescrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casfTrafficDescrIndex": {
+    "name": "casfTrafficDescrIndex",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CasfTrafficDescrRow",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfTrafficDescrCIR": {
+    "name": "casfTrafficDescrCIR",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfTrafficDescrBc": {
+    "name": "casfTrafficDescrBc",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfTrafficDescrBe": {
+    "name": "casfTrafficDescrBe",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfTrafficDescrPIR": {
+    "name": "casfTrafficDescrPIR",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfTrafficDescrServCategory": {
+    "name": "casfTrafficDescrServCategory",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vbrNrt": 1,
+          "abr": 2,
+          "ubr": 3,
+          "vbrRt": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfTrafficDescrAtmIndex": {
+    "name": "casfTrafficDescrAtmIndex",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfTrafficDescrRowStatus": {
+    "name": "casfTrafficDescrRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.112.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptTable": {
+    "name": "casfVcEndptTable",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfVcEndptEntry": {
+    "name": "casfVcEndptEntry",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casfVcEndptDlci": {
+    "name": "casfVcEndptDlci",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlciValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfVcEndptRxTrafficDescrRow": {
+    "name": "casfVcEndptRxTrafficDescrRow",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CasfTrafficDescrRow",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptTxTrafficDescrRow": {
+    "name": "casfVcEndptTxTrafficDescrRow",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CasfTrafficDescrRow",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptRxNegTrafficDescrRow": {
+    "name": "casfVcEndptRxNegTrafficDescrRow",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CasfTrafficDescrRow",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcEndptTxNegTrafficDescrRow": {
+    "name": "casfVcEndptTxNegTrafficDescrRow",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CasfTrafficDescrRow",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcEndptConnKind": {
+    "name": "casfVcEndptConnKind",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnectionKind",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "pvc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptIwfType": {
+    "name": "casfVcEndptIwfType",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "network": 1,
+          "serviceTransparent": 2,
+          "serviceTranslation": 3,
+          "rfc1973": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptClpMode": {
+    "name": "casfVcEndptClpMode",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clpIfDe": 1,
+          "clpIsZero": 2,
+          "clpIsOne": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptDeMode": {
+    "name": "casfVcEndptDeMode",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deIfClpOrFrsscsDe": 1,
+          "deIfFrsscsDe": 2,
+          "deIfClp": 3,
+          "deIsZero": 4,
+          "deIsOne": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptEfciMode": {
+    "name": "casfVcEndptEfciMode",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "efciIfFecn": 1,
+          "efciIsZero": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptUpcMode": {
+    "name": "casfVcEndptUpcMode",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pass": 1,
+          "tagDrop": 2,
+          "tag": 3,
+          "drop": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptSpvcRemoteAddr": {
+    "name": "casfVcEndptSpvcRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptSpvcRemoteType": {
+    "name": "casfVcEndptSpvcRemoteType",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "frameRelay": 2,
+          "atm": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptSpvcRemoteDlci": {
+    "name": "casfVcEndptSpvcRemoteDlci",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlciValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptSpvcRemoteVpi": {
+    "name": "casfVcEndptSpvcRemoteVpi",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptSpvcRemoteVci": {
+    "name": "casfVcEndptSpvcRemoteVci",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcEndptCreationTime": {
+    "name": "casfVcEndptCreationTime",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcEndptRcvdSigStatus": {
+    "name": "casfVcEndptRcvdSigStatus",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleted": 1,
+          "active": 2,
+          "inactive": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcEndptRowStatus": {
+    "name": "casfVcEndptRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfVcSignalStandardCalledIe": {
+    "name": "casfVcSignalStandardCalledIe",
+    "oid": "1.3.6.1.4.1.9.9.112.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casfFrLmiTable": {
+    "name": "casfFrLmiTable",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfFrLmiEntry": {
+    "name": "casfFrLmiEntry",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casfFrLmiProtocol": {
+    "name": "casfFrLmiProtocol",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "lmi": 2,
+          "ansiT1617D": 3,
+          "ansiT1617B": 4,
+          "ccittQ933A": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiType": {
+    "name": "casfFrLmiType",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte": 1,
+          "dce": 2,
+          "nni": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiUserN391": {
+    "name": "casfFrLmiUserN391",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiUserN392": {
+    "name": "casfFrLmiUserN392",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiUserN393": {
+    "name": "casfFrLmiUserN393",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiUserT391": {
+    "name": "casfFrLmiUserT391",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiNetN392": {
+    "name": "casfFrLmiNetN392",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiNetN393": {
+    "name": "casfFrLmiNetN393",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiNetT392": {
+    "name": "casfFrLmiNetT392",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfFrLmiEnquiryIns": {
+    "name": "casfFrLmiEnquiryIns",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfFrLmiEnquiryOuts": {
+    "name": "casfFrLmiEnquiryOuts",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfFrLmiStatusIns": {
+    "name": "casfFrLmiStatusIns",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfFrLmiStatusOuts": {
+    "name": "casfFrLmiStatusOuts",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfFrLmiStatusTimeouts": {
+    "name": "casfFrLmiStatusTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfFrLmiStatusEnqTimeouts": {
+    "name": "casfFrLmiStatusEnqTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfConfIfTable": {
+    "name": "casfConfIfTable",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfConfIfEntry": {
+    "name": "casfConfIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casfConfIfAtmAddress": {
+    "name": "casfConfIfAtmAddress",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfConfIfUpcIntent": {
+    "name": "casfConfIfUpcIntent",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pass": 1,
+          "tagDrop": 2,
+          "tag": 3,
+          "drop": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfConfIfBcDefault": {
+    "name": "casfConfIfBcDefault",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32768
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfConfIfCledSpvcDeModeDef": {
+    "name": "casfConfIfCledSpvcDeModeDef",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deIfClpOrFrsscsDe": 1,
+          "deIfFrsscsDe": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deIfClpOrFrsscsDe",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfConfIfCledSpvcClpModeDef": {
+    "name": "casfConfIfCledSpvcClpModeDef",
+    "oid": "1.3.6.1.4.1.9.9.112.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clpIfDe": 1,
+          "clpIfIsZero": 2,
+          "clpIfIsOne": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "clpIfDe",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casfVcCountTable": {
+    "name": "casfVcCountTable",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfVcCountEntry": {
+    "name": "casfVcCountEntry",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casfVcCountReceivedFrames": {
+    "name": "casfVcCountReceivedFrames",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountReceivedOctets": {
+    "name": "casfVcCountReceivedOctets",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountReceivedFECNs": {
+    "name": "casfVcCountReceivedFECNs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountReceivedBECNs": {
+    "name": "casfVcCountReceivedBECNs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountReceivedDEs": {
+    "name": "casfVcCountReceivedDEs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountInDiscards": {
+    "name": "casfVcCountInDiscards",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountOutDiscards": {
+    "name": "casfVcCountOutDiscards",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountSentFrames": {
+    "name": "casfVcCountSentFrames",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountSentOctets": {
+    "name": "casfVcCountSentOctets",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountSentFECNs": {
+    "name": "casfVcCountSentFECNs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountSentBECNs": {
+    "name": "casfVcCountSentBECNs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountSentDEs": {
+    "name": "casfVcCountSentDEs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountTaggedFECNs": {
+    "name": "casfVcCountTaggedFECNs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountTaggedBECNs": {
+    "name": "casfVcCountTaggedBECNs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcCountTaggedDEs": {
+    "name": "casfVcCountTaggedDEs",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcIwfCountTable": {
+    "name": "casfVcIwfCountTable",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfVcIwfCountEntry": {
+    "name": "casfVcIwfCountEntry",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casfVcIwfCountInUnknownProts": {
+    "name": "casfVcIwfCountInUnknownProts",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcIwfCountOutUnknownProts": {
+    "name": "casfVcIwfCountOutUnknownProts",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcIwfCountReassemblyTimeouts": {
+    "name": "casfVcIwfCountReassemblyTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcIwfCountLengthErrors": {
+    "name": "casfVcIwfCountLengthErrors",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcIwfCountCrcErrors": {
+    "name": "casfVcIwfCountCrcErrors",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfVcIwfCountTotalDiscardFrames": {
+    "name": "casfVcIwfCountTotalDiscardFrames",
+    "oid": "1.3.6.1.4.1.9.9.112.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfFAMapTable": {
+    "name": "casfFAMapTable",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfFAMapEntry": {
+    "name": "casfFAMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFAMapDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casfFAMapDlci": {
+    "name": "casfFAMapDlci",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlciValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfFAMapInternalAtmInterface": {
+    "name": "casfFAMapInternalAtmInterface",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfFAMapInternalAtmVpi": {
+    "name": "casfFAMapInternalAtmVpi",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfFAMapInternalAtmVci": {
+    "name": "casfFAMapInternalAtmVci",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfAFMapTable": {
+    "name": "casfAFMapTable",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfAFMapEntry": {
+    "name": "casfAFMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfAFMapAtmVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfAFMapAtmVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casfAFMapAtmVpi": {
+    "name": "casfAFMapAtmVpi",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfAFMapAtmVci": {
+    "name": "casfAFMapAtmVci",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casfAFMapFrIndex": {
+    "name": "casfAFMapFrIndex",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casfAFMapFrDlci": {
+    "name": "casfAFMapFrDlci",
+    "oid": "1.3.6.1.4.1.9.9.112.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlciValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmSFrIwfMIBConformance": {
+    "name": "ciscoAtmSFrIwfMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.112.3",
+    "class": "objectidentity"
+  },
+  "ciscoAtmSFrIwfMIBCompliances": {
+    "name": "ciscoAtmSFrIwfMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.112.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmSFrIwfMIBGroups": {
+    "name": "ciscoAtmSFrIwfMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.112.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmSFrIwfMIBCompliance": {
+    "name": "ciscoAtmSFrIwfMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.112.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmSFrIwfConfConnGroup",
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB"
+      },
+      {
+        "object": "ciscoAtmSFrIwfLmiGroup",
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB"
+      },
+      {
+        "object": "ciscoAtmSFrIwfConfIfGroup",
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB"
+      },
+      {
+        "object": "ciscoAtmSFrIwfVcStatsGroup",
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB"
+      },
+      {
+        "object": "ciscoAtmSFrIwfVcIwStatsGroup",
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB"
+      },
+      {
+        "object": "ciscoAtmSFrIwfMappingGroup",
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSFrIwfConfConnGroup": {
+    "name": "ciscoAtmSFrIwfConfConnGroup",
+    "oid": "1.3.6.1.4.1.9.9.112.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfTrafficDescrCIR"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfTrafficDescrBc"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfTrafficDescrBe"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfTrafficDescrPIR"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfTrafficDescrServCategory"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfTrafficDescrAtmIndex"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfTrafficDescrRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptRxTrafficDescrRow"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptTxTrafficDescrRow"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptRxNegTrafficDescrRow"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptTxNegTrafficDescrRow"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptConnKind"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptIwfType"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptClpMode"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptDeMode"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptEfciMode"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptUpcMode"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptCreationTime"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptRcvdSigStatus"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptSpvcRemoteAddr"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptSpvcRemoteType"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptSpvcRemoteDlci"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptSpvcRemoteVpi"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptSpvcRemoteVci"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcEndptRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcSignalStandardCalledIe"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSFrIwfLmiGroup": {
+    "name": "ciscoAtmSFrIwfLmiGroup",
+    "oid": "1.3.6.1.4.1.9.9.112.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiProtocol"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiType"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiUserN391"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiUserN392"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiUserN393"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiUserT391"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiNetN392"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiNetN393"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiNetT392"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiEnquiryIns"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiEnquiryOuts"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiStatusIns"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiStatusOuts"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiStatusTimeouts"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFrLmiStatusEnqTimeouts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSFrIwfConfIfGroup": {
+    "name": "ciscoAtmSFrIwfConfIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.112.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfConfIfAtmAddress"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfConfIfUpcIntent"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfConfIfBcDefault"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfConfIfCledSpvcDeModeDef"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfConfIfCledSpvcClpModeDef"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSFrIwfVcStatsGroup": {
+    "name": "ciscoAtmSFrIwfVcStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.112.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountReceivedFrames"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountReceivedOctets"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountReceivedFECNs"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountReceivedBECNs"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountReceivedDEs"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountInDiscards"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountOutDiscards"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountSentFrames"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountSentOctets"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountSentFECNs"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountSentBECNs"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountSentDEs"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountTaggedFECNs"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountTaggedBECNs"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcCountTaggedDEs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSFrIwfVcIwStatsGroup": {
+    "name": "ciscoAtmSFrIwfVcIwStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.112.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcIwfCountInUnknownProts"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcIwfCountOutUnknownProts"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcIwfCountReassemblyTimeouts"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcIwfCountLengthErrors"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcIwfCountCrcErrors"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfVcIwfCountTotalDiscardFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmSFrIwfMappingGroup": {
+    "name": "ciscoAtmSFrIwfMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.112.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFAMapInternalAtmInterface"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFAMapInternalAtmVpi"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfFAMapInternalAtmVci"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfAFMapFrIndex"
+      },
+      {
+        "module": "CISCO-ATM-SWITCH-FR-IWF-MIB",
+        "object": "casfAFMapFrDlci"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-SWITCH-FR-IWF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-SWITCH-FR-IWF-MIB"
+  }
+}

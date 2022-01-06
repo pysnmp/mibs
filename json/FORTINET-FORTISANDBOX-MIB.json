@@ -1,0 +1,1196 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORTINET-CORE-MIB": [
+      "FnIndex",
+      "fnSysSerial",
+      "FnBoolState",
+      "fnAdminEntry",
+      "fortinet"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "ifEntry"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "AutonomousType",
+      "DisplayString"
+    ]
+  },
+  "fnFortiSandboxMib": {
+    "name": "fnFortiSandboxMib",
+    "oid": "1.3.6.1.4.1.12356.118",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-24 00:00",
+        "description": "Initial version of FORTINET-FORTISANDBOX-MIB."
+      }
+    ]
+  },
+  "FsaAdminPermLevel": {
+    "name": "FsaAdminPermLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readAdmin": 0,
+          "writeAdmin": 1,
+          "domainAdmin": 15,
+          "superAdmin": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FsaUserAuthType": {
+    "name": "FsaUserAuthType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "radiusSingle": 2,
+          "radiusMultiple": 3,
+          "ldap": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FsaSessProto": {
+    "name": "FsaSessProto",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 0,
+          "icmp": 1,
+          "igmp": 2,
+          "ipip": 4,
+          "tcp": 6,
+          "egp": 8,
+          "pup": 12,
+          "udp": 17,
+          "idp": 22,
+          "ipv6": 41,
+          "rsvp": 46,
+          "gre": 47,
+          "esp": 50,
+          "ah": 51,
+          "ospf": 89,
+          "pim": 103,
+          "comp": 108,
+          "raw": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fsaModel": {
+    "name": "fsaModel",
+    "oid": "1.3.6.1.4.1.12356.118.1",
+    "class": "objectidentity"
+  },
+  "fsa1000D": {
+    "name": "fsa1000D",
+    "oid": "1.3.6.1.4.1.12356.118.1.10004",
+    "class": "objectidentity"
+  },
+  "fsa3000D": {
+    "name": "fsa3000D",
+    "oid": "1.3.6.1.4.1.12356.118.1.30004",
+    "class": "objectidentity"
+  },
+  "fsaVM": {
+    "name": "fsaVM",
+    "oid": "1.3.6.1.4.1.12356.118.1.20000",
+    "class": "objectidentity"
+  },
+  "fsa3500D": {
+    "name": "fsa3500D",
+    "oid": "1.3.6.1.4.1.12356.118.1.30005",
+    "class": "objectidentity"
+  },
+  "fsa3000E": {
+    "name": "fsa3000E",
+    "oid": "1.3.6.1.4.1.12356.118.1.30006",
+    "class": "objectidentity"
+  },
+  "fsa2000E": {
+    "name": "fsa2000E",
+    "oid": "1.3.6.1.4.1.12356.118.1.30007",
+    "class": "objectidentity"
+  },
+  "fsa1000F": {
+    "name": "fsa1000F",
+    "oid": "1.3.6.1.4.1.12356.118.1.30008",
+    "class": "objectidentity"
+  },
+  "fsa500F": {
+    "name": "fsa500F",
+    "oid": "1.3.6.1.4.1.12356.118.1.30009",
+    "class": "objectidentity"
+  },
+  "fsaTraps": {
+    "name": "fsaTraps",
+    "oid": "1.3.6.1.4.1.12356.118.2",
+    "class": "objectidentity"
+  },
+  "fsaTrapPrefix": {
+    "name": "fsaTrapPrefix",
+    "oid": "1.3.6.1.4.1.12356.118.2.0",
+    "class": "objectidentity"
+  },
+  "fsaTrapMalware": {
+    "name": "fsaTrapMalware",
+    "oid": "1.3.6.1.4.1.12356.118.2.0.501",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapJobId"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaTrapCPUHigh": {
+    "name": "fsaTrapCPUHigh",
+    "oid": "1.3.6.1.4.1.12356.118.2.0.502",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapCPUrate"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaTrapMemHigh": {
+    "name": "fsaTrapMemHigh",
+    "oid": "1.3.6.1.4.1.12356.118.2.0.503",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapMUrate"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaTrapDUHigh": {
+    "name": "fsaTrapDUHigh",
+    "oid": "1.3.6.1.4.1.12356.118.2.0.504",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapDUrate"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaTrapPSUC": {
+    "name": "fsaTrapPSUC",
+    "oid": "1.3.6.1.4.1.12356.118.2.0.505",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapPSUFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaTrapHCT": {
+    "name": "fsaTrapHCT",
+    "oid": "1.3.6.1.4.1.12356.118.2.0.506",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapHCTopology"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaTrapHCH": {
+    "name": "fsaTrapHCH",
+    "oid": "1.3.6.1.4.1.12356.118.2.0.507",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapHCHealth"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaTrapObjects": {
+    "name": "fsaTrapObjects",
+    "oid": "1.3.6.1.4.1.12356.118.6",
+    "class": "objectidentity"
+  },
+  "fsaTrapJobId": {
+    "name": "fsaTrapJobId",
+    "oid": "1.3.6.1.4.1.12356.118.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fsaTrapCPUrate": {
+    "name": "fsaTrapCPUrate",
+    "oid": "1.3.6.1.4.1.12356.118.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fsaTrapMUrate": {
+    "name": "fsaTrapMUrate",
+    "oid": "1.3.6.1.4.1.12356.118.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fsaTrapDUrate": {
+    "name": "fsaTrapDUrate",
+    "oid": "1.3.6.1.4.1.12356.118.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fsaTrapPSUFailure": {
+    "name": "fsaTrapPSUFailure",
+    "oid": "1.3.6.1.4.1.12356.118.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fsaTrapHCTopology": {
+    "name": "fsaTrapHCTopology",
+    "oid": "1.3.6.1.4.1.12356.118.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fsaTrapHCHealth": {
+    "name": "fsaTrapHCHealth",
+    "oid": "1.3.6.1.4.1.12356.118.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fsaSystem": {
+    "name": "fsaSystem",
+    "oid": "1.3.6.1.4.1.12356.118.3",
+    "class": "objectidentity"
+  },
+  "fsaSystemInfo": {
+    "name": "fsaSystemInfo",
+    "oid": "1.3.6.1.4.1.12356.118.3.1",
+    "class": "objectidentity"
+  },
+  "fsaSysVersion": {
+    "name": "fsaSysVersion",
+    "oid": "1.3.6.1.4.1.12356.118.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysCpuUsage": {
+    "name": "fsaSysCpuUsage",
+    "oid": "1.3.6.1.4.1.12356.118.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysMemUsage": {
+    "name": "fsaSysMemUsage",
+    "oid": "1.3.6.1.4.1.12356.118.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysMemCapacity": {
+    "name": "fsaSysMemCapacity",
+    "oid": "1.3.6.1.4.1.12356.118.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysDiskUsage": {
+    "name": "fsaSysDiskUsage",
+    "oid": "1.3.6.1.4.1.12356.118.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysDiskCapacity": {
+    "name": "fsaSysDiskCapacity",
+    "oid": "1.3.6.1.4.1.12356.118.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysCpuUsageExcludedNice": {
+    "name": "fsaSysCpuUsageExcludedNice",
+    "oid": "1.3.6.1.4.1.12356.118.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysUpTime": {
+    "name": "fsaSysUpTime",
+    "oid": "1.3.6.1.4.1.12356.118.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSoftware": {
+    "name": "fsaSoftware",
+    "oid": "1.3.6.1.4.1.12356.118.3.2",
+    "class": "objectidentity"
+  },
+  "fsaSysTracer": {
+    "name": "fsaSysTracer",
+    "oid": "1.3.6.1.4.1.12356.118.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysRating": {
+    "name": "fsaSysRating",
+    "oid": "1.3.6.1.4.1.12356.118.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysTool": {
+    "name": "fsaSysTool",
+    "oid": "1.3.6.1.4.1.12356.118.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysSniffer": {
+    "name": "fsaSysSniffer",
+    "oid": "1.3.6.1.4.1.12356.118.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysIPS": {
+    "name": "fsaSysIPS",
+    "oid": "1.3.6.1.4.1.12356.118.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysAndroidA": {
+    "name": "fsaSysAndroidA",
+    "oid": "1.3.6.1.4.1.12356.118.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaSysAndroidR": {
+    "name": "fsaSysAndroidR",
+    "oid": "1.3.6.1.4.1.12356.118.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFwUsers": {
+    "name": "fsaFwUsers",
+    "oid": "1.3.6.1.4.1.12356.118.4",
+    "class": "objectidentity"
+  },
+  "fsaFwUserInfo": {
+    "name": "fsaFwUserInfo",
+    "oid": "1.3.6.1.4.1.12356.118.4.1",
+    "class": "objectidentity"
+  },
+  "fsaFwUserNumber": {
+    "name": "fsaFwUserNumber",
+    "oid": "1.3.6.1.4.1.12356.118.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFwUserAuthTimeout": {
+    "name": "fsaFwUserAuthTimeout",
+    "oid": "1.3.6.1.4.1.12356.118.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFwUserTables": {
+    "name": "fsaFwUserTables",
+    "oid": "1.3.6.1.4.1.12356.118.4.2",
+    "class": "objectidentity"
+  },
+  "fsaFwUserTable": {
+    "name": "fsaFwUserTable",
+    "oid": "1.3.6.1.4.1.12356.118.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fsaFwUserEntry": {
+    "name": "fsaFwUserEntry",
+    "oid": "1.3.6.1.4.1.12356.118.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFwUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fsaFwUserIndex": {
+    "name": "fsaFwUserIndex",
+    "oid": "1.3.6.1.4.1.12356.118.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fsaFwUserName": {
+    "name": "fsaFwUserName",
+    "oid": "1.3.6.1.4.1.12356.118.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFwUserAuth": {
+    "name": "fsaFwUserAuth",
+    "oid": "1.3.6.1.4.1.12356.118.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FsaUserAuthType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFwUserState": {
+    "name": "fsaFwUserState",
+    "oid": "1.3.6.1.4.1.12356.118.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnBoolState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaJobInfo": {
+    "name": "fsaJobInfo",
+    "oid": "1.3.6.1.4.1.12356.118.5",
+    "class": "objectidentity"
+  },
+  "fsaJobQueue": {
+    "name": "fsaJobQueue",
+    "oid": "1.3.6.1.4.1.12356.118.5.1",
+    "class": "objectidentity"
+  },
+  "fsaFTypeExe": {
+    "name": "fsaFTypeExe",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypePDF": {
+    "name": "fsaFTypePDF",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypeDOC": {
+    "name": "fsaFTypeDOC",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypeFLASH": {
+    "name": "fsaFTypeFLASH",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypeWEB": {
+    "name": "fsaFTypeWEB",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypeAndroid": {
+    "name": "fsaFTypeAndroid",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypeMAC": {
+    "name": "fsaFTypeMAC",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypeURL": {
+    "name": "fsaFTypeURL",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypeExtra": {
+    "name": "fsaFTypeExtra",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypeNOVM": {
+    "name": "fsaFTypeNOVM",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaFTypePre": {
+    "name": "fsaFTypePre",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaJobProcessing": {
+    "name": "fsaJobProcessing",
+    "oid": "1.3.6.1.4.1.12356.118.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fsaMibConformance": {
+    "name": "fsaMibConformance",
+    "oid": "1.3.6.1.4.1.12356.118.10",
+    "class": "objectidentity"
+  },
+  "fsaSystemObjectGroup": {
+    "name": "fsaSystemObjectGroup",
+    "oid": "1.3.6.1.4.1.12356.118.10.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysVersion"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysCpuUsage"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysMemUsage"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysMemCapacity"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysDiskUsage"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysDiskCapacity"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysCpuUsageExcludedNice"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaSoftwareObjectGroup": {
+    "name": "fsaSoftwareObjectGroup",
+    "oid": "1.3.6.1.4.1.12356.118.10.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysTracer"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysRating"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysTool"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysSniffer"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysIPS"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysAndroidA"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaSysAndroidR"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaUserObjectGroup": {
+    "name": "fsaUserObjectGroup",
+    "oid": "1.3.6.1.4.1.12356.118.10.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFwUserNumber"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFwUserAuthTimeout"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFwUserName"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFwUserAuth"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFwUserState"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaJobObjectGroup": {
+    "name": "fsaJobObjectGroup",
+    "oid": "1.3.6.1.4.1.12356.118.10.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeExe"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypePDF"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeDOC"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeFLASH"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeWEB"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeAndroid"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeMAC"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeURL"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeExtra"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypeNOVM"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaFTypePre"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaJobProcessing"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaNotificationGroup": {
+    "name": "fsaNotificationGroup",
+    "oid": "1.3.6.1.4.1.12356.118.10.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapMalware"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapCPUHigh"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapMemHigh"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapDUHigh"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapPSUC"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapHCT"
+      },
+      {
+        "module": "FORTINET-FORTISANDBOX-MIB",
+        "object": "fsaTrapHCH"
+      }
+    ],
+    "status": "current"
+  },
+  "fsaMIBCompliance": {
+    "name": "fsaMIBCompliance",
+    "oid": "1.3.6.1.4.1.12356.118.10.100",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fsaNotificationGroup",
+        "module": "FORTINET-FORTISANDBOX-MIB"
+      },
+      {
+        "object": "fsaSystemObjectGroup",
+        "module": "FORTINET-FORTISANDBOX-MIB"
+      },
+      {
+        "object": "fsaSoftwareObjectGroup",
+        "module": "FORTINET-FORTISANDBOX-MIB"
+      },
+      {
+        "object": "fsaJobObjectGroup",
+        "module": "FORTINET-FORTISANDBOX-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTISANDBOX-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FORTINET-FORTISANDBOX-MIB"
+  }
+}

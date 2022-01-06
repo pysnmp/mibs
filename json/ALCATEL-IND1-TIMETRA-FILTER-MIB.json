@@ -1,0 +1,6720 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
+      "tmnxSRConfs",
+      "tmnxSRNotifyPrefix",
+      "tmnxSRObjs",
+      "timetraSRMIBModules"
+    ],
+    "ALCATEL-IND1-TIMETRA-TC-MIB": [
+      "TmnxEncapVal",
+      "TNamedItemOrEmpty",
+      "TDSCPFilterActionValue",
+      "TFrameType",
+      "TmnxAdminState",
+      "SdpBindId",
+      "TIpOption",
+      "TmnxPortID",
+      "TNamedItem",
+      "ServiceAccessPoint",
+      "TTcpUdpPortOperator",
+      "TItemDescription",
+      "TmnxOperState",
+      "IpAddressPrefixLength",
+      "TmnxServId",
+      "TIpProtocol",
+      "TTcpUdpPort",
+      "Dot1PPriority",
+      "TDSCPNameOrEmpty"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddressIPv6"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Opaque",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TimeStamp",
+      "RowStatus",
+      "RowPointer",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "timetraFilterMIBModule": {
+    "name": "timetraFilterMIBModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.3.21",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1908-01-01 00:00",
+        "description": "Rev 6.0 01 Jan 2008 00:00 6.0 release of the TIMETRA-FILTER-MIB."
+      },
+      {
+        "revision": "1907-01-01 00:00",
+        "description": "Rev 5.0 01 Jan 2007 00:00 5.0 release of the TIMETRA-FILTER-MIB."
+      },
+      {
+        "revision": "1906-02-28 00:00",
+        "description": "Rev 4.0 28 Feb 2006 00:00 4.0 release of the TIMETRA-FILTER-MIB."
+      },
+      {
+        "revision": "1905-08-31 00:00",
+        "description": "Rev 3.0 31 Aug 2005 00:00 3.0 release of the TIMETRA-FILTER-MIB."
+      },
+      {
+        "revision": "1905-01-24 00:00",
+        "description": "Rev 2.1 24 Jan 2005 00:00 2.1 release of the TIMETRA-FILTER-MIB."
+      },
+      {
+        "revision": "1904-01-15 00:00",
+        "description": "Rev 2.0 15 Jan 2004 00:00 2.0 release of the TIMETRA-FILTER-MIB."
+      },
+      {
+        "revision": "1903-08-15 00:00",
+        "description": "Rev 1.2 15 Aug 2003 00:00 1.2 release of the TIMETRA-FILTER-MIB."
+      },
+      {
+        "revision": "2003-01-29 00:00",
+        "description": "Rev 0.1 29 Jan 2003 00:00 Initial version of the TIMETRA-FILTER-MIB."
+      }
+    ]
+  },
+  "tFilterObjects": {
+    "name": "tFilterObjects",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21",
+    "class": "objectidentity"
+  },
+  "tFilterNotificationsPrefix": {
+    "name": "tFilterNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.21",
+    "class": "objectidentity"
+  },
+  "tFilterNotifications": {
+    "name": "tFilterNotifications",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.21.0",
+    "class": "objectidentity"
+  },
+  "tFilterMIBConformance": {
+    "name": "tFilterMIBConformance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21",
+    "class": "objectidentity"
+  },
+  "tFilterNotificationObjects": {
+    "name": "tFilterNotificationObjects",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.8",
+    "class": "objectidentity"
+  },
+  "tFilterTimeStampObjects": {
+    "name": "tFilterTimeStampObjects",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.9",
+    "class": "objectidentity"
+  },
+  "TFilterID": {
+    "name": "TFilterID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TIPFilterID": {
+    "name": "TIPFilterID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TMACFilterID": {
+    "name": "TMACFilterID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TItemScope": {
+    "name": "TItemScope",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exclusive": 1,
+          "template": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TItemMatch": {
+    "name": "TItemMatch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "false": 2,
+          "true": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TEntryIndicator": {
+    "name": "TEntryIndicator",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TEntryId": {
+    "name": "TEntryId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TEntryIdOrZero": {
+    "name": "TEntryIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TFilterAction": {
+    "name": "TFilterAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "forward": 2,
+          "httpRedirect": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TFilterActionOrDefault": {
+    "name": "TFilterActionOrDefault",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "forward": 2,
+          "default": 3,
+          "httpRedirect": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TFilterLogId": {
+    "name": "TFilterLogId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 101,
+            "max": 199
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TFilterLogDestination": {
+    "name": "TFilterLogDestination",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memory": 1,
+          "syslog": 2,
+          "file": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TTimeRangeState": {
+    "name": "TTimeRangeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timeRangeNotApplic": 0,
+          "timeRangeNotActive": 1,
+          "timeRangeActive": 2,
+          "timeRangeActiveDownloadFailed": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TFilterLogSummaryCriterium": {
+    "name": "TFilterLogSummaryCriterium",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srcAddr": 0,
+          "dstAddr": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TFilterType": {
+    "name": "TFilterType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fltrtypeselNone": 0,
+          "fltrtypeselIp": 1,
+          "fltrtypeselMac": 2,
+          "fltrtypeselCpm": 3,
+          "fltrtypeselIpv6": 4,
+          "fltrtypeselCpm6": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tIPFilterTable": {
+    "name": "tIPFilterTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tIPFilterEntry": {
+    "name": "tIPFilterEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tIPFilterId": {
+    "name": "tIPFilterId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIPFilterID",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tIPFilterRowStatus": {
+    "name": "tIPFilterRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterScope": {
+    "name": "tIPFilterScope",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemScope",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "template",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterDescription": {
+    "name": "tIPFilterDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterDefaultAction": {
+    "name": "tIPFilterDefaultAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsTable": {
+    "name": "tIPFilterParamsTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tIPFilterParamsEntry": {
+    "name": "tIPFilterParamsEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tIPFilterParamsIndex": {
+    "name": "tIPFilterParamsIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TEntryId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tIPFilterParamsRowStatus": {
+    "name": "tIPFilterParamsRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsLogId": {
+    "name": "tIPFilterParamsLogId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterLogId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsDescription": {
+    "name": "tIPFilterParamsDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsAction": {
+    "name": "tIPFilterParamsAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterActionOrDefault",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsForwardNH": {
+    "name": "tIPFilterParamsForwardNH",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsForwardNHIndirect": {
+    "name": "tIPFilterParamsForwardNHIndirect",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsRemarkDSCP": {
+    "name": "tIPFilterParamsRemarkDSCP",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDSCPFilterActionValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsRemarkDSCPMask": {
+    "name": "tIPFilterParamsRemarkDSCPMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDSCPFilterActionValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsRemarkDot1p": {
+    "name": "tIPFilterParamsRemarkDot1p",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1PPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsSourceIpAddr": {
+    "name": "tIPFilterParamsSourceIpAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsSourceIpMask": {
+    "name": "tIPFilterParamsSourceIpMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsDestinationIpAddr": {
+    "name": "tIPFilterParamsDestinationIpAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsDestinationIpMask": {
+    "name": "tIPFilterParamsDestinationIpMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsProtocol": {
+    "name": "tIPFilterParamsProtocol",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIpProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsSourcePortValue1": {
+    "name": "tIPFilterParamsSourcePortValue1",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsSourcePortValue2": {
+    "name": "tIPFilterParamsSourcePortValue2",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsSourcePortOperator": {
+    "name": "tIPFilterParamsSourcePortOperator",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPortOperator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsDestPortValue1": {
+    "name": "tIPFilterParamsDestPortValue1",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsDestPortValue2": {
+    "name": "tIPFilterParamsDestPortValue2",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsDestPortOperator": {
+    "name": "tIPFilterParamsDestPortOperator",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPortOperator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsDSCP": {
+    "name": "tIPFilterParamsDSCP",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDSCPNameOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsFragment": {
+    "name": "tIPFilterParamsFragment",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemMatch",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsOptionPresent": {
+    "name": "tIPFilterParamsOptionPresent",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemMatch",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsIpOptionValue": {
+    "name": "tIPFilterParamsIpOptionValue",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIpOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsIpOptionMask": {
+    "name": "tIPFilterParamsIpOptionMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIpOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsMultipleOption": {
+    "name": "tIPFilterParamsMultipleOption",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemMatch",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsTcpSyn": {
+    "name": "tIPFilterParamsTcpSyn",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemMatch",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsTcpAck": {
+    "name": "tIPFilterParamsTcpAck",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemMatch",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsIcmpCode": {
+    "name": "tIPFilterParamsIcmpCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsIcmpType": {
+    "name": "tIPFilterParamsIcmpType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsCflowdSample": {
+    "name": "tIPFilterParamsCflowdSample",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsCflowdIfSample": {
+    "name": "tIPFilterParamsCflowdIfSample",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsForwardNHInterface": {
+    "name": "tIPFilterParamsForwardNHInterface",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsIngressHitCount": {
+    "name": "tIPFilterParamsIngressHitCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPFilterParamsEgressHitCount": {
+    "name": "tIPFilterParamsEgressHitCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPFilterParamsLogInstantiated": {
+    "name": "tIPFilterParamsLogInstantiated",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPFilterParamsForwardRedPlcy": {
+    "name": "tIPFilterParamsForwardRedPlcy",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsActiveDest": {
+    "name": "tIPFilterParamsActiveDest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPFilterParamsFwdSvcId": {
+    "name": "tIPFilterParamsFwdSvcId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxServId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPFilterParamsFwdSapPortId": {
+    "name": "tIPFilterParamsFwdSapPortId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsFwdSapEncapVal": {
+    "name": "tIPFilterParamsFwdSapEncapVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsFwdSdpBind": {
+    "name": "tIPFilterParamsFwdSdpBind",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpBindId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsTimeRangeName": {
+    "name": "tIPFilterParamsTimeRangeName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsTimeRangeState": {
+    "name": "tIPFilterParamsTimeRangeState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTimeRangeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPFilterParamsRedirectURL": {
+    "name": "tIPFilterParamsRedirectURL",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsSrcIpFullMask": {
+    "name": "tIPFilterParamsSrcIpFullMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsDestIpFullMask": {
+    "name": "tIPFilterParamsDestIpFullMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPFilterParamsIngrHitByteCount": {
+    "name": "tIPFilterParamsIngrHitByteCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPFilterParamsEgrHitByteCount": {
+    "name": "tIPFilterParamsEgrHitByteCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tMacFilterTable": {
+    "name": "tMacFilterTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tMacFilterEntry": {
+    "name": "tMacFilterEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tMacFilterId": {
+    "name": "tMacFilterId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TMACFilterID",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tMacFilterRowStatus": {
+    "name": "tMacFilterRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterScope": {
+    "name": "tMacFilterScope",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemScope",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "template",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterDescription": {
+    "name": "tMacFilterDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterDefaultAction": {
+    "name": "tMacFilterDefaultAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsTable": {
+    "name": "tMacFilterParamsTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tMacFilterParamsEntry": {
+    "name": "tMacFilterParamsEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tMacFilterParamsIndex": {
+    "name": "tMacFilterParamsIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TEntryId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tMacFilterParamsRowStatus": {
+    "name": "tMacFilterParamsRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsLogId": {
+    "name": "tMacFilterParamsLogId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterLogId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsDescription": {
+    "name": "tMacFilterParamsDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsAction": {
+    "name": "tMacFilterParamsAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterActionOrDefault",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsFrameType": {
+    "name": "tMacFilterParamsFrameType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFrameType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "e802dot3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsSrcMAC": {
+    "name": "tMacFilterParamsSrcMAC",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsSrcMACMask": {
+    "name": "tMacFilterParamsSrcMACMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsDstMAC": {
+    "name": "tMacFilterParamsDstMAC",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsDstMACMask": {
+    "name": "tMacFilterParamsDstMACMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsDot1pValue": {
+    "name": "tMacFilterParamsDot1pValue",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1PPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsDot1pMask": {
+    "name": "tMacFilterParamsDot1pMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1PPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsEtherType": {
+    "name": "tMacFilterParamsEtherType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsDsap": {
+    "name": "tMacFilterParamsDsap",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceAccessPoint",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsDsapMask": {
+    "name": "tMacFilterParamsDsapMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceAccessPoint",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsSsap": {
+    "name": "tMacFilterParamsSsap",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceAccessPoint",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsSsapMask": {
+    "name": "tMacFilterParamsSsapMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceAccessPoint",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsSnapPid": {
+    "name": "tMacFilterParamsSnapPid",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsSnapOui": {
+    "name": "tMacFilterParamsSnapOui",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "zero": 2,
+          "nonZero": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsIngressHitCount": {
+    "name": "tMacFilterParamsIngressHitCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tMacFilterParamsEgressHitCount": {
+    "name": "tMacFilterParamsEgressHitCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tMacFilterParamsLogInstantiated": {
+    "name": "tMacFilterParamsLogInstantiated",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tMacFilterParamsFwdSvcId": {
+    "name": "tMacFilterParamsFwdSvcId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxServId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tMacFilterParamsFwdSapPortId": {
+    "name": "tMacFilterParamsFwdSapPortId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsFwdSapEncapVal": {
+    "name": "tMacFilterParamsFwdSapEncapVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsFwdSdpBind": {
+    "name": "tMacFilterParamsFwdSdpBind",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpBindId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsTimeRangeName": {
+    "name": "tMacFilterParamsTimeRangeName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsTimeRangeState": {
+    "name": "tMacFilterParamsTimeRangeState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTimeRangeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tMacFilterParamsRedirectURL": {
+    "name": "tMacFilterParamsRedirectURL",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tMacFilterParamsIngrHitByteCount": {
+    "name": "tMacFilterParamsIngrHitByteCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tMacFilterParamsEgrHitByteCount": {
+    "name": "tMacFilterParamsEgrHitByteCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterLogTable": {
+    "name": "tFilterLogTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterLogEntry": {
+    "name": "tFilterLogEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterLogId": {
+    "name": "tFilterLogId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterLogId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterLogRowStatus": {
+    "name": "tFilterLogRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogDestination": {
+    "name": "tFilterLogDestination",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterLogDestination",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "memory",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogDescription": {
+    "name": "tFilterLogDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogMaxNumEntries": {
+    "name": "tFilterLogMaxNumEntries",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogSysLogId": {
+    "name": "tFilterLogSysLogId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogFileId": {
+    "name": "tFilterLogFileId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogStopOnFull": {
+    "name": "tFilterLogStopOnFull",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogEnabled": {
+    "name": "tFilterLogEnabled",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogSummaryEnabled": {
+    "name": "tFilterLogSummaryEnabled",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogSummaryCrit1": {
+    "name": "tFilterLogSummaryCrit1",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterLogSummaryCriterium",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "srcAddr",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterLogScalars": {
+    "name": "tFilterLogScalars",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.6",
+    "class": "objectidentity"
+  },
+  "tFilterLogMaxInstances": {
+    "name": "tFilterLogMaxInstances",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterLogInstances": {
+    "name": "tFilterLogInstances",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterLogBindings": {
+    "name": "tFilterLogBindings",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRedirectPolicyTable": {
+    "name": "tFilterRedirectPolicyTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRedirectPolicyEntry": {
+    "name": "tFilterRedirectPolicyEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterRedirectPolicy": {
+    "name": "tFilterRedirectPolicy",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRPRowStatus": {
+    "name": "tFilterRPRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRPDescription": {
+    "name": "tFilterRPDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRPAdminState": {
+    "name": "tFilterRPAdminState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "inService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRPActiveDest": {
+    "name": "tFilterRPActiveDest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRedirectDestTable": {
+    "name": "tFilterRedirectDestTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRedirectDestEntry": {
+    "name": "tFilterRedirectDestEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectPolicy",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectDest",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterRedirectDest": {
+    "name": "tFilterRedirectDest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRDRowStatus": {
+    "name": "tFilterRDRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRDDescription": {
+    "name": "tFilterRDDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRDAdminPriority": {
+    "name": "tFilterRDAdminPriority",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRDOperPriority": {
+    "name": "tFilterRDOperPriority",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRDAdminState": {
+    "name": "tFilterRDAdminState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "inService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRDOperState": {
+    "name": "tFilterRDOperState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRedirectSNMPTestTable": {
+    "name": "tFilterRedirectSNMPTestTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRedirectSNMPTestEntry": {
+    "name": "tFilterRedirectSNMPTestEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectPolicy",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectDest",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectSNMPTest",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterRedirectSNMPTest": {
+    "name": "tFilterRedirectSNMPTest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRSTRowStatus": {
+    "name": "tFilterRSTRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTOID": {
+    "name": "tFilterRSTOID",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTCommunity": {
+    "name": "tFilterRSTCommunity",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTSNMPVersion": {
+    "name": "tFilterRSTSNMPVersion",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpv1": 1,
+          "snmpv2c": 2,
+          "snmpv3": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "snmpv2c",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTInterval": {
+    "name": "tFilterRSTInterval",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTTimeout": {
+    "name": "tFilterRSTTimeout",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTDropCount": {
+    "name": "tFilterRSTDropCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTHoldDown": {
+    "name": "tFilterRSTHoldDown",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTHoldDownRemain": {
+    "name": "tFilterRSTHoldDownRemain",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastActionTime": {
+    "name": "tFilterRSTLastActionTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastOID": {
+    "name": "tFilterRSTLastOID",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastType": {
+    "name": "tFilterRSTLastType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "counter32": 1,
+          "unsigned32": 2,
+          "timeTicks": 3,
+          "integer32": 4,
+          "ipAddress": 5,
+          "octetString": 6,
+          "objectId": 7,
+          "counter64": 8,
+          "opaque": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastCounter32Val": {
+    "name": "tFilterRSTLastCounter32Val",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastUnsigned32Val": {
+    "name": "tFilterRSTLastUnsigned32Val",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastTimeTicksVal": {
+    "name": "tFilterRSTLastTimeTicksVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastInt32Val": {
+    "name": "tFilterRSTLastInt32Val",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastOctetStringVal": {
+    "name": "tFilterRSTLastOctetStringVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastIpAddressVal": {
+    "name": "tFilterRSTLastIpAddressVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastOidVal": {
+    "name": "tFilterRSTLastOidVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastCounter64Val": {
+    "name": "tFilterRSTLastCounter64Val",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastOpaqueVal": {
+    "name": "tFilterRSTLastOpaqueVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastAction": {
+    "name": "tFilterRSTLastAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTLastPrioChange": {
+    "name": "tFilterRSTLastPrioChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTNextRespIndex": {
+    "name": "tFilterRSTNextRespIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.12.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRedirectSNMPRespTable": {
+    "name": "tFilterRedirectSNMPRespTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRedirectSNMPRespEntry": {
+    "name": "tFilterRedirectSNMPRespEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectPolicy",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectDest",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectSNMPTest",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTRespId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterRSTRespId": {
+    "name": "tFilterRSTRespId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRSTRespRowStatus": {
+    "name": "tFilterRSTRespRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTRespAction": {
+    "name": "tFilterRSTRespAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "increase": 1,
+          "decrease": 2,
+          "disable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTRespPrioChange": {
+    "name": "tFilterRSTRespPrioChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTRespOID": {
+    "name": "tFilterRSTRespOID",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTRespType": {
+    "name": "tFilterRSTRespType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "counter32": 1,
+          "unsigned32": 2,
+          "timeTicks": 3,
+          "integer32": 4,
+          "ipAddress": 5,
+          "octetString": 6,
+          "objectId": 7,
+          "counter64": 8,
+          "opaque": 9
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTCounter32Val": {
+    "name": "tFilterRSTCounter32Val",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTUnsigned32Val": {
+    "name": "tFilterRSTUnsigned32Val",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTTimeTicksVal": {
+    "name": "tFilterRSTTimeTicksVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTInt32Val": {
+    "name": "tFilterRSTInt32Val",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTOctetStringVal": {
+    "name": "tFilterRSTOctetStringVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTIpAddressVal": {
+    "name": "tFilterRSTIpAddressVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTOidVal": {
+    "name": "tFilterRSTOidVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRSTCounter64Val": {
+    "name": "tFilterRSTCounter64Val",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRSTOpaqueVal": {
+    "name": "tFilterRSTOpaqueVal",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Opaque",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRedirectURLTestTable": {
+    "name": "tFilterRedirectURLTestTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRedirectURLTestEntry": {
+    "name": "tFilterRedirectURLTestEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectPolicy",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectDest",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectURLTest",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterRedirectURLTest": {
+    "name": "tFilterRedirectURLTest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRUTRowStatus": {
+    "name": "tFilterRUTRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTURL": {
+    "name": "tFilterRUTURL",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTHTTPVersion": {
+    "name": "tFilterRUTHTTPVersion",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTInterval": {
+    "name": "tFilterRUTInterval",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTTimeout": {
+    "name": "tFilterRUTTimeout",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTDropCount": {
+    "name": "tFilterRUTDropCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTHoldDown": {
+    "name": "tFilterRUTHoldDown",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTHoldDownRemain": {
+    "name": "tFilterRUTHoldDownRemain",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRUTLastActionTime": {
+    "name": "tFilterRUTLastActionTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRUTLastRetCode": {
+    "name": "tFilterRUTLastRetCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRUTLastAction": {
+    "name": "tFilterRUTLastAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRUTLastPrioChange": {
+    "name": "tFilterRUTLastPrioChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRedirectURLRespTable": {
+    "name": "tFilterRedirectURLRespTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRedirectURLRespEntry": {
+    "name": "tFilterRedirectURLRespEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectPolicy",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectDest",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectURLTest",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectURLLowRespCode",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectURLHighRespCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterRedirectURLLowRespCode": {
+    "name": "tFilterRedirectURLLowRespCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRedirectURLHighRespCode": {
+    "name": "tFilterRedirectURLHighRespCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRUTRespRowStatus": {
+    "name": "tFilterRUTRespRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTRespAction": {
+    "name": "tFilterRUTRespAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "increase": 1,
+          "decrease": 2,
+          "disable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRUTRespPrioChange": {
+    "name": "tFilterRUTRespPrioChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRedirectPingTestTable": {
+    "name": "tFilterRedirectPingTestTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tFilterRedirectPingTestEntry": {
+    "name": "tFilterRedirectPingTestEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectPolicy",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRedirectDest",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterRPTRowStatus": {
+    "name": "tFilterRPTRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRPTInterval": {
+    "name": "tFilterRPTInterval",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRPTTimeout": {
+    "name": "tFilterRPTTimeout",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRPTDropCount": {
+    "name": "tFilterRPTDropCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRPTHoldDown": {
+    "name": "tFilterRPTHoldDown",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tFilterRPTHoldDownRemain": {
+    "name": "tFilterRPTHoldDownRemain",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRPTLastActionTime": {
+    "name": "tFilterRPTLastActionTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterRPTLastAction": {
+    "name": "tFilterRPTLastAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tAutoIPFilterEntryTable": {
+    "name": "tAutoIPFilterEntryTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "tAutoIPFilterEntry": {
+    "name": "tAutoIPFilterEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tAutoIPFilterId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tAutoIPFilterEntrySourceIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tAutoIPFilterId": {
+    "name": "tAutoIPFilterId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterID",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "tAutoIPFilterEntrySourceIpAddr": {
+    "name": "tAutoIPFilterEntrySourceIpAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "tAutoIPFilterEntrySourceIpMask": {
+    "name": "tAutoIPFilterEntrySourceIpMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "tFilterDomainLastChanged": {
+    "name": "tFilterDomainLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPv6FilterTable": {
+    "name": "tIPv6FilterTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tIPv6FilterEntry": {
+    "name": "tIPv6FilterEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tIPv6FilterId": {
+    "name": "tIPv6FilterId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIPFilterID",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tIPv6FilterRowStatus": {
+    "name": "tIPv6FilterRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterScope": {
+    "name": "tIPv6FilterScope",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemScope",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "template",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterDescription": {
+    "name": "tIPv6FilterDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterDefaultAction": {
+    "name": "tIPv6FilterDefaultAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsTable": {
+    "name": "tIPv6FilterParamsTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tIPv6FilterParamsEntry": {
+    "name": "tIPv6FilterParamsEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tIPv6FilterParamsIndex": {
+    "name": "tIPv6FilterParamsIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TEntryId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tIPv6FilterParamsRowStatus": {
+    "name": "tIPv6FilterParamsRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsLogId": {
+    "name": "tIPv6FilterParamsLogId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterLogId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsDescription": {
+    "name": "tIPv6FilterParamsDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsAction": {
+    "name": "tIPv6FilterParamsAction",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TFilterActionOrDefault",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsForwardNH": {
+    "name": "tIPv6FilterParamsForwardNH",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000000000000000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsForwardNHIndirect": {
+    "name": "tIPv6FilterParamsForwardNHIndirect",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsRemarkDSCP": {
+    "name": "tIPv6FilterParamsRemarkDSCP",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDSCPFilterActionValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsRemarkDSCPMask": {
+    "name": "tIPv6FilterParamsRemarkDSCPMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDSCPFilterActionValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsRemarkDot1p": {
+    "name": "tIPv6FilterParamsRemarkDot1p",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1PPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsSourceIpAddr": {
+    "name": "tIPv6FilterParamsSourceIpAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000000000000000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsSourceIpMask": {
+    "name": "tIPv6FilterParamsSourceIpMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsDestinationIpAddr": {
+    "name": "tIPv6FilterParamsDestinationIpAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000000000000000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsDestinationIpMask": {
+    "name": "tIPv6FilterParamsDestinationIpMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsNextHeader": {
+    "name": "tIPv6FilterParamsNextHeader",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIpProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsSourcePortValue1": {
+    "name": "tIPv6FilterParamsSourcePortValue1",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsSourcePortValue2": {
+    "name": "tIPv6FilterParamsSourcePortValue2",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsSourcePortOperator": {
+    "name": "tIPv6FilterParamsSourcePortOperator",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPortOperator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsDestPortValue1": {
+    "name": "tIPv6FilterParamsDestPortValue1",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsDestPortValue2": {
+    "name": "tIPv6FilterParamsDestPortValue2",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsDestPortOperator": {
+    "name": "tIPv6FilterParamsDestPortOperator",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTcpUdpPortOperator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsDSCP": {
+    "name": "tIPv6FilterParamsDSCP",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDSCPNameOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsTcpSyn": {
+    "name": "tIPv6FilterParamsTcpSyn",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemMatch",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsTcpAck": {
+    "name": "tIPv6FilterParamsTcpAck",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemMatch",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsIcmpCode": {
+    "name": "tIPv6FilterParamsIcmpCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsIcmpType": {
+    "name": "tIPv6FilterParamsIcmpType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsCflowdSample": {
+    "name": "tIPv6FilterParamsCflowdSample",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsCflowdIfSample": {
+    "name": "tIPv6FilterParamsCflowdIfSample",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsForwardNHInterface": {
+    "name": "tIPv6FilterParamsForwardNHInterface",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsIngressHitCount": {
+    "name": "tIPv6FilterParamsIngressHitCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPv6FilterParamsEgressHitCount": {
+    "name": "tIPv6FilterParamsEgressHitCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPv6FilterParamsLogInstantiated": {
+    "name": "tIPv6FilterParamsLogInstantiated",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPv6FilterParamsForwardRedPlcy": {
+    "name": "tIPv6FilterParamsForwardRedPlcy",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsActiveDest": {
+    "name": "tIPv6FilterParamsActiveDest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPv6FilterParamsTimeRangeName": {
+    "name": "tIPv6FilterParamsTimeRangeName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tIPv6FilterParamsTimeRangeState": {
+    "name": "tIPv6FilterParamsTimeRangeState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TTimeRangeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPv6FilterParamsIngrHitByteCount": {
+    "name": "tIPv6FilterParamsIngrHitByteCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tIPv6FilterParamsEgrHitByteCount": {
+    "name": "tIPv6FilterParamsEgrHitByteCount",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.19.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tFilterPBRDropReason": {
+    "name": "tFilterPBRDropReason",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidInterface": 0,
+          "interfaceDown": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tFilterParmRow": {
+    "name": "tFilterParmRow",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tFilterAlarmDescription": {
+    "name": "tFilterAlarmDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.21.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tIPFilterPBRPacketsDrop": {
+    "name": "tIPFilterPBRPacketsDrop",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.21.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNHInterface"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterPBRDropReason"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterEntryActivationFailed": {
+    "name": "tFilterEntryActivationFailed",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.21.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterParmRow"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterAlarmDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterEntryActivationRestored": {
+    "name": "tFilterEntryActivationRestored",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.21.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterParmRow"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterAlarmDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterMIBCompliances": {
+    "name": "tFilterMIBCompliances",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.1",
+    "class": "objectidentity"
+  },
+  "tFilterMIBGroups": {
+    "name": "tFilterMIBGroups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2",
+    "class": "objectidentity"
+  },
+  "tFilter7450V4v0Compliance": {
+    "name": "tFilter7450V4v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tFilterScalarGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPFilterV4v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tMacFilterV4v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterRedirectPolicyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterNotificationsGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tFilter7750V4v0Compliance": {
+    "name": "tFilter7750V4v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tFilterScalarGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPFilterV4v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tMacFilterV4v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterRedirectPolicyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterNotificationsGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPv6FilterV4v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tFilter7450V5v0Compliance": {
+    "name": "tFilter7450V5v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tFilterScalarGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPFilterV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tMacFilterV4v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterRedirectPolicyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterNotificationsGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tTodPolicies77450V5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tToDPoliciesV5v0NotifyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tFilter77x0V5v0Compliance": {
+    "name": "tFilter77x0V5v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tFilterScalarGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPFilterV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tMacFilterV4v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterRedirectPolicyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterNotificationsGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPv6FilterV4v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tTodPolicies77x0V5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tToDPoliciesV5v0NotifyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tFilter7450V6v0Compliance": {
+    "name": "tFilter7450V6v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tFilterScalarGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPFilterV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tMacFilterV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterRedirectPolicyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterNotificationsGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tTodPolicies77450V5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tToDPoliciesV5v0NotifyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilter77x0V6v0Compliance": {
+    "name": "tFilter77x0V6v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tFilterScalarGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPFilterV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tMacFilterV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterRedirectPolicyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterNotificationsGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tIPv6FilterV6v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tTodPolicies77x0V5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tToDPoliciesV5v0NotifyGroup",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      },
+      {
+        "object": "tFilterLogV5v0Group",
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterLogGroup": {
+    "name": "tFilterLogGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogDestination"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogMaxNumEntries"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogSysLogId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogFileId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogStopOnFull"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogEnabled"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogMaxInstances"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogInstances"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogBindings"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterRedirectPolicyGroup": {
+    "name": "tFilterRedirectPolicyGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPActiveDest"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRDRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRDDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRDAdminPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRDOperPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRDAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRDOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTOID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTCommunity"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTSNMPVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTDropCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTHoldDown"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTHoldDownRemain"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastActionTime"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastOID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastCounter32Val"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastUnsigned32Val"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastTimeTicksVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastInt32Val"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastOctetStringVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastIpAddressVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastOidVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastCounter64Val"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastOpaqueVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTLastPrioChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTNextRespIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTRespRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTRespAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTRespPrioChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTRespOID"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTRespType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTCounter32Val"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTUnsigned32Val"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTTimeTicksVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTInt32Val"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTOctetStringVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTIpAddressVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTOidVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTCounter64Val"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRSTOpaqueVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTURL"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTHTTPVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTDropCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTHoldDown"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTHoldDownRemain"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTLastActionTime"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTLastRetCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTLastAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTLastPrioChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTRespRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTRespAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRUTRespPrioChange"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPTRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPTInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPTTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPTDropCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPTHoldDown"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPTHoldDownRemain"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPTLastActionTime"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterRPTLastAction"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterScalarGroup": {
+    "name": "tFilterScalarGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterDomainLastChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterNotificationObjGroup": {
+    "name": "tFilterNotificationObjGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterPBRDropReason"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tFilterNotificationsGroup": {
+    "name": "tFilterNotificationsGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterPBRPacketsDrop"
+      }
+    ],
+    "status": "current"
+  },
+  "tIPv6FilterV4v0Group": {
+    "name": "tIPv6FilterV4v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterScope"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterDefaultAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsLogId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsForwardNH"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsForwardNHIndirect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsRemarkDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsRemarkDSCPMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsRemarkDot1p"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourceIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourceIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestinationIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestinationIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsNextHeader"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourcePortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourcePortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourcePortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestPortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestPortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestPortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsTcpSyn"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsTcpAck"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsIcmpCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsIcmpType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsCflowdSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsCflowdIfSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsForwardNHInterface"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsIngressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsEgressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsLogInstantiated"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsForwardRedPlcy"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsActiveDest"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tIPFilterV4v0Group": {
+    "name": "tIPFilterV4v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterScope"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterDefaultAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsLogId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNH"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNHIndirect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDSCPMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDot1p"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourceIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourceIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestinationIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestinationIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsProtocol"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFragment"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsOptionPresent"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIpOptionValue"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIpOptionMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsMultipleOption"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTcpSyn"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTcpAck"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIcmpCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIcmpType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsCflowdSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsCflowdIfSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNHInterface"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIngressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsEgressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsLogInstantiated"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardRedPlcy"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsActiveDest"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSvcId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSapPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSapEncapVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSdpBind"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRedirectURL"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tMacFilterV4v0Group": {
+    "name": "tMacFilterV4v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterScope"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterDefaultAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsLogId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFrameType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSrcMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSrcMACMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDstMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDstMACMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDot1pValue"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDot1pMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsEtherType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDsap"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDsapMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSsap"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSsapMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSnapPid"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSnapOui"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsIngressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsEgressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsLogInstantiated"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFwdSvcId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFwdSapPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFwdSapEncapVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFwdSdpBind"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsRedirectURL"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tTodPoliciesV4v0Group": {
+    "name": "tTodPoliciesV4v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTimeRangeName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTimeRangeState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsTimeRangeName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsTimeRangeState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsTimeRangeName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsTimeRangeState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tmnxFilterObsoleteGroup": {
+    "name": "tmnxFilterObsoleteGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tAutoIPFilterEntrySourceIpMask"
+      }
+    ],
+    "status": "current"
+  },
+  "tToDPoliciesV5v0NotifyGroup": {
+    "name": "tToDPoliciesV5v0NotifyGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterEntryActivationFailed"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterEntryActivationRestored"
+      }
+    ],
+    "status": "current"
+  },
+  "tIPFilterV5v0Group": {
+    "name": "tIPFilterV5v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterScope"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterDefaultAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsLogId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNH"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNHIndirect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDSCPMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDot1p"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourceIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourceIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestinationIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestinationIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsProtocol"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFragment"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsOptionPresent"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIpOptionValue"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIpOptionMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsMultipleOption"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTcpSyn"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTcpAck"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIcmpCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIcmpType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsCflowdSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsCflowdIfSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNHInterface"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIngressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsEgressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsLogInstantiated"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardRedPlcy"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsActiveDest"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSvcId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSapPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSapEncapVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSdpBind"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRedirectURL"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSrcIpFullMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestIpFullMask"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tFilterLogV5v0Group": {
+    "name": "tFilterLogV5v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogSummaryEnabled"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterLogSummaryCrit1"
+      }
+    ],
+    "status": "current"
+  },
+  "tTodPolicies77450V5v0Group": {
+    "name": "tTodPolicies77450V5v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTimeRangeName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTimeRangeState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsTimeRangeName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsTimeRangeState"
+      }
+    ],
+    "status": "current"
+  },
+  "tTodPolicies77x0V5v0Group": {
+    "name": "tTodPolicies77x0V5v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTimeRangeName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTimeRangeState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsTimeRangeName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsTimeRangeState"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsTimeRangeName"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsTimeRangeState"
+      }
+    ],
+    "status": "current"
+  },
+  "tFilterNotificationObjV5v0Group": {
+    "name": "tFilterNotificationObjV5v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterPBRDropReason"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterParmRow"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tFilterAlarmDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "tIPFilterV6v0Group": {
+    "name": "tIPFilterV6v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterScope"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterDefaultAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsLogId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNH"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNHIndirect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDSCPMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRemarkDot1p"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourceIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourceIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestinationIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestinationIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsProtocol"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSourcePortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestPortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFragment"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsOptionPresent"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIpOptionValue"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIpOptionMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsMultipleOption"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTcpSyn"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsTcpAck"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIcmpCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIcmpType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsCflowdSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsCflowdIfSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardNHInterface"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIngressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsEgressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsLogInstantiated"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsForwardRedPlcy"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsActiveDest"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSvcId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSapPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSapEncapVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsFwdSdpBind"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsRedirectURL"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsSrcIpFullMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsDestIpFullMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsIngrHitByteCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPFilterParamsEgrHitByteCount"
+      }
+    ],
+    "status": "current"
+  },
+  "tMacFilterV6v0Group": {
+    "name": "tMacFilterV6v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterScope"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterDefaultAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsLogId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFrameType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSrcMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSrcMACMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDstMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDstMACMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDot1pValue"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDot1pMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsEtherType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDsap"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsDsapMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSsap"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSsapMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSnapPid"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsSnapOui"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsIngressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsEgressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsLogInstantiated"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFwdSvcId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFwdSapPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFwdSapEncapVal"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsFwdSdpBind"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsRedirectURL"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsIngrHitByteCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tMacFilterParamsEgrHitByteCount"
+      }
+    ],
+    "status": "current"
+  },
+  "tIPv6FilterV6v0Group": {
+    "name": "tIPv6FilterV6v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.21.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterScope"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterDefaultAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsLogId"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsAction"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsForwardNH"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsForwardNHIndirect"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsRemarkDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsRemarkDSCPMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsRemarkDot1p"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourceIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourceIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestinationIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestinationIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsNextHeader"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourcePortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourcePortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsSourcePortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestPortValue1"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestPortValue2"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDestPortOperator"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsDSCP"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsTcpSyn"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsTcpAck"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsIcmpCode"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsIcmpType"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsCflowdSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsCflowdIfSample"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsForwardNHInterface"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsIngressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsEgressHitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsLogInstantiated"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsForwardRedPlcy"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsActiveDest"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsIngrHitByteCount"
+      },
+      {
+        "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB",
+        "object": "tIPv6FilterParamsEgrHitByteCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-TIMETRA-FILTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-TIMETRA-FILTER-MIB"
+  }
+}

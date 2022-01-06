@@ -1,0 +1,1070 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlSyslog": {
+    "name": "rlSyslog",
+    "oid": "1.3.6.1.4.1.89.82",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-12 00:00",
+        "description": "Editorial changes to support new MIB compilers."
+      },
+      {
+        "revision": "2003-09-22 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "RlSyslogSeverity": {
+    "name": "RlSyslogSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7,
+          "notActive": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlSyslogPrivate": {
+    "name": "rlSyslogPrivate",
+    "oid": "1.3.6.1.4.1.89.82.2",
+    "class": "objectidentity"
+  },
+  "rlSyslogGlobalEnable": {
+    "name": "rlSyslogGlobalEnable",
+    "oid": "1.3.6.1.4.1.89.82.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogMinLogToConsoleSeverity": {
+    "name": "rlSyslogMinLogToConsoleSeverity",
+    "oid": "1.3.6.1.4.1.89.82.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSyslogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "info",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogMinLogToFileSeverity": {
+    "name": "rlSyslogMinLogToFileSeverity",
+    "oid": "1.3.6.1.4.1.89.82.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSyslogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "error",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogMinLogToCacheSeverity": {
+    "name": "rlSyslogMinLogToCacheSeverity",
+    "oid": "1.3.6.1.4.1.89.82.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSyslogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "info",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogClearLogfile": {
+    "name": "rlSyslogClearLogfile",
+    "oid": "1.3.6.1.4.1.89.82.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogClearCache": {
+    "name": "rlSyslogClearCache",
+    "oid": "1.3.6.1.4.1.89.82.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogMibVersion": {
+    "name": "rlSyslogMibVersion",
+    "oid": "1.3.6.1.4.1.89.82.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogTable": {
+    "name": "rlSyslogLogTable",
+    "oid": "1.3.6.1.4.1.89.82.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSyslogLogEntry": {
+    "name": "rlSyslogLogEntry",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-SYSLOG-MIB",
+        "object": "rlSyslogLogCounter",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSyslogLogCounter": {
+    "name": "rlSyslogLogCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogDateTime": {
+    "name": "rlSyslogLogDateTime",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogAppMnemonic": {
+    "name": "rlSyslogLogAppMnemonic",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogSeverity": {
+    "name": "rlSyslogLogSeverity",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSyslogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogMessageMnemonic": {
+    "name": "rlSyslogLogMessageMnemonic",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogText1": {
+    "name": "rlSyslogLogText1",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogText2": {
+    "name": "rlSyslogLogText2",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogText3": {
+    "name": "rlSyslogLogText3",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogText4": {
+    "name": "rlSyslogLogText4",
+    "oid": "1.3.6.1.4.1.89.82.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheTable": {
+    "name": "rlSyslogLogCacheTable",
+    "oid": "1.3.6.1.4.1.89.82.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSyslogLogCacheEntry": {
+    "name": "rlSyslogLogCacheEntry",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-SYSLOG-MIB",
+        "object": "rlSyslogLogCacheCounter",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSyslogLogCacheCounter": {
+    "name": "rlSyslogLogCacheCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheDateTime": {
+    "name": "rlSyslogLogCacheDateTime",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheAppMnemonic": {
+    "name": "rlSyslogLogCacheAppMnemonic",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheSeverity": {
+    "name": "rlSyslogLogCacheSeverity",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSyslogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheMessageMnemonic": {
+    "name": "rlSyslogLogCacheMessageMnemonic",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheText1": {
+    "name": "rlSyslogLogCacheText1",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheText2": {
+    "name": "rlSyslogLogCacheText2",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheText3": {
+    "name": "rlSyslogLogCacheText3",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLogCacheText4": {
+    "name": "rlSyslogLogCacheText4",
+    "oid": "1.3.6.1.4.1.89.82.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogConsoleMessagesIgnored": {
+    "name": "rlSyslogConsoleMessagesIgnored",
+    "oid": "1.3.6.1.4.1.89.82.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogFileMessagesIgnored": {
+    "name": "rlSyslogFileMessagesIgnored",
+    "oid": "1.3.6.1.4.1.89.82.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogFileMessagesLogged": {
+    "name": "rlSyslogFileMessagesLogged",
+    "oid": "1.3.6.1.4.1.89.82.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogCacheTotalMessages": {
+    "name": "rlSyslogCacheTotalMessages",
+    "oid": "1.3.6.1.4.1.89.82.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogAggregationEnable": {
+    "name": "rlSyslogAggregationEnable",
+    "oid": "1.3.6.1.4.1.89.82.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogAggregationAgingTime": {
+    "name": "rlSyslogAggregationAgingTime",
+    "oid": "1.3.6.1.4.1.89.82.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogMinLogToWebSeverity": {
+    "name": "rlSyslogMinLogToWebSeverity",
+    "oid": "1.3.6.1.4.1.89.82.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSyslogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "info",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogAlarmFlag": {
+    "name": "rlSyslogAlarmFlag",
+    "oid": "1.3.6.1.4.1.89.82.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogOriginId": {
+    "name": "rlSyslogOriginId",
+    "oid": "1.3.6.1.4.1.89.82.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "hostname": 2,
+          "ip": 3,
+          "ipv6": 4,
+          "string": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogOriginIdString": {
+    "name": "rlSyslogOriginIdString",
+    "oid": "1.3.6.1.4.1.89.82.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogHeaderSendingEnabled": {
+    "name": "rlSyslogHeaderSendingEnabled",
+    "oid": "1.3.6.1.4.1.89.82.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogPhaseOneTests": {
+    "name": "rlSyslogPhaseOneTests",
+    "oid": "1.3.6.1.4.1.89.82.3",
+    "class": "objectidentity"
+  },
+  "rlSyslogPhaseOneTestGenerator": {
+    "name": "rlSyslogPhaseOneTestGenerator",
+    "oid": "1.3.6.1.4.1.89.82.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "successfulRegistration": 11,
+          "regTheSameComponentTwice": 12,
+          "regWithInvalidComponentID": 13,
+          "regWithInvalidApplicationID": 14,
+          "regWithInvalidMessageString": 15,
+          "regWithInvalidMessageList": 16,
+          "regWithInvalidApplicationList": 17,
+          "successfulLoggingWithNoParams": 21,
+          "logWithUnregisteredComponentID": 22,
+          "logWithInvalidComponentID": 23,
+          "logWithBadApplicationID": 24,
+          "logWithBadMessageID": 25,
+          "paramFormatting": 31,
+          "insufficientParams": 32,
+          "incorrectParams": 33,
+          "tooManyParams": 34,
+          "oversizedParams": 35,
+          "trapParams": 36,
+          "successfulFatalError": 41,
+          "fatalErrorThroughNonFatalInterface": 42,
+          "nonFatalErrorThroughFatalInterface": 43,
+          "nestedFatalErrors": 47,
+          "snmpAccessToLongMessage": 62
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityTable": {
+    "name": "rlSyslogCountersPerSeverityTable",
+    "oid": "1.3.6.1.4.1.89.82.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityEntry": {
+    "name": "rlSyslogCountersPerSeverityEntry",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-SYSLOG-MIB",
+        "object": "rlSyslogCountersPerSeverityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityIndex": {
+    "name": "rlSyslogCountersPerSeverityIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityEmergencyCounter": {
+    "name": "rlSyslogCountersPerSeverityEmergencyCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityAlertCounter": {
+    "name": "rlSyslogCountersPerSeverityAlertCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityCriticalCounter": {
+    "name": "rlSyslogCountersPerSeverityCriticalCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityErrorCounter": {
+    "name": "rlSyslogCountersPerSeverityErrorCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityWarningCounter": {
+    "name": "rlSyslogCountersPerSeverityWarningCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityNoticeCounter": {
+    "name": "rlSyslogCountersPerSeverityNoticeCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityInfoCounter": {
+    "name": "rlSyslogCountersPerSeverityInfoCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogCountersPerSeverityDebugCounter": {
+    "name": "rlSyslogCountersPerSeverityDebugCounter",
+    "oid": "1.3.6.1.4.1.89.82.2.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityTable": {
+    "name": "rlSyslogLastIndexPerSeverityTable",
+    "oid": "1.3.6.1.4.1.89.82.2.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityEntry": {
+    "name": "rlSyslogLastIndexPerSeverityEntry",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-SYSLOG-MIB",
+        "object": "rlSyslogLastIndexPerSeverityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityIndex": {
+    "name": "rlSyslogLastIndexPerSeverityIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityEmergencyIndex": {
+    "name": "rlSyslogLastIndexPerSeverityEmergencyIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityAlertIndex": {
+    "name": "rlSyslogLastIndexPerSeverityAlertIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityCriticalIndex": {
+    "name": "rlSyslogLastIndexPerSeverityCriticalIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityErrorIndex": {
+    "name": "rlSyslogLastIndexPerSeverityErrorIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityWarningIndex": {
+    "name": "rlSyslogLastIndexPerSeverityWarningIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityNoticeIndex": {
+    "name": "rlSyslogLastIndexPerSeverityNoticeIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityInfoIndex": {
+    "name": "rlSyslogLastIndexPerSeverityInfoIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSyslogLastIndexPerSeverityDebugIndex": {
+    "name": "rlSyslogLastIndexPerSeverityDebugIndex",
+    "oid": "1.3.6.1.4.1.89.82.2.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-SYSLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Dell-SYSLOG-MIB"
+  }
+}

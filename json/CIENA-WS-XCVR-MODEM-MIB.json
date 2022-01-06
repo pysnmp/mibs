@@ -1,0 +1,897 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsConfig"
+    ],
+    "CIENA-WS-TYPEDEFS-MIB": [
+      "XcvrId",
+      "YesNoEnum",
+      "EnabledDisabledEnum",
+      "Decimal2Dig"
+    ],
+    "CIENA-WS-XCVR-MIB": [
+      "cwsXcvrVendorDiagnosticMonitoringEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsXcvrModemMIB": {
+    "name": "cienaWsXcvrModemMIB",
+    "oid": "1.3.6.1.4.1.1271.3.4.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-03-02 00:00",
+        "description": "Waveserver Release 1.4 Aligned MIB files to respect YANG read/write status."
+      },
+      {
+        "revision": "2016-12-12 00:00",
+        "description": "Waveserver Rel 1.3"
+      },
+      {
+        "revision": "2016-06-14 00:00",
+        "description": "Waveserver Rel 1.2 revised. Major restructuring of this YANG module."
+      },
+      {
+        "revision": "2016-03-03 00:00",
+        "description": "Waveserver Rel 1.1 revised. Added leaf 'edfa' to 'modem-transmitter-technology' container."
+      },
+      {
+        "revision": "2015-02-25 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "cwsXcvrAugXcvrModemVendorDiagnosticMonitoringTable": {
+    "name": "cwsXcvrAugXcvrModemVendorDiagnosticMonitoringTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry": {
+    "name": "cwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry",
+      "module": "CIENA-WS-XCVR-MODEM-MIB",
+      "object": "cwsXcvrVendorDiagnosticMonitoringEntry"
+    },
+    "status": "current"
+  },
+  "cwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport": {
+    "name": "cwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement": {
+    "name": "cwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyTable": {
+    "name": "cwsXcvrModemTransmitterTechnologyTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyEntry": {
+    "name": "cwsXcvrModemTransmitterTechnologyEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyTableSnmpKey": {
+    "name": "cwsXcvrModemTransmitterTechnologyTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyWavelengthControl": {
+    "name": "cwsXcvrModemTransmitterTechnologyWavelengthControl",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyTunable": {
+    "name": "cwsXcvrModemTransmitterTechnologyTunable",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyWavelengthMin": {
+    "name": "cwsXcvrModemTransmitterTechnologyWavelengthMin",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyWavelengthMax": {
+    "name": "cwsXcvrModemTransmitterTechnologyWavelengthMax",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyWavelengthTolerance": {
+    "name": "cwsXcvrModemTransmitterTechnologyWavelengthTolerance",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyFrequencyMin": {
+    "name": "cwsXcvrModemTransmitterTechnologyFrequencyMin",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyFrequencyMax": {
+    "name": "cwsXcvrModemTransmitterTechnologyFrequencyMax",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyTxDispersionMin": {
+    "name": "cwsXcvrModemTransmitterTechnologyTxDispersionMin",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyTxDispersionMax": {
+    "name": "cwsXcvrModemTransmitterTechnologyTxDispersionMax",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransmitterTechnologyEdfa": {
+    "name": "cwsXcvrModemTransmitterTechnologyEdfa",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemModulationSupportTable": {
+    "name": "cwsXcvrModemModulationSupportTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemModulationSupportEntry": {
+    "name": "cwsXcvrModemModulationSupportEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemModulationSupportTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrModemModulationSupportTableSnmpKey": {
+    "name": "cwsXcvrModemModulationSupportTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemModulationSupportModulation16qam": {
+    "name": "cwsXcvrModemModulationSupportModulation16qam",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemModulationSupportModulationQpsk": {
+    "name": "cwsXcvrModemModulationSupportModulationQpsk",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemModulationSupportModulationBpsk": {
+    "name": "cwsXcvrModemModulationSupportModulationBpsk",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemModulationSupportModulation8qam": {
+    "name": "cwsXcvrModemModulationSupportModulation8qam",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransportProtocolsTable": {
+    "name": "cwsXcvrModemTransportProtocolsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemTransportProtocolsEntry": {
+    "name": "cwsXcvrModemTransportProtocolsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransportProtocolsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrModemTransportProtocolsTableSnmpKey": {
+    "name": "cwsXcvrModemTransportProtocolsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemTransportProtocolsOtnBookended": {
+    "name": "cwsXcvrModemTransportProtocolsOtnBookended",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransportProtocolsOtnInterworking": {
+    "name": "cwsXcvrModemTransportProtocolsOtnInterworking",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemTransportProtocolsEthernet": {
+    "name": "cwsXcvrModemTransportProtocolsEthernet",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportTable": {
+    "name": "cwsXcvrModemLineSystemSupportTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportEntry": {
+    "name": "cwsXcvrModemLineSystemSupportEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemLineSystemSupportTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportTableSnmpKey": {
+    "name": "cwsXcvrModemLineSystemSupportTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportColoured": {
+    "name": "cwsXcvrModemLineSystemSupportColoured",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportColourless": {
+    "name": "cwsXcvrModemLineSystemSupportColourless",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportContentionless": {
+    "name": "cwsXcvrModemLineSystemSupportContentionless",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportCoherentSelectColoured": {
+    "name": "cwsXcvrModemLineSystemSupportCoherentSelectColoured",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportCoherentSelectColourless": {
+    "name": "cwsXcvrModemLineSystemSupportCoherentSelectColourless",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemLineSystemSupportThirdParty": {
+    "name": "cwsXcvrModemLineSystemSupportThirdParty",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusTable": {
+    "name": "cwsXcvrModemEquipmentStatusTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusEntry": {
+    "name": "cwsXcvrModemEquipmentStatusEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemEquipmentStatusTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusTableSnmpKey": {
+    "name": "cwsXcvrModemEquipmentStatusTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusTransmitterState": {
+    "name": "cwsXcvrModemEquipmentStatusTransmitterState",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusEquipmentOutOfSpec": {
+    "name": "cwsXcvrModemEquipmentStatusEquipmentOutOfSpec",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusEquipmentFailure": {
+    "name": "cwsXcvrModemEquipmentStatusEquipmentFailure",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusDataLinkSuspect": {
+    "name": "cwsXcvrModemEquipmentStatusDataLinkSuspect",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusCommsLinkSuspect": {
+    "name": "cwsXcvrModemEquipmentStatusCommsLinkSuspect",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusClockSuspect": {
+    "name": "cwsXcvrModemEquipmentStatusClockSuspect",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrModemEquipmentStatusLossOfSynchronizationTick": {
+    "name": "cwsXcvrModemEquipmentStatusLossOfSynchronizationTick",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "YesNoEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaWsXcvrModemObjects": {
+    "name": "cienaWsXcvrModemObjects",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.1",
+    "class": "objectidentity"
+  },
+  "cienaWsXcvrModemConformance": {
+    "name": "cienaWsXcvrModemConformance",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.2",
+    "class": "objectidentity"
+  },
+  "cienaWsXcvrModemGroups": {
+    "name": "cienaWsXcvrModemGroups",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.2.1",
+    "class": "objectidentity"
+  },
+  "cienaWsXcvrModemGroup": {
+    "name": "cienaWsXcvrModemGroup",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyWavelengthControl"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyTunable"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyWavelengthMin"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyWavelengthMax"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyWavelengthTolerance"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyFrequencyMin"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyFrequencyMax"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyTxDispersionMin"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyTxDispersionMax"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransmitterTechnologyEdfa"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemModulationSupportModulation16qam"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemModulationSupportModulationQpsk"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemModulationSupportModulationBpsk"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemModulationSupportModulation8qam"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransportProtocolsOtnBookended"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransportProtocolsOtnInterworking"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemTransportProtocolsEthernet"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemLineSystemSupportColoured"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemLineSystemSupportColourless"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemLineSystemSupportContentionless"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemLineSystemSupportCoherentSelectColoured"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemLineSystemSupportCoherentSelectColourless"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemLineSystemSupportThirdParty"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemEquipmentStatusTransmitterState"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemEquipmentStatusEquipmentOutOfSpec"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemEquipmentStatusEquipmentFailure"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemEquipmentStatusDataLinkSuspect"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemEquipmentStatusCommsLinkSuspect"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemEquipmentStatusClockSuspect"
+      },
+      {
+        "module": "CIENA-WS-XCVR-MODEM-MIB",
+        "object": "cwsXcvrModemEquipmentStatusLossOfSynchronizationTick"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaWsXcvrModemCompliances": {
+    "name": "cienaWsXcvrModemCompliances",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.2.2",
+    "class": "objectidentity"
+  },
+  "cienaWsXcvrModemCompliance": {
+    "name": "cienaWsXcvrModemCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.4.16.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cienaWsXcvrModemGroup",
+        "module": "CIENA-WS-XCVR-MODEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-MODEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-XCVR-MODEM-MIB"
+  }
+}

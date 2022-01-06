@@ -1,0 +1,3397 @@
+{
+  "imports": {
+    "class": "imports",
+    "LIEBERT-GP-REGISTRATION-MIB": [
+      "lgpPdu",
+      "liebertPduModuleReg"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "liebertGlobalProductsPduModule": {
+    "name": "liebertGlobalProductsPduModule",
+    "oid": "1.3.6.1.4.1.476.1.42.1.9.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-02 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "lgpPduGlobalData": {
+    "name": "lgpPduGlobalData",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPduEntrySWOverTemperatureProtectionConfig": {
+    "name": "lgpPduEntrySWOverTemperatureProtectionConfig",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 0,
+          "array": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduEntrySWOverTemperatureProtectionDelay": {
+    "name": "lgpPduEntrySWOverTemperatureProtectionDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduCluster": {
+    "name": "lgpPduCluster",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPduGrpSysStatus": {
+    "name": "lgpPduGrpSysStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduTableCount": {
+    "name": "lgpPduTableCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduTable": {
+    "name": "lgpPduTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduEntry": {
+    "name": "lgpPduEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduEntryIndex": {
+    "name": "lgpPduEntryIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduEntryId": {
+    "name": "lgpPduEntryId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduEntryUsrLabel": {
+    "name": "lgpPduEntryUsrLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduEntrySysAssignLabel": {
+    "name": "lgpPduEntrySysAssignLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduEntryPositionRelative": {
+    "name": "lgpPduEntryPositionRelative",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduEntrySysStatus": {
+    "name": "lgpPduEntrySysStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduEntryUsrTag1": {
+    "name": "lgpPduEntryUsrTag1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduEntryUsrTag2": {
+    "name": "lgpPduEntryUsrTag2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduEntrySerialNumber": {
+    "name": "lgpPduEntrySerialNumber",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduEntryRbCount": {
+    "name": "lgpPduEntryRbCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduEntrySWOverCurrentProtection": {
+    "name": "lgpPduEntrySWOverCurrentProtection",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.20.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPowerSource": {
+    "name": "lgpPduPowerSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPduPsTableCount": {
+    "name": "lgpPduPsTableCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsTable": {
+    "name": "lgpPduPsTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduPsEntry": {
+    "name": "lgpPduPsEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduPsEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduPsEntryIndex": {
+    "name": "lgpPduPsEntryIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduPsEntryId": {
+    "name": "lgpPduPsEntryId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntrySysAssignLabel": {
+    "name": "lgpPduPsEntrySysAssignLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryModel": {
+    "name": "lgpPduPsEntryModel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryWiringType": {
+    "name": "lgpPduPsEntryWiringType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "single-phase-3-wire-L1-N-PE": 1,
+          "two-phase-3-wire-L1-L2-PE": 2,
+          "three-phase-4-wire-L1-L2-L3-PE": 3,
+          "three-phase-5-wire-L1-L2-L3-N-PE": 4,
+          "two-phase-4-wire-L1-L2-N-PE": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsEntryEpInputRated": {
+    "name": "lgpPduPsEntryEpInputRated",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltRMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryEcInputRated": {
+    "name": "lgpPduPsEntryEcInputRated",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryFreqRated": {
+    "name": "lgpPduPsEntryFreqRated",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryEnergyAccum": {
+    "name": "lgpPduPsEntryEnergyAccum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Kilowatt-Hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsEntrySerialNum": {
+    "name": "lgpPduPsEntrySerialNum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryFirmwareVersion": {
+    "name": "lgpPduPsEntryFirmwareVersion",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryPwrTotal": {
+    "name": "lgpPduPsEntryPwrTotal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryEcNeutral": {
+    "name": "lgpPduPsEntryEcNeutral",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryEcNeutralThrshldOvrWarn": {
+    "name": "lgpPduPsEntryEcNeutralThrshldOvrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsEntryEcNeutralThrshldOvrAlarm": {
+    "name": "lgpPduPsEntryEcNeutralThrshldOvrAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsEntryUnbalancedLoadThrshldAlarm": {
+    "name": "lgpPduPsEntryUnbalancedLoadThrshldAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsEntryApTotal": {
+    "name": "lgpPduPsEntryApTotal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltAmp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryPfTotal": {
+    "name": "lgpPduPsEntryPfTotal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryEcResidual": {
+    "name": "lgpPduPsEntryEcResidual",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.001 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsEntryEcResidualThrshldOvrAlarm": {
+    "name": "lgpPduPsEntryEcResidualThrshldOvrAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.20.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.001 Amp-AC-RMS",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsLineTable": {
+    "name": "lgpPduPsLineTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduPsLineEntry": {
+    "name": "lgpPduPsLineEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduPsEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduPsLineEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduPsLineEntryIndex": {
+    "name": "lgpPduPsLineEntryIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryId": {
+    "name": "lgpPduPsLineEntryId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryLine": {
+    "name": "lgpPduPsLineEntryLine",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phase1": 1,
+          "phase2": 2,
+          "phase3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEpLNTenths": {
+    "name": "lgpPduPsLineEntryEpLNTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Volts-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEpLN": {
+    "name": "lgpPduPsLineEntryEpLN",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Volts-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEc": {
+    "name": "lgpPduPsLineEntryEc",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEcHundredths": {
+    "name": "lgpPduPsLineEntryEcHundredths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEcThrshldUndrAlarm": {
+    "name": "lgpPduPsLineEntryEcThrshldUndrAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEcThrshldOvrWarn": {
+    "name": "lgpPduPsLineEntryEcThrshldOvrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEcThrshldOvrAlarm": {
+    "name": "lgpPduPsLineEntryEcThrshldOvrAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEcAvailBeforeAlarm": {
+    "name": "lgpPduPsLineEntryEcAvailBeforeAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEcUsedBeforeAlarm": {
+    "name": "lgpPduPsLineEntryEcUsedBeforeAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEpLL": {
+    "name": "lgpPduPsLineEntryEpLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Volts-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEpLLTenths": {
+    "name": "lgpPduPsLineEntryEpLLTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Volts-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryEcAvailBeforeAlarmHundredths": {
+    "name": "lgpPduPsLineEntryEcAvailBeforeAlarmHundredths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryPwrLN": {
+    "name": "lgpPduPsLineEntryPwrLN",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryPwrLL": {
+    "name": "lgpPduPsLineEntryPwrLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryApLN": {
+    "name": "lgpPduPsLineEntryApLN",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltAmp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryApLL": {
+    "name": "lgpPduPsLineEntryApLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltAmp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryPfLN": {
+    "name": "lgpPduPsLineEntryPfLN",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduPsLineEntryPfLL": {
+    "name": "lgpPduPsLineEntryPfLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.30.40.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduReceptacleBranch": {
+    "name": "lgpPduReceptacleBranch",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPduRbTableCount": {
+    "name": "lgpPduRbTableCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbTable": {
+    "name": "lgpPduRbTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduRbEntry": {
+    "name": "lgpPduRbEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduRbEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduRbEntryIndex": {
+    "name": "lgpPduRbEntryIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduRbEntryId": {
+    "name": "lgpPduRbEntryId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryUsrLabel": {
+    "name": "lgpPduRbEntryUsrLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRbEntrySysAssignLabel": {
+    "name": "lgpPduRbEntrySysAssignLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryPositionRelative": {
+    "name": "lgpPduRbEntryPositionRelative",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntrySerialNum": {
+    "name": "lgpPduRbEntrySerialNum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryModel": {
+    "name": "lgpPduRbEntryModel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryFirmwareVersion": {
+    "name": "lgpPduRbEntryFirmwareVersion",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryUsrTag1": {
+    "name": "lgpPduRbEntryUsrTag1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRbEntryUsrTag2": {
+    "name": "lgpPduRbEntryUsrTag2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRbEntryReceptacleType": {
+    "name": "lgpPduRbEntryReceptacleType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "nema-5-20R-20-Amp": 1,
+          "iec-C13-sheet-F-10-Amp": 2,
+          "iec-C19-sheet-J-16-Amp": 3,
+          "iec-C13-sheet-F-10-Amp-and-iec-C19-sheet-J-16-Amp": 4,
+          "nema-5-20R-20-Amp-and-iec-C13-sheet-F-10-Amp": 5,
+          "nema-5-20R-20-Amp-and-iec-C19-sheet-J-16-Amp": 6,
+          "cee-7-type-E-schuko": 7,
+          "nema-L6-30R-30-Amp": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryCapabilities": {
+    "name": "lgpPduRbEntryCapabilities",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "no-optional-capabilities": 1,
+          "measurement-only": 2,
+          "measurement-and-control": 3,
+          "control-only": 4,
+          "current-measurement-only": 5,
+          "current-measurement-and-control": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryLineSource": {
+    "name": "lgpPduRbEntryLineSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "line-1-neutral": 1,
+          "line-2-neutral": 2,
+          "line-3-neutral": 3,
+          "line-1-line-2": 4,
+          "line-2-line-3": 5,
+          "line-3-line-1": 6,
+          "line-1-line-2-and-line-1-neutral": 7,
+          "line-2-line-3-and-line-2-neutral": 8,
+          "line-3-line-1-and-line-3-neutral": 9,
+          "unknown-line-neutral": 10,
+          "unknown-line-line": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryRcpCount": {
+    "name": "lgpPduRbEntryRcpCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryEpRated": {
+    "name": "lgpPduRbEntryEpRated",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltRMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryEcRated": {
+    "name": "lgpPduRbEntryEcRated",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryFreqRated": {
+    "name": "lgpPduRbEntryFreqRated",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryEnergyAccum": {
+    "name": "lgpPduRbEntryEnergyAccum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Kilowatt-Hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRbEntryEpLNTenths": {
+    "name": "lgpPduRbEntryEpLNTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 VoltRMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryPwr": {
+    "name": "lgpPduRbEntryPwr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryAp": {
+    "name": "lgpPduRbEntryAp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltAmp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryPf": {
+    "name": "lgpPduRbEntryPf",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryEcHundredths": {
+    "name": "lgpPduRbEntryEcHundredths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.130",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryEcThrshldUndrAlm": {
+    "name": "lgpPduRbEntryEcThrshldUndrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.135",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRbEntryEcThrshldOvrWarn": {
+    "name": "lgpPduRbEntryEcThrshldOvrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.140",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRbEntryEcThrshldOvrAlm": {
+    "name": "lgpPduRbEntryEcThrshldOvrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.145",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRbEntryEcAvailBeforeAlarmHundredths": {
+    "name": "lgpPduRbEntryEcAvailBeforeAlarmHundredths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.150",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryEcUsedBeforeAlarm": {
+    "name": "lgpPduRbEntryEcUsedBeforeAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.160",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntryEpLLTenths": {
+    "name": "lgpPduRbEntryEpLLTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.170",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 VoltRMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRbEntrySwOverCurrentProtection": {
+    "name": "lgpPduRbEntrySwOverCurrentProtection",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.20.1.175",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRbLineTable": {
+    "name": "lgpPduRbLineTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntry": {
+    "name": "lgpPduRbLineEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduRbEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduRbLineEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryIndex": {
+    "name": "lgpPduRbLineEntryIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryId": {
+    "name": "lgpPduRbLineEntryId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryLine": {
+    "name": "lgpPduRbLineEntryLine",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phase1": 1,
+          "phase2": 2,
+          "phase3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEpLNTenths": {
+    "name": "lgpPduRbLineEntryEpLNTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 VoltRMS",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEpLN": {
+    "name": "lgpPduRbLineEntryEpLN",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltRMS",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEc": {
+    "name": "lgpPduRbLineEntryEc",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryPwr": {
+    "name": "lgpPduRbLineEntryPwr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryAp": {
+    "name": "lgpPduRbLineEntryAp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltAmp",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryPf": {
+    "name": "lgpPduRbLineEntryPf",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEcHundredths": {
+    "name": "lgpPduRbLineEntryEcHundredths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEcThrshldUndrAlm": {
+    "name": "lgpPduRbLineEntryEcThrshldUndrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEcThrshldOvrWarn": {
+    "name": "lgpPduRbLineEntryEcThrshldOvrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEcThrshldOvrAlm": {
+    "name": "lgpPduRbLineEntryEcThrshldOvrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEcAvailBeforeAlarmHundredths": {
+    "name": "lgpPduRbLineEntryEcAvailBeforeAlarmHundredths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEcAvailBeforeAlarm": {
+    "name": "lgpPduRbLineEntryEcAvailBeforeAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEcUsedBeforeAlarm": {
+    "name": "lgpPduRbLineEntryEcUsedBeforeAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Percent",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEpLL": {
+    "name": "lgpPduRbLineEntryEpLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "VoltRMS",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduRbLineEntryEpLLTenths": {
+    "name": "lgpPduRbLineEntryEpLLTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.40.40.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 VoltRMS",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduReceptacle": {
+    "name": "lgpPduReceptacle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPduRcpTableCount": {
+    "name": "lgpPduRcpTableCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpTable": {
+    "name": "lgpPduRcpTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduRcpEntry": {
+    "name": "lgpPduRcpEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduRbEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduRcpEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduRcpEntryIndex": {
+    "name": "lgpPduRcpEntryIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduRcpEntryId": {
+    "name": "lgpPduRcpEntryId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryUsrLabel": {
+    "name": "lgpPduRcpEntryUsrLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryUsrTag1": {
+    "name": "lgpPduRcpEntryUsrTag1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryUsrTag2": {
+    "name": "lgpPduRcpEntryUsrTag2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntrySysAssignLabel": {
+    "name": "lgpPduRcpEntrySysAssignLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryPosition": {
+    "name": "lgpPduRcpEntryPosition",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryType": {
+    "name": "lgpPduRcpEntryType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "nema-5-20R-20-Amp": 1,
+          "iec-C13-sheet-F-10-Amp": 2,
+          "iec-C19-sheet-J-16-Amp": 3,
+          "cee-7-type-E-schuko": 7,
+          "nema-L6-30R-30-Amp": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryLineSource": {
+    "name": "lgpPduRcpEntryLineSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "line-1-N": 1,
+          "line-2-N": 2,
+          "line-3-N": 3,
+          "line-1-line-2": 4,
+          "line-2-line-3": 5,
+          "line-3-line-1": 6,
+          "unknown-line-neutral": 7,
+          "unknown-line-line": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryCapabilities": {
+    "name": "lgpPduRcpEntryCapabilities",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "no-optional-capabilities": 1,
+          "measurement-only": 2,
+          "measurement-and-control": 3,
+          "control-only": 4,
+          "current-measurement-only": 5,
+          "current-measurement-and-control": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEp": {
+    "name": "lgpPduRcpEntryEp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Volts-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEpTenths": {
+    "name": "lgpPduRcpEntryEpTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Volts-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEc": {
+    "name": "lgpPduRcpEntryEc",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEcHundredths": {
+    "name": "lgpPduRcpEntryEcHundredths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 Amp-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryPwrOut": {
+    "name": "lgpPduRcpEntryPwrOut",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryApOut": {
+    "name": "lgpPduRcpEntryApOut",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Volt-Amp-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryPf": {
+    "name": "lgpPduRcpEntryPf",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".01 Power Factor",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryFreq": {
+    "name": "lgpPduRcpEntryFreq",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEnergyAccum": {
+    "name": "lgpPduRcpEntryEnergyAccum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Kilowatt-Hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryPwrOnDelay": {
+    "name": "lgpPduRcpEntryPwrOnDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryPwrState": {
+    "name": "lgpPduRcpEntryPwrState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "off": 1,
+          "on": 2,
+          "off-pending-on-delay": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryPwrUpState": {
+    "name": "lgpPduRcpEntryPwrUpState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "last-state": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryControl": {
+    "name": "lgpPduRcpEntryControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "cycle-power": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryControlLock": {
+    "name": "lgpPduRcpEntryControlLock",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "unlocked": 1,
+          "locked": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEcThrshldUnderAlarm": {
+    "name": "lgpPduRcpEntryEcThrshldUnderAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.150",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEcThrshldOverWarn": {
+    "name": "lgpPduRcpEntryEcThrshldOverWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.151",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEcThrshldOverAlarm": {
+    "name": "lgpPduRcpEntryEcThrshldOverAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.152",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEcAvailBeforeAlarmHundredths": {
+    "name": "lgpPduRcpEntryEcAvailBeforeAlarmHundredths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.159",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEcAvailBeforeAlarm": {
+    "name": "lgpPduRcpEntryEcAvailBeforeAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.160",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Amps-AC-RMS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEcUsedBeforeAlarm": {
+    "name": "lgpPduRcpEntryEcUsedBeforeAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.161",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryEcCrestFactor": {
+    "name": "lgpPduRcpEntryEcCrestFactor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.162",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryBlinkLED": {
+    "name": "lgpPduRcpEntryBlinkLED",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.200",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "blinkLED": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntrySwOverTemperatureProtection": {
+    "name": "lgpPduRcpEntrySwOverTemperatureProtection",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.205",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryOperationCondition": {
+    "name": "lgpPduRcpEntryOperationCondition",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.210",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOperation": 1,
+          "normalWithWarning": 2,
+          "normalWithAlarm": 3,
+          "abnormal": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpEntryCriticality": {
+    "name": "lgpPduRcpEntryCriticality",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.215",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 0,
+          "notCritical": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryPostOnDelay": {
+    "name": "lgpPduRcpEntryPostOnDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.220",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryPostOffDelay": {
+    "name": "lgpPduRcpEntryPostOffDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.225",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryAddReceptacleToGroup": {
+    "name": "lgpPduRcpEntryAddReceptacleToGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.230",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpEntryRemoveReceptacleFromGroup": {
+    "name": "lgpPduRcpEntryRemoveReceptacleFromGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.20.1.235",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpGroup": {
+    "name": "lgpPduRcpGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPduRcpGroupTableCount": {
+    "name": "lgpPduRcpGroupTableCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpGroupTable": {
+    "name": "lgpPduRcpGroupTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduRcpGroupEntry": {
+    "name": "lgpPduRcpGroupEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduRcpGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduRcpGroupIndex": {
+    "name": "lgpPduRcpGroupIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduRcpGroupUsrLabel": {
+    "name": "lgpPduRcpGroupUsrLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpGroupDeleteGroup": {
+    "name": "lgpPduRcpGroupDeleteGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-action": 0,
+          "delete-receptacle-group": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpGroupControlPower": {
+    "name": "lgpPduRcpGroupControlPower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.10.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-action": 0,
+          "off": 1,
+          "on": 2,
+          "cycle-power": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpGroupControlLock": {
+    "name": "lgpPduRcpGroupControlLock",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.10.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-action": 0,
+          "unlock": 1,
+          "lock": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpGroupBlinkLED": {
+    "name": "lgpPduRcpGroupBlinkLED",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.10.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-action": 0,
+          "blinkLED": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduRcpGroupDisplayTableCount": {
+    "name": "lgpPduRcpGroupDisplayTableCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduRcpGroupDisplayTable": {
+    "name": "lgpPduRcpGroupDisplayTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduRcpGroupDisplayEntry": {
+    "name": "lgpPduRcpGroupDisplayEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduRcpGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduRcpGroupDisplayIndex": {
+    "name": "lgpPduRcpGroupDisplayIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduRcpGroupDisplayGroup": {
+    "name": "lgpPduRcpGroupDisplayGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.50.30.20.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxiliarySensors": {
+    "name": "lgpPduAuxiliarySensors",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPduAuxSensorCount": {
+    "name": "lgpPduAuxSensorCount",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxSensorTable": {
+    "name": "lgpPduAuxSensorTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorEntry": {
+    "name": "lgpPduAuxSensorEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduAuxSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorIndex": {
+    "name": "lgpPduAuxSensorIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorMeasType": {
+    "name": "lgpPduAuxSensorMeasType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "temperature": 1,
+          "humidity": 2,
+          "temperature-and-humidity": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorId": {
+    "name": "lgpPduAuxSensorId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorSysAssignLabel": {
+    "name": "lgpPduAuxSensorSysAssignLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorPositionRelative": {
+    "name": "lgpPduAuxSensorPositionRelative",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorUsrLabel": {
+    "name": "lgpPduAuxSensorUsrLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorUsrTag1": {
+    "name": "lgpPduAuxSensorUsrTag1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorUsrTag2": {
+    "name": "lgpPduAuxSensorUsrTag2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempSerialNum": {
+    "name": "lgpPduAuxSensorTempSerialNum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorHumSerialNum": {
+    "name": "lgpPduAuxSensorHumSerialNum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempMeasurementDegF": {
+    "name": "lgpPduAuxSensorTempMeasurementDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempThrshldUndrAlmDegF": {
+    "name": "lgpPduAuxSensorTempThrshldUndrAlmDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempThrshldOvrAlmDegF": {
+    "name": "lgpPduAuxSensorTempThrshldOvrAlmDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempThrshldUndrWarnDegF": {
+    "name": "lgpPduAuxSensorTempThrshldUndrWarnDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempThrshldOvrWarnDegF": {
+    "name": "lgpPduAuxSensorTempThrshldOvrWarnDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempMeasurementDegC": {
+    "name": "lgpPduAuxSensorTempMeasurementDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempThrshldUndrAlmDegC": {
+    "name": "lgpPduAuxSensorTempThrshldUndrAlmDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempThrshldOvrAlmDegC": {
+    "name": "lgpPduAuxSensorTempThrshldOvrAlmDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempThrshldUndrWarnDegC": {
+    "name": "lgpPduAuxSensorTempThrshldUndrWarnDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorTempThrshldOvrWarnDegC": {
+    "name": "lgpPduAuxSensorTempThrshldOvrWarnDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorHumMeasurement": {
+    "name": "lgpPduAuxSensorHumMeasurement",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorHumThrshldUndrAlm": {
+    "name": "lgpPduAuxSensorHumThrshldUndrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorHumThrshldOvrAlm": {
+    "name": "lgpPduAuxSensorHumThrshldOvrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorHumThrshldUndrWarn": {
+    "name": "lgpPduAuxSensorHumThrshldUndrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxSensorHumThrshldOvrWarn": {
+    "name": "lgpPduAuxSensorHumThrshldOvrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.10.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "lgpPduAuxMeasTable": {
+    "name": "lgpPduAuxMeasTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduAuxMeasEntry": {
+    "name": "lgpPduAuxMeasEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduAuxMeasSensorIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduAuxMeasSensorMeasurementIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduAuxMeasSensorIndex": {
+    "name": "lgpPduAuxMeasSensorIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduAuxMeasSensorMeasurementIndex": {
+    "name": "lgpPduAuxMeasSensorMeasurementIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduAuxMeasType": {
+    "name": "lgpPduAuxMeasType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "temperature": 1,
+          "humidity": 2,
+          "door-closure": 3,
+          "contact-closure": 4,
+          "differential-pressure": 5,
+          "leak-detection": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasSensorSysAssignLabel": {
+    "name": "lgpPduAuxMeasSensorSysAssignLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasUsrLabel": {
+    "name": "lgpPduAuxMeasUsrLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasUsrTag1": {
+    "name": "lgpPduAuxMeasUsrTag1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasUsrTag2": {
+    "name": "lgpPduAuxMeasUsrTag2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasSensorSerialNum": {
+    "name": "lgpPduAuxMeasSensorSerialNum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempDegF": {
+    "name": "lgpPduAuxMeasTempDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempThrshldUndrAlmDegF": {
+    "name": "lgpPduAuxMeasTempThrshldUndrAlmDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempThrshldOvrAlmDegF": {
+    "name": "lgpPduAuxMeasTempThrshldOvrAlmDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempThrshldUndrWarnDegF": {
+    "name": "lgpPduAuxMeasTempThrshldUndrWarnDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempThrshldOvrWarnDegF": {
+    "name": "lgpPduAuxMeasTempThrshldOvrWarnDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempDegC": {
+    "name": "lgpPduAuxMeasTempDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempThrshldUndrAlmDegC": {
+    "name": "lgpPduAuxMeasTempThrshldUndrAlmDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempThrshldOvrAlmDegC": {
+    "name": "lgpPduAuxMeasTempThrshldOvrAlmDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempThrshldUndrWarnDegC": {
+    "name": "lgpPduAuxMeasTempThrshldUndrWarnDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasTempThrshldOvrWarnDegC": {
+    "name": "lgpPduAuxMeasTempThrshldOvrWarnDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasHum": {
+    "name": "lgpPduAuxMeasHum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasHumThrshldUndrAlm": {
+    "name": "lgpPduAuxMeasHumThrshldUndrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasHumThrshldOvrAlm": {
+    "name": "lgpPduAuxMeasHumThrshldOvrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasHumThrshldUndrWarn": {
+    "name": "lgpPduAuxMeasHumThrshldUndrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasHumThrshldOvrWarn": {
+    "name": "lgpPduAuxMeasHumThrshldOvrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasDrClosureState": {
+    "name": "lgpPduAuxMeasDrClosureState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "open": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasDrClosureConfig": {
+    "name": "lgpPduAuxMeasDrClosureConfig",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "alarm-when-open": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasCntctClosureState": {
+    "name": "lgpPduAuxMeasCntctClosureState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.130",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "open": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasCntctClosureConfig": {
+    "name": "lgpPduAuxMeasCntctClosureConfig",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.135",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "alarm-when-open": 1,
+          "alarm-when-closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasDiffPressure": {
+    "name": "lgpPduAuxMeasDiffPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.140",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Pascal",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasDiffPressureThrshldUndrAlm": {
+    "name": "lgpPduAuxMeasDiffPressureThrshldUndrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.145",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Pascal",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasDiffPressureThrshldOvrAlm": {
+    "name": "lgpPduAuxMeasDiffPressureThrshldOvrAlm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.150",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Pascal",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasDiffPressureThrshldUndrWarn": {
+    "name": "lgpPduAuxMeasDiffPressureThrshldUndrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.155",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Pascal",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasDiffPressureThrshldOvrWarn": {
+    "name": "lgpPduAuxMeasDiffPressureThrshldOvrWarn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.160",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Pascal",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpPduAuxMeasLeakDetectState": {
+    "name": "lgpPduAuxMeasLeakDetectState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.15.1.165",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "no-leak-detected": 1,
+          "leak-detected": 2,
+          "leak-detection-pending": 3,
+          "cable-fault": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpPduAuxMeasOrderTable": {
+    "name": "lgpPduAuxMeasOrderTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduAuxMeasOrderEntry": {
+    "name": "lgpPduAuxMeasOrderEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-PDU-MIB",
+        "object": "lgpPduAuxSensorOrderIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpPduAuxSensorOrderIndex": {
+    "name": "lgpPduAuxSensorOrderIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpPduAuxMeasOrderSensorSerialNum": {
+    "name": "lgpPduAuxMeasOrderSensorSerialNum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.8.60.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-PDU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LIEBERT-GP-PDU-MIB"
+  }
+}

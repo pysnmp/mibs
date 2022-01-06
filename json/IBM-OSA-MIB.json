@@ -1,0 +1,4110 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ibmOSAMib": {
+    "name": "ibmOSAMib",
+    "oid": "1.3.6.1.4.1.2.6.188",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-05-23 00:00",
+        "description": "Editorial revisions"
+      },
+      {
+        "revision": "2002-03-26 08:00",
+        "description": "Initial release"
+      }
+    ]
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "ibmOSAMibObjects": {
+    "name": "ibmOSAMibObjects",
+    "oid": "1.3.6.1.4.1.2.6.188.1",
+    "class": "objectidentity"
+  },
+  "ibmOSAMibConformance": {
+    "name": "ibmOSAMibConformance",
+    "oid": "1.3.6.1.4.1.2.6.188.2",
+    "class": "objectidentity"
+  },
+  "ibmOSAExpChannelTable": {
+    "name": "ibmOSAExpChannelTable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibmOSAExpChannelEntry": {
+    "name": "ibmOSAExpChannelEntry",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpChannelNumber": {
+    "name": "ibmOSAExpChannelNumber",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelType": {
+    "name": "ibmOSAExpChannelType",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "osaDirectExpress": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelHdwLevel": {
+    "name": "ibmOSAExpChannelHdwLevel",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "osaExp150": 2,
+          "osaExp175": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelSubType": {
+    "name": "ibmOSAExpChannelSubType",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "gigabitEthernet": 65,
+          "fastEthernet": 81,
+          "tokenRing": 82,
+          "atmEmulatedEthernet": 2304
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelShared": {
+    "name": "ibmOSAExpChannelShared",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notShared": 0,
+          "shared": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelNodeDesc": {
+    "name": "ibmOSAExpChannelNodeDesc",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelProcCodeLevel": {
+    "name": "ibmOSAExpChannelProcCodeLevel",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelPCIBusUtil1Min": {
+    "name": "ibmOSAExpChannelPCIBusUtil1Min",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelProcUtil1Min": {
+    "name": "ibmOSAExpChannelProcUtil1Min",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelPCIBusUtil5Min": {
+    "name": "ibmOSAExpChannelPCIBusUtil5Min",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelProcUtil5Min": {
+    "name": "ibmOSAExpChannelProcUtil5Min",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelPCIBusUtilHour": {
+    "name": "ibmOSAExpChannelPCIBusUtilHour",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpChannelProcUtilHour": {
+    "name": "ibmOSAExpChannelProcUtilHour",
+    "oid": "1.3.6.1.4.1.2.6.188.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfTable": {
+    "name": "ibmOSAExpPerfTable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibmOSAExpPerfEntry": {
+    "name": "ibmOSAExpPerfEntry",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP0": {
+    "name": "ibmOSAExpPerfDataLP0",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP1": {
+    "name": "ibmOSAExpPerfDataLP1",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP2": {
+    "name": "ibmOSAExpPerfDataLP2",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP3": {
+    "name": "ibmOSAExpPerfDataLP3",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP4": {
+    "name": "ibmOSAExpPerfDataLP4",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP5": {
+    "name": "ibmOSAExpPerfDataLP5",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP6": {
+    "name": "ibmOSAExpPerfDataLP6",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP7": {
+    "name": "ibmOSAExpPerfDataLP7",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP8": {
+    "name": "ibmOSAExpPerfDataLP8",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP9": {
+    "name": "ibmOSAExpPerfDataLP9",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP10": {
+    "name": "ibmOSAExpPerfDataLP10",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP11": {
+    "name": "ibmOSAExpPerfDataLP11",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP12": {
+    "name": "ibmOSAExpPerfDataLP12",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP13": {
+    "name": "ibmOSAExpPerfDataLP13",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP14": {
+    "name": "ibmOSAExpPerfDataLP14",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPerfDataLP15": {
+    "name": "ibmOSAExpPerfDataLP15",
+    "oid": "1.3.6.1.4.1.2.6.188.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPETable": {
+    "name": "ibmOSAExpPETable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibmOSAExpPEEntry": {
+    "name": "ibmOSAExpPEEntry",
+    "oid": "1.3.6.1.4.1.2.6.188.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpPEMaxSizeArpCache": {
+    "name": "ibmOSAExpPEMaxSizeArpCache",
+    "oid": "1.3.6.1.4.1.2.6.188.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPEArpPendingEntries": {
+    "name": "ibmOSAExpPEArpPendingEntries",
+    "oid": "1.3.6.1.4.1.2.6.188.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPEArpActiveEntries": {
+    "name": "ibmOSAExpPEArpActiveEntries",
+    "oid": "1.3.6.1.4.1.2.6.188.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPEIPEntries": {
+    "name": "ibmOSAExpPEIPEntries",
+    "oid": "1.3.6.1.4.1.2.6.188.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPEMulticastEntries": {
+    "name": "ibmOSAExpPEMulticastEntries",
+    "oid": "1.3.6.1.4.1.2.6.188.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpPEMulticastData": {
+    "name": "ibmOSAExpPEMulticastData",
+    "oid": "1.3.6.1.4.1.2.6.188.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3360,
+            "max": 3360
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpEthPortTable": {
+    "name": "ibmOSAExpEthPortTable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibmOSAExpEthPortEntry": {
+    "name": "ibmOSAExpEthPortEntry",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOsaExpEthPortNumber": {
+    "name": "ibmOsaExpEthPortNumber",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthPortType": {
+    "name": "ibmOsaExpEthPortType",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gigabitEthernet": 65,
+          "fastEthernet": 81
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthLanTrafficState": {
+    "name": "ibmOsaExpEthLanTrafficState",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "unavailable": 1,
+          "enabling": 2,
+          "disabling": 3,
+          "enabled": 4,
+          "disabled": 5,
+          "linkMonitor": 6,
+          "definitionError": 7,
+          "configuredOffline": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthServiceMode": {
+    "name": "ibmOsaExpEthServiceMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInServiceMode": 0,
+          "inServiceMode": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthDisabledStatus": {
+    "name": "ibmOsaExpEthDisabledStatus",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reserved0": 0,
+        "internalPortFailure": 1,
+        "reserved2": 2,
+        "reserved3": 3,
+        "reserved4": 4,
+        "reserved5": 5,
+        "portTemporarilyDisabled": 6,
+        "reserved7": 7,
+        "reserved8": 8,
+        "serviceProcessorRequest": 9,
+        "networkRequest": 10,
+        "osasfRequest": 11,
+        "configurationChange": 12,
+        "linkFailureThresholdExceeded": 13,
+        "reserved14": 14,
+        "reserved15": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthConfigName": {
+    "name": "ibmOsaExpEthConfigName",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 34
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthConfigSpeedMode": {
+    "name": "ibmOsaExpEthConfigSpeedMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notValidGigabit": -1,
+          "autoNegotiate": 0,
+          "tenMbHalfDuplex": 1,
+          "tenMbFullDuplex": 2,
+          "oneHundredMbHalfDuplex": 3,
+          "oneHundredMbFullDuplex": 4,
+          "oneThousandMbFullDuplex": 6
+        }
+      }
+    },
+    "units": "Megabits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthActiveSpeedMode": {
+    "name": "ibmOsaExpEthActiveSpeedMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "tenMbHalfDuplex": 1,
+          "tenMbFullDuplex": 2,
+          "oneHundredMbHalfDuplex": 3,
+          "oneHundredMbFullDuplex": 4,
+          "oneThousandMbFullDuplex": 6
+        }
+      }
+    },
+    "units": "Megabits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthMacAddrActive": {
+    "name": "ibmOsaExpEthMacAddrActive",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthMacAddrBurntIn": {
+    "name": "ibmOsaExpEthMacAddrBurntIn",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthUserData": {
+    "name": "ibmOsaExpEthUserData",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthOutPackets": {
+    "name": "ibmOsaExpEthOutPackets",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthInPackets": {
+    "name": "ibmOsaExpEthInPackets",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthInGroupFrames": {
+    "name": "ibmOsaExpEthInGroupFrames",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthInBroadcastFrames": {
+    "name": "ibmOsaExpEthInBroadcastFrames",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthPortName": {
+    "name": "ibmOsaExpEthPortName",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthInUnknownIPFrames": {
+    "name": "ibmOsaExpEthInUnknownIPFrames",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpEthGroupAddrTable": {
+    "name": "ibmOsaExpEthGroupAddrTable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpTRPortTable": {
+    "name": "ibmOSAExpTRPortTable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibmOSAExpTRPortEntry": {
+    "name": "ibmOSAExpTRPortEntry",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOsaExpTRPortNumber": {
+    "name": "ibmOsaExpTRPortNumber",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRPortType": {
+    "name": "ibmOsaExpTRPortType",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tokenring": 82
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRLanTrafficState": {
+    "name": "ibmOsaExpTRLanTrafficState",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "unavailable": 1,
+          "enabling": 2,
+          "disabling": 3,
+          "enabled": 4,
+          "disabled": 5,
+          "linkMonitor": 6,
+          "definitionError": 7,
+          "configuredOffline": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRServiceMode": {
+    "name": "ibmOsaExpTRServiceMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInServiceMode": 0,
+          "inServiceMode": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRDisabledStatus": {
+    "name": "ibmOsaExpTRDisabledStatus",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reserved0": 0,
+        "internalPortFailure": 1,
+        "reserved2": 2,
+        "reserved3": 3,
+        "reserved4": 4,
+        "reserved5": 5,
+        "portTemporarilyDisabled": 6,
+        "reserved7": 7,
+        "reserved8": 8,
+        "serviceProcessorRequest": 9,
+        "networkRequest": 10,
+        "osasfRequest": 11,
+        "configurationChange": 12,
+        "linkFailureThresholdExceeded": 13,
+        "reserved14": 14,
+        "reserved15": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRConfigName": {
+    "name": "ibmOsaExpTRConfigName",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 34
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRMacAddrActive": {
+    "name": "ibmOsaExpTRMacAddrActive",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRMacAddrBurntIn": {
+    "name": "ibmOsaExpTRMacAddrBurntIn",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRConfigSpeedMode": {
+    "name": "ibmOsaExpTRConfigSpeedMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiate": 0,
+          "fourMbHalfDuplex": 1,
+          "fourMbFullDuplex": 2,
+          "sixteenMbHalfDuplex": 3,
+          "sixteenMbFullDuplex": 4,
+          "oneHundredMbFullDuplex": 6
+        }
+      }
+    },
+    "units": "Megabits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRActiveSpeedMode": {
+    "name": "ibmOsaExpTRActiveSpeedMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "fourMbHalfDuplex": 1,
+          "fourMbFullDuplex": 2,
+          "sixteenMbHalfDuplex": 3,
+          "sixteenMbFullDuplex": 4,
+          "oneHundredMbFullDuplex": 6
+        }
+      }
+    },
+    "units": "Megabits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRUserData": {
+    "name": "ibmOsaExpTRUserData",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRPortName": {
+    "name": "ibmOsaExpTRPortName",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRGroupAddrTable": {
+    "name": "ibmOsaExpTRGroupAddrTable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRFunctionalAddr": {
+    "name": "ibmOsaExpTRFunctionalAddr",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRRingStatus": {
+    "name": "ibmOsaExpTRRingStatus",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reserved0": 0,
+        "reserved1": 1,
+        "reserved2": 2,
+        "reserved3": 3,
+        "reserved4": 4,
+        "reserved5": 5,
+        "reserved6": 6,
+        "reserved7": 7,
+        "reserved8": 8,
+        "reserved9": 9,
+        "reserved10": 10,
+        "reserved11": 11,
+        "reserved12": 12,
+        "reserved13": 13,
+        "noStatusOpenNotCompleted": 14,
+        "reserved15": 15,
+        "signalLoss": 16,
+        "hardError": 17,
+        "softError": 18,
+        "reserved19": 19,
+        "lobeWireFault": 20,
+        "autoRemovalError": 21,
+        "fdxProtocol": 22,
+        "removeReceived": 23,
+        "counterOverflow": 24,
+        "singleStation": 25,
+        "ringRecovery": 26,
+        "sRCounterOverflow": 27,
+        "reserved29": 28,
+        "openInFDXmode": 29,
+        "fourMbFullDuplex": 30,
+        "fourMbHalfDuplex": 31
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRAllowAccessPriority": {
+    "name": "ibmOsaExpTRAllowAccessPriority",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTREarlyTokenRelease": {
+    "name": "ibmOsaExpTREarlyTokenRelease",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 0,
+          "false": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRBeaconingAddress": {
+    "name": "ibmOsaExpTRBeaconingAddress",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRUpstreamNeighbor": {
+    "name": "ibmOsaExpTRUpstreamNeighbor",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRRingState": {
+    "name": "ibmOsaExpTRRingState",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opened": 1,
+          "closed": 2,
+          "opening": 3,
+          "closing": 4,
+          "openFailure": 5,
+          "ringFailure": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRRingOpenStatus": {
+    "name": "ibmOsaExpTRRingOpenStatus",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOpen": 1,
+          "badParameter": 2,
+          "lobeFailed": 3,
+          "signalLoss": 4,
+          "insertionTimeout": 5,
+          "ringFailed": 6,
+          "beaconing": 7,
+          "duplicateMAC": 8,
+          "requestFailed": 9,
+          "removeReceived": 10,
+          "open": 11,
+          "sARecFrameNotEqualNAUNs": 12,
+          "claimTokenRec": 13,
+          "ringPurgeFramRec": 14,
+          "activeMonPresRec": 15,
+          "standbyMonPresRec": 16,
+          "accessProtocolDenied": 17,
+          "fDXInsDeniedDACfailOnOpen": 18,
+          "fDXInsDeniedDACfailOnBeaconTest": 19,
+          "beaconBeforeOpen": 20,
+          "insertTimerExpDuringDAC": 21,
+          "insertTimerExpDuringBeaconTest": 22,
+          "lobeMedizTestFailure": 23,
+          "heartbeatFailBeforeOpenCompleted": 24,
+          "heartbeatFailDuringBeaconTest": 25,
+          "recBeaconFrameWithInvalidSA": 26
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRPacketsTransmitted": {
+    "name": "ibmOsaExpTRPacketsTransmitted",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRPacketsReceived": {
+    "name": "ibmOsaExpTRPacketsReceived",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRLineErrorCount": {
+    "name": "ibmOsaExpTRLineErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRBurstErrorCount": {
+    "name": "ibmOsaExpTRBurstErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRACErrorCount": {
+    "name": "ibmOsaExpTRACErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRAbortTransErrorCount": {
+    "name": "ibmOsaExpTRAbortTransErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRInternalErrorCount": {
+    "name": "ibmOsaExpTRInternalErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRLostFrameErrorCount": {
+    "name": "ibmOsaExpTRLostFrameErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRRcvCongestionCount": {
+    "name": "ibmOsaExpTRRcvCongestionCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRFrameCopyErrorCount": {
+    "name": "ibmOsaExpTRFrameCopyErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRTokenErrorCount": {
+    "name": "ibmOsaExpTRTokenErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRFullDuplexErrorCount": {
+    "name": "ibmOsaExpTRFullDuplexErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRSoftErrorCount": {
+    "name": "ibmOsaExpTRSoftErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRHardErrorCount": {
+    "name": "ibmOsaExpTRHardErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRSignalLossErrorCount": {
+    "name": "ibmOsaExpTRSignalLossErrorCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRTransmitBeaconCount": {
+    "name": "ibmOsaExpTRTransmitBeaconCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRRecoveryCounter": {
+    "name": "ibmOsaExpTRRecoveryCounter",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRLobeWireFaultCount": {
+    "name": "ibmOsaExpTRLobeWireFaultCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRRemoveReceivedCount": {
+    "name": "ibmOsaExpTRRemoveReceivedCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpTRSingleStationCount": {
+    "name": "ibmOsaExpTRSingleStationCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.5.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAExpATMPortTable": {
+    "name": "ibmOSAExpATMPortTable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibmOSAExpATMPortEntry": {
+    "name": "ibmOSAExpATMPortEntry",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOsaExpATMPortNumber": {
+    "name": "ibmOsaExpATMPortNumber",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMPortType": {
+    "name": "ibmOsaExpATMPortType",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emulatedEthernet": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLanTrafficState": {
+    "name": "ibmOsaExpATMLanTrafficState",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "unavailable": 1,
+          "enabling": 2,
+          "disabling": 3,
+          "enabled": 4,
+          "disabled": 5,
+          "linkMonitor": 6,
+          "definitionError": 7,
+          "configuredOffline": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMServiceMode": {
+    "name": "ibmOsaExpATMServiceMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInServiceMode": 0,
+          "inServiceMode": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMDisabledStatus": {
+    "name": "ibmOsaExpATMDisabledStatus",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reserved0": 0,
+        "internalPortFailure": 1,
+        "reserved2": 2,
+        "reserved3": 3,
+        "reserved4": 4,
+        "reserved5": 5,
+        "portTemporarilyDisabled": 6,
+        "reserved7": 7,
+        "reserved8": 8,
+        "serviceProcessorRequest": 9,
+        "networkRequest": 10,
+        "osasfRequest": 11,
+        "configurationChange": 12,
+        "linkFailureThresholdExceeded": 13,
+        "reserved14": 14,
+        "reserved15": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigName": {
+    "name": "ibmOsaExpATMConfigName",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 34
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMacAddrActive": {
+    "name": "ibmOsaExpATMMacAddrActive",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMacAddrBurntIn": {
+    "name": "ibmOsaExpATMMacAddrBurntIn",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMUserData": {
+    "name": "ibmOsaExpATMUserData",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMPortName": {
+    "name": "ibmOsaExpATMPortName",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMGroupMacAddrTable": {
+    "name": "ibmOsaExpATMGroupMacAddrTable",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMIBMEnhancedMode": {
+    "name": "ibmOsaExpATMIBMEnhancedMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMBestEffortPeakRate": {
+    "name": "ibmOsaExpATMBestEffortPeakRate",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Megabytes per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigMode": {
+    "name": "ibmOsaExpATMConfigMode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatic": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigLanType": {
+    "name": "ibmOsaExpATMConfigLanType",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emulatedEthernet": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMActualLanType": {
+    "name": "ibmOsaExpATMActualLanType",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emulatedEthernet": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigMaxDataFrmSz": {
+    "name": "ibmOsaExpATMConfigMaxDataFrmSz",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 1,
+          "f1516": 2,
+          "f4544": 3,
+          "f9234": 4,
+          "f18190": 5
+        }
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMActualMaxDataFrmSz": {
+    "name": "ibmOsaExpATMActualMaxDataFrmSz",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 1,
+          "f1516": 2,
+          "f4544": 3,
+          "f9234": 4,
+          "f18190": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigELANName": {
+    "name": "ibmOsaExpATMConfigELANName",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMActualELANName": {
+    "name": "ibmOsaExpATMActualELANName",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigLESATMAddress": {
+    "name": "ibmOsaExpATMConfigLESATMAddress",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMActualLESATMAddress": {
+    "name": "ibmOsaExpATMActualLESATMAddress",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlTimeout": {
+    "name": "ibmOsaExpATMControlTimeout",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMaxUnknownFrameCount": {
+    "name": "ibmOsaExpATMMaxUnknownFrameCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMaxUnknownFrameTime": {
+    "name": "ibmOsaExpATMMaxUnknownFrameTime",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMVCCTimeoutPeriod": {
+    "name": "ibmOsaExpATMVCCTimeoutPeriod",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMaxRetryCount": {
+    "name": "ibmOsaExpATMMaxRetryCount",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMAgingTime": {
+    "name": "ibmOsaExpATMAgingTime",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMForwardDelayTime": {
+    "name": "ibmOsaExpATMForwardDelayTime",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMExpectedARPRespTime": {
+    "name": "ibmOsaExpATMExpectedARPRespTime",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMFlushTimeout": {
+    "name": "ibmOsaExpATMFlushTimeout",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMPathSwitchingDelay": {
+    "name": "ibmOsaExpATMPathSwitchingDelay",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLocalSegmentID": {
+    "name": "ibmOsaExpATMLocalSegmentID",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMltcstSendVCCType": {
+    "name": "ibmOsaExpATMMltcstSendVCCType",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bestEffort": 1,
+          "variableBitRate": 2,
+          "constantBitRate": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMltcstSendVCCAvgRate": {
+    "name": "ibmOsaExpATMMltcstSendVCCAvgRate",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMcastSendVCCPeakRate": {
+    "name": "ibmOsaExpATMMcastSendVCCPeakRate",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConnectCompleteTimer": {
+    "name": "ibmOsaExpATMConnectCompleteTimer",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMClientATMAddress": {
+    "name": "ibmOsaExpATMClientATMAddress",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMClientIdentifier": {
+    "name": "ibmOsaExpATMClientIdentifier",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65279
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMClientCurrentState": {
+    "name": "ibmOsaExpATMClientCurrentState",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialState": 1,
+          "lecsConnect": 2,
+          "configure": 3,
+          "join": 4,
+          "initialRegistration": 5,
+          "busConnect": 6,
+          "operational": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLastFailureRespCode": {
+    "name": "ibmOsaExpATMLastFailureRespCode",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "timeout": 2,
+          "undefinedError": 3,
+          "versionNotSupported": 4,
+          "invalidRequestParameters": 5,
+          "duplicateLanDestination": 6,
+          "duplicateAtmAddress": 7,
+          "insufficientResources": 8,
+          "accessDenied": 9,
+          "invalidRequesterId": 10,
+          "invalidLanDestination": 11,
+          "invalidAtmAddress": 12,
+          "noConfiguration": 13,
+          "leConfigureError": 14,
+          "insufficientInformation": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLastFailureState": {
+    "name": "ibmOsaExpATMLastFailureState",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialState": 1,
+          "lecsConnect": 2,
+          "configure": 3,
+          "join": 4,
+          "initialRegistration": 5,
+          "busConnect": 6,
+          "operational": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMProtocol": {
+    "name": "ibmOsaExpATMProtocol",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLeVersion": {
+    "name": "ibmOsaExpATMLeVersion",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMTopologyChange": {
+    "name": "ibmOsaExpATMTopologyChange",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigServerATMAddr": {
+    "name": "ibmOsaExpATMConfigServerATMAddr",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigSource": {
+    "name": "ibmOsaExpATMConfigSource",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gotAddressViaIlmi": 1,
+          "usedWellKnownAddress": 2,
+          "usedLecsPvc": 3,
+          "didNotUseLecs": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMProxyClient": {
+    "name": "ibmOsaExpATMProxyClient",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLePDUOctetsInbound": {
+    "name": "ibmOsaExpATMLePDUOctetsInbound",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMNonErrLePDUDiscIn": {
+    "name": "ibmOsaExpATMNonErrLePDUDiscIn",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMErrLePDUDiscIn": {
+    "name": "ibmOsaExpATMErrLePDUDiscIn",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLePDUOctetsOutbound": {
+    "name": "ibmOsaExpATMLePDUOctetsOutbound",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMNonErrLePDUDiscOut": {
+    "name": "ibmOsaExpATMNonErrLePDUDiscOut",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMErrLePDUDiscOut": {
+    "name": "ibmOsaExpATMErrLePDUDiscOut",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLeARPRequestsOut": {
+    "name": "ibmOsaExpATMLeARPRequestsOut",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLeARPRequestsIn": {
+    "name": "ibmOsaExpATMLeARPRequestsIn",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLeARPRepliesOut": {
+    "name": "ibmOsaExpATMLeARPRepliesOut",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMLeARPRepliesIn": {
+    "name": "ibmOsaExpATMLeARPRepliesIn",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlFramesOut": {
+    "name": "ibmOsaExpATMControlFramesOut",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlFramesIn": {
+    "name": "ibmOsaExpATMControlFramesIn",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMSVCFailures": {
+    "name": "ibmOsaExpATMSVCFailures",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigDirectIntfc": {
+    "name": "ibmOsaExpATMConfigDirectIntfc",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigDirectVPI": {
+    "name": "ibmOsaExpATMConfigDirectVPI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMConfigDirectVCI": {
+    "name": "ibmOsaExpATMConfigDirectVCI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlDirectIntfc": {
+    "name": "ibmOsaExpATMControlDirectIntfc",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlDirectVPI": {
+    "name": "ibmOsaExpATMControlDirectVPI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlDirectVCI": {
+    "name": "ibmOsaExpATMControlDirectVCI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlDistIntfc": {
+    "name": "ibmOsaExpATMControlDistIntfc",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlDistributeVPI": {
+    "name": "ibmOsaExpATMControlDistributeVPI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMControlDistributeVCI": {
+    "name": "ibmOsaExpATMControlDistributeVCI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMulticastSendIntfc": {
+    "name": "ibmOsaExpATMMulticastSendIntfc",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMulticastSendVPI": {
+    "name": "ibmOsaExpATMMulticastSendVPI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMulticastSendVCI": {
+    "name": "ibmOsaExpATMMulticastSendVCI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMulticastFwdIntfc": {
+    "name": "ibmOsaExpATMMulticastFwdIntfc",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMulticastForwardVPI": {
+    "name": "ibmOsaExpATMMulticastForwardVPI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOsaExpATMMulticastForwardVCI": {
+    "name": "ibmOsaExpATMMulticastForwardVCI",
+    "oid": "1.3.6.1.4.1.2.6.188.1.7.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibmOSAMibCompliances": {
+    "name": "ibmOSAMibCompliances",
+    "oid": "1.3.6.1.4.1.2.6.188.2.1",
+    "class": "objectidentity"
+  },
+  "ibmOSAMibGroups": {
+    "name": "ibmOSAMibGroups",
+    "oid": "1.3.6.1.4.1.2.6.188.2.2",
+    "class": "objectidentity"
+  },
+  "ibmOSAMibCompliance": {
+    "name": "ibmOSAMibCompliance",
+    "oid": "1.3.6.1.4.1.2.6.188.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ibmOSAExpChannelGroup",
+        "module": "IBM-OSA-MIB"
+      },
+      {
+        "object": "ibmOSAExpPerfGroup",
+        "module": "IBM-OSA-MIB"
+      },
+      {
+        "object": "ibmOSAExpPEGroup",
+        "module": "IBM-OSA-MIB"
+      },
+      {
+        "object": "ibmOSAExpEthGroup",
+        "module": "IBM-OSA-MIB"
+      },
+      {
+        "object": "ibmOSAExpTRGroup",
+        "module": "IBM-OSA-MIB"
+      },
+      {
+        "object": "ibmOSAExpATMGroup",
+        "module": "IBM-OSA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpChannelGroup": {
+    "name": "ibmOSAExpChannelGroup",
+    "oid": "1.3.6.1.4.1.2.6.188.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelNumber"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelType"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelHdwLevel"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelSubType"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelShared"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelNodeDesc"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelProcCodeLevel"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelPCIBusUtil1Min"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelProcUtil1Min"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelPCIBusUtil5Min"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelProcUtil5Min"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelPCIBusUtilHour"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpChannelProcUtilHour"
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpPerfGroup": {
+    "name": "ibmOSAExpPerfGroup",
+    "oid": "1.3.6.1.4.1.2.6.188.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP0"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP1"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP2"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP3"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP4"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP5"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP6"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP7"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP8"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP9"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP10"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP11"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP12"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP13"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP14"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPerfDataLP15"
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpPEGroup": {
+    "name": "ibmOSAExpPEGroup",
+    "oid": "1.3.6.1.4.1.2.6.188.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPEMaxSizeArpCache"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPEArpPendingEntries"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPEArpActiveEntries"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPEIPEntries"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPEMulticastEntries"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOSAExpPEMulticastData"
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpEthGroup": {
+    "name": "ibmOSAExpEthGroup",
+    "oid": "1.3.6.1.4.1.2.6.188.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthPortNumber"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthPortType"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthLanTrafficState"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthServiceMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthDisabledStatus"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthConfigName"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthConfigSpeedMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthActiveSpeedMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthMacAddrActive"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthMacAddrBurntIn"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthUserData"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthOutPackets"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthInPackets"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthInGroupFrames"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthInBroadcastFrames"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthPortName"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthInUnknownIPFrames"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpEthGroupAddrTable"
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpTRGroup": {
+    "name": "ibmOSAExpTRGroup",
+    "oid": "1.3.6.1.4.1.2.6.188.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRPortNumber"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRPortType"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRLanTrafficState"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRServiceMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRDisabledStatus"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRConfigName"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRMacAddrActive"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRMacAddrBurntIn"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRConfigSpeedMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRActiveSpeedMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRUserData"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRPortName"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRGroupAddrTable"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRFunctionalAddr"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRRingStatus"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRAllowAccessPriority"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTREarlyTokenRelease"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRBeaconingAddress"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRUpstreamNeighbor"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRRingState"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRRingOpenStatus"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRPacketsTransmitted"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRPacketsReceived"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRLineErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRBurstErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRACErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRAbortTransErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRInternalErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRLostFrameErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRRcvCongestionCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRFrameCopyErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRTokenErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRFullDuplexErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRSoftErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRHardErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRSignalLossErrorCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRTransmitBeaconCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRRecoveryCounter"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRLobeWireFaultCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRRemoveReceivedCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpTRSingleStationCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ibmOSAExpATMGroup": {
+    "name": "ibmOSAExpATMGroup",
+    "oid": "1.3.6.1.4.1.2.6.188.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMPortNumber"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMPortType"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLanTrafficState"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMServiceMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMDisabledStatus"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigName"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMacAddrActive"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMacAddrBurntIn"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMUserData"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMPortName"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMGroupMacAddrTable"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMIBMEnhancedMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMBestEffortPeakRate"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigMode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigLanType"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMActualLanType"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigMaxDataFrmSz"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMActualMaxDataFrmSz"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigELANName"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMActualELANName"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigLESATMAddress"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMActualLESATMAddress"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlTimeout"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMaxUnknownFrameCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMaxUnknownFrameTime"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMVCCTimeoutPeriod"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMaxRetryCount"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMAgingTime"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMForwardDelayTime"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMExpectedARPRespTime"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMFlushTimeout"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMPathSwitchingDelay"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLocalSegmentID"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMltcstSendVCCType"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMltcstSendVCCAvgRate"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMcastSendVCCPeakRate"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConnectCompleteTimer"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMClientATMAddress"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMClientIdentifier"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMClientCurrentState"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLastFailureRespCode"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLastFailureState"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMProtocol"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLeVersion"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMTopologyChange"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigServerATMAddr"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigSource"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMProxyClient"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLePDUOctetsInbound"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMNonErrLePDUDiscIn"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMErrLePDUDiscIn"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLePDUOctetsOutbound"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMNonErrLePDUDiscOut"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMErrLePDUDiscOut"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLeARPRequestsOut"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLeARPRequestsIn"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLeARPRepliesOut"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMLeARPRepliesIn"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlFramesOut"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlFramesIn"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMSVCFailures"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigDirectIntfc"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigDirectVPI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMConfigDirectVCI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlDirectIntfc"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlDirectVPI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlDirectVCI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlDistIntfc"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlDistributeVPI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMControlDistributeVCI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMulticastSendIntfc"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMulticastSendVPI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMulticastSendVCI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMulticastFwdIntfc"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMulticastForwardVPI"
+      },
+      {
+        "module": "IBM-OSA-MIB",
+        "object": "ibmOsaExpATMMulticastForwardVCI"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-OSA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IBM-OSA-MIB"
+  }
+}

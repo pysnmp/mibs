@@ -1,0 +1,1982 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cDhcp6": {
+    "name": "hh3cDhcp6",
+    "oid": "1.3.6.1.4.1.25506.2.179",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-04-30 00:00",
+        "description": "Modified to add new nodes."
+      },
+      {
+        "revision": "2021-02-08 00:00",
+        "description": "Modified to add new nodes."
+      },
+      {
+        "revision": "2019-12-12 00:00",
+        "description": "Modified to add new nodes."
+      },
+      {
+        "revision": "2018-11-16 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hh3cDhcp6Server2Tables": {
+    "name": "hh3cDhcp6Server2Tables",
+    "oid": "1.3.6.1.4.1.25506.2.179.1",
+    "class": "objectidentity"
+  },
+  "hh3cDhcp6Server2PoolTable": {
+    "name": "hh3cDhcp6Server2PoolTable",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolEntry": {
+    "name": "hh3cDhcp6Server2PoolEntry",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIndex": {
+    "name": "hh3cDhcp6Server2PoolIndex",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolName": {
+    "name": "hh3cDhcp6Server2PoolName",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolRowStatus": {
+    "name": "hh3cDhcp6Server2PoolRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolVpnName": {
+    "name": "hh3cDhcp6Server2PoolVpnName",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolType": {
+    "name": "hh3cDhcp6Server2PoolType",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "basLocal": 6,
+          "basRemote": 7,
+          "odap": 9
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNetwork": {
+    "name": "hh3cDhcp6Server2PoolNetwork",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNetworkMask": {
+    "name": "hh3cDhcp6Server2PoolNetworkMask",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNetworkPdNum": {
+    "name": "hh3cDhcp6Server2PoolNetworkPdNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolSubPdAddr": {
+    "name": "hh3cDhcp6Server2PoolSubPdAddr",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolSubPdLength": {
+    "name": "hh3cDhcp6Server2PoolSubPdLength",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNetPreTime": {
+    "name": "hh3cDhcp6Server2PoolNetPreTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNetValTime": {
+    "name": "hh3cDhcp6Server2PoolNetValTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNetExport": {
+    "name": "hh3cDhcp6Server2PoolNetExport",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNetPrefer": {
+    "name": "hh3cDhcp6Server2PoolNetPrefer",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNetTag": {
+    "name": "hh3cDhcp6Server2PoolNetTag",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNaStartAddr": {
+    "name": "hh3cDhcp6Server2PoolNaStartAddr",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNaEndAddr": {
+    "name": "hh3cDhcp6Server2PoolNaEndAddr",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNaPreTime": {
+    "name": "hh3cDhcp6Server2PoolNaPreTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolNaValTime": {
+    "name": "hh3cDhcp6Server2PoolNaValTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolTaStartAddr": {
+    "name": "hh3cDhcp6Server2PoolTaStartAddr",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolTaEndAddr": {
+    "name": "hh3cDhcp6Server2PoolTaEndAddr",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolTaPreTime": {
+    "name": "hh3cDhcp6Server2PoolTaPreTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolTaValTime": {
+    "name": "hh3cDhcp6Server2PoolTaValTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPrefixPool": {
+    "name": "hh3cDhcp6Server2PoolPrefixPool",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdPreTime": {
+    "name": "hh3cDhcp6Server2PoolPdPreTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdValTime": {
+    "name": "hh3cDhcp6Server2PoolPdValTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdExport": {
+    "name": "hh3cDhcp6Server2PoolPdExport",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdPreference": {
+    "name": "hh3cDhcp6Server2PoolPdPreference",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdTag": {
+    "name": "hh3cDhcp6Server2PoolPdTag",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolDomainName": {
+    "name": "hh3cDhcp6Server2PoolDomainName",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGatewayIp": {
+    "name": "hh3cDhcp6Server2PoolGatewayIp",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 367
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolDNSIp": {
+    "name": "hh3cDhcp6Server2PoolDNSIp",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 367
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolExpireIpEnbl": {
+    "name": "hh3cDhcp6Server2PoolExpireIpEnbl",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolExpireIpMode": {
+    "name": "hh3cDhcp6Server2PoolExpireIpMode",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cid": 0,
+          "mac": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolExpireIpLim": {
+    "name": "hh3cDhcp6Server2PoolExpireIpLim",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolExpireIpTime": {
+    "name": "hh3cDhcp6Server2PoolExpireIpTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolExpirePdEnbl": {
+    "name": "hh3cDhcp6Server2PoolExpirePdEnbl",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolExpirePdMode": {
+    "name": "hh3cDhcp6Server2PoolExpirePdMode",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cid": 0,
+          "mac": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolExpirePdLim": {
+    "name": "hh3cDhcp6Server2PoolExpirePdLim",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolExpirePdTime": {
+    "name": "hh3cDhcp6Server2PoolExpirePdTime",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolStatTable": {
+    "name": "hh3cDhcp6Server2PoolStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolStatEntry": {
+    "name": "hh3cDhcp6Server2PoolStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPIdleNum": {
+    "name": "hh3cDhcp6Server2PoolIPIdleNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPUsedNum": {
+    "name": "hh3cDhcp6Server2PoolIPUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPrefixIdleNum": {
+    "name": "hh3cDhcp6Server2PoolPrefixIdleNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPrefixUsedNum": {
+    "name": "hh3cDhcp6Server2PoolPrefixUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPTotalNum": {
+    "name": "hh3cDhcp6Server2PoolIPTotalNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPExpiredNum": {
+    "name": "hh3cDhcp6Server2PoolIPExpiredNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPDynamicUsedNum": {
+    "name": "hh3cDhcp6Server2PoolIPDynamicUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPStaticUsedNum": {
+    "name": "hh3cDhcp6Server2PoolIPStaticUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPConflictNum": {
+    "name": "hh3cDhcp6Server2PoolIPConflictNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPExcludeNum": {
+    "name": "hh3cDhcp6Server2PoolIPExcludeNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPReserveNum": {
+    "name": "hh3cDhcp6Server2PoolIPReserveNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolIPUsage": {
+    "name": "hh3cDhcp6Server2PoolIPUsage",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdTotalNum": {
+    "name": "hh3cDhcp6Server2PoolPdTotalNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdExpiredNum": {
+    "name": "hh3cDhcp6Server2PoolPdExpiredNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdDynamicUsedNum": {
+    "name": "hh3cDhcp6Server2PoolPdDynamicUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdStaticUsedNum": {
+    "name": "hh3cDhcp6Server2PoolPdStaticUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdConflictNum": {
+    "name": "hh3cDhcp6Server2PoolPdConflictNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdExcludeNum": {
+    "name": "hh3cDhcp6Server2PoolPdExcludeNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdReserveNum": {
+    "name": "hh3cDhcp6Server2PoolPdReserveNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolPdUsage": {
+    "name": "hh3cDhcp6Server2PoolPdUsage",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpTable": {
+    "name": "hh3cDhcp6Server2PoolGpTable",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpEntry": {
+    "name": "hh3cDhcp6Server2PoolGpEntry",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolGpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpName": {
+    "name": "hh3cDhcp6Server2PoolGpName",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpVpnName": {
+    "name": "hh3cDhcp6Server2PoolGpVpnName",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIncUndo": {
+    "name": "hh3cDhcp6Server2PoolGpIncUndo",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpRowSta": {
+    "name": "hh3cDhcp6Server2PoolGpRowSta",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpExtTable": {
+    "name": "hh3cDhcp6Server2PoolGpExtTable",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpExtEntry": {
+    "name": "hh3cDhcp6Server2PoolGpExtEntry",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolGpName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIncPoolNm": {
+    "name": "hh3cDhcp6Server2PoolGpIncPoolNm",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpExtRowSta": {
+    "name": "hh3cDhcp6Server2PoolGpExtRowSta",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpStatTable": {
+    "name": "hh3cDhcp6Server2PoolGpStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpStatEntry": {
+    "name": "hh3cDhcp6Server2PoolGpStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolGpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpPoolNum": {
+    "name": "hh3cDhcp6Server2PoolGpPoolNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpBndDomNum": {
+    "name": "hh3cDhcp6Server2PoolGpBndDomNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIPUsage": {
+    "name": "hh3cDhcp6Server2PoolGpIPUsage",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIPTotaNum": {
+    "name": "hh3cDhcp6Server2PoolGpIPTotaNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIPUsedNum": {
+    "name": "hh3cDhcp6Server2PoolGpIPUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIPIdleNum": {
+    "name": "hh3cDhcp6Server2PoolGpIPIdleNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIPExcNum": {
+    "name": "hh3cDhcp6Server2PoolGpIPExcNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIPConfNum": {
+    "name": "hh3cDhcp6Server2PoolGpIPConfNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpPDUsage": {
+    "name": "hh3cDhcp6Server2PoolGpPDUsage",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpPDTotaNum": {
+    "name": "hh3cDhcp6Server2PoolGpPDTotaNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpPDUsedNum": {
+    "name": "hh3cDhcp6Server2PoolGpPDUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpPDIdleNum": {
+    "name": "hh3cDhcp6Server2PoolGpPDIdleNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpPDExcNum": {
+    "name": "hh3cDhcp6Server2PoolGpPDExcNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpPDConfNum": {
+    "name": "hh3cDhcp6Server2PoolGpPDConfNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpIPReserveNum": {
+    "name": "hh3cDhcp6Server2PoolGpIPReserveNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PoolGpPdReserveNum": {
+    "name": "hh3cDhcp6Server2PoolGpPdReserveNum",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PrefixPoolTable": {
+    "name": "hh3cDhcp6Server2PrefixPoolTable",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PrefixPoolEntry": {
+    "name": "hh3cDhcp6Server2PrefixPoolEntry",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PdVPNInstance",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PdNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdVPNInstance": {
+    "name": "hh3cDhcp6Server2PdVPNInstance",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdNumber": {
+    "name": "hh3cDhcp6Server2PdNumber",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdPrefixAddr": {
+    "name": "hh3cDhcp6Server2PdPrefixAddr",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdPrefixLen": {
+    "name": "hh3cDhcp6Server2PdPrefixLen",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdPrefixNumber": {
+    "name": "hh3cDhcp6Server2PdPrefixNumber",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdPrefixAssLen": {
+    "name": "hh3cDhcp6Server2PdPrefixAssLen",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdRowStatus": {
+    "name": "hh3cDhcp6Server2PdRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.179.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDhcp6Server2Traps": {
+    "name": "hh3cDhcp6Server2Traps",
+    "oid": "1.3.6.1.4.1.25506.2.179.2",
+    "class": "objectidentity"
+  },
+  "hh3cDhcp6Server2TrapNotify": {
+    "name": "hh3cDhcp6Server2TrapNotify",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cDhcp6Server2AddrExhaust": {
+    "name": "hh3cDhcp6Server2AddrExhaust",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2AddrExhaustRecov": {
+    "name": "hh3cDhcp6Server2AddrExhaustRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2IpUsageOverflow": {
+    "name": "hh3cDhcp6Server2IpUsageOverflow",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2IpUsageOverflowRecov": {
+    "name": "hh3cDhcp6Server2IpUsageOverflowRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdExhaust": {
+    "name": "hh3cDhcp6Server2PdExhaust",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdExhaustRecov": {
+    "name": "hh3cDhcp6Server2PdExhaustRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdUsageOverflow": {
+    "name": "hh3cDhcp6Server2PdUsageOverflow",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdUsageOverflowRecov": {
+    "name": "hh3cDhcp6Server2PdUsageOverflowRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2IpNetUsageOverflow": {
+    "name": "hh3cDhcp6Server2IpNetUsageOverflow",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2IpNetUsageOverflowRecov": {
+    "name": "hh3cDhcp6Server2IpNetUsageOverflowRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2IpNetExhaust": {
+    "name": "hh3cDhcp6Server2IpNetExhaust",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2IpNetExhaustRecov": {
+    "name": "hh3cDhcp6Server2IpNetExhaustRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdNetUsageOverflow": {
+    "name": "hh3cDhcp6Server2PdNetUsageOverflow",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdNetUsageOverflowRecov": {
+    "name": "hh3cDhcp6Server2PdNetUsageOverflowRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdNetExhaust": {
+    "name": "hh3cDhcp6Server2PdNetExhaust",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2PdNetExhaustRecov": {
+    "name": "hh3cDhcp6Server2PdNetExhaustRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolIndex"
+      },
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2GpIpNetExhaust": {
+    "name": "hh3cDhcp6Server2GpIpNetExhaust",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolGpName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2GpIpNetExhaustRecov": {
+    "name": "hh3cDhcp6Server2GpIpNetExhaustRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolGpName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2GpPdNetExhaust": {
+    "name": "hh3cDhcp6Server2GpPdNetExhaust",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolGpName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDhcp6Server2GpPdNetExhaustRecov": {
+    "name": "hh3cDhcp6Server2GpPdNetExhaustRecov",
+    "oid": "1.3.6.1.4.1.25506.2.179.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-DHCP6-MIB",
+        "object": "hh3cDhcp6Server2PoolGpName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DHCP6-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DHCP6-MIB"
+  }
+}

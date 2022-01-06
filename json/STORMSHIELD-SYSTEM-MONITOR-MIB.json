@@ -1,0 +1,465 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "STORMSHIELD-SMI-MIB": [
+      "stormshieldMIB"
+    ]
+  },
+  "snsSystemMonitor": {
+    "name": "snsSystemMonitor",
+    "oid": "1.3.6.1.4.1.11256.1.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-20 00:00",
+        "description": "Initial"
+      }
+    ]
+  },
+  "snsDate": {
+    "name": "snsDate",
+    "oid": "1.3.6.1.4.1.11256.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsUptime": {
+    "name": "snsUptime",
+    "oid": "1.3.6.1.4.1.11256.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsMem": {
+    "name": "snsMem",
+    "oid": "1.3.6.1.4.1.11256.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsStatTime": {
+    "name": "snsStatTime",
+    "oid": "1.3.6.1.4.1.11256.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsDiskTable": {
+    "name": "snsDiskTable",
+    "oid": "1.3.6.1.4.1.11256.1.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsDiskEntry": {
+    "name": "snsDiskEntry",
+    "oid": "1.3.6.1.4.1.11256.1.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STORMSHIELD-SYSTEM-MONITOR-MIB",
+        "object": "snsDiskEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snsDiskEntryIndex": {
+    "name": "snsDiskEntryIndex",
+    "oid": "1.3.6.1.4.1.11256.1.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsDiskEntryDiskName": {
+    "name": "snsDiskEntryDiskName",
+    "oid": "1.3.6.1.4.1.11256.1.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsDiskEntrySmartResult": {
+    "name": "snsDiskEntrySmartResult",
+    "oid": "1.3.6.1.4.1.11256.1.10.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsDiskEntryIsRaid": {
+    "name": "snsDiskEntryIsRaid",
+    "oid": "1.3.6.1.4.1.11256.1.10.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsDiskEntryRaidStatus": {
+    "name": "snsDiskEntryRaidStatus",
+    "oid": "1.3.6.1.4.1.11256.1.10.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsDiskEntryPosition": {
+    "name": "snsDiskEntryPosition",
+    "oid": "1.3.6.1.4.1.11256.1.10.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsPowerSupplyTable": {
+    "name": "snsPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.11256.1.10.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsPowerSupplyEntry": {
+    "name": "snsPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.11256.1.10.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STORMSHIELD-SYSTEM-MONITOR-MIB",
+        "object": "snsPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snsPowerSupplyIndex": {
+    "name": "snsPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.11256.1.10.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsPowerSupplyPowered": {
+    "name": "snsPowerSupplyPowered",
+    "oid": "1.3.6.1.4.1.11256.1.10.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsCpuTable": {
+    "name": "snsCpuTable",
+    "oid": "1.3.6.1.4.1.11256.1.10.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsCpuEntry": {
+    "name": "snsCpuEntry",
+    "oid": "1.3.6.1.4.1.11256.1.10.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STORMSHIELD-SYSTEM-MONITOR-MIB",
+        "object": "snsCpuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snsCpuIndex": {
+    "name": "snsCpuIndex",
+    "oid": "1.3.6.1.4.1.11256.1.10.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsCpuTemp": {
+    "name": "snsCpuTemp",
+    "oid": "1.3.6.1.4.1.11256.1.10.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsBypassTable": {
+    "name": "snsBypassTable",
+    "oid": "1.3.6.1.4.1.11256.1.10.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsBypassEntry": {
+    "name": "snsBypassEntry",
+    "oid": "1.3.6.1.4.1.11256.1.10.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "STORMSHIELD-SYSTEM-MONITOR-MIB",
+        "object": "snsBypassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snsBypassIndex": {
+    "name": "snsBypassIndex",
+    "oid": "1.3.6.1.4.1.11256.1.10.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snsBypassI2CAddress": {
+    "name": "snsBypassI2CAddress",
+    "oid": "1.3.6.1.4.1.11256.1.10.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsBypassSystemOff": {
+    "name": "snsBypassSystemOff",
+    "oid": "1.3.6.1.4.1.11256.1.10.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsBypassJustOn": {
+    "name": "snsBypassJustOn",
+    "oid": "1.3.6.1.4.1.11256.1.10.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsBypassRunTime": {
+    "name": "snsBypassRunTime",
+    "oid": "1.3.6.1.4.1.11256.1.10.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snsBypassWatchdog": {
+    "name": "snsBypassWatchdog",
+    "oid": "1.3.6.1.4.1.11256.1.10.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-SYSTEM-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "STORMSHIELD-SYSTEM-MONITOR-MIB"
+  }
+}

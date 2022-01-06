@@ -1,0 +1,907 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesPtpMIB": {
+    "name": "cienaCesPtpMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.38",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2015-12-14 00:00",
+        "description": "Added cienaCesPtpCreatedNotification. Added cienaCesPtpDeletedNotification."
+      },
+      {
+        "revision": "2015-10-20 00:00",
+        "description": "Added the following notifications: cienaCesPtpAdminStateChangeNotification cienaCesPtpOperStateChangeNotification cienaCesPtpAdminWavelengthChangeNotification cienaCesPtpAdminFrequencyChangeNotification cienaCesPtpTxPowerChangeNotification cienaCesPtpLineSysTypeChangeNotification cienaCesPtpOptimizationModeChangeNotification cienaCesPtpWavelengthSpacingChangeNotification Fixed rounding error in PtpHundredths textual convention."
+      },
+      {
+        "revision": "2015-09-09 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "PtpHundredths": {
+    "name": "PtpHundredths",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "cienaCesPtpMIBObjects": {
+    "name": "cienaCesPtpMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1",
+    "class": "objectidentity"
+  },
+  "cienaCesPtp": {
+    "name": "cienaCesPtp",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesPtpMIBNotificationsPrefix": {
+    "name": "cienaCesPtpMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.38",
+    "class": "objectidentity"
+  },
+  "cienaCesPtpMIBNotifications": {
+    "name": "cienaCesPtpMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0",
+    "class": "objectidentity"
+  },
+  "cienaCesPtpMIBConformance": {
+    "name": "cienaCesPtpMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.2",
+    "class": "objectidentity"
+  },
+  "cienaCesPtpMIBCompliances": {
+    "name": "cienaCesPtpMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.2.1",
+    "class": "objectidentity"
+  },
+  "cienaCesPtpMIBGroups": {
+    "name": "cienaCesPtpMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.2.2",
+    "class": "objectidentity"
+  },
+  "cienaCesPtpTable": {
+    "name": "cienaCesPtpTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesPtpEntry": {
+    "name": "cienaCesPtpEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpIfIndex": {
+    "name": "cienaCesPtpIfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesPtpSlotIndex": {
+    "name": "cienaCesPtpSlotIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpPortIndex": {
+    "name": "cienaCesPtpPortIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpPortNumber": {
+    "name": "cienaCesPtpPortNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpIfDescr": {
+    "name": "cienaCesPtpIfDescr",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpModulationScheme": {
+    "name": "cienaCesPtpModulationScheme",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpSupportedOpuTypes": {
+    "name": "cienaCesPtpSupportedOpuTypes",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "experimental": 0,
+        "asynchronousCbr": 1,
+        "bitSynchronousCbr": 2,
+        "atm": 3,
+        "gfp": 4,
+        "virtualConcatenatedSignal": 5,
+        "hundredGBaseRIntoOpu4": 6,
+        "fc1200IntoOdu2e": 7,
+        "gfpIntoExtendedOpu2Payload": 8,
+        "stm1IntoOdu0": 9,
+        "stm4IntoOdu0": 10,
+        "fc100IntoOdu0": 11,
+        "fc200IntoOdu1": 12,
+        "fc400IntoOduFlex": 13,
+        "fc800IntoOduFlex": 14,
+        "bitStreamWithOctetTiming": 15,
+        "bitStreamWithoutOctetTiming": 16,
+        "ibSdrIntoOduFlex": 17,
+        "ibDdrIntoOduFlex": 18,
+        "ibQdrIntoOduFlex": 19,
+        "oduMultiplexForODTUkh": 20,
+        "oduMultiplexForODTUktsAndODTUkh": 21,
+        "nullTestSignal": 22,
+        "prbsTestSignal": 23,
+        "notAvailable": 24
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpAdminState": {
+    "name": "cienaCesPtpAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpOperState": {
+    "name": "cienaCesPtpOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpAdminWavelength": {
+    "name": "cienaCesPtpAdminWavelength",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpHundredths",
+      "class": "type"
+    },
+    "units": "nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpAdminFrequency": {
+    "name": "cienaCesPtpAdminFrequency",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpHundredths",
+      "class": "type"
+    },
+    "units": "GHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpTxPowerReduction": {
+    "name": "cienaCesPtpTxPowerReduction",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpTxPower": {
+    "name": "cienaCesPtpTxPower",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpHundredths",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpLineSysType": {
+    "name": "cienaCesPtpLineSysType",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "color": 1,
+          "colorless": 2,
+          "contentionless": 3,
+          "csColor": 4,
+          "csColorless": 5,
+          "max": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "color",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpOptimizationMode": {
+    "name": "cienaCesPtpOptimizationMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1": 1,
+          "mode2": 2,
+          "mode3": 3,
+          "mode4": 4,
+          "mode5": 5,
+          "mode6": 6,
+          "mode7": 7,
+          "mode8": 8,
+          "mode9": 9,
+          "mode10": 10,
+          "mode11": 11,
+          "mode12": 12,
+          "mode13": 13,
+          "mode14": 14,
+          "max": 15
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mode1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpWavelengthSpacing": {
+    "name": "cienaCesPtpWavelengthSpacing",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twelvePointFiveGHz": 1,
+          "twentyFiveGHz": 2,
+          "fiftyGHz": 3,
+          "oneHundredGHz": 4,
+          "max": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fiftyGHz",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpSpectralOccupancy": {
+    "name": "cienaCesPtpSpectralOccupancy",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "narrow": 1,
+          "wide": 2,
+          "max": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "narrow",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpTxTuningMode": {
+    "name": "cienaCesPtpTxTuningMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "accelerated": 2,
+          "max": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpRotation": {
+    "name": "cienaCesPtpRotation",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpCarrierCentering": {
+    "name": "cienaCesPtpCarrierCentering",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "mode1": 2,
+          "mode2": 3,
+          "mode3": 4,
+          "max": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpOchEnmMode": {
+    "name": "cienaCesPtpOchEnmMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "mode1": 2,
+          "mode2": 3,
+          "auto": 4,
+          "max": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mode2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpChContentionDetect": {
+    "name": "cienaCesPtpChContentionDetect",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpStormControl": {
+    "name": "cienaCesPtpStormControl",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpStormMode": {
+    "name": "cienaCesPtpStormMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "matched": 1,
+          "diverse": 2,
+          "max": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpStormPath1": {
+    "name": "cienaCesPtpStormPath1",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpStormPath2": {
+    "name": "cienaCesPtpStormPath2",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpSpliCntrl": {
+    "name": "cienaCesPtpSpliCntrl",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpChildOtuIfIndex": {
+    "name": "cienaCesPtpChildOtuIfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.38.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPtpAdminStateChangeNotification": {
+    "name": "cienaCesPtpAdminStateChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpOperStateChangeNotification": {
+    "name": "cienaCesPtpOperStateChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpAdminWavelengthChangeNotification": {
+    "name": "cienaCesPtpAdminWavelengthChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpAdminWavelength"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpAdminFrequencyChangeNotification": {
+    "name": "cienaCesPtpAdminFrequencyChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpAdminFrequency"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpTxPowerChangeNotification": {
+    "name": "cienaCesPtpTxPowerChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpTxPower"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpLineSysTypeChangeNotification": {
+    "name": "cienaCesPtpLineSysTypeChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpLineSysType"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpOptimizationModeChangeNotification": {
+    "name": "cienaCesPtpOptimizationModeChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpOptimizationMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpWavelengthSpacingChangeNotification": {
+    "name": "cienaCesPtpWavelengthSpacingChangeNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpWavelengthSpacing"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpCreatedNotification": {
+    "name": "cienaCesPtpCreatedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPtpDeletedNotification": {
+    "name": "cienaCesPtpDeletedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.38.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PTP-MIB",
+        "object": "cienaCesPtpIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-PTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-PTP-MIB"
+  }
+}

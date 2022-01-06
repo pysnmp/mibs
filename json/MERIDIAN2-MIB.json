@@ -1,0 +1,3994 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "endRunTechnologies": {
+    "name": "endRunTechnologies",
+    "oid": "1.3.6.1.4.1.13827.0",
+    "class": "moduleidentity"
+  },
+  "endRunTechnologiesMIB": {
+    "name": "endRunTechnologiesMIB",
+    "oid": "1.3.6.1.4.1.13827",
+    "class": "objectidentity"
+  },
+  "meridian2GPS": {
+    "name": "meridian2GPS",
+    "oid": "1.3.6.1.4.1.13827.14",
+    "class": "objectidentity"
+  },
+  "gntp": {
+    "name": "gntp",
+    "oid": "1.3.6.1.4.1.13827.14.1",
+    "class": "objectidentity"
+  },
+  "gntptrap": {
+    "name": "gntptrap",
+    "oid": "1.3.6.1.4.1.13827.14.1.0",
+    "class": "objectidentity"
+  },
+  "gps": {
+    "name": "gps",
+    "oid": "1.3.6.1.4.1.13827.14.2",
+    "class": "objectidentity"
+  },
+  "gpstrap": {
+    "name": "gpstrap",
+    "oid": "1.3.6.1.4.1.13827.14.2.0",
+    "class": "objectidentity"
+  },
+  "gCPUIO": {
+    "name": "gCPUIO",
+    "oid": "1.3.6.1.4.1.13827.14.3",
+    "class": "objectidentity"
+  },
+  "gPlugInOptions": {
+    "name": "gPlugInOptions",
+    "oid": "1.3.6.1.4.1.13827.14.4",
+    "class": "objectidentity"
+  },
+  "goptSlot1": {
+    "name": "goptSlot1",
+    "oid": "1.3.6.1.4.1.13827.14.4.1",
+    "class": "objectidentity"
+  },
+  "goptSlot2": {
+    "name": "goptSlot2",
+    "oid": "1.3.6.1.4.1.13827.14.4.2",
+    "class": "objectidentity"
+  },
+  "goptSlot3": {
+    "name": "goptSlot3",
+    "oid": "1.3.6.1.4.1.13827.14.4.3",
+    "class": "objectidentity"
+  },
+  "goptSlot4": {
+    "name": "goptSlot4",
+    "oid": "1.3.6.1.4.1.13827.14.4.4",
+    "class": "objectidentity"
+  },
+  "goptSlot5": {
+    "name": "goptSlot5",
+    "oid": "1.3.6.1.4.1.13827.14.4.5",
+    "class": "objectidentity"
+  },
+  "gptp0": {
+    "name": "gptp0",
+    "oid": "1.3.6.1.4.1.13827.14.5",
+    "class": "objectidentity"
+  },
+  "gptp1": {
+    "name": "gptp1",
+    "oid": "1.3.6.1.4.1.13827.14.6",
+    "class": "objectidentity"
+  },
+  "gntpTrapLeapIndBitsChange": {
+    "name": "gntpTrapLeapIndBitsChange",
+    "oid": "1.3.6.1.4.1.13827.14.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MERIDIAN2-MIB",
+        "object": "gntpLeapIndBits"
+      }
+    ],
+    "status": "current"
+  },
+  "gntpTrapStratumChange": {
+    "name": "gntpTrapStratumChange",
+    "oid": "1.3.6.1.4.1.13827.14.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MERIDIAN2-MIB",
+        "object": "gntpStratum"
+      }
+    ],
+    "status": "current"
+  },
+  "gntpTimeSinceRst": {
+    "name": "gntpTimeSinceRst",
+    "oid": "1.3.6.1.4.1.13827.14.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpIRQsHandled": {
+    "name": "gntpIRQsHandled",
+    "oid": "1.3.6.1.4.1.13827.14.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpRxPkts": {
+    "name": "gntpRxPkts",
+    "oid": "1.3.6.1.4.1.13827.14.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpRxPktsByIRQ": {
+    "name": "gntpRxPktsByIRQ",
+    "oid": "1.3.6.1.4.1.13827.14.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpTxPkts": {
+    "name": "gntpTxPkts",
+    "oid": "1.3.6.1.4.1.13827.14.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpSentPktsPerSecond": {
+    "name": "gntpSentPktsPerSecond",
+    "oid": "1.3.6.1.4.1.13827.14.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpUnSentPkts": {
+    "name": "gntpUnSentPkts",
+    "oid": "1.3.6.1.4.1.13827.14.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpIgnoredPkts": {
+    "name": "gntpIgnoredPkts",
+    "oid": "1.3.6.1.4.1.13827.14.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpDroppedPkts": {
+    "name": "gntpDroppedPkts",
+    "oid": "1.3.6.1.4.1.13827.14.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpAuthFail": {
+    "name": "gntpAuthFail",
+    "oid": "1.3.6.1.4.1.13827.14.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpTimeFigureOfMerit": {
+    "name": "gntpTimeFigureOfMerit",
+    "oid": "1.3.6.1.4.1.13827.14.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessthan100ns": 3,
+          "lessthan1us": 4,
+          "lessthan10us": 5,
+          "lessthan100us": 6,
+          "lessthan1ms": 7,
+          "lessthan10ms": 8,
+          "greaterthan10ms": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpLeapIndBits": {
+    "name": "gntpLeapIndBits",
+    "oid": "1.3.6.1.4.1.13827.14.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFaultorLeap": 0,
+          "leapInsWarning": 1,
+          "leapDelWarning": 2,
+          "unSynchronized": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpSyncSource": {
+    "name": "gntpSyncSource",
+    "oid": "1.3.6.1.4.1.13827.14.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpOffsetToGPSReference": {
+    "name": "gntpOffsetToGPSReference",
+    "oid": "1.3.6.1.4.1.13827.14.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpStratum": {
+    "name": "gntpStratum",
+    "oid": "1.3.6.1.4.1.13827.14.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gntpStratumOne": 1,
+          "gntpStratumTwo": 2,
+          "gntpStratumUnsync": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpVersion": {
+    "name": "gntpVersion",
+    "oid": "1.3.6.1.4.1.13827.14.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpKernelVersion": {
+    "name": "gntpKernelVersion",
+    "oid": "1.3.6.1.4.1.13827.14.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpOscType": {
+    "name": "gntpOscType",
+    "oid": "1.3.6.1.4.1.13827.14.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpTimeMode": {
+    "name": "gntpTimeMode",
+    "oid": "1.3.6.1.4.1.13827.14.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpLocalOffset": {
+    "name": "gntpLocalOffset",
+    "oid": "1.3.6.1.4.1.13827.14.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpDSTStartMonth": {
+    "name": "gntpDSTStartMonth",
+    "oid": "1.3.6.1.4.1.13827.14.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "jan": 1,
+          "feb": 2,
+          "mar": 3,
+          "apr": 4,
+          "may": 5,
+          "jun": 6,
+          "jul": 7,
+          "aug": 8,
+          "sep": 9,
+          "oct": 10,
+          "nov": 11,
+          "dec": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpDSTStartSunday": {
+    "name": "gntpDSTStartSunday",
+    "oid": "1.3.6.1.4.1.13827.14.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "firstSunday": 1,
+          "secondSunday": 2,
+          "thirdSunday": 3,
+          "fourthSunday": 4,
+          "lastSunday": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpDSTStartHour": {
+    "name": "gntpDSTStartHour",
+    "oid": "1.3.6.1.4.1.13827.14.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpDSTStopMonth": {
+    "name": "gntpDSTStopMonth",
+    "oid": "1.3.6.1.4.1.13827.14.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "jan": 1,
+          "feb": 2,
+          "mar": 3,
+          "apr": 4,
+          "may": 5,
+          "jun": 6,
+          "jul": 7,
+          "aug": 8,
+          "sep": 9,
+          "oct": 10,
+          "nov": 11,
+          "dec": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpDSTStopSunday": {
+    "name": "gntpDSTStopSunday",
+    "oid": "1.3.6.1.4.1.13827.14.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "firstSunday": 1,
+          "secondSunday": 2,
+          "thirdSunday": 3,
+          "fourthSunday": 4,
+          "lastSunday": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpDSTStopHour": {
+    "name": "gntpDSTStopHour",
+    "oid": "1.3.6.1.4.1.13827.14.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpCPUDieTemperature": {
+    "name": "gntpCPUDieTemperature",
+    "oid": "1.3.6.1.4.1.13827.14.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpCPUFreeMemory": {
+    "name": "gntpCPUFreeMemory",
+    "oid": "1.3.6.1.4.1.13827.14.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gntpCPULoadAveragePerCent": {
+    "name": "gntpCPULoadAveragePerCent",
+    "oid": "1.3.6.1.4.1.13827.14.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsTrapFaultStatusChange": {
+    "name": "gpsTrapFaultStatusChange",
+    "oid": "1.3.6.1.4.1.13827.14.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MERIDIAN2-MIB",
+        "object": "gpsFaultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "gpsTrapFault2StatusChange": {
+    "name": "gpsTrapFault2StatusChange",
+    "oid": "1.3.6.1.4.1.13827.14.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MERIDIAN2-MIB",
+        "object": "gpsFault2Status"
+      }
+    ],
+    "status": "current"
+  },
+  "gpsTrapTimeFigureOfMeritChange": {
+    "name": "gpsTrapTimeFigureOfMeritChange",
+    "oid": "1.3.6.1.4.1.13827.14.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MERIDIAN2-MIB",
+        "object": "gpsTimeFigureOfMerit"
+      }
+    ],
+    "status": "current"
+  },
+  "gpsFaultStatus": {
+    "name": "gpsFaultStatus",
+    "oid": "1.3.6.1.4.1.13827.14.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsReceiverFlt": 0,
+        "gpsNTPNotPolling": 1,
+        "gpsRefTimeFlt": 2,
+        "gpsReceiverCommFlt": 3,
+        "gpsFLASHWriteFlt": 4,
+        "gpsFPGACfgFlt": 5,
+        "gpsNoSignalTimeout": 6,
+        "gpsDACNearLimit": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsFault2Status": {
+    "name": "gpsFault2Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsSysPwrOvld": 0,
+        "gpsNotUsed1": 1,
+        "gpsHP5071a": 2,
+        "gpsPlugInOpts": 3,
+        "gpsAntennaFlt": 4,
+        "gpsOscPLLFlt": 5,
+        "gpsSecPwrSplyFlt": 6,
+        "gpsPriPwrSplyFlt": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReceiverFaultNibble0Status": {
+    "name": "gpsReceiverFaultNibble0Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsFLASHWriteFlt": 0,
+        "gpsFPGACfgFlt": 1,
+        "gpsNoSignalTimeout": 2,
+        "gpsDACNearLimit": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReceiverFaultNibble1Status": {
+    "name": "gpsReceiverFaultNibble1Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsMainOscFlt": 0,
+        "gpsRefTimeFlt": 1,
+        "gpsSynthFlt": 2,
+        "gpsSynthNearLimit": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReceiverFaultNibble2Status": {
+    "name": "gpsReceiverFaultNibble2Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsNotUsed0": 0,
+        "gpsOscPLLFlt": 1,
+        "gpsAntennaOpen": 2,
+        "gpsAntennaShort": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReceiverFaultNibble3Status": {
+    "name": "gpsReceiverFaultNibble3Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsNotUsed0": 0,
+        "gpsNotUsed1": 1,
+        "gpsNotUsed2": 2,
+        "gpsNotUsed3": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsTimeFigureOfMerit": {
+    "name": "gpsTimeFigureOfMerit",
+    "oid": "1.3.6.1.4.1.13827.14.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessthan100ns": 3,
+          "lessthan1us": 4,
+          "lessthan10us": 5,
+          "lessthan100us": 6,
+          "lessthan1ms": 7,
+          "lessthan10ms": 8,
+          "greaterthan10ms": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsSigProcState": {
+    "name": "gpsSigProcState",
+    "oid": "1.3.6.1.4.1.13827.14.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReceiverSigProcState": {
+    "name": "gpsReceiverSigProcState",
+    "oid": "1.3.6.1.4.1.13827.14.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsNumTrackSats": {
+    "name": "gpsNumTrackSats",
+    "oid": "1.3.6.1.4.1.13827.14.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAGC": {
+    "name": "gpsAGC",
+    "oid": "1.3.6.1.4.1.13827.14.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAvgCarrierToNoiseRatiodB": {
+    "name": "gpsAvgCarrierToNoiseRatiodB",
+    "oid": "1.3.6.1.4.1.13827.14.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat1": {
+    "name": "gpsChannelTrkStat1",
+    "oid": "1.3.6.1.4.1.13827.14.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat2": {
+    "name": "gpsChannelTrkStat2",
+    "oid": "1.3.6.1.4.1.13827.14.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat3": {
+    "name": "gpsChannelTrkStat3",
+    "oid": "1.3.6.1.4.1.13827.14.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat4": {
+    "name": "gpsChannelTrkStat4",
+    "oid": "1.3.6.1.4.1.13827.14.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat5": {
+    "name": "gpsChannelTrkStat5",
+    "oid": "1.3.6.1.4.1.13827.14.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat6": {
+    "name": "gpsChannelTrkStat6",
+    "oid": "1.3.6.1.4.1.13827.14.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat7": {
+    "name": "gpsChannelTrkStat7",
+    "oid": "1.3.6.1.4.1.13827.14.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat8": {
+    "name": "gpsChannelTrkStat8",
+    "oid": "1.3.6.1.4.1.13827.14.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat9": {
+    "name": "gpsChannelTrkStat9",
+    "oid": "1.3.6.1.4.1.13827.14.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat10": {
+    "name": "gpsChannelTrkStat10",
+    "oid": "1.3.6.1.4.1.13827.14.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat11": {
+    "name": "gpsChannelTrkStat11",
+    "oid": "1.3.6.1.4.1.13827.14.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsChannelTrkStat12": {
+    "name": "gpsChannelTrkStat12",
+    "oid": "1.3.6.1.4.1.13827.14.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsLastPositionFix": {
+    "name": "gpsLastPositionFix",
+    "oid": "1.3.6.1.4.1.13827.14.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReferencePosition": {
+    "name": "gpsReferencePosition",
+    "oid": "1.3.6.1.4.1.13827.14.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsRefPosSource": {
+    "name": "gpsRefPosSource",
+    "oid": "1.3.6.1.4.1.13827.14.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsCurrentLeapSeconds": {
+    "name": "gpsCurrentLeapSeconds",
+    "oid": "1.3.6.1.4.1.13827.14.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsFutureLeapSeconds": {
+    "name": "gpsFutureLeapSeconds",
+    "oid": "1.3.6.1.4.1.13827.14.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacLS": {
+    "name": "gpsAlmanacLS",
+    "oid": "1.3.6.1.4.1.13827.14.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacLSF": {
+    "name": "gpsAlmanacLSF",
+    "oid": "1.3.6.1.4.1.13827.14.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacUTCWNlsf": {
+    "name": "gpsAlmanacUTCWNlsf",
+    "oid": "1.3.6.1.4.1.13827.14.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacUTCDN": {
+    "name": "gpsAlmanacUTCDN",
+    "oid": "1.3.6.1.4.1.13827.14.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacA0": {
+    "name": "gpsAlmanacA0",
+    "oid": "1.3.6.1.4.1.13827.14.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacA1": {
+    "name": "gpsAlmanacA1",
+    "oid": "1.3.6.1.4.1.13827.14.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacUTCWNt": {
+    "name": "gpsAlmanacUTCWNt",
+    "oid": "1.3.6.1.4.1.13827.14.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacUTCtot": {
+    "name": "gpsAlmanacUTCtot",
+    "oid": "1.3.6.1.4.1.13827.14.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsGPSminusUTCOffsetPicoSecs": {
+    "name": "gpsGPSminusUTCOffsetPicoSecs",
+    "oid": "1.3.6.1.4.1.13827.14.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsSubsystemVersion": {
+    "name": "gpsSubsystemVersion",
+    "oid": "1.3.6.1.4.1.13827.14.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsReceiverVersion": {
+    "name": "gpsReceiverVersion",
+    "oid": "1.3.6.1.4.1.13827.14.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsDynamicMode": {
+    "name": "gpsDynamicMode",
+    "oid": "1.3.6.1.4.1.13827.14.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gpsDynModeOFF": 0,
+          "gpsDynModeON": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsCalibrationDelayNanoSecs": {
+    "name": "gpsCalibrationDelayNanoSecs",
+    "oid": "1.3.6.1.4.1.13827.14.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500000,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsCoastDuration": {
+    "name": "gpsCoastDuration",
+    "oid": "1.3.6.1.4.1.13827.14.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsEstimatedTimeError": {
+    "name": "gpsEstimatedTimeError",
+    "oid": "1.3.6.1.4.1.13827.14.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsMeasuredTimeError": {
+    "name": "gpsMeasuredTimeError",
+    "oid": "1.3.6.1.4.1.13827.14.2.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsMeasurementTimeDeviation": {
+    "name": "gpsMeasurementTimeDeviation",
+    "oid": "1.3.6.1.4.1.13827.14.2.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsOSCDAC": {
+    "name": "gpsOSCDAC",
+    "oid": "1.3.6.1.4.1.13827.14.2.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsMeasuredOscillatorAgeing": {
+    "name": "gpsMeasuredOscillatorAgeing",
+    "oid": "1.3.6.1.4.1.13827.14.2.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsControlLoopTimeConstant": {
+    "name": "gpsControlLoopTimeConstant",
+    "oid": "1.3.6.1.4.1.13827.14.2.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsInternalTemperature": {
+    "name": "gpsInternalTemperature",
+    "oid": "1.3.6.1.4.1.13827.14.2.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAntennaFaultMask": {
+    "name": "gpsAntennaFaultMask",
+    "oid": "1.3.6.1.4.1.13827.14.2.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsSignalLossFaultMask": {
+    "name": "gpsSignalLossFaultMask",
+    "oid": "1.3.6.1.4.1.13827.14.2.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsPrimaryPowerFaultAlarmMask": {
+    "name": "gpsPrimaryPowerFaultAlarmMask",
+    "oid": "1.3.6.1.4.1.13827.14.2.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsSecondaryPowerFaultAlarmMask": {
+    "name": "gpsSecondaryPowerFaultAlarmMask",
+    "oid": "1.3.6.1.4.1.13827.14.2.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsTimeFigureOfMeritFaultLevel": {
+    "name": "gpsTimeFigureOfMeritFaultLevel",
+    "oid": "1.3.6.1.4.1.13827.14.2.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessthan1us": 4,
+          "lessthan10us": 5,
+          "lessthan100us": 6,
+          "lessthan1ms": 7,
+          "lessthan10ms": 8,
+          "greaterthan10ms": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsInhibitOutputsMode": {
+    "name": "gpsInhibitOutputsMode",
+    "oid": "1.3.6.1.4.1.13827.14.2.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gpsInhibitOutputsModeOFF": 0,
+          "gpsInhibitOutputsModeON": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoAlpha0": {
+    "name": "gpsAlmanacIonoAlpha0",
+    "oid": "1.3.6.1.4.1.13827.14.2.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoAlpha1": {
+    "name": "gpsAlmanacIonoAlpha1",
+    "oid": "1.3.6.1.4.1.13827.14.2.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoAlpha2": {
+    "name": "gpsAlmanacIonoAlpha2",
+    "oid": "1.3.6.1.4.1.13827.14.2.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoAlpha3": {
+    "name": "gpsAlmanacIonoAlpha3",
+    "oid": "1.3.6.1.4.1.13827.14.2.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoBeta0": {
+    "name": "gpsAlmanacIonoBeta0",
+    "oid": "1.3.6.1.4.1.13827.14.2.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoBeta1": {
+    "name": "gpsAlmanacIonoBeta1",
+    "oid": "1.3.6.1.4.1.13827.14.2.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoBeta2": {
+    "name": "gpsAlmanacIonoBeta2",
+    "oid": "1.3.6.1.4.1.13827.14.2.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoBeta3": {
+    "name": "gpsAlmanacIonoBeta3",
+    "oid": "1.3.6.1.4.1.13827.14.2.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonoWNa": {
+    "name": "gpsAlmanacIonoWNa",
+    "oid": "1.3.6.1.4.1.13827.14.2.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsAlmanacIonotoa": {
+    "name": "gpsAlmanacIonotoa",
+    "oid": "1.3.6.1.4.1.13827.14.2.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsRTICMode": {
+    "name": "gpsRTICMode",
+    "oid": "1.3.6.1.4.1.13827.14.2.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gpsRTICModeOFF": 0,
+          "gpsRTICModeON": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsRTICValid": {
+    "name": "gpsRTICValid",
+    "oid": "1.3.6.1.4.1.13827.14.2.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gpsRTICValidFALSE": 0,
+          "gpsRTICValidTRUE": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsKlobucharEnsembleDelay": {
+    "name": "gpsKlobucharEnsembleDelay",
+    "oid": "1.3.6.1.4.1.13827.14.2.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsRTICEnsembleDelay": {
+    "name": "gpsRTICEnsembleDelay",
+    "oid": "1.3.6.1.4.1.13827.14.2.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsFaultNibble0Status": {
+    "name": "gpsFaultNibble0Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsFLASHWriteFlt": 0,
+        "gpsFPGACfgFlt": 1,
+        "gpsNoSignalTimeout": 2,
+        "gpsDACNearLimit": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsFaultNibble1Status": {
+    "name": "gpsFaultNibble1Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsReceiverFlt": 0,
+        "gpsNTPNotPolling": 1,
+        "gpsRefTimeFlt": 2,
+        "gpsReceiverCommFlt": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsFaultNibble2Status": {
+    "name": "gpsFaultNibble2Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsAntennaFlt": 0,
+        "gpsOscPLLFlt": 1,
+        "gpsSecPwrSplyFlt": 2,
+        "gpsPriPwrSplyFlt": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsFaultNibble3Status": {
+    "name": "gpsFaultNibble3Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "gpsSysPwrOvld": 0,
+        "gpsNotUsed1": 1,
+        "gpsHP5071a": 2,
+        "gpsPlugInOpts": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AOperNibble0Status": {
+    "name": "gpsHP5071AOperNibble0Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "csNotUsed0": 0,
+        "csNotUsed1": 1,
+        "csNotUsed2": 2,
+        "csCalibrating": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AOperNibble2Status": {
+    "name": "gpsHP5071AOperNibble2Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "csFatal": 0,
+        "csNormal": 1,
+        "csOnBattery": 2,
+        "csStandby": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AOperNibble3Status": {
+    "name": "gpsHP5071AOperNibble3Status",
+    "oid": "1.3.6.1.4.1.13827.14.2.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "csNotUsed0": 0,
+        "csNotUsed1": 1,
+        "csNotUsed2": 2,
+        "csSteered": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AQuesNibble0Data": {
+    "name": "gpsHP5071AQuesNibble0Data",
+    "oid": "1.3.6.1.4.1.13827.14.2.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "csNotUsed0": 0,
+        "csTime": 1,
+        "csNotUsed2": 2,
+        "csNotUsed3": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AQuesNibble1Data": {
+    "name": "gpsHP5071AQuesNibble1Data",
+    "oid": "1.3.6.1.4.1.13827.14.2.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "csNotUsed0": 0,
+        "csPhase": 1,
+        "csFrequency": 2,
+        "csNotUsed3": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071ACsBeamI": {
+    "name": "gpsHP5071ACsBeamI",
+    "oid": "1.3.6.1.4.1.13827.14.2.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071ACFieldI": {
+    "name": "gpsHP5071ACFieldI",
+    "oid": "1.3.6.1.4.1.13827.14.2.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AIonPumpI": {
+    "name": "gpsHP5071AIonPumpI",
+    "oid": "1.3.6.1.4.1.13827.14.2.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AEMultiplierV": {
+    "name": "gpsHP5071AEMultiplierV",
+    "oid": "1.3.6.1.4.1.13827.14.2.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071ACsOvenV": {
+    "name": "gpsHP5071ACsOvenV",
+    "oid": "1.3.6.1.4.1.13827.14.2.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071ASignalGainPerCent": {
+    "name": "gpsHP5071ASignalGainPerCent",
+    "oid": "1.3.6.1.4.1.13827.14.2.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071ARFAmplitude1PerCent": {
+    "name": "gpsHP5071ARFAmplitude1PerCent",
+    "oid": "1.3.6.1.4.1.13827.14.2.86",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071ARFAmplitude2PerCent": {
+    "name": "gpsHP5071ARFAmplitude2PerCent",
+    "oid": "1.3.6.1.4.1.13827.14.2.87",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AOscillatorOvenV": {
+    "name": "gpsHP5071AOscillatorOvenV",
+    "oid": "1.3.6.1.4.1.13827.14.2.88",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gpsHP5071AOscillatorControlPerCent": {
+    "name": "gpsHP5071AOscillatorControlPerCent",
+    "oid": "1.3.6.1.4.1.13827.14.2.89",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysio1PPSWidth": {
+    "name": "gsysio1PPSWidth",
+    "oid": "1.3.6.1.4.1.13827.14.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysioTimeCodeFormat": {
+    "name": "gsysioTimeCodeFormat",
+    "oid": "1.3.6.1.4.1.13827.14.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysioSynthesizerHz": {
+    "name": "gsysioSynthesizerHz",
+    "oid": "1.3.6.1.4.1.13827.14.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysioSerialTimeOutputBaudrate": {
+    "name": "gsysioSerialTimeOutputBaudrate",
+    "oid": "1.3.6.1.4.1.13827.14.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysioSerialTimeOutputFormat": {
+    "name": "gsysioSerialTimeOutputFormat",
+    "oid": "1.3.6.1.4.1.13827.14.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysioSerialTimeOutputParity": {
+    "name": "gsysioSerialTimeOutputParity",
+    "oid": "1.3.6.1.4.1.13827.14.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysioSerialTimeNMEASentence1": {
+    "name": "gsysioSerialTimeNMEASentence1",
+    "oid": "1.3.6.1.4.1.13827.14.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysioSerialTimeNMEASentence2": {
+    "name": "gsysioSerialTimeNMEASentence2",
+    "oid": "1.3.6.1.4.1.13827.14.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gsysioSerialTimeNMEASentence3": {
+    "name": "gsysioSerialTimeNMEASentence3",
+    "oid": "1.3.6.1.4.1.13827.14.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gcpuioConnA": {
+    "name": "gcpuioConnA",
+    "oid": "1.3.6.1.4.1.13827.14.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gcpuioConnB": {
+    "name": "gcpuioConnB",
+    "oid": "1.3.6.1.4.1.13827.14.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gcpuioConnC": {
+    "name": "gcpuioConnC",
+    "oid": "1.3.6.1.4.1.13827.14.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot1Desc": {
+    "name": "goptSlot1Desc",
+    "oid": "1.3.6.1.4.1.13827.14.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot1A": {
+    "name": "goptSlot1A",
+    "oid": "1.3.6.1.4.1.13827.14.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot1B": {
+    "name": "goptSlot1B",
+    "oid": "1.3.6.1.4.1.13827.14.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot1C": {
+    "name": "goptSlot1C",
+    "oid": "1.3.6.1.4.1.13827.14.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot1D": {
+    "name": "goptSlot1D",
+    "oid": "1.3.6.1.4.1.13827.14.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot1E": {
+    "name": "goptSlot1E",
+    "oid": "1.3.6.1.4.1.13827.14.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot1F": {
+    "name": "goptSlot1F",
+    "oid": "1.3.6.1.4.1.13827.14.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot2Desc": {
+    "name": "goptSlot2Desc",
+    "oid": "1.3.6.1.4.1.13827.14.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot2A": {
+    "name": "goptSlot2A",
+    "oid": "1.3.6.1.4.1.13827.14.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot2B": {
+    "name": "goptSlot2B",
+    "oid": "1.3.6.1.4.1.13827.14.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot2C": {
+    "name": "goptSlot2C",
+    "oid": "1.3.6.1.4.1.13827.14.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot2D": {
+    "name": "goptSlot2D",
+    "oid": "1.3.6.1.4.1.13827.14.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot2E": {
+    "name": "goptSlot2E",
+    "oid": "1.3.6.1.4.1.13827.14.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot2F": {
+    "name": "goptSlot2F",
+    "oid": "1.3.6.1.4.1.13827.14.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot3Desc": {
+    "name": "goptSlot3Desc",
+    "oid": "1.3.6.1.4.1.13827.14.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot3A": {
+    "name": "goptSlot3A",
+    "oid": "1.3.6.1.4.1.13827.14.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot3B": {
+    "name": "goptSlot3B",
+    "oid": "1.3.6.1.4.1.13827.14.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot3C": {
+    "name": "goptSlot3C",
+    "oid": "1.3.6.1.4.1.13827.14.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot3D": {
+    "name": "goptSlot3D",
+    "oid": "1.3.6.1.4.1.13827.14.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot3E": {
+    "name": "goptSlot3E",
+    "oid": "1.3.6.1.4.1.13827.14.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot3F": {
+    "name": "goptSlot3F",
+    "oid": "1.3.6.1.4.1.13827.14.4.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot4Desc": {
+    "name": "goptSlot4Desc",
+    "oid": "1.3.6.1.4.1.13827.14.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot4A": {
+    "name": "goptSlot4A",
+    "oid": "1.3.6.1.4.1.13827.14.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot4B": {
+    "name": "goptSlot4B",
+    "oid": "1.3.6.1.4.1.13827.14.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot4C": {
+    "name": "goptSlot4C",
+    "oid": "1.3.6.1.4.1.13827.14.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot4D": {
+    "name": "goptSlot4D",
+    "oid": "1.3.6.1.4.1.13827.14.4.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot4E": {
+    "name": "goptSlot4E",
+    "oid": "1.3.6.1.4.1.13827.14.4.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot4F": {
+    "name": "goptSlot4F",
+    "oid": "1.3.6.1.4.1.13827.14.4.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot5Desc": {
+    "name": "goptSlot5Desc",
+    "oid": "1.3.6.1.4.1.13827.14.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot5A": {
+    "name": "goptSlot5A",
+    "oid": "1.3.6.1.4.1.13827.14.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot5B": {
+    "name": "goptSlot5B",
+    "oid": "1.3.6.1.4.1.13827.14.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot5C": {
+    "name": "goptSlot5C",
+    "oid": "1.3.6.1.4.1.13827.14.4.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot5D": {
+    "name": "goptSlot5D",
+    "oid": "1.3.6.1.4.1.13827.14.4.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot5E": {
+    "name": "goptSlot5E",
+    "oid": "1.3.6.1.4.1.13827.14.4.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "goptSlot5F": {
+    "name": "goptSlot5F",
+    "oid": "1.3.6.1.4.1.13827.14.4.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0Version": {
+    "name": "gptp0Version",
+    "oid": "1.3.6.1.4.1.13827.14.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0SyncInterval": {
+    "name": "gptp0SyncInterval",
+    "oid": "1.3.6.1.4.1.13827.14.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "msec8": -7,
+          "msec16": -6,
+          "msec31": -5,
+          "msec63": -4,
+          "msec125": -3,
+          "msec250": -2,
+          "msec500": -1,
+          "sec1": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0AnnounceInterval": {
+    "name": "gptp0AnnounceInterval",
+    "oid": "1.3.6.1.4.1.13827.14.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sec1": 0,
+          "sec2": 1,
+          "sec4": 2,
+          "sec8": 3,
+          "sec16": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0Priority1": {
+    "name": "gptp0Priority1",
+    "oid": "1.3.6.1.4.1.13827.14.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0Priority2": {
+    "name": "gptp0Priority2",
+    "oid": "1.3.6.1.4.1.13827.14.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0DelayMechanism": {
+    "name": "gptp0DelayMechanism",
+    "oid": "1.3.6.1.4.1.13827.14.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e2e": 0,
+          "p2p": 1,
+          "disabled": 254
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0Domain": {
+    "name": "gptp0Domain",
+    "oid": "1.3.6.1.4.1.13827.14.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0TimeMode": {
+    "name": "gptp0TimeMode",
+    "oid": "1.3.6.1.4.1.13827.14.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "utc": 0,
+          "ptp": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0TTL": {
+    "name": "gptp0TTL",
+    "oid": "1.3.6.1.4.1.13827.14.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0ClockClass": {
+    "name": "gptp0ClockClass",
+    "oid": "1.3.6.1.4.1.13827.14.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lockedPTP": 6,
+          "holdoverPTP": 7,
+          "lockedARB": 13,
+          "holdoverARB": 14,
+          "unlockedPTP": 52,
+          "unlockedARB": 58
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0TimeScale": {
+    "name": "gptp0TimeScale",
+    "oid": "1.3.6.1.4.1.13827.14.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arb": 0,
+          "ptp": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0PortState": {
+    "name": "gptp0PortState",
+    "oid": "1.3.6.1.4.1.13827.14.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "faulty": 2,
+          "disabled": 3,
+          "listening": 4,
+          "preMaster": 5,
+          "master": 6,
+          "passive": 7,
+          "unCalibrated": 8,
+          "slave": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0TimeSource": {
+    "name": "gptp0TimeSource",
+    "oid": "1.3.6.1.4.1.13827.14.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atom": 16,
+          "gps": 32,
+          "radio": 48,
+          "ptp": 64,
+          "ntp": 80,
+          "hand": 96,
+          "other": 144,
+          "oscillator": 160
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0UTCOffset": {
+    "name": "gptp0UTCOffset",
+    "oid": "1.3.6.1.4.1.13827.14.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0UTCOffsetValid": {
+    "name": "gptp0UTCOffsetValid",
+    "oid": "1.3.6.1.4.1.13827.14.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0ClockAccuracy": {
+    "name": "gptp0ClockAccuracy",
+    "oid": "1.3.6.1.4.1.13827.14.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nsec25": 32,
+          "nsec100": 33,
+          "nsec250": 34,
+          "nsec1000": 35,
+          "nsec2500": 36,
+          "usec10": 37,
+          "usec25": 38,
+          "usec100": 39,
+          "usec250": 40,
+          "usec1000": 41,
+          "usec2500": 42,
+          "msec10": 43,
+          "unknown": 254
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0Leap59": {
+    "name": "gptp0Leap59",
+    "oid": "1.3.6.1.4.1.13827.14.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0Leap61": {
+    "name": "gptp0Leap61",
+    "oid": "1.3.6.1.4.1.13827.14.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0TimeTraceable": {
+    "name": "gptp0TimeTraceable",
+    "oid": "1.3.6.1.4.1.13827.14.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp0FreqTraceable": {
+    "name": "gptp0FreqTraceable",
+    "oid": "1.3.6.1.4.1.13827.14.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1Version": {
+    "name": "gptp1Version",
+    "oid": "1.3.6.1.4.1.13827.14.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1SyncInterval": {
+    "name": "gptp1SyncInterval",
+    "oid": "1.3.6.1.4.1.13827.14.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "msec8": -7,
+          "msec16": -6,
+          "msec31": -5,
+          "msec63": -4,
+          "msec125": -3,
+          "msec250": -2,
+          "msec500": -1,
+          "sec1": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1AnnounceInterval": {
+    "name": "gptp1AnnounceInterval",
+    "oid": "1.3.6.1.4.1.13827.14.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sec1": 0,
+          "sec2": 1,
+          "sec4": 2,
+          "sec8": 3,
+          "sec16": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1Priority1": {
+    "name": "gptp1Priority1",
+    "oid": "1.3.6.1.4.1.13827.14.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1Priority2": {
+    "name": "gptp1Priority2",
+    "oid": "1.3.6.1.4.1.13827.14.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1DelayMechanism": {
+    "name": "gptp1DelayMechanism",
+    "oid": "1.3.6.1.4.1.13827.14.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e2e": 0,
+          "p2p": 1,
+          "disabled": 254
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1Domain": {
+    "name": "gptp1Domain",
+    "oid": "1.3.6.1.4.1.13827.14.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1TimeMode": {
+    "name": "gptp1TimeMode",
+    "oid": "1.3.6.1.4.1.13827.14.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "utc": 0,
+          "ptp": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1TTL": {
+    "name": "gptp1TTL",
+    "oid": "1.3.6.1.4.1.13827.14.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1ClockClass": {
+    "name": "gptp1ClockClass",
+    "oid": "1.3.6.1.4.1.13827.14.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lockedPTP": 6,
+          "holdoverPTP": 7,
+          "lockedARB": 13,
+          "holdoverARB": 14,
+          "unlockedPTP": 52,
+          "unlockedARB": 58
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1TimeScale": {
+    "name": "gptp1TimeScale",
+    "oid": "1.3.6.1.4.1.13827.14.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arb": 0,
+          "ptp": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1PortState": {
+    "name": "gptp1PortState",
+    "oid": "1.3.6.1.4.1.13827.14.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "faulty": 2,
+          "disabled": 3,
+          "listening": 4,
+          "preMaster": 5,
+          "master": 6,
+          "passive": 7,
+          "unCalibrated": 8,
+          "slave": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1TimeSource": {
+    "name": "gptp1TimeSource",
+    "oid": "1.3.6.1.4.1.13827.14.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atom": 16,
+          "gps": 32,
+          "radio": 48,
+          "ptp": 64,
+          "ntp": 80,
+          "hand": 96,
+          "other": 144,
+          "oscillator": 160
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1UTCOffset": {
+    "name": "gptp1UTCOffset",
+    "oid": "1.3.6.1.4.1.13827.14.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1UTCOffsetValid": {
+    "name": "gptp1UTCOffsetValid",
+    "oid": "1.3.6.1.4.1.13827.14.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1ClockAccuracy": {
+    "name": "gptp1ClockAccuracy",
+    "oid": "1.3.6.1.4.1.13827.14.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nsec25": 32,
+          "nsec100": 33,
+          "nsec250": 34,
+          "nsec1000": 35,
+          "nsec2500": 36,
+          "usec10": 37,
+          "usec25": 38,
+          "usec100": 39,
+          "usec250": 40,
+          "usec1000": 41,
+          "usec2500": 42,
+          "msec10": 43,
+          "unknown": 254
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1Leap59": {
+    "name": "gptp1Leap59",
+    "oid": "1.3.6.1.4.1.13827.14.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1Leap61": {
+    "name": "gptp1Leap61",
+    "oid": "1.3.6.1.4.1.13827.14.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1TimeTraceable": {
+    "name": "gptp1TimeTraceable",
+    "oid": "1.3.6.1.4.1.13827.14.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gptp1FreqTraceable": {
+    "name": "gptp1FreqTraceable",
+    "oid": "1.3.6.1.4.1.13827.14.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/endrun/MERIDIAN2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MERIDIAN2-MIB"
+  }
+}

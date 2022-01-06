@@ -1,0 +1,2662 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-SSR-SMI-MIB": [
+      "ssrMibs"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1qVlanStaticEntry"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "policyMIB": {
+    "name": "policyMIB",
+    "oid": "1.3.6.1.4.1.52.2501.1.210",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-12-19 17:12",
+        "description": "Defined bit 0 of polL2Dot1qVlanStaticProtocols as reserved."
+      },
+      {
+        "revision": "2003-07-21 15:01",
+        "description": "Revision #5. Add static VLAN protocol filtering to the polL2Group. Update contact information."
+      },
+      {
+        "revision": "2000-07-15 00:00",
+        "description": "Revision #4. Update contact information."
+      },
+      {
+        "revision": "1999-08-11 00:00",
+        "description": "Revision #3. Define Policy Based Routing in polL4Group."
+      },
+      {
+        "revision": "1999-07-21 00:00",
+        "description": "Revision #2. Define Layer 2 flow security objects in polL2Group."
+      },
+      {
+        "revision": "1998-08-04 00:00",
+        "description": "Revision #1. Define Layer 3 flow objects in polL3Group."
+      }
+    ]
+  },
+  "InterfaceIndex": {
+    "name": "InterfaceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "InterfaceIndexOrZero": {
+    "name": "InterfaceIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "SSRPortComparator": {
+    "name": "SSRPortComparator",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notused": 1,
+          "eq": 2,
+          "neq": 3,
+          "lt": 4,
+          "gt": 5,
+          "range": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SSRProtocol": {
+    "name": "SSRProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "tcp": 2,
+          "udp": 3,
+          "icmp": 4,
+          "igmp": 5,
+          "ipx": 6,
+          "ipxsap": 7,
+          "ipxrip": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SSRsocketId": {
+    "name": "SSRsocketId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SSRVlanIndex": {
+    "name": "SSRVlanIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SSRPortList": {
+    "name": "SSRPortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SSRFlowPolicyType": {
+    "name": "SSRFlowPolicyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permitFlow": 1,
+          "denyFlow": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SSRFlowPolicyAction": {
+    "name": "SSRFlowPolicyAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "policyBeforeRouteLookup": 1,
+          "policyAfterRouteLookup": 2,
+          "useOnlyPolicyLookup": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SSRFlowPolicyAclList": {
+    "name": "SSRFlowPolicyAclList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SSRFlowNextHopList": {
+    "name": "SSRFlowNextHopList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SSRFlowLoadPolicy": {
+    "name": "SSRFlowLoadPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "firstAvailable": 2,
+          "roundRobin": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "polL3Group": {
+    "name": "polL3Group",
+    "oid": "1.3.6.1.4.1.52.2501.1.12",
+    "class": "objectidentity"
+  },
+  "polAclServer": {
+    "name": "polAclServer",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclNumber": {
+    "name": "polAclNumber",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclLastChanged": {
+    "name": "polAclLastChanged",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclTable": {
+    "name": "polAclTable",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polAclEntry": {
+    "name": "polAclEntry",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclItem",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "polAclName": {
+    "name": "polAclName",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclItem": {
+    "name": "polAclItem",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclRestriction": {
+    "name": "polAclRestriction",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclProtocol": {
+    "name": "polAclProtocol",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclSrcIp": {
+    "name": "polAclSrcIp",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclSrcMask": {
+    "name": "polAclSrcMask",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclDstIp": {
+    "name": "polAclDstIp",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclDstMask": {
+    "name": "polAclDstMask",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclTOS": {
+    "name": "polAclTOS",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclSrcPort": {
+    "name": "polAclSrcPort",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRsocketId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclDstPort": {
+    "name": "polAclDstPort",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRsocketId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclSrcOperator": {
+    "name": "polAclSrcOperator",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRPortComparator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "eq",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclDstOperator": {
+    "name": "polAclDstOperator",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRPortComparator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "eq",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclSrcHighRange": {
+    "name": "polAclSrcHighRange",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclDstHighRange": {
+    "name": "polAclDstHighRange",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclAuditTrail": {
+    "name": "polAclAuditTrail",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclCheckpoint": {
+    "name": "polAclCheckpoint",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hourly": 1,
+          "daily": 2,
+          "weekly": 3,
+          "monthly": 4,
+          "endofcall": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclRowStatus": {
+    "name": "polAclRowStatus",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclServiceNumber": {
+    "name": "polAclServiceNumber",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclServiceLastChanged": {
+    "name": "polAclServiceLastChanged",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclServiceTable": {
+    "name": "polAclServiceTable",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polAclServiceEntry": {
+    "name": "polAclServiceEntry",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "polAclServiceIfIndex": {
+    "name": "polAclServiceIfIndex",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclName2": {
+    "name": "polAclName2",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclServiceDirection": {
+    "name": "polAclServiceDirection",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclServiceRowStatus": {
+    "name": "polAclServiceRowStatus",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "polAclRemoteAllowed": {
+    "name": "polAclRemoteAllowed",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclInterfaceNumber": {
+    "name": "polAclInterfaceNumber",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclInterfaceLastChanged": {
+    "name": "polAclInterfaceLastChanged",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclInterfaceTable": {
+    "name": "polAclInterfaceTable",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polAclInterfaceEntry": {
+    "name": "polAclInterfaceEntry",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "polAclInterfaceIfIndex": {
+    "name": "polAclInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclInterfaceDirection": {
+    "name": "polAclInterfaceDirection",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polAclPolicyStatus": {
+    "name": "polAclPolicyStatus",
+    "oid": "1.3.6.1.4.1.52.2501.1.12.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL2Group": {
+    "name": "polL2Group",
+    "oid": "1.3.6.1.4.1.52.2501.1.16",
+    "class": "objectidentity"
+  },
+  "polL2FilterNumber": {
+    "name": "polL2FilterNumber",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL2FilterLastChanged": {
+    "name": "polL2FilterLastChanged",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL2FilterTable": {
+    "name": "polL2FilterTable",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polL2FilterEntry": {
+    "name": "polL2FilterEntry",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "polL2FilterIndex": {
+    "name": "polL2FilterIndex",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polL2FilterDesc": {
+    "name": "polL2FilterDesc",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2FilterType": {
+    "name": "polL2FilterType",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "staticEntry": 1,
+          "addressFilter": 2,
+          "portAddressLock": 3,
+          "securePort": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "staticEntry",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2FilterRestrictions": {
+    "name": "polL2FilterRestrictions",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allow": 1,
+          "disallow": 2,
+          "force": 3,
+          "none": 4,
+          "blockIngress": 5,
+          "blockEgress": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2FilterSrcMacAddr": {
+    "name": "polL2FilterSrcMacAddr",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2FilterDstMacAddr": {
+    "name": "polL2FilterDstMacAddr",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2FilterVlanId": {
+    "name": "polL2FilterVlanId",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRVlanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2FilterInPorts": {
+    "name": "polL2FilterInPorts",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2FilterOutPorts": {
+    "name": "polL2FilterOutPorts",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2FilterCreationTime": {
+    "name": "polL2FilterCreationTime",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL2FilterStatus": {
+    "name": "polL2FilterStatus",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2Dot1qVlanStaticTable": {
+    "name": "polL2Dot1qVlanStaticTable",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polL2Dot1qVlanStaticEntry": {
+    "name": "polL2Dot1qVlanStaticEntry",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "polL2Dot1qVlanStaticEntry",
+      "module": "CTRON-SSR-POLICY-MIB",
+      "object": "dot1qVlanStaticEntry"
+    },
+    "status": "current"
+  },
+  "polL2Dot1qVlanStaticProtocols": {
+    "name": "polL2Dot1qVlanStaticProtocols",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reserved": 0,
+        "bridged-protocols": 1,
+        "ip": 2,
+        "ipx": 3,
+        "appletalk": 4,
+        "dec": 5,
+        "sna": 6,
+        "ipv6": 7
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "ip": 2
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL2Dot1qVlanStaticL4Bridging": {
+    "name": "polL2Dot1qVlanStaticL4Bridging",
+    "oid": "1.3.6.1.4.1.52.2501.1.16.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL4Group": {
+    "name": "polL4Group",
+    "oid": "1.3.6.1.4.1.52.2501.1.15",
+    "class": "objectidentity"
+  },
+  "polL4PolicyBasedRoutingEnabled": {
+    "name": "polL4PolicyBasedRoutingEnabled",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4NumRouters": {
+    "name": "polL4NumRouters",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4NextHopTableLastChange": {
+    "name": "polL4NextHopTableLastChange",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4NextHopTable": {
+    "name": "polL4NextHopTable",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polL4NextHopEntry": {
+    "name": "polL4NextHopEntry",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopRouter",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "polL4NextHopRouter": {
+    "name": "polL4NextHopRouter",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4NextHopState": {
+    "name": "polL4NextHopState",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "waitingForArp": 2,
+          "macAcquired": 3,
+          "noArpReply": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4NextHopPortOfExit": {
+    "name": "polL4NextHopPortOfExit",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4NextHopMacAddress": {
+    "name": "polL4NextHopMacAddress",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4NextHopLastChange": {
+    "name": "polL4NextHopLastChange",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowControlTableLastChange": {
+    "name": "polL4lowControlTableLastChange",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4NumPolicies": {
+    "name": "polL4NumPolicies",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowControlTable": {
+    "name": "polL4lowControlTable",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polL4lowControlEntry": {
+    "name": "polL4lowControlEntry",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicySequence",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "polL4PolicyName": {
+    "name": "polL4PolicyName",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polL4PolicySequence": {
+    "name": "polL4PolicySequence",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polL4PolicyInstance": {
+    "name": "polL4PolicyInstance",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "polL4PolicyType": {
+    "name": "polL4PolicyType",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRFlowPolicyType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "permitFlow",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL4PolicyAction": {
+    "name": "polL4PolicyAction",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRFlowPolicyAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "policyBeforeRouteLookup",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL4PolicyMatch": {
+    "name": "polL4PolicyMatch",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRFlowPolicyAclList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL4PolicyNextHops": {
+    "name": "polL4PolicyNextHops",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRFlowNextHopList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL4PolicyLoading": {
+    "name": "polL4PolicyLoading",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SSRFlowLoadPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "firstAvailable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL4PolicyWatch": {
+    "name": "polL4PolicyWatch",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL4lowCreationTime": {
+    "name": "polL4lowCreationTime",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowActiveGates": {
+    "name": "polL4lowActiveGates",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowAppliedTimes": {
+    "name": "polL4lowAppliedTimes",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowControlStatus": {
+    "name": "polL4lowControlStatus",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.30.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "polL4GroupStats": {
+    "name": "polL4GroupStats",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.35",
+    "class": "objectidentity"
+  },
+  "polL4lowLostRouters": {
+    "name": "polL4lowLostRouters",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.35.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowControlTableActivates": {
+    "name": "polL4lowControlTableActivates",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.35.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowControlTableActivateFails": {
+    "name": "polL4lowControlTableActivateFails",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.35.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowArpMappingChanges": {
+    "name": "polL4lowArpMappingChanges",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.35.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowIcmpRedirects": {
+    "name": "polL4lowIcmpRedirects",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.35.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polL4lowMatchAttempts": {
+    "name": "polL4lowMatchAttempts",
+    "oid": "1.3.6.1.4.1.52.2501.1.15.35.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "polConformance": {
+    "name": "polConformance",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2",
+    "class": "objectidentity"
+  },
+  "polCompliances": {
+    "name": "polCompliances",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.1",
+    "class": "objectidentity"
+  },
+  "polGroups": {
+    "name": "polGroups",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.2",
+    "class": "objectidentity"
+  },
+  "polComplianceV10": {
+    "name": "polComplianceV10",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "polGroupV10",
+        "module": "CTRON-SSR-POLICY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "polComplianceV11": {
+    "name": "polComplianceV11",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "polGroupV11",
+        "module": "CTRON-SSR-POLICY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "polComplianceV12": {
+    "name": "polComplianceV12",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "polGroupV12",
+        "module": "CTRON-SSR-POLICY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "polComplianceV13": {
+    "name": "polComplianceV13",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "polGroupV13",
+        "module": "CTRON-SSR-POLICY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "polGroupV10": {
+    "name": "polGroupV10",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServer"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclItem"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRestriction"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclProtocol"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcIp"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcMask"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstIp"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstMask"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclTOS"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcPort"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstPort"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcOperator"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstOperator"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcHighRange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstHighRange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclAuditTrail"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclCheckpoint"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRowStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceIfIndex"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName2"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceDirection"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceRowStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRemoteAllowed"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceIfIndex"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceDirection"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclPolicyStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "polGroupV11": {
+    "name": "polGroupV11",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServer"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclItem"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRestriction"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclProtocol"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcIp"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcMask"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstIp"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstMask"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclTOS"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcPort"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstPort"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcOperator"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstOperator"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcHighRange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstHighRange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclAuditTrail"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclCheckpoint"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRowStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceIfIndex"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName2"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceDirection"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceRowStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRemoteAllowed"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceIfIndex"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceDirection"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclPolicyStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterDesc"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterType"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterRestrictions"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterSrcMacAddr"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterDstMacAddr"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterVlanId"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterInPorts"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterOutPorts"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterCreationTime"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "polGroupV12": {
+    "name": "polGroupV12",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServer"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclItem"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRestriction"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclProtocol"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcIp"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcMask"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstIp"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstMask"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclTOS"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcPort"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstPort"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcOperator"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstOperator"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcHighRange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstHighRange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclAuditTrail"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclCheckpoint"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRowStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceIfIndex"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName2"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceDirection"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceRowStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRemoteAllowed"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceIfIndex"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceDirection"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclPolicyStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterDesc"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterType"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterRestrictions"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterSrcMacAddr"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterDstMacAddr"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterVlanId"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterInPorts"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterOutPorts"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterCreationTime"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyBasedRoutingEnabled"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NumRouters"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopTableLastChange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopRouter"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopState"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopPortOfExit"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopMacAddress"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopLastChange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowControlTableLastChange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NumPolicies"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyType"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyAction"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyMatch"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyNextHops"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyLoading"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyWatch"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowCreationTime"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowActiveGates"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowAppliedTimes"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowControlStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowLostRouters"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowControlTableActivates"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowControlTableActivateFails"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowArpMappingChanges"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowIcmpRedirects"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowMatchAttempts"
+      }
+    ],
+    "status": "current"
+  },
+  "polGroupV13": {
+    "name": "polGroupV13",
+    "oid": "1.3.6.1.4.1.52.2501.1.210.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServer"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclItem"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRestriction"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclProtocol"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcIp"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcMask"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstIp"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstMask"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclTOS"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcPort"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstPort"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcOperator"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstOperator"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclSrcHighRange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclDstHighRange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclAuditTrail"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclCheckpoint"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRowStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceIfIndex"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclName2"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceDirection"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclServiceRowStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclRemoteAllowed"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceIfIndex"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclInterfaceDirection"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polAclPolicyStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterLastChanged"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterNumber"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterDesc"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterType"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterRestrictions"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterSrcMacAddr"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterDstMacAddr"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterVlanId"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterInPorts"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterOutPorts"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterCreationTime"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2FilterStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2Dot1qVlanStaticProtocols"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL2Dot1qVlanStaticL4Bridging"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyBasedRoutingEnabled"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NumRouters"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopTableLastChange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopRouter"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopState"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopPortOfExit"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopMacAddress"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NextHopLastChange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowControlTableLastChange"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4NumPolicies"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyType"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyAction"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyMatch"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyNextHops"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyLoading"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4PolicyWatch"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowCreationTime"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowActiveGates"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowAppliedTimes"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowControlStatus"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowLostRouters"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowControlTableActivates"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowControlTableActivateFails"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowArpMappingChanges"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowIcmpRedirects"
+      },
+      {
+        "module": "CTRON-SSR-POLICY-MIB",
+        "object": "polL4lowMatchAttempts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-SSR-POLICY-MIB"
+  }
+}

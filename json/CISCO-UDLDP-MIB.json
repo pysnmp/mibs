@@ -1,0 +1,669 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoUdldpMIB": {
+    "name": "ciscoUdldpMIB",
+    "oid": "1.3.6.1.4.1.9.9.118",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-11-09 09:00",
+        "description": "Add ciscoUdldpFastHelloGroup, and ciscoUdldpFastHelloNotificationGroup."
+      },
+      {
+        "revision": "2007-11-27 00:00",
+        "description": "Added new object cudldpHelloIntervalExt."
+      },
+      {
+        "revision": "2003-02-21 00:00",
+        "description": "Changed enumerated integer labels in the cudldpInterfaceOperStatus object from 'bidirectional' to 'biDirectional' and 'notapplicable' to 'notApplicable'."
+      },
+      {
+        "revision": "2002-10-10 00:00",
+        "description": "Added cudldpGlobalMode, cudldpInterfaceAdminMode and cudldpInterfaceOperMode objects. Removed default values for cudldpGlobalEnable, cudldpHelloInterval and udldpInterfaceEnable. Deprecated cudldpGlobalEnable and cudldpInterfaceEnable cudldpInterfaceAggressiveMode objects."
+      },
+      {
+        "revision": "2000-04-10 00:00",
+        "description": "Added two UDLDP AggressiveMode objects"
+      },
+      {
+        "revision": "1998-11-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoUdldpMIBNotifs": {
+    "name": "ciscoUdldpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.118.0",
+    "class": "objectidentity"
+  },
+  "ciscoUdldpMIBObjects": {
+    "name": "ciscoUdldpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.118.1",
+    "class": "objectidentity"
+  },
+  "cudldpGlobal": {
+    "name": "cudldpGlobal",
+    "oid": "1.3.6.1.4.1.9.9.118.1.1",
+    "class": "objectidentity"
+  },
+  "cudldpInterface": {
+    "name": "cudldpInterface",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2",
+    "class": "objectidentity"
+  },
+  "cudldpFastHello": {
+    "name": "cudldpFastHello",
+    "oid": "1.3.6.1.4.1.9.9.118.1.3",
+    "class": "objectidentity"
+  },
+  "cudldpGlobalEnable": {
+    "name": "cudldpGlobalEnable",
+    "oid": "1.3.6.1.4.1.9.9.118.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cudldpHelloInterval": {
+    "name": "cudldpHelloInterval",
+    "oid": "1.3.6.1.4.1.9.9.118.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 7,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cudldpGlobalMode": {
+    "name": "cudldpGlobalMode",
+    "oid": "1.3.6.1.4.1.9.9.118.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "aggressive": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cudldpHelloIntervalExt": {
+    "name": "cudldpHelloIntervalExt",
+    "oid": "1.3.6.1.4.1.9.9.118.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cudldpFastHelloLinkFailRptNotifEnable": {
+    "name": "cudldpFastHelloLinkFailRptNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.118.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cudldpFastHelloStatusChangeNotifEnable": {
+    "name": "cudldpFastHelloStatusChangeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.118.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cudldpInterfaceTable": {
+    "name": "cudldpInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cudldpInterfaceEntry": {
+    "name": "cudldpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cudldpInterfaceEnable": {
+    "name": "cudldpInterfaceEnable",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cudldpInterfaceOperStatus": {
+    "name": "cudldpInterfaceOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 1,
+          "indeterminant": 2,
+          "biDirectional": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cudldpInterfaceAggressiveMode": {
+    "name": "cudldpInterfaceAggressiveMode",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cudldpInterfaceAdminMode": {
+    "name": "cudldpInterfaceAdminMode",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "aggressive": 3,
+          "default": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cudldpInterfaceOperMode": {
+    "name": "cudldpInterfaceOperMode",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "aggressive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cudldpIfFastHelloInterval": {
+    "name": "cudldpIfFastHelloInterval",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cudldpIfOperHelloInterval": {
+    "name": "cudldpIfOperHelloInterval",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cudldpIfFastHelloOperStatus": {
+    "name": "cudldpIfFastHelloOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.118.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 1,
+          "notOperational": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cudldpFastHelloErrorReportEnable": {
+    "name": "cudldpFastHelloErrorReportEnable",
+    "oid": "1.3.6.1.4.1.9.9.118.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cudldpFastHelloMaxPorts": {
+    "name": "cudldpFastHelloMaxPorts",
+    "oid": "1.3.6.1.4.1.9.9.118.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cudldpFastHelloConfigPorts": {
+    "name": "cudldpFastHelloConfigPorts",
+    "oid": "1.3.6.1.4.1.9.9.118.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cudldpFastHelloOperationalPorts": {
+    "name": "cudldpFastHelloOperationalPorts",
+    "oid": "1.3.6.1.4.1.9.9.118.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cudldpFastHelloLinkFailRptNotification": {
+    "name": "cudldpFastHelloLinkFailRptNotification",
+    "oid": "1.3.6.1.4.1.9.9.118.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "cudldpFastHelloStatusChangeNotification": {
+    "name": "cudldpFastHelloStatusChangeNotification",
+    "oid": "1.3.6.1.4.1.9.9.118.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpHelloInterval"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpIfFastHelloInterval"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpIfOperHelloInterval"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpIfFastHelloOperStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpMIBConformance": {
+    "name": "ciscoUdldpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.118.3",
+    "class": "objectidentity"
+  },
+  "ciscoUdldpMIBCompliances": {
+    "name": "ciscoUdldpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.118.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoUdldpMIBGroups": {
+    "name": "ciscoUdldpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.118.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoUdldpMIBCompliance": {
+    "name": "ciscoUdldpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.118.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoUdldpMIBGroup",
+        "module": "CISCO-UDLDP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoUdldpMIBComplianceRev1": {
+    "name": "ciscoUdldpMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.118.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoUdldpMIBGroup",
+        "module": "CISCO-UDLDP-MIB"
+      },
+      {
+        "object": "ciscoUdldpAggreModeOptionalGroup",
+        "module": "CISCO-UDLDP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoUdldpMIBComplianceRev2": {
+    "name": "ciscoUdldpMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.118.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoUdldpMIBGroup2",
+        "module": "CISCO-UDLDP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoUdldpMIBComplianceRev3": {
+    "name": "ciscoUdldpMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.118.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoUdldpMIBGroup2",
+        "module": "CISCO-UDLDP-MIB"
+      },
+      {
+        "object": "ciscoUdldpMIBGroup3",
+        "module": "CISCO-UDLDP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoUdldpMIBComplianceRev4": {
+    "name": "ciscoUdldpMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.118.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoUdldpMIBGroup2",
+        "module": "CISCO-UDLDP-MIB"
+      },
+      {
+        "object": "ciscoUdldpMIBGroup3",
+        "module": "CISCO-UDLDP-MIB"
+      },
+      {
+        "object": "ciscoUdldpFastHelloGroup",
+        "module": "CISCO-UDLDP-MIB"
+      },
+      {
+        "object": "ciscoUdldpFastHelloNotificationGroup",
+        "module": "CISCO-UDLDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpMIBGroup": {
+    "name": "ciscoUdldpMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.118.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpGlobalEnable"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpInterfaceEnable"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpInterfaceOperStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoUdldpAggreModeOptionalGroup": {
+    "name": "ciscoUdldpAggreModeOptionalGroup",
+    "oid": "1.3.6.1.4.1.9.9.118.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpInterfaceAggressiveMode"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpHelloInterval"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoUdldpMIBGroup2": {
+    "name": "ciscoUdldpMIBGroup2",
+    "oid": "1.3.6.1.4.1.9.9.118.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpGlobalMode"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpInterfaceAdminMode"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpInterfaceOperMode"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpHelloInterval"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpInterfaceOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpMIBGroup3": {
+    "name": "ciscoUdldpMIBGroup3",
+    "oid": "1.3.6.1.4.1.9.9.118.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpHelloIntervalExt"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpFastHelloGroup": {
+    "name": "ciscoUdldpFastHelloGroup",
+    "oid": "1.3.6.1.4.1.9.9.118.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpIfFastHelloInterval"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpIfOperHelloInterval"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpIfFastHelloOperStatus"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpFastHelloErrorReportEnable"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpFastHelloLinkFailRptNotifEnable"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpFastHelloStatusChangeNotifEnable"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpFastHelloMaxPorts"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpFastHelloConfigPorts"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpFastHelloOperationalPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUdldpFastHelloNotificationGroup": {
+    "name": "ciscoUdldpFastHelloNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.118.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpFastHelloLinkFailRptNotification"
+      },
+      {
+        "module": "CISCO-UDLDP-MIB",
+        "object": "cudldpFastHelloStatusChangeNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UDLDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UDLDP-MIB"
+  }
+}

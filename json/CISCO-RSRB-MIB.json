@@ -1,0 +1,681 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRsrbMIB": {
+    "name": "ciscoRsrbMIB",
+    "oid": "1.3.6.1.4.1.9.9.29",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1995-08-21 00:00",
+        "description": "Specify a correct (non-negative) range for several index objects."
+      }
+    ]
+  },
+  "rsrbObjects": {
+    "name": "rsrbObjects",
+    "oid": "1.3.6.1.4.1.9.9.29.1",
+    "class": "objectidentity"
+  },
+  "rsrbVirtualRings": {
+    "name": "rsrbVirtualRings",
+    "oid": "1.3.6.1.4.1.9.9.29.1.1",
+    "class": "objectidentity"
+  },
+  "rsrbRemotePeers": {
+    "name": "rsrbRemotePeers",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2",
+    "class": "objectidentity"
+  },
+  "rsrbPhysicalRings": {
+    "name": "rsrbPhysicalRings",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3",
+    "class": "objectidentity"
+  },
+  "rsrbVirtRingTable": {
+    "name": "rsrbVirtRingTable",
+    "oid": "1.3.6.1.4.1.9.9.29.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsrbVirtRingEntry": {
+    "name": "rsrbVirtRingEntry",
+    "oid": "1.3.6.1.4.1.9.9.29.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbVirtRingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsrbVirtRingIndex": {
+    "name": "rsrbVirtRingIndex",
+    "oid": "1.3.6.1.4.1.9.9.29.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsrbVirtRingIPAddr": {
+    "name": "rsrbVirtRingIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.29.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbVirtRingMaxTcpQSize": {
+    "name": "rsrbVirtRingMaxTcpQSize",
+    "oid": "1.3.6.1.4.1.9.9.29.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerTable": {
+    "name": "rsrbRemotePeerTable",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsrbRemotePeerEntry": {
+    "name": "rsrbRemotePeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbVirtRingIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsrbRemotePeerIndex": {
+    "name": "rsrbRemotePeerIndex",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsrbRemotePeerEncapsulation": {
+    "name": "rsrbRemotePeerEncapsulation",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "serial": 2,
+          "lan": 3,
+          "fst": 4,
+          "frameRelay": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerIPAddr": {
+    "name": "rsrbRemotePeerIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerLocalIfIndex": {
+    "name": "rsrbRemotePeerLocalIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerState": {
+    "name": "rsrbRemotePeerState",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dead": 1,
+          "closed": 2,
+          "opening": 3,
+          "openWaitXport": 4,
+          "waitRemoteRsp": 5,
+          "remoteResponded": 6,
+          "remoteOpened": 7,
+          "draining": 8,
+          "connected": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerPacketsRx": {
+    "name": "rsrbRemotePeerPacketsRx",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerPacketsTx": {
+    "name": "rsrbRemotePeerPacketsTx",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerBytesRx": {
+    "name": "rsrbRemotePeerBytesRx",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerBytesTx": {
+    "name": "rsrbRemotePeerBytesTx",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerExplorersRx": {
+    "name": "rsrbRemotePeerExplorersRx",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerTcpQueue": {
+    "name": "rsrbRemotePeerTcpQueue",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerDrops": {
+    "name": "rsrbRemotePeerDrops",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerLocalAck": {
+    "name": "rsrbRemotePeerLocalAck",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRemotePeerVersion": {
+    "name": "rsrbRemotePeerVersion",
+    "oid": "1.3.6.1.4.1.9.9.29.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRingTable": {
+    "name": "rsrbRingTable",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsrbRingEntry": {
+    "name": "rsrbRingEntry",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbVirtRingIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsrbRingIndex": {
+    "name": "rsrbRingIndex",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsrbRingBridge": {
+    "name": "rsrbRingBridge",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRingLocal": {
+    "name": "rsrbRingLocal",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRingType": {
+    "name": "rsrbRingType",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "sdllc": 3,
+          "qllc": 4,
+          "virtual": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRingMacAddr": {
+    "name": "rsrbRingMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRingLocalIfIndex": {
+    "name": "rsrbRingLocalIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRingRemoteIpAddress": {
+    "name": "rsrbRingRemoteIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbRingNbrPacketsFwd": {
+    "name": "rsrbRingNbrPacketsFwd",
+    "oid": "1.3.6.1.4.1.9.9.29.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsrbNotificationPrefix": {
+    "name": "rsrbNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.29.2",
+    "class": "objectidentity"
+  },
+  "rsrbNotifications": {
+    "name": "rsrbNotifications",
+    "oid": "1.3.6.1.4.1.9.9.29.2.0",
+    "class": "objectidentity"
+  },
+  "rsrbPeerStateChangeNotification": {
+    "name": "rsrbPeerStateChangeNotification",
+    "oid": "1.3.6.1.4.1.9.9.29.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsrbMibConformance": {
+    "name": "rsrbMibConformance",
+    "oid": "1.3.6.1.4.1.9.9.29.3",
+    "class": "objectidentity"
+  },
+  "rsrbMibCompliances": {
+    "name": "rsrbMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.29.3.1",
+    "class": "objectidentity"
+  },
+  "rsrbMibGroups": {
+    "name": "rsrbMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.29.3.2",
+    "class": "objectidentity"
+  },
+  "rsrbMibCompliance": {
+    "name": "rsrbMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.29.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rsrbVirtRingGroup",
+        "module": "CISCO-RSRB-MIB"
+      },
+      {
+        "object": "rsrbRemotePeerGroup",
+        "module": "CISCO-RSRB-MIB"
+      },
+      {
+        "object": "rsrbRingGroup",
+        "module": "CISCO-RSRB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsrbVirtRingGroup": {
+    "name": "rsrbVirtRingGroup",
+    "oid": "1.3.6.1.4.1.9.9.29.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbVirtRingIPAddr"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbVirtRingMaxTcpQSize"
+      }
+    ],
+    "status": "current"
+  },
+  "rsrbRemotePeerGroup": {
+    "name": "rsrbRemotePeerGroup",
+    "oid": "1.3.6.1.4.1.9.9.29.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerEncapsulation"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerIPAddr"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerLocalIfIndex"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerState"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerPacketsRx"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerPacketsTx"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerBytesRx"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerBytesTx"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerExplorersRx"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerTcpQueue"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerDrops"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerLocalAck"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRemotePeerVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "rsrbRingGroup": {
+    "name": "rsrbRingGroup",
+    "oid": "1.3.6.1.4.1.9.9.29.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRingBridge"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRingLocal"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRingType"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRingMacAddr"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRingLocalIfIndex"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRingRemoteIpAddress"
+      },
+      {
+        "module": "CISCO-RSRB-MIB",
+        "object": "rsrbRingNbrPacketsFwd"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RSRB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-RSRB-MIB"
+  }
+}

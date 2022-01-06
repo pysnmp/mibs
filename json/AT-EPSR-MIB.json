@@ -1,0 +1,291 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules",
+      "DisplayStringUnsized"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "epsr": {
+    "name": "epsr",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-22 12:12",
+        "description": "This MIB file contains definitions of managed objects for the code module responsible for handling EPSR on Allied Telesis switches."
+      },
+      {
+        "revision": "2006-02-16 16:19",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "EpsrNodeState": {
+    "name": "EpsrNodeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "complete": 1,
+          "failed": 2,
+          "linksUp": 3,
+          "linksDown": 4,
+          "preForward": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EpsrInterfaceState": {
+    "name": "EpsrInterfaceState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "blocked": 1,
+          "forward": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "epsrEvents": {
+    "name": "epsrEvents",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.1",
+    "class": "objectidentity"
+  },
+  "epsrNodeTrap": {
+    "name": "epsrNodeTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrNodeTrapType"
+      },
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrDomainName"
+      },
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrFromState"
+      },
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrToState"
+      },
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrControlVlanId"
+      },
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrPrimaryIfIndex"
+      },
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrPrimaryIfState"
+      },
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrSecondaryIfIndex"
+      },
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrSecondaryIfState"
+      }
+    ],
+    "status": "current"
+  },
+  "epsrEventVariablesTable": {
+    "name": "epsrEventVariablesTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "epsrEventVariablesEntry": {
+    "name": "epsrEventVariablesEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-EPSR-MIB",
+        "object": "epsrDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "epsrNodeTrapType": {
+    "name": "epsrNodeTrapType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "masterNodeTrap": 1,
+          "transitNodeTrap": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "epsrDomainName": {
+    "name": "epsrDomainName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "epsrFromState": {
+    "name": "epsrFromState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EpsrNodeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "epsrToState": {
+    "name": "epsrToState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EpsrNodeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "epsrControlVlanId": {
+    "name": "epsrControlVlanId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "epsrPrimaryIfIndex": {
+    "name": "epsrPrimaryIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "epsrPrimaryIfState": {
+    "name": "epsrPrimaryIfState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EpsrInterfaceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "epsrSecondaryIfIndex": {
+    "name": "epsrSecondaryIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "epsrSecondaryIfState": {
+    "name": "epsrSecondaryIfState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.136.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EpsrInterfaceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-EPSR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-EPSR-MIB"
+  }
+}

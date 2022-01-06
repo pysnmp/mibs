@@ -1,0 +1,2919 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDspuMIB": {
+    "name": "ciscoDspuMIB",
+    "oid": "1.3.6.1.4.1.9.9.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1995-12-18 00:00",
+        "description": "Declare some Trap objects obsolete and create new Trap Objects to permit Trap generation."
+      },
+      {
+        "revision": "1995-08-15 00:00",
+        "description": "Specify a correct (non-negative) range for several index objects."
+      },
+      {
+        "revision": "1995-01-25 00:00",
+        "description": "Updated compliance/conformance information."
+      }
+    ]
+  },
+  "dspuObjects": {
+    "name": "dspuObjects",
+    "oid": "1.3.6.1.4.1.9.9.24.1",
+    "class": "objectidentity"
+  },
+  "dspuNode": {
+    "name": "dspuNode",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1",
+    "class": "objectidentity"
+  },
+  "dspuPoolClass": {
+    "name": "dspuPoolClass",
+    "oid": "1.3.6.1.4.1.9.9.24.1.2",
+    "class": "objectidentity"
+  },
+  "dspuPooledLu": {
+    "name": "dspuPooledLu",
+    "oid": "1.3.6.1.4.1.9.9.24.1.3",
+    "class": "objectidentity"
+  },
+  "dspuPu": {
+    "name": "dspuPu",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4",
+    "class": "objectidentity"
+  },
+  "dspuLu": {
+    "name": "dspuLu",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5",
+    "class": "objectidentity"
+  },
+  "dspuSap": {
+    "name": "dspuSap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6",
+    "class": "objectidentity"
+  },
+  "dspuNodeRsrb": {
+    "name": "dspuNodeRsrb",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeRsrbLocalVirtualRing": {
+    "name": "dspuNodeRsrbLocalVirtualRing",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeRsrbBridgeNumber": {
+    "name": "dspuNodeRsrbBridgeNumber",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeRsrbTargetVirtualRing": {
+    "name": "dspuNodeRsrbTargetVirtualRing",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeRsrbVirtualMacAddress": {
+    "name": "dspuNodeRsrbVirtualMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeDefaultPu": {
+    "name": "dspuNodeDefaultPu",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeDefaultPuWindowSize": {
+    "name": "dspuNodeDefaultPuWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeDefaultPuMaxIframe": {
+    "name": "dspuNodeDefaultPuMaxIframe",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 18432
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1472,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeActivationWindow": {
+    "name": "dspuNodeActivationWindow",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuNodeLastConfigChgTime": {
+    "name": "dspuNodeLastConfigChgTime",
+    "oid": "1.3.6.1.4.1.9.9.24.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPoolClassTable": {
+    "name": "dspuPoolClassTable",
+    "oid": "1.3.6.1.4.1.9.9.24.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuPoolClassEntry": {
+    "name": "dspuPoolClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.24.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPoolClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPoolClassIndex": {
+    "name": "dspuPoolClassIndex",
+    "oid": "1.3.6.1.4.1.9.9.24.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuPoolClassName": {
+    "name": "dspuPoolClassName",
+    "oid": "1.3.6.1.4.1.9.9.24.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuPoolClassInactivityTimeout": {
+    "name": "dspuPoolClassInactivityTimeout",
+    "oid": "1.3.6.1.4.1.9.9.24.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dspuPoolClassOperUpStreamLuDefs": {
+    "name": "dspuPoolClassOperUpStreamLuDefs",
+    "oid": "1.3.6.1.4.1.9.9.24.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPoolClassOperDnStreamLuDefs": {
+    "name": "dspuPoolClassOperDnStreamLuDefs",
+    "oid": "1.3.6.1.4.1.9.9.24.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPooledLuTable": {
+    "name": "dspuPooledLuTable",
+    "oid": "1.3.6.1.4.1.9.9.24.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuPooledLuEntry": {
+    "name": "dspuPooledLuEntry",
+    "oid": "1.3.6.1.4.1.9.9.24.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPoolClassIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperLuLocalAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPooledLuPeerPuIndex": {
+    "name": "dspuPooledLuPeerPuIndex",
+    "oid": "1.3.6.1.4.1.9.9.24.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPooledLuPeerLuLocalAddress": {
+    "name": "dspuPooledLuPeerLuLocalAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuAdminTable": {
+    "name": "dspuPuAdminTable",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuPuAdminEntry": {
+    "name": "dspuPuAdminEntry",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPuAdminIndex": {
+    "name": "dspuPuAdminIndex",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuPuAdminName": {
+    "name": "dspuPuAdminName",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminType": {
+    "name": "dspuPuAdminType",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upstreamPu": 1,
+          "dnstreamPu": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminRemoteMacAddress": {
+    "name": "dspuPuAdminRemoteMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminRemoteSapAddress": {
+    "name": "dspuPuAdminRemoteSapAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminLocalSapAddress": {
+    "name": "dspuPuAdminLocalSapAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminXid": {
+    "name": "dspuPuAdminXid",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminXidFmt": {
+    "name": "dspuPuAdminXidFmt",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "formatUnknown": 1,
+          "format0": 2,
+          "format3": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "format3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminWindowSize": {
+    "name": "dspuPuAdminWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminMaxIframe": {
+    "name": "dspuPuAdminMaxIframe",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 18432
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1472,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminLinkRetryCount": {
+    "name": "dspuPuAdminLinkRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminLinkRetryTimeout": {
+    "name": "dspuPuAdminLinkRetryTimeout",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminStartPu": {
+    "name": "dspuPuAdminStartPu",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminDlcType": {
+    "name": "dspuPuAdminDlcType",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "sdlc": 2,
+          "ethernet": 5,
+          "tokenRing": 6,
+          "rsrb": 8,
+          "framerelay": 9,
+          "fddi": 10,
+          "qllc": 11
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminDlcUnit": {
+    "name": "dspuPuAdminDlcUnit",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminDlcPort": {
+    "name": "dspuPuAdminDlcPort",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminFocalPoint": {
+    "name": "dspuPuAdminFocalPoint",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminRowStatus": {
+    "name": "dspuPuAdminRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuAdminRemoteAddress": {
+    "name": "dspuPuAdminRemoteAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuPuOperTable": {
+    "name": "dspuPuOperTable",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuPuOperEntry": {
+    "name": "dspuPuOperEntry",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPuOperIndex": {
+    "name": "dspuPuOperIndex",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuPuOperName": {
+    "name": "dspuPuOperName",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperType": {
+    "name": "dspuPuOperType",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upstreamPu": 1,
+          "dnstreamPu": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperRemoteMacAddress": {
+    "name": "dspuPuOperRemoteMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperRemoteSapAddress": {
+    "name": "dspuPuOperRemoteSapAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperLocalSapAddress": {
+    "name": "dspuPuOperLocalSapAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperXid": {
+    "name": "dspuPuOperXid",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperXidFmt": {
+    "name": "dspuPuOperXidFmt",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "formatUnknown": 1,
+          "format0": 2,
+          "format3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperWindowSize": {
+    "name": "dspuPuOperWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperMaxIframe": {
+    "name": "dspuPuOperMaxIframe",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 18432
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1472,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperLinkRetryCount": {
+    "name": "dspuPuOperLinkRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperLinkRetryTimeout": {
+    "name": "dspuPuOperLinkRetryTimeout",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperStartPu": {
+    "name": "dspuPuOperStartPu",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperDlcType": {
+    "name": "dspuPuOperDlcType",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "sdlc": 2,
+          "ethernet": 5,
+          "tokenRing": 6,
+          "rsrb": 8,
+          "framerelay": 9,
+          "fddi": 10,
+          "qllc": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperDlcUnit": {
+    "name": "dspuPuOperDlcUnit",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperDlcPort": {
+    "name": "dspuPuOperDlcPort",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperFocalPoint": {
+    "name": "dspuPuOperFocalPoint",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperState": {
+    "name": "dspuPuOperState",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperFsmState": {
+    "name": "dspuPuOperFsmState",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkReset": 1,
+          "linkPendConnOut": 2,
+          "linkPendConnIn": 3,
+          "linkPendXid": 4,
+          "linkXidNeg": 5,
+          "linkConnOut": 6,
+          "linkConnIn": 7,
+          "linkConnected": 8,
+          "puPendAct": 9,
+          "puActive": 10,
+          "puBusy": 11,
+          "puPendInact": 12,
+          "linkPendDisc": 13,
+          "linkPendClose": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperStartTime": {
+    "name": "dspuPuOperStartTime",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperLastStateChgTime": {
+    "name": "dspuPuOperLastStateChgTime",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuOperRemoteAddress": {
+    "name": "dspuPuOperRemoteAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsTable": {
+    "name": "dspuPuStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuPuStatsEntry": {
+    "name": "dspuPuStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPuStatsSentBytes": {
+    "name": "dspuPuStatsSentBytes",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsRcvdBytes": {
+    "name": "dspuPuStatsRcvdBytes",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsSentFrames": {
+    "name": "dspuPuStatsSentFrames",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsRcvdFrames": {
+    "name": "dspuPuStatsRcvdFrames",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsSentNegativeRsps": {
+    "name": "dspuPuStatsSentNegativeRsps",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsRcvdNegativeRsps": {
+    "name": "dspuPuStatsRcvdNegativeRsps",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsActiveLus": {
+    "name": "dspuPuStatsActiveLus",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsInactiveLus": {
+    "name": "dspuPuStatsInactiveLus",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsBindLus": {
+    "name": "dspuPuStatsBindLus",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsActivationFailures": {
+    "name": "dspuPuStatsActivationFailures",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuStatsLastActivationFailureReason": {
+    "name": "dspuPuStatsLastActivationFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "otherError": 2,
+          "internalError": 3,
+          "configurationError": 4,
+          "puNegativeResponse": 5,
+          "puAlreadyActive": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuPuTraps": {
+    "name": "dspuPuTraps",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.4",
+    "class": "objectidentity"
+  },
+  "dspuPuStateChangeTrap": {
+    "name": "dspuPuStateChangeTrap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dspuPuActivationFailureTrap": {
+    "name": "dspuPuActivationFailureTrap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsLastActivationFailureReason"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dspuPuTrapsPrefix": {
+    "name": "dspuPuTrapsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.4.0",
+    "class": "objectidentity"
+  },
+  "newdspuPuStateChangeTrap": {
+    "name": "newdspuPuStateChangeTrap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "newdspuPuActivationFailureTrap": {
+    "name": "newdspuPuActivationFailureTrap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.4.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsLastActivationFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuLuAdminTable": {
+    "name": "dspuLuAdminTable",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuLuAdminEntry": {
+    "name": "dspuLuAdminEntry",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminLuLocalAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspuLuAdminLuLocalAddress": {
+    "name": "dspuLuAdminLuLocalAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuLuAdminType": {
+    "name": "dspuLuAdminType",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pooled": 1,
+          "dedicated": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuLuAdminPoolClassName": {
+    "name": "dspuLuAdminPoolClassName",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuLuAdminPeerPuIndex": {
+    "name": "dspuLuAdminPeerPuIndex",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuLuAdminPeerLuLocalAddress": {
+    "name": "dspuLuAdminPeerLuLocalAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuLuAdminRowStatus": {
+    "name": "dspuLuAdminRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuLuOperTable": {
+    "name": "dspuLuOperTable",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuLuOperEntry": {
+    "name": "dspuLuOperEntry",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperLuLocalAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspuLuOperLuLocalAddress": {
+    "name": "dspuLuOperLuLocalAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuLuOperType": {
+    "name": "dspuLuOperType",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pooled": 1,
+          "dedicated": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuLuOperPoolClassName": {
+    "name": "dspuLuOperPoolClassName",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuLuOperPeerPuIndex": {
+    "name": "dspuLuOperPeerPuIndex",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuLuOperPeerLuLocalAddress": {
+    "name": "dspuLuOperPeerLuLocalAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuLuOperState": {
+    "name": "dspuLuOperState",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuLuOperFsmState": {
+    "name": "dspuLuOperFsmState",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "dnLuStarted": 2,
+          "upLuActive": 3,
+          "dnLuPendAct": 4,
+          "dnLuActUnav": 5,
+          "upLuPendAvail": 6,
+          "bothAvail": 7,
+          "dnLuPendInact": 8,
+          "upLuPendInact": 9,
+          "luInactivityTimeout": 10,
+          "dnInactivityPendInact": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuLuOperSessionState": {
+    "name": "dspuLuOperSessionState",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bound": 1,
+          "unbound": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuLuOperLastActivationFailureReason": {
+    "name": "dspuLuOperLastActivationFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "otherError": 2,
+          "luNegativeResponse": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuLuTraps": {
+    "name": "dspuLuTraps",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.3",
+    "class": "objectidentity"
+  },
+  "dspuLuStateChangeTrap": {
+    "name": "dspuLuStateChangeTrap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperLuLocalAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dspuLuTrapsPrefix": {
+    "name": "dspuLuTrapsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.3.0",
+    "class": "objectidentity"
+  },
+  "newdspuLuStateChangeTrap": {
+    "name": "newdspuLuStateChangeTrap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuLuActivationFailureTrap": {
+    "name": "dspuLuActivationFailureTrap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.5.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperLastActivationFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuSapTable": {
+    "name": "dspuSapTable",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuSapEntry": {
+    "name": "dspuSapEntry",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapDlcType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapDlcUnit",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapDlcPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dspuSapAddress": {
+    "name": "dspuSapAddress",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuSapType": {
+    "name": "dspuSapType",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upstreamSap": 1,
+          "dnstreamSap": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuSapDlcType": {
+    "name": "dspuSapDlcType",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "sdlc": 2,
+          "ethernet": 5,
+          "tokenRing": 6,
+          "rsrb": 8,
+          "framerelay": 9,
+          "fddi": 10,
+          "qllc": 11
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuSapDlcUnit": {
+    "name": "dspuSapDlcUnit",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuSapDlcPort": {
+    "name": "dspuSapDlcPort",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dspuSapOperState": {
+    "name": "dspuSapOperState",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sapClosed": 1,
+          "sapOpening": 2,
+          "sapOpened": 3,
+          "sapClosing": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dspuSapRowStatus": {
+    "name": "dspuSapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dspuSapTraps": {
+    "name": "dspuSapTraps",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.2",
+    "class": "objectidentity"
+  },
+  "dspuSapStateChangeTrap": {
+    "name": "dspuSapStateChangeTrap",
+    "oid": "1.3.6.1.4.1.9.9.24.1.6.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapDlcType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapDlcUnit"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapDlcPort"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapOperState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoDspuMIBConformance": {
+    "name": "ciscoDspuMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.24.2",
+    "class": "objectidentity"
+  },
+  "ciscoDspuMIBCompliances": {
+    "name": "ciscoDspuMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.24.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDspuMIBGroups": {
+    "name": "ciscoDspuMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDspuMIBCompliance": {
+    "name": "ciscoDspuMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.24.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dspuNodeGroup",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuPoolClassGroup",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuPooledLuGroup",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuPuGroup",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuLuGroup",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuSapGroup",
+        "module": "CISCO-DSPU-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoDspuMIBComplianceV11R01": {
+    "name": "ciscoDspuMIBComplianceV11R01",
+    "oid": "1.3.6.1.4.1.9.9.24.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dspuNodeGroup",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuPoolClassGroup",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuPooledLuGroup",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuPuGroupV11R01",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuLuGroupV11R01",
+        "module": "CISCO-DSPU-MIB"
+      },
+      {
+        "object": "dspuSapGroup",
+        "module": "CISCO-DSPU-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuNodeGroup": {
+    "name": "dspuNodeGroup",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeRsrb"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeRsrbLocalVirtualRing"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeRsrbBridgeNumber"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeRsrbTargetVirtualRing"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeRsrbVirtualMacAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeDefaultPu"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeDefaultPuWindowSize"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeDefaultPuMaxIframe"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeActivationWindow"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuNodeLastConfigChgTime"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPoolClassGroup": {
+    "name": "dspuPoolClassGroup",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPoolClassName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPoolClassInactivityTimeout"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPoolClassOperUpStreamLuDefs"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPoolClassOperDnStreamLuDefs"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPooledLuGroup": {
+    "name": "dspuPooledLuGroup",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPooledLuPeerPuIndex"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPooledLuPeerLuLocalAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPuGroup": {
+    "name": "dspuPuGroup",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminRemoteMacAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminRemoteSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminLocalSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminXid"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminXidFmt"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminWindowSize"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminMaxIframe"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminLinkRetryCount"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminLinkRetryTimeout"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminStartPu"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminDlcType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminDlcUnit"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminDlcPort"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminFocalPoint"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminRowStatus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperRemoteMacAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperRemoteSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperLocalSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperXid"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperXidFmt"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperWindowSize"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperMaxIframe"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperLinkRetryCount"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperLinkRetryTimeout"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperStartPu"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperDlcType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperDlcUnit"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperDlcPort"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperFocalPoint"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperFsmState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperStartTime"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperLastStateChgTime"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsSentBytes"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsRcvdBytes"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsSentFrames"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsRcvdFrames"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsSentNegativeRsps"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsRcvdNegativeRsps"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsActiveLus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsInactiveLus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsBindLus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsActivationFailures"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsLastActivationFailureReason"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dspuLuGroup": {
+    "name": "dspuLuGroup",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminPoolClassName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminPeerPuIndex"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminPeerLuLocalAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminRowStatus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperPoolClassName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperPeerPuIndex"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperPeerLuLocalAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperFsmState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperSessionState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dspuSapGroup": {
+    "name": "dspuSapGroup",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapOperState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuSapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuPuGroupV11R01": {
+    "name": "dspuPuGroupV11R01",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminRemoteMacAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminRemoteSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminLocalSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminXid"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminXidFmt"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminWindowSize"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminMaxIframe"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminLinkRetryCount"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminLinkRetryTimeout"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminStartPu"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminDlcType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminDlcUnit"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminDlcPort"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminFocalPoint"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminRowStatus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuAdminRemoteAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperRemoteMacAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperRemoteSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperLocalSapAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperXid"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperXidFmt"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperWindowSize"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperMaxIframe"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperLinkRetryCount"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperLinkRetryTimeout"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperStartPu"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperDlcType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperDlcUnit"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperDlcPort"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperFocalPoint"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperFsmState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperStartTime"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperLastStateChgTime"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuOperRemoteAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsSentBytes"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsRcvdBytes"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsSentFrames"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsRcvdFrames"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsSentNegativeRsps"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsRcvdNegativeRsps"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsActiveLus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsInactiveLus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsBindLus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsActivationFailures"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuPuStatsLastActivationFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "dspuLuGroupV11R01": {
+    "name": "dspuLuGroupV11R01",
+    "oid": "1.3.6.1.4.1.9.9.24.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminPoolClassName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminPeerPuIndex"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminPeerLuLocalAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuAdminRowStatus"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperType"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperPoolClassName"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperPeerPuIndex"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperPeerLuLocalAddress"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperFsmState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperSessionState"
+      },
+      {
+        "module": "CISCO-DSPU-MIB",
+        "object": "dspuLuOperLastActivationFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DSPU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DSPU-MIB"
+  }
+}

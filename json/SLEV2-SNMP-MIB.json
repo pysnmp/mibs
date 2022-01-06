@@ -1,0 +1,5019 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleV2Mgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleV2Snmp": {
+    "name": "sleV2Snmp",
+    "oid": "1.3.6.1.4.1.6296.102.8",
+    "class": "moduleidentity"
+  },
+  "sleV2SnmpBase": {
+    "name": "sleV2SnmpBase",
+    "oid": "1.3.6.1.4.1.6296.102.8.1",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpBaseInfo": {
+    "name": "sleV2SnmpBaseInfo",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpBaseAgentAddrType": {
+    "name": "sleV2SnmpBaseAgentAddrType",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseAgentAddrValue": {
+    "name": "sleV2SnmpBaseAgentAddrValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseContacts": {
+    "name": "sleV2SnmpBaseContacts",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseEngineIdType": {
+    "name": "sleV2SnmpBaseEngineIdType",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 1,
+          "text": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseEngineIdValue": {
+    "name": "sleV2SnmpBaseEngineIdValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseLocation": {
+    "name": "sleV2SnmpBaseLocation",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseLogStatus": {
+    "name": "sleV2SnmpBaseLogStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "volatile": 0,
+          "nonvolatile": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseTrapLogStatus": {
+    "name": "sleV2SnmpBaseTrapLogStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "volatile": 0,
+          "nonvolatile": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseTrapLogThreshold": {
+    "name": "sleV2SnmpBaseTrapLogThreshold",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseTrapMode": {
+    "name": "sleV2SnmpBaseTrapMode",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "event": 0,
+          "alarmReport": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseVrfName": {
+    "name": "sleV2SnmpBaseVrfName",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControl": {
+    "name": "sleV2SnmpBaseControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpBaseControlRequest": {
+    "name": "sleV2SnmpBaseControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetSnmp": 1,
+          "clearSnmpAlarmHistory": 2,
+          "clearSnmpAlarmReport": 3,
+          "clearSnmpLog": 4,
+          "clearSnmpTrapLog": 5,
+          "setSnmpAgentAddr": 6,
+          "unsetSnmpAgentAddr": 7,
+          "setSnmpContacts": 8,
+          "unsetSnmpContacts": 9,
+          "setSnmpLocation": 10,
+          "unsetSnmpLocation": 11,
+          "setSnmpTrapLogStatus": 12,
+          "setSnmpTrapMode": 13,
+          "setSnmpEngineId": 14,
+          "unsetSnmpEngineId": 15,
+          "setSnmpLogStatus": 16,
+          "setSnmpVrf": 17,
+          "unsetSnmpVrf": 18
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlStatus": {
+    "name": "sleV2SnmpBaseControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlTimer": {
+    "name": "sleV2SnmpBaseControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlTimeStamp": {
+    "name": "sleV2SnmpBaseControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlReqResult": {
+    "name": "sleV2SnmpBaseControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlAgentAddrType": {
+    "name": "sleV2SnmpBaseControlAgentAddrType",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlAgentAddrValue": {
+    "name": "sleV2SnmpBaseControlAgentAddrValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlContacts": {
+    "name": "sleV2SnmpBaseControlContacts",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlEngineIdType": {
+    "name": "sleV2SnmpBaseControlEngineIdType",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 1,
+          "text": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlEngineIdValue": {
+    "name": "sleV2SnmpBaseControlEngineIdValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlLocation": {
+    "name": "sleV2SnmpBaseControlLocation",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlLogStatus": {
+    "name": "sleV2SnmpBaseControlLogStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "volatile": 0,
+          "nonvolatile": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlTrapLogStatus": {
+    "name": "sleV2SnmpBaseControlTrapLogStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "volatile": 0,
+          "nonvolatile": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlTrapLogThreshold": {
+    "name": "sleV2SnmpBaseControlTrapLogThreshold",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlTrapMode": {
+    "name": "sleV2SnmpBaseControlTrapMode",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "event": 0,
+          "alarmReport": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseControlVrfName": {
+    "name": "sleV2SnmpBaseControlVrfName",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpBaseNotification": {
+    "name": "sleV2SnmpBaseNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpCleared": {
+    "name": "sleV2SnmpCleared",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpAlarmHistoryCleared": {
+    "name": "sleV2SnmpAlarmHistoryCleared",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpAlarmReportCleared": {
+    "name": "sleV2SnmpAlarmReportCleared",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpLogCleared": {
+    "name": "sleV2SnmpLogCleared",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTrapLogCleared": {
+    "name": "sleV2SnmpTrapLogCleared",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpAgentAddrCreated": {
+    "name": "sleV2SnmpAgentAddrCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseAgentAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseAgentAddrValue"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpAgentAddrDeleted": {
+    "name": "sleV2SnmpAgentAddrDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpContactsCreated": {
+    "name": "sleV2SnmpContactsCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseContacts"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpContactsDeleted": {
+    "name": "sleV2SnmpContactsDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpLocationCreated": {
+    "name": "sleV2SnmpLocationCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpLocationDeleted": {
+    "name": "sleV2SnmpLocationDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTrapLogStatusChanged": {
+    "name": "sleV2SnmpTrapLogStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseTrapLogStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTrapModeChanged": {
+    "name": "sleV2SnmpTrapModeChanged",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseTrapMode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpEngineIdCreated": {
+    "name": "sleV2SnmpEngineIdCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseEngineIdType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseEngineIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpEngineIdDeleted": {
+    "name": "sleV2SnmpEngineIdDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpLogStatusChanged": {
+    "name": "sleV2SnmpLogStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseLogStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpVrfSet": {
+    "name": "sleV2SnmpVrfSet",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseVrfName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpVrfUnset": {
+    "name": "sleV2SnmpVrfUnset",
+    "oid": "1.3.6.1.4.1.6296.102.8.1.3.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpAccess": {
+    "name": "sleV2SnmpAccess",
+    "oid": "1.3.6.1.4.1.6296.102.8.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpAccessTable": {
+    "name": "sleV2SnmpAccessTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpAccessEntry": {
+    "name": "sleV2SnmpAccessEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpAccessGroupName": {
+    "name": "sleV2SnmpAccessGroupName",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessSecurityModel": {
+    "name": "sleV2SnmpAccessSecurityModel",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessSecurityLevel": {
+    "name": "sleV2SnmpAccessSecurityLevel",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noauth": 1,
+          "auth": 2,
+          "priv": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessReadViewName": {
+    "name": "sleV2SnmpAccessReadViewName",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessWriteViewName": {
+    "name": "sleV2SnmpAccessWriteViewName",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessNotifyViewName": {
+    "name": "sleV2SnmpAccessNotifyViewName",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControl": {
+    "name": "sleV2SnmpAccessControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpAccessControlRequest": {
+    "name": "sleV2SnmpAccessControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createAccess": 1,
+          "deleteAccess": 2,
+          "setAccessProfile": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlStatus": {
+    "name": "sleV2SnmpAccessControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlTimer": {
+    "name": "sleV2SnmpAccessControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlTimeStamp": {
+    "name": "sleV2SnmpAccessControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlReqResult": {
+    "name": "sleV2SnmpAccessControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlGroupName": {
+    "name": "sleV2SnmpAccessControlGroupName",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlSecurityModel": {
+    "name": "sleV2SnmpAccessControlSecurityModel",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlSecurityLevel": {
+    "name": "sleV2SnmpAccessControlSecurityLevel",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noauth": 1,
+          "auth": 2,
+          "priv": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlReadViewName": {
+    "name": "sleV2SnmpAccessControlReadViewName",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlWriteViewName": {
+    "name": "sleV2SnmpAccessControlWriteViewName",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpAccessControlNotifyViewName": {
+    "name": "sleV2SnmpAccessControlNotifyViewName",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpAccessNotification": {
+    "name": "sleV2SnmpAccessNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpAccessCreated": {
+    "name": "sleV2SnmpAccessCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessGroupName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessSecurityModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessSecurityLevel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessReadViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessWriteViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessNotifyViewName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpAccessDeleted": {
+    "name": "sleV2SnmpAccessDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpAccessProfileChanged": {
+    "name": "sleV2SnmpAccessProfileChanged",
+    "oid": "1.3.6.1.4.1.6296.102.8.2.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessGroupName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessSecurityModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessSecurityLevel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessReadViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessWriteViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessNotifyViewName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpCom2sec": {
+    "name": "sleV2SnmpCom2sec",
+    "oid": "1.3.6.1.4.1.6296.102.8.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpCom2secTable": {
+    "name": "sleV2SnmpCom2secTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secEntry": {
+    "name": "sleV2SnmpCom2secEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secName",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secAddrType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpCom2secName": {
+    "name": "sleV2SnmpCom2secName",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secAddrType": {
+    "name": "sleV2SnmpCom2secAddrType",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secAddrValue": {
+    "name": "sleV2SnmpCom2secAddrValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secPrefixLen": {
+    "name": "sleV2SnmpCom2secPrefixLen",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secCommunity": {
+    "name": "sleV2SnmpCom2secCommunity",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControl": {
+    "name": "sleV2SnmpCom2secControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpCom2secControlRequest": {
+    "name": "sleV2SnmpCom2secControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createCom2sec": 1,
+          "deleteCom2sec": 2,
+          "changeCom2sec": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlStatus": {
+    "name": "sleV2SnmpCom2secControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlTimer": {
+    "name": "sleV2SnmpCom2secControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlTimeStamp": {
+    "name": "sleV2SnmpCom2secControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlReqResult": {
+    "name": "sleV2SnmpCom2secControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlName": {
+    "name": "sleV2SnmpCom2secControlName",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlAddrType": {
+    "name": "sleV2SnmpCom2secControlAddrType",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlAddrValue": {
+    "name": "sleV2SnmpCom2secControlAddrValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlPrefixLen": {
+    "name": "sleV2SnmpCom2secControlPrefixLen",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secControlCommunity": {
+    "name": "sleV2SnmpCom2secControlCommunity",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCom2secNotification": {
+    "name": "sleV2SnmpCom2secNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpCom2secCreated": {
+    "name": "sleV2SnmpCom2secCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secPrefixLen"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secCommunity"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpCom2secDeleted": {
+    "name": "sleV2SnmpCom2secDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpCom2secChanged": {
+    "name": "sleV2SnmpCom2secChanged",
+    "oid": "1.3.6.1.4.1.6296.102.8.3.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secPrefixLen"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secCommunity"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpCommunity": {
+    "name": "sleV2SnmpCommunity",
+    "oid": "1.3.6.1.4.1.6296.102.8.4",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpCommunityTable": {
+    "name": "sleV2SnmpCommunityTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityEntry": {
+    "name": "sleV2SnmpCommunityEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpCommunityValue": {
+    "name": "sleV2SnmpCommunityValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityType": {
+    "name": "sleV2SnmpCommunityType",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readonly": 1,
+          "readwrite": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityAddrType": {
+    "name": "sleV2SnmpCommunityAddrType",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityAddrValue": {
+    "name": "sleV2SnmpCommunityAddrValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityOID": {
+    "name": "sleV2SnmpCommunityOID",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControl": {
+    "name": "sleV2SnmpCommunityControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpCommunityControlRequest": {
+    "name": "sleV2SnmpCommunityControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createCommunity": 1,
+          "deleteCommunity": 2,
+          "changeCommunity": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlStatus": {
+    "name": "sleV2SnmpCommunityControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlTimer": {
+    "name": "sleV2SnmpCommunityControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlTimeStamp": {
+    "name": "sleV2SnmpCommunityControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlReqResult": {
+    "name": "sleV2SnmpCommunityControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlValue": {
+    "name": "sleV2SnmpCommunityControlValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlType": {
+    "name": "sleV2SnmpCommunityControlType",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readonly": 1,
+          "readwrite": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlAddrType": {
+    "name": "sleV2SnmpCommunityControlAddrType",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlAddrValue": {
+    "name": "sleV2SnmpCommunityControlAddrValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityControlOID": {
+    "name": "sleV2SnmpCommunityControlOID",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpCommunityNotification": {
+    "name": "sleV2SnmpCommunityNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpCommunityCreated": {
+    "name": "sleV2SnmpCommunityCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityOID"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpCommunityDeleted": {
+    "name": "sleV2SnmpCommunityDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlValue"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpCommunityChanged": {
+    "name": "sleV2SnmpCommunityChanged",
+    "oid": "1.3.6.1.4.1.6296.102.8.4.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityOID"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpGroup": {
+    "name": "sleV2SnmpGroup",
+    "oid": "1.3.6.1.4.1.6296.102.8.5",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpGroupTable": {
+    "name": "sleV2SnmpGroupTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpGroupEntry": {
+    "name": "sleV2SnmpGroupEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupName",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupSecModel",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupSecName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpGroupName": {
+    "name": "sleV2SnmpGroupName",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpGroupSecModel": {
+    "name": "sleV2SnmpGroupSecModel",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpGroupSecName": {
+    "name": "sleV2SnmpGroupSecName",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpGroupControl": {
+    "name": "sleV2SnmpGroupControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpGroupControlRequest": {
+    "name": "sleV2SnmpGroupControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createGroup": 1,
+          "deleteGroup": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpGroupControlStatus": {
+    "name": "sleV2SnmpGroupControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpGroupControlTimer": {
+    "name": "sleV2SnmpGroupControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpGroupControlTimeStamp": {
+    "name": "sleV2SnmpGroupControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpGroupControlReqResult": {
+    "name": "sleV2SnmpGroupControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpGroupControlName": {
+    "name": "sleV2SnmpGroupControlName",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpGroupControlSecModel": {
+    "name": "sleV2SnmpGroupControlSecModel",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpGroupControlSecName": {
+    "name": "sleV2SnmpGroupControlSecName",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpGroupNotification": {
+    "name": "sleV2SnmpGroupNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpGroupCreated": {
+    "name": "sleV2SnmpGroupCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupSecModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupSecName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpGroupDeleted": {
+    "name": "sleV2SnmpGroupDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.5.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlSecModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlSecName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpNotify": {
+    "name": "sleV2SnmpNotify",
+    "oid": "1.3.6.1.4.1.6296.102.8.6",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpNotifyTable": {
+    "name": "sleV2SnmpNotifyTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyEntry": {
+    "name": "sleV2SnmpNotifyEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpNotifyName": {
+    "name": "sleV2SnmpNotifyName",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyTag": {
+    "name": "sleV2SnmpNotifyTag",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyType": {
+    "name": "sleV2SnmpNotifyType",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "inform": 1,
+          "trap": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyControl": {
+    "name": "sleV2SnmpNotifyControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpNotifyControlRequest": {
+    "name": "sleV2SnmpNotifyControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createNotify": 1,
+          "deleteNotify": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyControlStatus": {
+    "name": "sleV2SnmpNotifyControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyControlTimer": {
+    "name": "sleV2SnmpNotifyControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyControlTimeStamp": {
+    "name": "sleV2SnmpNotifyControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyControlReqResult": {
+    "name": "sleV2SnmpNotifyControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyControlName": {
+    "name": "sleV2SnmpNotifyControlName",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyControlTag": {
+    "name": "sleV2SnmpNotifyControlTag",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyControlType": {
+    "name": "sleV2SnmpNotifyControlType",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "inform": 1,
+          "trap": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpNotifyNotification": {
+    "name": "sleV2SnmpNotifyNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpNotifyCreated": {
+    "name": "sleV2SnmpNotifyCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyTag"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyType"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpNotifyDeleted": {
+    "name": "sleV2SnmpNotifyDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.6.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddr": {
+    "name": "sleV2SnmpTargetAddr",
+    "oid": "1.3.6.1.4.1.6296.102.8.7",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTargetAddrTable": {
+    "name": "sleV2SnmpTargetAddrTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrEntry": {
+    "name": "sleV2SnmpTargetAddrEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrName": {
+    "name": "sleV2SnmpTargetAddrName",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrParams": {
+    "name": "sleV2SnmpTargetAddrParams",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrHostType": {
+    "name": "sleV2SnmpTargetAddrHostType",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrHostAddr": {
+    "name": "sleV2SnmpTargetAddrHostAddr",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrPort": {
+    "name": "sleV2SnmpTargetAddrPort",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrTimeout": {
+    "name": "sleV2SnmpTargetAddrTimeout",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrRetryCnt": {
+    "name": "sleV2SnmpTargetAddrRetryCnt",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrTagList": {
+    "name": "sleV2SnmpTargetAddrTagList",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControl": {
+    "name": "sleV2SnmpTargetAddrControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTargetAddrControlRequest": {
+    "name": "sleV2SnmpTargetAddrControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createTargetAddr": 1,
+          "deleteTargetAddr": 2,
+          "setTartgetAddrProfile": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlStatus": {
+    "name": "sleV2SnmpTargetAddrControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlTimer": {
+    "name": "sleV2SnmpTargetAddrControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlTimeStamp": {
+    "name": "sleV2SnmpTargetAddrControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlReqResult": {
+    "name": "sleV2SnmpTargetAddrControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlName": {
+    "name": "sleV2SnmpTargetAddrControlName",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlParams": {
+    "name": "sleV2SnmpTargetAddrControlParams",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlHostType": {
+    "name": "sleV2SnmpTargetAddrControlHostType",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlHostAddr": {
+    "name": "sleV2SnmpTargetAddrControlHostAddr",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlPort": {
+    "name": "sleV2SnmpTargetAddrControlPort",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlTimeout": {
+    "name": "sleV2SnmpTargetAddrControlTimeout",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlRetryCnt": {
+    "name": "sleV2SnmpTargetAddrControlRetryCnt",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrControlTagList": {
+    "name": "sleV2SnmpTargetAddrControlTagList",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrNotification": {
+    "name": "sleV2SnmpTargetAddrNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTargetAddrCreated": {
+    "name": "sleV2SnmpTargetAddrCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrParams"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrHostType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrHostAddr"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrPort"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrTimeout"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrRetryCnt"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrTagList"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrDeleted": {
+    "name": "sleV2SnmpTargetAddrDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTargetAddrChanged": {
+    "name": "sleV2SnmpTargetAddrChanged",
+    "oid": "1.3.6.1.4.1.6296.102.8.7.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrParams"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrHostType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrHostAddr"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrPort"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrTimeout"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrRetryCnt"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrTagList"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTargetParam": {
+    "name": "sleV2SnmpTargetParam",
+    "oid": "1.3.6.1.4.1.6296.102.8.8",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTargetParamTable": {
+    "name": "sleV2SnmpTargetParamTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamEntry": {
+    "name": "sleV2SnmpTargetParamEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamName": {
+    "name": "sleV2SnmpTargetParamName",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamSecModel": {
+    "name": "sleV2SnmpTargetParamSecModel",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamSecName": {
+    "name": "sleV2SnmpTargetParamSecName",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamSecLevel": {
+    "name": "sleV2SnmpTargetParamSecLevel",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noauth": 1,
+          "auth": 2,
+          "priv": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControl": {
+    "name": "sleV2SnmpTargetParamControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTargetParamControlRequest": {
+    "name": "sleV2SnmpTargetParamControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createTargetParam": 1,
+          "deleteTargetParam": 2,
+          "setTargetParamProfile": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControlStatus": {
+    "name": "sleV2SnmpTargetParamControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControlTimer": {
+    "name": "sleV2SnmpTargetParamControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControlTimeStamp": {
+    "name": "sleV2SnmpTargetParamControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControlReqResult": {
+    "name": "sleV2SnmpTargetParamControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControlName": {
+    "name": "sleV2SnmpTargetParamControlName",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControlSecModel": {
+    "name": "sleV2SnmpTargetParamControlSecModel",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControlSecName": {
+    "name": "sleV2SnmpTargetParamControlSecName",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamControlSecLevel": {
+    "name": "sleV2SnmpTargetParamControlSecLevel",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noauth": 1,
+          "auth": 2,
+          "priv": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamNotification": {
+    "name": "sleV2SnmpTargetParamNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTargetParamCreated": {
+    "name": "sleV2SnmpTargetParamCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamDeleted": {
+    "name": "sleV2SnmpTargetParamDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTargetParamChanged": {
+    "name": "sleV2SnmpTargetParamChanged",
+    "oid": "1.3.6.1.4.1.6296.102.8.8.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTraphost": {
+    "name": "sleV2SnmpTraphost",
+    "oid": "1.3.6.1.4.1.6296.102.8.9",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTraphostTable": {
+    "name": "sleV2SnmpTraphostTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostEntry": {
+    "name": "sleV2SnmpTraphostEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostType",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostAddrType",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostAddrValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTraphostType": {
+    "name": "sleV2SnmpTraphostType",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapHost": 1,
+          "trap2Host": 2,
+          "informTrapHost": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostAddrType": {
+    "name": "sleV2SnmpTraphostAddrType",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostAddrValue": {
+    "name": "sleV2SnmpTraphostAddrValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostCommunity": {
+    "name": "sleV2SnmpTraphostCommunity",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostVrfName": {
+    "name": "sleV2SnmpTraphostVrfName",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControl": {
+    "name": "sleV2SnmpTraphostControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTraphostControlRequest": {
+    "name": "sleV2SnmpTraphostControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createTraphost": 1,
+          "deleteTraphost": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlStatus": {
+    "name": "sleV2SnmpTraphostControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlTimer": {
+    "name": "sleV2SnmpTraphostControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlTimeStamp": {
+    "name": "sleV2SnmpTraphostControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlReqResult": {
+    "name": "sleV2SnmpTraphostControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlType": {
+    "name": "sleV2SnmpTraphostControlType",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapHost": 1,
+          "trap2Host": 2,
+          "informTraphost": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlAddrType": {
+    "name": "sleV2SnmpTraphostControlAddrType",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlAddrValue": {
+    "name": "sleV2SnmpTraphostControlAddrValue",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlCommunity": {
+    "name": "sleV2SnmpTraphostControlCommunity",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostControlVrfName": {
+    "name": "sleV2SnmpTraphostControlVrfName",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpTraphostNotification": {
+    "name": "sleV2SnmpTraphostNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpTraphostCreated": {
+    "name": "sleV2SnmpTraphostCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostCommunity"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostVrfName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpTraphostDeleted": {
+    "name": "sleV2SnmpTraphostDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.9.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlAddrValue"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpUser": {
+    "name": "sleV2SnmpUser",
+    "oid": "1.3.6.1.4.1.6296.102.8.10",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpUserTable": {
+    "name": "sleV2SnmpUserTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpUserEntry": {
+    "name": "sleV2SnmpUserEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpUserName": {
+    "name": "sleV2SnmpUserName",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpUserAuthType": {
+    "name": "sleV2SnmpUserAuthType",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "md5": 1,
+          "sha": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpUserAuthKey": {
+    "name": "sleV2SnmpUserAuthKey",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpUserPrivType": {
+    "name": "sleV2SnmpUserPrivType",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "des": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpUserPrivKey": {
+    "name": "sleV2SnmpUserPrivKey",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpUserControl": {
+    "name": "sleV2SnmpUserControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpUserControlRequest": {
+    "name": "sleV2SnmpUserControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createUser": 1,
+          "deleteUser": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlStatus": {
+    "name": "sleV2SnmpUserControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlTimer": {
+    "name": "sleV2SnmpUserControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlTimeStamp": {
+    "name": "sleV2SnmpUserControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlReqResult": {
+    "name": "sleV2SnmpUserControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlName": {
+    "name": "sleV2SnmpUserControlName",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlAuthType": {
+    "name": "sleV2SnmpUserControlAuthType",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "md5": 1,
+          "sha": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlAuthKey": {
+    "name": "sleV2SnmpUserControlAuthKey",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlPrivType": {
+    "name": "sleV2SnmpUserControlPrivType",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "des": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpUserControlPrivKey": {
+    "name": "sleV2SnmpUserControlPrivKey",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpUserNotification": {
+    "name": "sleV2SnmpUserNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpUserCreated": {
+    "name": "sleV2SnmpUserCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserAuthType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserAuthKey"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserPrivType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserPrivKey"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpUserDeleted": {
+    "name": "sleV2SnmpUserDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.10.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpView": {
+    "name": "sleV2SnmpView",
+    "oid": "1.3.6.1.4.1.6296.102.8.11",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpViewTable": {
+    "name": "sleV2SnmpViewTable",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2SnmpViewEntry": {
+    "name": "sleV2SnmpViewEntry",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewName",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewOid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpViewName": {
+    "name": "sleV2SnmpViewName",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpViewOid": {
+    "name": "sleV2SnmpViewOid",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpViewMask": {
+    "name": "sleV2SnmpViewMask",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpViewType": {
+    "name": "sleV2SnmpViewType",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpViewControl": {
+    "name": "sleV2SnmpViewControl",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpViewControlRequest": {
+    "name": "sleV2SnmpViewControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createView": 1,
+          "deleteView": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpViewControlStatus": {
+    "name": "sleV2SnmpViewControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpViewControlTimer": {
+    "name": "sleV2SnmpViewControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpViewControlTimeStamp": {
+    "name": "sleV2SnmpViewControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpViewControlReqResult": {
+    "name": "sleV2SnmpViewControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2SnmpViewControlName": {
+    "name": "sleV2SnmpViewControlName",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpViewControlOid": {
+    "name": "sleV2SnmpViewControlOid",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpViewControlMask": {
+    "name": "sleV2SnmpViewControlMask",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpViewControlType": {
+    "name": "sleV2SnmpViewControlType",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2SnmpViewNotification": {
+    "name": "sleV2SnmpViewNotification",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.3",
+    "class": "objectidentity"
+  },
+  "sleV2SnmpViewCreated": {
+    "name": "sleV2SnmpViewCreated",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewOid"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewMask"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewType"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpViewDeleted": {
+    "name": "sleV2SnmpViewDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.8.11.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlOid"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpObjectGroup": {
+    "name": "sleV2SnmpObjectGroup",
+    "oid": "1.3.6.1.4.1.6296.102.8.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseAgentAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseAgentAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseContacts"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseEngineIdType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseEngineIdValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseLocation"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseLogStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseTrapLogStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseTrapLogThreshold"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseTrapMode"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlAgentAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlAgentAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlContacts"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlEngineIdType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlEngineIdValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlLocation"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlLogStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTrapLogStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTrapLogThreshold"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secPrefixLen"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secCommunity"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlPrefixLen"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secControlCommunity"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityOID"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityControlOID"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupSecModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupSecName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlSecModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupControlSecName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyTag"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlTag"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyControlType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrParams"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrHostType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrHostAddr"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrPort"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrTimeout"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrRetryCnt"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrTagList"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlParams"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlHostType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlHostAddr"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlPort"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlTimeout"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlRetryCnt"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrControlTagList"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamSecLevel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlSecModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlSecName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamControlSecLevel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostCommunity"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostVrfName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlAddrType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlAddrValue"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlCommunity"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostControlVrfName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserAuthType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserAuthKey"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserPrivType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserPrivKey"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlAuthType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlAuthKey"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlPrivType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserControlPrivKey"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewOid"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewMask"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlOid"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlMask"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewControlType"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlTrapMode"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessGroupName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessSecurityModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessSecurityLevel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessReadViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessWriteViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessNotifyViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlRequest"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlTimer"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlReqResult"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlGroupName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlSecurityModel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlSecurityLevel"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlReadViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlWriteViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessControlNotifyViewName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseVrfName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlVrfName"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseNotifyStatus"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpLogIndex"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpLogText"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTrapLogIndex"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTrapLogText"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpBaseControlNotifyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2SnmpNotificationGroup": {
+    "name": "sleV2SnmpNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.102.8.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCleared"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAlarmHistoryCleared"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAlarmReportCleared"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpLogCleared"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTrapLogCleared"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAgentAddrCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAgentAddrDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpContactsCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpContactsDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpLocationCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpLocationDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTrapLogStatusChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTrapModeChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpEngineIdCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpEngineIdDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpLogStatusChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpAccessProfileChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCom2secChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpCommunityChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpGroupDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetAddrChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTargetParamChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTraphostDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpUserDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewCreated"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpNotifyActivityStatusChanged"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpViewDeleted"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpVrfSet"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpVrfUnset"
+      },
+      {
+        "module": "SLEV2-SNMP-MIB",
+        "object": "sleV2SnmpTrapLogThresholdChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLEV2-SNMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLEV2-SNMP-MIB"
+  }
+}

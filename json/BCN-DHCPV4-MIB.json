@@ -1,0 +1,756 @@
+{
+  "imports": {
+    "class": "imports",
+    "BCN-SMI-MIB": [
+      "bcnServices"
+    ],
+    "BCN-TC-MIB": [
+      "BcnAlarmSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bcnDhcpv4MIB": {
+    "name": "bcnDhcpv4MIB",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-12-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "bcnDhcpv4": {
+    "name": "bcnDhcpv4",
+    "oid": "1.3.6.1.4.1.13315.3.1.1",
+    "class": "objectidentity"
+  },
+  "bcnDhcpv4Objects": {
+    "name": "bcnDhcpv4Objects",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2",
+    "class": "objectidentity"
+  },
+  "bcnDhcpv4Notification": {
+    "name": "bcnDhcpv4Notification",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3",
+    "class": "objectidentity"
+  },
+  "bcnDhcpv4Conformance": {
+    "name": "bcnDhcpv4Conformance",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.4",
+    "class": "objectidentity"
+  },
+  "bcnDhcpv4ServiceStatus": {
+    "name": "bcnDhcpv4ServiceStatus",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnDhcpv4SerOperState": {
+    "name": "bcnDhcpv4SerOperState",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "notRunning": 2,
+          "starting": 3,
+          "stopping": 4,
+          "fault": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4FirstAlertIpAddr": {
+    "name": "bcnDhcpv4FirstAlertIpAddr",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseStatsSuccess": {
+    "name": "bcnDhcpv4LeaseStatsSuccess",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4ServiceStatistics": {
+    "name": "bcnDhcpv4ServiceStatistics",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseTable": {
+    "name": "bcnDhcpv4LeaseTable",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseEntry": {
+    "name": "bcnDhcpv4LeaseEntry",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4LeaseIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseIP": {
+    "name": "bcnDhcpv4LeaseIP",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseStartTime": {
+    "name": "bcnDhcpv4LeaseStartTime",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseEndTime": {
+    "name": "bcnDhcpv4LeaseEndTime",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseTimeStamp": {
+    "name": "bcnDhcpv4LeaseTimeStamp",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseMacAddress": {
+    "name": "bcnDhcpv4LeaseMacAddress",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4LeaseHostname": {
+    "name": "bcnDhcpv4LeaseHostname",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetTable": {
+    "name": "bcnDhcpv4SubnetTable",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetEntry": {
+    "name": "bcnDhcpv4SubnetEntry",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetIP": {
+    "name": "bcnDhcpv4SubnetIP",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetMask": {
+    "name": "bcnDhcpv4SubnetMask",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetSize": {
+    "name": "bcnDhcpv4SubnetSize",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetFreeAddresses": {
+    "name": "bcnDhcpv4SubnetFreeAddresses",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetLowThreshold": {
+    "name": "bcnDhcpv4SubnetLowThreshold",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetHighThreshold": {
+    "name": "bcnDhcpv4SubnetHighThreshold",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4PoolTable": {
+    "name": "bcnDhcpv4PoolTable",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnDhcpv4PoolEntry": {
+    "name": "bcnDhcpv4PoolEntry",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4PoolStartIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4PoolStartIP": {
+    "name": "bcnDhcpv4PoolStartIP",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnDhcpv4PoolEndIP": {
+    "name": "bcnDhcpv4PoolEndIP",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4PoolSubnetIP": {
+    "name": "bcnDhcpv4PoolSubnetIP",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4PoolSize": {
+    "name": "bcnDhcpv4PoolSize",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4PoolFreeAddresses": {
+    "name": "bcnDhcpv4PoolFreeAddresses",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4FixedIPTable": {
+    "name": "bcnDhcpv4FixedIPTable",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnDhcpv4FixedIPEntry": {
+    "name": "bcnDhcpv4FixedIPEntry",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4FixedIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4FixedIP": {
+    "name": "bcnDhcpv4FixedIP",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnDhcpv4NotificationEvents": {
+    "name": "bcnDhcpv4NotificationEvents",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.0",
+    "class": "objectidentity"
+  },
+  "bcnDhcpv4NotificationData": {
+    "name": "bcnDhcpv4NotificationData",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "bcnDhcpv4AlarmSeverity": {
+    "name": "bcnDhcpv4AlarmSeverity",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BcnAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnDhcpv4AlarmInfo": {
+    "name": "bcnDhcpv4AlarmInfo",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnDhcpv4FailOverState": {
+    "name": "bcnDhcpv4FailOverState",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startup": 1,
+          "normal": 2,
+          "communicationsInterrupted": 3,
+          "partnerDown": 4,
+          "potentialConflict": 5,
+          "recover": 6,
+          "paused": 7,
+          "shutdown": 8,
+          "recoverDone": 9,
+          "recoverWait": 254
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetAlertIpAddr": {
+    "name": "bcnDhcpv4SubnetAlertIpAddr",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnDhcpv4AlarmNotif": {
+    "name": "bcnDhcpv4AlarmNotif",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SerOperState"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4AlarmSeverity"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4AlarmInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4FailOverNotif": {
+    "name": "bcnDhcpv4FailOverNotif",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4FailOverState"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetLowNotif": {
+    "name": "bcnDhcpv4SubnetLowNotif",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetAlertIpAddr"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetFreeAddresses"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4SubnetHighNotif": {
+    "name": "bcnDhcpv4SubnetHighNotif",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetAlertIpAddr"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetFreeAddresses"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4ServiceCompliances": {
+    "name": "bcnDhcpv4ServiceCompliances",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "bcnDhcpv4ServiceGroups": {
+    "name": "bcnDhcpv4ServiceGroups",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "bcnDhcpv4ServiceStatusGroup": {
+    "name": "bcnDhcpv4ServiceStatusGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SerOperState"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4FirstAlertIpAddr"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4LeaseStatsSuccess"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4StatisticsGroup": {
+    "name": "bcnDhcpv4StatisticsGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4LeaseStartTime"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4LeaseEndTime"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4LeaseTimeStamp"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4LeaseMacAddress"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4LeaseHostname"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetMask"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetSize"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetFreeAddresses"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetLowThreshold"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetHighThreshold"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4PoolSubnetIP"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4PoolEndIP"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4PoolSize"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4PoolFreeAddresses"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4FixedIP"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4NotificationEventGroup": {
+    "name": "bcnDhcpv4NotificationEventGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.4.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4AlarmNotif"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4FailOverNotif"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetLowNotif"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetHighNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4NotificationDataGroup": {
+    "name": "bcnDhcpv4NotificationDataGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4AlarmSeverity"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4AlarmInfo"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4FailOverState"
+      },
+      {
+        "module": "BCN-DHCPV4-MIB",
+        "object": "bcnDhcpv4SubnetAlertIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnDhcpv4StatusCompliance": {
+    "name": "bcnDhcpv4StatusCompliance",
+    "oid": "1.3.6.1.4.1.13315.3.1.1.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bcnDhcpv4ServiceStatusGroup",
+        "module": "BCN-DHCPV4-MIB"
+      },
+      {
+        "object": "bcnDhcpv4StatisticsGroup",
+        "module": "BCN-DHCPV4-MIB"
+      },
+      {
+        "object": "bcnDhcpv4NotificationEventGroup",
+        "module": "BCN-DHCPV4-MIB"
+      },
+      {
+        "object": "bcnDhcpv4NotificationDataGroup",
+        "module": "BCN-DHCPV4-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-DHCPV4-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BCN-DHCPV4-MIB"
+  }
+}

@@ -1,0 +1,3387 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-RTTMON-MIB": [
+      "rttMonCtrlAdminIndex"
+    ],
+    "CISCO-RTTMON-TC-MIB": [
+      "RttMonRttType",
+      "RttMonIdLst",
+      "RttResponseSense",
+      "RttMonReactVar",
+      "RttMonCtrlIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Layer2Cos"
+    ],
+    "IEEE8021-CFM-MIB": [
+      "Dot1agCfmMaintDomainName",
+      "Dot1agCfmMaintDomainNameType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "StorageType",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIpSlaEthernetMIB": {
+    "name": "ciscoIpSlaEthernetMIB",
+    "oid": "1.3.6.1.4.1.9.9.585",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-05-15 00:00",
+        "description": "Added new object group ciscoIpSlaEthernetY1731Group. Added new compliance ciscoIpSlaEthernetComplianceRev3, which deprecates ciscoIpSlaEthenetComplianceRev2"
+      },
+      {
+        "revision": "2008-01-02 00:00",
+        "description": "Added object ipslaEthernetGrpCtrlEVC and ipslaEthernetGrpCtrlServiceInsType."
+      },
+      {
+        "revision": "2006-02-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIpSlaEthernetMIBNotifs": {
+    "name": "ciscoIpSlaEthernetMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.585.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpSlaEthernetMIBObjects": {
+    "name": "ciscoIpSlaEthernetMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.585.1",
+    "class": "objectidentity"
+  },
+  "ipslaEthernetGrpCtrl": {
+    "name": "ipslaEthernetGrpCtrl",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1",
+    "class": "objectidentity"
+  },
+  "ipslaEthernetStats": {
+    "name": "ipslaEthernetStats",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2",
+    "class": "objectidentity"
+  },
+  "ipslaEthernetLatestOper": {
+    "name": "ipslaEthernetLatestOper",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3",
+    "class": "objectidentity"
+  },
+  "ipslaEthernetGrpCtrlTable": {
+    "name": "ipslaEthernetGrpCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlEntry": {
+    "name": "ipslaEthernetGrpCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlIndex": {
+    "name": "ipslaEthernetGrpCtrlIndex",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttMonCtrlIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlStatus": {
+    "name": "ipslaEthernetGrpCtrlStatus",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlStorageType": {
+    "name": "ipslaEthernetGrpCtrlStorageType",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlRttType": {
+    "name": "ipslaEthernetGrpCtrlRttType",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttMonRttType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlOwner": {
+    "name": "ipslaEthernetGrpCtrlOwner",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlTag": {
+    "name": "ipslaEthernetGrpCtrlTag",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlThreshold": {
+    "name": "ipslaEthernetGrpCtrlThreshold",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlTimeout": {
+    "name": "ipslaEthernetGrpCtrlTimeout",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 604800000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlProbeList": {
+    "name": "ipslaEthernetGrpCtrlProbeList",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttMonIdLst",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlVLAN": {
+    "name": "ipslaEthernetGrpCtrlVLAN",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlDomainNameType": {
+    "name": "ipslaEthernetGrpCtrlDomainNameType",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMaintDomainNameType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlDomainName": {
+    "name": "ipslaEthernetGrpCtrlDomainName",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMaintDomainName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlReqDataSize": {
+    "name": "ipslaEthernetGrpCtrlReqDataSize",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1400
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlMPIDExLst": {
+    "name": "ipslaEthernetGrpCtrlMPIDExLst",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttMonIdLst",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlCOS": {
+    "name": "ipslaEthernetGrpCtrlCOS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Layer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlInterval": {
+    "name": "ipslaEthernetGrpCtrlInterval",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlNumFrames": {
+    "name": "ipslaEthernetGrpCtrlNumFrames",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpScheduleRttStartTime": {
+    "name": "ipslaEthernetGrpScheduleRttStartTime",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpSchedulePeriod": {
+    "name": "ipslaEthernetGrpSchedulePeriod",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpScheduleFrequency": {
+    "name": "ipslaEthernetGrpScheduleFrequency",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlEVC": {
+    "name": "ipslaEthernetGrpCtrlEVC",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpCtrlServiceInsType": {
+    "name": "ipslaEthernetGrpCtrlServiceInsType",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "evc": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactTable": {
+    "name": "ipslaEthernetGrpReactTable",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactEntry": {
+    "name": "ipslaEthernetGrpReactEntry",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactConfigIndex": {
+    "name": "ipslaEthernetGrpReactConfigIndex",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttMonCtrlIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactStatus": {
+    "name": "ipslaEthernetGrpReactStatus",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactStorageType": {
+    "name": "ipslaEthernetGrpReactStorageType",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactVar": {
+    "name": "ipslaEthernetGrpReactVar",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttMonReactVar",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactThresholdType": {
+    "name": "ipslaEthernetGrpReactThresholdType",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "never": 1,
+          "immediate": 2,
+          "consecutive": 3,
+          "xOfy": 4,
+          "average": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "never",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactThresholdRising": {
+    "name": "ipslaEthernetGrpReactThresholdRising",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactThresholdFalling": {
+    "name": "ipslaEthernetGrpReactThresholdFalling",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactThresholdCountX": {
+    "name": "ipslaEthernetGrpReactThresholdCountX",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactThresholdCountY": {
+    "name": "ipslaEthernetGrpReactThresholdCountY",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEthernetGrpReactActionType": {
+    "name": "ipslaEthernetGrpReactActionType",
+    "oid": "1.3.6.1.4.1.9.9.585.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "notification": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestStatsTable": {
+    "name": "ipslaEtherJitterLatestStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestStatsEntry": {
+    "name": "ipslaEtherJitterLatestStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "object": "rttMonCtrlAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestNumRTT": {
+    "name": "ipslaEtherJitterLatestNumRTT",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestRTTSum": {
+    "name": "ipslaEtherJitterLatestRTTSum",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestRTTSum2": {
+    "name": "ipslaEtherJitterLatestRTTSum2",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestRTTMin": {
+    "name": "ipslaEtherJitterLatestRTTMin",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestRTTMax": {
+    "name": "ipslaEtherJitterLatestRTTMax",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMinPosSD": {
+    "name": "ipslaEtherJitterLatestMinPosSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMaxPosSD": {
+    "name": "ipslaEtherJitterLatestMaxPosSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestNumPosSD": {
+    "name": "ipslaEtherJitterLatestNumPosSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSumPosSD": {
+    "name": "ipslaEtherJitterLatestSumPosSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSum2PosSD": {
+    "name": "ipslaEtherJitterLatestSum2PosSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMinNegSD": {
+    "name": "ipslaEtherJitterLatestMinNegSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMaxNegSD": {
+    "name": "ipslaEtherJitterLatestMaxNegSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestNumNegSD": {
+    "name": "ipslaEtherJitterLatestNumNegSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSumNegSD": {
+    "name": "ipslaEtherJitterLatestSumNegSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSum2NegSD": {
+    "name": "ipslaEtherJitterLatestSum2NegSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMinPosDS": {
+    "name": "ipslaEtherJitterLatestMinPosDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMaxPosDS": {
+    "name": "ipslaEtherJitterLatestMaxPosDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestNumPosDS": {
+    "name": "ipslaEtherJitterLatestNumPosDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSumPosDS": {
+    "name": "ipslaEtherJitterLatestSumPosDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSum2PosDS": {
+    "name": "ipslaEtherJitterLatestSum2PosDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMinNegDS": {
+    "name": "ipslaEtherJitterLatestMinNegDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMaxNegDS": {
+    "name": "ipslaEtherJitterLatestMaxNegDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestNumNegDS": {
+    "name": "ipslaEtherJitterLatestNumNegDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSumNegDS": {
+    "name": "ipslaEtherJitterLatestSumNegDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSum2NegDS": {
+    "name": "ipslaEtherJitterLatestSum2NegDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestFrmLossSD": {
+    "name": "ipslaEtherJitterLatestFrmLossSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestFrmLossDS": {
+    "name": "ipslaEtherJitterLatestFrmLossDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestFrmOutSeq": {
+    "name": "ipslaEtherJitterLatestFrmOutSeq",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestFrmMIA": {
+    "name": "ipslaEtherJitterLatestFrmMIA",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestFrmSkipped": {
+    "name": "ipslaEtherJitterLatestFrmSkipped",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestSense": {
+    "name": "ipslaEtherJitterLatestSense",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RttResponseSense",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestFrmLateA": {
+    "name": "ipslaEtherJitterLatestFrmLateA",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMinSucFrmL": {
+    "name": "ipslaEtherJitterLatestMinSucFrmL",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestMaxSucFrmL": {
+    "name": "ipslaEtherJitterLatestMaxSucFrmL",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWSumSD": {
+    "name": "ipslaEtherJitterLatestOWSumSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWSum2SD": {
+    "name": "ipslaEtherJitterLatestOWSum2SD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWMinSD": {
+    "name": "ipslaEtherJitterLatestOWMinSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWMaxSD": {
+    "name": "ipslaEtherJitterLatestOWMaxSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWSumDS": {
+    "name": "ipslaEtherJitterLatestOWSumDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWSum2DS": {
+    "name": "ipslaEtherJitterLatestOWSum2DS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWMinDS": {
+    "name": "ipslaEtherJitterLatestOWMinDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWMaxDS": {
+    "name": "ipslaEtherJitterLatestOWMaxDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestNumOW": {
+    "name": "ipslaEtherJitterLatestNumOW",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestAvgJitter": {
+    "name": "ipslaEtherJitterLatestAvgJitter",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestAvgSDJ": {
+    "name": "ipslaEtherJitterLatestAvgSDJ",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestAvgDSJ": {
+    "name": "ipslaEtherJitterLatestAvgDSJ",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWAvgSD": {
+    "name": "ipslaEtherJitterLatestOWAvgSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestOWAvgDS": {
+    "name": "ipslaEtherJitterLatestOWAvgDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestIAJOut": {
+    "name": "ipslaEtherJitterLatestIAJOut",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterLatestIAJIn": {
+    "name": "ipslaEtherJitterLatestIAJIn",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJLatestFrmUnProcessed": {
+    "name": "ipslaEtherJLatestFrmUnProcessed",
+    "oid": "1.3.6.1.4.1.9.9.585.1.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJitterAggStatsTable": {
+    "name": "ipslaEtherJitterAggStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipslaEtherJitterAggStatsEntry": {
+    "name": "ipslaEtherJitterAggStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RTTMON-MIB",
+        "object": "rttMonCtrlAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggStatsStartTimeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipslaEtherJAggStatsStartTimeId": {
+    "name": "ipslaEtherJAggStatsStartTimeId",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCmpletions": {
+    "name": "ipslaEtherJAggMeasuredCmpletions",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "completions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOvThrshlds": {
+    "name": "ipslaEtherJAggMeasuredOvThrshlds",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "operations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredNumRTTs": {
+    "name": "ipslaEtherJAggMeasuredNumRTTs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredRTTSums": {
+    "name": "ipslaEtherJAggMeasuredRTTSums",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredRTTSum2Ls": {
+    "name": "ipslaEtherJAggMeasuredRTTSum2Ls",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredRTTSum2Hs": {
+    "name": "ipslaEtherJAggMeasuredRTTSum2Hs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredRTTMin": {
+    "name": "ipslaEtherJAggMeasuredRTTMin",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredRTTMax": {
+    "name": "ipslaEtherJAggMeasuredRTTMax",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinPosSD": {
+    "name": "ipslaEtherJAggMeasuredMinPosSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxPosSD": {
+    "name": "ipslaEtherJAggMeasuredMaxPosSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredNumPosSDs": {
+    "name": "ipslaEtherJAggMeasuredNumPosSDs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSumPosSDs": {
+    "name": "ipslaEtherJAggMeasuredSumPosSDs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSum2PSDLs": {
+    "name": "ipslaEtherJAggMeasuredSum2PSDLs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSum2PSDHs": {
+    "name": "ipslaEtherJAggMeasuredSum2PSDHs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinNegSD": {
+    "name": "ipslaEtherJAggMeasuredMinNegSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxNegSD": {
+    "name": "ipslaEtherJAggMeasuredMaxNegSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredNumNegSDs": {
+    "name": "ipslaEtherJAggMeasuredNumNegSDs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSumNegSDs": {
+    "name": "ipslaEtherJAggMeasuredSumNegSDs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSum2NSDLs": {
+    "name": "ipslaEtherJAggMeasuredSum2NSDLs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSum2NSDHs": {
+    "name": "ipslaEtherJAggMeasuredSum2NSDHs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinPosDS": {
+    "name": "ipslaEtherJAggMeasuredMinPosDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxPosDS": {
+    "name": "ipslaEtherJAggMeasuredMaxPosDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredNumPosDSes": {
+    "name": "ipslaEtherJAggMeasuredNumPosDSes",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSumPosDSes": {
+    "name": "ipslaEtherJAggMeasuredSumPosDSes",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSum2PDSLs": {
+    "name": "ipslaEtherJAggMeasuredSum2PDSLs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSum2PDSHs": {
+    "name": "ipslaEtherJAggMeasuredSum2PDSHs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinNegDS": {
+    "name": "ipslaEtherJAggMeasuredMinNegDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxNegDS": {
+    "name": "ipslaEtherJAggMeasuredMaxNegDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredNumNegDSes": {
+    "name": "ipslaEtherJAggMeasuredNumNegDSes",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSumNegDSes": {
+    "name": "ipslaEtherJAggMeasuredSumNegDSes",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSum2NDSLs": {
+    "name": "ipslaEtherJAggMeasuredSum2NDSLs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredSum2NDSHs": {
+    "name": "ipslaEtherJAggMeasuredSum2NDSHs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredFrmLossSDs": {
+    "name": "ipslaEtherJAggMeasuredFrmLossSDs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredFrmLssDSes": {
+    "name": "ipslaEtherJAggMeasuredFrmLssDSes",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredFrmOutSeqs": {
+    "name": "ipslaEtherJAggMeasuredFrmOutSeqs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredFrmMIAes": {
+    "name": "ipslaEtherJAggMeasuredFrmMIAes",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredFrmSkippds": {
+    "name": "ipslaEtherJAggMeasuredFrmSkippds",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredErrors": {
+    "name": "ipslaEtherJAggMeasuredErrors",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "errors",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredBusies": {
+    "name": "ipslaEtherJAggMeasuredBusies",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "busies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWSumSDs": {
+    "name": "ipslaEtherJAggMeasuredOWSumSDs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWSum2SDLs": {
+    "name": "ipslaEtherJAggMeasuredOWSum2SDLs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWSum2SDHs": {
+    "name": "ipslaEtherJAggMeasuredOWSum2SDHs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWMinSD": {
+    "name": "ipslaEtherJAggMeasuredOWMinSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWMaxSD": {
+    "name": "ipslaEtherJAggMeasuredOWMaxSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWSumDSes": {
+    "name": "ipslaEtherJAggMeasuredOWSumDSes",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWSum2DSLs": {
+    "name": "ipslaEtherJAggMeasuredOWSum2DSLs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWSum2DSHs": {
+    "name": "ipslaEtherJAggMeasuredOWSum2DSHs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWMinDS": {
+    "name": "ipslaEtherJAggMeasuredOWMinDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredOWMaxDS": {
+    "name": "ipslaEtherJAggMeasuredOWMaxDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredNumOWs": {
+    "name": "ipslaEtherJAggMeasuredNumOWs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredAvgJ": {
+    "name": "ipslaEtherJAggMeasuredAvgJ",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredAvgJSD": {
+    "name": "ipslaEtherJAggMeasuredAvgJSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredAvgJDS": {
+    "name": "ipslaEtherJAggMeasuredAvgJDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMinSucFrmLoss": {
+    "name": "ipslaEtherJAggMinSucFrmLoss",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMaxSucFrmLoss": {
+    "name": "ipslaEtherJAggMaxSucFrmLoss",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredIAJOut": {
+    "name": "ipslaEtherJAggMeasuredIAJOut",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredIAJIn": {
+    "name": "ipslaEtherJAggMeasuredIAJIn",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredFrmLateAs": {
+    "name": "ipslaEtherJAggMeasuredFrmLateAs",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredFrmUnPrcds": {
+    "name": "ipslaEtherJAggMeasuredFrmUnPrcds",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxPosTW": {
+    "name": "ipslaEtherJAggMeasuredMaxPosTW",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxNegTW": {
+    "name": "ipslaEtherJAggMeasuredMaxNegTW",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinPosTW": {
+    "name": "ipslaEtherJAggMeasuredMinPosTW",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinNegTW": {
+    "name": "ipslaEtherJAggMeasuredMinNegTW",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredTxFrmsSD": {
+    "name": "ipslaEtherJAggMeasuredTxFrmsSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredTxFrmsDS": {
+    "name": "ipslaEtherJAggMeasuredTxFrmsDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredRxFrmsSD": {
+    "name": "ipslaEtherJAggMeasuredRxFrmsSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredRxFrmsDS": {
+    "name": "ipslaEtherJAggMeasuredRxFrmsDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinLossNumeratorSD": {
+    "name": "ipslaEtherJAggMeasuredMinLossNumeratorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinLossDenominatorSD": {
+    "name": "ipslaEtherJAggMeasuredMinLossDenominatorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxLossNumeratorSD": {
+    "name": "ipslaEtherJAggMeasuredMaxLossNumeratorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxLossDenominatorSD": {
+    "name": "ipslaEtherJAggMeasuredMaxLossDenominatorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredAvgLossNumeratorSD": {
+    "name": "ipslaEtherJAggMeasuredAvgLossNumeratorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredAvgLossDenominatorSD": {
+    "name": "ipslaEtherJAggMeasuredAvgLossDenominatorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinLossNumeratorDS": {
+    "name": "ipslaEtherJAggMeasuredMinLossNumeratorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMinLossDenominatorDS": {
+    "name": "ipslaEtherJAggMeasuredMinLossDenominatorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxLossNumeratorDS": {
+    "name": "ipslaEtherJAggMeasuredMaxLossNumeratorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredMaxLossDenominatorDS": {
+    "name": "ipslaEtherJAggMeasuredMaxLossDenominatorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredAvgLossNumeratorDS": {
+    "name": "ipslaEtherJAggMeasuredAvgLossNumeratorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredAvgLossDenominatorDS": {
+    "name": "ipslaEtherJAggMeasuredAvgLossDenominatorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCumulativeLossNumeratorSD": {
+    "name": "ipslaEtherJAggMeasuredCumulativeLossNumeratorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCumulativeLossDenominatorSD": {
+    "name": "ipslaEtherJAggMeasuredCumulativeLossDenominatorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCumulativeAvgLossNumeratorSD": {
+    "name": "ipslaEtherJAggMeasuredCumulativeAvgLossNumeratorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCumulativeAvgLossDenominatorSD": {
+    "name": "ipslaEtherJAggMeasuredCumulativeAvgLossDenominatorSD",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCumulativeLossNumeratorDS": {
+    "name": "ipslaEtherJAggMeasuredCumulativeLossNumeratorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCumulativeLossDenominatorDS": {
+    "name": "ipslaEtherJAggMeasuredCumulativeLossDenominatorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCumulativeAvgLossNumeratorDS": {
+    "name": "ipslaEtherJAggMeasuredCumulativeAvgLossNumeratorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipslaEtherJAggMeasuredCumulativeAvgLossDenominatorDS": {
+    "name": "ipslaEtherJAggMeasuredCumulativeAvgLossDenominatorDS",
+    "oid": "1.3.6.1.4.1.9.9.585.1.2.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpSlaEthernetMIBConform": {
+    "name": "ciscoIpSlaEthernetMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.585.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpSlaEthernetCompliances": {
+    "name": "ciscoIpSlaEthernetCompliances",
+    "oid": "1.3.6.1.4.1.9.9.585.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpSlaEthernetMIBGroups": {
+    "name": "ciscoIpSlaEthernetMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.585.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpSlaEthernetCompliance": {
+    "name": "ciscoIpSlaEthernetCompliance",
+    "oid": "1.3.6.1.4.1.9.9.585.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpSlaEthernetAutoGroup",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      },
+      {
+        "object": "ciscoIpSlaEthernetStatsGroup",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpSlaEthernetComplianceRev2": {
+    "name": "ciscoIpSlaEthernetComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.585.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpSlaEthernetAutoGroup",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      },
+      {
+        "object": "ciscoIpSlaEthernetStatsGroup",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      },
+      {
+        "object": "ciscoIpSlaEthernetAutoEVCGroup",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpSlaEthernetComplianceRev3": {
+    "name": "ciscoIpSlaEthernetComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.585.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpSlaEthernetAutoGroup",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      },
+      {
+        "object": "ciscoIpSlaEthernetStatsGroup",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      },
+      {
+        "object": "ciscoIpSlaEthernetY1731Group",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      },
+      {
+        "object": "ciscoIpSlaEthernetAutoEVCGroup",
+        "module": "CISCO-IPSLA-ETHERNET-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpSlaEthernetAutoGroup": {
+    "name": "ciscoIpSlaEthernetAutoGroup",
+    "oid": "1.3.6.1.4.1.9.9.585.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlStatus"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlStorageType"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlRttType"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlOwner"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlTag"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlThreshold"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlTimeout"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlProbeList"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlVLAN"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlDomainNameType"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlDomainName"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlReqDataSize"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlMPIDExLst"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlCOS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlInterval"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlNumFrames"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactStatus"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactStorageType"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactVar"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactThresholdType"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactThresholdRising"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactThresholdFalling"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactThresholdCountX"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactThresholdCountY"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpReactActionType"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpScheduleRttStartTime"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpSchedulePeriod"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpScheduleFrequency"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpSlaEthernetStatsGroup": {
+    "name": "ciscoIpSlaEthernetStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.585.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestNumRTT"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestRTTSum"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestRTTSum2"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestRTTMin"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestRTTMax"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMinPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMaxPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestNumPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSumPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSum2PosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMinNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMaxNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestNumNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSumNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSum2NegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMinPosDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMaxPosDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestNumPosDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSumPosDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSum2PosDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMinNegDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMaxNegDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestNumNegDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSumNegDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSum2NegDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestFrmLossSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestFrmLossDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestFrmOutSeq"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestFrmMIA"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestFrmSkipped"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestSense"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestFrmLateA"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMinSucFrmL"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestMaxSucFrmL"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWSumSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWSum2SD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWMinSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWMaxSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWSumDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWSum2DS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWMinDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWMaxDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestNumOW"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestAvgJitter"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestAvgSDJ"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestAvgDSJ"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWAvgSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestOWAvgDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestIAJOut"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJitterLatestIAJIn"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJLatestFrmUnProcessed"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCmpletions"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOvThrshlds"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredNumRTTs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredRTTSums"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredRTTSum2Ls"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredRTTSum2Hs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredRTTMin"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredRTTMax"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxPosSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredNumPosSDs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSumPosSDs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSum2PSDLs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSum2PSDHs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxNegSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredNumNegSDs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSumNegSDs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSum2NSDLs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSum2NSDHs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinPosDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxPosDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredNumPosDSes"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSumPosDSes"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSum2PDSLs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSum2PDSHs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinNegDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxNegDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredNumNegDSes"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSumNegDSes"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSum2NDSLs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredSum2NDSHs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredFrmLossSDs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredFrmLssDSes"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredFrmOutSeqs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredFrmMIAes"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredFrmSkippds"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredErrors"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredBusies"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWSumSDs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWSum2SDLs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWSum2SDHs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWMinSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWMaxSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWSumDSes"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWSum2DSLs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWSum2DSHs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWMinDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredOWMaxDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredNumOWs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredAvgJ"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredAvgJSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredAvgJDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMinSucFrmLoss"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMaxSucFrmLoss"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredIAJOut"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredIAJIn"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredFrmLateAs"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredFrmUnPrcds"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpSlaEthernetAutoEVCGroup": {
+    "name": "ciscoIpSlaEthernetAutoEVCGroup",
+    "oid": "1.3.6.1.4.1.9.9.585.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlEVC"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEthernetGrpCtrlServiceInsType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpSlaEthernetY1731Group": {
+    "name": "ciscoIpSlaEthernetY1731Group",
+    "oid": "1.3.6.1.4.1.9.9.585.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxPosTW"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxNegTW"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinPosTW"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinNegTW"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredTxFrmsSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredTxFrmsDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredRxFrmsSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredRxFrmsDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinLossNumeratorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinLossDenominatorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxLossNumeratorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxLossDenominatorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredAvgLossNumeratorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredAvgLossDenominatorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinLossNumeratorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMinLossDenominatorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxLossNumeratorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredMaxLossDenominatorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredAvgLossNumeratorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredAvgLossDenominatorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCumulativeLossNumeratorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCumulativeLossDenominatorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCumulativeAvgLossNumeratorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCumulativeAvgLossDenominatorSD"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCumulativeLossNumeratorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCumulativeLossDenominatorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCumulativeAvgLossNumeratorDS"
+      },
+      {
+        "module": "CISCO-IPSLA-ETHERNET-MIB",
+        "object": "ipslaEtherJAggMeasuredCumulativeAvgLossDenominatorDS"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSLA-ETHERNET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IPSLA-ETHERNET-MIB"
+  }
+}

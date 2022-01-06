@@ -1,0 +1,1153 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsNotificationMIB": {
+    "name": "cienaWsNotificationMIB",
+    "oid": "1.3.6.1.4.1.1271.3.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-01-15 00:00",
+        "description": "Updates wsAlarmNotificationActiveStatus from TruthValue to include active(1), inactive(2), and intermittent(3) states"
+      },
+      {
+        "revision": "2016-11-14 00:00",
+        "description": "Added MODULE-IDENTITY statements."
+      }
+    ]
+  },
+  "DisplayString32": {
+    "name": "DisplayString32",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32t",
+    "status": "current"
+  },
+  "wsAlarmNotification": {
+    "name": "wsAlarmNotification",
+    "oid": "1.3.6.1.4.1.1271.3.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationSiteId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationGroupId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationMemberId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationInstanceId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationDateAndTime"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationTableId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationSeverity"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationInstance"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationDescription"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationActiveStatus"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsAlarmNotificationEntityType"
+      }
+    ],
+    "status": "current"
+  },
+  "wsAlarmNotificationSiteId": {
+    "name": "wsAlarmNotificationSiteId",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationGroupId": {
+    "name": "wsAlarmNotificationGroupId",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationMemberId": {
+    "name": "wsAlarmNotificationMemberId",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationInstanceId": {
+    "name": "wsAlarmNotificationInstanceId",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationDateAndTime": {
+    "name": "wsAlarmNotificationDateAndTime",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationTableId": {
+    "name": "wsAlarmNotificationTableId",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationSeverity": {
+    "name": "wsAlarmNotificationSeverity",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "critical": 3,
+          "major": 4,
+          "minor": 5,
+          "warning": 6,
+          "info": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationInstance": {
+    "name": "wsAlarmNotificationInstance",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationDescription": {
+    "name": "wsAlarmNotificationDescription",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationActiveStatus": {
+    "name": "wsAlarmNotificationActiveStatus",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "intermittent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsAlarmNotificationEntityType": {
+    "name": "wsAlarmNotificationEntityType",
+    "oid": "1.3.6.1.4.1.1271.3.2.11.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "other": 1,
+          "clientPort": 2,
+          "linePort": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotification": {
+    "name": "wsLinkStateAlarmNotification",
+    "oid": "1.3.6.1.4.1.1271.3.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationSiteId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationGroupId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationMemberId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationInstanceId"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationDateAndTime"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationSeverity"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationInstance"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationDescription"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationPtpRxLos"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationPtpRxLol"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationPtpTxLos"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationPtpTxLol"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEthFecLossSync"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEthEBer"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEthRsLf"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEthRsRf"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEthPcsLobl"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEthPcsLoam"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEthPcsLol"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEthRsLinkDown"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOtuLoc"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOtuFreqOor"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOtuLof"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOtuPreFecSf"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOtuPreFecSd"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOtuLom"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOtuBdi"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOtuTtiMismatch"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduOci"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduAis"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduLck"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduSf"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduSd"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduTtiMismatch"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduBdi"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduPtiMismatch"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduFeClientSf"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationOduSkewOor"
+      },
+      {
+        "module": "CIENA-WS-NOTIFICATION-MIB",
+        "object": "wsLinkStateAlarmNotificationEntityType"
+      }
+    ],
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationSiteId": {
+    "name": "wsLinkStateAlarmNotificationSiteId",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationGroupId": {
+    "name": "wsLinkStateAlarmNotificationGroupId",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationMemberId": {
+    "name": "wsLinkStateAlarmNotificationMemberId",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationInstanceId": {
+    "name": "wsLinkStateAlarmNotificationInstanceId",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationDateAndTime": {
+    "name": "wsLinkStateAlarmNotificationDateAndTime",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationSeverity": {
+    "name": "wsLinkStateAlarmNotificationSeverity",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "critical": 3,
+          "major": 4,
+          "minor": 5,
+          "warning": 6,
+          "info": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationInstance": {
+    "name": "wsLinkStateAlarmNotificationInstance",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationDescription": {
+    "name": "wsLinkStateAlarmNotificationDescription",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationPtpDefects": {
+    "name": "wsLinkStateAlarmNotificationPtpDefects",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationPtpRxLos": {
+    "name": "wsLinkStateAlarmNotificationPtpRxLos",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationPtpRxLol": {
+    "name": "wsLinkStateAlarmNotificationPtpRxLol",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationPtpTxLos": {
+    "name": "wsLinkStateAlarmNotificationPtpTxLos",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationPtpTxLol": {
+    "name": "wsLinkStateAlarmNotificationPtpTxLol",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthDefects": {
+    "name": "wsLinkStateAlarmNotificationEthDefects",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthPcsHighBer": {
+    "name": "wsLinkStateAlarmNotificationEthPcsHighBer",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthPcsLoam": {
+    "name": "wsLinkStateAlarmNotificationEthPcsLoam",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthPcsLobl": {
+    "name": "wsLinkStateAlarmNotificationEthPcsLobl",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthRsLinkDown": {
+    "name": "wsLinkStateAlarmNotificationEthRsLinkDown",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthRsLf": {
+    "name": "wsLinkStateAlarmNotificationEthRsLf",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthRsRf": {
+    "name": "wsLinkStateAlarmNotificationEthRsRf",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthFecLossSync": {
+    "name": "wsLinkStateAlarmNotificationEthFecLossSync",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEthPmaSool": {
+    "name": "wsLinkStateAlarmNotificationEthPmaSool",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuDefects": {
+    "name": "wsLinkStateAlarmNotificationOtuDefects",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuLoc": {
+    "name": "wsLinkStateAlarmNotificationOtuLoc",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuFreqOor": {
+    "name": "wsLinkStateAlarmNotificationOtuFreqOor",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuLof": {
+    "name": "wsLinkStateAlarmNotificationOtuLof",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuPreFecSf": {
+    "name": "wsLinkStateAlarmNotificationOtuPreFecSf",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuPreFecSd": {
+    "name": "wsLinkStateAlarmNotificationOtuPreFecSd",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuLom": {
+    "name": "wsLinkStateAlarmNotificationOtuLom",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuBdi": {
+    "name": "wsLinkStateAlarmNotificationOtuBdi",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOtuTtiMismatch": {
+    "name": "wsLinkStateAlarmNotificationOtuTtiMismatch",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduDefects": {
+    "name": "wsLinkStateAlarmNotificationOduDefects",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduOci": {
+    "name": "wsLinkStateAlarmNotificationOduOci",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduAis": {
+    "name": "wsLinkStateAlarmNotificationOduAis",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduLck": {
+    "name": "wsLinkStateAlarmNotificationOduLck",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduSf": {
+    "name": "wsLinkStateAlarmNotificationOduSf",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduSd": {
+    "name": "wsLinkStateAlarmNotificationOduSd",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduTtiMismatch": {
+    "name": "wsLinkStateAlarmNotificationOduTtiMismatch",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduBdi": {
+    "name": "wsLinkStateAlarmNotificationOduBdi",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduPtiMismatch": {
+    "name": "wsLinkStateAlarmNotificationOduPtiMismatch",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduFeClientSf": {
+    "name": "wsLinkStateAlarmNotificationOduFeClientSf",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationOduSkewOor": {
+    "name": "wsLinkStateAlarmNotificationOduSkewOor",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.13.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsLinkStateAlarmNotificationEntityType": {
+    "name": "wsLinkStateAlarmNotificationEntityType",
+    "oid": "1.3.6.1.4.1.1271.3.2.12.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "other": 1,
+          "clientPort": 2,
+          "linePort": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-NOTIFICATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-NOTIFICATION-MIB"
+  }
+}

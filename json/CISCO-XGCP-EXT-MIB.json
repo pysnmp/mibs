@@ -1,0 +1,1639 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "cmgwIndex",
+      "CCallControlProfileIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CountryCodeITU"
+    ],
+    "CISCO-XGCP-MIB": [
+      "CXgcpRetryMethod"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoXgcpExtMIB": {
+    "name": "ciscoXgcpExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.325",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-01-30 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "cxgcpExtObjects": {
+    "name": "cxgcpExtObjects",
+    "oid": "1.3.6.1.4.1.9.9.325.1",
+    "class": "objectidentity"
+  },
+  "cxgcpExtConfig": {
+    "name": "cxgcpExtConfig",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1",
+    "class": "objectidentity"
+  },
+  "DtmfRelayMode": {
+    "name": "DtmfRelayMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dtmfRelayDisabled": 1,
+          "dtmfRelayCisco": 2,
+          "dtmfRelayNse": 3,
+          "dtmfRelayOutOfBand": 4,
+          "dtmfRelayNteGw": 5,
+          "dtmfRelayNteCa": 6,
+          "dtmfRelayInband": 7,
+          "dtmfRelayType3": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DtmfCodecType": {
+    "name": "DtmfCodecType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dtmfCodecAll": 1,
+          "dtmfCodecLowRate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CxeTerminalProviderCode": {
+    "name": "CxeTerminalProviderCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cxeCallCtrlConfigTable": {
+    "name": "cxeCallCtrlConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cxeCallCtrlConfigEntry": {
+    "name": "cxeCallCtrlConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cxeCallCtrlControlServiceType": {
+    "name": "cxeCallCtrlControlServiceType",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 96,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlBearerServiceType": {
+    "name": "cxeCallCtrlBearerServiceType",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 160,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlVoIpDtmfRelayMode": {
+    "name": "cxeCallCtrlVoIpDtmfRelayMode",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmfRelayMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "dtmfRelayDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlVoIpDtmfCodec": {
+    "name": "cxeCallCtrlVoIpDtmfCodec",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmfCodecType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "dtmfCodecAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlVoAal2DtmfRelayMode": {
+    "name": "cxeCallCtrlVoAal2DtmfRelayMode",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmfRelayMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "dtmfRelayDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlVoAal2DtmfCodec": {
+    "name": "cxeCallCtrlVoAal2DtmfCodec",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmfCodecType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "dtmfCodecAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlTsePayload": {
+    "name": "cxeCallCtrlTsePayload",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlNetNseTimer": {
+    "name": "cxeCallCtrlNetNseTimer",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlRtcpRcvTimer": {
+    "name": "cxeCallCtrlRtcpRcvTimer",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlIgnoreAal2LcoCodec": {
+    "name": "cxeCallCtrlIgnoreAal2LcoCodec",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlDigitMapOrder": {
+    "name": "cxeCallCtrlDigitMapOrder",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dmOrderShortest": 1,
+          "dmOrderOrdered": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dmOrderShortest",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlT38Inhibited": {
+    "name": "cxeCallCtrlT38Inhibited",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlT38NseRspTimer": {
+    "name": "cxeCallCtrlT38NseRspTimer",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlT38FecEnabled": {
+    "name": "cxeCallCtrlT38FecEnabled",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlT38LsRedundancy": {
+    "name": "cxeCallCtrlT38LsRedundancy",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlT38HsRedundancy": {
+    "name": "cxeCallCtrlT38HsRedundancy",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlT38NsfCountryCode": {
+    "name": "cxeCallCtrlT38NsfCountryCode",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CountryCodeITU",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 173,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlT38NsfVendorCode": {
+    "name": "cxeCallCtrlT38NsfVendorCode",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CxeTerminalProviderCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0051",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlVselDselFselSupport": {
+    "name": "cxeCallCtrlVselDselFselSupport",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlDefaultBearTraffic": {
+    "name": "cxeCallCtrlDefaultBearTraffic",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipPvcAal5": 1,
+          "atmPvcAal2": 2,
+          "atmSvcAal2": 3,
+          "atmSvcAal1": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ipPvcAal5",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cxeCallCtrlLastFailedMgcAddrType": {
+    "name": "cxeCallCtrlLastFailedMgcAddrType",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cxeCallCtrlLastFailedMgcAddress": {
+    "name": "cxeCallCtrlLastFailedMgcAddress",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cxeCallCtrlProfileTable": {
+    "name": "cxeCallCtrlProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cxeCallCtrlProfileEntry": {
+    "name": "cxeCallCtrlProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cxeCcProfileIndex": {
+    "name": "cxeCcProfileIndex",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCallControlProfileIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cxeCcProfileName": {
+    "name": "cxeCcProfileName",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileNumVifs": {
+    "name": "cxeCcProfileNumVifs",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cxeCcProfileMgcGrpNum": {
+    "name": "cxeCcProfileMgcGrpNum",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileMgcAddrType": {
+    "name": "cxeCcProfileMgcAddrType",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileMgcAddress": {
+    "name": "cxeCcProfileMgcAddress",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileProtocolIdx": {
+    "name": "cxeCcProfileProtocolIdx",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileXgcpRetryMethod": {
+    "name": "cxeCcProfileXgcpRetryMethod",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CXgcpRetryMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "neverResetTimer",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileRetryMax1": {
+    "name": "cxeCcProfileRetryMax1",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileDnsLookupMax1": {
+    "name": "cxeCcProfileDnsLookupMax1",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileRetryMax2": {
+    "name": "cxeCcProfileRetryMax2",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileDnsLookupMax2": {
+    "name": "cxeCcProfileDnsLookupMax2",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileMwiTimeout": {
+    "name": "cxeCcProfileMwiTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileTsmaxTimeout": {
+    "name": "cxeCcProfileTsmaxTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileTdinitTimeout": {
+    "name": "cxeCcProfileTdinitTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileTdminTimeout": {
+    "name": "cxeCcProfileTdminTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileTdmaxTimeout": {
+    "name": "cxeCcProfileTdmaxTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileTcritTimeout": {
+    "name": "cxeCcProfileTcritTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileTparTimeout": {
+    "name": "cxeCcProfileTparTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileThistTimeout": {
+    "name": "cxeCcProfileThistTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileRtTimeout": {
+    "name": "cxeCcProfileRtTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileRbkTimeout": {
+    "name": "cxeCcProfileRbkTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileCgTimeout": {
+    "name": "cxeCcProfileCgTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileBzTimeout": {
+    "name": "cxeCcProfileBzTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileDlTimeout": {
+    "name": "cxeCcProfileDlTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileSlTimeout": {
+    "name": "cxeCcProfileSlTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileRgTimeout": {
+    "name": "cxeCcProfileRgTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileRoTimeout": {
+    "name": "cxeCcProfileRoTimeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileCot1Timeout": {
+    "name": "cxeCcProfileCot1Timeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileCot2Timeout": {
+    "name": "cxeCcProfileCot2Timeout",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCcProfileRowStatus": {
+    "name": "cxeCcProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.325.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cxeCallCtrlMIBConformance": {
+    "name": "cxeCallCtrlMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.325.2",
+    "class": "objectidentity"
+  },
+  "cxeCallCtrlMIBCompliances": {
+    "name": "cxeCallCtrlMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.325.2.1",
+    "class": "objectidentity"
+  },
+  "cxeCallCtrlMIBGroups": {
+    "name": "cxeCallCtrlMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.325.2.2",
+    "class": "objectidentity"
+  },
+  "cxeCallCtrlMIBCompliance": {
+    "name": "cxeCallCtrlMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.325.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cxeCallCtrlGroup",
+        "module": "CISCO-XGCP-EXT-MIB"
+      },
+      {
+        "object": "cxeCcProfileGroup",
+        "module": "CISCO-XGCP-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cxeCallCtrlGroup": {
+    "name": "cxeCallCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.325.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlControlServiceType"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlBearerServiceType"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlVoIpDtmfRelayMode"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlVoIpDtmfCodec"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlVoAal2DtmfRelayMode"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlVoAal2DtmfCodec"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlTsePayload"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlNetNseTimer"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlRtcpRcvTimer"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlIgnoreAal2LcoCodec"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlDigitMapOrder"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlT38Inhibited"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlT38NseRspTimer"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlT38FecEnabled"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlT38LsRedundancy"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlT38HsRedundancy"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlT38NsfCountryCode"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlT38NsfVendorCode"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlVselDselFselSupport"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlDefaultBearTraffic"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlLastFailedMgcAddrType"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCallCtrlLastFailedMgcAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cxeCcProfileGroup": {
+    "name": "cxeCcProfileGroup",
+    "oid": "1.3.6.1.4.1.9.9.325.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileName"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileNumVifs"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileMgcGrpNum"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileMgcAddrType"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileMgcAddress"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileProtocolIdx"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileXgcpRetryMethod"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileRetryMax1"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileDnsLookupMax1"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileRetryMax2"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileDnsLookupMax2"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileMwiTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileTsmaxTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileTdinitTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileTdminTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileTdmaxTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileTcritTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileTparTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileThistTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileRtTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileRbkTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileCgTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileBzTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileDlTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileSlTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileRgTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileRoTimeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileCot1Timeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileCot2Timeout"
+      },
+      {
+        "module": "CISCO-XGCP-EXT-MIB",
+        "object": "cxeCcProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-XGCP-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-XGCP-EXT-MIB"
+  }
+}

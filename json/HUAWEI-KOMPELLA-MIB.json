@@ -1,0 +1,1568 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWL2VpnStateChangeReason",
+      "HWEnableValue",
+      "HWL2VpnVcEncapsType"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwL2VpnKompella": {
+    "name": "hwL2VpnKompella",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2",
+    "class": "moduleidentity"
+  },
+  "hwL2Vpn": {
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119",
+    "class": "objectidentity"
+  },
+  "hwKompellaMIBObjects": {
+    "name": "hwKompellaMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1",
+    "class": "objectidentity"
+  },
+  "hwKompellaVpnTable": {
+    "name": "hwKompellaVpnTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVpnEntry": {
+    "name": "hwKompellaVpnEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVpnName": {
+    "name": "hwKompellaVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVpnVcType": {
+    "name": "hwKompellaVpnVcType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnVcEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVpnRouteDistinguisher": {
+    "name": "hwKompellaVpnRouteDistinguisher",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVpnCtrlWord": {
+    "name": "hwKompellaVpnCtrlWord",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVpnMtu": {
+    "name": "hwKompellaVpnMtu",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 46,
+            "max": 16352
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVpnRowStatus": {
+    "name": "hwKompellaVpnRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVpnTargetTable": {
+    "name": "hwKompellaVpnTargetTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVpnTargetEntry": {
+    "name": "hwKompellaVpnTargetEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnTargetType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnTarget",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVpnTargetType": {
+    "name": "hwKompellaVpnTargetType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "import": 1,
+          "export": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVpnTarget": {
+    "name": "hwKompellaVpnTarget",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVpnTargetRowStatus": {
+    "name": "hwKompellaVpnTargetRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaCeTable": {
+    "name": "hwKompellaCeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaCeEntry": {
+    "name": "hwKompellaCeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaCeID": {
+    "name": "hwKompellaCeID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 249
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaCeName": {
+    "name": "hwKompellaCeName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaCeIDRange": {
+    "name": "hwKompellaCeIDRange",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaCeIDDefaultOffset": {
+    "name": "hwKompellaCeIDDefaultOffset",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaCeRowStatus": {
+    "name": "hwKompellaCeRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVcTable": {
+    "name": "hwKompellaVcTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVcEntry": {
+    "name": "hwKompellaVcEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRmtCeID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcIfIndex": {
+    "name": "hwKompellaVcIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVcRmtCeID": {
+    "name": "hwKompellaVcRmtCeID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 249
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVcInboundLabel": {
+    "name": "hwKompellaVcInboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcOutboundLabel": {
+    "name": "hwKompellaVcOutboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcCtrlWord": {
+    "name": "hwKompellaVcCtrlWord",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVcTnlPolicyName": {
+    "name": "hwKompellaVcTnlPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVcVlanTagMode": {
+    "name": "hwKompellaVcVlanTagMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raw": 1,
+          "tagged": 2,
+          "rawTagNotConfiged": 255
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVcSecondary": {
+    "name": "hwKompellaVcSecondary",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaOAMSync": {
+    "name": "hwKompellaOAMSync",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVCForBFDIndex": {
+    "name": "hwKompellaVCForBFDIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcOperStatus": {
+    "name": "hwKompellaVcOperStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcRerouteDelayTime": {
+    "name": "hwKompellaVcRerouteDelayTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVcRerouteResumeTime": {
+    "name": "hwKompellaVcRerouteResumeTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVcReroutePolicy": {
+    "name": "hwKompellaVcReroutePolicy",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 1,
+          "immediately": 2,
+          "never": 3,
+          "none": 4,
+          "err": 5,
+          "invalid": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcRerouteReason": {
+    "name": "hwKompellaVcRerouteReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnStateChangeReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcLastRerouteTime": {
+    "name": "hwKompellaVcLastRerouteTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcManualSetFault": {
+    "name": "hwKompellaVcManualSetFault",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcIsActive": {
+    "name": "hwKompellaVcIsActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaACStatus": {
+    "name": "hwKompellaACStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "notify": 4,
+          "notifyDown": 5,
+          "downNotify": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaACOAMStatus": {
+    "name": "hwKompellaACOAMStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcBFDDetectMultiplier": {
+    "name": "hwKompellaVcBFDDetectMultiplier",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcBFDMinReceiveInterval": {
+    "name": "hwKompellaVcBFDMinReceiveInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcBFDMinTransmitInterval": {
+    "name": "hwKompellaVcBFDMinTransmitInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcDynamicBFDDetect": {
+    "name": "hwKompellaVcDynamicBFDDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaEthOamType": {
+    "name": "hwKompellaEthOamType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethOam1ag": 1,
+          "ethOam3ah": 2,
+          "noEthOamCfg": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaCfmMaIndex": {
+    "name": "hwKompellaCfmMaIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcRowStatus": {
+    "name": "hwKompellaVcRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwKompellaVcTnlTable": {
+    "name": "hwKompellaVcTnlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVcTnlEntry": {
+    "name": "hwKompellaVcTnlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRmtCeID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcTnlIndex": {
+    "name": "hwKompellaVcTnlIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVcTnlType": {
+    "name": "hwKompellaVcTnlType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lsp": 1,
+          "gre": 2,
+          "l2tp": 3,
+          "ipsec": 4,
+          "crLsp": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaTnlForBfdIndex": {
+    "name": "hwKompellaTnlForBfdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsTable": {
+    "name": "hwKompellaVcStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsEntry": {
+    "name": "hwKompellaVcStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRmtCeID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsRcvPkts": {
+    "name": "hwKompellaVcStatisticsRcvPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsRcvBytes": {
+    "name": "hwKompellaVcStatisticsRcvBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsSndPkts": {
+    "name": "hwKompellaVcStatisticsSndPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsSndBytes": {
+    "name": "hwKompellaVcStatisticsSndBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKompellaVcUpDownNotifEnable": {
+    "name": "hwKompellaVcUpDownNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwKompellaVcDeletedNotifEnable": {
+    "name": "hwKompellaVcDeletedNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwKompellaSwitchNotifEnable": {
+    "name": "hwKompellaSwitchNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwKompellaVcStateChangeReason": {
+    "name": "hwKompellaVcStateChangeReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnStateChangeReason",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwKompellaSwitchRmtCEID": {
+    "name": "hwKompellaSwitchRmtCEID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 249
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwKompellaMIBTraps": {
+    "name": "hwKompellaMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2",
+    "class": "objectidentity"
+  },
+  "hwKompellaVcDown": {
+    "name": "hwKompellaVcDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcSecondary"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcUp": {
+    "name": "hwKompellaVcUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcSecondary"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaSwitchWtoP": {
+    "name": "hwKompellaSwitchWtoP",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchRmtCEID"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaSwitchPtoW": {
+    "name": "hwKompellaSwitchPtoW",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchRmtCEID"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcDeleted": {
+    "name": "hwKompellaVcDeleted",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcSecondary"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaMIBConformance": {
+    "name": "hwKompellaMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3",
+    "class": "objectidentity"
+  },
+  "hwKompellaMIBCompliances": {
+    "name": "hwKompellaMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.1",
+    "class": "objectidentity"
+  },
+  "hwKompellaMIBCompliance": {
+    "name": "hwKompellaMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwKompellaVpnGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaVpnTargetGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaCeGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaVcGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaVcTnlGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaVcStatisticsGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaNotificationControlGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaVCSwitchControlGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaVcStateChangeReasonGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaSwitchRmtCEIDGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      },
+      {
+        "object": "hwKompellaNotificationGroup",
+        "module": "HUAWEI-KOMPELLA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaMIBGroups": {
+    "name": "hwKompellaMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2",
+    "class": "objectidentity"
+  },
+  "hwKompellaVpnGroup": {
+    "name": "hwKompellaVpnGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnVcType"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnRouteDistinguisher"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnCtrlWord"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnMtu"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVpnTargetGroup": {
+    "name": "hwKompellaVpnTargetGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnTargetRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaCeGroup": {
+    "name": "hwKompellaCeGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeName"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeIDRange"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeIDDefaultOffset"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcGroup": {
+    "name": "hwKompellaVcGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcVlanTagMode"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcSecondary"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaOAMSync"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVCForBFDIndex"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcOperStatus"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRerouteDelayTime"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRerouteResumeTime"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcReroutePolicy"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRerouteReason"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcLastRerouteTime"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcManualSetFault"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcIsActive"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaACStatus"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaACOAMStatus"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcBFDDetectMultiplier"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcBFDMinReceiveInterval"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcBFDMinTransmitInterval"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcDynamicBFDDetect"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaEthOamType"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCfmMaIndex"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcTnlGroup": {
+    "name": "hwKompellaVcTnlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlType"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaTnlForBfdIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsGroup": {
+    "name": "hwKompellaVcStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsRcvPkts"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsRcvBytes"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsSndPkts"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsSndBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaNotificationControlGroup": {
+    "name": "hwKompellaNotificationControlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcUpDownNotifEnable"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcDeletedNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVCSwitchControlGroup": {
+    "name": "hwKompellaVCSwitchControlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaVcStateChangeReasonGroup": {
+    "name": "hwKompellaVcStateChangeReasonGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaSwitchRmtCEIDGroup": {
+    "name": "hwKompellaSwitchRmtCEIDGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchRmtCEID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKompellaNotificationGroup": {
+    "name": "hwKompellaNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcDown"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcUp"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchWtoP"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchPtoW"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-KOMPELLA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-KOMPELLA-MIB"
+  }
+}

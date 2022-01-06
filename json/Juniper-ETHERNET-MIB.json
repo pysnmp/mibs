@@ -1,0 +1,1222 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniNextIfIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
+    ]
+  },
+  "juniEthernetMIB": {
+    "name": "juniEthernetMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.34",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-11 21:16",
+        "description": "Added juniLagIfLayer."
+      },
+      {
+        "revision": "2005-09-14 20:08",
+        "description": "Added juniVlanSubIfVlanAdvisoryRx/TxSpeed."
+      },
+      {
+        "revision": "2004-12-14 15:14",
+        "description": "Added XFP mau types. Added speed10000Mbps enumeration value to juniEthernetIfSpeed."
+      },
+      {
+        "revision": "2004-05-26 19:40",
+        "description": "Added mau type for 100 base FX."
+      },
+      {
+        "revision": "2003-07-28 21:33",
+        "description": "Added support for Ethernet interface statistics."
+      },
+      {
+        "revision": "2003-02-20 21:51",
+        "description": "Added 0x8100 as value for juniVlanSubIfVlanStackEthertype. Added 5000 and 5001 as valid values for juniVlanSubIfVlanId. Added 5000 as a valid value for juniVlanSubIfVlanStackId. Defined default values for juniVlanSubIfVlanId, juniVlanSubIfVlanStackId and juniVlanSubIfVlanStackEthertype."
+      },
+      {
+        "revision": "2002-10-02 15:34",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-10-01 17:44",
+        "description": "Added MAU type and length support."
+      },
+      {
+        "revision": "2002-04-05 19:47",
+        "description": "Added VLAN stack support."
+      },
+      {
+        "revision": "2001-01-02 16:55",
+        "description": "Added VLAN management support."
+      },
+      {
+        "revision": "2000-04-18 00:00",
+        "description": "Added objects for Ethernet sub-interface creation. Added juniEthernetIfOperDuplexMode to report current duplex mode. Revised descriptions to note relationship to ifTable objects and to explain autonegotiation dependencies. Added speed1000Mbps enumeration value to juniEthernetIfSpeed. Changed lower bound of juniEthernetIfMtu from 18 to 64."
+      },
+      {
+        "revision": "2000-02-03 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniEthernetIfMauType": {
+    "name": "JuniEthernetIfMauType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mauNotPresent": 0,
+          "mauNotSupported": 1,
+          "mau10BaseT": 2,
+          "mau100BaseTx": 3,
+          "mau1000BaseT": 4,
+          "mau1000BaseCx": 5,
+          "mau1000BaseSx": 6,
+          "mau1000BaseLx": 7,
+          "mau1000BaseZx": 8,
+          "mauSfpUnknown": 9,
+          "mauSfpNotPresent": 10,
+          "mau100BaseFxSm": 11,
+          "mau100BaseFxMm": 12,
+          "mauSfpNotJnprCompliant": 13,
+          "mau10000BaseSr": 14,
+          "mau10000BaseLr": 15,
+          "mau10000BaseEr": 16,
+          "mauXfpUnknown": 17,
+          "mauXfpNotPresent": 18,
+          "mauXfpNotJnprCompliant": 19
+        }
+      }
+    },
+    "status": "current"
+  },
+  "juniEthernetObjects": {
+    "name": "juniEthernetObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1",
+    "class": "objectidentity"
+  },
+  "juniEthernetIfLayer": {
+    "name": "juniEthernetIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1",
+    "class": "objectidentity"
+  },
+  "juniEthernetSubIfLayer": {
+    "name": "juniEthernetSubIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.2",
+    "class": "objectidentity"
+  },
+  "juniVlanMajorIfLayer": {
+    "name": "juniVlanMajorIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.3",
+    "class": "objectidentity"
+  },
+  "juniVlanSubIfLayer": {
+    "name": "juniVlanSubIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4",
+    "class": "objectidentity"
+  },
+  "juniEthernetIfStats": {
+    "name": "juniEthernetIfStats",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.5",
+    "class": "objectidentity"
+  },
+  "juniLagIfLayer": {
+    "name": "juniLagIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.6",
+    "class": "objectidentity"
+  },
+  "juniEthernetIfTable": {
+    "name": "juniEthernetIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniEthernetIfEntry": {
+    "name": "juniEthernetIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniEthernetIfIndex": {
+    "name": "juniEthernetIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniEthernetIfDuplexMode": {
+    "name": "juniEthernetIfDuplexMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoDuplex": 1,
+          "halfDuplex": 2,
+          "fullDuplex": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoDuplex",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniEthernetIfSpeed": {
+    "name": "juniEthernetIfSpeed",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiate": 1,
+          "speed10Mbps": 2,
+          "speed100Mbps": 3,
+          "speed1000Mbps": 4,
+          "speed10000Mbps": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoNegotiate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniEthernetIfMtu": {
+    "name": "juniEthernetIfMtu",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 9188
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1518,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniEthernetIfOperDuplexMode": {
+    "name": "juniEthernetIfOperDuplexMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoDuplex": 1,
+          "halfDuplex": 2,
+          "fullDuplex": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniEthernetIfPrimaryMauType": {
+    "name": "juniEthernetIfPrimaryMauType",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEthernetIfMauType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "mauNotPresent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniEthernetIfSecondaryMauType": {
+    "name": "juniEthernetIfSecondaryMauType",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEthernetIfMauType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "mauNotSupported",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniEthernetIfPrimaryLength": {
+    "name": "juniEthernetIfPrimaryLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniEthernetIfSecondaryLength": {
+    "name": "juniEthernetIfSecondaryLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniEthernetSubIfNextIfIndex": {
+    "name": "juniEthernetSubIfNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniEthernetSubIfTable": {
+    "name": "juniEthernetSubIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniEthernetSubIfEntry": {
+    "name": "juniEthernetSubIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetSubIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniEthernetSubIfIndex": {
+    "name": "juniEthernetSubIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniEthernetSubIfRowStatus": {
+    "name": "juniEthernetSubIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniEthernetSubIfLowerIfIndex": {
+    "name": "juniEthernetSubIfLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniEthernetSubIfId": {
+    "name": "juniEthernetSubIfId",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanMajorNextIfIndex": {
+    "name": "juniVlanMajorNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniVlanMajorIfTable": {
+    "name": "juniVlanMajorIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniVlanMajorIfEntry": {
+    "name": "juniVlanMajorIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanMajorIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniVlanMajorIfIndex": {
+    "name": "juniVlanMajorIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniVlanMajorIfLowerIfIndex": {
+    "name": "juniVlanMajorIfLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanMajorIfRowStatus": {
+    "name": "juniVlanMajorIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanSubNextIfIndex": {
+    "name": "juniVlanSubNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniVlanSubIfTable": {
+    "name": "juniVlanSubIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniVlanSubIfEntry": {
+    "name": "juniVlanSubIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniVlanSubIfIndex": {
+    "name": "juniVlanSubIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniVlanSubIfVlanId": {
+    "name": "juniVlanSubIfVlanId",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 5000,
+            "max": 5000
+          },
+          {
+            "min": 5001,
+            "max": 5001
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanSubIfVlanUntagged": {
+    "name": "juniVlanSubIfVlanUntagged",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanSubIfLowerIfIndex": {
+    "name": "juniVlanSubIfLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanSubIfRowStatus": {
+    "name": "juniVlanSubIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanSubIfVlanStackId": {
+    "name": "juniVlanSubIfVlanStackId",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 5000,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanSubIfVlanStackEthertype": {
+    "name": "juniVlanSubIfVlanStackEthertype",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "etherType8100h": 33024,
+          "etherType88a8h": 34984,
+          "etherType9100h": 37120
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "etherType9100h",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanSubIfVlanAdvisoryRxSpeed": {
+    "name": "juniVlanSubIfVlanAdvisoryRxSpeed",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniVlanSubIfVlanAdvisoryTxSpeed": {
+    "name": "juniVlanSubIfVlanAdvisoryTxSpeed",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniEthernetIfStatsTable": {
+    "name": "juniEthernetIfStatsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniEthernetIfStatsEntry": {
+    "name": "juniEthernetIfStatsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniEthernetIfStatsIndex": {
+    "name": "juniEthernetIfStatsIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniEthernetIfIngressLineUtilization": {
+    "name": "juniEthernetIfIngressLineUtilization",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniEthernetIfEgressLineUtilization": {
+    "name": "juniEthernetIfEgressLineUtilization",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniLagNextIfIndex": {
+    "name": "juniLagNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniEthernetConformance": {
+    "name": "juniEthernetConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4",
+    "class": "objectidentity"
+  },
+  "juniEthernetCompliances": {
+    "name": "juniEthernetCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.1",
+    "class": "objectidentity"
+  },
+  "juniEthernetGroups": {
+    "name": "juniEthernetGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2",
+    "class": "objectidentity"
+  },
+  "juniEthernetCompliance": {
+    "name": "juniEthernetCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniEthernetGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniEthernetSubIfGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniEthernetCompliance2": {
+    "name": "juniEthernetCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniEthernetGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniEthernetSubIfGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanSubIfGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniEthernetCompliance3": {
+    "name": "juniEthernetCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniEthernetGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniEthernetSubIfGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanSubIfGroup2",
+        "module": "Juniper-ETHERNET-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniEthernetCompliance4": {
+    "name": "juniEthernetCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniEthernetGroup2",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniEthernetSubIfGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanSubIfGroup2",
+        "module": "Juniper-ETHERNET-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniEthernetCompliance5": {
+    "name": "juniEthernetCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniEthernetGroup2",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniEthernetSubIfGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniEthernetIfStatsGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanSubIfGroup2",
+        "module": "Juniper-ETHERNET-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniEthernetCompliance6": {
+    "name": "juniEthernetCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniEthernetGroup2",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniEthernetSubIfGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniEthernetIfStatsGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniVlanSubIfGroup2",
+        "module": "Juniper-ETHERNET-MIB"
+      },
+      {
+        "object": "juniLagIfGroup",
+        "module": "Juniper-ETHERNET-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniEthernetGroup": {
+    "name": "juniEthernetGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfDuplexMode"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfSpeed"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfMtu"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfOperDuplexMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniEthernetSubIfGroup": {
+    "name": "juniEthernetSubIfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetSubIfNextIfIndex"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetSubIfRowStatus"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetSubIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetSubIfId"
+      }
+    ],
+    "status": "current"
+  },
+  "juniVlanGroup": {
+    "name": "juniVlanGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanMajorNextIfIndex"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanMajorIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanMajorIfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniVlanSubIfGroup": {
+    "name": "juniVlanSubIfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubNextIfIndex"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfVlanId"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfVlanUntagged"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniVlanSubIfGroup2": {
+    "name": "juniVlanSubIfGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubNextIfIndex"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfVlanId"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfVlanUntagged"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfVlanStackId"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfRowStatus"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfVlanStackEthertype"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfVlanAdvisoryRxSpeed"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniVlanSubIfVlanAdvisoryTxSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "juniEthernetGroup2": {
+    "name": "juniEthernetGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfDuplexMode"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfSpeed"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfMtu"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfOperDuplexMode"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfPrimaryMauType"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfSecondaryMauType"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfPrimaryLength"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfSecondaryLength"
+      }
+    ],
+    "status": "current"
+  },
+  "juniEthernetIfStatsGroup": {
+    "name": "juniEthernetIfStatsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfIngressLineUtilization"
+      },
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniEthernetIfEgressLineUtilization"
+      }
+    ],
+    "status": "current"
+  },
+  "juniLagIfGroup": {
+    "name": "juniLagIfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.34.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-ETHERNET-MIB",
+        "object": "juniLagNextIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-ETHERNET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-ETHERNET-MIB"
+  }
+}

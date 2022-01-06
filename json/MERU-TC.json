@@ -1,0 +1,3816 @@
+{
+  "imports": {
+    "class": "imports",
+    "MERU-SMI": [
+      "meru-modules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "meruTextualConventions": {
+    "name": "meruTextualConventions",
+    "oid": "1.3.6.1.4.1.15983.1.2.1",
+    "class": "moduleidentity"
+  },
+  "MwlAclEnvState": {
+    "name": "MwlAclEnvState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aclEnvDisabled": 0,
+          "aclEnvAllow": 1,
+          "aclEnvDeny": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAddressAssignmentType": {
+    "name": "MwlAddressAssignmentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipAssignmentStatic": 1,
+          "ipAssignmentDynamic": 2,
+          "ipAssignmentDynamicDhcp": 3,
+          "ipAssignmentUnknown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAddressIfAssignmentType": {
+    "name": "MwlAddressIfAssignmentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ifIpAssignmentNone": 0,
+          "ifIpAssignmentStatic": 1,
+          "ifIpAssignmentDhcp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApIpAssignmentType": {
+    "name": "MwlApIpAssignmentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apIpAssignmentNone": 0,
+          "apIpAssignmentStatic": 1,
+          "apIpAssignmentDhcp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAdministrativeState": {
+    "name": "MwlAdministrativeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminStateUnlocked": 1,
+          "adminStateLocked": 2,
+          "adminStateShuttingDown": 3,
+          "adminStateUnknown": 4,
+          "adminStateForceShuttingDown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAdmissionControl": {
+    "name": "MwlAdmissionControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admitall": 0,
+          "pendingflag": 1,
+          "rejectflag": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAntennaSet": {
+    "name": "MwlAntennaSet",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "antennaSetUnknown": 0,
+          "antennaSetInternal": 1,
+          "antennaSetExternal": 2,
+          "antennaSetExternalDualMode": 3,
+          "antennaSetRsAntenna": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApAssignType": {
+    "name": "MwlApAssignType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assignApUnknown": 0,
+          "siblingAp": 1,
+          "assignedAp": 2,
+          "discoveredAp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApType": {
+    "name": "MwlApType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apUnknown": 0,
+          "apStation": 1,
+          "apAccessPoint": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApIndoorOutdoorType": {
+    "name": "MwlApIndoorOutdoorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apIndoor": 0,
+          "apOutdoor": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApMode": {
+    "name": "MwlApMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apModeService": 1,
+          "apModeScanRogues": 100,
+          "apModeScanSpectrum": 101
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAuthenticationAlgorithm": {
+    "name": "MwlAuthenticationAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsAuthenticationAlg8021x": 1,
+          "nmsAuthenticationAlgMd5": 2,
+          "nmsAuthenticationAlgTls": 3,
+          "nmsAuthenticationAlgTtls": 4,
+          "nmsAuthenticationAlgPeap": 5,
+          "nmsAuthenticationAlgWeb": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAuthenticationType": {
+    "name": "MwlAuthenticationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsAuthenticationTypeLocal": 1,
+          "nmsAuthenticationTypeRadius": 2,
+          "nmsAuthenticationTypeTacacs": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlManagementFrameProtection": {
+    "name": "MwlManagementFrameProtection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsManagementFrameProtectionTypeDisable": 0,
+          "nmsManagementFrameProtectionTypeCapable": 1,
+          "nmsManagementFrameProtectionTypeRequired": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCaptivePortalAuthenticationType": {
+    "name": "MwlCaptivePortalAuthenticationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsCaptivePortalAuthenticationTypeRadius": 0,
+          "nmsCaptivePortalAuthenticationTypeLocal": 1,
+          "nmsCaptivePortalAuthenticationTypeLocalRadius": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCaptivePortalExternalServerType": {
+    "name": "MwlCaptivePortalExternalServerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsCpExternalServerFortinetConnect": 0,
+          "nmsCpExternalServerFortinetPresence": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCaptivePortalModeType": {
+    "name": "MwlCaptivePortalModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsCaptivePortalModeTypeDefault": 0,
+          "nmsCaptivePortalModeTypeCustom": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAuthSuiteBits": {
+    "name": "MwlAuthSuiteBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "authNone": 0,
+        "authEap": 1,
+        "authPsk": 2,
+        "authCert": 3,
+        "authAll": 4
+      }
+    },
+    "status": "current"
+  },
+  "MwlActionStatus": {
+    "name": "MwlActionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "actionNone": 0,
+          "actionStart": 1,
+          "actionStop": 2,
+          "actionInProgress": 3,
+          "actionError": 4,
+          "actionDone": 5,
+          "actionForceStart": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAlarmState": {
+    "name": "MwlAlarmState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmStateNoAlarm": 1,
+          "alarmStateMinor": 2,
+          "alarmStateMajor": 3,
+          "alarmStateCritical": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNotificationType": {
+    "name": "MwlNotificationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notifUnknown": 0,
+          "notifLinkDown": 101,
+          "notifApDown": 102,
+          "notifApWirelessIfDown": 103,
+          "notifApSoftwareVersionMismatch": 104,
+          "notifSoftwareLicenseExpired": 105,
+          "notifSoftwareLicenseViolated": 106,
+          "notifMasterDown": 107,
+          "notifApWirelessIfStationCapacityFull": 108,
+          "notifWncMemoryUsageHigh": 109,
+          "notifWncCpuUsageHigh": 110,
+          "notifApMemoryUsageHigh": 111,
+          "notifApCpuUsageHigh": 112,
+          "notifDhcpAddressPoolExhausted": 113,
+          "notifWatchdogFailure": 114,
+          "notifApRadioCardFailure": 115,
+          "notifRadiusServerFailure": 116,
+          "notifRogueApDetected": 117,
+          "notifApRuntimeError": 118,
+          "notifAlarmHistoryFull": 119,
+          "notifEventLogFull": 120,
+          "notifPowerModuleFailure": 121,
+          "notifFanModuleFailure": 122,
+          "notifApWirelessIfDownDuetoFallbackChannelNotFound": 123,
+          "notifApLicenseExceeded": 124,
+          "notifNewApPostChPl": 125,
+          "notifAdminLoginFailure": 201,
+          "notif8021xAuthFailure": 202,
+          "notifTkipIntegrityCheckFailure": 203,
+          "notifMicCounterMeasureActivation": 204,
+          "notifCacLimitReached": 205,
+          "notifControllerIpAddressChange": 206,
+          "notifDfsChannelUpdate": 207,
+          "notifCertificateError": 208,
+          "notifCertificateInstalled": 209,
+          "notifRadiusServerSwitchover": 210,
+          "notifRadiusServerSwitchoverFailure": 211,
+          "notifAlarmHistoryThresholdExceed": 212,
+          "notifEventLogThresholdExceed": 213,
+          "notifRadiusServerRestored": 214,
+          "notifSystemIdChanged": 215,
+          "notifInterferenceDetected": 216,
+          "notifHighChannelUtilization": 217,
+          "notifLowChannelQuality": 218,
+          "notifNoLicenseEnforcementExpired": 219,
+          "notifPowerNotAtDisableLacp": 220,
+          "notifSwitchNotSupportDisableLacp": 221,
+          "notifAp822HwRevNotSupported": 222,
+          "notifOap832PowerNotSupported": 223,
+          "notifReinitDb": 224,
+          "notifApModelNotSupported": 225,
+          "notifServiceDown": 226,
+          "notifPlanningChannelBad": 227,
+          "notifImproperApRfPositioning": 228,
+          "notifMcaChannelChange": 229,
+          "notifApPowerChanged": 230
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNotificationSeverity": {
+    "name": "MwlNotificationSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notificationSevInfo": 0,
+          "notificationSevMajor": 1,
+          "notificationSevMinor": 2,
+          "notificationSevCritical": 3,
+          "notificationSevClear": 4,
+          "notificationSevUpdate": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAntenna": {
+    "name": "MwlAntenna",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "antennaNothing": 0,
+          "antenna1": 1,
+          "antenna2": 2,
+          "antennaBoth": 3,
+          "antennaAll": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAssignmentAlgorithm": {
+    "name": "MwlAssignmentAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assignmentAlgoRssi": 1,
+          "assignmentAlgoPressure": 2,
+          "assignmentAlgoActivity": 3,
+          "assignmentAlgoRssiTrending": 4,
+          "assignmentAlgoAvailRsrc": 5,
+          "assignmentAlgoUnknown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAssociationState": {
+    "name": "MwlAssociationState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assocstateprobing": 0,
+          "assocstateauthentication": 1,
+          "assocstateassociated": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApAuthState": {
+    "name": "MwlApAuthState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apAuthKeyed": 0,
+          "apAuthNokey": 1,
+          "apUnauth": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAvailabilityStatus": {
+    "name": "MwlAvailabilityStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "availStatusPowerOff": 1,
+          "availStatusOffline": 2,
+          "availStatusOnline": 3,
+          "availStatusFailed": 4,
+          "availStatusInTest": 5,
+          "availStatusNotInstalled": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlBeaconCoordinationMode": {
+    "name": "MwlBeaconCoordinationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "beaconCoordinationModeCoordinated": 0,
+          "beaconCoordinationModeLocal": 1,
+          "beaconCoordinationModeDistributed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlBlock": {
+    "name": "MwlBlock",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blockNone": 0,
+          "blockSelected": 1,
+          "blockAll": 2,
+          "wiredRogue": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCoordAlgorithm": {
+    "name": "MwlCoordAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coordAlgoDefault": 1,
+          "coordAlgoUnknown": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCypherSuiteBits": {
+    "name": "MwlCypherSuiteBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cypherNone": 0,
+        "cypherWep40": 1,
+        "cypherWep104": 2,
+        "cypherTkip": 4,
+        "cypherCcmp": 8,
+        "cypherCcmpTkip": 16,
+        "cypherWpiSms4": 32,
+        "cypherClear": 64,
+        "cypherAll": 127
+      }
+    },
+    "status": "current"
+  },
+  "MwlL2BridgingsBits": {
+    "name": "MwlL2BridgingsBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bridgingNone": 0,
+        "bridgingAirf": 1,
+        "bridgingIpv6": 2,
+        "bridgingAtalk": 4
+      }
+    },
+    "status": "current"
+  },
+  "MwlACMSupportsBits": {
+    "name": "MwlACMSupportsBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "acmNone": 0,
+        "acmVoice": 1,
+        "acmVideo": 2
+      }
+    },
+    "status": "current"
+  },
+  "MwlDropPolicy": {
+    "name": "MwlDropPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drophead": 0,
+          "droptail": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlDataplaneMode": {
+    "name": "MwlDataplaneMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dataplaneModeTunneled": 0,
+          "dataplaneModeBridged": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlProfileOwner": {
+    "name": "MwlProfileOwner",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "profileOwnerController": 0,
+          "profileOwnerNmsServer": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApRole": {
+    "name": "MwlApRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apRoleAccess": 0,
+          "apRoleGateway": 1,
+          "apRoleWireless": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlEncryptionAlgorithm": {
+    "name": "MwlEncryptionAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encryptionWep": 1,
+          "encryptionTkip": 2,
+          "encryptionCcmp": 3,
+          "encryptionUnknown": 4,
+          "encryptionClear": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIfAdministrativeState": {
+    "name": "MwlIfAdministrativeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminStateDown": 1,
+          "adminStateUp": 2,
+          "adminStateTesting": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlOperChanChangeReason": {
+    "name": "MwlOperChanChangeReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operChanChangeNone": 0,
+          "operChanChangeDfs": 1,
+          "operChanChangeMesh": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlOperStatusChangeReason": {
+    "name": "MwlOperStatusChangeReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operStatusChangeFailure": 0,
+          "operStatusChangeDfs": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlEssApAdminMode": {
+    "name": "MwlEssApAdminMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "essApAdminModeDown": 1,
+          "essApAdminModeUp": 2,
+          "essApAdminModeScanRogues": 3,
+          "essApAdminModeUnlicensed": 4,
+          "essAdminModeDisabled": 5,
+          "essAdminModeNoservice": 6,
+          "essApAdminModePowerdown": 7,
+          "essApAdminModeScanSpectrum": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlLedMode": {
+    "name": "MwlLedMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ledModeNormal": 0,
+          "ledModeNodeId": 1,
+          "ledModeBlink": 2,
+          "ledModeDark": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlLogSeverity": {
+    "name": "MwlLogSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "logSevEmerg": 0,
+          "logSevAlert": 1,
+          "logSevCritical": 2,
+          "logSevError": 3,
+          "logSevWarn": 4,
+          "logSevNotice": 5,
+          "logSevInfo": 6,
+          "logSevDebug": 7,
+          "logSevTotal": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlLogType": {
+    "name": "MwlLogType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "logUnknown": 0,
+          "logApDetected": 1,
+          "logDbBackup": 2,
+          "logDbRestore": 3,
+          "logSwUpgrade": 4,
+          "logConfigAdd": 5,
+          "logConfigMod": 6,
+          "logConfigDel": 7,
+          "logCertExpiry": 8,
+          "logVlan": 9,
+          "logHaStart": 10,
+          "logHaShutdown": 11,
+          "logHaNodeDead": 12,
+          "logHaStatus": 13,
+          "logHaConfigErr": 14,
+          "logHaLinkStatus": 15,
+          "logApAdministrativeReboot": 16,
+          "logControllerAdministrativeReboot": 17,
+          "logDiscLicensingFailure": 18,
+          "logMicCountermeasure": 19,
+          "logMicFailureAp": 20,
+          "logMicFailureClient": 21,
+          "logTypeTotal": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlMimoMode": {
+    "name": "MwlMimoMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsMimoMode2x2": 0,
+          "nmsMimoMode3x3": 1,
+          "nmsMimoMode1x1": 2,
+          "nmsMimoMode4x4": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNatType": {
+    "name": "MwlNatType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "natTypeNone": 1,
+          "natTypeStaticOneToOne": 2,
+          "natTypeDynamicOneToOne": 3,
+          "natTypeDynamicNapt": 4,
+          "natTypeUnknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNetProtocol": {
+    "name": "MwlNetProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsIpprotoUnknown": 0,
+          "nmsIpprotoTcp": 6,
+          "nmsIpprotoUdp": 17
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNmsInterfaceType": {
+    "name": "MwlNmsInterfaceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ifTypeActive": 0,
+          "ifTypeRedundant": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNodeRelationship": {
+    "name": "MwlNodeRelationship",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noderelationshipnone": 1,
+          "noderelationshipbound": 2,
+          "noderelationshipvisible": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNodeType": {
+    "name": "MwlNodeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeTypeWnc": 1,
+          "nodeTypeAp": 2,
+          "nodeTypeAsc": 3,
+          "nodeTypeSta": 10,
+          "nodeTypeOther": 11,
+          "nodeTypeUnknown": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlOperationalState": {
+    "name": "MwlOperationalState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operationalStateUnknown": 0,
+          "operationalStateEnabled": 1,
+          "operationalStateDisabled": 2,
+          "operationalStateUnlicensed": 3,
+          "operationalStateEnabledWith11nlic": 4,
+          "operationalStatePowerDown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlPowerSupply": {
+    "name": "MwlPowerSupply",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerSupply8023Af": 0,
+          "powerSupply8023At": 1,
+          "powerSupply5vDc": 2,
+          "powerSupplyDual8023Af": 3,
+          "powerSupply12vDc": 4,
+          "powerSupply8023AtPlus": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlRadiusMacDelimiter": {
+    "name": "MwlRadiusMacDelimiter",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radiusMacDelimiterNone": 0,
+          "radiusMacDelimiterHyphen": 1,
+          "radiusMacDelimiterSingleHyphen": 2,
+          "radiusMacDelimiterColon": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlRadiusPasswordType": {
+    "name": "MwlRadiusPasswordType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radiusPasswordTypeSharedSecret": 0,
+          "radiusPasswordTypeMacAddress": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlWlanOptimize": {
+    "name": "MwlWlanOptimize",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "optimizeNone": 0,
+          "optimizePerformance": 1,
+          "optimizeHandoff": 2,
+          "optimizeCoverage": 3,
+          "optimizeInteroperability": 4,
+          "optimizeRogueap": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlOnOffSwitch": {
+    "name": "MwlOnOffSwitch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsOff": 0,
+          "nmsOn": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlPublishEssId": {
+    "name": "MwlPublishEssId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "publishEssidOff": 0,
+          "publishEssidOn": 1,
+          "publishEssid24g": 2,
+          "publishEssid5g": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAllOnSelectedSwitch": {
+    "name": "MwlAllOnSelectedSwitch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsSelected": 0,
+          "nmsAllOn": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlPrivacyBit": {
+    "name": "MwlPrivacyBit",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "privacyBitAuto": 0,
+          "privacyBitOn": 1,
+          "privacyBitOff": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlQosAction": {
+    "name": "MwlQosAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsQosActionForward": 1,
+          "nmsQosActionCapture": 2,
+          "nmsQosActionDrop": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlQosCodec": {
+    "name": "MwlQosCodec",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsCodecDefault": 1,
+          "nmsCodecaG711ULaw64k": 2,
+          "nmsCodeca1016": 3,
+          "nmsCodecaG721": 4,
+          "nmsCodecaGsm": 5,
+          "nmsCodecaG7231": 6,
+          "nmsCodecaDv14": 7,
+          "nmsCodecaDv142": 8,
+          "nmsCodecaLpc": 9,
+          "nmsCodecaG711ALaw64k": 10,
+          "nmsCodecaG722": 11,
+          "nmsCodecaG7221": 12,
+          "nmsCodecaG722132k": 13,
+          "nmsCodecaMpa": 14,
+          "nmsCodecaG728": 15,
+          "nmsCodecaG729": 16,
+          "nmsCodecaRed": 17,
+          "nmsCodecaSiren": 18,
+          "nmsCodecvH261": 19,
+          "nmsCodecvH263": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlQosProtocol": {
+    "name": "MwlQosProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosprotocolsip": 1,
+          "qosprotocolh323": 2,
+          "qosprotocolsccp": 3,
+          "qosprotocolhttp": 4,
+          "qosprotocolother": 5,
+          "qosprotocolnone": 6,
+          "qosprotocolunknown": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlQosCodecProtocol": {
+    "name": "MwlQosCodecProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qoscodecprotocolsip": 1,
+          "qoscodecprotocolh323": 2,
+          "qoscodecprotocolsccp": 3,
+          "qoscodecprotocolhttp": 4,
+          "qoscodecprotocolnone": 5,
+          "qoscodecprotocolunknown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlQosCallState": {
+    "name": "MwlQosCallState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qoscalldisconnectedstate": 0,
+          "qoscallconnectedstate": 1,
+          "qoscallholdstate": 2,
+          "qoscallconferencingstate": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlServiceAction": {
+    "name": "MwlServiceAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsServiceActionAdd": 1,
+          "nmsServiceActionRemove": 2,
+          "nmsServiceActionChange": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSecurityPolicyAction": {
+    "name": "MwlSecurityPolicyAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "securityPolicyActionDeny": 0,
+          "securityPolicyActionAllow": 1,
+          "securityPolicyActionRedirect": 2,
+          "securityPolicyActionNum": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlL2SecurityModeBits": {
+    "name": "MwlL2SecurityModeBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "l2SecurityModeNone": 0,
+        "l2SecurityModeOpen": 1,
+        "l2SecurityMode8021x": 2,
+        "l2SecurityModeSwk": 4,
+        "l2SecurityModeWpa": 8,
+        "l2SecurityModeWpaPsk": 16,
+        "l2SecurityModeWpa2": 32,
+        "l2SecurityModeWpa2Psk": 64,
+        "l2SecurityModeMixed": 128,
+        "l2SecurityModeMixedPsk": 256,
+        "l2SecurityModeWai": 512,
+        "l2SecurityModeWaiPsk": 1024,
+        "l2SecurityModeAll": 2047
+      }
+    },
+    "status": "current"
+  },
+  "MwlL2SecurityMode": {
+    "name": "MwlL2SecurityMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2SecurityModeNone": 0,
+          "l2SecurityModeOpen": 1,
+          "l2SecurityMode8021x": 2,
+          "l2SecurityModeSwk": 4,
+          "l2SecurityModeWpa": 8,
+          "l2SecurityModeWpaPsk": 16,
+          "l2SecurityModeWpa2": 32,
+          "l2SecurityModeWpa2Psk": 64,
+          "l2SecurityModeMixed": 128,
+          "l2SecurityModeMixedPsk": 256,
+          "l2SecurityModeWai": 512,
+          "l2SecurityModeWaiPsk": 1024,
+          "l2SecurityModeAll": 2047
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlTunnelTerminationModeBits": {
+    "name": "MwlTunnelTerminationModeBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tunnelTerminationNone": 0,
+        "tunnelTerminationPeap": 1,
+        "tunnelTerminationTtls": 2
+      }
+    },
+    "status": "current"
+  },
+  "MwlL2SecurityDetailMode": {
+    "name": "MwlL2SecurityDetailMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stationSecurityModeNone": 0,
+          "stationSecurityModeOpen": 1,
+          "stationSecurityMode8021x": 2,
+          "stationSecurityModeSwk": 4,
+          "stationSecurityModeWpa": 8,
+          "stationSecurityModeWpaPsk": 16,
+          "stationSecurityModeWpa2": 32,
+          "stationSecurityModeWpa2Psk": 64,
+          "stationSecurityModeMixed": 128,
+          "stationSecurityModeMixedPsk": 256,
+          "stationSecurityModeAll": 511,
+          "stationSecurityMode8021xInProgress": 512,
+          "stationSecurityModeWpaInProgress": 1024,
+          "stationSecurityModeWpaPskInProgress": 2048,
+          "stationSecurityModeWpa2InProgress": 4096,
+          "stationSecurityModeWpa2PskInProgress": 8192,
+          "stationSecurityModeMixedInProgress": 16384,
+          "stationSecurityModeMixedPskInProgress": 32768
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlL3SecurityMode": {
+    "name": "MwlL3SecurityMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l3SecurityModeOpen": 1,
+          "l3SecurityModeVpn": 2,
+          "l3SecurityModeWebauth": 4,
+          "l3SecurityModeAll": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCaptivePortalMode": {
+    "name": "MwlCaptivePortalMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "captivePortalDisabled": 0,
+          "captivePortalModeVpn": 1,
+          "captivePortalModeWebauth": 2,
+          "captivePortalModeAll": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCaptivePortalAuthState": {
+    "name": "MwlCaptivePortalAuthState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "captivePortalStateClear": 0,
+          "captivePortalStateWebauth": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCaptivePortalAuthMethod": {
+    "name": "MwlCaptivePortalAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "captivePortalAuthMethodInternal": 0,
+          "captivePortalAuthMethodExternal": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSnmpPrivilege": {
+    "name": "MwlSnmpPrivilege",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpRo": 1,
+          "snmpRw": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSnmpV3AuthProtocol": {
+    "name": "MwlSnmpV3AuthProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpV3UsmNoAuth": 0,
+          "snmpV3UsmHmacMd5Auth": 1,
+          "snmpV3UsmHmacShaAuth": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSnmpV3PrivProtocol": {
+    "name": "MwlSnmpV3PrivProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpV3UsmNoPriv": 0,
+          "snmpV3UsmDesPriv": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlTransmitRateBGBits": {
+    "name": "MwlTransmitRateBGBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bgtransmitRateNotSupported": 0,
+        "bgtransmitRate1": 1,
+        "bgtransmitRate2": 2,
+        "bgtransmitRate55": 4,
+        "bgtransmitRate11": 8,
+        "bgtransmitRate6": 16,
+        "bgtransmitRate9": 32,
+        "bgtransmitRate12": 64,
+        "bgtransmitRate18": 128,
+        "bgtransmitRate22": 256,
+        "bgtransmitRate24": 512,
+        "bgtransmitRate33": 1024,
+        "bgtransmitRate36": 2048,
+        "bgtransmitRate48": 4096,
+        "bgtransmitRate54": 8192
+      }
+    },
+    "status": "current"
+  },
+  "MwlTransmitRateBits": {
+    "name": "MwlTransmitRateBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "transmitRateNotSupported": 0,
+        "transmitRate1": 1,
+        "transmitRate2": 2,
+        "transmitRate55": 4,
+        "transmitRate11": 8
+      }
+    },
+    "status": "current"
+  },
+  "MwlTransmitRateAGBits": {
+    "name": "MwlTransmitRateAGBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "agtransmitRateNotSupported": 0,
+        "agtransmitRate6": 16,
+        "agtransmitRate9": 32,
+        "agtransmitRate12": 64,
+        "agtransmitRate18": 128,
+        "agtransmitRate22": 256,
+        "agtransmitRate24": 512,
+        "agtransmitRate33": 1024,
+        "agtransmitRate36": 2048,
+        "agtransmitRate48": 4096,
+        "agtransmitRate54": 8192
+      }
+    },
+    "status": "current"
+  },
+  "MwlTransmitRateHTBits": {
+    "name": "MwlTransmitRateHTBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "httransmitRateNotSupported": 0,
+        "httransmitRate0": 1,
+        "httransmitRate1": 2,
+        "httransmitRate2": 4,
+        "httransmitRate3": 8,
+        "httransmitRate4": 16,
+        "httransmitRate5": 32,
+        "httransmitRate6": 64,
+        "httransmitRate7": 128,
+        "httransmitRate8": 256,
+        "httransmitRate9": 512,
+        "httransmitRate10": 1024,
+        "httransmitRate11": 2048,
+        "httransmitRate12": 4096,
+        "httransmitRate13": 8192,
+        "httransmitRate14": 16384,
+        "httransmitRate15": 32768,
+        "httransmitRate16": 65536,
+        "httransmitRate17": 131072,
+        "httransmitRate18": 262144,
+        "httransmitRate19": 524288,
+        "httransmitRate20": 1048576,
+        "httransmitRate21": 2097152,
+        "httransmitRate22": 4194304,
+        "httransmitRate23": 8388608,
+        "httransmitRate24": 16777216,
+        "httransmitRate25": 33554432,
+        "httransmitRate26": 67108864,
+        "httransmitRate27": 134217728,
+        "httransmitRate28": 268435456,
+        "httransmitRate29": 536870912,
+        "httransmitRate30": 1073741824,
+        "httransmitRate31": 2147483648
+      }
+    },
+    "status": "current"
+  },
+  "MwlTransmitRateVHT": {
+    "name": "MwlTransmitRateVHT",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acTransmitRateMcs07": 0,
+          "acTransmitRateMcs08": 1,
+          "acTransmitRateMcs09": 2,
+          "acTransmitRateNone": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlUpgradeState": {
+    "name": "MwlUpgradeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upgradeStart": 1,
+          "upgradeInProgress": 2,
+          "upgradeFailed": 3,
+          "upgradeDone": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVlanType": {
+    "name": "MwlVlanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlanNone": 0,
+          "vlanDefaultOnly": 1,
+          "vlanRadiusOnly": 2,
+          "vlanRadiusAndDefault": 3,
+          "vlanGre": 4,
+          "vlanPool": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAirFirewall": {
+    "name": "MwlAirFirewall",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "airfirewallNone": 0,
+          "airfirewallOuis": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlOffHours": {
+    "name": "MwlOffHours",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offhoursNone": 0,
+          "offhours": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlOffHoursService": {
+    "name": "MwlOffHoursService",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offhoursNoservice": 0,
+          "offhoursNowireless": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlDailyOutOfService": {
+    "name": "MwlDailyOutOfService",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDailyOutOfService": 0,
+          "dailyOutOfServiceOff": 1,
+          "dailyOutOfServiceOn": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVpnStatus": {
+    "name": "MwlVpnStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearActive": 0,
+          "vpnBypass": 1,
+          "vpnActive": 2,
+          "webAuthActive": 4,
+          "vpnWebActive": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVpnDetailStatus": {
+    "name": "MwlVpnDetailStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stationClearActive": 0,
+          "stationVpnBypass": 1,
+          "stationVpnActive": 2,
+          "stationWebAuthActive": 4,
+          "stationVpnWebActive": 5,
+          "stationVpnInProgress": 8,
+          "stationWebauthInProgress": 16,
+          "stationVpnWebauthInProgress": 32
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSslUsrAuthProtocolType": {
+    "name": "MwlSslUsrAuthProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sslAuthProtocolUnknown": 0,
+          "sslAuthProtocolNone": 1,
+          "sslAuthProtocolChap": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlDhGroupType": {
+    "name": "MwlDhGroupType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhGroup2": 2,
+          "dhGroup3": 3,
+          "dhGroup4": 4,
+          "dhGroup5": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpSecModeType": {
+    "name": "MwlIpSecModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipsecUnknownMode": 0,
+          "ipsecTunnelMode": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpSecDataChannelType": {
+    "name": "MwlIpSecDataChannelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipsecUnknown": 0,
+          "ipsecEsp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpEncryptionAlgorithm": {
+    "name": "MwlIpEncryptionAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encryptionUnknownAlgorithm": 0,
+          "encryption3des": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpAuthenticateAlgorithm": {
+    "name": "MwlIpAuthenticateAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authUnknown": 0,
+          "authPreShareKey": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpHashAlgorithm": {
+    "name": "MwlIpHashAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hashUnknown": 0,
+          "hashSha": 1,
+          "hashMd5": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpSecAuthAlgorithm": {
+    "name": "MwlIpSecAuthAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipsecAuthUnknown": 0,
+          "ipsecAuthShaHmac": 1,
+          "ipsecAuthMd5Hmac": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCertFileType": {
+    "name": "MwlCertFileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "certUnknownType": 0,
+          "certPemType": 1,
+          "certPfxType": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlUrlType": {
+    "name": "MwlUrlType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cliBadUrl": 0,
+          "cliFtpUrl": 1,
+          "cliTftpUrl": 2,
+          "cliSftpUrl": 3,
+          "cliHttpUrl": 4,
+          "cliHttpsUrl": 5,
+          "cliScpUrl": 6,
+          "cliFileUrl": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCertificateFormType": {
+    "name": "MwlCertificateFormType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsShortForm": 0,
+          "nmsLongForm": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlRadiusServerSelect": {
+    "name": "MwlRadiusServerSelect",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsRadiusServerNone": 0,
+          "nmsRadiusServerPrimary": 1,
+          "nmsRadiusServerSecondary": 2,
+          "nmsRadiusServerAll": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlDiscoveryOrder": {
+    "name": "MwlDiscoveryOrder",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discoveryFromL2First": 0,
+          "discoveryFromL2Only": 1,
+          "discoveryFromL3First": 2,
+          "discoveryFromL3Only": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApDiscoveryState": {
+    "name": "MwlApDiscoveryState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDiscoveryLayer": 0,
+          "discoveryFromL2": 1,
+          "discoveryFromL3": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlLicenseType": {
+    "name": "MwlLicenseType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureTrial": 0,
+          "featurePermanent": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlLicenseReserveType": {
+    "name": "MwlLicenseReserveType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "countedLicense": 0,
+          "uncountedLicense": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSofwFeatureType": {
+    "name": "MwlSofwFeatureType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sofwControllerBasic": 0,
+          "sofwApBasic": 1,
+          "sofwFeatMax": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSofwControllerType": {
+    "name": "MwlSofwControllerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sofwAll": 0,
+          "sofwController": 1,
+          "sofwStdbyController": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlDscpType": {
+    "name": "MwlDscpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dscpDisabled": -1,
+          "dscpCs0": 0,
+          "dscpCs1": 8,
+          "dscpAf11": 10,
+          "dscpAf12": 12,
+          "dscpAf13": 14,
+          "dscpCs2": 16,
+          "dscpAf21": 18,
+          "dscpAf22": 20,
+          "dscpAf23": 22,
+          "dscpCs3": 24,
+          "dscpAf31": 26,
+          "dscpAf32": 28,
+          "dscpAf33": 30,
+          "dscpCs4": 32,
+          "dscpAf41": 34,
+          "dscpAf42": 36,
+          "dscpAf43": 38,
+          "dscpCs5": 40,
+          "dscpEfphb": 46,
+          "dscpCs6": 48,
+          "dscpCs7": 56
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlControllerHwType": {
+    "name": "MwlControllerHwType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wncUnknownModel": 0,
+          "wncDevelPc": 1,
+          "wncMc1000": 2,
+          "wncMc1100": 3,
+          "wncMc3000": 4,
+          "wncMc500": 5,
+          "wncMc500a": 6,
+          "wncMc5000": 7,
+          "wncMc4000": 8,
+          "wncMc4100": 9,
+          "wncMc1500": 11,
+          "wncMc3200": 13,
+          "wncMc4200": 14,
+          "wncMc6000": 15,
+          "wncMc1500v": 16,
+          "wncMc3200v": 17,
+          "wncMc4200v": 18,
+          "wncMc1550": 19,
+          "wncMc1550v": 20,
+          "wncFwc50d": 21,
+          "wncFwc2hd": 22,
+          "wncFwc5hd": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlWncControllerState": {
+    "name": "MwlWncControllerState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wncStandalone": 0,
+          "wncMaster": 1,
+          "wncSlave": 2,
+          "wncCluster": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApHwType": {
+    "name": "MwlApHwType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apUnknownModel": 0,
+          "ap300": 12,
+          "ap310": 13,
+          "ap311": 14,
+          "ap320": 15,
+          "ap301": 18,
+          "ap302": 19,
+          "ap301i": 20,
+          "ap310i": 21,
+          "ap302i": 22,
+          "ap320i": 23,
+          "ap1010": 24,
+          "ap1020": 25,
+          "psm3x": 26,
+          "ap400": 27,
+          "ap433e": 28,
+          "ap433i": 29,
+          "ap432e": 30,
+          "ap432i": 31,
+          "ap1010e": 32,
+          "ap1020e": 33,
+          "ap433is": 34,
+          "ap433es": 35,
+          "oap432e": 36,
+          "oap433e": 37,
+          "oap433es": 38,
+          "ap110": 39,
+          "ap120": 40,
+          "ap1014i": 41,
+          "ap332e": 42,
+          "ap332i": 43,
+          "ap832e": 44,
+          "ap832i": 45,
+          "ap822e": 46,
+          "ap822i": 47,
+          "ap122": 48,
+          "oap832e": 49,
+          "fap421evi": 50,
+          "fap423eve": 51,
+          "ofap422ev": 52
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApRegulatoryType": {
+    "name": "MwlApRegulatoryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap1000RegIndex": 1,
+          "ap300Mb72RegIndex": 2,
+          "ap300Mb82RegIndex": 3,
+          "ap400RegIndex": 4,
+          "ap110RegIndex": 5,
+          "ap330RegIndex": 6,
+          "ap800RegIndex": 7,
+          "ap800bRegIndex": 8,
+          "ap122RegIndex": 9,
+          "oap800RegIndex": 10,
+          "fap421RegIndex": 11,
+          "fap423RegIndex": 12,
+          "ofap422RegIndex": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApRfType": {
+    "name": "MwlApRfType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apRfUnknownModel": 0,
+          "apRf1": 1,
+          "apRf2": 2,
+          "apRf3": 3,
+          "apRf4": 4,
+          "apRf5": 5,
+          "apRf6": 6,
+          "apRf7": 7,
+          "apRf8": 8,
+          "apRf9": 9,
+          "apRf10": 10,
+          "apRf11": 11,
+          "apRf12": 12,
+          "apRf13": 13,
+          "apRf14": 14,
+          "apRf15": 15,
+          "apRf16": 16,
+          "apRf17": 17,
+          "apRf18": 18,
+          "apRf19": 19,
+          "apRf20": 20,
+          "apRf21": 21,
+          "apRf22": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApIfModeType": {
+    "name": "MwlApIfModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apModeUnknown": 0,
+          "apBMode": 1,
+          "apAMode": 2,
+          "apAbMode": 3,
+          "apGMode": 4,
+          "apBgMode": 5,
+          "apAgMode": 6,
+          "apAbgMode": 7,
+          "apNMode": 8,
+          "apBnMode": 9,
+          "apAnMode": 10,
+          "apAbnMode": 11,
+          "apGnMode": 12,
+          "apBgnMode": 13,
+          "apAgnMode": 14,
+          "apAbgnMode": 15,
+          "apAn1s20Mode": 16,
+          "apAn1s40Mode": 17,
+          "apAn2s20Mode": 18,
+          "apAn2s40Mode": 19,
+          "apAn3s20Mode": 20,
+          "apAn3s40Mode": 21,
+          "apBgn1s20Mode": 22,
+          "apBgn1s40Mode": 23,
+          "apBgn2s20Mode": 24,
+          "apBgn2s40Mode": 25,
+          "apBgn3s20Mode": 26,
+          "apBgn3s40Mode": 27,
+          "apAc1s20Mode": 28,
+          "apAc1s40Mode": 29,
+          "apAc1s80Mode": 30,
+          "apAbgnAcMode": 31,
+          "apAc2s20Mode": 32,
+          "apAc2s40Mode": 33,
+          "apAc2s80Mode": 34,
+          "apAc3s20Mode": 35,
+          "apAc3s40Mode": 36,
+          "apAc3s80Mode": 37,
+          "apAnAcMode": 38,
+          "apAn4s20Mode": 39,
+          "apAn4s40Mode": 40,
+          "apBgn4s20Mode": 41,
+          "apBgn4s40Mode": 42,
+          "apAc4s20Mode": 43,
+          "apAc4s40Mode": 44,
+          "apAc4s80Mode": 45
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApIfConfigModeType": {
+    "name": "MwlApIfConfigModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apConfigModeUnknown": 0,
+          "apConfigBMode": 1,
+          "apConfigAMode": 2,
+          "apConfigGMode": 4,
+          "apConfigBgMode": 5,
+          "apConfigAnMode": 10,
+          "apConfigBgnMode": 13,
+          "apConfigAcMode": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAntennaType": {
+    "name": "MwlAntennaType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "antennaConnNone": 0,
+          "antennaConn24g": 1,
+          "antennaConn5g": 2,
+          "antennaConnDual": 3,
+          "antennaConnExt": 4,
+          "antennaConnInt": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlBandType": {
+    "name": "MwlBandType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfband24g": 1,
+          "rfband5g": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlChannelBandType": {
+    "name": "MwlChannelBandType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channelBMode": 1,
+          "channelAMode": 2,
+          "channelGMode": 3,
+          "channelBgMode": 4,
+          "channelAbgnMode20mhz": 5,
+          "channelAbgnMode40mhzAbove": 6,
+          "channelAbgnMode40mhzBelow": 7,
+          "channelNMode20mhz": 8,
+          "channelNMode40mhzAbove": 9,
+          "channelNMode40mhzBelow": 10,
+          "channelAcMode": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAntennaSetLocation": {
+    "name": "MwlAntennaSetLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "antennaSetLocUnknown": 0,
+          "antennaSetLocLeft": 1,
+          "antennaSetLocRight": 2,
+          "antennaSetLoc1": 4,
+          "antennaSetLoc2": 8,
+          "antennaSetLoc3": 16,
+          "antennaSetLoc4": 32,
+          "antennaSetLoc5": 64,
+          "antennaSetLoc6": 128,
+          "antennaSetLoc7": 256,
+          "antennaSetLoc8": 512,
+          "antennaSetLoc9": 1024,
+          "antennaSetLocIntegrated": 2048,
+          "antennaSetLocInternal": 4096
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIfDataRateOptionType": {
+    "name": "MwlIfDataRateOptionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dataRateManual": 0,
+          "dataRateAuto": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAntennaLinkType": {
+    "name": "MwlAntennaLinkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "antennaLinkUnknown": 0,
+          "antennaLinkPmp": 1,
+          "antennaLinkPtp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlDuplexModeType": {
+    "name": "MwlDuplexModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsDuplexFull": 0,
+          "nmsDuplexHalf": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlBgProtectionModeType": {
+    "name": "MwlBgProtectionModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgProtectionAuto": 0,
+          "bgProtectionOn": 1,
+          "bgProtectionOff": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlHtProtectionModeType": {
+    "name": "MwlHtProtectionModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "htProtectionAuto": 0,
+          "htProtectionOn": 1,
+          "htProtectionOff": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpProxyType": {
+    "name": "MwlIpProxyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsGeneric": 0,
+          "nmsIpPathFinder": 1,
+          "nmsEnumerationHeader": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlFirewallCapability": {
+    "name": "MwlFirewallCapability",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "firewallNone": 0,
+          "firewallConfigured": 1,
+          "firewallRadiusConfigured": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSecurityLogging": {
+    "name": "MwlSecurityLogging",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "securityloggingOff": 0,
+          "securityloggingAllow": 1,
+          "securityloggingDeny": 2,
+          "securityloggingAll": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlPMKcachingBits": {
+    "name": "MwlPMKcachingBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pmkCachingDisabled": 0,
+        "pmkCachingEnabled": 1
+      }
+    },
+    "status": "current"
+  },
+  "MwlKDDI": {
+    "name": "MwlKDDI",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kddiDisabled": 0,
+          "kddiEnabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVcellType": {
+    "name": "MwlVcellType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsVcellPap": 0,
+          "nmsVcellVcell": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlFilterModeType": {
+    "name": "MwlFilterModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exclude": 0,
+          "include": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlBgRadioMode": {
+    "name": "MwlBgRadioMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "virtualMode": 1,
+          "nonVirtualMode": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlThrdPartyIdsIps": {
+    "name": "MwlThrdPartyIdsIps",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "thrdPidsIpsSnortWireless": 1,
+          "thrdPidsIpsNone": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlQosRulesMatchClassBits": {
+    "name": "MwlQosRulesMatchClassBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "qosrulesmatchclassOff": 0,
+        "qosrulesmatchclassOn": 1
+      }
+    },
+    "status": "current"
+  },
+  "MwlQosRulesMatchClass": {
+    "name": "MwlQosRulesMatchClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosrulesmatchclassOff": 0,
+          "qosrulesmatchclassOn": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlChannelWidth": {
+    "name": "MwlChannelWidth",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channelWidth20": 1,
+          "channelWidth40Above": 2,
+          "channelWidth40Below": 3,
+          "channelWidth80": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlBonding": {
+    "name": "MwlBonding",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bondingSingle": 0,
+          "bondingDual": 1,
+          "bondingNone": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlConnectivityStatus": {
+    "name": "MwlConnectivityStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsDisconnected": 0,
+          "nmsConnected": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCapabilityModeBits": {
+    "name": "MwlCapabilityModeBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "nmsStaCapabilityNone": 0,
+        "nmsStaWmmMode": 1,
+        "nmsStaApsdMode": 2,
+        "nmsSta80211RMode": 4,
+        "nmsSta80211KMode": 8,
+        "nmsSta80211UMode": 16,
+        "nmsSta80211VMode": 32,
+        "nmsSta80211WMode": 64
+      }
+    },
+    "status": "current"
+  },
+  "MwlClientType": {
+    "name": "MwlClientType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsClientData": 1,
+          "nmsClientSipPhone": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlDeviceType": {
+    "name": "MwlDeviceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsStationWireless": 0,
+          "nmsStationWired": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlStationState": {
+    "name": "MwlStationState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsStationStateUnknown": 0,
+          "nmsStationStateInit": 1,
+          "nmsStationStateVlan": 2,
+          "nmsStationStateAssign": 3,
+          "nmsStationStateAssociated": 4,
+          "nmsStationState8021x": 5,
+          "nmsStationStateKey": 6,
+          "nmsStationStateIpDiscover": 7,
+          "nmsStationStateCaptivePortal": 8,
+          "nmsStationStateDisassociated": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlStaDiagStap": {
+    "name": "MwlStaDiagStap",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "staMacFilterAclCnt": 1,
+          "staMacFilterAclFailCnt": 2,
+          "staWepKeyIndexMismatchCnt": 3,
+          "staAssignFailCnt": 4,
+          "staAssociationCnt": 5,
+          "staKeyExchangeCnt": 6,
+          "staKeyExchangeFailCnt": 7,
+          "staMicFailCnt": 8,
+          "staIpDiscoveryCnt": 9,
+          "staRadiusAuthCnt": 10,
+          "staRadiusAuthFailCnt": 11,
+          "staCpGuestUserAuthCnt": 12,
+          "staCpGuestUserFailCnt": 13,
+          "staDecryptFailCnt": 14,
+          "staSoftHandoffCnt": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlEnableDisableOption": {
+    "name": "MwlEnableDisableOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsDisable": 0,
+          "nmsEnable": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSourceEnableDisableOption": {
+    "name": "MwlSourceEnableDisableOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsSourceEnable": 1,
+          "nmsSourceDisable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlLocationSourceOption": {
+    "name": "MwlLocationSourceOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsLocationSourceWifi": 1,
+          "nmsLocationSourceBle": 2,
+          "nmsLocationSourceAll": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlReportFormatType": {
+    "name": "MwlReportFormatType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsReportFormatFortiPresence": 1,
+          "nmsReportFormatLegacy": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlPacketCaptureMode": {
+    "name": "MwlPacketCaptureMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2Mode": 0,
+          "l3Mode": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlRxTxOption": {
+    "name": "MwlRxTxOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rxOnly": 0,
+          "txOnly": 1,
+          "rxTxBoth": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlRateLimitMode": {
+    "name": "MwlRateLimitMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "station": 0,
+          "cumulative": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlBandSteeringMode": {
+    "name": "MwlBandSteeringMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bandSteeringDisable": 0,
+          "bandASteering": 1,
+          "bandNSteering": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlPapBroadcastSsidMode": {
+    "name": "MwlPapBroadcastSsidMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "papBroadcastSsidDisabled": 0,
+          "papBroadcastSsidAlways": 1,
+          "papBroadcastSsidTillAssociation": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlEncapsulationType": {
+    "name": "MwlEncapsulationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ppi": 0,
+          "legacy": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlUplinkType": {
+    "name": "MwlUplinkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsUplink": 0,
+          "nmsDownlink": 1,
+          "nmsUplinkLacp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVpnConnectivityStatus": {
+    "name": "MwlVpnConnectivityStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpnDisconnected": 0,
+          "vpnConnected": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVpnAuthenticationStatus": {
+    "name": "MwlVpnAuthenticationStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpnUnknown": 0,
+          "vpnNoCertificate": 1,
+          "vpnValidCertificate": 2,
+          "vpnInvalidCertificate": 3,
+          "vpnCertificateRevoked": 4,
+          "vpnCertificateExpired": 5,
+          "vpnCertificateUnknownCa": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVpnAuthenticationType": {
+    "name": "MwlVpnAuthenticationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpnAuthTypeUnknown": 0,
+          "vpnAuthTypeX509Certificate": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCertificateStatus": {
+    "name": "MwlCertificateStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "certStatusUnknown": 0,
+          "certStatusNotInstalled": 1,
+          "certStatusInstalled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCertRequestStatus": {
+    "name": "MwlCertRequestStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "certReqStatusNone": 0,
+          "certReqStatusCsrGenerated": 1,
+          "certReqStatusCsrGenerationInProgress": 2,
+          "certReqStatusCsrGenerationFailed": 3,
+          "certReqStatusCsrUploadFailed": 4,
+          "certReqStatusCertInstalled": 5,
+          "certReqStatusCertInstallationInProgress": 6,
+          "certReqStatusCertDownloadFailed": 7,
+          "certReqStatusCertInstallationFailed": 8,
+          "certReqStatusCertDeleted": 9,
+          "certReqStatusCertDeletionInProgress": 10,
+          "certReqStatusCertDeletionFailed": 11,
+          "certReqStatusCaCertDownloaded": 12,
+          "certReqStatusCaCertDownloadInProgress": 13,
+          "certReqStatusCaCertDownloadFailed": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlFastEthernetType": {
+    "name": "MwlFastEthernetType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsPrimaryFastethernet": 1,
+          "nmsSecondaryFastethernet": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVpnMode": {
+    "name": "MwlVpnMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeNonVpn": 0,
+          "modeVpn": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlRegionSettings": {
+    "name": "MwlRegionSettings",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regionUnknown": 0,
+          "regionUs": 1,
+          "regionIntl": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlSpectrumBandsBits": {
+    "name": "MwlSpectrumBandsBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "spectrumSubbandNone": 0,
+        "spectrumSubband24ghz": 1,
+        "spectrumSubband5ghzLow": 2,
+        "spectrumSubband5ghzMedium": 4,
+        "spectrumSubband5ghzHigh": 8
+      }
+    },
+    "status": "current"
+  },
+  "MwlESSRFVirtualizationMode": {
+    "name": "MwlESSRFVirtualizationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "essRfVmodeVcell": 0,
+          "essRfVmodeVport": 1,
+          "essRfVmodeNcell": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIFRFVirtualizationMode": {
+    "name": "MwlIFRFVirtualizationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ifRfVmodeVport": 0,
+          "ifRfVmodeNcell": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlYesNoSwitch": {
+    "name": "MwlYesNoSwitch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsNo": 0,
+          "nmsYes": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpMode": {
+    "name": "MwlIpMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeUnknown": 0,
+          "modeIpv4": 1,
+          "modeIpv6": 2,
+          "modeDualStackIp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlChannelCenterFrequency": {
+    "name": "MwlChannelCenterFrequency",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channelCenterFrequency0": 0,
+          "channelCenterFrequency42": 42,
+          "channelCenterFrequency58": 58,
+          "channelCenterFrequency106": 106,
+          "channelCenterFrequency122": 122,
+          "channelCenterFrequency155": 155
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNetworkType": {
+    "name": "MwlNetworkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "networkTypeWired": 0,
+          "networkTypeWireless": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIpv6AddrType": {
+    "name": "MwlIpv6AddrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4Addr": 0,
+          "globalUnicastAddr": 1,
+          "globalUnicastDhcpAddr": 2,
+          "linkLocalAddr": 3,
+          "tempAddr": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlvenueGroup": {
+    "name": "MwlvenueGroup",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "venueGroupUnspecified": 0,
+          "venueGroupAssembly": 1,
+          "venueGroupBusiness": 2,
+          "venueGroupEducational": 3,
+          "venueGroupFactoryIndustrial": 4,
+          "venueGroupInstitutional": 5,
+          "venueGroupMercantile": 6,
+          "venueGroupResidential": 7,
+          "venueGroupStorage": 8,
+          "venueGroupUtilityMiscellaneous": 9,
+          "venueGroupVehicular": 10,
+          "venueGroupOutdoor": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlvenueType": {
+    "name": "MwlvenueType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "venueGroupTypeUnspecified": 0,
+          "venueTypeAssemblyArena": 101,
+          "venueTypeAssemblyStadium": 102,
+          "venueTypeAssemblyPassengerTerminal": 103,
+          "venueTypeAssemblyAmphitheater": 104,
+          "venueTypeAssemblyAmusementPark": 105,
+          "venueTypeAssemblyPlaceOfWorship": 106,
+          "venueTypeAssemblyConventionCenter": 107,
+          "venueTypeAssemblyLibrary": 108,
+          "venueTypeAssemblyMuseum": 109,
+          "venueTypeAssemblyRestaurant": 110,
+          "venueTypeAssemblyTheater": 111,
+          "venueTypeAssemblyBar": 112,
+          "venueTypeAssemblyCoffeeShop": 113,
+          "venueTypeAssemblyZooAquarium": 114,
+          "venueTypeAssemblyEmergencyCoordinationCenter": 115,
+          "venueTypeBusinessDoctorDentistOffice": 201,
+          "venueTypeBusinessBank": 202,
+          "venueTypeBusinessFireStation": 203,
+          "venueTypeBusinessPoliceStation": 204,
+          "venueTypeBusinessPostOffice": 206,
+          "venueTypeBusinessProfessionalOffice": 207,
+          "venueTypeBusinessResearchDevelopmentFacility": 208,
+          "venueTypeBusinessAttorneyOffice": 209,
+          "venueTypeEducationalSchoolPrimary": 301,
+          "venueTypeEducationalSchoolSecondary": 302,
+          "venueTypeEducationalUniversityCollege": 303,
+          "venueTypeFactoryIndustrialFactory": 401,
+          "venueTypeInstitutionalHospital": 501,
+          "venueTypeInstitutionalLongTermCareFacility": 502,
+          "venueTypeInstitutionalAlcoholDrugRehabilitationCenter": 503,
+          "venueTypeInstitutionalGroupHome": 504,
+          "venueTypeInstitutionalPrisonJail": 505,
+          "venueTypeMercantileRetailStore": 601,
+          "venueTypeMercantileGroceryMarket": 602,
+          "venueTypeMercantileAutomotiveServiceStation": 603,
+          "venueTypeMercantileShoppingMall": 604,
+          "venueTypeMercantileGasStation": 605,
+          "venueTypeResidentialPrivateResidence": 701,
+          "venueTypeResidentialHotelMotel": 702,
+          "venueTypeResidentialDormitory": 703,
+          "venueTypeResidentialBoardingHouse": 704,
+          "venueTypeVehicularAutomobileTruck": 1001,
+          "venueTypeVehicularAirplane": 1002,
+          "venueTypeVehicularBus": 1003,
+          "venueTypeVehicularFerry": 1004,
+          "venueTypeVehicularShipBoat": 1005,
+          "venueTypeVehicularTrain": 1006,
+          "venueTypeVehicularMortorBike": 1007,
+          "venueTypeOutdoorMuniMesh": 1101,
+          "venueTypeOutdoorCityPark": 1102,
+          "venueTypeOutdoorRestArea": 1103,
+          "venueTypeOutdoorTrafficControl": 1104,
+          "venueTypeOutdoorBusStop": 1105,
+          "venueTypeOutdoorKiosk": 1106
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlHotspotAccessNetworkType": {
+    "name": "MwlHotspotAccessNetworkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hotspotAccessNetworkTypePrivateNetwork": 0,
+          "hotspotAccessNetworkTypePrivateNetworkWithGuestAccess": 1,
+          "hotspotAccessNetworkTypeChargeablePublicNetwork": 2,
+          "hotspotAccessNetworkTypeFreePublicNetwork": 3,
+          "hotspotAccessNetworkTypePersonalDeviceNetwork": 4,
+          "hotspotAccessNetworkTypeEmergencyServicesOnlyNetwork": 5,
+          "hotspotAccessNetworkTypeTestExperimentalNetwork": 14,
+          "hotspotAccessNetworkTypeWildcardNetwork": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlHotspotAuthenType": {
+    "name": "MwlHotspotAuthenType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hotspotAuthenTypeAcceptanceTermsConditions": 0,
+          "hotspotAuthenTypeOnlineEnrollmentSupported": 1,
+          "hotspotAuthenTypeHttpHttpsRedirection": 2,
+          "hotspotAuthenTypeDnsRedirection": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIPv6AvailabilityType": {
+    "name": "MwlIPv6AvailabilityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv6AvailabilityTypeNotAvailable": 0,
+          "ipv6AvailabilityTypeAvailable": 1,
+          "ipv6AvailabilityTypeNotKnown": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlIPv4AvailabilityType": {
+    "name": "MwlIPv4AvailabilityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4AvailabilityTypeNotAvailable": 0,
+          "ipv4AvailabilityTypeAvailable": 1,
+          "ipv4AvailabilityTypePortRestrictedAddressAvailable": 2,
+          "ipv4AvailabilityTypeSingleNatedPrivateAddressAvailable": 3,
+          "ipv4AvailabilityTypeDoubleNatedPrivateAddressAvailable": 4,
+          "ipv4AvailabilityTypePortRestrictedSingleNatedPrivateAddressAvailable": 5,
+          "ipv4AvailabilityTypePortRestrictedDoubleNatedPrivateAddressAvailable": 6,
+          "ipv4AvailabilityTypeNotKnown": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNAIRealmAuthMethod": {
+    "name": "MwlNAIRealmAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "naiRealmAuthMethodEapTlsCertificate": 0,
+          "naiRealmAuthMethodEapTtlsMschapv2UsernamePassword": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApGroupType": {
+    "name": "MwlApGroupType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apGroupTypeLocation": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVpnClientProtocol": {
+    "name": "MwlVpnClientProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpnClientProtoTcp": 0,
+          "vpnClientProtoUdp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlRadiusCalledStationIdType": {
+    "name": "MwlRadiusCalledStationIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radiusCalledStationIdTypeDefault": 0,
+          "radiusCalledStationIdTypeMacAddress": 1,
+          "radiusCalledStationIdTypeMacAddressSsid": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlServiceDataFeature": {
+    "name": "MwlServiceDataFeature",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serviceDataServiceConnect": 0,
+          "serviceDataApplicationVisibility": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlServiceDataType": {
+    "name": "MwlServiceDataType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serviceDataServiceConnectService": 0,
+          "serviceDataServiceConnectLocation": 1,
+          "serviceDataServiceConnectEssidVlan": 2,
+          "serviceDataServiceConnectNetwork": 3,
+          "serviceDataAppVisibilityApplication": 4,
+          "serviceDataAppVisibilityEssid": 5,
+          "serviceDataAppVisibilityStation": 6,
+          "serviceDataAppVisibilityAp": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlServiceDataFilterType": {
+    "name": "MwlServiceDataFilterType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serviceDataFilterEssid": 0,
+          "serviceDataFilterAp": 1,
+          "serviceDataFilterLocation": 2,
+          "serviceDataFilterEssidAp": 3,
+          "serviceDataFilterEssidLocation": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlRedirectionProtocol": {
+    "name": "MwlRedirectionProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redirectionProtocolHttps": 0,
+          "redirectionProtocolHttp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApRebootReasonCode": {
+    "name": "MwlApRebootReasonCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apRebootReasonCodeInvalid": 0,
+          "apRebootReasonCodeManual": 1,
+          "apRebootReasonCodeConfigChange": 2,
+          "apRebootReasonCodeWatchdog": 3,
+          "apRebootReasonCodeLostConnection": 4,
+          "apRebootReasonCodeSoftwareUpgrade": 5,
+          "apRebootReasonCodeRadioFailure": 6,
+          "apRebootReasonCodeInvalidPower": 7,
+          "apRebootReasonCodeUnknown": 8,
+          "apRebootReasonCodeCannotDownloadConfig": 9,
+          "apRebootReasonCodeRestoreDefault": 10,
+          "apRebootReasonCodeApCrash": 11,
+          "apRebootReasonCodeKernelCrash": 12,
+          "apRebootReasonCodeSoftLockup": 13,
+          "apRebootReasonCodeBandspeedTerminated": 14,
+          "apRebootReasonCodeLastEntry": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlBridgedVlanType": {
+    "name": "MwlBridgedVlanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noVlan": 0,
+          "staticVlanOnly": 1,
+          "radiusVlanOnly": 2,
+          "radiusAndStaticVlan": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlCliCmdGenWriteMode": {
+    "name": "MwlCliCmdGenWriteMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cliCmdGenWriteModeOverwrite": 0,
+          "cliCmdGenWriteModeAppend": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlVoiceClientType": {
+    "name": "MwlVoiceClientType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voiceClientTypeNone": 0,
+          "voiceClientTypeAscom": 1,
+          "voiceClientTypeSpectralink": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlMMProtocolType": {
+    "name": "MwlMMProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mmpTypeBinary": 0,
+          "mmpTypeKv": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApMacAssignOption": {
+    "name": "MwlApMacAssignOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsEth0": 0,
+          "nmsEth1": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlNplus1NotifType": {
+    "name": "MwlNplus1NotifType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nplus1NotifTypeNp1Stop": 1,
+          "nplus1NotifTypeReboot": 2,
+          "nplus1NotifTypeUpgrade": 3,
+          "nplus1NotifTypeTakeover": 4,
+          "nplus1NotifTypeFallback": 5,
+          "nplus1NotifTypeIpConflict": 6,
+          "nplus1NotifTypeGatewayUp": 7,
+          "nplus1NotifTypeGatewayDown": 8,
+          "nplus1NotifTypeSlave": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlTimerType": {
+    "name": "MwlTimerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timerTypeAbsolute": 0,
+          "timerTypePeriodic": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApplicationActionType": {
+    "name": "MwlApplicationActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "appActionTypeAllow": 0,
+          "appActionTypeBlock": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlAppVisibilityFlowType": {
+    "name": "MwlAppVisibilityFlowType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "appVisibilityFlowTypeAllowed": 0,
+          "appVisibilityFlowTypeBlocked": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlApplicationBWUnit": {
+    "name": "MwlApplicationBWUnit",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "appBwUnitKbps": 0,
+          "appBwUnitMbps": 1,
+          "appBwUnitGbps": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlDaysOfTheWeekBits": {
+    "name": "MwlDaysOfTheWeekBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "daysOfTheWeekNotSupported": 0,
+        "daysOfTheWeekSunday": 1,
+        "daysOfTheWeekMonday": 2,
+        "daysOfTheWeekTuesday": 4,
+        "daysOfTheWeekWednesday": 8,
+        "daysOfTheWeekThursday": 16,
+        "daysOfTheWeekFriday": 32,
+        "daysOfTheWeekSaturday": 64
+      }
+    },
+    "status": "current"
+  },
+  "MwlTimerIntervalState": {
+    "name": "MwlTimerIntervalState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsTimerStateInInterval": 0,
+          "nmsTimerStateOutOfInterval": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlEssIdType": {
+    "name": "MwlEssIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsEssidTypeRegular": 0,
+          "nmsEssidTypeBackup": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlState": {
+    "name": "MwlState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsStateUnknown": 0,
+          "nmsStateStart": 1,
+          "nmsStateDone": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlTxBeamSupport": {
+    "name": "MwlTxBeamSupport",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsTxBeamformingDisabled": 0,
+          "nmsTxBeamformingSuMimo": 1,
+          "nmsTxBeamformingMuMimo": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlMcaApStatus": {
+    "name": "MwlMcaApStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmsMcaUnplanned": 0,
+          "nmsMcaPlanned": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MwlArrayDataTypeAction": {
+    "name": "MwlArrayDataTypeAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "addValue": 1,
+          "deleteValue": 2,
+          "updateValue": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-TC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MERU-TC"
+  }
+}

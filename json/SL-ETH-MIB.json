@@ -1,0 +1,1292 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-NE-MIB": [
+      "slService"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "slEthernet": {
+    "name": "slEthernet",
+    "oid": "1.3.6.1.4.1.4515.1.1.1",
+    "class": "moduleidentity"
+  },
+  "ethTraps": {
+    "name": "ethTraps",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.7",
+    "class": "objectidentity"
+  },
+  "ethConfigTable": {
+    "name": "ethConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethConfigEntry": {
+    "name": "ethConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-ETH-MIB",
+        "object": "ethLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethLineIndex": {
+    "name": "ethLineIndex",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTimeElapsed": {
+    "name": "ethTimeElapsed",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethValidIntervals": {
+    "name": "ethValidIntervals",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethResetPm": {
+    "name": "ethResetPm",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethAutoNegSupported": {
+    "name": "ethAutoNegSupported",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethAutoNegAdminStatus": {
+    "name": "ethAutoNegAdminStatus",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethConfigStatus": {
+    "name": "ethConfigStatus",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTransceiverType": {
+    "name": "ethTransceiverType",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "base1000SX": 2,
+          "base1000LX": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethPauseTime": {
+    "name": "ethPauseTime",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethPauseEnable": {
+    "name": "ethPauseEnable",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethResetPmCounters": {
+    "name": "ethResetPmCounters",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethTransceiverMedia": {
+    "name": "ethTransceiverMedia",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "copper": 2,
+          "fiber": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethCurrentTable": {
+    "name": "ethCurrentTable",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethCurrentEntry": {
+    "name": "ethCurrentEntry",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-ETH-MIB",
+        "object": "ethCurrentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethCurrentIndex": {
+    "name": "ethCurrentIndex",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxDropEvents": {
+    "name": "ethCurrentRxDropEvents",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentOctets": {
+    "name": "ethCurrentOctets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentPkts": {
+    "name": "ethCurrentPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentBroadcastPkts": {
+    "name": "ethCurrentBroadcastPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentMulticastPkts": {
+    "name": "ethCurrentMulticastPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentCRCAlignErrors": {
+    "name": "ethCurrentCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentUndersizePkts": {
+    "name": "ethCurrentUndersizePkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentOversizePkts": {
+    "name": "ethCurrentOversizePkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentFragments": {
+    "name": "ethCurrentFragments",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentJabbers": {
+    "name": "ethCurrentJabbers",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentCollisions": {
+    "name": "ethCurrentCollisions",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentUtilization": {
+    "name": "ethCurrentUtilization",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxOctets": {
+    "name": "ethCurrentTxOctets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPkts": {
+    "name": "ethCurrentTxPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxPause": {
+    "name": "ethCurrentRxPause",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPause": {
+    "name": "ethCurrentTxPause",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxDropEvents": {
+    "name": "ethCurrentTxDropEvents",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxPkts64Octets": {
+    "name": "ethCurrentRxPkts64Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxPkts65to127Octets": {
+    "name": "ethCurrentRxPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxPkts128to255Octets": {
+    "name": "ethCurrentRxPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxPkts256to511Octets": {
+    "name": "ethCurrentRxPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxPkts512to1023Octets": {
+    "name": "ethCurrentRxPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxPkts1024to1518Octets": {
+    "name": "ethCurrentRxPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxPkts1519to1522Octets": {
+    "name": "ethCurrentRxPkts1519to1522Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPkts64Octets": {
+    "name": "ethCurrentTxPkts64Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPkts65to127Octets": {
+    "name": "ethCurrentTxPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPkts128to255Octets": {
+    "name": "ethCurrentTxPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPkts256to511Octets": {
+    "name": "ethCurrentTxPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPkts512to1023Octets": {
+    "name": "ethCurrentTxPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPkts1024to1518Octets": {
+    "name": "ethCurrentTxPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxPkts1519to1522Octets": {
+    "name": "ethCurrentTxPkts1519to1522Octets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxVlanPkts": {
+    "name": "ethCurrentRxVlanPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxVlanPkts": {
+    "name": "ethCurrentTxVlanPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentRxJumboPkts": {
+    "name": "ethCurrentRxJumboPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethCurrentTxJumboPkts": {
+    "name": "ethCurrentTxJumboPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalTable": {
+    "name": "ethIntervalTable",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethIntervalEntry": {
+    "name": "ethIntervalEntry",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-ETH-MIB",
+        "object": "ethIntervalIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-ETH-MIB",
+        "object": "ethIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethIntervalIndex": {
+    "name": "ethIntervalIndex",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalNumber": {
+    "name": "ethIntervalNumber",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalDropEvents": {
+    "name": "ethIntervalDropEvents",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalOctets": {
+    "name": "ethIntervalOctets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalPkts": {
+    "name": "ethIntervalPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalBroadcastPkts": {
+    "name": "ethIntervalBroadcastPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalMulticastPkts": {
+    "name": "ethIntervalMulticastPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalCRCAlignErrors": {
+    "name": "ethIntervalCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalUndersizePkts": {
+    "name": "ethIntervalUndersizePkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalOversizePkts": {
+    "name": "ethIntervalOversizePkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalFragments": {
+    "name": "ethIntervalFragments",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalJabbers": {
+    "name": "ethIntervalJabbers",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalCollisions": {
+    "name": "ethIntervalCollisions",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalUtilization": {
+    "name": "ethIntervalUtilization",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalTxOctets": {
+    "name": "ethIntervalTxOctets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalTxPkts": {
+    "name": "ethIntervalTxPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalRxPause": {
+    "name": "ethIntervalRxPause",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalTxPause": {
+    "name": "ethIntervalTxPause",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalValidData": {
+    "name": "ethIntervalValidData",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethIntervalTcaFlag": {
+    "name": "ethIntervalTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalTable": {
+    "name": "ethTotalTable",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethTotalEntry": {
+    "name": "ethTotalEntry",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-ETH-MIB",
+        "object": "ethTotalIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-ETH-MIB",
+        "object": "ethTotalDayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethTotalIndex": {
+    "name": "ethTotalIndex",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalDayNumber": {
+    "name": "ethTotalDayNumber",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethTotalDropEvents": {
+    "name": "ethTotalDropEvents",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalOctets": {
+    "name": "ethTotalOctets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalPkts": {
+    "name": "ethTotalPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalBroadcastPkts": {
+    "name": "ethTotalBroadcastPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalMulticastPkts": {
+    "name": "ethTotalMulticastPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalCRCAlignErrors": {
+    "name": "ethTotalCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalUndersizePkts": {
+    "name": "ethTotalUndersizePkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalOversizePkts": {
+    "name": "ethTotalOversizePkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalFragments": {
+    "name": "ethTotalFragments",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalJabbers": {
+    "name": "ethTotalJabbers",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalCollisions": {
+    "name": "ethTotalCollisions",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalUtilization": {
+    "name": "ethTotalUtilization",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalTxOctets": {
+    "name": "ethTotalTxOctets",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalTxPkts": {
+    "name": "ethTotalTxPkts",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalRxPause": {
+    "name": "ethTotalRxPause",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalTxPause": {
+    "name": "ethTotalTxPause",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethTotalValidData": {
+    "name": "ethTotalValidData",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethStatusChange": {
+    "name": "ethStatusChange",
+    "oid": "1.3.6.1.4.1.4515.1.1.1.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-ETH-MIB",
+        "object": "ethLineIndex"
+      },
+      {
+        "module": "SL-ETH-MIB",
+        "object": "ethConfigStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-ETH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-ETH-MIB"
+  }
+}

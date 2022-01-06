@@ -1,0 +1,1816 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-WLAN-MIB": [
+      "hwWlan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwWlanVap": {
+    "name": "hwWlanVap",
+    "oid": "1.3.6.1.4.1.2011.6.139.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-07-08 16:51",
+        "description": "V1.21, Modify the nodes of hwVapCreateFailReason and hwVapMaxNum about description."
+      },
+      {
+        "revision": "2020-06-16 10:38",
+        "description": "V1.21, Modify the nodes of hwVapCreateFailReason and hwVapMaxNum about description."
+      },
+      {
+        "revision": "2020-06-12 10:00",
+        "description": "V1.20, Modify the nodes of hwVapIGMPSnoopingBandwidthExceedTrap, hwVapCreateFailTrapRestore and hwVapIGMPSnoopingUserExceedTrap about description."
+      },
+      {
+        "revision": "2020-06-10 10:54",
+        "description": "V1.19, Modify the nodes of hwVapNumExceedSpecTrap and hwVapCreateFailTrap about description."
+      },
+      {
+        "revision": "2019-09-20 15:30",
+        "description": "V1.18, Add the nodes of hwVapNumExceedCardSpecTrap and hwVapNumExceedCardSpecTrapRestore."
+      },
+      {
+        "revision": "2019-09-20 15:30",
+        "description": "V1.17, Modify the nodes of hwWlanVapAuthType and hwWlanNaviVapAuthType."
+      },
+      {
+        "revision": "2019-01-08 11:35",
+        "description": "V1.16, Add node hwVapCreateFailReason, hwVapCreateFailTrap and hwVapCreateFailTrapRestore."
+      },
+      {
+        "revision": "2018-12-10 21:35",
+        "description": " V1.15, Modify the nodes of hwWlanNaviVapState "
+      },
+      {
+        "revision": "2018-12-04 10:05",
+        "description": " V1.14, Modify the nodes of hwWlanVapAuthType and hwWlanNaviVapAuthType. "
+      },
+      {
+        "revision": "2018-10-23 22:05",
+        "description": " V1.13, Modify the nodes of hwWlanNaviVapACID and hwWlanNaviVapWlanId. "
+      },
+      {
+        "revision": "2018-09-06 10:30",
+        "description": " V1.12, Add the tables hwWlanNaviAcVapInfoTable and hwWlanNaviVapCreateFailTable. "
+      },
+      {
+        "revision": "2018-09-01 15:30",
+        "description": " V1.11, Modify node hwWlanVapAuthType. "
+      },
+      {
+        "revision": "2017-12-10 17:30",
+        "description": "The MIB module defines the VAP operation."
+      },
+      {
+        "revision": "2016-07-07 10:30",
+        "description": " V1.10, Add the table of hwWlanVapIGMPSnoopingCacInfoTable, hwVapIGMPSnoopingBandwidthExceedTrap and hwVapIGMPSnoopingUserExceedTrap. "
+      },
+      {
+        "revision": "2016-02-16 20:30",
+        "description": " V1.09, Add the table of hwWlanMacRfSsidStatisticTable. "
+      },
+      {
+        "revision": "2016-02-16 20:30",
+        "description": " V1.08, Add the table of hwWlanRfSsidStatisticTable. "
+      },
+      {
+        "revision": "2015-12-18 20:30",
+        "description": " V1.07, Add the node of hwWlanVapTrapInfo. "
+      },
+      {
+        "revision": "2015-11-05 20:30",
+        "description": " V1.06, Add Value list in the hwWlanVapAuthType. "
+      },
+      {
+        "revision": "2015-08-26 15:30",
+        "description": " V1.05, Add the node of hwWlanVapApId in the hwWlanVapInfoTable. "
+      },
+      {
+        "revision": "2015-05-13 15:30",
+        "description": " V1.04, Add three mib nodes: hwWlanSsidPeriodRecvFrames, hwWlanSsidSendRate, hwWlanSsidRecvRate. "
+      },
+      {
+        "revision": "2015-05-11 15:10",
+        "description": " V1.03, Add the description of mib nodes. "
+      },
+      {
+        "revision": "2015-04-13 15:10",
+        "description": " V1.02, Modify the name of the node of hwWlanVapInfoEntry. "
+      },
+      {
+        "revision": "2015-02-02 14:52",
+        "description": " V1.00, Inital version. "
+      }
+    ]
+  },
+  "hwWlanVapObjects": {
+    "name": "hwWlanVapObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1",
+    "class": "objectidentity"
+  },
+  "hwWlanVapInfoTable": {
+    "name": "hwWlanVapInfoTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanVapInfoEntry": {
+    "name": "hwWlanVapInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApMac",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapRadioIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapWlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanVapApMac": {
+    "name": "hwWlanVapApMac",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwWlanVapRadioIndex": {
+    "name": "hwWlanVapRadioIndex",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwWlanVapWlanId": {
+    "name": "hwWlanVapWlanId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwWlanVapProfileName": {
+    "name": "hwWlanVapProfileName",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapBssid": {
+    "name": "hwWlanVapBssid",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapSSID": {
+    "name": "hwWlanVapSSID",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapApName": {
+    "name": "hwWlanVapApName",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapAuthType": {
+    "name": "hwWlanVapAuthType",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wepOpenSystem": 1,
+          "wepOpenSystemMac": 2,
+          "wepOpenSystem8021X": 3,
+          "wepOpenSystemPortal": 4,
+          "wepShareKey": 5,
+          "wepShareKeyMac": 6,
+          "wepShareKey8021X": 7,
+          "wepShareKeyPortal": 8,
+          "wpa8021X": 9,
+          "wpaPreShareKey": 10,
+          "wpaPskMac": 11,
+          "wpaPskPortal": 12,
+          "wpa2Dot1x": 13,
+          "wpa2PreShareKey": 14,
+          "wpa2PskMac": 15,
+          "wpa2PskPortal": 16,
+          "wapiCertification": 17,
+          "wapiPreShareKey": 18,
+          "wpaWpa2PreShareKey": 19,
+          "wpaWpa2PskMac": 20,
+          "wpaWpa2PskPortal": 21,
+          "wpaWpa2Dot1x": 22,
+          "wapiPskPortal": 23,
+          "wepOpenSystem8021XMac": 24,
+          "wepShareKey8021XMac": 25,
+          "wpa8021XMac": 26,
+          "wpa2Dot1xMac": 27,
+          "wpaWpa2Dot1xMac": 28,
+          "wepOpenSystemPortalMac": 29,
+          "wepShareKeyPortalMac": 30,
+          "wpaPskPortalMac": 31,
+          "wpa2PskPortalMac": 32,
+          "wpaWpa2PskPortalMac": 33,
+          "wapiPskPortalMac": 34,
+          "wpaPpsk": 35,
+          "wpaPpskMac": 36,
+          "wpaPpskPortal": 37,
+          "wpaPpskPortalMac": 38,
+          "wpa2Ppsk": 39,
+          "wpa2PpskMac": 40,
+          "wpa2PpskPortal": 41,
+          "wpa2PpskPortalMac": 42,
+          "wpaWpa2Ppsk": 43,
+          "wpaWpa2PpskMac": 44,
+          "wpaWpa2PpskPortal": 45,
+          "wpaWpa2PpskPortalMac": 46,
+          "wep8021X": 47,
+          "wpa3Dot1x": 48,
+          "wpa3Dot1xMac": 49,
+          "wpa3Sae": 50,
+          "wpa3SaePortal": 51,
+          "wpa3SaeMac": 52,
+          "wpa3SaePortalMac": 53,
+          "wpa2PskWpa3Sae": 54,
+          "wpa2PskWpa3SaePortal": 55,
+          "wpa2PskWpa3SaePortalMac": 56,
+          "wpa2PskWpa3SaeMac": 57
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapStaOnlineCnt": {
+    "name": "hwWlanVapStaOnlineCnt",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapStatus": {
+    "name": "hwWlanVapStatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapApId": {
+    "name": "hwWlanVapApId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidStatisticTable": {
+    "name": "hwWlanSsidStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanSsidStatisticEntry": {
+    "name": "hwWlanSsidStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanSsid": {
+    "name": "hwWlanSsid",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanSsid2gStaCnt": {
+    "name": "hwWlanSsid2gStaCnt",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsid5gStaCnt": {
+    "name": "hwWlanSsid5gStaCnt",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidApCnt": {
+    "name": "hwWlanSsidApCnt",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidRecvBytes": {
+    "name": "hwWlanSsidRecvBytes",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidPeriodRecvErrorFrames": {
+    "name": "hwWlanSsidPeriodRecvErrorFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidRecvFrames": {
+    "name": "hwWlanSsidRecvFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidPeriodRecvDropFrames": {
+    "name": "hwWlanSsidPeriodRecvDropFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidSendBytes": {
+    "name": "hwWlanSsidSendBytes",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidSendFrames": {
+    "name": "hwWlanSsidSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidPeriodSendDropFrames": {
+    "name": "hwWlanSsidPeriodSendDropFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidPeriodReSendFrames": {
+    "name": "hwWlanSsidPeriodReSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidPeriodSendFrames": {
+    "name": "hwWlanSsidPeriodSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidPeriodRecvFrames": {
+    "name": "hwWlanSsidPeriodRecvFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidSendRate": {
+    "name": "hwWlanSsidSendRate",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSsidRecvRate": {
+    "name": "hwWlanSsidRecvRate",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidStatisticTable": {
+    "name": "hwWlanRfSsidStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanRfSsidStatisticEntry": {
+    "name": "hwWlanRfSsidStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanRfSsidStatisticApId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanRfSsidStatisticRadioId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanRfSsidStatisticEssSsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanRfSsidStatisticApId": {
+    "name": "hwWlanRfSsidStatisticApId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanRfSsidStatisticRadioId": {
+    "name": "hwWlanRfSsidStatisticRadioId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanRfSsidStatisticEssSsid": {
+    "name": "hwWlanRfSsidStatisticEssSsid",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanRfSsidCurrentStaNum": {
+    "name": "hwWlanRfSsidCurrentStaNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidRecvBytes": {
+    "name": "hwWlanRfSsidRecvBytes",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidRecvFrames": {
+    "name": "hwWlanRfSsidRecvFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidSendBytes": {
+    "name": "hwWlanRfSsidSendBytes",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidSendFrames": {
+    "name": "hwWlanRfSsidSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidSendDropFrames": {
+    "name": "hwWlanRfSsidSendDropFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidReSendFrames": {
+    "name": "hwWlanRfSsidReSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidPeriodSendFrames": {
+    "name": "hwWlanRfSsidPeriodSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidPeriodSendDropFrames": {
+    "name": "hwWlanRfSsidPeriodSendDropFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanRfSsidPeriodReSendFrames": {
+    "name": "hwWlanRfSsidPeriodReSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidStatisticTable": {
+    "name": "hwWlanMacRfSsidStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidStatisticEntry": {
+    "name": "hwWlanMacRfSsidStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanMacRfSsidStatisticApMac",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanMacRfSsidStatisticRadioId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanMacRfSsidStatisticEssSsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanMacRfSsidStatisticApMac": {
+    "name": "hwWlanMacRfSsidStatisticApMac",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidStatisticRadioId": {
+    "name": "hwWlanMacRfSsidStatisticRadioId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidStatisticEssSsid": {
+    "name": "hwWlanMacRfSsidStatisticEssSsid",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidCurrentStaNum": {
+    "name": "hwWlanMacRfSsidCurrentStaNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidRecvBytes": {
+    "name": "hwWlanMacRfSsidRecvBytes",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidRecvFrames": {
+    "name": "hwWlanMacRfSsidRecvFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidSendBytes": {
+    "name": "hwWlanMacRfSsidSendBytes",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidSendFrames": {
+    "name": "hwWlanMacRfSsidSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidSendDropFrames": {
+    "name": "hwWlanMacRfSsidSendDropFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidReSendFrames": {
+    "name": "hwWlanMacRfSsidReSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidPeriodSendFrames": {
+    "name": "hwWlanMacRfSsidPeriodSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidPeriodSendDropFrames": {
+    "name": "hwWlanMacRfSsidPeriodSendDropFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanMacRfSsidPeriodReSendFrames": {
+    "name": "hwWlanMacRfSsidPeriodReSendFrames",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacInfoTable": {
+    "name": "hwWlanVapIGMPSnoopingCacInfoTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacInfoEntry": {
+    "name": "hwWlanVapIGMPSnoopingCacInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapIGMPSnoopingCacApId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapIGMPSnoopingCacRadioId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapIGMPSnoopingCacWlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacApId": {
+    "name": "hwWlanVapIGMPSnoopingCacApId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacRadioId": {
+    "name": "hwWlanVapIGMPSnoopingCacRadioId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacWlanId": {
+    "name": "hwWlanVapIGMPSnoopingCacWlanId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacApName": {
+    "name": "hwWlanVapIGMPSnoopingCacApName",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacCurBw": {
+    "name": "hwWlanVapIGMPSnoopingCacCurBw",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacMaxBw": {
+    "name": "hwWlanVapIGMPSnoopingCacMaxBw",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacCurUser": {
+    "name": "hwWlanVapIGMPSnoopingCacCurUser",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapIGMPSnoopingCacMaxUser": {
+    "name": "hwWlanVapIGMPSnoopingCacMaxUser",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviAcVapInfoTable": {
+    "name": "hwWlanNaviAcVapInfoTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanNaviAcVapInfoEntry": {
+    "name": "hwWlanNaviAcVapInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanNaviVapACID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanNaviVapWlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanNaviVapACID": {
+    "name": "hwWlanNaviVapACID",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanNaviVapACIPv4": {
+    "name": "hwWlanNaviVapACIPv4",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapACIPv6": {
+    "name": "hwWlanNaviVapACIPv6",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapACMac": {
+    "name": "hwWlanNaviVapACMac",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapWlanId": {
+    "name": "hwWlanNaviVapWlanId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanNaviVapState": {
+    "name": "hwWlanNaviVapState",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapAuthType": {
+    "name": "hwWlanNaviVapAuthType",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wepOpenSystem": 1,
+          "wepOpenSystemMac": 2,
+          "wepOpenSystem8021X": 3,
+          "wepOpenSystemPortal": 4,
+          "wepShareKey": 5,
+          "wepShareKeyMac": 6,
+          "wepShareKey8021X": 7,
+          "wepShareKeyPortal": 8,
+          "wpa8021X": 9,
+          "wpaPreShareKey": 10,
+          "wpaPskMac": 11,
+          "wpaPskPortal": 12,
+          "wpa2Dot1x": 13,
+          "wpa2PreShareKey": 14,
+          "wpa2PskMac": 15,
+          "wpa2PskPortal": 16,
+          "wapiCertification": 17,
+          "wapiPreShareKey": 18,
+          "wpaWpa2PreShareKey": 19,
+          "wpaWpa2PskMac": 20,
+          "wpaWpa2PskPortal": 21,
+          "wpaWpa2Dot1x": 22,
+          "wapiPskPortal": 23,
+          "wepOpenSystem8021XMac": 24,
+          "wepShareKey8021XMac": 25,
+          "wpa8021XMac": 26,
+          "wpa2Dot1xMac": 27,
+          "wpaWpa2Dot1xMac": 28,
+          "wepOpenSystemPortalMac": 29,
+          "wepShareKeyPortalMac": 30,
+          "wpaPskPortalMac": 31,
+          "wpa2PskPortalMac": 32,
+          "wpaWpa2PskPortalMac": 33,
+          "wapiPskPortalMac": 34,
+          "wpaPpsk": 35,
+          "wpaPpskMac": 36,
+          "wpaPpskPortal": 37,
+          "wpaPpskPortalMac": 38,
+          "wpa2Ppsk": 39,
+          "wpa2PpskMac": 40,
+          "wpa2PpskPortal": 41,
+          "wpa2PpskPortalMac": 42,
+          "wpaWpa2Ppsk": 43,
+          "wpaWpa2PpskMac": 44,
+          "wpaWpa2PpskPortal": 45,
+          "wpaWpa2PpskPortalMac": 46,
+          "wep8021X": 47,
+          "wpa3Dot1x": 48,
+          "wpa3Dot1xMac": 49,
+          "wpa3Sae": 50,
+          "wpa3SaePortal": 51,
+          "wpa3SaeMac": 52,
+          "wpa3SaePortalMac": 53,
+          "wpa2PskWpa3Sae": 54,
+          "wpa2PskWpa3SaePortal": 55,
+          "wpa2PskWpa3SaePortalMac": 56,
+          "wpa2PskWpa3SaeMac": 57
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapStaNum": {
+    "name": "hwWlanNaviVapStaNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapSSID": {
+    "name": "hwWlanNaviVapSSID",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailTable": {
+    "name": "hwWlanNaviVapCreateFailTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailEntry": {
+    "name": "hwWlanNaviVapCreateFailEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanNaviVapCreateFailACID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanNaviVapCreateFailWlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailACID": {
+    "name": "hwWlanNaviVapCreateFailACID",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailIPv4": {
+    "name": "hwWlanNaviVapCreateFailIPv4",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailIPv6": {
+    "name": "hwWlanNaviVapCreateFailIPv6",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailACMac": {
+    "name": "hwWlanNaviVapCreateFailACMac",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailWlanId": {
+    "name": "hwWlanNaviVapCreateFailWlanId",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailVapProfile": {
+    "name": "hwWlanNaviVapCreateFailVapProfile",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailTime": {
+    "name": "hwWlanNaviVapCreateFailTime",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanNaviVapCreateFailReason": {
+    "name": "hwWlanNaviVapCreateFailReason",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapTrapInfo": {
+    "name": "hwWlanVapTrapInfo",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2",
+    "class": "objectidentity"
+  },
+  "hwWlanVapTrap": {
+    "name": "hwWlanVapTrap",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.1",
+    "class": "objectidentity"
+  },
+  "hwVapNumExceedSpecTrap": {
+    "name": "hwVapNumExceedSpecTrap",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVapIGMPSnoopingBandwidthExceedTrap": {
+    "name": "hwVapIGMPSnoopingBandwidthExceedTrap",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapRadioIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapWlanId"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApName"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapMulticastCacMaxBw"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVapIGMPSnoopingUserExceedTrap": {
+    "name": "hwVapIGMPSnoopingUserExceedTrap",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapRadioIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapWlanId"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApName"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapMulticastCacMaxUser"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVapCreateFailTrap": {
+    "name": "hwVapCreateFailTrap",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapCreateFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVapCreateFailTrapRestore": {
+    "name": "hwVapCreateFailTrapRestore",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapCreateFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVapNumExceedCardSpecTrap": {
+    "name": "hwVapNumExceedCardSpecTrap",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapSlot"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVapNumExceedCardSpecTrapRestore": {
+    "name": "hwVapNumExceedCardSpecTrapRestore",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapSlot"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanVapTrapObjects": {
+    "name": "hwWlanVapTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.2",
+    "class": "objectidentity"
+  },
+  "hwVapMaxNum": {
+    "name": "hwVapMaxNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVapMulticastCacMaxBw": {
+    "name": "hwVapMulticastCacMaxBw",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVapMulticastCacMaxUser": {
+    "name": "hwVapMulticastCacMaxUser",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVapCreateFailReason": {
+    "name": "hwVapCreateFailReason",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVapSlot": {
+    "name": "hwVapSlot",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanVapConformance": {
+    "name": "hwWlanVapConformance",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.3",
+    "class": "objectidentity"
+  },
+  "hwWlanVapCompliances": {
+    "name": "hwWlanVapCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.3.1",
+    "class": "objectidentity"
+  },
+  "hwWlanVapCompliance": {
+    "name": "hwWlanVapCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwWlanVapInfoGroup",
+        "module": "HUAWEI-WLAN-VAP-MIB"
+      },
+      {
+        "object": "hwWlanSsidStatisticGroup",
+        "module": "HUAWEI-WLAN-VAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanVapObjectGroups": {
+    "name": "hwWlanVapObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.3.2",
+    "class": "objectidentity"
+  },
+  "hwWlanVapInfoGroup": {
+    "name": "hwWlanVapInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapProfileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApName"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapAuthType"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapStaOnlineCnt"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanVapApId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanSsidStatisticGroup": {
+    "name": "hwWlanSsidStatisticGroup",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsid2gStaCnt"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsid5gStaCnt"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidApCnt"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidRecvBytes"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidPeriodRecvErrorFrames"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidRecvFrames"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidPeriodRecvDropFrames"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidSendBytes"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidSendFrames"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidPeriodSendDropFrames"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidPeriodReSendFrames"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidPeriodSendFrames"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidPeriodRecvFrames"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidSendRate"
+      },
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwWlanSsidRecvRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanVapTrapGroup": {
+    "name": "hwWlanVapTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapNumExceedSpecTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanVapTrapObjectsGroup": {
+    "name": "hwWlanVapTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.2011.6.139.17.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-VAP-MIB",
+        "object": "hwVapMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-WLAN-VAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-WLAN-VAP-MIB"
+  }
+}

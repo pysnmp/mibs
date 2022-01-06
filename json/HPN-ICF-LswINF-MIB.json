@@ -1,0 +1,1964 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicflswCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfLswL2InfMib": {
+    "name": "hpnicfLswL2InfMib",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-06-29 00:00",
+        "description": ""
+      }
+    ]
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "VlanIndex": {
+    "name": "VlanIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DropDirection": {
+    "name": "DropDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enableInbound": 2,
+          "enableOutbound": 3,
+          "enableBoth": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SpeedModeFlag": {
+    "name": "SpeedModeFlag",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "s10M": 0,
+        "s100M": 1,
+        "s1000M": 2,
+        "s10000M": 3,
+        "s24000M": 4,
+        "s40000M": 5,
+        "s100000M": 6
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfLswExtInterface": {
+    "name": "hpnicfLswExtInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1",
+    "class": "objectidentity"
+  },
+  "hpnicfifXXTable": {
+    "name": "hpnicfifXXTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfifXXEntry": {
+    "name": "hpnicfifXXEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfifUnBoundPort": {
+    "name": "hpnicfifUnBoundPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifISPhyPort": {
+    "name": "hpnicfifISPhyPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifAggregatePort": {
+    "name": "hpnicfifAggregatePort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifMirrorPort": {
+    "name": "hpnicfifMirrorPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifVLANType": {
+    "name": "hpnicfifVLANType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vLANTrunk": 1,
+          "access": 2,
+          "hybrid": 3,
+          "fabric": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifMcastControl": {
+    "name": "hpnicfifMcastControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifFlowControl": {
+    "name": "hpnicfifFlowControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifSrcMacControl": {
+    "name": "hpnicfifSrcMacControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifClearStat": {
+    "name": "hpnicfifClearStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifXXBasePortIndex": {
+    "name": "hpnicfifXXBasePortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifXXDevPortIndex": {
+    "name": "hpnicfifXXDevPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifPpsMcastControl": {
+    "name": "hpnicfifPpsMcastControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifPpsBcastDisValControl": {
+    "name": "hpnicfifPpsBcastDisValControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifUniSuppressionStep": {
+    "name": "hpnicfifUniSuppressionStep",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifPpsUniSuppressionMax": {
+    "name": "hpnicfifPpsUniSuppressionMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifMulSuppressionStep": {
+    "name": "hpnicfifMulSuppressionStep",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifPpsMulSuppressionMax": {
+    "name": "hpnicfifPpsMulSuppressionMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifUniSuppression": {
+    "name": "hpnicfifUniSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifPpsUniSuppression": {
+    "name": "hpnicfifPpsUniSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifMulSuppression": {
+    "name": "hpnicfifMulSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifPpsMulSuppression": {
+    "name": "hpnicfifPpsMulSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifComboActivePort": {
+    "name": "hpnicfifComboActivePort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiber": 1,
+          "copper": 2,
+          "na": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hpnicfifBMbpsMulSuppressionMax": {
+    "name": "hpnicfifBMbpsMulSuppressionMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifBMbpsMulSuppression": {
+    "name": "hpnicfifBMbpsMulSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifBKbpsMulSuppressionMax": {
+    "name": "hpnicfifBKbpsMulSuppressionMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifBKbpsMulSuppressionStep": {
+    "name": "hpnicfifBKbpsMulSuppressionStep",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifBKbpsMulSuppression": {
+    "name": "hpnicfifBKbpsMulSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifUnknownPacketDropMul": {
+    "name": "hpnicfifUnknownPacketDropMul",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DropDirection",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifUnknownPacketDropUni": {
+    "name": "hpnicfifUnknownPacketDropUni",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DropDirection",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifBMbpsUniSuppressionMax": {
+    "name": "hpnicfifBMbpsUniSuppressionMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifBMbpsUniSuppression": {
+    "name": "hpnicfifBMbpsUniSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifBKbpsUniSuppressionMax": {
+    "name": "hpnicfifBKbpsUniSuppressionMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifBKbpsUniSuppressionStep": {
+    "name": "hpnicfifBKbpsUniSuppressionStep",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifBKbpsUniSuppression": {
+    "name": "hpnicfifBKbpsUniSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifOutPayloadOctets": {
+    "name": "hpnicfifOutPayloadOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifInPayloadOctets": {
+    "name": "hpnicfifInPayloadOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifInErrorPktsRate": {
+    "name": "hpnicfifInErrorPktsRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifInPkts": {
+    "name": "hpnicfifInPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifInNormalPkts": {
+    "name": "hpnicfifInNormalPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifOutPkts": {
+    "name": "hpnicfifOutPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifAggregateTable": {
+    "name": "hpnicfifAggregateTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfifAggregateEntry": {
+    "name": "hpnicfifAggregateEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LswINF-MIB",
+        "object": "hpnicfifAggregatePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfifAggregatePortIndex": {
+    "name": "hpnicfifAggregatePortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifAggregatePortName": {
+    "name": "hpnicfifAggregatePortName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifAggregatePortListPorts": {
+    "name": "hpnicfifAggregatePortListPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifAggregateModel": {
+    "name": "hpnicfifAggregateModel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "both": 2,
+          "round-robin": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifAggregateOperStatus": {
+    "name": "hpnicfifAggregateOperStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfifHybridPortTable": {
+    "name": "hpnicfifHybridPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfifHybridPortEntry": {
+    "name": "hpnicfifHybridPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LswINF-MIB",
+        "object": "hpnicfifHybridPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfifHybridPortIndex": {
+    "name": "hpnicfifHybridPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifHybridTaggedVlanListLow": {
+    "name": "hpnicfifHybridTaggedVlanListLow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifHybridTaggedVlanListHigh": {
+    "name": "hpnicfifHybridTaggedVlanListHigh",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifHybridUnTaggedVlanListLow": {
+    "name": "hpnicfifHybridUnTaggedVlanListLow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifHybridUnTaggedVlanListHigh": {
+    "name": "hpnicfifHybridUnTaggedVlanListHigh",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifComboPortTable": {
+    "name": "hpnicfifComboPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfifComboPortEntry": {
+    "name": "hpnicfifComboPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LswINF-MIB",
+        "object": "hpnicfifComboPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfifComboPortIndex": {
+    "name": "hpnicfifComboPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifComboPortCurActive": {
+    "name": "hpnicfifComboPortCurActive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiber": 1,
+          "copper": 2,
+          "na": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifPktBufTable": {
+    "name": "hpnicfifPktBufTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfifPktBufEntry": {
+    "name": "hpnicfifPktBufEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfifPktBufFree": {
+    "name": "hpnicfifPktBufFree",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifPktBufInit": {
+    "name": "hpnicfifPktBufInit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifPktBufMin": {
+    "name": "hpnicfifPktBufMin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifPktBufMiss": {
+    "name": "hpnicfifPktBufMiss",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLswL2InfMibObject": {
+    "name": "hpnicfLswL2InfMibObject",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1",
+    "class": "objectidentity"
+  },
+  "hpnicfSlotPortMax": {
+    "name": "hpnicfSlotPortMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSwitchPortMax": {
+    "name": "hpnicfSwitchPortMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifVLANTrunkStatusTable": {
+    "name": "hpnicfifVLANTrunkStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfifVLANTrunkStatusEntry": {
+    "name": "hpnicfifVLANTrunkStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LswINF-MIB",
+        "object": "hpnicfifVLANTrunkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfifVLANTrunkIndex": {
+    "name": "hpnicfifVLANTrunkIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifVLANTrunkGvrpRegistration": {
+    "name": "hpnicfifVLANTrunkGvrpRegistration",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fixed": 2,
+          "forbidden": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifVLANTrunkPassListLow": {
+    "name": "hpnicfifVLANTrunkPassListLow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifVLANTrunkPassListHigh": {
+    "name": "hpnicfifVLANTrunkPassListHigh",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifVLANTrunkAllowListLow": {
+    "name": "hpnicfifVLANTrunkAllowListLow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifVLANTrunkAllowListHigh": {
+    "name": "hpnicfifVLANTrunkAllowListHigh",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfethernetTable": {
+    "name": "hpnicfethernetTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfethernetEntry": {
+    "name": "hpnicfethernetEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfifEthernetDuplex": {
+    "name": "hpnicfifEthernetDuplex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifEthernetMTU": {
+    "name": "hpnicfifEthernetMTU",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifEthernetSpeed": {
+    "name": "hpnicfifEthernetSpeed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "s10M": 10,
+          "s100M": 100,
+          "s1000M": 1000,
+          "s10000M": 10000,
+          "s24000M": 24000,
+          "s40000M": 40000,
+          "s100000M": 100000
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifEthernetMdi": {
+    "name": "hpnicfifEthernetMdi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mdi-ii": 1,
+          "mdi-x": 2,
+          "mdi-auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMaxMacLearn": {
+    "name": "hpnicfMaxMacLearn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifMacAddressLearn": {
+    "name": "hpnicfifMacAddressLearn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifEthernetTest": {
+    "name": "hpnicfifEthernetTest",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "test": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifMacAddrLearnMode": {
+    "name": "hpnicfifMacAddrLearnMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iVL": 1,
+          "sVL": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifEthernetFlowInterval": {
+    "name": "hpnicfifEthernetFlowInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifEthernetIsolate": {
+    "name": "hpnicfifEthernetIsolate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifVlanVPNStatus": {
+    "name": "hpnicfifVlanVPNStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifVlanVPNUplinkStatus": {
+    "name": "hpnicfifVlanVPNUplinkStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifVlanVPNTPID": {
+    "name": "hpnicfifVlanVPNTPID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifIsolateGroupID": {
+    "name": "hpnicfifIsolateGroupID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfifisUplinkPort": {
+    "name": "hpnicfifisUplinkPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifEthernetAutoSpeedMask": {
+    "name": "hpnicfifEthernetAutoSpeedMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpeedModeFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifEthernetAutoSpeed": {
+    "name": "hpnicfifEthernetAutoSpeed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpeedModeFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIsolateGroupMax": {
+    "name": "hpnicfIsolateGroupMax",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfGlobalBroadcastMaxPps": {
+    "name": "hpnicfGlobalBroadcastMaxPps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 14881000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfGlobalBroadcastMaxRatio": {
+    "name": "hpnicfGlobalBroadcastMaxRatio",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfBpduTunnelStatus": {
+    "name": "hpnicfBpduTunnelStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVlanVPNTPIDMode": {
+    "name": "hpnicfVlanVPNTPIDMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port-based": 1,
+          "global": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVlanVPNTPID": {
+    "name": "hpnicfVlanVPNTPID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPortIsolateGroupTable": {
+    "name": "hpnicfPortIsolateGroupTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortIsolateGroupEntry": {
+    "name": "hpnicfPortIsolateGroupEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-LswINF-MIB",
+        "object": "hpnicfPortIsolateGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortIsolateGroupIndex": {
+    "name": "hpnicfPortIsolateGroupIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortIsolateUplinkIfIndex": {
+    "name": "hpnicfPortIsolateUplinkIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortIsolateGroupRowStatus": {
+    "name": "hpnicfPortIsolateGroupRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortIsolateGroupDescription": {
+    "name": "hpnicfPortIsolateGroupDescription",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfMaxMacLearnRange": {
+    "name": "hpnicfMaxMacLearnRange",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifPortProtocolStatTable": {
+    "name": "hpnicfifPortProtocolStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfifPortProtocolStatEntry": {
+    "name": "hpnicfifPortProtocolStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfifIPv4InOctets": {
+    "name": "hpnicfifIPv4InOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4InUcastPkts": {
+    "name": "hpnicfifIPv4InUcastPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4InMultiPkts": {
+    "name": "hpnicfifIPv4InMultiPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4InBroadcastPkts": {
+    "name": "hpnicfifIPv4InBroadcastPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4InDiscards": {
+    "name": "hpnicfifIPv4InDiscards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4InErrors": {
+    "name": "hpnicfifIPv4InErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4OutOctets": {
+    "name": "hpnicfifIPv4OutOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4OutUcastPkts": {
+    "name": "hpnicfifIPv4OutUcastPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4OutMultiPkts": {
+    "name": "hpnicfifIPv4OutMultiPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4OutBroadcastPkts": {
+    "name": "hpnicfifIPv4OutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4OutDiscards": {
+    "name": "hpnicfifIPv4OutDiscards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv4OutErrors": {
+    "name": "hpnicfifIPv4OutErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6InOctets": {
+    "name": "hpnicfifIPv6InOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6InUcastPkts": {
+    "name": "hpnicfifIPv6InUcastPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6InMultiPkts": {
+    "name": "hpnicfifIPv6InMultiPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6InAnycastPkts": {
+    "name": "hpnicfifIPv6InAnycastPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6InDiscards": {
+    "name": "hpnicfifIPv6InDiscards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6InErrors": {
+    "name": "hpnicfifIPv6InErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6OutOctets": {
+    "name": "hpnicfifIPv6OutOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6OutUcastPkts": {
+    "name": "hpnicfifIPv6OutUcastPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6OutMultiPkts": {
+    "name": "hpnicfifIPv6OutMultiPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6OutAnycastPkts": {
+    "name": "hpnicfifIPv6OutAnycastPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6OutDiscards": {
+    "name": "hpnicfifIPv6OutDiscards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfifIPv6OutErrors": {
+    "name": "hpnicfifIPv6OutErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.35.5.1.13.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LswINF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-LswINF-MIB"
+  }
+}

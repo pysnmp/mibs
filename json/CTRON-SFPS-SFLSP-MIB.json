@@ -1,0 +1,1882 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-SFPS-INCLUDE-MIB": [
+      "vlanSflspLSPStats",
+      "vlanSflspInterfaces",
+      "vlanSflspTracePathInternal",
+      "vlanSflspNeighbors",
+      "vlanSflspTracePathAPI",
+      "vlanSflspLsdb",
+      "vlanSflspGeneralVariables",
+      "vlanSflsp1stHop",
+      "vlanSflspArea",
+      "vlanSflspLSDBFlood",
+      "vlanSflspIfMetric"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "SfpsAddress": {
+    "name": "SfpsAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "vlanSflspGeneralSwitchID": {
+    "name": "vlanSflspGeneralSwitchID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralAdminStatus": {
+    "name": "vlanSflspGeneralAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralVersion": {
+    "name": "vlanSflspGeneralVersion",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralAreaBRStatus": {
+    "name": "vlanSflspGeneralAreaBRStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralASBRStatus": {
+    "name": "vlanSflspGeneralASBRStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralTOSSupport": {
+    "name": "vlanSflspGeneralTOSSupport",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralOrgNewLSAs": {
+    "name": "vlanSflspGeneralOrgNewLSAs",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralRcvNewLSAs": {
+    "name": "vlanSflspGeneralRcvNewLSAs",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralMaxOnQueue": {
+    "name": "vlanSflspGeneralMaxOnQueue",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralCurOnQueue": {
+    "name": "vlanSflspGeneralCurOnQueue",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralMaxTimeUs": {
+    "name": "vlanSflspGeneralMaxTimeUs",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralCurTimeUs": {
+    "name": "vlanSflspGeneralCurTimeUs",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralMaxEvents": {
+    "name": "vlanSflspGeneralMaxEvents",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralMaxTimeOccurred": {
+    "name": "vlanSflspGeneralMaxTimeOccurred",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralMaxOnQOccurred": {
+    "name": "vlanSflspGeneralMaxOnQOccurred",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralTotalSwLinks": {
+    "name": "vlanSflspGeneralTotalSwLinks",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralLastChangeDet": {
+    "name": "vlanSflspGeneralLastChangeDet",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralFloodMask": {
+    "name": "vlanSflspGeneralFloodMask",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralLowestMac": {
+    "name": "vlanSflspGeneralLowestMac",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralRootId": {
+    "name": "vlanSflspGeneralRootId",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspGeneralFloodAdminStatus": {
+    "name": "vlanSflspGeneralFloodAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbTable": {
+    "name": "vlanSflspLsdbTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbEntry": {
+    "name": "vlanSflspLsdbEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspLsdbAreaID",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspLsdbLSID",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspLsdbSwitchID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbAreaID": {
+    "name": "vlanSflspLsdbAreaID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbType": {
+    "name": "vlanSflspLsdbType",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch-link": 1,
+          "connection-link": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbLSID": {
+    "name": "vlanSflspLsdbLSID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbSwitchID": {
+    "name": "vlanSflspLsdbSwitchID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbSequence": {
+    "name": "vlanSflspLsdbSequence",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbAge": {
+    "name": "vlanSflspLsdbAge",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbChecksum": {
+    "name": "vlanSflspLsdbChecksum",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbAdvertisement": {
+    "name": "vlanSflspLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLsdbUsedInSPF": {
+    "name": "vlanSflspLsdbUsedInSPF",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesTable": {
+    "name": "vlanSflspInterfacesTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesEntry": {
+    "name": "vlanSflspInterfacesEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspInterfacesIFAddress",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspInterfacesSwAddressLess",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesIFAddress": {
+    "name": "vlanSflspInterfacesIFAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesSwAddressLess": {
+    "name": "vlanSflspInterfacesSwAddressLess",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesAreaID": {
+    "name": "vlanSflspInterfacesAreaID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesIfType": {
+    "name": "vlanSflspInterfacesIfType",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "brodcast": 1,
+          "nbma": 2,
+          "point-to-point": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesAdminStatus": {
+    "name": "vlanSflspInterfacesAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesSwPriority": {
+    "name": "vlanSflspInterfacesSwPriority",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesTransDelay": {
+    "name": "vlanSflspInterfacesTransDelay",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesReTransInterval": {
+    "name": "vlanSflspInterfacesReTransInterval",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesHelloInterval": {
+    "name": "vlanSflspInterfacesHelloInterval",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesDeadInterval": {
+    "name": "vlanSflspInterfacesDeadInterval",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesPollInterval": {
+    "name": "vlanSflspInterfacesPollInterval",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesState": {
+    "name": "vlanSflspInterfacesState",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "loopback": 2,
+          "waiting": 3,
+          "point-to-point": 4,
+          "dr": 5,
+          "bdr": 6,
+          "dr-other": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesDS": {
+    "name": "vlanSflspInterfacesDS",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesBDS": {
+    "name": "vlanSflspInterfacesBDS",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesEvents": {
+    "name": "vlanSflspInterfacesEvents",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspInterfacesAuthKey": {
+    "name": "vlanSflspInterfacesAuthKey",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspIfMetricTable": {
+    "name": "vlanSflspIfMetricTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflspIfMetricEntry": {
+    "name": "vlanSflspIfMetricEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspIfMetricIfAddress",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspIfMetricIfTOSType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflspIfMetricIfAddress": {
+    "name": "vlanSflspIfMetricIfAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspIfMetricIfTOSType": {
+    "name": "vlanSflspIfMetricIfTOSType",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspIfMetricIfMetric": {
+    "name": "vlanSflspIfMetricIfMetric",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspIfMetricIfStatus": {
+    "name": "vlanSflspIfMetricIfStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsTable": {
+    "name": "vlanSflspNeighborsTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsEntry": {
+    "name": "vlanSflspNeighborsEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspNeighborsPortName",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsPortName": {
+    "name": "vlanSflspNeighborsPortName",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsSwitchID": {
+    "name": "vlanSflspNeighborsSwitchID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsOptions": {
+    "name": "vlanSflspNeighborsOptions",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsPriority": {
+    "name": "vlanSflspNeighborsPriority",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsState": {
+    "name": "vlanSflspNeighborsState",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "two-way": 4,
+          "exchange": 5,
+          "exchange-start": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsEvents": {
+    "name": "vlanSflspNeighborsEvents",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsLSRetransQLen": {
+    "name": "vlanSflspNeighborsLSRetransQLen",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsHELLOsRcvd": {
+    "name": "vlanSflspNeighborsHELLOsRcvd",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsDBDsRcvd": {
+    "name": "vlanSflspNeighborsDBDsRcvd",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsLSUsRcvd": {
+    "name": "vlanSflspNeighborsLSUsRcvd",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsLSRsRcvd": {
+    "name": "vlanSflspNeighborsLSRsRcvd",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsLSACKsRcvd": {
+    "name": "vlanSflspNeighborsLSACKsRcvd",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsHELLOsSent": {
+    "name": "vlanSflspNeighborsHELLOsSent",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsDBDsSent": {
+    "name": "vlanSflspNeighborsDBDsSent",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsLSUsSent": {
+    "name": "vlanSflspNeighborsLSUsSent",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsLSRsSent": {
+    "name": "vlanSflspNeighborsLSRsSent",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsLSACKsSent": {
+    "name": "vlanSflspNeighborsLSACKsSent",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsNBMAStatus": {
+    "name": "vlanSflspNeighborsNBMAStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspNeighborsFULLTimeSec": {
+    "name": "vlanSflspNeighborsFULLTimeSec",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaTable": {
+    "name": "vlanSflspAreaTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaEntry": {
+    "name": "vlanSflspAreaEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspAreaAreaID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflspAreaAreaID": {
+    "name": "vlanSflspAreaAreaID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaAuthType": {
+    "name": "vlanSflspAreaAuthType",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaSPFRuns": {
+    "name": "vlanSflspAreaSPFRuns",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaABRCount": {
+    "name": "vlanSflspAreaABRCount",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaASBRCount": {
+    "name": "vlanSflspAreaASBRCount",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaAreaLSACnt": {
+    "name": "vlanSflspAreaAreaLSACnt",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaAreaCheckSum": {
+    "name": "vlanSflspAreaAreaCheckSum",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspAreaLastSpfRun": {
+    "name": "vlanSflspAreaLastSpfRun",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflsp1stHopTable": {
+    "name": "vlanSflsp1stHopTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflsp1stHopEntry": {
+    "name": "vlanSflsp1stHopEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflsp1stHopDestSwitch",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflsp1stHopDestSwitch": {
+    "name": "vlanSflsp1stHopDestSwitch",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflsp1stHopPath11stHop": {
+    "name": "vlanSflsp1stHopPath11stHop",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflsp1stHopPath21stHop": {
+    "name": "vlanSflsp1stHopPath21stHop",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflsp1stHopPath31stHop": {
+    "name": "vlanSflsp1stHopPath31stHop",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathAPIDest": {
+    "name": "vlanSflspTracePathAPIDest",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathAPIID": {
+    "name": "vlanSflspTracePathAPIID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathAPIType": {
+    "name": "vlanSflspTracePathAPIType",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathAPIAction": {
+    "name": "vlanSflspTracePathAPIAction",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "activate": 2,
+          "suspend": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathTable": {
+    "name": "vlanSflspTracePathTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathEntry": {
+    "name": "vlanSflspTracePathEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspTracePathDest",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspTracePathID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathDest": {
+    "name": "vlanSflspTracePathDest",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathID": {
+    "name": "vlanSflspTracePathID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathAction": {
+    "name": "vlanSflspTracePathAction",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "activate": 2,
+          "suspend": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathStatus": {
+    "name": "vlanSflspTracePathStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "success": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathListTable": {
+    "name": "vlanSflspTracePathListTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathListEntry": {
+    "name": "vlanSflspTracePathListEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspTracePathListDest",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspTracePathListID",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspTracePathListPathNum",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspTracePathListHopNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathListDest": {
+    "name": "vlanSflspTracePathListDest",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathListID": {
+    "name": "vlanSflspTracePathListID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathListPathNum": {
+    "name": "vlanSflspTracePathListPathNum",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathListHopNum": {
+    "name": "vlanSflspTracePathListHopNum",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspTracePathListHopAddr": {
+    "name": "vlanSflspTracePathListHopAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.8.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodTable": {
+    "name": "vlanSflspLSDBFloodTable",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodEntry": {
+    "name": "vlanSflspLSDBFloodEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspLSDBFloodAreaID",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspLSDBFloodType",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspLSDBFloodLSID",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-SFLSP-MIB",
+        "object": "vlanSflspLSDBFloodAdvSwitchID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodAreaID": {
+    "name": "vlanSflspLSDBFloodAreaID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodType": {
+    "name": "vlanSflspLSDBFloodType",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchLink": 1,
+          "connectionLink": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodLSID": {
+    "name": "vlanSflspLSDBFloodLSID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodAdvSwitchID": {
+    "name": "vlanSflspLSDBFloodAdvSwitchID",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodSequence": {
+    "name": "vlanSflspLSDBFloodSequence",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodAge": {
+    "name": "vlanSflspLSDBFloodAge",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodChecksum": {
+    "name": "vlanSflspLSDBFloodChecksum",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodAdvertisement": {
+    "name": "vlanSflspLSDBFloodAdvertisement",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodUsedInSPF": {
+    "name": "vlanSflspLSDBFloodUsedInSPF",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSDBFloodEverUsed": {
+    "name": "vlanSflspLSDBFloodEverUsed",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.20.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsMaxOnQueue": {
+    "name": "vlanSflspLSPStatsMaxOnQueue",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsCurOnQueue": {
+    "name": "vlanSflspLSPStatsCurOnQueue",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsMaxTimeUs": {
+    "name": "vlanSflspLSPStatsMaxTimeUs",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsCurTimeUs": {
+    "name": "vlanSflspLSPStatsCurTimeUs",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsMaxTimeOccurred": {
+    "name": "vlanSflspLSPStatsMaxTimeOccurred",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsMaxOnQOccurred": {
+    "name": "vlanSflspLSPStatsMaxOnQOccurred",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsTotalSwLinks": {
+    "name": "vlanSflspLSPStatsTotalSwLinks",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsLastChangeDet": {
+    "name": "vlanSflspLSPStatsLastChangeDet",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsNumSPFRuns": {
+    "name": "vlanSflspLSPStatsNumSPFRuns",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsNumFULLNbrs": {
+    "name": "vlanSflspLSPStatsNumFULLNbrs",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsNumIntfs": {
+    "name": "vlanSflspLSPStatsNumIntfs",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsNum1stHops": {
+    "name": "vlanSflspLSPStatsNum1stHops",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsNumUpdates": {
+    "name": "vlanSflspLSPStatsNumUpdates",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vlanSflspLSPStatsLastUpdateRecvd": {
+    "name": "vlanSflspLSPStatsLastUpdateRecvd",
+    "oid": "1.3.6.1.4.1.52.4.2.12.1.2.7.21.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-SFLSP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-SFPS-SFLSP-MIB"
+  }
+}

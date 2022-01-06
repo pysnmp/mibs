@@ -1,0 +1,870 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-QOS-PIB-MIB": [
+      "Percent"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VTP-MIB": [
+      "VlanIndex"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMacNotificationMIB": {
+    "name": "ciscoMacNotificationMIB",
+    "oid": "1.3.6.1.4.1.9.9.215",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-11 00:00",
+        "description": "Fixed typo and made changes to the description of cmnMACMoveObjects, cmnMACThresholdNotifEnabled and cmnMacThresholdExceedNotif."
+      },
+      {
+        "revision": "2003-03-21 00:00",
+        "description": "Added cmnMACMoveObjects, cmnMACThresholdObjects."
+      },
+      {
+        "revision": "2001-10-22 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMacNotificationMIBObjects": {
+    "name": "ciscoMacNotificationMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.215.1",
+    "class": "objectidentity"
+  },
+  "cmnGlobalObjects": {
+    "name": "cmnGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1",
+    "class": "objectidentity"
+  },
+  "cmnInterfaceObjects": {
+    "name": "cmnInterfaceObjects",
+    "oid": "1.3.6.1.4.1.9.9.215.1.2",
+    "class": "objectidentity"
+  },
+  "cmnMACMoveObjects": {
+    "name": "cmnMACMoveObjects",
+    "oid": "1.3.6.1.4.1.9.9.215.1.3",
+    "class": "objectidentity"
+  },
+  "cmnMACThresholdObjects": {
+    "name": "cmnMACThresholdObjects",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4",
+    "class": "objectidentity"
+  },
+  "cmnGlobalFeatureEnabled": {
+    "name": "cmnGlobalFeatureEnabled",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnNotificationInterval": {
+    "name": "cmnNotificationInterval",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnMacAddressesLearnt": {
+    "name": "cmnMacAddressesLearnt",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnMacAddressesRemoved": {
+    "name": "cmnMacAddressesRemoved",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnNotificationsEnabled": {
+    "name": "cmnNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnNotificationsSent": {
+    "name": "cmnNotificationsSent",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnHistTableMaxLength": {
+    "name": "cmnHistTableMaxLength",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "entries",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnHistoryTable": {
+    "name": "cmnHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmnHistoryEntry": {
+    "name": "cmnHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmnHistIndex": {
+    "name": "cmnHistIndex",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmnHistMacChangedMsg": {
+    "name": "cmnHistMacChangedMsg",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnHistTimestamp": {
+    "name": "cmnHistTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.215.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnIfConfigTable": {
+    "name": "cmnIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.215.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmnIfConfigEntry": {
+    "name": "cmnIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.215.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmnMacAddrLearntEnable": {
+    "name": "cmnMacAddrLearntEnable",
+    "oid": "1.3.6.1.4.1.9.9.215.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnMacAddrRemovedEnable": {
+    "name": "cmnMacAddrRemovedEnable",
+    "oid": "1.3.6.1.4.1.9.9.215.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnMACMoveFeatureEnabled": {
+    "name": "cmnMACMoveFeatureEnabled",
+    "oid": "1.3.6.1.4.1.9.9.215.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnMACMoveNotificationsEnabled": {
+    "name": "cmnMACMoveNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.215.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnMACMoveAddress": {
+    "name": "cmnMACMoveAddress",
+    "oid": "1.3.6.1.4.1.9.9.215.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnMACMoveVlanNumber": {
+    "name": "cmnMACMoveVlanNumber",
+    "oid": "1.3.6.1.4.1.9.9.215.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnMACMoveFromPortId": {
+    "name": "cmnMACMoveFromPortId",
+    "oid": "1.3.6.1.4.1.9.9.215.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnMACMoveToPortId": {
+    "name": "cmnMACMoveToPortId",
+    "oid": "1.3.6.1.4.1.9.9.215.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnMACMoveTime": {
+    "name": "cmnMACMoveTime",
+    "oid": "1.3.6.1.4.1.9.9.215.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnMACThresholdFeatureEnabled": {
+    "name": "cmnMACThresholdFeatureEnabled",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnMACThresholdLimit": {
+    "name": "cmnMACThresholdLimit",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnMACThresholdInterval": {
+    "name": "cmnMACThresholdInterval",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnMACThresholdNotifEnabled": {
+    "name": "cmnMACThresholdNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmnUtilizationTable": {
+    "name": "cmnUtilizationTable",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmnUtilizationEntry": {
+    "name": "cmnUtilizationEntry",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmnUtilizationEntries": {
+    "name": "cmnUtilizationEntries",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnUtilizationUtilization": {
+    "name": "cmnUtilizationUtilization",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnUtilizationTimeStamp": {
+    "name": "cmnUtilizationTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.215.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnMIBNotificationPrefix": {
+    "name": "cmnMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.215.2",
+    "class": "objectidentity"
+  },
+  "cmnMIBNotifications": {
+    "name": "cmnMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.215.2.0",
+    "class": "objectidentity"
+  },
+  "cmnMacChangedNotification": {
+    "name": "cmnMacChangedNotification",
+    "oid": "1.3.6.1.4.1.9.9.215.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnHistMacChangedMsg"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnHistTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnMacMoveNotification": {
+    "name": "cmnMacMoveNotification",
+    "oid": "1.3.6.1.4.1.9.9.215.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveAddress"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveVlanNumber"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveFromPortId"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveToPortId"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnMacThresholdExceedNotif": {
+    "name": "cmnMacThresholdExceedNotif",
+    "oid": "1.3.6.1.4.1.9.9.215.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnUtilizationUtilization"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACThresholdLimit"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnUtilizationTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnMIBConformance": {
+    "name": "cmnMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.215.3",
+    "class": "objectidentity"
+  },
+  "cmnMIBCompliances": {
+    "name": "cmnMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.215.3.1",
+    "class": "objectidentity"
+  },
+  "cmnMIBGroups": {
+    "name": "cmnMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.215.3.2",
+    "class": "objectidentity"
+  },
+  "cmnMIBCompliance": {
+    "name": "cmnMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.215.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmnGlobalGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      },
+      {
+        "object": "cmnInterfaceGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      },
+      {
+        "object": "cmnNotificationGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmnMIBComplianceVer1": {
+    "name": "cmnMIBComplianceVer1",
+    "oid": "1.3.6.1.4.1.9.9.215.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmnGlobalGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      },
+      {
+        "object": "cmnInterfaceGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      },
+      {
+        "object": "cmnNotificationGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      },
+      {
+        "object": "cmnMACMoveGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      },
+      {
+        "object": "cmnMACThresholdGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      },
+      {
+        "object": "cmnMACMoveNotifGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      },
+      {
+        "object": "cmnMACThresholdNotifGroup",
+        "module": "CISCO-MAC-NOTIFICATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnGlobalGroup": {
+    "name": "cmnGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.215.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnGlobalFeatureEnabled"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnNotificationInterval"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMacAddressesLearnt"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMacAddressesRemoved"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnNotificationsEnabled"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnHistTableMaxLength"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnHistMacChangedMsg"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnHistTimestamp"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnNotificationsSent"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnInterfaceGroup": {
+    "name": "cmnInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.215.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMacAddrLearntEnable"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMacAddrRemovedEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnNotificationGroup": {
+    "name": "cmnNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.215.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMacChangedNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnMACMoveGroup": {
+    "name": "cmnMACMoveGroup",
+    "oid": "1.3.6.1.4.1.9.9.215.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveFeatureEnabled"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveNotificationsEnabled"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveAddress"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveVlanNumber"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveFromPortId"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveToPortId"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACMoveTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnMACThresholdGroup": {
+    "name": "cmnMACThresholdGroup",
+    "oid": "1.3.6.1.4.1.9.9.215.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACThresholdFeatureEnabled"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACThresholdLimit"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACThresholdInterval"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMACThresholdNotifEnabled"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnUtilizationEntries"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnUtilizationUtilization"
+      },
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnUtilizationTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnMACMoveNotifGroup": {
+    "name": "cmnMACMoveNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.215.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMacMoveNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cmnMACThresholdNotifGroup": {
+    "name": "cmnMACThresholdNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.215.3.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-MAC-NOTIFICATION-MIB",
+        "object": "cmnMacThresholdExceedNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MAC-NOTIFICATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MAC-NOTIFICATION-MIB"
+  }
+}

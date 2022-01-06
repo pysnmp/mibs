@@ -1,0 +1,1689 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TRUSTSEC-TC-MIB": [
+      "CtsCredentialRecordType",
+      "CtsSecurityGroupTag",
+      "CtsAcsAuthorityIdentity",
+      "CtsGenerationId",
+      "CtsPasswordEncryptionType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoTrustSecMIB": {
+    "name": "ciscoTrustSecMIB",
+    "oid": "1.3.6.1.4.1.9.9.730",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-30 00:00",
+        "description": "Added following OBJECT-GROUP - ciscoTrustSecCrtclAuthGroup Added new compliance - ciscoTrustSecMIBCompliance4."
+      },
+      {
+        "revision": "2012-09-26 00:00",
+        "description": "Added following OBJECT-GROUP - ciscoTrustSecSwKeystoreNotifsInfoGroup - ciscoTrustSecSwKeystoreNotifsControlGroup - ciscoTrustSecSwKeystoreNotifsGroup - ciscoTrustSecFileErrNotifsInfoGroup - ciscoTrustSecNotifsMessageStringInfoGroup - ciscoTrustSecCacheFileNotifsControlGroup - ciscoTrustSecCacheFileNotifsGroup - ciscoTrustSecCtrDrbgNotifsControlGroup - ciscoTrustSecCtrDrbgNotifsGroup Added new compliance - ciscoTrustSecMIBCompliance3."
+      },
+      {
+        "revision": "2011-03-15 00:00",
+        "description": "Added support for ciscoTrustSecEnvSecGroupNameGroup."
+      },
+      {
+        "revision": "2010-09-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTrustSecMIBNotifs": {
+    "name": "ciscoTrustSecMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.730.0",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecMIBObjects": {
+    "name": "ciscoTrustSecMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.730.1",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecMIBConform": {
+    "name": "ciscoTrustSecMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.730.2",
+    "class": "objectidentity"
+  },
+  "ctsCacheObjects": {
+    "name": "ctsCacheObjects",
+    "oid": "1.3.6.1.4.1.9.9.730.1.1",
+    "class": "objectidentity"
+  },
+  "ctsSgtObjects": {
+    "name": "ctsSgtObjects",
+    "oid": "1.3.6.1.4.1.9.9.730.1.2",
+    "class": "objectidentity"
+  },
+  "ctsCredentialObjects": {
+    "name": "ctsCredentialObjects",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3",
+    "class": "objectidentity"
+  },
+  "ctsEnvironmentDataObjects": {
+    "name": "ctsEnvironmentDataObjects",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4",
+    "class": "objectidentity"
+  },
+  "ctsNotifsControlObjects": {
+    "name": "ctsNotifsControlObjects",
+    "oid": "1.3.6.1.4.1.9.9.730.1.5",
+    "class": "objectidentity"
+  },
+  "ctsNotifsInfoObjects": {
+    "name": "ctsNotifsInfoObjects",
+    "oid": "1.3.6.1.4.1.9.9.730.1.6",
+    "class": "objectidentity"
+  },
+  "ctsCriticalAuthObjects": {
+    "name": "ctsCriticalAuthObjects",
+    "oid": "1.3.6.1.4.1.9.9.730.1.7",
+    "class": "objectidentity"
+  },
+  "ctsCacheEnabled": {
+    "name": "ctsCacheEnabled",
+    "oid": "1.3.6.1.4.1.9.9.730.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCacheNvStorage": {
+    "name": "ctsCacheNvStorage",
+    "oid": "1.3.6.1.4.1.9.9.730.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCacheClear": {
+    "name": "ctsCacheClear",
+    "oid": "1.3.6.1.4.1.9.9.730.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "all": 2,
+          "authzPolicies": 3,
+          "authzPoliciesPeer": 4,
+          "authzPoliciesSgt": 5,
+          "environmentData": 6,
+          "interfaceController": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSecurityGroupTagId": {
+    "name": "ctsSecurityGroupTagId",
+    "oid": "1.3.6.1.4.1.9.9.730.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSgtAssignmentMethod": {
+    "name": "ctsSgtAssignmentMethod",
+    "oid": "1.3.6.1.4.1.9.9.730.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ingress": 2,
+          "egress": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsDeviceId": {
+    "name": "ctsDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsDevicePasswordType": {
+    "name": "ctsDevicePasswordType",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsPasswordEncryptionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsDevicePassword": {
+    "name": "ctsDevicePassword",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsKeystoreType": {
+    "name": "ctsKeystoreType",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hardwareKeystore": 1,
+          "softwareEmulation": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystoreFwVersion": {
+    "name": "ctsKeystoreFwVersion",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystoreFwAlerts": {
+    "name": "ctsKeystoreFwAlerts",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystoreFwResets": {
+    "name": "ctsKeystoreFwResets",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystoreRxTimeouts": {
+    "name": "ctsKeystoreRxTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystoreRxBadChecksums": {
+    "name": "ctsKeystoreRxBadChecksums",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystoreRxBadFragmentLengths": {
+    "name": "ctsKeystoreRxBadFragmentLengths",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystoreCorruptions": {
+    "name": "ctsKeystoreCorruptions",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystorePasswordRecordTable": {
+    "name": "ctsKeystorePasswordRecordTable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsKeystorePasswordRecordEntry": {
+    "name": "ctsKeystorePasswordRecordEntry",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystorePasswordRecordName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ctsKeystorePasswordRecordName": {
+    "name": "ctsKeystorePasswordRecordName",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsKeystorePasswordRecordType": {
+    "name": "ctsKeystorePasswordRecordType",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsCredentialRecordType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsKeystorePacRecordTable": {
+    "name": "ctsKeystorePacRecordTable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsKeystorePacRecordEntry": {
+    "name": "ctsKeystorePacRecordEntry",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystorePacRecordName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ctsKeystorePacRecordName": {
+    "name": "ctsKeystorePacRecordName",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAcsAuthorityIdentity",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsKeystorePacRecordType": {
+    "name": "ctsKeystorePacRecordType",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsCredentialRecordType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsPacInfoTable": {
+    "name": "ctsPacInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsPacInfoEntry": {
+    "name": "ctsPacInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsPacAcsAuthId",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ctsPacAcsAuthId": {
+    "name": "ctsPacAcsAuthId",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAcsAuthorityIdentity",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsPacAcsDescription": {
+    "name": "ctsPacAcsDescription",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsPacType": {
+    "name": "ctsPacType",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "tunnel": 2,
+          "machineAuthentication": 3,
+          "userAuthorization": 4,
+          "posture": 5,
+          "ciscoTrustSec": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsPacExpirationTime": {
+    "name": "ctsPacExpirationTime",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsPacTimeToRefresh": {
+    "name": "ctsPacTimeToRefresh",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsPacStatus": {
+    "name": "ctsPacStatus",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsCredentialsClearAll": {
+    "name": "ctsCredentialsClearAll",
+    "oid": "1.3.6.1.4.1.9.9.730.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsEnvDataLastDownloadStatus": {
+    "name": "ctsEnvDataLastDownloadStatus",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "succeeded": 2,
+          "failed": 3,
+          "inprogress": 4,
+          "incomplete": 5,
+          "timedout": 6,
+          "cleared": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvSecurityGroupTagId": {
+    "name": "ctsEnvSecurityGroupTagId",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvSecurityGroupTagGenId": {
+    "name": "ctsEnvSecurityGroupTagGenId",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvDataLastUpdate": {
+    "name": "ctsEnvDataLastUpdate",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvDataRefreshInterval": {
+    "name": "ctsEnvDataRefreshInterval",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvDataTimeLeft": {
+    "name": "ctsEnvDataTimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvDataTimeToRefresh": {
+    "name": "ctsEnvDataTimeToRefresh",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvDataSource": {
+    "name": "ctsEnvDataSource",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "cached": 2,
+          "downloaded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvDataAction": {
+    "name": "ctsEnvDataAction",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "refresh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsEnvSecurityGroupNameTable": {
+    "name": "ctsEnvSecurityGroupNameTable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsEnvSecurityGroupNameEntry": {
+    "name": "ctsEnvSecurityGroupNameEntry",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvSecurityGroupNameSgt",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsEnvSecurityGroupNameSgt": {
+    "name": "ctsEnvSecurityGroupNameSgt",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsEnvSecurityGroupNameSgtGenId": {
+    "name": "ctsEnvSecurityGroupNameSgtGenId",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvSecurityGroupNameSgtFlag": {
+    "name": "ctsEnvSecurityGroupNameSgtFlag",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "recognizedSgt": 0,
+        "unicastSgt": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsEnvSecurityGroupName": {
+    "name": "ctsEnvSecurityGroupName",
+    "oid": "1.3.6.1.4.1.9.9.730.1.4.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsFileErrNotifReason": {
+    "name": "ctsFileErrNotifReason",
+    "oid": "1.3.6.1.4.1.9.9.730.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "openFailedForWrite": 1,
+          "writeFailed": 2,
+          "openFailedForRead": 3,
+          "readFailed": 4,
+          "badMagic": 5,
+          "unexpectedEof": 6,
+          "badHeader": 7
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsSwKeystoreSyncFailNotifReason": {
+    "name": "ctsSwKeystoreSyncFailNotifReason",
+    "oid": "1.3.6.1.4.1.9.9.730.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipcPortCreationFailed": 1,
+          "ipcPortOpenFailed": 2,
+          "ipcConnectionFailure": 3,
+          "ipcSendFailure": 4,
+          "standbyIncompatible": 5,
+          "syncProcessCreationFailed": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsNotifMessageString": {
+    "name": "ctsNotifMessageString",
+    "oid": "1.3.6.1.4.1.9.9.730.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsSwKeystoreFileErrNotifEnable": {
+    "name": "ctsSwKeystoreFileErrNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSwKeystoreSyncFailNotifEnable": {
+    "name": "ctsSwKeystoreSyncFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsAuthzCacheFileErrNotifEnable": {
+    "name": "ctsAuthzCacheFileErrNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCacheFileAccessErrNotifEnable": {
+    "name": "ctsCacheFileAccessErrNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSrcEntropyFailNotifEnable": {
+    "name": "ctsSrcEntropyFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsSapRandomNumberFailNotifEnable": {
+    "name": "ctsSapRandomNumberFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.730.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCriticalAuthEnabled": {
+    "name": "ctsCriticalAuthEnabled",
+    "oid": "1.3.6.1.4.1.9.9.730.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCriticalAuthFallback": {
+    "name": "ctsCriticalAuthFallback",
+    "oid": "1.3.6.1.4.1.9.9.730.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "cache": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCriticalAuthPeerSgt": {
+    "name": "ctsCriticalAuthPeerSgt",
+    "oid": "1.3.6.1.4.1.9.9.730.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCriticalAuthPeerSgtTrust": {
+    "name": "ctsCriticalAuthPeerSgtTrust",
+    "oid": "1.3.6.1.4.1.9.9.730.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCriticalAuthDefaultPmk": {
+    "name": "ctsCriticalAuthDefaultPmk",
+    "oid": "1.3.6.1.4.1.9.9.730.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsCriticalAuthViewDefaultPmk": {
+    "name": "ctsCriticalAuthViewDefaultPmk",
+    "oid": "1.3.6.1.4.1.9.9.730.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsSwKeystoreFileErrNotif": {
+    "name": "ctsSwKeystoreFileErrNotif",
+    "oid": "1.3.6.1.4.1.9.9.730.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsFileErrNotifReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsSwKeystoreSyncFailNotif": {
+    "name": "ctsSwKeystoreSyncFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.730.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSwKeystoreSyncFailNotifReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsAuthzCacheFileErrNotif": {
+    "name": "ctsAuthzCacheFileErrNotif",
+    "oid": "1.3.6.1.4.1.9.9.730.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsFileErrNotifReason"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsNotifMessageString"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsCacheFileAccessErrNotif": {
+    "name": "ctsCacheFileAccessErrNotif",
+    "oid": "1.3.6.1.4.1.9.9.730.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsFileErrNotifReason"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsNotifMessageString"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsSrcEntropyFailNotif": {
+    "name": "ctsSrcEntropyFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.730.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ctsSapRandomNumberFailNotif": {
+    "name": "ctsSapRandomNumberFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.730.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsNotifMessageString"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecMIBCompliances": {
+    "name": "ciscoTrustSecMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.730.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecMIBGroups": {
+    "name": "ciscoTrustSecMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecMIBCompliance": {
+    "name": "ciscoTrustSecMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.730.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTrustSecCacheGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSgtGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCredentialsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecHwKeystoreInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecEnvDataGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSgtAssignmentGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecMIBCompliance2": {
+    "name": "ciscoTrustSecMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.730.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTrustSecCacheGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSgtGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCredentialsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecHwKeystoreInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecEnvDataGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSgtAssignmentGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecEnvSecGroupNameGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecMIBCompliance3": {
+    "name": "ciscoTrustSecMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.730.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTrustSecCacheGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSgtGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCredentialsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecHwKeystoreInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecEnvDataGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSgtAssignmentGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecEnvSecGroupNameGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSwKeystoreNotifsInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSwKeystoreNotifsControlGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSwKeystoreNotifsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecFileErrNotifsInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecNotifsMessageStringInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCacheFileNotifsControlGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCacheFileNotifsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCtrDrbgNotifsControlGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCtrDrbgNotifsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecMIBCompliance4": {
+    "name": "ciscoTrustSecMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.730.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTrustSecCacheGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSgtGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCredentialsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecHwKeystoreInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecEnvDataGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSgtAssignmentGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecEnvSecGroupNameGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSwKeystoreNotifsInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSwKeystoreNotifsControlGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecSwKeystoreNotifsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecFileErrNotifsInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecNotifsMessageStringInfoGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCacheFileNotifsControlGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCacheFileNotifsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCtrDrbgNotifsControlGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCtrDrbgNotifsGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      },
+      {
+        "object": "ciscoTrustSecCrtclAuthGroup",
+        "module": "CISCO-TRUSTSEC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCacheGroup": {
+    "name": "ciscoTrustSecCacheGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCacheEnabled"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCacheNvStorage"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCacheClear"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSgtGroup": {
+    "name": "ciscoTrustSecSgtGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSecurityGroupTagId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCredentialsGroup": {
+    "name": "ciscoTrustSecCredentialsGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsDeviceId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsDevicePasswordType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsDevicePassword"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystoreType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystorePasswordRecordType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystorePacRecordType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsPacAcsDescription"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsPacType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsPacExpirationTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsPacTimeToRefresh"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsPacStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCredentialsClearAll"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecHwKeystoreInfoGroup": {
+    "name": "ciscoTrustSecHwKeystoreInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystoreFwVersion"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystoreFwAlerts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystoreFwResets"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystoreRxTimeouts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystoreRxBadChecksums"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystoreRxBadFragmentLengths"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsKeystoreCorruptions"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecEnvDataGroup": {
+    "name": "ciscoTrustSecEnvDataGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvDataLastDownloadStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvSecurityGroupTagId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvSecurityGroupTagGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvDataLastUpdate"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvDataRefreshInterval"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvDataTimeLeft"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvDataTimeToRefresh"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvDataSource"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvDataAction"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSgtAssignmentGroup": {
+    "name": "ciscoTrustSecSgtAssignmentGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSgtAssignmentMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecEnvSecGroupNameGroup": {
+    "name": "ciscoTrustSecEnvSecGroupNameGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvSecurityGroupNameSgtGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvSecurityGroupNameSgtFlag"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsEnvSecurityGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSwKeystoreNotifsInfoGroup": {
+    "name": "ciscoTrustSecSwKeystoreNotifsInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSwKeystoreSyncFailNotifReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSwKeystoreNotifsControlGroup": {
+    "name": "ciscoTrustSecSwKeystoreNotifsControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSwKeystoreFileErrNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSwKeystoreSyncFailNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecSwKeystoreNotifsGroup": {
+    "name": "ciscoTrustSecSwKeystoreNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSwKeystoreFileErrNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSwKeystoreSyncFailNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecFileErrNotifsInfoGroup": {
+    "name": "ciscoTrustSecFileErrNotifsInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsFileErrNotifReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecNotifsMessageStringInfoGroup": {
+    "name": "ciscoTrustSecNotifsMessageStringInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsNotifMessageString"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCacheFileNotifsControlGroup": {
+    "name": "ciscoTrustSecCacheFileNotifsControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsAuthzCacheFileErrNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCacheFileAccessErrNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCacheFileNotifsGroup": {
+    "name": "ciscoTrustSecCacheFileNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsAuthzCacheFileErrNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCacheFileAccessErrNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCtrDrbgNotifsControlGroup": {
+    "name": "ciscoTrustSecCtrDrbgNotifsControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSrcEntropyFailNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSapRandomNumberFailNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCtrDrbgNotifsGroup": {
+    "name": "ciscoTrustSecCtrDrbgNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSrcEntropyFailNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsSapRandomNumberFailNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecCrtclAuthGroup": {
+    "name": "ciscoTrustSecCrtclAuthGroup",
+    "oid": "1.3.6.1.4.1.9.9.730.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCriticalAuthEnabled"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCriticalAuthFallback"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCriticalAuthPeerSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCriticalAuthPeerSgtTrust"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCriticalAuthDefaultPmk"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-MIB",
+        "object": "ctsCriticalAuthViewDefaultPmk"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-TRUSTSEC-MIB"
+  }
+}

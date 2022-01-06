@@ -1,0 +1,475 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cRhw"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cDHCPRelayMib": {
+    "name": "hh3cDHCPRelayMib",
+    "oid": "1.3.6.1.4.1.25506.8.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-02-12 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cDHCPRelayMibObject": {
+    "name": "hh3cDHCPRelayMibObject",
+    "oid": "1.3.6.1.4.1.25506.8.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cDHCPRIPTable": {
+    "name": "hh3cDHCPRIPTable",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDHCPRIPEntry": {
+    "name": "hh3cDHCPRIPEntry",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRIPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDHCPRIPAddr": {
+    "name": "hh3cDHCPRIPAddr",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRIPRowStatus": {
+    "name": "hh3cDHCPRIPRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cDHCPRSeletAllocateModeTable": {
+    "name": "hh3cDHCPRSeletAllocateModeTable",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDHCPRSeletAllocateModeEntry": {
+    "name": "hh3cDHCPRSeletAllocateModeEntry",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDHCPRSelectAllocateMode": {
+    "name": "hh3cDHCPRSelectAllocateMode",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 0,
+          "interface": 1,
+          "relay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDHCPRelayCycleStatus": {
+    "name": "hh3cDHCPRelayCycleStatus",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 0,
+          "off": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDHCPRRxBadPktNum": {
+    "name": "hh3cDHCPRRxBadPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRRxServerPktNum": {
+    "name": "hh3cDHCPRRxServerPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRTxServerPktNum": {
+    "name": "hh3cDHCPRTxServerPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRRxClientPktNum": {
+    "name": "hh3cDHCPRRxClientPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRTxClientPktNum": {
+    "name": "hh3cDHCPRTxClientPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRTxClientUniPktNum": {
+    "name": "hh3cDHCPRTxClientUniPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRTxClientBroPktNum": {
+    "name": "hh3cDHCPRTxClientBroPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayDiscoverPktNum": {
+    "name": "hh3cDHCPRelayDiscoverPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayRequestPktNum": {
+    "name": "hh3cDHCPRelayRequestPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayDeclinePktNum": {
+    "name": "hh3cDHCPRelayDeclinePktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayReleasePktNum": {
+    "name": "hh3cDHCPRelayReleasePktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayInformPktNum": {
+    "name": "hh3cDHCPRelayInformPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayOfferPktNum": {
+    "name": "hh3cDHCPRelayOfferPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayAckPktNum": {
+    "name": "hh3cDHCPRelayAckPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayNakPktNum": {
+    "name": "hh3cDHCPRelayNakPktNum",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDHCPRelayStatisticsReset": {
+    "name": "hh3cDHCPRelayStatisticsReset",
+    "oid": "1.3.6.1.4.1.25506.8.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDHCPRelayMIBConformance": {
+    "name": "hh3cDHCPRelayMIBConformance",
+    "oid": "1.3.6.1.4.1.25506.8.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cDHCPRelayMIBCompliances": {
+    "name": "hh3cDHCPRelayMIBCompliances",
+    "oid": "1.3.6.1.4.1.25506.8.1.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cDHCPRelayMIBGroups": {
+    "name": "hh3cDHCPRelayMIBGroups",
+    "oid": "1.3.6.1.4.1.25506.8.1.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cDHCPRelayMIBGroup": {
+    "name": "hh3cDHCPRelayMIBGroup",
+    "oid": "1.3.6.1.4.1.25506.8.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRIPAddr"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRIPRowStatus"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRSelectAllocateMode"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayCycleStatus"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRRxBadPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRRxServerPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRTxServerPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRRxClientPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRTxClientPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRTxClientUniPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRTxClientBroPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayDiscoverPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayRequestPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayDeclinePktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayReleasePktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayInformPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayOfferPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayAckPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayNakPktNum"
+      },
+      {
+        "module": "HH3C-DHCPR-MIB",
+        "object": "hh3cDHCPRelayStatisticsReset"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DHCPR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DHCPR-MIB"
+  }
+}

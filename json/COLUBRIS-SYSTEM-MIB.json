@@ -1,0 +1,1018 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "COLUBRIS-TC": [
+      "ColubrisAuthenticationMode",
+      "ColubrisProfileIndexOrZero",
+      "ColubrisNotificationEnable"
+    ],
+    "IF-MIB": [
+      "ifOutUcastPkts",
+      "ifOutErrors",
+      "ifInUcastPkts",
+      "ifInErrors"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "colubrisSystemMIB": {
+    "name": "colubrisSystemMIB",
+    "oid": "1.3.6.1.4.1.8744.5.6",
+    "class": "moduleidentity"
+  },
+  "colubrisSystemMIBObjects": {
+    "name": "colubrisSystemMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.6.1",
+    "class": "objectidentity"
+  },
+  "systemInfo": {
+    "name": "systemInfo",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1",
+    "class": "objectidentity"
+  },
+  "systemTime": {
+    "name": "systemTime",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2",
+    "class": "objectidentity"
+  },
+  "adminAccess": {
+    "name": "adminAccess",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3",
+    "class": "objectidentity"
+  },
+  "heartbeat": {
+    "name": "heartbeat",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.4",
+    "class": "objectidentity"
+  },
+  "systemProductName": {
+    "name": "systemProductName",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemFirmwareRevision": {
+    "name": "systemFirmwareRevision",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemBootRevision": {
+    "name": "systemBootRevision",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemHardwareRevision": {
+    "name": "systemHardwareRevision",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSerialNumber": {
+    "name": "systemSerialNumber",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemConfigurationVersion": {
+    "name": "systemConfigurationVersion",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemUpTime": {
+    "name": "systemUpTime",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemMacAddress": {
+    "name": "systemMacAddress",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "systemWanPortIpAddress": {
+    "name": "systemWanPortIpAddress",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "systemProductFlavor": {
+    "name": "systemProductFlavor",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemDeviceIdentification": {
+    "name": "systemDeviceIdentification",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTimeUpdateMode": {
+    "name": "systemTimeUpdateMode",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "sntpUdp": 2,
+          "tp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemTimeLostWhenRebooting": {
+    "name": "systemTimeLostWhenRebooting",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemTimeDSTOn": {
+    "name": "systemTimeDSTOn",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemDate": {
+    "name": "systemDate",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemTimeOfDay": {
+    "name": "systemTimeOfDay",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemTimeZone": {
+    "name": "systemTimeZone",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemTimeServerTable": {
+    "name": "systemTimeServerTable",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemTimeServerEntry": {
+    "name": "systemTimeServerEntry",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "systemTimeServerIndex": {
+    "name": "systemTimeServerIndex",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemTimeServerAddress": {
+    "name": "systemTimeServerAddress",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemTimeServerNotificationEnabled": {
+    "name": "systemTimeServerNotificationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAccessAuthenMode": {
+    "name": "adminAccessAuthenMode",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisAuthenticationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAccessAuthenProfileIndex": {
+    "name": "adminAccessAuthenProfileIndex",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisProfileIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAccessMaxLoginAttempts": {
+    "name": "adminAccessMaxLoginAttempts",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAccessLockOutPeriod": {
+    "name": "adminAccessLockOutPeriod",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAccessLoginNotificationEnabled": {
+    "name": "adminAccessLoginNotificationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAccessAuthFailureNotificationEnabled": {
+    "name": "adminAccessAuthFailureNotificationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAccessInfo": {
+    "name": "adminAccessInfo",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adminAccessProfileTable": {
+    "name": "adminAccessProfileTable",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adminAccessProfileEntry": {
+    "name": "adminAccessProfileEntry",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adminAccessProfileIndex": {
+    "name": "adminAccessProfileIndex",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adminAccessUserName": {
+    "name": "adminAccessUserName",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adminAccessAdministrativeRights": {
+    "name": "adminAccessAdministrativeRights",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "readWrite": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adminAccessLogoutNotificationEnabled": {
+    "name": "adminAccessLogoutNotificationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "heartbeatPeriod": {
+    "name": "heartbeatPeriod",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 31536000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "heartbeatNotificationEnabled": {
+    "name": "heartbeatNotificationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.6.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "colubrisSystemMIBNotificationPrefix": {
+    "name": "colubrisSystemMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.8744.5.6.2",
+    "class": "objectidentity"
+  },
+  "colubrisSystemMIBNotifications": {
+    "name": "colubrisSystemMIBNotifications",
+    "oid": "1.3.6.1.4.1.8744.5.6.2.0",
+    "class": "objectidentity"
+  },
+  "adminAccessAuthFailureNotification": {
+    "name": "adminAccessAuthFailureNotification",
+    "oid": "1.3.6.1.4.1.8744.5.6.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "adminAccessLoginNotification": {
+    "name": "adminAccessLoginNotification",
+    "oid": "1.3.6.1.4.1.8744.5.6.2.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "systemColdStart": {
+    "name": "systemColdStart",
+    "oid": "1.3.6.1.4.1.8744.5.6.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemProductName"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemFirmwareRevision"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemConfigurationVersion"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "systemHeartbeatNotification": {
+    "name": "systemHeartbeatNotification",
+    "oid": "1.3.6.1.4.1.8744.5.6.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemSerialNumber"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemMacAddress"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemWanPortIpAddress"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemUpTime"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInUcastPkts"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOutErrors"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifInErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "adminAccessLogoutNotification": {
+    "name": "adminAccessLogoutNotification",
+    "oid": "1.3.6.1.4.1.8744.5.6.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "timeServerFailure": {
+    "name": "timeServerFailure",
+    "oid": "1.3.6.1.4.1.8744.5.6.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeServerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisSystemMIBConformance": {
+    "name": "colubrisSystemMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.6.3",
+    "class": "objectidentity"
+  },
+  "colubrisSystemMIBCompliances": {
+    "name": "colubrisSystemMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.6.3.1",
+    "class": "objectidentity"
+  },
+  "colubrisSystemMIBGroups": {
+    "name": "colubrisSystemMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.6.3.2",
+    "class": "objectidentity"
+  },
+  "colubrisSystemMIBCompliance": {
+    "name": "colubrisSystemMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.6.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisSystemMIBGroup",
+        "module": "COLUBRIS-SYSTEM-MIB"
+      },
+      {
+        "object": "colubrisSystemNotificationGroup",
+        "module": "COLUBRIS-SYSTEM-MIB"
+      },
+      {
+        "object": "colubrisAdminAccessProfileGroup",
+        "module": "COLUBRIS-SYSTEM-MIB"
+      },
+      {
+        "object": "colubrisAdminAccessNotificationGroup",
+        "module": "COLUBRIS-SYSTEM-MIB"
+      },
+      {
+        "object": "colubrisTimeNotificationGroup",
+        "module": "COLUBRIS-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisSystemMIBGroup": {
+    "name": "colubrisSystemMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.6.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemProductName"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemFirmwareRevision"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemBootRevision"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemHardwareRevision"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemSerialNumber"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemConfigurationVersion"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemUpTime"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemMacAddress"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemWanPortIpAddress"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemProductFlavor"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemDeviceIdentification"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeUpdateMode"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeLostWhenRebooting"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeDSTOn"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemDate"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeOfDay"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeZone"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeServerAddress"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemTimeServerNotificationEnabled"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "heartbeatPeriod"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "heartbeatNotificationEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisAdminAccessProfileGroup": {
+    "name": "colubrisAdminAccessProfileGroup",
+    "oid": "1.3.6.1.4.1.8744.5.6.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessAuthenMode"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessMaxLoginAttempts"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessLockOutPeriod"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessLoginNotificationEnabled"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessAuthFailureNotificationEnabled"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessAuthenProfileIndex"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessInfo"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessUserName"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessAdministrativeRights"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessLogoutNotificationEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisSystemNotificationGroup": {
+    "name": "colubrisSystemNotificationGroup",
+    "oid": "1.3.6.1.4.1.8744.5.6.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemColdStart"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemHeartbeatNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisAdminAccessNotificationGroup": {
+    "name": "colubrisAdminAccessNotificationGroup",
+    "oid": "1.3.6.1.4.1.8744.5.6.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessAuthFailureNotification"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessLoginNotification"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "adminAccessLogoutNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisTimeNotificationGroup": {
+    "name": "colubrisTimeNotificationGroup",
+    "oid": "1.3.6.1.4.1.8744.5.6.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "timeServerFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SYSTEM-MIB.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-SYSTEM-MIB"
+  }
+}

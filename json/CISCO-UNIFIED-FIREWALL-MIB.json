@@ -1,0 +1,2580 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dTpFdbPort",
+      "dot1dTpFdbStatus"
+    ],
+    "CISCO-FIREWALL-TC": [
+      "CFWApplicationProtocol",
+      "CFWPolicy",
+      "CFWNetworkProtocol",
+      "CFWPolicyTargetType",
+      "CFWUrlfVendorId",
+      "CFWUrlServerStatus",
+      "CFWPolicyTarget"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoUnifiedFirewallMIB": {
+    "name": "ciscoUnifiedFirewallMIB",
+    "oid": "1.3.6.1.4.1.9.9.491",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-09-22 00:00",
+        "description": "Initial version of this module. "
+      }
+    ]
+  },
+  "ciscoUnifiedFirewallMIBNotifs": {
+    "name": "ciscoUnifiedFirewallMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.491.0",
+    "class": "objectidentity"
+  },
+  "ciscoUnifiedFirewallMIBObjects": {
+    "name": "ciscoUnifiedFirewallMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.491.1",
+    "class": "objectidentity"
+  },
+  "ciscoUnifiedFirewallMIBConform": {
+    "name": "ciscoUnifiedFirewallMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.491.2",
+    "class": "objectidentity"
+  },
+  "cuFwConnectionGrp": {
+    "name": "cuFwConnectionGrp",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1",
+    "class": "objectidentity"
+  },
+  "cuFwApplInspectionGrp": {
+    "name": "cuFwApplInspectionGrp",
+    "oid": "1.3.6.1.4.1.9.9.491.1.2",
+    "class": "objectidentity"
+  },
+  "cuFwUrlFilterGrp": {
+    "name": "cuFwUrlFilterGrp",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3",
+    "class": "objectidentity"
+  },
+  "cuFwFailoverGrp": {
+    "name": "cuFwFailoverGrp",
+    "oid": "1.3.6.1.4.1.9.9.491.1.4",
+    "class": "objectidentity"
+  },
+  "cuFwAaicGrp": {
+    "name": "cuFwAaicGrp",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5",
+    "class": "objectidentity"
+  },
+  "cuFwL2FwGrp": {
+    "name": "cuFwL2FwGrp",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6",
+    "class": "objectidentity"
+  },
+  "cuFwNotifCntlGrp": {
+    "name": "cuFwNotifCntlGrp",
+    "oid": "1.3.6.1.4.1.9.9.491.1.7",
+    "class": "objectidentity"
+  },
+  "cuFwConnectionGlobals": {
+    "name": "cuFwConnectionGlobals",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1",
+    "class": "objectidentity"
+  },
+  "cuFwConnectionResources": {
+    "name": "cuFwConnectionResources",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.2",
+    "class": "objectidentity"
+  },
+  "cuFwConnectionReportSettings": {
+    "name": "cuFwConnectionReportSettings",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.3",
+    "class": "objectidentity"
+  },
+  "cuFwConnectionSummaryTables": {
+    "name": "cuFwConnectionSummaryTables",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4",
+    "class": "objectidentity"
+  },
+  "cufwConnGlobalNumAttempted": {
+    "name": "cufwConnGlobalNumAttempted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumSetupsAborted": {
+    "name": "cufwConnGlobalNumSetupsAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumPolicyDeclined": {
+    "name": "cufwConnGlobalNumPolicyDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumResDeclined": {
+    "name": "cufwConnGlobalNumResDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumHalfOpen": {
+    "name": "cufwConnGlobalNumHalfOpen",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumActive": {
+    "name": "cufwConnGlobalNumActive",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumExpired": {
+    "name": "cufwConnGlobalNumExpired",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumAborted": {
+    "name": "cufwConnGlobalNumAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumEmbryonic": {
+    "name": "cufwConnGlobalNumEmbryonic",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalConnSetupRate1": {
+    "name": "cufwConnGlobalConnSetupRate1",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalConnSetupRate5": {
+    "name": "cufwConnGlobalConnSetupRate5",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnGlobalNumRemoteAccess": {
+    "name": "cufwConnGlobalNumRemoteAccess",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnResMemoryUsage": {
+    "name": "cufwConnResMemoryUsage",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnResActiveConnMemoryUsage": {
+    "name": "cufwConnResActiveConnMemoryUsage",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnResHOConnMemoryUsage": {
+    "name": "cufwConnResHOConnMemoryUsage",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnResEmbrConnMemoryUsage": {
+    "name": "cufwConnResEmbrConnMemoryUsage",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnReptAppStats": {
+    "name": "cufwConnReptAppStats",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cufwConnReptAppStatsLastChanged": {
+    "name": "cufwConnReptAppStatsLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnSummaryTable": {
+    "name": "cufwConnSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwConnSummaryEntry": {
+    "name": "cufwConnSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cufwConnProtocol": {
+    "name": "cufwConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWNetworkProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwConnNumAttempted": {
+    "name": "cufwConnNumAttempted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnNumSetupsAborted": {
+    "name": "cufwConnNumSetupsAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnNumPolicyDeclined": {
+    "name": "cufwConnNumPolicyDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnNumResDeclined": {
+    "name": "cufwConnNumResDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnNumHalfOpen": {
+    "name": "cufwConnNumHalfOpen",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnNumActive": {
+    "name": "cufwConnNumActive",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnNumAborted": {
+    "name": "cufwConnNumAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnSetupRate1": {
+    "name": "cufwConnSetupRate1",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections Per Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwConnSetupRate5": {
+    "name": "cufwConnSetupRate5",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections Per Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnSummaryTable": {
+    "name": "cufwAppConnSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwAppConnSummaryEntry": {
+    "name": "cufwAppConnSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cufwAppConnProtocol": {
+    "name": "cufwAppConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWApplicationProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwAppConnNumAttempted": {
+    "name": "cufwAppConnNumAttempted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnNumSetupsAborted": {
+    "name": "cufwAppConnNumSetupsAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnNumPolicyDeclined": {
+    "name": "cufwAppConnNumPolicyDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnNumResDeclined": {
+    "name": "cufwAppConnNumResDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnNumHalfOpen": {
+    "name": "cufwAppConnNumHalfOpen",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnNumActive": {
+    "name": "cufwAppConnNumActive",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnNumAborted": {
+    "name": "cufwAppConnNumAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnSetupRate1": {
+    "name": "cufwAppConnSetupRate1",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections Per Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAppConnSetupRate5": {
+    "name": "cufwAppConnSetupRate5",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections Per Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolicyConnSummaryTable": {
+    "name": "cufwPolicyConnSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolicyConnSummaryEntry": {
+    "name": "cufwPolicyConnSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnPolicy",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnPolicyTargetType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnPolicyTarget",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cufwPolConnPolicy": {
+    "name": "cufwPolConnPolicy",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWPolicy",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolConnPolicyTargetType": {
+    "name": "cufwPolConnPolicyTargetType",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWPolicyTargetType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolConnPolicyTarget": {
+    "name": "cufwPolConnPolicyTarget",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWPolicyTarget",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolConnProtocol": {
+    "name": "cufwPolConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWNetworkProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolConnNumAttempted": {
+    "name": "cufwPolConnNumAttempted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolConnNumSetupsAborted": {
+    "name": "cufwPolConnNumSetupsAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolConnNumPolicyDeclined": {
+    "name": "cufwPolConnNumPolicyDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolConnNumResDeclined": {
+    "name": "cufwPolConnNumResDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolConnNumHalfOpen": {
+    "name": "cufwPolConnNumHalfOpen",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolConnNumActive": {
+    "name": "cufwPolConnNumActive",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolConnNumAborted": {
+    "name": "cufwPolConnNumAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolicyAppConnSummaryTable": {
+    "name": "cufwPolicyAppConnSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolicyAppConnSummaryEntry": {
+    "name": "cufwPolicyAppConnSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnPolicy",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnPolicyTargetType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnPolicyTarget",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cufwPolAppConnPolicy": {
+    "name": "cufwPolAppConnPolicy",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWPolicy",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolAppConnPolicyTargetType": {
+    "name": "cufwPolAppConnPolicyTargetType",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWPolicyTargetType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolAppConnPolicyTarget": {
+    "name": "cufwPolAppConnPolicyTarget",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWPolicyTarget",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolAppConnProtocol": {
+    "name": "cufwPolAppConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWApplicationProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwPolAppConnNumAttempted": {
+    "name": "cufwPolAppConnNumAttempted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolAppConnNumSetupsAborted": {
+    "name": "cufwPolAppConnNumSetupsAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolAppConnNumPolicyDeclined": {
+    "name": "cufwPolAppConnNumPolicyDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolAppConnNumResDeclined": {
+    "name": "cufwPolAppConnNumResDeclined",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolAppConnNumHalfOpen": {
+    "name": "cufwPolAppConnNumHalfOpen",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolAppConnNumActive": {
+    "name": "cufwPolAppConnNumActive",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwPolAppConnNumAborted": {
+    "name": "cufwPolAppConnNumAborted",
+    "oid": "1.3.6.1.4.1.9.9.491.1.1.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAIAuditTrailEnabled": {
+    "name": "cufwAIAuditTrailEnabled",
+    "oid": "1.3.6.1.4.1.9.9.491.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cufwAIAlertEnabled": {
+    "name": "cufwAIAlertEnabled",
+    "oid": "1.3.6.1.4.1.9.9.491.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cufwInspectionTable": {
+    "name": "cufwInspectionTable",
+    "oid": "1.3.6.1.4.1.9.9.491.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwInspectionEntry": {
+    "name": "cufwInspectionEntry",
+    "oid": "1.3.6.1.4.1.9.9.491.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwInspectionPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwInspectionProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cufwInspectionPolicyName": {
+    "name": "cufwInspectionPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.491.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWPolicy",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwInspectionProtocol": {
+    "name": "cufwInspectionProtocol",
+    "oid": "1.3.6.1.4.1.9.9.491.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWApplicationProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwInspectionStatus": {
+    "name": "cufwInspectionStatus",
+    "oid": "1.3.6.1.4.1.9.9.491.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlFilterGlobals": {
+    "name": "cufwUrlFilterGlobals",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1",
+    "class": "objectidentity"
+  },
+  "cufwUrlFilterResourceUsage": {
+    "name": "cufwUrlFilterResourceUsage",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.2",
+    "class": "objectidentity"
+  },
+  "cufwUrlFilterServers": {
+    "name": "cufwUrlFilterServers",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3",
+    "class": "objectidentity"
+  },
+  "cufwUrlfFunctionEnabled": {
+    "name": "cufwUrlfFunctionEnabled",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cufwUrlfRequestsNumProcessed": {
+    "name": "cufwUrlfRequestsNumProcessed",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsProcRate1": {
+    "name": "cufwUrlfRequestsProcRate1",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Requests per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsProcRate5": {
+    "name": "cufwUrlfRequestsProcRate5",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Requests per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsNumAllowed": {
+    "name": "cufwUrlfRequestsNumAllowed",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsNumDenied": {
+    "name": "cufwUrlfRequestsNumDenied",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsDeniedRate1": {
+    "name": "cufwUrlfRequestsDeniedRate1",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Requests per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsDeniedRate5": {
+    "name": "cufwUrlfRequestsDeniedRate5",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Requests Per Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsNumCacheAllowed": {
+    "name": "cufwUrlfRequestsNumCacheAllowed",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsNumCacheDenied": {
+    "name": "cufwUrlfRequestsNumCacheDenied",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfAllowModeReqNumAllowed": {
+    "name": "cufwUrlfAllowModeReqNumAllowed",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfAllowModeReqNumDenied": {
+    "name": "cufwUrlfAllowModeReqNumDenied",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsNumResDropped": {
+    "name": "cufwUrlfRequestsNumResDropped",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsResDropRate1": {
+    "name": "cufwUrlfRequestsResDropRate1",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Requests Per Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfRequestsResDropRate5": {
+    "name": "cufwUrlfRequestsResDropRate5",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Requests Per Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfNumServerTimeouts": {
+    "name": "cufwUrlfNumServerTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfNumServerRetries": {
+    "name": "cufwUrlfNumServerRetries",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfResponsesNumLate": {
+    "name": "cufwUrlfResponsesNumLate",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfUrlAccRespsNumResDropped": {
+    "name": "cufwUrlfUrlAccRespsNumResDropped",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfResTotalRequestCacheSize": {
+    "name": "cufwUrlfResTotalRequestCacheSize",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfResTotalRespCacheSize": {
+    "name": "cufwUrlfResTotalRespCacheSize",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerTable": {
+    "name": "cufwUrlfServerTable",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwUrlfServerEntry": {
+    "name": "cufwUrlfServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cufwUrlfServerAddrType": {
+    "name": "cufwUrlfServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwUrlfServerAddress": {
+    "name": "cufwUrlfServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwUrlfServerPort": {
+    "name": "cufwUrlfServerPort",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cufwUrlfServerVendor": {
+    "name": "cufwUrlfServerVendor",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWUrlfVendorId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerStatus": {
+    "name": "cufwUrlfServerStatus",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFWUrlServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerReqsNumProcessed": {
+    "name": "cufwUrlfServerReqsNumProcessed",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerReqsNumAllowed": {
+    "name": "cufwUrlfServerReqsNumAllowed",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerReqsNumDenied": {
+    "name": "cufwUrlfServerReqsNumDenied",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerNumTimeouts": {
+    "name": "cufwUrlfServerNumTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerNumRetries": {
+    "name": "cufwUrlfServerNumRetries",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerRespsNumReceived": {
+    "name": "cufwUrlfServerRespsNumReceived",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerRespsNumLate": {
+    "name": "cufwUrlfServerRespsNumLate",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerAvgRespTime1": {
+    "name": "cufwUrlfServerAvgRespTime1",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwUrlfServerAvgRespTime5": {
+    "name": "cufwUrlfServerAvgRespTime5",
+    "oid": "1.3.6.1.4.1.9.9.491.1.3.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicGlobals": {
+    "name": "cufwAaicGlobals",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.1",
+    "class": "objectidentity"
+  },
+  "cufwAaicGlobalNumBadProtocolOps": {
+    "name": "cufwAaicGlobalNumBadProtocolOps",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicGlobalNumBadPDUSize": {
+    "name": "cufwAaicGlobalNumBadPDUSize",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicGlobalNumBadPortRange": {
+    "name": "cufwAaicGlobalNumBadPortRange",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicProtocolStats": {
+    "name": "cufwAaicProtocolStats",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2",
+    "class": "objectidentity"
+  },
+  "cufwAaicHttpProtocolStats": {
+    "name": "cufwAaicHttpProtocolStats",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2.1",
+    "class": "objectidentity"
+  },
+  "cufwAaicHttpNumBadProtocolOps": {
+    "name": "cufwAaicHttpNumBadProtocolOps",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "HTTP Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicHttpNumBadPDUSize": {
+    "name": "cufwAaicHttpNumBadPDUSize",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "HTTP Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicHttpNumTunneledConns": {
+    "name": "cufwAaicHttpNumTunneledConns",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicHttpNumLargeURIs": {
+    "name": "cufwAaicHttpNumLargeURIs",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "HTTP Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicHttpNumBadContent": {
+    "name": "cufwAaicHttpNumBadContent",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "HTTP Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicHttpNumMismatchContent": {
+    "name": "cufwAaicHttpNumMismatchContent",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "HTTP Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwAaicHttpNumDoubleEncodedPkts": {
+    "name": "cufwAaicHttpNumDoubleEncodedPkts",
+    "oid": "1.3.6.1.4.1.9.9.491.1.5.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "HTTP Protocol Data Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2FwGlobals": {
+    "name": "cufwL2FwGlobals",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1",
+    "class": "objectidentity"
+  },
+  "cufwL2GlobalEnableStealthMode": {
+    "name": "cufwL2GlobalEnableStealthMode",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2GlobalArpCacheSize": {
+    "name": "cufwL2GlobalArpCacheSize",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "ARP entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2GlobalEnableArpInspection": {
+    "name": "cufwL2GlobalEnableArpInspection",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cufwL2GlobalNumArpRequests": {
+    "name": "cufwL2GlobalNumArpRequests",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "ARP Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2GlobalNumIcmpRequests": {
+    "name": "cufwL2GlobalNumIcmpRequests",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "ICMP Traceroute Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2GlobalNumFloods": {
+    "name": "cufwL2GlobalNumFloods",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2GlobalNumDrops": {
+    "name": "cufwL2GlobalNumDrops",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2GlobalArpOverflowRate5": {
+    "name": "cufwL2GlobalArpOverflowRate5",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2GlobalNumBadArpResponses": {
+    "name": "cufwL2GlobalNumBadArpResponses",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "ARP Responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwL2GlobalNumSpoofedArpResps": {
+    "name": "cufwL2GlobalNumSpoofedArpResps",
+    "oid": "1.3.6.1.4.1.9.9.491.1.6.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "ARP Responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cufwCntlUrlfServerStatusChange": {
+    "name": "cufwCntlUrlfServerStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.491.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cufwCntlL2StaticMacAddressMoved": {
+    "name": "cufwCntlL2StaticMacAddressMoved",
+    "oid": "1.3.6.1.4.1.9.9.491.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoUFwUrlfServerStateChange": {
+    "name": "ciscoUFwUrlfServerStateChange",
+    "oid": "1.3.6.1.4.1.9.9.491.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUFwL2StaticMacAddressMoved": {
+    "name": "ciscoUFwL2StaticMacAddressMoved",
+    "oid": "1.3.6.1.4.1.9.9.491.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpFdbPort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpFdbStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUniFirewallMIBCompliances": {
+    "name": "ciscoUniFirewallMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.491.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoUniFirewallMIBGroups": {
+    "name": "ciscoUniFirewallMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoUniFirewallMIBCompliance": {
+    "name": "ciscoUniFirewallMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.491.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFwConnectionGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwMibReportingControlGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwApplInspectionGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwConnResourceUsageGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwPolicyConnectionGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwUrlFilterGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwUrlFilterResourceGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwTransparentFwGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwTransparentNotifGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwBasicAaicGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFwAaicHttpGroup",
+        "module": "CISCO-UNIFIED-FIREWALL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwConnectionGroup": {
+    "name": "ciscoFwConnectionGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumAttempted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumSetupsAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumPolicyDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumResDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumHalfOpen"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumActive"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumExpired"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumEmbryonic"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalConnSetupRate1"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalConnSetupRate5"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnGlobalNumRemoteAccess"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnNumAttempted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnNumSetupsAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnNumPolicyDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnNumResDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnNumHalfOpen"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnNumActive"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnNumAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnSetupRate1"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnSetupRate5"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnNumAttempted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnNumSetupsAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnNumPolicyDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnNumResDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnNumHalfOpen"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnNumActive"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnNumAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnSetupRate1"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAppConnSetupRate5"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwConnResourceUsageGroup": {
+    "name": "ciscoFwConnResourceUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnResMemoryUsage"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnResActiveConnMemoryUsage"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnResHOConnMemoryUsage"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnResEmbrConnMemoryUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwPolicyConnectionGroup": {
+    "name": "ciscoFwPolicyConnectionGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnNumAttempted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnNumSetupsAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnNumPolicyDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnNumResDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnNumHalfOpen"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnNumActive"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolConnNumAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnNumAttempted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnNumSetupsAborted"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnNumPolicyDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnNumResDeclined"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnNumHalfOpen"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnNumActive"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwPolAppConnNumAborted"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwApplInspectionGroup": {
+    "name": "ciscoFwApplInspectionGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAIAuditTrailEnabled"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAIAlertEnabled"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwInspectionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwUrlFilterGroup": {
+    "name": "ciscoFwUrlFilterGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfFunctionEnabled"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsNumProcessed"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsProcRate1"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsProcRate5"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsNumAllowed"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsNumDenied"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsDeniedRate1"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsDeniedRate5"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsNumCacheAllowed"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsNumCacheDenied"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfAllowModeReqNumAllowed"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfAllowModeReqNumDenied"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsNumResDropped"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsResDropRate1"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfRequestsResDropRate5"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfNumServerTimeouts"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfNumServerRetries"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfResponsesNumLate"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfUrlAccRespsNumResDropped"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerVendor"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerStatus"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerReqsNumProcessed"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerReqsNumAllowed"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerReqsNumDenied"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerNumTimeouts"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerNumRetries"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerRespsNumReceived"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerRespsNumLate"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerAvgRespTime1"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfServerAvgRespTime5"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwCntlUrlfServerStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwUrlFilterResourceGroup": {
+    "name": "ciscoFwUrlFilterResourceGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfResTotalRequestCacheSize"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwUrlfResTotalRespCacheSize"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwTransparentFwGroup": {
+    "name": "ciscoFwTransparentFwGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalEnableStealthMode"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalArpCacheSize"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalEnableArpInspection"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalNumArpRequests"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalNumIcmpRequests"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalNumFloods"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalNumDrops"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalArpOverflowRate5"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalNumBadArpResponses"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwL2GlobalNumSpoofedArpResps"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwCntlL2StaticMacAddressMoved"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwNotificationsGroup": {
+    "name": "ciscoFwNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "ciscoUFwUrlfServerStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwTransparentNotifGroup": {
+    "name": "ciscoFwTransparentNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "ciscoUFwL2StaticMacAddressMoved"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwBasicAaicGroup": {
+    "name": "ciscoFwBasicAaicGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicGlobalNumBadProtocolOps"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicGlobalNumBadPDUSize"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicGlobalNumBadPortRange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwAaicHttpGroup": {
+    "name": "ciscoFwAaicHttpGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicHttpNumBadProtocolOps"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicHttpNumBadPDUSize"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicHttpNumTunneledConns"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicHttpNumLargeURIs"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicHttpNumBadContent"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicHttpNumMismatchContent"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwAaicHttpNumDoubleEncodedPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFwMibReportingControlGroup": {
+    "name": "ciscoFwMibReportingControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.491.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnReptAppStats"
+      },
+      {
+        "module": "CISCO-UNIFIED-FIREWALL-MIB",
+        "object": "cufwConnReptAppStatsLastChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-FIREWALL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-FIREWALL-MIB"
+  }
+}

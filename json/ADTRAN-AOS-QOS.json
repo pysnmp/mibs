@@ -1,0 +1,2664 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSConformance",
+      "adGenAOSRouter"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "adGenAOSQoSMib": {
+    "name": "adGenAOSQoSMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-06-17 00:00",
+        "description": "Changed description of adGenAOSQoSInterfaceTXQType. Changes by Michael Weir."
+      },
+      {
+        "revision": "2011-05-17 00:00",
+        "description": "Added enumeration values to adGenAOSQosMapMatchType and adGenAOSQoSMapProtocolMatchType for QoS IPv6 configurations. Changes by Reba Holland."
+      },
+      {
+        "revision": "2010-05-19 00:00",
+        "description": "Added adGenAOSQoSMapPriorityStrictRateLimiting to adGenAOSQoSMapEntriesTable. Changes by David Wallace."
+      },
+      {
+        "revision": "2009-03-04 00:00",
+        "description": "Added configuration information to adGenAOSQoSMapEntriesTable and shaping statistics to adGenAOSQoSInterfaceTable. Added adGenAOSQoSMapMatchTable and adGenAOSQoSMapShaperTable. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-09-16 00:00",
+        "description": "Added rate statistics to adGenAOSQoSClassConvHistoryTable and adGenAOSQoSPriorityRateLimiterTable. Added adGenAOSQoSMapClassifierStatsTable. The adGenAOSQoSMapClassifierStatsTable will initially display only default class information. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-08-20 00:00",
+        "description": "Changed name of OIDs adGenAOSQoSMapEntryActionType, adGenAOSQoSMapBWType, adGenAOSQoSMapBWValue, to adGenAOSQoSMapQueuingActionType, adGenAOSQoSMapQueuingBWType, adGenAOSQoSMapQueuingBWValue. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-07-11 00:00",
+        "description": "Added adGenAOSQoSInterfaceTable. Changed adGenAOSQoSClassConvHistoryTable to use ifIndex, adGenAOSMapEntryId, and adGenAOSQoSMapParentEntryId as indices. Changed adGenAOSQoSPriorityRateLimiterTable to use adGenAOSQoSPriorityRateLimiterParentId as an index. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-06-25 00:00",
+        "description": "Added the following to the adGenAOSQoSMapEntriesTable - adGenAOSQoSMapEntrySetName, adGenAOSQoSMapEntryActionType, adGenAOSQoSMapBWType, adGenAOSQoSMapBWValue. Changed adGenAOSQos to be under the adGenAOSRouter tree instead of the adGenAOSCommon tree. Changed name, indices and OIDS of adGenQOSQoSConversationTable to adGenAOSQoSClassConversationTable. Changed name, indices and OIDS of adGenQOSQoSConvHistoryTable to adGenAOSQoSClassConvHistoryTable. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-06-06 00:00",
+        "description": "Changed the following from Integer32 to Unsigned32 - adGenAOSQoSMapSetId, adGenAOSQoSMapEntryId adGenAOSQoSHistoryConvId, adGenAOSQoSHistorySetId, adGenAOSQoSHistoryEntryId, adGenAOSQoSConvId. Changed description of adGenAOSQoSConvHistoryTable and adGenAOSQoSConversationTable. Removed adGenAOSQoSMapSetId as an index to adGenAOSQoSPriorityRateLimiterTable and added adGenAOSQoSPriorityRateLimiterSetId as an entry. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-06-04 00:00",
+        "description": "Added adGenAOSQoSMapChildSetName to adGenAOSQoSMapEntriesTable. Changed indices of adGenAOSQoSConvHistoryTable. Changed description and indices of adGenAOSQoSMapEntriesTable. Changed OID name of adGenAOSQoSRateLimiterTable to adGenAOSQoSPriorityRateLimiterTable. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-04-17 00:00",
+        "description": "First Draft of ADTRAN-AOS-QOS MIB module. ********************************** QoS Overview ********************************** This MIB allows read-only access to quality of service (QoS)statistical information for QoS enabled ADTRAN products. A QoS-policy is defined using a QoS map in the ADTRAN Operating System (AOS) command line interface (CLI). The QoS map is a named list with sequenced entries. An entry contains match references and one or more actions. Multiple map entries for the same QoS map are differentiated by a sequence number. The sequence number is used to assign match order. Once created, a QoS map must be applied to an interface in order to actively process traffic. Any traffic for the interface that does not explicitly match a map entry is sent using the default queuing method for the interface (such as weighted fair queuing (WFQ). All QoS configuration must be done by the ADTRAN command line interface (CLI) or the WEB GUI."
+      }
+    ]
+  },
+  "adGenAOSQos": {
+    "name": "adGenAOSQos",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1",
+    "class": "objectidentity"
+  },
+  "Unsigned64": {
+    "name": "Unsigned64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "adGenAOSQoSMapSetTable": {
+    "name": "adGenAOSQoSMapSetTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSMapSetEntry": {
+    "name": "adGenAOSQoSMapSetEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapSetId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapSetId": {
+    "name": "adGenAOSQoSMapSetId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapSetName": {
+    "name": "adGenAOSQoSMapSetName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapIsChild": {
+    "name": "adGenAOSQoSMapIsChild",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapEntriesTable": {
+    "name": "adGenAOSQoSMapEntriesTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSMapEntriesEntry": {
+    "name": "adGenAOSQoSMapEntriesEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapSetId",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapEntryId": {
+    "name": "adGenAOSQoSMapEntryId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapSeqNum": {
+    "name": "adGenAOSQoSMapSeqNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapEntrySetName": {
+    "name": "adGenAOSQoSMapEntrySetName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapChildSetName": {
+    "name": "adGenAOSQoSMapChildSetName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapQueuingActionType": {
+    "name": "adGenAOSQoSMapQueuingActionType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "priority": 2,
+          "classBased": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapQueuingBWType": {
+    "name": "adGenAOSQoSMapQueuingBWType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "absolute": 2,
+          "percent": 3,
+          "percentRemaining": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapQueuingBWValue": {
+    "name": "adGenAOSQoSMapQueuingBWValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapQueuingBurstValue": {
+    "name": "adGenAOSQoSMapQueuingBurstValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapMatchAll": {
+    "name": "adGenAOSQoSMapMatchAll",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapDscpMarkState": {
+    "name": "adGenAOSQoSMapDscpMarkState",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapDscpMarkValue": {
+    "name": "adGenAOSQoSMapDscpMarkValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapDscpMarkString": {
+    "name": "adGenAOSQoSMapDscpMarkString",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapPrecedenceMarkState": {
+    "name": "adGenAOSQoSMapPrecedenceMarkState",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapPrecedenceMarkValue": {
+    "name": "adGenAOSQoSMapPrecedenceMarkValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapCosMarkState": {
+    "name": "adGenAOSQoSMapCosMarkState",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapCosMarkValue": {
+    "name": "adGenAOSQoSMapCosMarkValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShapeState": {
+    "name": "adGenAOSQoSMapShapeState",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShapeValue": {
+    "name": "adGenAOSQoSMapShapeValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShapeBurst": {
+    "name": "adGenAOSQoSMapShapeBurst",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShapeEthOverhead": {
+    "name": "adGenAOSQoSMapShapeEthOverhead",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapClearCounters": {
+    "name": "adGenAOSQoSMapClearCounters",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSQoSMapPriorityStrictRateLimiting": {
+    "name": "adGenAOSQoSMapPriorityStrictRateLimiting",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTable": {
+    "name": "adGenAOSQoSInterfaceTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceEntry": {
+    "name": "adGenAOSQoSInterfaceEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceName": {
+    "name": "adGenAOSQoSInterfaceName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceOutboundMapSetName": {
+    "name": "adGenAOSQoSInterfaceOutboundMapSetName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceInboundMapSetName": {
+    "name": "adGenAOSQoSInterfaceInboundMapSetName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceMapState": {
+    "name": "adGenAOSQoSInterfaceMapState",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQType": {
+    "name": "adGenAOSQoSInterfaceTXQType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifo": 1,
+          "fifoAged": 2,
+          "weightedFair": 3,
+          "roundRobin": 4,
+          "priority": 5,
+          "none": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQSubqPktLimit": {
+    "name": "adGenAOSQoSInterfaceTXQSubqPktLimit",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQSize": {
+    "name": "adGenAOSQoSInterfaceTXQSize",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQPktHighWater": {
+    "name": "adGenAOSQoSInterfaceTXQPktHighWater",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQMaxTotal": {
+    "name": "adGenAOSQoSInterfaceTXQMaxTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQDrops": {
+    "name": "adGenAOSQoSInterfaceTXQDrops",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQHdlcRingLimit": {
+    "name": "adGenAOSQoSInterfaceTXQHdlcRingLimit",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQAvailableBW": {
+    "name": "adGenAOSQoSInterfaceTXQAvailableBW",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQConvActive": {
+    "name": "adGenAOSQoSInterfaceTXQConvActive",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQConvMaxActive": {
+    "name": "adGenAOSQoSInterfaceTXQConvMaxActive",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTXQConvMaxTotal": {
+    "name": "adGenAOSQoSInterfaceTXQConvMaxTotal",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTrafficShapingRate": {
+    "name": "adGenAOSQoSInterfaceTrafficShapingRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceTrafficShapingBurst": {
+    "name": "adGenAOSQoSInterfaceTrafficShapingBurst",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperValue": {
+    "name": "adGenAOSQoSInterfaceShaperValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperCurrentBudgetSize": {
+    "name": "adGenAOSQoSInterfaceShaperCurrentBudgetSize",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperMaxBudgetSize": {
+    "name": "adGenAOSQoSInterfaceShaperMaxBudgetSize",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperBytesPerTick": {
+    "name": "adGenAOSQoSInterfaceShaperBytesPerTick",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperTickRate": {
+    "name": "adGenAOSQoSInterfaceShaperTickRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperQPktDepth": {
+    "name": "adGenAOSQoSInterfaceShaperQPktDepth",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperQPktDrops": {
+    "name": "adGenAOSQoSInterfaceShaperQPktDrops",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperQPktSent": {
+    "name": "adGenAOSQoSInterfaceShaperQPktSent",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceShaperQPktDelayed": {
+    "name": "adGenAOSQoSInterfaceShaperQPktDelayed",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryTable": {
+    "name": "adGenAOSQoSClassConvHistoryTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryEntry": {
+    "name": "adGenAOSQoSClassConvHistoryEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapEntryId",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapParentEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapParentEntryId": {
+    "name": "adGenAOSQoSMapParentEntryId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvSetId": {
+    "name": "adGenAOSQoSClassConvSetId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSHistoryClassConvId": {
+    "name": "adGenAOSQoSHistoryClassConvId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryMatches": {
+    "name": "adGenAOSQoSClassConvHistoryMatches",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryDiscards": {
+    "name": "adGenAOSQoSClassConvHistoryDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryMatchesBytes": {
+    "name": "adGenAOSQoSClassConvHistoryMatchesBytes",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryDiscardsBytes": {
+    "name": "adGenAOSQoSClassConvHistoryDiscardsBytes",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryDepth": {
+    "name": "adGenAOSQoSClassConvHistoryDepth",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryHighWater": {
+    "name": "adGenAOSQoSClassConvHistoryHighWater",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryByteMatchRate": {
+    "name": "adGenAOSQoSClassConvHistoryByteMatchRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryByteDiscardRate": {
+    "name": "adGenAOSQoSClassConvHistoryByteDiscardRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryBitMatchRate": {
+    "name": "adGenAOSQoSClassConvHistoryBitMatchRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryBitDiscardRate": {
+    "name": "adGenAOSQoSClassConvHistoryBitDiscardRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConversationTable": {
+    "name": "adGenAOSQoSConversationTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSConversationEntry": {
+    "name": "adGenAOSQoSConversationEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvId",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapConvParentEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSConvId": {
+    "name": "adGenAOSQoSConvId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapConvParentEntryId": {
+    "name": "adGenAOSQoSMapConvParentEntryId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvMatches": {
+    "name": "adGenAOSQoSConvMatches",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvDiscards": {
+    "name": "adGenAOSQoSConvDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvMatchesBytes": {
+    "name": "adGenAOSQoSConvMatchesBytes",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvDiscardsBytes": {
+    "name": "adGenAOSQoSConvDiscardsBytes",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvDepth": {
+    "name": "adGenAOSQoSConvDepth",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvHighWater": {
+    "name": "adGenAOSQoSConvHighWater",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvWeight": {
+    "name": "adGenAOSQoSConvWeight",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvPktLen": {
+    "name": "adGenAOSQoSConvPktLen",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvProttype": {
+    "name": "adGenAOSQoSConvProttype",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 1,
+          "ip": 2,
+          "bridging": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvSubQType": {
+    "name": "adGenAOSQoSConvSubQType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bestEffort": 1,
+          "classBased": 2,
+          "unclassified": 3,
+          "priorityUser": 4,
+          "prioritySystem": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConvPktHeader": {
+    "name": "adGenAOSQoSConvPktHeader",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterTable": {
+    "name": "adGenAOSQoSPriorityRateLimiterTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterEntry": {
+    "name": "adGenAOSQoSPriorityRateLimiterEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapEntryId",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterParentEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterParentEntryId": {
+    "name": "adGenAOSQoSPriorityRateLimiterParentEntryId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterSetId": {
+    "name": "adGenAOSQoSPriorityRateLimiterSetId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterCurrBudget": {
+    "name": "adGenAOSQoSPriorityRateLimiterCurrBudget",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterMaxBudget": {
+    "name": "adGenAOSQoSPriorityRateLimiterMaxBudget",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterUpdateTimestamp": {
+    "name": "adGenAOSQoSPriorityRateLimiterUpdateTimestamp",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterBudgetRate": {
+    "name": "adGenAOSQoSPriorityRateLimiterBudgetRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterMaxFillTime": {
+    "name": "adGenAOSQoSPriorityRateLimiterMaxFillTime",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterMatches": {
+    "name": "adGenAOSQoSPriorityRateLimiterMatches",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterDrops": {
+    "name": "adGenAOSQoSPriorityRateLimiterDrops",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterMatchesBytes": {
+    "name": "adGenAOSQoSPriorityRateLimiterMatchesBytes",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterDropsBytes": {
+    "name": "adGenAOSQoSPriorityRateLimiterDropsBytes",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterClearCounters": {
+    "name": "adGenAOSQoSPriorityRateLimiterClearCounters",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterByteMatchRate": {
+    "name": "adGenAOSQoSPriorityRateLimiterByteMatchRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterByteDiscardRate": {
+    "name": "adGenAOSQoSPriorityRateLimiterByteDiscardRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterBitMatchRate": {
+    "name": "adGenAOSQoSPriorityRateLimiterBitMatchRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterBitDiscardRate": {
+    "name": "adGenAOSQoSPriorityRateLimiterBitDiscardRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapClassifierStatsTable": {
+    "name": "adGenAOSQoSMapClassifierStatsTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSMapClassifierStatsEntry": {
+    "name": "adGenAOSQoSMapClassifierStatsEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapEntryId",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapClassifierParentEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapClassifierParentEntryId": {
+    "name": "adGenAOSQoSMapClassifierParentEntryId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierMatches": {
+    "name": "adGenAOSQoSClassifierMatches",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierDrops": {
+    "name": "adGenAOSQoSClassifierDrops",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierMatchBytes": {
+    "name": "adGenAOSQoSClassifierMatchBytes",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierDropBytes": {
+    "name": "adGenAOSQoSClassifierDropBytes",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierPktMatchRate": {
+    "name": "adGenAOSQoSClassifierPktMatchRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierPktDropRate": {
+    "name": "adGenAOSQoSClassifierPktDropRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierByteMatchRate": {
+    "name": "adGenAOSQoSClassifierByteMatchRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierByteDropRate": {
+    "name": "adGenAOSQoSClassifierByteDropRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierBitMatchRate": {
+    "name": "adGenAOSQoSClassifierBitMatchRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierBitDropRate": {
+    "name": "adGenAOSQoSClassifierBitDropRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapMatchTable": {
+    "name": "adGenAOSQoSMapMatchTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSMapMatchEntry": {
+    "name": "adGenAOSQoSMapMatchEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapSetId",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapEntryId",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapMatchEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapMatchEntryId": {
+    "name": "adGenAOSQoSMapMatchEntryId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapMatchType": {
+    "name": "adGenAOSQoSMapMatchType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "acl": 2,
+          "ipRTP": 3,
+          "protocol": 4,
+          "dscp": 5,
+          "precedence": 6,
+          "vlan": 7,
+          "frameRelayDLCI": 8,
+          "any": 10,
+          "dscpIpv4": 11,
+          "dscpIpv6": 12,
+          "precedenceIpv4": 13,
+          "precedenceIpv6": 14,
+          "aclIpv6": 15,
+          "ipRTPIpv6": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapMatchACL": {
+    "name": "adGenAOSQoSMapMatchACL",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapRTPMatchStartPort": {
+    "name": "adGenAOSQoSMapRTPMatchStartPort",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapRTPMatchEndPort": {
+    "name": "adGenAOSQoSMapRTPMatchEndPort",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapRTPMatchPorts": {
+    "name": "adGenAOSQoSMapRTPMatchPorts",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "even": 1,
+          "odd": 2,
+          "all": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapDscpMatchValue": {
+    "name": "adGenAOSQoSMapDscpMatchValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapPrecedenceMatchValue": {
+    "name": "adGenAOSQoSMapPrecedenceMatchValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapProtocolMatchType": {
+    "name": "adGenAOSQoSMapProtocolMatchType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bridged": 2,
+          "netBEIU": 3,
+          "protocolIpv4": 4,
+          "protocolIpv6": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapVlanMatchValue": {
+    "name": "adGenAOSQoSMapVlanMatchValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapFrDlciMatchValue": {
+    "name": "adGenAOSQoSMapFrDlciMatchValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperTable": {
+    "name": "adGenAOSQoSMapShaperTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperEntry": {
+    "name": "adGenAOSQoSMapShaperEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperShapeValue": {
+    "name": "adGenAOSQoSMapShaperShapeValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperCurrentBudgetSize": {
+    "name": "adGenAOSQoSMapShaperCurrentBudgetSize",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperMaxBudgetSize": {
+    "name": "adGenAOSQoSMapShaperMaxBudgetSize",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperBytesPerTick": {
+    "name": "adGenAOSQoSMapShaperBytesPerTick",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperTickRate": {
+    "name": "adGenAOSQoSMapShaperTickRate",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperQueuePktDepth": {
+    "name": "adGenAOSQoSMapShaperQueuePktDepth",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperQueuePktDrops": {
+    "name": "adGenAOSQoSMapShaperQueuePktDrops",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperQueuePktsSent": {
+    "name": "adGenAOSQoSMapShaperQueuePktsSent",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperQueuePktsDelayed": {
+    "name": "adGenAOSQoSMapShaperQueuePktsDelayed",
+    "oid": "1.3.6.1.4.1.664.5.53.2.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSQoSConformance": {
+    "name": "adGenAOSQoSConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8",
+    "class": "objectidentity"
+  },
+  "adGenAOSQoSGroup": {
+    "name": "adGenAOSQoSGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSQoSCompliances": {
+    "name": "adGenAOSQoSCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSQoSFullCompliance": {
+    "name": "adGenAOSQoSFullCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenAOSQoSMapGroup",
+        "module": "ADTRAN-AOS-QOS"
+      },
+      {
+        "object": "adGenAOSQoSMapEntryGroup",
+        "module": "ADTRAN-AOS-QOS"
+      },
+      {
+        "object": "adGenAOSQoSInterfaceGroup",
+        "module": "ADTRAN-AOS-QOS"
+      },
+      {
+        "object": "adGenAOSQoSConversationGroup",
+        "module": "ADTRAN-AOS-QOS"
+      },
+      {
+        "object": "adGenAOSQoSClassConvHistoryGroup",
+        "module": "ADTRAN-AOS-QOS"
+      },
+      {
+        "object": "adGenAOSQoSPriorityRateLimiterGroup",
+        "module": "ADTRAN-AOS-QOS"
+      },
+      {
+        "object": "adGenAOSQoSClassifierGroup",
+        "module": "ADTRAN-AOS-QOS"
+      },
+      {
+        "object": "adGenAOSQoSMapMatchGroup",
+        "module": "ADTRAN-AOS-QOS"
+      },
+      {
+        "object": "adGenAOSQoSMapShaperGroup",
+        "module": "ADTRAN-AOS-QOS"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapGroup": {
+    "name": "adGenAOSQoSMapGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapSetId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapSetName"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapIsChild"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapEntryGroup": {
+    "name": "adGenAOSQoSMapEntryGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapEntryId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapSeqNum"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapEntrySetName"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapChildSetName"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapQueuingActionType"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapQueuingBWType"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapQueuingBWValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapQueuingBurstValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapMatchAll"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapDscpMarkState"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapDscpMarkValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapDscpMarkString"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapPrecedenceMarkState"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapPrecedenceMarkValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapCosMarkState"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapCosMarkValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShapeState"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShapeValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShapeBurst"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShapeEthOverhead"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapClearCounters"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapPriorityStrictRateLimiting"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSInterfaceGroup": {
+    "name": "adGenAOSQoSInterfaceGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceName"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceOutboundMapSetName"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceInboundMapSetName"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceMapState"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQType"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQSubqPktLimit"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQSize"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQPktHighWater"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQMaxTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQDrops"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQHdlcRingLimit"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQAvailableBW"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQConvActive"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQConvMaxActive"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTXQConvMaxTotal"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTrafficShapingRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceTrafficShapingBurst"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperCurrentBudgetSize"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperMaxBudgetSize"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperBytesPerTick"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperTickRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperQPktDepth"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperQPktDrops"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperQPktSent"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSInterfaceShaperQPktDelayed"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSClassConvHistoryGroup": {
+    "name": "adGenAOSQoSClassConvHistoryGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapParentEntryId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvSetId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSHistoryClassConvId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryMatches"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryDiscards"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryMatchesBytes"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryDiscardsBytes"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryDepth"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryHighWater"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryByteMatchRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryByteDiscardRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryBitMatchRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassConvHistoryBitDiscardRate"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSConversationGroup": {
+    "name": "adGenAOSQoSConversationGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapConvParentEntryId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvMatches"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvDiscards"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvMatchesBytes"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvDiscardsBytes"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvDepth"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvHighWater"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvWeight"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvPktLen"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvProttype"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvSubQType"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSConvPktHeader"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSPriorityRateLimiterGroup": {
+    "name": "adGenAOSQoSPriorityRateLimiterGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterParentEntryId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterSetId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterCurrBudget"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterMaxBudget"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterUpdateTimestamp"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterBudgetRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterMaxFillTime"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterMatches"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterDrops"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterMatchesBytes"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterDropsBytes"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterClearCounters"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterByteMatchRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterByteDiscardRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterBitMatchRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSPriorityRateLimiterBitDiscardRate"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSClassifierGroup": {
+    "name": "adGenAOSQoSClassifierGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapClassifierParentEntryId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierMatches"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierDrops"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierMatchBytes"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierDropBytes"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierPktMatchRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierPktDropRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierByteMatchRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierByteDropRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierBitMatchRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSClassifierBitDropRate"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapMatchGroup": {
+    "name": "adGenAOSQoSMapMatchGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapSetId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapSetName"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapMatchEntryId"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapMatchType"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapMatchACL"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapRTPMatchStartPort"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapRTPMatchEndPort"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapRTPMatchPorts"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapDscpMatchValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapPrecedenceMatchValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapProtocolMatchType"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapVlanMatchValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapFrDlciMatchValue"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSQoSMapShaperGroup": {
+    "name": "adGenAOSQoSMapShaperGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.8.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperShapeValue"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperCurrentBudgetSize"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperMaxBudgetSize"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperBytesPerTick"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperTickRate"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperQueuePktDepth"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperQueuePktDrops"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperQueuePktsSent"
+      },
+      {
+        "module": "ADTRAN-AOS-QOS",
+        "object": "adGenAOSQoSMapShaperQueuePktsDelayed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-QOS",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS-QOS"
+  }
+}

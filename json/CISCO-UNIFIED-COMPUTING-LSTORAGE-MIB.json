@@ -1,0 +1,1739 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsLstorageVirtualDriveDefStripSize",
+      "CucsLstorageVirtualDriveDefIoPolicy",
+      "CucsLstorageConfigIssues",
+      "CucsLstorageControllerQualifierControllerType",
+      "CucsStorageControllerId",
+      "CucsStorageDiskRole",
+      "CucsLstorageAvailability",
+      "CucsStorageLunType",
+      "CucsLstorageDasScsiLunStorageClass",
+      "CucsPolicyPolicyOwner",
+      "CucsStorageUnitOperState",
+      "CucsLsConfigIssues",
+      "CucsStorageLocalDiskMode",
+      "CucsLstorageAdminState",
+      "CucsStorageTechnologyConfig",
+      "CucsLstorageBootDevice",
+      "CucsLstorageVirtualDriveDefWriteCachePolicy",
+      "CucsLstorageConfigState",
+      "CucsLstorageAutoDeploy",
+      "CucsLstorageVirtualDriveDefAccessPolicy",
+      "CucsLstorageLunMapType",
+      "CucsLstorageVirtualDriveDefDriveCache",
+      "CucsLstorageVirtualDriveDefReadPolicy"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsLstorageObjects": {
+    "name": "cucsLstorageObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79",
+    "class": "moduleidentity"
+  },
+  "cucsLstorageControllerDefTable": {
+    "name": "cucsLstorageControllerDefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageControllerDefEntry": {
+    "name": "cucsLstorageControllerDefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageControllerDefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageControllerDefInstanceId": {
+    "name": "cucsLstorageControllerDefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageControllerDefDn": {
+    "name": "cucsLstorageControllerDefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerDefRn": {
+    "name": "cucsLstorageControllerDefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerDefAdminState": {
+    "name": "cucsLstorageControllerDefAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerDefConfigQualifier": {
+    "name": "cucsLstorageControllerDefConfigQualifier",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageConfigIssues",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerDefConfigState": {
+    "name": "cucsLstorageControllerDefConfigState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageConfigState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerDefName": {
+    "name": "cucsLstorageControllerDefName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerDefOperState": {
+    "name": "cucsLstorageControllerDefOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.52.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsStorageUnitOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerModeConfigTable": {
+    "name": "cucsLstorageControllerModeConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.53",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageControllerModeConfigEntry": {
+    "name": "cucsLstorageControllerModeConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.53.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageControllerModeConfigInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageControllerModeConfigInstanceId": {
+    "name": "cucsLstorageControllerModeConfigInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.53.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageControllerModeConfigDn": {
+    "name": "cucsLstorageControllerModeConfigDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.53.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerModeConfigRn": {
+    "name": "cucsLstorageControllerModeConfigRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.53.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerModeConfigProtectConfig": {
+    "name": "cucsLstorageControllerModeConfigProtectConfig",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.53.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerModeConfigRaidMode": {
+    "name": "cucsLstorageControllerModeConfigRaidMode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.53.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsStorageLocalDiskMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerQualifierTable": {
+    "name": "cucsLstorageControllerQualifierTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.54",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageControllerQualifierEntry": {
+    "name": "cucsLstorageControllerQualifierEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.54.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageControllerQualifierInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageControllerQualifierInstanceId": {
+    "name": "cucsLstorageControllerQualifierInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.54.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageControllerQualifierDn": {
+    "name": "cucsLstorageControllerQualifierDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.54.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerQualifierRn": {
+    "name": "cucsLstorageControllerQualifierRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.54.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerQualifierControllerId": {
+    "name": "cucsLstorageControllerQualifierControllerId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.54.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsStorageControllerId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageControllerQualifierControllerType": {
+    "name": "cucsLstorageControllerQualifierControllerType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.54.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageControllerQualifierControllerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunTable": {
+    "name": "cucsLstorageDasScsiLunTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunEntry": {
+    "name": "cucsLstorageDasScsiLunEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageDasScsiLunInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunInstanceId": {
+    "name": "cucsLstorageDasScsiLunInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunDn": {
+    "name": "cucsLstorageDasScsiLunDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunRn": {
+    "name": "cucsLstorageDasScsiLunRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunAdminState": {
+    "name": "cucsLstorageDasScsiLunAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunAutoDeploy": {
+    "name": "cucsLstorageDasScsiLunAutoDeploy",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageAutoDeploy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunBootDev": {
+    "name": "cucsLstorageDasScsiLunBootDev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageBootDevice",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunConfigQualifier": {
+    "name": "cucsLstorageDasScsiLunConfigQualifier",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageConfigIssues",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunConfigState": {
+    "name": "cucsLstorageDasScsiLunConfigState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageConfigState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunExpandToAvail": {
+    "name": "cucsLstorageDasScsiLunExpandToAvail",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunLocalDiskPolicyName": {
+    "name": "cucsLstorageDasScsiLunLocalDiskPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunLunDn": {
+    "name": "cucsLstorageDasScsiLunLunDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunLunMapType": {
+    "name": "cucsLstorageDasScsiLunLunMapType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageLunMapType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunName": {
+    "name": "cucsLstorageDasScsiLunName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunOperLocalDiskPolicyName": {
+    "name": "cucsLstorageDasScsiLunOperLocalDiskPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunOperState": {
+    "name": "cucsLstorageDasScsiLunOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsStorageUnitOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunOrder": {
+    "name": "cucsLstorageDasScsiLunOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunSize": {
+    "name": "cucsLstorageDasScsiLunSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunStorageClass": {
+    "name": "cucsLstorageDasScsiLunStorageClass",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageDasScsiLunStorageClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDasScsiLunDeferredNaming": {
+    "name": "cucsLstorageDasScsiLunDeferredNaming",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.14.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefTable": {
+    "name": "cucsLstorageDiskGroupConfigDefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefEntry": {
+    "name": "cucsLstorageDiskGroupConfigDefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageDiskGroupConfigDefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefInstanceId": {
+    "name": "cucsLstorageDiskGroupConfigDefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefDn": {
+    "name": "cucsLstorageDiskGroupConfigDefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefRn": {
+    "name": "cucsLstorageDiskGroupConfigDefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefDescr": {
+    "name": "cucsLstorageDiskGroupConfigDefDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefIntId": {
+    "name": "cucsLstorageDiskGroupConfigDefIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefName": {
+    "name": "cucsLstorageDiskGroupConfigDefName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefPolicyLevel": {
+    "name": "cucsLstorageDiskGroupConfigDefPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefPolicyOwner": {
+    "name": "cucsLstorageDiskGroupConfigDefPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigDefRaidLevel": {
+    "name": "cucsLstorageDiskGroupConfigDefRaidLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsStorageLunType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyTable": {
+    "name": "cucsLstorageDiskGroupConfigPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyEntry": {
+    "name": "cucsLstorageDiskGroupConfigPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageDiskGroupConfigPolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyInstanceId": {
+    "name": "cucsLstorageDiskGroupConfigPolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyDn": {
+    "name": "cucsLstorageDiskGroupConfigPolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyRn": {
+    "name": "cucsLstorageDiskGroupConfigPolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyDescr": {
+    "name": "cucsLstorageDiskGroupConfigPolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyIntId": {
+    "name": "cucsLstorageDiskGroupConfigPolicyIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyName": {
+    "name": "cucsLstorageDiskGroupConfigPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyPolicyLevel": {
+    "name": "cucsLstorageDiskGroupConfigPolicyPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyPolicyOwner": {
+    "name": "cucsLstorageDiskGroupConfigPolicyPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupConfigPolicyRaidLevel": {
+    "name": "cucsLstorageDiskGroupConfigPolicyRaidLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsStorageLunType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierTable": {
+    "name": "cucsLstorageDiskGroupQualifierTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierEntry": {
+    "name": "cucsLstorageDiskGroupQualifierEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageDiskGroupQualifierInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierInstanceId": {
+    "name": "cucsLstorageDiskGroupQualifierInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierDn": {
+    "name": "cucsLstorageDiskGroupQualifierDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierRn": {
+    "name": "cucsLstorageDiskGroupQualifierRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierDriveType": {
+    "name": "cucsLstorageDiskGroupQualifierDriveType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsStorageTechnologyConfig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierMinDriveSize": {
+    "name": "cucsLstorageDiskGroupQualifierMinDriveSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierNumDedHotSpares": {
+    "name": "cucsLstorageDiskGroupQualifierNumDedHotSpares",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierNumDrives": {
+    "name": "cucsLstorageDiskGroupQualifierNumDrives",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierNumGlobHotSpares": {
+    "name": "cucsLstorageDiskGroupQualifierNumGlobHotSpares",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageDiskGroupQualifierUseRemainingDisks": {
+    "name": "cucsLstorageDiskGroupQualifierUseRemainingDisks",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskConfigRefTable": {
+    "name": "cucsLstorageLocalDiskConfigRefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskConfigRefEntry": {
+    "name": "cucsLstorageLocalDiskConfigRefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageLocalDiskConfigRefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskConfigRefInstanceId": {
+    "name": "cucsLstorageLocalDiskConfigRefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskConfigRefDn": {
+    "name": "cucsLstorageLocalDiskConfigRefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskConfigRefRn": {
+    "name": "cucsLstorageLocalDiskConfigRefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskConfigRefRole": {
+    "name": "cucsLstorageLocalDiskConfigRefRole",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsStorageDiskRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskConfigRefSlotNum": {
+    "name": "cucsLstorageLocalDiskConfigRefSlotNum",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskConfigRefSpanId": {
+    "name": "cucsLstorageLocalDiskConfigRefSpanId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskRefTable": {
+    "name": "cucsLstorageLocalDiskRefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskRefEntry": {
+    "name": "cucsLstorageLocalDiskRefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageLocalDiskRefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskRefInstanceId": {
+    "name": "cucsLstorageLocalDiskRefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskRefDn": {
+    "name": "cucsLstorageLocalDiskRefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskRefRn": {
+    "name": "cucsLstorageLocalDiskRefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskRefEnclosureId": {
+    "name": "cucsLstorageLocalDiskRefEnclosureId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageLocalDiskRefSlotId": {
+    "name": "cucsLstorageLocalDiskRefSlotId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileTable": {
+    "name": "cucsLstorageProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageProfileEntry": {
+    "name": "cucsLstorageProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageProfileInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageProfileInstanceId": {
+    "name": "cucsLstorageProfileInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageProfileDn": {
+    "name": "cucsLstorageProfileDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileRn": {
+    "name": "cucsLstorageProfileRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileAssignedToDn": {
+    "name": "cucsLstorageProfileAssignedToDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileAvailability": {
+    "name": "cucsLstorageProfileAvailability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageAvailability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDescr": {
+    "name": "cucsLstorageProfileDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileIntId": {
+    "name": "cucsLstorageProfileIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileName": {
+    "name": "cucsLstorageProfileName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfilePolicyLevel": {
+    "name": "cucsLstorageProfilePolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfilePolicyOwner": {
+    "name": "cucsLstorageProfilePolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.37.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingTable": {
+    "name": "cucsLstorageProfileBindingTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingEntry": {
+    "name": "cucsLstorageProfileBindingEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageProfileBindingInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingInstanceId": {
+    "name": "cucsLstorageProfileBindingInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingDn": {
+    "name": "cucsLstorageProfileBindingDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingRn": {
+    "name": "cucsLstorageProfileBindingRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingAssignedToDn": {
+    "name": "cucsLstorageProfileBindingAssignedToDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingIssues": {
+    "name": "cucsLstorageProfileBindingIssues",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsConfigIssues",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingName": {
+    "name": "cucsLstorageProfileBindingName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingOperStorageProfileName": {
+    "name": "cucsLstorageProfileBindingOperStorageProfileName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileBindingStorageProfileName": {
+    "name": "cucsLstorageProfileBindingStorageProfileName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.38.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefTable": {
+    "name": "cucsLstorageProfileDefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefEntry": {
+    "name": "cucsLstorageProfileDefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageProfileDefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageProfileDefInstanceId": {
+    "name": "cucsLstorageProfileDefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefDn": {
+    "name": "cucsLstorageProfileDefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefRn": {
+    "name": "cucsLstorageProfileDefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefAssignedToDn": {
+    "name": "cucsLstorageProfileDefAssignedToDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefAvailability": {
+    "name": "cucsLstorageProfileDefAvailability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageAvailability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefDescr": {
+    "name": "cucsLstorageProfileDefDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefIntId": {
+    "name": "cucsLstorageProfileDefIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefName": {
+    "name": "cucsLstorageProfileDefName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefPolicyLevel": {
+    "name": "cucsLstorageProfileDefPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageProfileDefPolicyOwner": {
+    "name": "cucsLstorageProfileDefPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.39.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefTable": {
+    "name": "cucsLstorageVirtualDriveDefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefEntry": {
+    "name": "cucsLstorageVirtualDriveDefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+        "object": "cucsLstorageVirtualDriveDefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefInstanceId": {
+    "name": "cucsLstorageVirtualDriveDefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefDn": {
+    "name": "cucsLstorageVirtualDriveDefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefRn": {
+    "name": "cucsLstorageVirtualDriveDefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefAccessPolicy": {
+    "name": "cucsLstorageVirtualDriveDefAccessPolicy",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageVirtualDriveDefAccessPolicy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefDriveCache": {
+    "name": "cucsLstorageVirtualDriveDefDriveCache",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageVirtualDriveDefDriveCache",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefIoPolicy": {
+    "name": "cucsLstorageVirtualDriveDefIoPolicy",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageVirtualDriveDefIoPolicy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefReadPolicy": {
+    "name": "cucsLstorageVirtualDriveDefReadPolicy",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageVirtualDriveDefReadPolicy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefStripSize": {
+    "name": "cucsLstorageVirtualDriveDefStripSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageVirtualDriveDefStripSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLstorageVirtualDriveDefWriteCachePolicy": {
+    "name": "cucsLstorageVirtualDriveDefWriteCachePolicy",
+    "oid": "1.3.6.1.4.1.9.9.719.1.79.49.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLstorageVirtualDriveDefWriteCachePolicy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB"
+  }
+}

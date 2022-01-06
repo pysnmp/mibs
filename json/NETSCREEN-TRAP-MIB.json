@@ -1,0 +1,469 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenTrap",
+      "netscreenTrapInfo"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netscreenTrapMibModule": {
+    "name": "netscreenTrapMibModule",
+    "oid": "1.3.6.1.4.1.3224.2.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-17 00:00",
+        "description": "Added 5 new trap types - 800-804. Removed 1000."
+      },
+      {
+        "revision": "2005-10-17 00:00",
+        "description": "Added 4 new trap types - ipv6 ip conflicts(101), dip util raise(102) and clear(103), ids-icmp-ping-id-zero(441)."
+      },
+      {
+        "revision": "2005-03-03 00:00",
+        "description": "Trap MIB"
+      },
+      {
+        "revision": "2004-09-10 00:00",
+        "description": "Removed nsTrapType 3, 15,18,19 and 1000"
+      },
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2004-01-23 00:00",
+        "description": "Add new traps (430~434)"
+      },
+      {
+        "revision": "2001-09-28 00:00",
+        "description": "Add global-report manager specific trap"
+      },
+      {
+        "revision": "2000-08-02 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "netscreenTrapHw": {
+    "name": "netscreenTrapHw",
+    "oid": "1.3.6.1.4.1.3224.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapFw": {
+    "name": "netscreenTrapFw",
+    "oid": "1.3.6.1.4.1.3224.0.200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapSw": {
+    "name": "netscreenTrapSw",
+    "oid": "1.3.6.1.4.1.3224.0.300",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapTrf": {
+    "name": "netscreenTrapTrf",
+    "oid": "1.3.6.1.4.1.3224.0.400",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapVpn": {
+    "name": "netscreenTrapVpn",
+    "oid": "1.3.6.1.4.1.3224.0.500",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapNsrp": {
+    "name": "netscreenTrapNsrp",
+    "oid": "1.3.6.1.4.1.3224.0.600",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapGPRO": {
+    "name": "netscreenTrapGPRO",
+    "oid": "1.3.6.1.4.1.3224.0.700",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapDrp": {
+    "name": "netscreenTrapDrp",
+    "oid": "1.3.6.1.4.1.3224.0.800",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapIFFailover": {
+    "name": "netscreenTrapIFFailover",
+    "oid": "1.3.6.1.4.1.3224.0.900",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapIDPAttack": {
+    "name": "netscreenTrapIDPAttack",
+    "oid": "1.3.6.1.4.1.3224.0.1000",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "netscreenTrapType": {
+    "name": "netscreenTrapType",
+    "oid": "1.3.6.1.4.1.3224.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "traffic-sec": 1,
+          "traffic-min": 2,
+          "multi-auth-fail": 3,
+          "winnuke": 4,
+          "syn-attack": 5,
+          "tear-drop": 6,
+          "ping-death": 7,
+          "ip-spoofing": 8,
+          "ip-src-route": 9,
+          "land": 10,
+          "icmp-flood": 11,
+          "udp-flood": 12,
+          "illegal-cms-svr": 13,
+          "url-block-srv": 14,
+          "high-availability": 15,
+          "port-scan": 16,
+          "addr-sweep": 17,
+          "deny-policy": 18,
+          "device-dead": 19,
+          "low-memory": 20,
+          "dns-srv-down": 21,
+          "generic-HW-fail": 22,
+          "lb-srv-down": 23,
+          "log-full": 24,
+          "x509": 25,
+          "vpn-ike": 26,
+          "admin": 27,
+          "sme": 28,
+          "dhcp": 29,
+          "cpu-usage-high": 30,
+          "ip-conflict": 31,
+          "attact-malicious-url": 32,
+          "session-threshold": 33,
+          "ssh-alarm": 34,
+          "audit-storage": 35,
+          "memory-normal": 36,
+          "cpu-usage-normal": 37,
+          "rxbd-low-alarm": 39,
+          "vpn-tunnel-up": 40,
+          "vpn-tunnel-down": 41,
+          "vpn-replay-attack": 42,
+          "vpn-l2tp-tunnel-remove": 43,
+          "vpn-l2tp-tunnel-remove-err": 44,
+          "vpn-l2tp-call-remove": 45,
+          "vpn-l2tp-call-remove-err": 46,
+          "vpn-ias-too-many": 47,
+          "vpn-ias-over-threshold": 48,
+          "vpn-ias-under-threshold": 49,
+          "vpn-ias-ike-error": 50,
+          "allocated-session-threshold": 51,
+          "av-csp-alarm": 52,
+          "av-alarm": 53,
+          "apppry-alarm": 54,
+          "nsrp-rto-up": 60,
+          "nsrp-rto-down": 61,
+          "nsrp-trackip-success": 62,
+          "nsrp-trackip-failed": 63,
+          "nsrp-trackip-failover": 64,
+          "nsrp-inconsistent-configuration": 65,
+          "trackip-status": 66,
+          "nsrp-vsd-init": 70,
+          "nsrp-vsd-master": 71,
+          "nsrp-vsd-pbackup": 72,
+          "nsrp-vsd-backup": 73,
+          "nsrp-vsd-ineligible": 74,
+          "nsrp-vsd-inoperable": 75,
+          "nsrp-vsd-req-hearbeat-2nd": 76,
+          "nsrp-vsd-reply-2nd": 77,
+          "nsrp-rto-duplicated": 78,
+          "ip-dup-master": 79,
+          "di-heap-create-fail": 80,
+          "mem-alloc-fail": 81,
+          "vrrp-status-alarm": 82,
+          "sccp-alarm": 83,
+          "mgcp-reinit": 84,
+          "mlfr-alarm": 85,
+          "fr-alarm": 86,
+          "cisco-hdlc-alarm": 87,
+          "pppow-alarm": 88,
+          "h323-alarm": 89,
+          "isdn-alarm": 90,
+          "interface-backup": 91,
+          "wan-card-function": 92,
+          "usb-device-operation": 93,
+          "interface-failure": 94,
+          "ppp-no-ip-cfg": 95,
+          "ppp-no-ip-in-pool": 96,
+          "ip-addr-event": 101,
+          "dip-util-raise": 102,
+          "dip-util-clear": 103,
+          "dot1x-alarm": 105,
+          "vpn-ias-radius-error": 110,
+          "vpn-ikeid-enum-attack": 111,
+          "vpn-softlimit-reached": 112,
+          "vpn-ikedos-attack": 113,
+          "vpn-acvpn-profile-error": 114,
+          "route-sys-entry-ex": 200,
+          "route-vr-entry-ex": 201,
+          "route-ospf-hello-flood": 202,
+          "route-ospf-lsa-flood": 203,
+          "route-rip-update-flood": 204,
+          "route-alarm": 205,
+          "ospf-flood": 206,
+          "rip-flood": 207,
+          "bgp-established": 208,
+          "bgp-backwardtransition": 209,
+          "ospf-virtifstatechange": 210,
+          "ospf-nbrstatechange": 211,
+          "ospf-virtnbrstatechange": 212,
+          "ospf-ifconfigerror": 213,
+          "ospf-virtifconfigerror": 214,
+          "ospf-ifauthfailure": 215,
+          "ospf-virtifauthfailure": 216,
+          "ospf-ifrxbadpacket": 217,
+          "ospf-virtifrxbadpacket": 218,
+          "ospf-txretransmit": 219,
+          "ospf-virtiftxretransmit": 220,
+          "ospf-originatelsa": 221,
+          "ospf-maxagelsa": 222,
+          "ospf-lsdboverflow": 223,
+          "ospf-lsdbapproachingoverflow": 224,
+          "ospf-ifstatechange": 225,
+          "bgp-alarm": 226,
+          "ripng-flood": 227,
+          "route-ripng-update-flood": 228,
+          "pbr-alarm": 229,
+          "nhrp-alarm": 230,
+          "ospfv3-alarm": 231,
+          "ids-component": 400,
+          "ids-icmp-flood": 401,
+          "ids-udp-flood": 402,
+          "ids-winnuke": 403,
+          "ids-port-scan": 404,
+          "ids-addr-sweep": 405,
+          "ids-tear-drop": 406,
+          "ids-syn": 407,
+          "ids-ip-spoofing": 408,
+          "ids-ping-death": 409,
+          "ids-ip-source-route": 410,
+          "ids-land": 411,
+          "syn-frag-attack": 412,
+          "tcp-without-flag": 413,
+          "unknow-ip-packet": 414,
+          "bad-ip-option": 415,
+          "ip-option-record": 416,
+          "ip-option-timestamp": 417,
+          "ip-option-scht": 418,
+          "ip-option-lsr": 419,
+          "ip-option-ssr": 420,
+          "ip-option-stream": 421,
+          "icmp-fragment": 422,
+          "too-large-icmp": 423,
+          "tcp-syn-fin": 424,
+          "tcp-fin-no-ack": 425,
+          "tcp-mal-url": 426,
+          "tcp-sess-mal-num": 427,
+          "ids-tcp-syn-ack-ack": 428,
+          "ids-ip-block-frag": 429,
+          "dst-ip-session-limit": 430,
+          "ids-block-zip": 431,
+          "ids-block-jar": 432,
+          "ids-block-exe": 433,
+          "ids-block-activex": 434,
+          "tcp-syn-mac": 435,
+          "ids-nac-attack": 436,
+          "ids-icmp-ping-id-zero": 441,
+          "tcp-sweep": 442,
+          "udp-sweep": 443,
+          "av-scan-mgr": 554,
+          "mcast-base": 600,
+          "mcore-alarm": 601,
+          "spim-alarm": 602,
+          "sm-base": 700,
+          "sm-down": 701,
+          "sm-packet-drop": 702,
+          "sm-overload": 703,
+          "sm-cpu-unresponsive": 705,
+          "sm-policy-abnormal": 706,
+          "switch": 751,
+          "sfp": 752,
+          "cpu-limit-s2f-forced": 800,
+          "cpu-limit-s2f-auto": 801,
+          "cpu-limit-f2s-forced": 802,
+          "cpu-limit-f2s-timeout": 803,
+          "cpu-limit-f2s-auto": 804,
+          "sec-potential-voilation": 805,
+          "flow-sess-cache": 806,
+          "vsys-session-limit": 850
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "netscreenTrapDesc": {
+    "name": "netscreenTrapDesc",
+    "oid": "1.3.6.1.4.1.3224.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-TRAP-MIB"
+  }
+}

@@ -1,0 +1,2326 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-GSP-MIB": [
+      "cgspCLLICode",
+      "cgspInstNetwork",
+      "cgspInstDisplayName",
+      "cgspEventSequenceNumber"
+    ],
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcLinksetId",
+      "CItpTcPointCode",
+      "CItpTcTableLoadStatus",
+      "CItpTcServiceIndicator",
+      "CItpTcURL",
+      "CItpTcDisplayPC",
+      "CItpTcQos",
+      "CItpTcRouteTableName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoGrtMIB": {
+    "name": "ciscoGrtMIB",
+    "oid": "1.3.6.1.4.1.9.9.334",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-05-01 00:00",
+        "description": "Deprecated the following objects: cgrtDestNotifDelayTime, cgrtDestNotifWindowTime, cgrtDestNotifMaxPerWindow, cgrtDestNotifEnabled, cgrtMgmtNotifDelayTime, cgrtMgmtNotifWindowTime, cgrtMgmtNotifMaxPerWindow, cgrtMgmtNotifEnabled. Deprecated the following notifications: ciscoGrtDestStateChange, ciscoGrtMgmtStateChange Deprecated the following objects under cgrtNotificationsInfo: cgrtDestNotifSupFlag, cgrtDestNotifChanges, cgrtMgmtNotifSupFlag, cgrtMgmtNotifChanges. Deprecated the following compliance statement: ciscoGrtMIBCompliance. Deprecated the following object groups: ciscoGrtDestGroup, ciscoGrtRouteGroup. Deprecated the following notification group: ciscoGrtNotificationGroup. Added the following textual convention: CgrtDisplayPCSI. Added the following objects: cgrtDestNotifWindowTimeRev1, cgrtDestNotifMaxPerWindowRev1, cgrtDestNotifEnabledRev1, cgrtMgmtNotifWindowTimeRev1, cgrtMgmtNotifMaxPerWindowRev1, cgrtMgmtNotifEnabledRev1, cgrtOrigTableEnabled, cgrtPCStatsInterval, cgrtNoRouteMSUsNotifEnabled, cgrtNoRouteMSUsNotifWindowTime. Added the following object to cgrtInstTable: cgrtInstUnknownOrigPCs, cgrtInstNoRouteDrops. Added these objects to cgrtDestTable: cgrtDestAccessibleSeconds, cgrtDestInaccessibleSeconds, cgrtDestRestrictedSeconds, cgrtDestMSUsOut, cgrtDestOctetsOut, cgrtDestMSUsIn, cgrtDestOctetsIn, cgrtDestInaccessibleDrops, cgrtDestRestrictedMSUs, cgrtDestCongestionDrops, cgrtDestDisplay. Added these objects to cgrtRouteTable: cgrtRouteAllowedSeconds, cgrtRouteRestrictedSeconds, cgrtRouteProhibitedSeconds, cgrtRouteDisplay. Added a new table cgrtOrigTable with following objects: cgrtOrigPC, cgrtOrigMSUs, cgrtOrigOctets, cgrtOrigDisplay. Added a new table cgrtDestSITable with following objects: cgrtMtp3SI, cgrtDestSIMSUsOut, cgrtDestSIOctetsOut, cgrtDestSIMSUsIn, cgrtDestSIOctetsIn, cgrtDestSIDisplay. Added a new table cgrtOrigSITable with following objects: cgrtOrigSIMSUs, cgrtOrigSIOctets, cgrtOrigSIDisplay. Added the following notifications: ciscoGrtDestStateChangeRev1, ciscoGrtMgmtStateChangeRev1, ciscoGrtNoRouteMSUDiscards. Added the following objects under cgrtNotificationsInfo: cgrtDestNotifSuppressed, cgrtRouteNotifSuppressed, cgrtNoRouteMSUsInterval, cgrtIntervalNoRouteMSUs. Added the following compliance statement: ciscoGrtMIBComplianceRev1. Added the following object groups: ciscoGrtScalarsGroup, ciscoGrtDestGroupRev1, ciscoGrtRouteGroupRev1, ciscoGrtOrigGroup, ciscoGrtDestSIGroup, ciscoGrtOrigSIGroup, ciscoGrtInstGroupSup1. Added the following notification group: ciscoGrtNotificationsGroupRev1."
+      },
+      {
+        "revision": "2003-03-03 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoGrtNotifications": {
+    "name": "ciscoGrtNotifications",
+    "oid": "1.3.6.1.4.1.9.9.334.0",
+    "class": "objectidentity"
+  },
+  "ciscoGrtMIBObjects": {
+    "name": "ciscoGrtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.334.1",
+    "class": "objectidentity"
+  },
+  "ciscoGrtMIBConform": {
+    "name": "ciscoGrtMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.334.2",
+    "class": "objectidentity"
+  },
+  "cgrtScalars": {
+    "name": "cgrtScalars",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1",
+    "class": "objectidentity"
+  },
+  "cgrtObjects": {
+    "name": "cgrtObjects",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2",
+    "class": "objectidentity"
+  },
+  "CgrtDisplayPCSI": {
+    "name": "CgrtDisplayPCSI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cgrtRouteMaxDynamic": {
+    "name": "cgrtRouteMaxDynamic",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtDestNotifDelayTime": {
+    "name": "cgrtDestNotifDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cgrtDestNotifWindowTime": {
+    "name": "cgrtDestNotifWindowTime",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cgrtDestNotifMaxPerWindow": {
+    "name": "cgrtDestNotifMaxPerWindow",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cgrtDestNotifEnabled": {
+    "name": "cgrtDestNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cgrtMgmtNotifDelayTime": {
+    "name": "cgrtMgmtNotifDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cgrtMgmtNotifWindowTime": {
+    "name": "cgrtMgmtNotifWindowTime",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cgrtMgmtNotifMaxPerWindow": {
+    "name": "cgrtMgmtNotifMaxPerWindow",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cgrtMgmtNotifEnabled": {
+    "name": "cgrtMgmtNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cgrtRouteTableLoadNotifEnabled": {
+    "name": "cgrtRouteTableLoadNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtDynamicRoutes": {
+    "name": "cgrtDynamicRoutes",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDynamicRoutesDropped": {
+    "name": "cgrtDynamicRoutesDropped",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestNotifWindowTimeRev1": {
+    "name": "cgrtDestNotifWindowTimeRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtDestNotifMaxPerWindowRev1": {
+    "name": "cgrtDestNotifMaxPerWindowRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtDestNotifEnabledRev1": {
+    "name": "cgrtDestNotifEnabledRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtMgmtNotifWindowTimeRev1": {
+    "name": "cgrtMgmtNotifWindowTimeRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtMgmtNotifMaxPerWindowRev1": {
+    "name": "cgrtMgmtNotifMaxPerWindowRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtMgmtNotifEnabledRev1": {
+    "name": "cgrtMgmtNotifEnabledRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtOrigTableEnabled": {
+    "name": "cgrtOrigTableEnabled",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtPCStatsInterval": {
+    "name": "cgrtPCStatsInterval",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 900,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtNoRouteMSUsNotifEnabled": {
+    "name": "cgrtNoRouteMSUsNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtNoRouteMSUsNotifWindowTime": {
+    "name": "cgrtNoRouteMSUsNotifWindowTime",
+    "oid": "1.3.6.1.4.1.9.9.334.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrtInstTable": {
+    "name": "cgrtInstTable",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtInstEntry": {
+    "name": "cgrtInstEntry",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgrtInstLastChanged": {
+    "name": "cgrtInstLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtInstLastLoadTime": {
+    "name": "cgrtInstLastLoadTime",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtInstLoadStatus": {
+    "name": "cgrtInstLoadStatus",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTableLoadStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtInstTableName": {
+    "name": "cgrtInstTableName",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtInstLastURL": {
+    "name": "cgrtInstLastURL",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcURL",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtInstNumberDestinations": {
+    "name": "cgrtInstNumberDestinations",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtInstNumberRoutes": {
+    "name": "cgrtInstNumberRoutes",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtInstUnknownOrigPCs": {
+    "name": "cgrtInstUnknownOrigPCs",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtInstNoRouteDrops": {
+    "name": "cgrtInstNoRouteDrops",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestTable": {
+    "name": "cgrtDestTable",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtDestEntry": {
+    "name": "cgrtDestEntry",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDpc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgrtDestStatus": {
+    "name": "cgrtDestStatus",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "accessible": 2,
+          "inaccessible": 3,
+          "restricted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestCongestion": {
+    "name": "cgrtDestCongestion",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestAccessibleSeconds": {
+    "name": "cgrtDestAccessibleSeconds",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestInaccessibleSeconds": {
+    "name": "cgrtDestInaccessibleSeconds",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestRestrictedSeconds": {
+    "name": "cgrtDestRestrictedSeconds",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestMSUsOut": {
+    "name": "cgrtDestMSUsOut",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestOctetsOut": {
+    "name": "cgrtDestOctetsOut",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestMSUsIn": {
+    "name": "cgrtDestMSUsIn",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestOctetsIn": {
+    "name": "cgrtDestOctetsIn",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestInaccessibleDrops": {
+    "name": "cgrtDestInaccessibleDrops",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestRestrictedMSUs": {
+    "name": "cgrtDestRestrictedMSUs",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestCongestionDrops": {
+    "name": "cgrtDestCongestionDrops",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestDisplay": {
+    "name": "cgrtDestDisplay",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtRouteTable": {
+    "name": "cgrtRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtRouteEntry": {
+    "name": "cgrtRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDpc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDestLsCost",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDestLinkset",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgrtRouteDpc": {
+    "name": "cgrtRouteDpc",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtRouteMask": {
+    "name": "cgrtRouteMask",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtRouteDestLsCost": {
+    "name": "cgrtRouteDestLsCost",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtRouteDestLinkset": {
+    "name": "cgrtRouteDestLinkset",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinksetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtRouteQos": {
+    "name": "cgrtRouteQos",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcQos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgrtRouteStatus": {
+    "name": "cgrtRouteStatus",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "restricted": 3,
+          "unavailable": 4,
+          "deleted": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgrtRouteMgmtStatus": {
+    "name": "cgrtRouteMgmtStatus",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "allowed": 2,
+          "restricted": 3,
+          "prohibited": 4,
+          "deleted": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgrtRouteDynamic": {
+    "name": "cgrtRouteDynamic",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtRouteType": {
+    "name": "cgrtRouteType",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "static": 1,
+          "cluster": 2,
+          "summary": 3,
+          "xlist": 4,
+          "shadow": 5,
+          "management": 6,
+          "alias": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtRouteAdminStatus": {
+    "name": "cgrtRouteAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "unknown": 1,
+          "available": 2,
+          "restricted": 3,
+          "unavailable": 4,
+          "deleted": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgrtRouteRowStatus": {
+    "name": "cgrtRouteRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgrtRouteAllowedSeconds": {
+    "name": "cgrtRouteAllowedSeconds",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtRouteRestrictedSeconds": {
+    "name": "cgrtRouteRestrictedSeconds",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtRouteProhibitedSeconds": {
+    "name": "cgrtRouteProhibitedSeconds",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtRouteDisplay": {
+    "name": "cgrtRouteDisplay",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtOrigTable": {
+    "name": "cgrtOrigTable",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtOrigEntry": {
+    "name": "cgrtOrigEntry",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigPC",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgrtOrigPC": {
+    "name": "cgrtOrigPC",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtOrigMSUs": {
+    "name": "cgrtOrigMSUs",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtOrigOctets": {
+    "name": "cgrtOrigOctets",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtOrigDisplay": {
+    "name": "cgrtOrigDisplay",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestSITable": {
+    "name": "cgrtDestSITable",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtDestSIEntry": {
+    "name": "cgrtDestSIEntry",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDpc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMtp3SI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgrtMtp3SI": {
+    "name": "cgrtMtp3SI",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcServiceIndicator",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtDestSIMSUsOut": {
+    "name": "cgrtDestSIMSUsOut",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestSIOctetsOut": {
+    "name": "cgrtDestSIOctetsOut",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestSIMSUsIn": {
+    "name": "cgrtDestSIMSUsIn",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestSIOctetsIn": {
+    "name": "cgrtDestSIOctetsIn",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtDestSIDisplay": {
+    "name": "cgrtDestSIDisplay",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgrtDisplayPCSI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtOrigSITable": {
+    "name": "cgrtOrigSITable",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrtOrigSIEntry": {
+    "name": "cgrtOrigSIEntry",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigPC",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMtp3SI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgrtOrigSIMSUs": {
+    "name": "cgrtOrigSIMSUs",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtOrigSIOctets": {
+    "name": "cgrtOrigSIOctets",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtOrigSIDisplay": {
+    "name": "cgrtOrigSIDisplay",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgrtDisplayPCSI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrtNotificationsInfo": {
+    "name": "cgrtNotificationsInfo",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4",
+    "class": "objectidentity"
+  },
+  "cgrtDestNotifSupFlag": {
+    "name": "cgrtDestNotifSupFlag",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cgrtDestNotifChanges": {
+    "name": "cgrtDestNotifChanges",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cgrtMgmtNotifSupFlag": {
+    "name": "cgrtMgmtNotifSupFlag",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cgrtMgmtNotifChanges": {
+    "name": "cgrtMgmtNotifChanges",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cgrtDestNotifSuppressed": {
+    "name": "cgrtDestNotifSuppressed",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgrtRouteNotifSuppressed": {
+    "name": "cgrtRouteNotifSuppressed",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgrtNoRouteMSUsInterval": {
+    "name": "cgrtNoRouteMSUsInterval",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgrtIntervalNoRouteMSUs": {
+    "name": "cgrtIntervalNoRouteMSUs",
+    "oid": "1.3.6.1.4.1.9.9.334.1.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoGrtDestStateChange": {
+    "name": "ciscoGrtDestStateChange",
+    "oid": "1.3.6.1.4.1.9.9.334.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifSupFlag"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifChanges"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGrtMgmtStateChange": {
+    "name": "ciscoGrtMgmtStateChange",
+    "oid": "1.3.6.1.4.1.9.9.334.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifSupFlag"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifChanges"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGrtRouteTableLoad": {
+    "name": "ciscoGrtRouteTableLoad",
+    "oid": "1.3.6.1.4.1.9.9.334.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstLoadStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstTableName"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstLastURL"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtDestStateChangeRev1": {
+    "name": "ciscoGrtDestStateChangeRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifSuppressed"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestDisplay"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestCongestion"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtMgmtStateChangeRev1": {
+    "name": "ciscoGrtMgmtStateChangeRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMgmtStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDynamic"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteAdminStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteNotifSuppressed"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtNoRouteMSUDiscards": {
+    "name": "ciscoGrtNoRouteMSUDiscards",
+    "oid": "1.3.6.1.4.1.9.9.334.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtNoRouteMSUsInterval"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtIntervalNoRouteMSUs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtMIBCompliances": {
+    "name": "ciscoGrtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.334.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoGrtMIBGroups": {
+    "name": "ciscoGrtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoGrtMIBCompliance": {
+    "name": "ciscoGrtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.334.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGrtInstGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtDestGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtRouteGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtNotificationsGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGrtMIBComplianceRev1": {
+    "name": "ciscoGrtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGrtInstGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtScalarsGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtDestGroupRev1",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtRouteGroupRev1",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtOrigGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtDestSIGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtOrigSIGroup",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtNotificationsGroupRev1",
+        "module": "CISCO-ITP-GRT-MIB"
+      },
+      {
+        "object": "ciscoGrtInstGroupSup1",
+        "module": "CISCO-ITP-GRT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtInstGroup": {
+    "name": "ciscoGrtInstGroup",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstLastChanged"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstLastLoadTime"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstLoadStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstTableName"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstLastURL"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstNumberDestinations"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstNumberRoutes"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteTableLoadNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtDestGroup": {
+    "name": "ciscoGrtDestGroup",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifDelayTime"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifWindowTime"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifMaxPerWindow"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifSupFlag"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifChanges"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestCongestion"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGrtRouteGroup": {
+    "name": "ciscoGrtRouteGroup",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMaxDynamic"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifDelayTime"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifWindowTime"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifMaxPerWindow"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifSupFlag"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifChanges"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDynamicRoutes"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDynamicRoutesDropped"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteQos"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMgmtStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDynamic"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteType"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteAdminStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGrtNotificationsGroup": {
+    "name": "ciscoGrtNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "ciscoGrtDestStateChange"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "ciscoGrtMgmtStateChange"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "ciscoGrtRouteTableLoad"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGrtScalarsGroup": {
+    "name": "ciscoGrtScalarsGroup",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtPCStatsInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtDestGroupRev1": {
+    "name": "ciscoGrtDestGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifWindowTimeRev1"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifMaxPerWindowRev1"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifEnabledRev1"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestNotifSuppressed"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestCongestion"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestAccessibleSeconds"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestInaccessibleSeconds"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestRestrictedSeconds"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestMSUsOut"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestOctetsOut"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestMSUsIn"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestOctetsIn"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestRestrictedMSUs"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestInaccessibleDrops"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestCongestionDrops"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtRouteGroupRev1": {
+    "name": "ciscoGrtRouteGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMaxDynamic"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifWindowTimeRev1"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifMaxPerWindowRev1"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtMgmtNotifEnabledRev1"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteNotifSuppressed"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDynamicRoutes"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDynamicRoutesDropped"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteQos"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteMgmtStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDynamic"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteType"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteAdminStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteAllowedSeconds"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteRestrictedSeconds"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteProhibitedSeconds"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtRouteDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtOrigGroup": {
+    "name": "ciscoGrtOrigGroup",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigTableEnabled"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigMSUs"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigOctets"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtDestSIGroup": {
+    "name": "ciscoGrtDestSIGroup",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestSIMSUsOut"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestSIOctetsOut"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestSIMSUsIn"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestSIOctetsIn"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtDestSIDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtOrigSIGroup": {
+    "name": "ciscoGrtOrigSIGroup",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigSIMSUs"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigSIOctets"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtOrigSIDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtNotificationsGroupRev1": {
+    "name": "ciscoGrtNotificationsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "ciscoGrtRouteTableLoad"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "ciscoGrtDestStateChangeRev1"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "ciscoGrtMgmtStateChangeRev1"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "ciscoGrtNoRouteMSUDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGrtInstGroupSup1": {
+    "name": "ciscoGrtInstGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.334.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtNoRouteMSUsNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtNoRouteMSUsNotifWindowTime"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstUnknownOrigPCs"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtInstNoRouteDrops"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtNoRouteMSUsInterval"
+      },
+      {
+        "module": "CISCO-ITP-GRT-MIB",
+        "object": "cgrtIntervalNoRouteMSUs"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GRT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-GRT-MIB"
+  }
+}

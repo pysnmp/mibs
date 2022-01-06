@@ -1,0 +1,3948 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "enterprises",
+      "iso",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "pm": {
+    "name": "pm",
+    "oid": "1.3.6.1.4.1.10418.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-24 00:00",
+        "description": "Adding Power Management OIDs. Fixed SYNTAX of some OIDs. Updating OIDs DESCRIPTION to include not applicable values."
+      },
+      {
+        "revision": "2010-09-24 00:00",
+        "description": "Syntax fixed to pass validation level 3."
+      },
+      {
+        "revision": "2010-04-14 00:00",
+        "description": "Obsoleting fixed index OIDs from PDU table. Added measurent type and alarm in PDU table. Added missing power factor reset in outlet table. Added sensor type and digital status in sensors table."
+      },
+      {
+        "revision": "2009-05-21 00:00",
+        "description": "New tables for power measurements"
+      }
+    ]
+  },
+  "pmProducts": {
+    "name": "pmProducts",
+    "oid": "1.3.6.1.4.1.10418.17.1",
+    "class": "objectidentity"
+  },
+  "pmManagement": {
+    "name": "pmManagement",
+    "oid": "1.3.6.1.4.1.10418.17.2",
+    "class": "objectidentity"
+  },
+  "pm1024": {
+    "name": "pm1024",
+    "oid": "1.3.6.1.4.1.10418.17.1.1",
+    "class": "objectidentity"
+  },
+  "pm2003": {
+    "name": "pm2003",
+    "oid": "1.3.6.1.4.1.10418.17.1.2",
+    "class": "objectidentity"
+  },
+  "pm2006": {
+    "name": "pm2006",
+    "oid": "1.3.6.1.4.1.10418.17.1.3",
+    "class": "objectidentity"
+  },
+  "pm2024": {
+    "name": "pm2024",
+    "oid": "1.3.6.1.4.1.10418.17.1.4",
+    "class": "objectidentity"
+  },
+  "pm3003": {
+    "name": "pm3003",
+    "oid": "1.3.6.1.4.1.10418.17.1.5",
+    "class": "objectidentity"
+  },
+  "pm3006": {
+    "name": "pm3006",
+    "oid": "1.3.6.1.4.1.10418.17.1.6",
+    "class": "objectidentity"
+  },
+  "pm3024": {
+    "name": "pm3024",
+    "oid": "1.3.6.1.4.1.10418.17.1.7",
+    "class": "objectidentity"
+  },
+  "pm1010": {
+    "name": "pm1010",
+    "oid": "1.3.6.1.4.1.10418.17.1.8",
+    "class": "objectidentity"
+  },
+  "pm2010": {
+    "name": "pm2010",
+    "oid": "1.3.6.1.4.1.10418.17.1.9",
+    "class": "objectidentity"
+  },
+  "pm3010": {
+    "name": "pm3010",
+    "oid": "1.3.6.1.4.1.10418.17.1.10",
+    "class": "objectidentity"
+  },
+  "pm1020": {
+    "name": "pm1020",
+    "oid": "1.3.6.1.4.1.10418.17.1.11",
+    "class": "objectidentity"
+  },
+  "pm2020": {
+    "name": "pm2020",
+    "oid": "1.3.6.1.4.1.10418.17.1.12",
+    "class": "objectidentity"
+  },
+  "pm3020": {
+    "name": "pm3020",
+    "oid": "1.3.6.1.4.1.10418.17.1.13",
+    "class": "objectidentity"
+  },
+  "pmAppliance": {
+    "name": "pmAppliance",
+    "oid": "1.3.6.1.4.1.10418.17.2.1",
+    "class": "objectidentity"
+  },
+  "pmSessions": {
+    "name": "pmSessions",
+    "oid": "1.3.6.1.4.1.10418.17.2.2",
+    "class": "objectidentity"
+  },
+  "pmPowerMgmt": {
+    "name": "pmPowerMgmt",
+    "oid": "1.3.6.1.4.1.10418.17.2.5",
+    "class": "objectidentity"
+  },
+  "pmTrapObject": {
+    "name": "pmTrapObject",
+    "oid": "1.3.6.1.4.1.10418.17.2.6",
+    "class": "objectidentity"
+  },
+  "pmHostName": {
+    "name": "pmHostName",
+    "oid": "1.3.6.1.4.1.10418.17.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmProductModel": {
+    "name": "pmProductModel",
+    "oid": "1.3.6.1.4.1.10418.17.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPartNumber": {
+    "name": "pmPartNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmSerialNumber": {
+    "name": "pmSerialNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEIDNumber": {
+    "name": "pmEIDNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmBootcodeVersion": {
+    "name": "pmBootcodeVersion",
+    "oid": "1.3.6.1.4.1.10418.17.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmFirmwareVersion": {
+    "name": "pmFirmwareVersion",
+    "oid": "1.3.6.1.4.1.10418.17.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmReboot": {
+    "name": "pmReboot",
+    "oid": "1.3.6.1.4.1.10418.17.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reboot": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmActiveSessionsNumberOfSession": {
+    "name": "pmActiveSessionsNumberOfSession",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmActiveSessionsTable": {
+    "name": "pmActiveSessionsTable",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmActiveSessionsTableEntry": {
+    "name": "pmActiveSessionsTableEntry",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PM-MIB",
+        "object": "pmActiveSessionsTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmActiveSessionsTableIndex": {
+    "name": "pmActiveSessionsTableIndex",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmActiveSessionsTableUser": {
+    "name": "pmActiveSessionsTableUser",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmActiveSessionsTableGroup": {
+    "name": "pmActiveSessionsTableGroup",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmActiveSessionsTableType": {
+    "name": "pmActiveSessionsTableType",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmActiveSessionsTableConnection": {
+    "name": "pmActiveSessionsTableConnection",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmActiveSessionsTableSessionTime": {
+    "name": "pmActiveSessionsTableSessionTime",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmActiveSessionsTableFrom": {
+    "name": "pmActiveSessionsTableFrom",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmActiveSessionsTableKill": {
+    "name": "pmActiveSessionsTableKill",
+    "oid": "1.3.6.1.4.1.10418.17.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "killSession": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtNumSerialPorts": {
+    "name": "pmPowerMgmtNumSerialPorts",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTable": {
+    "name": "pmPowerMgmtSerialTable",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableEntry": {
+    "name": "pmPowerMgmtSerialTableEntry",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtSerialTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableIndex": {
+    "name": "pmPowerMgmtSerialTableIndex",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTablePortNumber": {
+    "name": "pmPowerMgmtSerialTablePortNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableDeviceName": {
+    "name": "pmPowerMgmtSerialTableDeviceName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableNumberPDUs": {
+    "name": "pmPowerMgmtSerialTableNumberPDUs",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableBuzzer": {
+    "name": "pmPowerMgmtSerialTableBuzzer",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableSyslog": {
+    "name": "pmPowerMgmtSerialTableSyslog",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableOverCurrent": {
+    "name": "pmPowerMgmtSerialTableOverCurrent",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableCycleInterval": {
+    "name": "pmPowerMgmtSerialTableCycleInterval",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTablePollRate": {
+    "name": "pmPowerMgmtSerialTablePollRate",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTablePassWord": {
+    "name": "pmPowerMgmtSerialTablePassWord",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableSave": {
+    "name": "pmPowerMgmtSerialTableSave",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "save": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSerialTableRestore": {
+    "name": "pmPowerMgmtSerialTableRestore",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "restore": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTable": {
+    "name": "pmPowerMgmtPDUTable",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableEntry": {
+    "name": "pmPowerMgmtPDUTableEntry",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtPDUTablePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtPDUTablePduIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePortNumber": {
+    "name": "pmPowerMgmtPDUTablePortNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePduIndex": {
+    "name": "pmPowerMgmtPDUTablePduIndex",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePduId": {
+    "name": "pmPowerMgmtPDUTablePduId",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePortName": {
+    "name": "pmPowerMgmtPDUTablePortName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableModel": {
+    "name": "pmPowerMgmtPDUTableModel",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableVendor": {
+    "name": "pmPowerMgmtPDUTableVendor",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableFirmwareVersion": {
+    "name": "pmPowerMgmtPDUTableFirmwareVersion",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableNumberOfOutlets": {
+    "name": "pmPowerMgmtPDUTableNumberOfOutlets",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentNOS": {
+    "name": "pmPowerMgmtPDUTableCurrentNOS",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableCurrent1Value": {
+    "name": "pmPowerMgmtPDUTableCurrent1Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableCurrent1Max": {
+    "name": "pmPowerMgmtPDUTableCurrent1Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableCurrent2Value": {
+    "name": "pmPowerMgmtPDUTableCurrent2Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableCurrent2Max": {
+    "name": "pmPowerMgmtPDUTableCurrent2Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableCurrent3Value": {
+    "name": "pmPowerMgmtPDUTableCurrent3Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableCurrent3Max": {
+    "name": "pmPowerMgmtPDUTableCurrent3Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableTemperatureNOS": {
+    "name": "pmPowerMgmtPDUTableTemperatureNOS",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableTemperature1Value": {
+    "name": "pmPowerMgmtPDUTableTemperature1Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableTemperature1Max": {
+    "name": "pmPowerMgmtPDUTableTemperature1Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableTemperature2Value": {
+    "name": "pmPowerMgmtPDUTableTemperature2Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableTemperature2Max": {
+    "name": "pmPowerMgmtPDUTableTemperature2Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableTemperature3Value": {
+    "name": "pmPowerMgmtPDUTableTemperature3Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableTemperature3Max": {
+    "name": "pmPowerMgmtPDUTableTemperature3Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableHumidityNOS": {
+    "name": "pmPowerMgmtPDUTableHumidityNOS",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableHumidity1Value": {
+    "name": "pmPowerMgmtPDUTableHumidity1Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableHumidity1Max": {
+    "name": "pmPowerMgmtPDUTableHumidity1Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableHumidity2Value": {
+    "name": "pmPowerMgmtPDUTableHumidity2Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableHumidity2Max": {
+    "name": "pmPowerMgmtPDUTableHumidity2Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableHumidity3Value": {
+    "name": "pmPowerMgmtPDUTableHumidity3Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableHumidity3Max": {
+    "name": "pmPowerMgmtPDUTableHumidity3Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableVoltageNOS": {
+    "name": "pmPowerMgmtPDUTableVoltageNOS",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableVoltage1Value": {
+    "name": "pmPowerMgmtPDUTableVoltage1Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableVoltage1Max": {
+    "name": "pmPowerMgmtPDUTableVoltage1Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableVoltage2Value": {
+    "name": "pmPowerMgmtPDUTableVoltage2Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableVoltage2Max": {
+    "name": "pmPowerMgmtPDUTableVoltage2Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableVoltage3Value": {
+    "name": "pmPowerMgmtPDUTableVoltage3Value",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableVoltage3Max": {
+    "name": "pmPowerMgmtPDUTableVoltage3Max",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "pmPowerMgmtPDUTableNumberOfPhases": {
+    "name": "pmPowerMgmtPDUTableNumberOfPhases",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableNumberOfBanks": {
+    "name": "pmPowerMgmtPDUTableNumberOfBanks",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableNumberOfSensors": {
+    "name": "pmPowerMgmtPDUTableNumberOfSensors",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableFactoryDefault": {
+    "name": "pmPowerMgmtPDUTableFactoryDefault",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableColdStartDelay": {
+    "name": "pmPowerMgmtPDUTableColdStartDelay",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableReboot": {
+    "name": "pmPowerMgmtPDUTableReboot",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reboot": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableMaxCurrent": {
+    "name": "pmPowerMgmtPDUTableMaxCurrent",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableAlarm": {
+    "name": "pmPowerMgmtPDUTableAlarm",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "blow-fuse": 2,
+          "hw-ocp": 3,
+          "high-critical": 4,
+          "high-warning": 5,
+          "low-warning": 6,
+          "low-critical": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentValue": {
+    "name": "pmPowerMgmtPDUTableCurrentValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentMax": {
+    "name": "pmPowerMgmtPDUTableCurrentMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentMin": {
+    "name": "pmPowerMgmtPDUTableCurrentMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentAvg": {
+    "name": "pmPowerMgmtPDUTableCurrentAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentReset": {
+    "name": "pmPowerMgmtPDUTableCurrentReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerValue": {
+    "name": "pmPowerMgmtPDUTablePowerValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerMax": {
+    "name": "pmPowerMgmtPDUTablePowerMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerMin": {
+    "name": "pmPowerMgmtPDUTablePowerMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerAvg": {
+    "name": "pmPowerMgmtPDUTablePowerAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerReset": {
+    "name": "pmPowerMgmtPDUTablePowerReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerType": {
+    "name": "pmPowerMgmtPDUTablePowerType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableVoltageValue": {
+    "name": "pmPowerMgmtPDUTableVoltageValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableVoltageMax": {
+    "name": "pmPowerMgmtPDUTableVoltageMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableVoltageMin": {
+    "name": "pmPowerMgmtPDUTableVoltageMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableVoltageAvg": {
+    "name": "pmPowerMgmtPDUTableVoltageAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableVoltageReset": {
+    "name": "pmPowerMgmtPDUTableVoltageReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableVoltageType": {
+    "name": "pmPowerMgmtPDUTableVoltageType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerFactorValue": {
+    "name": "pmPowerMgmtPDUTablePowerFactorValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerFactorMax": {
+    "name": "pmPowerMgmtPDUTablePowerFactorMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerFactorMin": {
+    "name": "pmPowerMgmtPDUTablePowerFactorMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerFactorAvg": {
+    "name": "pmPowerMgmtPDUTablePowerFactorAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerFactorReset": {
+    "name": "pmPowerMgmtPDUTablePowerFactorReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerFactorType": {
+    "name": "pmPowerMgmtPDUTablePowerFactorType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTablePowerControl": {
+    "name": "pmPowerMgmtPDUTablePowerControl",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "powerOn": 2,
+          "powerOff": 3,
+          "powerCycle": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableResetOCP": {
+    "name": "pmPowerMgmtPDUTableResetOCP",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentHighCritical": {
+    "name": "pmPowerMgmtPDUTableCurrentHighCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentHighWarning": {
+    "name": "pmPowerMgmtPDUTableCurrentHighWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentLowWarning": {
+    "name": "pmPowerMgmtPDUTableCurrentLowWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableCurrentLowCritical": {
+    "name": "pmPowerMgmtPDUTableCurrentLowCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableEnergyValue": {
+    "name": "pmPowerMgmtPDUTableEnergyValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableEnergyStartTime": {
+    "name": "pmPowerMgmtPDUTableEnergyStartTime",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPDUTableEnergyReset": {
+    "name": "pmPowerMgmtPDUTableEnergyReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.3.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtTotalNumberOfOutlets": {
+    "name": "pmPowerMgmtTotalNumberOfOutlets",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTable": {
+    "name": "pmPowerMgmtOutletsTable",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableEntry": {
+    "name": "pmPowerMgmtOutletsTableEntry",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtOutletsTablePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtOutletsTablePduNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtOutletsTableNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePortNumber": {
+    "name": "pmPowerMgmtOutletsTablePortNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePduNumber": {
+    "name": "pmPowerMgmtOutletsTablePduNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableNumber": {
+    "name": "pmPowerMgmtOutletsTableNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableName": {
+    "name": "pmPowerMgmtOutletsTableName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableStatus": {
+    "name": "pmPowerMgmtOutletsTableStatus",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "offLocked": 3,
+          "onLocked": 4,
+          "offCycle": 5,
+          "onPendingOff": 6,
+          "offPendingOn": 7,
+          "onPendingCycle": 8,
+          "notSet": 9,
+          "onFixed": 10,
+          "offShutdown": 11,
+          "tripped": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerControl": {
+    "name": "pmPowerMgmtOutletsTablePowerControl",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "powerOn": 2,
+          "powerOff": 3,
+          "powerCycle": 4,
+          "powerLock": 5,
+          "powerUnlock": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePortName": {
+    "name": "pmPowerMgmtOutletsTablePortName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePduId": {
+    "name": "pmPowerMgmtOutletsTablePduId",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePostOnDelay": {
+    "name": "pmPowerMgmtOutletsTablePostOnDelay",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePostOffDelay": {
+    "name": "pmPowerMgmtOutletsTablePostOffDelay",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableAlarm": {
+    "name": "pmPowerMgmtOutletsTableAlarm",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "blow-fuse": 2,
+          "hw-ocp": 3,
+          "high-critical": 4,
+          "high-warning": 5,
+          "low-warning": 6,
+          "low-critical": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentValue": {
+    "name": "pmPowerMgmtOutletsTableCurrentValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentMax": {
+    "name": "pmPowerMgmtOutletsTableCurrentMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentMin": {
+    "name": "pmPowerMgmtOutletsTableCurrentMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentAvg": {
+    "name": "pmPowerMgmtOutletsTableCurrentAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentReset": {
+    "name": "pmPowerMgmtOutletsTableCurrentReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerValue": {
+    "name": "pmPowerMgmtOutletsTablePowerValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerMax": {
+    "name": "pmPowerMgmtOutletsTablePowerMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerMin": {
+    "name": "pmPowerMgmtOutletsTablePowerMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerAvg": {
+    "name": "pmPowerMgmtOutletsTablePowerAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerReset": {
+    "name": "pmPowerMgmtOutletsTablePowerReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerType": {
+    "name": "pmPowerMgmtOutletsTablePowerType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableVoltageValue": {
+    "name": "pmPowerMgmtOutletsTableVoltageValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableVoltageMax": {
+    "name": "pmPowerMgmtOutletsTableVoltageMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableVoltageMin": {
+    "name": "pmPowerMgmtOutletsTableVoltageMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableVoltageAvg": {
+    "name": "pmPowerMgmtOutletsTableVoltageAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableVoltageReset": {
+    "name": "pmPowerMgmtOutletsTableVoltageReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableVoltageType": {
+    "name": "pmPowerMgmtOutletsTableVoltageType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerFactorValue": {
+    "name": "pmPowerMgmtOutletsTablePowerFactorValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerFactorMax": {
+    "name": "pmPowerMgmtOutletsTablePowerFactorMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerFactorMin": {
+    "name": "pmPowerMgmtOutletsTablePowerFactorMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerFactorAvg": {
+    "name": "pmPowerMgmtOutletsTablePowerFactorAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerFactorReset": {
+    "name": "pmPowerMgmtOutletsTablePowerFactorReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTablePowerFactorType": {
+    "name": "pmPowerMgmtOutletsTablePowerFactorType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentHighCritical": {
+    "name": "pmPowerMgmtOutletsTableCurrentHighCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentHighWarning": {
+    "name": "pmPowerMgmtOutletsTableCurrentHighWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentLowWarning": {
+    "name": "pmPowerMgmtOutletsTableCurrentLowWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableCurrentLowCritical": {
+    "name": "pmPowerMgmtOutletsTableCurrentLowCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableEnergyValue": {
+    "name": "pmPowerMgmtOutletsTableEnergyValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableEnergyStartTime": {
+    "name": "pmPowerMgmtOutletsTableEnergyStartTime",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtOutletsTableEnergyReset": {
+    "name": "pmPowerMgmtOutletsTableEnergyReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.5.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtNumberOfOutletGroup": {
+    "name": "pmPowerMgmtNumberOfOutletGroup",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtGroupTable": {
+    "name": "pmPowerMgmtGroupTable",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPowerMgmtGroupTableEntry": {
+    "name": "pmPowerMgmtGroupTableEntry",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtGroupTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPowerMgmtGroupTableIndex": {
+    "name": "pmPowerMgmtGroupTableIndex",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtGroupTableName": {
+    "name": "pmPowerMgmtGroupTableName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtGroupTableStatus": {
+    "name": "pmPowerMgmtGroupTableStatus",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtGroupTablePowerControl": {
+    "name": "pmPowerMgmtGroupTablePowerControl",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "powerOn": 2,
+          "powerOff": 3,
+          "powerCycle": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtTotalNumberOfPhases": {
+    "name": "pmPowerMgmtTotalNumberOfPhases",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTable": {
+    "name": "pmPowerMgmtPhasesTable",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableEntry": {
+    "name": "pmPowerMgmtPhasesTableEntry",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtPhasesTablePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtPhasesTablePduNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtPhasesTableNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePortNumber": {
+    "name": "pmPowerMgmtPhasesTablePortNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePduNumber": {
+    "name": "pmPowerMgmtPhasesTablePduNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableNumber": {
+    "name": "pmPowerMgmtPhasesTableNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableName": {
+    "name": "pmPowerMgmtPhasesTableName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePortName": {
+    "name": "pmPowerMgmtPhasesTablePortName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePduId": {
+    "name": "pmPowerMgmtPhasesTablePduId",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableAlarm": {
+    "name": "pmPowerMgmtPhasesTableAlarm",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "blow-fuse": 2,
+          "hw-ocp": 3,
+          "high-critical": 4,
+          "high-warning": 5,
+          "low-warning": 6,
+          "low-critical": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentValue": {
+    "name": "pmPowerMgmtPhasesTableCurrentValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentMax": {
+    "name": "pmPowerMgmtPhasesTableCurrentMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentMin": {
+    "name": "pmPowerMgmtPhasesTableCurrentMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentAvg": {
+    "name": "pmPowerMgmtPhasesTableCurrentAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentReset": {
+    "name": "pmPowerMgmtPhasesTableCurrentReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerValue": {
+    "name": "pmPowerMgmtPhasesTablePowerValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerMax": {
+    "name": "pmPowerMgmtPhasesTablePowerMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerMin": {
+    "name": "pmPowerMgmtPhasesTablePowerMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerAvg": {
+    "name": "pmPowerMgmtPhasesTablePowerAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerReset": {
+    "name": "pmPowerMgmtPhasesTablePowerReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerType": {
+    "name": "pmPowerMgmtPhasesTablePowerType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableVoltageValue": {
+    "name": "pmPowerMgmtPhasesTableVoltageValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableVoltageMax": {
+    "name": "pmPowerMgmtPhasesTableVoltageMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableVoltageMin": {
+    "name": "pmPowerMgmtPhasesTableVoltageMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableVoltageAvg": {
+    "name": "pmPowerMgmtPhasesTableVoltageAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableVoltageReset": {
+    "name": "pmPowerMgmtPhasesTableVoltageReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableVoltageType": {
+    "name": "pmPowerMgmtPhasesTableVoltageType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerFactorValue": {
+    "name": "pmPowerMgmtPhasesTablePowerFactorValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerFactorMax": {
+    "name": "pmPowerMgmtPhasesTablePowerFactorMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerFactorMin": {
+    "name": "pmPowerMgmtPhasesTablePowerFactorMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerFactorAvg": {
+    "name": "pmPowerMgmtPhasesTablePowerFactorAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerFactorReset": {
+    "name": "pmPowerMgmtPhasesTablePowerFactorReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTablePowerFactorType": {
+    "name": "pmPowerMgmtPhasesTablePowerFactorType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentHighCritical": {
+    "name": "pmPowerMgmtPhasesTableCurrentHighCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentHighWarning": {
+    "name": "pmPowerMgmtPhasesTableCurrentHighWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentLowWarning": {
+    "name": "pmPowerMgmtPhasesTableCurrentLowWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtPhasesTableCurrentLowCritical": {
+    "name": "pmPowerMgmtPhasesTableCurrentLowCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.9.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtTotalNumberOfBanks": {
+    "name": "pmPowerMgmtTotalNumberOfBanks",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTable": {
+    "name": "pmPowerMgmtBanksTable",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableEntry": {
+    "name": "pmPowerMgmtBanksTableEntry",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtBanksTablePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtBanksTablePduNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtBanksTableNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePortNumber": {
+    "name": "pmPowerMgmtBanksTablePortNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePduNumber": {
+    "name": "pmPowerMgmtBanksTablePduNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableNumber": {
+    "name": "pmPowerMgmtBanksTableNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableName": {
+    "name": "pmPowerMgmtBanksTableName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePortName": {
+    "name": "pmPowerMgmtBanksTablePortName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePduId": {
+    "name": "pmPowerMgmtBanksTablePduId",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableAlarm": {
+    "name": "pmPowerMgmtBanksTableAlarm",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "blow-fuse": 2,
+          "hw-ocp": 3,
+          "high-critical": 4,
+          "high-warning": 5,
+          "low-warning": 6,
+          "low-critical": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentValue": {
+    "name": "pmPowerMgmtBanksTableCurrentValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentMax": {
+    "name": "pmPowerMgmtBanksTableCurrentMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentMin": {
+    "name": "pmPowerMgmtBanksTableCurrentMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentAvg": {
+    "name": "pmPowerMgmtBanksTableCurrentAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentReset": {
+    "name": "pmPowerMgmtBanksTableCurrentReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerValue": {
+    "name": "pmPowerMgmtBanksTablePowerValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerMax": {
+    "name": "pmPowerMgmtBanksTablePowerMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerMin": {
+    "name": "pmPowerMgmtBanksTablePowerMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerAvg": {
+    "name": "pmPowerMgmtBanksTablePowerAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerReset": {
+    "name": "pmPowerMgmtBanksTablePowerReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerType": {
+    "name": "pmPowerMgmtBanksTablePowerType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableVoltageValue": {
+    "name": "pmPowerMgmtBanksTableVoltageValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableVoltageMax": {
+    "name": "pmPowerMgmtBanksTableVoltageMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableVoltageMin": {
+    "name": "pmPowerMgmtBanksTableVoltageMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableVoltageAvg": {
+    "name": "pmPowerMgmtBanksTableVoltageAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableVoltageReset": {
+    "name": "pmPowerMgmtBanksTableVoltageReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableVoltageType": {
+    "name": "pmPowerMgmtBanksTableVoltageType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerFactorValue": {
+    "name": "pmPowerMgmtBanksTablePowerFactorValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerFactorMax": {
+    "name": "pmPowerMgmtBanksTablePowerFactorMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerFactorMin": {
+    "name": "pmPowerMgmtBanksTablePowerFactorMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerFactorAvg": {
+    "name": "pmPowerMgmtBanksTablePowerFactorAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerFactorReset": {
+    "name": "pmPowerMgmtBanksTablePowerFactorReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTablePowerFactorType": {
+    "name": "pmPowerMgmtBanksTablePowerFactorType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none-sensor": 0,
+          "estimated": 1,
+          "measured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentHighCritical": {
+    "name": "pmPowerMgmtBanksTableCurrentHighCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentHighWarning": {
+    "name": "pmPowerMgmtBanksTableCurrentHighWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentLowWarning": {
+    "name": "pmPowerMgmtBanksTableCurrentLowWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableCurrentLowCritical": {
+    "name": "pmPowerMgmtBanksTableCurrentLowCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableEnergyValue": {
+    "name": "pmPowerMgmtBanksTableEnergyValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableEnergyStartTime": {
+    "name": "pmPowerMgmtBanksTableEnergyStartTime",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtBanksTableEnergyReset": {
+    "name": "pmPowerMgmtBanksTableEnergyReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.11.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtTotalNumberOfSensors": {
+    "name": "pmPowerMgmtTotalNumberOfSensors",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTable": {
+    "name": "pmPowerMgmtSensorsTable",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableEntry": {
+    "name": "pmPowerMgmtSensorsTableEntry",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtSensorsTablePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtSensorsTablePduNumber",
+        "implied": 0
+      },
+      {
+        "module": "PM-MIB",
+        "object": "pmPowerMgmtSensorsTableNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTablePortNumber": {
+    "name": "pmPowerMgmtSensorsTablePortNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTablePduNumber": {
+    "name": "pmPowerMgmtSensorsTablePduNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableNumber": {
+    "name": "pmPowerMgmtSensorsTableNumber",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableName": {
+    "name": "pmPowerMgmtSensorsTableName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTablePortName": {
+    "name": "pmPowerMgmtSensorsTablePortName",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTablePduId": {
+    "name": "pmPowerMgmtSensorsTablePduId",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableType": {
+    "name": "pmPowerMgmtSensorsTableType",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temp-internal": 1,
+          "temperature": 2,
+          "humidity": 3,
+          "air-flow": 4,
+          "smoke": 5,
+          "dry-concact": 6,
+          "water-level": 7,
+          "motion": 8,
+          "unplugged": 9,
+          "unknown": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableStatus": {
+    "name": "pmPowerMgmtSensorsTableStatus",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "triggered": 2,
+          "not-applicable": 3,
+          "opened": 4,
+          "closed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValue": {
+    "name": "pmPowerMgmtSensorsTableValue",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValueMax": {
+    "name": "pmPowerMgmtSensorsTableValueMax",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValueMin": {
+    "name": "pmPowerMgmtSensorsTableValueMin",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValueAvg": {
+    "name": "pmPowerMgmtSensorsTableValueAvg",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValueInt": {
+    "name": "pmPowerMgmtSensorsTableValueInt",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValueMaxInt": {
+    "name": "pmPowerMgmtSensorsTableValueMaxInt",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValueMinInt": {
+    "name": "pmPowerMgmtSensorsTableValueMinInt",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValueAvgInt": {
+    "name": "pmPowerMgmtSensorsTableValueAvgInt",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableValueReset": {
+    "name": "pmPowerMgmtSensorsTableValueReset",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableHighCritical": {
+    "name": "pmPowerMgmtSensorsTableHighCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableHighWarning": {
+    "name": "pmPowerMgmtSensorsTableHighWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableLowWarning": {
+    "name": "pmPowerMgmtSensorsTableLowWarning",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableLowCritical": {
+    "name": "pmPowerMgmtSensorsTableLowCritical",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableUnit": {
+    "name": "pmPowerMgmtSensorsTableUnit",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "fahrenheit": 2,
+          "celsius": 3,
+          "percent": 4,
+          "afu": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableHighCriticalC": {
+    "name": "pmPowerMgmtSensorsTableHighCriticalC",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableHighWarningC": {
+    "name": "pmPowerMgmtSensorsTableHighWarningC",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableLowWarningC": {
+    "name": "pmPowerMgmtSensorsTableLowWarningC",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableLowCriticalC": {
+    "name": "pmPowerMgmtSensorsTableLowCriticalC",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableHighCriticalF": {
+    "name": "pmPowerMgmtSensorsTableHighCriticalF",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableHighWarningF": {
+    "name": "pmPowerMgmtSensorsTableHighWarningF",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableLowWarningF": {
+    "name": "pmPowerMgmtSensorsTableLowWarningF",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPowerMgmtSensorsTableLowCriticalF": {
+    "name": "pmPowerMgmtSensorsTableLowCriticalF",
+    "oid": "1.3.6.1.4.1.10418.17.2.5.13.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avocent/PM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:58 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PM-MIB"
+  }
+}

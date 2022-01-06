@@ -1,0 +1,3071 @@
+{
+  "imports": {
+    "class": "imports",
+    "DKT-MIB": [
+      "dkt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "geMIB": {
+    "name": "geMIB",
+    "oid": "1.3.6.1.4.1.27304.14",
+    "class": "moduleidentity"
+  },
+  "geSwitchEngine": {
+    "name": "geSwitchEngine",
+    "oid": "1.3.6.1.4.1.27304.14.1",
+    "class": "objectidentity"
+  },
+  "geATU": {
+    "name": "geATU",
+    "oid": "1.3.6.1.4.1.27304.14.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20480
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geUnicastDelete": {
+    "name": "geUnicastDelete",
+    "oid": "1.3.6.1.4.1.27304.14.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geMulticastDelete": {
+    "name": "geMulticastDelete",
+    "oid": "1.3.6.1.4.1.27304.14.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geIGMPSnooping": {
+    "name": "geIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.14.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geVTU": {
+    "name": "geVTU",
+    "oid": "1.3.6.1.4.1.27304.14.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geVLANCreate": {
+    "name": "geVLANCreate",
+    "oid": "1.3.6.1.4.1.27304.14.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geVLANDelete": {
+    "name": "geVLANDelete",
+    "oid": "1.3.6.1.4.1.27304.14.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geClearVTU": {
+    "name": "geClearVTU",
+    "oid": "1.3.6.1.4.1.27304.14.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geDumpPIRLBuckets": {
+    "name": "geDumpPIRLBuckets",
+    "oid": "1.3.6.1.4.1.27304.14.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geVLANProviderMode": {
+    "name": "geVLANProviderMode",
+    "oid": "1.3.6.1.4.1.27304.14.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gePorts": {
+    "name": "gePorts",
+    "oid": "1.3.6.1.4.1.27304.14.2",
+    "class": "objectidentity"
+  },
+  "geCPUPort": {
+    "name": "geCPUPort",
+    "oid": "1.3.6.1.4.1.27304.14.2.1",
+    "class": "objectidentity"
+  },
+  "geCPUPortAutoNegotiation": {
+    "name": "geCPUPortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortSpeedMode": {
+    "name": "geCPUPortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortLinkStatus": {
+    "name": "geCPUPortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geCPUPortFlowControl": {
+    "name": "geCPUPortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortIEEEQoSPriority": {
+    "name": "geCPUPortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortIPQoSPriority": {
+    "name": "geCPUPortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortQoSPortMapRule": {
+    "name": "geCPUPortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortVIDNRLEnable": {
+    "name": "geCPUPortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortDisablePIRL2Bucket": {
+    "name": "geCPUPortDisablePIRL2Bucket",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geCPUPortEgressRateLimitation": {
+    "name": "geCPUPortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortIngressRateLimitation": {
+    "name": "geCPUPortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortDefaultVLAN": {
+    "name": "geCPUPortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortForceDefaultVID": {
+    "name": "geCPUPortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortVLANPortMode": {
+    "name": "geCPUPortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortBlockAllUnknown": {
+    "name": "geCPUPortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortIGMPSnooping": {
+    "name": "geCPUPortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geCPUPortAddUnicast": {
+    "name": "geCPUPortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geCPUPortAddMulticast": {
+    "name": "geCPUPortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geCPUPortMtu": {
+    "name": "geCPUPortMtu",
+    "oid": "1.3.6.1.4.1.27304.14.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPort": {
+    "name": "geWANPort",
+    "oid": "1.3.6.1.4.1.27304.14.2.2",
+    "class": "objectidentity"
+  },
+  "geWANPortAutoNegotiation": {
+    "name": "geWANPortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortSpeedMode": {
+    "name": "geWANPortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortLinkStatus": {
+    "name": "geWANPortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geWANPortFlowControl": {
+    "name": "geWANPortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortIEEEQoSPriority": {
+    "name": "geWANPortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortIPQoSPriority": {
+    "name": "geWANPortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortQoSPortMapRule": {
+    "name": "geWANPortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortVIDNRLEnable": {
+    "name": "geWANPortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortDisablePIRL2Bucket": {
+    "name": "geWANPortDisablePIRL2Bucket",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geWANPortEgressRateLimitation": {
+    "name": "geWANPortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortIngressRateLimitation": {
+    "name": "geWANPortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geWANPortDefaultVLAN": {
+    "name": "geWANPortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortForceDefaultVID": {
+    "name": "geWANPortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortVLANPortMode": {
+    "name": "geWANPortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortBlockAllUnknown": {
+    "name": "geWANPortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortIGMPSnooping": {
+    "name": "geWANPortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortAddUnicast": {
+    "name": "geWANPortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geWANPortAddMulticast": {
+    "name": "geWANPortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geWANPortMtu": {
+    "name": "geWANPortMtu",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geWANPortArpMirroring": {
+    "name": "geWANPortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.14.2.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1Port": {
+    "name": "geLAN1Port",
+    "oid": "1.3.6.1.4.1.27304.14.2.3",
+    "class": "objectidentity"
+  },
+  "geLAN1PortAutoNegotiation": {
+    "name": "geLAN1PortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortSpeedMode": {
+    "name": "geLAN1PortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortLinkStatus": {
+    "name": "geLAN1PortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geLAN1PortFlowControl": {
+    "name": "geLAN1PortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortIEEEQoSPriority": {
+    "name": "geLAN1PortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortIPQoSPriority": {
+    "name": "geLAN1PortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortQoSPortMapRule": {
+    "name": "geLAN1PortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortVIDNRLEnable": {
+    "name": "geLAN1PortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortDisablePIRL2Bucket": {
+    "name": "geLAN1PortDisablePIRL2Bucket",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN1PortEgressRateLimitation": {
+    "name": "geLAN1PortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortIngressRateLimitation": {
+    "name": "geLAN1PortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN1PortDefaultVLAN": {
+    "name": "geLAN1PortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortForceDefaultVID": {
+    "name": "geLAN1PortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortVLANPortMode": {
+    "name": "geLAN1PortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortBlockAllUnknown": {
+    "name": "geLAN1PortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortIGMPSnooping": {
+    "name": "geLAN1PortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortAddUnicast": {
+    "name": "geLAN1PortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN1PortAddMulticast": {
+    "name": "geLAN1PortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN1PortMtu": {
+    "name": "geLAN1PortMtu",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN1PortArpMirroring": {
+    "name": "geLAN1PortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.14.2.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2Port": {
+    "name": "geLAN2Port",
+    "oid": "1.3.6.1.4.1.27304.14.2.4",
+    "class": "objectidentity"
+  },
+  "geLAN2PortAutoNegotiation": {
+    "name": "geLAN2PortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortSpeedMode": {
+    "name": "geLAN2PortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortLinkStatus": {
+    "name": "geLAN2PortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geLAN2PortFlowControl": {
+    "name": "geLAN2PortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortIEEEQoSPriority": {
+    "name": "geLAN2PortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortIPQoSPriority": {
+    "name": "geLAN2PortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortQoSPortMapRule": {
+    "name": "geLAN2PortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortVIDNRLEnable": {
+    "name": "geLAN2PortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortDisablePIRL2Bucket": {
+    "name": "geLAN2PortDisablePIRL2Bucket",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN2PortEgressRateLimitation": {
+    "name": "geLAN2PortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortIngressRateLimitation": {
+    "name": "geLAN2PortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN2PortDefaultVLAN": {
+    "name": "geLAN2PortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortForceDefaultVID": {
+    "name": "geLAN2PortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortVLANPortMode": {
+    "name": "geLAN2PortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortBlockAllUnknown": {
+    "name": "geLAN2PortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortIGMPSnooping": {
+    "name": "geLAN2PortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortAddUnicast": {
+    "name": "geLAN2PortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN2PortAddMulticast": {
+    "name": "geLAN2PortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN2PortMtu": {
+    "name": "geLAN2PortMtu",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN2PortArpMirroring": {
+    "name": "geLAN2PortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.14.2.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3Port": {
+    "name": "geLAN3Port",
+    "oid": "1.3.6.1.4.1.27304.14.2.5",
+    "class": "objectidentity"
+  },
+  "geLAN3PortAutoNegotiation": {
+    "name": "geLAN3PortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortSpeedMode": {
+    "name": "geLAN3PortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortLinkStatus": {
+    "name": "geLAN3PortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geLAN3PortFlowControl": {
+    "name": "geLAN3PortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortIEEEQoSPriority": {
+    "name": "geLAN3PortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortIPQoSPriority": {
+    "name": "geLAN3PortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortQoSPortMapRule": {
+    "name": "geLAN3PortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortVIDNRLEnable": {
+    "name": "geLAN3PortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortDisablePIRL2Bucket": {
+    "name": "geLAN3PortDisablePIRL2Bucket",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN3PortEgressRateLimitation": {
+    "name": "geLAN3PortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortIngressRateLimitation": {
+    "name": "geLAN3PortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN3PortDefaultVLAN": {
+    "name": "geLAN3PortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortForceDefaultVID": {
+    "name": "geLAN3PortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortVLANPortMode": {
+    "name": "geLAN3PortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortBlockAllUnknown": {
+    "name": "geLAN3PortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortIGMPSnooping": {
+    "name": "geLAN3PortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortAddUnicast": {
+    "name": "geLAN3PortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN3PortAddMulticast": {
+    "name": "geLAN3PortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN3PortMtu": {
+    "name": "geLAN3PortMtu",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN3PortArpMirroring": {
+    "name": "geLAN3PortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.14.2.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4Port": {
+    "name": "geLAN4Port",
+    "oid": "1.3.6.1.4.1.27304.14.2.6",
+    "class": "objectidentity"
+  },
+  "geLAN4PortAutoNegotiation": {
+    "name": "geLAN4PortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortSpeedMode": {
+    "name": "geLAN4PortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortLinkStatus": {
+    "name": "geLAN4PortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "geLAN4PortFlowControl": {
+    "name": "geLAN4PortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortIEEEQoSPriority": {
+    "name": "geLAN4PortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortIPQoSPriority": {
+    "name": "geLAN4PortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortQoSPortMapRule": {
+    "name": "geLAN4PortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortVIDNRLEnable": {
+    "name": "geLAN4PortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortDisablePIRL2Bucket": {
+    "name": "geLAN4PortDisablePIRL2Bucket",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN4PortEgressRateLimitation": {
+    "name": "geLAN4PortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortIngressRateLimitation": {
+    "name": "geLAN4PortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN4PortDefaultVLAN": {
+    "name": "geLAN4PortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortForceDefaultVID": {
+    "name": "geLAN4PortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortVLANPortMode": {
+    "name": "geLAN4PortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortBlockAllUnknown": {
+    "name": "geLAN4PortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortIGMPSnooping": {
+    "name": "geLAN4PortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortAddUnicast": {
+    "name": "geLAN4PortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN4PortAddMulticast": {
+    "name": "geLAN4PortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "geLAN4PortMtu": {
+    "name": "geLAN4PortMtu",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geLAN4PortArpMirroring": {
+    "name": "geLAN4PortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.14.2.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "geModuleGroup": {
+    "name": "geModuleGroup",
+    "oid": "1.3.6.1.4.1.27304.14.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geSwitchEngine"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geATU"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geUnicastDelete"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geMulticastDelete"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geIGMPSnooping"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geVTU"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geVLANCreate"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geVLANDelete"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geClearVTU"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geVLANProviderMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "gePorts"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geDumpPIRLBuckets"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPort"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortAutoNegotiation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortSpeedMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortLinkStatus"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortFlowControl"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortIPQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortDisablePIRL2Bucket"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortDefaultVLAN"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortForceDefaultVID"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortVLANPortMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortIGMPSnooping"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortAddUnicast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortAddMulticast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geCPUPortMtu"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPort"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortAutoNegotiation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortSpeedMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortLinkStatus"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortFlowControl"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortIPQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortDisablePIRL2Bucket"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortDefaultVLAN"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortForceDefaultVID"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortVLANPortMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortIGMPSnooping"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortAddUnicast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortAddMulticast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortMtu"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geWANPortArpMirroring"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1Port"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortAutoNegotiation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortSpeedMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortLinkStatus"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortFlowControl"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortIPQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortDisablePIRL2Bucket"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortDefaultVLAN"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortForceDefaultVID"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortVLANPortMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortIGMPSnooping"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortAddUnicast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortAddMulticast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortMtu"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN1PortArpMirroring"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2Port"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortAutoNegotiation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortSpeedMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortLinkStatus"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortFlowControl"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortIPQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortDisablePIRL2Bucket"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortDefaultVLAN"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortForceDefaultVID"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortVLANPortMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortIGMPSnooping"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortAddUnicast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortAddMulticast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortMtu"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN2PortArpMirroring"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3Port"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortAutoNegotiation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortSpeedMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortLinkStatus"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortFlowControl"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortIPQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortDisablePIRL2Bucket"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortDefaultVLAN"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortForceDefaultVID"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortVLANPortMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortIGMPSnooping"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortAddUnicast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortAddMulticast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortMtu"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN3PortArpMirroring"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4Port"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortAutoNegotiation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortSpeedMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortLinkStatus"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortFlowControl"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortIPQoSPriority"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortDisablePIRL2Bucket"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortDefaultVLAN"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortForceDefaultVID"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortVLANPortMode"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortIGMPSnooping"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortAddUnicast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortAddMulticast"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortMtu"
+      },
+      {
+        "module": "DKT-GE-MIB",
+        "object": "geLAN4PortArpMirroring"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dkt/DKT-GE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:24 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DKT-GE-MIB"
+  }
+}

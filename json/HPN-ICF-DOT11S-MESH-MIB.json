@@ -1,0 +1,1247 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-DOT11-REF-MIB": [
+      "hpnicfDot11",
+      "HpnicfDot11RadioElementIndex",
+      "hpnicfDot11APElementIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDot11sMesh": {
+    "name": "hpnicfDot11sMesh",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-01 10:00",
+        "description": "Add new nodes."
+      },
+      {
+        "revision": "2008-11-07 10:00",
+        "description": "Modified to add new nodes and a new table."
+      },
+      {
+        "revision": "2008-07-08 18:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfDot11sConfigGroup": {
+    "name": "hpnicfDot11sConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11sWDSConfigGroup": {
+    "name": "hpnicfDot11sWDSConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.2",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11sMeshStatusGroup": {
+    "name": "hpnicfDot11sMeshStatusGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11sMeshGlobalPara": {
+    "name": "hpnicfDot11sMeshGlobalPara",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11sMeshMkdID": {
+    "name": "hpnicfDot11sMeshMkdID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflTable": {
+    "name": "hpnicfDot11sMeshPflTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflEntry": {
+    "name": "hpnicfDot11sMeshPflEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sMeshPflIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflIndex": {
+    "name": "hpnicfDot11sMeshPflIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflMeshID": {
+    "name": "hpnicfDot11sMeshPflMeshID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflBindIntNum": {
+    "name": "hpnicfDot11sMeshPflBindIntNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflKeepAlive": {
+    "name": "hpnicfDot11sMeshPflKeepAlive",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflBackhaulRate": {
+    "name": "hpnicfDot11sMeshPflBackhaulRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshMkdServEnable": {
+    "name": "hpnicfDot11sMeshMkdServEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflEnable": {
+    "name": "hpnicfDot11sMeshPflEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflRowStatus": {
+    "name": "hpnicfDot11sMeshPflRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMpPlcyTable": {
+    "name": "hpnicfDot11sMpPlcyTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMpPlcyEntry": {
+    "name": "hpnicfDot11sMpPlcyEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sMpPlcyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sMpPlcyIndex": {
+    "name": "hpnicfDot11sMpPlcyIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMpPlcyName": {
+    "name": "hpnicfDot11sMpPlcyName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMpPlcyInitEnable": {
+    "name": "hpnicfDot11sMpPlcyInitEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMlspEnable": {
+    "name": "hpnicfDot11sMlspEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sProbReqInterval": {
+    "name": "hpnicfDot11sProbReqInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sRoleAuthEnable": {
+    "name": "hpnicfDot11sRoleAuthEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sLinkHoldRSSI": {
+    "name": "hpnicfDot11sLinkHoldRSSI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sLinkHoldTime": {
+    "name": "hpnicfDot11sLinkHoldTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sSwitchMargin": {
+    "name": "hpnicfDot11sSwitchMargin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sLinkSaturationRSSI": {
+    "name": "hpnicfDot11sLinkSaturationRSSI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sLinkRateMode": {
+    "name": "hpnicfDot11sLinkRateMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "realtime": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fixed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMaxLinkNum": {
+    "name": "hpnicfDot11sMaxLinkNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMpPlcyRowStatus": {
+    "name": "hpnicfDot11sMpPlcyRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMlspCfgTable": {
+    "name": "hpnicfDot11sMlspCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMlspCfgEntry": {
+    "name": "hpnicfDot11sMlspCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sMpPlcyIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sMlspProxyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sMlspProxyIndex": {
+    "name": "hpnicfDot11sMlspProxyIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMlspProxyMac": {
+    "name": "hpnicfDot11sMlspProxyMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMlspRowStatus": {
+    "name": "hpnicfDot11sMlspRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sRadioCfgTable": {
+    "name": "hpnicfDot11sRadioCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sRadioCfgEntry": {
+    "name": "hpnicfDot11sRadioCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sCfgRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sCfgRadioIndex": {
+    "name": "hpnicfDot11sCfgRadioIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RadioElementIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshPflMap": {
+    "name": "hpnicfDot11sMeshPflMap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11sMpPlcyMap": {
+    "name": "hpnicfDot11sMpPlcyMap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11sAPCfgTable": {
+    "name": "hpnicfDot11sAPCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sAPCfgEntry": {
+    "name": "hpnicfDot11sAPCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-REF-MIB",
+        "object": "hpnicfDot11APElementIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sPortalEnable": {
+    "name": "hpnicfDot11sPortalEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11sWDSPeerMacTable": {
+    "name": "hpnicfDot11sWDSPeerMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sWDSPeerMacEntry": {
+    "name": "hpnicfDot11sWDSPeerMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sCfgRadioIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sWDSPeerMacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sWDSPeerMacIndex": {
+    "name": "hpnicfDot11sWDSPeerMacIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sWDSPeerMacAddrss": {
+    "name": "hpnicfDot11sWDSPeerMacAddrss",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sWDSPeerMacRowStatus": {
+    "name": "hpnicfDot11sWDSPeerMacRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkStatusTable": {
+    "name": "hpnicfDot11sMeshLinkStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkStatusEntry": {
+    "name": "hpnicfDot11sMeshLinkStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sMeshLinkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkIfIndex": {
+    "name": "hpnicfDot11sMeshLinkIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkName": {
+    "name": "hpnicfDot11sMeshLinkName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkBSSID": {
+    "name": "hpnicfDot11sMeshLinkBSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkPeerMac": {
+    "name": "hpnicfDot11sMeshLinkPeerMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkExistDuration": {
+    "name": "hpnicfDot11sMeshLinkExistDuration",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkType": {
+    "name": "hpnicfDot11sMeshLinkType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "dormant": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkStatisTable": {
+    "name": "hpnicfDot11sMeshLinkStatisTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkStatisEntry": {
+    "name": "hpnicfDot11sMeshLinkStatisEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-REF-MIB",
+        "object": "hpnicfDot11APElementIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sMeshLinkStatIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkStatIfIndex": {
+    "name": "hpnicfDot11sMeshLinkStatIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkNbrIndex": {
+    "name": "hpnicfDot11sMeshLinkNbrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkRxTotByte": {
+    "name": "hpnicfDot11sMeshLinkRxTotByte",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkRxTotPkt": {
+    "name": "hpnicfDot11sMeshLinkRxTotPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkRxUniPkt": {
+    "name": "hpnicfDot11sMeshLinkRxUniPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkRxBrocPkt": {
+    "name": "hpnicfDot11sMeshLinkRxBrocPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkRxMuticPkt": {
+    "name": "hpnicfDot11sMeshLinkRxMuticPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkRxDiscPkt": {
+    "name": "hpnicfDot11sMeshLinkRxDiscPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkTxTotByte": {
+    "name": "hpnicfDot11sMeshLinkTxTotByte",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkTxTotPkt": {
+    "name": "hpnicfDot11sMeshLinkTxTotPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkTxUniPkt": {
+    "name": "hpnicfDot11sMeshLinkTxUniPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkTxBrocPkt": {
+    "name": "hpnicfDot11sMeshLinkTxBrocPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkTxMuticPkt": {
+    "name": "hpnicfDot11sMeshLinkTxMuticPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkTxDiscPkt": {
+    "name": "hpnicfDot11sMeshLinkTxDiscPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkIFName": {
+    "name": "hpnicfDot11sMeshLinkIFName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrStatusTable": {
+    "name": "hpnicfDot11sMeshNbrStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrStatusEntry": {
+    "name": "hpnicfDot11sMeshNbrStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-REF-MIB",
+        "object": "hpnicfDot11APElementIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11S-MESH-MIB",
+        "object": "hpnicfDot11sMeshNbrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrIndex": {
+    "name": "hpnicfDot11sMeshNbrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrRadioID": {
+    "name": "hpnicfDot11sMeshNbrRadioID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLocalMeshID": {
+    "name": "hpnicfDot11sMeshLocalMeshID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrMeshID": {
+    "name": "hpnicfDot11sMeshNbrMeshID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrBSSID": {
+    "name": "hpnicfDot11sMeshNbrBSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrPeerMac": {
+    "name": "hpnicfDot11sMeshNbrPeerMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshLinkInMp": {
+    "name": "hpnicfDot11sMeshLinkInMp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshMPLinkStatus": {
+    "name": "hpnicfDot11sMeshMPLinkStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "processing": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrChannel": {
+    "name": "hpnicfDot11sMeshNbrChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrLinkDuration": {
+    "name": "hpnicfDot11sMeshNbrLinkDuration",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrRSSI": {
+    "name": "hpnicfDot11sMeshNbrRSSI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11sMeshNbrSNR": {
+    "name": "hpnicfDot11sMeshNbrSNR",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.11.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11S-MESH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DOT11S-MESH-MIB"
+  }
+}

@@ -1,0 +1,2038 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "slbTraps",
+      "softentIND1Slb"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "alcatelIND1SLBMIB": {
+    "name": "alcatelIND1SLBMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1",
+    "class": "moduleidentity"
+  },
+  "alcatelIND1SLBMIBObjects": {
+    "name": "alcatelIND1SLBMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SLBMIBConformance": {
+    "name": "alcatelIND1SLBMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SLBMIBGroups": {
+    "name": "alcatelIND1SLBMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SLBMIBCompliances": {
+    "name": "alcatelIND1SLBMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "SlbAdminState": {
+    "name": "SlbAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbOperState": {
+    "name": "SlbOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outOfService": 1,
+          "inService": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbRedirectAlgorithm": {
+    "name": "SlbRedirectAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roundRobin": 1,
+          "serverFailover": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbServerOperState": {
+    "name": "SlbServerOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "linkDown": 2,
+          "noAnswer": 3,
+          "disabled": 4,
+          "retrying": 5,
+          "discovery": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "slbFeature": {
+    "name": "slbFeature",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.1",
+    "class": "objectidentity"
+  },
+  "slbAdminStatus": {
+    "name": "slbAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbOperStatus": {
+    "name": "slbOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbClustersCount": {
+    "name": "slbClustersCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbResetStatistics": {
+    "name": "slbResetStatistics",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSignificant": 0,
+          "resetSlbStats": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbClusters": {
+    "name": "slbClusters",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2",
+    "class": "objectidentity"
+  },
+  "slbClusterTable": {
+    "name": "slbClusterTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbClusterTableEntry": {
+    "name": "slbClusterTableEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbClusterName": {
+    "name": "slbClusterName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbClusterAdminStatus": {
+    "name": "slbClusterAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterOperStatus": {
+    "name": "slbClusterOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbClusterVIP": {
+    "name": "slbClusterVIP",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterRoutedFlowsSuccessRatio": {
+    "name": "slbClusterRoutedFlowsSuccessRatio",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbClusterPingPeriod": {
+    "name": "slbClusterPingPeriod",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterPingTimeout": {
+    "name": "slbClusterPingTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterPingRetries": {
+    "name": "slbClusterPingRetries",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterRedirectAlgorithm": {
+    "name": "slbClusterRedirectAlgorithm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbRedirectAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "roundRobin",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterIdleTimer": {
+    "name": "slbClusterIdleTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterNumberOfServers": {
+    "name": "slbClusterNumberOfServers",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbClusterNewFlows": {
+    "name": "slbClusterNewFlows",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbClusterRowStatus": {
+    "name": "slbClusterRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterProbeName": {
+    "name": "slbClusterProbeName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterPackets": {
+    "name": "slbClusterPackets",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbClusterCondition": {
+    "name": "slbClusterCondition",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbClusterType": {
+    "name": "slbClusterType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l3": 1,
+          "l2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "l3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbServers": {
+    "name": "slbServers",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3",
+    "class": "objectidentity"
+  },
+  "slbServerTable": {
+    "name": "slbServerTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbServerTableEntry": {
+    "name": "slbServerTableEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerClusterName",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbServerClusterName": {
+    "name": "slbServerClusterName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbServerIpAddress": {
+    "name": "slbServerIpAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbServerAdminStatus": {
+    "name": "slbServerAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbServerOperStatus": {
+    "name": "slbServerOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerAdminWeight": {
+    "name": "slbServerAdminWeight",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbServerMacAddress": {
+    "name": "slbServerMacAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerSlotNumber": {
+    "name": "slbServerSlotNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerPortNumber": {
+    "name": "slbServerPortNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerUpTime": {
+    "name": "slbServerUpTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerLastRTT": {
+    "name": "slbServerLastRTT",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerPingFails": {
+    "name": "slbServerPingFails",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerPortDown": {
+    "name": "slbServerPortDown",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerFlows": {
+    "name": "slbServerFlows",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerRowStatus": {
+    "name": "slbServerRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbServerProbeName": {
+    "name": "slbServerProbeName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbServerProbeStatus": {
+    "name": "slbServerProbeStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbProbes": {
+    "name": "slbProbes",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4",
+    "class": "objectidentity"
+  },
+  "slbProbeTable": {
+    "name": "slbProbeTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbProbeTableEntry": {
+    "name": "slbProbeTableEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbProbeName": {
+    "name": "slbProbeName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbProbeMethod": {
+    "name": "slbProbeMethod",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ping": 1,
+          "http": 2,
+          "https": 3,
+          "udp": 4,
+          "tcp": 5,
+          "ftp": 6,
+          "smtp": 7,
+          "pop": 8,
+          "pops": 9,
+          "imap": 10,
+          "imaps": 11,
+          "nntp": 12
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbePeriod": {
+    "name": "slbProbePeriod",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeTimeout": {
+    "name": "slbProbeTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeRetries": {
+    "name": "slbProbeRetries",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbePort": {
+    "name": "slbProbePort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeExpect": {
+    "name": "slbProbeExpect",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeSSL": {
+    "name": "slbProbeSSL",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeSend": {
+    "name": "slbProbeSend",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeHttpStatus": {
+    "name": "slbProbeHttpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeHttpUrl": {
+    "name": "slbProbeHttpUrl",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeHttpUsername": {
+    "name": "slbProbeHttpUsername",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeHttpPassword": {
+    "name": "slbProbeHttpPassword",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbProbeRowStatus": {
+    "name": "slbProbeRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbStats": {
+    "name": "slbStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5",
+    "class": "objectidentity"
+  },
+  "slbStatsTable": {
+    "name": "slbStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStatsTableEntry": {
+    "name": "slbStatsTableEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsClusterName",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbStatsClusterName": {
+    "name": "slbStatsClusterName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStatsIndex": {
+    "name": "slbStatsIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStatsCounter": {
+    "name": "slbStatsCounter",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQual": {
+    "name": "slbStatsQual",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.6",
+    "class": "objectidentity"
+  },
+  "slbStatsQualTable": {
+    "name": "slbStatsQualTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStatsQualTableEntry": {
+    "name": "slbStatsQualTableEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsClusterName",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbStatsQualType": {
+    "name": "slbStatsQualType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstIp": 1,
+          "srcIp": 2,
+          "srcPort": 3,
+          "srcPortGroup": 4,
+          "srcVlan": 5,
+          "ipProtocol": 6,
+          "dstIpPort": 7,
+          "srcIpPort": 8,
+          "dstIpTcpPort": 9,
+          "srcIpTcpPort": 10,
+          "dstIpUdpPort": 11,
+          "srcIpUdpPort": 12,
+          "srcMac": 13,
+          "dstMac": 14,
+          "d8021p": 15,
+          "ethertype": 16,
+          "icmpType": 17,
+          "icmpCode": 18,
+          "tcpFlags": 19,
+          "tos": 20,
+          "dstPort": 21,
+          "dstPortGroup": 22
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStatsQualDataIp": {
+    "name": "slbStatsQualDataIp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataIpMask": {
+    "name": "slbStatsQualDataIpMask",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataSlot": {
+    "name": "slbStatsQualDataSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataStartPort": {
+    "name": "slbStatsQualDataStartPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataEndPort": {
+    "name": "slbStatsQualDataEndPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataIpProtocol": {
+    "name": "slbStatsQualDataIpProtocol",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataVlan": {
+    "name": "slbStatsQualDataVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataL4Port": {
+    "name": "slbStatsQualDataL4Port",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataMac": {
+    "name": "slbStatsQualDataMac",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataMacMask": {
+    "name": "slbStatsQualDataMacMask",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataEthertype": {
+    "name": "slbStatsQualDataEthertype",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataIcmpData": {
+    "name": "slbStatsQualDataIcmpData",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataTcpFlags": {
+    "name": "slbStatsQualDataTcpFlags",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualDataTos": {
+    "name": "slbStatsQualDataTos",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsQualData8021p": {
+    "name": "slbStatsQualData8021p",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.1.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbTrapsDesc": {
+    "name": "slbTrapsDesc",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.1",
+    "class": "objectidentity"
+  },
+  "slbTrapsObj": {
+    "name": "slbTrapsObj",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.2",
+    "class": "objectidentity"
+  },
+  "slbTrapException": {
+    "name": "slbTrapException",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapInfoException"
+      }
+    ],
+    "status": "current"
+  },
+  "slbTrapConfigChanged": {
+    "name": "slbTrapConfigChanged",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapInfoEntityGroup"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapInfoClusterName"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapInfoServerIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "slbTrapOperStatus": {
+    "name": "slbTrapOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapInfoEntityGroup"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapInfoOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapInfoClusterName"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapInfoServerIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "slbTrapInfoClusterName": {
+    "name": "slbTrapInfoClusterName",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbTrapInfoOperStatus": {
+    "name": "slbTrapInfoOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbTrapInfoServerIpAddr": {
+    "name": "slbTrapInfoServerIpAddr",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbTrapInfoEntityGroup": {
+    "name": "slbTrapInfoEntityGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slb": 1,
+          "cluster": 2,
+          "server": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbTrapInfoException": {
+    "name": "slbTrapInfoException",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.10.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1SLBMIBCompliance": {
+    "name": "alcatelIND1SLBMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "slbFeatureGroup",
+        "module": "ALCATEL-IND1-SLB-MIB"
+      },
+      {
+        "object": "slbClustersGroup",
+        "module": "ALCATEL-IND1-SLB-MIB"
+      },
+      {
+        "object": "slbServersGroup",
+        "module": "ALCATEL-IND1-SLB-MIB"
+      },
+      {
+        "object": "slbProbesGroup",
+        "module": "ALCATEL-IND1-SLB-MIB"
+      },
+      {
+        "object": "slbTrapsGroup",
+        "module": "ALCATEL-IND1-SLB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "slbFeatureGroup": {
+    "name": "slbFeatureGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClustersCount"
+      }
+    ],
+    "status": "current"
+  },
+  "slbClustersGroup": {
+    "name": "slbClustersGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterVIP"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterRoutedFlowsSuccessRatio"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterPingPeriod"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterPingTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterPingRetries"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterRedirectAlgorithm"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterIdleTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterNumberOfServers"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterNewFlows"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterProbeName"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterPackets"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterCondition"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbClusterType"
+      }
+    ],
+    "status": "current"
+  },
+  "slbServersGroup": {
+    "name": "slbServersGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerAdminWeight"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerMacAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerSlotNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerPortNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerUpTime"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerLastRTT"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerPingFails"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerPortDown"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerFlows"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerProbeName"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbServerProbeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "slbTrapsGroup": {
+    "name": "slbTrapsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapException"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapConfigChanged"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbTrapOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "slbProbesGroup": {
+    "name": "slbProbesGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeMethod"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbePeriod"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeRetries"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbePort"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeExpect"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeSend"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeSSL"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeHttpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeHttpUrl"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeHttpUsername"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeHttpPassword"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbProbeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "slbStatsGroup": {
+    "name": "slbStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.20.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsCounter"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataIp"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataStartPort"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataEndPort"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataL4Port"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataMac"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataEthertype"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataIcmpData"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataTcpFlags"
+      },
+      {
+        "module": "ALCATEL-IND1-SLB-MIB",
+        "object": "slbStatsQualDataTos"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SLB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-SLB-MIB"
+  }
+}

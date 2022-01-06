@@ -1,0 +1,1040 @@
+{
+  "imports": {
+    "class": "imports",
+    "EdgeSwitch-INVENTORY-MIB": [
+      "agentInventoryComponentIndex"
+    ],
+    "EdgeSwitch-REF-MIB": [
+      "fastPath"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "AgentLogFacility": {
+    "name": "AgentLogFacility",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 0,
+          "user": 1,
+          "mail": 2,
+          "system": 3,
+          "security": 4,
+          "syslog": 5,
+          "lpr": 6,
+          "nntp": 7,
+          "uucp": 8,
+          "cron": 9,
+          "auth": 10,
+          "ftp": 11,
+          "ntp": 12,
+          "audit": 13,
+          "alert": 14,
+          "clock": 15,
+          "local0": 16,
+          "local1": 17,
+          "local2": 18,
+          "local3": 19,
+          "local4": 20,
+          "local5": 21,
+          "local6": 22,
+          "local7": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AgentLogSeverity": {
+    "name": "AgentLogSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "informational": 6,
+          "debug": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fastPathLogging": {
+    "name": "fastPathLogging",
+    "oid": "1.3.6.1.4.1.4413.1.1.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-26 00:00",
+        "description": "Postal address updated."
+      },
+      {
+        "revision": "2007-05-23 00:00",
+        "description": "Ubiquiti branding related changes."
+      },
+      {
+        "revision": "2004-10-26 13:03",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "agentLogConfigGroup": {
+    "name": "agentLogConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1",
+    "class": "objectidentity"
+  },
+  "agentLogInMemoryConfigGroup": {
+    "name": "agentLogInMemoryConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.1",
+    "class": "objectidentity"
+  },
+  "agentLogInMemoryAdminStatus": {
+    "name": "agentLogInMemoryAdminStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogInMemoryBehavior": {
+    "name": "agentLogInMemoryBehavior",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wrap": 1,
+          "stop-on-full": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogConsoleConfigGroup": {
+    "name": "agentLogConsoleConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.2",
+    "class": "objectidentity"
+  },
+  "agentLogConsoleAdminStatus": {
+    "name": "agentLogConsoleAdminStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogConsoleSeverityFilter": {
+    "name": "agentLogConsoleSeverityFilter",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentLogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogSysLogConfigGroup": {
+    "name": "agentLogSysLogConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4",
+    "class": "objectidentity"
+  },
+  "agentLogSyslogAdminStatus": {
+    "name": "agentLogSyslogAdminStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogSyslogLocalPort": {
+    "name": "agentLogSyslogLocalPort",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogSyslogMaxHosts": {
+    "name": "agentLogSyslogMaxHosts",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogCliCommandsConfigGroup": {
+    "name": "agentLogCliCommandsConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.5",
+    "class": "objectidentity"
+  },
+  "agentLogCliCommandsAdminStatus": {
+    "name": "agentLogCliCommandsAdminStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogWebConfigGroup": {
+    "name": "agentLogWebConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.7",
+    "class": "objectidentity"
+  },
+  "agentLogWebAdminStatus": {
+    "name": "agentLogWebAdminStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogSnmpConfigGroup": {
+    "name": "agentLogSnmpConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.8",
+    "class": "objectidentity"
+  },
+  "agentLogSnmpAdminStatus": {
+    "name": "agentLogSnmpAdminStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogAuditConfigGroup": {
+    "name": "agentLogAuditConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.9",
+    "class": "objectidentity"
+  },
+  "agentLogAuditAdminStatus": {
+    "name": "agentLogAuditAdminStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogSyslogHostTable": {
+    "name": "agentLogSyslogHostTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogSyslogHostEntry": {
+    "name": "agentLogSyslogHostEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-LOGGING-MIB",
+        "object": "agentLogHostTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentLogHostTableIndex": {
+    "name": "agentLogHostTableIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogHostTableIpAddressType": {
+    "name": "agentLogHostTableIpAddressType",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogHostTableIpAddress": {
+    "name": "agentLogHostTableIpAddress",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogHostTablePort": {
+    "name": "agentLogHostTablePort",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogHostTableSeverityFilter": {
+    "name": "agentLogHostTableSeverityFilter",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentLogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogHostTableRowStatus": {
+    "name": "agentLogHostTableRowStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogSyslogSourceInterface": {
+    "name": "agentLogSyslogSourceInterface",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogStatisticsGroup": {
+    "name": "agentLogStatisticsGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2",
+    "class": "objectidentity"
+  },
+  "agentLogMessagesReceived": {
+    "name": "agentLogMessagesReceived",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogMessagesDropped": {
+    "name": "agentLogMessagesDropped",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogSyslogMessagesRelayed": {
+    "name": "agentLogSyslogMessagesRelayed",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogSyslogMessagesIgnored": {
+    "name": "agentLogSyslogMessagesIgnored",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "agentLogMessageReceivedTime": {
+    "name": "agentLogMessageReceivedTime",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogSyslogMessageDeliveredTime": {
+    "name": "agentLogSyslogMessageDeliveredTime",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogEmailAlertConfigGroup": {
+    "name": "agentLogEmailAlertConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6",
+    "class": "objectidentity"
+  },
+  "agentLogEmailAdminStatus": {
+    "name": "agentLogEmailAdminStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailfromAddr": {
+    "name": "agentLogEmailfromAddr",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmaillogDuration": {
+    "name": "agentLogEmaillogDuration",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailUrgentSeverity": {
+    "name": "agentLogEmailUrgentSeverity",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentLogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailNonUrgentSeverity": {
+    "name": "agentLogEmailNonUrgentSeverity",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentLogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailTrapsSeverity": {
+    "name": "agentLogEmailTrapsSeverity",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentLogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailToAddrTable": {
+    "name": "agentLogEmailToAddrTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogEmailToAddrEntry": {
+    "name": "agentLogEmailToAddrEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-LOGGING-MIB",
+        "object": "agentLogEmailToAddrMessageType",
+        "implied": 0
+      },
+      {
+        "module": "EdgeSwitch-LOGGING-MIB",
+        "object": "agentLogEmailToAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentLogEmailToAddrMessageType": {
+    "name": "agentLogEmailToAddrMessageType",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "non-critical": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogEmailToAddr": {
+    "name": "agentLogEmailToAddr",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogEmailToAddrEntryStatus": {
+    "name": "agentLogEmailToAddrEntryStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogEmailSubjectTable": {
+    "name": "agentLogEmailSubjectTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogEmailSubjectEntry": {
+    "name": "agentLogEmailSubjectEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-LOGGING-MIB",
+        "object": "agentLogEmailSubjectMessageType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentLogEmailSubjectMessageType": {
+    "name": "agentLogEmailSubjectMessageType",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "non-critical": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogEmailSubject": {
+    "name": "agentLogEmailSubject",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogEmailSubjectEntryStatus": {
+    "name": "agentLogEmailSubjectEntryStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogEmailMailServerTable": {
+    "name": "agentLogEmailMailServerTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogEmailMailServerEntry": {
+    "name": "agentLogEmailMailServerEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-LOGGING-MIB",
+        "object": "agentLogEmailSmtpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "EdgeSwitch-LOGGING-MIB",
+        "object": "agentLogEmailSmtpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentLogEmailSmtpAddrType": {
+    "name": "agentLogEmailSmtpAddrType",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogEmailSmtpAddr": {
+    "name": "agentLogEmailSmtpAddr",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogEmailSmtpPort": {
+    "name": "agentLogEmailSmtpPort",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailSecurity": {
+    "name": "agentLogEmailSecurity",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "tlsv1": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailloginID": {
+    "name": "agentLogEmailloginID",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailPassword": {
+    "name": "agentLogEmailPassword",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogEmailEntryStatus": {
+    "name": "agentLogEmailEntryStatus",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.1.6.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentLogEmailAlertStatsGroup": {
+    "name": "agentLogEmailAlertStatsGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.7",
+    "class": "objectidentity"
+  },
+  "agentLogEmailStatsemailsSentCount": {
+    "name": "agentLogEmailStatsemailsSentCount",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogEmailStatsemailsFailureCount": {
+    "name": "agentLogEmailStatsemailsFailureCount",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogEmailStatsTimeSinceLastEmailSent": {
+    "name": "agentLogEmailStatsTimeSinceLastEmailSent",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogEmailStatsClear": {
+    "name": "agentLogEmailStatsClear",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLogInMemoryGroup": {
+    "name": "agentLogInMemoryGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.3",
+    "class": "objectidentity"
+  },
+  "agentLogInMemoryLogCount": {
+    "name": "agentLogInMemoryLogCount",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogInMemoryTable": {
+    "name": "agentLogInMemoryTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogInMemoryEntry": {
+    "name": "agentLogInMemoryEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-LOGGING-MIB",
+        "object": "agentLogInMemoryMsgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentLogInMemoryMsgIndex": {
+    "name": "agentLogInMemoryMsgIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLogInMemoryMsgText": {
+    "name": "agentLogInMemoryMsgText",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLogTrapsGroup": {
+    "name": "agentLogTrapsGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.5",
+    "class": "objectidentity"
+  },
+  "agentLogEmailAlertTrapsGroup": {
+    "name": "agentLogEmailAlertTrapsGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.5.1",
+    "class": "objectidentity"
+  },
+  "agentLogEmailSendFailed": {
+    "name": "agentLogEmailSendFailed",
+    "oid": "1.3.6.1.4.1.4413.1.1.14.5.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EdgeSwitch-LOGGING-MIB",
+        "object": "agentLogEmailStatsemailsFailureCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-LOGGING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:28:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EdgeSwitch-LOGGING-MIB"
+  }
+}

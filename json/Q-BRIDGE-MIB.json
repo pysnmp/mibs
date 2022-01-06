@@ -1,0 +1,2196 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dBasePortEntry",
+      "dot1dBasePort",
+      "dot1dBridge"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "RMON2-MIB": [
+      "TimeFilter"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "qBridgeMIB": {
+    "name": "qBridgeMIB",
+    "oid": "1.3.6.1.2.1.17.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-09 00:00",
+        "description": "Added Vlan TEXTUAL-CONVENTIONs, dot1qPortRestrictedVlanRegistration, dot1vProtocol subtree, qBridgeClassificationDeviceGroup, qBridgePortGroup2, qBridgeClassificationPortGroup, and qBridgeCompliance2. Clarified dot1qForwardAllStaticPorts, qPortAcceptableFrameTypes, and qBridgeCompliance. Deprecated qBridgePortGroup and qBridgeCompliance."
+      },
+      {
+        "revision": "1999-08-25 00:00",
+        "description": "The VLAN Bridge MIB module for managing Virtual Bridged Local Area Networks, as defined by IEEE 802.1Q-1998. Initial version, published as RFC 2674."
+      }
+    ]
+  },
+  "qBridgeMIBObjects": {
+    "name": "qBridgeMIBObjects",
+    "oid": "1.3.6.1.2.1.17.7.1",
+    "class": "objectidentity"
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "VlanIndex": {
+    "name": "VlanIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "VlanId": {
+    "name": "VlanId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "VlanIdOrAny": {
+    "name": "VlanIdOrAny",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          },
+          {
+            "min": 4095,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "VlanIdOrNone": {
+    "name": "VlanIdOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "VlanIdOrAnyOrNone": {
+    "name": "VlanIdOrAnyOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          },
+          {
+            "min": 4095,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "dot1qBase": {
+    "name": "dot1qBase",
+    "oid": "1.3.6.1.2.1.17.7.1.1",
+    "class": "objectidentity"
+  },
+  "dot1qTp": {
+    "name": "dot1qTp",
+    "oid": "1.3.6.1.2.1.17.7.1.2",
+    "class": "objectidentity"
+  },
+  "dot1qStatic": {
+    "name": "dot1qStatic",
+    "oid": "1.3.6.1.2.1.17.7.1.3",
+    "class": "objectidentity"
+  },
+  "dot1qVlan": {
+    "name": "dot1qVlan",
+    "oid": "1.3.6.1.2.1.17.7.1.4",
+    "class": "objectidentity"
+  },
+  "dot1vProtocol": {
+    "name": "dot1vProtocol",
+    "oid": "1.3.6.1.2.1.17.7.1.5",
+    "class": "objectidentity"
+  },
+  "dot1qVlanVersionNumber": {
+    "name": "dot1qVlanVersionNumber",
+    "oid": "1.3.6.1.2.1.17.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qMaxVlanId": {
+    "name": "dot1qMaxVlanId",
+    "oid": "1.3.6.1.2.1.17.7.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qMaxSupportedVlans": {
+    "name": "dot1qMaxSupportedVlans",
+    "oid": "1.3.6.1.2.1.17.7.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qNumVlans": {
+    "name": "dot1qNumVlans",
+    "oid": "1.3.6.1.2.1.17.7.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qGvrpStatus": {
+    "name": "dot1qGvrpStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qFdbTable": {
+    "name": "dot1qFdbTable",
+    "oid": "1.3.6.1.2.1.17.7.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qFdbEntry": {
+    "name": "dot1qFdbEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qFdbId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qFdbId": {
+    "name": "dot1qFdbId",
+    "oid": "1.3.6.1.2.1.17.7.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qFdbDynamicCount": {
+    "name": "dot1qFdbDynamicCount",
+    "oid": "1.3.6.1.2.1.17.7.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpFdbTable": {
+    "name": "dot1qTpFdbTable",
+    "oid": "1.3.6.1.2.1.17.7.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qTpFdbEntry": {
+    "name": "dot1qTpFdbEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qFdbId",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpFdbAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qTpFdbAddress": {
+    "name": "dot1qTpFdbAddress",
+    "oid": "1.3.6.1.2.1.17.7.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qTpFdbPort": {
+    "name": "dot1qTpFdbPort",
+    "oid": "1.3.6.1.2.1.17.7.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpFdbStatus": {
+    "name": "dot1qTpFdbStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "learned": 3,
+          "self": 4,
+          "mgmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpGroupTable": {
+    "name": "dot1qTpGroupTable",
+    "oid": "1.3.6.1.2.1.17.7.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qTpGroupEntry": {
+    "name": "dot1qTpGroupEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qTpGroupAddress": {
+    "name": "dot1qTpGroupAddress",
+    "oid": "1.3.6.1.2.1.17.7.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qTpGroupEgressPorts": {
+    "name": "dot1qTpGroupEgressPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpGroupLearnt": {
+    "name": "dot1qTpGroupLearnt",
+    "oid": "1.3.6.1.2.1.17.7.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qForwardAllTable": {
+    "name": "dot1qForwardAllTable",
+    "oid": "1.3.6.1.2.1.17.7.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qForwardAllEntry": {
+    "name": "dot1qForwardAllEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qForwardAllPorts": {
+    "name": "dot1qForwardAllPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qForwardAllStaticPorts": {
+    "name": "dot1qForwardAllStaticPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qForwardAllForbiddenPorts": {
+    "name": "dot1qForwardAllForbiddenPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qForwardUnregisteredTable": {
+    "name": "dot1qForwardUnregisteredTable",
+    "oid": "1.3.6.1.2.1.17.7.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qForwardUnregisteredEntry": {
+    "name": "dot1qForwardUnregisteredEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qForwardUnregisteredPorts": {
+    "name": "dot1qForwardUnregisteredPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qForwardUnregisteredStaticPorts": {
+    "name": "dot1qForwardUnregisteredStaticPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qForwardUnregisteredForbiddenPorts": {
+    "name": "dot1qForwardUnregisteredForbiddenPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qStaticUnicastTable": {
+    "name": "dot1qStaticUnicastTable",
+    "oid": "1.3.6.1.2.1.17.7.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qStaticUnicastEntry": {
+    "name": "dot1qStaticUnicastEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qFdbId",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticUnicastAddress",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticUnicastReceivePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qStaticUnicastAddress": {
+    "name": "dot1qStaticUnicastAddress",
+    "oid": "1.3.6.1.2.1.17.7.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qStaticUnicastReceivePort": {
+    "name": "dot1qStaticUnicastReceivePort",
+    "oid": "1.3.6.1.2.1.17.7.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qStaticUnicastAllowedToGoTo": {
+    "name": "dot1qStaticUnicastAllowedToGoTo",
+    "oid": "1.3.6.1.2.1.17.7.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qStaticUnicastStatus": {
+    "name": "dot1qStaticUnicastStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "permanent": 3,
+          "deleteOnReset": 4,
+          "deleteOnTimeout": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permanent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qStaticMulticastTable": {
+    "name": "dot1qStaticMulticastTable",
+    "oid": "1.3.6.1.2.1.17.7.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qStaticMulticastEntry": {
+    "name": "dot1qStaticMulticastEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticMulticastAddress",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticMulticastReceivePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qStaticMulticastAddress": {
+    "name": "dot1qStaticMulticastAddress",
+    "oid": "1.3.6.1.2.1.17.7.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qStaticMulticastReceivePort": {
+    "name": "dot1qStaticMulticastReceivePort",
+    "oid": "1.3.6.1.2.1.17.7.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qStaticMulticastStaticEgressPorts": {
+    "name": "dot1qStaticMulticastStaticEgressPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qStaticMulticastForbiddenEgressPorts": {
+    "name": "dot1qStaticMulticastForbiddenEgressPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qStaticMulticastStatus": {
+    "name": "dot1qStaticMulticastStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "permanent": 3,
+          "deleteOnReset": 4,
+          "deleteOnTimeout": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permanent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qVlanNumDeletes": {
+    "name": "dot1qVlanNumDeletes",
+    "oid": "1.3.6.1.2.1.17.7.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qVlanCurrentTable": {
+    "name": "dot1qVlanCurrentTable",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qVlanCurrentEntry": {
+    "name": "dot1qVlanCurrentEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qVlanTimeMark": {
+    "name": "dot1qVlanTimeMark",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qVlanIndex": {
+    "name": "dot1qVlanIndex",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qVlanFdbId": {
+    "name": "dot1qVlanFdbId",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qVlanCurrentEgressPorts": {
+    "name": "dot1qVlanCurrentEgressPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qVlanCurrentUntaggedPorts": {
+    "name": "dot1qVlanCurrentUntaggedPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qVlanStatus": {
+    "name": "dot1qVlanStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "permanent": 2,
+          "dynamicGvrp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qVlanCreationTime": {
+    "name": "dot1qVlanCreationTime",
+    "oid": "1.3.6.1.2.1.17.7.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qVlanStaticTable": {
+    "name": "dot1qVlanStaticTable",
+    "oid": "1.3.6.1.2.1.17.7.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qVlanStaticEntry": {
+    "name": "dot1qVlanStaticEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qVlanStaticName": {
+    "name": "dot1qVlanStaticName",
+    "oid": "1.3.6.1.2.1.17.7.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1qVlanStaticEgressPorts": {
+    "name": "dot1qVlanStaticEgressPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1qVlanForbiddenEgressPorts": {
+    "name": "dot1qVlanForbiddenEgressPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1qVlanStaticUntaggedPorts": {
+    "name": "dot1qVlanStaticUntaggedPorts",
+    "oid": "1.3.6.1.2.1.17.7.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1qVlanStaticRowStatus": {
+    "name": "dot1qVlanStaticRowStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1qNextFreeLocalVlanIndex": {
+    "name": "dot1qNextFreeLocalVlanIndex",
+    "oid": "1.3.6.1.2.1.17.7.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4096,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qPortVlanTable": {
+    "name": "dot1qPortVlanTable",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qPortVlanEntry": {
+    "name": "dot1qPortVlanEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dot1qPortVlanEntry",
+      "module": "Q-BRIDGE-MIB",
+      "object": "dot1dBasePortEntry"
+    },
+    "status": "current"
+  },
+  "dot1qPvid": {
+    "name": "dot1qPvid",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qPortAcceptableFrameTypes": {
+    "name": "dot1qPortAcceptableFrameTypes",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admitAll": 1,
+          "admitOnlyVlanTagged": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "admitAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qPortIngressFiltering": {
+    "name": "dot1qPortIngressFiltering",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qPortGvrpStatus": {
+    "name": "dot1qPortGvrpStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qPortGvrpFailedRegistrations": {
+    "name": "dot1qPortGvrpFailedRegistrations",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qPortGvrpLastPduOrigin": {
+    "name": "dot1qPortGvrpLastPduOrigin",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qPortRestrictedVlanRegistration": {
+    "name": "dot1qPortRestrictedVlanRegistration",
+    "oid": "1.3.6.1.2.1.17.7.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qPortVlanStatisticsTable": {
+    "name": "dot1qPortVlanStatisticsTable",
+    "oid": "1.3.6.1.2.1.17.7.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qPortVlanStatisticsEntry": {
+    "name": "dot1qPortVlanStatisticsEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qTpVlanPortInFrames": {
+    "name": "dot1qTpVlanPortInFrames",
+    "oid": "1.3.6.1.2.1.17.7.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpVlanPortOutFrames": {
+    "name": "dot1qTpVlanPortOutFrames",
+    "oid": "1.3.6.1.2.1.17.7.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpVlanPortInDiscards": {
+    "name": "dot1qTpVlanPortInDiscards",
+    "oid": "1.3.6.1.2.1.17.7.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpVlanPortInOverflowFrames": {
+    "name": "dot1qTpVlanPortInOverflowFrames",
+    "oid": "1.3.6.1.2.1.17.7.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpVlanPortOutOverflowFrames": {
+    "name": "dot1qTpVlanPortOutOverflowFrames",
+    "oid": "1.3.6.1.2.1.17.7.1.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpVlanPortInOverflowDiscards": {
+    "name": "dot1qTpVlanPortInOverflowDiscards",
+    "oid": "1.3.6.1.2.1.17.7.1.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qPortVlanHCStatisticsTable": {
+    "name": "dot1qPortVlanHCStatisticsTable",
+    "oid": "1.3.6.1.2.1.17.7.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qPortVlanHCStatisticsEntry": {
+    "name": "dot1qPortVlanHCStatisticsEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qTpVlanPortHCInFrames": {
+    "name": "dot1qTpVlanPortHCInFrames",
+    "oid": "1.3.6.1.2.1.17.7.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpVlanPortHCOutFrames": {
+    "name": "dot1qTpVlanPortHCOutFrames",
+    "oid": "1.3.6.1.2.1.17.7.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qTpVlanPortHCInDiscards": {
+    "name": "dot1qTpVlanPortHCInDiscards",
+    "oid": "1.3.6.1.2.1.17.7.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1qLearningConstraintsTable": {
+    "name": "dot1qLearningConstraintsTable",
+    "oid": "1.3.6.1.2.1.17.7.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qLearningConstraintsEntry": {
+    "name": "dot1qLearningConstraintsEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qConstraintVlan",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qConstraintSet",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qConstraintVlan": {
+    "name": "dot1qConstraintVlan",
+    "oid": "1.3.6.1.2.1.17.7.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qConstraintSet": {
+    "name": "dot1qConstraintSet",
+    "oid": "1.3.6.1.2.1.17.7.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1qConstraintType": {
+    "name": "dot1qConstraintType",
+    "oid": "1.3.6.1.2.1.17.7.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "independent": 1,
+          "shared": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1qConstraintStatus": {
+    "name": "dot1qConstraintStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1qConstraintSetDefault": {
+    "name": "dot1qConstraintSetDefault",
+    "oid": "1.3.6.1.2.1.17.7.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1qConstraintTypeDefault": {
+    "name": "dot1qConstraintTypeDefault",
+    "oid": "1.3.6.1.2.1.17.7.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "independent": 1,
+          "shared": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1vProtocolGroupTable": {
+    "name": "dot1vProtocolGroupTable",
+    "oid": "1.3.6.1.2.1.17.7.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1vProtocolGroupEntry": {
+    "name": "dot1vProtocolGroupEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1vProtocolTemplateFrameType",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1vProtocolTemplateProtocolValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1vProtocolTemplateFrameType": {
+    "name": "dot1vProtocolTemplateFrameType",
+    "oid": "1.3.6.1.2.1.17.7.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "rfc1042": 2,
+          "snap8021H": 3,
+          "snapOther": 4,
+          "llcOther": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1vProtocolTemplateProtocolValue": {
+    "name": "dot1vProtocolTemplateProtocolValue",
+    "oid": "1.3.6.1.2.1.17.7.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1vProtocolGroupId": {
+    "name": "dot1vProtocolGroupId",
+    "oid": "1.3.6.1.2.1.17.7.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1vProtocolGroupRowStatus": {
+    "name": "dot1vProtocolGroupRowStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1vProtocolPortTable": {
+    "name": "dot1vProtocolPortTable",
+    "oid": "1.3.6.1.2.1.17.7.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1vProtocolPortEntry": {
+    "name": "dot1vProtocolPortEntry",
+    "oid": "1.3.6.1.2.1.17.7.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1vProtocolPortGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1vProtocolPortGroupId": {
+    "name": "dot1vProtocolPortGroupId",
+    "oid": "1.3.6.1.2.1.17.7.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1vProtocolPortGroupVid": {
+    "name": "dot1vProtocolPortGroupVid",
+    "oid": "1.3.6.1.2.1.17.7.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1vProtocolPortRowStatus": {
+    "name": "dot1vProtocolPortRowStatus",
+    "oid": "1.3.6.1.2.1.17.7.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qBridgeConformance": {
+    "name": "qBridgeConformance",
+    "oid": "1.3.6.1.2.1.17.7.2",
+    "class": "objectidentity"
+  },
+  "qBridgeGroups": {
+    "name": "qBridgeGroups",
+    "oid": "1.3.6.1.2.1.17.7.2.1",
+    "class": "objectidentity"
+  },
+  "qBridgeCompliances": {
+    "name": "qBridgeCompliances",
+    "oid": "1.3.6.1.2.1.17.7.2.2",
+    "class": "objectidentity"
+  },
+  "qBridgeBaseGroup": {
+    "name": "qBridgeBaseGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanVersionNumber"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qMaxVlanId"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qMaxSupportedVlans"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qNumVlans"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qGvrpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeFdbUnicastGroup": {
+    "name": "qBridgeFdbUnicastGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qFdbDynamicCount"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpFdbPort"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpFdbStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeFdbMulticastGroup": {
+    "name": "qBridgeFdbMulticastGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpGroupEgressPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpGroupLearnt"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeServiceRequirementsGroup": {
+    "name": "qBridgeServiceRequirementsGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qForwardAllPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qForwardAllStaticPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qForwardAllForbiddenPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qForwardUnregisteredPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qForwardUnregisteredStaticPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qForwardUnregisteredForbiddenPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeFdbStaticGroup": {
+    "name": "qBridgeFdbStaticGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticUnicastAllowedToGoTo"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticUnicastStatus"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticMulticastStaticEgressPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticMulticastForbiddenEgressPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qStaticMulticastStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeVlanGroup": {
+    "name": "qBridgeVlanGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanNumDeletes"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanFdbId"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanCurrentEgressPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanCurrentUntaggedPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStatus"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanCreationTime"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeVlanStaticGroup": {
+    "name": "qBridgeVlanStaticGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStaticName"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStaticEgressPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanForbiddenEgressPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStaticUntaggedPorts"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanStaticRowStatus"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qNextFreeLocalVlanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgePortGroup": {
+    "name": "qBridgePortGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPvid"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortAcceptableFrameTypes"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortIngressFiltering"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortGvrpStatus"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortGvrpFailedRegistrations"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortGvrpLastPduOrigin"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "qBridgeVlanStatisticsGroup": {
+    "name": "qBridgeVlanStatisticsGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortInFrames"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortOutFrames"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortInDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeVlanStatisticsOverflowGroup": {
+    "name": "qBridgeVlanStatisticsOverflowGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortInOverflowFrames"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortOutOverflowFrames"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortInOverflowDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeVlanHCStatisticsGroup": {
+    "name": "qBridgeVlanHCStatisticsGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortHCInFrames"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortHCOutFrames"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpVlanPortHCInDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeLearningConstraintsGroup": {
+    "name": "qBridgeLearningConstraintsGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qConstraintType"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qConstraintStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeLearningConstraintDefaultGroup": {
+    "name": "qBridgeLearningConstraintDefaultGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qConstraintSetDefault"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qConstraintTypeDefault"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeClassificationDeviceGroup": {
+    "name": "qBridgeClassificationDeviceGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1vProtocolGroupId"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1vProtocolGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeClassificationPortGroup": {
+    "name": "qBridgeClassificationPortGroup",
+    "oid": "1.3.6.1.2.1.17.7.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1vProtocolPortGroupVid"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1vProtocolPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgePortGroup2": {
+    "name": "qBridgePortGroup2",
+    "oid": "1.3.6.1.2.1.17.7.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPvid"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortAcceptableFrameTypes"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortIngressFiltering"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortGvrpStatus"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortGvrpFailedRegistrations"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortGvrpLastPduOrigin"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qPortRestrictedVlanRegistration"
+      }
+    ],
+    "status": "current"
+  },
+  "qBridgeCompliance": {
+    "name": "qBridgeCompliance",
+    "oid": "1.3.6.1.2.1.17.7.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "qBridgeBaseGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanStaticGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgePortGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeFdbUnicastGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeFdbMulticastGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeServiceRequirementsGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeFdbStaticGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanStatisticsGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanStatisticsOverflowGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanHCStatisticsGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeLearningConstraintsGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeLearningConstraintDefaultGroup",
+        "module": "Q-BRIDGE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "qBridgeCompliance2": {
+    "name": "qBridgeCompliance2",
+    "oid": "1.3.6.1.2.1.17.7.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "qBridgeBaseGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanStaticGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgePortGroup2",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeFdbUnicastGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeFdbMulticastGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeServiceRequirementsGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeFdbStaticGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanStatisticsGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanStatisticsOverflowGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeVlanHCStatisticsGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeLearningConstraintsGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeLearningConstraintDefaultGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeClassificationDeviceGroup",
+        "module": "Q-BRIDGE-MIB"
+      },
+      {
+        "object": "qBridgeClassificationPortGroup",
+        "module": "Q-BRIDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/Q-BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Q-BRIDGE-MIB"
+  }
+}

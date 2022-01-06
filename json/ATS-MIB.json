@@ -1,0 +1,2069 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "TRAP-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "UPS-MIB": [
+      "PositiveInteger",
+      "NonNegativeInteger"
+    ]
+  },
+  "ats": {
+    "name": "ats",
+    "oid": "1.3.6.1.4.1.37662",
+    "class": "objectidentity"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.37662.1",
+    "class": "objectidentity"
+  },
+  "webAppliance": {
+    "name": "webAppliance",
+    "oid": "1.3.6.1.4.1.37662.1.2",
+    "class": "objectidentity"
+  },
+  "atsAgent": {
+    "name": "atsAgent",
+    "oid": "1.3.6.1.4.1.37662.1.2.2",
+    "class": "objectidentity"
+  },
+  "single": {
+    "name": "single",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "atsObjectGroup": {
+    "name": "atsObjectGroup",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "atsTrapGroup": {
+    "name": "atsTrapGroup",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "atsIdentGroup": {
+    "name": "atsIdentGroup",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "atsInputGroup": {
+    "name": "atsInputGroup",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "atsOutputGroup": {
+    "name": "atsOutputGroup",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.3",
+    "class": "objectidentity"
+  },
+  "atsHmiSwitchGroup": {
+    "name": "atsHmiSwitchGroup",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.4",
+    "class": "objectidentity"
+  },
+  "atsMiscellaneousGroup": {
+    "name": "atsMiscellaneousGroup",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.5",
+    "class": "objectidentity"
+  },
+  "atsControlGroup": {
+    "name": "atsControlGroup",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.6",
+    "class": "objectidentity"
+  },
+  "agentConfig": {
+    "name": "agentConfig",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7",
+    "class": "objectidentity"
+  },
+  "emdStatus": {
+    "name": "emdStatus",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.8",
+    "class": "objectidentity"
+  },
+  "emdConfig": {
+    "name": "emdConfig",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9",
+    "class": "objectidentity"
+  },
+  "atsIdentGroupModel": {
+    "name": "atsIdentGroupModel",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsIdentGroupSerialNumber": {
+    "name": "atsIdentGroupSerialNumber",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsIdentGroupManufacturer": {
+    "name": "atsIdentGroupManufacturer",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsIdentGroupFirmwareRevision": {
+    "name": "atsIdentGroupFirmwareRevision",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsIdentGroupAgentFirmwareRevision": {
+    "name": "atsIdentGroupAgentFirmwareRevision",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupPreference": {
+    "name": "atsInputGroupPreference",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceAstatus": {
+    "name": "atsInputGroupSourceAstatus",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "ok": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceAinputVoltage": {
+    "name": "atsInputGroupSourceAinputVoltage",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceAinputFrequency": {
+    "name": "atsInputGroupSourceAinputFrequency",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceBstatus": {
+    "name": "atsInputGroupSourceBstatus",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "ok": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceBinputVoltage": {
+    "name": "atsInputGroupSourceBinputVoltage",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceBinputFrequency": {
+    "name": "atsInputGroupSourceBinputFrequency",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceAvoltageUpperLimit": {
+    "name": "atsInputGroupSourceAvoltageUpperLimit",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceAvoltageLowerLimit": {
+    "name": "atsInputGroupSourceAvoltageLowerLimit",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceAfrequencyUpperLimit": {
+    "name": "atsInputGroupSourceAfrequencyUpperLimit",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceAfrequencyLowerLimit": {
+    "name": "atsInputGroupSourceAfrequencyLowerLimit",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceBvoltageUpperLimit": {
+    "name": "atsInputGroupSourceBvoltageUpperLimit",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceBvoltageLowerLimit": {
+    "name": "atsInputGroupSourceBvoltageLowerLimit",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceBfrequencyUpperLimit": {
+    "name": "atsInputGroupSourceBfrequencyUpperLimit",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsInputGroupSourceBfrequencyLowerLimit": {
+    "name": "atsInputGroupSourceBfrequencyLowerLimit",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsOutputGroupOutputSource": {
+    "name": "atsOutputGroupOutputSource",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsOutputGroupOutputVoltage": {
+    "name": "atsOutputGroupOutputVoltage",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsOutputGroupOutputFequency": {
+    "name": "atsOutputGroupOutputFequency",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsOutputGroupOutputCurrent": {
+    "name": "atsOutputGroupOutputCurrent",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsOutputGroupLoad": {
+    "name": "atsOutputGroupLoad",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsHmiSwitchGroupBuzzer": {
+    "name": "atsHmiSwitchGroupBuzzer",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "buzzerDisabled": 1,
+          "buzzerEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsHmiSwitchGroupAtsAlarm": {
+    "name": "atsHmiSwitchGroupAtsAlarm",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 1,
+          "atsOccurAlarm": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsHmiSwitchGroupAutoReturn": {
+    "name": "atsHmiSwitchGroupAutoReturn",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsHmiSwitchGroupSourceTransferByLoad": {
+    "name": "atsHmiSwitchGroupSourceTransferByLoad",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsHmiSwitchGroupSourceTransferByPhase": {
+    "name": "atsHmiSwitchGroupSourceTransferByPhase",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsMiscellaneousGroupAtsSystemTemperture": {
+    "name": "atsMiscellaneousGroupAtsSystemTemperture",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsMiscellaneousGroupSystemMaxCurrent": {
+    "name": "atsMiscellaneousGroupSystemMaxCurrent",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atsControlGroupBuzzerAlarmControl": {
+    "name": "atsControlGroupBuzzerAlarmControl",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "buzzerOff": 1,
+          "buzzerOn": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atsControlGroupManualTransfer": {
+    "name": "atsControlGroupManualTransfer",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigIpaddress": {
+    "name": "agentConfigIpaddress",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigGateway": {
+    "name": "agentConfigGateway",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigSubnetMask": {
+    "name": "agentConfigSubnetMask",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigDate": {
+    "name": "agentConfigDate",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigTime": {
+    "name": "agentConfigTime",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigHistoryLogFrequency": {
+    "name": "agentConfigHistoryLogFrequency",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 28800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigExtHistoryLogFrequency": {
+    "name": "agentConfigExtHistoryLogFrequency",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10080
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigPollRate": {
+    "name": "agentConfigPollRate",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigBaudRate": {
+    "name": "agentConfigBaudRate",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "agentConfigDhcpStatue": {
+    "name": "agentConfigDhcpStatue",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigTelnetStatue": {
+    "name": "agentConfigTelnetStatue",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigTftpStatue": {
+    "name": "agentConfigTftpStatue",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigResetToDefault": {
+    "name": "agentConfigResetToDefault",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigRestart": {
+    "name": "agentConfigRestart",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restart": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigClearAgentLog": {
+    "name": "agentConfigClearAgentLog",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigClearEventLog": {
+    "name": "agentConfigClearEventLog",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigClearExtHistoryLog": {
+    "name": "agentConfigClearExtHistoryLog",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigClearHistoryLog": {
+    "name": "agentConfigClearHistoryLog",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigTrapRetryCount": {
+    "name": "agentConfigTrapRetryCount",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigTrapRetryTime": {
+    "name": "agentConfigTrapRetryTime",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigTrapAckSignature": {
+    "name": "agentConfigTrapAckSignature",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigMibVersion": {
+    "name": "agentConfigMibVersion",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "agentConfigTrapsReceiversTable": {
+    "name": "agentConfigTrapsReceiversTable",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "agentConfigTrapsReceiversEntry": {
+    "name": "agentConfigTrapsReceiversEntry",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATS-MIB",
+        "object": "trapsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "trapsIndex": {
+    "name": "trapsIndex",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapsReceiverAddr": {
+    "name": "trapsReceiverAddr",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverCommunityString": {
+    "name": "receiverCommunityString",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverNmsType": {
+    "name": "receiverNmsType",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ats-trap": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverSeverityLevel": {
+    "name": "receiverSeverityLevel",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 1,
+          "warning": 2,
+          "severe": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverDescription": {
+    "name": "receiverDescription",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigAccessControlTable": {
+    "name": "agentConfigAccessControlTable",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "agentConfigAccessControlEntry": {
+    "name": "agentConfigAccessControlEntry",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATS-MIB",
+        "object": "trapsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "accessIndex": {
+    "name": "accessIndex",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessControlAddr": {
+    "name": "accessControlAddr",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessCommunityString": {
+    "name": "accessCommunityString",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessControlMode": {
+    "name": "accessControlMode",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "readWrite": 2,
+          "notAccess": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigDefaultLanguage": {
+    "name": "agentConfigDefaultLanguage",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "english": 2,
+          "traditionalChinese": 3,
+          "simplifiedChinese": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigIPv6AddrStatus": {
+    "name": "agentConfigIPv6AddrStatus",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "manualConfiguration": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "agentConfigIPv6AddrAutoConfig": {
+    "name": "agentConfigIPv6AddrAutoConfig",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigIPv6LinkLocalAddr": {
+    "name": "agentConfigIPv6LinkLocalAddr",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "agentConfigIPv6GlobalAddr": {
+    "name": "agentConfigIPv6GlobalAddr",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigIPv6PrefixlLength": {
+    "name": "agentConfigIPv6PrefixlLength",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "agentConfigIPv6DefaultRouter": {
+    "name": "agentConfigIPv6DefaultRouter",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.7.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdSatatusEmdType": {
+    "name": "emdSatatusEmdType",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "emdHT": 3,
+          "emdT": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "emdSatatusTemperature": {
+    "name": "emdSatatusTemperature",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "emdSatatusHumidity": {
+    "name": "emdSatatusHumidity",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "emdSatatusAlarm1": {
+    "name": "emdSatatusAlarm1",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknow": 1,
+          "disabled": 2,
+          "active": 3,
+          "inactive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "emdSatatusAlarm2": {
+    "name": "emdSatatusAlarm2",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknow": 1,
+          "disabled": 2,
+          "active": 3,
+          "inactive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "usahEmdConfigEmdConfig": {
+    "name": "usahEmdConfigEmdConfig",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigEmdName": {
+    "name": "emdConfigEmdName",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigTemperature": {
+    "name": "emdConfigTemperature",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.3",
+    "class": "objectidentity"
+  },
+  "emdConfigTempName": {
+    "name": "emdConfigTempName",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigTempHighSetPoint": {
+    "name": "emdConfigTempHighSetPoint",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigTempHighStatus": {
+    "name": "emdConfigTempHighStatus",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigTempLowSetPoint": {
+    "name": "emdConfigTempLowSetPoint",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigTempLowStatus": {
+    "name": "emdConfigTempLowStatus",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigTempOffset": {
+    "name": "emdConfigTempOffset",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigHumidity": {
+    "name": "emdConfigHumidity",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.4",
+    "class": "objectidentity"
+  },
+  "emdConfigHumidityName": {
+    "name": "emdConfigHumidityName",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigHumidityHighSetPoint": {
+    "name": "emdConfigHumidityHighSetPoint",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigHumidityHighStatus": {
+    "name": "emdConfigHumidityHighStatus",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigHumidityLowSetPoint": {
+    "name": "emdConfigHumidityLowSetPoint",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigHumidityLowStatus": {
+    "name": "emdConfigHumidityLowStatus",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigHumidityOffset": {
+    "name": "emdConfigHumidityOffset",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigAlarm1": {
+    "name": "emdConfigAlarm1",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.5",
+    "class": "objectidentity"
+  },
+  "emdConfigAlarm1Name": {
+    "name": "emdConfigAlarm1Name",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigAlarm1Type": {
+    "name": "emdConfigAlarm1Type",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "nomralOpen": 2,
+          "normalClose": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigAlarm2": {
+    "name": "emdConfigAlarm2",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.6",
+    "class": "objectidentity"
+  },
+  "emdConfigAlarm2Name": {
+    "name": "emdConfigAlarm2Name",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emdConfigAlarm2Type": {
+    "name": "emdConfigAlarm2Type",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.1.9.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "nomralOpen": 2,
+          "normalClose": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atsAtsAlarm": {
+    "name": "atsAtsAlarm",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.1",
+    "class": "notificationtype"
+  },
+  "atsSourceAvoltageAbnormal": {
+    "name": "atsSourceAvoltageAbnormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.2",
+    "class": "notificationtype"
+  },
+  "atsSourceBvoltageAbnormal": {
+    "name": "atsSourceBvoltageAbnormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.3",
+    "class": "notificationtype"
+  },
+  "atsSourceAfrequencyAbnormal": {
+    "name": "atsSourceAfrequencyAbnormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.4",
+    "class": "notificationtype"
+  },
+  "atsSourceBfrequencyAbnormal": {
+    "name": "atsSourceBfrequencyAbnormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.5",
+    "class": "notificationtype"
+  },
+  "atsOutputOverLoad": {
+    "name": "atsOutputOverLoad",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.6",
+    "class": "notificationtype"
+  },
+  "atsWorkPowerAabnormal": {
+    "name": "atsWorkPowerAabnormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.7",
+    "class": "notificationtype"
+  },
+  "atsWorkPowerBabnormal": {
+    "name": "atsWorkPowerBabnormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.8",
+    "class": "notificationtype"
+  },
+  "atsOverTemperature": {
+    "name": "atsOverTemperature",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.9",
+    "class": "notificationtype"
+  },
+  "atsDcOffsetAbnormal": {
+    "name": "atsDcOffsetAbnormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.10",
+    "class": "notificationtype"
+  },
+  "atsEepromAbnormal": {
+    "name": "atsEepromAbnormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.11",
+    "class": "notificationtype"
+  },
+  "atsLcdNotConnect": {
+    "name": "atsLcdNotConnect",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.12",
+    "class": "notificationtype"
+  },
+  "atsOutputExceedsOverloadTime": {
+    "name": "atsOutputExceedsOverloadTime",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.13",
+    "class": "notificationtype"
+  },
+  "atsInputPhaseDifference": {
+    "name": "atsInputPhaseDifference",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.14",
+    "class": "notificationtype"
+  },
+  "atsUserSetOverLoad": {
+    "name": "atsUserSetOverLoad",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.15",
+    "class": "notificationtype"
+  },
+  "atsAtsAlarmToNormal": {
+    "name": "atsAtsAlarmToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.16",
+    "class": "notificationtype"
+  },
+  "atsSourceAvoltageAbnormalToNormal": {
+    "name": "atsSourceAvoltageAbnormalToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.17",
+    "class": "notificationtype"
+  },
+  "atsSourceBvoltageAbnormalToNormal": {
+    "name": "atsSourceBvoltageAbnormalToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.18",
+    "class": "notificationtype"
+  },
+  "atsSourceAfrequencyAbnormalToNormal": {
+    "name": "atsSourceAfrequencyAbnormalToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.19",
+    "class": "notificationtype"
+  },
+  "atsSourceBfrequencyAbnormalToNormal": {
+    "name": "atsSourceBfrequencyAbnormalToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.20",
+    "class": "notificationtype"
+  },
+  "atsOutputOverLoadToNormal": {
+    "name": "atsOutputOverLoadToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.21",
+    "class": "notificationtype"
+  },
+  "atsWorkPowerAabnormalToNormal": {
+    "name": "atsWorkPowerAabnormalToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.22",
+    "class": "notificationtype"
+  },
+  "atsWorkPowerBabnormalToNormal": {
+    "name": "atsWorkPowerBabnormalToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.23",
+    "class": "notificationtype"
+  },
+  "atsOverTemperatureToNormal": {
+    "name": "atsOverTemperatureToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.24",
+    "class": "notificationtype"
+  },
+  "atsDcOffsetAbnormalToNormal": {
+    "name": "atsDcOffsetAbnormalToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.25",
+    "class": "notificationtype"
+  },
+  "atsEepromAbnormalToNormal": {
+    "name": "atsEepromAbnormalToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.26",
+    "class": "notificationtype"
+  },
+  "atsLcdNotConnectToNormal": {
+    "name": "atsLcdNotConnectToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.27",
+    "class": "notificationtype"
+  },
+  "atsOutputExceedsOverloadTimeToNormal": {
+    "name": "atsOutputExceedsOverloadTimeToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.28",
+    "class": "notificationtype"
+  },
+  "atsInputPhaseDifferenceToNormal": {
+    "name": "atsInputPhaseDifferenceToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.29",
+    "class": "notificationtype"
+  },
+  "atsUserSetOverLoadToNormal": {
+    "name": "atsUserSetOverLoadToNormal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.30",
+    "class": "notificationtype"
+  },
+  "atsCommunicationLost": {
+    "name": "atsCommunicationLost",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.31",
+    "class": "notificationtype"
+  },
+  "atsCommunicationEstablished": {
+    "name": "atsCommunicationEstablished",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.32",
+    "class": "notificationtype"
+  },
+  "emdTemperatureNotHigh": {
+    "name": "emdTemperatureNotHigh",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdSatatusTemperature"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigTempHighSetPoint"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigTempName"
+      }
+    ]
+  },
+  "emdTemperatureTooHigh": {
+    "name": "emdTemperatureTooHigh",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdSatatusTemperature"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigTempHighSetPoint"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigTempName"
+      }
+    ]
+  },
+  "emdTemperatureNotLow": {
+    "name": "emdTemperatureNotLow",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdSatatusTemperature"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigTempLowSetPoint"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigTempName"
+      }
+    ]
+  },
+  "emdTemperatureTooLow": {
+    "name": "emdTemperatureTooLow",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdSatatusTemperature"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigTempLowSetPoint"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigTempName"
+      }
+    ]
+  },
+  "emdHumidityNotHigh": {
+    "name": "emdHumidityNotHigh",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdSatatusHumidity"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigHumidityHighSetPoint"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigHumidityName"
+      }
+    ]
+  },
+  "emdHumidityTooHigh": {
+    "name": "emdHumidityTooHigh",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdSatatusHumidity"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigHumidityHighSetPoint"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigHumidityName"
+      }
+    ]
+  },
+  "emdHumidityNotLow": {
+    "name": "emdHumidityNotLow",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdSatatusHumidity"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigHumidityLowSetPoint"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigHumidityName"
+      }
+    ]
+  },
+  "emdHumidityTooLow": {
+    "name": "emdHumidityTooLow",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdSatatusHumidity"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigHumidityLowSetPoint"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigHumidityName"
+      }
+    ]
+  },
+  "emdAlarm1Normal": {
+    "name": "emdAlarm1Normal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigAlarm1Type"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigAlarm1Name"
+      }
+    ]
+  },
+  "emdAlarm1Active": {
+    "name": "emdAlarm1Active",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigAlarm1Type"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigAlarm1Name"
+      }
+    ]
+  },
+  "emdAlarm2Normal": {
+    "name": "emdAlarm2Normal",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigAlarm2Type"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigAlarm2Name"
+      }
+    ]
+  },
+  "emdAlarm2Active": {
+    "name": "emdAlarm2Active",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigAlarm2Type"
+      },
+      {
+        "module": "ATS-MIB",
+        "object": "emdConfigAlarm2Name"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ats/ATS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:40 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ATS-MIB"
+  }
+}

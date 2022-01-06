@@ -1,0 +1,824 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "MDS-ORBIT-SMI-MIB": [
+      "mdsInterfaces"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "mdsIfDot11MIB": {
+    "name": "mdsIfDot11MIB",
+    "oid": "1.3.6.1.4.1.4130.10.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-16 00:00",
+        "description": "Updated conformance statments based on smilint."
+      },
+      {
+        "revision": "2014-10-20 00:00",
+        "description": "Removed hyphens from enumerations."
+      },
+      {
+        "revision": "2013-04-26 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "mIfDot11MIBObjects": {
+    "name": "mIfDot11MIBObjects",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1",
+    "class": "objectidentity"
+  },
+  "mIfDot11Config": {
+    "name": "mIfDot11Config",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "mIfDot11Status": {
+    "name": "mIfDot11Status",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "Byte": {
+    "name": "Byte",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "UnsignedByte": {
+    "name": "UnsignedByte",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "UnsignedShort": {
+    "name": "UnsignedShort",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Ssid": {
+    "name": "Ssid",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32a",
+    "status": "current"
+  },
+  "MacString": {
+    "name": "MacString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "20a",
+    "status": "current"
+  },
+  "mIfDot11StatusTable": {
+    "name": "mIfDot11StatusTable",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mIfDot11StatusEntry": {
+    "name": "mIfDot11StatusEntry",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mIfDot11SerialNumber": {
+    "name": "mIfDot11SerialNumber",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11Mode": {
+    "name": "mIfDot11Mode",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "station": 1,
+          "accessPoint": 2,
+          "accessPointStation": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11TxPower": {
+    "name": "mIfDot11TxPower",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11Channel": {
+    "name": "mIfDot11Channel",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationSsid": {
+    "name": "mIfDot11StationSsid",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ssid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationBssid": {
+    "name": "mIfDot11StationBssid",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationRssi": {
+    "name": "mIfDot11StationRssi",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Byte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationAuthenticated": {
+    "name": "mIfDot11StationAuthenticated",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationAuthorized": {
+    "name": "mIfDot11StationAuthorized",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationInactive": {
+    "name": "mIfDot11StationInactive",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationRxbytes": {
+    "name": "mIfDot11StationRxbytes",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationRxpackets": {
+    "name": "mIfDot11StationRxpackets",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationTxbitrate": {
+    "name": "mIfDot11StationTxbitrate",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationTxbytes": {
+    "name": "mIfDot11StationTxbytes",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationTxpackets": {
+    "name": "mIfDot11StationTxpackets",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationTxfailed": {
+    "name": "mIfDot11StationTxfailed",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StationTxretries": {
+    "name": "mIfDot11StationTxretries",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ModemType": {
+    "name": "mIfDot11ModemType",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "w51": 1,
+          "w52": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StatusApTable": {
+    "name": "mIfDot11StatusApTable",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mIfDot11StatusApEntry": {
+    "name": "mIfDot11StatusApEntry",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApSsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mIfDot11ApSsid": {
+    "name": "mIfDot11ApSsid",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ssid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11StatusApClientTable": {
+    "name": "mIfDot11StatusApClientTable",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mIfDot11StatusApClientEntry": {
+    "name": "mIfDot11StatusApClientEntry",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApSsid",
+        "implied": 0
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mIfDot11ApClientMac": {
+    "name": "mIfDot11ApClientMac",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientRssi": {
+    "name": "mIfDot11ApClientRssi",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Byte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientAuthenticated": {
+    "name": "mIfDot11ApClientAuthenticated",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientAuthorized": {
+    "name": "mIfDot11ApClientAuthorized",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientInactive": {
+    "name": "mIfDot11ApClientInactive",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientRxbytes": {
+    "name": "mIfDot11ApClientRxbytes",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientRxpackets": {
+    "name": "mIfDot11ApClientRxpackets",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientTxbitrate": {
+    "name": "mIfDot11ApClientTxbitrate",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientTxbytes": {
+    "name": "mIfDot11ApClientTxbytes",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientTxpackets": {
+    "name": "mIfDot11ApClientTxpackets",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientTxfailed": {
+    "name": "mIfDot11ApClientTxfailed",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mIfDot11ApClientTxretries": {
+    "name": "mIfDot11ApClientTxretries",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdsIfDot11MIBConformance": {
+    "name": "mdsIfDot11MIBConformance",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.3",
+    "class": "objectidentity"
+  },
+  "mdsIfDot11MIBCompliances": {
+    "name": "mdsIfDot11MIBCompliances",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.3.1",
+    "class": "objectidentity"
+  },
+  "mdsIfDot11MIBGroups": {
+    "name": "mdsIfDot11MIBGroups",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.3.2",
+    "class": "objectidentity"
+  },
+  "mIfDot11Compliance": {
+    "name": "mIfDot11Compliance",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mIfDot11StatusCommonGroup",
+        "module": "MDS-IF-IEEE80211-MIB"
+      },
+      {
+        "object": "mIfDot11StatusStationGroup",
+        "module": "MDS-IF-IEEE80211-MIB"
+      },
+      {
+        "object": "mIfDot11StatusApGroup",
+        "module": "MDS-IF-IEEE80211-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mIfDot11StatusCommonGroup": {
+    "name": "mIfDot11StatusCommonGroup",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11SerialNumber"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11Mode"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11TxPower"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11Channel"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ModemType"
+      }
+    ],
+    "status": "current"
+  },
+  "mIfDot11StatusStationGroup": {
+    "name": "mIfDot11StatusStationGroup",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationSsid"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationRssi"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationBssid"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationAuthenticated"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationAuthorized"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationInactive"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationRxbytes"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationRxpackets"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationTxbitrate"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationTxbytes"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationTxpackets"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationTxfailed"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11StationTxretries"
+      }
+    ],
+    "status": "current"
+  },
+  "mIfDot11StatusApGroup": {
+    "name": "mIfDot11StatusApGroup",
+    "oid": "1.3.6.1.4.1.4130.10.2.2.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApSsid"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientMac"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientRssi"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientAuthenticated"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientAuthorized"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientInactive"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientRxbytes"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientRxpackets"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientTxbitrate"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientTxbytes"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientTxpackets"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientTxfailed"
+      },
+      {
+        "module": "MDS-IF-IEEE80211-MIB",
+        "object": "mIfDot11ApClientTxretries"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-IF-IEEE80211-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:32:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MDS-IF-IEEE80211-MIB"
+  }
+}

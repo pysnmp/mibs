@@ -1,0 +1,560 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappDot11LdapMIB": {
+    "name": "ciscoLwappDot11LdapMIB",
+    "oid": "1.3.6.1.4.1.9.9.614",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-12-10 00:00",
+        "description": "A new textual-convention named CldlBindType has been defined. The range for cldlServerTimeout has been modified from 1-3600 to 2-30 due to modification in back-end code. The following objects have been added to cldlServerTable. 1)cldlServerBindType 2)cldlServerAuthBindUserName 3)cldlServerAuthBindPassword The group ciscoLwappDot11LdapMIBConfigGroupSup1 has been added. ciscoLwappDot11LdapMIBCompliance has been deprecated by ciscoLwappDot11LdapMIBComplianceRev1."
+      },
+      {
+        "revision": "2007-01-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappDot11LdapMIBNotifs": {
+    "name": "ciscoLwappDot11LdapMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.614.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11LdapMIBObjects": {
+    "name": "ciscoLwappDot11LdapMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.614.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11LdapMIBConform": {
+    "name": "ciscoLwappDot11LdapMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.614.2",
+    "class": "objectidentity"
+  },
+  "cldlConfig": {
+    "name": "cldlConfig",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1",
+    "class": "objectidentity"
+  },
+  "cldlStatus": {
+    "name": "cldlStatus",
+    "oid": "1.3.6.1.4.1.9.9.614.1.2",
+    "class": "objectidentity"
+  },
+  "CldlBindType": {
+    "name": "CldlBindType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "anonymous": 1,
+          "authenticated": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cldlServerTable": {
+    "name": "cldlServerTable",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldlServerEntry": {
+    "name": "cldlServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldlServerIndex": {
+    "name": "cldlServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldlServerAddressType": {
+    "name": "cldlServerAddressType",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerAddress": {
+    "name": "cldlServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerPortNum": {
+    "name": "cldlServerPortNum",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 389,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerState": {
+    "name": "cldlServerState",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerTimeout": {
+    "name": "cldlServerTimeout",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerUserBase": {
+    "name": "cldlServerUserBase",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerUserNameAttribute": {
+    "name": "cldlServerUserNameAttribute",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerUserName": {
+    "name": "cldlServerUserName",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerSecurityEnable": {
+    "name": "cldlServerSecurityEnable",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerStorageType": {
+    "name": "cldlServerStorageType",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerRowStatus": {
+    "name": "cldlServerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerBindType": {
+    "name": "cldlServerBindType",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CldlBindType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "anonymous",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerAuthBindUserName": {
+    "name": "cldlServerAuthBindUserName",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlServerAuthBindPassword": {
+    "name": "cldlServerAuthBindPassword",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlWlanLdapTable": {
+    "name": "cldlWlanLdapTable",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldlWlanLdapEntry": {
+    "name": "cldlWlanLdapEntry",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldlWlanLdapPrimaryServerIndex": {
+    "name": "cldlWlanLdapPrimaryServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldlWlanLdapSecondaryServerIndex": {
+    "name": "cldlWlanLdapSecondaryServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldlWlanLdapTertiaryServerIndex": {
+    "name": "cldlWlanLdapTertiaryServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.614.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappDot11LdapMIBCompliances": {
+    "name": "ciscoLwappDot11LdapMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.614.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11LdapMIBGroups": {
+    "name": "ciscoLwappDot11LdapMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.614.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11LdapMIBCompliance": {
+    "name": "ciscoLwappDot11LdapMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.614.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDot11LdapMIBConfigGroup",
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappDot11LdapMIBComplianceRev1": {
+    "name": "ciscoLwappDot11LdapMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.614.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDot11LdapMIBConfigGroup",
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11LdapMIBConfigGroupSup1",
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11LdapMIBConfigGroup": {
+    "name": "ciscoLwappDot11LdapMIBConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.614.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerPortNum"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerState"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerUserBase"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerUserNameAttribute"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerUserName"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerSecurityEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlWlanLdapPrimaryServerIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlWlanLdapSecondaryServerIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlWlanLdapTertiaryServerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11LdapMIBConfigGroupSup1": {
+    "name": "ciscoLwappDot11LdapMIBConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.614.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerBindType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerAuthBindUserName"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-LDAP-MIB",
+        "object": "cldlServerAuthBindPassword"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-LDAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-DOT11-LDAP-MIB"
+  }
+}

@@ -1,0 +1,503 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-ISIS-CONF-MIB": [
+      "SystemID"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifEntry",
+      "ifName"
+    ],
+    "ISIS-MIB": [
+      "LinkStatePDUID"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "experimental",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwTrill": {
+    "name": "hwTrill",
+    "oid": "1.3.6.1.4.1.2011.5.25.331",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 16:37",
+        "description": "revision 1.0.4"
+      },
+      {
+        "revision": "2016-06-13 16:37",
+        "description": "revision 1.0.3"
+      },
+      {
+        "revision": "2015-05-07 15:24",
+        "description": "revision 1.0.2"
+      },
+      {
+        "revision": "2015-04-27 15:24",
+        "description": "revision 1.0.1,modify description of hwTrillAuthenticationFailure and hwTrillAuthenticationTypeFailure at 2015-04-27"
+      },
+      {
+        "revision": "2014-06-12 16:55",
+        "description": "revision 1.0.0"
+      }
+    ]
+  },
+  "hwTrillConf": {
+    "name": "hwTrillConf",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1",
+    "class": "objectidentity"
+  },
+  "hwTrillMibObjects": {
+    "name": "hwTrillMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1",
+    "class": "objectidentity"
+  },
+  "hwTrillBaseTable": {
+    "name": "hwTrillBaseTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrillBaseEntry": {
+    "name": "hwTrillBaseEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillInstanceID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillInstanceID": {
+    "name": "hwTrillInstanceID",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTrillSysID": {
+    "name": "hwTrillSysID",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTrillRemainingLifetime": {
+    "name": "hwTrillRemainingLifetime",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTrillPduLspId": {
+    "name": "hwTrillPduLspId",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LinkStatePDUID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTrillNicknameTable": {
+    "name": "hwTrillNicknameTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrillNicknameEntry": {
+    "name": "hwTrillNicknameEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillNickname",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillNickname": {
+    "name": "hwTrillNickname",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTrillPriority": {
+    "name": "hwTrillPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTrillAuthenticationTable": {
+    "name": "hwTrillAuthenticationTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTrillAuthenticationEntry": {
+    "name": "hwTrillAuthenticationEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillSysInstance": {
+    "name": "hwTrillSysInstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTrillCircIfIndex": {
+    "name": "hwTrillCircIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTrillPduFragment": {
+    "name": "hwTrillPduFragment",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTrillConfGroups": {
+    "name": "hwTrillConfGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.2",
+    "class": "objectidentity"
+  },
+  "hwTrillBaseEntryGroup": {
+    "name": "hwTrillBaseEntryGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillSysID"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillInstanceID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillNicknameGroup": {
+    "name": "hwTrillNicknameGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillNickname"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillTrapsGroup": {
+    "name": "hwTrillTrapsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillNicknameConflict"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillNicknameConflictClear"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillAuthenticationFailure"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillAuthenticationTypeFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillAuthenticationGroup": {
+    "name": "hwTrillAuthenticationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillSysInstance"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillCircIfIndex"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillPduFragment"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillTraps": {
+    "name": "hwTrillTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.3",
+    "class": "objectidentity"
+  },
+  "hwTrillNicknameConflict": {
+    "name": "hwTrillNicknameConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillSysID"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillNicknameConflictClear": {
+    "name": "hwTrillNicknameConflictClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillSysID"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillAuthenticationFailure": {
+    "name": "hwTrillAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillSysInstance"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillCircIfIndex"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillPduFragment"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillAuthenticationTypeFailure": {
+    "name": "hwTrillAuthenticationTypeFailure",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillSysInstance"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillCircIfIndex"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillPduFragment"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillLspRemainingLifetimeRefresh": {
+    "name": "hwTrillLspRemainingLifetimeRefresh",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillInstanceID"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillSysID"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillPduLspId"
+      },
+      {
+        "module": "HUAWEI-TRILL-CONF-MIB",
+        "object": "hwTrillRemainingLifetime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrillCompliances": {
+    "name": "hwTrillCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.5",
+    "class": "objectidentity"
+  },
+  "hwTrillModuleFullCompliance": {
+    "name": "hwTrillModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.331.1.5.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwTrillTrapsGroup",
+        "module": "HUAWEI-TRILL-CONF-MIB"
+      },
+      {
+        "object": "hwTrillBaseEntryGroup",
+        "module": "HUAWEI-TRILL-CONF-MIB"
+      },
+      {
+        "object": "hwTrillNicknameGroup",
+        "module": "HUAWEI-TRILL-CONF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-TRILL-CONF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-TRILL-CONF-MIB"
+  }
+}

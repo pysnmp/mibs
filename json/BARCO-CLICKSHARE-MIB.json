@@ -1,0 +1,341 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "clickShare": {
+    "name": "clickShare",
+    "oid": "1.3.6.1.4.1.7312.2468",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-12-04 09:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "barco": {
+    "name": "barco",
+    "oid": "1.3.6.1.4.1.7312",
+    "class": "objectidentity"
+  },
+  "events": {
+    "name": "events",
+    "oid": "1.3.6.1.4.1.7312.2468.0",
+    "class": "objectidentity"
+  },
+  "baseUnit": {
+    "name": "baseUnit",
+    "oid": "1.3.6.1.4.1.7312.2468.1",
+    "class": "objectidentity"
+  },
+  "deviceInfo": {
+    "name": "deviceInfo",
+    "oid": "1.3.6.1.4.1.7312.2468.1.1",
+    "class": "objectidentity"
+  },
+  "sensors": {
+    "name": "sensors",
+    "oid": "1.3.6.1.4.1.7312.2468.1.2",
+    "class": "objectidentity"
+  },
+  "alarmCpuTemperature": {
+    "name": "alarmCpuTemperature",
+    "oid": "1.3.6.1.4.1.7312.2468.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarmCaseFanSpeed": {
+    "name": "alarmCaseFanSpeed",
+    "oid": "1.3.6.1.4.1.7312.2468.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarmProcessNotRunning": {
+    "name": "alarmProcessNotRunning",
+    "oid": "1.3.6.1.4.1.7312.2468.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "diRoomName": {
+    "name": "diRoomName",
+    "oid": "1.3.6.1.4.1.7312.2468.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diWelcomeMessage": {
+    "name": "diWelcomeMessage",
+    "oid": "1.3.6.1.4.1.7312.2468.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diLocation": {
+    "name": "diLocation",
+    "oid": "1.3.6.1.4.1.7312.2468.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diArticleCode": {
+    "name": "diArticleCode",
+    "oid": "1.3.6.1.4.1.7312.2468.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diSerialNumber": {
+    "name": "diSerialNumber",
+    "oid": "1.3.6.1.4.1.7312.2468.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diUptime": {
+    "name": "diUptime",
+    "oid": "1.3.6.1.4.1.7312.2468.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diTotalUptime": {
+    "name": "diTotalUptime",
+    "oid": "1.3.6.1.4.1.7312.2468.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorCaseFanSpeed": {
+    "name": "sensorCaseFanSpeed",
+    "oid": "1.3.6.1.4.1.7312.2468.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorCpuFanSpeed": {
+    "name": "sensorCpuFanSpeed",
+    "oid": "1.3.6.1.4.1.7312.2468.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorCpuTemperature": {
+    "name": "sensorCpuTemperature",
+    "oid": "1.3.6.1.4.1.7312.2468.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorCpuTemperatureThreshold": {
+    "name": "sensorCpuTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.7312.2468.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clickShareMIB": {
+    "name": "clickShareMIB",
+    "oid": "1.3.6.1.4.1.7312.2469",
+    "class": "objectidentity"
+  },
+  "clickShareMIBCompliances": {
+    "name": "clickShareMIBCompliances",
+    "oid": "1.3.6.1.4.1.7312.2469.1",
+    "class": "objectidentity"
+  },
+  "clickShareMIBGroups": {
+    "name": "clickShareMIBGroups",
+    "oid": "1.3.6.1.4.1.7312.2469.2",
+    "class": "objectidentity"
+  },
+  "clickShareMIBCompliance": {
+    "name": "clickShareMIBCompliance",
+    "oid": "1.3.6.1.4.1.7312.2469.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "deviceInfoGroup",
+        "module": "BARCO-CLICKSHARE-MIB"
+      },
+      {
+        "object": "sensorsGroup",
+        "module": "BARCO-CLICKSHARE-MIB"
+      },
+      {
+        "object": "eventsGroup",
+        "module": "BARCO-CLICKSHARE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceInfoGroup": {
+    "name": "deviceInfoGroup",
+    "oid": "1.3.6.1.4.1.7312.2469.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "diRoomName"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "diWelcomeMessage"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "diLocation"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "diArticleCode"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "diSerialNumber"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "diUptime"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "diTotalUptime"
+      }
+    ],
+    "status": "current"
+  },
+  "sensorsGroup": {
+    "name": "sensorsGroup",
+    "oid": "1.3.6.1.4.1.7312.2469.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "sensorCaseFanSpeed"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "sensorCpuFanSpeed"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "sensorCpuTemperature"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "sensorCpuTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "eventsGroup": {
+    "name": "eventsGroup",
+    "oid": "1.3.6.1.4.1.7312.2469.2.99",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "alarmCpuTemperature"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "alarmCaseFanSpeed"
+      },
+      {
+        "module": "BARCO-CLICKSHARE-MIB",
+        "object": "alarmProcessNotRunning"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/barco/BARCO-CLICKSHARE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:11 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BARCO-CLICKSHARE-MIB"
+  }
+}

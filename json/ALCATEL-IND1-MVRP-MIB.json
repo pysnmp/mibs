@@ -1,0 +1,1094 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Mvrp"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1MVRPMIB": {
+    "name": "alcatelIND1MVRPMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-07 00:00",
+        "description": "The MVRP MIB defines a set of MVRP related management objects for VLANs and ports that support Multiple VLAN Registration Protocol (MVRP). MVRP as a protocol provides mechanisms to dynamically learn and further propagate VLAN membership information across a bridged network, as recommended in standards IEEE Std. 802.1ak-2007, which is an amendment to IEEE Std 802.1Q-2005 Edition. This MVRP MIB extends already existing IETF_Q_BRIDGE MIB which is based on RFC 2674 (Bridges with Traffic Classes, Multicast Filtering and Virtual LAN Extensions), to accomodate the proprietary behavior of the device and for defining objects as recommended by standards. This MIB comprises proprietary managed objects as well the objects required for conforming to the standards. However, the set of objects defined in this MIB, do not duplicate, nor conflict with any MIB object definitions defined in the IETF_Q_BRIDGE_MIB."
+      }
+    ]
+  },
+  "alaMvrpEvents": {
+    "name": "alaMvrpEvents",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.0",
+    "class": "objectidentity"
+  },
+  "alcatelIND1MVRPMIBObjects": {
+    "name": "alcatelIND1MVRPMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1MVRPMIBConformance": {
+    "name": "alcatelIND1MVRPMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1MVRPMIBGroups": {
+    "name": "alcatelIND1MVRPMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1MVRPMIBCompliances": {
+    "name": "alcatelIND1MVRPMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "MvrpPortVlanRestrictBitmap": {
+    "name": "MvrpPortVlanRestrictBitmap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noRestriction": 0,
+        "restrictRegistration": 1,
+        "restrictAdvertisement": 2,
+        "restrictStaticVlanRegistration": 3
+      }
+    },
+    "status": "current"
+  },
+  "alaMvrpGlobalStatus": {
+    "name": "alaMvrpGlobalStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpGlobalClearStats": {
+    "name": "alaMvrpGlobalClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpTransparentSwitching": {
+    "name": "alaMvrpTransparentSwitching",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpMaxVlanLimit": {
+    "name": "alaMvrpMaxVlanLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpVlanConflictInfo": {
+    "name": "alaMvrpVlanConflictInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVlanRegistrationProtocolType": {
+    "name": "alaVlanRegistrationProtocolType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gvrp": 0,
+          "mvrp": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mvrp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpVlanLimitReachedEvent": {
+    "name": "alaMvrpVlanLimitReachedEvent",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpMaxVlanLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpE2eVlanConflict": {
+    "name": "alaMvrpE2eVlanConflict",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpVlanConflictInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpPortConfig": {
+    "name": "alaMvrpPortConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7",
+    "class": "objectidentity"
+  },
+  "alaMvrpPortConfigTable": {
+    "name": "alaMvrpPortConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMvrpPortConfigEntry": {
+    "name": "alaMvrpPortConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpPortConfigIfIndex": {
+    "name": "alaMvrpPortConfigIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMvrpPortStatus": {
+    "name": "alaMvrpPortStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortConfigRegistrarMode": {
+    "name": "alaMvrpPortConfigRegistrarMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fixed": 2,
+          "forbidden": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortConfigApplicantMode": {
+    "name": "alaMvrpPortConfigApplicantMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "participant": 1,
+          "nonparticipant": 2,
+          "active": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortConfigJoinTimer": {
+    "name": "alaMvrpPortConfigJoinTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortConfigLeaveTimer": {
+    "name": "alaMvrpPortConfigLeaveTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 750,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortConfigLeaveAllTimer": {
+    "name": "alaMvrpPortConfigLeaveAllTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 750,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortConfigPeriodicTimer": {
+    "name": "alaMvrpPortConfigPeriodicTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortConfigPeriodicTransmissionStatus": {
+    "name": "alaMvrpPortConfigPeriodicTransmissionStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortStats": {
+    "name": "alaMvrpPortStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8",
+    "class": "objectidentity"
+  },
+  "alaMvrpPortStatsTable": {
+    "name": "alaMvrpPortStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMvrpPortStatsEntry": {
+    "name": "alaMvrpPortStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpPortStatsIfIndex": {
+    "name": "alaMvrpPortStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMvrpPortStatsNewReceived": {
+    "name": "alaMvrpPortStatsNewReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsJoinInReceived": {
+    "name": "alaMvrpPortStatsJoinInReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsJoinEmptyReceived": {
+    "name": "alaMvrpPortStatsJoinEmptyReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsLeaveReceived": {
+    "name": "alaMvrpPortStatsLeaveReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsInReceived": {
+    "name": "alaMvrpPortStatsInReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsEmptyReceived": {
+    "name": "alaMvrpPortStatsEmptyReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsLeaveAllReceived": {
+    "name": "alaMvrpPortStatsLeaveAllReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsNewTransmitted": {
+    "name": "alaMvrpPortStatsNewTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsJoinInTransmitted": {
+    "name": "alaMvrpPortStatsJoinInTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsJoinEmptyTransmitted": {
+    "name": "alaMvrpPortStatsJoinEmptyTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsLeaveTransmitted": {
+    "name": "alaMvrpPortStatsLeaveTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsInTransmitted": {
+    "name": "alaMvrpPortStatsInTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsEmptyTransmitted": {
+    "name": "alaMvrpPortStatsEmptyTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsLeaveAllTransmitted": {
+    "name": "alaMvrpPortStatsLeaveAllTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsTotalPDUReceived": {
+    "name": "alaMvrpPortStatsTotalPDUReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsTotalPDUTransmitted": {
+    "name": "alaMvrpPortStatsTotalPDUTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsTotalMsgsReceived": {
+    "name": "alaMvrpPortStatsTotalMsgsReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsTotalMsgsTransmitted": {
+    "name": "alaMvrpPortStatsTotalMsgsTransmitted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsInvalidMsgsReceived": {
+    "name": "alaMvrpPortStatsInvalidMsgsReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortFailedRegistrations": {
+    "name": "alaMvrpPortFailedRegistrations",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortLastPduOrigin": {
+    "name": "alaMvrpPortLastPduOrigin",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMvrpPortStatsClearStats": {
+    "name": "alaMvrpPortStatsClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.8.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMvrpPortRestrictVlanConfig": {
+    "name": "alaMvrpPortRestrictVlanConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.9",
+    "class": "objectidentity"
+  },
+  "alaMvrpPortRestrictVlanConfigTable": {
+    "name": "alaMvrpPortRestrictVlanConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMvrpPortRestrictVlanConfigEntry": {
+    "name": "alaMvrpPortRestrictVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortRestrictVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortRestrictVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpPortRestrictVlanIfIndex": {
+    "name": "alaMvrpPortRestrictVlanIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMvrpPortRestrictVlanID": {
+    "name": "alaMvrpPortRestrictVlanID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMvrpPortVlanRestrictions": {
+    "name": "alaMvrpPortVlanRestrictions",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MvrpPortVlanRestrictBitmap",
+      "class": "type"
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "noRestriction": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1MVRPMIBCompliance": {
+    "name": "alcatelIND1MVRPMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaMvrpBaseGroup",
+        "module": "ALCATEL-IND1-MVRP-MIB"
+      },
+      {
+        "object": "alaMvrpPortConfigGroup",
+        "module": "ALCATEL-IND1-MVRP-MIB"
+      },
+      {
+        "object": "alaMvrpPortStatsGroup",
+        "module": "ALCATEL-IND1-MVRP-MIB"
+      },
+      {
+        "object": "alaMvrpPortRestrictVlanConfigGroup",
+        "module": "ALCATEL-IND1-MVRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpBaseGroup": {
+    "name": "alaMvrpBaseGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpGlobalStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpGlobalClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpTransparentSwitching"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpMaxVlanLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpVlanConflictInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaVlanRegistrationProtocolType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpPortConfigGroup": {
+    "name": "alaMvrpPortConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortConfigRegistrarMode"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortConfigApplicantMode"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortConfigJoinTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortConfigLeaveTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortConfigLeaveAllTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortConfigPeriodicTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortConfigPeriodicTransmissionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpPortStatsGroup": {
+    "name": "alaMvrpPortStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsNewReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsJoinInReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsJoinEmptyReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsLeaveReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsInReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsEmptyReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsLeaveAllReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsNewTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsJoinInTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsJoinEmptyTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsLeaveTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsInTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsEmptyTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsLeaveAllTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsTotalPDUReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsTotalPDUTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsTotalMsgsReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsTotalMsgsTransmitted"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsInvalidMsgsReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortFailedRegistrations"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortLastPduOrigin"
+      },
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortStatsClearStats"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMvrpPortRestrictVlanConfigGroup": {
+    "name": "alaMvrpPortRestrictVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.57.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MVRP-MIB",
+        "object": "alaMvrpPortVlanRestrictions"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-MVRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-MVRP-MIB"
+  }
+}

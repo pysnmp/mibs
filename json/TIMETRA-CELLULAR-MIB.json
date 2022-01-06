@@ -1,0 +1,3504 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime"
+    ],
+    "TIMETRA-CHASSIS-MIB": [
+      "tmnxCardSlotNum",
+      "tmnxMDASlotNum"
+    ],
+    "TIMETRA-GLOBAL-MIB": [
+      "tmnxSRConfs",
+      "tmnxSRNotifyPrefix",
+      "tmnxSRObjs",
+      "timetraSRMIBModules"
+    ],
+    "TIMETRA-PORT-MIB": [
+      "tmnxPortPortID",
+      "tmnxPortNotifyPortId"
+    ],
+    "TIMETRA-TC-MIB": [
+      "TmnxEnabledDisabled",
+      "TNamedItemOrEmpty",
+      "TItemDescription",
+      "TmnxAuthPassword",
+      "TmnxEnabledDisabledAdminState"
+    ]
+  },
+  "timetraCellularMIBModule": {
+    "name": "timetraCellularMIBModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.3.109",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-18 00:00",
+        "description": "Rev 1.0 18 Jul 2016 00:00 Initial version of the TIMETRA-PORT-CELLULAR-MIB."
+      }
+    ]
+  },
+  "TmnxCellularPdnProfileId": {
+    "name": "TmnxCellularPdnProfileId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxCellularAccessPointName": {
+    "name": "TmnxCellularAccessPointName",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxCellularImei": {
+    "name": "TmnxCellularImei",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 15,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2a-6a-6a-2a",
+    "status": "current"
+  },
+  "TmnxCellularSimCardNumber": {
+    "name": "TmnxCellularSimCardNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxCellularSimCardIccid": {
+    "name": "TmnxCellularSimCardIccid",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxCellularImsi": {
+    "name": "TmnxCellularImsi",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxCellularPdnId": {
+    "name": "TmnxCellularPdnId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxCellularChannelNumber": {
+    "name": "TmnxCellularChannelNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 262143
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxCellularBearerRate": {
+    "name": "TmnxCellularBearerRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "tmnxCellularObjs": {
+    "name": "tmnxCellularObjs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109",
+    "class": "objectidentity"
+  },
+  "tmnxCellularConfigObjs": {
+    "name": "tmnxCellularConfigObjs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2",
+    "class": "objectidentity"
+  },
+  "tmnxCellularConfigTimestamps": {
+    "name": "tmnxCellularConfigTimestamps",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.1",
+    "class": "objectidentity"
+  },
+  "tmnxCellPdnProfileTblLastChanged": {
+    "name": "tmnxCellPdnProfileTblLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardTableLastChanged": {
+    "name": "tmnxCellSimCardTableLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnTblLastChanged": {
+    "name": "tmnxCellPdnTblLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortTblLastChanged": {
+    "name": "tmnxCellPortTblLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthCfgTblLstChg": {
+    "name": "tmnxCellPortCbsdAuthCfgTblLstChg",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellularSystemConfigObjs": {
+    "name": "tmnxCellularSystemConfigObjs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2",
+    "class": "objectidentity"
+  },
+  "tmnxCellularPdnProfileTable": {
+    "name": "tmnxCellularPdnProfileTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellPdnProfileEntry": {
+    "name": "tmnxCellPdnProfileEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPdnProfileId": {
+    "name": "tmnxCellPdnProfileId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularPdnProfileId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellPdnProfRowStatus": {
+    "name": "tmnxCellPdnProfRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellPdnProfLastChanged": {
+    "name": "tmnxCellPdnProfLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnProfDescription": {
+    "name": "tmnxCellPdnProfDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellPdnProfApn": {
+    "name": "tmnxCellPdnProfApn",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularAccessPointName",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellPdnProfAuthType": {
+    "name": "tmnxCellPdnProfAuthType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pap": 1,
+          "chap": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellPdnProfUsername": {
+    "name": "tmnxCellPdnProfUsername",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellPdnProfPassword": {
+    "name": "tmnxCellPdnProfPassword",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxAuthPassword",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellPdnProfProtocol": {
+    "name": "tmnxCellPdnProfProtocol",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellularPortConfigObjs": {
+    "name": "tmnxCellularPortConfigObjs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3",
+    "class": "objectidentity"
+  },
+  "tmnxCellularSimCardTable": {
+    "name": "tmnxCellularSimCardTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularSimCardEntry": {
+    "name": "tmnxCellularSimCardEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-PORT-MIB",
+        "object": "tmnxPortPortID",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellSimCardId": {
+    "name": "tmnxCellSimCardId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularSimCardNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellSimCardLastChanged": {
+    "name": "tmnxCellSimCardLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardDescription": {
+    "name": "tmnxCellSimCardDescription",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TItemDescription",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellSimCardPin": {
+    "name": "tmnxCellSimCardPin",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellSimCardFailureDuration": {
+    "name": "tmnxCellSimCardFailureDuration",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellSimCardPortStateSwitch": {
+    "name": "tmnxCellSimCardPortStateSwitch",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellSimCardBgpStateSwitch": {
+    "name": "tmnxCellSimCardBgpStateSwitch",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellularPdnTable": {
+    "name": "tmnxCellularPdnTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularPdnEntry": {
+    "name": "tmnxCellularPdnEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-PORT-MIB",
+        "object": "tmnxPortPortID",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPdnId": {
+    "name": "tmnxCellPdnId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularPdnId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellPdnRowStatus": {
+    "name": "tmnxCellPdnRowStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellPdnLastChanged": {
+    "name": "tmnxCellPdnLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnProfile": {
+    "name": "tmnxCellPdnProfile",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularPdnProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tmnxCellularPortTable": {
+    "name": "tmnxCellularPortTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularPortEntry": {
+    "name": "tmnxCellularPortEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-PORT-MIB",
+        "object": "tmnxPortPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortLastChanged": {
+    "name": "tmnxCellPortLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortBand125MaxPowerLevel": {
+    "name": "tmnxCellPortBand125MaxPowerLevel",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellPortSyncSysTime": {
+    "name": "tmnxCellPortSyncSysTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellularMdaTable": {
+    "name": "tmnxCellularMdaTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularMdaEntry": {
+    "name": "tmnxCellularMdaEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxCardSlotNum",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxMDASlotNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellMdaLastChanged": {
+    "name": "tmnxCellMdaLastChanged",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaAdminActiveSim": {
+    "name": "tmnxCellMdaAdminActiveSim",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sim-1": 1,
+          "sim-2": 2,
+          "automatic": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sim-1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellMdaDownResetInterval": {
+    "name": "tmnxCellMdaDownResetInterval",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellMdaDownResetCriteria": {
+    "name": "tmnxCellMdaDownResetCriteria",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "port": 0,
+        "bgp": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "port": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellMdaDownResetPending": {
+    "name": "tmnxCellMdaDownResetPending",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaDownResetTime": {
+    "name": "tmnxCellMdaDownResetTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 14400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaPreferredSim": {
+    "name": "tmnxCellMdaPreferredSim",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularSimCardNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellMdaOperActiveSim": {
+    "name": "tmnxCellMdaOperActiveSim",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularSimCardNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaSimCardSwitchPending": {
+    "name": "tmnxCellMdaSimCardSwitchPending",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaSimCardSwitchTime": {
+    "name": "tmnxCellMdaSimCardSwitchTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaSimCardLastSwitchTime": {
+    "name": "tmnxCellMdaSimCardLastSwitchTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaSimLastSwitchReason": {
+    "name": "tmnxCellMdaSimLastSwitchReason",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "manual-configuration": 1,
+          "forced-switch": 2,
+          "cellular-port-down": 3,
+          "no-bgp-neighbor": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaSpecFirmwareVersion": {
+    "name": "tmnxCellMdaSpecFirmwareVersion",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellMdaMaxTxPower": {
+    "name": "tmnxCellMdaMaxTxPower",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 23,
+        "format": "decimal"
+      }
+    },
+    "units": "decibel-milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthCfgTable": {
+    "name": "tmnxCellPortCbsdAuthCfgTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthCfgEntry": {
+    "name": "tmnxCellPortCbsdAuthCfgEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "tmnxCellPortCbsdAuthCfgEntry",
+      "module": "TIMETRA-CELLULAR-MIB",
+      "object": "tmnxCellularPortEntry"
+    },
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthCfgLstChange": {
+    "name": "tmnxCellPortCbsdAuthCfgLstChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthAdminState": {
+    "name": "tmnxCellPortCbsdAuthAdminState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEnabledDisabledAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthUserId": {
+    "name": "tmnxCellPortCbsdAuthUserId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthAntennaGain": {
+    "name": "tmnxCellPortCbsdAuthAntennaGain",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "units": "decibel-milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthClntTlsProf": {
+    "name": "tmnxCellPortCbsdAuthClntTlsProf",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthPriSasSvrUrl": {
+    "name": "tmnxCellPortCbsdAuthPriSasSvrUrl",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthSecSasSvrUrl": {
+    "name": "tmnxCellPortCbsdAuthSecSasSvrUrl",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthCategory": {
+    "name": "tmnxCellPortCbsdAuthCategory",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.2.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "a",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxCellularStatusObjs": {
+    "name": "tmnxCellularStatusObjs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3",
+    "class": "objectidentity"
+  },
+  "tmnxCellularPortStatusObjs": {
+    "name": "tmnxCellularPortStatusObjs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1",
+    "class": "objectidentity"
+  },
+  "tmnxCellularPortStatusTable": {
+    "name": "tmnxCellularPortStatusTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularPortStatusEntry": {
+    "name": "tmnxCellularPortStatusEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-PORT-MIB",
+        "object": "tmnxPortPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortImei": {
+    "name": "tmnxCellPortImei",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularImei",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortRegistrationStatus": {
+    "name": "tmnxCellPortRegistrationStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-registered": 0,
+          "registered-home": 1,
+          "searching": 2,
+          "denied": 3,
+          "no-network": 4,
+          "registered-roaming": 5,
+          "sms-only-home": 6,
+          "sms-only-roaming": 7,
+          "emergency-only": 8,
+          "csfb-not-preferred-home": 9,
+          "csfb-not-preferred-roaming": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortWirelessTechnology": {
+    "name": "tmnxCellPortWirelessTechnology",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "lte": 1,
+          "wcdma": 2,
+          "gsm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortFrequencyBand": {
+    "name": "tmnxCellPortFrequencyBand",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortChannelNumber": {
+    "name": "tmnxCellPortChannelNumber",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularChannelNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortAreaCode": {
+    "name": "tmnxCellPortAreaCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCellIdentity": {
+    "name": "tmnxCellPortCellIdentity",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortRssi": {
+    "name": "tmnxCellPortRssi",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -113,
+            "max": -51
+          },
+          {
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "decibel-milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortRsrp": {
+    "name": "tmnxCellPortRsrp",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -140,
+            "max": -44
+          },
+          {
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "decibel-milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortRscp": {
+    "name": "tmnxCellPortRscp",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -120,
+            "max": -25
+          },
+          {
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "decibel-milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortRsrq": {
+    "name": "tmnxCellPortRsrq",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -20,
+            "max": -3
+          },
+          {
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "decibel",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortSinr": {
+    "name": "tmnxCellPortSinr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 400
+          }
+        ]
+      }
+    },
+    "units": "0.1 decibel",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellularSimCardStatusTable": {
+    "name": "tmnxCellularSimCardStatusTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularSimCardStatusEntry": {
+    "name": "tmnxCellularSimCardStatusEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "tmnxCellularSimCardStatusEntry",
+      "module": "TIMETRA-CELLULAR-MIB",
+      "object": "tmnxCellularSimCardEntry"
+    },
+    "status": "current"
+  },
+  "tmnxCellSimCardEquipped": {
+    "name": "tmnxCellSimCardEquipped",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardIccid": {
+    "name": "tmnxCellSimCardIccid",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularSimCardIccid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardImsi": {
+    "name": "tmnxCellSimCardImsi",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularImsi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardLocked": {
+    "name": "tmnxCellSimCardLocked",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardPinStatus": {
+    "name": "tmnxCellSimCardPinStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "waiting-for-pin": 1,
+          "waiting-for-puk": 2,
+          "ready": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardPinRetries": {
+    "name": "tmnxCellSimCardPinRetries",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardPukRetries": {
+    "name": "tmnxCellSimCardPukRetries",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellSimCardFirmwareVersion": {
+    "name": "tmnxCellSimCardFirmwareVersion",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellularPdnStatusTable": {
+    "name": "tmnxCellularPdnStatusTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularPdnStatusEntry": {
+    "name": "tmnxCellularPdnStatusEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "tmnxCellularPdnStatusEntry",
+      "module": "TIMETRA-CELLULAR-MIB",
+      "object": "tmnxCellularPdnEntry"
+    },
+    "status": "current"
+  },
+  "tmnxCellPdnConnectionState": {
+    "name": "tmnxCellPdnConnectionState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConnected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnIpAddrType": {
+    "name": "tmnxCellPdnIpAddrType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnIpAddress": {
+    "name": "tmnxCellPdnIpAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnPrimaryDnsAddrType": {
+    "name": "tmnxCellPdnPrimaryDnsAddrType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnPrimaryDnsAddress": {
+    "name": "tmnxCellPdnPrimaryDnsAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnSecondaryDnsAddrType": {
+    "name": "tmnxCellPdnSecondaryDnsAddrType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnSecondaryDnsAddress": {
+    "name": "tmnxCellPdnSecondaryDnsAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnApn": {
+    "name": "tmnxCellPdnApn",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularAccessPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPdnMtu": {
+    "name": "tmnxCellPdnMtu",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellularPortBearerTable": {
+    "name": "tmnxCellularPortBearerTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularPortBearerEntry": {
+    "name": "tmnxCellularPortBearerEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-PORT-MIB",
+        "object": "tmnxPortPortID",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortBearerId": {
+    "name": "tmnxCellPortBearerId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortBearerType": {
+    "name": "tmnxCellPortBearerType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "dedicated": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortBearerQci": {
+    "name": "tmnxCellPortBearerQci",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortBearerUlGbr": {
+    "name": "tmnxCellPortBearerUlGbr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularBearerRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortBearerUlMbr": {
+    "name": "tmnxCellPortBearerUlMbr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularBearerRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortBearerDlGbr": {
+    "name": "tmnxCellPortBearerDlGbr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularBearerRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortBearerDlMbr": {
+    "name": "tmnxCellPortBearerDlMbr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularBearerRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellularPortTftTable": {
+    "name": "tmnxCellularPortTftTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellularPortTftEntry": {
+    "name": "tmnxCellularPortTftEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-PORT-MIB",
+        "object": "tmnxPortPortID",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortTftPacketFilterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortTftPacketFilterId": {
+    "name": "tmnxCellPortTftPacketFilterId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortTftEvalPrecedence": {
+    "name": "tmnxCellPortTftEvalPrecedence",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortTftDirection": {
+    "name": "tmnxCellPortTftDirection",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pre-release-7": 0,
+          "uplink": 1,
+          "downlink": 2,
+          "bidirectional": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortTftTos": {
+    "name": "tmnxCellPortTftTos",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortTftTosMask": {
+    "name": "tmnxCellPortTftTosMask",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthStatsTable": {
+    "name": "tmnxCellPortCbsdAuthStatsTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthStatsEntry": {
+    "name": "tmnxCellPortCbsdAuthStatsEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "tmnxCellPortCbsdAuthStatsEntry",
+      "module": "TIMETRA-CELLULAR-MIB",
+      "object": "tmnxCellPortCbsdAuthCfgEntry"
+    },
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthOperState": {
+    "name": "tmnxCellPortCbsdAuthOperState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEnabledDisabled",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthId": {
+    "name": "tmnxCellPortCbsdAuthId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthGrantId": {
+    "name": "tmnxCellPortCbsdAuthGrantId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthFccId": {
+    "name": "tmnxCellPortCbsdAuthFccId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthRegState": {
+    "name": "tmnxCellPortCbsdAuthRegState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unregistered": 0,
+          "registered": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthGrantState": {
+    "name": "tmnxCellPortCbsdAuthGrantState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "granted": 2,
+          "authorized": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthGrantExpTime": {
+    "name": "tmnxCellPortCbsdAuthGrantExpTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthTxExpTime": {
+    "name": "tmnxCellPortCbsdAuthTxExpTime",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthHeartbeatInt": {
+    "name": "tmnxCellPortCbsdAuthHeartbeatInt",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthChanType": {
+    "name": "tmnxCellPortCbsdAuthChanType",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gaa": 1,
+          "pal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthCurSasSvr": {
+    "name": "tmnxCellPortCbsdAuthCurSasSvr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthCurSasSvrIpT": {
+    "name": "tmnxCellPortCbsdAuthCurSasSvrIpT",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthCurSasSvrIp": {
+    "name": "tmnxCellPortCbsdAuthCurSasSvrIp",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthRegRequest": {
+    "name": "tmnxCellPortCbsdAuthRegRequest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthRegRspSuc": {
+    "name": "tmnxCellPortCbsdAuthRegRspSuc",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthRegRspFail": {
+    "name": "tmnxCellPortCbsdAuthRegRspFail",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthGrantRequest": {
+    "name": "tmnxCellPortCbsdAuthGrantRequest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthGrantRspSuc": {
+    "name": "tmnxCellPortCbsdAuthGrantRspSuc",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthGrantRspFail": {
+    "name": "tmnxCellPortCbsdAuthGrantRspFail",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthHrtbtRequest": {
+    "name": "tmnxCellPortCbsdAuthHrtbtRequest",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthHrtbtRspSuc": {
+    "name": "tmnxCellPortCbsdAuthHrtbtRspSuc",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthHrtbtRspFail": {
+    "name": "tmnxCellPortCbsdAuthHrtbtRspFail",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.3.1.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxCellularNotifyObjects": {
+    "name": "tmnxCellularNotifyObjects",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.4",
+    "class": "objectidentity"
+  },
+  "tmnxCellularNotifyPdnId": {
+    "name": "tmnxCellularNotifyPdnId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxCellularPdnId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tmnxCellMdaNoServiceResetReason": {
+    "name": "tmnxCellMdaNoServiceResetReason",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cellular-port-down": 1,
+          "no-bgp-neighbor": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tmnxCellCbsdAuthFailReason": {
+    "name": "tmnxCellCbsdAuthFailReason",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tmnxCellCbsdAuthRespCode": {
+    "name": "tmnxCellCbsdAuthRespCode",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tmnxCellCbsdAuthPrevTransState": {
+    "name": "tmnxCellCbsdAuthPrevTransState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "authorized": 2,
+          "granted": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tmnxCellCbsdAuthNewTransState": {
+    "name": "tmnxCellCbsdAuthNewTransState",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.109.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "authorized": 2,
+          "granted": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "tmnxCellularConformance": {
+    "name": "tmnxCellularConformance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109",
+    "class": "objectidentity"
+  },
+  "tmnxCellularCompliances": {
+    "name": "tmnxCellularCompliances",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.1",
+    "class": "objectidentity"
+  },
+  "tmnxCellularCompliance": {
+    "name": "tmnxCellularCompliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxCellularConfigGroup",
+        "module": "TIMETRA-CELLULAR-MIB"
+      },
+      {
+        "object": "tmnxCellularStatusGroup",
+        "module": "TIMETRA-CELLULAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularComplianceV16v0": {
+    "name": "tmnxCellularComplianceV16v0",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxCellularV16v0ConfigGroup",
+        "module": "TIMETRA-CELLULAR-MIB"
+      },
+      {
+        "object": "tmnxCellularV16v0StatusGroup",
+        "module": "TIMETRA-CELLULAR-MIB"
+      },
+      {
+        "object": "tmnxCellNotificationV16v0Group",
+        "module": "TIMETRA-CELLULAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularComplianceV19": {
+    "name": "tmnxCellularComplianceV19",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxCellularV19ConfigGroup",
+        "module": "TIMETRA-CELLULAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularComplianceV20": {
+    "name": "tmnxCellularComplianceV20",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxCellularV20ConfigGroup",
+        "module": "TIMETRA-CELLULAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularComplianceV21": {
+    "name": "tmnxCellularComplianceV21",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxCellPortCbsdAuthGroupV21",
+        "module": "TIMETRA-CELLULAR-MIB"
+      },
+      {
+        "object": "tmnxCellularNotifyObjsGroupV21",
+        "module": "TIMETRA-CELLULAR-MIB"
+      },
+      {
+        "object": "tmnxCellNotificationGroupV21",
+        "module": "TIMETRA-CELLULAR-MIB"
+      },
+      {
+        "object": "tmnxCellularStatusGroupV21",
+        "module": "TIMETRA-CELLULAR-MIB"
+      },
+      {
+        "object": "tmnxCellularConfigGroupV21",
+        "module": "TIMETRA-CELLULAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularGroups": {
+    "name": "tmnxCellularGroups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2",
+    "class": "objectidentity"
+  },
+  "tmnxCellularV15v0Groups": {
+    "name": "tmnxCellularV15v0Groups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.1",
+    "class": "objectidentity"
+  },
+  "tmnxCellularConfigGroup": {
+    "name": "tmnxCellularConfigGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfileTblLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfRowStatus"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfDescription"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfApn"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfAuthType"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfUsername"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfPassword"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardTableLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardDescription"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardPin"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnTblLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnRowStatus"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfile"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortTblLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBand125MaxPowerLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularStatusGroup": {
+    "name": "tmnxCellularStatusGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortImei"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortRegistrationStatus"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortWirelessTechnology"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortFrequencyBand"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortChannelNumber"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortAreaCode"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCellIdentity"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortRssi"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortRsrp"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortRscp"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardEquipped"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardIccid"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardImsi"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardLocked"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardPinStatus"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardPinRetries"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardPukRetries"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnConnectionState"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnIpAddrType"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnIpAddress"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnPrimaryDnsAddrType"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnPrimaryDnsAddress"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnSecondaryDnsAddrType"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnSecondaryDnsAddress"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnApn"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnMtu"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularV16v0Groups": {
+    "name": "tmnxCellularV16v0Groups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.2",
+    "class": "objectidentity"
+  },
+  "tmnxCellularV16v0ConfigGroup": {
+    "name": "tmnxCellularV16v0ConfigGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaLastChanged"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaAdminActiveSim"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaDownResetInterval"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaDownResetCriteria"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaDownResetPending"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaDownResetTime"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardFailureDuration"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardPortStateSwitch"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardBgpStateSwitch"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularV16v0StatusGroup": {
+    "name": "tmnxCellularV16v0StatusGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerType"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerQci"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerUlGbr"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerUlMbr"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerDlGbr"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerDlMbr"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortTftPacketFilterId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortTftEvalPrecedence"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortTftDirection"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortTftTos"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortTftTosMask"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellSimCardFirmwareVersion"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaPreferredSim"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaOperActiveSim"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaSimCardSwitchPending"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaSimCardSwitchTime"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaSimCardLastSwitchTime"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaSimLastSwitchReason"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularNotifyObjsGroup": {
+    "name": "tmnxCellularNotifyObjsGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularNotifyPdnId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaNoServiceResetReason"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellNotificationV16v0Group": {
+    "name": "tmnxCellNotificationV16v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularBearerCreated"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularBearerDeleted"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularBearerModified"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularNoServiceReset"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularActiveSimChange"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularV19Groups": {
+    "name": "tmnxCellularV19Groups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.3",
+    "class": "objectidentity"
+  },
+  "tmnxCellularV19ConfigGroup": {
+    "name": "tmnxCellularV19ConfigGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPdnProfProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularV20Groups": {
+    "name": "tmnxCellularV20Groups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.4",
+    "class": "objectidentity"
+  },
+  "tmnxCellularV20ConfigGroup": {
+    "name": "tmnxCellularV20ConfigGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaSpecFirmwareVersion"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaMaxTxPower"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularV21Groups": {
+    "name": "tmnxCellularV21Groups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.5",
+    "class": "objectidentity"
+  },
+  "tmnxCellPortCbsdAuthGroupV21": {
+    "name": "tmnxCellPortCbsdAuthGroupV21",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.5.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthCfgTblLstChg"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthCfgLstChange"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthAdminState"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthUserId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthAntennaGain"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthClntTlsProf"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthPriSasSvrUrl"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthSecSasSvrUrl"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthOperState"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthCategory"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthFccId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthRegState"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantState"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantExpTime"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthTxExpTime"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthHeartbeatInt"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthChanType"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthCurSasSvr"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthCurSasSvrIp"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthCurSasSvrIpT"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthRegRequest"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthRegRspSuc"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthRegRspFail"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantRequest"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantRspSuc"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantRspFail"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthHrtbtRequest"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthHrtbtRspSuc"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthHrtbtRspFail"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularNotifyObjsGroupV21": {
+    "name": "tmnxCellularNotifyObjsGroupV21",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.5.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthFailReason"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthRespCode"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthPrevTransState"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthNewTransState"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellNotificationGroupV21": {
+    "name": "tmnxCellNotificationGroupV21",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.5.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdRegistered"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdUnregistered"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdGranted"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthorized"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdTransDown"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularStatusGroupV21": {
+    "name": "tmnxCellularStatusGroupV21",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.5.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortRsrq"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortSinr"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularConfigGroupV21": {
+    "name": "tmnxCellularConfigGroupV21",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.109.2.5.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortSyncSysTime"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularNotifyPrefix": {
+    "name": "tmnxCellularNotifyPrefix",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109",
+    "class": "objectidentity"
+  },
+  "tmnxCellularNotifications": {
+    "name": "tmnxCellularNotifications",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0",
+    "class": "objectidentity"
+  },
+  "tmnxCellularBearerCreated": {
+    "name": "tmnxCellularBearerCreated",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularNotifyPdnId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerId"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularBearerDeleted": {
+    "name": "tmnxCellularBearerDeleted",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularNotifyPdnId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerId"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularBearerModified": {
+    "name": "tmnxCellularBearerModified",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellularNotifyPdnId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortBearerId"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularNoServiceReset": {
+    "name": "tmnxCellularNoServiceReset",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-PORT-MIB",
+        "object": "tmnxPortNotifyPortId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaNoServiceResetReason"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellularActiveSimChange": {
+    "name": "tmnxCellularActiveSimChange",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaAdminActiveSim"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaOperActiveSim"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellMdaSimLastSwitchReason"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortCbsdRegistered": {
+    "name": "tmnxCellPortCbsdRegistered",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthCurSasSvrIp"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthCurSasSvrIpT"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortCbsdUnregistered": {
+    "name": "tmnxCellPortCbsdUnregistered",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthFailReason"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthRespCode"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortCbsdGranted": {
+    "name": "tmnxCellPortCbsdGranted",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantExpTime"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthHeartbeatInt"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortCbsdAuthorized": {
+    "name": "tmnxCellPortCbsdAuthorized",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantExpTime"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthHeartbeatInt"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxCellPortCbsdTransDown": {
+    "name": "tmnxCellPortCbsdTransDown",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.109.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellPortCbsdAuthGrantId"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthPrevTransState"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthNewTransState"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthFailReason"
+      },
+      {
+        "module": "TIMETRA-CELLULAR-MIB",
+        "object": "tmnxCellCbsdAuthRespCode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-CELLULAR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:04 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TIMETRA-CELLULAR-MIB"
+  }
+}

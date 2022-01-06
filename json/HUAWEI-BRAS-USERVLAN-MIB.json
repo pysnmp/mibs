@@ -1,0 +1,278 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwUSERVLAN": {
+    "name": "hwUSERVLAN",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12",
+    "class": "moduleidentity"
+  },
+  "hwhwUSERVLANMibObjects": {
+    "name": "hwhwUSERVLANMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1",
+    "class": "objectidentity"
+  },
+  "hwUserVlanTable": {
+    "name": "hwUserVlanTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1",
+    "class": "objectidentity"
+  },
+  "hwUserVlanIfIndex": {
+    "name": "hwUserVlanIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserInnerStartVlan": {
+    "name": "hwUserInnerStartVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserInnerEndVlan": {
+    "name": "hwUserInnerEndVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserVlanOuterVlan": {
+    "name": "hwUserVlanOuterVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserVlanOpType": {
+    "name": "hwUserVlanOpType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "undo": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwQueryUserVlanTable": {
+    "name": "hwQueryUserVlanTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwQueryUserVlanEntry": {
+    "name": "hwQueryUserVlanEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserInnerVlan",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserOuterVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwQueryUserVlanIfIndex": {
+    "name": "hwQueryUserVlanIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwQueryUserInnerVlan": {
+    "name": "hwQueryUserInnerVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwQueryUserOuterVlan": {
+    "name": "hwQueryUserOuterVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserVlanConformance": {
+    "name": "hwUserVlanConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2",
+    "class": "objectidentity"
+  },
+  "hwUserVlanCompliances": {
+    "name": "hwUserVlanCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1",
+    "class": "objectidentity"
+  },
+  "hwUserVlanCompliance": {
+    "name": "hwUserVlanCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwUserVlanTableGroup",
+        "module": "HUAWEI-BRAS-USERVLAN-MIB"
+      },
+      {
+        "object": "hwQueryUserVlanTableGroup",
+        "module": "HUAWEI-BRAS-USERVLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserVlanObjectGroups": {
+    "name": "hwUserVlanObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1.2",
+    "class": "objectidentity"
+  },
+  "hwUserVlanTableGroup": {
+    "name": "hwUserVlanTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserVlanIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserInnerStartVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserInnerEndVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserVlanOuterVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserVlanOpType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwQueryUserVlanTableGroup": {
+    "name": "hwQueryUserVlanTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserVlanIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserInnerVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserOuterVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-USERVLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BRAS-USERVLAN-MIB"
+  }
+}

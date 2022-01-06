@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-ELAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ELAN-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:12:20 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:29:09 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ctAtmfLanEmulation, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctAtmfLanEmulation")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, Counter64, iso, MibIdentifier, Integer32, Bits, ObjectIdentity, NotificationType, Counter32, Gauge32, ModuleIdentity, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "iso", "MibIdentifier", "Integer32", "Bits", "ObjectIdentity", "NotificationType", "Counter32", "Gauge32", "ModuleIdentity", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+Unsigned32, Gauge32, ModuleIdentity, iso, NotificationType, IpAddress, Counter32, MibIdentifier, TimeTicks, Integer32, ObjectIdentity, Bits, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "ModuleIdentity", "iso", "NotificationType", "IpAddress", "Counter32", "MibIdentifier", "TimeTicks", "Integer32", "ObjectIdentity", "Bits", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class CtLaneDebugLevel(Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
@@ -68,4 +68,4 @@ ctElanHotStandbyStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 12), In
 if mibBuilder.loadTexts: ctElanHotStandbyStatus.setStatus('mandatory')
 ctElanConfHotStandbyIP = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 13), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctElanConfHotStandbyIP.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-ELAN-MIB", ctElanLaneDbgOutputFile=ctElanLaneDbgOutputFile, ctElanConfDirectoryServicesIP=ctElanConfDirectoryServicesIP, ctElanCtLaneDbgSNMP=ctElanCtLaneDbgSNMP, ctElanConfHotStandbyIP=ctElanConfHotStandbyIP, ctElanDSStatus=ctElanDSStatus, ctElanConfEntry=ctElanConfEntry, ctElanConfDelPolicyWithElan=ctElanConfDelPolicyWithElan, ctElanUNIVersion=ctElanUNIVersion, ctElanLaneDbgLECS=ctElanLaneDbgLECS, ctElanConfPolicy=ctElanConfPolicy, ctLeClient=ctLeClient, ctElanCtLaneDbgLES=ctElanCtLaneDbgLES, ctElanConfIndex=ctElanConfIndex, ctElanSFDSPeerIP=ctElanSFDSPeerIP, ctElan=ctElan, ctElanSFDSPeerRowStatus=ctElanSFDSPeerRowStatus, ctElanSFDSPeerEntry=ctElanSFDSPeerEntry, ctElanLaneDbgConnectionServices=ctElanLaneDbgConnectionServices, ctElanConfGroup=ctElanConfGroup, ctLes=ctLes, ctElanConfRowStatus=ctElanConfRowStatus, ctElanSFDSPeerTable=ctElanSFDSPeerTable, ElanLocalIndex=ElanLocalIndex, ctBus=ctBus, ctElanHotStandbyStatus=ctElanHotStandbyStatus, CtLaneDebugLevel=CtLaneDebugLevel, ctElanLaneDbgDatabaseManagement=ctElanLaneDbgDatabaseManagement, ctElanConfTable=ctElanConfTable, ctElanConfUnitNumber=ctElanConfUnitNumber)
+mibBuilder.exportSymbols("CTRON-ELAN-MIB", ctElanLaneDbgOutputFile=ctElanLaneDbgOutputFile, ctElanConfUnitNumber=ctElanConfUnitNumber, ctElanConfIndex=ctElanConfIndex, ctElanLaneDbgConnectionServices=ctElanLaneDbgConnectionServices, ctElan=ctElan, ctElanCtLaneDbgSNMP=ctElanCtLaneDbgSNMP, ctElanDSStatus=ctElanDSStatus, ctBus=ctBus, ctElanSFDSPeerTable=ctElanSFDSPeerTable, ctElanHotStandbyStatus=ctElanHotStandbyStatus, ctLes=ctLes, ctElanSFDSPeerIP=ctElanSFDSPeerIP, ctElanConfDelPolicyWithElan=ctElanConfDelPolicyWithElan, CtLaneDebugLevel=CtLaneDebugLevel, ctElanConfRowStatus=ctElanConfRowStatus, ctElanUNIVersion=ctElanUNIVersion, ctElanSFDSPeerEntry=ctElanSFDSPeerEntry, ctElanLaneDbgDatabaseManagement=ctElanLaneDbgDatabaseManagement, ctLeClient=ctLeClient, ctElanSFDSPeerRowStatus=ctElanSFDSPeerRowStatus, ctElanLaneDbgLECS=ctElanLaneDbgLECS, ctElanConfEntry=ctElanConfEntry, ctElanConfGroup=ctElanConfGroup, ctElanConfHotStandbyIP=ctElanConfHotStandbyIP, ctElanConfDirectoryServicesIP=ctElanConfDirectoryServicesIP, ctElanConfPolicy=ctElanConfPolicy, ElanLocalIndex=ElanLocalIndex, ctElanConfTable=ctElanConfTable, ctElanCtLaneDbgLES=ctElanCtLaneDbgLES)

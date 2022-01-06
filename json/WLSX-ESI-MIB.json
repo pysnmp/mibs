@@ -1,0 +1,239 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "ARUBA-TC": [
+      "ArubaESIServerStatus",
+      "ArubaESIServerMode"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "MacAddress",
+      "TDomain",
+      "DisplayString",
+      "TAddress",
+      "PhysAddress"
+    ]
+  },
+  "wlsxESIMIB": {
+    "name": "wlsxESIMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxESIConfigGroup": {
+    "name": "wlsxESIConfigGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1",
+    "class": "objectidentity"
+  },
+  "wlsxESIServerTable": {
+    "name": "wlsxESIServerTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxESIServerEntry": {
+    "name": "wlsxESIServerEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-ESI-MIB",
+        "object": "esiServerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esiServerName": {
+    "name": "esiServerName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esiServerGroup": {
+    "name": "esiServerGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerMode": {
+    "name": "esiServerMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaESIServerMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerTrustedIP": {
+    "name": "esiServerTrustedIP",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerUntrustedIP": {
+    "name": "esiServerUntrustedIP",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerTrustedSlot": {
+    "name": "esiServerTrustedSlot",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerTrustedPort": {
+    "name": "esiServerTrustedPort",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerUntrustedSlot": {
+    "name": "esiServerUntrustedSlot",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerUntrustedPort": {
+    "name": "esiServerUntrustedPort",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerStatus": {
+    "name": "esiServerStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaESIServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerTrustedModule": {
+    "name": "esiServerTrustedModule",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esiServerUntrustedModule": {
+    "name": "esiServerUntrustedModule",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.10.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-ESI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLSX-ESI-MIB"
+  }
+}

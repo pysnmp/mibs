@@ -1,0 +1,729 @@
+{
+  "imports": {
+    "class": "imports",
+    "AVIAT-TEXTCONVENTION-MIB": [
+      "AviatModulationType"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ],
+    "STXN-GLOBALREGISTER-MIB": [
+      "aviatModules"
+    ]
+  },
+  "aviatModemModule": {
+    "name": "aviatModemModule",
+    "oid": "1.3.6.1.4.1.2509.9.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-09-20 11:30",
+        "description": "Added aviatModemStatusOper"
+      },
+      {
+        "revision": "2017-03-28 01:19",
+        "description": "Added aviatModemModulationStatsTable, aviatModemCurCapacityTx/Rx and aviatModemCurModulationTx/Rx. Fixed descriptions of module and previous revision."
+      },
+      {
+        "revision": "2015-04-28 15:30",
+        "description": "Add MLHC support"
+      },
+      {
+        "revision": "2014-09-19 15:05",
+        "description": "L1LA-Lite support added."
+      },
+      {
+        "revision": "2014-02-03 22:20",
+        "description": "Added aviatModemStatusMaxCapacity to show the maximum possible capacity of the radio link."
+      },
+      {
+        "revision": "2014-01-21 01:57",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "aviatModemConformance": {
+    "name": "aviatModemConformance",
+    "oid": "1.3.6.1.4.1.2509.9.3.1",
+    "class": "objectidentity"
+  },
+  "aviatModemGroups": {
+    "name": "aviatModemGroups",
+    "oid": "1.3.6.1.4.1.2509.9.3.1.1",
+    "class": "objectidentity"
+  },
+  "aviatModemCompliance": {
+    "name": "aviatModemCompliance",
+    "oid": "1.3.6.1.4.1.2509.9.3.1.2",
+    "class": "objectidentity"
+  },
+  "aviatModemMIBObjects": {
+    "name": "aviatModemMIBObjects",
+    "oid": "1.3.6.1.4.1.2509.9.3.2",
+    "class": "objectidentity"
+  },
+  "AviatModemCapacityType": {
+    "name": "AviatModemCapacityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "aviatModemTable": {
+    "name": "aviatModemTable",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatModemEntry": {
+    "name": "aviatModemEntry",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemBandwidth": {
+    "name": "aviatModemBandwidth",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemModulationType": {
+    "name": "aviatModemModulationType",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 0,
+          "acm256": 1,
+          "acm1024": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemModulationBase": {
+    "name": "aviatModemModulationBase",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemModulationMax": {
+    "name": "aviatModemModulationMax",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemLicensedModulationMask": {
+    "name": "aviatModemLicensedModulationMask",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemRegulatoryStandard": {
+    "name": "aviatModemRegulatoryStandard",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ansi": 2,
+          "etsi": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemProfileVersion": {
+    "name": "aviatModemProfileVersion",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemCapacity": {
+    "name": "aviatModemCapacity",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemL1laLiteEnabled": {
+    "name": "aviatModemL1laLiteEnabled",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemMLHCEnabled": {
+    "name": "aviatModemMLHCEnabled",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemCurCapacityTx": {
+    "name": "aviatModemCurCapacityTx",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModemCapacityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemCurCapacityRx": {
+    "name": "aviatModemCurCapacityRx",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModemCapacityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemCurModulationTx": {
+    "name": "aviatModemCurModulationTx",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemCurModulationRx": {
+    "name": "aviatModemCurModulationRx",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemModulationTable": {
+    "name": "aviatModemModulationTable",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatModemModulationEntry": {
+    "name": "aviatModemModulationEntry",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModulationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemModulationIndex": {
+    "name": "aviatModemModulationIndex",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatModemModulation": {
+    "name": "aviatModemModulation",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemXpicTable": {
+    "name": "aviatModemXpicTable",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatModemXpicEntry": {
+    "name": "aviatModemXpicEntry",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemXpicEnable": {
+    "name": "aviatModemXpicEnable",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatModemStatusTable": {
+    "name": "aviatModemStatusTable",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatModemStatusEntry": {
+    "name": "aviatModemStatusEntry",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemStatusMaxCapacity": {
+    "name": "aviatModemStatusMaxCapacity",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemStatusOper": {
+    "name": "aviatModemStatusOper",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "dormant": 5,
+          "notPresent": 6,
+          "lowerLayerDown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemModulationStatsTable": {
+    "name": "aviatModemModulationStatsTable",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatModemModulationStatsEntry": {
+    "name": "aviatModemModulationStatsEntry",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModStatsModulation",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemModStatsModulation": {
+    "name": "aviatModemModStatsModulation",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModulationType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatModemModStatsTxSecs": {
+    "name": "aviatModemModStatsTxSecs",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemModStatsTxPct": {
+    "name": "aviatModemModStatsTxPct",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemModStatsRxSecs": {
+    "name": "aviatModemModStatsRxSecs",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemModStatsRxPct": {
+    "name": "aviatModemModStatsRxPct",
+    "oid": "1.3.6.1.4.1.2509.9.3.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatModemObjectGroup": {
+    "name": "aviatModemObjectGroup",
+    "oid": "1.3.6.1.4.1.2509.9.3.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemBandwidth"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModulationType"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModulationBase"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModulationMax"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemLicensedModulationMask"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemRegulatoryStandard"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemProfileVersion"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemCapacity"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemL1laLiteEnabled"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModulation"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemStatusMaxCapacity"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemMLHCEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemXpicGroup": {
+    "name": "aviatModemXpicGroup",
+    "oid": "1.3.6.1.4.1.2509.9.3.1.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemXpicEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemModulationStatsGroup": {
+    "name": "aviatModemModulationStatsGroup",
+    "oid": "1.3.6.1.4.1.2509.9.3.1.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModStatsTxSecs"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModStatsTxPct"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModStatsRxSecs"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemModStatsRxPct"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemModulationCurrentGroup": {
+    "name": "aviatModemModulationCurrentGroup",
+    "oid": "1.3.6.1.4.1.2509.9.3.1.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemCurCapacityTx"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemCurCapacityRx"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemCurModulationTx"
+      },
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemCurModulationRx"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemStatusGroup": {
+    "name": "aviatModemStatusGroup",
+    "oid": "1.3.6.1.4.1.2509.9.3.1.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-MODEM-MIB",
+        "object": "aviatModemStatusOper"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatModemComplV1": {
+    "name": "aviatModemComplV1",
+    "oid": "1.3.6.1.4.1.2509.9.3.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aviatModemObjectGroup",
+        "module": "AVIAT-MODEM-MIB"
+      },
+      {
+        "object": "aviatModemXpicGroup",
+        "module": "AVIAT-MODEM-MIB"
+      },
+      {
+        "object": "aviatModemModulationStatsGroup",
+        "module": "AVIAT-MODEM-MIB"
+      },
+      {
+        "object": "aviatModemModulationCurrentGroup",
+        "module": "AVIAT-MODEM-MIB"
+      },
+      {
+        "object": "aviatModemStatusGroup",
+        "module": "AVIAT-MODEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-MODEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:56 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AVIAT-MODEM-MIB"
+  }
+}

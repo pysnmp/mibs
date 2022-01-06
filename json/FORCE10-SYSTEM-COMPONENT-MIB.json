@@ -1,0 +1,664 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORCE10-SMI": [
+      "f10Mgmt"
+    ],
+    "FORCE10-TC": [
+      "F10CamPartitionType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "f10SysComponentMib": {
+    "name": "f10SysComponentMib",
+    "oid": "1.3.6.1.4.1.6027.3.7",
+    "class": "moduleidentity"
+  },
+  "f10SysComponentObjects": {
+    "name": "f10SysComponentObjects",
+    "oid": "1.3.6.1.4.1.6027.3.7.1",
+    "class": "objectidentity"
+  },
+  "f10CamEntries": {
+    "name": "f10CamEntries",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1",
+    "class": "objectidentity"
+  },
+  "f10SysComponentTrap": {
+    "name": "f10SysComponentTrap",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2",
+    "class": "objectidentity"
+  },
+  "camUsageTable": {
+    "name": "camUsageTable",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsageEntry": {
+    "name": "camUsageEntry",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "camUsageSlot",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "camUsagePipeNum",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "camUsagePartId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "camUsageSlot": {
+    "name": "camUsageSlot",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsagePipeNum": {
+    "name": "camUsagePipeNum",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsagePartId": {
+    "name": "camUsagePartId",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10CamPartitionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsagePartDesc": {
+    "name": "camUsagePartDesc",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageTotal": {
+    "name": "camUsageTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageUsed": {
+    "name": "camUsageUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL2Table": {
+    "name": "camUsageL2Table",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsageL2Entry": {
+    "name": "camUsageL2Entry",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "camUsageL2Slot",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "camUsageL2PipeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "camUsageL2Slot": {
+    "name": "camUsageL2Slot",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsageL2PipeId": {
+    "name": "camUsageL2PipeId",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsageL2IngAclTotal": {
+    "name": "camUsageL2IngAclTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL2IngAclUsed": {
+    "name": "camUsageL2IngAclUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL2IngFibTotal": {
+    "name": "camUsageL2IngFibTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL2IngFibUsed": {
+    "name": "camUsageL2IngFibUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL2EgrAclTotal": {
+    "name": "camUsageL2EgrAclTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL2EgrAclUsed": {
+    "name": "camUsageL2EgrAclUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3Table": {
+    "name": "camUsageL3Table",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsageL3Entry": {
+    "name": "camUsageL3Entry",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "camUsageL3Slot",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "camUsageL3PipeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "camUsageL3Slot": {
+    "name": "camUsageL3Slot",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsageL3PipeId": {
+    "name": "camUsageL3PipeId",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "camUsageL3IngFibTotal": {
+    "name": "camUsageL3IngFibTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngFibUsed": {
+    "name": "camUsageL3IngFibUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngSysFlowTotal": {
+    "name": "camUsageL3IngSysFlowTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngSysFlowUsed": {
+    "name": "camUsageL3IngSysFlowUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngTrcListTotal": {
+    "name": "camUsageL3IngTrcListTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngTrcListUsed": {
+    "name": "camUsageL3IngTrcListUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngMcastFibTotal": {
+    "name": "camUsageL3IngMcastFibTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngMcastFibUsed": {
+    "name": "camUsageL3IngMcastFibUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngQosTotal": {
+    "name": "camUsageL3IngQosTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngQosUsed": {
+    "name": "camUsageL3IngQosUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngPbrTotal": {
+    "name": "camUsageL3IngPbrTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngPbrUsed": {
+    "name": "camUsageL3IngPbrUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngAclTotal": {
+    "name": "camUsageL3IngAclTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3IngAclUsed": {
+    "name": "camUsageL3IngAclUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3EgrAclTotal": {
+    "name": "camUsageL3EgrAclTotal",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "camUsageL3EgrAclUsed": {
+    "name": "camUsageL3EgrAclUsed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysCompAlarmMibNotifications": {
+    "name": "sysCompAlarmMibNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.0",
+    "class": "objectidentity"
+  },
+  "sysCompAlarmVariable": {
+    "name": "sysCompAlarmVariable",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.1",
+    "class": "objectidentity"
+  },
+  "sysCompAlarmLevel": {
+    "name": "sysCompAlarmLevel",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sysCompAlarmVarString": {
+    "name": "sysCompAlarmVarString",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sysCompSlotId": {
+    "name": "sysCompSlotId",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sysCompPortPipe": {
+    "name": "sysCompPortPipe",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sysCompCamPartId": {
+    "name": "sysCompCamPartId",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "camUsageThresholdExceed": {
+    "name": "camUsageThresholdExceed",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompAlarmLevel"
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompAlarmVarString"
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompSlotId"
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompPortPipe"
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompCamPartId"
+      }
+    ],
+    "status": "current"
+  },
+  "camIsFull": {
+    "name": "camIsFull",
+    "oid": "1.3.6.1.4.1.6027.3.7.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompAlarmLevel"
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompAlarmVarString"
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompSlotId"
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompPortPipe"
+      },
+      {
+        "module": "FORCE10-SYSTEM-COMPONENT-MIB",
+        "object": "sysCompCamPartId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-SYSTEM-COMPONENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FORCE10-SYSTEM-COMPONENT-MIB"
+  }
+}

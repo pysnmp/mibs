@@ -1,0 +1,943 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwBulkStat": {
+    "name": "hwBulkStat",
+    "oid": "1.3.6.1.4.1.2011.5.25.140",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-22 14:14",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "hwBulkStatMibObjects": {
+    "name": "hwBulkStatMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1",
+    "class": "objectidentity"
+  },
+  "hwBulkStatEnable": {
+    "name": "hwBulkStatEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBulkStatCollectCapability": {
+    "name": "hwBulkStatCollectCapability",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBulkStatDefineMaxFiles": {
+    "name": "hwBulkStatDefineMaxFiles",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBulkStatDefineFiles": {
+    "name": "hwBulkStatDefineFiles",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjects": {
+    "name": "hwBulkStatDefineObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBulkStatTrapEnable": {
+    "name": "hwBulkStatTrapEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileTableNextIndex": {
+    "name": "hwBulkStatDefineFileTableNextIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileTable": {
+    "name": "hwBulkStatDefineFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileEntry": {
+    "name": "hwBulkStatDefineFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatDefineFileIndex": {
+    "name": "hwBulkStatDefineFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileName": {
+    "name": "hwBulkStatDefineFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileStorage": {
+    "name": "hwBulkStatDefineFileStorage",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ephemeral": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ephemeral",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileFormat": {
+    "name": "hwBulkStatDefineFileFormat",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bulkASCII": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bulkASCII",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileCollectInterval": {
+    "name": "hwBulkStatDefineFileCollectInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 15,
+            "max": 15
+          },
+          {
+            "min": 30,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileTransferInterval": {
+    "name": "hwBulkStatDefineFileTransferInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 15,
+            "max": 15
+          },
+          {
+            "min": 30,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileStatus": {
+    "name": "hwBulkStatDefineFileStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "running": 2,
+          "stopped": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "stopped",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileTransferPrimaryURL": {
+    "name": "hwBulkStatDefineFileTransferPrimaryURL",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileTransferSecondaryURL": {
+    "name": "hwBulkStatDefineFileTransferSecondaryURL",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileTransferRetryTimes": {
+    "name": "hwBulkStatDefineFileTransferRetryTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileRemainTime": {
+    "name": "hwBulkStatDefineFileRemainTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileLastTransferSuccessTime": {
+    "name": "hwBulkStatDefineFileLastTransferSuccessTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileLastTransferFailTime": {
+    "name": "hwBulkStatDefineFileLastTransferFailTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileNextObjectIndex": {
+    "name": "hwBulkStatDefineFileNextObjectIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileRowStatus": {
+    "name": "hwBulkStatDefineFileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectTable": {
+    "name": "hwBulkStatDefineObjectTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectEntry": {
+    "name": "hwBulkStatDefineObjectEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectIndex": {
+    "name": "hwBulkStatDefineObjectIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectClass": {
+    "name": "hwBulkStatDefineObjectClass",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "column": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectOID": {
+    "name": "hwBulkStatDefineObjectOID",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectIndexBegin": {
+    "name": "hwBulkStatDefineObjectIndexBegin",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectInstanceNum": {
+    "name": "hwBulkStatDefineObjectInstanceNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectRowStatus": {
+    "name": "hwBulkStatDefineObjectRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBulkStatNotifications": {
+    "name": "hwBulkStatNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2",
+    "class": "objectidentity"
+  },
+  "hwBulkStatCollectIncomplete": {
+    "name": "hwBulkStatCollectIncomplete",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatCollectResume": {
+    "name": "hwBulkStatCollectResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatURLConnectionFail": {
+    "name": "hwBulkStatURLConnectionFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferPrimaryURL"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferSecondaryURL"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatURLConnectionResume": {
+    "name": "hwBulkStatURLConnectionResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferPrimaryURL"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferSecondaryURL"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatTransferFileDiscard": {
+    "name": "hwBulkStatTransferFileDiscard",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileLastTransferFailTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatConformance": {
+    "name": "hwBulkStatConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3",
+    "class": "objectidentity"
+  },
+  "hwBulkStatCompliances": {
+    "name": "hwBulkStatCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.1",
+    "class": "objectidentity"
+  },
+  "hwBulkStatCompliance": {
+    "name": "hwBulkStatCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwBulkStatObjectGroup",
+        "module": "HUAWEI-BULKSTAT-MIB"
+      },
+      {
+        "object": "hwBulkStatsDefineFileGroup",
+        "module": "HUAWEI-BULKSTAT-MIB"
+      },
+      {
+        "object": "hwBulkStatDefineObjectGroup",
+        "module": "HUAWEI-BULKSTAT-MIB"
+      },
+      {
+        "object": "hwBulkStatNotificationGroup",
+        "module": "HUAWEI-BULKSTAT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatGroups": {
+    "name": "hwBulkStatGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2",
+    "class": "objectidentity"
+  },
+  "hwBulkStatObjectGroup": {
+    "name": "hwBulkStatObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatEnable"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatCollectCapability"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineMaxFiles"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFiles"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjects"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatTrapEnable"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTableNextIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatsDefineFileGroup": {
+    "name": "hwBulkStatsDefineFileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileStorage"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileFormat"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileCollectInterval"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferInterval"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileStatus"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferPrimaryURL"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferSecondaryURL"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferRetryTimes"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileRemainTime"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileLastTransferSuccessTime"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileLastTransferFailTime"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileNextObjectIndex"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectGroup": {
+    "name": "hwBulkStatDefineObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectClass"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectOID"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectIndexBegin"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectInstanceNum"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBulkStatNotificationGroup": {
+    "name": "hwBulkStatNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatCollectIncomplete"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatCollectResume"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatURLConnectionFail"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatURLConnectionResume"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatTransferFileDiscard"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BULKSTAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BULKSTAT-MIB"
+  }
+}

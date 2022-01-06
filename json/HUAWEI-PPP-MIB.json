@@ -1,0 +1,371 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwPppMIB": {
+    "name": "hwPppMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.169",
+    "class": "moduleidentity"
+  },
+  "hwPppObjects": {
+    "name": "hwPppObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1",
+    "class": "objectidentity"
+  },
+  "hwPppConfigTable": {
+    "name": "hwPppConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPppConfigEntry": {
+    "name": "hwPppConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPppIfIndex": {
+    "name": "hwPppIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPppMruNegType": {
+    "name": "hwPppMruNegType",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppMpIfIndex": {
+    "name": "hwPppMpIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppAuthenticateTable": {
+    "name": "hwPppAuthenticateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPppAuthenticateEntry": {
+    "name": "hwPppAuthenticateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPppAuthenticateMode": {
+    "name": "hwPppAuthenticateMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chap": 1,
+          "pap": 2,
+          "chappap": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppAuthenticateChapUserName": {
+    "name": "hwPppAuthenticateChapUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppAuthenticateChapPwType": {
+    "name": "hwPppAuthenticateChapPwType",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "simple": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppAuthenticateChapPw": {
+    "name": "hwPppAuthenticateChapPw",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          },
+          {
+            "min": 24,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppAuthenticatePapUserName": {
+    "name": "hwPppAuthenticatePapUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppAuthenticatePapPwType": {
+    "name": "hwPppAuthenticatePapPwType",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "simple": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppAuthenticatePapPw": {
+    "name": "hwPppAuthenticatePapPw",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          },
+          {
+            "min": 24,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPppConformance": {
+    "name": "hwPppConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11",
+    "class": "objectidentity"
+  },
+  "hwPppCompliances": {
+    "name": "hwPppCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.1",
+    "class": "objectidentity"
+  },
+  "hwPppCompliance": {
+    "name": "hwPppCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwPppConfigObjectGroup",
+        "module": "HUAWEI-PPP-MIB"
+      },
+      {
+        "object": "hwPppAuthenticateObjectGroup",
+        "module": "HUAWEI-PPP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPppGroups": {
+    "name": "hwPppGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.2",
+    "class": "objectidentity"
+  },
+  "hwPppConfigObjectGroup": {
+    "name": "hwPppConfigObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppMruNegType"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppMpIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPppAuthenticateObjectGroup": {
+    "name": "hwPppAuthenticateObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateMode"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateChapUserName"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateChapPwType"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateChapPw"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticatePapUserName"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticatePapPwType"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticatePapPw"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PPP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-PPP-MIB"
+  }
+}

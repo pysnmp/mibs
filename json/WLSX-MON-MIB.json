@@ -1,0 +1,3122 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "ARUBA-TC": [
+      "ArubaEnableValue",
+      "ArubaStationType",
+      "ArubaHTMode",
+      "ArubaMonEncryptionType",
+      "ArubaHTRate",
+      "ArubaMonAuthAlgorithm",
+      "ArubaRogueApType",
+      "ArubaAPMatchMethod",
+      "ArubaMonEncryptionCipher",
+      "ArubaFrameType",
+      "ArubaPhyType",
+      "ArubaAPMatchType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "MacAddress",
+      "TDomain",
+      "DisplayString",
+      "TAddress",
+      "PhysAddress"
+    ]
+  },
+  "wlsxMonMIB": {
+    "name": "wlsxMonMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxMonStatsGroup": {
+    "name": "wlsxMonStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6",
+    "class": "objectidentity"
+  },
+  "wlsxMonInfoGroup": {
+    "name": "wlsxMonInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7",
+    "class": "objectidentity"
+  },
+  "wlsxMonAccessPointStatsGroup": {
+    "name": "wlsxMonAccessPointStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1",
+    "class": "objectidentity"
+  },
+  "wlsxMonStationStatsGroup": {
+    "name": "wlsxMonStationStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2",
+    "class": "objectidentity"
+  },
+  "wlsxMonAPStatsTable": {
+    "name": "wlsxMonAPStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonAPStatsEntry": {
+    "name": "wlsxMonAPStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monPhyAddress": {
+    "name": "monPhyAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "monRadioNumber": {
+    "name": "monRadioNumber",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "monitoredApBSSID": {
+    "name": "monitoredApBSSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "monPhyType": {
+    "name": "monPhyType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPhyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPCurrentChannel": {
+    "name": "monAPCurrentChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPNumClients": {
+    "name": "monAPNumClients",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPTxPkts": {
+    "name": "monAPTxPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPTxBytes": {
+    "name": "monAPTxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPRxPkts": {
+    "name": "monAPRxPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPRxBytes": {
+    "name": "monAPRxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPTxDeauthentications": {
+    "name": "monAPTxDeauthentications",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPRxDeauthentications": {
+    "name": "monAPRxDeauthentications",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPChannelThroughput": {
+    "name": "monAPChannelThroughput",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPFrameRetryRate": {
+    "name": "monAPFrameRetryRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPFrameLowSpeedRate": {
+    "name": "monAPFrameLowSpeedRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPFrameNonUnicastRate": {
+    "name": "monAPFrameNonUnicastRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPFrameFragmentationRate": {
+    "name": "monAPFrameFragmentationRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPFrameBandwidthRate": {
+    "name": "monAPFrameBandwidthRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPFrameRetryErrorRate": {
+    "name": "monAPFrameRetryErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "monAPChannelErrorRate": {
+    "name": "monAPChannelErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPESSID": {
+    "name": "monAPESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPRSSI": {
+    "name": "monAPRSSI",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPFrameReceiveErrorRate": {
+    "name": "monAPFrameReceiveErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonAPRateStatsTable": {
+    "name": "wlsxMonAPRateStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonAPRateStatsEntry": {
+    "name": "wlsxMonAPRateStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt1Mbps": {
+    "name": "monAPStatsTotPktsAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt1Mbps": {
+    "name": "monAPStatsTotBytesAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt2Mbps": {
+    "name": "monAPStatsTotPktsAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt2Mbps": {
+    "name": "monAPStatsTotBytesAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt5Mbps": {
+    "name": "monAPStatsTotPktsAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt5Mbps": {
+    "name": "monAPStatsTotBytesAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt11Mbps": {
+    "name": "monAPStatsTotPktsAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt11Mbps": {
+    "name": "monAPStatsTotBytesAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt6Mbps": {
+    "name": "monAPStatsTotPktsAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt6Mbps": {
+    "name": "monAPStatsTotBytesAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt12Mbps": {
+    "name": "monAPStatsTotPktsAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt12Mbps": {
+    "name": "monAPStatsTotBytesAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt18Mbps": {
+    "name": "monAPStatsTotPktsAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt18Mbps": {
+    "name": "monAPStatsTotBytesAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt24Mbps": {
+    "name": "monAPStatsTotPktsAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt24Mbps": {
+    "name": "monAPStatsTotBytesAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt36Mbps": {
+    "name": "monAPStatsTotPktsAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt36Mbps": {
+    "name": "monAPStatsTotBytesAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt48Mbps": {
+    "name": "monAPStatsTotPktsAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt48Mbps": {
+    "name": "monAPStatsTotBytesAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt54Mbps": {
+    "name": "monAPStatsTotPktsAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt54Mbps": {
+    "name": "monAPStatsTotBytesAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotPktsAt9Mbps": {
+    "name": "monAPStatsTotPktsAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotBytesAt9Mbps": {
+    "name": "monAPStatsTotBytesAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonAPDATypeStatsTable": {
+    "name": "wlsxMonAPDATypeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonAPDATypeStatsEntry": {
+    "name": "wlsxMonAPDATypeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monAPStatsTotDABroadcastPkts": {
+    "name": "monAPStatsTotDABroadcastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotDABroadcastBytes": {
+    "name": "monAPStatsTotDABroadcastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotDAMulticastPkts": {
+    "name": "monAPStatsTotDAMulticastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotDAMulticastBytes": {
+    "name": "monAPStatsTotDAMulticastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotDAUnicastPkts": {
+    "name": "monAPStatsTotDAUnicastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotDAUnicastBytes": {
+    "name": "monAPStatsTotDAUnicastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonAPFrameTypeStatsTable": {
+    "name": "wlsxMonAPFrameTypeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonAPFrameTypeStatsEntry": {
+    "name": "wlsxMonAPFrameTypeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monAPStatsTotMgmtPkts": {
+    "name": "monAPStatsTotMgmtPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotMgmtBytes": {
+    "name": "monAPStatsTotMgmtBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotCtrlPkts": {
+    "name": "monAPStatsTotCtrlPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotCtrlBytes": {
+    "name": "monAPStatsTotCtrlBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotDataPkts": {
+    "name": "monAPStatsTotDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotDataBytes": {
+    "name": "monAPStatsTotDataBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonAPPktSizeStatsTable": {
+    "name": "wlsxMonAPPktSizeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonAPPktSizeStatsEntry": {
+    "name": "wlsxMonAPPktSizeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monAPStatsPkts63Bytes": {
+    "name": "monAPStatsPkts63Bytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsPkts64To127": {
+    "name": "monAPStatsPkts64To127",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsPkts128To255": {
+    "name": "monAPStatsPkts128To255",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsPkts256To511": {
+    "name": "monAPStatsPkts256To511",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsPkts512To1023": {
+    "name": "monAPStatsPkts512To1023",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsPkts1024To1518": {
+    "name": "monAPStatsPkts1024To1518",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonAPHTRateStatsTable": {
+    "name": "wlsxMonAPHTRateStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonAPHTRateStatsEntry": {
+    "name": "wlsxMonAPHTRateStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monHTRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monHTRate": {
+    "name": "monHTRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHTRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotHTPkts": {
+    "name": "monAPStatsTotHTPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPStatsTotHTBytes": {
+    "name": "monAPStatsTotHTBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonStationStatsTable": {
+    "name": "wlsxMonStationStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonStationStatsEntry": {
+    "name": "wlsxMonStationStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monitoredStaPhyAddress": {
+    "name": "monitoredStaPhyAddress",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "monStaChannelNum": {
+    "name": "monStaChannelNum",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPkts": {
+    "name": "monStaTxPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytes": {
+    "name": "monStaTxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPkts": {
+    "name": "monStaRxPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytes": {
+    "name": "monStaRxBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBCastPkts": {
+    "name": "monStaTxBCastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBCastBytes": {
+    "name": "monStaTxBCastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxMCastPkts": {
+    "name": "monStaTxMCastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxMCastBytes": {
+    "name": "monStaTxMCastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaDataPkts": {
+    "name": "monStaDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaCtrlPkts": {
+    "name": "monStaCtrlPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaNumAssocRequests": {
+    "name": "monStaNumAssocRequests",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaNumAuthRequests": {
+    "name": "monStaNumAuthRequests",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxDeauthentications": {
+    "name": "monStaTxDeauthentications",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxDeauthentications": {
+    "name": "monStaRxDeauthentications",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaFrameRetryRate": {
+    "name": "monStaFrameRetryRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaFrameLowSpeedRate": {
+    "name": "monStaFrameLowSpeedRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaFrameNonUnicastRate": {
+    "name": "monStaFrameNonUnicastRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaFrameFragmentationRate": {
+    "name": "monStaFrameFragmentationRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaFrameBandwidthRate": {
+    "name": "monStaFrameBandwidthRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaFrameRetryErrorRate": {
+    "name": "monStaFrameRetryErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "monStaBSSID": {
+    "name": "monStaBSSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaESSID": {
+    "name": "monStaESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaPhyType": {
+    "name": "monStaPhyType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPhyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRSSI": {
+    "name": "monStaRSSI",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaFrameReceiveErrorRate": {
+    "name": "monStaFrameReceiveErrorRate",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonStaRateStatsTable": {
+    "name": "wlsxMonStaRateStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonStaRateStatsEntry": {
+    "name": "wlsxMonStaRateStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monStaTxPktsAt1Mbps": {
+    "name": "monStaTxPktsAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt1Mbps": {
+    "name": "monStaTxBytesAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt2Mbps": {
+    "name": "monStaTxPktsAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt2Mbps": {
+    "name": "monStaTxBytesAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt5Mbps": {
+    "name": "monStaTxPktsAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt5Mbps": {
+    "name": "monStaTxBytesAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt11Mbps": {
+    "name": "monStaTxPktsAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt11Mbps": {
+    "name": "monStaTxBytesAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt6Mbps": {
+    "name": "monStaTxPktsAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt6Mbps": {
+    "name": "monStaTxBytesAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt12Mbps": {
+    "name": "monStaTxPktsAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt12Mbps": {
+    "name": "monStaTxBytesAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt18Mbps": {
+    "name": "monStaTxPktsAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt18Mbps": {
+    "name": "monStaTxBytesAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt24Mbps": {
+    "name": "monStaTxPktsAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt24Mbps": {
+    "name": "monStaTxBytesAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt36Mbps": {
+    "name": "monStaTxPktsAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt36Mbps": {
+    "name": "monStaTxBytesAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt48Mbps": {
+    "name": "monStaTxPktsAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt48Mbps": {
+    "name": "monStaTxBytesAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt54Mbps": {
+    "name": "monStaTxPktsAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt54Mbps": {
+    "name": "monStaTxBytesAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt1Mbps": {
+    "name": "monStaRxPktsAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt1Mbps": {
+    "name": "monStaRxBytesAt1Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt2Mbps": {
+    "name": "monStaRxPktsAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt2Mbps": {
+    "name": "monStaRxBytesAt2Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt5Mbps": {
+    "name": "monStaRxPktsAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt5Mbps": {
+    "name": "monStaRxBytesAt5Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt11Mbps": {
+    "name": "monStaRxPktsAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt11Mbps": {
+    "name": "monStaRxBytesAt11Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt6Mbps": {
+    "name": "monStaRxPktsAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt6Mbps": {
+    "name": "monStaRxBytesAt6Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt12Mbps": {
+    "name": "monStaRxPktsAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt12Mbps": {
+    "name": "monStaRxBytesAt12Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt18Mbps": {
+    "name": "monStaRxPktsAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt18Mbps": {
+    "name": "monStaRxBytesAt18Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt24Mbps": {
+    "name": "monStaRxPktsAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt24Mbps": {
+    "name": "monStaRxBytesAt24Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt36Mbps": {
+    "name": "monStaRxPktsAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt36Mbps": {
+    "name": "monStaRxBytesAt36Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt48Mbps": {
+    "name": "monStaRxPktsAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt48Mbps": {
+    "name": "monStaRxBytesAt48Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt54Mbps": {
+    "name": "monStaRxPktsAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt54Mbps": {
+    "name": "monStaRxBytesAt54Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPktsAt9Mbps": {
+    "name": "monStaTxPktsAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxBytesAt9Mbps": {
+    "name": "monStaTxBytesAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPktsAt9Mbps": {
+    "name": "monStaRxPktsAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxBytesAt9Mbps": {
+    "name": "monStaRxBytesAt9Mbps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonStaDATypeStatsTable": {
+    "name": "wlsxMonStaDATypeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonStaDATypeStatsEntry": {
+    "name": "wlsxMonStaDATypeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monStaTxDABroadcastPkts": {
+    "name": "monStaTxDABroadcastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxDABroadcastBytes": {
+    "name": "monStaTxDABroadcastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxDAMulticastPkts": {
+    "name": "monStaTxDAMulticastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxDAMulticastBytes": {
+    "name": "monStaTxDAMulticastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxDAUnicastPkts": {
+    "name": "monStaTxDAUnicastPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxDAUnicastBytes": {
+    "name": "monStaTxDAUnicastBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonStaFrameTypeStatsTable": {
+    "name": "wlsxMonStaFrameTypeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonStaFrameTypeStatsEntry": {
+    "name": "wlsxMonStaFrameTypeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monStaTxMgmtPkts": {
+    "name": "monStaTxMgmtPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxMgmtBytes": {
+    "name": "monStaTxMgmtBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxCtrlPkts": {
+    "name": "monStaTxCtrlPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxCtrlBytes": {
+    "name": "monStaTxCtrlBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxDataPkts": {
+    "name": "monStaTxDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxDataBytes": {
+    "name": "monStaTxDataBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxMgmtPkts": {
+    "name": "monStaRxMgmtPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxMgmtBytes": {
+    "name": "monStaRxMgmtBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxCtrlPkts": {
+    "name": "monStaRxCtrlPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxCtrlBytes": {
+    "name": "monStaRxCtrlBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxDataPkts": {
+    "name": "monStaRxDataPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxDataBytes": {
+    "name": "monStaRxDataBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonStaPktSizeStatsTable": {
+    "name": "wlsxMonStaPktSizeStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonStaPktSizeStatsEntry": {
+    "name": "wlsxMonStaPktSizeStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monStaTxPkts63Bytes": {
+    "name": "monStaTxPkts63Bytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPkts64To127": {
+    "name": "monStaTxPkts64To127",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPkts128To255": {
+    "name": "monStaTxPkts128To255",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPkts256To511": {
+    "name": "monStaTxPkts256To511",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPkts512To1023": {
+    "name": "monStaTxPkts512To1023",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxPkts1024To1518": {
+    "name": "monStaTxPkts1024To1518",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPkts63Bytes": {
+    "name": "monStaRxPkts63Bytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPkts64To127": {
+    "name": "monStaRxPkts64To127",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPkts128To255": {
+    "name": "monStaRxPkts128To255",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPkts256To511": {
+    "name": "monStaRxPkts256To511",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPkts512To1023": {
+    "name": "monStaRxPkts512To1023",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxPkts1024To1518": {
+    "name": "monStaRxPkts1024To1518",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonAccessPointInfoGroup": {
+    "name": "wlsxMonAccessPointInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1",
+    "class": "objectidentity"
+  },
+  "wlsxMonStationInfoGroup": {
+    "name": "wlsxMonStationInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2",
+    "class": "objectidentity"
+  },
+  "wlsxMonAPInfoTable": {
+    "name": "wlsxMonAPInfoTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonAPInfoEntry": {
+    "name": "wlsxMonAPInfoEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredApBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monAPInfoPhyType": {
+    "name": "monAPInfoPhyType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPhyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoCurrentChannel": {
+    "name": "monAPInfoCurrentChannel",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoClassification": {
+    "name": "monAPInfoClassification",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaRogueApType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoESSID": {
+    "name": "monAPInfoESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoRSSI": {
+    "name": "monAPInfoRSSI",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoMonitorTime": {
+    "name": "monAPInfoMonitorTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoInactivityTime": {
+    "name": "monAPInfoInactivityTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoSnrSignalPkts": {
+    "name": "monAPInfoSnrSignalPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoSnrSampleTime": {
+    "name": "monAPInfoSnrSampleTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoStatus": {
+    "name": "monAPInfoStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoConfidence": {
+    "name": "monAPInfoConfidence",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoMatchType": {
+    "name": "monAPInfoMatchType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaAPMatchType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoMatchMethod": {
+    "name": "monAPInfoMatchMethod",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaAPMatchMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoHTMode": {
+    "name": "monAPInfoHTMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHTMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoEncryptionType": {
+    "name": "monAPInfoEncryptionType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaMonEncryptionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoWPAUnicastCipher": {
+    "name": "monAPInfoWPAUnicastCipher",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaMonEncryptionCipher",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoWPAAuthAlgorithm": {
+    "name": "monAPInfoWPAAuthAlgorithm",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaMonAuthAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monAPInfoIBSS": {
+    "name": "monAPInfoIBSS",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonStationInfoTable": {
+    "name": "wlsxMonStationInfoTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonStationInfoEntry": {
+    "name": "wlsxMonStationInfoEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monStaInfoChannelNum": {
+    "name": "monStaInfoChannelNum",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoBSSID": {
+    "name": "monStaInfoBSSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoESSID": {
+    "name": "monStaInfoESSID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoPhyType": {
+    "name": "monStaInfoPhyType",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaPhyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoRSSI": {
+    "name": "monStaInfoRSSI",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoClassification": {
+    "name": "monStaInfoClassification",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaStationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoMonitorTime": {
+    "name": "monStaInfoMonitorTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoInactivityTime": {
+    "name": "monStaInfoInactivityTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoSnrSignalPkts": {
+    "name": "monStaInfoSnrSignalPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoSnrSampleTime": {
+    "name": "monStaInfoSnrSampleTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoStatus": {
+    "name": "monStaInfoStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaInfoHTMode": {
+    "name": "monStaInfoHTMode",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.7.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHTMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonEventCountTable": {
+    "name": "wlsxMonEventCountTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonEventCountEntry": {
+    "name": "wlsxMonEventCountEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monEventID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monEventID": {
+    "name": "monEventID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monEventCount": {
+    "name": "monEventCount",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMonStationHTRateStatsTable": {
+    "name": "wlsxMonStationHTRateStatsTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMonStationHTRateStatsEntry": {
+    "name": "wlsxMonStationHTRateStatsEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monRadioNumber",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monitoredStaPhyAddress",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MON-MIB",
+        "object": "monHTRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monStaTxHTPkts": {
+    "name": "monStaTxHTPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaTxHTBytes": {
+    "name": "monStaTxHTBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxHTPkts": {
+    "name": "monStaRxHTPkts",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monStaRxHTBytes": {
+    "name": "monStaRxHTBytes",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.6.6.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLSX-MON-MIB"
+  }
+}

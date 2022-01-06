@@ -1,0 +1,141 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "CCallControlProfileIndexOrZero"
+    ],
+    "CISCO-MGC-MIB": [
+      "CMgcGroupIndexOrZero"
+    ],
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "CISCO-XGCP-MIB": [
+      "CXgcpRetryMethod"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoXgcpCapability": {
+    "name": "ciscoXgcpCapability",
+    "oid": "1.3.6.1.4.1.9.7.408",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-01 00:00",
+        "description": "Deprecated ciscoXgcpCapabilityV12R03AS5000 and added ciscoXgcpCapabilityV12R04AS5000."
+      },
+      {
+        "revision": "2006-02-14 00:00",
+        "description": "Added ciscoXgcpCapabilityV5R300 for MGX8880 release 5.3.00. Deprecated ciscoXgcpCapabilityV12R03 and added ciscoXgcpCapabilityV12R03AS5000."
+      },
+      {
+        "revision": "2005-06-24 00:00",
+        "description": "Added ciscoXgcpCapabilityV5R100 for MGX8850 release 5.1.00"
+      },
+      {
+        "revision": "2005-01-06 00:00",
+        "description": "Fixed syntax error in cXgcpMediaGwSupportedPackages of ciscoXgcpCapabilityV12R03."
+      },
+      {
+        "revision": "2004-10-04 00:00",
+        "description": "Added ciscoXgcpCapabilityV5R015 for MGX8850 release 5.0.15"
+      },
+      {
+        "revision": "2004-06-16 00:00",
+        "description": "Added ciscoXgcpCapabilityV12R03 for Cisco IOS 12.3."
+      },
+      {
+        "revision": "2002-12-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoXgcpCapabilityV4R010": {
+    "name": "ciscoXgcpCapabilityV4R010",
+    "oid": "1.3.6.1.4.1.9.7.408.1",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 Release 4.0",
+    "status": "current"
+  },
+  "ciscoXgcpCapabilityV12R03": {
+    "name": "ciscoXgcpCapabilityV12R03",
+    "oid": "1.3.6.1.4.1.9.7.408.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3",
+    "status": "deprecated"
+  },
+  "ciscoXgcpCapabilityV5R015": {
+    "name": "ciscoXgcpCapabilityV5R015",
+    "oid": "1.3.6.1.4.1.9.7.408.3",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8850 release 5.0.15",
+    "status": "current"
+  },
+  "ciscoXgcpCapabilityV5R100": {
+    "name": "ciscoXgcpCapabilityV5R100",
+    "oid": "1.3.6.1.4.1.9.7.408.4",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 release 5.1.00",
+    "status": "current"
+  },
+  "ciscoXgcpCapabilityV5R300": {
+    "name": "ciscoXgcpCapabilityV5R300",
+    "oid": "1.3.6.1.4.1.9.7.408.5",
+    "class": "agentcapabilities",
+    "productrelease": "MGX8880 release 5.3.00",
+    "status": "current"
+  },
+  "ciscoXgcpCapabilityV12R03AS5000": {
+    "name": "ciscoXgcpCapabilityV12R03AS5000",
+    "oid": "1.3.6.1.4.1.9.7.408.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3",
+    "status": "deprecated"
+  },
+  "ciscoXgcpCapabilityV12R04AS5000": {
+    "name": "ciscoXgcpCapabilityV12R04AS5000",
+    "oid": "1.3.6.1.4.1.9.7.408.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-XGCP-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-XGCP-CAPABILITY"
+  }
+}

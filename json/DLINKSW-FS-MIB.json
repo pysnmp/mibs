@@ -1,0 +1,536 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "dlinkSwFsMIB": {
+    "name": "dlinkSwFsMIB",
+    "oid": "1.3.6.1.4.1.171.14.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-17 00:00",
+        "description": "This is the first version of the MIB file."
+      }
+    ]
+  },
+  "dFsNotifications": {
+    "name": "dFsNotifications",
+    "oid": "1.3.6.1.4.1.171.14.18.0",
+    "class": "objectidentity"
+  },
+  "dFsObjects": {
+    "name": "dFsObjects",
+    "oid": "1.3.6.1.4.1.171.14.18.1",
+    "class": "objectidentity"
+  },
+  "dFsConformance": {
+    "name": "dFsConformance",
+    "oid": "1.3.6.1.4.1.171.14.18.2",
+    "class": "objectidentity"
+  },
+  "dFsBasicInfoCtrlStatus": {
+    "name": "dFsBasicInfoCtrlStatus",
+    "oid": "1.3.6.1.4.1.171.14.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dFsBasicOperation": {
+    "name": "dFsBasicOperation",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2",
+    "class": "objectidentity"
+  },
+  "dFsCurrentDirUrl": {
+    "name": "dFsCurrentDirUrl",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dFsCurrentDirectoryTable": {
+    "name": "dFsCurrentDirectoryTable",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dFsCurrentDirectoryEntry": {
+    "name": "dFsCurrentDirectoryEntry",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsCurrentDirItemName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dFsCurrentDirItemName": {
+    "name": "dFsCurrentDirItemName",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dFsCurrentDirItemMode": {
+    "name": "dFsCurrentDirItemMode",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "directory": 0,
+        "readable": 1,
+        "writeable": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dFsCurrentDirItemSize": {
+    "name": "dFsCurrentDirItemSize",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dFsCurrentDirItemTime": {
+    "name": "dFsCurrentDirItemTime",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dFsCurrentDirItemRawStatus": {
+    "name": "dFsCurrentDirItemRawStatus",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dFsFileRenameCtrl": {
+    "name": "dFsFileRenameCtrl",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.3",
+    "class": "objectidentity"
+  },
+  "dFsFileRenameSourceUrl": {
+    "name": "dFsFileRenameSourceUrl",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dFsFileRenameTargetUrl": {
+    "name": "dFsFileRenameTargetUrl",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dFsFileRenameActivity": {
+    "name": "dFsFileRenameActivity",
+    "oid": "1.3.6.1.4.1.171.14.18.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rename": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dFsDriveCtrl": {
+    "name": "dFsDriveCtrl",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3",
+    "class": "objectidentity"
+  },
+  "dFsDriveInfoTable": {
+    "name": "dFsDriveInfoTable",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dFsDriveInfoEntry": {
+    "name": "dFsDriveInfoEntry",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsDriveInfoUnitID",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsDriveInfoDriveID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dFsDriveInfoUnitID": {
+    "name": "dFsDriveInfoUnitID",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dFsDriveInfoDriveID": {
+    "name": "dFsDriveInfoDriveID",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 1,
+          "b": 2,
+          "c": 3,
+          "d": 4,
+          "e": 5,
+          "f": 6,
+          "g": 7,
+          "h": 8,
+          "i": 9,
+          "j": 10,
+          "k": 11,
+          "l": 12,
+          "m": 13,
+          "n": 14,
+          "o": 15,
+          "p": 16,
+          "q": 17,
+          "r": 18,
+          "s": 19,
+          "t": 20,
+          "u": 21,
+          "v": 22,
+          "w": 23,
+          "x": 24,
+          "y": 25,
+          "z": 26
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dFsDriveInfoMediaType": {
+    "name": "dFsDriveInfoMediaType",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dFsDriveInfoSize": {
+    "name": "dFsDriveInfoSize",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Mbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dFsDriveInfoFsType": {
+    "name": "dFsDriveInfoFsType",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "ffs": 1,
+          "fat16": 2,
+          "fat32": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dFsDriveInfoLabel": {
+    "name": "dFsDriveInfoLabel",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dFsDriveInfoFormatDrive": {
+    "name": "dFsDriveInfoFormatDrive",
+    "oid": "1.3.6.1.4.1.171.14.18.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "format": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dFsCompliances": {
+    "name": "dFsCompliances",
+    "oid": "1.3.6.1.4.1.171.14.18.2.1",
+    "class": "objectidentity"
+  },
+  "dFsGroups": {
+    "name": "dFsGroups",
+    "oid": "1.3.6.1.4.1.171.14.18.2.2",
+    "class": "objectidentity"
+  },
+  "dFsMIBCompliance": {
+    "name": "dFsMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.18.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dFsBasicGroup",
+        "module": "DLINKSW-FS-MIB"
+      },
+      {
+        "object": "dFsDriveGroup",
+        "module": "DLINKSW-FS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dFsBasicGroup": {
+    "name": "dFsBasicGroup",
+    "oid": "1.3.6.1.4.1.171.14.18.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsBasicInfoCtrlStatus"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsCurrentDirUrl"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsCurrentDirItemMode"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsCurrentDirItemSize"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsCurrentDirItemTime"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsCurrentDirItemRawStatus"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsFileRenameSourceUrl"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsFileRenameTargetUrl"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsFileRenameActivity"
+      }
+    ],
+    "status": "current"
+  },
+  "dFsDriveGroup": {
+    "name": "dFsDriveGroup",
+    "oid": "1.3.6.1.4.1.171.14.18.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsDriveInfoMediaType"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsDriveInfoSize"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsDriveInfoFsType"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsDriveInfoLabel"
+      },
+      {
+        "module": "DLINKSW-FS-MIB",
+        "object": "dFsDriveInfoFormatDrive"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-FS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-FS-MIB"
+  }
+}

@@ -1,0 +1,1456 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName",
+      "MplsVpnRouteDistinguisher"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoMvpnMIB": {
+    "name": "ciscoMvpnMIB",
+    "oid": "1.3.6.1.4.1.9.10.113",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-23 12:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ciscoMvpnNotifications": {
+    "name": "ciscoMvpnNotifications",
+    "oid": "1.3.6.1.4.1.9.10.113.0",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnObjects": {
+    "name": "ciscoMvpnObjects",
+    "oid": "1.3.6.1.4.1.9.10.113.1",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnScalars": {
+    "name": "ciscoMvpnScalars",
+    "oid": "1.3.6.1.4.1.9.10.113.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnGeneric": {
+    "name": "ciscoMvpnGeneric",
+    "oid": "1.3.6.1.4.1.9.10.113.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnConfig": {
+    "name": "ciscoMvpnConfig",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnProtocol": {
+    "name": "ciscoMvpnProtocol",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnConformance": {
+    "name": "ciscoMvpnConformance",
+    "oid": "1.3.6.1.4.1.9.10.113.2",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnMvrfNumber": {
+    "name": "ciscoMvpnMvrfNumber",
+    "oid": "1.3.6.1.4.1.9.10.113.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnNotificationEnable": {
+    "name": "ciscoMvpnNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoMvpnGenericTable": {
+    "name": "ciscoMvpnGenericTable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnGenericEntry": {
+    "name": "ciscoMvpnGenericEntry",
+    "oid": "1.3.6.1.4.1.9.10.113.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnGenOperStatusChange": {
+    "name": "ciscoMvpnGenOperStatusChange",
+    "oid": "1.3.6.1.4.1.9.10.113.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createdMvrf": 1,
+          "deletedMvrf": 2,
+          "modifiedMvrfDefMdtConfig": 3,
+          "modifiedMvrfDataMdtConfig": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "createdMvrf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnGenOperChangeTime": {
+    "name": "ciscoMvpnGenOperChangeTime",
+    "oid": "1.3.6.1.4.1.9.10.113.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnGenAssociatedInterfaces": {
+    "name": "ciscoMvpnGenAssociatedInterfaces",
+    "oid": "1.3.6.1.4.1.9.10.113.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnGenRowStatus": {
+    "name": "ciscoMvpnGenRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.113.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDefaultTable": {
+    "name": "ciscoMvpnMdtDefaultTable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDefaultEntry": {
+    "name": "ciscoMvpnMdtDefaultEntry",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMdtDefaultAddrType": {
+    "name": "ciscoMvpnMdtDefaultAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDefaultAddress": {
+    "name": "ciscoMvpnMdtDefaultAddress",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtEncapsType": {
+    "name": "ciscoMvpnMdtEncapsType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "greIp": 1,
+          "ipIp": 2,
+          "mpls": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDefaultRowStatus": {
+    "name": "ciscoMvpnMdtDefaultRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDataTable": {
+    "name": "ciscoMvpnMdtDataTable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDataEntry": {
+    "name": "ciscoMvpnMdtDataEntry",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMdtDataRangeAddrType": {
+    "name": "ciscoMvpnMdtDataRangeAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDataRangeAddress": {
+    "name": "ciscoMvpnMdtDataRangeAddress",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDataWildcardType": {
+    "name": "ciscoMvpnMdtDataWildcardType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDataWildcardBits": {
+    "name": "ciscoMvpnMdtDataWildcardBits",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDataThreshold": {
+    "name": "ciscoMvpnMdtDataThreshold",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMdtDataRowStatus": {
+    "name": "ciscoMvpnMdtDataRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.113.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMdtTable": {
+    "name": "ciscoMvpnMrouteMdtTable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMdtEntry": {
+    "name": "ciscoMvpnMrouteMdtEntry",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMrouteMvrfGrpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMrouteMvrfGroup",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMrouteMvrfSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMrouteMvrfSource",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMrouteUpDownStreamInfo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMvrfGrpAddrType": {
+    "name": "ciscoMvpnMrouteMvrfGrpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMvrfGroup": {
+    "name": "ciscoMvpnMrouteMvrfGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMvrfSrcAddrType": {
+    "name": "ciscoMvpnMrouteMvrfSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMvrfSource": {
+    "name": "ciscoMvpnMrouteMvrfSource",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteUpDownStreamInfo": {
+    "name": "ciscoMvpnMrouteUpDownStreamInfo",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upstream": 1,
+          "downstream": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMdtGrpAddrType": {
+    "name": "ciscoMvpnMrouteMdtGrpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMdtGroup": {
+    "name": "ciscoMvpnMrouteMdtGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnMrouteMdtType": {
+    "name": "ciscoMvpnMrouteMdtType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mdtDefault": 1,
+          "mdtData": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdateTable": {
+    "name": "ciscoMvpnBgpMdtUpdateTable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdateEntry": {
+    "name": "ciscoMvpnBgpMdtUpdateEntry",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdGrpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdateGroup",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdateSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdGrpAddrType": {
+    "name": "ciscoMvpnBgpMdtUpdGrpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdateGroup": {
+    "name": "ciscoMvpnBgpMdtUpdateGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdateRd": {
+    "name": "ciscoMvpnBgpMdtUpdateRd",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnRouteDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdSrcAddrType": {
+    "name": "ciscoMvpnBgpMdtUpdSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdateSource": {
+    "name": "ciscoMvpnBgpMdtUpdateSource",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdOrigAddrType": {
+    "name": "ciscoMvpnBgpMdtUpdOrigAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdateOriginator": {
+    "name": "ciscoMvpnBgpMdtUpdateOriginator",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdNhAddrType": {
+    "name": "ciscoMvpnBgpMdtUpdNhAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnBgpMdtUpdateNexthop": {
+    "name": "ciscoMvpnBgpMdtUpdateNexthop",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnRcvTable": {
+    "name": "ciscoMvpnMdtJnRcvTable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnRcvEntry": {
+    "name": "ciscoMvpnMdtJnRcvEntry",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnRcvGrpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnRcvGroup",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnRcvSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnRcvSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnRcvGrpAddrType": {
+    "name": "ciscoMvpnMdtJnRcvGrpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnRcvGroup": {
+    "name": "ciscoMvpnMdtJnRcvGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnRcvSrcAddrType": {
+    "name": "ciscoMvpnMdtJnRcvSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnRcvSource": {
+    "name": "ciscoMvpnMdtJnRcvSource",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnRcvUpTime": {
+    "name": "ciscoMvpnMdtJnRcvUpTime",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnRcvExpTime": {
+    "name": "ciscoMvpnMdtJnRcvExpTime",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendTable": {
+    "name": "ciscoMvpnMdtJnSendTable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendEntry": {
+    "name": "ciscoMvpnMdtJnSendEntry",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnSendGrpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnSendGroup",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnSendSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnSendSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendGrpAddrType": {
+    "name": "ciscoMvpnMdtJnSendGrpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendGroup": {
+    "name": "ciscoMvpnMdtJnSendGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendSrcAddrType": {
+    "name": "ciscoMvpnMdtJnSendSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendSource": {
+    "name": "ciscoMvpnMdtJnSendSource",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendMdtGrpAddrType": {
+    "name": "ciscoMvpnMdtJnSendMdtGrpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendMdtGroup": {
+    "name": "ciscoMvpnMdtJnSendMdtGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnMdtJnSendMdtRefCt": {
+    "name": "ciscoMvpnMdtJnSendMdtRefCt",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnTunnelTable": {
+    "name": "ciscoMvpnTunnelTable",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoMvpnTunnelEntry": {
+    "name": "ciscoMvpnTunnelEntry",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnTunnelName": {
+    "name": "ciscoMvpnTunnelName",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnTunnelMvrf": {
+    "name": "ciscoMvpnTunnelMvrf",
+    "oid": "1.3.6.1.4.1.9.10.113.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMvpnMvrfChange": {
+    "name": "ciscoMvpnMvrfChange",
+    "oid": "1.3.6.1.4.1.9.10.113.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnGenOperStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnGroups": {
+    "name": "ciscoMvpnGroups",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnCompliances": {
+    "name": "ciscoMvpnCompliances",
+    "oid": "1.3.6.1.4.1.9.10.113.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoMvpnModuleFullCompliance": {
+    "name": "ciscoMvpnModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.9.10.113.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoMvpnScalarGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBGenericGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMdtDefaultGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMdtDataGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMrouteMdtGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBBgpMdtUpdateGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMdtJnRcvGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMdtJnSendGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnTunnelGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnNotificationGroup",
+        "module": "CISCO-MVPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnModuleReadOnlyCompliance": {
+    "name": "ciscoMvpnModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.9.10.113.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoMvpnScalarGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBGenericGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMdtDefaultGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMdtDataGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMrouteMdtGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBBgpMdtUpdateGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMdtJnRcvGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnMIBMdtJnSendGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnTunnelGroup",
+        "module": "CISCO-MVPN-MIB"
+      },
+      {
+        "object": "ciscoMvpnNotificationGroup",
+        "module": "CISCO-MVPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnScalarGroup": {
+    "name": "ciscoMvpnScalarGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMvrfNumber"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMIBGenericGroup": {
+    "name": "ciscoMvpnMIBGenericGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnGenOperStatusChange"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnGenOperChangeTime"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnGenAssociatedInterfaces"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnGenRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMIBMdtDefaultGroup": {
+    "name": "ciscoMvpnMIBMdtDefaultGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDefaultAddrType"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDefaultAddress"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtEncapsType"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDefaultRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMIBMdtDataGroup": {
+    "name": "ciscoMvpnMIBMdtDataGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDataRangeAddrType"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDataRangeAddress"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDataWildcardType"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDataWildcardBits"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDataThreshold"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtDataRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMIBMrouteMdtGroup": {
+    "name": "ciscoMvpnMIBMrouteMdtGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMrouteMdtGrpAddrType"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMrouteMdtGroup"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMrouteMdtType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMIBBgpMdtUpdateGroup": {
+    "name": "ciscoMvpnMIBBgpMdtUpdateGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdateRd"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdOrigAddrType"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdateOriginator"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdNhAddrType"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnBgpMdtUpdateNexthop"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMIBMdtJnRcvGroup": {
+    "name": "ciscoMvpnMIBMdtJnRcvGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnRcvUpTime"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnRcvExpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnMIBMdtJnSendGroup": {
+    "name": "ciscoMvpnMIBMdtJnSendGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnSendMdtGrpAddrType"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnSendMdtGroup"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMdtJnSendMdtRefCt"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnTunnelGroup": {
+    "name": "ciscoMvpnTunnelGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnTunnelName"
+      },
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnTunnelMvrf"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMvpnNotificationGroup": {
+    "name": "ciscoMvpnNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.113.2.1.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-MVPN-MIB",
+        "object": "ciscoMvpnMvrfChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MVPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MVPN-MIB"
+  }
+}

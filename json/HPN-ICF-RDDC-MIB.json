@@ -1,0 +1,428 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifDescr"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfRddc": {
+    "name": "hpnicfRddc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-03 00:00",
+        "description": "Creation Date."
+      }
+    ]
+  },
+  "hpnicfRddcNotifications": {
+    "name": "hpnicfRddcNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.0",
+    "class": "objectidentity"
+  },
+  "hpnicfRddcObjects": {
+    "name": "hpnicfRddcObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1",
+    "class": "objectidentity"
+  },
+  "hpnicfRddcInfo": {
+    "name": "hpnicfRddcInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfRddcTrapObjects": {
+    "name": "hpnicfRddcTrapObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfRddcTable": {
+    "name": "hpnicfRddcTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRddcEntry": {
+    "name": "hpnicfRddcEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcGroupIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRddcGroupIdx": {
+    "name": "hpnicfRddcGroupIdx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfRddcGroupName": {
+    "name": "hpnicfRddcGroupName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcPreempTimeRemain": {
+    "name": "hpnicfRddcPreempTimeRemain",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcPreempTimeConfig": {
+    "name": "hpnicfRddcPreempTimeConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcHoldTimeRemain": {
+    "name": "hpnicfRddcHoldTimeRemain",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcHoldTimeConfig": {
+    "name": "hpnicfRddcHoldTimeConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcNodeTable": {
+    "name": "hpnicfRddcNodeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRddcNodeEntry": {
+    "name": "hpnicfRddcNodeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcNodeGroupIdx",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcNodeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRddcNodeGroupIdx": {
+    "name": "hpnicfRddcNodeGroupIdx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRddcNodeId": {
+    "name": "hpnicfRddcNodeId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRddcNodeBindType": {
+    "name": "hpnicfRddcNodeBindType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "chassis": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcNodeBindInfo": {
+    "name": "hpnicfRddcNodeBindInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcNodePriority": {
+    "name": "hpnicfRddcNodePriority",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcNodeWeight": {
+    "name": "hpnicfRddcNodeWeight",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcNodeStatus": {
+    "name": "hpnicfRddcNodeStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "master": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRddcNodeInfo": {
+    "name": "hpnicfRddcNodeInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfRddcSwitchReason": {
+    "name": "hpnicfRddcSwitchReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfRddcSwitchoverTrap": {
+    "name": "hpnicfRddcSwitchoverTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcGroupIdx"
+      },
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcGroupName"
+      },
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcNodeInfo"
+      },
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcSwitchReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRddcFailIfRecoverTrap": {
+    "name": "hpnicfRddcFailIfRecoverTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcGroupIdx"
+      },
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcGroupName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRddcFailIfGenerateTrap": {
+    "name": "hpnicfRddcFailIfGenerateTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.151.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcGroupIdx"
+      },
+      {
+        "module": "HPN-ICF-RDDC-MIB",
+        "object": "hpnicfRddcGroupName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-RDDC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-RDDC-MIB"
+  }
+}

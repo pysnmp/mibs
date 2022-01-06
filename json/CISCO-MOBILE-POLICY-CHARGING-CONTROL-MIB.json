@@ -1,0 +1,2170 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "TimeIntervalSec"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoMobilePolicyChargingControlMIB": {
+    "name": "ciscoMobilePolicyChargingControlMIB",
+    "oid": "1.3.6.1.4.1.9.9.690",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-07-10 00:00",
+        "description": "Added following groups: cmpccStatisticsExtGroup cmpccPolicyPreloadNotifGroup cmpccPreloadNotifControlGroup cmpccPolicyMismatchGroup cmpccRollbackFailedGroup. Added following compliance statement: cMobilePolicyChargingControlMIBCompliancesRev1. Deprecated following compliance statement: cMobilePolicyChargingControlMIBCompliance."
+      },
+      {
+        "revision": "2009-01-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMobilePolicyChargingControlMIBNotifs": {
+    "name": "ciscoMobilePolicyChargingControlMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.690.0",
+    "class": "objectidentity"
+  },
+  "ciscoMobilePolicyChargingControlMIBObjects": {
+    "name": "ciscoMobilePolicyChargingControlMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.690.1",
+    "class": "objectidentity"
+  },
+  "cMobilePolicyChargingControlMIBConform": {
+    "name": "cMobilePolicyChargingControlMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.690.2",
+    "class": "objectidentity"
+  },
+  "cMobilePolicyChargingControlMIBCompliances": {
+    "name": "cMobilePolicyChargingControlMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.690.2.1",
+    "class": "objectidentity"
+  },
+  "cmpccConfig": {
+    "name": "cmpccConfig",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1",
+    "class": "objectidentity"
+  },
+  "cmpccStats": {
+    "name": "cmpccStats",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2",
+    "class": "objectidentity"
+  },
+  "cmpccNotifConfig": {
+    "name": "cmpccNotifConfig",
+    "oid": "1.3.6.1.4.1.9.9.690.1.3",
+    "class": "objectidentity"
+  },
+  "cmpccPreloadErrorNotifEnabled": {
+    "name": "cmpccPreloadErrorNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.690.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmpccPreloadRollbackFailedNotifEnabled": {
+    "name": "cmpccPreloadRollbackFailedNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.690.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmpccGlobalStatsTable": {
+    "name": "cmpccGlobalStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpccGlobalStatsTableEntry": {
+    "name": "cmpccGlobalStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccgsTotalSessions": {
+    "name": "cmpccgsTotalSessions",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsCCRInitialSent": {
+    "name": "cmpccgsCCRInitialSent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsCCRUpdateSent": {
+    "name": "cmpccgsCCRUpdateSent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsCCRFinalSent": {
+    "name": "cmpccgsCCRFinalSent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsCCARecd": {
+    "name": "cmpccgsCCARecd",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsRARRecd": {
+    "name": "cmpccgsRARRecd",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsRAASent": {
+    "name": "cmpccgsRAASent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsCCRFailures": {
+    "name": "cmpccgsCCRFailures",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsMessageTypeInvalid": {
+    "name": "cmpccgsMessageTypeInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsDuplicateRequests": {
+    "name": "cmpccgsDuplicateRequests",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsCCAErrors": {
+    "name": "cmpccgsCCAErrors",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsRAAFailures": {
+    "name": "cmpccgsRAAFailures",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsRARErrors": {
+    "name": "cmpccgsRARErrors",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsReqTypeInvalid": {
+    "name": "cmpccgsReqTypeInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsReqNumInvalid": {
+    "name": "cmpccgsReqNumInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsReqStatusInvalid": {
+    "name": "cmpccgsReqStatusInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccgsSessionIDInvalid": {
+    "name": "cmpccgsSessionIDInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccPCRFMethodListStatsTable": {
+    "name": "cmpccPCRFMethodListStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpccPCRFMethodListStatsTableEntry": {
+    "name": "cmpccPCRFMethodListStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsMethodList",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccpmlsMethodList": {
+    "name": "cmpccpmlsMethodList",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpccpmlsCCRInitialSent": {
+    "name": "cmpccpmlsCCRInitialSent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsCCRUpdateSent": {
+    "name": "cmpccpmlsCCRUpdateSent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsCCRFinalSent": {
+    "name": "cmpccpmlsCCRFinalSent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsCCARecd": {
+    "name": "cmpccpmlsCCARecd",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsRARRecd": {
+    "name": "cmpccpmlsRARRecd",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsRAASent": {
+    "name": "cmpccpmlsRAASent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsPCRFReboots": {
+    "name": "cmpccpmlsPCRFReboots",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsCCRFailures": {
+    "name": "cmpccpmlsCCRFailures",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsMessageTypeInvalid": {
+    "name": "cmpccpmlsMessageTypeInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsDuplicateRequests": {
+    "name": "cmpccpmlsDuplicateRequests",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsCCAErrors": {
+    "name": "cmpccpmlsCCAErrors",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsRAAFailures": {
+    "name": "cmpccpmlsRAAFailures",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsRARErrors": {
+    "name": "cmpccpmlsRARErrors",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsReqTypeInvalid": {
+    "name": "cmpccpmlsReqTypeInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsReqNumInvalid": {
+    "name": "cmpccpmlsReqNumInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsReqStatusInvalid": {
+    "name": "cmpccpmlsReqStatusInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccpmlsSessionIDInvalid": {
+    "name": "cmpccpmlsSessionIDInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccPolicyPreloadStatsTable": {
+    "name": "cmpccPolicyPreloadStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpccPolicyPreloadStatsTableEntry": {
+    "name": "cmpccPolicyPreloadStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccppsPolicyPreloadStatus": {
+    "name": "cmpccppsPolicyPreloadStatus",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preloadNotInitiated": 1,
+          "preloadInProgress": 2,
+          "preloadFailed": 3,
+          "preloadTimeout": 4,
+          "preloadComplete": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsPCEFInit": {
+    "name": "cmpccppsPCEFInit",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsPCRFInit": {
+    "name": "cmpccppsPCRFInit",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsReq": {
+    "name": "cmpccppsReq",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsRes": {
+    "name": "cmpccppsRes",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsGlobalPolicyPush": {
+    "name": "cmpccppsGlobalPolicyPush",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsGlobalPolicyPushAck": {
+    "name": "cmpccppsGlobalPolicyPushAck",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsErrorState": {
+    "name": "cmpccppsErrorState",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preloadInconsistentData": 1,
+          "preloadAVPMissing": 2,
+          "preloadEnforceFailure": 3,
+          "preloadWrongOrderFailure": 4,
+          "preloadStaticConfigConflict": 5,
+          "preloadNoError": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsPreloadDataInconsistent": {
+    "name": "cmpccppsPreloadDataInconsistent",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsAVPMissing": {
+    "name": "cmpccppsAVPMissing",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsWrongOrderFailures": {
+    "name": "cmpccppsWrongOrderFailures",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsEnforceFailures": {
+    "name": "cmpccppsEnforceFailures",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsStaticConfigConflicts": {
+    "name": "cmpccppsStaticConfigConflicts",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsCCRFailures": {
+    "name": "cmpccppsCCRFailures",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsMessageTypeInvalid": {
+    "name": "cmpccppsMessageTypeInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsCCAErrors": {
+    "name": "cmpccppsCCAErrors",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsRAAFailed": {
+    "name": "cmpccppsRAAFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsRARErrors": {
+    "name": "cmpccppsRARErrors",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsReqTypeInvalid": {
+    "name": "cmpccppsReqTypeInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsReqNumInvalid": {
+    "name": "cmpccppsReqNumInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsReqStatusInvalid": {
+    "name": "cmpccppsReqStatusInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsSessionIDInvalid": {
+    "name": "cmpccppsSessionIDInvalid",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsTimeoutErrors": {
+    "name": "cmpccppsTimeoutErrors",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccPolicyPreloadExtStatsTable": {
+    "name": "cmpccPolicyPreloadExtStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpccPolicyPreloadExtStatsTableEntry": {
+    "name": "cmpccPolicyPreloadExtStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccppsServiceContentsInserted": {
+    "name": "cmpccppsServiceContentsInserted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsServiceContentsDeleted": {
+    "name": "cmpccppsServiceContentsDeleted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsServiceContentsRolledback": {
+    "name": "cmpccppsServiceContentsRolledback",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsServiceContentsInsertFailed": {
+    "name": "cmpccppsServiceContentsInsertFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsServiceContentsDeleteFailed": {
+    "name": "cmpccppsServiceContentsDeleteFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsServiceContentsRollbackFailed": {
+    "name": "cmpccppsServiceContentsRollbackFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsAcctPolicyMapsInserted": {
+    "name": "cmpccppsAcctPolicyMapsInserted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsAcctPolicyMapsDeleted": {
+    "name": "cmpccppsAcctPolicyMapsDeleted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsAcctPolicyMapsRolledback": {
+    "name": "cmpccppsAcctPolicyMapsRolledback",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsAcctPolicyMapsInsertFailed": {
+    "name": "cmpccppsAcctPolicyMapsInsertFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsAcctPolicyMapsDeleteFailed": {
+    "name": "cmpccppsAcctPolicyMapsDeleteFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsAcctPolicyMapsRollbackFailed": {
+    "name": "cmpccppsAcctPolicyMapsRollbackFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingServicesInserted": {
+    "name": "cmpccppsBillingServicesInserted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingServicesDeleted": {
+    "name": "cmpccppsBillingServicesDeleted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingServicesRolledback": {
+    "name": "cmpccppsBillingServicesRolledback",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingServicesInsertFailed": {
+    "name": "cmpccppsBillingServicesInsertFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingServicesDeleteFailed": {
+    "name": "cmpccppsBillingServicesDeleteFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingServicesRollbackFailed": {
+    "name": "cmpccppsBillingServicesRollbackFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsContentPoliciesInserted": {
+    "name": "cmpccppsContentPoliciesInserted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsContentPoliciesDeleted": {
+    "name": "cmpccppsContentPoliciesDeleted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsContentPoliciesRolledback": {
+    "name": "cmpccppsContentPoliciesRolledback",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsContentPoliciesInsertFailed": {
+    "name": "cmpccppsContentPoliciesInsertFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsContentPoliciesDeleteFailed": {
+    "name": "cmpccppsContentPoliciesDeleteFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsContentPoliciesRollbackFailed": {
+    "name": "cmpccppsContentPoliciesRollbackFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingPlansInserted": {
+    "name": "cmpccppsBillingPlansInserted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingPlansDeleted": {
+    "name": "cmpccppsBillingPlansDeleted",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingPlansRolledback": {
+    "name": "cmpccppsBillingPlansRolledback",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingPlansInsertFailed": {
+    "name": "cmpccppsBillingPlansInsertFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingPlansDeleteFailed": {
+    "name": "cmpccppsBillingPlansDeleteFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccppsBillingPlansRollbackFailed": {
+    "name": "cmpccppsBillingPlansRollbackFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccPolicyMismatch": {
+    "name": "cmpccPolicyMismatch",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccRollbackFailedReason": {
+    "name": "cmpccRollbackFailedReason",
+    "oid": "1.3.6.1.4.1.9.9.690.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "acctPolicyMap": 2,
+          "contentPolicy": 3,
+          "serviceContent": 4,
+          "billingService": 5,
+          "billingPlan": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmpccProfileConfigTable": {
+    "name": "cmpccProfileConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpccProfileConfigTableEntry": {
+    "name": "cmpccProfileConfigTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpcProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpcMethodList",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccpcProfileName": {
+    "name": "cmpccpcProfileName",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpccpcMethodList": {
+    "name": "cmpccpcMethodList",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpccpcDestinationRealm": {
+    "name": "cmpccpcDestinationRealm",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmpccpcRowStatus": {
+    "name": "cmpccpcRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmpccPreloadEnable": {
+    "name": "cmpccPreloadEnable",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmpccProfileDefault": {
+    "name": "cmpccProfileDefault",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmpccMethodListPreload": {
+    "name": "cmpccMethodListPreload",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmpccDestinationRealmString": {
+    "name": "cmpccDestinationRealmString",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmpccPreloadTimeout": {
+    "name": "cmpccPreloadTimeout",
+    "oid": "1.3.6.1.4.1.9.9.690.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 900,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoMobilePolicyChargingControlPreloadError": {
+    "name": "ciscoMobilePolicyChargingControlPreloadError",
+    "oid": "1.3.6.1.4.1.9.9.690.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsErrorState"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsPreloadDataInconsistent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsAVPMissing"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsEnforceFailures"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsStaticConfigConflicts"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsWrongOrderFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccPreloadRollbackFailed": {
+    "name": "cmpccPreloadRollbackFailed",
+    "oid": "1.3.6.1.4.1.9.9.690.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccRollbackFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cMobilePolicyChargingControlMIBGroups": {
+    "name": "cMobilePolicyChargingControlMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2",
+    "class": "objectidentity"
+  },
+  "cMobilePolicyChargingControlMIBCompliance": {
+    "name": "cMobilePolicyChargingControlMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.690.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cMobilePolicyChargingControlGlobalStatsGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlNotifGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlConfigGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlPCRFMethodListStatsGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlPolicyPreloadStatsGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlNotifEnableGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cMobilePolicyChargingControlMIBCompliancesRev1": {
+    "name": "cMobilePolicyChargingControlMIBCompliancesRev1",
+    "oid": "1.3.6.1.4.1.9.9.690.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cMobilePolicyChargingControlConfigGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlGlobalStatsGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlPCRFMethodListStatsGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlPolicyPreloadStatsGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlNotifGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cMobilePolicyChargingControlNotifEnableGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cmpccStatisticsExtGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cmpccPolicyPreloadNotifGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cmpccPreloadNotifControlGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cmpccPolicyMismatchGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      },
+      {
+        "object": "cmpccRollbackFailedGroup",
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cMobilePolicyChargingControlConfigGroup": {
+    "name": "cMobilePolicyChargingControlConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccPreloadEnable"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccProfileDefault"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccMethodListPreload"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccPreloadTimeout"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpcRowStatus"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccDestinationRealmString"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpcDestinationRealm"
+      }
+    ],
+    "status": "current"
+  },
+  "cMobilePolicyChargingControlGlobalStatsGroup": {
+    "name": "cMobilePolicyChargingControlGlobalStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsTotalSessions"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsCCRInitialSent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsCCRUpdateSent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsCCRFinalSent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsCCARecd"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsRARRecd"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsRAASent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsCCRFailures"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsRAAFailures"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsReqTypeInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsReqNumInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsReqStatusInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsMessageTypeInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsDuplicateRequests"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsCCAErrors"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsRARErrors"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccgsSessionIDInvalid"
+      }
+    ],
+    "status": "current"
+  },
+  "cMobilePolicyChargingControlPCRFMethodListStatsGroup": {
+    "name": "cMobilePolicyChargingControlPCRFMethodListStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsCCRInitialSent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsCCRUpdateSent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsCCRFinalSent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsCCARecd"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsRARRecd"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsRAASent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsCCRFailures"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsRAAFailures"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsReqTypeInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsReqNumInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsReqStatusInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsPCRFReboots"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsMessageTypeInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsDuplicateRequests"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsCCAErrors"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsRARErrors"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccpmlsSessionIDInvalid"
+      }
+    ],
+    "status": "current"
+  },
+  "cMobilePolicyChargingControlPolicyPreloadStatsGroup": {
+    "name": "cMobilePolicyChargingControlPolicyPreloadStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsPCEFInit"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsPCRFInit"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsReq"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsRes"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsGlobalPolicyPush"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsGlobalPolicyPushAck"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsPreloadDataInconsistent"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsAVPMissing"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsWrongOrderFailures"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsEnforceFailures"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsStaticConfigConflicts"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsCCRFailures"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsRAAFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsReqTypeInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsReqNumInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsReqStatusInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsErrorState"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsPolicyPreloadStatus"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsMessageTypeInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsCCAErrors"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsRARErrors"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsSessionIDInvalid"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsTimeoutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cMobilePolicyChargingControlNotifGroup": {
+    "name": "cMobilePolicyChargingControlNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "ciscoMobilePolicyChargingControlPreloadError"
+      }
+    ],
+    "status": "current"
+  },
+  "cMobilePolicyChargingControlNotifEnableGroup": {
+    "name": "cMobilePolicyChargingControlNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccPreloadErrorNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccStatisticsExtGroup": {
+    "name": "cmpccStatisticsExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingServicesInserted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingServicesDeleted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingServicesRolledback"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingServicesInsertFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingServicesDeleteFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingServicesRollbackFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsContentPoliciesInserted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsContentPoliciesDeleted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsContentPoliciesRolledback"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsContentPoliciesInsertFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsContentPoliciesDeleteFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsContentPoliciesRollbackFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingPlansInserted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingPlansDeleted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingPlansRolledback"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingPlansInsertFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingPlansDeleteFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsBillingPlansRollbackFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsServiceContentsInserted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsServiceContentsDeleted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsServiceContentsRolledback"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsServiceContentsInsertFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsServiceContentsDeleteFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsServiceContentsRollbackFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsAcctPolicyMapsInserted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsAcctPolicyMapsDeleted"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsAcctPolicyMapsRolledback"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsAcctPolicyMapsInsertFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsAcctPolicyMapsDeleteFailed"
+      },
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccppsAcctPolicyMapsRollbackFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccPolicyPreloadNotifGroup": {
+    "name": "cmpccPolicyPreloadNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccPreloadRollbackFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccPreloadNotifControlGroup": {
+    "name": "cmpccPreloadNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccPreloadRollbackFailedNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccPolicyMismatchGroup": {
+    "name": "cmpccPolicyMismatchGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccPolicyMismatch"
+      }
+    ],
+    "status": "current"
+  },
+  "cmpccRollbackFailedGroup": {
+    "name": "cmpccRollbackFailedGroup",
+    "oid": "1.3.6.1.4.1.9.9.690.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+        "object": "cmpccRollbackFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MOBILE-POLICY-CHARGING-CONTROL-MIB"
+  }
+}

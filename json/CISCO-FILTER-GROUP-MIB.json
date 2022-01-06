@@ -1,0 +1,905 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoIpProtocol"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoFilterGroupMIB": {
+    "name": "ciscoFilterGroupMIB",
+    "oid": "1.3.6.1.4.1.9.9.474",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFilterGroupMIBNotifs": {
+    "name": "ciscoFilterGroupMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.474.0",
+    "class": "objectidentity"
+  },
+  "ciscoFilterGroupMIBObjects": {
+    "name": "ciscoFilterGroupMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.474.1",
+    "class": "objectidentity"
+  },
+  "ciscoFilterGroupMIBConform": {
+    "name": "ciscoFilterGroupMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.474.2",
+    "class": "objectidentity"
+  },
+  "cfgFilterConfig": {
+    "name": "cfgFilterConfig",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1",
+    "class": "objectidentity"
+  },
+  "CfgFilterGroupName": {
+    "name": "CfgFilterGroupName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cfgFilterGroupTable": {
+    "name": "cfgFilterGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterGroupEntry": {
+    "name": "cfgFilterGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfgFilterGroupName": {
+    "name": "cfgFilterGroupName",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterGroupType": {
+    "name": "cfgFilterGroupType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "network": 1,
+          "ipProtocol": 2,
+          "ipService": 3,
+          "icmp": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterGroupDescription": {
+    "name": "cfgFilterGroupDescription",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterGroupStorageType": {
+    "name": "cfgFilterGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterGroupRowStatus": {
+    "name": "cfgFilterGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterNetworkGroupTable": {
+    "name": "cfgFilterNetworkGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterNetworkGroupEntry": {
+    "name": "cfgFilterNetworkGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNetworkGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfgFilterNetworkGroupIndex": {
+    "name": "cfgFilterNetworkGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterNetworkAddressType": {
+    "name": "cfgFilterNetworkAddressType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterNetworkAddress": {
+    "name": "cfgFilterNetworkAddress",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterNetworkMask": {
+    "name": "cfgFilterNetworkMask",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ffffffff",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterNetworkStorageType": {
+    "name": "cfgFilterNetworkStorageType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterNetworkRowStatus": {
+    "name": "cfgFilterNetworkRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterIpProtocolGroupTable": {
+    "name": "cfgFilterIpProtocolGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterIpProtocolGroupEntry": {
+    "name": "cfgFilterIpProtocolGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpProtocolGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfgFilterIpProtocolGroupIndex": {
+    "name": "cfgFilterIpProtocolGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterIpProtocolNumber": {
+    "name": "cfgFilterIpProtocolNumber",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterIpProtocolStorageType": {
+    "name": "cfgFilterIpProtocolStorageType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterIpProtocolGroupRowStatus": {
+    "name": "cfgFilterIpProtocolGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterIpServiceGroupTable": {
+    "name": "cfgFilterIpServiceGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterIpServiceGroupEntry": {
+    "name": "cfgFilterIpServiceGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpServiceGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfgFilterIpServiceGroupIndex": {
+    "name": "cfgFilterIpServiceGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterIpServiceType": {
+    "name": "cfgFilterIpServiceType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "udp": 2,
+          "tcpUdp": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterIpServicePortLow": {
+    "name": "cfgFilterIpServicePortLow",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterIpServicePortHigh": {
+    "name": "cfgFilterIpServicePortHigh",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterIpServiceStorageType": {
+    "name": "cfgFilterIpServiceStorageType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterIpServiceGroupRowStatus": {
+    "name": "cfgFilterIpServiceGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterICMPGroupTable": {
+    "name": "cfgFilterICMPGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterICMPGroupEntry": {
+    "name": "cfgFilterICMPGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterICMPGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfgFilterICMPGroupIndex": {
+    "name": "cfgFilterICMPGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterICMPType": {
+    "name": "cfgFilterICMPType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterICMPCode": {
+    "name": "cfgFilterICMPCode",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterICMPStorageType": {
+    "name": "cfgFilterICMPStorageType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterICMPGroupRowStatus": {
+    "name": "cfgFilterICMPGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterNestedGroupTable": {
+    "name": "cfgFilterNestedGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterNestedGroupEntry": {
+    "name": "cfgFilterNestedGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterParentGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNestedGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfgFilterParentGroupName": {
+    "name": "cfgFilterParentGroupName",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterNestedGroupName": {
+    "name": "cfgFilterNestedGroupName",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfgFilterGroupName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgFilterNestedStorageType": {
+    "name": "cfgFilterNestedStorageType",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfgFilterNestedGroupRowStatus": {
+    "name": "cfgFilterNestedGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.474.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFilterGroupMIBCompl": {
+    "name": "ciscoFilterGroupMIBCompl",
+    "oid": "1.3.6.1.4.1.9.9.474.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoFilterGroupMIBGroups": {
+    "name": "ciscoFilterGroupMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.474.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoFilterGroupConfigMIBCompliance": {
+    "name": "ciscoFilterGroupConfigMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.474.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFilterObjectGroup",
+        "module": "CISCO-FILTER-GROUP-MIB"
+      },
+      {
+        "object": "ciscoFilterNetworkGroup",
+        "module": "CISCO-FILTER-GROUP-MIB"
+      },
+      {
+        "object": "ciscoFilterIpProtocolGroup",
+        "module": "CISCO-FILTER-GROUP-MIB"
+      },
+      {
+        "object": "ciscoFilterIpServiceGroup",
+        "module": "CISCO-FILTER-GROUP-MIB"
+      },
+      {
+        "object": "ciscoFilterICMPGroup",
+        "module": "CISCO-FILTER-GROUP-MIB"
+      },
+      {
+        "object": "ciscoFilterNestedGroup",
+        "module": "CISCO-FILTER-GROUP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFilterObjectGroup": {
+    "name": "ciscoFilterObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.474.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupDescription"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupStorageType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFilterNetworkGroup": {
+    "name": "ciscoFilterNetworkGroup",
+    "oid": "1.3.6.1.4.1.9.9.474.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNetworkAddressType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNetworkAddress"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNetworkMask"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNetworkStorageType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNetworkRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFilterIpProtocolGroup": {
+    "name": "ciscoFilterIpProtocolGroup",
+    "oid": "1.3.6.1.4.1.9.9.474.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpProtocolNumber"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpProtocolStorageType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpProtocolGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFilterIpServiceGroup": {
+    "name": "ciscoFilterIpServiceGroup",
+    "oid": "1.3.6.1.4.1.9.9.474.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpServiceType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpServicePortLow"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpServicePortHigh"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpServiceStorageType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterIpServiceGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFilterICMPGroup": {
+    "name": "ciscoFilterICMPGroup",
+    "oid": "1.3.6.1.4.1.9.9.474.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterICMPType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterICMPCode"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterICMPStorageType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterICMPGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFilterNestedGroup": {
+    "name": "ciscoFilterNestedGroup",
+    "oid": "1.3.6.1.4.1.9.9.474.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNestedStorageType"
+      },
+      {
+        "module": "CISCO-FILTER-GROUP-MIB",
+        "object": "cfgFilterNestedGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FILTER-GROUP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FILTER-GROUP-MIB"
+  }
+}

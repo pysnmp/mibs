@@ -1,0 +1,600 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "dellNetIpForwardMib": {
+    "name": "dellNetIpForwardMib",
+    "oid": "1.3.6.1.4.1.6027.3.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-07-08 12:00",
+        "description": "This version of MIB module deprecates the dellNetIpForwardTable and replaces it with dellNetInetCidrRouteTable which adds the IP Protocol Independance "
+      },
+      {
+        "revision": "2007-09-14 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "dellNetIpForwardMibObjects": {
+    "name": "dellNetIpForwardMibObjects",
+    "oid": "1.3.6.1.4.1.6027.3.9.1",
+    "class": "objectidentity"
+  },
+  "dellNetIpForwardMibConformance": {
+    "name": "dellNetIpForwardMibConformance",
+    "oid": "1.3.6.1.4.1.6027.3.9.2",
+    "class": "objectidentity"
+  },
+  "dellNetIpForwardVariable": {
+    "name": "dellNetIpForwardVariable",
+    "oid": "1.3.6.1.4.1.6027.3.9.3",
+    "class": "objectidentity"
+  },
+  "chSysCardNumber": {
+    "name": "chSysCardNumber",
+    "oid": "1.3.6.1.4.1.6027.3.9.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetIpForwardVersionTable": {
+    "name": "dellNetIpForwardVersionTable",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetIpForwardVersionEntry": {
+    "name": "dellNetIpForwardVersionEntry",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "chSysCardNumber",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetIpForwardAddrFamily",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetIpForwardAddrFamily": {
+    "name": "dellNetIpForwardAddrFamily",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetIpForwardVersion": {
+    "name": "dellNetIpForwardVersion",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetIpForwardTable": {
+    "name": "dellNetIpForwardTable",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dellNetIpForwardEntry": {
+    "name": "dellNetIpForwardEntry",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "chSysCardNumber",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetIpforwardDest",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetIpforwardMask",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetIpforwardNextHop",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetIpforwardFirstHop",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetIpforwardDest": {
+    "name": "dellNetIpforwardDest",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetIpforwardMask": {
+    "name": "dellNetIpforwardMask",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetIpforwardNextHop": {
+    "name": "dellNetIpforwardNextHop",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetIpforwardFirstHop": {
+    "name": "dellNetIpforwardFirstHop",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetIpforwardIfIndex": {
+    "name": "dellNetIpforwardIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetIpforwardMacAddress": {
+    "name": "dellNetIpforwardMacAddress",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetIpforwardEgressPort": {
+    "name": "dellNetIpforwardEgressPort",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetIpforwardCamIndex": {
+    "name": "dellNetIpforwardCamIndex",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetInetCidrIpv4RouteNumber": {
+    "name": "dellNetInetCidrIpv4RouteNumber",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetInetCidrIpv6RouteNumber": {
+    "name": "dellNetInetCidrIpv6RouteNumber",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetInetCidrECMPGrpMax": {
+    "name": "dellNetInetCidrECMPGrpMax",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetInetCidrECMPGrpUsed": {
+    "name": "dellNetInetCidrECMPGrpUsed",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetInetCidrECMPGrpAvl": {
+    "name": "dellNetInetCidrECMPGrpAvl",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteTable": {
+    "name": "dellNetInetCidrRouteTable",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteTableEntry": {
+    "name": "dellNetInetCidrRouteTableEntry",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "chSysCardNumber",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteDestType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRoutePfxLen",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteNextHopType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteNextHop",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteFirstHopType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteFirstHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetInetCidrRouteDestType": {
+    "name": "dellNetInetCidrRouteDestType",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteDest": {
+    "name": "dellNetInetCidrRouteDest",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetInetCidrRoutePfxLen": {
+    "name": "dellNetInetCidrRoutePfxLen",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteNextHopType": {
+    "name": "dellNetInetCidrRouteNextHopType",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteNextHop": {
+    "name": "dellNetInetCidrRouteNextHop",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteFirstHopType": {
+    "name": "dellNetInetCidrRouteFirstHopType",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteFirstHop": {
+    "name": "dellNetInetCidrRouteFirstHop",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteIfIndex": {
+    "name": "dellNetInetCidrRouteIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteMacAddress": {
+    "name": "dellNetInetCidrRouteMacAddress",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteEgressPort": {
+    "name": "dellNetInetCidrRouteEgressPort",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetInetCidrRouteCamIndex": {
+    "name": "dellNetInetCidrRouteCamIndex",
+    "oid": "1.3.6.1.4.1.6027.3.9.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetIpForwardMibCompliances": {
+    "name": "dellNetIpForwardMibCompliances",
+    "oid": "1.3.6.1.4.1.6027.3.9.2.1",
+    "class": "objectidentity"
+  },
+  "dellNetIpForwardMibGroups": {
+    "name": "dellNetIpForwardMibGroups",
+    "oid": "1.3.6.1.4.1.6027.3.9.2.2",
+    "class": "objectidentity"
+  },
+  "dellNetIpForwardMibCompliance": {
+    "name": "dellNetIpForwardMibCompliance",
+    "oid": "1.3.6.1.4.1.6027.3.9.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dellNetIpForwardObjectGroup",
+        "module": "DELL-NETWORKING-FIB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetIpForwardObjectGroup": {
+    "name": "dellNetIpForwardObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.9.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetIpForwardVersion"
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteIfIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteMacAddress"
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteEgressPort"
+      },
+      {
+        "module": "DELL-NETWORKING-FIB-MIB",
+        "object": "dellNetInetCidrRouteCamIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-FIB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-NETWORKING-FIB-MIB"
+  }
+}

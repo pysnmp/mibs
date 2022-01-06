@@ -1,0 +1,189 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "enterprises",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cadant": {
+    "name": "cadant",
+    "oid": "1.3.6.1.4.1.4998",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-11-18 00:00",
+        "description": "Initial version. Added c4cmts."
+      },
+      {
+        "revision": "2002-02-01 00:00",
+        "description": "Added c4ccmts."
+      },
+      {
+        "revision": "2002-05-07 00:00",
+        "description": "Added cadPolicy."
+      },
+      {
+        "revision": "2002-06-26 00:00",
+        "description": "Added AAA support."
+      },
+      {
+        "revision": "2002-12-10 00:00",
+        "description": "Added IKE."
+      },
+      {
+        "revision": "2003-06-30 00:00",
+        "description": "Added G2 IMS."
+      },
+      {
+        "revision": "2007-06-04 00:00",
+        "description": "Added cadTopology."
+      }
+    ]
+  },
+  "cadObjects": {
+    "name": "cadObjects",
+    "oid": "1.3.6.1.4.1.4998.1",
+    "class": "objectidentity"
+  },
+  "cadProducts": {
+    "name": "cadProducts",
+    "oid": "1.3.6.1.4.1.4998.2",
+    "class": "objectidentity"
+  },
+  "cadCable": {
+    "name": "cadCable",
+    "oid": "1.3.6.1.4.1.4998.1.1",
+    "class": "objectidentity"
+  },
+  "cadSystem": {
+    "name": "cadSystem",
+    "oid": "1.3.6.1.4.1.4998.1.1.5",
+    "class": "objectidentity"
+  },
+  "cadNotification": {
+    "name": "cadNotification",
+    "oid": "1.3.6.1.4.1.4998.1.1.6",
+    "class": "objectidentity"
+  },
+  "cadEquipment": {
+    "name": "cadEquipment",
+    "oid": "1.3.6.1.4.1.4998.1.1.10",
+    "class": "objectidentity"
+  },
+  "cadSpectrum": {
+    "name": "cadSpectrum",
+    "oid": "1.3.6.1.4.1.4998.1.1.15",
+    "class": "objectidentity"
+  },
+  "cadLayer2": {
+    "name": "cadLayer2",
+    "oid": "1.3.6.1.4.1.4998.1.1.20",
+    "class": "objectidentity"
+  },
+  "cadLayer3": {
+    "name": "cadLayer3",
+    "oid": "1.3.6.1.4.1.4998.1.1.25",
+    "class": "objectidentity"
+  },
+  "cadSubscriber": {
+    "name": "cadSubscriber",
+    "oid": "1.3.6.1.4.1.4998.1.1.30",
+    "class": "objectidentity"
+  },
+  "cadPolicy": {
+    "name": "cadPolicy",
+    "oid": "1.3.6.1.4.1.4998.1.1.35",
+    "class": "objectidentity"
+  },
+  "cadAuthentication": {
+    "name": "cadAuthentication",
+    "oid": "1.3.6.1.4.1.4998.1.1.40",
+    "class": "objectidentity"
+  },
+  "cadIke": {
+    "name": "cadIke",
+    "oid": "1.3.6.1.4.1.4998.1.1.45",
+    "class": "objectidentity"
+  },
+  "cadSchema": {
+    "name": "cadSchema",
+    "oid": "1.3.6.1.4.1.4998.1.1.50",
+    "class": "objectidentity"
+  },
+  "cadCmRemoteQuery": {
+    "name": "cadCmRemoteQuery",
+    "oid": "1.3.6.1.4.1.4998.1.1.55",
+    "class": "objectidentity"
+  },
+  "cadExperimental": {
+    "name": "cadExperimental",
+    "oid": "1.3.6.1.4.1.4998.1.1.100",
+    "class": "objectidentity"
+  },
+  "cadTopology": {
+    "name": "cadTopology",
+    "oid": "1.3.6.1.4.1.4998.1.1.105",
+    "class": "objectidentity"
+  },
+  "cadCmtsIf3": {
+    "name": "cadCmtsIf3",
+    "oid": "1.3.6.1.4.1.4998.1.1.110",
+    "class": "objectidentity"
+  },
+  "cadL2vpn": {
+    "name": "cadL2vpn",
+    "oid": "1.3.6.1.4.1.4998.1.1.120",
+    "class": "objectidentity"
+  },
+  "cadNms": {
+    "name": "cadNms",
+    "oid": "1.3.6.1.4.1.4998.1.2",
+    "class": "objectidentity"
+  },
+  "c4cmts": {
+    "name": "c4cmts",
+    "oid": "1.3.6.1.4.1.4998.2.1",
+    "class": "objectidentity"
+  },
+  "c4ccmts": {
+    "name": "c4ccmts",
+    "oid": "1.3.6.1.4.1.4998.2.2",
+    "class": "objectidentity"
+  },
+  "g2ims": {
+    "name": "g2ims",
+    "oid": "1.3.6.1.4.1.4998.2.3",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/CADANT-PRODUCTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CADANT-PRODUCTS-MIB"
+  }
+}

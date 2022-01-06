@@ -1,0 +1,439 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SIAE-ALARM-MIB": [
+      "AlarmStatus",
+      "AlarmSeverityCode"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "StorageType",
+      "DisplayString"
+    ]
+  },
+  "aggregationL1": {
+    "name": "aggregationL1",
+    "oid": "1.3.6.1.4.1.3373.1103.83",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-09-29 00:00",
+        "description": "MIB version 01.00.01. - Added table aggrL1ConnectionTable. - Added TEXTUAL-CONVENTION AggregableType - Revised document form. "
+      },
+      {
+        "revision": "2014-05-26 00:00",
+        "description": "Initial version 01.00.00. "
+      }
+    ]
+  },
+  "AggregableType": {
+    "name": "AggregableType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "radio": 2,
+          "lan": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "aggrL1MibVersion": {
+    "name": "aggrL1MibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.83.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1CapabilityTable": {
+    "name": "aggrL1CapabilityTable",
+    "oid": "1.3.6.1.4.1.3373.1103.83.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aggrL1CapabilityEntry": {
+    "name": "aggrL1CapabilityEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.83.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-AGGRL1-MANAGEMENT-MIB",
+        "object": "aggrL1CapabilityAggregableIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-AGGRL1-MANAGEMENT-MIB",
+        "object": "aggrL1CapabilityAggregableType",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-AGGRL1-MANAGEMENT-MIB",
+        "object": "aggrL1CapabilityAggregatorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aggrL1CapabilityAggregableIndex": {
+    "name": "aggrL1CapabilityAggregableIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.83.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1CapabilityAggregableType": {
+    "name": "aggrL1CapabilityAggregableType",
+    "oid": "1.3.6.1.4.1.3373.1103.83.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AggregableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1CapabilityAggregatorIndex": {
+    "name": "aggrL1CapabilityAggregatorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.83.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1Table": {
+    "name": "aggrL1Table",
+    "oid": "1.3.6.1.4.1.3373.1103.83.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aggrL1Entry": {
+    "name": "aggrL1Entry",
+    "oid": "1.3.6.1.4.1.3373.1103.83.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-AGGRL1-MANAGEMENT-MIB",
+        "object": "aggrL1AggregableIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-AGGRL1-MANAGEMENT-MIB",
+        "object": "aggrL1AggregableType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aggrL1AggregableIndex": {
+    "name": "aggrL1AggregableIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.83.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1AggregableType": {
+    "name": "aggrL1AggregableType",
+    "oid": "1.3.6.1.4.1.3373.1103.83.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AggregableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1AggregatorIndex": {
+    "name": "aggrL1AggregatorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.83.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aggrL1StorageType": {
+    "name": "aggrL1StorageType",
+    "oid": "1.3.6.1.4.1.3373.1103.83.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aggrL1Rowstatus": {
+    "name": "aggrL1Rowstatus",
+    "oid": "1.3.6.1.4.1.3373.1103.83.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aggrL1AlarmTable": {
+    "name": "aggrL1AlarmTable",
+    "oid": "1.3.6.1.4.1.3373.1103.83.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aggrL1AlarmEntry": {
+    "name": "aggrL1AlarmEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.83.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-AGGRL1-MANAGEMENT-MIB",
+        "object": "aggrL1AlarmAggregatorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aggrL1AlarmAggregatorIndex": {
+    "name": "aggrL1AlarmAggregatorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.83.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1FailAlarm": {
+    "name": "aggrL1FailAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.83.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1DegradeAlarm": {
+    "name": "aggrL1DegradeAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.83.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1RealignmentAlarm": {
+    "name": "aggrL1RealignmentAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.83.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1FailAlarmSeverityCode": {
+    "name": "aggrL1FailAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.83.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aggrL1DegradeAlarmSeverityCode": {
+    "name": "aggrL1DegradeAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.83.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aggrL1RealignmentAlarmSeverityCode": {
+    "name": "aggrL1RealignmentAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.83.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aggrL1ConnectionTable": {
+    "name": "aggrL1ConnectionTable",
+    "oid": "1.3.6.1.4.1.3373.1103.83.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aggrL1ConnectionEntry": {
+    "name": "aggrL1ConnectionEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.83.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-AGGRL1-MANAGEMENT-MIB",
+        "object": "aggrL1ConnAggregableIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-AGGRL1-MANAGEMENT-MIB",
+        "object": "aggrL1ConnAggregableType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aggrL1ConnAggregableIndex": {
+    "name": "aggrL1ConnAggregableIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.83.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1ConnAggregableType": {
+    "name": "aggrL1ConnAggregableType",
+    "oid": "1.3.6.1.4.1.3373.1103.83.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AggregableType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aggrL1ConnAggregatorIndex": {
+    "name": "aggrL1ConnAggregatorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.83.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-AGGRL1-MANAGEMENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-AGGRL1-MANAGEMENT-MIB"
+  }
+}

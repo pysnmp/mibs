@@ -1,0 +1,3350 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "UserInterfaceType",
+      "IpVersion"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-USER-BASED-SM-MIB": [
+      "usmUserEntry"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "cmSecurityMIB": {
+    "name": "cmSecurityMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-01-28 00:00",
+        "description": "Notes from release 202007270000Z: (1) Added new tables: f3CaProfileTable, f3CaTable. (2) Added new textual conventions: CaAction, SslCertificatePrivateKeyPairAction, CertificateType, CertificateStatus, AutoEnrollmentStatus, CaRootCertStatus. (3) Added new columns to f3SslCertificatePrivateKeyPairTable: f3SslCertificatePrivateKeyPairRsaKeyPairName, f3SslCertificatePrivateKeyPairCertificateType, f3SslCertificatePrivateKeyPairCertificateStatus, f3SslCertificatePrivateKeyPairAction. (4) Added new column to f3CertSigningRequestTable: f3CertSigningRequestAutoEnrollmentStatus. (5) Added new scalar to f3SshCipherStrengthHighControl. Notes from release 202006180000Z: (1) Changed MAX-ACCESS for f3HttpsSslKeyPair from read-only to read-write Notes from release 201912010000Z (1) Added f3NasIpAddressType, f3SslCertificateActionKeyName, Notes from release 201910010000Z (1) Added scalars f3HttpsSslCertExpNotifPeriod, f3HttpsSslKeyPair, f3SslCertificateAction, f3SslCertificateActionPairName, Added f3SslCertificatePrivateKeyPairTable with columns: f3SslCertificatePrivateKeyPairName, f3SslCertificatePrivateKeyPairSslCertificate, f3SslCertificatePrivateKeyPairPrivateKeyPresent Notes from release 201905280000Z (1) added cmSecurityUserSso2fa to cmSecurityUserTable (2) added scalar f3Sso2faControl Notes from release 201706270000Z (1) Added Object Identifier cmIcmpV4Objects with scalar objects: icmpV4Filter, icmpV4DropEchoRequests (2) Added Object Identifier cmIcmpV6Objects with scalar objects: icmpV6Filter, icmpV6DropEchoRequests, icmpV6DropNeighborSolicitation, icmpV6DropRouterAdvertisement, icmpV6DropNeighborAdvertisement, icmpV6DropRouterSolicitation Notes from release 201704030000Z (1) add f3RadiusSendVendorAvpEnabled and f3RadiusRealm to the MIB Notes from release 201606140000Z (1) added cmSecurityUserRemoteCryptoUser to cmSecurityUserTable Notes from release 201602080000Z (1)Added literal netconf to CmSecurityPrivLevel Notes from release 201509180000Z (1)Added cmSecurityCryptoPassword attribute to cmSecurityUserTable Note from release 201106270000Z, (1)Added f3TacacsPrivLevelControlEnabled, f3TacacsDefaultPrivLevel Note from release 201104140000Z, (1)Added cmSecurityUserAction to support remove-lockout Note from release 201101050000Z, (1)Added f3UsmUserTable - an augment to UsmUserTable Note from release 201002120000Z, (1)MIBs updated for supported functionality in R4.3CC and R4.1CM (a)cmRemoteAuthServerTable has new objects cmRemoteAuthServerAccountingPort to support RADIUS accounting Notes from release 200903190000Z, (1)MIB version ready for release FSP150CC GE101, GE206 devices (a)Added Textual convention CmSecurityPolicyStrength (b)Added MIB scalar cmSecurityPolicyStrength (2)Following changes are made to the cmSecurityUserTable, (a)cmSecurityUserPassword column to modify security user password (b)cmSecurityUserStorageType and cmSecurityUserRowStatus columns added thereby allowing creation/deletion of Security Users (c)cmSecurityUserComment, cmSecurityUserPrivLevel, cmSecurityUserLoginTimeout, cmSecurityUserNumFailedLoginAttempts, cmSecurityUserCliPagingEnable columns are now read-write to allow write access. Notes from release 200803030000Z, (1)MIB version ready for release FSP150CM 3.1."
+      }
+    ]
+  },
+  "cmSecurityObjects": {
+    "name": "cmSecurityObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1",
+    "class": "objectidentity"
+  },
+  "cmSecurityConformance": {
+    "name": "cmSecurityConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.2",
+    "class": "objectidentity"
+  },
+  "cmSecurityNotifications": {
+    "name": "cmSecurityNotifications",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.3",
+    "class": "objectidentity"
+  },
+  "cmIcmpV4Objects": {
+    "name": "cmIcmpV4Objects",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.20",
+    "class": "objectidentity"
+  },
+  "cmIcmpV6Objects": {
+    "name": "cmIcmpV6Objects",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.21",
+    "class": "objectidentity"
+  },
+  "f3FipsObjects": {
+    "name": "f3FipsObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.23",
+    "class": "objectidentity"
+  },
+  "f3SslCertificateObjects": {
+    "name": "f3SslCertificateObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25",
+    "class": "objectidentity"
+  },
+  "f3RsaKeyPairObjects": {
+    "name": "f3RsaKeyPairObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.26",
+    "class": "objectidentity"
+  },
+  "f3CertSigningRequestObjects": {
+    "name": "f3CertSigningRequestObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27",
+    "class": "objectidentity"
+  },
+  "SecuritySelfTestResult": {
+    "name": "SecuritySelfTestResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "fail": 1,
+          "success": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SecuritySelfTestStatus": {
+    "name": "SecuritySelfTestStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "notStarted": 1,
+          "inprogress": 2,
+          "complete": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRemoteAuthProtocol": {
+    "name": "CmRemoteAuthProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "radius": 2,
+          "tacacs": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmSecurityAccessOrder": {
+    "name": "CmSecurityAccessOrder",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmSecurityAuthType": {
+    "name": "CmSecurityAuthType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pap": 1,
+          "chap": 2,
+          "ascii": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmSecurityPrivLevel": {
+    "name": "CmSecurityPrivLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "retrieve": 1,
+          "maintenance": 2,
+          "provisioning": 3,
+          "superuser": 4,
+          "testuser": 5,
+          "cryptouser": 6,
+          "netconf": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRemoteAuthOrder": {
+    "name": "CmRemoteAuthOrder",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "first": 1,
+          "second": 2,
+          "third": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmSecurityPolicyStrength": {
+    "name": "CmSecurityPolicyStrength",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UsmUserAccessType": {
+    "name": "UsmUserAccessType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read-only": 1,
+          "read-write": 2,
+          "trap-only": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SecurityUserAction": {
+    "name": "SecurityUserAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "remove-lockout": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SnmpSecurityTrapType": {
+    "name": "SnmpSecurityTrapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "loginFailed": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrivilegeRequestAction": {
+    "name": "PrivilegeRequestAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "none": 1,
+          "approve": 2,
+          "deny": 3,
+          "cancel": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrivilegeRequestState": {
+    "name": "PrivilegeRequestState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "requestSent": 2,
+          "requestCanceled": 3,
+          "requestApproved": 4,
+          "requestDenied": 5,
+          "requestTimeout": 6,
+          "accessExpired": 7,
+          "accessCanceled": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RsaKeyLengthType": {
+    "name": "RsaKeyLengthType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsaKeyLength2048": 1,
+          "rsaKeyLength4096": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ZeroizeKeysAction": {
+    "name": "ZeroizeKeysAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "ZeroizeKeys": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RunSelfTestAction": {
+    "name": "RunSelfTestAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "RunSelfTest": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SslCertificateAction": {
+    "name": "SslCertificateAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "deleteSslKeyPair": 1,
+          "setHttpsSslKeyPair": 2,
+          "addRsaPrivateKey": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RsaKeyPairAction": {
+    "name": "RsaKeyPairAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "genRsaKeyPair": 1,
+          "delRsaKeyPair": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CsrAction": {
+    "name": "CsrAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "genCsr": 1,
+          "delCsr": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NasIpAddressType": {
+    "name": "NasIpAddressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "userDefined": 1,
+          "packetSourceIp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CertificateEnrollmentProtocol": {
+    "name": "CertificateEnrollmentProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "scep": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CaAction": {
+    "name": "CaAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "updateCACertificates": 2,
+          "startAutoEnrollment": 3,
+          "getCACertificates": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SslCertificatePrivateKeyPairAction": {
+    "name": "SslCertificatePrivateKeyPairAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "trustRootCACertificate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CertificateType": {
+    "name": "CertificateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "root": 1,
+          "intermediate": 2,
+          "device": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CertificateStatus": {
+    "name": "CertificateStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trusted": 1,
+          "untrusted": 2,
+          "valid": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AutoEnrollmentStatus": {
+    "name": "AutoEnrollmentStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "failure": 2,
+          "success": 3,
+          "pending": 4,
+          "aborted": 5,
+          "timedout": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CaRootCertStatus": {
+    "name": "CaRootCertStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "active": 2,
+          "failed": 3,
+          "renewing": 4,
+          "renewalFailed": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cmAuthProtocol": {
+    "name": "cmAuthProtocol",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRemoteAuthProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAccessOrder": {
+    "name": "cmAccessOrder",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmSecurityAccessOrder",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAuthType": {
+    "name": "cmAuthType",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmSecurityAuthType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmNASIpAddress": {
+    "name": "cmNASIpAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmSecurityPolicyStrength": {
+    "name": "cmSecurityPolicyStrength",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmSecurityPolicyStrength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerAccountingEnabled": {
+    "name": "cmRemoteAuthServerAccountingEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TacacsPrivLevelControlEnabled": {
+    "name": "f3TacacsPrivLevelControlEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3TacacsDefaultPrivLevel": {
+    "name": "f3TacacsDefaultPrivLevel",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmSecurityPrivLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NasIpv6Addr": {
+    "name": "f3NasIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SecurityTrapType": {
+    "name": "f3SecurityTrapType",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpSecurityTrapType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SecurityTrapInfo": {
+    "name": "f3SecurityTrapInfo",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3UserPrivMgmtControl": {
+    "name": "f3UserPrivMgmtControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3UserPrivRspTimeout": {
+    "name": "f3UserPrivRspTimeout",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RadiusSendVendorAvpEnabled": {
+    "name": "f3RadiusSendVendorAvpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RadiusRealm": {
+    "name": "f3RadiusRealm",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAnonymizeLogTimeInDays": {
+    "name": "cmAnonymizeLogTimeInDays",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3Sso2faControl": {
+    "name": "f3Sso2faControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NasIpAddressType": {
+    "name": "f3NasIpAddressType",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NasIpAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SshCipherStrengthHighControl": {
+    "name": "f3SshCipherStrengthHighControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FipsOperationMode": {
+    "name": "f3FipsOperationMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FipsSecuritySelfTestFailureCount": {
+    "name": "f3FipsSecuritySelfTestFailureCount",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FipsSecuritySelfTestResult": {
+    "name": "f3FipsSecuritySelfTestResult",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecuritySelfTestResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FipsSecuritySelfTestStatus": {
+    "name": "f3FipsSecuritySelfTestStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecuritySelfTestStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FipsAction": {
+    "name": "f3FipsAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.23.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "zeroize": 1,
+          "startSecSelfTest": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpV4Filter": {
+    "name": "icmpV4Filter",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpV4DropEchoRequests": {
+    "name": "icmpV4DropEchoRequests",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpV6Filter": {
+    "name": "icmpV6Filter",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpV6DropEchoRequests": {
+    "name": "icmpV6DropEchoRequests",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpV6DropNeighborSolicitation": {
+    "name": "icmpV6DropNeighborSolicitation",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpV6DropRouterAdvertisement": {
+    "name": "icmpV6DropRouterAdvertisement",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpV6DropNeighborAdvertisement": {
+    "name": "icmpV6DropNeighborAdvertisement",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpV6DropRouterSolicitation": {
+    "name": "icmpV6DropRouterSolicitation",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.21.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3HttpsSslCertExpNotifPeriod": {
+    "name": "f3HttpsSslCertExpNotifPeriod",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3HttpsSslKeyPair": {
+    "name": "f3HttpsSslKeyPair",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SslCertificateAction": {
+    "name": "f3SslCertificateAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SslCertificateAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SslCertificateActionPairName": {
+    "name": "f3SslCertificateActionPairName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SslCertificateActionKeyName": {
+    "name": "f3SslCertificateActionKeyName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairTable": {
+    "name": "f3SslCertificatePrivateKeyPairTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairEntry": {
+    "name": "f3SslCertificatePrivateKeyPairEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificatePrivateKeyPairName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairName": {
+    "name": "f3SslCertificatePrivateKeyPairName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairSslCertificate": {
+    "name": "f3SslCertificatePrivateKeyPairSslCertificate",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairPrivateKeyPresent": {
+    "name": "f3SslCertificatePrivateKeyPairPrivateKeyPresent",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairRsaKeyPairName": {
+    "name": "f3SslCertificatePrivateKeyPairRsaKeyPairName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairCertificateType": {
+    "name": "f3SslCertificatePrivateKeyPairCertificateType",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CertificateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairCertificateStatus": {
+    "name": "f3SslCertificatePrivateKeyPairCertificateStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CertificateStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SslCertificatePrivateKeyPairAction": {
+    "name": "f3SslCertificatePrivateKeyPairAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.25.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SslCertificatePrivateKeyPairAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RsaKeyPairAction": {
+    "name": "f3RsaKeyPairAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RsaKeyPairAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RsaKeyPairActionName": {
+    "name": "f3RsaKeyPairActionName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.26.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RsaKeyPairActionLength": {
+    "name": "f3RsaKeyPairActionLength",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.26.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RsaKeyLengthType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RsaKeyPairTable": {
+    "name": "f3RsaKeyPairTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.26.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3RsaKeyPairEntry": {
+    "name": "f3RsaKeyPairEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.26.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3RsaKeyPairName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3RsaKeyPairName": {
+    "name": "f3RsaKeyPairName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.26.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3RsaKeyPairPublicKey": {
+    "name": "f3RsaKeyPairPublicKey",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.26.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3CsrAction": {
+    "name": "f3CsrAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsrAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionCsrName": {
+    "name": "f3CsrActionCsrName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionRsaKeyName": {
+    "name": "f3CsrActionRsaKeyName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionCountry": {
+    "name": "f3CsrActionCountry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionState": {
+    "name": "f3CsrActionState",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionLocality": {
+    "name": "f3CsrActionLocality",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionOrganization": {
+    "name": "f3CsrActionOrganization",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionOrganizationUnit": {
+    "name": "f3CsrActionOrganizationUnit",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionCommonName": {
+    "name": "f3CsrActionCommonName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionEmail": {
+    "name": "f3CsrActionEmail",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionSerialNumber": {
+    "name": "f3CsrActionSerialNumber",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CsrActionAlternativeName": {
+    "name": "f3CsrActionAlternativeName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CertSigningRequestTable": {
+    "name": "f3CertSigningRequestTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3CertSigningRequestEntry": {
+    "name": "f3CertSigningRequestEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CertSigningRequestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3CertSigningRequestName": {
+    "name": "f3CertSigningRequestName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3CertSigningRequestRsaKeyPairName": {
+    "name": "f3CertSigningRequestRsaKeyPairName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3CertSigningRequestCsrData": {
+    "name": "f3CertSigningRequestCsrData",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3CertSigningRequestAutoEnrollmentStatus": {
+    "name": "f3CertSigningRequestAutoEnrollmentStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.27.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutoEnrollmentStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSecurityUserTable": {
+    "name": "cmSecurityUserTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmSecurityUserEntry": {
+    "name": "cmSecurityUserEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserName",
+        "implied": 0
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserRemoteUser",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmSecurityUserName": {
+    "name": "cmSecurityUserName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserComment": {
+    "name": "cmSecurityUserComment",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserPrivLevel": {
+    "name": "cmSecurityUserPrivLevel",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmSecurityPrivLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserLoginTimeout": {
+    "name": "cmSecurityUserLoginTimeout",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserNumFailedLoginAttempts": {
+    "name": "cmSecurityUserNumFailedLoginAttempts",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSecurityUserLastLoginTime": {
+    "name": "cmSecurityUserLastLoginTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSecurityUserLockedout": {
+    "name": "cmSecurityUserLockedout",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSecurityUserLastLockedoutTime": {
+    "name": "cmSecurityUserLastLockedoutTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSecurityUserCliPagingEnable": {
+    "name": "cmSecurityUserCliPagingEnable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserRemoteUser": {
+    "name": "cmSecurityUserRemoteUser",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSecurityUserPassword": {
+    "name": "cmSecurityUserPassword",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserStorageType": {
+    "name": "cmSecurityUserStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserRowStatus": {
+    "name": "cmSecurityUserRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserAction": {
+    "name": "cmSecurityUserAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecurityUserAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmSecurityCryptoPassword": {
+    "name": "cmSecurityCryptoPassword",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserRemoteCryptoUser": {
+    "name": "cmSecurityUserRemoteCryptoUser",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmSecurityUserSso2fa": {
+    "name": "cmSecurityUserSso2fa",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmRemoteAuthServerTable": {
+    "name": "cmRemoteAuthServerTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmRemoteAuthServerEntry": {
+    "name": "cmRemoteAuthServerEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmRemoteAuthServerIndex": {
+    "name": "cmRemoteAuthServerIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRemoteAuthServerEnabled": {
+    "name": "cmRemoteAuthServerEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerOrder": {
+    "name": "cmRemoteAuthServerOrder",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRemoteAuthOrder",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerIpAddress": {
+    "name": "cmRemoteAuthServerIpAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerPort": {
+    "name": "cmRemoteAuthServerPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerNumRetries": {
+    "name": "cmRemoteAuthServerNumRetries",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerTimeout": {
+    "name": "cmRemoteAuthServerTimeout",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerSecret": {
+    "name": "cmRemoteAuthServerSecret",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerAccountingPort": {
+    "name": "cmRemoteAuthServerAccountingPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerIpVersion": {
+    "name": "cmRemoteAuthServerIpVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmRemoteAuthServerIpv6Addr": {
+    "name": "cmRemoteAuthServerIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3UsmUserTable": {
+    "name": "f3UsmUserTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3UsmUserEntry": {
+    "name": "f3UsmUserEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3UsmUserEntry",
+      "module": "CM-SECURITY-MIB",
+      "object": "usmUserEntry"
+    },
+    "status": "current"
+  },
+  "f3UsmUserAccessType": {
+    "name": "f3UsmUserAccessType",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UsmUserAccessType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeTable": {
+    "name": "f3PrivilegeChangeTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3PrivilegeChangeEntry": {
+    "name": "f3PrivilegeChangeEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3PrivilegeChangeId": {
+    "name": "f3PrivilegeChangeId",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3PrivilegeChangeUserName": {
+    "name": "f3PrivilegeChangeUserName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeIpv4Address": {
+    "name": "f3PrivilegeChangeIpv4Address",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeIpv6Address": {
+    "name": "f3PrivilegeChangeIpv6Address",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeTerminalIpv4Address": {
+    "name": "f3PrivilegeChangeTerminalIpv4Address",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeTerminalIpv6Address": {
+    "name": "f3PrivilegeChangeTerminalIpv6Address",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeInterface": {
+    "name": "f3PrivilegeChangeInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserInterfaceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeCurrentPrivilege": {
+    "name": "f3PrivilegeChangeCurrentPrivilege",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmSecurityPrivLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeRequestedPrivilege": {
+    "name": "f3PrivilegeChangeRequestedPrivilege",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmSecurityPrivLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeDuration": {
+    "name": "f3PrivilegeChangeDuration",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 480
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeAction": {
+    "name": "f3PrivilegeChangeAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivilegeRequestAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3PrivilegeChangeState": {
+    "name": "f3PrivilegeChangeState",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivilegeRequestState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeRemainingTime": {
+    "name": "f3PrivilegeChangeRemainingTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3PrivilegeChangeRemoteName": {
+    "name": "f3PrivilegeChangeRemoteName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3CaProfileTable": {
+    "name": "f3CaProfileTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3CaProfileEntry": {
+    "name": "f3CaProfileEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3CaProfileIndex": {
+    "name": "f3CaProfileIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3CaProfileName": {
+    "name": "f3CaProfileName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaProfileEnrollmentProtocol": {
+    "name": "f3CaProfileEnrollmentProtocol",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CertificateEnrollmentProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "scep",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaProfileHttpPort": {
+    "name": "f3CaProfileHttpPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaProfileAutoRenewalControl": {
+    "name": "f3CaProfileAutoRenewalControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaProfileRenewalPercentLifetime": {
+    "name": "f3CaProfileRenewalPercentLifetime",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaProfileRenewalNewKeyPairGenControl": {
+    "name": "f3CaProfileRenewalNewKeyPairGenControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaProfileStorageType": {
+    "name": "f3CaProfileStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaProfileRowStatus": {
+    "name": "f3CaProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.29.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaTable": {
+    "name": "f3CaTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3CaEntry": {
+    "name": "f3CaEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3CaName": {
+    "name": "f3CaName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3CaProfile": {
+    "name": "f3CaProfile",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaUrl": {
+    "name": "f3CaUrl",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaScepQueryMessage": {
+    "name": "f3CaScepQueryMessage",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaCertList": {
+    "name": "f3CaCertList",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3CaRootCertStatus": {
+    "name": "f3CaRootCertStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaRootCertStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3CaLastCsr": {
+    "name": "f3CaLastCsr",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3CaAction": {
+    "name": "f3CaAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CaActionCsrName": {
+    "name": "f3CaActionCsrName",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CaActionChallengePassword": {
+    "name": "f3CaActionChallengePassword",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CaStorageType": {
+    "name": "f3CaStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CaRowStatus": {
+    "name": "f3CaRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.1.30.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SecurityTrap": {
+    "name": "f3SecurityTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.3.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "f3PrivilegeChangeTrap": {
+    "name": "f3PrivilegeChangeTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeState"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeUserName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeIpv4Address"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeIpv6Address"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeTerminalIpv4Address"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeTerminalIpv6Address"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeInterface"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeCurrentPrivilege"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeRequestedPrivilege"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeDuration"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSecurityCompliances": {
+    "name": "cmSecurityCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.2.1",
+    "class": "objectidentity"
+  },
+  "cmSecurityGroups": {
+    "name": "cmSecurityGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.2.2",
+    "class": "objectidentity"
+  },
+  "cmSecurityCompliance": {
+    "name": "cmSecurityCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmSecurityObjectGroup",
+        "module": "CM-SECURITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSecurityObjectGroup": {
+    "name": "cmSecurityObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmAuthProtocol"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmAccessOrder"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmAuthType"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmNASIpAddress"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityPolicyStrength"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerAccountingEnabled"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmAnonymizeLogTimeInDays"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3Sso2faControl"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3NasIpAddressType"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SshCipherStrengthHighControl"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3TacacsPrivLevelControlEnabled"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3TacacsDefaultPrivLevel"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3NasIpv6Addr"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SecurityTrapType"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SecurityTrapInfo"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserComment"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserPrivLevel"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserLoginTimeout"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserNumFailedLoginAttempts"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserLastLoginTime"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserLockedout"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserLastLockedoutTime"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserCliPagingEnable"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserRemoteUser"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserPassword"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserStorageType"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserRowStatus"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserAction"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityCryptoPassword"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserRemoteCryptoUser"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmSecurityUserSso2fa"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerIndex"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerEnabled"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerOrder"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerIpAddress"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerPort"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerNumRetries"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerTimeout"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerSecret"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerAccountingPort"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerIpVersion"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "cmRemoteAuthServerIpv6Addr"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3UsmUserAccessType"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeUserName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeIpv4Address"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeIpv6Address"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeTerminalIpv4Address"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeTerminalIpv6Address"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeInterface"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeCurrentPrivilege"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeRequestedPrivilege"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeDuration"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeAction"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeState"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeRemainingTime"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3PrivilegeChangeRemoteName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3RadiusSendVendorAvpEnabled"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3RadiusRealm"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "icmpV4Filter"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "icmpV4DropEchoRequests"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "icmpV6Filter"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "icmpV6DropEchoRequests"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "icmpV6DropNeighborSolicitation"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "icmpV6DropRouterAdvertisement"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "icmpV6DropNeighborAdvertisement"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "icmpV6DropRouterSolicitation"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3FipsOperationMode"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3FipsSecuritySelfTestFailureCount"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3FipsSecuritySelfTestResult"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3FipsSecuritySelfTestStatus"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3FipsAction"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3HttpsSslCertExpNotifPeriod"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3HttpsSslKeyPair"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificateAction"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificateActionPairName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificatePrivateKeyPairName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificatePrivateKeyPairSslCertificate"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificatePrivateKeyPairPrivateKeyPresent"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3RsaKeyPairName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3RsaKeyPairPublicKey"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3RsaKeyPairAction"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3RsaKeyPairActionName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3RsaKeyPairActionLength"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrAction"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionCsrName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionRsaKeyName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionCountry"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionState"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionLocality"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionOrganization"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionOrganizationUnit"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionCommonName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionEmail"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionSerialNumber"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CsrActionAlternativeName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CertSigningRequestName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CertSigningRequestRsaKeyPairName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CertSigningRequestCsrData"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CertSigningRequestAutoEnrollmentStatus"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificatePrivateKeyPairRsaKeyPairName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificatePrivateKeyPairCertificateType"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificatePrivateKeyPairCertificateStatus"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificatePrivateKeyPairAction"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SslCertificateActionKeyName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileEnrollmentProtocol"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileHttpPort"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileAutoRenewalControl"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileRenewalPercentLifetime"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileRenewalNewKeyPairGenControl"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileStorageType"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfileRowStatus"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaProfile"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaScepQueryMessage"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaUrl"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaCertList"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaRootCertStatus"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaLastCsr"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaAction"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaActionCsrName"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaActionChallengePassword"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaStorageType"
+      },
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3CaRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSecurityNotifGroup": {
+    "name": "cmSecurityNotifGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.10.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CM-SECURITY-MIB",
+        "object": "f3SecurityTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CM-SECURITY-MIB"
+  }
+}

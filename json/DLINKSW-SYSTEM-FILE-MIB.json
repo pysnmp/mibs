@@ -1,0 +1,1023 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwSystemFileMIB": {
+    "name": "dlinkSwSystemFileMIB",
+    "oid": "1.3.6.1.4.1.171.14.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-19 00:00",
+        "description": "Add traps about uploading or downloading image file (dsfUploadImage, dsfDownloadImage) and uploading, downloading or saving configuration file (dsfUploadCfg, dsfDownloadCfg, dsfSaveCfg)."
+      },
+      {
+        "revision": "2013-04-24 00:00",
+        "description": "This is the first version of the MIB file."
+      }
+    ]
+  },
+  "dsfMIBNotifications": {
+    "name": "dsfMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.14.0",
+    "class": "objectidentity"
+  },
+  "dsfMIBObjects": {
+    "name": "dsfMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.14.1",
+    "class": "objectidentity"
+  },
+  "dsfMIBConformance": {
+    "name": "dsfMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.14.2",
+    "class": "objectidentity"
+  },
+  "dsfBootInfoObjects": {
+    "name": "dsfBootInfoObjects",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1",
+    "class": "objectidentity"
+  },
+  "dsfNextBootCfgUrl": {
+    "name": "dsfNextBootCfgUrl",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsfNextBootImageUrl": {
+    "name": "dsfNextBootImageUrl",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsfCheckingBootImageCheck": {
+    "name": "dsfCheckingBootImageCheck",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsfBootImageCheckResult": {
+    "name": "dsfBootImageCheckResult",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsfBootImageTable": {
+    "name": "dsfBootImageTable",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfBootImageEntry": {
+    "name": "dsfBootImageEntry",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfBootImageUnitId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfBootImageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsfBootImageUnitId": {
+    "name": "dsfBootImageUnitId",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfBootImageIndex": {
+    "name": "dsfBootImageIndex",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfBootImageUrl": {
+    "name": "dsfBootImageUrl",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsfBootImageInWorking": {
+    "name": "dsfBootImageInWorking",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsfBootCfgFileTable": {
+    "name": "dsfBootCfgFileTable",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfBootCfgFileEntry": {
+    "name": "dsfBootCfgFileEntry",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfBootCfgFileUnitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsfBootCfgFileUnitId": {
+    "name": "dsfBootCfgFileUnitId",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfBootCfgFileUrl": {
+    "name": "dsfBootCfgFileUrl",
+    "oid": "1.3.6.1.4.1.171.14.14.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsfCopyTable": {
+    "name": "dsfCopyTable",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfCopyEntry": {
+    "name": "dsfCopyEntry",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsfCopyIndex": {
+    "name": "dsfCopyIndex",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfCopyType": {
+    "name": "dsfCopyType",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localToLocal": 1,
+          "localToTftpRemote": 2,
+          "localToFtpRemote": 3,
+          "localToRcpRemote": 4,
+          "tftpRemoteToLocal": 5,
+          "ftpRemoteToLocal": 6,
+          "rcpRemoteToLocal": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopySrcUrl": {
+    "name": "dsfCopySrcUrl",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopyDstUrl": {
+    "name": "dsfCopyDstUrl",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopyRemoteAddrType": {
+    "name": "dsfCopyRemoteAddrType",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopyRemoteAddr": {
+    "name": "dsfCopyRemoteAddr",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopyUsrName": {
+    "name": "dsfCopyUsrName",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopyUsrPwd": {
+    "name": "dsfCopyUsrPwd",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopyRemoteTcpPort": {
+    "name": "dsfCopyRemoteTcpPort",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopyVrfName": {
+    "name": "dsfCopyVrfName",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCopyErrorStatus": {
+    "name": "dsfCopyErrorStatus",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsfCopyRowStatus": {
+    "name": "dsfCopyRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.14.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceTable": {
+    "name": "dsfCfgReplaceTable",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfCfgReplaceEntry": {
+    "name": "dsfCfgReplaceEntry",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsfCfgReplaceIndex": {
+    "name": "dsfCfgReplaceIndex",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsfCfgReplaceSrcType": {
+    "name": "dsfCfgReplaceSrcType",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "tftpRemote": 2,
+          "ftpRemote": 3,
+          "rcpRemote": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceSrcUrl": {
+    "name": "dsfCfgReplaceSrcUrl",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 799
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceRemoteAddrType": {
+    "name": "dsfCfgReplaceRemoteAddrType",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceRemoteAddr": {
+    "name": "dsfCfgReplaceRemoteAddr",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceUsrName": {
+    "name": "dsfCfgReplaceUsrName",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceUsrPwd": {
+    "name": "dsfCfgReplaceUsrPwd",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceRemoteTcpPort": {
+    "name": "dsfCfgReplaceRemoteTcpPort",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceVrfName": {
+    "name": "dsfCfgReplaceVrfName",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfCfgReplaceErrorStatus": {
+    "name": "dsfCfgReplaceErrorStatus",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsfCfgReplaceRowStatus": {
+    "name": "dsfCfgReplaceRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.14.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsfIpSrcIfObjects": {
+    "name": "dsfIpSrcIfObjects",
+    "oid": "1.3.6.1.4.1.171.14.14.1.4",
+    "class": "objectidentity"
+  },
+  "dsfIpTftpSrcIf": {
+    "name": "dsfIpTftpSrcIf",
+    "oid": "1.3.6.1.4.1.171.14.14.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsfIpFtpSrcIf": {
+    "name": "dsfIpFtpSrcIf",
+    "oid": "1.3.6.1.4.1.171.14.14.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsfIpRcpSrcIf": {
+    "name": "dsfIpRcpSrcIf",
+    "oid": "1.3.6.1.4.1.171.14.14.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsfClearRunCfg": {
+    "name": "dsfClearRunCfg",
+    "oid": "1.3.6.1.4.1.171.14.14.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsfResetSystem": {
+    "name": "dsfResetSystem",
+    "oid": "1.3.6.1.4.1.171.14.14.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsfUploadImage": {
+    "name": "dsfUploadImage",
+    "oid": "1.3.6.1.4.1.171.14.14.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dsfDownloadImage": {
+    "name": "dsfDownloadImage",
+    "oid": "1.3.6.1.4.1.171.14.14.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dsfUploadCfg": {
+    "name": "dsfUploadCfg",
+    "oid": "1.3.6.1.4.1.171.14.14.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dsfDownloadCfg": {
+    "name": "dsfDownloadCfg",
+    "oid": "1.3.6.1.4.1.171.14.14.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dsfSaveCfg": {
+    "name": "dsfSaveCfg",
+    "oid": "1.3.6.1.4.1.171.14.14.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dsfCompliances": {
+    "name": "dsfCompliances",
+    "oid": "1.3.6.1.4.1.171.14.14.2.1",
+    "class": "objectidentity"
+  },
+  "dsfCompliance": {
+    "name": "dsfCompliance",
+    "oid": "1.3.6.1.4.1.171.14.14.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsfBootInfoGroup",
+        "module": "DLINKSW-SYSTEM-FILE-MIB"
+      },
+      {
+        "object": "dsfCopyGroup",
+        "module": "DLINKSW-SYSTEM-FILE-MIB"
+      },
+      {
+        "object": "dsfCfgReplaceGroup",
+        "module": "DLINKSW-SYSTEM-FILE-MIB"
+      },
+      {
+        "object": "dsfIpSrcIfGroup",
+        "module": "DLINKSW-SYSTEM-FILE-MIB"
+      },
+      {
+        "object": "dsfClearCfgGroup",
+        "module": "DLINKSW-SYSTEM-FILE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsfGroups": {
+    "name": "dsfGroups",
+    "oid": "1.3.6.1.4.1.171.14.14.2.2",
+    "class": "objectidentity"
+  },
+  "dsfBootInfoGroup": {
+    "name": "dsfBootInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.14.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfNextBootCfgUrl"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfNextBootImageUrl"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCheckingBootImageCheck"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfBootImageCheckResult"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfBootImageUrl"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfBootImageInWorking"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfBootCfgFileUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "dsfCopyGroup": {
+    "name": "dsfCopyGroup",
+    "oid": "1.3.6.1.4.1.171.14.14.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyType"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopySrcUrl"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyDstUrl"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyRemoteAddrType"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyRemoteAddr"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyUsrName"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyUsrPwd"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyRemoteTcpPort"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyVrfName"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyErrorStatus"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCopyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dsfCfgReplaceGroup": {
+    "name": "dsfCfgReplaceGroup",
+    "oid": "1.3.6.1.4.1.171.14.14.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceSrcType"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceSrcUrl"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceRemoteAddrType"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceRemoteAddr"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceUsrName"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceUsrPwd"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceRemoteTcpPort"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceVrfName"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceErrorStatus"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfCfgReplaceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dsfIpSrcIfGroup": {
+    "name": "dsfIpSrcIfGroup",
+    "oid": "1.3.6.1.4.1.171.14.14.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfIpTftpSrcIf"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfIpFtpSrcIf"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfIpRcpSrcIf"
+      }
+    ],
+    "status": "current"
+  },
+  "dsfClearCfgGroup": {
+    "name": "dsfClearCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.14.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfClearRunCfg"
+      },
+      {
+        "module": "DLINKSW-SYSTEM-FILE-MIB",
+        "object": "dsfResetSystem"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SYSTEM-FILE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-SYSTEM-FILE-MIB"
+  }
+}

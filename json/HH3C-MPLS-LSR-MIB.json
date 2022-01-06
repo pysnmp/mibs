@@ -1,0 +1,1995 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cMpls"
+    ],
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "RowStatus"
+    ]
+  },
+  "hh3cMplsLsr": {
+    "name": "hh3cMplsLsr",
+    "oid": "1.3.6.1.4.1.25506.8.12.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-07-12 12:00",
+        "description": "Seventh draft version. Fix minor compilation errors."
+      },
+      {
+        "revision": "2000-07-07 12:00",
+        "description": "Sixth draft version. Made minor typographical corrections noted from WG mailing list during second working group last call."
+      },
+      {
+        "revision": "2000-04-26 12:00",
+        "description": "Fifth draft version. Made minor typographical corrections noted from WG mailing list."
+      },
+      {
+        "revision": "2000-04-21 12:00",
+        "description": "Fourth draft version. Made corrections from WG Last Call comments."
+      },
+      {
+        "revision": "2000-03-06 12:00",
+        "description": "Third draft version."
+      },
+      {
+        "revision": "2000-02-16 12:00",
+        "description": "Second draft version."
+      },
+      {
+        "revision": "1999-06-16 12:00",
+        "description": "Initial draft version."
+      }
+    ]
+  },
+  "Hh3cMplsLSPID": {
+    "name": "Hh3cMplsLSPID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cMplsLabel": {
+    "name": "Hh3cMplsLabel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cMplsBitRate": {
+    "name": "Hh3cMplsBitRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cMplsBurstSize": {
+    "name": "Hh3cMplsBurstSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Hh3cMplsObjectOwner": {
+    "name": "Hh3cMplsObjectOwner",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "snmp": 2,
+          "ldp": 3,
+          "rsvp": 4,
+          "crldp": 5,
+          "policyAgent": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cmplsLsrObjects": {
+    "name": "hh3cmplsLsrObjects",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cmplsLsrNotifications": {
+    "name": "hh3cmplsLsrNotifications",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cmplsLsrNotifyPrefix": {
+    "name": "hh3cmplsLsrNotifyPrefix",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cmplsLsrConformance": {
+    "name": "hh3cmplsLsrConformance",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cmplsInterfaceConfTable": {
+    "name": "hh3cmplsInterfaceConfTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceConfEntry": {
+    "name": "hh3cmplsInterfaceConfEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsInterfaceConfIndex": {
+    "name": "hh3cmplsInterfaceConfIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceLabelMinIn": {
+    "name": "hh3cmplsInterfaceLabelMinIn",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceLabelMaxIn": {
+    "name": "hh3cmplsInterfaceLabelMaxIn",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceLabelMinOut": {
+    "name": "hh3cmplsInterfaceLabelMinOut",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceLabelMaxOut": {
+    "name": "hh3cmplsInterfaceLabelMaxOut",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceTotalBandwidth": {
+    "name": "hh3cmplsInterfaceTotalBandwidth",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceAvailableBandwidth": {
+    "name": "hh3cmplsInterfaceAvailableBandwidth",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceLabelParticipationType": {
+    "name": "hh3cmplsInterfaceLabelParticipationType",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "perPlatform": 0,
+        "perInterface": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceConfStorageType": {
+    "name": "hh3cmplsInterfaceConfStorageType",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsInterfacePerfTable": {
+    "name": "hh3cmplsInterfacePerfTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsInterfacePerfEntry": {
+    "name": "hh3cmplsInterfacePerfEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hh3cmplsInterfacePerfEntry",
+      "module": "HH3C-MPLS-LSR-MIB",
+      "object": "hh3cmplsInterfaceConfEntry"
+    },
+    "status": "current"
+  },
+  "hh3cmplsInterfaceInLabelsUsed": {
+    "name": "hh3cmplsInterfaceInLabelsUsed",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceFailedLabelLookup": {
+    "name": "hh3cmplsInterfaceFailedLabelLookup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceOutLabelsUsed": {
+    "name": "hh3cmplsInterfaceOutLabelsUsed",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInterfaceOutFragments": {
+    "name": "hh3cmplsInterfaceOutFragments",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentTable": {
+    "name": "hh3cmplsInSegmentTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentEntry": {
+    "name": "hh3cmplsInSegmentEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentLabel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsInSegmentIfIndex": {
+    "name": "hh3cmplsInSegmentIfIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentLabel": {
+    "name": "hh3cmplsInSegmentLabel",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentNPop": {
+    "name": "hh3cmplsInSegmentNPop",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentAddrFamily": {
+    "name": "hh3cmplsInSegmentAddrFamily",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentXCIndex": {
+    "name": "hh3cmplsInSegmentXCIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentOwner": {
+    "name": "hh3cmplsInSegmentOwner",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsObjectOwner",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentTrafficParamPtr": {
+    "name": "hh3cmplsInSegmentTrafficParamPtr",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentRowStatus": {
+    "name": "hh3cmplsInSegmentRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentStorageType": {
+    "name": "hh3cmplsInSegmentStorageType",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentPerfTable": {
+    "name": "hh3cmplsInSegmentPerfTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentPerfEntry": {
+    "name": "hh3cmplsInSegmentPerfEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hh3cmplsInSegmentPerfEntry",
+      "module": "HH3C-MPLS-LSR-MIB",
+      "object": "hh3cmplsInSegmentEntry"
+    },
+    "status": "current"
+  },
+  "hh3cmplsInSegmentOctets": {
+    "name": "hh3cmplsInSegmentOctets",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentPackets": {
+    "name": "hh3cmplsInSegmentPackets",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentErrors": {
+    "name": "hh3cmplsInSegmentErrors",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentDiscards": {
+    "name": "hh3cmplsInSegmentDiscards",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentHCOctets": {
+    "name": "hh3cmplsInSegmentHCOctets",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsInSegmentPerfDiscontinuityTime": {
+    "name": "hh3cmplsInSegmentPerfDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentIndexNext": {
+    "name": "hh3cmplsOutSegmentIndexNext",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentTable": {
+    "name": "hh3cmplsOutSegmentTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentEntry": {
+    "name": "hh3cmplsOutSegmentEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentIndex": {
+    "name": "hh3cmplsOutSegmentIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentIfIndex": {
+    "name": "hh3cmplsOutSegmentIfIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentPushTopLabel": {
+    "name": "hh3cmplsOutSegmentPushTopLabel",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentTopLabel": {
+    "name": "hh3cmplsOutSegmentTopLabel",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentNextHopIpAddrType": {
+    "name": "hh3cmplsOutSegmentNextHopIpAddrType",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentNextHopIpv4Addr": {
+    "name": "hh3cmplsOutSegmentNextHopIpv4Addr",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentNextHopIpv6Addr": {
+    "name": "hh3cmplsOutSegmentNextHopIpv6Addr",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentXCIndex": {
+    "name": "hh3cmplsOutSegmentXCIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentOwner": {
+    "name": "hh3cmplsOutSegmentOwner",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsObjectOwner",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentTrafficParamPtr": {
+    "name": "hh3cmplsOutSegmentTrafficParamPtr",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentRowStatus": {
+    "name": "hh3cmplsOutSegmentRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentStorageType": {
+    "name": "hh3cmplsOutSegmentStorageType",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentPerfTable": {
+    "name": "hh3cmplsOutSegmentPerfTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentPerfEntry": {
+    "name": "hh3cmplsOutSegmentPerfEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hh3cmplsOutSegmentPerfEntry",
+      "module": "HH3C-MPLS-LSR-MIB",
+      "object": "hh3cmplsOutSegmentEntry"
+    },
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentOctets": {
+    "name": "hh3cmplsOutSegmentOctets",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentPackets": {
+    "name": "hh3cmplsOutSegmentPackets",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentErrors": {
+    "name": "hh3cmplsOutSegmentErrors",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentDiscards": {
+    "name": "hh3cmplsOutSegmentDiscards",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentHCOctets": {
+    "name": "hh3cmplsOutSegmentHCOctets",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentPerfDiscontinuityTime": {
+    "name": "hh3cmplsOutSegmentPerfDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsXCIndexNext": {
+    "name": "hh3cmplsXCIndexNext",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsXCTable": {
+    "name": "hh3cmplsXCTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsXCEntry": {
+    "name": "hh3cmplsXCEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentLabel",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsXCIndex": {
+    "name": "hh3cmplsXCIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cmplsXCLspId": {
+    "name": "hh3cmplsXCLspId",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsLSPID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsXCLabelStackIndex": {
+    "name": "hh3cmplsXCLabelStackIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsXCIsPersistent": {
+    "name": "hh3cmplsXCIsPersistent",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsXCOwner": {
+    "name": "hh3cmplsXCOwner",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsObjectOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsXCRowStatus": {
+    "name": "hh3cmplsXCRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsXCStorageType": {
+    "name": "hh3cmplsXCStorageType",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsXCAdminStatus": {
+    "name": "hh3cmplsXCAdminStatus",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsXCOperStatus": {
+    "name": "hh3cmplsXCOperStatus",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "dormant": 5,
+          "notPresent": 6,
+          "lowerLayerDown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsMaxLabelStackDepth": {
+    "name": "hh3cmplsMaxLabelStackDepth",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsLabelStackIndexNext": {
+    "name": "hh3cmplsLabelStackIndexNext",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsLabelStackTable": {
+    "name": "hh3cmplsLabelStackTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsLabelStackEntry": {
+    "name": "hh3cmplsLabelStackEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsLabelStackIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsLabelStackLabelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsLabelStackIndex": {
+    "name": "hh3cmplsLabelStackIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsLabelStackLabelIndex": {
+    "name": "hh3cmplsLabelStackLabelIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsLabelStackLabel": {
+    "name": "hh3cmplsLabelStackLabel",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsLabelStackRowStatus": {
+    "name": "hh3cmplsLabelStackRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsLabelStackStorageType": {
+    "name": "hh3cmplsLabelStackStorageType",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamIndexNext": {
+    "name": "hh3cmplsTrafficParamIndexNext",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamTable": {
+    "name": "hh3cmplsTrafficParamTable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamEntry": {
+    "name": "hh3cmplsTrafficParamEntry",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsTrafficParamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamIndex": {
+    "name": "hh3cmplsTrafficParamIndex",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamMaxRate": {
+    "name": "hh3cmplsTrafficParamMaxRate",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsBitRate",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamMeanRate": {
+    "name": "hh3cmplsTrafficParamMeanRate",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsBitRate",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamMaxBurstSize": {
+    "name": "hh3cmplsTrafficParamMaxBurstSize",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cMplsBurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamRowStatus": {
+    "name": "hh3cmplsTrafficParamRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamStorageType": {
+    "name": "hh3cmplsTrafficParamStorageType",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cmplsXCTrapEnable": {
+    "name": "hh3cmplsXCTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cmplsXCUp": {
+    "name": "hh3cmplsXCUp",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentIfIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentLabel"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCAdminStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsXCDown": {
+    "name": "hh3cmplsXCDown",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentIfIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentLabel"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCAdminStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsLsrGroups": {
+    "name": "hh3cmplsLsrGroups",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cmplsLsrCompliances": {
+    "name": "hh3cmplsLsrCompliances",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cmplsLsrModuleCompliance": {
+    "name": "hh3cmplsLsrModuleCompliance",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cmplsInSegmentGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsOutSegmentGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsXCGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsInterfaceGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsPerfGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsSegmentDiscontinuityGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsHCInSegmentPerfGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsHCOutSegmentPerfGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsTrafficParamGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsXCIsPersistentGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      },
+      {
+        "object": "hh3cmplsXCIsNotPersistentGroup",
+        "module": "HH3C-MPLS-LSR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsInterfaceGroup": {
+    "name": "hh3cmplsInterfaceGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceLabelMinIn"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceLabelMaxIn"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceLabelMinOut"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceLabelMaxOut"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceTotalBandwidth"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceAvailableBandwidth"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceLabelParticipationType"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceConfStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsInSegmentGroup": {
+    "name": "hh3cmplsInSegmentGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentNPop"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentAddrFamily"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentXCIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentOctets"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentDiscards"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentOwner"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentRowStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentStorageType"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentTrafficParamPtr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsOutSegmentGroup": {
+    "name": "hh3cmplsOutSegmentGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentIndexNext"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentIfIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentPushTopLabel"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentTopLabel"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentNextHopIpAddrType"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentNextHopIpv4Addr"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentNextHopIpv6Addr"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentXCIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentOwner"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentOctets"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentDiscards"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentErrors"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentRowStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentStorageType"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentTrafficParamPtr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsXCGroup": {
+    "name": "hh3cmplsXCGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCIndexNext"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCLabelStackIndex"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCOwner"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCAdminStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCOperStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCRowStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCTrapEnable"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsXCOptionalGroup": {
+    "name": "hh3cmplsXCOptionalGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsPerfGroup": {
+    "name": "hh3cmplsPerfGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentOctets"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentPackets"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentErrors"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentDiscards"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentOctets"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentPackets"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentDiscards"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceInLabelsUsed"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceFailedLabelLookup"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceOutFragments"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInterfaceOutLabelsUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsHCInSegmentPerfGroup": {
+    "name": "hh3cmplsHCInSegmentPerfGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentHCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsHCOutSegmentPerfGroup": {
+    "name": "hh3cmplsHCOutSegmentPerfGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentHCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsTrafficParamGroup": {
+    "name": "hh3cmplsTrafficParamGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsTrafficParamIndexNext"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsTrafficParamMaxRate"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsTrafficParamMeanRate"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsTrafficParamMaxBurstSize"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsTrafficParamRowStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsTrafficParamStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsXCIsPersistentGroup": {
+    "name": "hh3cmplsXCIsPersistentGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCIsPersistent"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsXCIsNotPersistentGroup": {
+    "name": "hh3cmplsXCIsNotPersistentGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCIsPersistent"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsLabelStackGroup": {
+    "name": "hh3cmplsLabelStackGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsLabelStackLabel"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsLabelStackRowStatus"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsLabelStackStorageType"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsMaxLabelStackDepth"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsLabelStackIndexNext"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsSegmentDiscontinuityGroup": {
+    "name": "hh3cmplsSegmentDiscontinuityGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsInSegmentPerfDiscontinuityTime"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsOutSegmentPerfDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cmplsLsrNotificationGroup": {
+    "name": "hh3cmplsLsrNotificationGroup",
+    "oid": "1.3.6.1.4.1.25506.8.12.1.3.1.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCUp"
+      },
+      {
+        "module": "HH3C-MPLS-LSR-MIB",
+        "object": "hh3cmplsXCDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-MPLS-LSR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-MPLS-LSR-MIB"
+  }
+}

@@ -1,0 +1,880 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "DisplayStringUnsized"
+    ],
+    "AT-SYSINFO-MIB": [
+      "sysinfo"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atPluggableDiag": {
+    "name": "atPluggableDiag",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-07-17 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "atPluggableDiagTable": {
+    "name": "atPluggableDiagTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1",
+    "class": "objectidentity"
+  },
+  "atPluggableDiagTempTable": {
+    "name": "atPluggableDiagTempTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTempEntry": {
+    "name": "atPluggableDiagTempEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagTempIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagTempChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atPluggableDiagTempIfIndex": {
+    "name": "atPluggableDiagTempIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTempChannel": {
+    "name": "atPluggableDiagTempChannel",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTempStatusReading": {
+    "name": "atPluggableDiagTempStatusReading",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 degree C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTempCurrentAlarm": {
+    "name": "atPluggableDiagTempCurrentAlarm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTempAlarmMax": {
+    "name": "atPluggableDiagTempAlarmMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 degree C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTempAlarmMin": {
+    "name": "atPluggableDiagTempAlarmMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 degree C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTempCurrentWarning": {
+    "name": "atPluggableDiagTempCurrentWarning",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTempWarningMax": {
+    "name": "atPluggableDiagTempWarningMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 degree C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTempWarningMin": {
+    "name": "atPluggableDiagTempWarningMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 degree C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagVccTable": {
+    "name": "atPluggableDiagVccTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagVccEntry": {
+    "name": "atPluggableDiagVccEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagVccIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagVccChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atPluggableDiagVccIfIndex": {
+    "name": "atPluggableDiagVccIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagVccChannel": {
+    "name": "atPluggableDiagVccChannel",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagVccStatusReading": {
+    "name": "atPluggableDiagVccStatusReading",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagVccCurrentAlarm": {
+    "name": "atPluggableDiagVccCurrentAlarm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagVccAlarmMax": {
+    "name": "atPluggableDiagVccAlarmMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagVccAlarmMin": {
+    "name": "atPluggableDiagVccAlarmMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagVccCurrentWarning": {
+    "name": "atPluggableDiagVccCurrentWarning",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagVccWarningMax": {
+    "name": "atPluggableDiagVccWarningMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagVccWarningMin": {
+    "name": "atPluggableDiagVccWarningMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasTable": {
+    "name": "atPluggableDiagTxBiasTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasEntry": {
+    "name": "atPluggableDiagTxBiasEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagTxBiasIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagTxBiasChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasIfIndex": {
+    "name": "atPluggableDiagTxBiasIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasChannel": {
+    "name": "atPluggableDiagTxBiasChannel",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasStatusReading": {
+    "name": "atPluggableDiagTxBiasStatusReading",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasCurrentAlarm": {
+    "name": "atPluggableDiagTxBiasCurrentAlarm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasAlarmMax": {
+    "name": "atPluggableDiagTxBiasAlarmMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasAlarmMin": {
+    "name": "atPluggableDiagTxBiasAlarmMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasCurrentWarning": {
+    "name": "atPluggableDiagTxBiasCurrentWarning",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasWarningMax": {
+    "name": "atPluggableDiagTxBiasWarningMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxBiasWarningMin": {
+    "name": "atPluggableDiagTxBiasWarningMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.001 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerTable": {
+    "name": "atPluggableDiagTxPowerTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerEntry": {
+    "name": "atPluggableDiagTxPowerEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagTxPowerIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagTxPowerChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerIfIndex": {
+    "name": "atPluggableDiagTxPowerIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerChannel": {
+    "name": "atPluggableDiagTxPowerChannel",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerStatusReading": {
+    "name": "atPluggableDiagTxPowerStatusReading",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerCurrentAlarm": {
+    "name": "atPluggableDiagTxPowerCurrentAlarm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerAlarmMax": {
+    "name": "atPluggableDiagTxPowerAlarmMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerAlarmMin": {
+    "name": "atPluggableDiagTxPowerAlarmMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerCurrentWarning": {
+    "name": "atPluggableDiagTxPowerCurrentWarning",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerWarningMax": {
+    "name": "atPluggableDiagTxPowerWarningMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagTxPowerWarningMin": {
+    "name": "atPluggableDiagTxPowerWarningMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerTable": {
+    "name": "atPluggableDiagRxPowerTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerEntry": {
+    "name": "atPluggableDiagRxPowerEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagRxPowerIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagRxPowerChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerIfIndex": {
+    "name": "atPluggableDiagRxPowerIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerChannel": {
+    "name": "atPluggableDiagRxPowerChannel",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerStatusReading": {
+    "name": "atPluggableDiagRxPowerStatusReading",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerCurrentAlarm": {
+    "name": "atPluggableDiagRxPowerCurrentAlarm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerAlarmMax": {
+    "name": "atPluggableDiagRxPowerAlarmMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerAlarmMin": {
+    "name": "atPluggableDiagRxPowerAlarmMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerCurrentWarning": {
+    "name": "atPluggableDiagRxPowerCurrentWarning",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerWarningMax": {
+    "name": "atPluggableDiagRxPowerWarningMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagRxPowerWarningMin": {
+    "name": "atPluggableDiagRxPowerWarningMin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.0001 mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPluggableDiagRxLosTable": {
+    "name": "atPluggableDiagRxLosTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagRxLosEntry": {
+    "name": "atPluggableDiagRxLosEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagRxLosIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB",
+        "object": "atPluggableDiagRxLosChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atPluggableDiagRxLosIfIndex": {
+    "name": "atPluggableDiagRxLosIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagRxLosChannel": {
+    "name": "atPluggableDiagRxLosChannel",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPluggableDiagRxLosStatusReading": {
+    "name": "atPluggableDiagRxLosStatusReading",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.28.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-PLUGGABLE-DIAGNOSTICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-PLUGGABLE-DIAGNOSTICS-MIB"
+  }
+}

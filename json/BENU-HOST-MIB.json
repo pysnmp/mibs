@@ -1,0 +1,610 @@
+{
+  "imports": {
+    "class": "imports",
+    "BENU-PLATFORM-MIB": [
+      "benuPlatform"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bHostMIB": {
+    "name": "bHostMIB",
+    "oid": "1.3.6.1.4.1.39406.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-03 00:00",
+        "description": "Changed bSysTotalMem, bSysMemUsed and bSysMemFree from CounterBasedGauge64 to Unsigned32"
+      },
+      {
+        "revision": "2015-04-28 00:00",
+        "description": "Improved the use of 64 Bit Gauge by replacing Unsigned64 with CounterBasedGauge64"
+      },
+      {
+        "revision": "2015-04-27 00:00",
+        "description": "Updated the description of bSWTaskRunStateTime"
+      },
+      {
+        "revision": "2015-01-05 00:00",
+        "description": "Updated notification assignments to comply with standards (RFC 2578)."
+      },
+      {
+        "revision": "2015-01-04 00:00",
+        "description": "Updated MIB file with change in MAX-ACCESS level for notification objects."
+      },
+      {
+        "revision": "2014-12-17 00:00",
+        "description": "updated MIB file with change in bHostNotifObjects"
+      },
+      {
+        "revision": "2014-09-22 00:00",
+        "description": "Changed bSWTaskRunStateTime from Unsigned32 to TimeTicks"
+      },
+      {
+        "revision": "2014-03-21 00:00",
+        "description": "Trap definitions are changed"
+      },
+      {
+        "revision": "2013-05-27 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "bHostMIBObjects": {
+    "name": "bHostMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bHostNotifObjects": {
+    "name": "bHostNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.1.5.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bHostNotifVariables": {
+    "name": "bHostNotifVariables",
+    "oid": "1.3.6.1.4.1.39406.1.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bSWTaskInfoTable": {
+    "name": "bSWTaskInfoTable",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bSWTaskInfoEntry": {
+    "name": "bSWTaskInfoEntry",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWTaskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bSWTaskIndex": {
+    "name": "bSWTaskIndex",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bSWTaskName": {
+    "name": "bSWTaskName",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskProcessID": {
+    "name": "bSWTaskProcessID",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskLoadIntervalDuration": {
+    "name": "bSWTaskLoadIntervalDuration",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskRunStateTime": {
+    "name": "bSWTaskRunStateTime",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskCPUUsage": {
+    "name": "bSWTaskCPUUsage",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskAvgCPUUsage": {
+    "name": "bSWTaskAvgCPUUsage",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskMaxCPUUsage": {
+    "name": "bSWTaskMaxCPUUsage",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskCodeSegmentSize": {
+    "name": "bSWTaskCodeSegmentSize",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskDataSegmentSize": {
+    "name": "bSWTaskDataSegmentSize",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskResidentPhyMem": {
+    "name": "bSWTaskResidentPhyMem",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskVirtMemUsage": {
+    "name": "bSWTaskVirtMemUsage",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskSharedMem": {
+    "name": "bSWTaskSharedMem",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskVirtMemPeakUsage": {
+    "name": "bSWTaskVirtMemPeakUsage",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskAvgCPUUsageHighThreshold": {
+    "name": "bSWTaskAvgCPUUsageHighThreshold",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskAvgCPUUsageLowThreshold": {
+    "name": "bSWTaskAvgCPUUsageLowThreshold",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskCPUUsageLimit": {
+    "name": "bSWTaskCPUUsageLimit",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskRestartLimit": {
+    "name": "bSWTaskRestartLimit",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskRestartability": {
+    "name": "bSWTaskRestartability",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskRestartCount": {
+    "name": "bSWTaskRestartCount",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSysTotalMem": {
+    "name": "bSysTotalMem",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSysMemUsed": {
+    "name": "bSysMemUsed",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSysMemFree": {
+    "name": "bSysMemFree",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSysTotalCPUUtilAvailable": {
+    "name": "bSysTotalCPUUtilAvailable",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSysAvgCPUUtil15Sec": {
+    "name": "bSysAvgCPUUtil15Sec",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSysAvgCPUUtil1Min": {
+    "name": "bSysAvgCPUUtil1Min",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSysAvgCPUUtil5Min": {
+    "name": "bSysAvgCPUUtil5Min",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bCPUMonInterval": {
+    "name": "bCPUMonInterval",
+    "oid": "1.3.6.1.4.1.39406.1.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSWTaskDiedReason": {
+    "name": "bSWTaskDiedReason",
+    "oid": "1.3.6.1.4.1.39406.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpuUsageLimitReached": 1,
+          "unKnown": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bSWProcessName": {
+    "name": "bSWProcessName",
+    "oid": "1.3.6.1.4.1.39406.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bSWProcessID": {
+    "name": "bSWProcessID",
+    "oid": "1.3.6.1.4.1.39406.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bSWProcessAvgCPUUsageLowThreshold": {
+    "name": "bSWProcessAvgCPUUsageLowThreshold",
+    "oid": "1.3.6.1.4.1.39406.1.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bSWProcessAvgCPUUsageHighThreshold": {
+    "name": "bSWProcessAvgCPUUsageHighThreshold",
+    "oid": "1.3.6.1.4.1.39406.1.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bSWTaskAvgCPUUsageLow": {
+    "name": "bSWTaskAvgCPUUsageLow",
+    "oid": "1.3.6.1.4.1.39406.1.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessName"
+      },
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessID"
+      },
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessAvgCPUUsageLowThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bSWTaskAvgCPUUsageHigh": {
+    "name": "bSWTaskAvgCPUUsageHigh",
+    "oid": "1.3.6.1.4.1.39406.1.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessName"
+      },
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessID"
+      },
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessAvgCPUUsageHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "bSWTaskDied": {
+    "name": "bSWTaskDied",
+    "oid": "1.3.6.1.4.1.39406.1.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessName"
+      },
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessID"
+      },
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWTaskDiedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "bSWTaskRestartLimitReached": {
+    "name": "bSWTaskRestartLimitReached",
+    "oid": "1.3.6.1.4.1.39406.1.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessName"
+      },
+      {
+        "module": "BENU-HOST-MIB",
+        "object": "bSWProcessID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-HOST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BENU-HOST-MIB"
+  }
+}

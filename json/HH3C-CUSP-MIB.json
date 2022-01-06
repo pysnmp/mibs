@@ -1,0 +1,308 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cCusp": {
+    "name": "hh3cCusp",
+    "oid": "1.3.6.1.4.1.25506.2.190",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-09-11 13:00",
+        "description": "Modified the objects description information of hh3cCuspServerDisconnectReason, hh3cCuspLocalIPaddressType, hh3cCuspRemoteIPaddressType, hh3cCuspServerDisconnect and hh3cCuspClientDisconnect."
+      },
+      {
+        "revision": "2020-07-20 13:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hh3cCuspMibTrap": {
+    "name": "hh3cCuspMibTrap",
+    "oid": "1.3.6.1.4.1.25506.2.190.1",
+    "class": "objectidentity"
+  },
+  "hh3cCuspMibTrapOid": {
+    "name": "hh3cCuspMibTrapOid",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cCuspServerDisconnectReason": {
+    "name": "hh3cCuspServerDisconnectReason",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCuspClientDisconnectReason": {
+    "name": "hh3cCuspClientDisconnectReason",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCuspVpnInstanceName": {
+    "name": "hh3cCuspVpnInstanceName",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCuspLocalIPaddressType": {
+    "name": "hh3cCuspLocalIPaddressType",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCuspLocalIPaddress": {
+    "name": "hh3cCuspLocalIPaddress",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCuspRemoteIPaddressType": {
+    "name": "hh3cCuspRemoteIPaddressType",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCuspRemoteIPaddress": {
+    "name": "hh3cCuspRemoteIPaddress",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCuspTraps": {
+    "name": "hh3cCuspTraps",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cCuspTrapsPrefix": {
+    "name": "hh3cCuspTrapsPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cCuspServerDisconnect": {
+    "name": "hh3cCuspServerDisconnect",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspLocalIPaddressType"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspLocalIPaddress"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspRemoteIPaddressType"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspRemoteIPaddress"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspVpnInstanceName"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspServerDisconnectReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCuspServerConnect": {
+    "name": "hh3cCuspServerConnect",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspLocalIPaddressType"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspLocalIPaddress"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspRemoteIPaddressType"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspRemoteIPaddress"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspVpnInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCuspClientDisconnect": {
+    "name": "hh3cCuspClientDisconnect",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspLocalIPaddressType"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspLocalIPaddress"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspRemoteIPaddressType"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspRemoteIPaddress"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspVpnInstanceName"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspClientDisconnectReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCuspClientConnect": {
+    "name": "hh3cCuspClientConnect",
+    "oid": "1.3.6.1.4.1.25506.2.190.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspLocalIPaddressType"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspLocalIPaddress"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspRemoteIPaddressType"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspRemoteIPaddress"
+      },
+      {
+        "module": "HH3C-CUSP-MIB",
+        "object": "hh3cCuspVpnInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-CUSP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-CUSP-MIB"
+  }
+}

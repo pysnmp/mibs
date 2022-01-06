@@ -1,0 +1,575 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VIDEO-SESSION-MIB": [
+      "CvcVideoProfile"
+    ],
+    "CISCO-VIDEO-TC": [
+      "CvcVideoResolution"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoIpslaVideoProfileMIB": {
+    "name": "ciscoIpslaVideoProfileMIB",
+    "oid": "1.3.6.1.4.1.9.9.766",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-24 00:00",
+        "description": "initial version of the MIB"
+      }
+    ]
+  },
+  "ciscoIpslaVideoProfileMIBNotifs": {
+    "name": "ciscoIpslaVideoProfileMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.766.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpslaVideoProfileMIBObjects": {
+    "name": "ciscoIpslaVideoProfileMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.766.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpslaVideoProfileMIBConform": {
+    "name": "ciscoIpslaVideoProfileMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.766.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpslaVideoProfileMIBCompliances": {
+    "name": "ciscoIpslaVideoProfileMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.766.2.1",
+    "class": "objectidentity"
+  },
+  "cipslaVideoProfile": {
+    "name": "cipslaVideoProfile",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1",
+    "class": "objectidentity"
+  },
+  "cipslaVideoProfileTable": {
+    "name": "cipslaVideoProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaVideoProfileEntry": {
+    "name": "cipslaVideoProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipslaVideoProfileID": {
+    "name": "cipslaVideoProfileID",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipslaVideoProfileRowStatus": {
+    "name": "cipslaVideoProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileStorageType": {
+    "name": "cipslaVideoProfileStorageType",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileName": {
+    "name": "cipslaVideoProfileName",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileDescription": {
+    "name": "cipslaVideoProfileDescription",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileEndpointType": {
+    "name": "cipslaVideoProfileEndpointType",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "custom": 1,
+          "cts1k": 21,
+          "cts3k": 22,
+          "cp99xx": 31,
+          "unknown": 9999
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileCodec": {
+    "name": "cipslaVideoProfileCodec",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoProfile",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "h264ProfileBaseline",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileVideoContents": {
+    "name": "cipslaVideoProfileVideoContents",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conferenceRoom": 1,
+          "singlePerson": 2,
+          "presentation": 3,
+          "sports": 4,
+          "streetView": 5,
+          "other": 255
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "singlePerson",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileFrameRate": {
+    "name": "cipslaVideoProfileFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120000
+          }
+        ]
+      }
+    },
+    "units": "fpks",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileResolution": {
+    "name": "cipslaVideoProfileResolution",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoResolution",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileAvgBitrate": {
+    "name": "cipslaVideoProfileAvgBitrate",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileMaxBitrate": {
+    "name": "cipslaVideoProfileMaxBitrate",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 240000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileMinBitrate": {
+    "name": "cipslaVideoProfileMinBitrate",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileBitrateWindowSize": {
+    "name": "cipslaVideoProfileBitrateWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileIframeMaxSize": {
+    "name": "cipslaVideoProfileIframeMaxSize",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "kB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileIframeRefreshInterval": {
+    "name": "cipslaVideoProfileIframeRefreshInterval",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileRtpAvgSize": {
+    "name": "cipslaVideoProfileRtpAvgSize",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 1600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "byte",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipslaVideoProfileRtpJitterPattern": {
+    "name": "cipslaVideoProfileRtpJitterPattern",
+    "oid": "1.3.6.1.4.1.9.9.766.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bursty": 1,
+          "shaped": 2,
+          "other": 99
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bursty",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoIpslaVideoProfileMIBGroups": {
+    "name": "ciscoIpslaVideoProfileMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.766.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpslaVideoProfileMIBCompliance": {
+    "name": "ciscoIpslaVideoProfileMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.766.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpslaVideoProfileBaseGroup",
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB"
+      },
+      {
+        "object": "ciscoIpslaVideoProfileIsrg2Pvdm3Group",
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpslaVideoProfileBaseGroup": {
+    "name": "ciscoIpslaVideoProfileBaseGroup",
+    "oid": "1.3.6.1.4.1.9.9.766.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileRowStatus"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileStorageType"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileDescription"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpslaVideoProfileIsrg2Pvdm3Group": {
+    "name": "ciscoIpslaVideoProfileIsrg2Pvdm3Group",
+    "oid": "1.3.6.1.4.1.9.9.766.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileEndpointType"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileCodec"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileVideoContents"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileFrameRate"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileResolution"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileAvgBitrate"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileMaxBitrate"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileMinBitrate"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileBitrateWindowSize"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileIframeMaxSize"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileIframeRefreshInterval"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileRtpAvgSize"
+      },
+      {
+        "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB",
+        "object": "cipslaVideoProfileRtpJitterPattern"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSLA-VIDEO-PROFILE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IPSLA-VIDEO-PROFILE-MIB"
+  }
+}

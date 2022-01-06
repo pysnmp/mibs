@@ -1,0 +1,715 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "DirectionType": {
+    "name": "DirectionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwQoS": {
+    "name": "hwQoS",
+    "oid": "1.3.6.1.4.1.2011.5.25.32",
+    "class": "objectidentity"
+  },
+  "hwFrQoSMib": {
+    "name": "hwFrQoSMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3",
+    "class": "moduleidentity"
+  },
+  "hwFrQoSObjects": {
+    "name": "hwFrQoSObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1",
+    "class": "objectidentity"
+  },
+  "hwFrClassObjects": {
+    "name": "hwFrClassObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1",
+    "class": "objectidentity"
+  },
+  "hwFrClassIndexNext": {
+    "name": "hwFrClassIndexNext",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFrClassCfgInfoTable": {
+    "name": "hwFrClassCfgInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFrClassCfgInfoEntry": {
+    "name": "hwFrClassCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwFrClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFrClassIndex": {
+    "name": "hwFrClassIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFrClassName": {
+    "name": "hwFrClassName",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFrClassRowStatus": {
+    "name": "hwFrClassRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCirAllowCfgInfoTable": {
+    "name": "hwCirAllowCfgInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCirAllowCfgInfoEntry": {
+    "name": "hwCirAllowCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwCirAllowFrClassIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwCirAllowDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCirAllowFrClassIndex": {
+    "name": "hwCirAllowFrClassIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCirAllowDirection": {
+    "name": "hwCirAllowDirection",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCirAllowValue": {
+    "name": "hwCirAllowValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 45000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCirAllowRowStatus": {
+    "name": "hwCirAllowRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCirCfgInfoTable": {
+    "name": "hwCirCfgInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCirCfgInfoEntry": {
+    "name": "hwCirCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwCirFrClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCirFrClassIndex": {
+    "name": "hwCirFrClassIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCirValue": {
+    "name": "hwCirValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 45000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCirRowStatus": {
+    "name": "hwCirRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIfApplyFrClassTable": {
+    "name": "hwIfApplyFrClassTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIfApplyFrClassEntry": {
+    "name": "hwIfApplyFrClassEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwIfApplyFrClassIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIfApplyFrClassIfIndex": {
+    "name": "hwIfApplyFrClassIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIfApplyFrClassIndex": {
+    "name": "hwIfApplyFrClassIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIfApplyFrClassRowStatus": {
+    "name": "hwIfApplyFrClassRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPvcApplyFrClassTable": {
+    "name": "hwPvcApplyFrClassTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPvcApplyFrClassEntry": {
+    "name": "hwPvcApplyFrClassEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassDlciNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPvcApplyFrClassIfIndex": {
+    "name": "hwPvcApplyFrClassIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPvcApplyFrClassDlciNum": {
+    "name": "hwPvcApplyFrClassDlciNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPvcApplyFrClassIndex": {
+    "name": "hwPvcApplyFrClassIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPvcApplyFrClassRowStatus": {
+    "name": "hwPvcApplyFrClassRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFrPvcBandwidthTable": {
+    "name": "hwFrPvcBandwidthTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFrPvcBandwidthEntry": {
+    "name": "hwFrPvcBandwidthEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassDlciNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFrPvcBandwidthMaxReservedBW": {
+    "name": "hwFrPvcBandwidthMaxReservedBW",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFrPvcBandwidthAvailable": {
+    "name": "hwFrPvcBandwidthAvailable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRTPQoSObjects": {
+    "name": "hwRTPQoSObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2",
+    "class": "objectidentity"
+  },
+  "hwRTPFrClassApplyTable": {
+    "name": "hwRTPFrClassApplyTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRTPFrClassApplyEntry": {
+    "name": "hwRTPFrClassApplyEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwRTPFrClassApplyFrClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRTPFrClassApplyFrClassIndex": {
+    "name": "hwRTPFrClassApplyFrClassIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRTPFrClassApplyStartPort": {
+    "name": "hwRTPFrClassApplyStartPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRTPFrClassApplyEndPort": {
+    "name": "hwRTPFrClassApplyEndPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRTPFrClassApplyBandWidth": {
+    "name": "hwRTPFrClassApplyBandWidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRTPFrClassApplyCbs": {
+    "name": "hwRTPFrClassApplyCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1500,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRTPFrClassApplyRowStatus": {
+    "name": "hwRTPFrClassApplyRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueRunInfoTable": {
+    "name": "hwRTPFrPvcQueueRunInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueRunInfoEntry": {
+    "name": "hwRTPFrPvcQueueRunInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassDlciNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueSize": {
+    "name": "hwRTPFrPvcQueueSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueMaxSize": {
+    "name": "hwRTPFrPvcQueueMaxSize",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueOutputs": {
+    "name": "hwRTPFrPvcQueueOutputs",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueDiscards": {
+    "name": "hwRTPFrPvcQueueDiscards",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-FR-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-FR-QOS-MIB"
+  }
+}

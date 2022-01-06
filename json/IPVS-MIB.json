@@ -1,0 +1,577 @@
+{
+  "imports": {
+    "class": "imports",
+    "ONE4NET-MIB": [
+      "one4net"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "Opaque",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "ipvs": {
+    "name": "ipvs",
+    "oid": "1.3.6.1.4.1.12196.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-01 00:00",
+        "description": "version 6.0"
+      }
+    ]
+  },
+  "ipvsVSTable": {
+    "name": "ipvsVSTable",
+    "oid": "1.3.6.1.4.1.12196.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipvsRSTable": {
+    "name": "ipvsRSTable",
+    "oid": "1.3.6.1.4.1.12196.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipvsRSTotalTable": {
+    "name": "ipvsRSTotalTable",
+    "oid": "1.3.6.1.4.1.12196.12.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsTotalEntry": {
+    "name": "rsTotalEntry",
+    "oid": "1.3.6.1.4.1.12196.12.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPVS-MIB",
+        "object": "totRSidx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "totRSidx": {
+    "name": "totRSidx",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totRSDesc": {
+    "name": "totRSDesc",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "totRSConns": {
+    "name": "totRSConns",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totRSInPkts": {
+    "name": "totRSInPkts",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totRSOutPkts": {
+    "name": "totRSOutPkts",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totRSInBytes": {
+    "name": "totRSInBytes",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totRSOutBytes": {
+    "name": "totRSOutBytes",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totRSActiveConns": {
+    "name": "totRSActiveConns",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totRSInactiveConns": {
+    "name": "totRSInactiveConns",
+    "oid": "1.3.6.1.4.1.12196.12.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsEntry": {
+    "name": "vsEntry",
+    "oid": "1.3.6.1.4.1.12196.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPVS-MIB",
+        "object": "vSidx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vSidx": {
+    "name": "vSidx",
+    "oid": "1.3.6.1.4.1.12196.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSDesc": {
+    "name": "vSDesc",
+    "oid": "1.3.6.1.4.1.12196.12.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSConns": {
+    "name": "vSConns",
+    "oid": "1.3.6.1.4.1.12196.12.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSInPkts": {
+    "name": "vSInPkts",
+    "oid": "1.3.6.1.4.1.12196.12.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSOutPkts": {
+    "name": "vSOutPkts",
+    "oid": "1.3.6.1.4.1.12196.12.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSInBytes": {
+    "name": "vSInBytes",
+    "oid": "1.3.6.1.4.1.12196.12.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSOutBytes": {
+    "name": "vSOutBytes",
+    "oid": "1.3.6.1.4.1.12196.12.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSActivConns": {
+    "name": "vSActivConns",
+    "oid": "1.3.6.1.4.1.12196.12.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsEntry": {
+    "name": "rsEntry",
+    "oid": "1.3.6.1.4.1.12196.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPVS-MIB",
+        "object": "rSidx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rSidx": {
+    "name": "rSidx",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rSVSidx": {
+    "name": "rSVSidx",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSDesc": {
+    "name": "rSDesc",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSConns": {
+    "name": "rSConns",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSInPkts": {
+    "name": "rSInPkts",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSOutPkts": {
+    "name": "rSOutPkts",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSInBytes": {
+    "name": "rSInBytes",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSOutBytes": {
+    "name": "rSOutBytes",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSActiveConns": {
+    "name": "rSActiveConns",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSInactiveConns": {
+    "name": "rSInactiveConns",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSWeight": {
+    "name": "rSWeight",
+    "oid": "1.3.6.1.4.1.12196.12.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "conns": {
+    "name": "conns",
+    "oid": "1.3.6.1.4.1.12196.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inPkts": {
+    "name": "inPkts",
+    "oid": "1.3.6.1.4.1.12196.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outPkts": {
+    "name": "outPkts",
+    "oid": "1.3.6.1.4.1.12196.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inBytes": {
+    "name": "inBytes",
+    "oid": "1.3.6.1.4.1.12196.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outBytes": {
+    "name": "outBytes",
+    "oid": "1.3.6.1.4.1.12196.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/kemp/IPVS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IPVS-MIB"
+  }
+}

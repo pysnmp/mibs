@@ -1,0 +1,330 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfMultCDR": {
+    "name": "hpnicfMultCDR",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-12-15 00:00",
+        "description": "The multicast call detail record MIB."
+      }
+    ]
+  },
+  "hpnicfMultCDRCfgObject": {
+    "name": "hpnicfMultCDRCfgObject",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMultCDRStatus": {
+    "name": "hpnicfMultCDRStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMultCDRReportInterval": {
+    "name": "hpnicfMultCDRReportInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMultCDRCacheLimit": {
+    "name": "hpnicfMultCDRCacheLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMultCDRRecordDelay": {
+    "name": "hpnicfMultCDRRecordDelay",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMultCDRRecordSend": {
+    "name": "hpnicfMultCDRRecordSend",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "send": 1,
+          "caching": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMultUserOnlineInfoTable": {
+    "name": "hpnicfMultUserOnlineInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMultUserOnlineInfoEntry": {
+    "name": "hpnicfMultUserOnlineInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MCDR-MIB",
+        "object": "hpnicfMultUserRecordID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMultUserRecordID": {
+    "name": "hpnicfMultUserRecordID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMultUserSubIfIndex": {
+    "name": "hpnicfMultUserSubIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserVlanID": {
+    "name": "hpnicfMultUserVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserJoinGAddrType": {
+    "name": "hpnicfMultUserJoinGAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserJoinGAddr": {
+    "name": "hpnicfMultUserJoinGAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserJoinSAddrType": {
+    "name": "hpnicfMultUserJoinSAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserJoinSAddr": {
+    "name": "hpnicfMultUserJoinSAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserStatus": {
+    "name": "hpnicfMultUserStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "preview": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserJoinTime": {
+    "name": "hpnicfMultUserJoinTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserPreviewTimes": {
+    "name": "hpnicfMultUserPreviewTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMultUserPreviewRemain": {
+    "name": "hpnicfMultUserPreviewRemain",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.86.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MCDR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-MCDR-MIB"
+  }
+}

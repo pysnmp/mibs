@@ -1,0 +1,402 @@
+{
+  "imports": {
+    "class": "imports",
+    "MY-SMI": [
+      "myMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mySystemMIB": {
+    "name": "mySystemMIB",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "mySystemMIBObjects": {
+    "name": "mySystemMIBObjects",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1",
+    "class": "objectidentity"
+  },
+  "mySystemHwVersion": {
+    "name": "mySystemHwVersion",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mySystemSwVersion": {
+    "name": "mySystemSwVersion",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mySystemBootVersion": {
+    "name": "mySystemBootVersion",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mySystemSysCtrlVersion": {
+    "name": "mySystemSysCtrlVersion",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mySystemParametersSave": {
+    "name": "mySystemParametersSave",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mySystemOutBandRate": {
+    "name": "mySystemOutBandRate",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "baud9600": 1,
+          "baud19200": 2,
+          "baud38400": 3,
+          "baud57600": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mySystemReset": {
+    "name": "mySystemReset",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mySwitchLayer": {
+    "name": "mySwitchLayer",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "layer2": 1,
+          "layer3": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mySystemHwPower": {
+    "name": "mySystemHwPower",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rpsNoLink": 1,
+          "rpsLinkAndNoPower": 2,
+          "rpsLinkAndReadyForPower": 3,
+          "rpsLinkAndPower": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mySystemHwFan": {
+    "name": "mySystemHwFan",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "work": 1,
+          "stop": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mySystemOutBandTimeout": {
+    "name": "mySystemOutBandTimeout",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "mySystemTelnetTimeout": {
+    "name": "mySystemTelnetTimeout",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "mySystemMIBTraps": {
+    "name": "mySystemMIBTraps",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.2",
+    "class": "objectidentity"
+  },
+  "mySystemHardChangeDesc": {
+    "name": "mySystemHardChangeDesc",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mySystemHardChangeDetected": {
+    "name": "mySystemHardChangeDetected",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemHardChangeDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "mySystemPowerStateChange": {
+    "name": "mySystemPowerStateChange",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemHwPower"
+      }
+    ],
+    "status": "current"
+  },
+  "mySystemFanStateChange": {
+    "name": "mySystemFanStateChange",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemHwFan"
+      }
+    ],
+    "status": "current"
+  },
+  "mySystemMIBConformance": {
+    "name": "mySystemMIBConformance",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.3",
+    "class": "objectidentity"
+  },
+  "mySystemMIBCompliances": {
+    "name": "mySystemMIBCompliances",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "mySystemMIBGroups": {
+    "name": "mySystemMIBGroups",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.3.2",
+    "class": "objectidentity"
+  },
+  "mySystemMIBCompliance": {
+    "name": "mySystemMIBCompliance",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mySystemMIBGroup",
+        "module": "MY-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mySystemMIBGroup": {
+    "name": "mySystemMIBGroup",
+    "oid": "1.3.6.1.4.1.4881.1.1.10.2.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemHwVersion"
+      },
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemSwVersion"
+      },
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemBootVersion"
+      },
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemSysCtrlVersion"
+      },
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemParametersSave"
+      },
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemReset"
+      },
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySystemOutBandRate"
+      },
+      {
+        "module": "MY-SYSTEM-MIB",
+        "object": "mySwitchLayer"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MY-SYSTEM-MIB"
+  }
+}

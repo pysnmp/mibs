@@ -1,0 +1,308 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoOpticalMonitoringMIB": {
+    "name": "ciscoOpticalMonitoringMIB",
+    "oid": "1.3.6.1.4.1.9.10.83",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-12-04 11:30",
+        "description": "Initial version of the MIB."
+      }
+    ]
+  },
+  "ciscoOpticalMonMIBObjects": {
+    "name": "ciscoOpticalMonMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.83.1",
+    "class": "objectidentity"
+  },
+  "comParameters": {
+    "name": "comParameters",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1",
+    "class": "objectidentity"
+  },
+  "comParametersTable": {
+    "name": "comParametersTable",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "comParametersEntry": {
+    "name": "comParametersEntry",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "comTxBiasCurrent": {
+    "name": "comTxBiasCurrent",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milliamps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "comTxPowerSupported": {
+    "name": "comTxPowerSupported",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "comTxPower": {
+    "name": "comTxPower",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "microWatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "comTxLaserTempSupported": {
+    "name": "comTxLaserTempSupported",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "comTxLaserTemp": {
+    "name": "comTxLaserTemp",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -253,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": " Degree Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "comRxPowerACDC": {
+    "name": "comRxPowerACDC",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "microWatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "comRxPowerACSupported": {
+    "name": "comRxPowerACSupported",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "comRxPowerAC": {
+    "name": "comRxPowerAC",
+    "oid": "1.3.6.1.4.1.9.10.83.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "microWatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoOpticalMonMIBNotifPrefix": {
+    "name": "ciscoOpticalMonMIBNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.10.83.2",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMonMIBNotifications": {
+    "name": "ciscoOpticalMonMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.83.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMonMIBConformance": {
+    "name": "ciscoOpticalMonMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.83.3",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMonMIBCompliances": {
+    "name": "ciscoOpticalMonMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.83.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMonMIBGroups": {
+    "name": "ciscoOpticalMonMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.83.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMonMIBCompliance": {
+    "name": "ciscoOpticalMonMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.83.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoOpticalMonMIBParamGroup",
+        "module": "CISCO-OPTICAL-MONITORING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOpticalMonMIBParamGroup": {
+    "name": "ciscoOpticalMonMIBParamGroup",
+    "oid": "1.3.6.1.4.1.9.10.83.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MONITORING-MIB",
+        "object": "comTxBiasCurrent"
+      },
+      {
+        "module": "CISCO-OPTICAL-MONITORING-MIB",
+        "object": "comTxPowerSupported"
+      },
+      {
+        "module": "CISCO-OPTICAL-MONITORING-MIB",
+        "object": "comTxPower"
+      },
+      {
+        "module": "CISCO-OPTICAL-MONITORING-MIB",
+        "object": "comTxLaserTempSupported"
+      },
+      {
+        "module": "CISCO-OPTICAL-MONITORING-MIB",
+        "object": "comTxLaserTemp"
+      },
+      {
+        "module": "CISCO-OPTICAL-MONITORING-MIB",
+        "object": "comRxPowerACDC"
+      },
+      {
+        "module": "CISCO-OPTICAL-MONITORING-MIB",
+        "object": "comRxPowerACSupported"
+      },
+      {
+        "module": "CISCO-OPTICAL-MONITORING-MIB",
+        "object": "comRxPowerAC"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OPTICAL-MONITORING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-OPTICAL-MONITORING-MIB"
+  }
+}

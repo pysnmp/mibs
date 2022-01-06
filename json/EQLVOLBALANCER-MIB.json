@@ -1,0 +1,3914 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQLGROUP-MIB": [
+      "UTFString",
+      "eqlGroupId"
+    ],
+    "EQLMEMBER-MIB": [
+      "eqlMemberIndex"
+    ],
+    "EQLRAID-MIB": [
+      "eqlRAIDDeviceUUID",
+      "eqlRAIDDeviceLUNIndex"
+    ],
+    "EQLSTORAGEPOOL-MIB": [
+      "eqlStoragePoolIndex"
+    ],
+    "EQLVOLUME-MIB": [
+      "eqliscsiVolumeIndex",
+      "eqliscsiLocalMemberId"
+    ],
+    "EQUALLOGIC-SMI": [
+      "equalLogic"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "Opaque",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "DateAndTime"
+    ]
+  },
+  "eqlvolbalancerModule": {
+    "name": "eqlvolbalancerModule",
+    "oid": "1.3.6.1.4.1.12740.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-01-12 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "eqlvolbalancerObjects": {
+    "name": "eqlvolbalancerObjects",
+    "oid": "1.3.6.1.4.1.12740.14.1",
+    "class": "objectidentity"
+  },
+  "eqlvolbalancerNotifications": {
+    "name": "eqlvolbalancerNotifications",
+    "oid": "1.3.6.1.4.1.12740.14.2",
+    "class": "objectidentity"
+  },
+  "eqlvolbalancerConformance": {
+    "name": "eqlvolbalancerConformance",
+    "oid": "1.3.6.1.4.1.12740.14.3",
+    "class": "objectidentity"
+  },
+  "eqlvolbalancerConfigGroup": {
+    "name": "eqlvolbalancerConfigGroup",
+    "oid": "1.3.6.1.4.1.12740.14.1.1",
+    "class": "objectidentity"
+  },
+  "eqlvolbalancerConfigVolSliceCostFreq": {
+    "name": "eqlvolbalancerConfigVolSliceCostFreq",
+    "oid": "1.3.6.1.4.1.12740.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerConfigVolSliceRollupTime": {
+    "name": "eqlvolbalancerConfigVolSliceRollupTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerVolumeSliceCostTable": {
+    "name": "eqlvolbalancerVolumeSliceCostTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerVolumeSliceCostEntry": {
+    "name": "eqlvolbalancerVolumeSliceCostEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlvolbalancerVolumeSliceCostPsaId",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlvolbalancerVolumeSliceCostTime",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlvolbalancerVolumeSliceCostVolumeId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "eqlvolbalancerVolumeSliceCostPsaId": {
+    "name": "eqlvolbalancerVolumeSliceCostPsaId",
+    "oid": "1.3.6.1.4.1.12740.14.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerVolumeSliceCostTime": {
+    "name": "eqlvolbalancerVolumeSliceCostTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerVolumeSliceCostVolumeId": {
+    "name": "eqlvolbalancerVolumeSliceCostVolumeId",
+    "oid": "1.3.6.1.4.1.12740.14.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerVolumeSliceCostCost": {
+    "name": "eqlvolbalancerVolumeSliceCostCost",
+    "oid": "1.3.6.1.4.1.12740.14.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerVolumeSliceCostStatus": {
+    "name": "eqlvolbalancerVolumeSliceCostStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerDailyVolumeCostTable": {
+    "name": "eqlvolbalancerDailyVolumeCostTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerDailyVolumeCostEntry": {
+    "name": "eqlvolbalancerDailyVolumeCostEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlvolbalancerDailyVolumeCostDay",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlvolbalancerDailyVolumeCostVolumeId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "eqlvolbalancerDailyVolumeCostDay": {
+    "name": "eqlvolbalancerDailyVolumeCostDay",
+    "oid": "1.3.6.1.4.1.12740.14.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerDailyVolumeCostVolumeId": {
+    "name": "eqlvolbalancerDailyVolumeCostVolumeId",
+    "oid": "1.3.6.1.4.1.12740.14.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerDailyVolumeCostCost": {
+    "name": "eqlvolbalancerDailyVolumeCostCost",
+    "oid": "1.3.6.1.4.1.12740.14.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerDailyVolumeCostStatus": {
+    "name": "eqlvolbalancerDailyVolumeCostStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerRecommendationTable": {
+    "name": "eqlvolbalancerRecommendationTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerRecommendationEntry": {
+    "name": "eqlvolbalancerRecommendationEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlvolbalancerRecommendationTime",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlvolbalancerRecommendationVolumeId",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlvolbalancerRecommendationSrcPsaId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "eqlvolbalancerRecommendationTime": {
+    "name": "eqlvolbalancerRecommendationTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerRecommendationVolumeId": {
+    "name": "eqlvolbalancerRecommendationVolumeId",
+    "oid": "1.3.6.1.4.1.12740.14.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerRecommendationSrcPsaId": {
+    "name": "eqlvolbalancerRecommendationSrcPsaId",
+    "oid": "1.3.6.1.4.1.12740.14.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerRecommendationDstPsaId": {
+    "name": "eqlvolbalancerRecommendationDstPsaId",
+    "oid": "1.3.6.1.4.1.12740.14.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerRecommendationComplete": {
+    "name": "eqlvolbalancerRecommendationComplete",
+    "oid": "1.3.6.1.4.1.12740.14.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "eqlvolbalancerRecommendationStatus": {
+    "name": "eqlvolbalancerRecommendationStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "eqlVolBalConfigTable": {
+    "name": "eqlVolBalConfigTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalConfigEntry": {
+    "name": "eqlVolBalConfigEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlVolBalConfigLastPlanIndex": {
+    "name": "eqlVolBalConfigLastPlanIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalConfigEnabled": {
+    "name": "eqlVolBalConfigEnabled",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "capacity-only": 2,
+          "disabled": 3,
+          "performance": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalConfigSenseFrequency": {
+    "name": "eqlVolBalConfigSenseFrequency",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigImbalDetectFrequency": {
+    "name": "eqlVolBalConfigImbalDetectFrequency",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigVolumeDelFrequency": {
+    "name": "eqlVolBalConfigVolumeDelFrequency",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigVolumeBindFrequency": {
+    "name": "eqlVolBalConfigVolumeBindFrequency",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigRAIDSetFreeSpaceTroubleDelay": {
+    "name": "eqlVolBalConfigRAIDSetFreeSpaceTroubleDelay",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigRAIDSetDeleteDelay": {
+    "name": "eqlVolBalConfigRAIDSetDeleteDelay",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigRAIDSetJoinDelay": {
+    "name": "eqlVolBalConfigRAIDSetJoinDelay",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigReamSize": {
+    "name": "eqlVolBalConfigReamSize",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigHistoryRowMax": {
+    "name": "eqlVolBalConfigHistoryRowMax",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigRAIDStatsRowMax": {
+    "name": "eqlVolBalConfigRAIDStatsRowMax",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigPoolThroughputRateMax": {
+    "name": "eqlVolBalConfigPoolThroughputRateMax",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigMinSpreadSize": {
+    "name": "eqlVolBalConfigMinSpreadSize",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigPlacementThreshold": {
+    "name": "eqlVolBalConfigPlacementThreshold",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigPreviousLeadUUID": {
+    "name": "eqlVolBalConfigPreviousLeadUUID",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigFlags": {
+    "name": "eqlVolBalConfigFlags",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "enableRoutingTableChecker": 0,
+        "routingTableCheckerCheckAllPages": 1,
+        "routingTableCheckerHaltGroup": 2,
+        "flag3": 3,
+        "flag4": 4,
+        "flag5": 5,
+        "flag6": 6,
+        "flag7": 7,
+        "flag8": 8,
+        "flag9": 9,
+        "flag10": 10,
+        "flag11": 11,
+        "flag12": 12,
+        "flag13": 13,
+        "flag14": 14,
+        "flag15": 15,
+        "flag16": 16,
+        "flag17": 17,
+        "flag18": 18,
+        "flag19": 19,
+        "flag20": 20,
+        "flag21": 21,
+        "flag22": 22,
+        "flag23": 23,
+        "flag24": 24,
+        "flag25": 25,
+        "flag26": 26,
+        "flag27": 27,
+        "flag28": 28,
+        "flag29": 29,
+        "flag30": 30,
+        "flag31": 31
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalConfigArchivalPlacementThreshold": {
+    "name": "eqlVolBalConfigArchivalPlacementThreshold",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalConfigFreeSpaceTroubleEnabled": {
+    "name": "eqlVolBalConfigFreeSpaceTroubleEnabled",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalConfigPreferAutoRAIDPlacement": {
+    "name": "eqlVolBalConfigPreferAutoRAIDPlacement",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalConfigHotColdPageSwapEnabled": {
+    "name": "eqlVolBalConfigHotColdPageSwapEnabled",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalConfigArchiveEnabled": {
+    "name": "eqlVolBalConfigArchiveEnabled",
+    "oid": "1.3.6.1.4.1.12740.14.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalPlanTable": {
+    "name": "eqlVolBalPlanTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalPlanEntry": {
+    "name": "eqlVolBalPlanEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalPlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiLocalMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlVolBalPlanIndex": {
+    "name": "eqlVolBalPlanIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalPlanReason": {
+    "name": "eqlVolBalPlanReason",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "free-space-trouble": 1,
+          "vacate": 2,
+          "bind": 3,
+          "balance": 4,
+          "vacate-pool": 5,
+          "move-volume": 6,
+          "move-site": 7,
+          "performance-trouble": 8,
+          "archive": 9
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalPlanComplete": {
+    "name": "eqlVolBalPlanComplete",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanStartTime": {
+    "name": "eqlVolBalPlanStartTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalPlanEndTime": {
+    "name": "eqlVolBalPlanEndTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalPlanState": {
+    "name": "eqlVolBalPlanState",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "writing": 1,
+          "written": 2,
+          "invalid": 3,
+          "ready": 4,
+          "started": 5,
+          "cancelled": 6,
+          "finished": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalPlanVacatingMemberUUID": {
+    "name": "eqlVolBalPlanVacatingMemberUUID",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanTotalPages": {
+    "name": "eqlVolBalPlanTotalPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanEntryStatus": {
+    "name": "eqlVolBalPlanEntryStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalPlanFlags": {
+    "name": "eqlVolBalPlanFlags",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mixedModeBit": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalPlanTotalAllocatedPages": {
+    "name": "eqlVolBalPlanTotalAllocatedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanAllocatedPagesMoved": {
+    "name": "eqlVolBalPlanAllocatedPagesMoved",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanAssignedPagesMoved": {
+    "name": "eqlVolBalPlanAssignedPagesMoved",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanHistoryTableIndex": {
+    "name": "eqlVolBalPlanHistoryTableIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanHistoryTableMemberIndex": {
+    "name": "eqlVolBalPlanHistoryTableMemberIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanHistoryTableMemberCount": {
+    "name": "eqlVolBalPlanHistoryTableMemberCount",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanFirstAlternateDst": {
+    "name": "eqlVolBalPlanFirstAlternateDst",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanSecondAlternateDst": {
+    "name": "eqlVolBalPlanSecondAlternateDst",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanTotalSnapPages": {
+    "name": "eqlVolBalPlanTotalSnapPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalPlanSnapPagesMoved": {
+    "name": "eqlVolBalPlanSnapPagesMoved",
+    "oid": "1.3.6.1.4.1.12740.14.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalTaskTable": {
+    "name": "eqlVolBalTaskTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalTaskEntry": {
+    "name": "eqlVolBalTaskEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalPlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalTaskIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiLocalMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlVolBalTaskIndex": {
+    "name": "eqlVolBalTaskIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskVolumePsvId": {
+    "name": "eqlVolBalTaskVolumePsvId",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalTaskSrcDriveGroup": {
+    "name": "eqlVolBalTaskSrcDriveGroup",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskSrcName": {
+    "name": "eqlVolBalTaskSrcName",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskDstDriveGroup": {
+    "name": "eqlVolBalTaskDstDriveGroup",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskDstName": {
+    "name": "eqlVolBalTaskDstName",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskSrcInitialPageCount": {
+    "name": "eqlVolBalTaskSrcInitialPageCount",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskNumPages": {
+    "name": "eqlVolBalTaskNumPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskCoordinateWith": {
+    "name": "eqlVolBalTaskCoordinateWith",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalTaskType": {
+    "name": "eqlVolBalTaskType",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "balance": 1,
+          "moveslice": 2,
+          "explicit": 3,
+          "movehot": 4,
+          "movecold": 5,
+          "movesingle": 6,
+          "besteffort": 7,
+          "movesliceuncompressed": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskState": {
+    "name": "eqlVolBalTaskState",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "active": 2,
+          "cancel": 3,
+          "done": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskEntryStatus": {
+    "name": "eqlVolBalTaskEntryStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskVolLeader": {
+    "name": "eqlVolBalTaskVolLeader",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskNumAllocatedPages": {
+    "name": "eqlVolBalTaskNumAllocatedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskNumSnapPages": {
+    "name": "eqlVolBalTaskNumSnapPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesTable": {
+    "name": "eqlVolBalTaskPickedPagesTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesEntry": {
+    "name": "eqlVolBalTaskPickedPagesEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalPlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalTaskIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiLocalMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedProgress": {
+    "name": "eqlVolBalTaskPickedProgress",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesCount": {
+    "name": "eqlVolBalTaskPickedPagesCount",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesContext": {
+    "name": "eqlVolBalTaskPickedPagesContext",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesRev": {
+    "name": "eqlVolBalTaskPickedPagesRev",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesFlags": {
+    "name": "eqlVolBalTaskPickedPagesFlags",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesEntryStatus": {
+    "name": "eqlVolBalTaskPickedPagesEntryStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesArray": {
+    "name": "eqlVolBalTaskPickedPagesArray",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1200,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalTaskPickedPagesAllocatedProgress": {
+    "name": "eqlVolBalTaskPickedPagesAllocatedProgress",
+    "oid": "1.3.6.1.4.1.12740.14.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalSliceStatsTable": {
+    "name": "eqlVolBalSliceStatsTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalSliceStatsEntry": {
+    "name": "eqlVolBalSliceStatsEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiLocalMemberId",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiVolumeIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlVolBalSliceMemberUUID": {
+    "name": "eqlVolBalSliceMemberUUID",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalSliceVolumeUUID": {
+    "name": "eqlVolBalSliceVolumeUUID",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalSliceTimeStamp": {
+    "name": "eqlVolBalSliceTimeStamp",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalSliceStatsRndRdRate": {
+    "name": "eqlVolBalSliceStatsRndRdRate",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalSliceStatsRndWrRate": {
+    "name": "eqlVolBalSliceStatsRndWrRate",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalSliceStatsSeqRdRate": {
+    "name": "eqlVolBalSliceStatsSeqRdRate",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalSliceStatsSeqWrRate": {
+    "name": "eqlVolBalSliceStatsSeqWrRate",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalSliceStatsPlacementScore": {
+    "name": "eqlVolBalSliceStatsPlacementScore",
+    "oid": "1.3.6.1.4.1.12740.14.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsTable": {
+    "name": "eqlVolBalMemberStatsTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsEntry": {
+    "name": "eqlVolBalMemberStatsEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlVolBalMemberUUID": {
+    "name": "eqlVolBalMemberUUID",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberTimeStamp": {
+    "name": "eqlVolBalMemberTimeStamp",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsAvgRespTime": {
+    "name": "eqlVolBalMemberStatsAvgRespTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsCPUUsage": {
+    "name": "eqlVolBalMemberStatsCPUUsage",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsFreeSpace": {
+    "name": "eqlVolBalMemberStatsFreeSpace",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsRndRdRate": {
+    "name": "eqlVolBalMemberStatsRndRdRate",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsRndWrRate": {
+    "name": "eqlVolBalMemberStatsRndWrRate",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsSeqRdRate": {
+    "name": "eqlVolBalMemberStatsSeqRdRate",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalMemberStatsSeqWrRate": {
+    "name": "eqlVolBalMemberStatsSeqWrRate",
+    "oid": "1.3.6.1.4.1.12740.14.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalHistoryTable": {
+    "name": "eqlVolBalHistoryTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalHistoryEntry": {
+    "name": "eqlVolBalHistoryEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalHistoryStop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlVolBalHistoryStop": {
+    "name": "eqlVolBalHistoryStop",
+    "oid": "1.3.6.1.4.1.12740.14.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalHistoryStart": {
+    "name": "eqlVolBalHistoryStart",
+    "oid": "1.3.6.1.4.1.12740.14.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalHistoryPagesMoved": {
+    "name": "eqlVolBalHistoryPagesMoved",
+    "oid": "1.3.6.1.4.1.12740.14.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalHistoryMembersInvolved": {
+    "name": "eqlVolBalHistoryMembersInvolved",
+    "oid": "1.3.6.1.4.1.12740.14.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalHistorySlicesInvolved": {
+    "name": "eqlVolBalHistorySlicesInvolved",
+    "oid": "1.3.6.1.4.1.12740.14.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalHistoryBalanceReason": {
+    "name": "eqlVolBalHistoryBalanceReason",
+    "oid": "1.3.6.1.4.1.12740.14.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlVolBalCommandTable": {
+    "name": "eqlVolBalCommandTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalCommandEntry": {
+    "name": "eqlVolBalCommandEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalCommandIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiLocalMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlVolBalCommandIndex": {
+    "name": "eqlVolBalCommandIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalCommandPlanIndex": {
+    "name": "eqlVolBalCommandPlanIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalCommandReason": {
+    "name": "eqlVolBalCommandReason",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "free-space-trouble": 1,
+          "vacate": 2,
+          "vacate-pool": 3,
+          "move-volume-to-pool": 4,
+          "bind": 5,
+          "balance": 6,
+          "delete-marshal": 7,
+          "move-site-to-pool": 8,
+          "performance-trouble": 9,
+          "archive": 10
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalCommandRunning": {
+    "name": "eqlVolBalCommandRunning",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalCommandCreateTime": {
+    "name": "eqlVolBalCommandCreateTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalCommandState": {
+    "name": "eqlVolBalCommandState",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "writing": 1,
+          "invalid": 2,
+          "ready": 3,
+          "started": 4,
+          "cancelled": 5,
+          "finished": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalCommandMemberUUID": {
+    "name": "eqlVolBalCommandMemberUUID",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalCommandVolumeId": {
+    "name": "eqlVolBalCommandVolumeId",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolBalCommandFromPoolId": {
+    "name": "eqlVolBalCommandFromPoolId",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalCommandToPoolId": {
+    "name": "eqlVolBalCommandToPoolId",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolBalCommandEntryStatus": {
+    "name": "eqlVolBalCommandEntryStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalCommandFlags": {
+    "name": "eqlVolBalCommandFlags",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mixedModeBit": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolBalCommandSiteId": {
+    "name": "eqlVolBalCommandSiteId",
+    "oid": "1.3.6.1.4.1.12740.14.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPropertiesTable": {
+    "name": "eqlPropertiesTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlPropertiesEntry": {
+    "name": "eqlPropertiesEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlPropertiesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlPropertiesIndex": {
+    "name": "eqlPropertiesIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPropertiesName": {
+    "name": "eqlPropertiesName",
+    "oid": "1.3.6.1.4.1.12740.14.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPropertiesValue": {
+    "name": "eqlPropertiesValue",
+    "oid": "1.3.6.1.4.1.12740.14.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryTableFreeSlot": {
+    "name": "eqlPageMoveHistoryTableFreeSlot",
+    "oid": "1.3.6.1.4.1.12740.14.1.15",
+    "class": "objectidentity"
+  },
+  "eqlPageMoveHistoryTableNextFreeSlot": {
+    "name": "eqlPageMoveHistoryTableNextFreeSlot",
+    "oid": "1.3.6.1.4.1.12740.14.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "none",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryTableMemberNextFreeSlot": {
+    "name": "eqlPageMoveHistoryTableMemberNextFreeSlot",
+    "oid": "1.3.6.1.4.1.12740.14.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "none",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryTable": {
+    "name": "eqlPageMoveHistoryTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryEntry": {
+    "name": "eqlPageMoveHistoryEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlPageMoveHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlPageMoveHistoryIndex": {
+    "name": "eqlPageMoveHistoryIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryPoolId": {
+    "name": "eqlPageMoveHistoryPoolId",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryPlanId": {
+    "name": "eqlPageMoveHistoryPlanId",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberId": {
+    "name": "eqlPageMoveHistoryMemberId",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryType": {
+    "name": "eqlPageMoveHistoryType",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "free-space-trouble": 1,
+          "vacate": 2,
+          "bind": 3,
+          "balance": 4,
+          "vacate-pool": 5,
+          "move-volume": 6,
+          "move-site": 7,
+          "performance-trouble": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryStartTime": {
+    "name": "eqlPageMoveHistoryStartTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryEndTime": {
+    "name": "eqlPageMoveHistoryEndTime",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryTotalPages": {
+    "name": "eqlPageMoveHistoryTotalPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryAllocatedPages": {
+    "name": "eqlPageMoveHistoryAllocatedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryTotalPagesMoved": {
+    "name": "eqlPageMoveHistoryTotalPagesMoved",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryAllocatedPagesMoved": {
+    "name": "eqlPageMoveHistoryAllocatedPagesMoved",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryResult": {
+    "name": "eqlPageMoveHistoryResult",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "completed": 2,
+          "cancelled": 3,
+          "inprogress": 4,
+          "aborted": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberStartIndex": {
+    "name": "eqlPageMoveHistoryMemberStartIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberCount": {
+    "name": "eqlPageMoveHistoryMemberCount",
+    "oid": "1.3.6.1.4.1.12740.14.1.16.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberTable": {
+    "name": "eqlPageMoveHistoryMemberTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberEntry": {
+    "name": "eqlPageMoveHistoryMemberEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlPageMoveHistoryMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberIndex": {
+    "name": "eqlPageMoveHistoryMemberIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberParentIndex": {
+    "name": "eqlPageMoveHistoryMemberParentIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberPlanId": {
+    "name": "eqlPageMoveHistoryMemberPlanId",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberUuid": {
+    "name": "eqlPageMoveHistoryMemberUuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberAddedPages": {
+    "name": "eqlPageMoveHistoryMemberAddedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberAddedAllocatedPages": {
+    "name": "eqlPageMoveHistoryMemberAddedAllocatedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberRemovedPages": {
+    "name": "eqlPageMoveHistoryMemberRemovedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberRemovedAllocatedPages": {
+    "name": "eqlPageMoveHistoryMemberRemovedAllocatedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberStartAUS": {
+    "name": "eqlPageMoveHistoryMemberStartAUS",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPageMoveHistoryMemberExpectedEndAUS": {
+    "name": "eqlPageMoveHistoryMemberExpectedEndAUS",
+    "oid": "1.3.6.1.4.1.12740.14.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlLocalIOCountsTableFreeSlot": {
+    "name": "eqlLocalIOCountsTableFreeSlot",
+    "oid": "1.3.6.1.4.1.12740.14.1.19",
+    "class": "objectidentity"
+  },
+  "eqlLocalIOCountsTableNextFreeSlot": {
+    "name": "eqlLocalIOCountsTableNextFreeSlot",
+    "oid": "1.3.6.1.4.1.12740.14.1.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "none",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlLocalIOCountsTable": {
+    "name": "eqlLocalIOCountsTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlLocalIOCountsEntry": {
+    "name": "eqlLocalIOCountsEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlLocalIOCountsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlLocalIOCountsIndex": {
+    "name": "eqlLocalIOCountsIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLocalIOCountsTimestamp": {
+    "name": "eqlLocalIOCountsTimestamp",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlLocalIOCountsReads": {
+    "name": "eqlLocalIOCountsReads",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlLocalIOCountsReadBytes": {
+    "name": "eqlLocalIOCountsReadBytes",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlLocalIOCountsReadLatencyMs": {
+    "name": "eqlLocalIOCountsReadLatencyMs",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlLocalIOCountsWrites": {
+    "name": "eqlLocalIOCountsWrites",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlLocalIOCountsWriteBytes": {
+    "name": "eqlLocalIOCountsWriteBytes",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlLocalIOCountsWriteLatencyMs": {
+    "name": "eqlLocalIOCountsWriteLatencyMs",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlLocalIOCountsHeadroomPercent": {
+    "name": "eqlLocalIOCountsHeadroomPercent",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlLocalIOCountsWorstQueuingLatencyMs": {
+    "name": "eqlLocalIOCountsWorstQueuingLatencyMs",
+    "oid": "1.3.6.1.4.1.12740.14.1.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlPlanAUSTable": {
+    "name": "eqlPlanAUSTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlPlanAUSEntry": {
+    "name": "eqlPlanAUSEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalPlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiLocalMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlPlanAUSCount": {
+    "name": "eqlPlanAUSCount",
+    "oid": "1.3.6.1.4.1.12740.14.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlPlanAUSArray": {
+    "name": "eqlPlanAUSArray",
+    "oid": "1.3.6.1.4.1.12740.14.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1024,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesTable": {
+    "name": "eqlTaskLocalPickedPagesTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesEntry": {
+    "name": "eqlTaskLocalPickedPagesEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalPlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalTaskIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiLocalMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlTaskLocalPickedProgress": {
+    "name": "eqlTaskLocalPickedProgress",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesCount": {
+    "name": "eqlTaskLocalPickedPagesCount",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesContext": {
+    "name": "eqlTaskLocalPickedPagesContext",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesRev": {
+    "name": "eqlTaskLocalPickedPagesRev",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesFlags": {
+    "name": "eqlTaskLocalPickedPagesFlags",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesEntryStatus": {
+    "name": "eqlTaskLocalPickedPagesEntryStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesArray": {
+    "name": "eqlTaskLocalPickedPagesArray",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1200,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesAllocatedProgress": {
+    "name": "eqlTaskLocalPickedPagesAllocatedProgress",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlTaskLocalPickedPagesStatus": {
+    "name": "eqlTaskLocalPickedPagesStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "started": 1,
+          "finished": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberCountersTable": {
+    "name": "eqlMemberCountersTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberCountersEntry": {
+    "name": "eqlMemberCountersEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlMemberCountersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberCountersIndex": {
+    "name": "eqlMemberCountersIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberCountersUuid": {
+    "name": "eqlMemberCountersUuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCountersTimeStamp": {
+    "name": "eqlMemberCountersTimeStamp",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberCountersAddedPages": {
+    "name": "eqlMemberCountersAddedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCountersRemovedPages": {
+    "name": "eqlMemberCountersRemovedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCountersAddedAllocatedPages": {
+    "name": "eqlMemberCountersAddedAllocatedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCountersRemovedAllocatedPages": {
+    "name": "eqlMemberCountersRemovedAllocatedPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCountersAddedHotPages": {
+    "name": "eqlMemberCountersAddedHotPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCountersRemovedHotPages": {
+    "name": "eqlMemberCountersRemovedHotPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCountersAddedColdPages": {
+    "name": "eqlMemberCountersAddedColdPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCountersRemovedColdPages": {
+    "name": "eqlMemberCountersRemovedColdPages",
+    "oid": "1.3.6.1.4.1.12740.14.1.23.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskTable": {
+    "name": "eqlArchiveTaskTable",
+    "oid": "1.3.6.1.4.1.12740.14.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlArchiveTaskEntry": {
+    "name": "eqlArchiveTaskEntry",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlVolBalPlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLBALANCER-MIB",
+        "object": "eqlArchiveTaskIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiLocalMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlArchiveTaskIndex": {
+    "name": "eqlArchiveTaskIndex",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMemberCount": {
+    "name": "eqlArchiveTaskMemberCount",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskType": {
+    "name": "eqlArchiveTaskType",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compression": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskState": {
+    "name": "eqlArchiveTaskState",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskEntryStatus": {
+    "name": "eqlArchiveTaskEntryStatus",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember1Uuid": {
+    "name": "eqlArchiveTaskMember1Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember1Flags": {
+    "name": "eqlArchiveTaskMember1Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember2Uuid": {
+    "name": "eqlArchiveTaskMember2Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember2Flags": {
+    "name": "eqlArchiveTaskMember2Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember3Uuid": {
+    "name": "eqlArchiveTaskMember3Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember3Flags": {
+    "name": "eqlArchiveTaskMember3Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember4Uuid": {
+    "name": "eqlArchiveTaskMember4Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember4Flags": {
+    "name": "eqlArchiveTaskMember4Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember5Uuid": {
+    "name": "eqlArchiveTaskMember5Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember5Flags": {
+    "name": "eqlArchiveTaskMember5Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember6Uuid": {
+    "name": "eqlArchiveTaskMember6Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember6Flags": {
+    "name": "eqlArchiveTaskMember6Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember7Uuid": {
+    "name": "eqlArchiveTaskMember7Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember7Flags": {
+    "name": "eqlArchiveTaskMember7Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember8Uuid": {
+    "name": "eqlArchiveTaskMember8Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember8Flags": {
+    "name": "eqlArchiveTaskMember8Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember9Uuid": {
+    "name": "eqlArchiveTaskMember9Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember9Flags": {
+    "name": "eqlArchiveTaskMember9Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember10Uuid": {
+    "name": "eqlArchiveTaskMember10Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember10Flags": {
+    "name": "eqlArchiveTaskMember10Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember11Uuid": {
+    "name": "eqlArchiveTaskMember11Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember11Flags": {
+    "name": "eqlArchiveTaskMember11Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember12Uuid": {
+    "name": "eqlArchiveTaskMember12Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember12Flags": {
+    "name": "eqlArchiveTaskMember12Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember13Uuid": {
+    "name": "eqlArchiveTaskMember13Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember13Flags": {
+    "name": "eqlArchiveTaskMember13Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember14Uuid": {
+    "name": "eqlArchiveTaskMember14Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember14Flags": {
+    "name": "eqlArchiveTaskMember14Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember15Uuid": {
+    "name": "eqlArchiveTaskMember15Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember15Flags": {
+    "name": "eqlArchiveTaskMember15Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember16Uuid": {
+    "name": "eqlArchiveTaskMember16Uuid",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlArchiveTaskMember16Flags": {
+    "name": "eqlArchiveTaskMember16Flags",
+    "oid": "1.3.6.1.4.1.12740.14.1.24.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLBALANCER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EQLVOLBALANCER-MIB"
+  }
+}

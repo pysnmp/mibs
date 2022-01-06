@@ -1,0 +1,144 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "whispGlobalRegModule": {
+    "name": "whispGlobalRegModule",
+    "oid": "1.3.6.1.4.1.161.19.1.1.1",
+    "class": "moduleidentity"
+  },
+  "mot": {
+    "name": "mot",
+    "oid": "1.3.6.1.4.1.161",
+    "class": "objectidentity"
+  },
+  "whispRoot": {
+    "name": "whispRoot",
+    "oid": "1.3.6.1.4.1.161.19",
+    "class": "objectidentity"
+  },
+  "whispReg": {
+    "name": "whispReg",
+    "oid": "1.3.6.1.4.1.161.19.1",
+    "class": "objectidentity"
+  },
+  "whispGeneric": {
+    "name": "whispGeneric",
+    "oid": "1.3.6.1.4.1.161.19.2",
+    "class": "objectidentity"
+  },
+  "whispProducts": {
+    "name": "whispProducts",
+    "oid": "1.3.6.1.4.1.161.19.3",
+    "class": "objectidentity"
+  },
+  "whispAps": {
+    "name": "whispAps",
+    "oid": "1.3.6.1.4.1.161.19.3.1",
+    "class": "objectidentity"
+  },
+  "whispSm": {
+    "name": "whispSm",
+    "oid": "1.3.6.1.4.1.161.19.3.2",
+    "class": "objectidentity"
+  },
+  "whispBox": {
+    "name": "whispBox",
+    "oid": "1.3.6.1.4.1.161.19.3.3",
+    "class": "objectidentity"
+  },
+  "whispCMM": {
+    "name": "whispCMM",
+    "oid": "1.3.6.1.4.1.161.19.3.4",
+    "class": "objectidentity"
+  },
+  "whispPlv": {
+    "name": "whispPlv",
+    "oid": "1.3.6.1.4.1.161.19.3.5",
+    "class": "objectidentity"
+  },
+  "whispCMM4": {
+    "name": "whispCMM4",
+    "oid": "1.3.6.1.4.1.161.19.3.6",
+    "class": "objectidentity"
+  },
+  "whispPlvModem": {
+    "name": "whispPlvModem",
+    "oid": "1.3.6.1.4.1.161.19.3.7",
+    "class": "objectidentity"
+  },
+  "whispPlvGateway": {
+    "name": "whispPlvGateway",
+    "oid": "1.3.6.1.4.1.161.19.3.8",
+    "class": "objectidentity"
+  },
+  "whispPlvRepeater": {
+    "name": "whispPlvRepeater",
+    "oid": "1.3.6.1.4.1.161.19.3.9",
+    "class": "objectidentity"
+  },
+  "whispPlvBridge": {
+    "name": "whispPlvBridge",
+    "oid": "1.3.6.1.4.1.161.19.3.10",
+    "class": "objectidentity"
+  },
+  "whispModules": {
+    "name": "whispModules",
+    "oid": "1.3.6.1.4.1.161.19.1.1",
+    "class": "objectidentity"
+  },
+  "canopySnmpAgent": {
+    "name": "canopySnmpAgent",
+    "oid": "1.3.6.1.4.1.161.19.250",
+    "class": "objectidentity"
+  },
+  "ucos": {
+    "name": "ucos",
+    "oid": "1.3.6.1.4.1.161.19.250.256",
+    "class": "objectidentity"
+  },
+  "prizmSnmpAgent": {
+    "name": "prizmSnmpAgent",
+    "oid": "1.3.6.1.4.1.161.19.1250",
+    "class": "objectidentity"
+  },
+  "prizm": {
+    "name": "prizm",
+    "oid": "1.3.6.1.4.1.161.19.1000",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/WHISP-GLOBAL-REG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WHISP-GLOBAL-REG-MIB"
+  }
+}

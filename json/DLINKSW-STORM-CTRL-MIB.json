@@ -1,0 +1,528 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwStormCtrlMIB": {
+    "name": "dlinkSwStormCtrlMIB",
+    "oid": "1.3.6.1.4.1.171.14.25",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-06-13 00:00",
+        "description": "This is the first version of the MIB file for 'Storm Control' functionality."
+      }
+    ]
+  },
+  "DStormCtlTrafficType": {
+    "name": "DStormCtlTrafficType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "multicast": 2,
+          "unicast": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DStormCtlThrType": {
+    "name": "DStormCtlThrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pps": 1,
+          "kbps": 2,
+          "percentage": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DStormCtlThrTypeValue": {
+    "name": "DStormCtlThrTypeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "dStormCtrlMIBNotifications": {
+    "name": "dStormCtrlMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.25.0",
+    "class": "objectidentity"
+  },
+  "dStormCtrlMIBObjects": {
+    "name": "dStormCtrlMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.25.1",
+    "class": "objectidentity"
+  },
+  "dStormCtrlMIBConformance": {
+    "name": "dStormCtrlMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.25.2",
+    "class": "objectidentity"
+  },
+  "dStormCtrlGentrl": {
+    "name": "dStormCtrlGentrl",
+    "oid": "1.3.6.1.4.1.171.14.25.1.1",
+    "class": "objectidentity"
+  },
+  "dStormCtrlNotifyEnable": {
+    "name": "dStormCtrlNotifyEnable",
+    "oid": "1.3.6.1.4.1.171.14.25.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "stormOccurred": 2,
+          "stormCleared": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dStormCtrlPollingInterval": {
+    "name": "dStormCtrlPollingInterval",
+    "oid": "1.3.6.1.4.1.171.14.25.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dStormCtrlPollingRetries": {
+    "name": "dStormCtrlPollingRetries",
+    "oid": "1.3.6.1.4.1.171.14.25.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 360
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dStormCtrlThresholdTable": {
+    "name": "dStormCtrlThresholdTable",
+    "oid": "1.3.6.1.4.1.171.14.25.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dStormCtrlThresholdEntry": {
+    "name": "dStormCtrlThresholdEntry",
+    "oid": "1.3.6.1.4.1.171.14.25.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dStormCtrlTrafficType": {
+    "name": "dStormCtrlTrafficType",
+    "oid": "1.3.6.1.4.1.171.14.25.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DStormCtlTrafficType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dStormCtrlThresholdType": {
+    "name": "dStormCtrlThresholdType",
+    "oid": "1.3.6.1.4.1.171.14.25.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DStormCtlThrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dStormCtrlRiseThresholdValue": {
+    "name": "dStormCtrlRiseThresholdValue",
+    "oid": "1.3.6.1.4.1.171.14.25.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DStormCtlThrTypeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dStormCtrlLowThresholdValue": {
+    "name": "dStormCtrlLowThresholdValue",
+    "oid": "1.3.6.1.4.1.171.14.25.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DStormCtlThrTypeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dStormCtrlIfTable": {
+    "name": "dStormCtrlIfTable",
+    "oid": "1.3.6.1.4.1.171.14.25.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dStormCtrlIfEntry": {
+    "name": "dStormCtrlIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.25.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dStormCtrlIfActionType": {
+    "name": "dStormCtrlIfActionType",
+    "oid": "1.3.6.1.4.1.171.14.25.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "shutdown": 2,
+          "drop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dStormCtrlTrafficInfoTable": {
+    "name": "dStormCtrlTrafficInfoTable",
+    "oid": "1.3.6.1.4.1.171.14.25.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dStormCtrlTrafficInfoEntry": {
+    "name": "dStormCtrlTrafficInfoEntry",
+    "oid": "1.3.6.1.4.1.171.14.25.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dStormCtrlCurTrafficUnitType": {
+    "name": "dStormCtrlCurTrafficUnitType",
+    "oid": "1.3.6.1.4.1.171.14.25.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DStormCtlThrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dStormCtrlCurTrafficValue": {
+    "name": "dStormCtrlCurTrafficValue",
+    "oid": "1.3.6.1.4.1.171.14.25.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DStormCtlThrTypeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dStormCtrlTrafficInfoStatus": {
+    "name": "dStormCtrlTrafficInfoStatus",
+    "oid": "1.3.6.1.4.1.171.14.25.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 1,
+          "dropped": 2,
+          "errorDisabled": 3,
+          "linkDown": 4,
+          "inactive": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dStormCtrlNotifyInfo": {
+    "name": "dStormCtrlNotifyInfo",
+    "oid": "1.3.6.1.4.1.171.14.25.1.5",
+    "class": "objectidentity"
+  },
+  "dStormCtrlNotifyTrafficType": {
+    "name": "dStormCtrlNotifyTrafficType",
+    "oid": "1.3.6.1.4.1.171.14.25.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DStormCtlTrafficType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dStormCtrlOccurred": {
+    "name": "dStormCtrlOccurred",
+    "oid": "1.3.6.1.4.1.171.14.25.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlNotifyTrafficType"
+      }
+    ],
+    "status": "current"
+  },
+  "dStormCtrlStormCleared": {
+    "name": "dStormCtrlStormCleared",
+    "oid": "1.3.6.1.4.1.171.14.25.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlNotifyTrafficType"
+      }
+    ],
+    "status": "current"
+  },
+  "dStormCtrlCompliances": {
+    "name": "dStormCtrlCompliances",
+    "oid": "1.3.6.1.4.1.171.14.25.2.1",
+    "class": "objectidentity"
+  },
+  "dStormCtrlCompliance": {
+    "name": "dStormCtrlCompliance",
+    "oid": "1.3.6.1.4.1.171.14.25.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dStormCtrlBaiscGroup",
+        "module": "DLINKSW-STORM-CTRL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dStormCtrlGroup": {
+    "name": "dStormCtrlGroup",
+    "oid": "1.3.6.1.4.1.171.14.25.2.2",
+    "class": "objectidentity"
+  },
+  "dStormCtrlBaiscGroup": {
+    "name": "dStormCtrlBaiscGroup",
+    "oid": "1.3.6.1.4.1.171.14.25.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlNotifyEnable"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlPollingInterval"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlPollingRetries"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlThresholdType"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlRiseThresholdValue"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlLowThresholdValue"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlIfActionType"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlCurTrafficUnitType"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlCurTrafficValue"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlTrafficInfoStatus"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlNotifyTrafficType"
+      }
+    ],
+    "status": "current"
+  },
+  "dStormCtrlNotifyGroup": {
+    "name": "dStormCtrlNotifyGroup",
+    "oid": "1.3.6.1.4.1.171.14.25.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlOccurred"
+      },
+      {
+        "module": "DLINKSW-STORM-CTRL-MIB",
+        "object": "dStormCtrlStormCleared"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-STORM-CTRL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-STORM-CTRL-MIB"
+  }
+}

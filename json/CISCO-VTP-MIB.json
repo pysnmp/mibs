@@ -1,0 +1,3916 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "RMON-MIB": [
+      "OwnerString"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoVtpMIB": {
+    "name": "ciscoVtpMIB",
+    "oid": "1.3.6.1.4.1.9.9.46",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-17 00:00",
+        "description": "Removed the OwnerString TEXTUAL-CONVENTION and imported the same from RMON-MIB."
+      },
+      {
+        "revision": "2004-02-11 00:00",
+        "description": "Added 'dynamicGvrp(4)' for the TC VlanTypeExt."
+      },
+      {
+        "revision": "2003-11-21 00:00",
+        "description": "Add vtpInternalVlanGrp to configure internal VLANs' allocation policy and show the owner application names."
+      },
+      {
+        "revision": "2003-08-08 00:00",
+        "description": "Split vtpConfigNotificationsGroup into two groups: vtpConfigNotificationsGroupRev1 and vtpConfigNotificationsGroup5. Write a new compliance statement to list vtpConfigNotificationsGroupRev1 in instead of vtpConfigNotificationsGroup in the MANDATORY-GROUPS."
+      },
+      {
+        "revision": "2003-07-11 00:00",
+        "description": "Modify the description of the TC VlanIndex."
+      },
+      {
+        "revision": "2003-04-16 00:00",
+        "description": "Add support for VTP version 3 features. -- Add enumerators and modify the 'DESCRIPTION' of 6 existing objects: vtpVersion, managementDomainLocalMode, managementDomainConfigRevNumber, managementDomainLastUpdater, managementDomainLastChange, managementDomainVersionInUse. -- Add 3 new groups: vtpAuthGroup, vtpDiscoverGroup, vtpDatabaseGroup."
+      },
+      {
+        "revision": "2002-04-10 00:00",
+        "description": "-- Add 4 new notifications/traps vtpLocalModeChanged, vtpVersionInUseChanged, vtpVlanCreated and vtpVlanDeleted. -- Add 2 new objects vtpVlanCreatedNotifEnabled and vtpVlanDeletedNotifEnabled to control the generation of vtpVlanCreated and vtpVlanDeleted. -- Use vtpNotificationsEnabled to control the generation of vtpLocalModeChanged and vtpVersionInUseChanged by grouping them in a new group vtpConfigNotificationsGroup2. -- Deprecate the object vlanTrunkPortsDot1qTag and its related group. "
+      },
+      {
+        "revision": "2002-02-28 00:00",
+        "description": "Deprecate the object, vlanTrunkPortDot1qTunnel."
+      },
+      {
+        "revision": "2001-08-03 00:00",
+        "description": "Add a new off(4) mode to managementDomainLocalMode."
+      },
+      {
+        "revision": "2001-02-26 00:00",
+        "description": "Deprecate read-only object vtpVlanEditTypeExt and add a new read-create object vtpVlanEditTypeExt2. Enable Notification groups."
+      },
+      {
+        "revision": "2001-02-12 00:00",
+        "description": "Added Remote SPAN (RSPAN) VLAN feature, VLAN management features without supporting VTP protocol and a new object to handle one-VLAN-editing."
+      },
+      {
+        "revision": "2000-09-19 00:00",
+        "description": "Added the mapping from VLAN ID to its corresponding ifIndex"
+      },
+      {
+        "revision": "2000-04-10 00:00",
+        "description": "Added 4k VLAN editing and Dot1qTunnel support"
+      },
+      {
+        "revision": "2000-01-06 00:00",
+        "description": "Added 4k VLAN support"
+      },
+      {
+        "revision": "1999-02-25 11:30",
+        "description": "Added import of NOTIFICATION-GROUP"
+      },
+      {
+        "revision": "1999-01-05 11:30",
+        "description": "Added support for encapsulation type notApplicable"
+      },
+      {
+        "revision": "1998-05-19 11:30",
+        "description": "Added support for encapsulation type negotiation"
+      },
+      {
+        "revision": "1997-08-08 11:38",
+        "description": "Added Backup CRF object"
+      },
+      {
+        "revision": "1997-05-09 11:30",
+        "description": "Added ARE and STE hop counts."
+      },
+      {
+        "revision": "1997-02-24 11:15",
+        "description": "Added support for turning on VTP for Trunk cards."
+      },
+      {
+        "revision": "1997-01-27 17:30",
+        "description": "Added support for version 2 features."
+      },
+      {
+        "revision": "1996-09-16 12:30",
+        "description": "Updated the Token-Ring support."
+      },
+      {
+        "revision": "1996-07-17 12:30",
+        "description": "Updated to include objects in support of VTP pruning."
+      },
+      {
+        "revision": "1996-01-18 18:20",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "vtpMIBObjects": {
+    "name": "vtpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.46.1",
+    "class": "objectidentity"
+  },
+  "VlanIndex": {
+    "name": "VlanIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ManagementDomainIndex": {
+    "name": "ManagementDomainIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VlanType": {
+    "name": "VlanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "fddi": 2,
+          "tokenRing": 3,
+          "fddiNet": 4,
+          "trNet": 5,
+          "deprecated": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VlanTypeExt": {
+    "name": "VlanTypeExt",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vtpmanageable": 0,
+        "internal": 1,
+        "reserved": 2,
+        "rspan": 3,
+        "dynamicGvrp": 4
+      }
+    },
+    "status": "current"
+  },
+  "vtpStatus": {
+    "name": "vtpStatus",
+    "oid": "1.3.6.1.4.1.9.9.46.1.1",
+    "class": "objectidentity"
+  },
+  "vtpVersion": {
+    "name": "vtpVersion",
+    "oid": "1.3.6.1.4.1.9.9.46.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one": 1,
+          "two": 2,
+          "none": 3,
+          "three": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpMaxVlanStorage": {
+    "name": "vtpMaxVlanStorage",
+    "oid": "1.3.6.1.4.1.9.9.46.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpNotificationsEnabled": {
+    "name": "vtpNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.46.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpVlanCreatedNotifEnabled": {
+    "name": "vtpVlanCreatedNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.46.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpVlanDeletedNotifEnabled": {
+    "name": "vtpVlanDeletedNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.46.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanManagementDomains": {
+    "name": "vlanManagementDomains",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2",
+    "class": "objectidentity"
+  },
+  "managementDomainTable": {
+    "name": "managementDomainTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "managementDomainEntry": {
+    "name": "managementDomainEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "managementDomainIndex": {
+    "name": "managementDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ManagementDomainIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "managementDomainName": {
+    "name": "managementDomainName",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "managementDomainLocalMode": {
+    "name": "managementDomainLocalMode",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "server": 2,
+          "transparent": 3,
+          "off": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "managementDomainConfigRevNumber": {
+    "name": "managementDomainConfigRevNumber",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementDomainLastUpdater": {
+    "name": "managementDomainLastUpdater",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementDomainLastChange": {
+    "name": "managementDomainLastChange",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementDomainRowStatus": {
+    "name": "managementDomainRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "managementDomainTftpServer": {
+    "name": "managementDomainTftpServer",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "managementDomainTftpPathname": {
+    "name": "managementDomainTftpPathname",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "managementDomainPruningState": {
+    "name": "managementDomainPruningState",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "managementDomainVersionInUse": {
+    "name": "managementDomainVersionInUse",
+    "oid": "1.3.6.1.4.1.9.9.46.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2,
+          "none": 3,
+          "version3": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanInfo": {
+    "name": "vlanInfo",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3",
+    "class": "objectidentity"
+  },
+  "vtpVlanTable": {
+    "name": "vtpVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpVlanEntry": {
+    "name": "vtpVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanIndex": {
+    "name": "vtpVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpVlanState": {
+    "name": "vtpVlanState",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 1,
+          "suspended": 2,
+          "mtuTooBigForDevice": 3,
+          "mtuTooBigForTrunk": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanType": {
+    "name": "vtpVlanType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanName": {
+    "name": "vtpVlanName",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanMtu": {
+    "name": "vtpVlanMtu",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1500,
+            "max": 18190
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanDot10Said": {
+    "name": "vtpVlanDot10Said",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanRingNumber": {
+    "name": "vtpVlanRingNumber",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanBridgeNumber": {
+    "name": "vtpVlanBridgeNumber",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanStpType": {
+    "name": "vtpVlanStpType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee": 1,
+          "ibm": 2,
+          "hybrid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanParentVlan": {
+    "name": "vtpVlanParentVlan",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanTranslationalVlan1": {
+    "name": "vtpVlanTranslationalVlan1",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanTranslationalVlan2": {
+    "name": "vtpVlanTranslationalVlan2",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanBridgeType": {
+    "name": "vtpVlanBridgeType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srt": 1,
+          "srb": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanAreHopCount": {
+    "name": "vtpVlanAreHopCount",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanSteHopCount": {
+    "name": "vtpVlanSteHopCount",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanIsCRFBackup": {
+    "name": "vtpVlanIsCRFBackup",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanTypeExt": {
+    "name": "vtpVlanTypeExt",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanTypeExt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanIfIndex": {
+    "name": "vtpVlanIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalVlanInfo": {
+    "name": "internalVlanInfo",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.2",
+    "class": "objectidentity"
+  },
+  "vtpInternalVlanAllocPolicy": {
+    "name": "vtpInternalVlanAllocPolicy",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascending": 1,
+          "descending": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpInternalVlanTable": {
+    "name": "vtpInternalVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpInternalVlanEntry": {
+    "name": "vtpInternalVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vtpInternalVlanOwner": {
+    "name": "vtpInternalVlanOwner",
+    "oid": "1.3.6.1.4.1.9.9.46.1.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanEdit": {
+    "name": "vlanEdit",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4",
+    "class": "objectidentity"
+  },
+  "vtpEditControlTable": {
+    "name": "vtpEditControlTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpEditControlEntry": {
+    "name": "vtpEditControlEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vtpEditControlEntry",
+      "module": "CISCO-VTP-MIB",
+      "object": "managementDomainEntry"
+    },
+    "status": "current"
+  },
+  "vtpVlanEditOperation": {
+    "name": "vtpVlanEditOperation",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "copy": 2,
+          "apply": 3,
+          "release": 4,
+          "restartTimer": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanApplyStatus": {
+    "name": "vtpVlanApplyStatus",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "succeeded": 2,
+          "configNumberError": 3,
+          "inconsistentEdit": 4,
+          "tooBig": 5,
+          "localNVStoreFail": 6,
+          "remoteNVStoreFail": 7,
+          "editBufferEmpty": 8,
+          "someOtherError": 9,
+          "notPrimaryServer": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanEditBufferOwner": {
+    "name": "vtpVlanEditBufferOwner",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditConfigRevNumber": {
+    "name": "vtpVlanEditConfigRevNumber",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditModifiedVlan": {
+    "name": "vtpVlanEditModifiedVlan",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpVlanEditTable": {
+    "name": "vtpVlanEditTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpVlanEditEntry": {
+    "name": "vtpVlanEditEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanEditIndex": {
+    "name": "vtpVlanEditIndex",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpVlanEditState": {
+    "name": "vtpVlanEditState",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 1,
+          "suspended": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "operational",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditType": {
+    "name": "vtpVlanEditType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ethernet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditName": {
+    "name": "vtpVlanEditName",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditMtu": {
+    "name": "vtpVlanEditMtu",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1500,
+            "max": 18190
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditDot10Said": {
+    "name": "vtpVlanEditDot10Said",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditRingNumber": {
+    "name": "vtpVlanEditRingNumber",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditBridgeNumber": {
+    "name": "vtpVlanEditBridgeNumber",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditStpType": {
+    "name": "vtpVlanEditStpType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee": 1,
+          "ibm": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditParentVlan": {
+    "name": "vtpVlanEditParentVlan",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditRowStatus": {
+    "name": "vtpVlanEditRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditTranslationalVlan1": {
+    "name": "vtpVlanEditTranslationalVlan1",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditTranslationalVlan2": {
+    "name": "vtpVlanEditTranslationalVlan2",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditBridgeType": {
+    "name": "vtpVlanEditBridgeType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srt": 1,
+          "srb": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditAreHopCount": {
+    "name": "vtpVlanEditAreHopCount",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditSteHopCount": {
+    "name": "vtpVlanEditSteHopCount",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditIsCRFBackup": {
+    "name": "vtpVlanEditIsCRFBackup",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlanEditTypeExt": {
+    "name": "vtpVlanEditTypeExt",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanTypeExt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vtpVlanEditTypeExt2": {
+    "name": "vtpVlanEditTypeExt2",
+    "oid": "1.3.6.1.4.1.9.9.46.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanTypeExt",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpStats": {
+    "name": "vtpStats",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5",
+    "class": "objectidentity"
+  },
+  "vtpStatsTable": {
+    "name": "vtpStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpStatsEntry": {
+    "name": "vtpStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vtpStatsEntry",
+      "module": "CISCO-VTP-MIB",
+      "object": "managementDomainEntry"
+    },
+    "status": "current"
+  },
+  "vtpInSummaryAdverts": {
+    "name": "vtpInSummaryAdverts",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpInSubsetAdverts": {
+    "name": "vtpInSubsetAdverts",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpInAdvertRequests": {
+    "name": "vtpInAdvertRequests",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpOutSummaryAdverts": {
+    "name": "vtpOutSummaryAdverts",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpOutSubsetAdverts": {
+    "name": "vtpOutSubsetAdverts",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpOutAdvertRequests": {
+    "name": "vtpOutAdvertRequests",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpConfigRevNumberErrors": {
+    "name": "vtpConfigRevNumberErrors",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpConfigDigestErrors": {
+    "name": "vtpConfigDigestErrors",
+    "oid": "1.3.6.1.4.1.9.9.46.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPorts": {
+    "name": "vlanTrunkPorts",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6",
+    "class": "objectidentity"
+  },
+  "vlanTrunkPortTable": {
+    "name": "vlanTrunkPortTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanTrunkPortEntry": {
+    "name": "vlanTrunkPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanTrunkPortIfIndex": {
+    "name": "vlanTrunkPortIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanTrunkPortManagementDomain": {
+    "name": "vlanTrunkPortManagementDomain",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ManagementDomainIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortEncapsulationType": {
+    "name": "vlanTrunkPortEncapsulationType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isl": 1,
+          "dot10": 2,
+          "lane": 3,
+          "dot1Q": 4,
+          "negotiate": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansEnabled": {
+    "name": "vlanTrunkPortVlansEnabled",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortNativeVlan": {
+    "name": "vlanTrunkPortNativeVlan",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortRowStatus": {
+    "name": "vlanTrunkPortRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortInJoins": {
+    "name": "vlanTrunkPortInJoins",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortOutJoins": {
+    "name": "vlanTrunkPortOutJoins",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortOldAdverts": {
+    "name": "vlanTrunkPortOldAdverts",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansPruningEligible": {
+    "name": "vlanTrunkPortVlansPruningEligible",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansXmitJoined": {
+    "name": "vlanTrunkPortVlansXmitJoined",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansRcvJoined": {
+    "name": "vlanTrunkPortVlansRcvJoined",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortDynamicState": {
+    "name": "vlanTrunkPortDynamicState",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "desirable": 3,
+          "auto": 4,
+          "onNoNegotiate": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortDynamicStatus": {
+    "name": "vlanTrunkPortDynamicStatus",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trunking": 1,
+          "notTrunking": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVtpEnabled": {
+    "name": "vlanTrunkPortVtpEnabled",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortEncapsulationOperType": {
+    "name": "vlanTrunkPortEncapsulationOperType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isl": 1,
+          "dot10": 2,
+          "lane": 3,
+          "dot1Q": 4,
+          "negotiating": 5,
+          "notApplicable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansEnabled2k": {
+    "name": "vlanTrunkPortVlansEnabled2k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansEnabled3k": {
+    "name": "vlanTrunkPortVlansEnabled3k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansEnabled4k": {
+    "name": "vlanTrunkPortVlansEnabled4k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlansPruningEligible2k": {
+    "name": "vtpVlansPruningEligible2k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlansPruningEligible3k": {
+    "name": "vtpVlansPruningEligible3k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vtpVlansPruningEligible4k": {
+    "name": "vtpVlansPruningEligible4k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansXmitJoined2k": {
+    "name": "vlanTrunkPortVlansXmitJoined2k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansXmitJoined3k": {
+    "name": "vlanTrunkPortVlansXmitJoined3k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansXmitJoined4k": {
+    "name": "vlanTrunkPortVlansXmitJoined4k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansRcvJoined2k": {
+    "name": "vlanTrunkPortVlansRcvJoined2k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansRcvJoined3k": {
+    "name": "vlanTrunkPortVlansRcvJoined3k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortVlansRcvJoined4k": {
+    "name": "vlanTrunkPortVlansRcvJoined4k",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTrunkPortDot1qTunnel": {
+    "name": "vlanTrunkPortDot1qTunnel",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trunk": 1,
+          "access": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "vlanTrunkPortSetSerialNo": {
+    "name": "vlanTrunkPortSetSerialNo",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTrunkPortsDot1qTag": {
+    "name": "vlanTrunkPortsDot1qTag",
+    "oid": "1.3.6.1.4.1.9.9.46.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "vtpDiscover": {
+    "name": "vtpDiscover",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7",
+    "class": "objectidentity"
+  },
+  "vtpDiscoverTable": {
+    "name": "vtpDiscoverTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpDiscoverEntry": {
+    "name": "vtpDiscoverEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vtpDiscoverAction": {
+    "name": "vtpDiscoverAction",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discover": 1,
+          "noOperation": 2,
+          "purgeResult": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpDiscoverStatus": {
+    "name": "vtpDiscoverStatus",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "succeeded": 2,
+          "resourceUnavailable": 3,
+          "someOtherError": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpLastDiscoverTime": {
+    "name": "vtpLastDiscoverTime",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDiscoverResultTable": {
+    "name": "vtpDiscoverResultTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpDiscoverResultEntry": {
+    "name": "vtpDiscoverResultEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vtpDiscoverResultIndex": {
+    "name": "vtpDiscoverResultIndex",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDiscoverResultDatabaseName": {
+    "name": "vtpDiscoverResultDatabaseName",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDiscoverResultConflicting": {
+    "name": "vtpDiscoverResultConflicting",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDiscoverResultDeviceId": {
+    "name": "vtpDiscoverResultDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDiscoverResultPrimaryServer": {
+    "name": "vtpDiscoverResultPrimaryServer",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDiscoverResultRevNumber": {
+    "name": "vtpDiscoverResultRevNumber",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDiscoverResultSystemName": {
+    "name": "vtpDiscoverResultSystemName",
+    "oid": "1.3.6.1.4.1.9.9.46.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDatabase": {
+    "name": "vtpDatabase",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8",
+    "class": "objectidentity"
+  },
+  "vtpDatabaseTable": {
+    "name": "vtpDatabaseTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpDatabaseEntry": {
+    "name": "vtpDatabaseEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDatabaseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vtpDatabaseIndex": {
+    "name": "vtpDatabaseIndex",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpDatabaseName": {
+    "name": "vtpDatabaseName",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDatabaseLocalMode": {
+    "name": "vtpDatabaseLocalMode",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "server": 2,
+          "transparent": 3,
+          "off": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpDatabaseRevNumber": {
+    "name": "vtpDatabaseRevNumber",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDatabasePrimaryServer": {
+    "name": "vtpDatabasePrimaryServer",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDatabasePrimaryServerId": {
+    "name": "vtpDatabasePrimaryServerId",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vtpDatabaseTakeOverPrimary": {
+    "name": "vtpDatabaseTakeOverPrimary",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpDatabaseTakeOverPassword": {
+    "name": "vtpDatabaseTakeOverPassword",
+    "oid": "1.3.6.1.4.1.9.9.46.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpAuthentication": {
+    "name": "vtpAuthentication",
+    "oid": "1.3.6.1.4.1.9.9.46.1.9",
+    "class": "objectidentity"
+  },
+  "vtpAuthenticationTable": {
+    "name": "vtpAuthenticationTable",
+    "oid": "1.3.6.1.4.1.9.9.46.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vtpAuthEntry": {
+    "name": "vtpAuthEntry",
+    "oid": "1.3.6.1.4.1.9.9.46.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vtpAuthPassword": {
+    "name": "vtpAuthPassword",
+    "oid": "1.3.6.1.4.1.9.9.46.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpAuthPasswordType": {
+    "name": "vtpAuthPasswordType",
+    "oid": "1.3.6.1.4.1.9.9.46.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plaintext": 1,
+          "hidden": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpAuthSecretKey": {
+    "name": "vtpAuthSecretKey",
+    "oid": "1.3.6.1.4.1.9.9.46.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vtpNotifications": {
+    "name": "vtpNotifications",
+    "oid": "1.3.6.1.4.1.9.9.46.2",
+    "class": "objectidentity"
+  },
+  "vtpNotificationsPrefix": {
+    "name": "vtpNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0",
+    "class": "objectidentity"
+  },
+  "vtpNotificationsObjects": {
+    "name": "vtpNotificationsObjects",
+    "oid": "1.3.6.1.4.1.9.9.46.2.1",
+    "class": "objectidentity"
+  },
+  "vtpConfigRevNumberError": {
+    "name": "vtpConfigRevNumberError",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainConfigRevNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpConfigDigestError": {
+    "name": "vtpConfigDigestError",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainConfigRevNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpServerDisabled": {
+    "name": "vtpServerDisabled",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainConfigRevNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpMaxVlanStorage"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpMtuTooBig": {
+    "name": "vtpMtuTooBig",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortManagementDomain"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanState"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVersionOneDeviceDetected": {
+    "name": "vtpVersionOneDeviceDetected",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortManagementDomain"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanTrunkPortDynamicStatusChange": {
+    "name": "vlanTrunkPortDynamicStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortDynamicStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpLocalModeChanged": {
+    "name": "vtpLocalModeChanged",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVersionInUseChanged": {
+    "name": "vtpVersionInUseChanged",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainVersionInUse"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanCreated": {
+    "name": "vtpVlanCreated",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanName"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanDeleted": {
+    "name": "vtpVlanDeleted",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanName"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanRingNumberConflict": {
+    "name": "vtpVlanRingNumberConflict",
+    "oid": "1.3.6.1.4.1.9.9.46.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanRingNumber"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanPortLocalSegment"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanPortLocalSegment": {
+    "name": "vtpVlanPortLocalSegment",
+    "oid": "1.3.6.1.4.1.9.9.46.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vtpMIBConformance": {
+    "name": "vtpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.46.3",
+    "class": "objectidentity"
+  },
+  "vtpMIBCompliances": {
+    "name": "vtpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1",
+    "class": "objectidentity"
+  },
+  "vtpMIBGroups": {
+    "name": "vtpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2",
+    "class": "objectidentity"
+  },
+  "vtpMIBCompliance": {
+    "name": "vtpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance2": {
+    "name": "vtpMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance3": {
+    "name": "vtpMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance4": {
+    "name": "vtpMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance5": {
+    "name": "vtpMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVersion2BasicGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance6": {
+    "name": "vtpMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpConfigNotificationsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVersion2BasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpNotificationObjectsGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance7": {
+    "name": "vtpMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpConfigNotificationsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVersion2BasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpNotificationObjectsGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance8": {
+    "name": "vtpMIBCompliance8",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpConfigNotificationsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVersion2BasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpNotificationObjectsGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance9": {
+    "name": "vtpMIBCompliance9",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpConfigNotificationsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVersion2BasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpNotificationObjectsGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance10": {
+    "name": "vtpMIBCompliance10",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpConfigNotificationsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVersion2BasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpNotificationObjectsGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance11": {
+    "name": "vtpMIBCompliance11",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpConfigNotificationsGroupRev1",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVersion2BasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpNotificationObjectsGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpMIBCompliance12": {
+    "name": "vtpMIBCompliance12",
+    "oid": "1.3.6.1.4.1.9.9.46.3.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vtpBasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVlanInfoGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpConfigNotificationsGroupRev1",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpStatsGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpTrunkPortGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpVersion2BasicGroup",
+        "module": "CISCO-VTP-MIB"
+      },
+      {
+        "object": "vtpNotificationObjectsGroup",
+        "module": "CISCO-VTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpBasicGroup": {
+    "name": "vtpBasicGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVersion"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpMaxVlanStorage"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpNotificationsEnabled"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainName"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainLocalMode"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainConfigRevNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainLastUpdater"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainLastChange"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainTftpServer"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainTftpPathname"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanInfoGroup": {
+    "name": "vtpVlanInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanState"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanType"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanName"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanMtu"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanDot10Said"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanRingNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanBridgeNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanStpType"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanParentVlan"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanTranslationalVlan1"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanTranslationalVlan2"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanBridgeType"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanAreHopCount"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanSteHopCount"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanIsCRFBackup"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanInfoEditGroup": {
+    "name": "vtpVlanInfoEditGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditOperation"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanApplyStatus"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditBufferOwner"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditConfigRevNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditState"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditType"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditName"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditMtu"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditDot10Said"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditRingNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditBridgeNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditStpType"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditParentVlan"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditRowStatus"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditTranslationalVlan1"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditTranslationalVlan2"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditBridgeType"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditAreHopCount"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditSteHopCount"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditIsCRFBackup"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpStatsGroup": {
+    "name": "vtpStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpInSummaryAdverts"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpInSubsetAdverts"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpInAdvertRequests"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpOutSummaryAdverts"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpOutSubsetAdverts"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpOutAdvertRequests"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpConfigRevNumberErrors"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpConfigDigestErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpTrunkPortGroup": {
+    "name": "vtpTrunkPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortManagementDomain"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortEncapsulationType"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansEnabled"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortNativeVlan"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortRowStatus"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortSetSerialNo"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpTrunkPortGroup2": {
+    "name": "vtpTrunkPortGroup2",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortDynamicState"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortDynamicStatus"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVtpEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpTrunkPortGroup3": {
+    "name": "vtpTrunkPortGroup3",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortEncapsulationOperType"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpTrunkPruningGroup": {
+    "name": "vtpTrunkPruningGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortInJoins"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortOutJoins"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortOldAdverts"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansPruningEligible"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansXmitJoined"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansRcvJoined"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpTrunkPruningGroup2": {
+    "name": "vtpTrunkPruningGroup2",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainPruningState"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVersion2BasicGroup": {
+    "name": "vtpVersion2BasicGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainVersionInUse"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpConfigNotificationsGroup": {
+    "name": "vtpConfigNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpConfigDigestError"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpConfigRevNumberError"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpServerDisabled"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpMtuTooBig"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVersionOneDeviceDetected"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortDynamicStatusChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtp4kVlanGroup": {
+    "name": "vtp4kVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanTypeExt"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditTypeExt"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansEnabled2k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansEnabled3k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansEnabled4k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlansPruningEligible2k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlansPruningEligible3k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlansPruningEligible4k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansXmitJoined2k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansXmitJoined3k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansXmitJoined4k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansRcvJoined2k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansRcvJoined3k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansRcvJoined4k"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpDot1qTunnelGroup": {
+    "name": "vtpDot1qTunnelGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortsDot1qTag"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortDot1qTunnel"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpVlanIfIndexGroup": {
+    "name": "vtpVlanIfIndexGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanInfoEditGroup2": {
+    "name": "vtpVlanInfoEditGroup2",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditModifiedVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "vtp4kVlanGroupRev1": {
+    "name": "vtp4kVlanGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanTypeExt"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanEditTypeExt2"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansEnabled2k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansEnabled3k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansEnabled4k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlansPruningEligible2k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlansPruningEligible3k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlansPruningEligible4k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansXmitJoined2k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansXmitJoined3k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansXmitJoined4k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansRcvJoined2k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansRcvJoined3k"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortVlansRcvJoined4k"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpNotificationObjectsGroup": {
+    "name": "vtpNotificationObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanPortLocalSegment"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpDot1qTunnelGroup2": {
+    "name": "vtpDot1qTunnelGroup2",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortsDot1qTag"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vtpConfigNotificationsGroup2": {
+    "name": "vtpConfigNotificationsGroup2",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.23",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpLocalModeChanged"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVersionInUseChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpVlanNotifEnabledGroup": {
+    "name": "vtpVlanNotifEnabledGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanCreatedNotifEnabled"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanDeletedNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpConfigNotificationsGroup3": {
+    "name": "vtpConfigNotificationsGroup3",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.25",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanCreated"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpConfigNotificationsGroup4": {
+    "name": "vtpConfigNotificationsGroup4",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.26",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanRingNumberConflict"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpDiscoverGroup": {
+    "name": "vtpDiscoverGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverAction"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverStatus"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpLastDiscoverTime"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverResultIndex"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverResultDatabaseName"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverResultConflicting"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverResultDeviceId"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverResultPrimaryServer"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverResultRevNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDiscoverResultSystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpDatabaseGroup": {
+    "name": "vtpDatabaseGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDatabaseName"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDatabaseLocalMode"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDatabaseRevNumber"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDatabasePrimaryServer"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDatabasePrimaryServerId"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDatabaseTakeOverPrimary"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpDatabaseTakeOverPassword"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpAuthGroup": {
+    "name": "vtpAuthGroup",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpAuthPassword"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpAuthPasswordType"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpAuthSecretKey"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpConfigNotificationsGroupRev1": {
+    "name": "vtpConfigNotificationsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.30",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpConfigDigestError"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpConfigRevNumberError"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVersionOneDeviceDetected"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vlanTrunkPortDynamicStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpConfigNotificationsGroup5": {
+    "name": "vtpConfigNotificationsGroup5",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.31",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpServerDisabled"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpMtuTooBig"
+      }
+    ],
+    "status": "current"
+  },
+  "vtpInternalVlanGrp": {
+    "name": "vtpInternalVlanGrp",
+    "oid": "1.3.6.1.4.1.9.9.46.3.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpInternalVlanAllocPolicy"
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpInternalVlanOwner"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VTP-MIB"
+  }
+}

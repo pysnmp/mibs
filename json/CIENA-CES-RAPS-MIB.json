@@ -1,0 +1,1437 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesRapsMIB": {
+    "name": "cienaCesRapsMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2017-01-23 00:00",
+        "description": "Added cienaCesRapsVirtualRingLogicalRingName to CienaCesRapsVirtualRingEntry."
+      },
+      {
+        "revision": "2014-07-04 00:00",
+        "description": "Added cienaCesRapsVirtualRingWestForce and cienaCesRapsVirtualRingEastForce attributes to CienaCesRapsVirtualRingEntry."
+      },
+      {
+        "revision": "2011-04-16 17:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesRapsMIBObjects": {
+    "name": "cienaCesRapsMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsGlobal": {
+    "name": "cienaCesRapsGlobal",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsLogicalRing": {
+    "name": "cienaCesRapsLogicalRing",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsVirtualRing": {
+    "name": "cienaCesRapsVirtualRing",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsVirtualRingMember": {
+    "name": "cienaCesRapsVirtualRingMember",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.4",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsMIBNotificationPrefix": {
+    "name": "cienaCesRapsMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.18",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsMIBNotifications": {
+    "name": "cienaCesRapsMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.18.0",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsMIBConformance": {
+    "name": "cienaCesRapsMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.2",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsMIBCompliances": {
+    "name": "cienaCesRapsMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.2.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsMIBGroups": {
+    "name": "cienaCesRapsMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.2.2",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsGlobalAttrs": {
+    "name": "cienaCesRapsGlobalAttrs",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRapsState": {
+    "name": "cienaCesRapsState",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsNodeId": {
+    "name": "cienaCesRapsNodeId",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsEtherType": {
+    "name": "cienaCesRapsEtherType",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsNumberOfRings": {
+    "name": "cienaCesRapsNumberOfRings",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingTable": {
+    "name": "cienaCesRapsLogicalRingTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingEntry": {
+    "name": "cienaCesRapsLogicalRingEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsLogicalRingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingIndex": {
+    "name": "cienaCesRapsLogicalRingIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingName": {
+    "name": "cienaCesRapsLogicalRingName",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingId": {
+    "name": "cienaCesRapsLogicalRingId",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingGuardTime": {
+    "name": "cienaCesRapsLogicalRingGuardTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingWtr": {
+    "name": "cienaCesRapsLogicalRingWtr",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingWtb": {
+    "name": "cienaCesRapsLogicalRingWtb",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingWestPortId": {
+    "name": "cienaCesRapsLogicalRingWestPortId",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingWestHoldOffTime": {
+    "name": "cienaCesRapsLogicalRingWestHoldOffTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingWestForce": {
+    "name": "cienaCesRapsLogicalRingWestForce",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingWestCfmService": {
+    "name": "cienaCesRapsLogicalRingWestCfmService",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingEastPortId": {
+    "name": "cienaCesRapsLogicalRingEastPortId",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingEastHoldOffTime": {
+    "name": "cienaCesRapsLogicalRingEastHoldOffTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingEastForce": {
+    "name": "cienaCesRapsLogicalRingEastForce",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingEastCfmService": {
+    "name": "cienaCesRapsLogicalRingEastCfmService",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsLogicalRingNumberOfVirtualRings": {
+    "name": "cienaCesRapsLogicalRingNumberOfVirtualRings",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingTable": {
+    "name": "cienaCesRapsVirtualRingTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEntry": {
+    "name": "cienaCesRapsVirtualRingEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingIndex": {
+    "name": "cienaCesRapsVirtualRingIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingName": {
+    "name": "cienaCesRapsVirtualRingName",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingVid": {
+    "name": "cienaCesRapsVirtualRingVid",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingLogicalRingId": {
+    "name": "cienaCesRapsVirtualRingLogicalRingId",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingMel": {
+    "name": "cienaCesRapsVirtualRingMel",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingRevertive": {
+    "name": "cienaCesRapsVirtualRingRevertive",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingState": {
+    "name": "cienaCesRapsVirtualRingState",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminDisabled": 1,
+          "ok": 2,
+          "protecting": 3,
+          "recovering": 4,
+          "init": 5,
+          "none": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingStatus": {
+    "name": "cienaCesRapsVirtualRingStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "localSignalFail": 2,
+          "localForceSwitch": 3,
+          "remoteOrOtherPortSignalFail": 4,
+          "remoteOrOtherPortForceSwitch": 5,
+          "provisioningMismatch": 6,
+          "noRapsPduReceived": 7,
+          "noRplOwnerDetected": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingAlarm": {
+    "name": "cienaCesRapsVirtualRingAlarm",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "protectionSwitching": 2,
+          "provisionMismatch": 3,
+          "noRapsPduReceived": 4,
+          "noRplOwnerDetected": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingNumOfSwitchOvers": {
+    "name": "cienaCesRapsVirtualRingNumOfSwitchOvers",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingUptimeFromLastFailure": {
+    "name": "cienaCesRapsVirtualRingUptimeFromLastFailure",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingTotalDownTime": {
+    "name": "cienaCesRapsVirtualRingTotalDownTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortRpl": {
+    "name": "cienaCesRapsVirtualRingWestPortRpl",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "owner": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortState": {
+    "name": "cienaCesRapsVirtualRingWestPortState",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "forwarding": 2,
+          "blocked": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortStatus": {
+    "name": "cienaCesRapsVirtualRingWestPortStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oK": 1,
+          "down": 2,
+          "ccmFailure": 3,
+          "localForceSwitch": 4,
+          "remoteForceSwitch": 5,
+          "remoteSignalFailure": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortNrRxd": {
+    "name": "cienaCesRapsVirtualRingWestPortNrRxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortNrTxd": {
+    "name": "cienaCesRapsVirtualRingWestPortNrTxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortSfRxd": {
+    "name": "cienaCesRapsVirtualRingWestPortSfRxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortSfTxd": {
+    "name": "cienaCesRapsVirtualRingWestPortSfTxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortFsRxd": {
+    "name": "cienaCesRapsVirtualRingWestPortFsRxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortFsTxd": {
+    "name": "cienaCesRapsVirtualRingWestPortFsTxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortNrRbRxd": {
+    "name": "cienaCesRapsVirtualRingWestPortNrRbRxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestPortNrRbTxd": {
+    "name": "cienaCesRapsVirtualRingWestPortNrRbTxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortRpl": {
+    "name": "cienaCesRapsVirtualRingEastPortRpl",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "owner": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortState": {
+    "name": "cienaCesRapsVirtualRingEastPortState",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "forwarding": 2,
+          "blocked": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortStatus": {
+    "name": "cienaCesRapsVirtualRingEastPortStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "down": 2,
+          "ccmFailure": 3,
+          "localForceSwitch": 4,
+          "remoteForceSwitch": 5,
+          "remoteSignalFailure": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortNrRxd": {
+    "name": "cienaCesRapsVirtualRingEastPortNrRxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortNrTxd": {
+    "name": "cienaCesRapsVirtualRingEastPortNrTxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortSfRxd": {
+    "name": "cienaCesRapsVirtualRingEastPortSfRxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortSfTxd": {
+    "name": "cienaCesRapsVirtualRingEastPortSfTxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortFsRxd": {
+    "name": "cienaCesRapsVirtualRingEastPortFsRxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortFsTxd": {
+    "name": "cienaCesRapsVirtualRingEastPortFsTxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortNrRbRxd": {
+    "name": "cienaCesRapsVirtualRingEastPortNrRbRxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastPortNrRbTxd": {
+    "name": "cienaCesRapsVirtualRingEastPortNrRbTxd",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingType": {
+    "name": "cienaCesRapsVirtualRingType",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "majorRing": 1,
+          "subRing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingSubRingPortTerm": {
+    "name": "cienaCesRapsVirtualRingSubRingPortTerm",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTerminate": 1,
+          "westPortTerminate": 2,
+          "eastPortTerminate": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingNotifIndex": {
+    "name": "cienaCesRapsVirtualRingNotifIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingAlarmExtended": {
+    "name": "cienaCesRapsVirtualRingAlarmExtended",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingWestForce": {
+    "name": "cienaCesRapsVirtualRingWestForce",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingEastForce": {
+    "name": "cienaCesRapsVirtualRingEastForce",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingFlushPropagate": {
+    "name": "cienaCesRapsVirtualRingFlushPropagate",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingLogicalRingName": {
+    "name": "cienaCesRapsVirtualRingLogicalRingName",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingMemberTable": {
+    "name": "cienaCesRapsVirtualRingMemberTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingMemberEntry": {
+    "name": "cienaCesRapsVirtualRingMemberEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingMemberVsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRapsVirtualRingMemberVsId": {
+    "name": "cienaCesRapsVirtualRingMemberVsId",
+    "oid": "1.3.6.1.4.1.1271.2.1.20.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRapsAlarmClearNotification": {
+    "name": "cienaCesRapsAlarmClearNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.18.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingNotifIndex"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingName"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRapsAlarmProtectionSwitchingNotification": {
+    "name": "cienaCesRapsAlarmProtectionSwitchingNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.18.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingNotifIndex"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingName"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRapsAlarmProvisionMismatchNotification": {
+    "name": "cienaCesRapsAlarmProvisionMismatchNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.18.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingNotifIndex"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingName"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRapsAlarmNoRapsPduReceivedNotification": {
+    "name": "cienaCesRapsAlarmNoRapsPduReceivedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.18.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingNotifIndex"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingName"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRapsAlarmNoRplOwnerDetectedNotification": {
+    "name": "cienaCesRapsAlarmNoRplOwnerDetectedNotification",
+    "oid": "1.3.6.1.4.1.1271.2.2.18.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingNotifIndex"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingName"
+      },
+      {
+        "module": "CIENA-CES-RAPS-MIB",
+        "object": "cienaCesRapsVirtualRingAlarmExtended"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-RAPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-RAPS-MIB"
+  }
+}

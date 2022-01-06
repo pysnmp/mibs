@@ -1,0 +1,840 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TRAP-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "enterprises",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "innovaphone": {
+    "name": "innovaphone",
+    "oid": "1.3.6.1.4.1.6666",
+    "class": "objectidentity"
+  },
+  "isdn": {
+    "name": "isdn",
+    "oid": "1.3.6.1.4.1.6666.1",
+    "class": "objectidentity"
+  },
+  "l2Table": {
+    "name": "l2Table",
+    "oid": "1.3.6.1.4.1.6666.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "l2Entry": {
+    "name": "l2Entry",
+    "oid": "1.3.6.1.4.1.6666.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "INNO-MIB",
+        "object": "l2Label",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "l2Label": {
+    "name": "l2Label",
+    "oid": "1.3.6.1.4.1.6666.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l2State": {
+    "name": "l2State",
+    "oid": "1.3.6.1.4.1.6666.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l2Mode": {
+    "name": "l2Mode",
+    "oid": "1.3.6.1.4.1.6666.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "te": 1,
+          "nt": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1Label": {
+    "name": "l1Label",
+    "oid": "1.3.6.1.4.1.6666.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriTable": {
+    "name": "l1PriTable",
+    "oid": "1.3.6.1.4.1.6666.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "l1PriEntry": {
+    "name": "l1PriEntry",
+    "oid": "1.3.6.1.4.1.6666.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "INNO-MIB",
+        "object": "l1PriLabel",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "l1PriLabel": {
+    "name": "l1PriLabel",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriState": {
+    "name": "l1PriState",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriErrCrc4": {
+    "name": "l1PriErrCrc4",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriErrRemAlarmInd": {
+    "name": "l1PriErrRemAlarmInd",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriErrSigLoss": {
+    "name": "l1PriErrSigLoss",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriErrAlarmInd": {
+    "name": "l1PriErrAlarmInd",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriErrFrameAlignmentTOut": {
+    "name": "l1PriErrFrameAlignmentTOut",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriErrFrameAlignmentLoss": {
+    "name": "l1PriErrFrameAlignmentLoss",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriErrSlip": {
+    "name": "l1PriErrSlip",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1PriTest": {
+    "name": "l1PriTest",
+    "oid": "1.3.6.1.4.1.6666.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTest": 0,
+          "simAlarm": 1,
+          "resetAlarms": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "l1BriTable": {
+    "name": "l1BriTable",
+    "oid": "1.3.6.1.4.1.6666.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "l1BriEntry": {
+    "name": "l1BriEntry",
+    "oid": "1.3.6.1.4.1.6666.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "INNO-MIB",
+        "object": "l1BriLabel",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "l1BriLabel": {
+    "name": "l1BriLabel",
+    "oid": "1.3.6.1.4.1.6666.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l1BriState": {
+    "name": "l1BriState",
+    "oid": "1.3.6.1.4.1.6666.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l3Table": {
+    "name": "l3Table",
+    "oid": "1.3.6.1.4.1.6666.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "l3Entry": {
+    "name": "l3Entry",
+    "oid": "1.3.6.1.4.1.6666.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "INNO-MIB",
+        "object": "l3Label",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "l3Label": {
+    "name": "l3Label",
+    "oid": "1.3.6.1.4.1.6666.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l3Protocol": {
+    "name": "l3Protocol",
+    "oid": "1.3.6.1.4.1.6666.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "etsi": 3,
+          "qsig": 23
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l3NumBchan": {
+    "name": "l3NumBchan",
+    "oid": "1.3.6.1.4.1.6666.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l3NumBchanActive": {
+    "name": "l3NumBchanActive",
+    "oid": "1.3.6.1.4.1.6666.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l3CallsBoot": {
+    "name": "l3CallsBoot",
+    "oid": "1.3.6.1.4.1.6666.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "gateway": {
+    "name": "gateway",
+    "oid": "1.3.6.1.4.1.6666.2",
+    "class": "objectidentity"
+  },
+  "gatekeeper": {
+    "name": "gatekeeper",
+    "oid": "1.3.6.1.4.1.6666.2.1",
+    "class": "objectidentity"
+  },
+  "voiceIfTable": {
+    "name": "voiceIfTable",
+    "oid": "1.3.6.1.4.1.6666.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "voiceIfEntry": {
+    "name": "voiceIfEntry",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "INNO-MIB",
+        "object": "voiceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "INNO-MIB",
+        "object": "voiceIfAliasIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "voiceIfGwName": {
+    "name": "voiceIfGwName",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIfType": {
+    "name": "voiceIfType",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unkown": 0,
+          "if": 1,
+          "ep": 2,
+          "gk": 3,
+          "gw": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIfAddr": {
+    "name": "voiceIfAddr",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIfState": {
+    "name": "voiceIfState",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIfNumber": {
+    "name": "voiceIfNumber",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIfName": {
+    "name": "voiceIfName",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIfProduct": {
+    "name": "voiceIfProduct",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIfIndex": {
+    "name": "voiceIfIndex",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "voiceIfAliasIndex": {
+    "name": "voiceIfAliasIndex",
+    "oid": "1.3.6.1.4.1.6666.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "trapDummyGroup": {
+    "name": "trapDummyGroup",
+    "oid": "1.3.6.1.4.1.6666.3",
+    "class": "objectidentity"
+  },
+  "trapDisplayStringParm": {
+    "name": "trapDisplayStringParm",
+    "oid": "1.3.6.1.4.1.6666.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapIntegerParm": {
+    "name": "trapIntegerParm",
+    "oid": "1.3.6.1.4.1.6666.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapGaugeParm": {
+    "name": "trapGaugeParm",
+    "oid": "1.3.6.1.4.1.6666.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "innoColdStart": {
+    "name": "innoColdStart",
+    "oid": "1.3.6.1.4.1.66660.0",
+    "class": "notificationtype"
+  },
+  "innoWarmStart": {
+    "name": "innoWarmStart",
+    "oid": "1.3.6.1.4.1.66660.1",
+    "class": "notificationtype"
+  },
+  "innoLinkDown": {
+    "name": "innoLinkDown",
+    "oid": "1.3.6.1.4.1.66660.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "innoLinkUp": {
+    "name": "innoLinkUp",
+    "oid": "1.3.6.1.4.1.66660.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "innoAuthenticationFailure": {
+    "name": "innoAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.66660.4",
+    "class": "notificationtype"
+  },
+  "innoIsdnFailure": {
+    "name": "innoIsdnFailure",
+    "oid": "1.3.6.1.4.1.66660.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "INNO-MIB",
+        "object": "trapDisplayStringParm"
+      },
+      {
+        "module": "INNO-MIB",
+        "object": "trapIntegerParm"
+      }
+    ]
+  },
+  "innoDiagAlarm": {
+    "name": "innoDiagAlarm",
+    "oid": "1.3.6.1.4.1.66660.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "INNO-MIB",
+        "object": "trapGaugeParm"
+      },
+      {
+        "module": "INNO-MIB",
+        "object": "trapDisplayStringParm"
+      },
+      {
+        "module": "INNO-MIB",
+        "object": "trapGaugeParm"
+      },
+      {
+        "module": "INNO-MIB",
+        "object": "trapDisplayStringParm"
+      }
+    ]
+  },
+  "innoDiagAlarmClear": {
+    "name": "innoDiagAlarmClear",
+    "oid": "1.3.6.1.4.1.66660.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "INNO-MIB",
+        "object": "trapGaugeParm"
+      },
+      {
+        "module": "INNO-MIB",
+        "object": "trapDisplayStringParm"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/innovaphone/INNO-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "INNO-MIB"
+  }
+}

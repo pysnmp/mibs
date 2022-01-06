@@ -1,0 +1,4739 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalDescr"
+    ],
+    "HOST-RESOURCES-MIB": [
+      "KBytes"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniTimeFilter",
+      "JuniEnable"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "juniSystemMIB": {
+    "name": "juniSystemMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-11 11:01",
+        "description": "Added es2Lm10s support."
+      },
+      {
+        "revision": "2008-05-05 12:41",
+        "description": "Add ISSU Support for ERX-1440."
+      },
+      {
+        "revision": "2007-05-07 10:12",
+        "description": "Add ISSU support."
+      },
+      {
+        "revision": "2006-12-18 21:25",
+        "description": "Add LM10 Access Support."
+      },
+      {
+        "revision": "2006-11-24 09:13",
+        "description": "Add suppot for ES2 primary modules SRP-120 and SFM-120 for E120."
+      },
+      {
+        "revision": "2006-05-18 08:31",
+        "description": "Add last 5 seconds, 1 minute and 5 minutes avergae CPU utilzation support."
+      },
+      {
+        "revision": "2006-01-06 18:17",
+        "description": "Add LM10 Access Support."
+      },
+      {
+        "revision": "2005-12-16 07:21",
+        "description": "Changed maximum value of juniSystemHighMemUtilThreshold from 100 to 99 and maximum value of juniSystemAbatedMemUtilThreshold from 99 to 98."
+      },
+      {
+        "revision": "2005-11-18 22:30",
+        "description": "Add CPU utilization statitics table support."
+      },
+      {
+        "revision": "2005-09-15 14:14",
+        "description": "Add LM10 Uplink Support."
+      },
+      {
+        "revision": "2005-08-19 17:48",
+        "description": "Add Ge8 support."
+      },
+      {
+        "revision": "2005-07-29 17:48",
+        "description": "conform to REX Naming Document, renamed various ES2 module types and deleted ones that didn't belong."
+      },
+      {
+        "revision": "2005-05-18 18:10",
+        "description": "Updated JuniSystemModuleType TC and created JuniSystemSlotLevel TC."
+      },
+      {
+        "revision": "2005-05-04 18:10",
+        "description": "Added GE-HDE support."
+      },
+      {
+        "revision": "2005-01-31 18:13",
+        "description": "Added KByte memory capacity object to notification."
+      },
+      {
+        "revision": "2004-12-31 10:13",
+        "description": "Updated for second generation E-series router."
+      },
+      {
+        "revision": "2004-12-29 10:10",
+        "description": "Updated SystemTimingSelector TC and related timing objects."
+      },
+      {
+        "revision": "2004-05-25 18:13",
+        "description": "Added support for the Fe8 FX IOA."
+      },
+      {
+        "revision": "2004-01-07 22:46",
+        "description": "Added support for the second generation E-series hardware architecture."
+      },
+      {
+        "revision": "2003-11-24 20:59",
+        "description": "Added Hybrid Primary Module and Hybrid IOA modules. Added GE2 Primary Module and GE2 IOA module."
+      },
+      {
+        "revision": "2003-11-24 19:39",
+        "description": "Added resource utilization notification enable/disable. Added KByte memory capacilty object."
+      },
+      {
+        "revision": "2003-07-22 14:10",
+        "description": "Added ERX-310 support."
+      },
+      {
+        "revision": "2003-01-27 21:22",
+        "description": "Replaced Unisphere names with Juniper names. Added resource utilization notification support."
+      },
+      {
+        "revision": "2002-10-17 21:01",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniSystemModuleType": {
+    "name": "JuniSystemModuleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "erxSrp": 1,
+          "erxCt3": 2,
+          "erxOc3": 3,
+          "erxUt3Atm": 4,
+          "erxUt3Frame": 5,
+          "erxUe3Atm": 6,
+          "erxUe3Frame": 7,
+          "erxCe1": 8,
+          "erxCt1": 9,
+          "erxDpfe": 10,
+          "erxOc12Pos": 11,
+          "erxOc12Atm": 12,
+          "erxOc3Pos": 13,
+          "erxOc3Atm": 14,
+          "erxGe": 15,
+          "erxFe8": 16,
+          "erxOc3oc12Pos": 17,
+          "erxOc3oc12Atm": 18,
+          "erxCoc3oc12": 19,
+          "erxCoc3": 20,
+          "erxCoc12": 21,
+          "erxOc12Server": 22,
+          "erxHssi": 23,
+          "erxGeFe": 24,
+          "erxCt3P12": 25,
+          "erxV35": 26,
+          "erxUt3f12": 27,
+          "erxUe3f12": 28,
+          "erxCoc12F3": 29,
+          "erxCoc3F3": 30,
+          "erxCocxF3": 31,
+          "erxVts": 32,
+          "erxOc48": 33,
+          "erxUt3Atm4": 34,
+          "erxHybrid": 35,
+          "erxOc3AtmGe": 36,
+          "erxOc3AtmPos": 37,
+          "erxGe2": 38,
+          "erxGeHde": 39,
+          "erxSrpIoa": 1024,
+          "erxCt1Ioa": 1025,
+          "erxCe1Ioa": 1026,
+          "erxCe1TIoa": 1027,
+          "erxCt3Ioa": 1028,
+          "erxE3Ioa": 1029,
+          "erxOc3Mm2Ioa": 1030,
+          "erxOc3Sm2Ioa": 1031,
+          "erxOc3Mm4Ioa": 1032,
+          "erxOc3SmIr4Ioa": 1033,
+          "erxOc3SmLr4Ioa": 1034,
+          "erxCOc3Mm4Ioa": 1035,
+          "erxCOc3SmIr4Ioa": 1036,
+          "erxCOc3SmLr4Ioa": 1037,
+          "erxOc12Mm1Ioa": 1038,
+          "erxOc12SmIr1Ioa": 1039,
+          "erxOc12SmLr1Ioa": 1040,
+          "erxCOc12Mm1Ioa": 1041,
+          "erxCOc12SmIr1Ioa": 1042,
+          "erxCOc12SmLr1Ioa": 1043,
+          "erxFe2Ioa": 1044,
+          "erxFe8Ioa": 1045,
+          "erxGeMm1Ioa": 1046,
+          "erxGeSm1Ioa": 1047,
+          "erxHssiIoa": 1048,
+          "erxCt3P12Ioa": 1049,
+          "erxV35Ioa": 1050,
+          "erxGeSfpIoa": 1051,
+          "erxUe3P12Ioa": 1052,
+          "erxT3Atm4Ioa": 1053,
+          "erxCOc12Mm1ApsIoa": 1054,
+          "erxCOc12SmIr1ApsIoa": 1055,
+          "erxCOc12SmLr1ApsIoa": 1056,
+          "erxOc12Mm1ApsIoa": 1057,
+          "erxOc12SmIr1ApsIoa": 1058,
+          "erxOc12SmLr1ApsIoa": 1059,
+          "erxCOc12AtmPosMm1Ioa": 1060,
+          "erxCOc12AtmPosSmIr1Ioa": 1061,
+          "erxCOc12AtmPosSmLr1Ioa": 1062,
+          "erxCOc12AtmPosMm1ApsIoa": 1063,
+          "erxCOc12AtmPosSmIr1ApsIoa": 1064,
+          "erxCOc12AtmPosSmLr1ApsIoa": 1065,
+          "erxT1E1RedundantIoa": 1066,
+          "erxT3E3RedundantIoa": 1067,
+          "erxCt3RedundantIoa": 1068,
+          "erxOcxRedundantIoa": 1069,
+          "erxCOcxRedundantIoa": 1070,
+          "erxOc3Mm4ApsIoa": 1071,
+          "erxOc3SmIr4ApsIoa": 1072,
+          "erxOc3SmLr4ApsIoa": 1073,
+          "erxOc48Ioa": 1074,
+          "erxOc3Atm2Ge1Ioa": 1075,
+          "erxOc3Atm2Pos2Ioa": 1076,
+          "erxGe2Ioa": 1077,
+          "erxFe8FxIoa": 1078,
+          "erxGe8Ioa": 1079,
+          "e320Srp100": 2048,
+          "e320Sfm100": 2049,
+          "es2Lm4": 2050,
+          "es2Lm10Uplink": 2051,
+          "es2Lm10": 2052,
+          "e320Srp320": 2053,
+          "e320Sfm320": 2054,
+          "es2Lm10s": 2055,
+          "e320SrpIoa": 3072,
+          "es2Ge4S1Ioa": 3073,
+          "es2Oc48Stm16PosS1Ioa": 3074,
+          "es2ServiceS1Ioa": 3075,
+          "es2Oc3Stm1x8AtmS1Ioa": 3076,
+          "es2RedundancyS1Ioa": 3077,
+          "es2Oc12Stm4x2PosS1Ioa": 3078,
+          "es2Oc12Stm4x2AtmS1Ioa": 3079,
+          "es2dash10GeS1Ioa": 3080,
+          "es2Ge8S1Ioa": 3081,
+          "es2dash10GePrS2Ioa": 3082,
+          "es2Ge20S2Ioa": 3083,
+          "e120Srp120": 4096,
+          "e120Sfm120": 4097
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniSystemSlotLevel": {
+    "name": "JuniSystemSlotLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniSystemSlotType": {
+    "name": "JuniSystemSlotType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSlot": 0,
+          "erxSrpSlot": 1,
+          "erxLcmSlot": 2,
+          "erxSrpIoaSlot": 3,
+          "erxLcIoaSlot": 4,
+          "es2SrpSlot": 16,
+          "es2SfsSlot": 17,
+          "es2FmSlot": 18,
+          "es2SrpIoaSlot": 19,
+          "es2FIoaSlot": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniSystemTimingSelector": {
+    "name": "JuniSystemTimingSelector",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "tertiary": 3,
+          "error": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniSystemLocationType": {
+    "name": "JuniSystemLocationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "slot": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniSystemLocation": {
+    "name": "JuniSystemLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniSystemTaskName": {
+    "name": "JuniSystemTaskName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "100a",
+    "status": "current"
+  },
+  "juniSystemTrap": {
+    "name": "juniSystemTrap",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0",
+    "class": "objectidentity"
+  },
+  "juniSystemObjects": {
+    "name": "juniSystemObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "juniSystemConformance": {
+    "name": "juniSystemConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "juniSystemGeneral": {
+    "name": "juniSystemGeneral",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "juniSystemSubsystem": {
+    "name": "juniSystemSubsystem",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "juniSystemModule": {
+    "name": "juniSystemModule",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3",
+    "class": "objectidentity"
+  },
+  "juniSystemPort": {
+    "name": "juniSystemPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.4",
+    "class": "objectidentity"
+  },
+  "juniSystemTiming": {
+    "name": "juniSystemTiming",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5",
+    "class": "objectidentity"
+  },
+  "juniSystemFabric": {
+    "name": "juniSystemFabric",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.6",
+    "class": "objectidentity"
+  },
+  "juniSystemNvs": {
+    "name": "juniSystemNvs",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7",
+    "class": "objectidentity"
+  },
+  "juniSystemPower": {
+    "name": "juniSystemPower",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.8",
+    "class": "objectidentity"
+  },
+  "juniSystemTemperature": {
+    "name": "juniSystemTemperature",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9",
+    "class": "objectidentity"
+  },
+  "juniSystemUtilization": {
+    "name": "juniSystemUtilization",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10",
+    "class": "objectidentity"
+  },
+  "juniSystemIssu": {
+    "name": "juniSystemIssu",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11",
+    "class": "objectidentity"
+  },
+  "juniSystemSwVersion": {
+    "name": "juniSystemSwVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemSwBuildDate": {
+    "name": "juniSystemSwBuildDate",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemMemUtilPct": {
+    "name": "juniSystemMemUtilPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemMemCapacity": {
+    "name": "juniSystemMemCapacity",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemMemKBytesCapacity": {
+    "name": "juniSystemMemKBytesCapacity",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KBytes",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemHighMemUtilThreshold": {
+    "name": "juniSystemHighMemUtilThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 85,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemAbatedMemUtilThreshold": {
+    "name": "juniSystemAbatedMemUtilThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 98
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootConfigControl": {
+    "name": "juniSystemBootConfigControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "file": 0,
+          "fileOnce": 1,
+          "factoryDefaults": 2,
+          "runningConfiguration": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootBackupConfigControl": {
+    "name": "juniSystemBootBackupConfigControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "file": 0,
+          "factoryDefaults": 1,
+          "none": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootForceBackupControl": {
+    "name": "juniSystemBootForceBackupControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootAutoRevertControl": {
+    "name": "juniSystemBootAutoRevertControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "never": 1,
+          "set": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootAutoRevertCountTolerance": {
+    "name": "juniSystemBootAutoRevertCountTolerance",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967294
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootAutoRevertTimeTolerance": {
+    "name": "juniSystemBootAutoRevertTimeTolerance",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967294
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootReleaseFile": {
+    "name": "juniSystemBootReleaseFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootConfigFile": {
+    "name": "juniSystemBootConfigFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootBackupReleaseFile": {
+    "name": "juniSystemBootBackupReleaseFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemBootBackupConfigFile": {
+    "name": "juniSystemBootBackupConfigFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemRedundancyRevertControl": {
+    "name": "juniSystemRedundancyRevertControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "immediate": 1,
+          "timeOfDay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemRedundancyRevertTimeOfDay": {
+    "name": "juniSystemRedundancyRevertTimeOfDay",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86399
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemSubsystemTable": {
+    "name": "juniSystemSubsystemTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemSubsystemEntry": {
+    "name": "juniSystemSubsystemEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSubsystemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemSubsystemIndex": {
+    "name": "juniSystemSubsystemIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemSubsystemName": {
+    "name": "juniSystemSubsystemName",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemSubsystemBootReleaseFile": {
+    "name": "juniSystemSubsystemBootReleaseFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemSubsystemBootBackupReleaseFile": {
+    "name": "juniSystemSubsystemBootBackupReleaseFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemMaxSlotNumber": {
+    "name": "juniSystemMaxSlotNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemMaxModulesPerSlot": {
+    "name": "juniSystemMaxModulesPerSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemSlotTable": {
+    "name": "juniSystemSlotTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemSlotEntry": {
+    "name": "juniSystemSlotEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemSlotNumber": {
+    "name": "juniSystemSlotNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemSlotLevel": {
+    "name": "juniSystemSlotLevel",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemSlotLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemSlotStatus": {
+    "name": "juniSystemSlotStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "noSlotContainer": 1,
+          "empty": 2,
+          "moduleNotPresent": 3,
+          "modulePresent": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemSlotType": {
+    "name": "juniSystemSlotType",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemSlotType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleTable": {
+    "name": "juniSystemModuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemModuleEntry": {
+    "name": "juniSystemModuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemModuleOperStatus": {
+    "name": "juniSystemModuleOperStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "notPresent": 1,
+          "disabled": 2,
+          "hardwareError": 3,
+          "booting": 4,
+          "initializing": 5,
+          "online": 6,
+          "standby": 7,
+          "inactive": 8,
+          "notResponding": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleDisableReason": {
+    "name": "juniSystemModuleDisableReason",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "unknown": 1,
+          "assessing": 2,
+          "admin": 3,
+          "typeMismatch": 4,
+          "fabricLimit": 5,
+          "imageError": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleLastChange": {
+    "name": "juniSystemModuleLastChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleCurrentType": {
+    "name": "juniSystemModuleCurrentType",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleExpectedType": {
+    "name": "juniSystemModuleExpectedType",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleDescr": {
+    "name": "juniSystemModuleDescr",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleSlotSpan": {
+    "name": "juniSystemModuleSlotSpan",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModulePortCount": {
+    "name": "juniSystemModulePortCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleSerialNumber": {
+    "name": "juniSystemModuleSerialNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleAssemblyPartNumber": {
+    "name": "juniSystemModuleAssemblyPartNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleAssemblyRev": {
+    "name": "juniSystemModuleAssemblyRev",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModulePhysicalIndex": {
+    "name": "juniSystemModulePhysicalIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleSoftwareSupport": {
+    "name": "juniSystemModuleSoftwareSupport",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleRedundancySupport": {
+    "name": "juniSystemModuleRedundancySupport",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleLevelSpan": {
+    "name": "juniSystemModuleLevelSpan",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleSoftwareTable": {
+    "name": "juniSystemModuleSoftwareTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemModuleSoftwareEntry": {
+    "name": "juniSystemModuleSoftwareEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemModuleSoftwareVersion": {
+    "name": "juniSystemModuleSoftwareVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleCpuUtilPct": {
+    "name": "juniSystemModuleCpuUtilPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleMemUtilPct": {
+    "name": "juniSystemModuleMemUtilPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleAdminStatus": {
+    "name": "juniSystemModuleAdminStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemModuleControl": {
+    "name": "juniSystemModuleControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperation": 0,
+          "flush": 1,
+          "reset": 2,
+          "resetBackup": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemModuleBootReleaseFile": {
+    "name": "juniSystemModuleBootReleaseFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemModuleBootBackupReleaseFile": {
+    "name": "juniSystemModuleBootBackupReleaseFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemModuleCpuFiveSecUtilPct": {
+    "name": "juniSystemModuleCpuFiveSecUtilPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleCpuOneMinAvgPct": {
+    "name": "juniSystemModuleCpuOneMinAvgPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleCpuFiveMinAvgPct": {
+    "name": "juniSystemModuleCpuFiveMinAvgPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleRedundancyTable": {
+    "name": "juniSystemModuleRedundancyTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemModuleRedundancyEntry": {
+    "name": "juniSystemModuleRedundancyEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemModuleRedundancyGroupId": {
+    "name": "juniSystemModuleRedundancyGroupId",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleRedundancySpare": {
+    "name": "juniSystemModuleRedundancySpare",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleRedundancyAssociatedSlot": {
+    "name": "juniSystemModuleRedundancyAssociatedSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemModuleRedundancyLockout": {
+    "name": "juniSystemModuleRedundancyLockout",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemModuleRedundancyRevertControl": {
+    "name": "juniSystemModuleRedundancyRevertControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "immediate": 1,
+          "timeAndDate": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemModuleRedundancyRevertTime": {
+    "name": "juniSystemModuleRedundancyRevertTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemPortTable": {
+    "name": "juniSystemPortTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemPortEntry": {
+    "name": "juniSystemPortEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotLevel",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemPortNumber": {
+    "name": "juniSystemPortNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemPortIfIndex": {
+    "name": "juniSystemPortIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemPortPhysicalIndex": {
+    "name": "juniSystemPortPhysicalIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemAdminTimingSource": {
+    "name": "juniSystemAdminTimingSource",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemTimingSelector",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemOperTimingSource": {
+    "name": "juniSystemOperTimingSource",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemTimingSelector",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTimingAutoUpgrade": {
+    "name": "juniSystemTimingAutoUpgrade",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemTimingSelectorTable": {
+    "name": "juniSystemTimingSelectorTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemTimingSelectorEntry": {
+    "name": "juniSystemTimingSelectorEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTimingSelectorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemTimingSelectorIndex": {
+    "name": "juniSystemTimingSelectorIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemTimingSelector",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemTimingSourceType": {
+    "name": "juniSystemTimingSourceType",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timingInterfaceIfIndex": 1,
+          "timingInternal": 2,
+          "timingLine": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemTimingSourceIfIndex": {
+    "name": "juniSystemTimingSourceIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemTimingSourceLine": {
+    "name": "juniSystemTimingSourceLine",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timingSourceLineUndefined": 0,
+          "timingSourceLineE1PortA": 1,
+          "timingSourceLineE1PortB": 2,
+          "timingSourceLineT1PortA": 3,
+          "timingSourceLineT1PortB": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "timingSourceLineUndefined",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemTimingWorkingStatus": {
+    "name": "juniSystemTimingWorkingStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timingStatusOk": 1,
+          "timingStatusError": 2,
+          "timingStatusUnknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTimingProtectedStatus": {
+    "name": "juniSystemTimingProtectedStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timingStatusOk": 1,
+          "timingStatusError": 2,
+          "timingStatusUnknown": 3,
+          "sourceNotProtected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemFabricSpeed": {
+    "name": "juniSystemFabricSpeed",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "gigabits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemFabricRev": {
+    "name": "juniSystemFabricRev",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemNvsCount": {
+    "name": "juniSystemNvsCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemNvsTable": {
+    "name": "juniSystemNvsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemNvsEntry": {
+    "name": "juniSystemNvsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemNvsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemNvsIndex": {
+    "name": "juniSystemNvsIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemNvsStatus": {
+    "name": "juniSystemNvsStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 0,
+          "writeProtected": 1,
+          "volumeError": 2,
+          "nearCapacity": 3,
+          "ok": 4,
+          "noConfigSpace": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemNvsCapacity": {
+    "name": "juniSystemNvsCapacity",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemNvsUtilPct": {
+    "name": "juniSystemNvsUtilPct",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemNvsPhysicalIndex": {
+    "name": "juniSystemNvsPhysicalIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemPowerCount": {
+    "name": "juniSystemPowerCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemPowerTable": {
+    "name": "juniSystemPowerTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemPowerEntry": {
+    "name": "juniSystemPowerEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemPowerIndex": {
+    "name": "juniSystemPowerIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemPowerStatus": {
+    "name": "juniSystemPowerStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 0,
+          "inactive": 1,
+          "good": 2,
+          "failed": 3,
+          "sensorFailed": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemPowerPhysicalIndex": {
+    "name": "juniSystemPowerPhysicalIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemFanCount": {
+    "name": "juniSystemFanCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemFanTable": {
+    "name": "juniSystemFanTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemFanEntry": {
+    "name": "juniSystemFanEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemFanIndex": {
+    "name": "juniSystemFanIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemFanStatus": {
+    "name": "juniSystemFanStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "ok": 1,
+          "warning": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemFanPhysicalIndex": {
+    "name": "juniSystemFanPhysicalIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTempCount": {
+    "name": "juniSystemTempCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTempTable": {
+    "name": "juniSystemTempTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemTempEntry": {
+    "name": "juniSystemTempEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemTempIndex": {
+    "name": "juniSystemTempIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemTempStatus": {
+    "name": "juniSystemTempStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "failed": 1,
+          "tooLow": 2,
+          "nominal": 3,
+          "tooHigh": 4,
+          "tooLowWarning": 5,
+          "tooHighWarning": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTempValue": {
+    "name": "juniSystemTempValue",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTempPhysicalIndex": {
+    "name": "juniSystemTempPhysicalIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTempProtectionStatus": {
+    "name": "juniSystemTempProtectionStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "monitoring": 1,
+          "inHoldOff": 2,
+          "activatedHoldOffExpired": 3,
+          "activatedTempTooHigh": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTempProtectionHoldOffTime": {
+    "name": "juniSystemTempProtectionHoldOffTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemTempProtectionHoldOffTimeRemaining": {
+    "name": "juniSystemTempProtectionHoldOffTimeRemaining",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemUtilizationTable": {
+    "name": "juniSystemUtilizationTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemUtilizationEntry": {
+    "name": "juniSystemUtilizationEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationResourceType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationResourceSubType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationLocationType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationLocation",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemUtilizationResourceType": {
+    "name": "juniSystemUtilizationResourceType",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interface": 1,
+          "memory": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemUtilizationResourceSubType": {
+    "name": "juniSystemUtilizationResourceSubType",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemUtilizationLocationType": {
+    "name": "juniSystemUtilizationLocationType",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemLocationType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemUtilizationLocation": {
+    "name": "juniSystemUtilizationLocation",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemLocation",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemUtilizationMaxCapacity": {
+    "name": "juniSystemUtilizationMaxCapacity",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemUtilizationCurrentValue": {
+    "name": "juniSystemUtilizationCurrentValue",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemUtilizationThresholdRising": {
+    "name": "juniSystemUtilizationThresholdRising",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemUtilizationThresholdFalling": {
+    "name": "juniSystemUtilizationThresholdFalling",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemUtilizationHoldDownTime": {
+    "name": "juniSystemUtilizationHoldDownTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationTable": {
+    "name": "juniSystemCpuUtilizationTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationEntry": {
+    "name": "juniSystemCpuUtilizationEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationTaskName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationTimeMark": {
+    "name": "juniSystemCpuUtilizationTimeMark",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniTimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationTaskName": {
+    "name": "juniSystemCpuUtilizationTaskName",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSystemTaskName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationInvoked": {
+    "name": "juniSystemCpuUtilizationInvoked",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationInvokationPerSec": {
+    "name": "juniSystemCpuUtilizationInvokationPerSec",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationTotalRunningTime": {
+    "name": "juniSystemCpuUtilizationTotalRunningTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milli Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationPercentageRunningTime": {
+    "name": "juniSystemCpuUtilizationPercentageRunningTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationAverageTimePerInvokation": {
+    "name": "juniSystemCpuUtilizationAverageTimePerInvokation",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "micro Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationFiveSecondUtilization": {
+    "name": "juniSystemCpuUtilizationFiveSecondUtilization",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationOneMinuteUtilization": {
+    "name": "juniSystemCpuUtilizationOneMinuteUtilization",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationFiveMinuteUtilization": {
+    "name": "juniSystemCpuUtilizationFiveMinuteUtilization",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemCpuUtilizationNumberOfInstances": {
+    "name": "juniSystemCpuUtilizationNumberOfInstances",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.10.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemIssuState": {
+    "name": "juniSystemIssuState",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "initializing": 2,
+          "initialized": 3,
+          "upgrading": 4,
+          "stopping": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemIssuRunningReleaseFile": {
+    "name": "juniSystemIssuRunningReleaseFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemIssuArmedReleaseFile": {
+    "name": "juniSystemIssuArmedReleaseFile",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemIssuStatus": {
+    "name": "juniSystemIssuStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "warning": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemIssuCriteriaTable": {
+    "name": "juniSystemIssuCriteriaTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemIssuCriteriaEntry": {
+    "name": "juniSystemIssuCriteriaEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuCriteriaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemIssuCriteriaIndex": {
+    "name": "juniSystemIssuCriteriaIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniSystemIssuCriteriaDescription": {
+    "name": "juniSystemIssuCriteriaDescription",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemIssuCriteriaStatus": {
+    "name": "juniSystemIssuCriteriaStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.11.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2,
+          "conditional": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSystemMemUtilTrapEnable": {
+    "name": "juniSystemMemUtilTrapEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemReloadSlotNumber": {
+    "name": "juniSystemReloadSlotNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniSystemUtilizationThresholdDirection": {
+    "name": "juniSystemUtilizationThresholdDirection",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rising": 1,
+          "falling": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniSystemUtilizationTrapEnable": {
+    "name": "juniSystemUtilizationTrapEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSystemHighMemUtil": {
+    "name": "juniSystemHighMemUtil",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemAbatedMemUtilThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemHighMemUtilThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemKBytesCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemAbatedMemUtil": {
+    "name": "juniSystemAbatedMemUtil",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemAbatedMemUtilThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemHighMemUtilThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemKBytesCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemModuleOperStatusChange": {
+    "name": "juniSystemModuleOperStatusChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCurrentType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAdminStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleOperStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleDisableReason"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemPowerStatusChange": {
+    "name": "juniSystemPowerStatusChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemFanStatusChange": {
+    "name": "juniSystemFanStatusChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemTempStatusChange": {
+    "name": "juniSystemTempStatusChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemTempProtectionStatusChange": {
+    "name": "juniSystemTempProtectionStatusChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempProtectionStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempProtectionHoldOffTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemReloadCommand": {
+    "name": "juniSystemReloadCommand",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "juniSystemUtilizationThreshold": {
+    "name": "juniSystemUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdDirection"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationMaxCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationCurrentValue"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdRising"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdFalling"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationHoldDownTime"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemIssuStateChange": {
+    "name": "juniSystemIssuStateChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuState"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemCompliances": {
+    "name": "juniSystemCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "juniSystemGroups": {
+    "name": "juniSystemGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "juniSystemCompliance": {
+    "name": "juniSystemCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSystemGeneralGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemSubsystemGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemModuleGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPortGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTimingGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemFabricGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNvsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPowerGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTemperatureGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationObjectsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationGroup",
+        "module": "Juniper-System-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemCompliance2": {
+    "name": "juniSystemCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSystemGeneralGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemSubsystemGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemModuleGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPortGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTimingGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemFabricGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNvsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPowerGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTemperatureGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemUtilizationGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationObjectsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationGroup2",
+        "module": "Juniper-System-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemCompliance3": {
+    "name": "juniSystemCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSystemGeneralGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemSubsystemGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemModuleGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPortGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTimingGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemFabricGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNvsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPowerGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTemperatureGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemUtilizationGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationObjectsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationGroup2",
+        "module": "Juniper-System-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemCompliance4": {
+    "name": "juniSystemCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSystemGeneralGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemSubsystemGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemModuleGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPortGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTimingGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemFabricGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNvsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPowerGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTemperatureGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemUtilizationGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationObjectsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationGroup2",
+        "module": "Juniper-System-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemCompliance5": {
+    "name": "juniSystemCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSystemGeneralGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemSubsystemGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemModuleGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPortGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTimingGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemFabricGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNvsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPowerGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTemperatureGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemUtilizationGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationObjectsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationGroup2",
+        "module": "Juniper-System-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemCompliance6": {
+    "name": "juniSystemCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSystemGeneralGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemSubsystemGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemModuleGroup3",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPortGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTimingGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemFabricGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNvsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPowerGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTemperatureGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemUtilizationGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationObjectsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationGroup2",
+        "module": "Juniper-System-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemCompliance7": {
+    "name": "juniSystemCompliance7",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSystemGeneralGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemSubsystemGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemModuleGroup3",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPortGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTimingGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemFabricGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNvsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemPowerGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemTemperatureGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemUtilizationGroup2",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationObjectsGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemIssuGroup",
+        "module": "Juniper-System-MIB"
+      },
+      {
+        "object": "juniSystemNotificationGroup3",
+        "module": "Juniper-System-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemGeneralGroup": {
+    "name": "juniSystemGeneralGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSwVersion"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSwBuildDate"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemHighMemUtilThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemAbatedMemUtilThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemUtilTrapEnable"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootConfigControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootBackupConfigControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootForceBackupControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootAutoRevertControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootAutoRevertCountTolerance"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootAutoRevertTimeTolerance"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootConfigFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootBackupReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootBackupConfigFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemRedundancyRevertControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemRedundancyRevertTimeOfDay"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemSubsystemGroup": {
+    "name": "juniSystemSubsystemGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSubsystemName"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSubsystemBootReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSubsystemBootBackupReleaseFile"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemModuleGroup": {
+    "name": "juniSystemModuleGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMaxSlotNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMaxModulesPerSlot"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleOperStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleDisableReason"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleLastChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCurrentType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleExpectedType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleDescr"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSlotSpan"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModulePortCount"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSerialNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAssemblyPartNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAssemblyRev"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModulePhysicalIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSoftwareSupport"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancySupport"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSoftwareVersion"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCpuUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleMemUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAdminStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleBootReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleBootBackupReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyGroupId"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancySpare"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyAssociatedSlot"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyLockout"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyRevertControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyRevertTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemPortGroup": {
+    "name": "juniSystemPortGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPortPhysicalIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPortIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemTimingGroup": {
+    "name": "juniSystemTimingGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemAdminTimingSource"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemOperTimingSource"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTimingAutoUpgrade"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTimingSourceType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTimingSourceIfIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTimingSourceLine"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTimingWorkingStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTimingProtectedStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemFabricGroup": {
+    "name": "juniSystemFabricGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFabricSpeed"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFabricRev"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemNvsGroup": {
+    "name": "juniSystemNvsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemNvsCount"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemNvsPhysicalIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemNvsStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemNvsCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemNvsUtilPct"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemPowerGroup": {
+    "name": "juniSystemPowerGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPowerCount"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPowerPhysicalIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemTemperatureGroup": {
+    "name": "juniSystemTemperatureGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFanCount"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFanPhysicalIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFanStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempCount"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempValue"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempPhysicalIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempProtectionStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempProtectionHoldOffTime"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempProtectionHoldOffTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemNotificationObjectsGroup": {
+    "name": "juniSystemNotificationObjectsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemReloadSlotNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemNotificationGroup": {
+    "name": "juniSystemNotificationGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemHighMemUtil"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemAbatedMemUtil"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleOperStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPowerStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFanStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempProtectionStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemReloadCommand"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemUtilizationGroup": {
+    "name": "juniSystemUtilizationGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationMaxCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationCurrentValue"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdRising"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdFalling"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationHoldDownTime"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdDirection"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemNotificationGroup2": {
+    "name": "juniSystemNotificationGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemHighMemUtil"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemAbatedMemUtil"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleOperStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPowerStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFanStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempProtectionStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemReloadCommand"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThreshold"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemGeneralGroup2": {
+    "name": "juniSystemGeneralGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSwVersion"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSwBuildDate"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemKBytesCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemHighMemUtilThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemAbatedMemUtilThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMemUtilTrapEnable"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationTrapEnable"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootConfigControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootBackupConfigControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootForceBackupControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootAutoRevertControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootAutoRevertCountTolerance"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootAutoRevertTimeTolerance"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootConfigFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootBackupReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemBootBackupConfigFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemRedundancyRevertControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemRedundancyRevertTimeOfDay"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemModuleGroup2": {
+    "name": "juniSystemModuleGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMaxSlotNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMaxModulesPerSlot"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleOperStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleDisableReason"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleLastChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCurrentType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleExpectedType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleDescr"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSlotSpan"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModulePortCount"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSerialNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAssemblyPartNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAssemblyRev"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModulePhysicalIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSoftwareSupport"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancySupport"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleLevelSpan"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSoftwareVersion"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCpuUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleMemUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAdminStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleBootReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleBootBackupReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyGroupId"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancySpare"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyAssociatedSlot"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyLockout"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyRevertControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyRevertTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSystemUtilizationGroup2": {
+    "name": "juniSystemUtilizationGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationMaxCapacity"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationCurrentValue"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdRising"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdFalling"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationHoldDownTime"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThresholdDirection"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationTaskName"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationInvoked"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationInvokationPerSec"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationTotalRunningTime"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationPercentageRunningTime"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationAverageTimePerInvokation"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationFiveSecondUtilization"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationOneMinuteUtilization"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationFiveMinuteUtilization"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemCpuUtilizationNumberOfInstances"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemModuleGroup3": {
+    "name": "juniSystemModuleGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMaxSlotNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemMaxModulesPerSlot"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemSlotType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleOperStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleDisableReason"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleLastChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCurrentType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleExpectedType"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleDescr"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSlotSpan"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModulePortCount"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSerialNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAssemblyPartNumber"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAssemblyRev"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModulePhysicalIndex"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSoftwareSupport"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancySupport"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleLevelSpan"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleSoftwareVersion"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCpuUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleMemUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleAdminStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleBootReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleBootBackupReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCpuFiveSecUtilPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCpuOneMinAvgPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleCpuFiveMinAvgPct"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyGroupId"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancySpare"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyAssociatedSlot"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyLockout"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyRevertControl"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleRedundancyRevertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemIssuGroup": {
+    "name": "juniSystemIssuGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuState"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuArmedReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuRunningReleaseFile"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuStatus"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuCriteriaDescription"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuCriteriaStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSystemNotificationGroup3": {
+    "name": "juniSystemNotificationGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.2.2.2.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemHighMemUtil"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemAbatedMemUtil"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemModuleOperStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemPowerStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemFanStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemTempProtectionStatusChange"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemReloadCommand"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemUtilizationThreshold"
+      },
+      {
+        "module": "Juniper-System-MIB",
+        "object": "juniSystemIssuStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-System-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-System-MIB"
+  }
+}

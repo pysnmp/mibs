@@ -1,0 +1,2048 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SLB-EXT-MIB": [
+      "SlbUrlString"
+    ],
+    "CISCO-SLB-HEALTH-MON-MIB": [
+      "CiscoProbeHealthMonState",
+      "cslbxProbeName"
+    ],
+    "CISCO-SLB-MIB": [
+      "slbEntity",
+      "slbServerFarmName",
+      "SlbServerString",
+      "SlbRealServerState"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoHTTPResponseStatusCode"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoEnhancedSlbMIB": {
+    "name": "ciscoEnhancedSlbMIB",
+    "oid": "1.3.6.1.4.1.9.9.470",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-09-19 00:00",
+        "description": "-Added cesServerFarmRserverDescr to cesServerFarmRserverTable. -Deprecated cesRealServerStateUp NOTIFICATION-TYPE. -Deprecated cesRealServerStateDown NOTIFICATION-TYPE. -Deprecated cesRealServerStateChange NOTIFICATION-TYPE. -Added cesRealServerStateUpRev1 NOTIFICATION-TYPE. -Added cesRealServerStateDownRev1 NOTIFICATION-TYPE. -Added cesRealServerStateChangeRev1 NOTIFICATION-TYPE. -Deprecated cesRealServerFarmGroup OBJECT-GROUP. -Deprecated cesRealServerNotifGroupRev1 NOTIFICATION-GROUP. -Added cesRealServerFarmGroupRev1 OBJECT-GROUP. -Added cesRealServerNotifGroupRev2 NOTIFICATION-GROUP -Deprecated ciscoEnhancedSlbMIBComplianceRev3 MODULE-COMPLIANCE. -Added ciscoEnhancedSlbMIBComplianceRev4 MODULE-COMPLIANCE."
+      },
+      {
+        "revision": "2008-05-21 00:00",
+        "description": "-Added the following objects to the cesRserverProbeTable cesRserverProbeLastProbeTime cesRserverProbeLastActiveTime cesRserverProbeLastFailedTime -Deprecated cesRserverProbeGroup OBJECT-GROUP. -Deprecated ciscoEnhancedSlbMIBComplianceRev2 MODULE-COMPLIANCE statement. -Added cesRserverProbeGroupRev1 OBJECT-GROUP. -Added ciscoEnhancedSlbMIBComplianceRev3 MODULE-COMPLIANCE statement."
+      },
+      {
+        "revision": "2008-03-12 00:00",
+        "description": "-Added the following objects to the cesRserverTable cesRserverTotalConns cesRserverFailedConns cesRserverCurrConns -Added the following objects to the cesRserverProbeTable cesRserverProbesPassed cesRserverProbesFailed cesRserverHealthMonState -Added cesRealServerProbeTable -Deprecated cesRealServerGroup OBJECT-GROUP -Deprecated ciscoEnhancedSlbMIBComplianceRev1 MODULE-COMPLIANCE statement - Added the following OBJECT-GROUP's cesRealServerGroupRev1 cesRserverProbeGroup cesRealserverProbeGroup - Added ciscoEnhancedSlbMIBComplianceRev2 MODULE-COMPLIANCE statement"
+      },
+      {
+        "revision": "2006-03-31 00:00",
+        "description": "-Added the following Notifications: cesRserverStateUp cesRserverStateDown cesRserverStateChange. -Added OBJECT-GROUP cesRealServerNotifGroupRev1 -Added MODULE-COMPLIANCE ciscoEnhancedSlbMIBComplianceRev1"
+      },
+      {
+        "revision": "2006-02-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEnhancedSlbMIBNotifs": {
+    "name": "ciscoEnhancedSlbMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.470.0",
+    "class": "objectidentity"
+  },
+  "ciscoEnhancedSlbMIBObjects": {
+    "name": "ciscoEnhancedSlbMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.470.1",
+    "class": "objectidentity"
+  },
+  "ciscoEnhancedSlbMIBConformance": {
+    "name": "ciscoEnhancedSlbMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.470.2",
+    "class": "objectidentity"
+  },
+  "cesRealServer": {
+    "name": "cesRealServer",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1",
+    "class": "objectidentity"
+  },
+  "cesDfpAgent": {
+    "name": "cesDfpAgent",
+    "oid": "1.3.6.1.4.1.9.9.470.1.2",
+    "class": "objectidentity"
+  },
+  "cesStickyConfig": {
+    "name": "cesStickyConfig",
+    "oid": "1.3.6.1.4.1.9.9.470.1.3",
+    "class": "objectidentity"
+  },
+  "cesNotifControl": {
+    "name": "cesNotifControl",
+    "oid": "1.3.6.1.4.1.9.9.470.1.4",
+    "class": "objectidentity"
+  },
+  "cesNotificationObjects": {
+    "name": "cesNotificationObjects",
+    "oid": "1.3.6.1.4.1.9.9.470.1.5",
+    "class": "objectidentity"
+  },
+  "CiscoRserverAdminStatus": {
+    "name": "CiscoRserverAdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "outOfService": 2,
+          "inServiceStandby": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cesRserverTable": {
+    "name": "cesRserverTable",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cesRserverEntry": {
+    "name": "cesRserverEntry",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cesRserverName": {
+    "name": "cesRserverName",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cesRserverType": {
+    "name": "cesRserverType",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redirect": 1,
+          "host": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "host",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverIpAddressType": {
+    "name": "cesRserverIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverIpAddress": {
+    "name": "cesRserverIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverDescription": {
+    "name": "cesRserverDescription",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverMaxConns": {
+    "name": "cesRserverMaxConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverMinConns": {
+    "name": "cesRserverMinConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverAdminWeight": {
+    "name": "cesRserverAdminWeight",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverRedirectRelocationStr": {
+    "name": "cesRserverRedirectRelocationStr",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbUrlString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverRedirectCode": {
+    "name": "cesRserverRedirectCode",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoHTTPResponseStatusCode",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 399
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 302,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverRedirectPort": {
+    "name": "cesRserverRedirectPort",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverAdminStatus": {
+    "name": "cesRserverAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRserverAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "outOfService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverOperStatus": {
+    "name": "cesRserverOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbRealServerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverStatechangeDescr": {
+    "name": "cesRserverStatechangeDescr",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverStorageType": {
+    "name": "cesRserverStorageType",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverRowStatus": {
+    "name": "cesRserverRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverTotalConns": {
+    "name": "cesRserverTotalConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverFailedConns": {
+    "name": "cesRserverFailedConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverCurrConns": {
+    "name": "cesRserverCurrConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverProbeTable": {
+    "name": "cesRserverProbeTable",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cesRserverProbeEntry": {
+    "name": "cesRserverProbeEntry",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cesRserverProbeName": {
+    "name": "cesRserverProbeName",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cesRserverProbeStorageType": {
+    "name": "cesRserverProbeStorageType",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverProbeRowStatus": {
+    "name": "cesRserverProbeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRserverProbesPassed": {
+    "name": "cesRserverProbesPassed",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverProbesFailed": {
+    "name": "cesRserverProbesFailed",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverProbeHealthMonState": {
+    "name": "cesRserverProbeHealthMonState",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoProbeHealthMonState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "init",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverProbeLastProbeTime": {
+    "name": "cesRserverProbeLastProbeTime",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverProbeLastActiveTime": {
+    "name": "cesRserverProbeLastActiveTime",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesRserverProbeLastFailedTime": {
+    "name": "cesRserverProbeLastFailedTime",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesServerFarmRserverTable": {
+    "name": "cesServerFarmRserverTable",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cesServerFarmRserverEntry": {
+    "name": "cesServerFarmRserverEntry",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cesServerFarmRserverPort": {
+    "name": "cesServerFarmRserverPort",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cesServerFarmRserverAdminWeight": {
+    "name": "cesServerFarmRserverAdminWeight",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverOperWeight": {
+    "name": "cesServerFarmRserverOperWeight",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverMaxConns": {
+    "name": "cesServerFarmRserverMaxConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverMinConns": {
+    "name": "cesServerFarmRserverMinConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverAdminStatus": {
+    "name": "cesServerFarmRserverAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRserverAdminStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverOperStatus": {
+    "name": "cesServerFarmRserverOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbRealServerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesServerFarmRserverStateDescr": {
+    "name": "cesServerFarmRserverStateDescr",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesServerFarmRserverBackupName": {
+    "name": "cesServerFarmRserverBackupName",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverBackupPort": {
+    "name": "cesServerFarmRserverBackupPort",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverTotalConns": {
+    "name": "cesServerFarmRserverTotalConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesServerFarmRserverFailedConns": {
+    "name": "cesServerFarmRserverFailedConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesServerFarmRserverDroppedConns": {
+    "name": "cesServerFarmRserverDroppedConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesServerFarmRserverCurrentConns": {
+    "name": "cesServerFarmRserverCurrentConns",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cesServerFarmRserverStorageType": {
+    "name": "cesServerFarmRserverStorageType",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverRowStatus": {
+    "name": "cesServerFarmRserverRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesServerFarmRserverDescr": {
+    "name": "cesServerFarmRserverDescr",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRealServerProbeTable": {
+    "name": "cesRealServerProbeTable",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cesRealServerProbeEntry": {
+    "name": "cesRealServerProbeEntry",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-HEALTH-MON-MIB",
+        "object": "cslbxProbeName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cesRealServerProbeStorageType": {
+    "name": "cesRealServerProbeStorageType",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRealServerProbeRowStatus": {
+    "name": "cesRealServerProbeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.470.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cesRealServerNotifEnable": {
+    "name": "cesRealServerNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.470.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cesRealServerName": {
+    "name": "cesRealServerName",
+    "oid": "1.3.6.1.4.1.9.9.470.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cesProbeName": {
+    "name": "cesProbeName",
+    "oid": "1.3.6.1.4.1.9.9.470.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cesServerFarmName": {
+    "name": "cesServerFarmName",
+    "oid": "1.3.6.1.4.1.9.9.470.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cesRealServerStateUp": {
+    "name": "cesRealServerStateUp",
+    "oid": "1.3.6.1.4.1.9.9.470.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cesRealServerStateDown": {
+    "name": "cesRealServerStateDown",
+    "oid": "1.3.6.1.4.1.9.9.470.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverStateDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cesRealServerStateChange": {
+    "name": "cesRealServerStateChange",
+    "oid": "1.3.6.1.4.1.9.9.470.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverStateDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesProbeName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cesRserverStateUp": {
+    "name": "cesRserverStateUp",
+    "oid": "1.3.6.1.4.1.9.9.470.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRserverStateDown": {
+    "name": "cesRserverStateDown",
+    "oid": "1.3.6.1.4.1.9.9.470.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRserverStateChange": {
+    "name": "cesRserverStateChange",
+    "oid": "1.3.6.1.4.1.9.9.470.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStatechangeDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesProbeName"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRealServerStateUpRev1": {
+    "name": "cesRealServerStateUpRev1",
+    "oid": "1.3.6.1.4.1.9.9.470.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRealServerStateDownRev1": {
+    "name": "cesRealServerStateDownRev1",
+    "oid": "1.3.6.1.4.1.9.9.470.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverStateDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRealServerStateChangeRev1": {
+    "name": "cesRealServerStateChangeRev1",
+    "oid": "1.3.6.1.4.1.9.9.470.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverStateDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesProbeName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEnhancedSlbMIBCompliances": {
+    "name": "ciscoEnhancedSlbMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.470.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoEnhancedSlbMIBGroups": {
+    "name": "ciscoEnhancedSlbMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoEnhancedSlbMIBCompliance": {
+    "name": "ciscoEnhancedSlbMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.470.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cesRealServerGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerFarmGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesNotificationObjectGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerNotifGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEnhancedSlbMIBComplianceRev1": {
+    "name": "ciscoEnhancedSlbMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.470.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cesRealServerGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerFarmGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesNotificationObjectGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerNotifGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEnhancedSlbMIBComplianceRev2": {
+    "name": "ciscoEnhancedSlbMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.470.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cesRealServerFarmGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRserverProbeGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealserverProbeGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesNotificationObjectGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerNotifGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEnhancedSlbMIBComplianceRev3": {
+    "name": "ciscoEnhancedSlbMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.470.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cesRealServerFarmGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRserverProbeGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealserverProbeGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesNotificationObjectGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerNotifGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEnhancedSlbMIBComplianceRev4": {
+    "name": "ciscoEnhancedSlbMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.470.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cesRealServerFarmGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRserverProbeGroupRev1",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealserverProbeGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesNotificationObjectGroup",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      },
+      {
+        "object": "cesRealServerNotifGroupRev2",
+        "module": "CISCO-ENHANCED-SLB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRealServerGroup": {
+    "name": "cesRealServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverDescription"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverMaxConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverMinConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverAdminWeight"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverRedirectRelocationStr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverRedirectPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverRedirectCode"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStatechangeDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStorageType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverRowStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeStorageType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cesRealServerFarmGroup": {
+    "name": "cesRealServerFarmGroup",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminWeight"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperWeight"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverMaxConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverMinConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverStateDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverTotalConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverFailedConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverDroppedConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverCurrentConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverStorageType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cesNotificationObjectGroup": {
+    "name": "cesNotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesProbeName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRealServerNotifGroup": {
+    "name": "cesRealServerNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateUp"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateDown"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cesRealServerNotifGroupRev1": {
+    "name": "cesRealServerNotifGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateUp"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateDown"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateChange"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStateUp"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStateDown"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStateChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cesRealServerGroupRev1": {
+    "name": "cesRealServerGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddressType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverIpAddress"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverDescription"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverMaxConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverMinConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverAdminWeight"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverRedirectRelocationStr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverRedirectCode"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverRedirectPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStatechangeDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStorageType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverRowStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverTotalConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverFailedConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverCurrConns"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRserverProbeGroup": {
+    "name": "cesRserverProbeGroup",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeStorageType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeRowStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbesPassed"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbesFailed"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeHealthMonState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cesRealserverProbeGroup": {
+    "name": "cesRealserverProbeGroup",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerProbeStorageType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerProbeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRserverProbeGroupRev1": {
+    "name": "cesRserverProbeGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeStorageType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeRowStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbesPassed"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbesFailed"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeHealthMonState"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeLastProbeTime"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeLastActiveTime"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverProbeLastFailedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRealServerFarmGroupRev1": {
+    "name": "cesRealServerFarmGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminWeight"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperWeight"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverMaxConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverMinConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverAdminStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverOperStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverStateDescr"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupName"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverBackupPort"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverTotalConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverFailedConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverDroppedConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverCurrentConns"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverStorageType"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverRowStatus"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesServerFarmRserverDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cesRealServerNotifGroupRev2": {
+    "name": "cesRealServerNotifGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.470.2.2.21",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateUpRev1"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateDownRev1"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRealServerStateChangeRev1"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStateUp"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStateDown"
+      },
+      {
+        "module": "CISCO-ENHANCED-SLB-MIB",
+        "object": "cesRserverStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENHANCED-SLB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENHANCED-SLB-MIB"
+  }
+}

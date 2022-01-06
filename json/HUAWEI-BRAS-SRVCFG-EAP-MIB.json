@@ -1,0 +1,854 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifDescr"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwBRASSrvcfgEap": {
+    "name": "hwBRASSrvcfgEap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4",
+    "class": "moduleidentity"
+  },
+  "hwSrvcfgEapMibObjects": {
+    "name": "hwSrvcfgEapMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1",
+    "class": "objectidentity"
+  },
+  "hwDot1xSystemConfigTable": {
+    "name": "hwDot1xSystemConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDot1xSystemConfigEntry": {
+    "name": "hwDot1xSystemConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTemplateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDot1xTemplateIndex": {
+    "name": "hwDot1xTemplateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDot1xHandshakeSwitch": {
+    "name": "hwDot1xHandshakeSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDot1xHandshakeCount": {
+    "name": "hwDot1xHandshakeCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xHandshakeInterval": {
+    "name": "hwDot1xHandshakeInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xIfEAPEnd": {
+    "name": "hwDot1xIfEAPEnd",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xEAPEndPapChap": {
+    "name": "hwDot1xEAPEndPapChap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pap": 0,
+          "chap": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "chap",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xIfSendEAPSIMParameter": {
+    "name": "hwDot1xIfSendEAPSIMParameter",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xRowStatus": {
+    "name": "hwDot1xRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDot1xGlobal": {
+    "name": "hwDot1xGlobal",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xAuthenMethod": {
+    "name": "hwDot1xAuthenMethod",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chap": 1,
+          "pap": 2,
+          "eap": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "chap",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xDhcpTrigger": {
+    "name": "hwDot1xDhcpTrigger",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xHandshake": {
+    "name": "hwDot1xHandshake",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xQuietPeriod": {
+    "name": "hwDot1xQuietPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xRetry": {
+    "name": "hwDot1xRetry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xTimerHandshakePeriod": {
+    "name": "hwDot1xTimerHandshakePeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xTimerQuietPeriod": {
+    "name": "hwDot1xTimerQuietPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xTimerServerTimeout": {
+    "name": "hwDot1xTimerServerTimeout",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xTimerClientTimeout": {
+    "name": "hwDot1xTimerClientTimeout",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xTimerTxPeriod": {
+    "name": "hwDot1xTimerTxPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xReauthenPeriod": {
+    "name": "hwDot1xReauthenPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDot1xPortConfigTable": {
+    "name": "hwDot1xPortConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDot1xPortConfigEntry": {
+    "name": "hwDot1xPortConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDot1xPortIndex": {
+    "name": "hwDot1xPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDot1xPortSwitch": {
+    "name": "hwDot1xPortSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDot1xPortGuestVlan": {
+    "name": "hwDot1xPortGuestVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDot1xPortMaxUser": {
+    "name": "hwDot1xPortMaxUser",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDot1xPortControl": {
+    "name": "hwDot1xPortControl",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "authorizedForce": 2,
+          "unauthorizedForce": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDot1xPortMethod": {
+    "name": "hwDot1xPortMethod",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "port": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mac",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwDot1xPortReauthen": {
+    "name": "hwDot1xPortReauthen",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSrvcfgEapMibTraps": {
+    "name": "hwSrvcfgEapMibTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.2",
+    "class": "objectidentity"
+  },
+  "hwSrvcfgEapMaxUserAlarm": {
+    "name": "hwSrvcfgEapMaxUserAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSrvcfgEapConformance": {
+    "name": "hwSrvcfgEapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3",
+    "class": "objectidentity"
+  },
+  "hwSrvcfgEapCompliances": {
+    "name": "hwSrvcfgEapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.1",
+    "class": "objectidentity"
+  },
+  "hwSrvcfgEapCompliance": {
+    "name": "hwSrvcfgEapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwDot1xSystemConfigGroup",
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB"
+      },
+      {
+        "object": "hwDot1xPortConfigGroup",
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDot1xSystemConfigGroups": {
+    "name": "hwDot1xSystemConfigGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2",
+    "class": "objectidentity"
+  },
+  "hwDot1xSystemConfigGroup": {
+    "name": "hwDot1xSystemConfigGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTemplateIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xHandshakeSwitch"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xHandshakeCount"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xHandshakeInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xIfEAPEnd"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xEAPEndPapChap"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xIfSendEAPSIMParameter"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDot1xPortConfigGroup": {
+    "name": "hwDot1xPortConfigGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xGlobal"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xAuthenMethod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xDhcpTrigger"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xHandshake"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xQuietPeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xRetry"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerHandshakePeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerQuietPeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerServerTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerClientTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerTxPeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xReauthenPeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortSwitch"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortGuestVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortMaxUser"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortControl"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortMethod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortReauthen"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDot1xPortTrapGroup": {
+    "name": "hwDot1xPortTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwSrvcfgEapMaxUserAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-SRVCFG-EAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB"
+  }
+}

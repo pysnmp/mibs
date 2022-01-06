@@ -1,0 +1,781 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nm": {
+    "name": "nm",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "hpnsa": {
+    "name": "hpnsa",
+    "oid": "1.3.6.1.4.1.11.2.23",
+    "class": "objectidentity"
+  },
+  "hpnsaRemoteAssist": {
+    "name": "hpnsaRemoteAssist",
+    "oid": "1.3.6.1.4.1.11.2.23.8",
+    "class": "objectidentity"
+  },
+  "hpnsaRAMibRev": {
+    "name": "hpnsaRAMibRev",
+    "oid": "1.3.6.1.4.1.11.2.23.8.1",
+    "class": "objectidentity"
+  },
+  "hpnsaRAAgent": {
+    "name": "hpnsaRAAgent",
+    "oid": "1.3.6.1.4.1.11.2.23.8.2",
+    "class": "objectidentity"
+  },
+  "hpnsaRAInfo": {
+    "name": "hpnsaRAInfo",
+    "oid": "1.3.6.1.4.1.11.2.23.8.3",
+    "class": "objectidentity"
+  },
+  "hpnsaRATemp": {
+    "name": "hpnsaRATemp",
+    "oid": "1.3.6.1.4.1.11.2.23.8.4",
+    "class": "objectidentity"
+  },
+  "hpnsaRAVolt": {
+    "name": "hpnsaRAVolt",
+    "oid": "1.3.6.1.4.1.11.2.23.8.5",
+    "class": "objectidentity"
+  },
+  "hpnsaRABusUsage": {
+    "name": "hpnsaRABusUsage",
+    "oid": "1.3.6.1.4.1.11.2.23.8.6",
+    "class": "objectidentity"
+  },
+  "hpnsaRALog": {
+    "name": "hpnsaRALog",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7",
+    "class": "objectidentity"
+  },
+  "hpnsaRAEventConfig": {
+    "name": "hpnsaRAEventConfig",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8",
+    "class": "objectidentity"
+  },
+  "hpnsaRAMibRevMajor": {
+    "name": "hpnsaRAMibRevMajor",
+    "oid": "1.3.6.1.4.1.11.2.23.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAMibRevMinor": {
+    "name": "hpnsaRAMibRevMinor",
+    "oid": "1.3.6.1.4.1.11.2.23.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAAgentTable": {
+    "name": "hpnsaRAAgentTable",
+    "oid": "1.3.6.1.4.1.11.2.23.8.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaRAAgentEntry": {
+    "name": "hpnsaRAAgentEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.8.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAREMOTEASSIST-MIB",
+        "object": "hpnsaRAAgentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaRAAgentIndex": {
+    "name": "hpnsaRAAgentIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.8.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAAgentName": {
+    "name": "hpnsaRAAgentName",
+    "oid": "1.3.6.1.4.1.11.2.23.8.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAAgentVersion": {
+    "name": "hpnsaRAAgentVersion",
+    "oid": "1.3.6.1.4.1.11.2.23.8.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAAgentDate": {
+    "name": "hpnsaRAAgentDate",
+    "oid": "1.3.6.1.4.1.11.2.23.8.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAInfoBoardType": {
+    "name": "hpnsaRAInfoBoardType",
+    "oid": "1.3.6.1.4.1.11.2.23.8.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAInfoBoardName": {
+    "name": "hpnsaRAInfoBoardName",
+    "oid": "1.3.6.1.4.1.11.2.23.8.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAInfoBoardID": {
+    "name": "hpnsaRAInfoBoardID",
+    "oid": "1.3.6.1.4.1.11.2.23.8.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAInfoBoardVersion": {
+    "name": "hpnsaRAInfoBoardVersion",
+    "oid": "1.3.6.1.4.1.11.2.23.8.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRATempMeasured": {
+    "name": "hpnsaRATempMeasured",
+    "oid": "1.3.6.1.4.1.11.2.23.8.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRATempWarnLimit": {
+    "name": "hpnsaRATempWarnLimit",
+    "oid": "1.3.6.1.4.1.11.2.23.8.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRATempGracefulSDLimit": {
+    "name": "hpnsaRATempGracefulSDLimit",
+    "oid": "1.3.6.1.4.1.11.2.23.8.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRATempCriticalSDLimit": {
+    "name": "hpnsaRATempCriticalSDLimit",
+    "oid": "1.3.6.1.4.1.11.2.23.8.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAVoltTable": {
+    "name": "hpnsaRAVoltTable",
+    "oid": "1.3.6.1.4.1.11.2.23.8.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaRAVoltEntry": {
+    "name": "hpnsaRAVoltEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.8.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAREMOTEASSIST-MIB",
+        "object": "hpnsaRAVoltTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaRAVoltTypeIndex": {
+    "name": "hpnsaRAVoltTypeIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.8.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "negative12v": 1,
+          "positive12v": 2,
+          "positive5v": 3,
+          "positive3v": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAVoltMeasured": {
+    "name": "hpnsaRAVoltMeasured",
+    "oid": "1.3.6.1.4.1.11.2.23.8.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAVoltLoLimit": {
+    "name": "hpnsaRAVoltLoLimit",
+    "oid": "1.3.6.1.4.1.11.2.23.8.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAVoltHiLimit": {
+    "name": "hpnsaRAVoltHiLimit",
+    "oid": "1.3.6.1.4.1.11.2.23.8.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRABusUsage5SecAve": {
+    "name": "hpnsaRABusUsage5SecAve",
+    "oid": "1.3.6.1.4.1.11.2.23.8.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRABusUsage15SecAve": {
+    "name": "hpnsaRABusUsage15SecAve",
+    "oid": "1.3.6.1.4.1.11.2.23.8.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRABusUsage1MinAve": {
+    "name": "hpnsaRABusUsage1MinAve",
+    "oid": "1.3.6.1.4.1.11.2.23.8.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRABusUsage5MinAve": {
+    "name": "hpnsaRABusUsage5MinAve",
+    "oid": "1.3.6.1.4.1.11.2.23.8.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRABusUsageLimit": {
+    "name": "hpnsaRABusUsageLimit",
+    "oid": "1.3.6.1.4.1.11.2.23.8.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRALogTable": {
+    "name": "hpnsaRALogTable",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaRALogEntry": {
+    "name": "hpnsaRALogEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAREMOTEASSIST-MIB",
+        "object": "hpnsaRALogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaRALogIndex": {
+    "name": "hpnsaRALogIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRALogEventCode": {
+    "name": "hpnsaRALogEventCode",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRALogDescription": {
+    "name": "hpnsaRALogDescription",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRALogViewed": {
+    "name": "hpnsaRALogViewed",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "new": 0,
+          "viewed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRALogDateTime": {
+    "name": "hpnsaRALogDateTime",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRALogData": {
+    "name": "hpnsaRALogData",
+    "oid": "1.3.6.1.4.1.11.2.23.8.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigGlobal": {
+    "name": "hpnsaRAEventConfigGlobal",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigVolt": {
+    "name": "hpnsaRAEventConfigVolt",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigTemp": {
+    "name": "hpnsaRAEventConfigTemp",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigAsr": {
+    "name": "hpnsaRAEventConfigAsr",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigRemBoot": {
+    "name": "hpnsaRAEventConfigRemBoot",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigBusUsage": {
+    "name": "hpnsaRAEventConfigBusUsage",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigRemAsst": {
+    "name": "hpnsaRAEventConfigRemAsst",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigTrapTest": {
+    "name": "hpnsaRAEventConfigTrapTest",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaRAEventConfigHostSys": {
+    "name": "hpnsaRAEventConfigHostSys",
+    "oid": "1.3.6.1.4.1.11.2.23.8.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPNSAREMOTEASSIST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPNSAREMOTEASSIST-MIB"
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001",
+      "rndNotifications"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "UdldString": {
+    "name": "UdldString",
+    "class": "textualconvention",
+    "type": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "UdldPortBidirectionalState": {
+    "name": "UdldPortBidirectionalState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 1,
+          "idle": 2,
+          "detection": 3,
+          "undetermined": 4,
+          "bidirectional": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UdldNeighborCurrentState": {
+    "name": "UdldNeighborCurrentState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "undefined": 3,
+          "bidirectional": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UdldGlobalMode": {
+    "name": "UdldGlobalMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "aggressive": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UdldPortMode": {
+    "name": "UdldPortMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "aggressive": 2,
+          "disabled": 3,
+          "default": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlUdld": {
+    "name": "rlUdld",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-08-01 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlUdldPortTable": {
+    "name": "rlUdldPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlUdldPortEntry": {
+    "name": "rlUdldPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-UDLD-MIB",
+        "object": "rlUdldPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlUdldPortIfIndex": {
+    "name": "rlUdldPortIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlUdldPortAdminMode": {
+    "name": "rlUdldPortAdminMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UdldPortMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlUdldPortOperMode": {
+    "name": "rlUdldPortOperMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UdldPortMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlUdldPortDefaultConfiguration": {
+    "name": "rlUdldPortDefaultConfiguration",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlUdldBidirectionalState": {
+    "name": "rlUdldBidirectionalState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UdldPortBidirectionalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlUdldNumberOfDetectedNeighbors": {
+    "name": "rlUdldNumberOfDetectedNeighbors",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlUdldNeighborTable": {
+    "name": "rlUdldNeighborTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlUdldNeighborEntry": {
+    "name": "rlUdldNeighborEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-UDLD-MIB",
+        "object": "rlUdldNeighborPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-UDLD-MIB",
+        "object": "rlUdldNeighborDeviceID",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-UDLD-MIB",
+        "object": "rlUdldNeighborPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlUdldNeighborPortIfIndex": {
+    "name": "rlUdldNeighborPortIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlUdldNeighborDeviceID": {
+    "name": "rlUdldNeighborDeviceID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UdldString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlUdldNeighborPortID": {
+    "name": "rlUdldNeighborPortID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UdldString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlUdldNeighborDeviceMACAddress": {
+    "name": "rlUdldNeighborDeviceMACAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlUdldNeighborDeviceName": {
+    "name": "rlUdldNeighborDeviceName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UdldString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlUdldNeighborMessageTime": {
+    "name": "rlUdldNeighborMessageTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlUdldNeighborLeftLifeTime": {
+    "name": "rlUdldNeighborLeftLifeTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlUdldNeighborCurrentState": {
+    "name": "rlUdldNeighborCurrentState",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UdldNeighborCurrentState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlUdldGlobalUDLDMode": {
+    "name": "rlUdldGlobalUDLDMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UdldGlobalMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlUdldGlobalMessageTime": {
+    "name": "rlUdldGlobalMessageTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.218.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-UDLD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-UDLD-MIB"
+  }
+}

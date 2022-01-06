@@ -1,0 +1,1419 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "experimental",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIetfMsdpMIB": {
+    "name": "ciscoIetfMsdpMIB",
+    "oid": "1.3.6.1.4.1.9.10.130",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-05-19 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "cMsdpMIBobjects": {
+    "name": "cMsdpMIBobjects",
+    "oid": "1.3.6.1.4.1.9.10.130.1",
+    "class": "objectidentity"
+  },
+  "cMsdp": {
+    "name": "cMsdp",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1",
+    "class": "objectidentity"
+  },
+  "cMsdpEnabled": {
+    "name": "cMsdpEnabled",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsdpCacheLifetime": {
+    "name": "cMsdpCacheLifetime",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsdpNumSACacheEntries": {
+    "name": "cMsdpNumSACacheEntries",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpRPAddress": {
+    "name": "cMsdpRPAddress",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsdpRequestsTable": {
+    "name": "cMsdpRequestsTable",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cMsdpRequestsEntry": {
+    "name": "cMsdpRequestsEntry",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpRequestsGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpRequestsGroupMask",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cMsdpRequestsGroupAddress": {
+    "name": "cMsdpRequestsGroupAddress",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cMsdpRequestsGroupMask": {
+    "name": "cMsdpRequestsGroupMask",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cMsdpRequestsPeer": {
+    "name": "cMsdpRequestsPeer",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cMsdpRequestsStatus": {
+    "name": "cMsdpRequestsStatus",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cMsdpPeerTable": {
+    "name": "cMsdpPeerTable",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpPeerEntry": {
+    "name": "cMsdpPeerEntry",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerRemoteAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpPeerRemoteAddress": {
+    "name": "cMsdpPeerRemoteAddress",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpPeerState": {
+    "name": "cMsdpPeerState",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "listen": 2,
+          "connecting": 3,
+          "established": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerRPFFailures": {
+    "name": "cMsdpPeerRPFFailures",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerInSAs": {
+    "name": "cMsdpPeerInSAs",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerOutSAs": {
+    "name": "cMsdpPeerOutSAs",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerInSARequests": {
+    "name": "cMsdpPeerInSARequests",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerOutSARequests": {
+    "name": "cMsdpPeerOutSARequests",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerInSAResponses": {
+    "name": "cMsdpPeerInSAResponses",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cMsdpPeerOutSAResponses": {
+    "name": "cMsdpPeerOutSAResponses",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cMsdpPeerInControlMessages": {
+    "name": "cMsdpPeerInControlMessages",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerOutControlMessages": {
+    "name": "cMsdpPeerOutControlMessages",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerInDataPackets": {
+    "name": "cMsdpPeerInDataPackets",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerOutDataPackets": {
+    "name": "cMsdpPeerOutDataPackets",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerFsmEstablishedTransitions": {
+    "name": "cMsdpPeerFsmEstablishedTransitions",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerFsmEstablishedTime": {
+    "name": "cMsdpPeerFsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerInMessageTime": {
+    "name": "cMsdpPeerInMessageTime",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerLocalAddress": {
+    "name": "cMsdpPeerLocalAddress",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMsdpPeerConnectRetryInterval": {
+    "name": "cMsdpPeerConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMsdpPeerHoldTimeConfigured": {
+    "name": "cMsdpPeerHoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMsdpPeerKeepAliveConfigured": {
+    "name": "cMsdpPeerKeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMsdpPeerDataTtl": {
+    "name": "cMsdpPeerDataTtl",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMsdpPeerProcessRequestsFrom": {
+    "name": "cMsdpPeerProcessRequestsFrom",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cMsdpPeerStatus": {
+    "name": "cMsdpPeerStatus",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMsdpPeerRemotePort": {
+    "name": "cMsdpPeerRemotePort",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 639,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerLocalPort": {
+    "name": "cMsdpPeerLocalPort",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 639,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerEncapsulationType": {
+    "name": "cMsdpPeerEncapsulationType",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "tcp": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMsdpPeerConnectionAttempts": {
+    "name": "cMsdpPeerConnectionAttempts",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpPeerInNotifications": {
+    "name": "cMsdpPeerInNotifications",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cMsdpPeerOutNotifications": {
+    "name": "cMsdpPeerOutNotifications",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cMsdpPeerLastError": {
+    "name": "cMsdpPeerLastError",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cMsdpPeerDiscontinuityTime": {
+    "name": "cMsdpPeerDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpSACacheTable": {
+    "name": "cMsdpSACacheTable",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpSACacheEntry": {
+    "name": "cMsdpSACacheEntry",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheSourceAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheOriginRP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpSACacheGroupAddr": {
+    "name": "cMsdpSACacheGroupAddr",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpSACacheSourceAddr": {
+    "name": "cMsdpSACacheSourceAddr",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpSACacheOriginRP": {
+    "name": "cMsdpSACacheOriginRP",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpSACachePeerLearnedFrom": {
+    "name": "cMsdpSACachePeerLearnedFrom",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpSACacheRPFPeer": {
+    "name": "cMsdpSACacheRPFPeer",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpSACacheInSAs": {
+    "name": "cMsdpSACacheInSAs",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpSACacheInDataPackets": {
+    "name": "cMsdpSACacheInDataPackets",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpSACacheUpTime": {
+    "name": "cMsdpSACacheUpTime",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpSACacheExpiryTime": {
+    "name": "cMsdpSACacheExpiryTime",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsdpSACacheStatus": {
+    "name": "cMsdpSACacheStatus",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsdpMeshGroupTable": {
+    "name": "cMsdpMeshGroupTable",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpMeshGroupEntry": {
+    "name": "cMsdpMeshGroupEntry",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpMeshGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpMeshGroupPeerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMeshGroupName": {
+    "name": "cMsdpMeshGroupName",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpMeshGroupPeerAddress": {
+    "name": "cMsdpMeshGroupPeerAddress",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsdpMeshGroupStatus": {
+    "name": "cMsdpMeshGroupStatus",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMsdpTraps": {
+    "name": "cMsdpTraps",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.0",
+    "class": "objectidentity"
+  },
+  "cMsdpEstablished": {
+    "name": "cMsdpEstablished",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerFsmEstablishedTransitions"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpBackwardTransition": {
+    "name": "cMsdpBackwardTransition",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBConformance": {
+    "name": "cMsdpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8",
+    "class": "objectidentity"
+  },
+  "cMsdpMIBCompliances": {
+    "name": "cMsdpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.1",
+    "class": "objectidentity"
+  },
+  "cMsdpMIBGroups": {
+    "name": "cMsdpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2",
+    "class": "objectidentity"
+  },
+  "cMsdpMIBCompliance": {
+    "name": "cMsdpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cMsdpMIBGlobalsGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBPeerGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBNotificationGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBEncapsulationGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBSACacheGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBRequestsGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBRPGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBMeshGroupGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cMsdpMIBFullCompliance": {
+    "name": "cMsdpMIBFullCompliance",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cMsdpMIBGlobalsGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBPeerGroup2",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBSACacheGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBEncapsulationGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBRPGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBMeshGroupGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBReadOnlyCompliance": {
+    "name": "cMsdpMIBReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cMsdpMIBGlobalsGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBPeerGroup2",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBSACacheGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBEncapsulationGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBRPGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      },
+      {
+        "object": "cMsdpMIBMeshGroupGroup",
+        "module": "CISCO-IETF-MSDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBGlobalsGroup": {
+    "name": "cMsdpMIBGlobalsGroup",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBPeerGroup": {
+    "name": "cMsdpMIBPeerGroup",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerRPFFailures"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerState"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInSAs"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutSAs"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInSARequests"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutSARequests"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInSAResponses"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutSAResponses"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInNotifications"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutNotifications"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInControlMessages"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutControlMessages"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerFsmEstablishedTransitions"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerFsmEstablishedTime"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerLocalAddress"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerRemotePort"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerLocalPort"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerConnectRetryInterval"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerHoldTimeConfigured"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerKeepAliveConfigured"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInMessageTime"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerProcessRequestsFrom"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerConnectionAttempts"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerLastError"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerStatus"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerDiscontinuityTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cMsdpMIBEncapsulationGroup": {
+    "name": "cMsdpMIBEncapsulationGroup",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInDataPackets"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutDataPackets"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerDataTtl"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerEncapsulationType"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBSACacheGroup": {
+    "name": "cMsdpMIBSACacheGroup",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpCacheLifetime"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpNumSACacheEntries"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACachePeerLearnedFrom"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheRPFPeer"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheInSAs"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheInDataPackets"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheUpTime"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheExpiryTime"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpSACacheStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBNotificationGroup": {
+    "name": "cMsdpMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpEstablished"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpBackwardTransition"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBRequestsGroup": {
+    "name": "cMsdpMIBRequestsGroup",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpRequestsPeer"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpRequestsStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cMsdpMIBRPGroup": {
+    "name": "cMsdpMIBRPGroup",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpRPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBMeshGroupGroup": {
+    "name": "cMsdpMIBMeshGroupGroup",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpMeshGroupStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsdpMIBPeerGroup2": {
+    "name": "cMsdpMIBPeerGroup2",
+    "oid": "1.3.6.1.4.1.9.10.130.1.1.8.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerRPFFailures"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerState"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInSAs"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutSAs"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInSARequests"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutSARequests"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInControlMessages"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerOutControlMessages"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerFsmEstablishedTransitions"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerFsmEstablishedTime"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerLocalAddress"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerRemotePort"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerLocalPort"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerConnectRetryInterval"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerHoldTimeConfigured"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerKeepAliveConfigured"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerInMessageTime"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerConnectionAttempts"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerStatus"
+      },
+      {
+        "module": "CISCO-IETF-MSDP-MIB",
+        "object": "cMsdpPeerDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MSDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-MSDP-MIB"
+  }
+}

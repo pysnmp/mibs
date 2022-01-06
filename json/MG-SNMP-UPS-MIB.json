@@ -1,0 +1,4106 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "merlinGerin": {
+    "name": "merlinGerin",
+    "oid": "1.3.6.1.4.1.705",
+    "class": "objectidentity"
+  },
+  "upsmg": {
+    "name": "upsmg",
+    "oid": "1.3.6.1.4.1.705.1",
+    "class": "objectidentity"
+  },
+  "upsmgIdent": {
+    "name": "upsmgIdent",
+    "oid": "1.3.6.1.4.1.705.1.1",
+    "class": "objectidentity"
+  },
+  "upsmgManagement": {
+    "name": "upsmgManagement",
+    "oid": "1.3.6.1.4.1.705.1.2",
+    "class": "objectidentity"
+  },
+  "upsmgReceptacle": {
+    "name": "upsmgReceptacle",
+    "oid": "1.3.6.1.4.1.705.1.3",
+    "class": "objectidentity"
+  },
+  "upsmgConfig": {
+    "name": "upsmgConfig",
+    "oid": "1.3.6.1.4.1.705.1.4",
+    "class": "objectidentity"
+  },
+  "upsmgBattery": {
+    "name": "upsmgBattery",
+    "oid": "1.3.6.1.4.1.705.1.5",
+    "class": "objectidentity"
+  },
+  "upsmgInput": {
+    "name": "upsmgInput",
+    "oid": "1.3.6.1.4.1.705.1.6",
+    "class": "objectidentity"
+  },
+  "upsmgOutput": {
+    "name": "upsmgOutput",
+    "oid": "1.3.6.1.4.1.705.1.7",
+    "class": "objectidentity"
+  },
+  "upsmgEnviron": {
+    "name": "upsmgEnviron",
+    "oid": "1.3.6.1.4.1.705.1.8",
+    "class": "objectidentity"
+  },
+  "upsmgControl": {
+    "name": "upsmgControl",
+    "oid": "1.3.6.1.4.1.705.1.9",
+    "class": "objectidentity"
+  },
+  "upsmgTest": {
+    "name": "upsmgTest",
+    "oid": "1.3.6.1.4.1.705.1.10",
+    "class": "objectidentity"
+  },
+  "upsmgTraps": {
+    "name": "upsmgTraps",
+    "oid": "1.3.6.1.4.1.705.1.11",
+    "class": "objectidentity"
+  },
+  "upsmgAgent": {
+    "name": "upsmgAgent",
+    "oid": "1.3.6.1.4.1.705.1.12",
+    "class": "objectidentity"
+  },
+  "upsmgRemote": {
+    "name": "upsmgRemote",
+    "oid": "1.3.6.1.4.1.705.1.13",
+    "class": "objectidentity"
+  },
+  "upsmgIdentFamilyName": {
+    "name": "upsmgIdentFamilyName",
+    "oid": "1.3.6.1.4.1.705.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgIdentModelName": {
+    "name": "upsmgIdentModelName",
+    "oid": "1.3.6.1.4.1.705.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgIdentRevisionLevel": {
+    "name": "upsmgIdentRevisionLevel",
+    "oid": "1.3.6.1.4.1.705.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgIdentFirmwareVersion": {
+    "name": "upsmgIdentFirmwareVersion",
+    "oid": "1.3.6.1.4.1.705.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgIdentUserID": {
+    "name": "upsmgIdentUserID",
+    "oid": "1.3.6.1.4.1.705.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgIdentInstallationDate": {
+    "name": "upsmgIdentInstallationDate",
+    "oid": "1.3.6.1.4.1.705.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgIdentSerialNumber": {
+    "name": "upsmgIdentSerialNumber",
+    "oid": "1.3.6.1.4.1.705.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgManagersNum": {
+    "name": "upsmgManagersNum",
+    "oid": "1.3.6.1.4.1.705.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgManagersTable": {
+    "name": "upsmgManagersTable",
+    "oid": "1.3.6.1.4.1.705.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgManagersEntry": {
+    "name": "upsmgManagersEntry",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgmanagerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgmanagerIndex": {
+    "name": "mgmanagerIndex",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgmanagerDeviceNumber": {
+    "name": "mgmanagerDeviceNumber",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgmanagerNMSType": {
+    "name": "mgmanagerNMSType",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "umclient": 1,
+          "decnetview": 2,
+          "umview": 3,
+          "dview": 4,
+          "hpopenview": 5,
+          "sunnetmanager": 6,
+          "novellnms": 7,
+          "ibmnetview": 8,
+          "other": 9,
+          "autolearning": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgmanagerCommType": {
+    "name": "mgmanagerCommType",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "cmip": 3,
+          "snmpv1": 4,
+          "snmpv2": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgmanagerDescr": {
+    "name": "mgmanagerDescr",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgmanagerAddress": {
+    "name": "mgmanagerAddress",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgmanagerCommunity": {
+    "name": "mgmanagerCommunity",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgmanagerSeverityLevel": {
+    "name": "mgmanagerSeverityLevel",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgmanagerTrapAck": {
+    "name": "mgmanagerTrapAck",
+    "oid": "1.3.6.1.4.1.705.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgack": 1,
+          "mgnoack": 2,
+          "stdnomg": 3,
+          "mgacks": 4,
+          "cpqnoack": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgReceptaclesNum": {
+    "name": "upsmgReceptaclesNum",
+    "oid": "1.3.6.1.4.1.705.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgReceptaclesTable": {
+    "name": "upsmgReceptaclesTable",
+    "oid": "1.3.6.1.4.1.705.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgReceptaclesEntry": {
+    "name": "upsmgReceptaclesEntry",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgreceptacleIndex": {
+    "name": "mgreceptacleIndex",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgreceptacleLevel": {
+    "name": "mgreceptacleLevel",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleType": {
+    "name": "mgreceptacleType",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleIdent": {
+    "name": "mgreceptacleIdent",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleState": {
+    "name": "mgreceptacleState",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manualON": 1,
+          "manualOFF": 2,
+          "normalON": 3,
+          "normalOFF": 4,
+          "controlON": 5,
+          "controlOFF": 6,
+          "scheduleON": 7,
+          "scheduleOFF": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgreceptacleReceptacle": {
+    "name": "mgreceptacleReceptacle",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptaclePowerCons": {
+    "name": "mgreceptaclePowerCons",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleOverload": {
+    "name": "mgreceptacleOverload",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleAutonomy": {
+    "name": "mgreceptacleAutonomy",
+    "oid": "1.3.6.1.4.1.705.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigBatteryInstalled": {
+    "name": "upsmgConfigBatteryInstalled",
+    "oid": "1.3.6.1.4.1.705.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigNominalBatteryVoltage": {
+    "name": "upsmgConfigNominalBatteryVoltage",
+    "oid": "1.3.6.1.4.1.705.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigNominalBatteryTime": {
+    "name": "upsmgConfigNominalBatteryTime",
+    "oid": "1.3.6.1.4.1.705.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigNominalRechargeTime": {
+    "name": "upsmgConfigNominalRechargeTime",
+    "oid": "1.3.6.1.4.1.705.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigMinRechargeLevel": {
+    "name": "upsmgConfigMinRechargeLevel",
+    "oid": "1.3.6.1.4.1.705.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigMaxRechargeTime": {
+    "name": "upsmgConfigMaxRechargeTime",
+    "oid": "1.3.6.1.4.1.705.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigLowBatteryTime": {
+    "name": "upsmgConfigLowBatteryTime",
+    "oid": "1.3.6.1.4.1.705.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigLowBatteryLevel": {
+    "name": "upsmgConfigLowBatteryLevel",
+    "oid": "1.3.6.1.4.1.705.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigAutoRestart": {
+    "name": "upsmgConfigAutoRestart",
+    "oid": "1.3.6.1.4.1.705.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "never": 2,
+          "onmain": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigShutdownTimer": {
+    "name": "upsmgConfigShutdownTimer",
+    "oid": "1.3.6.1.4.1.705.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigSysShutDuration": {
+    "name": "upsmgConfigSysShutDuration",
+    "oid": "1.3.6.1.4.1.705.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigVARating": {
+    "name": "upsmgConfigVARating",
+    "oid": "1.3.6.1.4.1.705.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigLowTransfer": {
+    "name": "upsmgConfigLowTransfer",
+    "oid": "1.3.6.1.4.1.705.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigHighTransfer": {
+    "name": "upsmgConfigHighTransfer",
+    "oid": "1.3.6.1.4.1.705.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigOutputNominalVoltage": {
+    "name": "upsmgConfigOutputNominalVoltage",
+    "oid": "1.3.6.1.4.1.705.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigOutputNominalCurrent": {
+    "name": "upsmgConfigOutputNominalCurrent",
+    "oid": "1.3.6.1.4.1.705.1.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigOutputNomFrequency": {
+    "name": "upsmgConfigOutputNomFrequency",
+    "oid": "1.3.6.1.4.1.705.1.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigByPassType": {
+    "name": "upsmgConfigByPassType",
+    "oid": "1.3.6.1.4.1.705.1.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "relay": 2,
+          "static": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigAlarmAudible": {
+    "name": "upsmgConfigAlarmAudible",
+    "oid": "1.3.6.1.4.1.705.1.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigAlarmTimeDelay": {
+    "name": "upsmgConfigAlarmTimeDelay",
+    "oid": "1.3.6.1.4.1.705.1.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigDevicesNum": {
+    "name": "upsmgConfigDevicesNum",
+    "oid": "1.3.6.1.4.1.705.1.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigDevicesTable": {
+    "name": "upsmgConfigDevicesTable",
+    "oid": "1.3.6.1.4.1.705.1.4.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgConfigDevicesEntry": {
+    "name": "upsmgConfigDevicesEntry",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgdeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgdeviceIndex": {
+    "name": "mgdeviceIndex",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgdeviceReceptacleNum": {
+    "name": "mgdeviceReceptacleNum",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgdeviceIdent": {
+    "name": "mgdeviceIdent",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgdeviceVaRating": {
+    "name": "mgdeviceVaRating",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgdeviceSequenceOff": {
+    "name": "mgdeviceSequenceOff",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgdeviceSequenceOn": {
+    "name": "mgdeviceSequenceOn",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgdeviceShutdownDuration": {
+    "name": "mgdeviceShutdownDuration",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgdeviceBootUpDuration": {
+    "name": "mgdeviceBootUpDuration",
+    "oid": "1.3.6.1.4.1.705.1.4.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigReceptaclesTable": {
+    "name": "upsmgConfigReceptaclesTable",
+    "oid": "1.3.6.1.4.1.705.1.4.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgConfigReceptaclesEntry": {
+    "name": "upsmgConfigReceptaclesEntry",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndexb",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgreceptacleIndexb": {
+    "name": "mgreceptacleIndexb",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgreceptacleStateTurnOn": {
+    "name": "mgreceptacleStateTurnOn",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "last": 3,
+          "schedule": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleStateMainReturn": {
+    "name": "mgreceptacleStateMainReturn",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "last": 3,
+          "schedule": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleStateDischarge": {
+    "name": "mgreceptacleStateDischarge",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "last": 3,
+          "schedule": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleShutoffLevel": {
+    "name": "mgreceptacleShutoffLevel",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleShutoffTimer": {
+    "name": "mgreceptacleShutoffTimer",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleRestartLevel": {
+    "name": "mgreceptacleRestartLevel",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleRestartDelay": {
+    "name": "mgreceptacleRestartDelay",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleShutdownDuration": {
+    "name": "mgreceptacleShutdownDuration",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgreceptacleBootUpDuration": {
+    "name": "mgreceptacleBootUpDuration",
+    "oid": "1.3.6.1.4.1.705.1.4.23.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgConfigExtAlarmNum": {
+    "name": "upsmgConfigExtAlarmNum",
+    "oid": "1.3.6.1.4.1.705.1.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgConfigExtAlarmTable": {
+    "name": "upsmgConfigExtAlarmTable",
+    "oid": "1.3.6.1.4.1.705.1.4.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgConfigExtAlarmEntry": {
+    "name": "upsmgConfigExtAlarmEntry",
+    "oid": "1.3.6.1.4.1.705.1.4.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgextAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgextAlarmIndex": {
+    "name": "mgextAlarmIndex",
+    "oid": "1.3.6.1.4.1.705.1.4.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgextAlarmUID": {
+    "name": "mgextAlarmUID",
+    "oid": "1.3.6.1.4.1.705.1.4.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigEmergencyTestFail": {
+    "name": "upsmgConfigEmergencyTestFail",
+    "oid": "1.3.6.1.4.1.705.1.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigEmergencyOnByPass": {
+    "name": "upsmgConfigEmergencyOnByPass",
+    "oid": "1.3.6.1.4.1.705.1.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigEmergencyOverload": {
+    "name": "upsmgConfigEmergencyOverload",
+    "oid": "1.3.6.1.4.1.705.1.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigControlDayTable": {
+    "name": "upsmgConfigControlDayTable",
+    "oid": "1.3.6.1.4.1.705.1.4.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgConfigControlDayEntry": {
+    "name": "upsmgConfigControlDayEntry",
+    "oid": "1.3.6.1.4.1.705.1.4.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgcontrolDayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgcontrolDayIndex": {
+    "name": "mgcontrolDayIndex",
+    "oid": "1.3.6.1.4.1.705.1.4.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgcontrolDayOn": {
+    "name": "mgcontrolDayOn",
+    "oid": "1.3.6.1.4.1.705.1.4.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgcontrolDayOff": {
+    "name": "mgcontrolDayOff",
+    "oid": "1.3.6.1.4.1.705.1.4.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigLowBooster": {
+    "name": "upsmgConfigLowBooster",
+    "oid": "1.3.6.1.4.1.705.1.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigHighBooster": {
+    "name": "upsmgConfigHighBooster",
+    "oid": "1.3.6.1.4.1.705.1.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigLowFader": {
+    "name": "upsmgConfigLowFader",
+    "oid": "1.3.6.1.4.1.705.1.4.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigHighFader": {
+    "name": "upsmgConfigHighFader",
+    "oid": "1.3.6.1.4.1.705.1.4.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigEnvironmentTable": {
+    "name": "upsmgConfigEnvironmentTable",
+    "oid": "1.3.6.1.4.1.705.1.4.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgConfigEnvironmentEntry": {
+    "name": "upsmgConfigEnvironmentEntry",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgConfigSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsmgConfigSensorIndex": {
+    "name": "upsmgConfigSensorIndex",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgConfigSensorName": {
+    "name": "upsmgConfigSensorName",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 42
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigTemperatureLow": {
+    "name": "upsmgConfigTemperatureLow",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigTemperatureHigh": {
+    "name": "upsmgConfigTemperatureHigh",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigTemperatureHysteresis": {
+    "name": "upsmgConfigTemperatureHysteresis",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigHumidityLow": {
+    "name": "upsmgConfigHumidityLow",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigHumidityHigh": {
+    "name": "upsmgConfigHumidityHigh",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigHumidityHysteresis": {
+    "name": "upsmgConfigHumidityHysteresis",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigInput1Name": {
+    "name": "upsmgConfigInput1Name",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigInput1ClosedLabel": {
+    "name": "upsmgConfigInput1ClosedLabel",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigInput1OpenLabel": {
+    "name": "upsmgConfigInput1OpenLabel",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigInput2Name": {
+    "name": "upsmgConfigInput2Name",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigInput2ClosedLabel": {
+    "name": "upsmgConfigInput2ClosedLabel",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgConfigInput2OpenLabel": {
+    "name": "upsmgConfigInput2OpenLabel",
+    "oid": "1.3.6.1.4.1.705.1.4.34.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgBatteryRemainingTime": {
+    "name": "upsmgBatteryRemainingTime",
+    "oid": "1.3.6.1.4.1.705.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryLevel": {
+    "name": "upsmgBatteryLevel",
+    "oid": "1.3.6.1.4.1.705.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryRechargeTime": {
+    "name": "upsmgBatteryRechargeTime",
+    "oid": "1.3.6.1.4.1.705.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryRechargeLevel": {
+    "name": "upsmgBatteryRechargeLevel",
+    "oid": "1.3.6.1.4.1.705.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryVoltage": {
+    "name": "upsmgBatteryVoltage",
+    "oid": "1.3.6.1.4.1.705.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryCurrent": {
+    "name": "upsmgBatteryCurrent",
+    "oid": "1.3.6.1.4.1.705.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryTemperature": {
+    "name": "upsmgBatteryTemperature",
+    "oid": "1.3.6.1.4.1.705.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryFullRechargeTime": {
+    "name": "upsmgBatteryFullRechargeTime",
+    "oid": "1.3.6.1.4.1.705.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryFaultBattery": {
+    "name": "upsmgBatteryFaultBattery",
+    "oid": "1.3.6.1.4.1.705.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryNoBattery": {
+    "name": "upsmgBatteryNoBattery",
+    "oid": "1.3.6.1.4.1.705.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryReplacement": {
+    "name": "upsmgBatteryReplacement",
+    "oid": "1.3.6.1.4.1.705.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryUnavailableBattery": {
+    "name": "upsmgBatteryUnavailableBattery",
+    "oid": "1.3.6.1.4.1.705.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryNotHighCharge": {
+    "name": "upsmgBatteryNotHighCharge",
+    "oid": "1.3.6.1.4.1.705.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryLowBattery": {
+    "name": "upsmgBatteryLowBattery",
+    "oid": "1.3.6.1.4.1.705.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryChargerFault": {
+    "name": "upsmgBatteryChargerFault",
+    "oid": "1.3.6.1.4.1.705.1.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryLowCondition": {
+    "name": "upsmgBatteryLowCondition",
+    "oid": "1.3.6.1.4.1.705.1.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryLowRecharge": {
+    "name": "upsmgBatteryLowRecharge",
+    "oid": "1.3.6.1.4.1.705.1.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgInputPhaseNum": {
+    "name": "upsmgInputPhaseNum",
+    "oid": "1.3.6.1.4.1.705.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgInputPhaseTable": {
+    "name": "upsmgInputPhaseTable",
+    "oid": "1.3.6.1.4.1.705.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgInputPhaseEntry": {
+    "name": "upsmgInputPhaseEntry",
+    "oid": "1.3.6.1.4.1.705.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mginputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mginputIndex": {
+    "name": "mginputIndex",
+    "oid": "1.3.6.1.4.1.705.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mginputVoltage": {
+    "name": "mginputVoltage",
+    "oid": "1.3.6.1.4.1.705.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mginputFrequency": {
+    "name": "mginputFrequency",
+    "oid": "1.3.6.1.4.1.705.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mginputMinimumVoltage": {
+    "name": "mginputMinimumVoltage",
+    "oid": "1.3.6.1.4.1.705.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mginputMaximumVoltage": {
+    "name": "mginputMaximumVoltage",
+    "oid": "1.3.6.1.4.1.705.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mginputCurrent": {
+    "name": "mginputCurrent",
+    "oid": "1.3.6.1.4.1.705.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgInputBadStatus": {
+    "name": "upsmgInputBadStatus",
+    "oid": "1.3.6.1.4.1.705.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgInputLineFailCause": {
+    "name": "upsmgInputLineFailCause",
+    "oid": "1.3.6.1.4.1.705.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "outoftolvolt": 2,
+          "outoftolfreq": 3,
+          "utilityoff": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputPhaseNum": {
+    "name": "upsmgOutputPhaseNum",
+    "oid": "1.3.6.1.4.1.705.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputPhaseTable": {
+    "name": "upsmgOutputPhaseTable",
+    "oid": "1.3.6.1.4.1.705.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgOutputPhaseEntry": {
+    "name": "upsmgOutputPhaseEntry",
+    "oid": "1.3.6.1.4.1.705.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgoutputPhaseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgoutputPhaseIndex": {
+    "name": "mgoutputPhaseIndex",
+    "oid": "1.3.6.1.4.1.705.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgoutputVoltage": {
+    "name": "mgoutputVoltage",
+    "oid": "1.3.6.1.4.1.705.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgoutputFrequency": {
+    "name": "mgoutputFrequency",
+    "oid": "1.3.6.1.4.1.705.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgoutputLoadPerPhase": {
+    "name": "mgoutputLoadPerPhase",
+    "oid": "1.3.6.1.4.1.705.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgoutputCurrent": {
+    "name": "mgoutputCurrent",
+    "oid": "1.3.6.1.4.1.705.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputOnBattery": {
+    "name": "upsmgOutputOnBattery",
+    "oid": "1.3.6.1.4.1.705.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputOnByPass": {
+    "name": "upsmgOutputOnByPass",
+    "oid": "1.3.6.1.4.1.705.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputUnavailableByPass": {
+    "name": "upsmgOutputUnavailableByPass",
+    "oid": "1.3.6.1.4.1.705.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputNoByPass": {
+    "name": "upsmgOutputNoByPass",
+    "oid": "1.3.6.1.4.1.705.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputUtilityOff": {
+    "name": "upsmgOutputUtilityOff",
+    "oid": "1.3.6.1.4.1.705.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputOnBoost": {
+    "name": "upsmgOutputOnBoost",
+    "oid": "1.3.6.1.4.1.705.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputInverterOff": {
+    "name": "upsmgOutputInverterOff",
+    "oid": "1.3.6.1.4.1.705.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputOverLoad": {
+    "name": "upsmgOutputOverLoad",
+    "oid": "1.3.6.1.4.1.705.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputOverTemp": {
+    "name": "upsmgOutputOverTemp",
+    "oid": "1.3.6.1.4.1.705.1.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgOutputOnBuck": {
+    "name": "upsmgOutputOnBuck",
+    "oid": "1.3.6.1.4.1.705.1.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironAmbientTemp": {
+    "name": "upsmgEnvironAmbientTemp",
+    "oid": "1.3.6.1.4.1.705.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironAmbientHumidity": {
+    "name": "upsmgEnvironAmbientHumidity",
+    "oid": "1.3.6.1.4.1.705.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironExtAlarmTable": {
+    "name": "upsmgEnvironExtAlarmTable",
+    "oid": "1.3.6.1.4.1.705.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgEnvironExtAlarmEntry": {
+    "name": "upsmgEnvironExtAlarmEntry",
+    "oid": "1.3.6.1.4.1.705.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgalarmNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgalarmNum": {
+    "name": "mgalarmNum",
+    "oid": "1.3.6.1.4.1.705.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgalarmState": {
+    "name": "mgalarmState",
+    "oid": "1.3.6.1.4.1.705.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironSensorNum": {
+    "name": "upsmgEnvironSensorNum",
+    "oid": "1.3.6.1.4.1.705.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironSensorTable": {
+    "name": "upsmgEnvironSensorTable",
+    "oid": "1.3.6.1.4.1.705.1.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgEnvironSensorEntry": {
+    "name": "upsmgEnvironSensorEntry",
+    "oid": "1.3.6.1.4.1.705.1.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgsensorNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgsensorNum": {
+    "name": "mgsensorNum",
+    "oid": "1.3.6.1.4.1.705.1.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgsensorTemp": {
+    "name": "mgsensorTemp",
+    "oid": "1.3.6.1.4.1.705.1.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgsensorHumidity": {
+    "name": "mgsensorHumidity",
+    "oid": "1.3.6.1.4.1.705.1.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentNum": {
+    "name": "upsmgEnvironmentNum",
+    "oid": "1.3.6.1.4.1.705.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentSensorTable": {
+    "name": "upsmgEnvironmentSensorTable",
+    "oid": "1.3.6.1.4.1.705.1.8.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentSensorEntry": {
+    "name": "upsmgEnvironmentSensorEntry",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgEnvironmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentIndex": {
+    "name": "upsmgEnvironmentIndex",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentComFailure": {
+    "name": "upsmgEnvironmentComFailure",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentTemperature": {
+    "name": "upsmgEnvironmentTemperature",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentTemperatureLow": {
+    "name": "upsmgEnvironmentTemperatureLow",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentTemperatureHigh": {
+    "name": "upsmgEnvironmentTemperatureHigh",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentHumidity": {
+    "name": "upsmgEnvironmentHumidity",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentHumidityLow": {
+    "name": "upsmgEnvironmentHumidityLow",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentHumidityHigh": {
+    "name": "upsmgEnvironmentHumidityHigh",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentInput1State": {
+    "name": "upsmgEnvironmentInput1State",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "open": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgEnvironmentInput2State": {
+    "name": "upsmgEnvironmentInput2State",
+    "oid": "1.3.6.1.4.1.705.1.8.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "open": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgControlReceptaclesTable": {
+    "name": "upsmgControlReceptaclesTable",
+    "oid": "1.3.6.1.4.1.705.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsmgControlReceptaclesEntry": {
+    "name": "upsmgControlReceptaclesEntry",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndexc",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mgreceptacleIndexc": {
+    "name": "mgreceptacleIndexc",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgreceptacleOnDelay": {
+    "name": "mgreceptacleOnDelay",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleOnCtrl": {
+    "name": "mgreceptacleOnCtrl",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 1,
+          "start": 2,
+          "stop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleOnStatus": {
+    "name": "mgreceptacleOnStatus",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "started": 2,
+          "inprogressinups": 3,
+          "completed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgreceptacleOffDelay": {
+    "name": "mgreceptacleOffDelay",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleOffCtrl": {
+    "name": "mgreceptacleOffCtrl",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 1,
+          "start": 2,
+          "stop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleOffStatus": {
+    "name": "mgreceptacleOffStatus",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "started": 2,
+          "inprogressinups": 3,
+          "completed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgreceptacleToggleDelay": {
+    "name": "mgreceptacleToggleDelay",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleToggleCtrl": {
+    "name": "mgreceptacleToggleCtrl",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 1,
+          "start": 2,
+          "stop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mgreceptacleToggleStatus": {
+    "name": "mgreceptacleToggleStatus",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "started": 2,
+          "inprogressinups": 3,
+          "completed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgreceptacleToggleDuration": {
+    "name": "mgreceptacleToggleDuration",
+    "oid": "1.3.6.1.4.1.705.1.9.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgControlDayOff": {
+    "name": "upsmgControlDayOff",
+    "oid": "1.3.6.1.4.1.705.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saterday": 7,
+          "none": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgControlDayOn": {
+    "name": "upsmgControlDayOn",
+    "oid": "1.3.6.1.4.1.705.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saterday": 7,
+          "none": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgTestBatterySchedule": {
+    "name": "upsmgTestBatterySchedule",
+    "oid": "1.3.6.1.4.1.705.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "weekly": 2,
+          "monthly": 3,
+          "atturnon": 4,
+          "none": 5,
+          "dayly": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgTestDiagnostics": {
+    "name": "upsmgTestDiagnostics",
+    "oid": "1.3.6.1.4.1.705.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgTestDiagResult": {
+    "name": "upsmgTestDiagResult",
+    "oid": "1.3.6.1.4.1.705.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failed": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgTestBatteryCalibration": {
+    "name": "upsmgTestBatteryCalibration",
+    "oid": "1.3.6.1.4.1.705.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgTestLastCalibration": {
+    "name": "upsmgTestLastCalibration",
+    "oid": "1.3.6.1.4.1.705.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgTestIndicators": {
+    "name": "upsmgTestIndicators",
+    "oid": "1.3.6.1.4.1.705.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgTestCommandLine": {
+    "name": "upsmgTestCommandLine",
+    "oid": "1.3.6.1.4.1.705.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgTestCommandReady": {
+    "name": "upsmgTestCommandReady",
+    "oid": "1.3.6.1.4.1.705.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgTestResponseLine": {
+    "name": "upsmgTestResponseLine",
+    "oid": "1.3.6.1.4.1.705.1.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgTestResponseReady": {
+    "name": "upsmgTestResponseReady",
+    "oid": "1.3.6.1.4.1.705.1.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgTestBatteryResult": {
+    "name": "upsmgTestBatteryResult",
+    "oid": "1.3.6.1.4.1.705.1.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "msuccess": 1,
+          "mfailed": 2,
+          "ssuccess": 3,
+          "sfailed": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgBatteryFault": {
+    "name": "upsmgBatteryFault",
+    "oid": "1.3.6.1.4.1.705.1.110.1",
+    "class": "notificationtype"
+  },
+  "upsmgBatteryOK": {
+    "name": "upsmgBatteryOK",
+    "oid": "1.3.6.1.4.1.705.1.110.2",
+    "class": "notificationtype"
+  },
+  "upsmgBatteryReplacementIndicated": {
+    "name": "upsmgBatteryReplacementIndicated",
+    "oid": "1.3.6.1.4.1.705.1.110.3",
+    "class": "notificationtype"
+  },
+  "upsmgBatteryReplaceNotIndicated": {
+    "name": "upsmgBatteryReplaceNotIndicated",
+    "oid": "1.3.6.1.4.1.705.1.110.4",
+    "class": "notificationtype"
+  },
+  "upsmgAtLowBattery": {
+    "name": "upsmgAtLowBattery",
+    "oid": "1.3.6.1.4.1.705.1.110.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryRemainingTime"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryLevel"
+      }
+    ]
+  },
+  "upsmgFromLowBattery": {
+    "name": "upsmgFromLowBattery",
+    "oid": "1.3.6.1.4.1.705.1.110.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryRemainingTime"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryLevel"
+      }
+    ]
+  },
+  "upsmgChargerFault": {
+    "name": "upsmgChargerFault",
+    "oid": "1.3.6.1.4.1.705.1.110.7",
+    "class": "notificationtype"
+  },
+  "upsmgChargerOK": {
+    "name": "upsmgChargerOK",
+    "oid": "1.3.6.1.4.1.705.1.110.8",
+    "class": "notificationtype"
+  },
+  "upsmgAtLowCondition": {
+    "name": "upsmgAtLowCondition",
+    "oid": "1.3.6.1.4.1.705.1.110.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryRemainingTime"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryLevel"
+      }
+    ]
+  },
+  "upsmgFromLowCondition": {
+    "name": "upsmgFromLowCondition",
+    "oid": "1.3.6.1.4.1.705.1.110.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryRemainingTime"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryLevel"
+      }
+    ]
+  },
+  "upsmgOnBattery": {
+    "name": "upsmgOnBattery",
+    "oid": "1.3.6.1.4.1.705.1.110.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryRemainingTime"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryLevel"
+      }
+    ]
+  },
+  "upsmgReturnFromBattery": {
+    "name": "upsmgReturnFromBattery",
+    "oid": "1.3.6.1.4.1.705.1.110.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryRemainingTime"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryLevel"
+      }
+    ]
+  },
+  "upsmgOnByPass": {
+    "name": "upsmgOnByPass",
+    "oid": "1.3.6.1.4.1.705.1.110.13",
+    "class": "notificationtype"
+  },
+  "upsmgReturnFromByPass": {
+    "name": "upsmgReturnFromByPass",
+    "oid": "1.3.6.1.4.1.705.1.110.14",
+    "class": "notificationtype"
+  },
+  "upsmgByPassUnavailable": {
+    "name": "upsmgByPassUnavailable",
+    "oid": "1.3.6.1.4.1.705.1.110.15",
+    "class": "notificationtype"
+  },
+  "upsmgByPassAvailable": {
+    "name": "upsmgByPassAvailable",
+    "oid": "1.3.6.1.4.1.705.1.110.16",
+    "class": "notificationtype"
+  },
+  "upsmgUtilityFailure": {
+    "name": "upsmgUtilityFailure",
+    "oid": "1.3.6.1.4.1.705.1.110.17",
+    "class": "notificationtype"
+  },
+  "upsmgUtilityRestored": {
+    "name": "upsmgUtilityRestored",
+    "oid": "1.3.6.1.4.1.705.1.110.18",
+    "class": "notificationtype"
+  },
+  "upsmgOnBoost": {
+    "name": "upsmgOnBoost",
+    "oid": "1.3.6.1.4.1.705.1.110.19",
+    "class": "notificationtype"
+  },
+  "upsmgReturnFromBoost": {
+    "name": "upsmgReturnFromBoost",
+    "oid": "1.3.6.1.4.1.705.1.110.20",
+    "class": "notificationtype"
+  },
+  "upsmgOverLoad": {
+    "name": "upsmgOverLoad",
+    "oid": "1.3.6.1.4.1.705.1.110.21",
+    "class": "notificationtype"
+  },
+  "upsmgLoadOK": {
+    "name": "upsmgLoadOK",
+    "oid": "1.3.6.1.4.1.705.1.110.22",
+    "class": "notificationtype"
+  },
+  "upsmgOverTemperature": {
+    "name": "upsmgOverTemperature",
+    "oid": "1.3.6.1.4.1.705.1.110.23",
+    "class": "notificationtype"
+  },
+  "upsmgTemperatureOK": {
+    "name": "upsmgTemperatureOK",
+    "oid": "1.3.6.1.4.1.705.1.110.24",
+    "class": "notificationtype"
+  },
+  "upsmgOnToStart": {
+    "name": "upsmgOnToStart",
+    "oid": "1.3.6.1.4.1.705.1.110.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleState"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleOnDelay"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleRestartDelay"
+      }
+    ]
+  },
+  "upsmgOnAbort": {
+    "name": "upsmgOnAbort",
+    "oid": "1.3.6.1.4.1.705.1.110.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleOnDelay"
+      }
+    ]
+  },
+  "upsmgOnInProgress": {
+    "name": "upsmgOnInProgress",
+    "oid": "1.3.6.1.4.1.705.1.110.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleState"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleBootUpDuration"
+      }
+    ]
+  },
+  "upsmgOnComplete": {
+    "name": "upsmgOnComplete",
+    "oid": "1.3.6.1.4.1.705.1.110.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleOnDelay"
+      }
+    ]
+  },
+  "upsmgOffToStart": {
+    "name": "upsmgOffToStart",
+    "oid": "1.3.6.1.4.1.705.1.110.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleState"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleOffDelay"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleShutoffTimer"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgConfigSysShutDuration"
+      }
+    ]
+  },
+  "upsmgOffAbort": {
+    "name": "upsmgOffAbort",
+    "oid": "1.3.6.1.4.1.705.1.110.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleOffDelay"
+      }
+    ]
+  },
+  "upsmgOffInProgress": {
+    "name": "upsmgOffInProgress",
+    "oid": "1.3.6.1.4.1.705.1.110.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleState"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleShutdownDuration"
+      }
+    ]
+  },
+  "upsmgOffComplete": {
+    "name": "upsmgOffComplete",
+    "oid": "1.3.6.1.4.1.705.1.110.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleOffDelay"
+      }
+    ]
+  },
+  "upsmgToggleToStart": {
+    "name": "upsmgToggleToStart",
+    "oid": "1.3.6.1.4.1.705.1.110.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleToggleDelay"
+      }
+    ]
+  },
+  "upsmgToggleAbort": {
+    "name": "upsmgToggleAbort",
+    "oid": "1.3.6.1.4.1.705.1.110.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleToggleDelay"
+      }
+    ]
+  },
+  "upsmgToggleInProgress": {
+    "name": "upsmgToggleInProgress",
+    "oid": "1.3.6.1.4.1.705.1.110.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleToggleDuration"
+      }
+    ]
+  },
+  "upsmgToggleComplete": {
+    "name": "upsmgToggleComplete",
+    "oid": "1.3.6.1.4.1.705.1.110.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgreceptacleToggleDuration"
+      }
+    ]
+  },
+  "upsmgCommunicationFailure": {
+    "name": "upsmgCommunicationFailure",
+    "oid": "1.3.6.1.4.1.705.1.110.37",
+    "class": "notificationtype"
+  },
+  "upsmgCommunicationRestored": {
+    "name": "upsmgCommunicationRestored",
+    "oid": "1.3.6.1.4.1.705.1.110.38",
+    "class": "notificationtype"
+  },
+  "upsmgInputBad": {
+    "name": "upsmgInputBad",
+    "oid": "1.3.6.1.4.1.705.1.110.39",
+    "class": "notificationtype"
+  },
+  "upsmgInputOK": {
+    "name": "upsmgInputOK",
+    "oid": "1.3.6.1.4.1.705.1.110.40",
+    "class": "notificationtype"
+  },
+  "upsmgBatteryUnavailable": {
+    "name": "upsmgBatteryUnavailable",
+    "oid": "1.3.6.1.4.1.705.1.110.41",
+    "class": "notificationtype"
+  },
+  "upsmgBatteryAvailable": {
+    "name": "upsmgBatteryAvailable",
+    "oid": "1.3.6.1.4.1.705.1.110.42",
+    "class": "notificationtype"
+  },
+  "upsmgAtLowRecharge": {
+    "name": "upsmgAtLowRecharge",
+    "oid": "1.3.6.1.4.1.705.1.110.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryRemainingTime"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryLevel"
+      }
+    ]
+  },
+  "upsmgFromLowRecharge": {
+    "name": "upsmgFromLowRecharge",
+    "oid": "1.3.6.1.4.1.705.1.110.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryRemainingTime"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "upsmgBatteryLevel"
+      }
+    ]
+  },
+  "upsmgDiagnosticTestFail": {
+    "name": "upsmgDiagnosticTestFail",
+    "oid": "1.3.6.1.4.1.705.1.110.45",
+    "class": "notificationtype"
+  },
+  "upsmgDiagnosticTestOK": {
+    "name": "upsmgDiagnosticTestOK",
+    "oid": "1.3.6.1.4.1.705.1.110.46",
+    "class": "notificationtype"
+  },
+  "upsmgBatteryTestOK": {
+    "name": "upsmgBatteryTestOK",
+    "oid": "1.3.6.1.4.1.705.1.110.47",
+    "class": "notificationtype"
+  },
+  "upsmgBatteryTestFail": {
+    "name": "upsmgBatteryTestFail",
+    "oid": "1.3.6.1.4.1.705.1.110.48",
+    "class": "notificationtype"
+  },
+  "upsmgExternalAlarmActive": {
+    "name": "upsmgExternalAlarmActive",
+    "oid": "1.3.6.1.4.1.705.1.110.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgextAlarmIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgextAlarmUID"
+      }
+    ]
+  },
+  "upsmgExternalAlarmInactive": {
+    "name": "upsmgExternalAlarmInactive",
+    "oid": "1.3.6.1.4.1.705.1.110.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgextAlarmIndex"
+      },
+      {
+        "module": "MG-SNMP-UPS-MIB",
+        "object": "mgextAlarmUID"
+      }
+    ]
+  },
+  "upsmgOnBuck": {
+    "name": "upsmgOnBuck",
+    "oid": "1.3.6.1.4.1.705.1.110.51",
+    "class": "notificationtype"
+  },
+  "upsmgReturnFromBuck": {
+    "name": "upsmgReturnFromBuck",
+    "oid": "1.3.6.1.4.1.705.1.110.52",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironComFailure": {
+    "name": "upsmgEnvironComFailure",
+    "oid": "1.3.6.1.4.1.705.1.110.53",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironComOK": {
+    "name": "upsmgEnvironComOK",
+    "oid": "1.3.6.1.4.1.705.1.110.54",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironTemperatureLow": {
+    "name": "upsmgEnvironTemperatureLow",
+    "oid": "1.3.6.1.4.1.705.1.110.55",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironTemperatureHigh": {
+    "name": "upsmgEnvironTemperatureHigh",
+    "oid": "1.3.6.1.4.1.705.1.110.56",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironTemperatureOK": {
+    "name": "upsmgEnvironTemperatureOK",
+    "oid": "1.3.6.1.4.1.705.1.110.57",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironHumidityLow": {
+    "name": "upsmgEnvironHumidityLow",
+    "oid": "1.3.6.1.4.1.705.1.110.58",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironHumidityHigh": {
+    "name": "upsmgEnvironHumidityHigh",
+    "oid": "1.3.6.1.4.1.705.1.110.59",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironHumidityOK": {
+    "name": "upsmgEnvironHumidityOK",
+    "oid": "1.3.6.1.4.1.705.1.110.60",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironInput1Closed": {
+    "name": "upsmgEnvironInput1Closed",
+    "oid": "1.3.6.1.4.1.705.1.110.61",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironInput1Open": {
+    "name": "upsmgEnvironInput1Open",
+    "oid": "1.3.6.1.4.1.705.1.110.62",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironInput2Closed": {
+    "name": "upsmgEnvironInput2Closed",
+    "oid": "1.3.6.1.4.1.705.1.110.63",
+    "class": "notificationtype"
+  },
+  "upsmgEnvironInput2Open": {
+    "name": "upsmgEnvironInput2Open",
+    "oid": "1.3.6.1.4.1.705.1.110.64",
+    "class": "notificationtype"
+  },
+  "upsRedundancyLost": {
+    "name": "upsRedundancyLost",
+    "oid": "1.3.6.1.4.1.705.1.110.65",
+    "class": "notificationtype"
+  },
+  "upsRedundancyOK": {
+    "name": "upsRedundancyOK",
+    "oid": "1.3.6.1.4.1.705.1.110.66",
+    "class": "notificationtype"
+  },
+  "upsProtectionLost": {
+    "name": "upsProtectionLost",
+    "oid": "1.3.6.1.4.1.705.1.110.67",
+    "class": "notificationtype"
+  },
+  "upsProtectionOK": {
+    "name": "upsProtectionOK",
+    "oid": "1.3.6.1.4.1.705.1.110.68",
+    "class": "notificationtype"
+  },
+  "upsmgAgentIpaddress": {
+    "name": "upsmgAgentIpaddress",
+    "oid": "1.3.6.1.4.1.705.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentSubnetMask": {
+    "name": "upsmgAgentSubnetMask",
+    "oid": "1.3.6.1.4.1.705.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentDefGateway": {
+    "name": "upsmgAgentDefGateway",
+    "oid": "1.3.6.1.4.1.705.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentBaudRate": {
+    "name": "upsmgAgentBaudRate",
+    "oid": "1.3.6.1.4.1.705.1.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentPollRate": {
+    "name": "upsmgAgentPollRate",
+    "oid": "1.3.6.1.4.1.705.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentType": {
+    "name": "upsmgAgentType",
+    "oid": "1.3.6.1.4.1.705.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deviceEth": 1,
+          "deviceTR": 2,
+          "proxyEth": 3,
+          "proxyTR": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentTrapAlarmDelay": {
+    "name": "upsmgAgentTrapAlarmDelay",
+    "oid": "1.3.6.1.4.1.705.1.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentTrapAlarmRetry": {
+    "name": "upsmgAgentTrapAlarmRetry",
+    "oid": "1.3.6.1.4.1.705.1.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentReset": {
+    "name": "upsmgAgentReset",
+    "oid": "1.3.6.1.4.1.705.1.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentFactReset": {
+    "name": "upsmgAgentFactReset",
+    "oid": "1.3.6.1.4.1.705.1.12.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentMibVersion": {
+    "name": "upsmgAgentMibVersion",
+    "oid": "1.3.6.1.4.1.705.1.12.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgAgentFirmwareVersion": {
+    "name": "upsmgAgentFirmwareVersion",
+    "oid": "1.3.6.1.4.1.705.1.12.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgAgentCommUPS": {
+    "name": "upsmgAgentCommUPS",
+    "oid": "1.3.6.1.4.1.705.1.12.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgAgentTrapAck": {
+    "name": "upsmgAgentTrapAck",
+    "oid": "1.3.6.1.4.1.705.1.12.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentAutoLearning": {
+    "name": "upsmgAgentAutoLearning",
+    "oid": "1.3.6.1.4.1.705.1.12.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentBootP": {
+    "name": "upsmgAgentBootP",
+    "oid": "1.3.6.1.4.1.705.1.12.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentTFTP": {
+    "name": "upsmgAgentTFTP",
+    "oid": "1.3.6.1.4.1.705.1.12.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgAgentTrapSignature": {
+    "name": "upsmgAgentTrapSignature",
+    "oid": "1.3.6.1.4.1.705.1.12.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsmgRemoteOnBattery": {
+    "name": "upsmgRemoteOnBattery",
+    "oid": "1.3.6.1.4.1.705.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsmgRemoteIpAddress": {
+    "name": "upsmgRemoteIpAddress",
+    "oid": "1.3.6.1.4.1.705.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/MG-SNMP-UPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MG-SNMP-UPS-MIB"
+  }
+}

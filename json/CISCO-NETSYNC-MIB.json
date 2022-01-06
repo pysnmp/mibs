@@ -1,0 +1,1954 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoNetsyncMIB": {
+    "name": "ciscoNetsyncMIB",
+    "oid": "1.3.6.1.4.1.9.9.761",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-10-15 00:00",
+        "description": "Initial version of the SyncE MIB module."
+      }
+    ]
+  },
+  "CiscoNetsyncIfType": {
+    "name": "CiscoNetsyncIfType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netsyncIfTypeUnknown": 1,
+          "netsyncIfTypeInternal": 2,
+          "netsyncIfTypeEthernet": 3,
+          "netsyncIfTypeSonet": 4,
+          "netsyncIfTypeTop": 5,
+          "netsyncIfTypeExt": 6,
+          "netsyncIfTypeController": 7,
+          "netsyncIfTypeGps": 8,
+          "netsyncIfTypeAtm": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetsyncNetworkOption": {
+    "name": "CiscoNetsyncNetworkOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netsyncNetworkOptionUnknown": 1,
+          "netsyncNetworkOption1": 2,
+          "netsyncNetworkOption2Gen1": 3,
+          "netsyncNetworkOption2Gen2": 4,
+          "netsyncNetworkOption3": 5,
+          "netsyncNetworkOptionInvalid": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetsyncEECOption": {
+    "name": "CiscoNetsyncEECOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netsyncEECOptionUnknown": 1,
+          "netsyncEECOption1": 2,
+          "netsyncEECOption2": 3,
+          "netsyncEECOptionInvalid": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetsyncQLMode": {
+    "name": "CiscoNetsyncQLMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netsyncQLModeUnknown": 1,
+          "netsyncQLModeQlDisabled": 2,
+          "netsyncQLModeQlEnabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetsyncClockMode": {
+    "name": "CiscoNetsyncClockMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netsyncClockModeUnknown": 1,
+          "netsyncClockModeFreerun": 2,
+          "netsyncClockModeHoldover": 3,
+          "netsyncClockModeLocked": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetsyncQualityLevel": {
+    "name": "CiscoNetsyncQualityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netsyncQualityLevelNULL": 1,
+          "netsyncQualityLevelDNU": 2,
+          "netsyncQualityLevelDUS": 3,
+          "netsyncQualityLevelFAILED": 4,
+          "netsyncQualityLevelINV0": 5,
+          "netsyncQualityLevelINV1": 6,
+          "netsyncQualityLevelINV2": 7,
+          "netsyncQualityLevelINV3": 8,
+          "netsyncQualityLevelINV4": 9,
+          "netsyncQualityLevelINV5": 10,
+          "netsyncQualityLevelINV6": 11,
+          "netsyncQualityLevelINV7": 12,
+          "netsyncQualityLevelINV8": 13,
+          "netsyncQualityLevelINV9": 14,
+          "netsyncQualityLevelINV10": 15,
+          "netsyncQualityLevelINV11": 16,
+          "netsyncQualityLevelINV12": 17,
+          "netsyncQualityLevelINV13": 18,
+          "netsyncQualityLevelINV14": 19,
+          "netsyncQualityLevelINV15": 20,
+          "netsyncQualityLevelNSUPP": 21,
+          "netsyncQualityLevelPRC": 22,
+          "netsyncQualityLevelPROV": 23,
+          "netsyncQualityLevelPRS": 24,
+          "netsyncQualityLevelSEC": 25,
+          "netsyncQualityLevelSMC": 26,
+          "netsyncQualityLevelSSUA": 27,
+          "netsyncQualityLevelSSUB": 28,
+          "netsyncQualityLevelST2": 29,
+          "netsyncQualityLevelST3": 30,
+          "netsyncQualityLevelST3E": 31,
+          "netsyncQualityLevelST4": 32,
+          "netsyncQualityLevelSTU": 33,
+          "netsyncQualityLevelTNC": 34,
+          "netsyncQualityLevelUNC": 35,
+          "netsyncQualityLevelUNK": 36
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetsyncSSMCap": {
+    "name": "CiscoNetsyncSSMCap",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netsyncSSMCapNone": 1,
+          "netsyncSSMCapTxRx": 2,
+          "netsyncSSMCapTx": 3,
+          "netsyncSSMCapRx": 4,
+          "netsyncSSMCapInvalid": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetsyncESMCCap": {
+    "name": "CiscoNetsyncESMCCap",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netsyncESMCCapNone": 1,
+          "netsyncESMCCapTxRx": 2,
+          "netsyncESMCCapTx": 3,
+          "netsyncESMCCapRx": 4,
+          "netsyncESMCCapInvalid": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNetsyncAlarmInfo": {
+    "name": "CiscoNetsyncAlarmInfo",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "netsyncSrcAlarmReasonAIS": 0,
+        "netsyncSrcAlarmReasonOOR": 1,
+        "netsyncSrcAlarmReasonOIR": 2,
+        "netsyncSrcAlarmReasonInternal": 3
+      }
+    },
+    "status": "current"
+  },
+  "ciscoNetsyncMIBNotifs": {
+    "name": "ciscoNetsyncMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.761.0",
+    "class": "objectidentity"
+  },
+  "ciscoNetsyncMIBObjects": {
+    "name": "ciscoNetsyncMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.761.1",
+    "class": "objectidentity"
+  },
+  "ciscoNetsyncMIBConform": {
+    "name": "ciscoNetsyncMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.761.2",
+    "class": "objectidentity"
+  },
+  "ciscoNetsyncMIBTables": {
+    "name": "ciscoNetsyncMIBTables",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1",
+    "class": "objectidentity"
+  },
+  "cnsClkSelGlobalTable": {
+    "name": "cnsClkSelGlobalTable",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsClkSelGlobalEntry": {
+    "name": "cnsClkSelGlobalEntry",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGloProcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnsClkSelGloProcIndex": {
+    "name": "cnsClkSelGloProcIndex",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsClkSelGlobProcessMode": {
+    "name": "cnsClkSelGlobProcessMode",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQLMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobClockMode": {
+    "name": "cnsClkSelGlobClockMode",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncClockMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobNetsyncEnable": {
+    "name": "cnsClkSelGlobNetsyncEnable",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobRevertiveMode": {
+    "name": "cnsClkSelGlobRevertiveMode",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobESMCMode": {
+    "name": "cnsClkSelGlobESMCMode",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobEECOption": {
+    "name": "cnsClkSelGlobEECOption",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncEECOption",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "netsyncEECOptionUnknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobNetworkOption": {
+    "name": "cnsClkSelGlobNetworkOption",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncNetworkOption",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "netsyncNetworkOptionUnknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobHoldoffTime": {
+    "name": "cnsClkSelGlobHoldoffTime",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobWtrTime": {
+    "name": "cnsClkSelGlobWtrTime",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobNofSources": {
+    "name": "cnsClkSelGlobNofSources",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "clock sources",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobLastHoldoverSeconds": {
+    "name": "cnsClkSelGlobLastHoldoverSeconds",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsClkSelGlobCurrHoldoverSeconds": {
+    "name": "cnsClkSelGlobCurrHoldoverSeconds",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsSelectedInputSourceTable": {
+    "name": "cnsSelectedInputSourceTable",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsSelectedInputSourceEntry": {
+    "name": "cnsSelectedInputSourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcNetsyncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnsSelInpSrcNetsyncIndex": {
+    "name": "cnsSelInpSrcNetsyncIndex",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsSelInpSrcName": {
+    "name": "cnsSelInpSrcName",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsSelInpSrcIntfType": {
+    "name": "cnsSelInpSrcIntfType",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsSelInpSrcQualityLevel": {
+    "name": "cnsSelInpSrcQualityLevel",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsSelInpSrcPriority": {
+    "name": "cnsSelInpSrcPriority",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsSelInpSrcTimestamp": {
+    "name": "cnsSelInpSrcTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsSelInpSrcFSW": {
+    "name": "cnsSelInpSrcFSW",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsSelInpSrcMSW": {
+    "name": "cnsSelInpSrcMSW",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInputSourceTable": {
+    "name": "cnsInputSourceTable",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsInputSourceEntry": {
+    "name": "cnsInputSourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcNetsyncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnsInpSrcNetsyncIndex": {
+    "name": "cnsInpSrcNetsyncIndex",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsInpSrcName": {
+    "name": "cnsInpSrcName",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcIntfType": {
+    "name": "cnsInpSrcIntfType",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcPriority": {
+    "name": "cnsInpSrcPriority",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcESMCCap": {
+    "name": "cnsInpSrcESMCCap",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncESMCCap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcSSMCap": {
+    "name": "cnsInpSrcSSMCap",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncSSMCap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcQualityLevelTxCfg": {
+    "name": "cnsInpSrcQualityLevelTxCfg",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcQualityLevelRxCfg": {
+    "name": "cnsInpSrcQualityLevelRxCfg",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcQualityLevelTx": {
+    "name": "cnsInpSrcQualityLevelTx",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcQualityLevelRx": {
+    "name": "cnsInpSrcQualityLevelRx",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcQualityLevel": {
+    "name": "cnsInpSrcQualityLevel",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcHoldoffTime": {
+    "name": "cnsInpSrcHoldoffTime",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcWtrTime": {
+    "name": "cnsInpSrcWtrTime",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcLockout": {
+    "name": "cnsInpSrcLockout",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcSignalFailure": {
+    "name": "cnsInpSrcSignalFailure",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcAlarm": {
+    "name": "cnsInpSrcAlarm",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcAlarmInfo": {
+    "name": "cnsInpSrcAlarmInfo",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncAlarmInfo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcFSW": {
+    "name": "cnsInpSrcFSW",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsInpSrcMSW": {
+    "name": "cnsInpSrcMSW",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsExtOutputTable": {
+    "name": "cnsExtOutputTable",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsExtOutputEntry": {
+    "name": "cnsExtOutputEntry",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnsExtOutListIndex": {
+    "name": "cnsExtOutListIndex",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsExtOutSelNetsyncIndex": {
+    "name": "cnsExtOutSelNetsyncIndex",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsExtOutName": {
+    "name": "cnsExtOutName",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsExtOutIntfType": {
+    "name": "cnsExtOutIntfType",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsExtOutQualityLevel": {
+    "name": "cnsExtOutQualityLevel",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsExtOutPriority": {
+    "name": "cnsExtOutPriority",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsExtOutFSW": {
+    "name": "cnsExtOutFSW",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsExtOutMSW": {
+    "name": "cnsExtOutMSW",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsExtOutSquelch": {
+    "name": "cnsExtOutSquelch",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClockSourceTable": {
+    "name": "cnsT4ClockSourceTable",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsT4ClockSourceEntry": {
+    "name": "cnsT4ClockSourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcNetsyncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnsT4ClkSrcNetsyncIndex": {
+    "name": "cnsT4ClkSrcNetsyncIndex",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnsT4ClkSrcName": {
+    "name": "cnsT4ClkSrcName",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcIntfType": {
+    "name": "cnsT4ClkSrcIntfType",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcPriority": {
+    "name": "cnsT4ClkSrcPriority",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcESMCCap": {
+    "name": "cnsT4ClkSrcESMCCap",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncESMCCap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcSSMCap": {
+    "name": "cnsT4ClkSrcSSMCap",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncSSMCap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcQualityLevelTxCfg": {
+    "name": "cnsT4ClkSrcQualityLevelTxCfg",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcQualityLevelRxCfg": {
+    "name": "cnsT4ClkSrcQualityLevelRxCfg",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcQualityLevelTx": {
+    "name": "cnsT4ClkSrcQualityLevelTx",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcQualityLevelRx": {
+    "name": "cnsT4ClkSrcQualityLevelRx",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcQualityLevel": {
+    "name": "cnsT4ClkSrcQualityLevel",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcHoldoffTime": {
+    "name": "cnsT4ClkSrcHoldoffTime",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcWtrTime": {
+    "name": "cnsT4ClkSrcWtrTime",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcLockout": {
+    "name": "cnsT4ClkSrcLockout",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcSignalFailure": {
+    "name": "cnsT4ClkSrcSignalFailure",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcAlarm": {
+    "name": "cnsT4ClkSrcAlarm",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcAlarmInfo": {
+    "name": "cnsT4ClkSrcAlarmInfo",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetsyncAlarmInfo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcFSW": {
+    "name": "cnsT4ClkSrcFSW",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsT4ClkSrcMSW": {
+    "name": "cnsT4ClkSrcMSW",
+    "oid": "1.3.6.1.4.1.9.9.761.1.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnsNotifObjects": {
+    "name": "cnsNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.761.1.2",
+    "class": "objectidentity"
+  },
+  "cnsInpSrcFailClear": {
+    "name": "cnsInpSrcFailClear",
+    "oid": "1.3.6.1.4.1.9.9.761.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnsInpSrcAlarmClear": {
+    "name": "cnsInpSrcAlarmClear",
+    "oid": "1.3.6.1.4.1.9.9.761.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoNetsyncMIBNotifControl": {
+    "name": "ciscoNetsyncMIBNotifControl",
+    "oid": "1.3.6.1.4.1.9.9.761.1.3",
+    "class": "objectidentity"
+  },
+  "cnsMIBEnableStatusNotification": {
+    "name": "cnsMIBEnableStatusNotification",
+    "oid": "1.3.6.1.4.1.9.9.761.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoNetsyncSelectedT0Clock": {
+    "name": "ciscoNetsyncSelectedT0Clock",
+    "oid": "1.3.6.1.4.1.9.9.761.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcIntfType"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcQualityLevel"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetsyncSelectedT4Clock": {
+    "name": "ciscoNetsyncSelectedT4Clock",
+    "oid": "1.3.6.1.4.1.9.9.761.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcIntfType"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcQualityLevel"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetsyncInputSignalFailureStatus": {
+    "name": "ciscoNetsyncInputSignalFailureStatus",
+    "oid": "1.3.6.1.4.1.9.9.761.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcIntfType"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcFailClear"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetsyncInputAlarmStatus": {
+    "name": "ciscoNetsyncInputAlarmStatus",
+    "oid": "1.3.6.1.4.1.9.9.761.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcIntfType"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcAlarmInfo"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcAlarmClear"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetsyncMIBCompliances": {
+    "name": "ciscoNetsyncMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.761.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoNetsyncMIBGroups": {
+    "name": "ciscoNetsyncMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.761.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoNetsyncMIBCompliance": {
+    "name": "ciscoNetsyncMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.761.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cnsClkSelGlobalObjectGroup",
+        "module": "CISCO-NETSYNC-MIB"
+      },
+      {
+        "object": "cnsSelectedInputSourceObjectGroup",
+        "module": "CISCO-NETSYNC-MIB"
+      },
+      {
+        "object": "cnsInputSourceObjectGroup",
+        "module": "CISCO-NETSYNC-MIB"
+      },
+      {
+        "object": "cnsExtOutputObjectGroup",
+        "module": "CISCO-NETSYNC-MIB"
+      },
+      {
+        "object": "cnsT4ClkSrcObjectGroup",
+        "module": "CISCO-NETSYNC-MIB"
+      },
+      {
+        "object": "ciscoNetsyncMIBNotificationGroup",
+        "module": "CISCO-NETSYNC-MIB"
+      },
+      {
+        "object": "cnsMIBNotifEnablesGroup",
+        "module": "CISCO-NETSYNC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cnsClkSelGlobalObjectGroup": {
+    "name": "cnsClkSelGlobalObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.761.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobProcessMode"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobClockMode"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobNetsyncEnable"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobRevertiveMode"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobESMCMode"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobEECOption"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobNetworkOption"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobHoldoffTime"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobWtrTime"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobNofSources"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobLastHoldoverSeconds"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsClkSelGlobCurrHoldoverSeconds"
+      }
+    ],
+    "status": "current"
+  },
+  "cnsSelectedInputSourceObjectGroup": {
+    "name": "cnsSelectedInputSourceObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.761.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcQualityLevel"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcTimestamp"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcFSW"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcMSW"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcIntfType"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsSelInpSrcPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "cnsInputSourceObjectGroup": {
+    "name": "cnsInputSourceObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.761.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcIntfType"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcPriority"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcESMCCap"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcSSMCap"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcQualityLevelTxCfg"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcQualityLevelRxCfg"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcQualityLevelTx"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcQualityLevelRx"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcQualityLevel"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcHoldoffTime"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcWtrTime"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcLockout"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcSignalFailure"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcAlarm"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcAlarmInfo"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcFSW"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcMSW"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcAlarmClear"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsInpSrcFailClear"
+      }
+    ],
+    "status": "current"
+  },
+  "cnsExtOutputObjectGroup": {
+    "name": "cnsExtOutputObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.761.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutSelNetsyncIndex"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutIntfType"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutQualityLevel"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutPriority"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutFSW"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutMSW"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsExtOutSquelch"
+      }
+    ],
+    "status": "current"
+  },
+  "cnsT4ClkSrcObjectGroup": {
+    "name": "cnsT4ClkSrcObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.761.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcName"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcIntfType"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcPriority"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcESMCCap"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcSSMCap"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcQualityLevelTxCfg"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcQualityLevelRxCfg"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcQualityLevelTx"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcQualityLevelRx"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcQualityLevel"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcHoldoffTime"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcWtrTime"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcLockout"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcSignalFailure"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcAlarm"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcAlarmInfo"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcFSW"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsT4ClkSrcMSW"
+      }
+    ],
+    "status": "current"
+  },
+  "cnsMIBNotifEnablesGroup": {
+    "name": "cnsMIBNotifEnablesGroup",
+    "oid": "1.3.6.1.4.1.9.9.761.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "cnsMIBEnableStatusNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetsyncMIBNotificationGroup": {
+    "name": "ciscoNetsyncMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.761.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "ciscoNetsyncSelectedT0Clock"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "ciscoNetsyncSelectedT4Clock"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "ciscoNetsyncInputSignalFailureStatus"
+      },
+      {
+        "module": "CISCO-NETSYNC-MIB",
+        "object": "ciscoNetsyncInputAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NETSYNC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-NETSYNC-MIB"
+  }
+}

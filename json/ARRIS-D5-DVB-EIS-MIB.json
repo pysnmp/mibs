@@ -1,0 +1,1571 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-D5-ENT-CHASSIS-MIB": [
+      "AdminState"
+    ],
+    "ARRIS-D5-VIDEO-MIB": [
+      "D5PID"
+    ],
+    "ARRIS-MIB": [
+      "arrisD5UEQam"
+    ],
+    "SIM-MIB": [
+      "EMMGCommType",
+      "ECMGCSuCasId",
+      "SectionTSPktFlag"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "d5EisMib": {
+    "name": "d5EisMib",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7",
+    "class": "moduleidentity"
+  },
+  "D5CryptoMode": {
+    "name": "D5CryptoMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simulcrypt": 1,
+          "pm": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "simEisTable": {
+    "name": "simEisTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "simEisEntry": {
+    "name": "simEisEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "simEisAdminState": {
+    "name": "simEisAdminState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "simEisStatus": {
+    "name": "simEisStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisIndex": {
+    "name": "simEisIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65335
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisPort": {
+    "name": "simEisPort",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65335
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisClientIp": {
+    "name": "simEisClientIp",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisName": {
+    "name": "simEisName",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisTimeActive": {
+    "name": "simEisTimeActive",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCurrentSCGs": {
+    "name": "simEisCurrentSCGs",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisChanId": {
+    "name": "simEisChanId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65335
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisTotChannels": {
+    "name": "simEisTotChannels",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCurChannels": {
+    "name": "simEisCurChannels",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisChannelErrs": {
+    "name": "simEisChannelErrs",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisChannelResets": {
+    "name": "simEisChannelResets",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisChannelTests": {
+    "name": "simEisChannelTests",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisScgProvs": {
+    "name": "simEisScgProvs",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisScgErrors": {
+    "name": "simEisScgErrors",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisScgLists": {
+    "name": "simEisScgLists",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisEsExclude": {
+    "name": "simEisEsExclude",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisCTable": {
+    "name": "simEisCTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "simEisCEntry": {
+    "name": "simEisCEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisChannelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "simEisChannelId": {
+    "name": "simEisChannelId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCTestsRx": {
+    "name": "simEisCTestsRx",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCTestsTx": {
+    "name": "simEisCTestsTx",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCErrorRx": {
+    "name": "simEisCErrorRx",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCErrorTx": {
+    "name": "simEisCErrorTx",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCScgProvs": {
+    "name": "simEisCScgProvs",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCScgTests": {
+    "name": "simEisCScgTests",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisCScgLists": {
+    "name": "simEisCScgLists",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisScgTable": {
+    "name": "simEisScgTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "simEisScgEntry": {
+    "name": "simEisScgEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisScgId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "simEisScgId": {
+    "name": "simEisScgId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgAdminState": {
+    "name": "simEisScgAdminState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "simEisScgStatus": {
+    "name": "simEisScgStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgName": {
+    "name": "simEisScgName",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgNetworkId": {
+    "name": "simEisScgNetworkId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgCpDuration": {
+    "name": "simEisScgCpDuration",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgActivationTime": {
+    "name": "simEisScgActivationTime",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgEcmWakeup": {
+    "name": "simEisScgEcmWakeup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisCaDesc": {
+    "name": "simEisCaDesc",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgEsExclude": {
+    "name": "simEisScgEsExclude",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgSTable": {
+    "name": "simEisScgSTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "simEisScgSEntry": {
+    "name": "simEisScgSEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisScgId",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisScgSTransportId",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisScgServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "simEisScgSAdminState": {
+    "name": "simEisScgSAdminState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "simEisScgSStatus": {
+    "name": "simEisScgSStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgSTransportId": {
+    "name": "simEisScgSTransportId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgServiceId": {
+    "name": "simEisScgServiceId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgMpegMib": {
+    "name": "simEisScgMpegMib",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisScgExclude": {
+    "name": "simEisScgExclude",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgEphemeral": {
+    "name": "simEisScgEphemeral",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisScgETable": {
+    "name": "simEisScgETable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "simEisScgEEntry": {
+    "name": "simEisScgEEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisScgId",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "simEisScgEcmId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "simEisScgEAdminState": {
+    "name": "simEisScgEAdminState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "simEisScgEStatus": {
+    "name": "simEisScgEStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgEcmId": {
+    "name": "simEisScgEcmId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgSuperCasId": {
+    "name": "simEisScgSuperCasId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ECMGCSuCasId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgAccessCriteria": {
+    "name": "simEisScgAccessCriteria",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "simEisScgEStreamMib": {
+    "name": "simEisScgEStreamMib",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "simEisScgPid": {
+    "name": "simEisScgPid",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "D5PID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgTable": {
+    "name": "d5SimEcmgTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5SimEcmgEntry": {
+    "name": "d5SimEcmgEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "d5SimEcmgName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5SimEcmgName": {
+    "name": "d5SimEcmgName",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgAdminState": {
+    "name": "d5SimEcmgAdminState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgStatus": {
+    "name": "d5SimEcmgStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgIpAddress": {
+    "name": "d5SimEcmgIpAddress",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgTcpPort": {
+    "name": "d5SimEcmgTcpPort",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgSuCasId": {
+    "name": "d5SimEcmgSuCasId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ECMGCSuCasId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgPrimary": {
+    "name": "d5SimEcmgPrimary",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgGroup": {
+    "name": "d5SimEcmgGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgProtoVersion": {
+    "name": "d5SimEcmgProtoVersion",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgTableVersion": {
+    "name": "d5SimEcmgTableVersion",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SimEcmgTableDuration": {
+    "name": "d5SimEcmgTableDuration",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SimEcmgChannelTest": {
+    "name": "d5SimEcmgChannelTest",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgChannelTimeout": {
+    "name": "d5SimEcmgChannelTimeout",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgChannelDelay": {
+    "name": "d5SimEcmgChannelDelay",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgGroupTable": {
+    "name": "d5SimEcmgGroupTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5SimEcmgGroupEntry": {
+    "name": "d5SimEcmgGroupEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "d5SimEcmgGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5SimEcmgGroupName": {
+    "name": "d5SimEcmgGroupName",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgGroupAdminState": {
+    "name": "d5SimEcmgGroupAdminState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgGroupStatus": {
+    "name": "d5SimEcmgGroupStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgGroupCaSystemId": {
+    "name": "d5SimEcmgGroupCaSystemId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEcmgGroupLoadBalance": {
+    "name": "d5SimEcmgGroupLoadBalance",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgTable": {
+    "name": "d5SimEmmgTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5SimEmmgEntry": {
+    "name": "d5SimEmmgEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-DVB-EIS-MIB",
+        "object": "d5SimEmmgName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5SimEmmgName": {
+    "name": "d5SimEmmgName",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgAdminState": {
+    "name": "d5SimEmmgAdminState",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgStatus": {
+    "name": "d5SimEmmgStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgClientId": {
+    "name": "d5SimEmmgClientId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ECMGCSuCasId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgCommType": {
+    "name": "d5SimEmmgCommType",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EMMGCommType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5SimEmmgMuxIpAddress": {
+    "name": "d5SimEmmgMuxIpAddress",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgMuxPort": {
+    "name": "d5SimEmmgMuxPort",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgMuxUIpAddress": {
+    "name": "d5SimEmmgMuxUIpAddress",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgMuxUPort": {
+    "name": "d5SimEmmgMuxUPort",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgChannelContainer": {
+    "name": "d5SimEmmgChannelContainer",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgPid": {
+    "name": "d5SimEmmgPid",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "D5PID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgCaDesc": {
+    "name": "d5SimEmmgCaDesc",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgBandwidth": {
+    "name": "d5SimEmmgBandwidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgMpegSection": {
+    "name": "d5SimEmmgMpegSection",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimEmmgDataId": {
+    "name": "d5SimEmmgDataId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5SimCryptoGroup": {
+    "name": "d5SimCryptoGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.10",
+    "class": "objectidentity"
+  },
+  "d5SimCryptoMode": {
+    "name": "d5SimCryptoMode",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "D5CryptoMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5SimScsId": {
+    "name": "d5SimScsId",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5CwConformanceMechanism": {
+    "name": "d5CwConformanceMechanism",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5StrictEncryptionPolicy": {
+    "name": "d5StrictEncryptionPolicy",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.7.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-DVB-EIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARRIS-D5-DVB-EIS-MIB"
+  }
+}

@@ -1,0 +1,664 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "LENOVO-SMI-MIB": [
+      "network-mibs"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "lenovoEnvMIB": {
+    "name": "lenovoEnvMIB",
+    "oid": "1.3.6.1.4.1.19046.2.3.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-09-23 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "LenovoEnvMibPowerSupplyState": {
+    "name": "LenovoEnvMibPowerSupplyState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "absent": 2,
+          "outputFault": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LenovoEnvMibFanState": {
+    "name": "LenovoEnvMibFanState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "absent": 1,
+          "fault": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LenovoEnvMibTempSensorState": {
+    "name": "LenovoEnvMibTempSensorState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "fault": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LenovoEnvMibTempSensorThreshold": {
+    "name": "LenovoEnvMibTempSensorThreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "warning": 0,
+          "failure": 1,
+          "ok": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LenovoEnvMibFanAirFlow": {
+    "name": "LenovoEnvMibFanAirFlow",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "front2back": 0,
+          "back2front": 1,
+          "notinstalled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "lenovoEnvMibObjects": {
+    "name": "lenovoEnvMibObjects",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1",
+    "class": "objectidentity"
+  },
+  "lenovoEnvMibPowerSupplyTable": {
+    "name": "lenovoEnvMibPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lenovoEnvMibPowerSupplyEntry": {
+    "name": "lenovoEnvMibPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lenovoEnvMibPowerSupplyIndex": {
+    "name": "lenovoEnvMibPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibPowerSupplyID": {
+    "name": "lenovoEnvMibPowerSupplyID",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibPowerSupplyDesc": {
+    "name": "lenovoEnvMibPowerSupplyDesc",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibPowerSupplyName": {
+    "name": "lenovoEnvMibPowerSupplyName",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibPowerSupplyState": {
+    "name": "lenovoEnvMibPowerSupplyState",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LenovoEnvMibPowerSupplyState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanTable": {
+    "name": "lenovoEnvMibFanTable",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lenovoEnvMibFanEntry": {
+    "name": "lenovoEnvMibFanEntry",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lenovoEnvMibFanIndex": {
+    "name": "lenovoEnvMibFanIndex",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanID": {
+    "name": "lenovoEnvMibFanID",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanDesc": {
+    "name": "lenovoEnvMibFanDesc",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanName": {
+    "name": "lenovoEnvMibFanName",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanState": {
+    "name": "lenovoEnvMibFanState",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LenovoEnvMibFanState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanAirFlow": {
+    "name": "lenovoEnvMibFanAirFlow",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LenovoEnvMibFanAirFlow",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanModule": {
+    "name": "lenovoEnvMibFanModule",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanSpeedRPM": {
+    "name": "lenovoEnvMibFanSpeedRPM",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibFanSpeedPercent": {
+    "name": "lenovoEnvMibFanSpeedPercent",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorTable": {
+    "name": "lenovoEnvMibTempSensorTable",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorEntry": {
+    "name": "lenovoEnvMibTempSensorEntry",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorIndex": {
+    "name": "lenovoEnvMibTempSensorIndex",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorID": {
+    "name": "lenovoEnvMibTempSensorID",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorDesc": {
+    "name": "lenovoEnvMibTempSensorDesc",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorName": {
+    "name": "lenovoEnvMibTempSensorName",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorState": {
+    "name": "lenovoEnvMibTempSensorState",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LenovoEnvMibTempSensorState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorTemperature": {
+    "name": "lenovoEnvMibTempSensorTemperature",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorThresholds": {
+    "name": "lenovoEnvMibTempSensorThresholds",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.4",
+    "class": "objectidentity"
+  },
+  "lenovoEnvMIBTempSensorWarning": {
+    "name": "lenovoEnvMIBTempSensorWarning",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMIBTempSensorShutdown": {
+    "name": "lenovoEnvMIBTempSensorShutdown",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMIBTempSensorSetPoint": {
+    "name": "lenovoEnvMIBTempSensorSetPoint",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibNotificationPrefix": {
+    "name": "lenovoEnvMibNotificationPrefix",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3",
+    "class": "objectidentity"
+  },
+  "lenovoEnvMibNotifications": {
+    "name": "lenovoEnvMibNotifications",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.0",
+    "class": "objectidentity"
+  },
+  "lenovoEnvMibNotificationObjects": {
+    "name": "lenovoEnvMibNotificationObjects",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.1",
+    "class": "objectidentity"
+  },
+  "lenovoEnvMibTempSensorThreshold": {
+    "name": "lenovoEnvMibTempSensorThreshold",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LenovoEnvMibTempSensorThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lenovoEnvMibPowerSupplyFailure": {
+    "name": "lenovoEnvMibPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibPowerSupplyID"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibPowerSupplyName"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibPowerSupplyState"
+      }
+    ],
+    "status": "current"
+  },
+  "lenovoEnvMibPowerSupplyFixed": {
+    "name": "lenovoEnvMibPowerSupplyFixed",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibPowerSupplyID"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibPowerSupplyName"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibPowerSupplyState"
+      }
+    ],
+    "status": "current"
+  },
+  "lenovoEnvMibFanFailure": {
+    "name": "lenovoEnvMibFanFailure",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanID"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanName"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanState"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanRPM"
+      }
+    ],
+    "status": "current"
+  },
+  "lenovoEnvMibFanFixed": {
+    "name": "lenovoEnvMibFanFixed",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanID"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanName"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanState"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibFanRPM"
+      }
+    ],
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorFailure": {
+    "name": "lenovoEnvMibTempSensorFailure",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorID"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorName"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorState"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorTemperature"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "lenovoEnvMibTempSensorFixed": {
+    "name": "lenovoEnvMibTempSensorFixed",
+    "oid": "1.3.6.1.4.1.19046.2.3.11.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorID"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorName"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorState"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorTemperature"
+      },
+      {
+        "module": "LENOVO-ENV-MIB",
+        "object": "lenovoEnvMibTempSensorThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/lenovo/LENOVO-ENV-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LENOVO-ENV-MIB"
+  }
+}

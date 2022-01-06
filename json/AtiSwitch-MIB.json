@@ -1,0 +1,1581 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alliedTelesyn": {
+    "name": "alliedTelesyn",
+    "oid": "1.3.6.1.4.1.207",
+    "class": "objectidentity"
+  },
+  "mibObject": {
+    "name": "mibObject",
+    "oid": "1.3.6.1.4.1.207.8",
+    "class": "objectidentity"
+  },
+  "atiSwitchMib": {
+    "name": "atiSwitchMib",
+    "oid": "1.3.6.1.4.1.207.8.15",
+    "class": "moduleidentity"
+  },
+  "MACAddress": {
+    "name": "MACAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "BridgeId": {
+    "name": "BridgeId",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "Timeout": {
+    "name": "Timeout",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    }
+  },
+  "atiProduct": {
+    "name": "atiProduct",
+    "oid": "1.3.6.1.4.1.207.1",
+    "class": "objectidentity"
+  },
+  "swhub": {
+    "name": "swhub",
+    "oid": "1.3.6.1.4.1.207.1.4",
+    "class": "objectidentity"
+  },
+  "at_8024": {
+    "name": "at_8024",
+    "oid": "1.3.6.1.4.1.207.1.4.66",
+    "class": "objectidentity"
+  },
+  "at_8024GB": {
+    "name": "at_8024GB",
+    "oid": "1.3.6.1.4.1.207.1.4.67",
+    "class": "objectidentity"
+  },
+  "at_8024M": {
+    "name": "at_8024M",
+    "oid": "1.3.6.1.4.1.207.1.4.78",
+    "class": "objectidentity"
+  },
+  "at_8016F": {
+    "name": "at_8016F",
+    "oid": "1.3.6.1.4.1.207.1.4.79",
+    "class": "objectidentity"
+  },
+  "at_8026FC": {
+    "name": "at_8026FC",
+    "oid": "1.3.6.1.4.1.207.1.4.80",
+    "class": "objectidentity"
+  },
+  "atiswitchSysGroup": {
+    "name": "atiswitchSysGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.1",
+    "class": "objectidentity"
+  },
+  "atiswitchConfigGroup": {
+    "name": "atiswitchConfigGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.2",
+    "class": "objectidentity"
+  },
+  "atiswitchPortGroup": {
+    "name": "atiswitchPortGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.3",
+    "class": "objectidentity"
+  },
+  "atiswitchVlanConfigGroup": {
+    "name": "atiswitchVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.4",
+    "class": "objectidentity"
+  },
+  "atiswitchEthernetStatsGroup": {
+    "name": "atiswitchEthernetStatsGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.5",
+    "class": "objectidentity"
+  },
+  "atiswitchEthPortStatsGroup": {
+    "name": "atiswitchEthPortStatsGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.6",
+    "class": "objectidentity"
+  },
+  "atiswitchFwdVlanGroup": {
+    "name": "atiswitchFwdVlanGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.7",
+    "class": "objectidentity"
+  },
+  "atiswitchStaticMACGroup": {
+    "name": "atiswitchStaticMACGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.8",
+    "class": "objectidentity"
+  },
+  "atiswitchTraps": {
+    "name": "atiswitchTraps",
+    "oid": "1.3.6.1.4.1.207.8.15.9",
+    "class": "objectidentity"
+  },
+  "atiswitchProductType": {
+    "name": "atiswitchProductType",
+    "oid": "1.3.6.1.4.1.207.8.15.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "at8024": 1,
+          "at8024GB": 2,
+          "at8024M": 3,
+          "at8016F": 4,
+          "at8026FC": 5,
+          "other": 20
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchBasePortCount": {
+    "name": "atiswitchBasePortCount",
+    "oid": "1.3.6.1.4.1.207.8.15.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchUplinkPortCount": {
+    "name": "atiswitchUplinkPortCount",
+    "oid": "1.3.6.1.4.1.207.8.15.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchReset": {
+    "name": "atiswitchReset",
+    "oid": "1.3.6.1.4.1.207.8.15.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchnoreset": 1,
+          "switchreset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchUplink1Type": {
+    "name": "atiswitchUplink1Type",
+    "oid": "1.3.6.1.4.1.207.8.15.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copper": 1,
+          "fiber": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchUplink2Type": {
+    "name": "atiswitchUplink2Type",
+    "oid": "1.3.6.1.4.1.207.8.15.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copper": 1,
+          "fiber": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchSwGroup": {
+    "name": "atiswitchSwGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.1.7",
+    "class": "objectidentity"
+  },
+  "atiswitchIpGroup": {
+    "name": "atiswitchIpGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.1.8",
+    "class": "objectidentity"
+  },
+  "atiswitchNMGroup": {
+    "name": "atiswitchNMGroup",
+    "oid": "1.3.6.1.4.1.207.8.15.1.9",
+    "class": "objectidentity"
+  },
+  "atiswitchSw": {
+    "name": "atiswitchSw",
+    "oid": "1.3.6.1.4.1.207.8.15.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchSwVersion": {
+    "name": "atiswitchSwVersion",
+    "oid": "1.3.6.1.4.1.207.8.15.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchConfigIpAddress": {
+    "name": "atiswitchConfigIpAddress",
+    "oid": "1.3.6.1.4.1.207.8.15.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchConfigSubMask": {
+    "name": "atiswitchConfigSubMask",
+    "oid": "1.3.6.1.4.1.207.8.15.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchConfigRouting": {
+    "name": "atiswitchConfigRouting",
+    "oid": "1.3.6.1.4.1.207.8.15.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchIPAddressStatus": {
+    "name": "atiswitchIPAddressStatus",
+    "oid": "1.3.6.1.4.1.207.8.15.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fromDhcp": 1,
+          "fromBootp": 2,
+          "fromStatic": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchDNServer": {
+    "name": "atiswitchDNServer",
+    "oid": "1.3.6.1.4.1.207.8.15.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchDefaultDomainName": {
+    "name": "atiswitchDefaultDomainName",
+    "oid": "1.3.6.1.4.1.207.8.15.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchNwMgrTable": {
+    "name": "atiswitchNwMgrTable",
+    "oid": "1.3.6.1.4.1.207.8.15.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atiswitchNwMgrEntry": {
+    "name": "atiswitchNwMgrEntry",
+    "oid": "1.3.6.1.4.1.207.8.15.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiSwitch-MIB",
+        "object": "atiswitchNwMgrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atiswitchNwMgrIndex": {
+    "name": "atiswitchNwMgrIndex",
+    "oid": "1.3.6.1.4.1.207.8.15.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchNwMgrIpAddr": {
+    "name": "atiswitchNwMgrIpAddr",
+    "oid": "1.3.6.1.4.1.207.8.15.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchMirrorState": {
+    "name": "atiswitchMirrorState",
+    "oid": "1.3.6.1.4.1.207.8.15.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "receive": 1,
+          "transmit": 2,
+          "both": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchMirroringSourcePorts": {
+    "name": "atiswitchMirroringSourcePorts",
+    "oid": "1.3.6.1.4.1.207.8.15.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchMirroringDestinationPort": {
+    "name": "atiswitchMirroringDestinationPort",
+    "oid": "1.3.6.1.4.1.207.8.15.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchSecurityConfig": {
+    "name": "atiswitchSecurityConfig",
+    "oid": "1.3.6.1.4.1.207.8.15.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabledLearningLocked": 2,
+          "enabledLimited": 3,
+          "enabledSecured": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchSecurityAction": {
+    "name": "atiswitchSecurityAction",
+    "oid": "1.3.6.1.4.1.207.8.15.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sendTrapOnly": 1,
+          "disablePortOnly": 2,
+          "disablePortAndSendTrap": 3,
+          "doNothing": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortTable": {
+    "name": "atiswitchPortTable",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atiswitchPortEntry": {
+    "name": "atiswitchPortEntry",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiSwitch-MIB",
+        "object": "atiswitchPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atiswitchPortNumber": {
+    "name": "atiswitchPortNumber",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchPortName": {
+    "name": "atiswitchPortName",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortAutosenseOrHalfDuplex": {
+    "name": "atiswitchPortAutosenseOrHalfDuplex",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portAutoSense": 1,
+          "forceHalfDuplex-10M": 2,
+          "forceHalfDuplex-100M": 3,
+          "forceFullDuplex-10M": 4,
+          "forceFullDuplex-100M": 5,
+          "forceHalfDuplex-1G": 6,
+          "forceFullDuplex-1G": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortLinkState": {
+    "name": "atiswitchPortLinkState",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchPortDuplexStatus": {
+    "name": "atiswitchPortDuplexStatus",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2,
+          "autosense": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchPortSpeed": {
+    "name": "atiswitchPortSpeed",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMBits": 1,
+          "hundredMBits": 2,
+          "gigaBits": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchPortState": {
+    "name": "atiswitchPortState",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "blocking": 3,
+          "listening": 4,
+          "learning": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortFlowControlConfig": {
+    "name": "atiswitchPortFlowControlConfig",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "transmit-only": 2,
+          "receive-only": 3,
+          "transmit-and-receive": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortBackPressureConfig": {
+    "name": "atiswitchPortBackPressureConfig",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortVlanTagPriorityConfig": {
+    "name": "atiswitchPortVlanTagPriorityConfig",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "use-vlan-priority": 1,
+          "override-vlan-priority": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortCOSPriorityConfig": {
+    "name": "atiswitchPortCOSPriorityConfig",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortBroadcastConfig": {
+    "name": "atiswitchPortBroadcastConfig",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard-broadcasts": 1,
+          "do-not-discard-broadcasts": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchPortReset": {
+    "name": "atiswitchPortReset",
+    "oid": "1.3.6.1.4.1.207.8.15.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "no-reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchBasicVlanTable": {
+    "name": "atiswitchBasicVlanTable",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atiswitchBasicVlanEntry": {
+    "name": "atiswitchBasicVlanEntry",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiSwitch-MIB",
+        "object": "atiswitchBeVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atiswitchBeVlanIndex": {
+    "name": "atiswitchBeVlanIndex",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchBeVlanName": {
+    "name": "atiswitchBeVlanName",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atiswitchBeVlanTagId": {
+    "name": "atiswitchBeVlanTagId",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atiswitchBeVlanTaggedPortMask": {
+    "name": "atiswitchBeVlanTaggedPortMask",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atiswitchBeVlanUntaggedPortMask": {
+    "name": "atiswitchBeVlanUntaggedPortMask",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atiswitchBeVlanMirrorPort": {
+    "name": "atiswitchBeVlanMirrorPort",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atiswitchBeVlanRowStatus": {
+    "name": "atiswitchBeVlanRowStatus",
+    "oid": "1.3.6.1.4.1.207.8.15.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atiswitchPort2VlanTable": {
+    "name": "atiswitchPort2VlanTable",
+    "oid": "1.3.6.1.4.1.207.8.15.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atiswitchPort2VlanEntry": {
+    "name": "atiswitchPort2VlanEntry",
+    "oid": "1.3.6.1.4.1.207.8.15.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiSwitch-MIB",
+        "object": "atiswitchPvPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atiswitchPvPortNumber": {
+    "name": "atiswitchPvPortNumber",
+    "oid": "1.3.6.1.4.1.207.8.15.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchPvVlanName": {
+    "name": "atiswitchPvVlanName",
+    "oid": "1.3.6.1.4.1.207.8.15.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthMonStats": {
+    "name": "atiswitchEthMonStats",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1",
+    "class": "objectidentity"
+  },
+  "atiswitchEthErrorStats": {
+    "name": "atiswitchEthErrorStats",
+    "oid": "1.3.6.1.4.1.207.8.15.5.2",
+    "class": "objectidentity"
+  },
+  "atiswitchEthMonRxGoodFrames": {
+    "name": "atiswitchEthMonRxGoodFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthMonTxGoodFrames": {
+    "name": "atiswitchEthMonTxGoodFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthMonTxTotalBytes": {
+    "name": "atiswitchEthMonTxTotalBytes",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthMonTxDeferred": {
+    "name": "atiswitchEthMonTxDeferred",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthMonTxCollisions": {
+    "name": "atiswitchEthMonTxCollisions",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthMonTxBroadcastFrames": {
+    "name": "atiswitchEthMonTxBroadcastFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthMonTxMulticastFrames": {
+    "name": "atiswitchEthMonTxMulticastFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthMonRxOverruns": {
+    "name": "atiswitchEthMonRxOverruns",
+    "oid": "1.3.6.1.4.1.207.8.15.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthErrorCRC": {
+    "name": "atiswitchEthErrorCRC",
+    "oid": "1.3.6.1.4.1.207.8.15.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthErrorAlignment": {
+    "name": "atiswitchEthErrorAlignment",
+    "oid": "1.3.6.1.4.1.207.8.15.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthErrorRxBadFrames": {
+    "name": "atiswitchEthErrorRxBadFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthErrorLateCollision": {
+    "name": "atiswitchEthErrorLateCollision",
+    "oid": "1.3.6.1.4.1.207.8.15.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthErrorTxTotal": {
+    "name": "atiswitchEthErrorTxTotal",
+    "oid": "1.3.6.1.4.1.207.8.15.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonStats": {
+    "name": "atiswitchEthPortMonStats",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1",
+    "class": "objectidentity"
+  },
+  "atiswitchEthPortError": {
+    "name": "atiswitchEthPortError",
+    "oid": "1.3.6.1.4.1.207.8.15.6.2",
+    "class": "objectidentity"
+  },
+  "atiswitchEthPortMonTable": {
+    "name": "atiswitchEthPortMonTable",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atiswitchEthPortMonEntry": {
+    "name": "atiswitchEthPortMonEntry",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiSwitch-MIB",
+        "object": "atiswitchEthPortMonId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atiswitchEthPortMonId": {
+    "name": "atiswitchEthPortMonId",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonRxGoodFrames": {
+    "name": "atiswitchEthPortMonRxGoodFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonTxGoodFrames": {
+    "name": "atiswitchEthPortMonTxGoodFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonTxTotalBytes": {
+    "name": "atiswitchEthPortMonTxTotalBytes",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonTxDeferred": {
+    "name": "atiswitchEthPortMonTxDeferred",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonTxCollisions": {
+    "name": "atiswitchEthPortMonTxCollisions",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonTxBroadcastFrames": {
+    "name": "atiswitchEthPortMonTxBroadcastFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonTxMulticastFrames": {
+    "name": "atiswitchEthPortMonTxMulticastFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortMonRxOverruns": {
+    "name": "atiswitchEthPortMonRxOverruns",
+    "oid": "1.3.6.1.4.1.207.8.15.6.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortErrorTable": {
+    "name": "atiswitchEthPortErrorTable",
+    "oid": "1.3.6.1.4.1.207.8.15.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atiswitchEthPortErrorEntry": {
+    "name": "atiswitchEthPortErrorEntry",
+    "oid": "1.3.6.1.4.1.207.8.15.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiSwitch-MIB",
+        "object": "atiswitchEthPortErrorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atiswitchEthPortErrorId": {
+    "name": "atiswitchEthPortErrorId",
+    "oid": "1.3.6.1.4.1.207.8.15.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortErrorRxBadFrames": {
+    "name": "atiswitchEthPortErrorRxBadFrames",
+    "oid": "1.3.6.1.4.1.207.8.15.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchEthPortErrorTxTotal": {
+    "name": "atiswitchEthPortErrorTxTotal",
+    "oid": "1.3.6.1.4.1.207.8.15.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchFwdVlanTable": {
+    "name": "atiswitchFwdVlanTable",
+    "oid": "1.3.6.1.4.1.207.8.15.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atiswitchFwdVlanEntry": {
+    "name": "atiswitchFwdVlanEntry",
+    "oid": "1.3.6.1.4.1.207.8.15.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiSwitch-MIB",
+        "object": "atiswitchFwdVlanMACAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atiswitchFwdVlanMACAddr": {
+    "name": "atiswitchFwdVlanMACAddr",
+    "oid": "1.3.6.1.4.1.207.8.15.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MACAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchFwdVlanVlanId": {
+    "name": "atiswitchFwdVlanVlanId",
+    "oid": "1.3.6.1.4.1.207.8.15.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchFwdVlanAge": {
+    "name": "atiswitchFwdVlanAge",
+    "oid": "1.3.6.1.4.1.207.8.15.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchFwdVlanStatus": {
+    "name": "atiswitchFwdVlanStatus",
+    "oid": "1.3.6.1.4.1.207.8.15.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchFwdVlanPort": {
+    "name": "atiswitchFwdVlanPort",
+    "oid": "1.3.6.1.4.1.207.8.15.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atiswitchStaticMACTable": {
+    "name": "atiswitchStaticMACTable",
+    "oid": "1.3.6.1.4.1.207.8.15.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atiswitchStaticMACEntry": {
+    "name": "atiswitchStaticMACEntry",
+    "oid": "1.3.6.1.4.1.207.8.15.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiSwitch-MIB",
+        "object": "atiswitchStaticMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atiswitchStaticMACAddress": {
+    "name": "atiswitchStaticMACAddress",
+    "oid": "1.3.6.1.4.1.207.8.15.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MACAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchStaticMACPortNumber": {
+    "name": "atiswitchStaticMACPortNumber",
+    "oid": "1.3.6.1.4.1.207.8.15.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchStaticMACEntryStatus": {
+    "name": "atiswitchStaticMACEntryStatus",
+    "oid": "1.3.6.1.4.1.207.8.15.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atiswitchFanStopTrap": {
+    "name": "atiswitchFanStopTrap",
+    "oid": "1.3.6.1.4.1.207.8.15.9.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "atiswitchTemperatureAbnormalTrap": {
+    "name": "atiswitchTemperatureAbnormalTrap",
+    "oid": "1.3.6.1.4.1.207.8.15.9.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AtiSwitch-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AtiSwitch-MIB"
+  }
+}

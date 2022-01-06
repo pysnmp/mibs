@@ -1,0 +1,6257 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-TC-MIB": [
+      "AtmTrafficDescrParamIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "zeroDotZero",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "pnniMIB": {
+    "name": "pnniMIB",
+    "oid": "1.3.6.1.4.1.353.5.4.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-04-24 00:00",
+        "description": "Removed Following TEXTUAL CONVENTION definitions: Unsigned32 zeroDotZero. Importing Following from SNMPv2-SMI. Unsigned32 zeroDotZero."
+      },
+      {
+        "revision": "1997-03-01 00:00",
+        "description": "Updated version of the PNNI MIB released with the PNNI V1.0 Errata and PICS (af-pnni-81.00)."
+      },
+      {
+        "revision": "1996-02-27 00:00",
+        "description": "Initial version of the MIB for monitoring and controlling PNNI routing."
+      }
+    ]
+  },
+  "atmForum": {
+    "name": "atmForum",
+    "oid": "1.3.6.1.4.1.353",
+    "class": "objectidentity"
+  },
+  "atmForumNetworkManagement": {
+    "name": "atmForumNetworkManagement",
+    "oid": "1.3.6.1.4.1.353.5",
+    "class": "objectidentity"
+  },
+  "atmfPnni": {
+    "name": "atmfPnni",
+    "oid": "1.3.6.1.4.1.353.5.4",
+    "class": "objectidentity"
+  },
+  "pnniMIBObjects": {
+    "name": "pnniMIBObjects",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1",
+    "class": "objectidentity"
+  },
+  "PnniAtmAddr": {
+    "name": "PnniAtmAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PnniNodeIndex": {
+    "name": "PnniNodeIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PnniNodeId": {
+    "name": "PnniNodeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 22,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PnniPortId": {
+    "name": "PnniPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PnniAggrToken": {
+    "name": "PnniAggrToken",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PnniPeerGroupId": {
+    "name": "PnniPeerGroupId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 14,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PnniLevel": {
+    "name": "PnniLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 104
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PnniSvccRccIndex": {
+    "name": "PnniSvccRccIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AtmAddrPrefix": {
+    "name": "AtmAddrPrefix",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PnniPrefixLength": {
+    "name": "PnniPrefixLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 152
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PnniMetricsTag": {
+    "name": "PnniMetricsTag",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ServiceCategory": {
+    "name": "ServiceCategory",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "cbr": 2,
+          "rtVbr": 3,
+          "nrtVbr": 4,
+          "abr": 5,
+          "ubr": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClpType": {
+    "name": "ClpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clpEqual0": 1,
+          "clpEqual0Or1": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TnsType": {
+    "name": "TnsType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nationalNetworkIdentification": 2,
+          "other": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TnsPlan": {
+    "name": "TnsPlan",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "carrierIdentificationCode": 1,
+          "other": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PnniVersion": {
+    "name": "PnniVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsupported": 1,
+          "version1point0": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PnniHelloState": {
+    "name": "PnniHelloState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "down": 2,
+          "attempt": 3,
+          "oneWayInside": 4,
+          "twoWayInside": 5,
+          "oneWayOutside": 6,
+          "twoWayOutside": 7,
+          "commonOutside": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "pnniBaseGroup": {
+    "name": "pnniBaseGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "pnniHighestVersion": {
+    "name": "pnniHighestVersion",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLowestVersion": {
+    "name": "pnniLowestVersion",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniDtlCountOriginator": {
+    "name": "pnniDtlCountOriginator",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniDtlCountBorder": {
+    "name": "pnniDtlCountBorder",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniCrankbackCountOriginator": {
+    "name": "pnniCrankbackCountOriginator",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniCrankbackCountBorder": {
+    "name": "pnniCrankbackCountBorder",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniAltRouteCountOriginator": {
+    "name": "pnniAltRouteCountOriginator",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniAltRouteCountBorder": {
+    "name": "pnniAltRouteCountBorder",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteFailCountOriginator": {
+    "name": "pnniRouteFailCountOriginator",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteFailCountBorder": {
+    "name": "pnniRouteFailCountBorder",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteFailUnreachableOriginator": {
+    "name": "pnniRouteFailUnreachableOriginator",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteFailUnreachableBorder": {
+    "name": "pnniRouteFailUnreachableBorder",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodeTable": {
+    "name": "pnniNodeTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNodeEntry": {
+    "name": "pnniNodeEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNodeIndex": {
+    "name": "pnniNodeIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNodeLevel": {
+    "name": "pnniNodeLevel",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 96,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeId": {
+    "name": "pnniNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeLowest": {
+    "name": "pnniNodeLowest",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeAdminStatus": {
+    "name": "pnniNodeAdminStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeOperStatus": {
+    "name": "pnniNodeOperStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodeDomainName": {
+    "name": "pnniNodeDomainName",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeAtmAddress": {
+    "name": "pnniNodeAtmAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePeerGroupId": {
+    "name": "pnniNodePeerGroupId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPeerGroupId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeRestrictedTransit": {
+    "name": "pnniNodeRestrictedTransit",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeComplexRep": {
+    "name": "pnniNodeComplexRep",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeRestrictedBranching": {
+    "name": "pnniNodeRestrictedBranching",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodeDatabaseOverload": {
+    "name": "pnniNodeDatabaseOverload",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodePtses": {
+    "name": "pnniNodePtses",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodeRowStatus": {
+    "name": "pnniNodeRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePglTable": {
+    "name": "pnniNodePglTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNodePglEntry": {
+    "name": "pnniNodePglEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "pnniNodePglEntry",
+      "module": "PNNI-MIB",
+      "object": "pnniNodeEntry"
+    },
+    "status": "current"
+  },
+  "pnniNodePglLeadershipPriority": {
+    "name": "pnniNodePglLeadershipPriority",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 205
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeCfgParentNodeIndex": {
+    "name": "pnniNodeCfgParentNodeIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePglInitTime": {
+    "name": "pnniNodePglInitTime",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePglOverrideDelay": {
+    "name": "pnniNodePglOverrideDelay",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePglReelectTime": {
+    "name": "pnniNodePglReelectTime",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePglState": {
+    "name": "pnniNodePglState",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "starting": 1,
+          "awaiting": 2,
+          "awaitingFull": 3,
+          "initialDelay": 4,
+          "calculating": 5,
+          "awaitUnanimity": 6,
+          "operPgl": 7,
+          "operNotPgl": 8,
+          "hungElection": 9,
+          "awaitReElection": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodePreferredPgl": {
+    "name": "pnniNodePreferredPgl",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodePeerGroupLeader": {
+    "name": "pnniNodePeerGroupLeader",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodePglTimeStamp": {
+    "name": "pnniNodePglTimeStamp",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodeActiveParentNodeId": {
+    "name": "pnniNodeActiveParentNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNodeTimerTable": {
+    "name": "pnniNodeTimerTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNodeTimerEntry": {
+    "name": "pnniNodeTimerEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "pnniNodeTimerEntry",
+      "module": "PNNI-MIB",
+      "object": "pnniNodeEntry"
+    },
+    "status": "current"
+  },
+  "pnniNodePtseHolddown": {
+    "name": "pnniNodePtseHolddown",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "100 milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeHelloHolddown": {
+    "name": "pnniNodeHelloHolddown",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "100 milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeHelloInterval": {
+    "name": "pnniNodeHelloInterval",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeHelloInactivityFactor": {
+    "name": "pnniNodeHelloInactivityFactor",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeHlinkInact": {
+    "name": "pnniNodeHlinkInact",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePtseRefreshInterval": {
+    "name": "pnniNodePtseRefreshInterval",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePtseLifetimeFactor": {
+    "name": "pnniNodePtseLifetimeFactor",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 101,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeRxmtInterval": {
+    "name": "pnniNodeRxmtInterval",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodePeerDelayedAckInterval": {
+    "name": "pnniNodePeerDelayedAckInterval",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "100 milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeAvcrPm": {
+    "name": "pnniNodeAvcrPm",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeAvcrMt": {
+    "name": "pnniNodeAvcrMt",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeCdvPm": {
+    "name": "pnniNodeCdvPm",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeCtdPm": {
+    "name": "pnniNodeCtdPm",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeSvccTable": {
+    "name": "pnniNodeSvccTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNodeSvccEntry": {
+    "name": "pnniNodeSvccEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "pnniNodeSvccEntry",
+      "module": "PNNI-MIB",
+      "object": "pnniNodeEntry"
+    },
+    "status": "current"
+  },
+  "pnniNodeSvccInitTime": {
+    "name": "pnniNodeSvccInitTime",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeSvccRetryTime": {
+    "name": "pnniNodeSvccRetryTime",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeSvccCallingIntegrityTime": {
+    "name": "pnniNodeSvccCallingIntegrityTime",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 35,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeSvccCalledIntegrityTime": {
+    "name": "pnniNodeSvccCalledIntegrityTime",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniNodeSvccTrafficDescriptorIndex": {
+    "name": "pnniNodeSvccTrafficDescriptorIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeMappingTable": {
+    "name": "pnniScopeMappingTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniScopeMappingEntry": {
+    "name": "pnniScopeMappingEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "pnniScopeMappingEntry",
+      "module": "PNNI-MIB",
+      "object": "pnniNodeEntry"
+    },
+    "status": "current"
+  },
+  "pnniScopeLocalNetwork": {
+    "name": "pnniScopeLocalNetwork",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 96,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeLocalNetworkPlusOne": {
+    "name": "pnniScopeLocalNetworkPlusOne",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 96,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeLocalNetworkPlusTwo": {
+    "name": "pnniScopeLocalNetworkPlusTwo",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 96,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeSiteMinusOne": {
+    "name": "pnniScopeSiteMinusOne",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeIntraSite": {
+    "name": "pnniScopeIntraSite",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeSitePlusOne": {
+    "name": "pnniScopeSitePlusOne",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 72,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeOrganizationMinusOne": {
+    "name": "pnniScopeOrganizationMinusOne",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 72,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeIntraOrganization": {
+    "name": "pnniScopeIntraOrganization",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeOrganizationPlusOne": {
+    "name": "pnniScopeOrganizationPlusOne",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeCommunityMinusOne": {
+    "name": "pnniScopeCommunityMinusOne",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeIntraCommunity": {
+    "name": "pnniScopeIntraCommunity",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 48,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeCommunityPlusOne": {
+    "name": "pnniScopeCommunityPlusOne",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 48,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeRegional": {
+    "name": "pnniScopeRegional",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeInterRegional": {
+    "name": "pnniScopeInterRegional",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniScopeGlobal": {
+    "name": "pnniScopeGlobal",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniSummaryTable": {
+    "name": "pnniSummaryTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "pnniSummaryEntry": {
+    "name": "pnniSummaryEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryAddress",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "pnniSummaryAddress": {
+    "name": "pnniSummaryAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddrPrefix",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "pnniSummaryPrefixLength": {
+    "name": "pnniSummaryPrefixLength",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "pnniSummaryType": {
+    "name": "pnniSummaryType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "exterior": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "internal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "pnniSummarySuppress": {
+    "name": "pnniSummarySuppress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "pnniSummaryState": {
+    "name": "pnniSummaryState",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertising": 1,
+          "suppressing": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "pnniSummaryRowStatus": {
+    "name": "pnniSummaryRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "pnniSummaryAddressTable": {
+    "name": "pnniSummaryAddressTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniSummaryAddressEntry": {
+    "name": "pnniSummaryAddressEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryAddressAddress",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryAddressPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniSummaryAddressType": {
+    "name": "pnniSummaryAddressType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "exterior": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniSummaryAddressAddress": {
+    "name": "pnniSummaryAddressAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddrPrefix",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniSummaryAddressPrefixLength": {
+    "name": "pnniSummaryAddressPrefixLength",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniSummaryAddressSuppress": {
+    "name": "pnniSummaryAddressSuppress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniSummaryAddressState": {
+    "name": "pnniSummaryAddressState",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertising": 1,
+          "suppressing": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSummaryAddressRowStatus": {
+    "name": "pnniSummaryAddressRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniIfTable": {
+    "name": "pnniIfTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniIfEntry": {
+    "name": "pnniIfEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniIfNodeIndex": {
+    "name": "pnniIfNodeIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfPortId": {
+    "name": "pnniIfPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniIfAggrToken": {
+    "name": "pnniIfAggrToken",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniAggrToken",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfVPCapability": {
+    "name": "pnniIfVPCapability",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfAdmWeightCbr": {
+    "name": "pnniIfAdmWeightCbr",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5040,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfAdmWeightRtVbr": {
+    "name": "pnniIfAdmWeightRtVbr",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5040,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfAdmWeightNrtVbr": {
+    "name": "pnniIfAdmWeightNrtVbr",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5040,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfAdmWeightAbr": {
+    "name": "pnniIfAdmWeightAbr",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5040,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfAdmWeightUbr": {
+    "name": "pnniIfAdmWeightUbr",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5040,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfRccServiceCategory": {
+    "name": "pnniIfRccServiceCategory",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceCategory",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniIfRccTrafficDescrIndex": {
+    "name": "pnniIfRccTrafficDescrIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pnniLinkTable": {
+    "name": "pnniLinkTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniLinkEntry": {
+    "name": "pnniLinkEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniLinkPortId": {
+    "name": "pnniLinkPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniLinkType": {
+    "name": "pnniLinkType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "lowestLevelHorizontalLink": 2,
+          "horizontalLinkToFromLgn": 3,
+          "lowestLevelOutsideLink": 4,
+          "uplink": 5,
+          "outsideLinkAndUplink": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkVersion": {
+    "name": "pnniLinkVersion",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkHelloState": {
+    "name": "pnniLinkHelloState",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniHelloState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkRemoteNodeId": {
+    "name": "pnniLinkRemoteNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkRemotePortId": {
+    "name": "pnniLinkRemotePortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkDerivedAggrToken": {
+    "name": "pnniLinkDerivedAggrToken",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniAggrToken",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkUpnodeId": {
+    "name": "pnniLinkUpnodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkUpnodeAtmAddress": {
+    "name": "pnniLinkUpnodeAtmAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkCommonPeerGroupId": {
+    "name": "pnniLinkCommonPeerGroupId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPeerGroupId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkIfIndex": {
+    "name": "pnniLinkIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkSvccRccIndex": {
+    "name": "pnniLinkSvccRccIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniSvccRccIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkRcvHellos": {
+    "name": "pnniLinkRcvHellos",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniLinkXmtHellos": {
+    "name": "pnniLinkXmtHellos",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerTable": {
+    "name": "pnniNbrPeerTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNbrPeerEntry": {
+    "name": "pnniNbrPeerEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerRemoteNodeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNbrPeerRemoteNodeId": {
+    "name": "pnniNbrPeerRemoteNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNbrPeerState": {
+    "name": "pnniNbrPeerState",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "npdown": 1,
+          "negotiating": 2,
+          "exchanging": 3,
+          "loading": 4,
+          "full": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerSvccRccIndex": {
+    "name": "pnniNbrPeerSvccRccIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniSvccRccIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerPortCount": {
+    "name": "pnniNbrPeerPortCount",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerRcvDbSums": {
+    "name": "pnniNbrPeerRcvDbSums",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerXmtDbSums": {
+    "name": "pnniNbrPeerXmtDbSums",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerRcvPtsps": {
+    "name": "pnniNbrPeerRcvPtsps",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerXmtPtsps": {
+    "name": "pnniNbrPeerXmtPtsps",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerRcvPtseReqs": {
+    "name": "pnniNbrPeerRcvPtseReqs",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerXmtPtseReqs": {
+    "name": "pnniNbrPeerXmtPtseReqs",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerRcvPtseAcks": {
+    "name": "pnniNbrPeerRcvPtseAcks",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerXmtPtseAcks": {
+    "name": "pnniNbrPeerXmtPtseAcks",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniNbrPeerPortTable": {
+    "name": "pnniNbrPeerPortTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNbrPeerPortEntry": {
+    "name": "pnniNbrPeerPortEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerRemoteNodeId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNbrPeerPortId": {
+    "name": "pnniNbrPeerPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniNbrPeerPortFloodStatus": {
+    "name": "pnniNbrPeerPortFloodStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccTable": {
+    "name": "pnniSvccRccTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniSvccRccEntry": {
+    "name": "pnniSvccRccEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniSvccRccIndex": {
+    "name": "pnniSvccRccIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniSvccRccIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniSvccRccVersion": {
+    "name": "pnniSvccRccVersion",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccHelloState": {
+    "name": "pnniSvccRccHelloState",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniHelloState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccRemoteNodeId": {
+    "name": "pnniSvccRccRemoteNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccRemoteAtmAddress": {
+    "name": "pnniSvccRccRemoteAtmAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccRcvHellos": {
+    "name": "pnniSvccRccRcvHellos",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccXmtHellos": {
+    "name": "pnniSvccRccXmtHellos",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccIfIndex": {
+    "name": "pnniSvccRccIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccVpi": {
+    "name": "pnniSvccRccVpi",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniSvccRccVci": {
+    "name": "pnniSvccRccVci",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniPtseTable": {
+    "name": "pnniPtseTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniPtseEntry": {
+    "name": "pnniPtseEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniPtseOriginatingNodeId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniPtseId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniPtseOriginatingNodeId": {
+    "name": "pnniPtseOriginatingNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniPtseId": {
+    "name": "pnniPtseId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniPtseType": {
+    "name": "pnniPtseType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "nodalStateParameters": 96,
+          "nodalInformation": 97,
+          "internalReachableAddresses": 224,
+          "exteriorReachableAddresses": 256,
+          "horizontalLinks": 288,
+          "uplinks": 289
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniPtseSequenceNum": {
+    "name": "pnniPtseSequenceNum",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniPtseChecksum": {
+    "name": "pnniPtseChecksum",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniPtseLifeTime": {
+    "name": "pnniPtseLifeTime",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniPtseInfo": {
+    "name": "pnniPtseInfo",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapTable": {
+    "name": "pnniMapTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapEntry": {
+    "name": "pnniMapEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapOriginatingNodeId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapOriginatingPortId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMapOriginatingNodeId": {
+    "name": "pnniMapOriginatingNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapOriginatingPortId": {
+    "name": "pnniMapOriginatingPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapIndex": {
+    "name": "pnniMapIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapType": {
+    "name": "pnniMapType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "horizontalLink": 1,
+          "uplink": 2,
+          "node": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapPeerGroupId": {
+    "name": "pnniMapPeerGroupId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPeerGroupId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapAggrToken": {
+    "name": "pnniMapAggrToken",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniAggrToken",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapRemoteNodeId": {
+    "name": "pnniMapRemoteNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapRemotePortId": {
+    "name": "pnniMapRemotePortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapVPCapability": {
+    "name": "pnniMapVPCapability",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapPtseId": {
+    "name": "pnniMapPtseId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapMetricsTag": {
+    "name": "pnniMapMetricsTag",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniMetricsTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeTable": {
+    "name": "pnniMapNodeTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapNodeEntry": {
+    "name": "pnniMapNodeEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMapNodeId": {
+    "name": "pnniMapNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapNodePeerGroupId": {
+    "name": "pnniMapNodePeerGroupId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPeerGroupId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeAtmAddress": {
+    "name": "pnniMapNodeAtmAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeRestrictedTransit": {
+    "name": "pnniMapNodeRestrictedTransit",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeComplexRep": {
+    "name": "pnniMapNodeComplexRep",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeRestrictedBranching": {
+    "name": "pnniMapNodeRestrictedBranching",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeDatabaseOverload": {
+    "name": "pnniMapNodeDatabaseOverload",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeIAmLeader": {
+    "name": "pnniMapNodeIAmLeader",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeLeadershipPriority": {
+    "name": "pnniMapNodeLeadershipPriority",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodePreferredPgl": {
+    "name": "pnniMapNodePreferredPgl",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeParentNodeId": {
+    "name": "pnniMapNodeParentNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeParentAtmAddress": {
+    "name": "pnniMapNodeParentAtmAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeParentPeerGroupId": {
+    "name": "pnniMapNodeParentPeerGroupId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPeerGroupId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapNodeParentPglNodeId": {
+    "name": "pnniMapNodeParentPglNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapAddrTable": {
+    "name": "pnniMapAddrTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapAddrEntry": {
+    "name": "pnniMapAddrEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapAddrAdvertisingNodeId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapAddrAdvertisedPortId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMapAddrAdvertisingNodeId": {
+    "name": "pnniMapAddrAdvertisingNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapAddrAdvertisedPortId": {
+    "name": "pnniMapAddrAdvertisedPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapAddrIndex": {
+    "name": "pnniMapAddrIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapAddrAddress": {
+    "name": "pnniMapAddrAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddrPrefix",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapAddrPrefixLength": {
+    "name": "pnniMapAddrPrefixLength",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMapTnsTable": {
+    "name": "pnniMapTnsTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapTnsEntry": {
+    "name": "pnniMapTnsEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapTnsAdvertisingNodeId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapTnsAdvertisedPortId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapTnsType",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapTnsPlan",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapTnsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMapTnsAdvertisingNodeId": {
+    "name": "pnniMapTnsAdvertisingNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapTnsAdvertisedPortId": {
+    "name": "pnniMapTnsAdvertisedPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapTnsType": {
+    "name": "pnniMapTnsType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnsType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapTnsPlan": {
+    "name": "pnniMapTnsPlan",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnsPlan",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMapTnsId": {
+    "name": "pnniMapTnsId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniMetricsTable": {
+    "name": "pnniMetricsTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMetricsEntry": {
+    "name": "pnniMetricsEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetricsTag",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetricsDirection",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetricsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMetricsTag": {
+    "name": "pnniMetricsTag",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniMetricsTag",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMetricsDirection": {
+    "name": "pnniMetricsDirection",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "incoming": 1,
+          "outgoing": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMetricsIndex": {
+    "name": "pnniMetricsIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniMetricsClasses": {
+    "name": "pnniMetricsClasses",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetricsGcacClp": {
+    "name": "pnniMetricsGcacClp",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClpType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetricsAdminWeight": {
+    "name": "pnniMetricsAdminWeight",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5040,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetrics1": {
+    "name": "pnniMetrics1",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetrics2": {
+    "name": "pnniMetrics2",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetrics3": {
+    "name": "pnniMetrics3",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetrics4": {
+    "name": "pnniMetrics4",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetrics5": {
+    "name": "pnniMetrics5",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetrics6": {
+    "name": "pnniMetrics6",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetrics7": {
+    "name": "pnniMetrics7",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetrics8": {
+    "name": "pnniMetrics8",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMetricsRowStatus": {
+    "name": "pnniMetricsRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.18.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRoutingGroup": {
+    "name": "pnniRoutingGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19",
+    "class": "objectidentity"
+  },
+  "pnniRouteBaseGroup": {
+    "name": "pnniRouteBaseGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.1",
+    "class": "objectidentity"
+  },
+  "pnniRouteNodeNumber": {
+    "name": "pnniRouteNodeNumber",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteAddrNumber": {
+    "name": "pnniRouteAddrNumber",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteNodeTable": {
+    "name": "pnniRouteNodeTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteNodeEntry": {
+    "name": "pnniRouteNodeEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeClass",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeDestNodeId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeDTL",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniRouteNodeClass": {
+    "name": "pnniRouteNodeClass",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceCategory",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteNodeDestNodeId": {
+    "name": "pnniRouteNodeDestNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteNodeDTL": {
+    "name": "pnniRouteNodeDTL",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteNodeDestPortId": {
+    "name": "pnniRouteNodeDestPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeProto": {
+    "name": "pnniRouteNodeProto",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "mgmt": 3,
+          "pnni": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteNodeTimeStamp": {
+    "name": "pnniRouteNodeTimeStamp",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteNodeInfo": {
+    "name": "pnniRouteNodeInfo",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeGcacClp": {
+    "name": "pnniRouteNodeGcacClp",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClpType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetricAW": {
+    "name": "pnniRouteNodeFwdMetricAW",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetric1": {
+    "name": "pnniRouteNodeFwdMetric1",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetric2": {
+    "name": "pnniRouteNodeFwdMetric2",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetric3": {
+    "name": "pnniRouteNodeFwdMetric3",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetric4": {
+    "name": "pnniRouteNodeFwdMetric4",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetric5": {
+    "name": "pnniRouteNodeFwdMetric5",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetric6": {
+    "name": "pnniRouteNodeFwdMetric6",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetric7": {
+    "name": "pnniRouteNodeFwdMetric7",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeFwdMetric8": {
+    "name": "pnniRouteNodeFwdMetric8",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetricAW": {
+    "name": "pnniRouteNodeBwdMetricAW",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetric1": {
+    "name": "pnniRouteNodeBwdMetric1",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetric2": {
+    "name": "pnniRouteNodeBwdMetric2",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetric3": {
+    "name": "pnniRouteNodeBwdMetric3",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetric4": {
+    "name": "pnniRouteNodeBwdMetric4",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetric5": {
+    "name": "pnniRouteNodeBwdMetric5",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetric6": {
+    "name": "pnniRouteNodeBwdMetric6",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetric7": {
+    "name": "pnniRouteNodeBwdMetric7",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeBwdMetric8": {
+    "name": "pnniRouteNodeBwdMetric8",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4294967295",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeVPCapability": {
+    "name": "pnniRouteNodeVPCapability",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteNodeStatus": {
+    "name": "pnniRouteNodeStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniDTLTable": {
+    "name": "pnniDTLTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniDTLEntry": {
+    "name": "pnniDTLEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniDTLIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniDTLEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniDTLIndex": {
+    "name": "pnniDTLIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniDTLEntryIndex": {
+    "name": "pnniDTLEntryIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniDTLNodeId": {
+    "name": "pnniDTLNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniDTLPortId": {
+    "name": "pnniDTLPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniDTLLinkType": {
+    "name": "pnniDTLLinkType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "horizontal": 2,
+          "uplink": 3,
+          "last": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniDTLStatus": {
+    "name": "pnniDTLStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrTable": {
+    "name": "pnniRouteAddrTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteAddrEntry": {
+    "name": "pnniRouteAddrEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrAddress",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrPrefixLength",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniRouteAddrAddress": {
+    "name": "pnniRouteAddrAddress",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddrPrefix",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteAddrPrefixLength": {
+    "name": "pnniRouteAddrPrefixLength",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteAddrIndex": {
+    "name": "pnniRouteAddrIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteAddrIfIndex": {
+    "name": "pnniRouteAddrIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrAdvertisingNodeId": {
+    "name": "pnniRouteAddrAdvertisingNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrAdvertisedPortId": {
+    "name": "pnniRouteAddrAdvertisedPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrType": {
+    "name": "pnniRouteAddrType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reject": 2,
+          "internal": 3,
+          "exterior": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "exterior",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrProto": {
+    "name": "pnniRouteAddrProto",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "mgmt": 3,
+          "pnni": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteAddrPnniScope": {
+    "name": "pnniRouteAddrPnniScope",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrVPCapability": {
+    "name": "pnniRouteAddrVPCapability",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrMetricsTag": {
+    "name": "pnniRouteAddrMetricsTag",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniMetricsTag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrPtseId": {
+    "name": "pnniRouteAddrPtseId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteAddrOriginateAdvertisement": {
+    "name": "pnniRouteAddrOriginateAdvertisement",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrInfo": {
+    "name": "pnniRouteAddrInfo",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteAddrOperStatus": {
+    "name": "pnniRouteAddrOperStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "advertised": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteAddrTimeStamp": {
+    "name": "pnniRouteAddrTimeStamp",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteAddrRowStatus": {
+    "name": "pnniRouteAddrRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsTable": {
+    "name": "pnniRouteTnsTable",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteTnsEntry": {
+    "name": "pnniRouteTnsEntry",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsType",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsPlan",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsId",
+        "implied": 0
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pnniRouteTnsType": {
+    "name": "pnniRouteTnsType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnsType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteTnsPlan": {
+    "name": "pnniRouteTnsPlan",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnsPlan",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteTnsId": {
+    "name": "pnniRouteTnsId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteTnsIndex": {
+    "name": "pnniRouteTnsIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pnniRouteTnsIfIndex": {
+    "name": "pnniRouteTnsIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsAdvertisingNodeId": {
+    "name": "pnniRouteTnsAdvertisingNodeId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsAdvertisedPortId": {
+    "name": "pnniRouteTnsAdvertisedPortId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsRouteType": {
+    "name": "pnniRouteTnsRouteType",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "exterior": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "exterior",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsProto": {
+    "name": "pnniRouteTnsProto",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "mgmt": 3,
+          "pnni": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteTnsPnniScope": {
+    "name": "pnniRouteTnsPnniScope",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsVPCapability": {
+    "name": "pnniRouteTnsVPCapability",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsMetricsTag": {
+    "name": "pnniRouteTnsMetricsTag",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniMetricsTag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsPtseId": {
+    "name": "pnniRouteTnsPtseId",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteTnsOriginateAdvertisement": {
+    "name": "pnniRouteTnsOriginateAdvertisement",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsInfo": {
+    "name": "pnniRouteTnsInfo",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniRouteTnsOperStatus": {
+    "name": "pnniRouteTnsOperStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "advertised": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteTnsTimeStamp": {
+    "name": "pnniRouteTnsTimeStamp",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pnniRouteTnsRowStatus": {
+    "name": "pnniRouteTnsRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.4.1.1.19.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pnniMIBConformance": {
+    "name": "pnniMIBConformance",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2",
+    "class": "objectidentity"
+  },
+  "pnniMIBCompliances": {
+    "name": "pnniMIBCompliances",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "pnniMIBGroups": {
+    "name": "pnniMIBGroups",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "pnniMIBCompliance": {
+    "name": "pnniMIBCompliance",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pnniGeneralMinGroup",
+        "module": "PNNI-MIB"
+      },
+      {
+        "object": "pnniNodeMinGroup",
+        "module": "PNNI-MIB"
+      },
+      {
+        "object": "pnniNodePglMinGroup",
+        "module": "PNNI-MIB"
+      },
+      {
+        "object": "pnniNodeTimerMinGroup",
+        "module": "PNNI-MIB"
+      },
+      {
+        "object": "pnniScopeMinGroup",
+        "module": "PNNI-MIB"
+      },
+      {
+        "object": "pnniIfMinGroup",
+        "module": "PNNI-MIB"
+      },
+      {
+        "object": "pnniLinkMinGroup",
+        "module": "PNNI-MIB"
+      },
+      {
+        "object": "pnniNbrPeerMinGroup",
+        "module": "PNNI-MIB"
+      },
+      {
+        "object": "pnniNbrPeerPortMinGroup",
+        "module": "PNNI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniGeneralMinGroup": {
+    "name": "pnniGeneralMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniHighestVersion"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLowestVersion"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniDtlCountOriginator"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniCrankbackCountOriginator"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniAltRouteCountOriginator"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteFailCountOriginator"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteFailUnreachableOriginator"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniGeneralBorderGroup": {
+    "name": "pnniGeneralBorderGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniDtlCountBorder"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniCrankbackCountBorder"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniAltRouteCountBorder"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteFailCountBorder"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteFailUnreachableBorder"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNodeMinGroup": {
+    "name": "pnniNodeMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeLevel"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeLowest"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeAdminStatus"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeOperStatus"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeDomainName"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeAtmAddress"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePeerGroupId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeRestrictedTransit"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeComplexRep"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeRestrictedBranching"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeDatabaseOverload"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePtses"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNodePglMinGroup": {
+    "name": "pnniNodePglMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePglLeadershipPriority"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePglInitTime"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePglReelectTime"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePglState"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePreferredPgl"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePeerGroupLeader"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePglTimeStamp"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeActiveParentNodeId"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNodePglLgnGroup": {
+    "name": "pnniNodePglLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeCfgParentNodeIndex"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePglOverrideDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNodeTimerMinGroup": {
+    "name": "pnniNodeTimerMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePtseHolddown"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeHelloHolddown"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeHelloInterval"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeHelloInactivityFactor"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePtseRefreshInterval"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePtseLifetimeFactor"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeRxmtInterval"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodePeerDelayedAckInterval"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeAvcrPm"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeAvcrMt"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeCdvPm"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeCtdPm"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNodeTimerLgnGroup": {
+    "name": "pnniNodeTimerLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeHlinkInact"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNodeSvccLgnGroup": {
+    "name": "pnniNodeSvccLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeSvccInitTime"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeSvccRetryTime"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeSvccCallingIntegrityTime"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeSvccCalledIntegrityTime"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNodeSvccTrafficDescriptorIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniScopeMinGroup": {
+    "name": "pnniScopeMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeLocalNetwork"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeLocalNetworkPlusOne"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeLocalNetworkPlusTwo"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeSiteMinusOne"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeIntraSite"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeSitePlusOne"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeOrganizationMinusOne"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeIntraOrganization"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeOrganizationPlusOne"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeCommunityMinusOne"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeIntraCommunity"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeCommunityPlusOne"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeRegional"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeInterRegional"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniScopeGlobal"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniSummaryLgnGroup": {
+    "name": "pnniSummaryLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryType"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummarySuppress"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryState"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "pnniSummaryAddressLgnGroup": {
+    "name": "pnniSummaryAddressLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryAddressSuppress"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryAddressState"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSummaryAddressRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniIfMinGroup": {
+    "name": "pnniIfMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfNodeIndex"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfPortId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfVPCapability"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfAdmWeightCbr"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfAdmWeightRtVbr"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfAdmWeightNrtVbr"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfAdmWeightAbr"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfAdmWeightUbr"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfRccServiceCategory"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfRccTrafficDescrIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniIfBorderGroup": {
+    "name": "pnniIfBorderGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniIfAggrToken"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniLinkMinGroup": {
+    "name": "pnniLinkMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkType"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkVersion"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkHelloState"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkRemoteNodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkRemotePortId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkIfIndex"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkRcvHellos"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkXmtHellos"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniLinkBorderOrLgnGroup": {
+    "name": "pnniLinkBorderOrLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkDerivedAggrToken"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkUpnodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkUpnodeAtmAddress"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkCommonPeerGroupId"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniLinkLgnGroup": {
+    "name": "pnniLinkLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniLinkSvccRccIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNbrPeerMinGroup": {
+    "name": "pnniNbrPeerMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerState"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerPortCount"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerRcvDbSums"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerXmtDbSums"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerRcvPtsps"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerXmtPtsps"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerRcvPtseReqs"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerXmtPtseReqs"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerRcvPtseAcks"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerXmtPtseAcks"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNbrPeerLgnGroup": {
+    "name": "pnniNbrPeerLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerSvccRccIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniNbrPeerPortMinGroup": {
+    "name": "pnniNbrPeerPortMinGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniNbrPeerPortFloodStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniSvccRccLgnGroup": {
+    "name": "pnniSvccRccLgnGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccVersion"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccHelloState"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccRemoteNodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccRemoteAtmAddress"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccRcvHellos"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccXmtHellos"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccIfIndex"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccVpi"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniSvccRccVci"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniPtseOptionalGroup": {
+    "name": "pnniPtseOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniPtseType"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniPtseSequenceNum"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniPtseChecksum"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniPtseLifeTime"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniPtseInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMapOptionalGroup": {
+    "name": "pnniMapOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapType"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapPeerGroupId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapAggrToken"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapRemoteNodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapRemotePortId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapVPCapability"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapPtseId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapMetricsTag"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMapNodeOptionalGroup": {
+    "name": "pnniMapNodeOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodePeerGroupId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeAtmAddress"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeRestrictedTransit"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeComplexRep"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeRestrictedBranching"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeDatabaseOverload"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeIAmLeader"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeLeadershipPriority"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodePreferredPgl"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeParentNodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeParentAtmAddress"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeParentPeerGroupId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapNodeParentPglNodeId"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMapAddrOptionalGroup": {
+    "name": "pnniMapAddrOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapAddrAddress"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapAddrPrefixLength"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMapTnsOptionalGroup": {
+    "name": "pnniMapTnsOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMapTnsId"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniMetricsOptionalGroup": {
+    "name": "pnniMetricsOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetricsClasses"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetricsGcacClp"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetricsAdminWeight"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetrics1"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetrics2"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetrics3"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetrics4"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetrics5"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetrics6"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetrics7"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetrics8"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniMetricsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniRouteGeneralOptionalGroup": {
+    "name": "pnniRouteGeneralOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeNumber"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniRouteNodeOptionalGroup": {
+    "name": "pnniRouteNodeOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeDestPortId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeProto"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeTimeStamp"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeInfo"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeGcacClp"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetricAW"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetric1"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetric2"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetric3"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetric4"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetric5"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetric6"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetric7"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeFwdMetric8"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetricAW"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetric1"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetric2"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetric3"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetric4"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetric5"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetric6"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetric7"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeBwdMetric8"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeVPCapability"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteNodeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniDTLOptionalGroup": {
+    "name": "pnniDTLOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniDTLNodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniDTLPortId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniDTLLinkType"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniDTLStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniRouteAddrOptionalGroup": {
+    "name": "pnniRouteAddrOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrIfIndex"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrAdvertisingNodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrAdvertisedPortId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrType"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrProto"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrPnniScope"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrVPCapability"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrMetricsTag"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrPtseId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrOriginateAdvertisement"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrInfo"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrOperStatus"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrTimeStamp"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteAddrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pnniRouteTnsOptionalGroup": {
+    "name": "pnniRouteTnsOptionalGroup",
+    "oid": "1.3.6.1.4.1.353.5.4.1.2.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsIfIndex"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsAdvertisingNodeId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsAdvertisedPortId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsRouteType"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsProto"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsPnniScope"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsVPCapability"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsMetricsTag"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsPtseId"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsOriginateAdvertisement"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsInfo"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsOperStatus"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsTimeStamp"
+      },
+      {
+        "module": "PNNI-MIB",
+        "object": "pnniRouteTnsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/PNNI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PNNI-MIB"
+  }
+}

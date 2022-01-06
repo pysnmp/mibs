@@ -1,0 +1,397 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "enterprises",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cisco": {
+    "name": "cisco",
+    "oid": "1.3.6.1.4.1.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-08-29 00:00",
+        "description": "Added ciscoSMB under otherEnterprises"
+      },
+      {
+        "revision": "2009-02-03 00:00",
+        "description": "Added ciscoSB under otherEnterprises"
+      },
+      {
+        "revision": "2002-03-21 00:00",
+        "description": "Added ciscoPKI for PKI policy and extension OIDs"
+      },
+      {
+        "revision": "2001-05-22 00:00",
+        "description": "Added transport protocol domains."
+      },
+      {
+        "revision": "2000-11-01 22:46",
+        "description": "Added ciscoDomains to define new transports. Also added ciscoCpeCIB, which will contain managed objects that contribute to the CPE Configuration Information Base (CIB)."
+      },
+      {
+        "revision": "2000-01-11 00:00",
+        "description": "Added ciscoPolicy, ciscoPolicyAuto, ciscoPIB, and ciscoPibToMib."
+      },
+      {
+        "revision": "1997-04-09 00:00",
+        "description": "Added ciscoPartnerProducts to generate sysObjectID for partner platforms"
+      },
+      {
+        "revision": "1995-05-16 00:00",
+        "description": "New oid assignments for Cisco REPEATER MIB and others."
+      },
+      {
+        "revision": "1994-04-26 20:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoProducts": {
+    "name": "ciscoProducts",
+    "oid": "1.3.6.1.4.1.9.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "local": {
+    "name": "local",
+    "oid": "1.3.6.1.4.1.9.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "temporary": {
+    "name": "temporary",
+    "oid": "1.3.6.1.4.1.9.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pakmon": {
+    "name": "pakmon",
+    "oid": "1.3.6.1.4.1.9.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "workgroup": {
+    "name": "workgroup",
+    "oid": "1.3.6.1.4.1.9.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "otherEnterprises": {
+    "name": "otherEnterprises",
+    "oid": "1.3.6.1.4.1.9.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoSB": {
+    "name": "ciscoSB",
+    "oid": "1.3.6.1.4.1.9.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoSMB": {
+    "name": "ciscoSMB",
+    "oid": "1.3.6.1.4.1.9.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoAgentCapability": {
+    "name": "ciscoAgentCapability",
+    "oid": "1.3.6.1.4.1.9.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoConfig": {
+    "name": "ciscoConfig",
+    "oid": "1.3.6.1.4.1.9.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoMgmt": {
+    "name": "ciscoMgmt",
+    "oid": "1.3.6.1.4.1.9.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoExperiment": {
+    "name": "ciscoExperiment",
+    "oid": "1.3.6.1.4.1.9.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoAdmin": {
+    "name": "ciscoAdmin",
+    "oid": "1.3.6.1.4.1.9.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoModules": {
+    "name": "ciscoModules",
+    "oid": "1.3.6.1.4.1.9.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lightstream": {
+    "name": "lightstream",
+    "oid": "1.3.6.1.4.1.9.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoworks": {
+    "name": "ciscoworks",
+    "oid": "1.3.6.1.4.1.9.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "newport": {
+    "name": "newport",
+    "oid": "1.3.6.1.4.1.9.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoPartnerProducts": {
+    "name": "ciscoPartnerProducts",
+    "oid": "1.3.6.1.4.1.9.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoPolicy": {
+    "name": "ciscoPolicy",
+    "oid": "1.3.6.1.4.1.9.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoPIB": {
+    "name": "ciscoPIB",
+    "oid": "1.3.6.1.4.1.9.17.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoPolicyAuto": {
+    "name": "ciscoPolicyAuto",
+    "oid": "1.3.6.1.4.1.9.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoPibToMib": {
+    "name": "ciscoPibToMib",
+    "oid": "1.3.6.1.4.1.9.18.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoDomains": {
+    "name": "ciscoDomains",
+    "oid": "1.3.6.1.4.1.9.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoCIB": {
+    "name": "ciscoCIB",
+    "oid": "1.3.6.1.4.1.9.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoCibMmiGroup": {
+    "name": "ciscoCibMmiGroup",
+    "oid": "1.3.6.1.4.1.9.20.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoCibProvGroup": {
+    "name": "ciscoCibProvGroup",
+    "oid": "1.3.6.1.4.1.9.20.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoPKI": {
+    "name": "ciscoPKI",
+    "oid": "1.3.6.1.4.1.9.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoProxy": {
+    "name": "ciscoProxy",
+    "oid": "1.3.6.1.4.1.9.11.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoPartyProxy": {
+    "name": "ciscoPartyProxy",
+    "oid": "1.3.6.1.4.1.9.11.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoContextProxy": {
+    "name": "ciscoContextProxy",
+    "oid": "1.3.6.1.4.1.9.11.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoRptrGroupObjectID": {
+    "name": "ciscoRptrGroupObjectID",
+    "oid": "1.3.6.1.4.1.9.11.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoUnknownRptrGroup": {
+    "name": "ciscoUnknownRptrGroup",
+    "oid": "1.3.6.1.4.1.9.11.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cisco2505RptrGroup": {
+    "name": "cisco2505RptrGroup",
+    "oid": "1.3.6.1.4.1.9.11.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cisco2507RptrGroup": {
+    "name": "cisco2507RptrGroup",
+    "oid": "1.3.6.1.4.1.9.11.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cisco2516RptrGroup": {
+    "name": "cisco2516RptrGroup",
+    "oid": "1.3.6.1.4.1.9.11.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoWsx5020RptrGroup": {
+    "name": "ciscoWsx5020RptrGroup",
+    "oid": "1.3.6.1.4.1.9.11.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoChipSets": {
+    "name": "ciscoChipSets",
+    "oid": "1.3.6.1.4.1.9.11.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoChipSetSaint1": {
+    "name": "ciscoChipSetSaint1",
+    "oid": "1.3.6.1.4.1.9.11.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoChipSetSaint2": {
+    "name": "ciscoChipSetSaint2",
+    "oid": "1.3.6.1.4.1.9.11.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoChipSetSaint3": {
+    "name": "ciscoChipSetSaint3",
+    "oid": "1.3.6.1.4.1.9.11.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoChipSetSaint4": {
+    "name": "ciscoChipSetSaint4",
+    "oid": "1.3.6.1.4.1.9.11.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomains": {
+    "name": "ciscoTDomains",
+    "oid": "1.3.6.1.4.1.9.19.99999",
+    "class": "objectidentity"
+  },
+  "ciscoTDomainUdpIpv4": {
+    "name": "ciscoTDomainUdpIpv4",
+    "oid": "1.3.6.1.4.1.9.19.99999.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainUdpIpv6": {
+    "name": "ciscoTDomainUdpIpv6",
+    "oid": "1.3.6.1.4.1.9.19.99999.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainTcpIpv4": {
+    "name": "ciscoTDomainTcpIpv4",
+    "oid": "1.3.6.1.4.1.9.19.99999.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainTcpIpv6": {
+    "name": "ciscoTDomainTcpIpv6",
+    "oid": "1.3.6.1.4.1.9.19.99999.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainLocal": {
+    "name": "ciscoTDomainLocal",
+    "oid": "1.3.6.1.4.1.9.19.99999.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainClns": {
+    "name": "ciscoTDomainClns",
+    "oid": "1.3.6.1.4.1.9.19.99999.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainCons": {
+    "name": "ciscoTDomainCons",
+    "oid": "1.3.6.1.4.1.9.19.99999.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainDdp": {
+    "name": "ciscoTDomainDdp",
+    "oid": "1.3.6.1.4.1.9.19.99999.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainIpx": {
+    "name": "ciscoTDomainIpx",
+    "oid": "1.3.6.1.4.1.9.19.99999.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainSctpIpv4": {
+    "name": "ciscoTDomainSctpIpv4",
+    "oid": "1.3.6.1.4.1.9.19.99999.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoTDomainSctpIpv6": {
+    "name": "ciscoTDomainSctpIpv6",
+    "oid": "1.3.6.1.4.1.9.19.99999.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SMI",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SMI"
+  }
+}

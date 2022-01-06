@@ -1,0 +1,1135 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "JUNIPER-IPSEC-FLOW-MON-MIB": [
+      "JnxIkeAuthMethod",
+      "JnxIkePeerRole",
+      "JnxAuthAlgo",
+      "JnxEncapMode",
+      "JnxDiffHellmanGrp",
+      "JnxIkePeerType",
+      "JnxRemotePeerType",
+      "JnxSAType",
+      "JnxKeyType",
+      "JnxIkeHashAlgo",
+      "JnxIkeNegoMode",
+      "JnxEncryptAlgo"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs"
+    ],
+    "JUNIPER-SP-MIB": [
+      "jnxSpSvcSetName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "jnxIpSecMonitorMIB": {
+    "name": "jnxIpSecMonitorMIB",
+    "oid": "1.3.6.1.4.1.2636.3.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-10 21:00",
+        "description": "Initial version implements only the following tables: - IKE tunnel table - IPSec tunnel table - IPSec security associations table "
+      },
+      {
+        "revision": "2016-05-31 00:00",
+        "description": "Consolidated TC duplicated b/n jnx-ipsec-flow-mon.mib, jnx-ipsec-monitor-asp.mib"
+      }
+    ]
+  },
+  "JnxIkeNegState": {
+    "name": "JnxIkeNegState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "matured": 1,
+          "notmatured": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxSpi": {
+    "name": "JnxSpi",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "jnxIpSecMIBObjects": {
+    "name": "jnxIpSecMIBObjects",
+    "oid": "1.3.6.1.4.1.2636.3.22.1",
+    "class": "objectidentity"
+  },
+  "jnxIpSecLevels": {
+    "name": "jnxIpSecLevels",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.1",
+    "class": "objectidentity"
+  },
+  "jnxIpSecPhaseOne": {
+    "name": "jnxIpSecPhaseOne",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2",
+    "class": "objectidentity"
+  },
+  "jnxIpSecPhaseTwo": {
+    "name": "jnxIpSecPhaseTwo",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3",
+    "class": "objectidentity"
+  },
+  "jnxIpSecMibLevel": {
+    "name": "jnxIpSecMibLevel",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunnelTable": {
+    "name": "jnxIkeTunnelTable",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkeTunnelEntry": {
+    "name": "jnxIkeTunnelEntry",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetName",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIkeTunRemoteGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIkeTunRemoteGwAddr",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIkeTunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIkeTunIndex": {
+    "name": "jnxIkeTunIndex",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkeTunLocalRole": {
+    "name": "jnxIkeTunLocalRole",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunNegState": {
+    "name": "jnxIkeTunNegState",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeNegState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunInitiatorCookie": {
+    "name": "jnxIkeTunInitiatorCookie",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunResponderCookie": {
+    "name": "jnxIkeTunResponderCookie",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunLocalIdType": {
+    "name": "jnxIkeTunLocalIdType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunLocalIdValue": {
+    "name": "jnxIkeTunLocalIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunLocalGwAddrType": {
+    "name": "jnxIkeTunLocalGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunLocalGwAddr": {
+    "name": "jnxIkeTunLocalGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunLocalCertName": {
+    "name": "jnxIkeTunLocalCertName",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunRemoteIdType": {
+    "name": "jnxIkeTunRemoteIdType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunRemoteIdValue": {
+    "name": "jnxIkeTunRemoteIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunRemoteGwAddrType": {
+    "name": "jnxIkeTunRemoteGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunRemoteGwAddr": {
+    "name": "jnxIkeTunRemoteGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunNegoMode": {
+    "name": "jnxIkeTunNegoMode",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeNegoMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunDiffHellmanGrp": {
+    "name": "jnxIkeTunDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxDiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunEncryptAlgo": {
+    "name": "jnxIkeTunEncryptAlgo",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxEncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunHashAlgo": {
+    "name": "jnxIkeTunHashAlgo",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeHashAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunAuthMethod": {
+    "name": "jnxIkeTunAuthMethod",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunLifeTime": {
+    "name": "jnxIkeTunLifeTime",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunActiveTime": {
+    "name": "jnxIkeTunActiveTime",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunInOctets": {
+    "name": "jnxIkeTunInOctets",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunInPkts": {
+    "name": "jnxIkeTunInPkts",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunOutOctets": {
+    "name": "jnxIkeTunOutOctets",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunOutPkts": {
+    "name": "jnxIkeTunOutPkts",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunnelTable": {
+    "name": "jnxIpSecTunnelTable",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecTunnelEntry": {
+    "name": "jnxIpSecTunnelEntry",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetName",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIpSecTunRemoteGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIpSecTunRemoteGwAddr",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIpSecTunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIpSecTunIndex": {
+    "name": "jnxIpSecTunIndex",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecRuleName": {
+    "name": "jnxIpSecRuleName",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTermName": {
+    "name": "jnxIpSecTermName",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunLocalGwAddrType": {
+    "name": "jnxIpSecTunLocalGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunLocalGwAddr": {
+    "name": "jnxIpSecTunLocalGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunRemoteGwAddrType": {
+    "name": "jnxIpSecTunRemoteGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunRemoteGwAddr": {
+    "name": "jnxIpSecTunRemoteGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunLocalProxyId": {
+    "name": "jnxIpSecTunLocalProxyId",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunRemoteProxyId": {
+    "name": "jnxIpSecTunRemoteProxyId",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunKeyType": {
+    "name": "jnxIpSecTunKeyType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxKeyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecRemotePeerType": {
+    "name": "jnxIpSecRemotePeerType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxRemotePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMtu": {
+    "name": "jnxIpSecTunMtu",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunOutEncryptedBytes": {
+    "name": "jnxIpSecTunOutEncryptedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunOutEncryptedPkts": {
+    "name": "jnxIpSecTunOutEncryptedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunInDecryptedBytes": {
+    "name": "jnxIpSecTunInDecryptedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunInDecryptedPkts": {
+    "name": "jnxIpSecTunInDecryptedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpsSecTunAHInBytes": {
+    "name": "jnxIpsSecTunAHInBytes",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpsSecTunAHInPkts": {
+    "name": "jnxIpsSecTunAHInPkts",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpsSecTunAHOutBytes": {
+    "name": "jnxIpsSecTunAHOutBytes",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpsSecTunAHOutPkts": {
+    "name": "jnxIpsSecTunAHOutPkts",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunReplayDropPkts": {
+    "name": "jnxIpSecTunReplayDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunAhAuthFails": {
+    "name": "jnxIpSecTunAhAuthFails",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunEspAuthFails": {
+    "name": "jnxIpSecTunEspAuthFails",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunDecryptFails": {
+    "name": "jnxIpSecTunDecryptFails",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunBadHeaders": {
+    "name": "jnxIpSecTunBadHeaders",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunBadTrailers": {
+    "name": "jnxIpSecTunBadTrailers",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunDroppedPkts": {
+    "name": "jnxIpSecTunDroppedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaTable": {
+    "name": "jnxIpSecSaTable",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecSaEntry": {
+    "name": "jnxIpSecSaEntry",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SP-MIB",
+        "object": "jnxSpSvcSetName",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIpSecTunRemoteGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIpSecTunRemoteGwAddr",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIpSecTunIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-IPSEC-MONITOR-MIB",
+        "object": "jnxIpSecSaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIpSecSaProtocol": {
+    "name": "jnxIpSecSaProtocol",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ah": 1,
+          "esp": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecSaIndex": {
+    "name": "jnxIpSecSaIndex",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecSaInSpi": {
+    "name": "jnxIpSecSaInSpi",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSpi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaOutSpi": {
+    "name": "jnxIpSecSaOutSpi",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSpi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaInAuxSpi": {
+    "name": "jnxIpSecSaInAuxSpi",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSpi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaOutAuxSpi": {
+    "name": "jnxIpSecSaOutAuxSpi",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSpi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaType": {
+    "name": "jnxIpSecSaType",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSAType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaEncapMode": {
+    "name": "jnxIpSecSaEncapMode",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxEncapMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaLifeSize": {
+    "name": "jnxIpSecSaLifeSize",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaLifeTime": {
+    "name": "jnxIpSecSaLifeTime",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaActiveTime": {
+    "name": "jnxIpSecSaActiveTime",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaLifeSizeThreshold": {
+    "name": "jnxIpSecSaLifeSizeThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaLifeTimeThreshold": {
+    "name": "jnxIpSecSaLifeTimeThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaEncryptAlgo": {
+    "name": "jnxIpSecSaEncryptAlgo",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxEncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaAuthAlgo": {
+    "name": "jnxIpSecSaAuthAlgo",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxAuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaState": {
+    "name": "jnxIpSecSaState",
+    "oid": "1.3.6.1.4.1.2636.3.22.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "active": 1,
+          "expiring": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JNX-IPSEC-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JNX-IPSEC-MONITOR-MIB"
+  }
+}

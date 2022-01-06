@@ -1,0 +1,2752 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Unsigned64",
+      "CiscoIpProtocol"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoCidsMIB": {
+    "name": "ciscoCidsMIB",
+    "oid": "1.3.6.1.4.1.9.9.383",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-08 00:00",
+        "description": "Added the following TEXTUAL-CONVENTIONS: CidsApplicationStatus CidsHealthStatusColor Added the following health group: ciscoCidsHealthObjectGroupRev1 Added the following TRAP notifications group: ciscoCidsNotificationsGroupRev1 Deprecated cidsAlertInterfaceGroup to replace it with cidsAlertVirtualSensor since the datatype is incorrect (CSCsv26568)."
+      },
+      {
+        "revision": "2008-06-26 00:00",
+        "description": "Added the following alert action objects: cidsAlertDenyPacket, cidsAlertBlockHost, cidsAlertTcpOneWayResetSent. Added ciscoCidsOptionalObjectGroupRev2, ciscoCidsMIBComplianceRev3."
+      },
+      {
+        "revision": "2006-03-02 00:00",
+        "description": "Added the CidsTargetValue and CidsAttackRelevance textual conventions. Added the following alert objects: cidsAlertThreatValueRating cidsAlertRiskRatingTargetValue cidsAlertRiskRatingRelevance cidsAlertRiskRatingWatchList"
+      },
+      {
+        "revision": "2005-10-10 00:00",
+        "description": "Added errEngineBuildFailed to the CidsErrorCode textual convention. Added the following alert action objects: cidsAlertDeniedAttacker cidsAlertDeniedFlow cidsAlertDenyPacketReqNotPerf cidsAlertDenyFlowReqNotPerf cidsAlertDenyAttackerReqNotPerf cidsAlertBlockConnectionReq cidsAlertLogAttackerPacketsAct cidsAlertLogVictimPacketsAct cidsAlertLogPairPacketsActivated cidsAlertRateLimitRequested cidsAlertDeniedAttackVictimPair cidsAlertDeniedAttackSericePair cidsAlertDenyAttackVicReqNotPerf cidsAlertDenyAttackSerReqNotPerf Added the cidsAlertIfIndex and cidsAlertProtocol objects."
+      },
+      {
+        "revision": "2003-12-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCidsMIBNotifs": {
+    "name": "ciscoCidsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.383.0",
+    "class": "objectidentity"
+  },
+  "ciscoCidsMIBObjects": {
+    "name": "ciscoCidsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.383.1",
+    "class": "objectidentity"
+  },
+  "ciscoCidsMIBConform": {
+    "name": "ciscoCidsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.383.2",
+    "class": "objectidentity"
+  },
+  "cidsGeneral": {
+    "name": "cidsGeneral",
+    "oid": "1.3.6.1.4.1.9.9.383.1.1",
+    "class": "objectidentity"
+  },
+  "cidsAlert": {
+    "name": "cidsAlert",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2",
+    "class": "objectidentity"
+  },
+  "cidsError": {
+    "name": "cidsError",
+    "oid": "1.3.6.1.4.1.9.9.383.1.3",
+    "class": "objectidentity"
+  },
+  "CidsHealthStatusColor": {
+    "name": "CidsHealthStatusColor",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2,
+          "red": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CidsApplicationStatus": {
+    "name": "CidsApplicationStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notResponding": 1,
+          "notRunning": 2,
+          "processingTransaction": 3,
+          "reconfiguring": 4,
+          "running": 5,
+          "starting": 6,
+          "stopping": 7,
+          "unknown": 8,
+          "upgradeInprogress": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cidsHealth": {
+    "name": "cidsHealth",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4",
+    "class": "objectidentity"
+  },
+  "CidsErrorCode": {
+    "name": "CidsErrorCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "errAuthenticationTokenExpired": 1,
+          "errConfigCollision": 2,
+          "errInUse": 3,
+          "errInvalidDocument": 4,
+          "errLimitExceeded": 5,
+          "errNotAvailable": 6,
+          "errNotFound": 7,
+          "errNotSupported": 8,
+          "errPermissionDenied": 9,
+          "errSyslog": 10,
+          "errSystemError": 11,
+          "errTransport": 12,
+          "errUnacceptableValue": 13,
+          "errUnclassified": 14,
+          "errWarning": 15,
+          "errEngineBuildFailed": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CidsTargetValue": {
+    "name": "CidsTargetValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zeroValue": 1,
+          "low": 2,
+          "medium": 3,
+          "high": 4,
+          "missionCritical": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CidsAttackRelevance": {
+    "name": "CidsAttackRelevance",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "relevant": 1,
+          "notRelevant": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cidsGeneralEventId": {
+    "name": "cidsGeneralEventId",
+    "oid": "1.3.6.1.4.1.9.9.383.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsGeneralLocalTime": {
+    "name": "cidsGeneralLocalTime",
+    "oid": "1.3.6.1.4.1.9.9.383.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsGeneralUTCTime": {
+    "name": "cidsGeneralUTCTime",
+    "oid": "1.3.6.1.4.1.9.9.383.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsGeneralOriginatorHostId": {
+    "name": "cidsGeneralOriginatorHostId",
+    "oid": "1.3.6.1.4.1.9.9.383.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsGeneralOriginatorAppName": {
+    "name": "cidsGeneralOriginatorAppName",
+    "oid": "1.3.6.1.4.1.9.9.383.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsGeneralOriginatorAppId": {
+    "name": "cidsGeneralOriginatorAppId",
+    "oid": "1.3.6.1.4.1.9.9.383.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsNotificationsEnabled": {
+    "name": "cidsNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.383.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cidsAlertSeverity": {
+    "name": "cidsAlertSeverity",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertAlarmTraits": {
+    "name": "cidsAlertAlarmTraits",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSignature": {
+    "name": "cidsAlertSignature",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSignatureSigName": {
+    "name": "cidsAlertSignatureSigName",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSignatureSigId": {
+    "name": "cidsAlertSignatureSigId",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSignatureSubSigId": {
+    "name": "cidsAlertSignatureSubSigId",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSignatureVersion": {
+    "name": "cidsAlertSignatureVersion",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSummary": {
+    "name": "cidsAlertSummary",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSummaryType": {
+    "name": "cidsAlertSummaryType",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSummaryFinal": {
+    "name": "cidsAlertSummaryFinal",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertSummaryInitialAlert": {
+    "name": "cidsAlertSummaryInitialAlert",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertInterfaceGroup": {
+    "name": "cidsAlertInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cidsAlertVlan": {
+    "name": "cidsAlertVlan",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertVictimContext": {
+    "name": "cidsAlertVictimContext",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertAttackerContext": {
+    "name": "cidsAlertAttackerContext",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertAttackerAddress": {
+    "name": "cidsAlertAttackerAddress",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertVictimAddress": {
+    "name": "cidsAlertVictimAddress",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertIpLoggingActivated": {
+    "name": "cidsAlertIpLoggingActivated",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertTcpResetSent": {
+    "name": "cidsAlertTcpResetSent",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertShunRequested": {
+    "name": "cidsAlertShunRequested",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDetails": {
+    "name": "cidsAlertDetails",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertIpLogId": {
+    "name": "cidsAlertIpLogId",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsThreatResponseStatus": {
+    "name": "cidsThreatResponseStatus",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsThreatResponseSeverity": {
+    "name": "cidsThreatResponseSeverity",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertEventRiskRating": {
+    "name": "cidsAlertEventRiskRating",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertIfIndex": {
+    "name": "cidsAlertIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertProtocol": {
+    "name": "cidsAlertProtocol",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDeniedAttacker": {
+    "name": "cidsAlertDeniedAttacker",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDeniedFlow": {
+    "name": "cidsAlertDeniedFlow",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDenyPacketReqNotPerf": {
+    "name": "cidsAlertDenyPacketReqNotPerf",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDenyFlowReqNotPerf": {
+    "name": "cidsAlertDenyFlowReqNotPerf",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDenyAttackerReqNotPerf": {
+    "name": "cidsAlertDenyAttackerReqNotPerf",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertBlockConnectionReq": {
+    "name": "cidsAlertBlockConnectionReq",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertLogAttackerPacketsAct": {
+    "name": "cidsAlertLogAttackerPacketsAct",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertLogVictimPacketsAct": {
+    "name": "cidsAlertLogVictimPacketsAct",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertLogPairPacketsActivated": {
+    "name": "cidsAlertLogPairPacketsActivated",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertRateLimitRequested": {
+    "name": "cidsAlertRateLimitRequested",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDeniedAttackVictimPair": {
+    "name": "cidsAlertDeniedAttackVictimPair",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDeniedAttackSericePair": {
+    "name": "cidsAlertDeniedAttackSericePair",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDenyAttackVicReqNotPerf": {
+    "name": "cidsAlertDenyAttackVicReqNotPerf",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDenyAttackSerReqNotPerf": {
+    "name": "cidsAlertDenyAttackSerReqNotPerf",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertThreatValueRating": {
+    "name": "cidsAlertThreatValueRating",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertRiskRatingTargetValue": {
+    "name": "cidsAlertRiskRatingTargetValue",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsTargetValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertRiskRatingRelevance": {
+    "name": "cidsAlertRiskRatingRelevance",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsAttackRelevance",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertRiskRatingWatchList": {
+    "name": "cidsAlertRiskRatingWatchList",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertDenyPacket": {
+    "name": "cidsAlertDenyPacket",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertBlockHost": {
+    "name": "cidsAlertBlockHost",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertTcpOneWayResetSent": {
+    "name": "cidsAlertTcpOneWayResetSent",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsAlertVirtualSensor": {
+    "name": "cidsAlertVirtualSensor",
+    "oid": "1.3.6.1.4.1.9.9.383.1.2.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsErrorSeverity": {
+    "name": "cidsErrorSeverity",
+    "oid": "1.3.6.1.4.1.9.9.383.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsErrorName": {
+    "name": "cidsErrorName",
+    "oid": "1.3.6.1.4.1.9.9.383.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsErrorCode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsErrorMessage": {
+    "name": "cidsErrorMessage",
+    "oid": "1.3.6.1.4.1.9.9.383.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsHealthPacketLoss": {
+    "name": "cidsHealthPacketLoss",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthPacketDenialRate": {
+    "name": "cidsHealthPacketDenialRate",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthAlarmsGenerated": {
+    "name": "cidsHealthAlarmsGenerated",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthFragmentsInFRU": {
+    "name": "cidsHealthFragmentsInFRU",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthDatagramsInFRU": {
+    "name": "cidsHealthDatagramsInFRU",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthTcpEmbryonicStreams": {
+    "name": "cidsHealthTcpEmbryonicStreams",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthTCPEstablishedStreams": {
+    "name": "cidsHealthTCPEstablishedStreams",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthTcpClosingStreams": {
+    "name": "cidsHealthTcpClosingStreams",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthTcpStreams": {
+    "name": "cidsHealthTcpStreams",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthActiveNodes": {
+    "name": "cidsHealthActiveNodes",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthTcpDualIpAndPorts": {
+    "name": "cidsHealthTcpDualIpAndPorts",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthUdpDualIpAndPorts": {
+    "name": "cidsHealthUdpDualIpAndPorts",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthIpDualIp": {
+    "name": "cidsHealthIpDualIp",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthIsSensorMemoryCritical": {
+    "name": "cidsHealthIsSensorMemoryCritical",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthIsSensorActive": {
+    "name": "cidsHealthIsSensorActive",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthCommandAndControlPort": {
+    "name": "cidsHealthCommandAndControlPort",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSensorStatsResetTime": {
+    "name": "cidsHealthSensorStatsResetTime",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonAvailability": {
+    "name": "cidsHealthSecMonAvailability",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonOverallHealth": {
+    "name": "cidsHealthSecMonOverallHealth",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsHealthStatusColor",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonSoftwareVersion": {
+    "name": "cidsHealthSecMonSoftwareVersion",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonSignatureVersion": {
+    "name": "cidsHealthSecMonSignatureVersion",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonLicenseStatus": {
+    "name": "cidsHealthSecMonLicenseStatus",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonOverallAppColor": {
+    "name": "cidsHealthSecMonOverallAppColor",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsHealthStatusColor",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsHealthSecMonMainAppStatus": {
+    "name": "cidsHealthSecMonMainAppStatus",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsApplicationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonAnalysisEngineStatus": {
+    "name": "cidsHealthSecMonAnalysisEngineStatus",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsApplicationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonCollaborationAppStatus": {
+    "name": "cidsHealthSecMonCollaborationAppStatus",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsApplicationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonByPassMode": {
+    "name": "cidsHealthSecMonByPassMode",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsHealthSecMonMissedPktPctAndThresh": {
+    "name": "cidsHealthSecMonMissedPktPctAndThresh",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonAnalysisEngMemPercent": {
+    "name": "cidsHealthSecMonAnalysisEngMemPercent",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonSensorLoad": {
+    "name": "cidsHealthSecMonSensorLoad",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonSensorLoadColor": {
+    "name": "cidsHealthSecMonSensorLoadColor",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsHealthStatusColor",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cidsHealthSecMonVirtSensorStatusTable": {
+    "name": "cidsHealthSecMonVirtSensorStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cidsHealthSecMonVirtSensorStatusEntry": {
+    "name": "cidsHealthSecMonVirtSensorStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonVirtSensorName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cidsHealthSecMonVirtSensorName": {
+    "name": "cidsHealthSecMonVirtSensorName",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cidsHealthSecMonVirtSensorStatus": {
+    "name": "cidsHealthSecMonVirtSensorStatus",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CidsHealthStatusColor",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonDataStorageTable": {
+    "name": "cidsHealthSecMonDataStorageTable",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cidsHealthSecMonDataStorageEntry": {
+    "name": "cidsHealthSecMonDataStorageEntry",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonPartitionName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cidsHealthSecMonPartitionName": {
+    "name": "cidsHealthSecMonPartitionName",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cidsHealthSecMonTotalPartitionSpace": {
+    "name": "cidsHealthSecMonTotalPartitionSpace",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cidsHealthSecMonUtilizedPartitionSpace": {
+    "name": "cidsHealthSecMonUtilizedPartitionSpace",
+    "oid": "1.3.6.1.4.1.9.9.383.1.4.33.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCidsAlert": {
+    "name": "ciscoCidsAlert",
+    "oid": "1.3.6.1.4.1.9.9.383.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralEventId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralLocalTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralUTCTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorHostId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSigName"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSigId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSubSigId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAlarmTraits"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAttackerAddress"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVictimAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsError": {
+    "name": "ciscoCidsError",
+    "oid": "1.3.6.1.4.1.9.9.383.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralEventId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralLocalTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralUTCTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorHostId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsErrorSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsErrorName"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsErrorMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsHealthHeartBeat": {
+    "name": "ciscoCidsHealthHeartBeat",
+    "oid": "1.3.6.1.4.1.9.9.383.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralEventId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorHostId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralLocalTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralUTCTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonOverallAppColor"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonSensorLoadColor"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonOverallHealth"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsHealthMetricChange": {
+    "name": "ciscoCidsHealthMetricChange",
+    "oid": "1.3.6.1.4.1.9.9.383.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralEventId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorHostId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralLocalTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralUTCTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonOverallAppColor"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonSensorLoadColor"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonOverallHealth"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsMIBCompliances": {
+    "name": "ciscoCidsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.383.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCidsMIBGroups": {
+    "name": "ciscoCidsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCidsMIBCompliance": {
+    "name": "ciscoCidsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.383.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCidsGeneralObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsAlertObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsErrorObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsHealthObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCidsMIBComplianceRev1": {
+    "name": "ciscoCidsMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.383.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCidsGeneralObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsAlertObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsErrorObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsHealthObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsNotificationsGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsOptionalObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCidsMIBComplianceRev2": {
+    "name": "ciscoCidsMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.383.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCidsGeneralObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsAlertObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsErrorObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsHealthObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsNotificationsGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsOptionalObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCidsMIBComplianceRev3": {
+    "name": "ciscoCidsMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.383.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCidsGeneralObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsAlertObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsErrorObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsHealthObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsNotificationsGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsOptionalObjectGroupRev2",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsOptionalObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCidsMIBComplianceRev4": {
+    "name": "ciscoCidsMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.383.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCidsErrorObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsGeneralObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsAlertObjectGroupRev2",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsHealthObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsNotificationsGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsHealthObjectGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsNotificationsGroup",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsAlertObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsOptionalObjectGroupRev3",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsOptionalObjectGroupRev2",
+        "module": "CISCO-CIDS-MIB"
+      },
+      {
+        "object": "ciscoCidsOptionalObjectGroupRev1",
+        "module": "CISCO-CIDS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsGeneralObjectGroup": {
+    "name": "ciscoCidsGeneralObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralEventId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralLocalTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralUTCTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorHostId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorAppName"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorAppId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsNotificationsEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCidsAlertObjectGroup": {
+    "name": "ciscoCidsAlertObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAlarmTraits"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignature"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSigName"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSigId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSubSigId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureVersion"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummary"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryType"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryFinal"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryInitialAlert"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertInterfaceGroup"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVlan"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVictimContext"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAttackerContext"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVictimAddress"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAttackerAddress"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIpLoggingActivated"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertTcpResetSent"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertShunRequested"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDetails"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIpLogId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsThreatResponseStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsThreatResponseSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertEventRiskRating"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCidsErrorObjectGroup": {
+    "name": "ciscoCidsErrorObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsErrorSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsErrorName"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsErrorMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsNotificationsGroup": {
+    "name": "ciscoCidsNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "ciscoCidsAlert"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "ciscoCidsError"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsHealthObjectGroup": {
+    "name": "ciscoCidsHealthObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthPacketLoss"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthPacketDenialRate"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthAlarmsGenerated"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthFragmentsInFRU"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthDatagramsInFRU"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthTcpEmbryonicStreams"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthTCPEstablishedStreams"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthTcpClosingStreams"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthTcpStreams"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthActiveNodes"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthTcpDualIpAndPorts"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthUdpDualIpAndPorts"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthIpDualIp"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthIsSensorMemoryCritical"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthIsSensorActive"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthCommandAndControlPort"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSensorStatsResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsGeneralObjectGroupRev1": {
+    "name": "ciscoCidsGeneralObjectGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralEventId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralLocalTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralUTCTime"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorHostId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsNotificationsEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsAlertObjectGroupRev1": {
+    "name": "ciscoCidsAlertObjectGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAlarmTraits"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSigName"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSigId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureSubSigId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVictimAddress"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAttackerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsOptionalObjectGroup": {
+    "name": "ciscoCidsOptionalObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorAppName"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorAppId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignature"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureVersion"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummary"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryType"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryFinal"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryInitialAlert"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertInterfaceGroup"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVlan"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVictimContext"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAttackerContext"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIpLoggingActivated"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertTcpResetSent"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertShunRequested"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDetails"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIpLogId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsThreatResponseStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsThreatResponseSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertEventRiskRating"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIfIndex"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertProtocol"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDeniedAttacker"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDeniedFlow"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyPacketReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyFlowReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyAttackerReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertBlockConnectionReq"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertLogAttackerPacketsAct"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertLogVictimPacketsAct"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertLogPairPacketsActivated"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertRateLimitRequested"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDeniedAttackVictimPair"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDeniedAttackSericePair"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyAttackVicReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyAttackSerReqNotPerf"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCidsOptionalObjectGroupRev1": {
+    "name": "ciscoCidsOptionalObjectGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorAppName"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsGeneralOriginatorAppId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignature"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureVersion"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummary"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryType"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryFinal"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryInitialAlert"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertInterfaceGroup"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVlan"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVictimContext"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAttackerContext"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIpLoggingActivated"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertTcpResetSent"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertShunRequested"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDetails"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIpLogId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsThreatResponseStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsThreatResponseSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertEventRiskRating"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIfIndex"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertProtocol"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDeniedAttacker"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDeniedFlow"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyPacketReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyFlowReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyAttackerReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertBlockConnectionReq"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertLogAttackerPacketsAct"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertLogVictimPacketsAct"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertLogPairPacketsActivated"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertRateLimitRequested"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDeniedAttackVictimPair"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDeniedAttackSericePair"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyAttackVicReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyAttackSerReqNotPerf"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertThreatValueRating"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertRiskRatingTargetValue"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertRiskRatingRelevance"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertRiskRatingWatchList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsOptionalObjectGroupRev2": {
+    "name": "ciscoCidsOptionalObjectGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDenyPacket"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertBlockHost"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertTcpOneWayResetSent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsAlertObjectGroupRev2": {
+    "name": "ciscoCidsAlertObjectGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignature"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSignatureVersion"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummary"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryType"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryFinal"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertSummaryInitialAlert"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVlan"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVictimContext"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertAttackerContext"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIpLoggingActivated"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertTcpResetSent"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertShunRequested"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertDetails"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertIpLogId"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsThreatResponseStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsThreatResponseSeverity"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertEventRiskRating"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsHealthObjectGroupRev1": {
+    "name": "ciscoCidsHealthObjectGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonAvailability"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonOverallHealth"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonSoftwareVersion"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonSignatureVersion"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonLicenseStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonMainAppStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonAnalysisEngineStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonByPassMode"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonMissedPktPctAndThresh"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonAnalysisEngMemPercent"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonSensorLoad"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonVirtSensorStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonCollaborationAppStatus"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonTotalPartitionSpace"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonUtilizedPartitionSpace"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonOverallAppColor"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsHealthSecMonSensorLoadColor"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsOptionalObjectGroupRev3": {
+    "name": "ciscoCidsOptionalObjectGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "cidsAlertVirtualSensor"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCidsNotificationsGroupRev1": {
+    "name": "ciscoCidsNotificationsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.383.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "ciscoCidsHealthHeartBeat"
+      },
+      {
+        "module": "CISCO-CIDS-MIB",
+        "object": "ciscoCidsHealthMetricChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CIDS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CIDS-MIB"
+  }
+}

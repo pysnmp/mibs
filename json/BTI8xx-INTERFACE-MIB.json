@@ -1,0 +1,1234 @@
+{
+  "imports": {
+    "class": "imports",
+    "BTI8xx-TC-MIB": [
+      "mainSystem"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfCurrentCount",
+      "PerfTotalCount",
+      "PerfIntervalCount"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "interfaceConfig": {
+    "name": "interfaceConfig",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-20 12:00",
+        "description": " *1. Change the MAX-ACCESS(for silvercreek tool). 'not-accessible' -> 'read-only' -interfaceConfigIndex -interfaceStatisticsIndex -remotePortIdLocalPort -remotePortIdLocalType -rateLimitPort -stormCtrlPort *2. Change the syntax. 2.1. syntax value range interfaceStatisticsIndex (1..13) -> (1..8191) 2.2. DisplayString -> OCTET STRING interfaceConfigPort interfaceConfigDescription interfaceConfigLag remotePortIdLocalPort remotePortIdLocalType remotePortIdDesc rateLimitPort stormCtrlPort *3. MIB code sorting. "
+      },
+      {
+        "revision": "2015-02-25 15:00",
+        "description": " *1. Change the access to interfaceStatisticsTable > R/W -> R/O interfaceStatisticsIndex interfaceStatisticsInOctets interfaceStatisticsInFrames interfaceStatisticsInUcastPkts interfaceStatisticsInMulticastPkts interfaceStatisticsInBroadcastPkts interfaceStatisticsOutOctets interfaceStatisticsOutFrames interfaceStatisticsOutUcastPkts interfaceStatisticsOutMulticastPkts interfaceStatisticsOutBroadcastPkts interfaceStatisticsDropEvents interfaceStatisticsFCSErrors interfaceStatisticsUndersizePkts interfaceStatisticsOversizePkts interfaceStatisticsFragments interfaceStatisticsJabbers interfaceStatisticsSymbolErrors "
+      },
+      {
+        "revision": "2014-11-14 12:00",
+        "description": " *1. This item value is changed syntax interfaceConfigIndex Integer32 (1..255) -> Integer32 (1..8191) "
+      },
+      {
+        "revision": "2014-10-29 12:00",
+        "description": " *1. Change the sytax size DisplayString(SIZE(0..256)) -> DisplayString(SIZE(0..255)) "
+      },
+      {
+        "revision": "2014-06-13 12:00",
+        "description": " *1. This value range is changed the 13312 to 9600. interfaceConfigMTU *2. This value access is changed the read-write to read-only. interfaceConfigOperStatus interfaceConfigOperFlowCtrl interfaceConfigAct *3. This value range is changed the 1953125 to 1000000000. stormCtrlBroadcastPps stormCtrlMulticastPps stormCtrlDlfPps "
+      },
+      {
+        "revision": "2013-12-27 12:00",
+        "description": "Initial version of MIB."
+      }
+    ]
+  },
+  "interfaceConfigTable": {
+    "name": "interfaceConfigTable",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "interfaceConfigEntry": {
+    "name": "interfaceConfigEntry",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BTI8xx-INTERFACE-MIB",
+        "object": "interfaceConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "interfaceConfigIndex": {
+    "name": "interfaceConfigIndex",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceConfigPort": {
+    "name": "interfaceConfigPort",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceConfigMTU": {
+    "name": "interfaceConfigMTU",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigTPID": {
+    "name": "interfaceConfigTPID",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigPVID": {
+    "name": "interfaceConfigPVID",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigAdminStatus": {
+    "name": "interfaceConfigAdminStatus",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigOperStatus": {
+    "name": "interfaceConfigOperStatus",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceConfigMode": {
+    "name": "interfaceConfigMode",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "force": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigDuplex": {
+    "name": "interfaceConfigDuplex",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigSpeed": {
+    "name": "interfaceConfigSpeed",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigAdminFlowCtrl": {
+    "name": "interfaceConfigAdminFlowCtrl",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigOperFlowCtrl": {
+    "name": "interfaceConfigOperFlowCtrl",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceConfigAct": {
+    "name": "interfaceConfigAct",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "act": 1,
+          "deAct": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceConfigDescription": {
+    "name": "interfaceConfigDescription",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigPriority": {
+    "name": "interfaceConfigPriority",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceConfigLag": {
+    "name": "interfaceConfigLag",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceConfigLearning": {
+    "name": "interfaceConfigLearning",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceStatisticsTable": {
+    "name": "interfaceStatisticsTable",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "interfaceStatisticsEntry": {
+    "name": "interfaceStatisticsEntry",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BTI8xx-INTERFACE-MIB",
+        "object": "interfaceStatisticsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "interfaceStatisticsIndex": {
+    "name": "interfaceStatisticsIndex",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsInOctets": {
+    "name": "interfaceStatisticsInOctets",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsInFrames": {
+    "name": "interfaceStatisticsInFrames",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsInUcastPkts": {
+    "name": "interfaceStatisticsInUcastPkts",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsInMulticastPkts": {
+    "name": "interfaceStatisticsInMulticastPkts",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsInBroadcastPkts": {
+    "name": "interfaceStatisticsInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsOutOctets": {
+    "name": "interfaceStatisticsOutOctets",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsOutFrames": {
+    "name": "interfaceStatisticsOutFrames",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsOutUcastPkts": {
+    "name": "interfaceStatisticsOutUcastPkts",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsOutMulticastPkts": {
+    "name": "interfaceStatisticsOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsOutBroadcastPkts": {
+    "name": "interfaceStatisticsOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsDropEvents": {
+    "name": "interfaceStatisticsDropEvents",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsFCSErrors": {
+    "name": "interfaceStatisticsFCSErrors",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsUndersizePkts": {
+    "name": "interfaceStatisticsUndersizePkts",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsOversizePkts": {
+    "name": "interfaceStatisticsOversizePkts",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsFragments": {
+    "name": "interfaceStatisticsFragments",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsJabbers": {
+    "name": "interfaceStatisticsJabbers",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceStatisticsSymbolErrors": {
+    "name": "interfaceStatisticsSymbolErrors",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remotePortIdTable": {
+    "name": "remotePortIdTable",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "remotePortIdEntry": {
+    "name": "remotePortIdEntry",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "remotePortIdLocalPort": {
+    "name": "remotePortIdLocalPort",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remotePortIdLocalType": {
+    "name": "remotePortIdLocalType",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remotePortIdDesc": {
+    "name": "remotePortIdDesc",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateLimitTable": {
+    "name": "rateLimitTable",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rateLimitEntry": {
+    "name": "rateLimitEntry",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rateLimitPort": {
+    "name": "rateLimitPort",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rateLimitIngressRate": {
+    "name": "rateLimitIngressRate",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateLimitIngressBurst": {
+    "name": "rateLimitIngressBurst",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateLimitIngressState": {
+    "name": "rateLimitIngressState",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateLimitEgressRate": {
+    "name": "rateLimitEgressRate",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateLimitEgressBurst": {
+    "name": "rateLimitEgressBurst",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateLimitEgressState": {
+    "name": "rateLimitEgressState",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rateLimitShapingMode": {
+    "name": "rateLimitShapingMode",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "layer1": 0,
+          "layer2": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormCtrlTable": {
+    "name": "stormCtrlTable",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stormCtrlEntry": {
+    "name": "stormCtrlEntry",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stormCtrlPort": {
+    "name": "stormCtrlPort",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stormCtrlBroadcastPps": {
+    "name": "stormCtrlBroadcastPps",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormCtrlBroadcastState": {
+    "name": "stormCtrlBroadcastState",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormCtrlMulticastPps": {
+    "name": "stormCtrlMulticastPps",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormCtrlMulticastState": {
+    "name": "stormCtrlMulticastState",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormCtrlDlfPps": {
+    "name": "stormCtrlDlfPps",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stormCtrlDlfState": {
+    "name": "stormCtrlDlfState",
+    "oid": "1.3.6.1.4.1.30005.1.7.100.1.2.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bti/BTI8xx-INTERFACE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:00 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BTI8xx-INTERFACE-MIB"
+  }
+}

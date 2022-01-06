@@ -1,0 +1,4520 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALU-SAR-GLOBAL-MIB": [
+      "aluSARObjs",
+      "aluSARConfs",
+      "aluSARMIBModules",
+      "aluSARNotifyPrefix"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ],
+    "TIMETRA-CHASSIS-MIB": [
+      "tmnxChassisIndex"
+    ],
+    "TIMETRA-PORT-MIB": [
+      "TmnxPortOperStatus"
+    ],
+    "TIMETRA-TC-MIB": [
+      "TmnxActionType",
+      "TmnxDisplayStringURL",
+      "TmnxPortID",
+      "TNamedItemOrEmpty"
+    ]
+  },
+  "aluMwMIBModule": {
+    "name": "aluMwMIBModule",
+    "oid": "1.3.6.1.4.1.6527.6.1.1.1.3.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1908-01-09 00:00",
+        "description": "Rev 1.0 09 Jan 2008 00:00 1.0 release of the ALU-MICROWAVE-MIB."
+      }
+    ]
+  },
+  "aluMwObjPrefix": {
+    "name": "aluMwObjPrefix",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7",
+    "class": "objectidentity"
+  },
+  "aluMwObjs": {
+    "name": "aluMwObjs",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1",
+    "class": "objectidentity"
+  },
+  "aluMwNotifyObjs": {
+    "name": "aluMwNotifyObjs",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2",
+    "class": "objectidentity"
+  },
+  "aluMwMIBConformance": {
+    "name": "aluMwMIBConformance",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7",
+    "class": "objectidentity"
+  },
+  "aluMwConformance": {
+    "name": "aluMwConformance",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1",
+    "class": "objectidentity"
+  },
+  "aluMwNotifyPrefix": {
+    "name": "aluMwNotifyPrefix",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10",
+    "class": "objectidentity"
+  },
+  "aluMwNotification": {
+    "name": "aluMwNotification",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0",
+    "class": "objectidentity"
+  },
+  "AluMwLinkID": {
+    "name": "AluMwLinkID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AluMwLinkRadioActivity": {
+    "name": "AluMwLinkRadioActivity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "mainRadio": 2,
+          "spareRadio": 3,
+          "bothActive": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AluMwLinkRevertiveness": {
+    "name": "AluMwLinkRevertiveness",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "revertive": 2,
+          "nonRevertive": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AluMwLinkMaintenanceOp": {
+    "name": "AluMwLinkMaintenanceOp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "lockout": 1,
+          "forced": 2,
+          "manual": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AluMwRadioSwState": {
+    "name": "AluMwRadioSwState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "dwnldRequested": 1,
+          "dwnldForced": 2,
+          "inProgress": 3,
+          "ready": 4,
+          "ok": 5,
+          "mismatch": 6,
+          "dwnldFailed": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AluMwPerfMonSection": {
+    "name": "AluMwPerfMonSection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radioHop": 0,
+          "radioLink": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AluMwPerfMonPeriod": {
+    "name": "AluMwPerfMonPeriod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMinute": 0,
+          "twentyFourHour": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AluMwPerfMonBin": {
+    "name": "AluMwPerfMonBin",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AluMwPerfMonEPSState": {
+    "name": "AluMwPerfMonEPSState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "active": 1,
+          "notRelevant": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "aluMwLinkTable": {
+    "name": "aluMwLinkTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwLinkEntry": {
+    "name": "aluMwLinkEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwLinkID": {
+    "name": "aluMwLinkID",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwLinkRowStatus": {
+    "name": "aluMwLinkRowStatus",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkOperFlags": {
+    "name": "aluMwLinkOperFlags",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noRadioCfg": 0,
+        "linkAdminDown": 1,
+        "noRadiosPresent": 2,
+        "noRadiosReady": 3,
+        "incompatibleConfig": 4,
+        "radioFailure": 5,
+        "receptionFailure": 6,
+        "di": 7,
+        "txMuted": 8
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkRadioScheme": {
+    "name": "aluMwLinkRadioScheme",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "onePlusZero": 1,
+          "onePlusOneHSB": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "onePlusZero",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkAlarmState": {
+    "name": "aluMwLinkAlarmState",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "inderminate": 5,
+          "notSupported": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAlarmsCritical": {
+    "name": "aluMwLinkAlarmsCritical",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAlarmsMajor": {
+    "name": "aluMwLinkAlarmsMajor",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAlarmsMinor": {
+    "name": "aluMwLinkAlarmsMinor",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAlarmsWarning": {
+    "name": "aluMwLinkAlarmsWarning",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAlarmsInd": {
+    "name": "aluMwLinkAlarmsInd",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAlarmsCommunication": {
+    "name": "aluMwLinkAlarmsCommunication",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAlarmsEquipment": {
+    "name": "aluMwLinkAlarmsEquipment",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkEPSActivity": {
+    "name": "aluMwLinkEPSActivity",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkRadioActivity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkTPSActivity": {
+    "name": "aluMwLinkTPSActivity",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkRadioActivity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkRPSActivity": {
+    "name": "aluMwLinkRPSActivity",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkRadioActivity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkEPSRevertiveness": {
+    "name": "aluMwLinkEPSRevertiveness",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkRevertiveness",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkTPSRevertiveness": {
+    "name": "aluMwLinkTPSRevertiveness",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkRevertiveness",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkRPSRevertiveness": {
+    "name": "aluMwLinkRPSRevertiveness",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkRevertiveness",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkEPSMainMaintOp": {
+    "name": "aluMwLinkEPSMainMaintOp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkMaintenanceOp",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkEPSSpareMaintOp": {
+    "name": "aluMwLinkEPSSpareMaintOp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkMaintenanceOp",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkTPSMainMaintOp": {
+    "name": "aluMwLinkTPSMainMaintOp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkMaintenanceOp",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkTPSSpareMaintOp": {
+    "name": "aluMwLinkTPSSpareMaintOp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkMaintenanceOp",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkRPSMainMaintOp": {
+    "name": "aluMwLinkRPSMainMaintOp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkMaintenanceOp",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkRPSSpareMaintOp": {
+    "name": "aluMwLinkRPSSpareMaintOp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkMaintenanceOp",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkPeerID": {
+    "name": "aluMwLinkPeerID",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkPeerNEIpAddress": {
+    "name": "aluMwLinkPeerNEIpAddress",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkClearStatistics": {
+    "name": "aluMwLinkClearStatistics",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxActionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwLinkPeerDiscovery": {
+    "name": "aluMwLinkPeerDiscovery",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioTable": {
+    "name": "aluMwRadioTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioEntry": {
+    "name": "aluMwRadioEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioPortID": {
+    "name": "aluMwRadioPortID",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioRowStatus": {
+    "name": "aluMwRadioRowStatus",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioMode": {
+    "name": "aluMwRadioMode",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "onePlusZero": 1,
+          "main": 2,
+          "spare": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "onePlusZero",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioMwLinkID": {
+    "name": "aluMwRadioMwLinkID",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwLinkID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioOperStatus": {
+    "name": "aluMwRadioOperStatus",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioOperFlags": {
+    "name": "aluMwRadioOperFlags",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "portNotPresent": 0,
+        "portOperDown": 1,
+        "radioNotPresent": 2,
+        "radioCommError": 3,
+        "radioInit": 4,
+        "softwareDownload": 5,
+        "txMuted": 6,
+        "radioNotReady": 7,
+        "radioEqFailure": 8,
+        "incompatibleShifter": 9,
+        "incompatibleFreq": 10,
+        "incompatiblePower": 11,
+        "incompatibleModParms": 12,
+        "di": 13,
+        "radioLinkDown": 14,
+        "rslThresholdFail": 15,
+        "lof": 16,
+        "protectionFail": 17,
+        "proxyActive": 18,
+        "noDbFile": 19,
+        "dbSyncInProgress": 20,
+        "noDbConfig": 21,
+        "tpsTxMuted": 22,
+        "noSoftware": 23,
+        "softwareMismatch": 24,
+        "issu": 25,
+        "highBer": 26
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioStandalone": {
+    "name": "aluMwRadioStandalone",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioName": {
+    "name": "aluMwRadioName",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioDatabaseFilename": {
+    "name": "aluMwRadioDatabaseFilename",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioType": {
+    "name": "aluMwRadioType",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioFrequency": {
+    "name": "aluMwRadioFrequency",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "MHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmState": {
+    "name": "aluMwRadioAlarmState",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "inderminate": 5,
+          "notSupported": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsCritical": {
+    "name": "aluMwRadioAlarmsCritical",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsMajor": {
+    "name": "aluMwRadioAlarmsMajor",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsMinor": {
+    "name": "aluMwRadioAlarmsMinor",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsWarning": {
+    "name": "aluMwRadioAlarmsWarning",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsInd": {
+    "name": "aluMwRadioAlarmsInd",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsCommunication": {
+    "name": "aluMwRadioAlarmsCommunication",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsEquipment": {
+    "name": "aluMwRadioAlarmsEquipment",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioTxMuted": {
+    "name": "aluMwRadioTxMuted",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "none": 1,
+          "manual": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioReboot": {
+    "name": "aluMwRadioReboot",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxActionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioLastStateChange": {
+    "name": "aluMwRadioLastStateChange",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioCommEstablished": {
+    "name": "aluMwRadioCommEstablished",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioCommLost": {
+    "name": "aluMwRadioCommLost",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioSwState": {
+    "name": "aluMwRadioSwState",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwRadioSwState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioSwDnldProgress": {
+    "name": "aluMwRadioSwDnldProgress",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioRslHistoryUrl": {
+    "name": "aluMwRadioRslHistoryUrl",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxDisplayStringURL",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioRslHistoryClear": {
+    "name": "aluMwRadioRslHistoryClear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxActionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioFfdSuppressFlags": {
+    "name": "aluMwRadioFfdSuppressFlags",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "allfaults": 0,
+        "highBer": 1,
+        "di": 2,
+        "rslThreshold": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioPMG826Enable": {
+    "name": "aluMwRadioPMG826Enable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioPMG826OperStatus": {
+    "name": "aluMwRadioPMG826OperStatus",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioPMG826Clear": {
+    "name": "aluMwRadioPMG826Clear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxActionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioPMACMEnable": {
+    "name": "aluMwRadioPMACMEnable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioPMACMOperStatus": {
+    "name": "aluMwRadioPMACMOperStatus",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioPMACMClear": {
+    "name": "aluMwRadioPMACMClear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxActionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioPMPowerEnable": {
+    "name": "aluMwRadioPMPowerEnable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioPMPowerOperStatus": {
+    "name": "aluMwRadioPMPowerOperStatus",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioPMPowerClear": {
+    "name": "aluMwRadioPMPowerClear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxActionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aluMwRadioPowerMeasuresTable": {
+    "name": "aluMwRadioPowerMeasuresTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioPowerMeasuresEntry": {
+    "name": "aluMwRadioPowerMeasuresEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioLocalTxPower": {
+    "name": "aluMwRadioLocalTxPower",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioLocalRxMainPower": {
+    "name": "aluMwRadioLocalRxMainPower",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioRemoteTxPower": {
+    "name": "aluMwRadioRemoteTxPower",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioRemoteRxMainPower": {
+    "name": "aluMwRadioRemoteRxMainPower",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioLocalDiversityPower": {
+    "name": "aluMwRadioLocalDiversityPower",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioRemoteDiversityPower": {
+    "name": "aluMwRadioRemoteDiversityPower",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsTable": {
+    "name": "aluMwRadioAlarmsTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioAlarmsEntry": {
+    "name": "aluMwRadioAlarmsEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPortID",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioAlarmID": {
+    "name": "aluMwRadioAlarmID",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioAlarmTime": {
+    "name": "aluMwRadioAlarmTime",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmName": {
+    "name": "aluMwRadioAlarmName",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmSeverity": {
+    "name": "aluMwRadioAlarmSeverity",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "indeterminate": 5,
+          "cleared": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmSpecProblem": {
+    "name": "aluMwRadioAlarmSpecProblem",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmType": {
+    "name": "aluMwRadioAlarmType",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "communication": 1,
+          "qos": 2,
+          "processing": 3,
+          "equipment": 4,
+          "environment": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmObject": {
+    "name": "aluMwRadioAlarmObject",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioAlarmSubObject": {
+    "name": "aluMwRadioAlarmSubObject",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkStatisticsTable": {
+    "name": "aluMwLinkStatisticsTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwLinkStatisticsEntry": {
+    "name": "aluMwLinkStatisticsEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwLinkAggrFramesTx": {
+    "name": "aluMwLinkAggrFramesTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAggrOctetsTx": {
+    "name": "aluMwLinkAggrOctetsTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkAggrDiscardedTx": {
+    "name": "aluMwLinkAggrDiscardedTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue1FramesTx": {
+    "name": "aluMwLinkQueue1FramesTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue1OctetsTx": {
+    "name": "aluMwLinkQueue1OctetsTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue1DiscardedTx": {
+    "name": "aluMwLinkQueue1DiscardedTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue2FramesTx": {
+    "name": "aluMwLinkQueue2FramesTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue2OctetsTx": {
+    "name": "aluMwLinkQueue2OctetsTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue2DiscardedTx": {
+    "name": "aluMwLinkQueue2DiscardedTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue3FramesTx": {
+    "name": "aluMwLinkQueue3FramesTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue3OctetsTx": {
+    "name": "aluMwLinkQueue3OctetsTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue3DiscardedTx": {
+    "name": "aluMwLinkQueue3DiscardedTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue4FramesTx": {
+    "name": "aluMwLinkQueue4FramesTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue4OctetsTx": {
+    "name": "aluMwLinkQueue4OctetsTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue4DiscardedTx": {
+    "name": "aluMwLinkQueue4DiscardedTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue5FramesTx": {
+    "name": "aluMwLinkQueue5FramesTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue5OctetsTx": {
+    "name": "aluMwLinkQueue5OctetsTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkQueue5DiscardedTx": {
+    "name": "aluMwLinkQueue5DiscardedTx",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioInfoTable": {
+    "name": "aluMwRadioInfoTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioInfoEntry": {
+    "name": "aluMwRadioInfoEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioInfoValid": {
+    "name": "aluMwRadioInfoValid",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioCompanyId": {
+    "name": "aluMwRadioCompanyId",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioMnemonic": {
+    "name": "aluMwRadioMnemonic",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioCLEI": {
+    "name": "aluMwRadioCLEI",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioHwPartNumber": {
+    "name": "aluMwRadioHwPartNumber",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioSwPartNumber": {
+    "name": "aluMwRadioSwPartNumber",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioFactoryId": {
+    "name": "aluMwRadioFactoryId",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioSerialNumber": {
+    "name": "aluMwRadioSerialNumber",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioMfgDateId": {
+    "name": "aluMwRadioMfgDateId",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioMfgDate": {
+    "name": "aluMwRadioMfgDate",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioCustomerField": {
+    "name": "aluMwRadioCustomerField",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 46
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioTemperature": {
+    "name": "aluMwRadioTemperature",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwTable": {
+    "name": "aluMwTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwEntry": {
+    "name": "aluMwEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwSwPackageValid": {
+    "name": "aluMwSwPackageValid",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwSwDownloadTool": {
+    "name": "aluMwSwDownloadTool",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "startDownload": 1,
+          "startForcedDownload": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aluMwSwDownloadState": {
+    "name": "aluMwSwDownloadState",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "noSoftwarePackage": 1,
+          "ready": 2,
+          "downloadInProgress": 3,
+          "downloadFailed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkTdaStatusTable": {
+    "name": "aluMwLinkTdaStatusTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwLinkTdaStatusEntry": {
+    "name": "aluMwLinkTdaStatusEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwLinkTdaCmdState": {
+    "name": "aluMwLinkTdaCmdState",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "error": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkTdaManualCmdStatus": {
+    "name": "aluMwLinkTdaManualCmdStatus",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notForced": 0,
+          "main": 1,
+          "diversity": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwLinkTdaSwitchPosition": {
+    "name": "aluMwLinkTdaSwitchPosition",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 0,
+          "diversity": 1,
+          "error": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioPMG826Table": {
+    "name": "aluMwRadioPMG826Table",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioPMG826Entry": {
+    "name": "aluMwRadioPMG826Entry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPortID",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Section",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Period",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Bin",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwPMG826Section": {
+    "name": "aluMwPMG826Section",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonSection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826Period": {
+    "name": "aluMwPMG826Period",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonPeriod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826Bin": {
+    "name": "aluMwPMG826Bin",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonBin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826Date": {
+    "name": "aluMwPMG826Date",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826Duration": {
+    "name": "aluMwPMG826Duration",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826EPSState": {
+    "name": "aluMwPMG826EPSState",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonEPSState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826Suspect": {
+    "name": "aluMwPMG826Suspect",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826ES": {
+    "name": "aluMwPMG826ES",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826SES": {
+    "name": "aluMwPMG826SES",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826BBE": {
+    "name": "aluMwPMG826BBE",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMG826UAS": {
+    "name": "aluMwPMG826UAS",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioPMACMTable": {
+    "name": "aluMwRadioPMACMTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioPMACMEntry": {
+    "name": "aluMwRadioPMACMEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPortID",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMPeriod",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMBin",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMModulation",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwPMACMPeriod": {
+    "name": "aluMwPMACMPeriod",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonPeriod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMACMBin": {
+    "name": "aluMwPMACMBin",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonBin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMACMModulation": {
+    "name": "aluMwPMACMModulation",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMACMDate": {
+    "name": "aluMwPMACMDate",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMACMDuration": {
+    "name": "aluMwPMACMDuration",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMACMSuspect": {
+    "name": "aluMwPMACMSuspect",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMACMTimeSpent": {
+    "name": "aluMwPMACMTimeSpent",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwRadioPMPowerTable": {
+    "name": "aluMwRadioPMPowerTable",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aluMwRadioPMPowerEntry": {
+    "name": "aluMwRadioPMPowerEntry",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-CHASSIS-MIB",
+        "object": "tmnxChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPortID",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerDirection",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerSection",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerPeriod",
+        "implied": 0
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerBin",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwPMPowerDirection": {
+    "name": "aluMwPMPowerDirection",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rx": 0,
+          "tx": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerSection": {
+    "name": "aluMwPMPowerSection",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonSection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerPeriod": {
+    "name": "aluMwPMPowerPeriod",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonPeriod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerBin": {
+    "name": "aluMwPMPowerBin",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonBin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerDate": {
+    "name": "aluMwPMPowerDate",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerDuration": {
+    "name": "aluMwPMPowerDuration",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerEPSState": {
+    "name": "aluMwPMPowerEPSState",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwPerfMonEPSState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerSuspect": {
+    "name": "aluMwPMPowerSuspect",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerMinPowerLevel": {
+    "name": "aluMwPMPowerMinPowerLevel",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerMaxPowerLevel": {
+    "name": "aluMwPMPowerMaxPowerLevel",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwPMPowerMeanPowerLevel": {
+    "name": "aluMwPMPowerMeanPowerLevel",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aluMwNotifyRadioPortID": {
+    "name": "aluMwNotifyRadioPortID",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyAlarmTime": {
+    "name": "aluMwNotifyAlarmTime",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyAlarmId": {
+    "name": "aluMwNotifyAlarmId",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyAlarmName": {
+    "name": "aluMwNotifyAlarmName",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyAlarmSpecProblem": {
+    "name": "aluMwNotifyAlarmSpecProblem",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyAlarmType": {
+    "name": "aluMwNotifyAlarmType",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "communication": 1,
+          "qos": 2,
+          "processing": 3,
+          "equipment": 4,
+          "environment": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyAlarmObject": {
+    "name": "aluMwNotifyAlarmObject",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyAlarmSubObject": {
+    "name": "aluMwNotifyAlarmSubObject",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyTxMute": {
+    "name": "aluMwNotifyTxMute",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMute": 1,
+          "mute": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyLinkPortID": {
+    "name": "aluMwNotifyLinkPortID",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyLinkActivity": {
+    "name": "aluMwNotifyLinkActivity",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 1,
+          "spare": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyLinkProtectionType": {
+    "name": "aluMwNotifyLinkProtectionType",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eps": 1,
+          "tps": 2,
+          "rps": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwNotifyRadioSwState": {
+    "name": "aluMwNotifyRadioSwState",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.2.7.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluMwRadioSwState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "aluMwRadioLinkUp": {
+    "name": "aluMwRadioLinkUp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioLinkDown": {
+    "name": "aluMwRadioLinkDown",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioPresent": {
+    "name": "aluMwRadioPresent",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioNotPresent": {
+    "name": "aluMwRadioNotPresent",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioSwPackageMissing": {
+    "name": "aluMwRadioSwPackageMissing",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "aluMwRadioDatabaseUpdated": {
+    "name": "aluMwRadioDatabaseUpdated",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioCriticalAlarmRaise": {
+    "name": "aluMwRadioCriticalAlarmRaise",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioCriticalAlarmClear": {
+    "name": "aluMwRadioCriticalAlarmClear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioMajorAlarmRaise": {
+    "name": "aluMwRadioMajorAlarmRaise",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioMajorAlarmClear": {
+    "name": "aluMwRadioMajorAlarmClear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioMinorAlarmRaise": {
+    "name": "aluMwRadioMinorAlarmRaise",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioMinorAlarmClear": {
+    "name": "aluMwRadioMinorAlarmClear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioWarningAlarmRaise": {
+    "name": "aluMwRadioWarningAlarmRaise",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioWarningAlarmClear": {
+    "name": "aluMwRadioWarningAlarmClear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioIndetermAlarmRaise": {
+    "name": "aluMwRadioIndetermAlarmRaise",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioIndetermAlarmClear": {
+    "name": "aluMwRadioIndetermAlarmClear",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioTxChange": {
+    "name": "aluMwRadioTxChange",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyTxMute"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwLinkEPSActivityChange": {
+    "name": "aluMwLinkEPSActivityChange",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkActivity"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwLinkTPSActivityChange": {
+    "name": "aluMwLinkTPSActivityChange",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkActivity"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwLinkRPSActivityChange": {
+    "name": "aluMwLinkRPSActivityChange",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkActivity"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwLinkMaintenanceChange": {
+    "name": "aluMwLinkMaintenanceChange",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkProtectionType"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwLinkPeerChange": {
+    "name": "aluMwLinkPeerChange",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioSwStateChange": {
+    "name": "aluMwRadioSwStateChange",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioSwState"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioRslHistoryUploadFail": {
+    "name": "aluMwRadioRslHistoryUploadFail",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwMptSwReconcileFail": {
+    "name": "aluMwMptSwReconcileFail",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.25",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "aluMwRadioRslHistoryCleared": {
+    "name": "aluMwRadioRslHistoryCleared",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.26",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "aluMwRadioPMG826OperUp": {
+    "name": "aluMwRadioPMG826OperUp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioPMG826OperDown": {
+    "name": "aluMwRadioPMG826OperDown",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioPMACMOperUp": {
+    "name": "aluMwRadioPMACMOperUp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioPMACMOperDown": {
+    "name": "aluMwRadioPMACMOperDown",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioPMPowerOperUp": {
+    "name": "aluMwRadioPMPowerOperUp",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwRadioPMPowerOperDown": {
+    "name": "aluMwRadioPMPowerOperDown",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.3.10.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwCompliances": {
+    "name": "aluMwCompliances",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.1",
+    "class": "objectidentity"
+  },
+  "aluMwGroups": {
+    "name": "aluMwGroups",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.2",
+    "class": "objectidentity"
+  },
+  "aluMwComp7705": {
+    "name": "aluMwComp7705",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.1.1",
+    "class": "objectidentity"
+  },
+  "aluMwComp7705V1v0": {
+    "name": "aluMwComp7705V1v0",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aluMwGroup",
+        "module": "ALU-MICROWAVE-MIB"
+      },
+      {
+        "object": "aluMwNotificationGroup",
+        "module": "ALU-MICROWAVE-MIB"
+      },
+      {
+        "object": "aluMwPeerDiscoveryGroup",
+        "module": "ALU-MICROWAVE-MIB"
+      },
+      {
+        "object": "aluMwAlarmGroup",
+        "module": "ALU-MICROWAVE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwGroup": {
+    "name": "aluMwGroup",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioRowStatus"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMode"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMwLinkID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioOperStatus"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioOperFlags"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkRowStatus"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkOperFlags"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkRadioScheme"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkEPSActivity"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkRPSActivity"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkTPSActivity"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkEPSRevertiveness"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkTPSRevertiveness"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkRPSRevertiveness"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkEPSMainMaintOp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkEPSSpareMaintOp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkTPSMainMaintOp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkTPSSpareMaintOp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkRPSMainMaintOp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkRPSSpareMaintOp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkPeerID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkPeerNEIpAddress"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkClearStatistics"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioStandalone"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioDatabaseFilename"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioFrequency"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioCompanyId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMnemonic"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioCLEI"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioHwPartNumber"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioSwPartNumber"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioFactoryId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioSerialNumber"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMfgDateId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMfgDate"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioCustomerField"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmState"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmsCritical"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmsMajor"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmsMinor"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmsWarning"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmsInd"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmsCommunication"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmsEquipment"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioTxMuted"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioReboot"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioLastStateChange"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioInfoValid"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioTemperature"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioCommEstablished"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioLocalTxPower"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioLocalRxMainPower"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioRemoteTxPower"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioRemoteRxMainPower"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAggrFramesTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAggrOctetsTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAggrDiscardedTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue1FramesTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue1OctetsTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue1DiscardedTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue2FramesTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue2OctetsTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue2DiscardedTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue3FramesTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue3OctetsTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue3DiscardedTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue4FramesTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue4OctetsTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue4DiscardedTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue5FramesTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue5OctetsTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkQueue5DiscardedTx"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwSwPackageValid"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwSwDownloadTool"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioSwState"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioSwDnldProgress"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwSwDownloadState"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioRslHistoryUrl"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioRslHistoryClear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkTdaCmdState"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkTdaManualCmdStatus"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkTdaSwitchPosition"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioLocalDiversityPower"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioRemoteDiversityPower"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioFfdSuppressFlags"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMG826Enable"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMG826OperStatus"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMG826Clear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMACMEnable"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMACMOperStatus"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMACMClear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMPowerEnable"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMPowerOperStatus"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMPowerClear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Section"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Period"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Bin"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Date"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Duration"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826EPSState"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826Suspect"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826ES"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826SES"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826BBE"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMG826UAS"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMPeriod"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMBin"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMModulation"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMDate"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMDuration"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMSuspect"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMACMTimeSpent"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerDirection"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerSection"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerPeriod"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerBin"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerDate"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerDuration"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerEPSState"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerSuspect"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerMinPowerLevel"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerMaxPowerLevel"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwPMPowerMeanPowerLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwNotificationGroup": {
+    "name": "aluMwNotificationGroup",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioLinkUp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioLinkDown"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPresent"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioNotPresent"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioSwPackageMissing"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioDatabaseUpdated"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioCriticalAlarmRaise"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioCriticalAlarmClear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMajorAlarmRaise"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMajorAlarmClear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMinorAlarmRaise"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioMinorAlarmClear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioWarningAlarmRaise"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioWarningAlarmClear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioIndetermAlarmRaise"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioIndetermAlarmClear"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioTxChange"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkEPSActivityChange"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkTPSActivityChange"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkRPSActivityChange"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkMaintenanceChange"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkPeerChange"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioSwStateChange"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioRslHistoryUploadFail"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwMptSwReconcileFail"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioRslHistoryCleared"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMG826OperUp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMG826OperDown"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMACMOperUp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMACMOperDown"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMPowerOperUp"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioPMPowerOperDown"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwNotificationObjsGroup": {
+    "name": "aluMwNotificationObjsGroup",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmId"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyAlarmSubObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyTxMute"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkPortID"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkActivity"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyLinkProtectionType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwNotifyRadioSwState"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwPeerDiscoveryGroup": {
+    "name": "aluMwPeerDiscoveryGroup",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkPeerDiscovery"
+      }
+    ],
+    "status": "current"
+  },
+  "aluMwAlarmGroup": {
+    "name": "aluMwAlarmGroup",
+    "oid": "1.3.6.1.4.1.6527.6.1.2.1.7.1.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAlarmState"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAlarmsCommunication"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAlarmsCritical"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAlarmsEquipment"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAlarmsInd"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAlarmsMajor"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAlarmsMinor"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwLinkAlarmsWarning"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmName"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmSeverity"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmSpecProblem"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmSubObject"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmTime"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioAlarmType"
+      },
+      {
+        "module": "ALU-MICROWAVE-MIB",
+        "object": "aluMwRadioCommLost"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:04 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALU-MICROWAVE-MIB"
+  }
+}

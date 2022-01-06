@@ -1,0 +1,3687 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoMilliSeconds"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoGdoiMIB": {
+    "name": "ciscoGdoiMIB",
+    "oid": "1.3.6.1.4.1.9.9.759",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-07-17 00:00",
+        "description": "Added the following textual conventions: - CgmGdoiKsStatus - CgmGdoiKsRole Added the following objects to cgmGdoiGroupTable: - cgmGdoiGroupMemberCount - cgmGdoiGroupActivePeerKeyServerCount - cgmGdoiGroupLastRekeyRetransmits - cgmGdoiGroupLastRekeyTimeTaken Added the following objects to cgmGdoiKeyServerTable: - cgmGdoiKeyServerRole - cgmGdoiKeyServerRegisteredGMs Added the following objects to cgmGdoiGmTable: - cgmGdoiGmActiveTEKNum Added the following objects to cgmGdoiNotifCntl: - cgmGdoiKsRoleChangeNotifEnable - cgmGdoiKsGmDeletedNotifEnable - cgmGdoiKsPeerReachNotifEnable - cgmGdoiKsPeerUnreachNotifEnable Added the following tables: - cgmGdoiNotifVars - cgmGdoiCoopPeerTable Added the following notifications: - cgmGdoiKeyServerRoleChange - cgmGdoiKeyServerGmDeleted - cgmGdoiKeyServerPeerReachable - cgmGdoiKeyServerPeerUnreachable Added new MIB Groups (for conformance) - cgmGdoiGroupIdGroupRev1 - cgmGdoiKeyServerGroupRev1 - cgmGdoiGmGroupRev1 - cgmGdoiNotificationControlGroupRev1 - cgmGdoiKeyServerNotificationGroupRev1 - cgmGdoiCoopPeerGroup - cgmGdoiNotificationVariablesGroup Added a new compliance group: - cgmGdoiMIBComplianceRev1 Deprecated an old compliance group: - cgmGdoiMIBCompliance"
+      },
+      {
+        "revision": "2010-08-31 00:00",
+        "description": "Final Ciscoized version of the MIB draft after review comments"
+      },
+      {
+        "revision": "2010-07-20 12:40",
+        "description": "Ciscoized version of the MIB draft after review comments"
+      },
+      {
+        "revision": "2010-06-02 12:45",
+        "description": "Ciscoized version of the initial MIB draft"
+      },
+      {
+        "revision": "2010-02-25 05:45",
+        "description": "Initial version, published as RFC ????"
+      }
+    ]
+  },
+  "CgmGdoiKsStatus": {
+    "name": "CgmGdoiKsStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyServerAlive": 1,
+          "keyServerDead": 2,
+          "keyServerUnknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiKsRole": {
+    "name": "CgmGdoiKsRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyServerPrimary": 1,
+          "keyServerSecondary": 2,
+          "keyServerUnknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiIdentificationType": {
+    "name": "CgmGdoiIdentificationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4Address": 1,
+          "domainName": 2,
+          "userName": 3,
+          "ipv4Subnet": 4,
+          "ipv6Address": 5,
+          "ipv6Subnet": 6,
+          "ipv4Range": 7,
+          "ipv6Range": 8,
+          "caDistinguishedName": 9,
+          "caGeneralName": 10,
+          "groupNumber": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiIdentificationValue": {
+    "name": "CgmGdoiIdentificationValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "displayhint": "255d",
+    "status": "current"
+  },
+  "CgmGdoiKekSPI": {
+    "name": "CgmGdoiKekSPI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "16x",
+    "status": "current"
+  },
+  "CgmGdoiIpProtocolId": {
+    "name": "CgmGdoiIpProtocolId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipProtocolUnknown": 0,
+          "ipProtocolTCP": 1,
+          "ipProtocolUDP": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiKeyManagementAlgorithm": {
+    "name": "CgmGdoiKeyManagementAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyMgmtNone": 0,
+          "keyMgmtLkh": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiEncryptionAlgorithm": {
+    "name": "CgmGdoiEncryptionAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encrAlgNone": 0,
+          "encrAlgDes64": 1,
+          "encrAlgDes": 2,
+          "encrAlg3Des": 3,
+          "encrAlgRc5": 4,
+          "encrAlgIdea": 5,
+          "encrAlgCast": 6,
+          "encrAlgBlowfish": 7,
+          "encrAlg3Idea": 8,
+          "encrAlgDes32": 9,
+          "encrAlgRc4": 10,
+          "encrAlgNull": 11,
+          "encrAlgAesCbc": 12,
+          "encrAlgAesCtr": 13,
+          "encrAlgAesCcm8": 14,
+          "encrAlgAesCcm12": 15,
+          "encrAlgAesCcm16": 16,
+          "encrAlgAesGcm8": 18,
+          "encrAlgAesGcm12": 19,
+          "encrAlgAesGcm16": 20,
+          "encrAlgNullAuthAesGmac": 21,
+          "encrAlgCamelliaCbc": 23,
+          "encrAlgCamelliaCtr": 24,
+          "encrAlgCamelliaCcm8": 25,
+          "encrAlgCamelliaCcm12": 26,
+          "encrAlgCamelliaCcm1": 27,
+          "encrAlgSeedCbc": 28
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiPseudoRandomFunction": {
+    "name": "CgmGdoiPseudoRandomFunction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prfNone": 0,
+          "prfMd5Hmac": 1,
+          "prfSha1Hmac": 2,
+          "prfTigerHmac": 3,
+          "prfAes128Xcbc": 4,
+          "prfSha2Hmac256": 5,
+          "prfSha2Hmac384": 6,
+          "prfSha2Hmac512": 7,
+          "prfAes128Cmac": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiIntegrityAlgorithm": {
+    "name": "CgmGdoiIntegrityAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authAlgNone": 0,
+          "authAlgMd5Hmac96": 1,
+          "authAlgSha1Hmac96": 2,
+          "authAlgDesMac": 3,
+          "authAlgMd5Kpdk": 4,
+          "authAlgAesXcbc96": 5,
+          "authAlgMd5Hmac128": 6,
+          "authAlgSha1Hmac160": 7,
+          "authAlgAesCmac96": 8,
+          "authAlgAes128Gmac": 9,
+          "authAlgAes192Gmac": 10,
+          "authAlgAes256Gmac": 11,
+          "authAlgSha2Hmac256to128": 12,
+          "authAlgSha2Hmac384to192": 13,
+          "authAlgSha2Hmac512to256": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiSignatureMethod": {
+    "name": "CgmGdoiSignatureMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sigNone": 0,
+          "sigRsa": 1,
+          "sigSharedKey": 2,
+          "sigDss": 3,
+          "sigEncryptRsa": 4,
+          "sigRevEncryptRsa": 5,
+          "sigEcdsa256": 9,
+          "sigEcdsa384": 10,
+          "sigEcdsa512": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiDiffieHellmanGroup": {
+    "name": "CgmGdoiDiffieHellmanGroup",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhNone": 0,
+          "dhGroup1": 1,
+          "dhGroup2": 2,
+          "dhEc2nGp155": 3,
+          "dhEc2nGp185": 4,
+          "dh1536Modp": 5,
+          "dh2048Modp": 14,
+          "dh3072Modp": 15,
+          "dh4096Modp": 16,
+          "dh6144Modp": 17,
+          "dh8192Modp": 18,
+          "dhEcp256": 19,
+          "dhEcp84": 20,
+          "dhEcp521": 21,
+          "dh1024Modp160": 22,
+          "dh2048Modp224": 23,
+          "dh2048Modp256": 24,
+          "dhEcp192": 25,
+          "dhEcp224": 26
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiEncapsulationMode": {
+    "name": "CgmGdoiEncapsulationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encapUnknown": 0,
+          "encapTunnel": 1,
+          "encapTransport": 2,
+          "encapUdpTunnel": 3,
+          "encapUdpTransport": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiSecurityProtocol": {
+    "name": "CgmGdoiSecurityProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secProtocolUnknown": 0,
+          "secProtocolIpsecEsp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiTekSPI": {
+    "name": "CgmGdoiTekSPI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "4x",
+    "status": "current"
+  },
+  "CgmGdoiKekStatus": {
+    "name": "CgmGdoiKekStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inUse": 1,
+          "new": 2,
+          "old": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiTekStatus": {
+    "name": "CgmGdoiTekStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "notInUse": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgmGdoiUnsigned16": {
+    "name": "CgmGdoiUnsigned16",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "2d",
+    "status": "current"
+  },
+  "cgmGdoiMIBNotifications": {
+    "name": "cgmGdoiMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.759.0",
+    "class": "objectidentity"
+  },
+  "cgmGdoiMIBObjects": {
+    "name": "cgmGdoiMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.759.1",
+    "class": "objectidentity"
+  },
+  "cgmGdoiMIBConformance": {
+    "name": "cgmGdoiMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.759.2",
+    "class": "objectidentity"
+  },
+  "cgmGdoiKeyServerNewRegistration": {
+    "name": "cgmGdoiKeyServerNewRegistration",
+    "oid": "1.3.6.1.4.1.9.9.759.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerRegistrationComplete": {
+    "name": "cgmGdoiKeyServerRegistrationComplete",
+    "oid": "1.3.6.1.4.1.9.9.759.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerRekeyPushed": {
+    "name": "cgmGdoiKeyServerRekeyPushed",
+    "oid": "1.3.6.1.4.1.9.9.759.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerRekeysPushed"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerNoRsaKeys": {
+    "name": "cgmGdoiKeyServerNoRsaKeys",
+    "oid": "1.3.6.1.4.1.9.9.759.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cgmGdoiGmRegister": {
+    "name": "cgmGdoiGmRegister",
+    "oid": "1.3.6.1.4.1.9.9.759.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmRegistrationComplete": {
+    "name": "cgmGdoiGmRegistrationComplete",
+    "oid": "1.3.6.1.4.1.9.9.759.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmReRegister": {
+    "name": "cgmGdoiGmReRegister",
+    "oid": "1.3.6.1.4.1.9.9.759.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmRekeyReceived": {
+    "name": "cgmGdoiGmRekeyReceived",
+    "oid": "1.3.6.1.4.1.9.9.759.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRekeysReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmIncompleteCfg": {
+    "name": "cgmGdoiGmIncompleteCfg",
+    "oid": "1.3.6.1.4.1.9.9.759.0.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cgmGdoiGmNoIpSecFlows": {
+    "name": "cgmGdoiGmNoIpSecFlows",
+    "oid": "1.3.6.1.4.1.9.9.759.0.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cgmGdoiGmRekeyFailure": {
+    "name": "cgmGdoiGmRekeyFailure",
+    "oid": "1.3.6.1.4.1.9.9.759.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRekeysReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerRoleChange": {
+    "name": "cgmGdoiKeyServerRoleChange",
+    "oid": "1.3.6.1.4.1.9.9.759.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupName"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerRole"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerGmDeleted": {
+    "name": "cgmGdoiKeyServerGmDeleted",
+    "oid": "1.3.6.1.4.1.9.9.759.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupName"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGmIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGmIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerPeerReachable": {
+    "name": "cgmGdoiKeyServerPeerReachable",
+    "oid": "1.3.6.1.4.1.9.9.759.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupName"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifPeerKsIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifPeerKsIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerPeerUnreachable": {
+    "name": "cgmGdoiKeyServerPeerUnreachable",
+    "oid": "1.3.6.1.4.1.9.9.759.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupName"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifPeerKsIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifPeerKsIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGroupTable": {
+    "name": "cgmGdoiGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGroupEntry": {
+    "name": "cgmGdoiGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGroupIdType": {
+    "name": "cgmGdoiGroupIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGroupIdLength": {
+    "name": "cgmGdoiGroupIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGroupIdValue": {
+    "name": "cgmGdoiGroupIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGroupName": {
+    "name": "cgmGdoiGroupName",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGroupMemberCount": {
+    "name": "cgmGdoiGroupMemberCount",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGroupActivePeerKeyServerCount": {
+    "name": "cgmGdoiGroupActivePeerKeyServerCount",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGroupLastRekeyRetransmits": {
+    "name": "cgmGdoiGroupLastRekeyRetransmits",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGroupLastRekeyTimeTaken": {
+    "name": "cgmGdoiGroupLastRekeyTimeTaken",
+    "oid": "1.3.6.1.4.1.9.9.759.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiPeers": {
+    "name": "cgmGdoiPeers",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2",
+    "class": "objectidentity"
+  },
+  "cgmGdoiSecAssociations": {
+    "name": "cgmGdoiSecAssociations",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3",
+    "class": "objectidentity"
+  },
+  "cgmGdoiNotifCntl": {
+    "name": "cgmGdoiNotifCntl",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4",
+    "class": "objectidentity"
+  },
+  "cgmGdoiNotifVars": {
+    "name": "cgmGdoiNotifVars",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5",
+    "class": "objectidentity"
+  },
+  "cgmGdoiKeyServerTable": {
+    "name": "cgmGdoiKeyServerTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerEntry": {
+    "name": "cgmGdoiKeyServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerIdType": {
+    "name": "cgmGdoiKeyServerIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerIdLength": {
+    "name": "cgmGdoiKeyServerIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerIdValue": {
+    "name": "cgmGdoiKeyServerIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerActiveKEK": {
+    "name": "cgmGdoiKeyServerActiveKEK",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerRekeysPushed": {
+    "name": "cgmGdoiKeyServerRekeysPushed",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "GROUPKEY-PUSH Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerRole": {
+    "name": "cgmGdoiKeyServerRole",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKsRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKeyServerRegisteredGMs": {
+    "name": "cgmGdoiKeyServerRegisteredGMs",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTable": {
+    "name": "cgmGdoiGmTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmEntry": {
+    "name": "cgmGdoiGmEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmIdType": {
+    "name": "cgmGdoiGmIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmIdLength": {
+    "name": "cgmGdoiGmIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmIdValue": {
+    "name": "cgmGdoiGmIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmRegKeyServerIdType": {
+    "name": "cgmGdoiGmRegKeyServerIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmRegKeyServerIdLength": {
+    "name": "cgmGdoiGmRegKeyServerIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmRegKeyServerIdValue": {
+    "name": "cgmGdoiGmRegKeyServerIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmActiveKEK": {
+    "name": "cgmGdoiGmActiveKEK",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmRekeysReceived": {
+    "name": "cgmGdoiGmRekeysReceived",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "GROUPKEY-PUSH Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmActiveTEKNum": {
+    "name": "cgmGdoiGmActiveTEKNum",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Number of traffic encryption keys",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerTable": {
+    "name": "cgmGdoiCoopPeerTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerEntry": {
+    "name": "cgmGdoiCoopPeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiCoopPeerIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiCoopPeerIdValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerIdType": {
+    "name": "cgmGdoiCoopPeerIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerIdLength": {
+    "name": "cgmGdoiCoopPeerIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerIdValue": {
+    "name": "cgmGdoiCoopPeerIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerRole": {
+    "name": "cgmGdoiCoopPeerRole",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKsRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerStatus": {
+    "name": "cgmGdoiCoopPeerStatus",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKsStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerRegisteredGMs": {
+    "name": "cgmGdoiCoopPeerRegisteredGMs",
+    "oid": "1.3.6.1.4.1.9.9.759.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekTable": {
+    "name": "cgmGdoiKsKekTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKsKekEntry": {
+    "name": "cgmGdoiKsKekEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKsKekIndex": {
+    "name": "cgmGdoiKsKekIndex",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKsKekSPI": {
+    "name": "cgmGdoiKsKekSPI",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekSrcIdType": {
+    "name": "cgmGdoiKsKekSrcIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekSrcIdLength": {
+    "name": "cgmGdoiKsKekSrcIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekSrcIdValue": {
+    "name": "cgmGdoiKsKekSrcIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekSrcIdPort": {
+    "name": "cgmGdoiKsKekSrcIdPort",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekDstIdType": {
+    "name": "cgmGdoiKsKekDstIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekDstIdLength": {
+    "name": "cgmGdoiKsKekDstIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekDstIdValue": {
+    "name": "cgmGdoiKsKekDstIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekDstIdPort": {
+    "name": "cgmGdoiKsKekDstIdPort",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekIpProtocol": {
+    "name": "cgmGdoiKsKekIpProtocol",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIpProtocolId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekMgmtAlg": {
+    "name": "cgmGdoiKsKekMgmtAlg",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKeyManagementAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekEncryptAlg": {
+    "name": "cgmGdoiKsKekEncryptAlg",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiEncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekEncryptKeyLength": {
+    "name": "cgmGdoiKsKekEncryptKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekSigHashAlg": {
+    "name": "cgmGdoiKsKekSigHashAlg",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiPseudoRandomFunction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekSigAlg": {
+    "name": "cgmGdoiKsKekSigAlg",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiSignatureMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekSigKeyLength": {
+    "name": "cgmGdoiKsKekSigKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekOakleyGroup": {
+    "name": "cgmGdoiKsKekOakleyGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiDiffieHellmanGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekOriginalLifetime": {
+    "name": "cgmGdoiKsKekOriginalLifetime",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekRemainingLifetime": {
+    "name": "cgmGdoiKsKekRemainingLifetime",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsKekStatus": {
+    "name": "cgmGdoiKsKekStatus",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKekStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekTable": {
+    "name": "cgmGdoiGmKekTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmKekEntry": {
+    "name": "cgmGdoiGmKekEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmKekIndex": {
+    "name": "cgmGdoiGmKekIndex",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmKekSPI": {
+    "name": "cgmGdoiGmKekSPI",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekSrcIdType": {
+    "name": "cgmGdoiGmKekSrcIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekSrcIdLength": {
+    "name": "cgmGdoiGmKekSrcIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekSrcIdValue": {
+    "name": "cgmGdoiGmKekSrcIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekSrcIdPort": {
+    "name": "cgmGdoiGmKekSrcIdPort",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekDstIdType": {
+    "name": "cgmGdoiGmKekDstIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekDstIdLength": {
+    "name": "cgmGdoiGmKekDstIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekDstIdValue": {
+    "name": "cgmGdoiGmKekDstIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekDstIdPort": {
+    "name": "cgmGdoiGmKekDstIdPort",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekIpProtocol": {
+    "name": "cgmGdoiGmKekIpProtocol",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIpProtocolId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekMgmtAlg": {
+    "name": "cgmGdoiGmKekMgmtAlg",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKeyManagementAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekEncryptAlg": {
+    "name": "cgmGdoiGmKekEncryptAlg",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiEncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekEncryptKeyLength": {
+    "name": "cgmGdoiGmKekEncryptKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekSigHashAlg": {
+    "name": "cgmGdoiGmKekSigHashAlg",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiPseudoRandomFunction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekSigAlg": {
+    "name": "cgmGdoiGmKekSigAlg",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiSignatureMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekSigKeyLength": {
+    "name": "cgmGdoiGmKekSigKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekOakleyGroup": {
+    "name": "cgmGdoiGmKekOakleyGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiDiffieHellmanGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekOriginalLifetime": {
+    "name": "cgmGdoiGmKekOriginalLifetime",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekRemainingLifetime": {
+    "name": "cgmGdoiGmKekRemainingLifetime",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmKekStatus": {
+    "name": "cgmGdoiGmKekStatus",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKekStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekSelectorTable": {
+    "name": "cgmGdoiKsTekSelectorTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKsTekSelectorEntry": {
+    "name": "cgmGdoiKsTekSelectorEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekSelectorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKsTekSelectorIndex": {
+    "name": "cgmGdoiKsTekSelectorIndex",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKsTekSrcIdType": {
+    "name": "cgmGdoiKsTekSrcIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekSrcIdLength": {
+    "name": "cgmGdoiKsTekSrcIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekSrcIdValue": {
+    "name": "cgmGdoiKsTekSrcIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekSrcIdPort": {
+    "name": "cgmGdoiKsTekSrcIdPort",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekDstIdType": {
+    "name": "cgmGdoiKsTekDstIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekDstIdLength": {
+    "name": "cgmGdoiKsTekDstIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekDstIdValue": {
+    "name": "cgmGdoiKsTekDstIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekDstIdPort": {
+    "name": "cgmGdoiKsTekDstIdPort",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekSecurityProtocol": {
+    "name": "cgmGdoiKsTekSecurityProtocol",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiSecurityProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekPolicyTable": {
+    "name": "cgmGdoiKsTekPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKsTekPolicyEntry": {
+    "name": "cgmGdoiKsTekPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekSelectorIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKsTekPolicyIndex": {
+    "name": "cgmGdoiKsTekPolicyIndex",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiKsTekSPI": {
+    "name": "cgmGdoiKsTekSPI",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiTekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekEncapsulationMode": {
+    "name": "cgmGdoiKsTekEncapsulationMode",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekEncryptionAlgorithm": {
+    "name": "cgmGdoiKsTekEncryptionAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiEncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekEncryptionKeyLength": {
+    "name": "cgmGdoiKsTekEncryptionKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekIntegrityAlgorithm": {
+    "name": "cgmGdoiKsTekIntegrityAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIntegrityAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekIntegrityKeyLength": {
+    "name": "cgmGdoiKsTekIntegrityKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekWindowSize": {
+    "name": "cgmGdoiKsTekWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "GROUPKEY-PUSH Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekOriginalLifetime": {
+    "name": "cgmGdoiKsTekOriginalLifetime",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekRemainingLifetime": {
+    "name": "cgmGdoiKsTekRemainingLifetime",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsTekStatus": {
+    "name": "cgmGdoiKsTekStatus",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiTekStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekSelectorTable": {
+    "name": "cgmGdoiGmTekSelectorTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmTekSelectorEntry": {
+    "name": "cgmGdoiGmTekSelectorEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekSelectorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmTekSelectorIndex": {
+    "name": "cgmGdoiGmTekSelectorIndex",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmTekSrcIdType": {
+    "name": "cgmGdoiGmTekSrcIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekSrcIdLength": {
+    "name": "cgmGdoiGmTekSrcIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekSrcIdValue": {
+    "name": "cgmGdoiGmTekSrcIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekSrcIdPort": {
+    "name": "cgmGdoiGmTekSrcIdPort",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekDstIdType": {
+    "name": "cgmGdoiGmTekDstIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekDstIdLength": {
+    "name": "cgmGdoiGmTekDstIdLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekDstIdValue": {
+    "name": "cgmGdoiGmTekDstIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekDstIdPort": {
+    "name": "cgmGdoiGmTekDstIdPort",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekSecurityProtocol": {
+    "name": "cgmGdoiGmTekSecurityProtocol",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiSecurityProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekPolicyTable": {
+    "name": "cgmGdoiGmTekPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmTekPolicyEntry": {
+    "name": "cgmGdoiGmTekPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekSelectorIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmTekPolicyIndex": {
+    "name": "cgmGdoiGmTekPolicyIndex",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgmGdoiGmTekSPI": {
+    "name": "cgmGdoiGmTekSPI",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiTekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekEncapsulationMode": {
+    "name": "cgmGdoiGmTekEncapsulationMode",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekEncryptionAlgorithm": {
+    "name": "cgmGdoiGmTekEncryptionAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiEncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekEncryptionKeyLength": {
+    "name": "cgmGdoiGmTekEncryptionKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekIntegrityAlgorithm": {
+    "name": "cgmGdoiGmTekIntegrityAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIntegrityAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekIntegrityKeyLength": {
+    "name": "cgmGdoiGmTekIntegrityKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekWindowSize": {
+    "name": "cgmGdoiGmTekWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "GROUPKEY-PUSH Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekOriginalLifetime": {
+    "name": "cgmGdoiGmTekOriginalLifetime",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekRemainingLifetime": {
+    "name": "cgmGdoiGmTekRemainingLifetime",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmTekStatus": {
+    "name": "cgmGdoiGmTekStatus",
+    "oid": "1.3.6.1.4.1.9.9.759.1.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiTekStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKSNewRegNotifEnable": {
+    "name": "cgmGdoiKSNewRegNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgmGdoiKSRegCompNotifEnable": {
+    "name": "cgmGdoiKSRegCompNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgmGdoiKSRekeyPushNotifEnable": {
+    "name": "cgmGdoiKSRekeyPushNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgmGdoiKSNoRSANotifEnable": {
+    "name": "cgmGdoiKSNoRSANotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgmGdoiGMRegNotifEnable": {
+    "name": "cgmGdoiGMRegNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmRegCompNotifEnable": {
+    "name": "cgmGdoiGmRegCompNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmReRegNotifEnable": {
+    "name": "cgmGdoiGmReRegNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmRekeyRecNotifEnable": {
+    "name": "cgmGdoiGmRekeyRecNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmIncompCfgNotifEnable": {
+    "name": "cgmGdoiGmIncompCfgNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmNoIpSecFlowsNotifEnable": {
+    "name": "cgmGdoiGmNoIpSecFlowsNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiGmRekeyFailNotifEnable": {
+    "name": "cgmGdoiGmRekeyFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsRoleChangeNotifEnable": {
+    "name": "cgmGdoiKsRoleChangeNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsGmDeletedNotifEnable": {
+    "name": "cgmGdoiKsGmDeletedNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsPeerReachNotifEnable": {
+    "name": "cgmGdoiKsPeerReachNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiKsPeerUnreachNotifEnable": {
+    "name": "cgmGdoiKsPeerUnreachNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.759.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgmGdoiNotifGroupIdType": {
+    "name": "cgmGdoiNotifGroupIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifGroupIdValue": {
+    "name": "cgmGdoiNotifGroupIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifGroupName": {
+    "name": "cgmGdoiNotifGroupName",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifKeyServerIdType": {
+    "name": "cgmGdoiNotifKeyServerIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifKeyServerIdValue": {
+    "name": "cgmGdoiNotifKeyServerIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifKeyServerRole": {
+    "name": "cgmGdoiNotifKeyServerRole",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiKsRole",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifGmIdType": {
+    "name": "cgmGdoiNotifGmIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifGmIdValue": {
+    "name": "cgmGdoiNotifGmIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifPeerKsIdType": {
+    "name": "cgmGdoiNotifPeerKsIdType",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiNotifPeerKsIdValue": {
+    "name": "cgmGdoiNotifPeerKsIdValue",
+    "oid": "1.3.6.1.4.1.9.9.759.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgmGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgmGdoiMIBGroups": {
+    "name": "cgmGdoiMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1",
+    "class": "objectidentity"
+  },
+  "cgmGdoiMIBCompliances": {
+    "name": "cgmGdoiMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.759.2.2",
+    "class": "objectidentity"
+  },
+  "cgmGdoiGroupIdGroup": {
+    "name": "cgmGdoiGroupIdGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerGroup": {
+    "name": "cgmGdoiKeyServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerActiveKEK"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerRekeysPushed"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmGroup": {
+    "name": "cgmGdoiGmGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegKeyServerIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmActiveKEK"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRekeysReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKsSecurityAssociationsGroup": {
+    "name": "cgmGdoiKsSecurityAssociationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekSPI"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekSrcIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekSrcIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekSrcIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekSrcIdPort"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekDstIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekDstIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekDstIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekDstIdPort"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekIpProtocol"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekMgmtAlg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekEncryptAlg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekEncryptKeyLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekSigHashAlg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekSigAlg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekSigKeyLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekOakleyGroup"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekOriginalLifetime"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekRemainingLifetime"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsKekStatus"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekSrcIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekSrcIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekSrcIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekSrcIdPort"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekDstIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekDstIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekDstIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekDstIdPort"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekSecurityProtocol"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekSPI"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekEncapsulationMode"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekEncryptionAlgorithm"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekEncryptionKeyLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekIntegrityAlgorithm"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekIntegrityKeyLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekWindowSize"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekOriginalLifetime"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekRemainingLifetime"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsTekStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmSecurityAssociationsGroup": {
+    "name": "cgmGdoiGmSecurityAssociationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekSPI"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekSrcIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekSrcIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekSrcIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekSrcIdPort"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekDstIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekDstIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekDstIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekDstIdPort"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekIpProtocol"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekMgmtAlg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekEncryptAlg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekEncryptKeyLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekSigHashAlg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekSigAlg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekSigKeyLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekOakleyGroup"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekOriginalLifetime"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekRemainingLifetime"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmKekStatus"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekSrcIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekSrcIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekSrcIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekSrcIdPort"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekDstIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekDstIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekDstIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekDstIdPort"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekSecurityProtocol"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekSPI"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekEncapsulationMode"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekEncryptionAlgorithm"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekEncryptionKeyLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekIntegrityAlgorithm"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekIntegrityKeyLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekWindowSize"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekOriginalLifetime"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekRemainingLifetime"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmTekStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerNotificationGroup": {
+    "name": "cgmGdoiKeyServerNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerNewRegistration"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerRegistrationComplete"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerRekeyPushed"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerErrorNotificationGroup": {
+    "name": "cgmGdoiKeyServerErrorNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerNoRsaKeys"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmNotificationGroup": {
+    "name": "cgmGdoiGmNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegister"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegistrationComplete"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmReRegister"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRekeyReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmErrorNotificationGroup": {
+    "name": "cgmGdoiGmErrorNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIncompleteCfg"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmNoIpSecFlows"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRekeyFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiNotificationControlGroup": {
+    "name": "cgmGdoiNotificationControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKSNewRegNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKSRegCompNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKSRekeyPushNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKSNoRSANotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGMRegNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRegCompNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmReRegNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRekeyRecNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmIncompCfgNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmNoIpSecFlowsNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmRekeyFailNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGroupIdGroupRev1": {
+    "name": "cgmGdoiGroupIdGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupMemberCount"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupActivePeerKeyServerCount"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupLastRekeyRetransmits"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGroupLastRekeyTimeTaken"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerGroupRev1": {
+    "name": "cgmGdoiKeyServerGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerRole"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerRegisteredGMs"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiGmGroupRev1": {
+    "name": "cgmGdoiGmGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiGmActiveTEKNum"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiKeyServerNotificationGroupRev1": {
+    "name": "cgmGdoiKeyServerNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerRoleChange"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerGmDeleted"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerPeerReachable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKeyServerPeerUnreachable"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiNotificationControlGroupRev1": {
+    "name": "cgmGdoiNotificationControlGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsRoleChangeNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsGmDeletedNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsPeerReachNotifEnable"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiKsPeerUnreachNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiCoopPeerGroup": {
+    "name": "cgmGdoiCoopPeerGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiCoopPeerIdLength"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiCoopPeerRole"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiCoopPeerStatus"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiCoopPeerRegisteredGMs"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiNotificationVariablesGroup": {
+    "name": "cgmGdoiNotificationVariablesGroup",
+    "oid": "1.3.6.1.4.1.9.9.759.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGroupName"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifKeyServerRole"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGmIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifGmIdValue"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifPeerKsIdType"
+      },
+      {
+        "module": "CISCO-GDOI-MIB",
+        "object": "cgmGdoiNotifPeerKsIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cgmGdoiMIBCompliance": {
+    "name": "cgmGdoiMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.759.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cgmGdoiGroupIdGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmSecurityAssociationsGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKeyServerGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKsSecurityAssociationsGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKeyServerNotificationGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKeyServerErrorNotificationGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmNotificationGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmErrorNotificationGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiNotificationControlGroup",
+        "module": "CISCO-GDOI-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cgmGdoiMIBComplianceRev1": {
+    "name": "cgmGdoiMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.759.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cgmGdoiGroupIdGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGroupIdGroupRev1",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmSecurityAssociationsGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmGroupRev1",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKeyServerGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKeyServerGroupRev1",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKsSecurityAssociationsGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKeyServerNotificationGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKeyServerNotificationGroupRev1",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiKeyServerErrorNotificationGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmNotificationGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiGmErrorNotificationGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiNotificationControlGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiNotificationControlGroupRev1",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiCoopPeerGroup",
+        "module": "CISCO-GDOI-MIB"
+      },
+      {
+        "object": "cgmGdoiNotificationVariablesGroup",
+        "module": "CISCO-GDOI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GDOI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-GDOI-MIB"
+  }
+}

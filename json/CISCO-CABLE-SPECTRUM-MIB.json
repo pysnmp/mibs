@@ -1,0 +1,3244 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoCableSpectrumMIB": {
+    "name": "ciscoCableSpectrumMIB",
+    "oid": "1.3.6.1.4.1.9.9.114",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-04-08 00:00",
+        "description": "1. Changed Range Of Ccsfrequency And Ccsmeasuredfrequency Textual-Convention To Support The Docsis 3.0 Extended Upstream Frequency Range."
+      },
+      {
+        "revision": "2006-10-10 00:00",
+        "description": "1. Added spectrum group global configuration table as ccsSpecGroupFreqTable. 2. Added ccsUpInSpecGroupTable and ccsUpInFiberNodeTable to populate all cable upstream interfaces in each spectrum group and fiber-node. 3. Added ccsUpSpecMgmtSpecGroup and ccsUpSpecMgmtSharedSpectrum into ccsUpSpecMgmtTable to populate spectrum group configuration and topology information for each upstream. 4. Included 0 as part of ccsUpSpecMgmtHopPeriod. 5. Changed the SYNTAX of ccsUpSpecMgmtFromCenterFreq and ccsUpSpecMgmtToCenterFreq from CCSFrequency to Unsigned32 (0 | 5000..65000). 6. Changed the SYNTAX of ccsUpSpecMgmtFromBandWidth and ccsUpSpecMgmtToBandWidth from CCSFrequency to Unsigned32 (200 | 400 | 800 | 1600 | 3200 | 6400). 7. Increased ccsUpSpecMgmtFecUnCorrectThres2 range to 30. Included 0 as part of it. 8. Updated the description for ccsUpSpecMgmtHopPeriod, ccsUpSpecMgmtMissedMaintMsgThres, ccsUpSpecMgmtFromCenterFreq, ccsUpSpecMgmtToCenterFreq, and ccsUpSpecMgmtFecUnCorrectThres2."
+      },
+      {
+        "revision": "2004-09-05 00:00",
+        "description": "1. Included 0 as part of ccsUpSpecMgmtSnrThres, ccsUpSpecMgmtCnrThres, ccsUpSpecMgmtFecCorrectThres, ccsUpSpecMgmtFecUnCorrectThres ranges. 2. Increased ccsUpSpecMgmtFecCorrectThres and ccsUpSpecMgmtFecUnCorrectThres range to 30"
+      },
+      {
+        "revision": "2004-07-14 00:00",
+        "description": "1. Modified ccsUpSpecMgmtSNR's description to reflect its name since there's a new object defined for CNR. 2. Added ccsUpSpecMgmtCnrThres1, ccsUpSpecMgmtCnrThres1, ccsUpSpecMgmtCNR, ccsUpSpecMgmtMissedMaintMsgThres, ccsUpSpecMgmtHopPeriod, ccsUpSpecMgmtCriteria. 3. Deprecated ccsUpSpecMgmtFecCorrectThres2 4. Deprecated ccsUpSpecMgmtHopCondition and replaced it with ccsUpSpecMgmtCriteria. 5. Deprecated ccsHoppingNotification and replaced it with ccsSpecMgmtNotification."
+      },
+      {
+        "revision": "2004-03-02 00:00",
+        "description": "1. Modified description for ccsFlapListMaxSize and ccsFlapListCurrentSize. 2. Implement ccsCmFlapTable using downstream, upstream and Mac as indices to replace ccsFlapTable. 3. Modified description for ccsSNRRequestTable. 4. Added ccsUpSpecMgmtUpperBoundFreq. 5. Added ccsCompliance5."
+      },
+      {
+        "revision": "2003-06-18 00:00",
+        "description": "1. Changed range of CCSFrequency and CCSMeasuredFrequency TEXTUAL-CONVENTION to support Euro-DOCSIS and J-DOCSIS."
+      },
+      {
+        "revision": "2002-06-10 00:00",
+        "description": "1. Changed range for ccsUpSpecMgmtFecCorrectThres1, ccsUpSpecMgmtFecCorrectThres2, ccsUpSpecMgmtFecUnCorrectThres1, ccsUpSpecMgmtFecUnCorrectThres2 and ccsUpSpecMgmtSnrThres2. 2. Changed modemOffline(1) enumeration to stationMaintainenceMiss. 3. Added ccsUpSpecMgmtGroupRev1 to ccsCompliance4."
+      },
+      {
+        "revision": "2001-02-01 00:00",
+        "description": "1. Added new objects ccsFlapMissThreshold, ccsFlapPowerAdjustThreshold, ccsFlapResetAll, ccsFlapClearAll and ccsFlapLastClearTime. 2. Added new objects ccsFlapInsertionFailNum, ccsFlapHitNum, ccsFlapMissNum, ccsFlapCrcErrorNum, ccsFlapPowerAdjustmentNum, ccsFlapTotalNum, ccsFlapResetNow, ccsFlapLastResetTime into ccsFlapTable."
+      },
+      {
+        "revision": "2000-08-18 00:00",
+        "description": "1. Removed ccsSNRRequestUpperFreq and ccsSNRRequestLowFreq from ccsSNRRequestTable. 2. Changed ccsSNRRequestSNR from Unsigned32 to Integer32. 3. Modified description for ccsHoppingNotification. 4. Changed ccsSpectrumRequestResolution to Khz."
+      },
+      {
+        "revision": "2000-04-24 00:00",
+        "description": "Added new object groups: 1. ccsSpectrumObjects to provide spectrum information 2. ccsConfigObjects to support spectrum management functions."
+      }
+    ]
+  },
+  "CCSFrequency": {
+    "name": "CCSFrequency",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 85000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CCSMeasuredFrequency": {
+    "name": "CCSMeasuredFrequency",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4000,
+            "max": 85000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CCSRequestOperation": {
+    "name": "CCSRequestOperation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "start": 1,
+          "abort": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CCSRequestOperState": {
+    "name": "CCSRequestOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "pending": 1,
+          "running": 2,
+          "noError": 3,
+          "aborted": 4,
+          "notOnLine": 5,
+          "invalidMac": 6,
+          "timeOut": 7,
+          "fftBusy": 8,
+          "fftFailed": 9,
+          "others": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoCableSpectrumMIBObjects": {
+    "name": "ciscoCableSpectrumMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.114.1",
+    "class": "objectidentity"
+  },
+  "ccsFlapObjects": {
+    "name": "ccsFlapObjects",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1",
+    "class": "objectidentity"
+  },
+  "ccsSpectrumObjects": {
+    "name": "ccsSpectrumObjects",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2",
+    "class": "objectidentity"
+  },
+  "ccsConfigObjects": {
+    "name": "ccsConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3",
+    "class": "objectidentity"
+  },
+  "ccsFlapListMaxSize": {
+    "name": "ccsFlapListMaxSize",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "modems",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsFlapListCurrentSize": {
+    "name": "ccsFlapListCurrentSize",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "units": "modems",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsFlapAging": {
+    "name": "ccsFlapAging",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10080,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsFlapInsertionTime": {
+    "name": "ccsFlapInsertionTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsFlapTable": {
+    "name": "ccsFlapTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ccsFlapEntry": {
+    "name": "ccsFlapEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsFlapMacAddr": {
+    "name": "ccsFlapMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ccsFlapUpstreamIfIndex": {
+    "name": "ccsFlapUpstreamIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapDownstreamIfIndex": {
+    "name": "ccsFlapDownstreamIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapInsertionFails": {
+    "name": "ccsFlapInsertionFails",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapHits": {
+    "name": "ccsFlapHits",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapMisses": {
+    "name": "ccsFlapMisses",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapCrcErrors": {
+    "name": "ccsFlapCrcErrors",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapPowerAdjustments": {
+    "name": "ccsFlapPowerAdjustments",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapTotal": {
+    "name": "ccsFlapTotal",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapLastFlapTime": {
+    "name": "ccsFlapLastFlapTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapCreateTime": {
+    "name": "ccsFlapCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapRowStatus": {
+    "name": "ccsFlapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccsFlapInsertionFailNum": {
+    "name": "ccsFlapInsertionFailNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapHitNum": {
+    "name": "ccsFlapHitNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapMissNum": {
+    "name": "ccsFlapMissNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapCrcErrorNum": {
+    "name": "ccsFlapCrcErrorNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapPowerAdjustmentNum": {
+    "name": "ccsFlapPowerAdjustmentNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapTotalNum": {
+    "name": "ccsFlapTotalNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapResetNow": {
+    "name": "ccsFlapResetNow",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccsFlapLastResetTime": {
+    "name": "ccsFlapLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsFlapPowerAdjustThreshold": {
+    "name": "ccsFlapPowerAdjustThreshold",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "db",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccsFlapMissThreshold": {
+    "name": "ccsFlapMissThreshold",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccsFlapResetAll": {
+    "name": "ccsFlapResetAll",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccsFlapClearAll": {
+    "name": "ccsFlapClearAll",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccsFlapLastClearTime": {
+    "name": "ccsFlapLastClearTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsCmFlapTable": {
+    "name": "ccsCmFlapTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsCmFlapEntry": {
+    "name": "ccsCmFlapEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapDownstreamIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapUpstreamIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccsCmFlapDownstreamIfIndex": {
+    "name": "ccsCmFlapDownstreamIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsCmFlapUpstreamIfIndex": {
+    "name": "ccsCmFlapUpstreamIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsCmFlapMacAddr": {
+    "name": "ccsCmFlapMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsCmFlapLastFlapTime": {
+    "name": "ccsCmFlapLastFlapTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapCreateTime": {
+    "name": "ccsCmFlapCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapInsertionFailNum": {
+    "name": "ccsCmFlapInsertionFailNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapHitNum": {
+    "name": "ccsCmFlapHitNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapMissNum": {
+    "name": "ccsCmFlapMissNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapCrcErrorNum": {
+    "name": "ccsCmFlapCrcErrorNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapPowerAdjustmentNum": {
+    "name": "ccsCmFlapPowerAdjustmentNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapTotalNum": {
+    "name": "ccsCmFlapTotalNum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapResetNow": {
+    "name": "ccsCmFlapResetNow",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsCmFlapLastResetTime": {
+    "name": "ccsCmFlapLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsCmFlapRowStatus": {
+    "name": "ccsCmFlapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.114.1.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsSpectrumRequestTable": {
+    "name": "ccsSpectrumRequestTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSpectrumRequestEntry": {
+    "name": "ccsSpectrumRequestEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccsSpectrumRequestIndex": {
+    "name": "ccsSpectrumRequestIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSpectrumRequestIfIndex": {
+    "name": "ccsSpectrumRequestIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpectrumRequestMacAddr": {
+    "name": "ccsSpectrumRequestMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpectrumRequestLowFreq": {
+    "name": "ccsSpectrumRequestLowFreq",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCSFrequency",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpectrumRequestUpperFreq": {
+    "name": "ccsSpectrumRequestUpperFreq",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCSFrequency",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 42000,
+        "format": "decimal"
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpectrumRequestResolution": {
+    "name": "ccsSpectrumRequestResolution",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 12,
+            "max": 37000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpectrumRequestOperation": {
+    "name": "ccsSpectrumRequestOperation",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCSRequestOperation",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpectrumRequestOperState": {
+    "name": "ccsSpectrumRequestOperState",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCSRequestOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSpectrumRequestStartTime": {
+    "name": "ccsSpectrumRequestStartTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSpectrumRequestStoppedTime": {
+    "name": "ccsSpectrumRequestStoppedTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSpectrumRequestStatus": {
+    "name": "ccsSpectrumRequestStatus",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpectrumDataTable": {
+    "name": "ccsSpectrumDataTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSpectrumDataEntry": {
+    "name": "ccsSpectrumDataEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumDataFreq",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccsSpectrumDataFreq": {
+    "name": "ccsSpectrumDataFreq",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCSMeasuredFrequency",
+      "class": "type"
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSpectrumDataPower": {
+    "name": "ccsSpectrumDataPower",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -50,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "dBmV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSNRRequestTable": {
+    "name": "ccsSNRRequestTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSNRRequestEntry": {
+    "name": "ccsSNRRequestEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSNRRequestIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccsSNRRequestIndex": {
+    "name": "ccsSNRRequestIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSNRRequestMacAddr": {
+    "name": "ccsSNRRequestMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSNRRequestSNR": {
+    "name": "ccsSNRRequestSNR",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSNRRequestOperation": {
+    "name": "ccsSNRRequestOperation",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCSRequestOperation",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSNRRequestOperState": {
+    "name": "ccsSNRRequestOperState",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCSRequestOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSNRRequestStartTime": {
+    "name": "ccsSNRRequestStartTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSNRRequestStoppedTime": {
+    "name": "ccsSNRRequestStoppedTime",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSNRRequestStatus": {
+    "name": "ccsSNRRequestStatus",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsUpInSpecGroupTable": {
+    "name": "ccsUpInSpecGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsUpInSpecGroupEntry": {
+    "name": "ccsUpInSpecGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupUpstreamIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccsSpecGroupNumber": {
+    "name": "ccsSpecGroupNumber",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSpecGroupUpstreamIfIndex": {
+    "name": "ccsSpecGroupUpstreamIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSpecGroupUpstreamStorage": {
+    "name": "ccsSpecGroupUpstreamStorage",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpecGroupUpstreamRowStatus": {
+    "name": "ccsSpecGroupUpstreamRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsUpInFiberNodeTable": {
+    "name": "ccsUpInFiberNodeTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsUpInFiberNodeEntry": {
+    "name": "ccsUpInFiberNodeEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFiberNodeNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFiberNodeUpstreamIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccsFiberNodeNumber": {
+    "name": "ccsFiberNodeNumber",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsFiberNodeUpstreamIfIndex": {
+    "name": "ccsFiberNodeUpstreamIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsFiberNodeUpstreamStorage": {
+    "name": "ccsFiberNodeUpstreamStorage",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsFiberNodeUpstreamRowStatus": {
+    "name": "ccsFiberNodeUpstreamRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.114.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtTable": {
+    "name": "ccsUpSpecMgmtTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtEntry": {
+    "name": "ccsUpSpecMgmtEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccsUpSpecMgmtHopPriority": {
+    "name": "ccsUpSpecMgmtHopPriority",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frqModChannel": 0,
+          "frqChannelMod": 1,
+          "modFrqChannel": 2,
+          "modChannelFrq": 3,
+          "channelFrqMod": 4,
+          "channelModFrq": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "frqModChannel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtSnrThres1": {
+    "name": "ccsUpSpecMgmtSnrThres1",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtSnrThres2": {
+    "name": "ccsUpSpecMgmtSnrThres2",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtFecCorrectThres1": {
+    "name": "ccsUpSpecMgmtFecCorrectThres1",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtFecCorrectThres2": {
+    "name": "ccsUpSpecMgmtFecCorrectThres2",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccsUpSpecMgmtFecUnCorrectThres1": {
+    "name": "ccsUpSpecMgmtFecUnCorrectThres1",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtFecUnCorrectThres2": {
+    "name": "ccsUpSpecMgmtFecUnCorrectThres2",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtSnrPollPeriod": {
+    "name": "ccsUpSpecMgmtSnrPollPeriod",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 25000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccsUpSpecMgmtHopCondition": {
+    "name": "ccsUpSpecMgmtHopCondition",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snr": 0,
+          "stationMaintainenceMiss": 1,
+          "others": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ccsUpSpecMgmtFromCenterFreq": {
+    "name": "ccsUpSpecMgmtFromCenterFreq",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5000,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtToCenterFreq": {
+    "name": "ccsUpSpecMgmtToCenterFreq",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5000,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtFromBandWidth": {
+    "name": "ccsUpSpecMgmtFromBandWidth",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 200,
+            "max": 200
+          },
+          {
+            "min": 400,
+            "max": 400
+          },
+          {
+            "min": 800,
+            "max": 800
+          },
+          {
+            "min": 1600,
+            "max": 1600
+          },
+          {
+            "min": 3200,
+            "max": 3200
+          },
+          {
+            "min": 6400,
+            "max": 6400
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtToBandWidth": {
+    "name": "ccsUpSpecMgmtToBandWidth",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 200,
+            "max": 200
+          },
+          {
+            "min": 400,
+            "max": 400
+          },
+          {
+            "min": 800,
+            "max": 800
+          },
+          {
+            "min": 1600,
+            "max": 1600
+          },
+          {
+            "min": 3200,
+            "max": 3200
+          },
+          {
+            "min": 6400,
+            "max": 6400
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtFromModProfile": {
+    "name": "ccsUpSpecMgmtFromModProfile",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtToModProfile": {
+    "name": "ccsUpSpecMgmtToModProfile",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtSNR": {
+    "name": "ccsUpSpecMgmtSNR",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtUpperBoundFreq": {
+    "name": "ccsUpSpecMgmtUpperBoundFreq",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCSFrequency",
+      "class": "type"
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtCnrThres1": {
+    "name": "ccsUpSpecMgmtCnrThres1",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtCnrThres2": {
+    "name": "ccsUpSpecMgmtCnrThres2",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtCNR": {
+    "name": "ccsUpSpecMgmtCNR",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtMissedMaintMsgThres": {
+    "name": "ccsUpSpecMgmtMissedMaintMsgThres",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtHopPeriod": {
+    "name": "ccsUpSpecMgmtHopPeriod",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtCriteria": {
+    "name": "ccsUpSpecMgmtCriteria",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "snrBelowThres": 0,
+        "cnrBelowThres": 1,
+        "corrFecAboveThres": 2,
+        "uncorrFecAboveThres": 3,
+        "snrAboveThres": 4,
+        "cnrAboveThres": 5,
+        "corrFecBelowThres": 6,
+        "uncorrFecBelowThres": 7,
+        "noActiveModem": 8,
+        "uncorrFecAboveSecondThres": 9,
+        "others": 10
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtSpecGroup": {
+    "name": "ccsUpSpecMgmtSpecGroup",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsUpSpecMgmtSharedSpectrum": {
+    "name": "ccsUpSpecMgmtSharedSpectrum",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccsSpecGroupFreqTable": {
+    "name": "ccsSpecGroupFreqTable",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSpecGroupFreqEntry": {
+    "name": "ccsSpecGroupFreqEntry",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupFreqIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccsSpecGroupFreqIndex": {
+    "name": "ccsSpecGroupFreqIndex",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccsSpecGroupFreqType": {
+    "name": "ccsSpecGroupFreqType",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "centerFreq": 1,
+          "bandFreq": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpecGroupFreqLower": {
+    "name": "ccsSpecGroupFreqLower",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpecGroupFreqUpper": {
+    "name": "ccsSpecGroupFreqUpper",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpecGroupStorage": {
+    "name": "ccsSpecGroupStorage",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccsSpecGroupRowStatus": {
+    "name": "ccsSpecGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.114.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoCableSpectrumMIBNotificationPrefix": {
+    "name": "ciscoCableSpectrumMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.114.2",
+    "class": "objectidentity"
+  },
+  "ccsMIBNotifications": {
+    "name": "ccsMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.114.2.0",
+    "class": "objectidentity"
+  },
+  "ccsHoppingNotification": {
+    "name": "ccsHoppingNotification",
+    "oid": "1.3.6.1.4.1.9.9.114.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopCondition"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToModProfile"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsSpecMgmtNotification": {
+    "name": "ccsSpecMgmtNotification",
+    "oid": "1.3.6.1.4.1.9.9.114.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCriteria"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToModProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCableSpectrumMIBConformance": {
+    "name": "ciscoCableSpectrumMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.114.3",
+    "class": "objectidentity"
+  },
+  "ciscoCableSpectrumMIBCompliances": {
+    "name": "ciscoCableSpectrumMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.114.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoCableSpectrumMIBGroups": {
+    "name": "ciscoCableSpectrumMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2",
+    "class": "objectidentity"
+  },
+  "ccsCompliance": {
+    "name": "ccsCompliance",
+    "oid": "1.3.6.1.4.1.9.9.114.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccsFlapGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ccsCompliance2": {
+    "name": "ccsCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.114.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccsFlapGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsSpectrumGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsUpSpecMgmtGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsCompliance3": {
+    "name": "ccsCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.114.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccsFlapGroupRev1",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsSpectrumGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsUpSpecMgmtGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsCompliance4": {
+    "name": "ccsCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.114.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccsFlapGroupRev1",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsSpectrumGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsNotificationGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsUpSpecMgmtGroupRev1",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsCompliance5": {
+    "name": "ccsCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.114.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccsFlapGroupRev2",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsSpectrumGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsNotificationGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsUpSpecMgmtGroupRev2",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsCompliance6": {
+    "name": "ccsCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.114.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccsFlapGroupRev2",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsSpectrumGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsNotificationGroupRev1",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsUpSpecMgmtGroupRev3",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsCompliance7": {
+    "name": "ccsCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.114.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccsFlapGroupRev2",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsSpectrumGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsNotificationGroupRev1",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsUpSpecMgmtGroupRev4",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsSpecGroupFreqGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsUpInSpecGroupGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      },
+      {
+        "object": "ccsUpInFiberNodeGroup",
+        "module": "CISCO-CABLE-SPECTRUM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccsFlapGroup": {
+    "name": "ccsFlapGroup",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapListMaxSize"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapListCurrentSize"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapAging"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapInsertionTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapUpstreamIfIndex"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapDownstreamIfIndex"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapInsertionFails"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapHits"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapMisses"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapCrcErrors"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapPowerAdjustments"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapTotal"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapLastFlapTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapCreateTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsSpectrumGroup": {
+    "name": "ccsSpectrumGroup",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestIfIndex"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestMacAddr"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestUpperFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestLowFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestResolution"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestStartTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestStoppedTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestOperation"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestOperState"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumRequestStatus"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumDataFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpectrumDataPower"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSNRRequestMacAddr"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSNRRequestSNR"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSNRRequestStartTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSNRRequestStoppedTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSNRRequestOperation"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSNRRequestOperState"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSNRRequestStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccsUpSpecMgmtGroup": {
+    "name": "ccsUpSpecMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopPriority"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecCorrectThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrPollPeriod"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopCondition"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSNR"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsNotificationGroup": {
+    "name": "ccsNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsHoppingNotification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsFlapGroupRev1": {
+    "name": "ccsFlapGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapListMaxSize"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapListCurrentSize"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapAging"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapInsertionTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapUpstreamIfIndex"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapDownstreamIfIndex"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapLastFlapTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapCreateTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapRowStatus"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapInsertionFailNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapHitNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapMissNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapCrcErrorNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapPowerAdjustmentNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapTotalNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapResetNow"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapLastResetTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapPowerAdjustThreshold"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapMissThreshold"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapResetAll"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapClearAll"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapLastClearTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsUpSpecMgmtGroupRev1": {
+    "name": "ccsUpSpecMgmtGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopPriority"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecCorrectThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopCondition"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSNR"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsFlapGroupRev2": {
+    "name": "ccsFlapGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapListMaxSize"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapListCurrentSize"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapAging"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFlapInsertionTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapLastFlapTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapCreateTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapInsertionFailNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapHitNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapMissNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapCrcErrorNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapPowerAdjustmentNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapTotalNum"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapResetNow"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapLastResetTime"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsCmFlapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccsUpSpecMgmtGroupRev2": {
+    "name": "ccsUpSpecMgmtGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopPriority"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecCorrectThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopCondition"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSNR"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtUpperBoundFreq"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsNotificationGroupRev1": {
+    "name": "ccsNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecMgmtNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "ccsUpSpecMgmtGroupRev3": {
+    "name": "ccsUpSpecMgmtGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopPriority"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSNR"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtUpperBoundFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCnrThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCnrThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCNR"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtMissedMaintMsgThres"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopPeriod"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCriteria"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccsSpecGroupFreqGroup": {
+    "name": "ccsSpecGroupFreqGroup",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupFreqType"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupFreqLower"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupFreqUpper"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupStorage"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccsUpSpecMgmtGroupRev4": {
+    "name": "ccsUpSpecMgmtGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopPriority"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSnrThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFecUnCorrectThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToCenterFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToBandWidth"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtFromModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtToModProfile"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSNR"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtUpperBoundFreq"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCnrThres1"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCnrThres2"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCNR"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtMissedMaintMsgThres"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtHopPeriod"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtCriteria"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSpecGroup"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsUpSpecMgmtSharedSpectrum"
+      }
+    ],
+    "status": "current"
+  },
+  "ccsUpInSpecGroupGroup": {
+    "name": "ccsUpInSpecGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupUpstreamStorage"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsSpecGroupUpstreamRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccsUpInFiberNodeGroup": {
+    "name": "ccsUpInFiberNodeGroup",
+    "oid": "1.3.6.1.4.1.9.9.114.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFiberNodeUpstreamStorage"
+      },
+      {
+        "module": "CISCO-CABLE-SPECTRUM-MIB",
+        "object": "ccsFiberNodeUpstreamRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-SPECTRUM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CABLE-SPECTRUM-MIB"
+  }
+}

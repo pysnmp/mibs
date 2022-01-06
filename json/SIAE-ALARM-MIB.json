@@ -1,0 +1,1069 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-TREE-MIB": [
+      "siaeMicroelettronicaSpa",
+      "siaeMib"
+    ],
+    "SIAE-USER-MIB": [
+      "accessControlLoginIpAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "smalarm": {
+    "name": "smalarm",
+    "oid": "1.3.6.1.4.1.3373.1103.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-10-04 00:00",
+        "description": "Fixed alarmIpSnmpAgentAddress type. "
+      },
+      {
+        "revision": "2015-07-17 00:00",
+        "description": "Fixed alarmTrap OID. "
+      },
+      {
+        "revision": "2015-03-23 00:00",
+        "description": "Removed alarmTrapNumber from alarmLogFTPStatusTrap. "
+      },
+      {
+        "revision": "2015-03-16 00:00",
+        "description": "MAX-ACCESS clause of alarmTrapNumber is back to read-only value in order to allow a manager to synchronize alarms. "
+      },
+      {
+        "revision": "2014-06-23 00:00",
+        "description": "Removed circular dependence from SIAE-EQUIP-MIB in IMPORTS. Added alarmIpSnmpAgentAddress. Changed MAX-ACCESS clause of alarmObjectId, alarmObjectVal, alarmTrapDescription and alarmTrapNumber from read-only to accessible-for-notify. "
+      },
+      {
+        "revision": "2014-03-03 00:00",
+        "description": "MIB version 01.00.01 Added alarmTable "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of alarmMibVersion "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "AlarmStatus": {
+    "name": "AlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeReportableStatus": 2,
+          "activeReportableWarning": 3,
+          "activeReportableMinor": 4,
+          "activeReportableMajor": 5,
+          "activeReportableCritical": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlarmSeverityCode": {
+    "name": "AlarmSeverityCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "statusTrapEnable": 2,
+          "warningTrapEnable": 3,
+          "minorTrapEnable": 4,
+          "majorTrapEnable": 5,
+          "criticalTrapEnable": 6,
+          "statusTrapDisable": 18,
+          "warningTrapDisable": 19,
+          "minorTrapDisable": 20,
+          "majorTrapDisable": 21,
+          "criticalTrapDisable": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "siaeNotificationEntry": {
+    "name": "siaeNotificationEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.4.2",
+    "class": "objectidentity"
+  },
+  "alarmTrap": {
+    "name": "alarmTrap",
+    "oid": "1.3.6.1.4.1.3373.1103.0",
+    "class": "objectidentity"
+  },
+  "alarmMibVersion": {
+    "name": "alarmMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogTable": {
+    "name": "alarmLogTable",
+    "oid": "1.3.6.1.4.1.3373.1103.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmLogRecord": {
+    "name": "alarmLogRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmLogRecordId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmLogRecordId": {
+    "name": "alarmLogRecordId",
+    "oid": "1.3.6.1.4.1.3373.1103.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogObjectId": {
+    "name": "alarmLogObjectId",
+    "oid": "1.3.6.1.4.1.3373.1103.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogObjectVal": {
+    "name": "alarmLogObjectVal",
+    "oid": "1.3.6.1.4.1.3373.1103.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogObjectSev": {
+    "name": "alarmLogObjectSev",
+    "oid": "1.3.6.1.4.1.3373.1103.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogDescription": {
+    "name": "alarmLogDescription",
+    "oid": "1.3.6.1.4.1.3373.1103.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogEventTime": {
+    "name": "alarmLogEventTime",
+    "oid": "1.3.6.1.4.1.3373.1103.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogActionRequest": {
+    "name": "alarmLogActionRequest",
+    "oid": "1.3.6.1.4.1.3373.1103.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "delete": 1,
+          "read": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogFTPfile": {
+    "name": "alarmLogFTPfile",
+    "oid": "1.3.6.1.4.1.3373.1103.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogAlarmSeverityEnable": {
+    "name": "alarmLogAlarmSeverityEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "31",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogStartHourEnable": {
+    "name": "alarmLogStartHourEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogEndHourEnable": {
+    "name": "alarmLogEndHourEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 23,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogStartTimeFilter": {
+    "name": "alarmLogStartTimeFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogEndTimeFilter": {
+    "name": "alarmLogEndTimeFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogManagedObjectFilter": {
+    "name": "alarmLogManagedObjectFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(1, 3, 6, 1, 4, 1, 3373)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogAlarmSeverityFilter": {
+    "name": "alarmLogAlarmSeverityFilter",
+    "oid": "1.3.6.1.4.1.3373.1103.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "31",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogFTPStatus": {
+    "name": "alarmLogFTPStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transferring": 1,
+          "completed": 2,
+          "interrupted": 3,
+          "empty": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "completed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogFTPStatusTrapNotification": {
+    "name": "alarmLogFTPStatusTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2,
+          "trapEnableWithACK": 34
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "trapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLogLastEventTime": {
+    "name": "alarmLogLastEventTime",
+    "oid": "1.3.6.1.4.1.3373.1103.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveTable": {
+    "name": "alarmActiveTable",
+    "oid": "1.3.6.1.4.1.3373.1103.4.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmActiveRecord": {
+    "name": "alarmActiveRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.4.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmActiveObjectId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmActiveObjectId": {
+    "name": "alarmActiveObjectId",
+    "oid": "1.3.6.1.4.1.3373.1103.4.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveObjectVal": {
+    "name": "alarmActiveObjectVal",
+    "oid": "1.3.6.1.4.1.3373.1103.4.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveDescription": {
+    "name": "alarmActiveDescription",
+    "oid": "1.3.6.1.4.1.3373.1103.4.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveEventTime": {
+    "name": "alarmActiveEventTime",
+    "oid": "1.3.6.1.4.1.3373.1103.4.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveFloodingStatus": {
+    "name": "alarmActiveFloodingStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.4.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSyntesysCritical": {
+    "name": "alarmSyntesysCritical",
+    "oid": "1.3.6.1.4.1.3373.1103.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeReportableCritical": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSyntesysCriticalSeverityCode": {
+    "name": "alarmSyntesysCriticalSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "criticalTrapEnable": 6,
+          "criticalTrapDisable": 22
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "criticalTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmSyntesysMajor": {
+    "name": "alarmSyntesysMajor",
+    "oid": "1.3.6.1.4.1.3373.1103.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeReportableMajor": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSyntesysMajorSeverityCode": {
+    "name": "alarmSyntesysMajorSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "majorTrapEnable": 5,
+          "majorTrapDisable": 21
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmSyntesysMinor": {
+    "name": "alarmSyntesysMinor",
+    "oid": "1.3.6.1.4.1.3373.1103.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeReportableMinor": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSyntesysMinorSeverityCode": {
+    "name": "alarmSyntesysMinorSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "minorTrapEnable": 4,
+          "minorTrapDisable": 20
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "minorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmSyntesysWarning": {
+    "name": "alarmSyntesysWarning",
+    "oid": "1.3.6.1.4.1.3373.1103.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeReportableWarning": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSyntesysWarningSeverityCode": {
+    "name": "alarmSyntesysWarningSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "warningTrapEnable": 3,
+          "warningTrapDisable": 19
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmSyntesysStatus": {
+    "name": "alarmSyntesysStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeReportableStatus": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSyntesysStatusSeverityCode": {
+    "name": "alarmSyntesysStatusSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "statusTrapEnable": 2,
+          "statusTrapDisable": 18
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "statusTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmAntiFlooding": {
+    "name": "alarmAntiFlooding",
+    "oid": "1.3.6.1.4.1.3373.1103.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmAntiFloodingWindow": {
+    "name": "alarmAntiFloodingWindow",
+    "oid": "1.3.6.1.4.1.3373.1103.4.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmAntiFloodingHighWater": {
+    "name": "alarmAntiFloodingHighWater",
+    "oid": "1.3.6.1.4.1.3373.1103.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmAntiFloodingLowWater": {
+    "name": "alarmAntiFloodingLowWater",
+    "oid": "1.3.6.1.4.1.3373.1103.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmItemTable": {
+    "name": "alarmItemTable",
+    "oid": "1.3.6.1.4.1.3373.1103.4.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmRecord": {
+    "name": "alarmRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.4.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmOid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmOid": {
+    "name": "alarmOid",
+    "oid": "1.3.6.1.4.1.3373.1103.4.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmDescription": {
+    "name": "alarmDescription",
+    "oid": "1.3.6.1.4.1.3373.1103.4.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmObjectId": {
+    "name": "alarmObjectId",
+    "oid": "1.3.6.1.4.1.3373.1103.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alarmObjectVal": {
+    "name": "alarmObjectVal",
+    "oid": "1.3.6.1.4.1.3373.1103.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alarmTrapDescription": {
+    "name": "alarmTrapDescription",
+    "oid": "1.3.6.1.4.1.3373.1103.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alarmTrapNumber": {
+    "name": "alarmTrapNumber",
+    "oid": "1.3.6.1.4.1.3373.1103.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmIpSnmpAgentAddress": {
+    "name": "alarmIpSnmpAgentAddress",
+    "oid": "1.3.6.1.4.1.3373.1103.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alarmTrapObject": {
+    "name": "alarmTrapObject",
+    "oid": "1.3.6.1.4.1.3373.1103.0.3373",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmIpSnmpAgentAddress"
+      },
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmObjectId"
+      },
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmObjectVal"
+      },
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmTrapDescription"
+      },
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmTrapNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmLogFTPStatusTrap": {
+    "name": "alarmLogFTPStatusTrap",
+    "oid": "1.3.6.1.4.1.3373.1103.0.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmIpSnmpAgentAddress"
+      },
+      {
+        "module": "SIAE-ALARM-MIB",
+        "object": "alarmLogFTPStatus"
+      },
+      {
+        "module": "SIAE-USER-MIB",
+        "object": "accessControlLoginIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-ALARM-MIB"
+  }
+}

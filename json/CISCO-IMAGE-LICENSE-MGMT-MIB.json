@@ -1,0 +1,485 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoImageLicenseMgmtMIB": {
+    "name": "ciscoImageLicenseMgmtMIB",
+    "oid": "1.3.6.1.4.1.9.9.640",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoImageLicenseMgmtMIBNotifs": {
+    "name": "ciscoImageLicenseMgmtMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.640.0",
+    "class": "objectidentity"
+  },
+  "ciscoImageLicenseMgmtMIBObjects": {
+    "name": "ciscoImageLicenseMgmtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.640.1",
+    "class": "objectidentity"
+  },
+  "ciscoImageLicenseMgmtMIBConform": {
+    "name": "ciscoImageLicenseMgmtMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.640.2",
+    "class": "objectidentity"
+  },
+  "BootImageLevel": {
+    "name": "BootImageLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "LicenseNameList": {
+    "name": "LicenseNameList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cilmBootImageLevelTable": {
+    "name": "cilmBootImageLevelTable",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cilmBootImageLevelEntry": {
+    "name": "cilmBootImageLevelEntry",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmModuleName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cilmModuleName": {
+    "name": "cilmModuleName",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cilmCurrentImageLevel": {
+    "name": "cilmCurrentImageLevel",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BootImageLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmConfiguredBootImageLevel": {
+    "name": "cilmConfiguredBootImageLevel",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BootImageLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cilmNextBootImageLevel": {
+    "name": "cilmNextBootImageLevel",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BootImageLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmCurrentLicenseStoreIndex": {
+    "name": "cilmCurrentLicenseStoreIndex",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmCurrentLicenseIndex": {
+    "name": "cilmCurrentLicenseIndex",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmNextBootLicenseStoreIndex": {
+    "name": "cilmNextBootLicenseStoreIndex",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmNextBootLicenseIndex": {
+    "name": "cilmNextBootLicenseIndex",
+    "oid": "1.3.6.1.4.1.9.9.640.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmImageLevelToLicenseMapTable": {
+    "name": "cilmImageLevelToLicenseMapTable",
+    "oid": "1.3.6.1.4.1.9.9.640.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cilmImageLevelToLicenseMapEntry": {
+    "name": "cilmImageLevelToLicenseMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.640.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmModuleName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmImageLicenseMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cilmImageLicenseMapIndex": {
+    "name": "cilmImageLicenseMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.640.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cilmImageLicenseImageLevel": {
+    "name": "cilmImageLicenseImageLevel",
+    "oid": "1.3.6.1.4.1.9.9.640.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BootImageLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmImageLicenseName": {
+    "name": "cilmImageLicenseName",
+    "oid": "1.3.6.1.4.1.9.9.640.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicenseNameList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmImageLicensePriority": {
+    "name": "cilmImageLicensePriority",
+    "oid": "1.3.6.1.4.1.9.9.640.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cilmEULAAccepted": {
+    "name": "cilmEULAAccepted",
+    "oid": "1.3.6.1.4.1.9.9.640.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cilmNotifCntl": {
+    "name": "cilmNotifCntl",
+    "oid": "1.3.6.1.4.1.9.9.640.1.4",
+    "class": "objectidentity"
+  },
+  "cilmImageLevelChangedNotif": {
+    "name": "cilmImageLevelChangedNotif",
+    "oid": "1.3.6.1.4.1.9.9.640.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cilmBootImageLevelChanged": {
+    "name": "cilmBootImageLevelChanged",
+    "oid": "1.3.6.1.4.1.9.9.640.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmCurrentImageLevel"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmConfiguredBootImageLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cilmModuleCompliances": {
+    "name": "cilmModuleCompliances",
+    "oid": "1.3.6.1.4.1.9.9.640.2.1",
+    "class": "objectidentity"
+  },
+  "cilmModuleGroups": {
+    "name": "cilmModuleGroups",
+    "oid": "1.3.6.1.4.1.9.9.640.2.2",
+    "class": "objectidentity"
+  },
+  "cilmModuleCompliance": {
+    "name": "cilmModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.9.640.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cilmAdminGroup",
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB"
+      },
+      {
+        "object": "cilmNotifGroup",
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB"
+      },
+      {
+        "object": "cilmOperGroup",
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cilmAdminGroup": {
+    "name": "cilmAdminGroup",
+    "oid": "1.3.6.1.4.1.9.9.640.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmCurrentImageLevel"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmConfiguredBootImageLevel"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmNextBootImageLevel"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmCurrentLicenseStoreIndex"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmCurrentLicenseIndex"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmNextBootLicenseStoreIndex"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmNextBootLicenseIndex"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmEULAAccepted"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmImageLevelChangedNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cilmOperGroup": {
+    "name": "cilmOperGroup",
+    "oid": "1.3.6.1.4.1.9.9.640.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmImageLicenseImageLevel"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmImageLicenseName"
+      },
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmImageLicensePriority"
+      }
+    ],
+    "status": "current"
+  },
+  "cilmNotifGroup": {
+    "name": "cilmNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.640.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-LICENSE-MGMT-MIB",
+        "object": "cilmBootImageLevelChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IMAGE-LICENSE-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IMAGE-LICENSE-MGMT-MIB"
+  }
+}

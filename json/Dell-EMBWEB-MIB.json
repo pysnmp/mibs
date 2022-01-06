@@ -1,0 +1,854 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlEmbWeb": {
+    "name": "rlEmbWeb",
+    "oid": "1.3.6.1.4.1.89.66",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-03 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "RlEmbWebProtocol": {
+    "name": "RlEmbWebProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "http": 2,
+          "https": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlEmbWebEnabled": {
+    "name": "RlEmbWebEnabled",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "false": 2,
+          "true": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlEmWebMibVersion": {
+    "name": "rlEmWebMibVersion",
+    "oid": "1.3.6.1.4.1.89.66.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEmWebWebSite": {
+    "name": "rlEmWebWebSite",
+    "oid": "1.3.6.1.4.1.89.66.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebSecurityTable": {
+    "name": "rlEmWebSecurityTable",
+    "oid": "1.3.6.1.4.1.89.66.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEmWebSecurityEntry": {
+    "name": "rlEmWebSecurityEntry",
+    "oid": "1.3.6.1.4.1.89.66.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-EMBWEB-MIB",
+        "object": "rlEmWebSecurityUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlEmWebSecurityUserName": {
+    "name": "rlEmWebSecurityUserName",
+    "oid": "1.3.6.1.4.1.89.66.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebSecurityPassword": {
+    "name": "rlEmWebSecurityPassword",
+    "oid": "1.3.6.1.4.1.89.66.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebSecurityAccess": {
+    "name": "rlEmWebSecurityAccess",
+    "oid": "1.3.6.1.4.1.89.66.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "readOnly": 2,
+          "readWrite": 3,
+          "super": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebSecurityIpAddr": {
+    "name": "rlEmWebSecurityIpAddr",
+    "oid": "1.3.6.1.4.1.89.66.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebSecurityPort": {
+    "name": "rlEmWebSecurityPort",
+    "oid": "1.3.6.1.4.1.89.66.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebSecuritySnmpVersion": {
+    "name": "rlEmWebSecuritySnmpVersion",
+    "oid": "1.3.6.1.4.1.89.66.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ver1": 1,
+          "ver2": 2,
+          "ver3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebSecurityStatus": {
+    "name": "rlEmWebSecurityStatus",
+    "oid": "1.3.6.1.4.1.89.66.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebCloseTimeout": {
+    "name": "rlEmWebCloseTimeout",
+    "oid": "1.3.6.1.4.1.89.66.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebReceiveTimeout": {
+    "name": "rlEmWebReceiveTimeout",
+    "oid": "1.3.6.1.4.1.89.66.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebMaxIdleTimeout": {
+    "name": "rlEmWebMaxIdleTimeout",
+    "oid": "1.3.6.1.4.1.89.66.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3932159
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebSetEWSfilesStatus": {
+    "name": "rlEmWebSetEWSfilesStatus",
+    "oid": "1.3.6.1.4.1.89.66.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opened": 1,
+          "closed": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "opened",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmbeddedWebApplied": {
+    "name": "rlEmbeddedWebApplied",
+    "oid": "1.3.6.1.4.1.89.66.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEmWebHttpPort": {
+    "name": "rlEmWebHttpPort",
+    "oid": "1.3.6.1.4.1.89.66.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebHttpEnable": {
+    "name": "rlEmWebHttpEnable",
+    "oid": "1.3.6.1.4.1.89.66.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebHttpsPort": {
+    "name": "rlEmWebHttpsPort",
+    "oid": "1.3.6.1.4.1.89.66.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebHttpsEnable": {
+    "name": "rlEmWebHttpsEnable",
+    "oid": "1.3.6.1.4.1.89.66.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebCertificateCountryName": {
+    "name": "rlEmWebCertificateCountryName",
+    "oid": "1.3.6.1.4.1.89.66.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebCertificateStateOrProvinceName": {
+    "name": "rlEmWebCertificateStateOrProvinceName",
+    "oid": "1.3.6.1.4.1.89.66.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebCertificateLocalityName": {
+    "name": "rlEmWebCertificateLocalityName",
+    "oid": "1.3.6.1.4.1.89.66.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebCertificateOrganizationName": {
+    "name": "rlEmWebCertificateOrganizationName",
+    "oid": "1.3.6.1.4.1.89.66.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebCertificateCommonName": {
+    "name": "rlEmWebCertificateCommonName",
+    "oid": "1.3.6.1.4.1.89.66.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebCertificateRegenerate": {
+    "name": "rlEmWebCertificateRegenerate",
+    "oid": "1.3.6.1.4.1.89.66.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "regenerateCertificate": 1,
+          "regenerateRsaKeyAndCertificate": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebRsaKeyLength": {
+    "name": "rlEmWebRsaKeyLength",
+    "oid": "1.3.6.1.4.1.89.66.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebDebug": {
+    "name": "rlEmWebDebug",
+    "oid": "1.3.6.1.4.1.89.66.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebURL": {
+    "name": "rlEmWebURL",
+    "oid": "1.3.6.1.4.1.89.66.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEmWebDisplayNonPresentEntities": {
+    "name": "rlEmWebDisplayNonPresentEntities",
+    "oid": "1.3.6.1.4.1.89.66.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEmWebCertificateExists": {
+    "name": "rlEmWebCertificateExists",
+    "oid": "1.3.6.1.4.1.89.66.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEmWebHttpsActiveCertificateId": {
+    "name": "rlEmWebHttpsActiveCertificateId",
+    "oid": "1.3.6.1.4.1.89.66.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebExtraPort": {
+    "name": "rlEmWebExtraPort",
+    "oid": "1.3.6.1.4.1.89.66.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebExtraPortType": {
+    "name": "rlEmWebExtraPortType",
+    "oid": "1.3.6.1.4.1.89.66.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "http": 0,
+          "https": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebMaxHttpsIdleTimeout": {
+    "name": "rlEmWebMaxHttpsIdleTimeout",
+    "oid": "1.3.6.1.4.1.89.66.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3932159
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebServiceTable": {
+    "name": "rlEmWebServiceTable",
+    "oid": "1.3.6.1.4.1.89.66.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEmWebServiceEntry": {
+    "name": "rlEmWebServiceEntry",
+    "oid": "1.3.6.1.4.1.89.66.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-EMBWEB-MIB",
+        "object": "rlEmWebServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlEmWebServiceId": {
+    "name": "rlEmWebServiceId",
+    "oid": "1.3.6.1.4.1.89.66.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlEmWebServiceName": {
+    "name": "rlEmWebServiceName",
+    "oid": "1.3.6.1.4.1.89.66.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEmWebServiceEnable": {
+    "name": "rlEmWebServiceEnable",
+    "oid": "1.3.6.1.4.1.89.66.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlEmbWebEnabled",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebServicePort": {
+    "name": "rlEmWebServicePort",
+    "oid": "1.3.6.1.4.1.89.66.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebServiceMaxUsers": {
+    "name": "rlEmWebServiceMaxUsers",
+    "oid": "1.3.6.1.4.1.89.66.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlEmWebServiceProtocol": {
+    "name": "rlEmWebServiceProtocol",
+    "oid": "1.3.6.1.4.1.89.66.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlEmbWebProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebServiceCertificateId": {
+    "name": "rlEmWebServiceCertificateId",
+    "oid": "1.3.6.1.4.1.89.66.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlEmWebServiceMaxIdleTimeOut": {
+    "name": "rlEmWebServiceMaxIdleTimeOut",
+    "oid": "1.3.6.1.4.1.89.66.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3932160
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3932160,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-EMBWEB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Dell-EMBWEB-MIB"
+  }
+}

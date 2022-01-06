@@ -1,0 +1,1187 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-PRIVATE-VLAN-MIB": [
+      "VlanIndexOrZero"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoDynamicArpInspectionMIB": {
+    "name": "ciscoDynamicArpInspectionMIB",
+    "oid": "1.3.6.1.4.1.9.9.374",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-21 00:00",
+        "description": "Add the following groups: - cdaiLoggingConfigGroup. - cdaiLogBufferGroup. - cdaiLogBufferActionGroup. - cdaiAddressValidationGroup. - cdaiVlanCfgGroup. - cdaiVlanArpProbeGroup. - cdaiVlanStatisticsGroup. - cdaiVlanExtStatisticsGroup."
+      },
+      {
+        "revision": "2003-10-29 15:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "cdaiMIBNotifs": {
+    "name": "cdaiMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.374.0",
+    "class": "objectidentity"
+  },
+  "cdaiMIBObjects": {
+    "name": "cdaiMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.374.1",
+    "class": "objectidentity"
+  },
+  "cdaiMIBConformance": {
+    "name": "cdaiMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.374.2",
+    "class": "objectidentity"
+  },
+  "cdaiGlobal": {
+    "name": "cdaiGlobal",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1",
+    "class": "objectidentity"
+  },
+  "cdaiVlan": {
+    "name": "cdaiVlan",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2",
+    "class": "objectidentity"
+  },
+  "cdaiInterface": {
+    "name": "cdaiInterface",
+    "oid": "1.3.6.1.4.1.9.9.374.1.3",
+    "class": "objectidentity"
+  },
+  "cdaiStatistics": {
+    "name": "cdaiStatistics",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4",
+    "class": "objectidentity"
+  },
+  "cdaiLoggingEnable": {
+    "name": "cdaiLoggingEnable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiAddressValidate": {
+    "name": "cdaiAddressValidate",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "srcMacAddress": 0,
+        "dstMacAddress": 1,
+        "ip": 2,
+        "ipAllowZeros": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiLogBufferSize": {
+    "name": "cdaiLogBufferSize",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "entries",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiLoggingRate": {
+    "name": "cdaiLoggingRate",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "entries",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiLoggingInterval": {
+    "name": "cdaiLoggingInterval",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiLogBufferAction": {
+    "name": "cdaiLogBufferAction",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiLogBufferTable": {
+    "name": "cdaiLogBufferTable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiLogBufferEntry": {
+    "name": "cdaiLogBufferEntry",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiLogBufferIndex": {
+    "name": "cdaiLogBufferIndex",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiLogBufferInterface": {
+    "name": "cdaiLogBufferInterface",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiLogBufferVlan": {
+    "name": "cdaiLogBufferVlan",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiLogBufferSenderMacAddress": {
+    "name": "cdaiLogBufferSenderMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiLogBufferSenderAddressType": {
+    "name": "cdaiLogBufferSenderAddressType",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiLogBufferSenderIpAddress": {
+    "name": "cdaiLogBufferSenderIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiLogBufferReason": {
+    "name": "cdaiLogBufferReason",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "deny": 2,
+          "aclDeny": 3,
+          "aclPermit": 4,
+          "dhcpDeny": 5,
+          "dhcpPermit": 6,
+          "probePermit": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiLogBufferLastUpdate": {
+    "name": "cdaiLogBufferLastUpdate",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiLogBufferPacketsCount": {
+    "name": "cdaiLogBufferPacketsCount",
+    "oid": "1.3.6.1.4.1.9.9.374.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanConfigTable": {
+    "name": "cdaiVlanConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiVlanConfigEntry": {
+    "name": "cdaiVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiVlanIndex": {
+    "name": "cdaiVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiVlanDynArpInspEnable": {
+    "name": "cdaiVlanDynArpInspEnable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiVlanCfgTable": {
+    "name": "cdaiVlanCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiVlanCfgEntry": {
+    "name": "cdaiVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiVlanId": {
+    "name": "cdaiVlanId",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiVlanDynArpInspAdmin": {
+    "name": "cdaiVlanDynArpInspAdmin",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdaiVlanDynArpInspOper": {
+    "name": "cdaiVlanDynArpInspOper",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanFilterArpAclName": {
+    "name": "cdaiVlanFilterArpAclName",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdaiVlanFilterArpAclStatic": {
+    "name": "cdaiVlanFilterArpAclStatic",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdaiVlanAclLogging": {
+    "name": "cdaiVlanAclLogging",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "aclMatch": 2,
+          "deny": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdaiVlanDhcpBindingLogging": {
+    "name": "cdaiVlanDhcpBindingLogging",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "permit": 2,
+          "deny": 3,
+          "all": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdaiVlanArpProbeLogging": {
+    "name": "cdaiVlanArpProbeLogging",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdaiVlanCfgStorageType": {
+    "name": "cdaiVlanCfgStorageType",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdaiVlanCfgRowStatus": {
+    "name": "cdaiVlanCfgRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.374.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdaiIfConfigTable": {
+    "name": "cdaiIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiIfConfigEntry": {
+    "name": "cdaiIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.374.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiIfTrustEnable": {
+    "name": "cdaiIfTrustEnable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiIfRateLimitTable": {
+    "name": "cdaiIfRateLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiIfRateLimitEntry": {
+    "name": "cdaiIfRateLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.374.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiIfRateLimit": {
+    "name": "cdaiIfRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.374.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packet per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdaiVlanStatsTable": {
+    "name": "cdaiVlanStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiVlanStatsEntry": {
+    "name": "cdaiVlanStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiVlanStatsIndex": {
+    "name": "cdaiVlanStatsIndex",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdaiVlanForwarded": {
+    "name": "cdaiVlanForwarded",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanDropped": {
+    "name": "cdaiVlanDropped",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanAclPermitted": {
+    "name": "cdaiVlanAclPermitted",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanDhcpBindingsPermitted": {
+    "name": "cdaiVlanDhcpBindingsPermitted",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanAclDenied": {
+    "name": "cdaiVlanAclDenied",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanDhcpBindingDenied": {
+    "name": "cdaiVlanDhcpBindingDenied",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanSrcMacValidationFailures": {
+    "name": "cdaiVlanSrcMacValidationFailures",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanDestMacValidationFailures": {
+    "name": "cdaiVlanDestMacValidationFailures",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanIpValidationFailures": {
+    "name": "cdaiVlanIpValidationFailures",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanArpProbePermitted": {
+    "name": "cdaiVlanArpProbePermitted",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiVlanInvalidProtocolData": {
+    "name": "cdaiVlanInvalidProtocolData",
+    "oid": "1.3.6.1.4.1.9.9.374.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdaiMIBCompliances": {
+    "name": "cdaiMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.374.2.1",
+    "class": "objectidentity"
+  },
+  "cdaiMIBGroups": {
+    "name": "cdaiMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2",
+    "class": "objectidentity"
+  },
+  "cdaiMIBCompliance": {
+    "name": "cdaiMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.374.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdaiVlanConfigGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiIfConfigGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiGlobalLoggingGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiIfRateLimitGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdaiMIBCompliance1": {
+    "name": "cdaiMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.374.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdaiVlanCfgGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiIfConfigGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiVlanConfigGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiGlobalLoggingGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiIfRateLimitGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiLoggingConfigGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiAddressValidationGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiLogBufferGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiVlanStatisticsGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiVlanExtStatisticsGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiVlanArpProbeGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      },
+      {
+        "object": "cdaiLogBufferActionGroup",
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiGlobalLoggingGroup": {
+    "name": "cdaiGlobalLoggingGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLoggingEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiVlanConfigGroup": {
+    "name": "cdaiVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanDynArpInspEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiIfConfigGroup": {
+    "name": "cdaiIfConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiIfTrustEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiIfRateLimitGroup": {
+    "name": "cdaiIfRateLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiIfRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiLoggingConfigGroup": {
+    "name": "cdaiLoggingConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferSize"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLoggingRate"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLoggingInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiAddressValidationGroup": {
+    "name": "cdaiAddressValidationGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiAddressValidate"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiVlanCfgGroup": {
+    "name": "cdaiVlanCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanDynArpInspAdmin"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanDynArpInspOper"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanFilterArpAclName"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanFilterArpAclStatic"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanAclLogging"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanDhcpBindingLogging"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanCfgStorageType"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiVlanStatisticsGroup": {
+    "name": "cdaiVlanStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanForwarded"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanDropped"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanAclPermitted"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanDhcpBindingsPermitted"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanAclDenied"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanDhcpBindingDenied"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanSrcMacValidationFailures"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanDestMacValidationFailures"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanIpValidationFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiLogBufferGroup": {
+    "name": "cdaiLogBufferGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferInterface"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferVlan"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferSenderMacAddress"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferSenderAddressType"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferSenderIpAddress"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferReason"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferLastUpdate"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferPacketsCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiVlanExtStatisticsGroup": {
+    "name": "cdaiVlanExtStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanArpProbePermitted"
+      },
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanInvalidProtocolData"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiVlanArpProbeGroup": {
+    "name": "cdaiVlanArpProbeGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiVlanArpProbeLogging"
+      }
+    ],
+    "status": "current"
+  },
+  "cdaiLogBufferActionGroup": {
+    "name": "cdaiLogBufferActionGroup",
+    "oid": "1.3.6.1.4.1.9.9.374.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+        "object": "cdaiLogBufferAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-ARP-INSPECTION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DYNAMIC-ARP-INSPECTION-MIB"
+  }
+}

@@ -1,0 +1,650 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-QOS-MIB": [
+      "serviceAccessSwitch"
+    ],
+    "PRVT-SERV-MIB": [
+      "sapBaseInfoEntry",
+      "sdpId",
+      "sdpInfoEntry",
+      "sapPortId",
+      "svcId",
+      "sapEncapValue"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "prvtL2TunnelingMIB": {
+    "name": "prvtL2TunnelingMIB",
+    "oid": "1.3.6.1.4.1.738.1.7.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-10-20 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvtL2TunnNotifications": {
+    "name": "prvtL2TunnNotifications",
+    "oid": "1.3.6.1.4.1.738.1.7.3.0",
+    "class": "objectidentity"
+  },
+  "prvtL2TunnObjects": {
+    "name": "prvtL2TunnObjects",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1",
+    "class": "objectidentity"
+  },
+  "prvtL2TunnConformance": {
+    "name": "prvtL2TunnConformance",
+    "oid": "1.3.6.1.4.1.738.1.7.3.2",
+    "class": "objectidentity"
+  },
+  "prvtL2TunnEnable": {
+    "name": "prvtL2TunnEnable",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtL2TunnProfileTable": {
+    "name": "prvtL2TunnProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtL2TunnProfileEntry": {
+    "name": "prvtL2TunnProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2TunnProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtL2TunnProfileName": {
+    "name": "prvtL2TunnProfileName",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 33,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtL2TunnProfileRowStatus": {
+    "name": "prvtL2TunnProfileRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtL2ProtocolsTable": {
+    "name": "prvtL2ProtocolsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtL2ProtocolsEntry": {
+    "name": "prvtL2ProtocolsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ProtocolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtL2ProtocolName": {
+    "name": "prvtL2ProtocolName",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtL2ProtocolEthertype": {
+    "name": "prvtL2ProtocolEthertype",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtL2ProtocolMAC": {
+    "name": "prvtL2ProtocolMAC",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtL2ReplaceMAC": {
+    "name": "prvtL2ReplaceMAC",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtL2ProtocolRowStatus": {
+    "name": "prvtL2ProtocolRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtL2TunnProfMapProtoTable": {
+    "name": "prvtL2TunnProfMapProtoTable",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtL2TunnProfMapProtoEntry": {
+    "name": "prvtL2TunnProfMapProtoEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2TunnProfileName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ProtocolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtL2TunnAction": {
+    "name": "prvtL2TunnAction",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel": 1,
+          "discard": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discard",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtL2TunnSAPPointsTable": {
+    "name": "prvtL2TunnSAPPointsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtL2TunnSAPPointsEntry": {
+    "name": "prvtL2TunnSAPPointsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtL2TunnSAPPointsEntry",
+      "module": "PRVT-L2TUNNELING-MIB",
+      "object": "sapBaseInfoEntry"
+    },
+    "status": "current"
+  },
+  "profileSAP": {
+    "name": "profileSAP",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 33,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtL2TunnSDPPointsTable": {
+    "name": "prvtL2TunnSDPPointsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtL2TunnSDPPointsEntry": {
+    "name": "prvtL2TunnSDPPointsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtL2TunnSDPPointsEntry",
+      "module": "PRVT-L2TUNNELING-MIB",
+      "object": "sdpInfoEntry"
+    },
+    "status": "current"
+  },
+  "profileSDP": {
+    "name": "profileSDP",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 33,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtL2TunnClearStatistics": {
+    "name": "prvtL2TunnClearStatistics",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "clear": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtL2TunnSapStatisticsTable": {
+    "name": "prvtL2TunnSapStatisticsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtL2TunnSapStatisticsEntry": {
+    "name": "prvtL2TunnSapStatisticsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ProtocolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "l2TunnSapRxPackets": {
+    "name": "l2TunnSapRxPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l2TunnSapTxPackets": {
+    "name": "l2TunnSapTxPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtL2TunnSdpStatisticsTable": {
+    "name": "prvtL2TunnSdpStatisticsTable",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtL2TunnSdpStatisticsEntry": {
+    "name": "prvtL2TunnSdpStatisticsEntry",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SERV-MIB",
+        "object": "sdpId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ProtocolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "l2TunnSdpRxPackets": {
+    "name": "l2TunnSdpRxPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "l2TunnSdpTxPackets": {
+    "name": "l2TunnSdpTxPackets",
+    "oid": "1.3.6.1.4.1.738.1.7.3.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtL2TunnCompliances": {
+    "name": "prvtL2TunnCompliances",
+    "oid": "1.3.6.1.4.1.738.1.7.3.2.1",
+    "class": "objectidentity"
+  },
+  "prvtL2TunnGroups": {
+    "name": "prvtL2TunnGroups",
+    "oid": "1.3.6.1.4.1.738.1.7.3.2.2",
+    "class": "objectidentity"
+  },
+  "prvtL2TunnCompliance": {
+    "name": "prvtL2TunnCompliance",
+    "oid": "1.3.6.1.4.1.738.1.7.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtL2TunnProtocolGroup",
+        "module": "PRVT-L2TUNNELING-MIB"
+      },
+      {
+        "object": "prvtL2TunnProfileGroup",
+        "module": "PRVT-L2TUNNELING-MIB"
+      },
+      {
+        "object": "prvtL2TunnPointGroup",
+        "module": "PRVT-L2TUNNELING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtL2TunnProtocolGroup": {
+    "name": "prvtL2TunnProtocolGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ProtocolName"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ReplaceMAC"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ProtocolEthertype"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ProtocolMAC"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ReplaceMAC"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2ProtocolRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtL2TunnProfileGroup": {
+    "name": "prvtL2TunnProfileGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2TunnEnable"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2TunnProfileName"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2TunnProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtL2TunnPointGroup": {
+    "name": "prvtL2TunnPointGroup",
+    "oid": "1.3.6.1.4.1.738.1.7.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "prvtL2TunnAction"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "profileSDP"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "profileSAP"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "l2TunnSapRxPackets"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "l2TunnSapTxPackets"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "l2TunnSdpRxPackets"
+      },
+      {
+        "module": "PRVT-L2TUNNELING-MIB",
+        "object": "l2TunnSdpTxPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-L2TUNNELING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-L2TUNNELING-MIB"
+  }
+}

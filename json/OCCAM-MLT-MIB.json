@@ -1,0 +1,1551 @@
+{
+  "imports": {
+    "class": "imports",
+    "OCCAM-REG-MODULE": [
+      "occamGenericMonitorModules"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "occamMltMib": {
+    "name": "occamMltMib",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-04-27 10:51",
+        "description": "Reformatted certain text"
+      },
+      {
+        "revision": "2007-04-17 00:00",
+        "description": "replace kOhm with Ohm in DC resistance UNITS"
+      },
+      {
+        "revision": "2007-02-22 00:00",
+        "description": "remove DISPLAY-HINT"
+      },
+      {
+        "revision": "2006-09-26 10:00",
+        "description": "Removed Gr909 from fuse test result names"
+      },
+      {
+        "revision": "2006-02-22 01:35",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "MltTestType": {
+    "name": "MltTestType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "force": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MltTestStatus": {
+    "name": "MltTestStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "mltBusy": 2,
+          "complete": 3,
+          "portInUse": 4,
+          "inProgress": 5,
+          "mltError": 6,
+          "mltNotResponding": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MltTestIdentifier": {
+    "name": "MltTestIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "statusSuite": 1,
+          "mltSuite": 2,
+          "activeModeVoltages": 3,
+          "highImpedanceModeVoltages": 4,
+          "dcResistance": 5,
+          "capacitance": 6,
+          "loopDetect": 7,
+          "loopLength": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MltTestHookState": {
+    "name": "MltTestHookState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onhook": 1,
+          "offhook": 2,
+          "notAvailable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MltTestPassFail": {
+    "name": "MltTestPassFail",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pass": 1,
+          "fail": 2,
+          "notAvailable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MltTestRingerResult": {
+    "name": "MltTestRingerResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pass": 1,
+          "fail": 2,
+          "notAvailable": 3,
+          "low": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MltTestYesNo": {
+    "name": "MltTestYesNo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2,
+          "notAvailable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mltTestConfig": {
+    "name": "mltTestConfig",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "mltTestStatus": {
+    "name": "mltTestStatus",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "mltTestResults": {
+    "name": "mltTestResults",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3",
+    "class": "objectidentity"
+  },
+  "mltTestNotifications": {
+    "name": "mltTestNotifications",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.4",
+    "class": "objectidentity"
+  },
+  "mltTestIdentifier": {
+    "name": "mltTestIdentifier",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mltTestType": {
+    "name": "mltTestType",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mltTestPort": {
+    "name": "mltTestPort",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mltDcResistanceRange": {
+    "name": "mltDcResistanceRange",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mltLoopLengthMultiplier": {
+    "name": "mltLoopLengthMultiplier",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mltLoopDetectThreshold": {
+    "name": "mltLoopDetectThreshold",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mltLastTestStatus": {
+    "name": "mltLastTestStatus",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltErrorText": {
+    "name": "mltErrorText",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltStatusResultsTable": {
+    "name": "mltStatusResultsTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mltStatusResultsEntry": {
+    "name": "mltStatusResultsEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mltStatusAlarm": {
+    "name": "mltStatusAlarm",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltStatusHookState": {
+    "name": "mltStatusHookState",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestHookState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltStatusTransversalCurrent": {
+    "name": "mltStatusTransversalCurrent",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltStatusLongitudinalCurrent": {
+    "name": "mltStatusLongitudinalCurrent",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltStatusTipVoltage": {
+    "name": "mltStatusTipVoltage",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltStatusRingVoltage": {
+    "name": "mltStatusRingVoltage",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltStatusTipRingVoltage": {
+    "name": "mltStatusTipRingVoltage",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltStatusVdd": {
+    "name": "mltStatusVdd",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestResultsTable": {
+    "name": "mltTestResultsTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mltTestResultsEntry": {
+    "name": "mltTestResultsEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mltTestAlarm": {
+    "name": "mltTestAlarm",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestHookState": {
+    "name": "mltTestHookState",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestHookState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestVdd": {
+    "name": "mltTestVdd",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestActiveModeVoltagesVdctr": {
+    "name": "mltTestActiveModeVoltagesVdctr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestActiveModeVoltagesVdctg": {
+    "name": "mltTestActiveModeVoltagesVdctg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestActiveModeVoltagesVdcrg": {
+    "name": "mltTestActiveModeVoltagesVdcrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestActiveModeVoltagesVactr": {
+    "name": "mltTestActiveModeVoltagesVactr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestActiveModeVoltagesVactg": {
+    "name": "mltTestActiveModeVoltagesVactg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestActiveModeVoltagesVacrg": {
+    "name": "mltTestActiveModeVoltagesVacrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestHighImpedanceModeVoltagesVdctr": {
+    "name": "mltTestHighImpedanceModeVoltagesVdctr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestHighImpedanceModeVoltagesVdctg": {
+    "name": "mltTestHighImpedanceModeVoltagesVdctg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestHighImpedanceModeVoltagesVdcrg": {
+    "name": "mltTestHighImpedanceModeVoltagesVdcrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestHighImpedanceModeVoltagesVactr": {
+    "name": "mltTestHighImpedanceModeVoltagesVactr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestHighImpedanceModeVoltagesVactg": {
+    "name": "mltTestHighImpedanceModeVoltagesVactg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestHighImpedanceModeVoltagesVacrg": {
+    "name": "mltTestHighImpedanceModeVoltagesVacrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestDcCurrentsItransversal": {
+    "name": "mltTestDcCurrentsItransversal",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestDcCurrentsIlongitudinal": {
+    "name": "mltTestDcCurrentsIlongitudinal",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestDcCurrentsItip": {
+    "name": "mltTestDcCurrentsItip",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestDcCurrentsIring": {
+    "name": "mltTestDcCurrentsIring",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestCapacitanceCeqtr": {
+    "name": "mltTestCapacitanceCeqtr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestCapacitanceCeqtg": {
+    "name": "mltTestCapacitanceCeqtg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestCapacitanceCeqrg": {
+    "name": "mltTestCapacitanceCeqrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestResistanceRtr": {
+    "name": "mltTestResistanceRtr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Ohm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestResistanceRtg": {
+    "name": "mltTestResistanceRtg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Ohm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestResistanceRrg": {
+    "name": "mltTestResistanceRrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Ohm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909HazardousPotentialTestResult": {
+    "name": "mltTestGr909HazardousPotentialTestResult",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestPassFail",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909ForeignEmfTestResult": {
+    "name": "mltTestGr909ForeignEmfTestResult",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestPassFail",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909FuseTestTipFuse": {
+    "name": "mltTestGr909FuseTestTipFuse",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestPassFail",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "mltTestGr909FuseTestRingFuse": {
+    "name": "mltTestGr909FuseTestRingFuse",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestPassFail",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "mltTestFuseTestTipFuse": {
+    "name": "mltTestFuseTestTipFuse",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestPassFail",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestFuseTestRingFuse": {
+    "name": "mltTestFuseTestRingFuse",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestPassFail",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909ResistiveFaultTestResult": {
+    "name": "mltTestGr909ResistiveFaultTestResult",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestPassFail",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909ReceiverOffhookTestResult": {
+    "name": "mltTestGr909ReceiverOffhookTestResult",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestPassFail",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909ReceiverOffhookTestResistance1": {
+    "name": "mltTestGr909ReceiverOffhookTestResistance1",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Ohm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909ReceiverOffhookTestResistance2": {
+    "name": "mltTestGr909ReceiverOffhookTestResistance2",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Ohm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909ReceiverOffhookTestDifference": {
+    "name": "mltTestGr909ReceiverOffhookTestDifference",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909RingerTestResult": {
+    "name": "mltTestGr909RingerTestResult",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestRingerResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestGr909RingerTestRen": {
+    "name": "mltTestGr909RingerTestRen",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 REN",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestErrors": {
+    "name": "mltTestErrors",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltActiveModeVoltagesResultsTable": {
+    "name": "mltActiveModeVoltagesResultsTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mltActiveModeVoltagesResultsEntry": {
+    "name": "mltActiveModeVoltagesResultsEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mltActiveModeVoltagesVdctr": {
+    "name": "mltActiveModeVoltagesVdctr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltActiveModeVoltagesVdctg": {
+    "name": "mltActiveModeVoltagesVdctg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltActiveModeVoltagesVdcrg": {
+    "name": "mltActiveModeVoltagesVdcrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltActiveModeVoltagesVactr": {
+    "name": "mltActiveModeVoltagesVactr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltActiveModeVoltagesVactg": {
+    "name": "mltActiveModeVoltagesVactg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltActiveModeVoltagesVacrg": {
+    "name": "mltActiveModeVoltagesVacrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltActiveModeVoltagesErrors": {
+    "name": "mltActiveModeVoltagesErrors",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesResultsTable": {
+    "name": "mltHighImpedanceModeVoltagesResultsTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesResultsEntry": {
+    "name": "mltHighImpedanceModeVoltagesResultsEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesVdctr": {
+    "name": "mltHighImpedanceModeVoltagesVdctr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesVdctg": {
+    "name": "mltHighImpedanceModeVoltagesVdctg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesVdcrg": {
+    "name": "mltHighImpedanceModeVoltagesVdcrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vdc",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesVactr": {
+    "name": "mltHighImpedanceModeVoltagesVactr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesVactg": {
+    "name": "mltHighImpedanceModeVoltagesVactg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesVacrg": {
+    "name": "mltHighImpedanceModeVoltagesVacrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 Vrms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltHighImpedanceModeVoltagesErrors": {
+    "name": "mltHighImpedanceModeVoltagesErrors",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltDcResistanceResultsTable": {
+    "name": "mltDcResistanceResultsTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mltDcResistanceResultsEntry": {
+    "name": "mltDcResistanceResultsEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mltDcResistanceRtr": {
+    "name": "mltDcResistanceRtr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Ohm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltDcResistanceRtg": {
+    "name": "mltDcResistanceRtg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Ohm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltDcResistanceRrg": {
+    "name": "mltDcResistanceRrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Ohm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltDcResistanceErrors": {
+    "name": "mltDcResistanceErrors",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltCapacitanceResultsTable": {
+    "name": "mltCapacitanceResultsTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mltCapacitanceResultsEntry": {
+    "name": "mltCapacitanceResultsEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mltCapacitanceCeqtr": {
+    "name": "mltCapacitanceCeqtr",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltCapacitanceCeqtg": {
+    "name": "mltCapacitanceCeqtg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltCapacitanceCeqrg": {
+    "name": "mltCapacitanceCeqrg",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltCapacitanceErrors": {
+    "name": "mltCapacitanceErrors",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopDetectResultsTable": {
+    "name": "mltLoopDetectResultsTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mltLoopDetectResultsEntry": {
+    "name": "mltLoopDetectResultsEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mltLoopDetectLoopCapacitance": {
+    "name": "mltLoopDetectLoopCapacitance",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopDetectDetectionThreshold": {
+    "name": "mltLoopDetectDetectionThreshold",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopDetectLoopDetected": {
+    "name": "mltLoopDetectLoopDetected",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MltTestYesNo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopDetectErrors": {
+    "name": "mltLoopDetectErrors",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopLengthResultsTable": {
+    "name": "mltLoopLengthResultsTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mltLoopLengthResultsEntry": {
+    "name": "mltLoopLengthResultsEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mltLoopLengthCapacitanceFactor": {
+    "name": "mltLoopLengthCapacitanceFactor",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF/mile",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopLengthLoopCapacitance": {
+    "name": "mltLoopLengthLoopCapacitance",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopLengthLoopLength": {
+    "name": "mltLoopLengthLoopLength",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ft",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopLengthUncompensatedLoopCapacitance": {
+    "name": "mltLoopLengthUncompensatedLoopCapacitance",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "nF",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopLengthUncompensatedLoopLength": {
+    "name": "mltLoopLengthUncompensatedLoopLength",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ft",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltLoopLengthErrors": {
+    "name": "mltLoopLengthErrors",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mltTestCompletedNotification": {
+    "name": "mltTestCompletedNotification",
+    "oid": "1.3.6.1.4.1.6066.2.1.1.3.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestIdentifier"
+      },
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltTestPort"
+      },
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltLastTestStatus"
+      },
+      {
+        "module": "OCCAM-MLT-MIB",
+        "object": "mltErrorText"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-MLT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OCCAM-MLT-MIB"
+  }
+}

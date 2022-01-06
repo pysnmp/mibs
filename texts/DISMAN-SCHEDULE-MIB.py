@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DISMAN-SCHEDULE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DISMAN-SCHEDULE-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:04:50 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:15:23 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-TimeTicks, IpAddress, NotificationType, Unsigned32, Bits, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, Counter32, Integer32, mib_2, Counter64, MibIdentifier, zeroDotZero = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "NotificationType", "Unsigned32", "Bits", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "Counter32", "Integer32", "mib-2", "Counter64", "MibIdentifier", "zeroDotZero")
-RowStatus, StorageType, TextualConvention, DateAndTime, DisplayString, VariablePointer = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "StorageType", "TextualConvention", "DateAndTime", "DisplayString", "VariablePointer")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+IpAddress, Bits, Counter64, TimeTicks, ObjectIdentity, MibIdentifier, iso, Integer32, ModuleIdentity, NotificationType, zeroDotZero, Unsigned32, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "Counter64", "TimeTicks", "ObjectIdentity", "MibIdentifier", "iso", "Integer32", "ModuleIdentity", "NotificationType", "zeroDotZero", "Unsigned32", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2")
+VariablePointer, RowStatus, DisplayString, TextualConvention, StorageType, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "VariablePointer", "RowStatus", "DisplayString", "TextualConvention", "StorageType", "DateAndTime")
 schedMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 63))
 schedMIB.setRevisions(('2002-01-07 00:00', '1998-11-17 18:00',))
 
@@ -134,4 +134,4 @@ schedGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 63, 3, 2, 1)).setObjects(("DISMAN-SC
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     schedGroup = schedGroup.setStatus('deprecated')
 if mibBuilder.loadTexts: schedGroup.setDescription('A collection of objects providing scheduling capabilities.')
-mibBuilder.exportSymbols("DISMAN-SCHEDULE-MIB", schedOwner=schedOwner, schedName=schedName, schedCompliance=schedCompliance, schedCompliances=schedCompliances, schedGroups=schedGroups, schedMIB=schedMIB, schedLastFailure=schedLastFailure, schedEntry=schedEntry, schedVariable=schedVariable, schedGroup2=schedGroup2, schedStorageType=schedStorageType, schedWeekDay=schedWeekDay, schedType=schedType, schedCompliance2=schedCompliance2, schedNotificationsGroup=schedNotificationsGroup, schedMonth=schedMonth, schedTable=schedTable, PYSNMP_MODULE_ID=schedMIB, schedObjects=schedObjects, schedFailures=schedFailures, schedConformance=schedConformance, schedHour=schedHour, schedDay=schedDay, schedLocalTime=schedLocalTime, schedRowStatus=schedRowStatus, schedAdminStatus=schedAdminStatus, schedNotifications=schedNotifications, schedGroup=schedGroup, schedActionFailure=schedActionFailure, schedValue=schedValue, schedOperStatus=schedOperStatus, schedLastFailed=schedLastFailed, schedMinute=schedMinute, schedTraps=schedTraps, schedTriggers=schedTriggers, schedCalendarGroup=schedCalendarGroup, SnmpPduErrorStatus=SnmpPduErrorStatus, schedContextName=schedContextName, schedInterval=schedInterval, schedDescr=schedDescr)
+mibBuilder.exportSymbols("DISMAN-SCHEDULE-MIB", schedCalendarGroup=schedCalendarGroup, schedConformance=schedConformance, schedInterval=schedInterval, schedMonth=schedMonth, schedObjects=schedObjects, schedType=schedType, schedHour=schedHour, schedLastFailed=schedLastFailed, schedNotifications=schedNotifications, schedGroups=schedGroups, schedName=schedName, schedNotificationsGroup=schedNotificationsGroup, schedActionFailure=schedActionFailure, schedCompliance=schedCompliance, schedWeekDay=schedWeekDay, schedFailures=schedFailures, schedLocalTime=schedLocalTime, schedOperStatus=schedOperStatus, schedStorageType=schedStorageType, schedVariable=schedVariable, schedTraps=schedTraps, schedRowStatus=schedRowStatus, schedMIB=schedMIB, schedValue=schedValue, SnmpPduErrorStatus=SnmpPduErrorStatus, schedCompliance2=schedCompliance2, schedTriggers=schedTriggers, schedContextName=schedContextName, schedAdminStatus=schedAdminStatus, schedTable=schedTable, schedMinute=schedMinute, schedGroup=schedGroup, schedCompliances=schedCompliances, schedLastFailure=schedLastFailure, schedGroup2=schedGroup2, PYSNMP_MODULE_ID=schedMIB, schedEntry=schedEntry, schedDescr=schedDescr, schedOwner=schedOwner, schedDay=schedDay)

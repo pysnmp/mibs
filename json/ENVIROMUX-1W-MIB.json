@@ -1,0 +1,1186 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "enterprises",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "enviromux1W": {
+    "name": "enviromux1W",
+    "oid": "1.3.6.1.4.1.3699.1.1.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-12-11 02:00",
+        "description": "Rev. 1.02 - Updated Digital Input 2 SNMP Trap ID"
+      },
+      {
+        "revision": "2020-08-18 14:00",
+        "description": "Rev. 1.01 - Adding extended external sensor trap OIDs"
+      },
+      {
+        "revision": "2016-02-03 14:00",
+        "description": "Rev. 1.00 - Initial version"
+      }
+    ]
+  },
+  "nti": {
+    "name": "nti",
+    "oid": "1.3.6.1.4.1.3699",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.3699.1",
+    "class": "objectidentity"
+  },
+  "hardware": {
+    "name": "hardware",
+    "oid": "1.3.6.1.4.1.3699.1.1",
+    "class": "objectidentity"
+  },
+  "software": {
+    "name": "software",
+    "oid": "1.3.6.1.4.1.3699.1.2",
+    "class": "objectidentity"
+  },
+  "otherProduct": {
+    "name": "otherProduct",
+    "oid": "1.3.6.1.4.1.3699.1.1.200",
+    "class": "objectidentity"
+  },
+  "masterUnit": {
+    "name": "masterUnit",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1",
+    "class": "objectidentity"
+  },
+  "extSensors": {
+    "name": "extSensors",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.2",
+    "class": "objectidentity"
+  },
+  "digInputs": {
+    "name": "digInputs",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.3",
+    "class": "objectidentity"
+  },
+  "ipDevices": {
+    "name": "ipDevices",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.4",
+    "class": "objectidentity"
+  },
+  "eAlerts": {
+    "name": "eAlerts",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5",
+    "class": "objectidentity"
+  },
+  "smAlerts": {
+    "name": "smAlerts",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.6",
+    "class": "objectidentity"
+  },
+  "enviromux1WTraps": {
+    "name": "enviromux1WTraps",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100",
+    "class": "objectidentity"
+  },
+  "extSensorTable": {
+    "name": "extSensorTable",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extSensorEntry": {
+    "name": "extSensorEntry",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extSensorIndex": {
+    "name": "extSensorIndex",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extSensorType": {
+    "name": "extSensorType",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "temperature": 1,
+          "humidity": 2,
+          "dewPoint": 24
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extSensorDescription": {
+    "name": "extSensorDescription",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extSensorValue": {
+    "name": "extSensorValue",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extSensorUnit": {
+    "name": "extSensorUnit",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digInputTable": {
+    "name": "digInputTable",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "digInputEntry": {
+    "name": "digInputEntry",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "digInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "digInputIndex": {
+    "name": "digInputIndex",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "digInputDescription": {
+    "name": "digInputDescription",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digInputValue": {
+    "name": "digInputValue",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 0,
+          "open": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDeviceTable": {
+    "name": "ipDeviceTable",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipDeviceEntry": {
+    "name": "ipDeviceEntry",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "ipDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipDeviceIndex": {
+    "name": "ipDeviceIndex",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipDeviceDescription": {
+    "name": "ipDeviceDescription",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDeviceValue": {
+    "name": "ipDeviceValue",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notResponding": 0,
+          "responding": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertTable": {
+    "name": "alertTable",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alertEntry": {
+    "name": "alertEntry",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alertIndex": {
+    "name": "alertIndex",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alertEnabled": {
+    "name": "alertEnabled",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertSensor": {
+    "name": "alertSensor",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertSensorValue": {
+    "name": "alertSensorValue",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertThreshold": {
+    "name": "alertThreshold",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertThresholdType": {
+    "name": "alertThresholdType",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessThan": 0,
+          "greaterThan": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertStatus": {
+    "name": "alertStatus",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "enteringCritical": 1,
+          "critical": 2,
+          "exitingCritical": 3,
+          "waitingAckDismiss": 4,
+          "acknowledged": 5,
+          "dismissed": 6,
+          "disconnected": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smAlertTable": {
+    "name": "smAlertTable",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smAlertEntry": {
+    "name": "smAlertEntry",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "smAlertIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "smAlertIndex": {
+    "name": "smAlertIndex",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smAlertEnabled": {
+    "name": "smAlertEnabled",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smAlertStatus": {
+    "name": "smAlertStatus",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "enteringCritical": 1,
+          "critical": 2,
+          "exitingCritical": 3,
+          "waitingAckDismiss": 4,
+          "acknowledged": 5,
+          "dismissed": 6,
+          "disconnected": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extSensorsTraps": {
+    "name": "extSensorsTraps",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2",
+    "class": "objectidentity"
+  },
+  "digitalInputsTraps": {
+    "name": "digitalInputsTraps",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.3",
+    "class": "objectidentity"
+  },
+  "ipDevicesTraps": {
+    "name": "ipDevicesTraps",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.4",
+    "class": "objectidentity"
+  },
+  "extSensor1Trap": {
+    "name": "extSensor1Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor2Trap": {
+    "name": "extSensor2Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor3Trap": {
+    "name": "extSensor3Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor4Trap": {
+    "name": "extSensor4Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor5Trap": {
+    "name": "extSensor5Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor6Trap": {
+    "name": "extSensor6Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor7Trap": {
+    "name": "extSensor7Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor8Trap": {
+    "name": "extSensor8Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor9Trap": {
+    "name": "extSensor9Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor10Trap": {
+    "name": "extSensor10Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor11Trap": {
+    "name": "extSensor11Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor12Trap": {
+    "name": "extSensor12Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor13Trap": {
+    "name": "extSensor13Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor14Trap": {
+    "name": "extSensor14Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor15Trap": {
+    "name": "extSensor15Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor16Trap": {
+    "name": "extSensor16Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor17Trap": {
+    "name": "extSensor17Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor18Trap": {
+    "name": "extSensor18Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor19Trap": {
+    "name": "extSensor19Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor20Trap": {
+    "name": "extSensor20Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor21Trap": {
+    "name": "extSensor21Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor22Trap": {
+    "name": "extSensor22Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor23Trap": {
+    "name": "extSensor23Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "extSensor24Trap": {
+    "name": "extSensor24Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.2.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorValue"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "extSensorUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "digInput1Trap": {
+    "name": "digInput1Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "digInputValue"
+      }
+    ],
+    "status": "current"
+  },
+  "digInput2Trap": {
+    "name": "digInput2Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "digInputValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDevice1Trap": {
+    "name": "ipDevice1Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "ipDeviceValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDevice2Trap": {
+    "name": "ipDevice2Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "ipDeviceValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDevice3Trap": {
+    "name": "ipDevice3Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "ipDeviceValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDevice4Trap": {
+    "name": "ipDevice4Trap",
+    "oid": "1.3.6.1.4.1.3699.1.1.12.100.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "alertStatus"
+      },
+      {
+        "module": "ENVIROMUX-1W-MIB",
+        "object": "ipDeviceValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nti/ENVIROMUX-1W-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ENVIROMUX-1W-MIB"
+  }
+}

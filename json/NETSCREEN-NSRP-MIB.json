@@ -1,0 +1,1712 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenNsrp"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
+    ]
+  },
+  "netscreenNsrpMibModule": {
+    "name": "netscreenNsrpMibModule",
+    "oid": "1.3.6.1.4.1.3224.6.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2003-11-14 00:00",
+        "description": "no comment"
+      },
+      {
+        "revision": "2003-06-04 00:00",
+        "description": "no comment"
+      },
+      {
+        "revision": "2001-01-08 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "netscreenNsrpGeneral": {
+    "name": "netscreenNsrpGeneral",
+    "oid": "1.3.6.1.4.1.3224.6.1",
+    "class": "objectidentity"
+  },
+  "nsrpGeneralClusterId": {
+    "name": "nsrpGeneralClusterId",
+    "oid": "1.3.6.1.4.1.3224.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpGeneralLocalUnitId": {
+    "name": "nsrpGeneralLocalUnitId",
+    "oid": "1.3.6.1.4.1.3224.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpGeneralEncrypEnable": {
+    "name": "nsrpGeneralEncrypEnable",
+    "oid": "1.3.6.1.4.1.3224.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpGeneralAuthEnable": {
+    "name": "nsrpGeneralAuthEnable",
+    "oid": "1.3.6.1.4.1.3224.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpGeneralIfMonitor": {
+    "name": "nsrpGeneralIfMonitor",
+    "oid": "1.3.6.1.4.1.3224.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpGeneralGratArps": {
+    "name": "nsrpGeneralGratArps",
+    "oid": "1.3.6.1.4.1.3224.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netscreenNsrpVSD": {
+    "name": "netscreenNsrpVSD",
+    "oid": "1.3.6.1.4.1.3224.6.2",
+    "class": "objectidentity"
+  },
+  "nsrpVsdGroupTable": {
+    "name": "nsrpVsdGroupTable",
+    "oid": "1.3.6.1.4.1.3224.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpVsdGroupEntry": {
+    "name": "nsrpVsdGroupEntry",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpVsdGroupID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpVsdGroupID": {
+    "name": "nsrpVsdGroupID",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupPriority": {
+    "name": "nsrpVsdGroupPriority",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupPreempt": {
+    "name": "nsrpVsdGroupPreempt",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupHoldDownTime": {
+    "name": "nsrpVsdGroupHoldDownTime",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupNumberOfUnit": {
+    "name": "nsrpVsdGroupNumberOfUnit",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntStateChange": {
+    "name": "nsrpVsdGroupCntStateChange",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntToInit": {
+    "name": "nsrpVsdGroupCntToInit",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntToMaster": {
+    "name": "nsrpVsdGroupCntToMaster",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntToPBackup": {
+    "name": "nsrpVsdGroupCntToPBackup",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntToBackup": {
+    "name": "nsrpVsdGroupCntToBackup",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntToIneligible": {
+    "name": "nsrpVsdGroupCntToIneligible",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntToInoperable": {
+    "name": "nsrpVsdGroupCntToInoperable",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntMasterConflict": {
+    "name": "nsrpVsdGroupCntMasterConflict",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntPbConfilict": {
+    "name": "nsrpVsdGroupCntPbConfilict",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntHeartbeatTx": {
+    "name": "nsrpVsdGroupCntHeartbeatTx",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGroupCntHeartbeatRx": {
+    "name": "nsrpVsdGroupCntHeartbeatRx",
+    "oid": "1.3.6.1.4.1.3224.6.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdMemberTable": {
+    "name": "nsrpVsdMemberTable",
+    "oid": "1.3.6.1.4.1.3224.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpVsdMemberEntry": {
+    "name": "nsrpVsdMemberEntry",
+    "oid": "1.3.6.1.4.1.3224.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpVsdMemberGroupId",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpVsdMemberUnitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpVsdMemberGroupId": {
+    "name": "nsrpVsdMemberGroupId",
+    "oid": "1.3.6.1.4.1.3224.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdMemberUnitId": {
+    "name": "nsrpVsdMemberUnitId",
+    "oid": "1.3.6.1.4.1.3224.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdMemberStatus": {
+    "name": "nsrpVsdMemberStatus",
+    "oid": "1.3.6.1.4.1.3224.6.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "init": 1,
+          "master": 2,
+          "primary-backup": 3,
+          "backup": 4,
+          "ineligible": 5,
+          "inoperable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdMemberPriority": {
+    "name": "nsrpVsdMemberPriority",
+    "oid": "1.3.6.1.4.1.3224.6.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdMemberPreempt": {
+    "name": "nsrpVsdMemberPreempt",
+    "oid": "1.3.6.1.4.1.3224.6.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdInterfaceTable": {
+    "name": "nsrpVsdInterfaceTable",
+    "oid": "1.3.6.1.4.1.3224.6.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpVsdInterfaceEntry": {
+    "name": "nsrpVsdInterfaceEntry",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpVsdIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpVsdIfIndex": {
+    "name": "nsrpVsdIfIndex",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfStatus": {
+    "name": "nsrpVsdIfStatus",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfGroupId": {
+    "name": "nsrpVsdIfGroupId",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfIp": {
+    "name": "nsrpVsdIfIp",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfNetmask": {
+    "name": "nsrpVsdIfNetmask",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfGateway": {
+    "name": "nsrpVsdIfGateway",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfName": {
+    "name": "nsrpVsdIfName",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfVLAN": {
+    "name": "nsrpVsdIfVLAN",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMAC": {
+    "name": "nsrpVsdIfMAC",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfVSys": {
+    "name": "nsrpVsdIfVSys",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngTelnet": {
+    "name": "nsrpVsdIfMngTelnet",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngSCS": {
+    "name": "nsrpVsdIfMngSCS",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngWEB": {
+    "name": "nsrpVsdIfMngWEB",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngSSL": {
+    "name": "nsrpVsdIfMngSSL",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngSNMP": {
+    "name": "nsrpVsdIfMngSNMP",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngGlobal": {
+    "name": "nsrpVsdIfMngGlobal",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngGlobalPro": {
+    "name": "nsrpVsdIfMngGlobalPro",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngPing": {
+    "name": "nsrpVsdIfMngPing",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdIfMngIdentReset": {
+    "name": "nsrpVsdIfMngIdentReset",
+    "oid": "1.3.6.1.4.1.3224.6.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGeneral": {
+    "name": "nsrpVsdGeneral",
+    "oid": "1.3.6.1.4.1.3224.6.2.4",
+    "class": "objectidentity"
+  },
+  "nsrpVsdGeneralInitHoldTime": {
+    "name": "nsrpVsdGeneralInitHoldTime",
+    "oid": "1.3.6.1.4.1.3224.6.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGeneralHbInterval": {
+    "name": "nsrpVsdGeneralHbInterval",
+    "oid": "1.3.6.1.4.1.3224.6.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpVsdGeneralHbLostThres": {
+    "name": "nsrpVsdGeneralHbLostThres",
+    "oid": "1.3.6.1.4.1.3224.6.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netscreenNsrpRTO": {
+    "name": "netscreenNsrpRTO",
+    "oid": "1.3.6.1.4.1.3224.6.3",
+    "class": "objectidentity"
+  },
+  "nsrpRtoGroupTable": {
+    "name": "nsrpRtoGroupTable",
+    "oid": "1.3.6.1.4.1.3224.6.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpRtoGroupEntry": {
+    "name": "nsrpRtoGroupEntry",
+    "oid": "1.3.6.1.4.1.3224.6.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpRtoGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpRtoGroupId": {
+    "name": "nsrpRtoGroupId",
+    "oid": "1.3.6.1.4.1.3224.6.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoNumOfUnit": {
+    "name": "nsrpRtoNumOfUnit",
+    "oid": "1.3.6.1.4.1.3224.6.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitTable": {
+    "name": "nsrpRtoUnitTable",
+    "oid": "1.3.6.1.4.1.3224.6.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpRtoUnitEntry": {
+    "name": "nsrpRtoUnitEntry",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpRtoUnitGroupId",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpRtoUnitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpRtoUnitGroupId": {
+    "name": "nsrpRtoUnitGroupId",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitId": {
+    "name": "nsrpRtoUnitId",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitStatus": {
+    "name": "nsrpRtoUnitStatus",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "set": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitDirection": {
+    "name": "nsrpRtoUnitDirection",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "out": 1,
+          "in": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitLostHeartbeat": {
+    "name": "nsrpRtoUnitLostHeartbeat",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitToActive": {
+    "name": "nsrpRtoUnitToActive",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitToSet": {
+    "name": "nsrpRtoUnitToSet",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitLostPeer": {
+    "name": "nsrpRtoUnitLostPeer",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoUnitGroupDetach": {
+    "name": "nsrpRtoUnitGroupDetach",
+    "oid": "1.3.6.1.4.1.3224.6.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoCounter": {
+    "name": "nsrpRtoCounter",
+    "oid": "1.3.6.1.4.1.3224.6.3.3",
+    "class": "objectidentity"
+  },
+  "nsrpRtoCounterPakForwarded": {
+    "name": "nsrpRtoCounterPakForwarded",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoCounterPakReceived": {
+    "name": "nsrpRtoCounterPakReceived",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoCounterTable": {
+    "name": "nsrpRtoCounterTable",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpRtoCounterEntry": {
+    "name": "nsrpRtoCounterEntry",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpRtoCounterIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpRtoCounterIdx": {
+    "name": "nsrpRtoCounterIdx",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoCounterName": {
+    "name": "nsrpRtoCounterName",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoCounterSend": {
+    "name": "nsrpRtoCounterSend",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoCounterReceive": {
+    "name": "nsrpRtoCounterReceive",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoCounterDrop": {
+    "name": "nsrpRtoCounterDrop",
+    "oid": "1.3.6.1.4.1.3224.6.3.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoGeneral": {
+    "name": "nsrpRtoGeneral",
+    "oid": "1.3.6.1.4.1.3224.6.3.4",
+    "class": "objectidentity"
+  },
+  "nsrpRtoGeneralHbInterval": {
+    "name": "nsrpRtoGeneralHbInterval",
+    "oid": "1.3.6.1.4.1.3224.6.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoGeneralHbLostThres": {
+    "name": "nsrpRtoGeneralHbLostThres",
+    "oid": "1.3.6.1.4.1.3224.6.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpRtoGeneralSessSyncEnable": {
+    "name": "nsrpRtoGeneralSessSyncEnable",
+    "oid": "1.3.6.1.4.1.3224.6.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netscreenNsrpTrack": {
+    "name": "netscreenNsrpTrack",
+    "oid": "1.3.6.1.4.1.3224.6.4",
+    "class": "objectidentity"
+  },
+  "nsrpTrackEnable": {
+    "name": "nsrpTrackEnable",
+    "oid": "1.3.6.1.4.1.3224.6.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackThreshold": {
+    "name": "nsrpTrackThreshold",
+    "oid": "1.3.6.1.4.1.3224.6.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackFailoverEnalble": {
+    "name": "nsrpTrackFailoverEnalble",
+    "oid": "1.3.6.1.4.1.3224.6.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackTable": {
+    "name": "nsrpTrackTable",
+    "oid": "1.3.6.1.4.1.3224.6.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpTrackEntry": {
+    "name": "nsrpTrackEntry",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpTrackIpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpTrackIpIndex": {
+    "name": "nsrpTrackIpIndex",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpAddr": {
+    "name": "nsrpTrackIpAddr",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpStatus": {
+    "name": "nsrpTrackIpStatus",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 0,
+          "fail": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpTimestamp": {
+    "name": "nsrpTrackIpTimestamp",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpInterval": {
+    "name": "nsrpTrackIpInterval",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpThreshhold": {
+    "name": "nsrpTrackIpThreshhold",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpMethod": {
+    "name": "nsrpTrackIpMethod",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ping": 0,
+          "arp": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpWeight": {
+    "name": "nsrpTrackIpWeight",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpIfName": {
+    "name": "nsrpTrackIpIfName",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpTotalCheck": {
+    "name": "nsrpTrackIpTotalCheck",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpTrackIpTotalFailedCheck": {
+    "name": "nsrpTrackIpTotalFailedCheck",
+    "oid": "1.3.6.1.4.1.3224.6.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netscreenNsrpCluster": {
+    "name": "netscreenNsrpCluster",
+    "oid": "1.3.6.1.4.1.3224.6.5",
+    "class": "objectidentity"
+  },
+  "nsrpClusterTable": {
+    "name": "nsrpClusterTable",
+    "oid": "1.3.6.1.4.1.3224.6.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpClusterEntry": {
+    "name": "nsrpClusterEntry",
+    "oid": "1.3.6.1.4.1.3224.6.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpClusterTblIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpClusterTblIndex": {
+    "name": "nsrpClusterTblIndex",
+    "oid": "1.3.6.1.4.1.3224.6.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpClusterUnitId": {
+    "name": "nsrpClusterUnitId",
+    "oid": "1.3.6.1.4.1.3224.6.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpClusterUnitCtrlMac": {
+    "name": "nsrpClusterUnitCtrlMac",
+    "oid": "1.3.6.1.4.1.3224.6.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpClusterUnitDataMac": {
+    "name": "nsrpClusterUnitDataMac",
+    "oid": "1.3.6.1.4.1.3224.6.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netscreenNsrpLinkInfo": {
+    "name": "netscreenNsrpLinkInfo",
+    "oid": "1.3.6.1.4.1.3224.6.6",
+    "class": "objectidentity"
+  },
+  "nsrpLinkInfoTable": {
+    "name": "nsrpLinkInfoTable",
+    "oid": "1.3.6.1.4.1.3224.6.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsrpLinkInfoEntry": {
+    "name": "nsrpLinkInfoEntry",
+    "oid": "1.3.6.1.4.1.3224.6.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-NSRP-MIB",
+        "object": "nsrpLinkInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsrpLinkInfoIndex": {
+    "name": "nsrpLinkInfoIndex",
+    "oid": "1.3.6.1.4.1.3224.6.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpLinkInfoLinkType": {
+    "name": "nsrpLinkInfoLinkType",
+    "oid": "1.3.6.1.4.1.3224.6.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "control": 0,
+          "data": 1,
+          "unused": 2,
+          "hapath2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpLinkInfoChannel": {
+    "name": "nsrpLinkInfoChannel",
+    "oid": "1.3.6.1.4.1.3224.6.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpLinkInfoMac": {
+    "name": "nsrpLinkInfoMac",
+    "oid": "1.3.6.1.4.1.3224.6.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsrpLinkInfoState": {
+    "name": "nsrpLinkInfoState",
+    "oid": "1.3.6.1.4.1.3224.6.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-NSRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-NSRP-MIB"
+  }
+}

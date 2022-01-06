@@ -1,0 +1,664 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPortStormControlMIB": {
+    "name": "ciscoPortStormControlMIB",
+    "oid": "1.3.6.1.4.1.9.9.362",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-19 00:00",
+        "description": "cpscEvent notification is deprecated and replaced by new notification cpscEventRev1."
+      },
+      {
+        "revision": "2003-07-03 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPortStormControlMIBNotifs": {
+    "name": "ciscoPortStormControlMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.362.0",
+    "class": "objectidentity"
+  },
+  "ciscoPortStormControlMIBObjects": {
+    "name": "ciscoPortStormControlMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.362.1",
+    "class": "objectidentity"
+  },
+  "ciscoPortStormControlMIBConform": {
+    "name": "ciscoPortStormControlMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.362.2",
+    "class": "objectidentity"
+  },
+  "cpscConfigObjects": {
+    "name": "cpscConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1",
+    "class": "objectidentity"
+  },
+  "cpscStatusObjects": {
+    "name": "cpscStatusObjects",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2",
+    "class": "objectidentity"
+  },
+  "CPortStormControlTrafficType": {
+    "name": "CPortStormControlTrafficType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "multicast": 2,
+          "unicast": 3,
+          "all": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CPortStormControlActionType": {
+    "name": "CPortStormControlActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "filter": 1,
+          "shutdown": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CPortStormControlStatusType": {
+    "name": "CPortStormControlStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "forwarding": 2,
+          "trafficTypeFiltered": 3,
+          "allTrafficFiltered": 4,
+          "shutdown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cpscThresholdTable": {
+    "name": "cpscThresholdTable",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpscThresholdEntry": {
+    "name": "cpscThresholdEntry",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpscTrafficType": {
+    "name": "cpscTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPortStormControlTrafficType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpscUpperThreshold": {
+    "name": "cpscUpperThreshold",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "0.01 Percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpscLowerThreshold": {
+    "name": "cpscLowerThreshold",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "0.01 Percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpscActionTable": {
+    "name": "cpscActionTable",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpscActionEntry": {
+    "name": "cpscActionEntry",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpscAction": {
+    "name": "cpscAction",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPortStormControlActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpscNotificationControl": {
+    "name": "cpscNotificationControl",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "stormOccurred": 2,
+          "stormCleared": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpscNotificationThreshold": {
+    "name": "cpscNotificationThreshold",
+    "oid": "1.3.6.1.4.1.9.9.362.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "Notifications per Minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpscStatusTable": {
+    "name": "cpscStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpscStatusEntry": {
+    "name": "cpscStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpscStatus": {
+    "name": "cpscStatus",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPortStormControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpscCurrentLevel": {
+    "name": "cpscCurrentLevel",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "0.01 Percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpscSuppressedPacket": {
+    "name": "cpscSuppressedPacket",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpscHistoryTable": {
+    "name": "cpscHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpscHistoryEntry": {
+    "name": "cpscHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscHistoryTrafficType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpscHistoryTrafficType": {
+    "name": "cpscHistoryTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CPortStormControlTrafficType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpscHistoryIndex": {
+    "name": "cpscHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpscHistoryStartTime": {
+    "name": "cpscHistoryStartTime",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpscHistoryEndTime": {
+    "name": "cpscHistoryEndTime",
+    "oid": "1.3.6.1.4.1.9.9.362.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpscNotificationsPrefix": {
+    "name": "cpscNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.362.0.1",
+    "class": "objectidentity"
+  },
+  "cpscEventRev1": {
+    "name": "cpscEventRev1",
+    "oid": "1.3.6.1.4.1.9.9.362.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cpscEvent": {
+    "name": "cpscEvent",
+    "oid": "1.3.6.1.4.1.9.9.362.0.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPortStormControlMIBCompliances": {
+    "name": "ciscoPortStormControlMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.362.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoPortStormControlMIBGroups": {
+    "name": "ciscoPortStormControlMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.362.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoPortStormControlMIBCompliance": {
+    "name": "ciscoPortStormControlMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.362.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpscConfigurationGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscNotifConfigurationGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscNotificationGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscStatusGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscStatisticsGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscHistoryGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPortStormControlMIBComplianceRev1": {
+    "name": "ciscoPortStormControlMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.362.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpscConfigurationGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscNotifConfigurationGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscNotificationGroupRev1",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscStatusGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscStatisticsGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      },
+      {
+        "object": "cpscHistoryGroup",
+        "module": "CISCO-PORT-STORM-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpscConfigurationGroup": {
+    "name": "cpscConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.362.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscUpperThreshold"
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscLowerThreshold"
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscAction"
+      }
+    ],
+    "status": "current"
+  },
+  "cpscStatusGroup": {
+    "name": "cpscStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.362.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscStatus"
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscCurrentLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cpscNotificationGroup": {
+    "name": "cpscNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.362.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscEvent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpscNotifConfigurationGroup": {
+    "name": "cpscNotifConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.362.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscNotificationControl"
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscNotificationThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cpscStatisticsGroup": {
+    "name": "cpscStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.362.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscSuppressedPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "cpscHistoryGroup": {
+    "name": "cpscHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.362.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscHistoryStartTime"
+      },
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscHistoryEndTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cpscNotificationGroupRev1": {
+    "name": "cpscNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.362.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-STORM-CONTROL-MIB",
+        "object": "cpscEventRev1"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PORT-STORM-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PORT-STORM-CONTROL-MIB"
+  }
+}

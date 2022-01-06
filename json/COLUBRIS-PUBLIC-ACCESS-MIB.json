@@ -1,0 +1,1582 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "COLUBRIS-TC": [
+      "ColubrisUsersAuthenticationType",
+      "ColubrisPriorityQueue",
+      "ColubrisSSIDOrNone",
+      "ColubrisNotificationEnable",
+      "ColubrisProfileIndexOrZero",
+      "ColubrisSecurity",
+      "ColubrisUsersAuthenticationMode"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "DateAndTime"
+    ]
+  },
+  "colubrisPublicAccessMIB": {
+    "name": "colubrisPublicAccessMIB",
+    "oid": "1.3.6.1.4.1.8744.5.1",
+    "class": "moduleidentity"
+  },
+  "colubrisPublicAccessMIBObjects": {
+    "name": "colubrisPublicAccessMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.1.1",
+    "class": "objectidentity"
+  },
+  "publicAccessGroup": {
+    "name": "publicAccessGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.1",
+    "class": "objectidentity"
+  },
+  "publicAccessDeviceGroup": {
+    "name": "publicAccessDeviceGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2",
+    "class": "objectidentity"
+  },
+  "publicAccessUsersGroup": {
+    "name": "publicAccessUsersGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3",
+    "class": "objectidentity"
+  },
+  "publicAccessNASPortsGroup": {
+    "name": "publicAccessNASPortsGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.4",
+    "class": "objectidentity"
+  },
+  "publicAccessStatus": {
+    "name": "publicAccessStatus",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessStatusChangedCause": {
+    "name": "publicAccessStatusChangedCause",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessDeviceUserName": {
+    "name": "publicAccessDeviceUserName",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessDeviceUserPassword": {
+    "name": "publicAccessDeviceUserPassword",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 230
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessDeviceSessionTimeoutAdminStatus": {
+    "name": "publicAccessDeviceSessionTimeoutAdminStatus",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessDeviceSessionTimeoutOperStatus": {
+    "name": "publicAccessDeviceSessionTimeoutOperStatus",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessDeviceConfigMode": {
+    "name": "publicAccessDeviceConfigMode",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisUsersAuthenticationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessDeviceAuthenProfileIndex": {
+    "name": "publicAccessDeviceAuthenProfileIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisProfileIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessDeviceAccountingEnabled": {
+    "name": "publicAccessDeviceAccountingEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessDeviceAccountingProfileIndex": {
+    "name": "publicAccessDeviceAccountingProfileIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisProfileIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessDeviceForceReconfiguration": {
+    "name": "publicAccessDeviceForceReconfiguration",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "forceReconfiguration": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessUsersMaxCount": {
+    "name": "publicAccessUsersMaxCount",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersCount": {
+    "name": "publicAccessUsersCount",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersThreshold": {
+    "name": "publicAccessUsersThreshold",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessUsersSessionTrapEnabled": {
+    "name": "publicAccessUsersSessionTrapEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessUsersConfigTable": {
+    "name": "publicAccessUsersConfigTable",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "publicAccessUsersConfigEntry": {
+    "name": "publicAccessUsersConfigEntry",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "publicAccessUsersConfigIndex": {
+    "name": "publicAccessUsersConfigIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "publicAccessUsersConfigAuthenType": {
+    "name": "publicAccessUsersConfigAuthenType",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisUsersAuthenticationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersConfigAuthenMode": {
+    "name": "publicAccessUsersConfigAuthenMode",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisUsersAuthenticationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersConfigAuthenProfileIndex": {
+    "name": "publicAccessUsersConfigAuthenProfileIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisProfileIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersConfigAuthenTimeout": {
+    "name": "publicAccessUsersConfigAuthenTimeout",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersConfigAccountingEnabled": {
+    "name": "publicAccessUsersConfigAccountingEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersConfigAccountingProfileIndex": {
+    "name": "publicAccessUsersConfigAccountingProfileIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisProfileIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersConfigInterfaceIndex": {
+    "name": "publicAccessUsersConfigInterfaceIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersConfigVirtualApProfileIndex": {
+    "name": "publicAccessUsersConfigVirtualApProfileIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserTable": {
+    "name": "publicAccessUserTable",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "publicAccessUserEntry": {
+    "name": "publicAccessUserEntry",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "publicAccessUserIndex": {
+    "name": "publicAccessUserIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "publicAccessUserAuthenType": {
+    "name": "publicAccessUserAuthenType",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisUsersAuthenticationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserAuthenMode": {
+    "name": "publicAccessUserAuthenMode",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisUsersAuthenticationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserState": {
+    "name": "publicAccessUserState",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unassigned": 0,
+          "connecting": 1,
+          "connected": 2,
+          "reconnecting": 3,
+          "disconnecting": 4,
+          "disconnected": 5,
+          "disconnectingAdministrative": 6,
+          "disconnectedAdministrative": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserStationIpAddress": {
+    "name": "publicAccessUserStationIpAddress",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserName": {
+    "name": "publicAccessUserName",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserSessionStartTime": {
+    "name": "publicAccessUserSessionStartTime",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserSessionDuration": {
+    "name": "publicAccessUserSessionDuration",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserIdleTime": {
+    "name": "publicAccessUserIdleTime",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserBytesSent": {
+    "name": "publicAccessUserBytesSent",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserBytesReceived": {
+    "name": "publicAccessUserBytesReceived",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserPacketsSent": {
+    "name": "publicAccessUserPacketsSent",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserPacketsReceived": {
+    "name": "publicAccessUserPacketsReceived",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserForceDisconnection": {
+    "name": "publicAccessUserForceDisconnection",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "adminReset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessUserStationMacAddress": {
+    "name": "publicAccessUserStationMacAddress",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserApMacAddress": {
+    "name": "publicAccessUserApMacAddress",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserGroupName": {
+    "name": "publicAccessUserGroupName",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserSSID": {
+    "name": "publicAccessUserSSID",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisSSIDOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserSecurity": {
+    "name": "publicAccessUserSecurity",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisSecurity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserPHYType": {
+    "name": "publicAccessUserPHYType",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ieee802dot11a": 1,
+          "ieee802dot11b": 2,
+          "ieee802dot11g": 3,
+          "ieee802dot11n": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserVLAN": {
+    "name": "publicAccessUserVLAN",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserApRadioIndex": {
+    "name": "publicAccessUserApRadioIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserConfigIndex": {
+    "name": "publicAccessUserConfigIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserConnectedInterface": {
+    "name": "publicAccessUserConnectedInterface",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "publicAccessUserBytesSentDropped": {
+    "name": "publicAccessUserBytesSentDropped",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserBytesReceivedDropped": {
+    "name": "publicAccessUserBytesReceivedDropped",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserPacketsSentDropped": {
+    "name": "publicAccessUserPacketsSentDropped",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserPacketsReceivedDropped": {
+    "name": "publicAccessUserPacketsReceivedDropped",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserRateLimitationEnabled": {
+    "name": "publicAccessUserRateLimitationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserMaxTransmitRate": {
+    "name": "publicAccessUserMaxTransmitRate",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserMaxReceiveRate": {
+    "name": "publicAccessUserMaxReceiveRate",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserBandwidthControlLevel": {
+    "name": "publicAccessUserBandwidthControlLevel",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisPriorityQueue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUserNASPort": {
+    "name": "publicAccessUserNASPort",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessUsersLoggedInTrapEnabled": {
+    "name": "publicAccessUsersLoggedInTrapEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessUsersLoggedInTrapInterval": {
+    "name": "publicAccessUsersLoggedInTrapInterval",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "publicAccessNASPortCount": {
+    "name": "publicAccessNASPortCount",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessNASPortTable": {
+    "name": "publicAccessNASPortTable",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "publicAccessNASPortEntry": {
+    "name": "publicAccessNASPortEntry",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessNASPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "publicAccessNASPortIndex": {
+    "name": "publicAccessNASPortIndex",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "publicAccessNASPortUserName": {
+    "name": "publicAccessNASPortUserName",
+    "oid": "1.3.6.1.4.1.8744.5.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "publicAccessMIBNotificationPrefix": {
+    "name": "publicAccessMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.8744.5.1.2",
+    "class": "objectidentity"
+  },
+  "publicAccessMIBNotifications": {
+    "name": "publicAccessMIBNotifications",
+    "oid": "1.3.6.1.4.1.8744.5.1.2.0",
+    "class": "objectidentity"
+  },
+  "publicAccessStatusChangedTrap": {
+    "name": "publicAccessStatusChangedTrap",
+    "oid": "1.3.6.1.4.1.8744.5.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessStatus"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessStatusChangedCause"
+      }
+    ],
+    "status": "current"
+  },
+  "publicAccessUsersThresholdTrap": {
+    "name": "publicAccessUsersThresholdTrap",
+    "oid": "1.3.6.1.4.1.8744.5.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersCount"
+      }
+    ],
+    "status": "current"
+  },
+  "publicAccessUsersSessionStartTrap": {
+    "name": "publicAccessUsersSessionStartTrap",
+    "oid": "1.3.6.1.4.1.8744.5.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "publicAccessUsersSessionStopTrap": {
+    "name": "publicAccessUsersSessionStopTrap",
+    "oid": "1.3.6.1.4.1.8744.5.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "publicAccessUsersSessionFailTrap": {
+    "name": "publicAccessUsersSessionFailTrap",
+    "oid": "1.3.6.1.4.1.8744.5.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "publicAccessUsersLoggedInTrap": {
+    "name": "publicAccessUsersLoggedInTrap",
+    "oid": "1.3.6.1.4.1.8744.5.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersCount"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserName"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserStationIpAddress"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserStationMacAddress"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserApMacAddress"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserConnectedInterface"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserSessionDuration"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserBytesReceived"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserBytesSent"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisPublicAccessMIBConformance": {
+    "name": "colubrisPublicAccessMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.1.3",
+    "class": "objectidentity"
+  },
+  "colubrisPublicAccessMIBCompliances": {
+    "name": "colubrisPublicAccessMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.1.3.1",
+    "class": "objectidentity"
+  },
+  "colubrisPublicAccessMIBGroups": {
+    "name": "colubrisPublicAccessMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.1.3.2",
+    "class": "objectidentity"
+  },
+  "colubrisPublicAccessMIBCompliance": {
+    "name": "colubrisPublicAccessMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisPublicAccessMIBGroup",
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB"
+      },
+      {
+        "object": "colubrisPublicAccessUserMIBGroup",
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB"
+      },
+      {
+        "object": "colubrisPublicAccessUserConfigMIBGroup",
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB"
+      },
+      {
+        "object": "colubrisPublicAccessNotificationGroup",
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB"
+      },
+      {
+        "object": "colubrisPublicAccessNASPortsMIBGroup",
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisPublicAccessMIBGroup": {
+    "name": "colubrisPublicAccessMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessStatus"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessStatusChangedCause"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceUserName"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceUserPassword"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceSessionTimeoutAdminStatus"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceSessionTimeoutOperStatus"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceConfigMode"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceAuthenProfileIndex"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceAccountingEnabled"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceAccountingProfileIndex"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessDeviceForceReconfiguration"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersMaxCount"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersCount"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersThreshold"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersSessionTrapEnabled"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersLoggedInTrapEnabled"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersLoggedInTrapInterval"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessNASPortCount"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisPublicAccessUserMIBGroup": {
+    "name": "colubrisPublicAccessUserMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserAuthenType"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserAuthenMode"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserState"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserStationIpAddress"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserName"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserSessionStartTime"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserSessionDuration"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserIdleTime"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserBytesSent"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserBytesReceived"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserPacketsSent"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserPacketsReceived"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserForceDisconnection"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserStationMacAddress"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserApMacAddress"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserGroupName"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserSSID"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserSecurity"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserPHYType"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserVLAN"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserApRadioIndex"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserConfigIndex"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserConnectedInterface"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserBytesSentDropped"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserBytesReceivedDropped"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserPacketsSentDropped"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserPacketsReceivedDropped"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserRateLimitationEnabled"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserMaxTransmitRate"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserMaxReceiveRate"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserBandwidthControlLevel"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUserNASPort"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisPublicAccessUserConfigMIBGroup": {
+    "name": "colubrisPublicAccessUserConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigAuthenType"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigAuthenMode"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigAuthenProfileIndex"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigAuthenTimeout"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigAccountingEnabled"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigAccountingProfileIndex"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigInterfaceIndex"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersConfigVirtualApProfileIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisPublicAccessNotificationGroup": {
+    "name": "colubrisPublicAccessNotificationGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessStatusChangedTrap"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersThresholdTrap"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersSessionStartTrap"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersSessionStopTrap"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersSessionFailTrap"
+      },
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessUsersLoggedInTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisPublicAccessNASPortsMIBGroup": {
+    "name": "colubrisPublicAccessNASPortsMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.1.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-PUBLIC-ACCESS-MIB",
+        "object": "publicAccessNASPortUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-PUBLIC-ACCESS-MIB.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-PUBLIC-ACCESS-MIB"
+  }
+}

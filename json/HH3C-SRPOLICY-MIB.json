@@ -1,0 +1,1227 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cSrpolicy": {
+    "name": "hh3cSrpolicy",
+    "oid": "1.3.6.1.4.1.25506.2.186",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-12-06 11:00",
+        "description": "The initial version of this MIB file."
+      }
+    ]
+  },
+  "hh3cSrpolicyTable": {
+    "name": "hh3cSrpolicyTable",
+    "oid": "1.3.6.1.4.1.25506.2.186.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpolicyEntry": {
+    "name": "hh3cSrpolicyEntry",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyColor",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyEndPoint",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicyColor": {
+    "name": "hh3cSrpolicyColor",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicyEndPoint": {
+    "name": "hh3cSrpolicyEndPoint",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicyName": {
+    "name": "hh3cSrpolicyName",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyBsid": {
+    "name": "hh3cSrpolicyBsid",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyInPackets": {
+    "name": "hh3cSrpolicyInPackets",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyInOctets": {
+    "name": "hh3cSrpolicyInOctets",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyOutPackets": {
+    "name": "hh3cSrpolicyOutPackets",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyOutOctets": {
+    "name": "hh3cSrpolicyOutOctets",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyStatus": {
+    "name": "hh3cSrpolicyStatus",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyDownReason": {
+    "name": "hh3cSrpolicyDownReason",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 51
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyBsidFailReason": {
+    "name": "hh3cSrpolicyBsidFailReason",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyBsidConflictState": {
+    "name": "hh3cSrpolicyBsidConflictState",
+    "oid": "1.3.6.1.4.1.25506.2.186.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inConflict": 1,
+          "conflictResolved": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpSeglistTable": {
+    "name": "hh3cSrpSeglistTable",
+    "oid": "1.3.6.1.4.1.25506.2.186.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpSeglistEntry": {
+    "name": "hh3cSrpSeglistEntry",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistColor",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistEndPoint",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathProto",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathInst",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathOri",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathDis",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpSeglistColor": {
+    "name": "hh3cSrpSeglistColor",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpSeglistEndPoint": {
+    "name": "hh3cSrpSeglistEndPoint",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpSeglistPathProto": {
+    "name": "hh3cSrpSeglistPathProto",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcep": 10,
+          "bgp": 20,
+          "cli": 30
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpSeglistPathInst": {
+    "name": "hh3cSrpSeglistPathInst",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpSeglistPathOri": {
+    "name": "hh3cSrpSeglistPathOri",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpSeglistPathDis": {
+    "name": "hh3cSrpSeglistPathDis",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpSeglistId": {
+    "name": "hh3cSrpSeglistId",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicySeglistName": {
+    "name": "hh3cSrpolicySeglistName",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpSeglistOutPackets": {
+    "name": "hh3cSrpSeglistOutPackets",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpSeglistOutOctets": {
+    "name": "hh3cSrpSeglistOutOctets",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpSeglistStatus": {
+    "name": "hh3cSrpSeglistStatus",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpSeglistDownReason": {
+    "name": "hh3cSrpSeglistDownReason",
+    "oid": "1.3.6.1.4.1.25506.2.186.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 51
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpForwardingTable": {
+    "name": "hh3cSrpForwardingTable",
+    "oid": "1.3.6.1.4.1.25506.2.186.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpForwardingEntry": {
+    "name": "hh3cSrpForwardingEntry",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdColor",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdEndPoint",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdPathProto",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdPathInst",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdPathOri",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdPathDis",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdSeglistId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdOutIf",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpFwdNexthop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpFwdColor": {
+    "name": "hh3cSrpFwdColor",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdEndPoint": {
+    "name": "hh3cSrpFwdEndPoint",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdPathProto": {
+    "name": "hh3cSrpFwdPathProto",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcep": 10,
+          "bgp": 20,
+          "cli": 30
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdPathInst": {
+    "name": "hh3cSrpFwdPathInst",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdPathOri": {
+    "name": "hh3cSrpFwdPathOri",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdPathDis": {
+    "name": "hh3cSrpFwdPathDis",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdSeglistId": {
+    "name": "hh3cSrpFwdSeglistId",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdOutIf": {
+    "name": "hh3cSrpFwdOutIf",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdNexthop": {
+    "name": "hh3cSrpFwdNexthop",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpFwdOutPackets": {
+    "name": "hh3cSrpFwdOutPackets",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpFwdOutOctets": {
+    "name": "hh3cSrpFwdOutOctets",
+    "oid": "1.3.6.1.4.1.25506.2.186.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathTable": {
+    "name": "hh3cSrpolicyPathTable",
+    "oid": "1.3.6.1.4.1.25506.2.186.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathEntry": {
+    "name": "hh3cSrpolicyPathEntry",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathColor",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathEndPoint",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathProto",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathInst",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathOri",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathDis",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicyPathColor": {
+    "name": "hh3cSrpolicyPathColor",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathEndPoint": {
+    "name": "hh3cSrpolicyPathEndPoint",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathProto": {
+    "name": "hh3cSrpolicyPathProto",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcep": 10,
+          "bgp": 20,
+          "cli": 30
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathInst": {
+    "name": "hh3cSrpolicyPathInst",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathOri": {
+    "name": "hh3cSrpolicyPathOri",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathDis": {
+    "name": "hh3cSrpolicyPathDis",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathPref": {
+    "name": "hh3cSrpolicyPathPref",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathPreviousRole": {
+    "name": "hh3cSrpolicyPathPreviousRole",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyPathDownReason": {
+    "name": "hh3cSrpolicyPathDownReason",
+    "oid": "1.3.6.1.4.1.25506.2.186.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 51
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSrpolicyNotifications": {
+    "name": "hh3cSrpolicyNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.186.0",
+    "class": "objectidentity"
+  },
+  "hh3cSrpolicyStatusChange": {
+    "name": "hh3cSrpolicyStatusChange",
+    "oid": "1.3.6.1.4.1.25506.2.186.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyColor"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyEndPoint"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyStatus"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicyBsidConflict": {
+    "name": "hh3cSrpolicyBsidConflict",
+    "oid": "1.3.6.1.4.1.25506.2.186.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyColor"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyEndPoint"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyBsid"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyBsidFailReason"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyBsidConflictState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicyBsidConflictClear": {
+    "name": "hh3cSrpolicyBsidConflictClear",
+    "oid": "1.3.6.1.4.1.25506.2.186.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyColor"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyEndPoint"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyBsid"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyBsidFailReason"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyBsidConflictState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicyDown": {
+    "name": "hh3cSrpolicyDown",
+    "oid": "1.3.6.1.4.1.25506.2.186.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyColor"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyEndPoint"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicyDownClear": {
+    "name": "hh3cSrpolicyDownClear",
+    "oid": "1.3.6.1.4.1.25506.2.186.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyColor"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyEndPoint"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicyPathDown": {
+    "name": "hh3cSrpolicyPathDown",
+    "oid": "1.3.6.1.4.1.25506.2.186.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathColor"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathEndPoint"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathProto"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathInst"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathOri"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathDis"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathPref"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathPreviousRole"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpolicyPathDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicySeglistDown": {
+    "name": "hh3cSrpolicySeglistDown",
+    "oid": "1.3.6.1.4.1.25506.2.186.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistColor"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistEndPoint"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathProto"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathInst"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathOri"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathDis"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistId"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistStatus"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSrpolicySeglistDownClear": {
+    "name": "hh3cSrpolicySeglistDownClear",
+    "oid": "1.3.6.1.4.1.25506.2.186.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistColor"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistEndPoint"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathProto"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathInst"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathOri"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistPathDis"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistId"
+      },
+      {
+        "module": "HH3C-SRPOLICY-MIB",
+        "object": "hh3cSrpSeglistStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SRPOLICY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-SRPOLICY-MIB"
+  }
+}

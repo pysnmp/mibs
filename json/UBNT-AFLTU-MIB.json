@@ -1,0 +1,1295 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ],
+    "UBNT-MIB": [
+      "ubntAFLTU",
+      "ubntAFLTUGroups"
+    ]
+  },
+  "afLTUMIB": {
+    "name": "afLTUMIB",
+    "oid": "1.3.6.1.4.1.41112.1.10.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-05 00:00",
+        "description": "AFLTU.v0.1 revision"
+      }
+    ]
+  },
+  "afLTUCompliances": {
+    "name": "afLTUCompliances",
+    "oid": "1.3.6.1.4.1.41112.1.2.9.1",
+    "class": "objectidentity"
+  },
+  "afLTUGroups": {
+    "name": "afLTUGroups",
+    "oid": "1.3.6.1.4.1.41112.1.2.9.2",
+    "class": "objectidentity"
+  },
+  "afLTUConfig": {
+    "name": "afLTUConfig",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2",
+    "class": "objectidentity"
+  },
+  "afLTUStatus": {
+    "name": "afLTUStatus",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.3",
+    "class": "objectidentity"
+  },
+  "afLTUStats": {
+    "name": "afLTUStats",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.5",
+    "class": "objectidentity"
+  },
+  "afLTUethStats": {
+    "name": "afLTUethStats",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.6",
+    "class": "objectidentity"
+  },
+  "afLTUgpsStats": {
+    "name": "afLTUgpsStats",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7",
+    "class": "objectidentity"
+  },
+  "afLTURole": {
+    "name": "afLTURole",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap": 0,
+          "cpe": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUFrequency": {
+    "name": "afLTUFrequency",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUAltFreqList": {
+    "name": "afLTUAltFreqList",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUBandwidth": {
+    "name": "afLTUBandwidth",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bw10M": 10,
+          "bw20M": 20,
+          "bw30M": 30,
+          "bw40M": 40,
+          "bw50M": 50,
+          "bw60M": 60,
+          "bw80M": 80,
+          "bw100M": 100
+        }
+      }
+    },
+    "units": "MHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUSsid": {
+    "name": "afLTUSsid",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUTxEIRP": {
+    "name": "afLTUTxEIRP",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUAntennaGain": {
+    "name": "afLTUAntennaGain",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUCableLoss": {
+    "name": "afLTUCableLoss",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUTxRate": {
+    "name": "afLTUTxRate",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "x",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUTxRateAuto": {
+    "name": "afLTUTxRateAuto",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUDistanceScale": {
+    "name": "afLTUDistanceScale",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUMac": {
+    "name": "afLTUMac",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUDevModel": {
+    "name": "afLTUDevModel",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUDevName": {
+    "name": "afLTUDevName",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUFirmwareVersion": {
+    "name": "afLTUFirmwareVersion",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUMemoryUsage": {
+    "name": "afLTUMemoryUsage",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUCpuUsage": {
+    "name": "afLTUCpuUsage",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUUptime": {
+    "name": "afLTUUptime",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStationTable": {
+    "name": "afLTUStationTable",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "afLTUStationEntry": {
+    "name": "afLTUStationEntry",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "afLTUStaTxRate": {
+    "name": "afLTUStaTxRate",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "x",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUStaRxRate": {
+    "name": "afLTUStaRxRate",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "x",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "afLTUStaTxCapacity": {
+    "name": "afLTUStaTxCapacity",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRxCapacity": {
+    "name": "afLTUStaRxCapacity",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRxPower0": {
+    "name": "afLTUStaRxPower0",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRxPower1": {
+    "name": "afLTUStaRxPower1",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaIdealRxPower0": {
+    "name": "afLTUStaIdealRxPower0",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaIdealRxPower1": {
+    "name": "afLTUStaIdealRxPower1",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRxPowerLevel0": {
+    "name": "afLTUStaRxPowerLevel0",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRxPowerLevel1": {
+    "name": "afLTUStaRxPowerLevel1",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteMac": {
+    "name": "afLTUStaRemoteMac",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "afLTUStaRemoteDevModel": {
+    "name": "afLTUStaRemoteDevModel",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteDevName": {
+    "name": "afLTUStaRemoteDevName",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteFirmwareVersion": {
+    "name": "afLTUStaRemoteFirmwareVersion",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteTxEIRP": {
+    "name": "afLTUStaRemoteTxEIRP",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteRxPower0": {
+    "name": "afLTUStaRemoteRxPower0",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteRxPower1": {
+    "name": "afLTUStaRemoteRxPower1",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteIdealRxPower0": {
+    "name": "afLTUStaRemoteIdealRxPower0",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteIdealRxPower1": {
+    "name": "afLTUStaRemoteIdealRxPower1",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteRxPowerLevel0": {
+    "name": "afLTUStaRemoteRxPowerLevel0",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteRxPowerLevel1": {
+    "name": "afLTUStaRemoteRxPowerLevel1",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteLatency": {
+    "name": "afLTUStaRemoteLatency",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteDistance": {
+    "name": "afLTUStaRemoteDistance",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "km",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteConnectionTime": {
+    "name": "afLTUStaRemoteConnectionTime",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteLastIp": {
+    "name": "afLTUStaRemoteLastIp",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUStaRemoteRegistrationAttempts": {
+    "name": "afLTUStaRemoteRegistrationAttempts",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUTxBytes": {
+    "name": "afLTUTxBytes",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUTxPps": {
+    "name": "afLTUTxPps",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTURxBytes": {
+    "name": "afLTURxBytes",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTURxPps": {
+    "name": "afLTURxPps",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUConnected": {
+    "name": "afLTUConnected",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUethTxBytes": {
+    "name": "afLTUethTxBytes",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUethTxPps": {
+    "name": "afLTUethTxPps",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUethRxBytes": {
+    "name": "afLTUethRxBytes",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUethRxPps": {
+    "name": "afLTUethRxPps",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUethConnected": {
+    "name": "afLTUethConnected",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsStatus": {
+    "name": "afLTUgpsStatus",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 0,
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsDimensions": {
+    "name": "afLTUgpsDimensions",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "nofix": 1,
+          "fix2d": 2,
+          "fix3d": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsLat": {
+    "name": "afLTUgpsLat",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsLon": {
+    "name": "afLTUgpsLon",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsAltMeter": {
+    "name": "afLTUgpsAltMeter",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "(m)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsAltFeet": {
+    "name": "afLTUgpsAltFeet",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "(ft)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsSatsVisible": {
+    "name": "afLTUgpsSatsVisible",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsSatsTracked": {
+    "name": "afLTUgpsSatsTracked",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "afLTUgpsHDOP": {
+    "name": "afLTUgpsHDOP",
+    "oid": "1.3.6.1.4.1.41112.1.10.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubntAFLTUStatusGroup": {
+    "name": "ubntAFLTUStatusGroup",
+    "oid": "1.3.6.1.4.1.41112.1.2.9.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTURole"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUFrequency"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUAltFreqList"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUBandwidth"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUSsid"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUTxEIRP"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUAntennaGain"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUCableLoss"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUTxRate"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUTxRateAuto"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUDistanceScale"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUMac"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUDevModel"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUDevName"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUFirmwareVersion"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUMemoryUsage"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUCpuUsage"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUUptime"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUTxBytes"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUTxPps"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTURxBytes"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTURxPps"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUConnected"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUethTxBytes"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUethTxPps"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUethRxBytes"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUethRxPps"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUethConnected"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsStatus"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsDimensions"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsLat"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsLon"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsAltMeter"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsAltFeet"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsSatsVisible"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsSatsTracked"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUgpsHDOP"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaTxRate"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRxRate"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaTxCapacity"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRxCapacity"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRxPower0"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRxPower1"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaIdealRxPower0"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaIdealRxPower1"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRxPowerLevel0"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRxPowerLevel1"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteDevModel"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteDevName"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteFirmwareVersion"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteTxEIRP"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteRxPower0"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteRxPower1"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteIdealRxPower0"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteIdealRxPower1"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteRxPowerLevel0"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteRxPowerLevel1"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteLatency"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteDistance"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteConnectionTime"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteLastIp"
+      },
+      {
+        "module": "UBNT-AFLTU-MIB",
+        "object": "afLTUStaRemoteRegistrationAttempts"
+      }
+    ],
+    "status": "current"
+  },
+  "ubntAFLTUStatusCompliance": {
+    "name": "ubntAFLTUStatusCompliance",
+    "oid": "1.3.6.1.4.1.41112.1.2.9.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubntAFLTUStatusGroup",
+        "module": "UBNT-AFLTU-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubnt/UBNT-AFLTU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "UBNT-AFLTU-MIB"
+  }
+}

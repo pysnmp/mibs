@@ -1,0 +1,749 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIPsecTc": {
+    "name": "ciscoIPsecTc",
+    "oid": "1.3.6.1.4.1.9.9.422",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-07-22 00:00",
+        "description": " Initial version of this module. "
+      }
+    ]
+  },
+  "CCryptoMD5Hash": {
+    "name": "CCryptoMD5Hash",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIKEIsakmpDoi": {
+    "name": "CIKEIsakmpDoi",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isakmpDoiUnknown": 1,
+          "isakmpDoiOther": 2,
+          "isakmpDoiIPsec": 3,
+          "isakmpDoiFcsp": 4,
+          "isakmpDoiCps": 5,
+          "isakmpDoiFcCtAuth": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIKELifetime": {
+    "name": "CIKELifetime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIKELifesize": {
+    "name": "CIKELifesize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2560,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecEncryptionKeySize": {
+    "name": "CIPsecEncryptionKeySize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecControlProtocol": {
+    "name": "CIPsecControlProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpUnknown": 1,
+          "cpAll": 2,
+          "cpOther": 3,
+          "cpManual": 4,
+          "cpIkev1": 5,
+          "cpIkev2": 6,
+          "cpKink": 7,
+          "cpPhoturis": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecProtocol": {
+    "name": "CIPsecProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipsecProtUnknown": 1,
+          "ipsecProtAh": 2,
+          "ipsecProtEsp": 3,
+          "ipsecProtIPcomp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecPhase1PeerIdentityType": {
+    "name": "CIPsecPhase1PeerIdentityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idOther": 1,
+          "idIpv4Addr": 2,
+          "idFqdn": 3,
+          "idDn": 4,
+          "idIpv6Addr": 5,
+          "idUserFqdn": 6,
+          "idIpv4AddrSubnet": 7,
+          "idIpv6AddrSubnet": 8,
+          "idIpv4AddrRange": 9,
+          "idIpv6AddrRange": 10,
+          "idDerAsn1Gn": 11,
+          "idKeyId": 12,
+          "idWwn": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecIkeNegoMode": {
+    "name": "CIPsecIkeNegoMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainMode": 1,
+          "aggressiveMode": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecIkeHashAlgorithm": {
+    "name": "CIPsecIkeHashAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "md5": 3,
+          "sha": 4,
+          "tiger": 5,
+          "sha256": 6,
+          "sha384": 7,
+          "sha512": 8,
+          "aesMac": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecIkeAuthMethod": {
+    "name": "CIPsecIkeAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "preSharedKey": 2,
+          "rsaSignature": 3,
+          "rsaEncryption": 4,
+          "revRsaEncryption": 5,
+          "dssSignature": 6,
+          "elGamalEncryption": 7,
+          "revElGamalEncryption": 8,
+          "ecsdaSignature": 9,
+          "gssApiV1": 10,
+          "gssApiV2": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecDiffHellmanGrp": {
+    "name": "CIPsecDiffHellmanGrp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notDH": 2,
+          "modp768": 3,
+          "modp1024": 4,
+          "ec2nGP155": 5,
+          "ec2nGP185": 6,
+          "modp1536": 7,
+          "ec2nGF163": 8,
+          "ec2nGF283": 9,
+          "ec2nGF409": 10,
+          "ec2nGF571": 11,
+          "modp2048": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecEncapMode": {
+    "name": "CIPsecEncapMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encapTunnel": 1,
+          "encapTransport": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecTransform": {
+    "name": "CIPsecTransform",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "xformNONE": 1,
+          "xformOTHER": 2,
+          "xformAhRFC1829": 3,
+          "xformAhMD5": 4,
+          "xformAhSHA1": 5,
+          "xformEspNULL": 6,
+          "xformEspDES": 7,
+          "xformEsp3DES": 8,
+          "xformEspAES128": 9,
+          "xformEspAES192": 10,
+          "xformEspAES256": 11,
+          "xformEspMD5": 12,
+          "xformEspSHA1": 13,
+          "xformCompLZS": 14,
+          "xformEspAESCtr128": 15,
+          "xformEspAESCtr192": 16,
+          "xformEspAESCtr256": 17,
+          "xformEspRc5": 18,
+          "xformEspIdea": 19,
+          "xformEspCast": 20,
+          "xformEspTwofish": 21,
+          "xformEspBlowfish": 22,
+          "xformEsp3idea": 23,
+          "xformEspRc4": 24,
+          "xformEspDesMac": 25,
+          "xformEspHmacSha256": 26,
+          "xformEspHmacSha384": 27,
+          "xformEspHmacSha512": 28,
+          "xformEspRipemd": 29,
+          "xformAHDesMac": 30,
+          "xformAHHmacSha256": 31,
+          "xformAHHmacSha384": 32,
+          "xformAHHmacSha512": 33,
+          "xformAHRipemd": 34,
+          "xformEspAESXCbcMac": 35,
+          "xformAHAESXCbcMac": 36
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecSecuritySuite": {
+    "name": "CIPsecSecuritySuite",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "suiteOther": 1,
+          "suiteConfEsp": 2,
+          "suiteIntegEsp": 3,
+          "suiteIntegAh": 4,
+          "suiteConfComp": 5,
+          "suiteIntegEspComp": 6,
+          "suiteIntegAhComp": 7,
+          "suiteConfAh": 8,
+          "suiteConfAhComp": 9,
+          "suiteIntegEspAh": 10,
+          "suiteIntegEspAhComp": 11,
+          "suiteConfIntegEsp": 12,
+          "suiteConfIntegEspComp": 13,
+          "suiteConfIntegEspAh": 14,
+          "suiteConfIntegEspAhComp": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecNATTraversalMode": {
+    "name": "CIPsecNATTraversalMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "natEncapNone": 1,
+          "natEncapOther": 2,
+          "natEncapIPsecOverUdp": 3,
+          "natEncapIPsecOverTcp": 4,
+          "natEncapNATT": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecEncryptAlgorithm": {
+    "name": "CIPsecEncryptAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "espDes": 3,
+          "esp3des": 4,
+          "espRc5": 5,
+          "espIdea": 6,
+          "espCast": 7,
+          "espTwofish": 8,
+          "espBlowfish": 9,
+          "esp3idea": 10,
+          "espRc4": 11,
+          "espNull": 12,
+          "espAes128": 13,
+          "espAes192": 14,
+          "espAes256": 15,
+          "espAesCtr128": 16,
+          "espAesCtr192": 17,
+          "espAesCtr256": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecSpi": {
+    "name": "CIPsecSpi",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "CIPsecAuthAlgorithm": {
+    "name": "CIPsecAuthAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "hmacMd5": 3,
+          "hmacSha": 4,
+          "desMac": 5,
+          "hmacSha256": 6,
+          "hmacSha384": 7,
+          "hmacSha512": 8,
+          "ripemd": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecCompAlgorithm": {
+    "name": "CIPsecCompAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "compOui": 3,
+          "compDeflate": 4,
+          "compLzs": 5,
+          "compLzjh": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecEndPtType": {
+    "name": "CIPsecEndPtType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "idIpv4Addr": 2,
+          "idIpv4AddrRange": 3,
+          "idIpv4AddrSubnet": 4,
+          "idFqdn": 5,
+          "idUserFqdn": 6,
+          "idIpv6Addr": 7,
+          "idIpv6AddrRange": 8,
+          "idIpv6AddrSubnet": 9,
+          "idDerAsn1Dn": 10,
+          "idDerAsn1Gn": 11,
+          "idKeyId": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecPhase2SaDirection": {
+    "name": "CIPsecPhase2SaDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "saDirectionUnknown": 1,
+          "saDirectionIn": 2,
+          "saDirectionOut": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecPhase1TunnelIndex": {
+    "name": "CIPsecPhase1TunnelIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecPhase1TunnelIndexOrZero": {
+    "name": "CIPsecPhase1TunnelIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecPhase2TunnelIndex": {
+    "name": "CIPsecPhase2TunnelIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecPmtu": {
+    "name": "CIPsecPmtu",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 68,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecLifetime": {
+    "name": "CIPsecLifetime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 120,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecLifesize": {
+    "name": "CIPsecLifesize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2560,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecTunnelIdleTime": {
+    "name": "CIPsecTunnelIdleTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecNumCryptoMaps": {
+    "name": "CIPsecNumCryptoMaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecTunnelStatus": {
+    "name": "CIPsecTunnelStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializePhase1": 1,
+          "awaitXauth": 2,
+          "awaitCommit": 3,
+          "active": 4,
+          "destroy": 5,
+          "rekey": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecCryptomapType": {
+    "name": "CIPsecCryptomapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cryptomapTypeNONE": 1,
+          "cryptomapTypeMANUAL": 2,
+          "cryptomapTypeISAKMP": 3,
+          "cryptomapTypeCET": 4,
+          "cryptomapTypeDYNAMIC": 5,
+          "cryptomapTypeDYNAMICDISCOVERY": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecCryptomapSetBindStatus": {
+    "name": "CIPsecCryptomapSetBindStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "attached": 2,
+          "detached": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecIkePRFAlgorithm": {
+    "name": "CIPsecIkePRFAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "prfHmacMd5": 3,
+          "prfHmacSha1": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSEC-TC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IPSEC-TC"
+  }
+}

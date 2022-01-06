@@ -1,0 +1,2021 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8023-LAG-MIB": [
+      "dot3adAggPortActorAdminKey",
+      "dot3adAggPortListPorts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "WWP-SMI": [
+      "wwpModules",
+      "wwpModulesLeos"
+    ]
+  },
+  "wwpLeosPortMIB": {
+    "name": "wwpLeosPortMIB",
+    "oid": "1.3.6.1.4.1.6141.2.60.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-05-25 00:00",
+        "description": "Added wwpLeosEtherPortAdvertSpeed and wwpLeosEtherPortAdvertDuplex to WwpLeosEtherPortEntry MIB object"
+      },
+      {
+        "revision": "2011-02-02 00:00",
+        "description": "Added admitOnlyUntagged to wwpLeosEtherPortAcceptableFrameTypes MIB object"
+      },
+      {
+        "revision": "2010-11-01 00:00",
+        "description": "Added wwpLeosEtherPortEgressCosPolicy"
+      },
+      {
+        "revision": "2010-07-28 00:00",
+        "description": "Added wwpLeosEtherFixedRColor and wwpLeosEtherPortFrameCosMapId mib objects"
+      },
+      {
+        "revision": "2010-05-05 17:00",
+        "description": "Added changed length of wwpLeosPortDescr from 32 to 128."
+      },
+      {
+        "revision": "2008-11-14 00:00",
+        "description": "Added wwpLeosEtherPortEgressPortQueueMapId to wwpLeosEtherPortEntryTable. Added 10 gig option to wwpLeosEtherInterfaceType, wwpLeosEtherAdminSpeed and wwpLeosEtherOperSpeed"
+      },
+      {
+        "revision": "2008-07-21 00:00",
+        "description": "Added wwpLeosEtherPortResolvedCosPolicy,wwpLeosEtherPortMode and wwpLeosEtherFixedRcos mib objects"
+      },
+      {
+        "revision": "2007-08-11 00:00",
+        "description": "Added new mib object wwpLeosEtherPortStateMirrorGroupType."
+      },
+      {
+        "revision": "2007-06-20 00:00",
+        "description": "Added new mib object wwpLeosEtherPortUntagDataVid."
+      },
+      {
+        "revision": "2006-05-26 00:00",
+        "description": "Added new mib object wwpLeosEtherPortOperAutoNeg."
+      },
+      {
+        "revision": "2006-05-18 00:00",
+        "description": "Added new mib object wwpLeosEtherPortStateMirrorGroupOperStatus. Added new mib object wwpLeosEtherPortStateMirrorGroupNumSrcPorts. Added new mib object wwpLeosEtherPortStateMirrorGroupNumDstPorts. Added new mib object wwpLeosEtherPortStateMirrorGroupMemOperState."
+      },
+      {
+        "revision": "2006-03-15 00:00",
+        "description": "This MIB module is for the Extension of the dot1dBasePortTable for WWP Products"
+      },
+      {
+        "revision": "2005-07-28 00:00",
+        "description": "Added eumeration to wwpLeosEtherPortAdminSpeed."
+      },
+      {
+        "revision": "2004-04-18 17:00",
+        "description": "Added new tables to support port state mirroring feature."
+      }
+    ]
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PortEgressFrameCosPolicy": {
+    "name": "PortEgressFrameCosPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingore": 1,
+          "rcosToL2OuterPcpMap": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortIngressFixedColor": {
+    "name": "PortIngressFixedColor",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "wwpLeosPortMIBObjects": {
+    "name": "wwpLeosPortMIBObjects",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1",
+    "class": "objectidentity"
+  },
+  "wwpLeosEtherPort": {
+    "name": "wwpLeosEtherPort",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1",
+    "class": "objectidentity"
+  },
+  "wwpLeosEtherPortNotif": {
+    "name": "wwpLeosEtherPortNotif",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.2",
+    "class": "objectidentity"
+  },
+  "wwpLeosPortMIBNotificationPrefix": {
+    "name": "wwpLeosPortMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.2",
+    "class": "objectidentity"
+  },
+  "wwpLeosPortMIBNotifications": {
+    "name": "wwpLeosPortMIBNotifications",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.2.0",
+    "class": "objectidentity"
+  },
+  "wwpLeosPortMIBConformance": {
+    "name": "wwpLeosPortMIBConformance",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.3",
+    "class": "objectidentity"
+  },
+  "wwpLeosPortMIBCompliances": {
+    "name": "wwpLeosPortMIBCompliances",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.3.1",
+    "class": "objectidentity"
+  },
+  "wwpLeosPortMIBGroups": {
+    "name": "wwpLeosPortMIBGroups",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.3.2",
+    "class": "objectidentity"
+  },
+  "wwpLeosEtherPortTable": {
+    "name": "wwpLeosEtherPortTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosEtherPortEntry": {
+    "name": "wwpLeosEtherPortEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosEtherPortId": {
+    "name": "wwpLeosEtherPortId",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortName": {
+    "name": "wwpLeosEtherPortName",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortDesc": {
+    "name": "wwpLeosEtherPortDesc",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortType": {
+    "name": "wwpLeosEtherPortType",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "fastEthernet": 2,
+          "hundredFx": 3,
+          "gigEthernet": 4,
+          "lagPort": 5,
+          "unknown": 6,
+          "gigHundredFx": 7,
+          "tripleSpeed": 8,
+          "tenGigEthernet": 9,
+          "gigTenGigEthernet": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortPhysAddr": {
+    "name": "wwpLeosEtherPortPhysAddr",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAutoNeg": {
+    "name": "wwpLeosEtherPortAutoNeg",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAdminStatus": {
+    "name": "wwpLeosEtherPortAdminStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortOperStatus": {
+    "name": "wwpLeosEtherPortOperStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "notauth": 3,
+          "lbtx": 4,
+          "lbrx": 5,
+          "linkflap": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAdminSpeed": {
+    "name": "wwpLeosEtherPortAdminSpeed",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMb": 1,
+          "hundredMb": 2,
+          "gig": 3,
+          "auto": 4,
+          "tenGig": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortOperSpeed": {
+    "name": "wwpLeosEtherPortOperSpeed",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "tenMb": 1,
+          "hundredMb": 2,
+          "gig": 3,
+          "tenGig": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "wwpLeosEtherPortAdminDuplex": {
+    "name": "wwpLeosEtherPortAdminDuplex",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortOperDuplex": {
+    "name": "wwpLeosEtherPortOperDuplex",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAdminFlowCtrl": {
+    "name": "wwpLeosEtherPortAdminFlowCtrl",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "off": 2,
+          "asymTx": 3,
+          "asymRx": 4,
+          "sym": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortOperFlowCtrl": {
+    "name": "wwpLeosEtherPortOperFlowCtrl",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "off": 2,
+          "asymTx": 3,
+          "asymRx": 4,
+          "sym": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherIngressPvid": {
+    "name": "wwpLeosEtherIngressPvid",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24576
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherUntagEgressVlanId": {
+    "name": "wwpLeosEtherUntagEgressVlanId",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24576
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAcceptableFrameTypes": {
+    "name": "wwpLeosEtherPortAcceptableFrameTypes",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admitAll": 1,
+          "admitOnlyVlanTagged": 2,
+          "admitOnlyUntagged": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "admitAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortUntaggedPriority": {
+    "name": "wwpLeosEtherPortUntaggedPriority",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p0": 0,
+          "p1": 1,
+          "p2": 2,
+          "p3": 3,
+          "p4": 4,
+          "p5": 5,
+          "p6": 6,
+          "p7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "wwpLeosEtherPortMaxFrameSize": {
+    "name": "wwpLeosEtherPortMaxFrameSize",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1522,
+            "max": 9216
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortVlanIngressFiltering": {
+    "name": "wwpLeosEtherPortVlanIngressFiltering",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAdminAdvertisedFlowCtrl": {
+    "name": "wwpLeosEtherPortAdminAdvertisedFlowCtrl",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "off": 2,
+          "asymTx": 3,
+          "sym": 4,
+          "symAsymRx": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortVplsPortType": {
+    "name": "wwpLeosEtherPortVplsPortType",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDefined": 1,
+          "subscriber": 2,
+          "networkFacing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortIngressCosPolicy": {
+    "name": "wwpLeosEtherPortIngressCosPolicy",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leave": 1,
+          "fixed": 2,
+          "ippInherit": 3,
+          "phbgInherit": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortIngressFixedDot1dPri": {
+    "name": "wwpLeosEtherPortIngressFixedDot1dPri",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortUntagDataVsi": {
+    "name": "wwpLeosEtherPortUntagDataVsi",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortOperationalSpeed": {
+    "name": "wwpLeosEtherPortOperationalSpeed",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortUntagCtrlVsi": {
+    "name": "wwpLeosEtherPortUntagCtrlVsi",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMirrorPort": {
+    "name": "wwpLeosEtherPortMirrorPort",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMirrorIngress": {
+    "name": "wwpLeosEtherPortMirrorIngress",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMirrorEgress": {
+    "name": "wwpLeosEtherPortMirrorEgress",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortUntagDataVsiType": {
+    "name": "wwpLeosEtherPortUntagDataVsiType",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "mpls": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ethernet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortUntagCtrlVsiType": {
+    "name": "wwpLeosEtherPortUntagCtrlVsiType",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "mpls": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ethernet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortVsIngressFiltering": {
+    "name": "wwpLeosEtherPortVsIngressFiltering",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortOperAutoNeg": {
+    "name": "wwpLeosEtherPortOperAutoNeg",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortUpTime": {
+    "name": "wwpLeosEtherPortUpTime",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortUntagDataVid": {
+    "name": "wwpLeosEtherPortUntagDataVid",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24576
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortPhyLoopback": {
+    "name": "wwpLeosEtherPortPhyLoopback",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortVlanIngressFilterStrict": {
+    "name": "wwpLeosEtherPortVlanIngressFilterStrict",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMacSaDaSwap": {
+    "name": "wwpLeosEtherPortMacSaDaSwap",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMacSaDaSwapVlan": {
+    "name": "wwpLeosEtherPortMacSaDaSwapVlan",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24576
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortResolvedCosPolicy": {
+    "name": "wwpLeosEtherPortResolvedCosPolicy",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d": 1,
+          "l3DscpCos": 2,
+          "fixedCos": 3,
+          "unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMode": {
+    "name": "wwpLeosEtherPortMode",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rj45": 1,
+          "sfp": 2,
+          "default": 3,
+          "unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherFixedRcos": {
+    "name": "wwpLeosEtherFixedRcos",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortEgressPortQueueMapId": {
+    "name": "wwpLeosEtherPortEgressPortQueueMapId",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortResolvedCosMapId": {
+    "name": "wwpLeosEtherPortResolvedCosMapId",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortResolvedCosRemarkL2": {
+    "name": "wwpLeosEtherPortResolvedCosRemarkL2",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortL2TransformMode": {
+    "name": "wwpLeosEtherPortL2TransformMode",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "iPush-e-Pop": 1,
+          "iStamp-Push-e-QualifiedPopStamp": 2,
+          "iPush-e-PopStamp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortLinkFlapDetection": {
+    "name": "wwpLeosEtherPortLinkFlapDetection",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortLinkFlapCount": {
+    "name": "wwpLeosEtherPortLinkFlapCount",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortLinkFlapDetectTime": {
+    "name": "wwpLeosEtherPortLinkFlapDetectTime",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortLinkFlapHoldTime": {
+    "name": "wwpLeosEtherPortLinkFlapHoldTime",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherFixedRColor": {
+    "name": "wwpLeosEtherFixedRColor",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortIngressFixedColor",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortFrameCosMapId": {
+    "name": "wwpLeosEtherPortFrameCosMapId",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortEgressCosPolicy": {
+    "name": "wwpLeosEtherPortEgressCosPolicy",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortEgressFrameCosPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortEgressSpeed": {
+    "name": "wwpLeosEtherPortEgressSpeed",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAdaptiveRateSpeed": {
+    "name": "wwpLeosEtherPortAdaptiveRateSpeed",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMirrorEncap": {
+    "name": "wwpLeosEtherPortMirrorEncap",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "vlanTag": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMirrorEncapVid": {
+    "name": "wwpLeosEtherPortMirrorEncapVid",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24576
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortMirrorEncapTpid": {
+    "name": "wwpLeosEtherPortMirrorEncapTpid",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tpid8100": 1,
+          "tpid9100": 2,
+          "tpid88A8": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tpid8100",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortIfgDecrease": {
+    "name": "wwpLeosEtherPortIfgDecrease",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAdvertSpeed": {
+    "name": "wwpLeosEtherPortAdvertSpeed",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 1,
+          "ten": 2,
+          "hundred": 3,
+          "gigabit": 4,
+          "ten-hundred-gigabit": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ten-hundred-gigabit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortAdvertDuplex": {
+    "name": "wwpLeosEtherPortAdvertDuplex",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 1,
+          "half": 2,
+          "full": 3,
+          "half-full": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "half-full",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortFlushTable": {
+    "name": "wwpLeosEtherPortFlushTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosEtherPortFlushEntry": {
+    "name": "wwpLeosEtherPortFlushEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosEtherPortFlushActivate": {
+    "name": "wwpLeosEtherPortFlushActivate",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortTrapsTable": {
+    "name": "wwpLeosEtherPortTrapsTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosEtherPortTrapsEntry": {
+    "name": "wwpLeosEtherPortTrapsEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosEtherPortTrapsState": {
+    "name": "wwpLeosEtherPortTrapsState",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupTable": {
+    "name": "wwpLeosEtherPortStateMirrorGroupTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupEntry": {
+    "name": "wwpLeosEtherPortStateMirrorGroupEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortStateMirrorGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupId": {
+    "name": "wwpLeosEtherPortStateMirrorGroupId",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupName": {
+    "name": "wwpLeosEtherPortStateMirrorGroupName",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupOperStatus": {
+    "name": "wwpLeosEtherPortStateMirrorGroupOperStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupNumSrcPorts": {
+    "name": "wwpLeosEtherPortStateMirrorGroupNumSrcPorts",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupNumDstPorts": {
+    "name": "wwpLeosEtherPortStateMirrorGroupNumDstPorts",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupStatus": {
+    "name": "wwpLeosEtherPortStateMirrorGroupStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupType": {
+    "name": "wwpLeosEtherPortStateMirrorGroupType",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unidirectional": 1,
+          "bidirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupMemTable": {
+    "name": "wwpLeosEtherPortStateMirrorGroupMemTable",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupMemEntry": {
+    "name": "wwpLeosEtherPortStateMirrorGroupMemEntry",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortStateMirrorGroupId",
+        "implied": 0
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupMemType": {
+    "name": "wwpLeosEtherPortStateMirrorGroupMemType",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srcPort": 1,
+          "dstPort": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "srcPort",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupMemOperState": {
+    "name": "wwpLeosEtherPortStateMirrorGroupMemOperState",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wwpLeosEtherPortStateMirrorGroupMemStatus": {
+    "name": "wwpLeosEtherPortStateMirrorGroupMemStatus",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wwpLeosEtherStndLinkUpDownTrapsEnable": {
+    "name": "wwpLeosEtherStndLinkUpDownTrapsEnable",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherPortLinkUpDownTrapsEnable": {
+    "name": "wwpLeosEtherPortLinkUpDownTrapsEnable",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEtherAggPortLinkUpDownTrapsEnable": {
+    "name": "wwpLeosEtherAggPortLinkUpDownTrapsEnable",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wwpLeosEthLinkUp": {
+    "name": "wwpLeosEthLinkUp",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortName"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortType"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortAdminStatus"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortOperStatus"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosEthLinkDown": {
+    "name": "wwpLeosEthLinkDown",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortType"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortName"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortAdminStatus"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortOperStatus"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosEthAdminSpeedIncompatible": {
+    "name": "wwpLeosEthAdminSpeedIncompatible",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosEthLinkFlap": {
+    "name": "wwpLeosEthLinkFlap",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortType"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortName"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortOperStatus"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortDesc"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortLinkFlapHoldTime"
+      }
+    ],
+    "status": "current"
+  },
+  "wwpLeosAggLinkUpDown": {
+    "name": "wwpLeosAggLinkUpDown",
+    "oid": "1.3.6.1.4.1.6141.2.60.2.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortId"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortName"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortDesc"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortType"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortAdminStatus"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortOperStatus"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorAdminKey"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortListPorts"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortName"
+      },
+      {
+        "module": "WWP-LEOS-PORT-MIB",
+        "object": "wwpLeosEtherPortDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WWP-LEOS-PORT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WWP-LEOS-PORT-MIB"
+  }
+}

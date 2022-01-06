@@ -1,0 +1,816 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoVrfMIB": {
+    "name": "ciscoVrfMIB",
+    "oid": "1.3.6.1.4.1.9.9.711",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-12-10 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "CvVrfIfType": {
+    "name": "CvVrfIfType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vNETTrunkSI": 1,
+          "vNETEdge": 2,
+          "vrfEdge": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CvVnetTagOrZero": {
+    "name": "CvVnetTagOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoVrfMIBObjects": {
+    "name": "ciscoVrfMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.711.1",
+    "class": "objectidentity"
+  },
+  "ciscoVrfMIBNotifs": {
+    "name": "ciscoVrfMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.711.0",
+    "class": "objectidentity"
+  },
+  "ciscoVrfMIBConform": {
+    "name": "ciscoVrfMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.711.2",
+    "class": "objectidentity"
+  },
+  "cvVrf": {
+    "name": "cvVrf",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1",
+    "class": "objectidentity"
+  },
+  "cvInterface": {
+    "name": "cvInterface",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2",
+    "class": "objectidentity"
+  },
+  "cvNotifCntl": {
+    "name": "cvNotifCntl",
+    "oid": "1.3.6.1.4.1.9.9.711.1.3",
+    "class": "objectidentity"
+  },
+  "cvVrfTable": {
+    "name": "cvVrfTable",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvVrfEntry": {
+    "name": "cvVrfEntry",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvVrfIndex": {
+    "name": "cvVrfIndex",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvVrfName": {
+    "name": "cvVrfName",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvVrfVnetTag": {
+    "name": "cvVrfVnetTag",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvVnetTagOrZero",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvVrfOperStatus": {
+    "name": "cvVrfOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvVrfRouteDistProt": {
+    "name": "cvVrfRouteDistProt",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "other": 1,
+        "ospf": 2,
+        "rip": 3,
+        "isis": 4,
+        "eigrp": 5,
+        "bgp": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvVrfStorageType": {
+    "name": "cvVrfStorageType",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvVrfRowStatus": {
+    "name": "cvVrfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvVrfListTable": {
+    "name": "cvVrfListTable",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvVrfListEntry": {
+    "name": "cvVrfListEntry",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfListVindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvVrfListName": {
+    "name": "cvVrfListName",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvVrfListVindex": {
+    "name": "cvVrfListVindex",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvVrfListVrfIndex": {
+    "name": "cvVrfListVrfIndex",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvVrfListStorageType": {
+    "name": "cvVrfListStorageType",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvVrfListRowStatus": {
+    "name": "cvVrfListRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.711.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvVrfInterfaceTable": {
+    "name": "cvVrfInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvVrfInterfaceEntry": {
+    "name": "cvVrfInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvVrfInterfaceIndex": {
+    "name": "cvVrfInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvVrfInterfaceType": {
+    "name": "cvVrfInterfaceType",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvVrfIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvVrfInterfaceVnetTagOverride": {
+    "name": "cvVrfInterfaceVnetTagOverride",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvVnetTagOrZero",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvVrfInterfaceStorageType": {
+    "name": "cvVrfInterfaceStorageType",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvVrfInterfaceRowStatus": {
+    "name": "cvVrfInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvInterfaceTable": {
+    "name": "cvInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvInterfaceEntry": {
+    "name": "cvInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvInterfaceVnetTrunkEnabled": {
+    "name": "cvInterfaceVnetTrunkEnabled",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvInterfaceVnetVrfList": {
+    "name": "cvInterfaceVnetVrfList",
+    "oid": "1.3.6.1.4.1.9.9.711.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvVrfIfNotifEnable": {
+    "name": "cvVrfIfNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.711.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvVnetTrunkNotifEnable": {
+    "name": "cvVnetTrunkNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.711.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvVrfIfUp": {
+    "name": "cvVrfIfUp",
+    "oid": "1.3.6.1.4.1.9.9.711.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfName"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvVrfIfDown": {
+    "name": "cvVrfIfDown",
+    "oid": "1.3.6.1.4.1.9.9.711.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfName"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvVnetTrunkUp": {
+    "name": "cvVnetTrunkUp",
+    "oid": "1.3.6.1.4.1.9.9.711.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "cvVnetTrunkDown": {
+    "name": "cvVnetTrunkDown",
+    "oid": "1.3.6.1.4.1.9.9.711.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "cvMIBGroups": {
+    "name": "cvMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.711.2.1",
+    "class": "objectidentity"
+  },
+  "cvMIBVrfGroup": {
+    "name": "cvMIBVrfGroup",
+    "oid": "1.3.6.1.4.1.9.9.711.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfOperStatus"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfStorageType"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfRowStatus"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfRouteDistProt"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfInterfaceType"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfInterfaceStorageType"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfInterfaceRowStatus"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfIfNotifEnable"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfName"
+      }
+    ],
+    "status": "current"
+  },
+  "cvMIBVrfNotifGroup": {
+    "name": "cvMIBVrfNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.711.2.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfIfUp"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfIfDown"
+      }
+    ],
+    "status": "current"
+  },
+  "cvMIBVnetGroup": {
+    "name": "cvMIBVnetGroup",
+    "oid": "1.3.6.1.4.1.9.9.711.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfVnetTag"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfListVrfIndex"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfListStorageType"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfListRowStatus"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVrfInterfaceVnetTagOverride"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvInterfaceVnetTrunkEnabled"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvInterfaceVnetVrfList"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVnetTrunkNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cvMIBVnetNotifGroup": {
+    "name": "cvMIBVnetNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.711.2.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVnetTrunkUp"
+      },
+      {
+        "module": "CISCO-VRF-MIB",
+        "object": "cvVnetTrunkDown"
+      }
+    ],
+    "status": "current"
+  },
+  "cvMIBCompliances": {
+    "name": "cvMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.711.2.2",
+    "class": "objectidentity"
+  },
+  "cvMIBCompliance": {
+    "name": "cvMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.711.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvMIBVrfGroup",
+        "module": "CISCO-VRF-MIB"
+      },
+      {
+        "object": "cvMIBVrfNotifGroup",
+        "module": "CISCO-VRF-MIB"
+      },
+      {
+        "object": "cvMIBVnetGroup",
+        "module": "CISCO-VRF-MIB"
+      },
+      {
+        "object": "cvMIBVnetNotifGroup",
+        "module": "CISCO-VRF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VRF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VRF-MIB"
+  }
+}

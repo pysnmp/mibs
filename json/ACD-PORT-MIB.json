@@ -1,0 +1,1924 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACCEDIAN-SMI": [
+      "acdMibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "acdPort": {
+    "name": "acdPort",
+    "oid": "1.3.6.1.4.1.22420.2.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-10-10 01:00",
+        "description": "Add acdPortConfigTableLastChangeTid."
+      },
+      {
+        "revision": "2010-10-01 01:00",
+        "description": "..."
+      },
+      {
+        "revision": "2008-05-01 01:00",
+        "description": "Initial version of MIB module ACD-PORT-MIB."
+      }
+    ]
+  },
+  "acdPortMIBObjects": {
+    "name": "acdPortMIBObjects",
+    "oid": "1.3.6.1.4.1.22420.2.9.1",
+    "class": "objectidentity"
+  },
+  "acdPortConformance": {
+    "name": "acdPortConformance",
+    "oid": "1.3.6.1.4.1.22420.2.9.2",
+    "class": "objectidentity"
+  },
+  "acdPortConfig": {
+    "name": "acdPortConfig",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1",
+    "class": "objectidentity"
+  },
+  "acdPortStatus": {
+    "name": "acdPortStatus",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2",
+    "class": "objectidentity"
+  },
+  "acdPortStats": {
+    "name": "acdPortStats",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3",
+    "class": "objectidentity"
+  },
+  "acdPortTableTid": {
+    "name": "acdPortTableTid",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.4",
+    "class": "objectidentity"
+  },
+  "acdPortConfigTable": {
+    "name": "acdPortConfigTable",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPortConfigEntry": {
+    "name": "acdPortConfigEntry",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortConfigIndex": {
+    "name": "acdPortConfigIndex",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPortConfigName": {
+    "name": "acdPortConfigName",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigAlias": {
+    "name": "acdPortConfigAlias",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigMacAddress": {
+    "name": "acdPortConfigMacAddress",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortConfigConnectorId": {
+    "name": "acdPortConfigConnectorId",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortConfigState": {
+    "name": "acdPortConfigState",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigMtu": {
+    "name": "acdPortConfigMtu",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigAutoNegoState": {
+    "name": "acdPortConfigAutoNegoState",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigSpeed": {
+    "name": "acdPortConfigSpeed",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigDuplex": {
+    "name": "acdPortConfigDuplex",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halfDuplex": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigMdi": {
+    "name": "acdPortConfigMdi",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoMdi": 1,
+          "mdi": 2,
+          "mdix": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigPauseMode": {
+    "name": "acdPortConfigPauseMode",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "local": 2,
+          "forward": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortConfigAdvertisement": {
+    "name": "acdPortConfigAdvertisement",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bHalfDuplex10Mbps": 0,
+        "bFullDuplex10Mbps": 1,
+        "bHalfDuplex100Mbps": 2,
+        "bFullDuplex100Mbps": 3,
+        "bHalfDuplex1Gbps": 4,
+        "bFullDuplex1Gbps": 5,
+        "bPauseSymmetric": 6,
+        "bPauseAsymmetric": 7
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPortStatusTable": {
+    "name": "acdPortStatusTable",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPortStatusEntry": {
+    "name": "acdPortStatusEntry",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortStatusIndex": {
+    "name": "acdPortStatusIndex",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPortStatusSpeed": {
+    "name": "acdPortStatusSpeed",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusDuplex": {
+    "name": "acdPortStatusDuplex",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halfDuplex": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusMdi": {
+    "name": "acdPortStatusMdi",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mdi": 1,
+          "mdix": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusTxPause": {
+    "name": "acdPortStatusTxPause",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusRxPause": {
+    "name": "acdPortStatusRxPause",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusLinkPartnerAbility": {
+    "name": "acdPortStatusLinkPartnerAbility",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bHalfDuplex10Mbps": 0,
+        "bFullDuplex10Mbps": 1,
+        "bHalfDuplex100Mbps": 2,
+        "bFullDuplex100Mbps": 3,
+        "bHalfDuplex1Gbps": 4,
+        "bFullDuplex1Gbps": 5,
+        "bPauseSymmetric": 6,
+        "bPauseAsymmetric": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusLinkStatus": {
+    "name": "acdPortStatusLinkStatus",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusMedia": {
+    "name": "acdPortStatusMedia",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bOther": 0,
+        "bAUI": 1,
+        "b10base5": 2,
+        "bFoirl": 3,
+        "b10base2": 4,
+        "b10baseT": 5,
+        "b10baseFP": 6,
+        "b10baseFB": 7,
+        "b10baseFL": 8,
+        "b10broad36": 9,
+        "b10baseTHD": 10,
+        "b10baseTFD": 11,
+        "b10baseFLHD": 12,
+        "b10baseFLFD": 13,
+        "b100baseT4": 14,
+        "b100baseTXHD": 15,
+        "b100baseTXFD": 16,
+        "b100baseFXHD": 17,
+        "b100baseFXFD": 18,
+        "b100baseT2HD": 19,
+        "b100baseT2FD": 20,
+        "b1000baseXHD": 21,
+        "b1000baseXFD": 22,
+        "b1000baseLXHD": 23,
+        "b1000baseLXFD": 24,
+        "b1000baseSXHD": 25,
+        "b1000baseSXFD": 26,
+        "b1000baseCXHD": 27,
+        "b1000baseCXFD": 28,
+        "b1000baseTHD": 29,
+        "b1000baseTFD": 30
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusIsMonitor": {
+    "name": "acdPortStatusIsMonitor",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusIsManagement": {
+    "name": "acdPortStatusIsManagement",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusIsSFP": {
+    "name": "acdPortStatusIsSFP",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortStatusIsFiber": {
+    "name": "acdPortStatusIsFiber",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsTable": {
+    "name": "acdPortTxStatsTable",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPortTxStatsEntry": {
+    "name": "acdPortTxStatsEntry",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortTxStatsIndex": {
+    "name": "acdPortTxStatsIndex",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPortTxStatsSupportBits": {
+    "name": "acdPortTxStatsSupportBits",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bBytesGood": 0,
+        "bBytesTotal": 1,
+        "bUnicastPkts": 2,
+        "bMulticastPkts": 3,
+        "bBroadcastPkts": 4,
+        "bPauseFrames": 5,
+        "bTaggedFrames": 6,
+        "bCRCErrors": 7,
+        "bDeferred": 8,
+        "bExcessiveDeferrals": 9,
+        "bSingleCollisions": 10,
+        "bMultipleCollisions": 11,
+        "bExcessiveCollisions": 12,
+        "bLateCollisions": 13,
+        "bNormalCollisions": 14,
+        "bFifoErrors": 15,
+        "bPkts64": 16,
+        "bPkts65to127": 17,
+        "bPkts128to255": 18,
+        "bPkts256to511": 19,
+        "bPkts512to1023": 20,
+        "bPkts1024to1518": 21,
+        "bPkts1519to2047": 22,
+        "bPkts2048to4095": 23,
+        "bPkts4096to8191": 24,
+        "bPkts8192andMore": 25,
+        "bPktsLarge": 26
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsBytesGood": {
+    "name": "acdPortTxStatsBytesGood",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsBytesTotal": {
+    "name": "acdPortTxStatsBytesTotal",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsUnicastPkts": {
+    "name": "acdPortTxStatsUnicastPkts",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsMulticastPkts": {
+    "name": "acdPortTxStatsMulticastPkts",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsBroadcastPkts": {
+    "name": "acdPortTxStatsBroadcastPkts",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPauseFrames": {
+    "name": "acdPortTxStatsPauseFrames",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsTaggedFrames": {
+    "name": "acdPortTxStatsTaggedFrames",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsCRCErrors": {
+    "name": "acdPortTxStatsCRCErrors",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsDeferred": {
+    "name": "acdPortTxStatsDeferred",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsExcessiveDeferrals": {
+    "name": "acdPortTxStatsExcessiveDeferrals",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsSingleCollisions": {
+    "name": "acdPortTxStatsSingleCollisions",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsMultipleCollisions": {
+    "name": "acdPortTxStatsMultipleCollisions",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsExcessiveCollisions": {
+    "name": "acdPortTxStatsExcessiveCollisions",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsLateCollisions": {
+    "name": "acdPortTxStatsLateCollisions",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsNormalCollisions": {
+    "name": "acdPortTxStatsNormalCollisions",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsFifoErrors": {
+    "name": "acdPortTxStatsFifoErrors",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts64": {
+    "name": "acdPortTxStatsPkts64",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts65to127": {
+    "name": "acdPortTxStatsPkts65to127",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts128to255": {
+    "name": "acdPortTxStatsPkts128to255",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts256to511": {
+    "name": "acdPortTxStatsPkts256to511",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts512to1023": {
+    "name": "acdPortTxStatsPkts512to1023",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts1024to1518": {
+    "name": "acdPortTxStatsPkts1024to1518",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts1519to2047": {
+    "name": "acdPortTxStatsPkts1519to2047",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts2048to4095": {
+    "name": "acdPortTxStatsPkts2048to4095",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts4096to8191": {
+    "name": "acdPortTxStatsPkts4096to8191",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPkts8192andMore": {
+    "name": "acdPortTxStatsPkts8192andMore",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortTxStatsPktsLarge": {
+    "name": "acdPortTxStatsPktsLarge",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsTable": {
+    "name": "acdPortRxStatsTable",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPortRxStatsEntry": {
+    "name": "acdPortRxStatsEntry",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortRxStatsIndex": {
+    "name": "acdPortRxStatsIndex",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPortRxStatsSupportBits": {
+    "name": "acdPortRxStatsSupportBits",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bBytesGood": 0,
+        "bBytesTotal": 1,
+        "bRxStatsShortOk": 2,
+        "bRxStatsShortBad": 3,
+        "bRxStatsLongOk": 4,
+        "bRxStatsLongBad": 5,
+        "bUnicastPkts": 6,
+        "bMulticastPkts": 7,
+        "bBroadcastPkts": 8,
+        "bPauseFrames": 9,
+        "bTaggedFrames": 10,
+        "bCRCErrors": 11,
+        "bAlignErrors": 12,
+        "bRuntFrames": 13,
+        "bLengthErrors": 14,
+        "bFalseCRS": 15,
+        "bPhyErrors": 16,
+        "bFifoErrors": 17,
+        "bIgnored": 18,
+        "bBadOpcode": 19,
+        "bPkts64": 20,
+        "bPkts65to127": 21,
+        "bPkts128to255": 22,
+        "bPkts256to511": 23,
+        "bPkts512to1023": 24,
+        "bPkts1024to1518": 25,
+        "bPkts1519to2047": 26,
+        "bPkts2048to4095": 27,
+        "bPkts4096to8191": 28,
+        "bPkts8192andMore": 29,
+        "bPktsLarge": 30
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsBytesGood": {
+    "name": "acdPortRxStatsBytesGood",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsBytesTotal": {
+    "name": "acdPortRxStatsBytesTotal",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsShortOk": {
+    "name": "acdPortRxStatsShortOk",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsShortBad": {
+    "name": "acdPortRxStatsShortBad",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsLongOk": {
+    "name": "acdPortRxStatsLongOk",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsLongBad": {
+    "name": "acdPortRxStatsLongBad",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsUnicastPkts": {
+    "name": "acdPortRxStatsUnicastPkts",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsMulticastPkts": {
+    "name": "acdPortRxStatsMulticastPkts",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsBroadcastPkts": {
+    "name": "acdPortRxStatsBroadcastPkts",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPauseFrames": {
+    "name": "acdPortRxStatsPauseFrames",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsTaggedFrames": {
+    "name": "acdPortRxStatsTaggedFrames",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsCRCErrors": {
+    "name": "acdPortRxStatsCRCErrors",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsAlignErrors": {
+    "name": "acdPortRxStatsAlignErrors",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsRuntFrames": {
+    "name": "acdPortRxStatsRuntFrames",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsLengthErrors": {
+    "name": "acdPortRxStatsLengthErrors",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsFalseCRS": {
+    "name": "acdPortRxStatsFalseCRS",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPhyErrors": {
+    "name": "acdPortRxStatsPhyErrors",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsFifoErrors": {
+    "name": "acdPortRxStatsFifoErrors",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsIgnored": {
+    "name": "acdPortRxStatsIgnored",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsBadOpcode": {
+    "name": "acdPortRxStatsBadOpcode",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts64": {
+    "name": "acdPortRxStatsPkts64",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts65to127": {
+    "name": "acdPortRxStatsPkts65to127",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts128to255": {
+    "name": "acdPortRxStatsPkts128to255",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts256to511": {
+    "name": "acdPortRxStatsPkts256to511",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts512to1023": {
+    "name": "acdPortRxStatsPkts512to1023",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts1024to1518": {
+    "name": "acdPortRxStatsPkts1024to1518",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts1519to2047": {
+    "name": "acdPortRxStatsPkts1519to2047",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts2048to4095": {
+    "name": "acdPortRxStatsPkts2048to4095",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts4096to8191": {
+    "name": "acdPortRxStatsPkts4096to8191",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPkts8192andMore": {
+    "name": "acdPortRxStatsPkts8192andMore",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortRxStatsPktsLarge": {
+    "name": "acdPortRxStatsPktsLarge",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.3.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortConfigTableLastChangeTid": {
+    "name": "acdPortConfigTableLastChangeTid",
+    "oid": "1.3.6.1.4.1.22420.2.9.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPortCompliances": {
+    "name": "acdPortCompliances",
+    "oid": "1.3.6.1.4.1.22420.2.9.2.1",
+    "class": "objectidentity"
+  },
+  "acdPortGroups": {
+    "name": "acdPortGroups",
+    "oid": "1.3.6.1.4.1.22420.2.9.2.2",
+    "class": "objectidentity"
+  },
+  "acdPortConfigGroup": {
+    "name": "acdPortConfigGroup",
+    "oid": "1.3.6.1.4.1.22420.2.9.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigName"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigAlias"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigMacAddress"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigConnectorId"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigState"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigMtu"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigAutoNegoState"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigSpeed"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigDuplex"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigMdi"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigPauseMode"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigAdvertisement"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortStatusGroup": {
+    "name": "acdPortStatusGroup",
+    "oid": "1.3.6.1.4.1.22420.2.9.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusSpeed"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusDuplex"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusMdi"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusTxPause"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusRxPause"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusLinkPartnerAbility"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusLinkStatus"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusMedia"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusIsMonitor"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusIsManagement"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusIsSFP"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortStatusIsFiber"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortTxStatsGroup": {
+    "name": "acdPortTxStatsGroup",
+    "oid": "1.3.6.1.4.1.22420.2.9.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsSupportBits"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsBytesGood"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsBytesTotal"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsUnicastPkts"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsMulticastPkts"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsBroadcastPkts"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPauseFrames"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsTaggedFrames"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsCRCErrors"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsDeferred"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsExcessiveDeferrals"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsSingleCollisions"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsMultipleCollisions"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsExcessiveCollisions"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsLateCollisions"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsNormalCollisions"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsFifoErrors"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts64"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts65to127"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts128to255"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts256to511"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts512to1023"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts1024to1518"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts1519to2047"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts2048to4095"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts4096to8191"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPkts8192andMore"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortTxStatsPktsLarge"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortRxStatsGroup": {
+    "name": "acdPortRxStatsGroup",
+    "oid": "1.3.6.1.4.1.22420.2.9.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsSupportBits"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsBytesGood"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsBytesTotal"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsShortOk"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsShortBad"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsLongOk"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsLongBad"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsUnicastPkts"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsMulticastPkts"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsBroadcastPkts"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPauseFrames"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsTaggedFrames"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsCRCErrors"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsAlignErrors"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsRuntFrames"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsLengthErrors"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsFalseCRS"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPhyErrors"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsFifoErrors"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsIgnored"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsBadOpcode"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts64"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts65to127"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts128to255"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts256to511"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts512to1023"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts1024to1518"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts1519to2047"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts2048to4095"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts4096to8191"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPkts8192andMore"
+      },
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortRxStatsPktsLarge"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortTidGroup": {
+    "name": "acdPortTidGroup",
+    "oid": "1.3.6.1.4.1.22420.2.9.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-PORT-MIB",
+        "object": "acdPortConfigTableLastChangeTid"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPortCompliance": {
+    "name": "acdPortCompliance",
+    "oid": "1.3.6.1.4.1.22420.2.9.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "acdPortConfigGroup",
+        "module": "ACD-PORT-MIB"
+      },
+      {
+        "object": "acdPortStatusGroup",
+        "module": "ACD-PORT-MIB"
+      },
+      {
+        "object": "acdPortTxStatsGroup",
+        "module": "ACD-PORT-MIB"
+      },
+      {
+        "object": "acdPortRxStatsGroup",
+        "module": "ACD-PORT-MIB"
+      },
+      {
+        "object": "acdPortTidGroup",
+        "module": "ACD-PORT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-PORT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:03 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ACD-PORT-MIB"
+  }
+}

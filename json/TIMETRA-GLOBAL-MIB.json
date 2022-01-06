@@ -1,0 +1,808 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "timetraGlobalMIBModule": {
+    "name": "timetraGlobalMIBModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-01 00:00",
+        "description": "Rev 15.0 1 Jan 2017 00:00 15.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2016-01-01 00:00",
+        "description": "Rev 14.0 1 Jan 2016 00:00 14.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2015-01-01 00:00",
+        "description": "Rev 13.0 1 Jan 2015 00:00 13.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2014-01-01 00:00",
+        "description": "Rev 12.0 1 Jan 2014 00:00 12.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2012-08-01 00:00",
+        "description": "Rev 11.0 1 Aug 2012 00:00 11.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2011-02-01 00:00",
+        "description": "Rev 9.0 1 Feb 2011 00:00 9.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2010-02-28 00:00",
+        "description": "Rev 8.0 28 Feb 2010 00:00 8.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2009-02-28 00:00",
+        "description": "Rev 7.0 28 Feb 2009 00:00 7.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2009-02-01 00:00",
+        "description": "Rev 7.0 01 Feb 2009 00:00 7.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2008-07-01 00:00",
+        "description": "Rev 6.1 01 Jul 2008 00:00 6.1 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2008-01-01 00:00",
+        "description": "Rev 6.0 01 Jan 2008 00:00 6.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2007-01-01 00:00",
+        "description": "Rev 5.0 01 Jan 2007 00:00 5.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2005-08-31 00:00",
+        "description": "Rev 3.0 31 Aug 2005 00:00 3.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2005-01-24 00:00",
+        "description": "Rev 2.1 24 Jan 2005 00:00 2.1 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2004-01-15 00:00",
+        "description": "Rev 2.0 15 Jan 2004 00:00 2.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2003-01-20 00:00",
+        "description": "Rev 1.0 20 Jan 2003 00:00 This is the 1.0 release of the TIMETRA-GLOBAL-MIB."
+      },
+      {
+        "revision": "2000-08-14 00:00",
+        "description": "Rev 0.1 14 Aug 2000 00:00 This is the initial version of the TIMETRA-GLOBAL-MIB."
+      }
+    ]
+  },
+  "timetra": {
+    "name": "timetra",
+    "oid": "1.3.6.1.4.1.6527",
+    "class": "objectidentity"
+  },
+  "timetraReg": {
+    "name": "timetraReg",
+    "oid": "1.3.6.1.4.1.6527.1",
+    "class": "objectidentity"
+  },
+  "timetraModules": {
+    "name": "timetraModules",
+    "oid": "1.3.6.1.4.1.6527.1.1",
+    "class": "objectidentity"
+  },
+  "timetraSRMIBModules": {
+    "name": "timetraSRMIBModules",
+    "oid": "1.3.6.1.4.1.6527.1.1.3",
+    "class": "objectidentity"
+  },
+  "timetraCapabilityModule": {
+    "name": "timetraCapabilityModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.4",
+    "class": "objectidentity"
+  },
+  "timetra7750CapModule": {
+    "name": "timetra7750CapModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "timetra7450CapModule": {
+    "name": "timetra7450CapModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "timetra7710CapModule": {
+    "name": "timetra7710CapModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.4.3",
+    "class": "objectidentity"
+  },
+  "timetra7750MGCapModule": {
+    "name": "timetra7750MGCapModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.4.4",
+    "class": "objectidentity"
+  },
+  "timetraSROSCapModule": {
+    "name": "timetraSROSCapModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.4.5",
+    "class": "objectidentity"
+  },
+  "timetraDCCapModule": {
+    "name": "timetraDCCapModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.4.6",
+    "class": "objectidentity"
+  },
+  "timetraMGCapModule": {
+    "name": "timetraMGCapModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.4.7",
+    "class": "objectidentity"
+  },
+  "alcatelCommonMIBModules": {
+    "name": "alcatelCommonMIBModules",
+    "oid": "1.3.6.1.4.1.6527.1.1.5",
+    "class": "objectidentity"
+  },
+  "timetraServiceRouters": {
+    "name": "timetraServiceRouters",
+    "oid": "1.3.6.1.4.1.6527.1.3",
+    "class": "objectidentity"
+  },
+  "tmnxModelSR1Reg": {
+    "name": "tmnxModelSR1Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR4Reg": {
+    "name": "tmnxModelSR4Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR12Reg": {
+    "name": "tmnxModelSR12Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR7Reg": {
+    "name": "tmnxModelSR7Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR6Reg": {
+    "name": "tmnxModelSR6Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSRc12Reg": {
+    "name": "tmnxModelSRc12Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSRc4Reg": {
+    "name": "tmnxModelSRc4Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR12EReg": {
+    "name": "tmnxModelSR12EReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSRa4Reg": {
+    "name": "tmnxModelSRa4Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSRa8Reg": {
+    "name": "tmnxModelSRa8Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR1eReg": {
+    "name": "tmnxModelSR1eReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR2eReg": {
+    "name": "tmnxModelSR2eReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR3eReg": {
+    "name": "tmnxModelSR3eReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSARHmReg": {
+    "name": "tmnxModelSARHmReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR1v2Reg": {
+    "name": "tmnxModelSR1v2Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR14sReg": {
+    "name": "tmnxModelSR14sReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR7sReg": {
+    "name": "tmnxModelSR7sReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR1sReg": {
+    "name": "tmnxModelSR1sReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSR2sReg": {
+    "name": "tmnxModelSR2sReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelIXRr6Reg": {
+    "name": "tmnxModelIXRr6Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelIXR6Reg": {
+    "name": "tmnxModelIXR6Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelIXR10Reg": {
+    "name": "tmnxModelIXR10Reg",
+    "oid": "1.3.6.1.4.1.6527.1.3.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelIXRsReg": {
+    "name": "tmnxModelIXRsReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelSARHmcReg": {
+    "name": "tmnxModelSARHmcReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelIXReReg": {
+    "name": "tmnxModelIXReReg",
+    "oid": "1.3.6.1.4.1.6527.1.3.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "timetraServiceSwitches": {
+    "name": "timetraServiceSwitches",
+    "oid": "1.3.6.1.4.1.6527.1.6",
+    "class": "objectidentity"
+  },
+  "tmnxModelESS1Reg": {
+    "name": "tmnxModelESS1Reg",
+    "oid": "1.3.6.1.4.1.6527.1.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelESS4Reg": {
+    "name": "tmnxModelESS4Reg",
+    "oid": "1.3.6.1.4.1.6527.1.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelESS7Reg": {
+    "name": "tmnxModelESS7Reg",
+    "oid": "1.3.6.1.4.1.6527.1.6.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelESS12Reg": {
+    "name": "tmnxModelESS12Reg",
+    "oid": "1.3.6.1.4.1.6527.1.6.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelESS6Reg": {
+    "name": "tmnxModelESS6Reg",
+    "oid": "1.3.6.1.4.1.6527.1.6.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelESS6vReg": {
+    "name": "tmnxModelESS6vReg",
+    "oid": "1.3.6.1.4.1.6527.1.6.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatel7710ServiceRouters": {
+    "name": "alcatel7710ServiceRouters",
+    "oid": "1.3.6.1.4.1.6527.1.9",
+    "class": "objectidentity"
+  },
+  "tmnxModel7710SRc12Reg": {
+    "name": "tmnxModel7710SRc12Reg",
+    "oid": "1.3.6.1.4.1.6527.1.9.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModel7710SRc4Reg": {
+    "name": "tmnxModel7710SRc4Reg",
+    "oid": "1.3.6.1.4.1.6527.1.9.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatel7750MobileGateways": {
+    "name": "alcatel7750MobileGateways",
+    "oid": "1.3.6.1.4.1.6527.1.12",
+    "class": "objectidentity"
+  },
+  "tmnxModel7750MGSR7Reg": {
+    "name": "tmnxModel7750MGSR7Reg",
+    "oid": "1.3.6.1.4.1.6527.1.12.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModel7750MGSR12Reg": {
+    "name": "tmnxModel7750MGSR12Reg",
+    "oid": "1.3.6.1.4.1.6527.1.12.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelMGVMExtRoutingSystems": {
+    "name": "alcatelMGVMExtRoutingSystems",
+    "oid": "1.3.6.1.4.1.6527.1.13",
+    "class": "objectidentity"
+  },
+  "alcatelMobileSbaSystems": {
+    "name": "alcatelMobileSbaSystems",
+    "oid": "1.3.6.1.4.1.6527.1.14",
+    "class": "objectidentity"
+  },
+  "tmnxModelNrfReg": {
+    "name": "tmnxModelNrfReg",
+    "oid": "1.3.6.1.4.1.6527.1.14.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatel7950ExtRoutingSystems": {
+    "name": "alcatel7950ExtRoutingSystems",
+    "oid": "1.3.6.1.4.1.6527.1.15",
+    "class": "objectidentity"
+  },
+  "tmnxModel7950XRS20Reg": {
+    "name": "tmnxModel7950XRS20Reg",
+    "oid": "1.3.6.1.4.1.6527.1.15.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModel7950XRS16Reg": {
+    "name": "tmnxModel7950XRS16Reg",
+    "oid": "1.3.6.1.4.1.6527.1.15.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModel7950XRS20EReg": {
+    "name": "tmnxModel7950XRS20EReg",
+    "oid": "1.3.6.1.4.1.6527.1.15.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatel7nnnExtServiceRouters": {
+    "name": "alcatel7nnnExtServiceRouters",
+    "oid": "1.3.6.1.4.1.6527.1.18",
+    "class": "objectidentity"
+  },
+  "alcatelVMExtRoutingSystems": {
+    "name": "alcatelVMExtRoutingSystems",
+    "oid": "1.3.6.1.4.1.6527.1.19",
+    "class": "objectidentity"
+  },
+  "tmnxModelVSRReg": {
+    "name": "tmnxModelVSRReg",
+    "oid": "1.3.6.1.4.1.6527.1.19.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tmnxModelVSRcReg": {
+    "name": "tmnxModelVSRcReg",
+    "oid": "1.3.6.1.4.1.6527.1.19.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "timetraGeneric": {
+    "name": "timetraGeneric",
+    "oid": "1.3.6.1.4.1.6527.2",
+    "class": "objectidentity"
+  },
+  "timetraProducts": {
+    "name": "timetraProducts",
+    "oid": "1.3.6.1.4.1.6527.3",
+    "class": "objectidentity"
+  },
+  "tmnxSRMIB": {
+    "name": "tmnxSRMIB",
+    "oid": "1.3.6.1.4.1.6527.3.1",
+    "class": "objectidentity"
+  },
+  "tmnxSRConfs": {
+    "name": "tmnxSRConfs",
+    "oid": "1.3.6.1.4.1.6527.3.1.1",
+    "class": "objectidentity"
+  },
+  "tmnxSRObjs": {
+    "name": "tmnxSRObjs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2",
+    "class": "objectidentity"
+  },
+  "tmnxSRNotifyPrefix": {
+    "name": "tmnxSRNotifyPrefix",
+    "oid": "1.3.6.1.4.1.6527.3.1.3",
+    "class": "objectidentity"
+  },
+  "tmnxESSMIB": {
+    "name": "tmnxESSMIB",
+    "oid": "1.3.6.1.4.1.6527.3.2",
+    "class": "objectidentity"
+  },
+  "tmnxESSConfs": {
+    "name": "tmnxESSConfs",
+    "oid": "1.3.6.1.4.1.6527.3.2.1",
+    "class": "objectidentity"
+  },
+  "tmnxESSObjs": {
+    "name": "tmnxESSObjs",
+    "oid": "1.3.6.1.4.1.6527.3.2.2",
+    "class": "objectidentity"
+  },
+  "tmnxESSNotifyPrefix": {
+    "name": "tmnxESSNotifyPrefix",
+    "oid": "1.3.6.1.4.1.6527.3.2.3",
+    "class": "objectidentity"
+  },
+  "alcatelCommonMIB": {
+    "name": "alcatelCommonMIB",
+    "oid": "1.3.6.1.4.1.6527.3.3",
+    "class": "objectidentity"
+  },
+  "alcatelConformance": {
+    "name": "alcatelConformance",
+    "oid": "1.3.6.1.4.1.6527.3.3.1",
+    "class": "objectidentity"
+  },
+  "alcatelObjects": {
+    "name": "alcatelObjects",
+    "oid": "1.3.6.1.4.1.6527.3.3.2",
+    "class": "objectidentity"
+  },
+  "alcatelNotifyPrefix": {
+    "name": "alcatelNotifyPrefix",
+    "oid": "1.3.6.1.4.1.6527.3.3.3",
+    "class": "objectidentity"
+  },
+  "tmnxMGMIB": {
+    "name": "tmnxMGMIB",
+    "oid": "1.3.6.1.4.1.6527.3.4",
+    "class": "objectidentity"
+  },
+  "tmnxMGConfs": {
+    "name": "tmnxMGConfs",
+    "oid": "1.3.6.1.4.1.6527.3.4.1",
+    "class": "objectidentity"
+  },
+  "tmnxMGObjs": {
+    "name": "tmnxMGObjs",
+    "oid": "1.3.6.1.4.1.6527.3.4.2",
+    "class": "objectidentity"
+  },
+  "tmnxMGNotifyPrefix": {
+    "name": "tmnxMGNotifyPrefix",
+    "oid": "1.3.6.1.4.1.6527.3.4.3",
+    "class": "objectidentity"
+  },
+  "tmnxAgentCapability": {
+    "name": "tmnxAgentCapability",
+    "oid": "1.3.6.1.4.1.6527.4",
+    "class": "objectidentity"
+  },
+  "tmnx7750AgentCapability": {
+    "name": "tmnx7750AgentCapability",
+    "oid": "1.3.6.1.4.1.6527.4.1",
+    "class": "objectidentity"
+  },
+  "tmnx7450AgentCapability": {
+    "name": "tmnx7450AgentCapability",
+    "oid": "1.3.6.1.4.1.6527.4.2",
+    "class": "objectidentity"
+  },
+  "tmnx7710AgentCapability": {
+    "name": "tmnx7710AgentCapability",
+    "oid": "1.3.6.1.4.1.6527.4.3",
+    "class": "objectidentity"
+  },
+  "tmnxProductCapability": {
+    "name": "tmnxProductCapability",
+    "oid": "1.3.6.1.4.1.6527.5",
+    "class": "objectidentity"
+  },
+  "tmnx7750Capability": {
+    "name": "tmnx7750Capability",
+    "oid": "1.3.6.1.4.1.6527.5.1",
+    "class": "objectidentity"
+  },
+  "tmnx7750V3v0": {
+    "name": "tmnx7750V3v0",
+    "oid": "1.3.6.1.4.1.6527.5.1.1",
+    "class": "objectidentity"
+  },
+  "tmnx7750V4v0": {
+    "name": "tmnx7750V4v0",
+    "oid": "1.3.6.1.4.1.6527.5.1.2",
+    "class": "objectidentity"
+  },
+  "tmnx7750V5v0": {
+    "name": "tmnx7750V5v0",
+    "oid": "1.3.6.1.4.1.6527.5.1.3",
+    "class": "objectidentity"
+  },
+  "tmnx7750V6v0": {
+    "name": "tmnx7750V6v0",
+    "oid": "1.3.6.1.4.1.6527.5.1.4",
+    "class": "objectidentity"
+  },
+  "tmnx7750V6v1": {
+    "name": "tmnx7750V6v1",
+    "oid": "1.3.6.1.4.1.6527.5.1.5",
+    "class": "objectidentity"
+  },
+  "tmnx7750V7v0": {
+    "name": "tmnx7750V7v0",
+    "oid": "1.3.6.1.4.1.6527.5.1.6",
+    "class": "objectidentity"
+  },
+  "tmnx7750V8v0": {
+    "name": "tmnx7750V8v0",
+    "oid": "1.3.6.1.4.1.6527.5.1.7",
+    "class": "objectidentity"
+  },
+  "tmnx7450Capability": {
+    "name": "tmnx7450Capability",
+    "oid": "1.3.6.1.4.1.6527.5.2",
+    "class": "objectidentity"
+  },
+  "tmnx7450V3v0": {
+    "name": "tmnx7450V3v0",
+    "oid": "1.3.6.1.4.1.6527.5.2.1",
+    "class": "objectidentity"
+  },
+  "tmnx7450V4v0": {
+    "name": "tmnx7450V4v0",
+    "oid": "1.3.6.1.4.1.6527.5.2.2",
+    "class": "objectidentity"
+  },
+  "tmnx7450V5v0": {
+    "name": "tmnx7450V5v0",
+    "oid": "1.3.6.1.4.1.6527.5.2.3",
+    "class": "objectidentity"
+  },
+  "tmnx7450V6v0": {
+    "name": "tmnx7450V6v0",
+    "oid": "1.3.6.1.4.1.6527.5.2.4",
+    "class": "objectidentity"
+  },
+  "tmnx7450V6v1": {
+    "name": "tmnx7450V6v1",
+    "oid": "1.3.6.1.4.1.6527.5.2.5",
+    "class": "objectidentity"
+  },
+  "tmnx7450V7v0": {
+    "name": "tmnx7450V7v0",
+    "oid": "1.3.6.1.4.1.6527.5.2.6",
+    "class": "objectidentity"
+  },
+  "tmnx7450V8v0": {
+    "name": "tmnx7450V8v0",
+    "oid": "1.3.6.1.4.1.6527.5.2.7",
+    "class": "objectidentity"
+  },
+  "tmnx7710Capability": {
+    "name": "tmnx7710Capability",
+    "oid": "1.3.6.1.4.1.6527.5.3",
+    "class": "objectidentity"
+  },
+  "tmnx7710V3v0": {
+    "name": "tmnx7710V3v0",
+    "oid": "1.3.6.1.4.1.6527.5.3.1",
+    "class": "objectidentity"
+  },
+  "tmnx7710V4v0": {
+    "name": "tmnx7710V4v0",
+    "oid": "1.3.6.1.4.1.6527.5.3.2",
+    "class": "objectidentity"
+  },
+  "tmnx7710V5v0": {
+    "name": "tmnx7710V5v0",
+    "oid": "1.3.6.1.4.1.6527.5.3.3",
+    "class": "objectidentity"
+  },
+  "tmnx7710V6v0": {
+    "name": "tmnx7710V6v0",
+    "oid": "1.3.6.1.4.1.6527.5.3.4",
+    "class": "objectidentity"
+  },
+  "tmnx7710V6v1": {
+    "name": "tmnx7710V6v1",
+    "oid": "1.3.6.1.4.1.6527.5.3.5",
+    "class": "objectidentity"
+  },
+  "tmnx7710V7v0": {
+    "name": "tmnx7710V7v0",
+    "oid": "1.3.6.1.4.1.6527.5.3.6",
+    "class": "objectidentity"
+  },
+  "tmnx7710V8v0": {
+    "name": "tmnx7710V8v0",
+    "oid": "1.3.6.1.4.1.6527.5.3.7",
+    "class": "objectidentity"
+  },
+  "tmnx7750MGCapability": {
+    "name": "tmnx7750MGCapability",
+    "oid": "1.3.6.1.4.1.6527.5.4",
+    "class": "objectidentity"
+  },
+  "tmnx7750MGV1v0": {
+    "name": "tmnx7750MGV1v0",
+    "oid": "1.3.6.1.4.1.6527.5.4.1",
+    "class": "objectidentity"
+  },
+  "tmnx7750MGV2v0": {
+    "name": "tmnx7750MGV2v0",
+    "oid": "1.3.6.1.4.1.6527.5.4.2",
+    "class": "objectidentity"
+  },
+  "tmnx7750MGV3v0": {
+    "name": "tmnx7750MGV3v0",
+    "oid": "1.3.6.1.4.1.6527.5.4.3",
+    "class": "objectidentity"
+  },
+  "tmnx7750MGV4v0": {
+    "name": "tmnx7750MGV4v0",
+    "oid": "1.3.6.1.4.1.6527.5.4.4",
+    "class": "objectidentity"
+  },
+  "tmnxSROSCapability": {
+    "name": "tmnxSROSCapability",
+    "oid": "1.3.6.1.4.1.6527.5.5",
+    "class": "objectidentity"
+  },
+  "tmnxSROSV8v0": {
+    "name": "tmnxSROSV8v0",
+    "oid": "1.3.6.1.4.1.6527.5.5.1",
+    "class": "objectidentity"
+  },
+  "tmnxSROSV9v0": {
+    "name": "tmnxSROSV9v0",
+    "oid": "1.3.6.1.4.1.6527.5.5.2",
+    "class": "objectidentity"
+  },
+  "tmnxSROSV10v0": {
+    "name": "tmnxSROSV10v0",
+    "oid": "1.3.6.1.4.1.6527.5.5.3",
+    "class": "objectidentity"
+  },
+  "tmnxBasedProducts": {
+    "name": "tmnxBasedProducts",
+    "oid": "1.3.6.1.4.1.6527.6",
+    "class": "objectidentity"
+  },
+  "timetraConformance": {
+    "name": "timetraConformance",
+    "oid": "1.3.6.1.4.1.6527.999",
+    "class": "objectidentity"
+  },
+  "timetraCompliances": {
+    "name": "timetraCompliances",
+    "oid": "1.3.6.1.4.1.6527.999.1",
+    "class": "objectidentity"
+  },
+  "timetraCompliance": {
+    "name": "timetraCompliance",
+    "oid": "1.3.6.1.4.1.6527.999.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "timetraGroup",
+        "module": "TIMETRA-GLOBAL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "timetraGroups": {
+    "name": "timetraGroups",
+    "oid": "1.3.6.1.4.1.6527.999.2",
+    "class": "objectidentity"
+  },
+  "timetraGroup": {
+    "name": "timetraGroup",
+    "oid": "1.3.6.1.4.1.6527.999.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-GLOBAL-MIB",
+        "object": "timetraEoM"
+      }
+    ],
+    "status": "current"
+  },
+  "timetraEoM": {
+    "name": "timetraEoM",
+    "oid": "1.3.6.1.4.1.6527.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-GLOBAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TIMETRA-GLOBAL-MIB"
+  }
+}

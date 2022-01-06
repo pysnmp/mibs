@@ -1,0 +1,804 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cIssuUpgrade": {
+    "name": "hh3cIssuUpgrade",
+    "oid": "1.3.6.1.4.1.25506.2.133",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-15 15:36",
+        "description": "Initial version of this MIB module. Added hh3cIssuUpgradeImageTable hh3cIssuOp hh3cIssuCompatibleResult hh3cIssuTestResultTable hh3cIssuUpgradeResultTable"
+      }
+    ]
+  },
+  "hh3cIssuUpgradeMibObjects": {
+    "name": "hh3cIssuUpgradeMibObjects",
+    "oid": "1.3.6.1.4.1.25506.2.133.1",
+    "class": "objectidentity"
+  },
+  "hh3cIssuUpgradeGroup": {
+    "name": "hh3cIssuUpgradeGroup",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cIssuUpgradeImageTable": {
+    "name": "hh3cIssuUpgradeImageTable",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeImageEntry": {
+    "name": "hh3cIssuUpgradeImageEntry",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-ISSU-MIB",
+        "object": "hh3cIssuUpgradeImageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cIssuUpgradeImageIndex": {
+    "name": "hh3cIssuUpgradeImageIndex",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeImageType": {
+    "name": "hh3cIssuUpgradeImageType",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "boot": 1,
+          "system": 2,
+          "feature": 3,
+          "ipe": 4,
+          "patch": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeImageURL": {
+    "name": "hh3cIssuUpgradeImageURL",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeImageRowStatus": {
+    "name": "hh3cIssuUpgradeImageRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIssuOp": {
+    "name": "hh3cIssuOp",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cIssuOpType": {
+    "name": "hh3cIssuOpType",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "done": 2,
+          "test": 3,
+          "install": 4,
+          "rollback": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cIssuImageFileOverwrite": {
+    "name": "hh3cIssuImageFileOverwrite",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cIssuOpTrapEnable": {
+    "name": "hh3cIssuOpTrapEnable",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cIssuOpStatus": {
+    "name": "hh3cIssuOpStatus",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "failure": 2,
+          "inProgress": 3,
+          "success": 4,
+          "rollbackInProgress": 5,
+          "rollbackSuccess": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuFailedReason": {
+    "name": "hh3cIssuFailedReason",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuOpTimeCompleted": {
+    "name": "hh3cIssuOpTimeCompleted",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuLastOpType": {
+    "name": "hh3cIssuLastOpType",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "done": 2,
+          "test": 3,
+          "install": 4,
+          "rollback": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuLastOpStatus": {
+    "name": "hh3cIssuLastOpStatus",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "failure": 2,
+          "inProgress": 3,
+          "success": 4,
+          "rollbackInProgress": 5,
+          "rollbackSuccess": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuLastOpFailedReason": {
+    "name": "hh3cIssuLastOpFailedReason",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuLastOpTimeCompleted": {
+    "name": "hh3cIssuLastOpTimeCompleted",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeResultGroup": {
+    "name": "hh3cIssuUpgradeResultGroup",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cIssuCompatibleResult": {
+    "name": "hh3cIssuCompatibleResult",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cIssuCompatibleResultStatus": {
+    "name": "hh3cIssuCompatibleResultStatus",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inCompatible": 2,
+          "compatible": 3,
+          "failure": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuCompatibleResultFailedReason": {
+    "name": "hh3cIssuCompatibleResultFailedReason",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuTestResultTable": {
+    "name": "hh3cIssuTestResultTable",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIssuTestResultEntry": {
+    "name": "hh3cIssuTestResultEntry",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-ISSU-MIB",
+        "object": "hh3cIssuTestResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cIssuTestResultIndex": {
+    "name": "hh3cIssuTestResultIndex",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIssuTestDeviceChassisID": {
+    "name": "hh3cIssuTestDeviceChassisID",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuTestDeviceSlotID": {
+    "name": "hh3cIssuTestDeviceSlotID",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuTestDeviceCpuID": {
+    "name": "hh3cIssuTestDeviceCpuID",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuTestDeviceUpgradeWay": {
+    "name": "hh3cIssuTestDeviceUpgradeWay",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "reboot": 2,
+          "sequenceReboot": 3,
+          "issuReboot": 4,
+          "serviceUpgrade": 5,
+          "fileUpgrade": 6,
+          "incompatibleUpgrade": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeResultTable": {
+    "name": "hh3cIssuUpgradeResultTable",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeResultEntry": {
+    "name": "hh3cIssuUpgradeResultEntry",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-ISSU-MIB",
+        "object": "hh3cIssuUpgradeResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cIssuUpgradeResultIndex": {
+    "name": "hh3cIssuUpgradeResultIndex",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeDeviceChassisID": {
+    "name": "hh3cIssuUpgradeDeviceChassisID",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeDeviceSlotID": {
+    "name": "hh3cIssuUpgradeDeviceSlotID",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeDeviceCpuID": {
+    "name": "hh3cIssuUpgradeDeviceCpuID",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeState": {
+    "name": "hh3cIssuUpgradeState",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "loading": 2,
+          "loaded": 3,
+          "switching": 4,
+          "switchover": 5,
+          "committing": 6,
+          "committed": 7,
+          "rollbacking": 8,
+          "rollbacked": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuDeviceUpgradeWay": {
+    "name": "hh3cIssuDeviceUpgradeWay",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "reboot": 2,
+          "sequenceReboot": 3,
+          "issuReboot": 4,
+          "serviceUpgrade": 5,
+          "fileUpgrade": 6,
+          "incompatibleUpgrade": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeDeviceStatus": {
+    "name": "hh3cIssuUpgradeDeviceStatus",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "waitingUpgrade": 1,
+          "inProcess": 2,
+          "success": 3,
+          "failure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeFailedReason": {
+    "name": "hh3cIssuUpgradeFailedReason",
+    "oid": "1.3.6.1.4.1.25506.2.133.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIssuUpgradeNotify": {
+    "name": "hh3cIssuUpgradeNotify",
+    "oid": "1.3.6.1.4.1.25506.2.133.2",
+    "class": "objectidentity"
+  },
+  "hh3cIssuUpgradeTrapPrefix": {
+    "name": "hh3cIssuUpgradeTrapPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.133.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cIssuUpgradeOpCompletionNotify": {
+    "name": "hh3cIssuUpgradeOpCompletionNotify",
+    "oid": "1.3.6.1.4.1.25506.2.133.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-ISSU-MIB",
+        "object": "hh3cIssuOpType"
+      },
+      {
+        "module": "HH3C-ISSU-MIB",
+        "object": "hh3cIssuOpStatus"
+      },
+      {
+        "module": "HH3C-ISSU-MIB",
+        "object": "hh3cIssuFailedReason"
+      },
+      {
+        "module": "HH3C-ISSU-MIB",
+        "object": "hh3cIssuOpTimeCompleted"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-ISSU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-ISSU-MIB"
+  }
+}

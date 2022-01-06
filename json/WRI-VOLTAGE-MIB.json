@@ -1,0 +1,327 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "enterprises",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "WRI-SMI": [
+      "wriProducts",
+      "wri"
+    ]
+  },
+  "msppVoltage": {
+    "name": "msppVoltage",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-01-11 00:00",
+        "description": "Add description for oid."
+      },
+      {
+        "revision": "2009-01-11 00:00",
+        "description": "Init version for voltage monitor."
+      }
+    ]
+  },
+  "mspp": {
+    "name": "mspp",
+    "oid": "1.3.6.1.4.1.3807.1.8012",
+    "class": "objectidentity"
+  },
+  "msppChassis": {
+    "name": "msppChassis",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1",
+    "class": "objectidentity"
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "voltageGeneral": {
+    "name": "voltageGeneral",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.1",
+    "class": "objectidentity"
+  },
+  "voltageTrapEnable": {
+    "name": "voltageTrapEnable",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "voltageMonitorEnable": {
+    "name": "voltageMonitorEnable",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "voltageNumber": {
+    "name": "voltageNumber",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageTable": {
+    "name": "voltageTable",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "voltageEntry": {
+    "name": "voltageEntry",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WRI-VOLTAGE-MIB",
+        "object": "voltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "voltageIndex": {
+    "name": "voltageIndex",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageDescr": {
+    "name": "voltageDescr",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "voltageLThreshold": {
+    "name": "voltageLThreshold",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "voltageHThreshold": {
+    "name": "voltageHThreshold",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "voltageValue": {
+    "name": "voltageValue",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageState": {
+    "name": "voltageState",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "lowtrap": 1,
+          "hightrap": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageTrapEna": {
+    "name": "voltageTrapEna",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "voltageAllSetting": {
+    "name": "voltageAllSetting",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "voltageIndexDescr": {
+    "name": "voltageIndexDescr",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageTrap": {
+    "name": "voltageTrap",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.3",
+    "class": "objectidentity"
+  },
+  "voltageOk": {
+    "name": "voltageOk",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WRI-VOLTAGE-MIB",
+        "object": "voltageDescr"
+      },
+      {
+        "module": "WRI-VOLTAGE-MIB",
+        "object": "voltageValue"
+      }
+    ],
+    "status": "current"
+  },
+  "voltageFault": {
+    "name": "voltageFault",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1.7.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WRI-VOLTAGE-MIB",
+        "object": "voltageDescr"
+      },
+      {
+        "module": "WRI-VOLTAGE-MIB",
+        "object": "voltageValue"
+      },
+      {
+        "module": "WRI-VOLTAGE-MIB",
+        "object": "voltageLThreshold"
+      },
+      {
+        "module": "WRI-VOLTAGE-MIB",
+        "object": "voltageHThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fiberhome/WRI-VOLTAGE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WRI-VOLTAGE-MIB"
+  }
+}

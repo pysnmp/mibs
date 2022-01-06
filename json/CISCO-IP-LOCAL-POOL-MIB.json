@@ -1,0 +1,927 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIpLocalPoolMIB": {
+    "name": "ciscoIpLocalPoolMIB",
+    "oid": "1.3.6.1.4.1.9.9.326",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-11-12 00:00",
+        "description": "Added one object to the cIpLocalPoolConfigTable: - cIpLocalPoolPriority Added ciscoIpLocalPoolMIBCompliance2 MODULE-COMPLIANCE Added ciscoIpLocalPoolPriorityGroup OBJECT-GROUP"
+      },
+      {
+        "revision": "2005-01-11 00:00",
+        "description": "Added two objects to the cIpLocalPoolStatsTable: - cIpLocalPoolPercentAddrThldLo - cIpLocalPoolPercentAddrThldHi Added two notifications: - cilpPercentAddrUsedHiNotif - cilpPercentAddrUsedLoNotif"
+      },
+      {
+        "revision": "2003-04-03 20:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CIpLocalPoolName": {
+    "name": "CIpLocalPoolName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIpLocalPoolGroupNameOrNull": {
+    "name": "CIpLocalPoolGroupNameOrNull",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIpLocalPoolPercentage": {
+    "name": "CIpLocalPoolPercentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "ciscoIpLocalPoolMIBNotifs": {
+    "name": "ciscoIpLocalPoolMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.326.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpLocalPoolMIBObjects": {
+    "name": "ciscoIpLocalPoolMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.326.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpLocalPoolMIBConform": {
+    "name": "ciscoIpLocalPoolMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.326.2",
+    "class": "objectidentity"
+  },
+  "cIpLocalPoolConfig": {
+    "name": "cIpLocalPoolConfig",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1",
+    "class": "objectidentity"
+  },
+  "cIpLocalPoolGroup": {
+    "name": "cIpLocalPoolGroup",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2",
+    "class": "objectidentity"
+  },
+  "cIpLocalPoolStats": {
+    "name": "cIpLocalPoolStats",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3",
+    "class": "objectidentity"
+  },
+  "cIpLocalPoolNotificationsEnable": {
+    "name": "cIpLocalPoolNotificationsEnable",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpLocalPoolConfigTable": {
+    "name": "cIpLocalPoolConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolConfigEntry": {
+    "name": "cIpLocalPoolConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolAddressLo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpLocalPoolName": {
+    "name": "cIpLocalPoolName",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIpLocalPoolName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolAddrType": {
+    "name": "cIpLocalPoolAddrType",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolAddressLo": {
+    "name": "cIpLocalPoolAddressLo",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolAddressHi": {
+    "name": "cIpLocalPoolAddressHi",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIpLocalPoolFreeAddrs": {
+    "name": "cIpLocalPoolFreeAddrs",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpLocalPoolInUseAddrs": {
+    "name": "cIpLocalPoolInUseAddrs",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpLocalPoolGroupContainedIn": {
+    "name": "cIpLocalPoolGroupContainedIn",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIpLocalPoolGroupNameOrNull",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIpLocalPoolRowStatus": {
+    "name": "cIpLocalPoolRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIpLocalPoolPriority": {
+    "name": "cIpLocalPoolPriority",
+    "oid": "1.3.6.1.4.1.9.9.326.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIpLocalPoolGroupContainsTable": {
+    "name": "cIpLocalPoolGroupContainsTable",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolGroupContainsEntry": {
+    "name": "cIpLocalPoolGroupContainsEntry",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolChildIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpLocalPoolGroupName": {
+    "name": "cIpLocalPoolGroupName",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIpLocalPoolGroupNameOrNull",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolChildIndex": {
+    "name": "cIpLocalPoolChildIndex",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIpLocalPoolName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpLocalPoolGroupTable": {
+    "name": "cIpLocalPoolGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolGroupEntry": {
+    "name": "cIpLocalPoolGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpLocalPoolGroupFreeAddrs": {
+    "name": "cIpLocalPoolGroupFreeAddrs",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpLocalPoolGroupInUseAddrs": {
+    "name": "cIpLocalPoolGroupInUseAddrs",
+    "oid": "1.3.6.1.4.1.9.9.326.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpLocalPoolStatsTable": {
+    "name": "cIpLocalPoolStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolStatsEntry": {
+    "name": "cIpLocalPoolStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpLocalPoolStatFreeAddrs": {
+    "name": "cIpLocalPoolStatFreeAddrs",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpLocalPoolStatInUseAddrs": {
+    "name": "cIpLocalPoolStatInUseAddrs",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpLocalPoolStatHiWaterUsedAddrs": {
+    "name": "cIpLocalPoolStatHiWaterUsedAddrs",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpLocalPoolStatInUseAddrThldLo": {
+    "name": "cIpLocalPoolStatInUseAddrThldLo",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpLocalPoolStatInUseAddrThldHi": {
+    "name": "cIpLocalPoolStatInUseAddrThldHi",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpLocalPoolPercentAddrThldLo": {
+    "name": "cIpLocalPoolPercentAddrThldLo",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIpLocalPoolPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpLocalPoolPercentAddrThldHi": {
+    "name": "cIpLocalPoolPercentAddrThldHi",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIpLocalPoolPercentage",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpLocalPoolAllocTable": {
+    "name": "cIpLocalPoolAllocTable",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolAllocEntry": {
+    "name": "cIpLocalPoolAllocEntry",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolAllocAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolAllocAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpLocalPoolAllocAddrType": {
+    "name": "cIpLocalPoolAllocAddrType",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolAllocAddr": {
+    "name": "cIpLocalPoolAllocAddr",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpLocalPoolAllocIfIndex": {
+    "name": "cIpLocalPoolAllocIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpLocalPoolAllocUser": {
+    "name": "cIpLocalPoolAllocUser",
+    "oid": "1.3.6.1.4.1.9.9.326.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpLocalPoolInUseAddrNoti": {
+    "name": "ciscoIpLocalPoolInUseAddrNoti",
+    "oid": "1.3.6.1.4.1.9.9.326.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatFreeAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatInUseAddrs"
+      }
+    ],
+    "status": "current"
+  },
+  "cilpPercentAddrUsedLoNotif": {
+    "name": "cilpPercentAddrUsedLoNotif",
+    "oid": "1.3.6.1.4.1.9.9.326.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatFreeAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatInUseAddrs"
+      }
+    ],
+    "status": "current"
+  },
+  "cilpPercentAddrUsedHiNotif": {
+    "name": "cilpPercentAddrUsedHiNotif",
+    "oid": "1.3.6.1.4.1.9.9.326.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatFreeAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatInUseAddrs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpLocalPoolMIBCompliances": {
+    "name": "ciscoIpLocalPoolMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.326.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpLocalPoolMIBGroups": {
+    "name": "ciscoIpLocalPoolMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.326.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpLocalPoolMIBCompliance": {
+    "name": "ciscoIpLocalPoolMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.326.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpLocalPoolConfigGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolStatsGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolGroupGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpLocalPoolMIBCompliance1": {
+    "name": "ciscoIpLocalPoolMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.326.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpLocalPoolConfigGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolStatsGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolNotifGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolGroupGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolStatsGroupSup1",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolNotifGroupSup1",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIpLocalPoolMIBCompliance2": {
+    "name": "ciscoIpLocalPoolMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.326.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpLocalPoolConfigGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolStatsGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolNotifGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolPriorityGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolGroupGroup",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolStatsGroupSup1",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      },
+      {
+        "object": "ciscoIpLocalPoolNotifGroupSup1",
+        "module": "CISCO-IP-LOCAL-POOL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpLocalPoolConfigGroup": {
+    "name": "ciscoIpLocalPoolConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.326.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolNotificationsEnable"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolAddressHi"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolFreeAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolInUseAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolGroupContainedIn"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpLocalPoolGroupGroup": {
+    "name": "ciscoIpLocalPoolGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.326.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolChildIndex"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolGroupFreeAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolGroupInUseAddrs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpLocalPoolStatsGroup": {
+    "name": "ciscoIpLocalPoolStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.326.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatFreeAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatInUseAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatHiWaterUsedAddrs"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatInUseAddrThldLo"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolStatInUseAddrThldHi"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolAllocIfIndex"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolAllocUser"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpLocalPoolNotifGroup": {
+    "name": "ciscoIpLocalPoolNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.326.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "ciscoIpLocalPoolInUseAddrNoti"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpLocalPoolStatsGroupSup1": {
+    "name": "ciscoIpLocalPoolStatsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.326.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolPercentAddrThldLo"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolPercentAddrThldHi"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpLocalPoolNotifGroupSup1": {
+    "name": "ciscoIpLocalPoolNotifGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.326.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cilpPercentAddrUsedLoNotif"
+      },
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cilpPercentAddrUsedHiNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpLocalPoolPriorityGroup": {
+    "name": "ciscoIpLocalPoolPriorityGroup",
+    "oid": "1.3.6.1.4.1.9.9.326.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-LOCAL-POOL-MIB",
+        "object": "cIpLocalPoolPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-LOCAL-POOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IP-LOCAL-POOL-MIB"
+  }
+}

@@ -1,0 +1,3262 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleRmon": {
+    "name": "sleRmon",
+    "oid": "1.3.6.1.4.1.6296.101.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-12-08 08:40",
+        "description": "AFI"
+      }
+    ]
+  },
+  "OwnerString": {
+    "name": "OwnerString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "SleEntryStatus": {
+    "name": "SleEntryStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "createRequest": 2,
+          "underCreation": 3
+        }
+      }
+    }
+  },
+  "sleHistory": {
+    "name": "sleHistory",
+    "oid": "1.3.6.1.4.1.6296.101.9.1",
+    "class": "objectidentity"
+  },
+  "sleHistoryTable": {
+    "name": "sleHistoryTable",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleHistoryEntry": {
+    "name": "sleHistoryEntry",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleHistoryIndex": {
+    "name": "sleHistoryIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryDataSource": {
+    "name": "sleHistoryDataSource",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryBucketsRequested": {
+    "name": "sleHistoryBucketsRequested",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryBucketsGranted": {
+    "name": "sleHistoryBucketsGranted",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryInterval": {
+    "name": "sleHistoryInterval",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryOwner": {
+    "name": "sleHistoryOwner",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryStatus": {
+    "name": "sleHistoryStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleEntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryControl": {
+    "name": "sleHistoryControl",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2",
+    "class": "objectidentity"
+  },
+  "sleHistoryControlRequest": {
+    "name": "sleHistoryControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createHistory": 1,
+          "destroyHistory": 2,
+          "setHistoryProfile": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHistoryControlStatus": {
+    "name": "sleHistoryControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryControlTimer": {
+    "name": "sleHistoryControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHistoryControlTimeStamp": {
+    "name": "sleHistoryControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryControlReqResult": {
+    "name": "sleHistoryControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHistoryControlIndex": {
+    "name": "sleHistoryControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHistoryControlDataSource": {
+    "name": "sleHistoryControlDataSource",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHistoryControlBucketsRequested": {
+    "name": "sleHistoryControlBucketsRequested",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHistoryControlInterval": {
+    "name": "sleHistoryControlInterval",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHistoryControlOwner": {
+    "name": "sleHistoryControlOwner",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHistoryControlSts": {
+    "name": "sleHistoryControlSts",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleEntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHistoryNotification": {
+    "name": "sleHistoryNotification",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.3",
+    "class": "objectidentity"
+  },
+  "sleHistoryCreated": {
+    "name": "sleHistoryCreated",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryDataSource"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryBucketsRequested"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleHistoryDestroyed": {
+    "name": "sleHistoryDestroyed",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleHistoryProfileChanged": {
+    "name": "sleHistoryProfileChanged",
+    "oid": "1.3.6.1.4.1.6296.101.9.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryDataSource"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryBucketsRequested"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleAlarm": {
+    "name": "sleAlarm",
+    "oid": "1.3.6.1.4.1.6296.101.9.2",
+    "class": "objectidentity"
+  },
+  "sleAlarmTable": {
+    "name": "sleAlarmTable",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleAlarmEntry": {
+    "name": "sleAlarmEntry",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleAlarmIndex": {
+    "name": "sleAlarmIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmInterval": {
+    "name": "sleAlarmInterval",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmVariable": {
+    "name": "sleAlarmVariable",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmSampleType": {
+    "name": "sleAlarmSampleType",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmValue": {
+    "name": "sleAlarmValue",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmStartupAlarm": {
+    "name": "sleAlarmStartupAlarm",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingAlarm": 1,
+          "fallingAlarm": 2,
+          "risingOrFallingAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmRisingThreshold": {
+    "name": "sleAlarmRisingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmFallingThreshold": {
+    "name": "sleAlarmFallingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmRisingEventIndex": {
+    "name": "sleAlarmRisingEventIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmFallingEventIndex": {
+    "name": "sleAlarmFallingEventIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmOwner": {
+    "name": "sleAlarmOwner",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmStatus": {
+    "name": "sleAlarmStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleEntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmControl": {
+    "name": "sleAlarmControl",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2",
+    "class": "objectidentity"
+  },
+  "sleAlarmControlRequest": {
+    "name": "sleAlarmControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createAlarm": 1,
+          "destroyAlarm": 2,
+          "setAlarmProfile": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlStatus": {
+    "name": "sleAlarmControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmControlTimer": {
+    "name": "sleAlarmControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlTimeStamp": {
+    "name": "sleAlarmControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmControlReqResult": {
+    "name": "sleAlarmControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleAlarmControlIndex": {
+    "name": "sleAlarmControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlInterval": {
+    "name": "sleAlarmControlInterval",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlVariable": {
+    "name": "sleAlarmControlVariable",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlSampleType": {
+    "name": "sleAlarmControlSampleType",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlStartupAlarm": {
+    "name": "sleAlarmControlStartupAlarm",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingAlarm": 1,
+          "fallingAlarm": 2,
+          "risingOrFallingAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlRisingThreshold": {
+    "name": "sleAlarmControlRisingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlFallingThreshold": {
+    "name": "sleAlarmControlFallingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlRisingEventIndex": {
+    "name": "sleAlarmControlRisingEventIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlFallingEventIndex": {
+    "name": "sleAlarmControlFallingEventIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlOwner": {
+    "name": "sleAlarmControlOwner",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmControlSts": {
+    "name": "sleAlarmControlSts",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleEntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleAlarmNotification": {
+    "name": "sleAlarmNotification",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.3",
+    "class": "objectidentity"
+  },
+  "sleAlarmCreated": {
+    "name": "sleAlarmCreated",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmSampleType"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmStartupAlarm"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmFallingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmRisingEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmFallingEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleAlarmDestroyed": {
+    "name": "sleAlarmDestroyed",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleAlarmProfileChanged": {
+    "name": "sleAlarmProfileChanged",
+    "oid": "1.3.6.1.4.1.6296.101.9.2.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmSampleType"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmStartupAlarm"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmFallingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmRisingEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmFallingEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleEvent": {
+    "name": "sleEvent",
+    "oid": "1.3.6.1.4.1.6296.101.9.3",
+    "class": "objectidentity"
+  },
+  "sleEventTable": {
+    "name": "sleEventTable",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleEventEntry": {
+    "name": "sleEventEntry",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleEventIndex": {
+    "name": "sleEventIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventDescription": {
+    "name": "sleEventDescription",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventType": {
+    "name": "sleEventType",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "log": 2,
+          "snmpTrap": 3,
+          "logAndTrap": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventCommunity": {
+    "name": "sleEventCommunity",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventLastTimeSent": {
+    "name": "sleEventLastTimeSent",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventOwner": {
+    "name": "sleEventOwner",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventStatus": {
+    "name": "sleEventStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleEntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventControl": {
+    "name": "sleEventControl",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2",
+    "class": "objectidentity"
+  },
+  "sleEventControlRequest": {
+    "name": "sleEventControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createEvent": 1,
+          "destroyEvent": 2,
+          "setEventProfile": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEventControlStatus": {
+    "name": "sleEventControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventControlTimer": {
+    "name": "sleEventControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEventControlTimeStamp": {
+    "name": "sleEventControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventControlReqResult": {
+    "name": "sleEventControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEventControlIndex": {
+    "name": "sleEventControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEventControlDescription": {
+    "name": "sleEventControlDescription",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEventControlType": {
+    "name": "sleEventControlType",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "log": 2,
+          "snmpTrap": 3,
+          "logAndTrap": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEventControlCommunity": {
+    "name": "sleEventControlCommunity",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEventControlOwner": {
+    "name": "sleEventControlOwner",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEventControlSts": {
+    "name": "sleEventControlSts",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleEntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEventNotification": {
+    "name": "sleEventNotification",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.3",
+    "class": "objectidentity"
+  },
+  "sleEventCreated": {
+    "name": "sleEventCreated",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventDescription"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventType"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventCommunity"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleEventDestroyed": {
+    "name": "sleEventDestroyed",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleEventProfileChanged": {
+    "name": "sleEventProfileChanged",
+    "oid": "1.3.6.1.4.1.6296.101.9.3.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventDescription"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventType"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventCommunity"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleStatistics": {
+    "name": "sleStatistics",
+    "oid": "1.3.6.1.4.1.6296.101.9.4",
+    "class": "objectidentity"
+  },
+  "sleEtherStats": {
+    "name": "sleEtherStats",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1",
+    "class": "objectidentity"
+  },
+  "sleEtherStatsTable": {
+    "name": "sleEtherStatsTable",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleEtherStatsEntry": {
+    "name": "sleEtherStatsEntry",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleEtherStatsIndex": {
+    "name": "sleEtherStatsIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsDataSource": {
+    "name": "sleEtherStatsDataSource",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsDropEvents": {
+    "name": "sleEtherStatsDropEvents",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsOctets": {
+    "name": "sleEtherStatsOctets",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsPkts": {
+    "name": "sleEtherStatsPkts",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsBroadcastPkts": {
+    "name": "sleEtherStatsBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsMulticastPkts": {
+    "name": "sleEtherStatsMulticastPkts",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsCRCAlignErrors": {
+    "name": "sleEtherStatsCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsUndersizePkts": {
+    "name": "sleEtherStatsUndersizePkts",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsOversizePkts": {
+    "name": "sleEtherStatsOversizePkts",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsFragments": {
+    "name": "sleEtherStatsFragments",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsJabbers": {
+    "name": "sleEtherStatsJabbers",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsCollisions": {
+    "name": "sleEtherStatsCollisions",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsPkts64Octets": {
+    "name": "sleEtherStatsPkts64Octets",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsPkts65to127Octets": {
+    "name": "sleEtherStatsPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsPkts128to255Octets": {
+    "name": "sleEtherStatsPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsPkts256to511Octets": {
+    "name": "sleEtherStatsPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsPkts512to1023Octets": {
+    "name": "sleEtherStatsPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsPkts1024to1518Octets": {
+    "name": "sleEtherStatsPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsOwner": {
+    "name": "sleEtherStatsOwner",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsStatus": {
+    "name": "sleEtherStatsStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleEntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsClearedTime": {
+    "name": "sleEtherStatsClearedTime",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsControl": {
+    "name": "sleEtherStatsControl",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.2",
+    "class": "objectidentity"
+  },
+  "sleEtherStatsControlRequest": {
+    "name": "sleEtherStatsControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearRmonStat": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEtherStatsControlStatus": {
+    "name": "sleEtherStatsControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsControlTimer": {
+    "name": "sleEtherStatsControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleEtherStatsControlTimeStamp": {
+    "name": "sleEtherStatsControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsControlReqResult": {
+    "name": "sleEtherStatsControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEtherStatsControlIfIndex": {
+    "name": "sleEtherStatsControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.4.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimple": {
+    "name": "sleRmonSimple",
+    "oid": "1.3.6.1.4.1.6296.101.9.5",
+    "class": "objectidentity"
+  },
+  "sleRmonSimpleTable": {
+    "name": "sleRmonSimpleTable",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRmonSimpleEntry": {
+    "name": "sleRmonSimpleEntry",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimplePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleSampleVariable",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRmonSimplePortIndex": {
+    "name": "sleRmonSimplePortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleSampleVariable": {
+    "name": "sleRmonSimpleSampleVariable",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crcAlignError": 1,
+          "jabber": 2,
+          "oversizePackets": 3,
+          "undersizePackets": 4,
+          "fragments": 5,
+          "dropEvents": 6,
+          "collisions": 7,
+          "ifInDiscards": 8,
+          "ifInErrors": 9,
+          "ifOutDiscards": 10,
+          "ifOutErrors": 11,
+          "ifInPauseFrame": 12,
+          "ifOutPauseFrame": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleSampleInterval": {
+    "name": "sleRmonSimpleSampleInterval",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleRisingThreshold": {
+    "name": "sleRmonSimpleRisingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleFallingThreshold": {
+    "name": "sleRmonSimpleFallingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleControl": {
+    "name": "sleRmonSimpleControl",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2",
+    "class": "objectidentity"
+  },
+  "sleRmonSimpleControlRequest": {
+    "name": "sleRmonSimpleControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRmonSimple": 1,
+          "delRmonSimple": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleControlStatus": {
+    "name": "sleRmonSimpleControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleControlTimer": {
+    "name": "sleRmonSimpleControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleControlTimeStamp": {
+    "name": "sleRmonSimpleControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleControlReqResult": {
+    "name": "sleRmonSimpleControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleControlPortIndex": {
+    "name": "sleRmonSimpleControlPortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleControlSampleVariable": {
+    "name": "sleRmonSimpleControlSampleVariable",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crcAlignError": 1,
+          "jabber": 2,
+          "oversizePackets": 3,
+          "undersizePackets": 4,
+          "fragments": 5,
+          "dropEvents": 6,
+          "collisions": 7,
+          "ifInDiscards": 8,
+          "ifInErrors": 9,
+          "ifOutDiscards": 10,
+          "ifOutErrors": 11,
+          "ifInPauseFrame": 12,
+          "ifOutPauseFrame": 13,
+          "allTypes": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleControlSampleInterval": {
+    "name": "sleRmonSimpleControlSampleInterval",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleControlRisingThreshold": {
+    "name": "sleRmonSimpleControlRisingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleControlFallingThreshold": {
+    "name": "sleRmonSimpleControlFallingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleNotification": {
+    "name": "sleRmonSimpleNotification",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.3",
+    "class": "objectidentity"
+  },
+  "sleRmonSimpleCreated": {
+    "name": "sleRmonSimpleCreated",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlPortIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlSampleVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlSampleInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRmonSimpleDeleted": {
+    "name": "sleRmonSimpleDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.9.5.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlPortIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlSampleVariable"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRmonSimpleQueue": {
+    "name": "sleRmonSimpleQueue",
+    "oid": "1.3.6.1.4.1.6296.101.9.6",
+    "class": "objectidentity"
+  },
+  "sleRmonSimpleQueueTable": {
+    "name": "sleRmonSimpleQueueTable",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueEntry": {
+    "name": "sleRmonSimpleQueueEntry",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueuePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueSampleVariable",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueQueueNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRmonSimpleQueuePortIndex": {
+    "name": "sleRmonSimpleQueuePortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueSampleVariable": {
+    "name": "sleRmonSimpleQueueSampleVariable",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmitCount": 1,
+          "dropCount": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueQueueNumber": {
+    "name": "sleRmonSimpleQueueQueueNumber",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueSampleInterval": {
+    "name": "sleRmonSimpleQueueSampleInterval",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueRisingThreshold": {
+    "name": "sleRmonSimpleQueueRisingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueFallingThreshold": {
+    "name": "sleRmonSimpleQueueFallingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControl": {
+    "name": "sleRmonSimpleQueueControl",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2",
+    "class": "objectidentity"
+  },
+  "sleRmonSimpleQueueControlRequest": {
+    "name": "sleRmonSimpleQueueControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRmonSimpleQueue": 1,
+          "delRmonSimpleQueue": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlStatus": {
+    "name": "sleRmonSimpleQueueControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlTimer": {
+    "name": "sleRmonSimpleQueueControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlTimeStamp": {
+    "name": "sleRmonSimpleQueueControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlReqResult": {
+    "name": "sleRmonSimpleQueueControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlPortIndex": {
+    "name": "sleRmonSimpleQueueControlPortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlSampleVariable": {
+    "name": "sleRmonSimpleQueueControlSampleVariable",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmitCount": 1,
+          "dropCount": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlQueueNumber": {
+    "name": "sleRmonSimpleQueueControlQueueNumber",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlSampleInterval": {
+    "name": "sleRmonSimpleQueueControlSampleInterval",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlRisingThreshold": {
+    "name": "sleRmonSimpleQueueControlRisingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueControlFallingThreshold": {
+    "name": "sleRmonSimpleQueueControlFallingThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRmonSimpleQueueNotification": {
+    "name": "sleRmonSimpleQueueNotification",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.3",
+    "class": "objectidentity"
+  },
+  "sleRmonSimpleQueueCreated": {
+    "name": "sleRmonSimpleQueueCreated",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlPortIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlSampleVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlQueueNumber"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlSampleInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRmonSimpleQueueDeleted": {
+    "name": "sleRmonSimpleQueueDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.9.6.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlPortIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlSampleVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlQueueNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRmonGroup": {
+    "name": "sleRmonGroup",
+    "oid": "1.3.6.1.4.1.6296.101.9.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryDataSource"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryBucketsRequested"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryBucketsGranted"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlTimer"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlDataSource"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlBucketsRequested"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryControlSts"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmSampleType"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmValue"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmStartupAlarm"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmFallingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmRisingEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmFallingEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlTimer"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlSampleType"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlStartupAlarm"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlFallingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlRisingEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlFallingEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmControlSts"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventDescription"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventType"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventCommunity"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventLastTimeSent"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlTimer"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlDescription"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlType"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlCommunity"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventControlSts"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsDataSource"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsDropEvents"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsOctets"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsPkts"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsBroadcastPkts"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsMulticastPkts"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsCRCAlignErrors"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsUndersizePkts"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsOversizePkts"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsFragments"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsJabbers"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsCollisions"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsPkts64Octets"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsPkts65to127Octets"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsPkts128to255Octets"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsPkts256to511Octets"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsPkts512to1023Octets"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsPkts1024to1518Octets"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsOwner"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsClearedTime"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimplePortIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleSampleVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleSampleInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleFallingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlTimer"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlPortIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlSampleVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlFallingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleControlSampleInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueuePortIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueQueueNumber"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueSampleVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueSampleInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueFallingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlTimer"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlPortIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsControlRequest"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsControlStatus"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsControlTimer"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsControlTimeStamp"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsControlReqResult"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEtherStatsControlIfIndex"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlQueueNumber"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlSampleVariable"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlSampleInterval"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlRisingThreshold"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueControlFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRmonNotificationGroup": {
+    "name": "sleRmonNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.9.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryCreated"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryDestroyed"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleHistoryProfileChanged"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmCreated"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmDestroyed"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleAlarmProfileChanged"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventCreated"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventDestroyed"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleEventProfileChanged"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueCreated"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleQueueDeleted"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleDeleted"
+      },
+      {
+        "module": "SLE-RMON-MIB",
+        "object": "sleRmonSimpleCreated"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-RMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:16 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-RMON-MIB"
+  }
+}

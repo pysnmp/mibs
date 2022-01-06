@@ -1,0 +1,1732 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "AutonomousType"
+    ]
+  },
+  "hostResourcesMibModule": {
+    "name": "hostResourcesMibModule",
+    "oid": "1.3.6.1.2.1.25.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-03-06 00:00",
+        "description": "Clarifications and bug fixes based on implementation experience. This revision was also reformatted in the SMIv2 format. The revisions made were: New RFC document standards: Added Copyright notice, updated introduction to SNMP Framework, updated references section, added reference to RFC 2119, and added a meaningful Security Considerations section. New IANA considerations section for registration of new types Conversion to new SMIv2 syntax for the following types and macros: Counter32, Integer32, Gauge32, MODULE-IDENTITY, OBJECT-TYPE, TEXTUAL-CONVENTION, OBJECT-IDENTITY, MODULE-COMPLIANCE, OBJECT-GROUP Used new Textual Conventions: TruthValue, DateAndTime, AutonomousType, InterfaceIndexOrZero Fixed typo in hrPrinterStatus. Added missing error bits to hrPrinterDetectedErrorState and clarified confusion resulting from suggested mappings to hrPrinterStatus. Clarified that size of objects of type InternationalDisplayString is number of octets, not number of encoded symbols. Clarified the use of the following objects based on implementation experience: hrSystemInitialLoadDevice, hrSystemInitialLoadParameters, hrMemorySize, hrStorageSize, hrStorageAllocationFailures, hrDeviceErrors, hrProcessorLoad, hrNetworkIfIndex, hrDiskStorageCapacity, hrSWRunStatus, hrSWRunPerfCPU, and hrSWInstalledDate. Clarified implementation technique for hrSWInstalledTable. Used new AUGMENTS clause for hrSWRunPerfTable. Added Internationalization Considerations section. This revision published as RFC2790."
+      },
+      {
+        "revision": "1999-10-20 22:00",
+        "description": "The original version of this MIB, published as RFC1514."
+      }
+    ]
+  },
+  "host": {
+    "name": "host",
+    "oid": "1.3.6.1.2.1.25",
+    "class": "objectidentity"
+  },
+  "hrSystem": {
+    "name": "hrSystem",
+    "oid": "1.3.6.1.2.1.25.1",
+    "class": "objectidentity"
+  },
+  "hrStorage": {
+    "name": "hrStorage",
+    "oid": "1.3.6.1.2.1.25.2",
+    "class": "objectidentity"
+  },
+  "hrDevice": {
+    "name": "hrDevice",
+    "oid": "1.3.6.1.2.1.25.3",
+    "class": "objectidentity"
+  },
+  "hrSWRun": {
+    "name": "hrSWRun",
+    "oid": "1.3.6.1.2.1.25.4",
+    "class": "objectidentity"
+  },
+  "hrSWRunPerf": {
+    "name": "hrSWRunPerf",
+    "oid": "1.3.6.1.2.1.25.5",
+    "class": "objectidentity"
+  },
+  "hrSWInstalled": {
+    "name": "hrSWInstalled",
+    "oid": "1.3.6.1.2.1.25.6",
+    "class": "objectidentity"
+  },
+  "hrMIBAdminInfo": {
+    "name": "hrMIBAdminInfo",
+    "oid": "1.3.6.1.2.1.25.7",
+    "class": "objectidentity"
+  },
+  "KBytes": {
+    "name": "KBytes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ProductID": {
+    "name": "ProductID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "InternationalDisplayString": {
+    "name": "InternationalDisplayString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "hrSystemUptime": {
+    "name": "hrSystemUptime",
+    "oid": "1.3.6.1.2.1.25.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSystemDate": {
+    "name": "hrSystemDate",
+    "oid": "1.3.6.1.2.1.25.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hrSystemInitialLoadDevice": {
+    "name": "hrSystemInitialLoadDevice",
+    "oid": "1.3.6.1.2.1.25.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hrSystemInitialLoadParameters": {
+    "name": "hrSystemInitialLoadParameters",
+    "oid": "1.3.6.1.2.1.25.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InternationalDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hrSystemNumUsers": {
+    "name": "hrSystemNumUsers",
+    "oid": "1.3.6.1.2.1.25.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSystemProcesses": {
+    "name": "hrSystemProcesses",
+    "oid": "1.3.6.1.2.1.25.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSystemMaxProcesses": {
+    "name": "hrSystemMaxProcesses",
+    "oid": "1.3.6.1.2.1.25.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrStorageTypes": {
+    "name": "hrStorageTypes",
+    "oid": "1.3.6.1.2.1.25.2.1",
+    "class": "objectidentity"
+  },
+  "hrMemorySize": {
+    "name": "hrMemorySize",
+    "oid": "1.3.6.1.2.1.25.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KBytes",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrStorageTable": {
+    "name": "hrStorageTable",
+    "oid": "1.3.6.1.2.1.25.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrStorageEntry": {
+    "name": "hrStorageEntry",
+    "oid": "1.3.6.1.2.1.25.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrStorageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrStorageIndex": {
+    "name": "hrStorageIndex",
+    "oid": "1.3.6.1.2.1.25.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrStorageType": {
+    "name": "hrStorageType",
+    "oid": "1.3.6.1.2.1.25.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrStorageDescr": {
+    "name": "hrStorageDescr",
+    "oid": "1.3.6.1.2.1.25.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrStorageAllocationUnits": {
+    "name": "hrStorageAllocationUnits",
+    "oid": "1.3.6.1.2.1.25.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrStorageSize": {
+    "name": "hrStorageSize",
+    "oid": "1.3.6.1.2.1.25.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hrStorageUsed": {
+    "name": "hrStorageUsed",
+    "oid": "1.3.6.1.2.1.25.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrStorageAllocationFailures": {
+    "name": "hrStorageAllocationFailures",
+    "oid": "1.3.6.1.2.1.25.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDeviceTypes": {
+    "name": "hrDeviceTypes",
+    "oid": "1.3.6.1.2.1.25.3.1",
+    "class": "objectidentity"
+  },
+  "hrDeviceTable": {
+    "name": "hrDeviceTable",
+    "oid": "1.3.6.1.2.1.25.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrDeviceEntry": {
+    "name": "hrDeviceEntry",
+    "oid": "1.3.6.1.2.1.25.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrDeviceIndex": {
+    "name": "hrDeviceIndex",
+    "oid": "1.3.6.1.2.1.25.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDeviceType": {
+    "name": "hrDeviceType",
+    "oid": "1.3.6.1.2.1.25.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDeviceDescr": {
+    "name": "hrDeviceDescr",
+    "oid": "1.3.6.1.2.1.25.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDeviceID": {
+    "name": "hrDeviceID",
+    "oid": "1.3.6.1.2.1.25.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProductID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDeviceStatus": {
+    "name": "hrDeviceStatus",
+    "oid": "1.3.6.1.2.1.25.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "running": 2,
+          "warning": 3,
+          "testing": 4,
+          "down": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDeviceErrors": {
+    "name": "hrDeviceErrors",
+    "oid": "1.3.6.1.2.1.25.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrProcessorTable": {
+    "name": "hrProcessorTable",
+    "oid": "1.3.6.1.2.1.25.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrProcessorEntry": {
+    "name": "hrProcessorEntry",
+    "oid": "1.3.6.1.2.1.25.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrProcessorFrwID": {
+    "name": "hrProcessorFrwID",
+    "oid": "1.3.6.1.2.1.25.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProductID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrProcessorLoad": {
+    "name": "hrProcessorLoad",
+    "oid": "1.3.6.1.2.1.25.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrNetworkTable": {
+    "name": "hrNetworkTable",
+    "oid": "1.3.6.1.2.1.25.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrNetworkEntry": {
+    "name": "hrNetworkEntry",
+    "oid": "1.3.6.1.2.1.25.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrNetworkIfIndex": {
+    "name": "hrNetworkIfIndex",
+    "oid": "1.3.6.1.2.1.25.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrPrinterTable": {
+    "name": "hrPrinterTable",
+    "oid": "1.3.6.1.2.1.25.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrPrinterEntry": {
+    "name": "hrPrinterEntry",
+    "oid": "1.3.6.1.2.1.25.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrPrinterStatus": {
+    "name": "hrPrinterStatus",
+    "oid": "1.3.6.1.2.1.25.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "idle": 3,
+          "printing": 4,
+          "warmup": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrPrinterDetectedErrorState": {
+    "name": "hrPrinterDetectedErrorState",
+    "oid": "1.3.6.1.2.1.25.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDiskStorageTable": {
+    "name": "hrDiskStorageTable",
+    "oid": "1.3.6.1.2.1.25.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrDiskStorageEntry": {
+    "name": "hrDiskStorageEntry",
+    "oid": "1.3.6.1.2.1.25.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrDiskStorageAccess": {
+    "name": "hrDiskStorageAccess",
+    "oid": "1.3.6.1.2.1.25.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readWrite": 1,
+          "readOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDiskStorageMedia": {
+    "name": "hrDiskStorageMedia",
+    "oid": "1.3.6.1.2.1.25.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "hardDisk": 3,
+          "floppyDisk": 4,
+          "opticalDiskROM": 5,
+          "opticalDiskWORM": 6,
+          "opticalDiskRW": 7,
+          "ramDisk": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDiskStorageRemoveble": {
+    "name": "hrDiskStorageRemoveble",
+    "oid": "1.3.6.1.2.1.25.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrDiskStorageCapacity": {
+    "name": "hrDiskStorageCapacity",
+    "oid": "1.3.6.1.2.1.25.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KBytes",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrPartitionTable": {
+    "name": "hrPartitionTable",
+    "oid": "1.3.6.1.2.1.25.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrPartitionEntry": {
+    "name": "hrPartitionEntry",
+    "oid": "1.3.6.1.2.1.25.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrPartitionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrPartitionIndex": {
+    "name": "hrPartitionIndex",
+    "oid": "1.3.6.1.2.1.25.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrPartitionLabel": {
+    "name": "hrPartitionLabel",
+    "oid": "1.3.6.1.2.1.25.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InternationalDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrPartitionID": {
+    "name": "hrPartitionID",
+    "oid": "1.3.6.1.2.1.25.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrPartitionSize": {
+    "name": "hrPartitionSize",
+    "oid": "1.3.6.1.2.1.25.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KBytes",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrPartitionFSIndex": {
+    "name": "hrPartitionFSIndex",
+    "oid": "1.3.6.1.2.1.25.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrFSTypes": {
+    "name": "hrFSTypes",
+    "oid": "1.3.6.1.2.1.25.3.9",
+    "class": "objectidentity"
+  },
+  "hrFSTable": {
+    "name": "hrFSTable",
+    "oid": "1.3.6.1.2.1.25.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrFSEntry": {
+    "name": "hrFSEntry",
+    "oid": "1.3.6.1.2.1.25.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrFSIndex": {
+    "name": "hrFSIndex",
+    "oid": "1.3.6.1.2.1.25.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrFSMountPoint": {
+    "name": "hrFSMountPoint",
+    "oid": "1.3.6.1.2.1.25.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InternationalDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrFSRemoteMountPoint": {
+    "name": "hrFSRemoteMountPoint",
+    "oid": "1.3.6.1.2.1.25.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InternationalDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrFSType": {
+    "name": "hrFSType",
+    "oid": "1.3.6.1.2.1.25.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrFSAccess": {
+    "name": "hrFSAccess",
+    "oid": "1.3.6.1.2.1.25.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readWrite": 1,
+          "readOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrFSBootable": {
+    "name": "hrFSBootable",
+    "oid": "1.3.6.1.2.1.25.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrFSStorageIndex": {
+    "name": "hrFSStorageIndex",
+    "oid": "1.3.6.1.2.1.25.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrFSLastFullBackupDate": {
+    "name": "hrFSLastFullBackupDate",
+    "oid": "1.3.6.1.2.1.25.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hrFSLastPartialBackupDate": {
+    "name": "hrFSLastPartialBackupDate",
+    "oid": "1.3.6.1.2.1.25.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hrSWOSIndex": {
+    "name": "hrSWOSIndex",
+    "oid": "1.3.6.1.2.1.25.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWRunTable": {
+    "name": "hrSWRunTable",
+    "oid": "1.3.6.1.2.1.25.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrSWRunEntry": {
+    "name": "hrSWRunEntry",
+    "oid": "1.3.6.1.2.1.25.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrSWRunIndex": {
+    "name": "hrSWRunIndex",
+    "oid": "1.3.6.1.2.1.25.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWRunName": {
+    "name": "hrSWRunName",
+    "oid": "1.3.6.1.2.1.25.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InternationalDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWRunID": {
+    "name": "hrSWRunID",
+    "oid": "1.3.6.1.2.1.25.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProductID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWRunPath": {
+    "name": "hrSWRunPath",
+    "oid": "1.3.6.1.2.1.25.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InternationalDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWRunParameters": {
+    "name": "hrSWRunParameters",
+    "oid": "1.3.6.1.2.1.25.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InternationalDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWRunType": {
+    "name": "hrSWRunType",
+    "oid": "1.3.6.1.2.1.25.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "operatingSystem": 2,
+          "deviceDriver": 3,
+          "application": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWRunStatus": {
+    "name": "hrSWRunStatus",
+    "oid": "1.3.6.1.2.1.25.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "runnable": 2,
+          "notRunnable": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hrSWRunPerfTable": {
+    "name": "hrSWRunPerfTable",
+    "oid": "1.3.6.1.2.1.25.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrSWRunPerfEntry": {
+    "name": "hrSWRunPerfEntry",
+    "oid": "1.3.6.1.2.1.25.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hrSWRunPerfEntry",
+      "module": "HOST-RESOURCES-MIB",
+      "object": "hrSWRunEntry"
+    },
+    "status": "current"
+  },
+  "hrSWRunPerfCPU": {
+    "name": "hrSWRunPerfCPU",
+    "oid": "1.3.6.1.2.1.25.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWRunPerfMem": {
+    "name": "hrSWRunPerfMem",
+    "oid": "1.3.6.1.2.1.25.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "KBytes",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWInstalledLastChange": {
+    "name": "hrSWInstalledLastChange",
+    "oid": "1.3.6.1.2.1.25.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWInstalledLastUpdateTime": {
+    "name": "hrSWInstalledLastUpdateTime",
+    "oid": "1.3.6.1.2.1.25.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWInstalledTable": {
+    "name": "hrSWInstalledTable",
+    "oid": "1.3.6.1.2.1.25.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hrSWInstalledEntry": {
+    "name": "hrSWInstalledEntry",
+    "oid": "1.3.6.1.2.1.25.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWInstalledIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hrSWInstalledIndex": {
+    "name": "hrSWInstalledIndex",
+    "oid": "1.3.6.1.2.1.25.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWInstalledName": {
+    "name": "hrSWInstalledName",
+    "oid": "1.3.6.1.2.1.25.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InternationalDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWInstalledID": {
+    "name": "hrSWInstalledID",
+    "oid": "1.3.6.1.2.1.25.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProductID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWInstalledType": {
+    "name": "hrSWInstalledType",
+    "oid": "1.3.6.1.2.1.25.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "operatingSystem": 2,
+          "deviceDriver": 3,
+          "application": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrSWInstalledDate": {
+    "name": "hrSWInstalledDate",
+    "oid": "1.3.6.1.2.1.25.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hrMIBCompliances": {
+    "name": "hrMIBCompliances",
+    "oid": "1.3.6.1.2.1.25.7.2",
+    "class": "objectidentity"
+  },
+  "hrMIBGroups": {
+    "name": "hrMIBGroups",
+    "oid": "1.3.6.1.2.1.25.7.3",
+    "class": "objectidentity"
+  },
+  "hrMIBCompliance": {
+    "name": "hrMIBCompliance",
+    "oid": "1.3.6.1.2.1.25.7.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hrSystemGroup",
+        "module": "HOST-RESOURCES-MIB"
+      },
+      {
+        "object": "hrStorageGroup",
+        "module": "HOST-RESOURCES-MIB"
+      },
+      {
+        "object": "hrDeviceGroup",
+        "module": "HOST-RESOURCES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hrSystemGroup": {
+    "name": "hrSystemGroup",
+    "oid": "1.3.6.1.2.1.25.7.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSystemUptime"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSystemDate"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSystemInitialLoadDevice"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSystemInitialLoadParameters"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSystemNumUsers"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSystemProcesses"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSystemMaxProcesses"
+      }
+    ],
+    "status": "current"
+  },
+  "hrStorageGroup": {
+    "name": "hrStorageGroup",
+    "oid": "1.3.6.1.2.1.25.7.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrMemorySize"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrStorageIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrStorageType"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrStorageDescr"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrStorageAllocationUnits"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrStorageSize"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrStorageUsed"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrStorageAllocationFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "hrDeviceGroup": {
+    "name": "hrDeviceGroup",
+    "oid": "1.3.6.1.2.1.25.7.3.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceType"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceDescr"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceID"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceStatus"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDeviceErrors"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrProcessorFrwID"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrProcessorLoad"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrNetworkIfIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrPrinterStatus"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrPrinterDetectedErrorState"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDiskStorageAccess"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDiskStorageMedia"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDiskStorageRemoveble"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrDiskStorageCapacity"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrPartitionIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrPartitionLabel"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrPartitionID"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrPartitionSize"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrPartitionFSIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSMountPoint"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSRemoteMountPoint"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSType"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSAccess"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSBootable"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSStorageIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSLastFullBackupDate"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrFSLastPartialBackupDate"
+      }
+    ],
+    "status": "current"
+  },
+  "hrSWRunGroup": {
+    "name": "hrSWRunGroup",
+    "oid": "1.3.6.1.2.1.25.7.3.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWOSIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunName"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunID"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunPath"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunParameters"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunType"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hrSWRunPerfGroup": {
+    "name": "hrSWRunPerfGroup",
+    "oid": "1.3.6.1.2.1.25.7.3.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunPerfCPU"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWRunPerfMem"
+      }
+    ],
+    "status": "current"
+  },
+  "hrSWInstalledGroup": {
+    "name": "hrSWInstalledGroup",
+    "oid": "1.3.6.1.2.1.25.7.3.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWInstalledLastChange"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWInstalledLastUpdateTime"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWInstalledIndex"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWInstalledName"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWInstalledID"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWInstalledType"
+      },
+      {
+        "module": "HOST-RESOURCES-MIB",
+        "object": "hrSWInstalledDate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/HOST-RESOURCES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HOST-RESOURCES-MIB"
+  }
+}

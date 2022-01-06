@@ -1,0 +1,6028 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsPlatformConfig"
+    ],
+    "CIENA-WS-PLATFORM-TYPEDEFS-MIB": [
+      "EnabledDisabledEnum"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsPlatformPmMIB": {
+    "name": "cienaWsPlatformPmMIB",
+    "oid": "1.3.6.1.4.1.1271.3.5.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-12-20 00:00",
+        "description": "Extend Optical Power profile. Add Photonics profile. "
+      },
+      {
+        "revision": "2018-09-20 00:00",
+        "description": "Corrected Gcm15minHistory table description. Changed qFecStdev to qStDev "
+      },
+      {
+        "revision": "2018-08-28 00:00",
+        "description": "Added support for new Encryption GCM profile. "
+      },
+      {
+        "revision": "2018-08-15 00:00",
+        "description": "Added new PM counter Q-STDEV for Modem Profile. "
+      },
+      {
+        "revision": "2018-07-24 00:00",
+        "description": "Added the missing FEC Error Count lanes used in Ethernet Profile. "
+      },
+      {
+        "revision": "2018-04-20 00:00",
+        "description": "Added MIB Definition"
+      }
+    ]
+  },
+  "PmConfigurationMode": {
+    "name": "PmConfigurationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "autoCreated": 1,
+          "userCreated": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmEthernetMonType": {
+    "name": "PmEthernetMonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rxBytes": 0,
+          "rxPkts": 1,
+          "rxCrcErrorPkts": 2,
+          "rxMcastPkts": 3,
+          "rxBcastPkts": 4,
+          "rxUndersizePkts": 5,
+          "rxOversizePkts": 6,
+          "rxFragmentPkts": 7,
+          "rxJabberPkts": 8,
+          "rxLOutRangePkts": 9,
+          "rxPausePkts": 10,
+          "rx64OctsPkts": 11,
+          "rx65To127OctsPkts": 12,
+          "rx128To255OctsPkts": 13,
+          "rx256To511Octs": 14,
+          "rx512To1023OctsPkts": 15,
+          "rx1024To1518OctsPkts": 16,
+          "rx1519ToJumboOctsPkts": 17,
+          "rxJumboOctsPkts": 18,
+          "rxBytesPerSec": 19,
+          "rxFramesPerSec": 20,
+          "rxAverageLinkUtilization": 21,
+          "rxMinLinkUtilization": 22,
+          "rxMaxLinkUtilization": 23,
+          "rxBlockErrorCount": 24,
+          "rxPcsLaneBipErrorCount": 25,
+          "rxFrameErrorRatio": 26,
+          "txBytes": 27,
+          "txPkts": 28,
+          "txExcessiveDeferredPkts": 29,
+          "txUnderRunPkts": 30,
+          "txCrcErrorPkts": 31,
+          "txLenCheckErrorPkts": 32,
+          "txLenOutOfRangePkts": 33,
+          "txPausePkts": 34,
+          "txGiantPkts": 35,
+          "txMcastPkts": 36,
+          "txBcastPkts": 37,
+          "txPacketsDropCountSummary": 38,
+          "tx64OctsPkts": 39,
+          "tx65To127OctsPkts": 40,
+          "tx128To255OctsPkts": 41,
+          "tx256To511OctsPkts": 42,
+          "tx512To1023OctsPkts": 43,
+          "tx1024To1518OctsPkts": 44,
+          "tx1519ToJumboOctsPkts": 45,
+          "txJumboOctsPkts": 46,
+          "txBytesPerSec": 47,
+          "txFramesPerSec": 48,
+          "txAverageLinkUtilization": 49,
+          "txBlockErrorCount": 50,
+          "txPcsLaneBipErrorCount": 51,
+          "txMinLinkUtilization": 52,
+          "txMaxLinkUtilization": 53,
+          "txFrameErrorRatio": 54,
+          "pcsES": 55,
+          "pcsSES": 56,
+          "pcsUAS": 57,
+          "syncHeaderErrorCount": 58,
+          "fecCorrCodewordCount": 59,
+          "fecUncorrCodewordCount": 60,
+          "fecErrorCount0": 61,
+          "fecErrorCount1": 62,
+          "fecErrorCount2": 63,
+          "fecErrorCount3": 64
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmOtuMonType": {
+    "name": "PmOtuMonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "otuBBE": 0,
+          "otuES": 1,
+          "otuSES": 2,
+          "otuUAS": 3,
+          "otuFeBBE": 4,
+          "otuFeES": 5,
+          "otuFeSES": 6,
+          "otuFeUAS": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmOpticalPowerMonType": {
+    "name": "PmOpticalPowerMonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rxMinimum": 0,
+          "rxMaximum": 1,
+          "rxAverage": 2,
+          "txMinimum": 3,
+          "txMaximum": 4,
+          "txAverage": 5,
+          "chanRxMinimum": 6,
+          "chanRxMaximum": 7,
+          "chanRxAverage": 8,
+          "aggregateRxMinimum": 9,
+          "aggregateRxMaximum": 10,
+          "aggregateRxAverage": 11,
+          "aggregateTxMinimum": 12,
+          "aggregateTxMaximum": 13,
+          "aggregateTxAverage": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmOduMonType": {
+    "name": "PmOduMonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oduBBE": 0,
+          "oduES": 1,
+          "oduSES": 2,
+          "oduUAS": 3,
+          "oduFeBBE": 4,
+          "oduFeES": 5,
+          "oduFeSES": 6,
+          "oduFeUAS": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmModemMonType": {
+    "name": "PmModemMonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bitErrorRate": 0,
+          "berMaximum": 1,
+          "qFactor": 2,
+          "qMinimum": 3,
+          "qMaximum": 4,
+          "fecUncorrectedSecs": 5,
+          "unCorrectedBlockCount": 6,
+          "highCorrectionCountSeconds": 7,
+          "dgdMaximum": 8,
+          "dgdAverage": 9,
+          "pdlMaximum": 10,
+          "pdlAverage": 11,
+          "esnrAvg": 12,
+          "esnrMax": 13,
+          "esnrMin": 14,
+          "osnrAvg": 15,
+          "osnrMax": 16,
+          "osnrMin": 17,
+          "cdAvg": 18,
+          "cdMax": 19,
+          "cdMin": 20,
+          "qStdev": 21
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmGcmMonType": {
+    "name": "PmGcmMonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gcmErrorCount": 0,
+          "gcmSES": 1,
+          "gcmUAS": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmPhotonicsMonType": {
+    "name": "PmPhotonicsMonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "returnLossMinimum": 0,
+          "returnLossMaximum": 1,
+          "returnLossAverage": 2,
+          "rxSpanLossMinimum": 3,
+          "rxSpanLossMaximum": 4,
+          "rxSpanLossAverage": 5,
+          "txSpanLossMinimum": 6,
+          "txSpanLossMaximum": 7,
+          "txSpanLossAverage": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "pmGlobalConfigTable": {
+    "name": "pmGlobalConfigTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGlobalConfigEntry": {
+    "name": "pmGlobalConfigEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGlobalConfigTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmGlobalConfigTableSnmpKey": {
+    "name": "pmGlobalConfigTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmAdminState": {
+    "name": "pmAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetCurrent15minStatsTable": {
+    "name": "pmEthernetCurrent15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetCurrent15minStatsEntry": {
+    "name": "pmEthernetCurrent15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmEthernet15minMonType": {
+    "name": "pmEthernet15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmEthernetMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernet15minMonTypeDescr": {
+    "name": "pmEthernet15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet15minIfIndexDescr": {
+    "name": "pmEthernet15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet15minMonValue": {
+    "name": "pmEthernet15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet15minMonIDF": {
+    "name": "pmEthernet15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet15minMonSupported": {
+    "name": "pmEthernet15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet15minAdminState": {
+    "name": "pmEthernet15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet15minMonStartDateTime": {
+    "name": "pmEthernet15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetCurrent24HrStatsTable": {
+    "name": "pmEthernetCurrent24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetCurrent24HrStatsEntry": {
+    "name": "pmEthernetCurrent24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmEthernet24HrMonType": {
+    "name": "pmEthernet24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmEthernetMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernet24HrMonTypeDescr": {
+    "name": "pmEthernet24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet24HrIfIndexDescr": {
+    "name": "pmEthernet24HrIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet24HrMonValue": {
+    "name": "pmEthernet24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet24HrMonIDF": {
+    "name": "pmEthernet24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet24HrMonSupported": {
+    "name": "pmEthernet24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet24HrAdminState": {
+    "name": "pmEthernet24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernet24HrMonStartDateTime": {
+    "name": "pmEthernet24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetUntimedStatsTable": {
+    "name": "pmEthernetUntimedStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetUntimedStatsEntry": {
+    "name": "pmEthernetUntimedStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetUntimedMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmEthernetUntimedMonType": {
+    "name": "pmEthernetUntimedMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmEthernetMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetUntimedMonTypeDescr": {
+    "name": "pmEthernetUntimedMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetUntimedIfIndexDescr": {
+    "name": "pmEthernetUntimedIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetUntimedMonValue": {
+    "name": "pmEthernetUntimedMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetUntimedMonIDF": {
+    "name": "pmEthernetUntimedMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetUntimedMonSupported": {
+    "name": "pmEthernetUntimedMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetUntimedAdminState": {
+    "name": "pmEthernetUntimedAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetUntimedMonStartDateTime": {
+    "name": "pmEthernetUntimedMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory15minStatsTable": {
+    "name": "pmEthernetHistory15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetHistory15minStatsEntry": {
+    "name": "pmEthernetHistory15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minBinIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmEthernetHistory15minBinIndex": {
+    "name": "pmEthernetHistory15minBinIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetHistory15minMonType": {
+    "name": "pmEthernetHistory15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmEthernetMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetHistory15minMonTypeDescr": {
+    "name": "pmEthernetHistory15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory15minIfIndexDescr": {
+    "name": "pmEthernetHistory15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory15minMonValue": {
+    "name": "pmEthernetHistory15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory15minMonIDF": {
+    "name": "pmEthernetHistory15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory15minMonSupported": {
+    "name": "pmEthernetHistory15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory15minAdminState": {
+    "name": "pmEthernetHistory15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory15minMonStartDateTime": {
+    "name": "pmEthernetHistory15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrStatsTable": {
+    "name": "pmEthernetHistory24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrStatsEntry": {
+    "name": "pmEthernetHistory24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmEthernetHistory24HrMonType": {
+    "name": "pmEthernetHistory24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmEthernetMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrMonTypeDescr": {
+    "name": "pmEthernetHistory24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrIndexDescr": {
+    "name": "pmEthernetHistory24HrIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrMonValue": {
+    "name": "pmEthernetHistory24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrMonIDF": {
+    "name": "pmEthernetHistory24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrMonSupported": {
+    "name": "pmEthernetHistory24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrAdminState": {
+    "name": "pmEthernetHistory24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmEthernetHistory24HrMonStartDateTime": {
+    "name": "pmEthernetHistory24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemCurrent15minStatsTable": {
+    "name": "pmModemCurrent15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemCurrent15minStatsEntry": {
+    "name": "pmModemCurrent15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmModem15minMonType": {
+    "name": "pmModem15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmModemMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModem15minMonTypeDescr": {
+    "name": "pmModem15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem15minIfIndexDescr": {
+    "name": "pmModem15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem15minMonValue": {
+    "name": "pmModem15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem15minMonIDF": {
+    "name": "pmModem15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem15minMonSupported": {
+    "name": "pmModem15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem15minAdminState": {
+    "name": "pmModem15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem15minMonStartDateTime": {
+    "name": "pmModem15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemCurrent24HrStatsTable": {
+    "name": "pmModemCurrent24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemCurrent24HrStatsEntry": {
+    "name": "pmModemCurrent24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmModem24HrMonType": {
+    "name": "pmModem24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmModemMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModem24HrMonTypeDescr": {
+    "name": "pmModem24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem24HrIfIndexDescr": {
+    "name": "pmModem24HrIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem24HrMonValue": {
+    "name": "pmModem24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem24HrMonIDF": {
+    "name": "pmModem24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem24HrMonSupported": {
+    "name": "pmModem24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem24HrAdminState": {
+    "name": "pmModem24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModem24HrMonStartDateTime": {
+    "name": "pmModem24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemUntimedStatsTable": {
+    "name": "pmModemUntimedStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemUntimedStatsEntry": {
+    "name": "pmModemUntimedStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemUntimedMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmModemUntimedMonType": {
+    "name": "pmModemUntimedMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmModemMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemUntimedMonTypeDescr": {
+    "name": "pmModemUntimedMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemUntimedIfIndexDescr": {
+    "name": "pmModemUntimedIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemUntimedMonValue": {
+    "name": "pmModemUntimedMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemUntimedMonIDF": {
+    "name": "pmModemUntimedMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemUntimedMonSupported": {
+    "name": "pmModemUntimedMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemUntimedAdminState": {
+    "name": "pmModemUntimedAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemUntimedMonStartDateTime": {
+    "name": "pmModemUntimedMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory15minStatsTable": {
+    "name": "pmModemHistory15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemHistory15minStatsEntry": {
+    "name": "pmModemHistory15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minBinIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmModemHistory15minBinIndex": {
+    "name": "pmModemHistory15minBinIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemHistory15minMonType": {
+    "name": "pmModemHistory15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmModemMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemHistory15minMonTypeDescr": {
+    "name": "pmModemHistory15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory15minIfIndexDescr": {
+    "name": "pmModemHistory15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory15minMonValue": {
+    "name": "pmModemHistory15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory15minMonIDF": {
+    "name": "pmModemHistory15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory15minMonSupported": {
+    "name": "pmModemHistory15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory15minAdminState": {
+    "name": "pmModemHistory15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory15minMonStartDateTime": {
+    "name": "pmModemHistory15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory24HrStatsTable": {
+    "name": "pmModemHistory24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemHistory24HrStatsEntry": {
+    "name": "pmModemHistory24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmModemHistory24HrMonType": {
+    "name": "pmModemHistory24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmModemMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmModemHistory24HrMonTypeDescr": {
+    "name": "pmModemHistory24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory24HrIndexDescr": {
+    "name": "pmModemHistory24HrIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory24HrMonValue": {
+    "name": "pmModemHistory24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory24HrMonIDF": {
+    "name": "pmModemHistory24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory24HrMonSupported": {
+    "name": "pmModemHistory24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory24HrAdminState": {
+    "name": "pmModemHistory24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmModemHistory24HrMonStartDateTime": {
+    "name": "pmModemHistory24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuCurrent15minStatsTable": {
+    "name": "pmOtuCurrent15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuCurrent15minStatsEntry": {
+    "name": "pmOtuCurrent15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOtu15minMonType": {
+    "name": "pmOtu15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOtuMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtu15minMonTypeDescr": {
+    "name": "pmOtu15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu15minIfIndexDescr": {
+    "name": "pmOtu15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu15minMonValue": {
+    "name": "pmOtu15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu15minMonIDF": {
+    "name": "pmOtu15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu15minMonSupported": {
+    "name": "pmOtu15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu15minAdminState": {
+    "name": "pmOtu15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu15minMonStartDateTime": {
+    "name": "pmOtu15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuCurrent24HrStatsTable": {
+    "name": "pmOtuCurrent24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuCurrent24HrStatsEntry": {
+    "name": "pmOtuCurrent24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOtu24HrMonType": {
+    "name": "pmOtu24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOtuMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtu24HrMonTypeDescr": {
+    "name": "pmOtu24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu24HrIfIndexDescr": {
+    "name": "pmOtu24HrIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu24HrMonValue": {
+    "name": "pmOtu24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu24HrMonIDF": {
+    "name": "pmOtu24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu24HrMonSupported": {
+    "name": "pmOtu24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu24HrAdminState": {
+    "name": "pmOtu24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtu24HrMonStartDateTime": {
+    "name": "pmOtu24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuUntimedStatsTable": {
+    "name": "pmOtuUntimedStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuUntimedStatsEntry": {
+    "name": "pmOtuUntimedStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuUntimedMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOtuUntimedMonType": {
+    "name": "pmOtuUntimedMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOtuMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuUntimedMonTypeDescr": {
+    "name": "pmOtuUntimedMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuUntimedIfIndexDescr": {
+    "name": "pmOtuUntimedIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuUntimedMonValue": {
+    "name": "pmOtuUntimedMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuUntimedMonIDF": {
+    "name": "pmOtuUntimedMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuUntimedMonSupported": {
+    "name": "pmOtuUntimedMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuUntimedAdminState": {
+    "name": "pmOtuUntimedAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuUntimedMonStartDateTime": {
+    "name": "pmOtuUntimedMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory15minStatsTable": {
+    "name": "pmOtuHistory15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuHistory15minStatsEntry": {
+    "name": "pmOtuHistory15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minBinIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOtuHistory15minBinIndex": {
+    "name": "pmOtuHistory15minBinIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuHistory15minMonType": {
+    "name": "pmOtuHistory15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOtuMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuHistory15minMonTypeDescr": {
+    "name": "pmOtuHistory15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory15minIndexDescr": {
+    "name": "pmOtuHistory15minIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory15minMonValue": {
+    "name": "pmOtuHistory15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory15minMonIDF": {
+    "name": "pmOtuHistory15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory15minMonSupported": {
+    "name": "pmOtuHistory15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory15minAdminState": {
+    "name": "pmOtuHistory15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory15minMonStartDateTime": {
+    "name": "pmOtuHistory15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory24HrStatsTable": {
+    "name": "pmOtuHistory24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuHistory24HrStatsEntry": {
+    "name": "pmOtuHistory24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOtuHistory24HrMonType": {
+    "name": "pmOtuHistory24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOtuMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOtuHistory24HrMonTypeDescr": {
+    "name": "pmOtuHistory24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory24HrIndexDescr": {
+    "name": "pmOtuHistory24HrIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory24HrMonValue": {
+    "name": "pmOtuHistory24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory24HrMonIDF": {
+    "name": "pmOtuHistory24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory24HrMonSupported": {
+    "name": "pmOtuHistory24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory24HrAdminState": {
+    "name": "pmOtuHistory24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOtuHistory24HrMonStartDateTime": {
+    "name": "pmOtuHistory24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduCurrent15minStatsTable": {
+    "name": "pmOduCurrent15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduCurrent15minStatsEntry": {
+    "name": "pmOduCurrent15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOdu15minMonType": {
+    "name": "pmOdu15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOduMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOdu15minMonTypeDescr": {
+    "name": "pmOdu15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu15minIfIndexDescr": {
+    "name": "pmOdu15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu15minMonValue": {
+    "name": "pmOdu15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu15minMonIDF": {
+    "name": "pmOdu15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu15minMonSupported": {
+    "name": "pmOdu15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu15minAdminState": {
+    "name": "pmOdu15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu15minMonStartDateTime": {
+    "name": "pmOdu15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduCurrent24HrStatsTable": {
+    "name": "pmOduCurrent24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduCurrent24HrStatsEntry": {
+    "name": "pmOduCurrent24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOdu24HrMonType": {
+    "name": "pmOdu24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOduMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOdu24HrMonTypeDescr": {
+    "name": "pmOdu24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu24HrIfIndexDescr": {
+    "name": "pmOdu24HrIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu24HrMonValue": {
+    "name": "pmOdu24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu24HrMonIDF": {
+    "name": "pmOdu24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu24HrMonSupported": {
+    "name": "pmOdu24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu24HrAdminState": {
+    "name": "pmOdu24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOdu24HrMonStartDateTime": {
+    "name": "pmOdu24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduUntimedStatsTable": {
+    "name": "pmOduUntimedStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduUntimedStatsEntry": {
+    "name": "pmOduUntimedStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduUntimedMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOduUntimedMonType": {
+    "name": "pmOduUntimedMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOduMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduUntimedMonTypeDescr": {
+    "name": "pmOduUntimedMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduUntimedIfIndexDescr": {
+    "name": "pmOduUntimedIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduUntimedMonValue": {
+    "name": "pmOduUntimedMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduUntimedMonIDF": {
+    "name": "pmOduUntimedMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduUntimedMonSupported": {
+    "name": "pmOduUntimedMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduUntimedAdminState": {
+    "name": "pmOduUntimedAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduUntimedMonStartDateTime": {
+    "name": "pmOduUntimedMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory15minStatsTable": {
+    "name": "pmOduHistory15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduHistory15minStatsEntry": {
+    "name": "pmOduHistory15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minBinIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOduHistory15minBinIndex": {
+    "name": "pmOduHistory15minBinIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduHistory15minMonType": {
+    "name": "pmOduHistory15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOduMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduHistory15minMonTypeDescr": {
+    "name": "pmOduHistory15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory15minIndexDescr": {
+    "name": "pmOduHistory15minIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory15minMonValue": {
+    "name": "pmOduHistory15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory15minMonIDF": {
+    "name": "pmOduHistory15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory15minMonSupported": {
+    "name": "pmOduHistory15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory15minAdminState": {
+    "name": "pmOduHistory15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory15minMonStartDateTime": {
+    "name": "pmOduHistory15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory24HrStatsTable": {
+    "name": "pmOduHistory24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduHistory24HrStatsEntry": {
+    "name": "pmOduHistory24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOduHistory24HrMonType": {
+    "name": "pmOduHistory24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOduMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOduHistory24HrMonTypeDescr": {
+    "name": "pmOduHistory24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory24HrIndexDescr": {
+    "name": "pmOduHistory24HrIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory24HrMonValue": {
+    "name": "pmOduHistory24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory24HrMonIDF": {
+    "name": "pmOduHistory24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory24HrMonSupported": {
+    "name": "pmOduHistory24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory24HrAdminState": {
+    "name": "pmOduHistory24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOduHistory24HrMonStartDateTime": {
+    "name": "pmOduHistory24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerCurrent15minStatsTable": {
+    "name": "pmOpticalPowerCurrent15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerCurrent15minStatsEntry": {
+    "name": "pmOpticalPowerCurrent15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minLaneIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOpticalPower15minLaneIndex": {
+    "name": "pmOpticalPower15minLaneIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPower15minMonType": {
+    "name": "pmOpticalPower15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOpticalPowerMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPower15minMonTypeDescr": {
+    "name": "pmOpticalPower15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower15minIfIndexDescr": {
+    "name": "pmOpticalPower15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower15minMonValue": {
+    "name": "pmOpticalPower15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower15minMonIDF": {
+    "name": "pmOpticalPower15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower15minMonSupported": {
+    "name": "pmOpticalPower15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower15minAdminState": {
+    "name": "pmOpticalPower15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower15minMonStartDateTime": {
+    "name": "pmOpticalPower15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.24.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerCurrent24HrStatsTable": {
+    "name": "pmOpticalPowerCurrent24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerCurrent24HrStatsEntry": {
+    "name": "pmOpticalPowerCurrent24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrLaneIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOpticalPower24HrLaneIndex": {
+    "name": "pmOpticalPower24HrLaneIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPower24HrMonType": {
+    "name": "pmOpticalPower24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOpticalPowerMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPower24HrMonTypeDescr": {
+    "name": "pmOpticalPower24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower24HrIfIndexDescr": {
+    "name": "pmOpticalPower24HrIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower24HrMonValue": {
+    "name": "pmOpticalPower24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower24HrMonIDF": {
+    "name": "pmOpticalPower24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower24HrMonSupported": {
+    "name": "pmOpticalPower24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower24HrAdminState": {
+    "name": "pmOpticalPower24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPower24HrMonStartDateTime": {
+    "name": "pmOpticalPower24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.25.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedStatsTable": {
+    "name": "pmOpticalPowerUntimedStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedStatsEntry": {
+    "name": "pmOpticalPowerUntimedStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedLaneIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedLaneIndex": {
+    "name": "pmOpticalPowerUntimedLaneIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedMonType": {
+    "name": "pmOpticalPowerUntimedMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOpticalPowerMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedMonTypeDescr": {
+    "name": "pmOpticalPowerUntimedMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedIfIndexDescr": {
+    "name": "pmOpticalPowerUntimedIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedMonValue": {
+    "name": "pmOpticalPowerUntimedMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedMonIDF": {
+    "name": "pmOpticalPowerUntimedMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedMonSupported": {
+    "name": "pmOpticalPowerUntimedMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedAdminState": {
+    "name": "pmOpticalPowerUntimedAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerUntimedMonStartDateTime": {
+    "name": "pmOpticalPowerUntimedMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.26.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minStatsTable": {
+    "name": "pmOpticalPowerHistory15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minStatsEntry": {
+    "name": "pmOpticalPowerHistory15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minBinIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minLaneIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minBinIndex": {
+    "name": "pmOpticalPowerHistory15minBinIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minLaneIndex": {
+    "name": "pmOpticalPowerHistory15minLaneIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minMonType": {
+    "name": "pmOpticalPowerHistory15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOpticalPowerMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minMonTypeDescr": {
+    "name": "pmOpticalPowerHistory15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minIndexDescr": {
+    "name": "pmOpticalPowerHistory15minIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minMonValue": {
+    "name": "pmOpticalPowerHistory15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minMonIDF": {
+    "name": "pmOpticalPowerHistory15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minMonSupported": {
+    "name": "pmOpticalPowerHistory15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minAdminState": {
+    "name": "pmOpticalPowerHistory15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory15minMonStartDateTime": {
+    "name": "pmOpticalPowerHistory15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.27.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrStatsTable": {
+    "name": "pmOpticalPowerHistory24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrStatsEntry": {
+    "name": "pmOpticalPowerHistory24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory24HrLaneIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrLaneIndex": {
+    "name": "pmOpticalPowerHistory24HrLaneIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrMonType": {
+    "name": "pmOpticalPowerHistory24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmOpticalPowerMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrMonTypeDescr": {
+    "name": "pmOpticalPowerHistory24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrIndexDescr": {
+    "name": "pmOpticalPowerHistory24HrIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrMonValue": {
+    "name": "pmOpticalPowerHistory24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrMonIDF": {
+    "name": "pmOpticalPowerHistory24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrMonSupported": {
+    "name": "pmOpticalPowerHistory24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrAdminState": {
+    "name": "pmOpticalPowerHistory24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmOpticalPowerHistory24HrMonStartDateTime": {
+    "name": "pmOpticalPowerHistory24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.28.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmCurrent15minStatsTable": {
+    "name": "pmGcmCurrent15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmCurrent15minStatsEntry": {
+    "name": "pmGcmCurrent15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmGcm15minMonType": {
+    "name": "pmGcm15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmGcmMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcm15minMonTypeDescr": {
+    "name": "pmGcm15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm15minIfIndexDescr": {
+    "name": "pmGcm15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm15minMonValue": {
+    "name": "pmGcm15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm15minMonIDF": {
+    "name": "pmGcm15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm15minMonSupported": {
+    "name": "pmGcm15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm15minAdminState": {
+    "name": "pmGcm15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm15minMonStartDateTime": {
+    "name": "pmGcm15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.29.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmCurrent24HrStatsTable": {
+    "name": "pmGcmCurrent24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmCurrent24HrStatsEntry": {
+    "name": "pmGcmCurrent24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmGcm24HrMonType": {
+    "name": "pmGcm24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmGcmMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcm24HrMonTypeDescr": {
+    "name": "pmGcm24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm24HrIfIndexDescr": {
+    "name": "pmGcm24HrIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm24HrMonValue": {
+    "name": "pmGcm24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm24HrMonIDF": {
+    "name": "pmGcm24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm24HrMonSupported": {
+    "name": "pmGcm24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm24HrAdminState": {
+    "name": "pmGcm24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcm24HrMonStartDateTime": {
+    "name": "pmGcm24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmUntimedStatsTable": {
+    "name": "pmGcmUntimedStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmUntimedStatsEntry": {
+    "name": "pmGcmUntimedStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmUntimedMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmGcmUntimedMonType": {
+    "name": "pmGcmUntimedMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmGcmMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmUntimedMonTypeDescr": {
+    "name": "pmGcmUntimedMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmUntimedIfIndexDescr": {
+    "name": "pmGcmUntimedIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmUntimedMonValue": {
+    "name": "pmGcmUntimedMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmUntimedMonIDF": {
+    "name": "pmGcmUntimedMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmUntimedMonSupported": {
+    "name": "pmGcmUntimedMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmUntimedAdminState": {
+    "name": "pmGcmUntimedAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmUntimedMonStartDateTime": {
+    "name": "pmGcmUntimedMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.31.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory15minStatsTable": {
+    "name": "pmGcmHistory15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmHistory15minStatsEntry": {
+    "name": "pmGcmHistory15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minBinIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmGcmHistory15minBinIndex": {
+    "name": "pmGcmHistory15minBinIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmHistory15minMonType": {
+    "name": "pmGcmHistory15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmGcmMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmHistory15minMonTypeDescr": {
+    "name": "pmGcmHistory15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory15minIndexDescr": {
+    "name": "pmGcmHistory15minIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory15minMonValue": {
+    "name": "pmGcmHistory15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory15minMonIDF": {
+    "name": "pmGcmHistory15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory15minMonSupported": {
+    "name": "pmGcmHistory15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory15minAdminState": {
+    "name": "pmGcmHistory15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory15minMonStartDateTime": {
+    "name": "pmGcmHistory15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.32.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory24HrStatsTable": {
+    "name": "pmGcmHistory24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmHistory24HrStatsEntry": {
+    "name": "pmGcmHistory24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmGcmHistory24HrMonType": {
+    "name": "pmGcmHistory24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmGcmMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmGcmHistory24HrMonTypeDescr": {
+    "name": "pmGcmHistory24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory24HrIndexDescr": {
+    "name": "pmGcmHistory24HrIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory24HrMonValue": {
+    "name": "pmGcmHistory24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory24HrMonIDF": {
+    "name": "pmGcmHistory24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory24HrMonSupported": {
+    "name": "pmGcmHistory24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory24HrAdminState": {
+    "name": "pmGcmHistory24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmGcmHistory24HrMonStartDateTime": {
+    "name": "pmGcmHistory24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.33.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsCurrent15minStatsTable": {
+    "name": "pmPhotonicsCurrent15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsCurrent15minStatsEntry": {
+    "name": "pmPhotonicsCurrent15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPhotonics15minMonType": {
+    "name": "pmPhotonics15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmPhotonicsMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonics15minMonTypeDescr": {
+    "name": "pmPhotonics15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics15minIfIndexDescr": {
+    "name": "pmPhotonics15minIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics15minMonValue": {
+    "name": "pmPhotonics15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics15minMonIDF": {
+    "name": "pmPhotonics15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics15minMonSupported": {
+    "name": "pmPhotonics15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics15minAdminState": {
+    "name": "pmPhotonics15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics15minMonStartDateTime": {
+    "name": "pmPhotonics15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.34.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsCurrent24HrStatsTable": {
+    "name": "pmPhotonicsCurrent24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsCurrent24HrStatsEntry": {
+    "name": "pmPhotonicsCurrent24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPhotonics24HrMonType": {
+    "name": "pmPhotonics24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmPhotonicsMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonics24HrMonTypeDescr": {
+    "name": "pmPhotonics24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics24HrIfIndexDescr": {
+    "name": "pmPhotonics24HrIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics24HrMonValue": {
+    "name": "pmPhotonics24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics24HrMonIDF": {
+    "name": "pmPhotonics24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics24HrMonSupported": {
+    "name": "pmPhotonics24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics24HrAdminState": {
+    "name": "pmPhotonics24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonics24HrMonStartDateTime": {
+    "name": "pmPhotonics24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.35.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedStatsTable": {
+    "name": "pmPhotonicsUntimedStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedStatsEntry": {
+    "name": "pmPhotonicsUntimedStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsUntimedMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPhotonicsUntimedMonType": {
+    "name": "pmPhotonicsUntimedMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmPhotonicsMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedMonTypeDescr": {
+    "name": "pmPhotonicsUntimedMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedIfIndexDescr": {
+    "name": "pmPhotonicsUntimedIfIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedMonValue": {
+    "name": "pmPhotonicsUntimedMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedMonIDF": {
+    "name": "pmPhotonicsUntimedMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedMonSupported": {
+    "name": "pmPhotonicsUntimedMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedAdminState": {
+    "name": "pmPhotonicsUntimedAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsUntimedMonStartDateTime": {
+    "name": "pmPhotonicsUntimedMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.36.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minStatsTable": {
+    "name": "pmPhotonicsHistory15minStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minStatsEntry": {
+    "name": "pmPhotonicsHistory15minStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minBinIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minBinIndex": {
+    "name": "pmPhotonicsHistory15minBinIndex",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minMonType": {
+    "name": "pmPhotonicsHistory15minMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmPhotonicsMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minMonTypeDescr": {
+    "name": "pmPhotonicsHistory15minMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minIndexDescr": {
+    "name": "pmPhotonicsHistory15minIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minMonValue": {
+    "name": "pmPhotonicsHistory15minMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minMonIDF": {
+    "name": "pmPhotonicsHistory15minMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minMonSupported": {
+    "name": "pmPhotonicsHistory15minMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minAdminState": {
+    "name": "pmPhotonicsHistory15minAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory15minMonStartDateTime": {
+    "name": "pmPhotonicsHistory15minMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.37.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrStatsTable": {
+    "name": "pmPhotonicsHistory24HrStatsTable",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrStatsEntry": {
+    "name": "pmPhotonicsHistory24HrStatsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory24HrMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrMonType": {
+    "name": "pmPhotonicsHistory24HrMonType",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmPhotonicsMonType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrMonTypeDescr": {
+    "name": "pmPhotonicsHistory24HrMonTypeDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrIndexDescr": {
+    "name": "pmPhotonicsHistory24HrIndexDescr",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrMonValue": {
+    "name": "pmPhotonicsHistory24HrMonValue",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrMonIDF": {
+    "name": "pmPhotonicsHistory24HrMonIDF",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrMonSupported": {
+    "name": "pmPhotonicsHistory24HrMonSupported",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrAdminState": {
+    "name": "pmPhotonicsHistory24HrAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmPhotonicsHistory24HrMonStartDateTime": {
+    "name": "pmPhotonicsHistory24HrMonStartDateTime",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.38.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmObjects": {
+    "name": "pmObjects",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.1",
+    "class": "objectidentity"
+  },
+  "pmConformance": {
+    "name": "pmConformance",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.2",
+    "class": "objectidentity"
+  },
+  "pmGroups": {
+    "name": "pmGroups",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.2.1",
+    "class": "objectidentity"
+  },
+  "pmGroup": {
+    "name": "pmGroup",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet24HrIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernet24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetUntimedMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetUntimedIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetUntimedMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetUntimedMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetUntimedMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetUntimedAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetUntimedMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory24HrIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmEthernetHistory24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem24HrIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModem24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemUntimedMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemUntimedIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemUntimedMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemUntimedMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemUntimedMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemUntimedAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemUntimedMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory24HrIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmModemHistory24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu24HrIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtu24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuUntimedMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuUntimedIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuUntimedMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuUntimedMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuUntimedMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuUntimedAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuUntimedMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory24HrIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOtuHistory24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu24HrIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOdu24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduUntimedMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduUntimedIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduUntimedMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduUntimedMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduUntimedMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduUntimedAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduUntimedMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory24HrIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOduHistory24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPower24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerUntimedMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory24HrIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmOpticalPowerHistory24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm24HrIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcm24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmUntimedMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmUntimedIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmUntimedMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmUntimedMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmUntimedMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmUntimedAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmUntimedMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory24HrIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmGcmHistory24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics15minIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics24HrIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics24HrAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonics24HrMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsUntimedMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsUntimedIfIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsUntimedMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsUntimedMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsUntimedMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsUntimedAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsUntimedMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minAdminState"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory15minMonStartDateTime"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory24HrMonTypeDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory24HrIndexDescr"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory24HrMonValue"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory24HrMonIDF"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory24HrMonSupported"
+      },
+      {
+        "module": "CIENA-WS-PLATFORM-PM-MIB",
+        "object": "pmPhotonicsHistory24HrMonStartDateTime"
+      }
+    ],
+    "status": "current"
+  },
+  "pmCompliances": {
+    "name": "pmCompliances",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.2.2",
+    "class": "objectidentity"
+  },
+  "pmCompliance": {
+    "name": "pmCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.5.22.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pmGroup",
+        "module": "CIENA-WS-PLATFORM-PM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PLATFORM-PM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-PLATFORM-PM-MIB"
+  }
+}

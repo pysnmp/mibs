@@ -1,0 +1,404 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremenetworks",
+      "extremeV1Traps"
+    ],
+    "EXTREME-EDP-MIB": [
+      "extremeEdpNeighborVlanName",
+      "extremeEdpPortIfIndex",
+      "extremeEdpNeighborId",
+      "extremeEdpNeighborVlanIpAddress",
+      "extremeEdpEntryAge"
+    ],
+    "EXTREME-ESRP-MIB": [
+      "extremeEsrpTrackedActivePorts",
+      "extremeEsrpNetAddress",
+      "extremeEsrpState",
+      "extremeEsrpActivePorts",
+      "extremeEsrpInternalActivePorts",
+      "extremeEsrpTrackedIpRoutes",
+      "extremeEsrpGroup"
+    ],
+    "EXTREME-SYSTEM-MIB": [
+      "extremeSlotModuleState",
+      "extremePowerSupplyNumber",
+      "extremeSlotNumber",
+      "extremeSlotModuleInsertedType",
+      "extremeCurrentTemperature",
+      "extremeFanNumber",
+      "extremeSlotModuleConfiguredType"
+    ],
+    "EXTREME-VLAN-MIB": [
+      "extremeVlanIfDescr",
+      "extremeVlanIfIndex"
+    ],
+    "IF-MIB": [
+      "ifAlias",
+      "ifDescr",
+      "ifPhysAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime",
+      "sysDescr"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeOverheat": {
+    "name": "extremeOverheat",
+    "oid": "1.3.6.1.4.1.1916.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremeCurrentTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeFanfailed": {
+    "name": "extremeFanfailed",
+    "oid": "1.3.6.1.4.1.1916.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremeFanNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeFanOK": {
+    "name": "extremeFanOK",
+    "oid": "1.3.6.1.4.1.1916.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremeFanNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeInvalidLoginAttempt": {
+    "name": "extremeInvalidLoginAttempt",
+    "oid": "1.3.6.1.4.1.1916.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "extremePowerSupplyFail": {
+    "name": "extremePowerSupplyFail",
+    "oid": "1.3.6.1.4.1.1916.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremePowerSupplyNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "extremePowerSupplyGood": {
+    "name": "extremePowerSupplyGood",
+    "oid": "1.3.6.1.4.1.1916.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremePowerSupplyNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeRpsAlarm": {
+    "name": "extremeRpsAlarm",
+    "oid": "1.3.6.1.4.1.1916.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeRpsNoAlarm": {
+    "name": "extremeRpsNoAlarm",
+    "oid": "1.3.6.1.4.1.1916.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeSmartTrap": {
+    "name": "extremeSmartTrap",
+    "oid": "1.3.6.1.4.1.1916.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeModuleStateChanged": {
+    "name": "extremeModuleStateChanged",
+    "oid": "1.3.6.1.4.1.1916.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremeSlotNumber"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremeSlotModuleConfiguredType"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremeSlotModuleInsertedType"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremeSlotModuleState"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeEsrpStateChange": {
+    "name": "extremeEsrpStateChange",
+    "oid": "1.3.6.1.4.1.1916.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "EXTREME-VLAN-MIB",
+        "object": "extremeVlanIfIndex"
+      },
+      {
+        "module": "EXTREME-VLAN-MIB",
+        "object": "extremeVlanIfDescr"
+      },
+      {
+        "module": "EXTREME-ESRP-MIB",
+        "object": "extremeEsrpGroup"
+      },
+      {
+        "module": "EXTREME-ESRP-MIB",
+        "object": "extremeEsrpState"
+      },
+      {
+        "module": "EXTREME-ESRP-MIB",
+        "object": "extremeEsrpNetAddress"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifPhysAddress"
+      },
+      {
+        "module": "EXTREME-ESRP-MIB",
+        "object": "extremeEsrpActivePorts"
+      },
+      {
+        "module": "EXTREME-ESRP-MIB",
+        "object": "extremeEsrpInternalActivePorts"
+      },
+      {
+        "module": "EXTREME-ESRP-MIB",
+        "object": "extremeEsrpTrackedActivePorts"
+      },
+      {
+        "module": "EXTREME-ESRP-MIB",
+        "object": "extremeEsrpTrackedIpRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeSlbUnitAdded": {
+    "name": "extremeSlbUnitAdded",
+    "oid": "1.3.6.1.4.1.1916.0.18",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "extremeSlbUnitRemoved": {
+    "name": "extremeSlbUnitRemoved",
+    "oid": "1.3.6.1.4.1.1916.0.19",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "extremeEdpNeighborAdded": {
+    "name": "extremeEdpNeighborAdded",
+    "oid": "1.3.6.1.4.1.1916.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "EXTREME-EDP-MIB",
+        "object": "extremeEdpPortIfIndex"
+      },
+      {
+        "module": "EXTREME-EDP-MIB",
+        "object": "extremeEdpNeighborId"
+      },
+      {
+        "module": "EXTREME-EDP-MIB",
+        "object": "extremeEdpEntryAge"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeEdpNeighborRemoved": {
+    "name": "extremeEdpNeighborRemoved",
+    "oid": "1.3.6.1.4.1.1916.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "EXTREME-EDP-MIB",
+        "object": "extremeEdpPortIfIndex"
+      },
+      {
+        "module": "EXTREME-EDP-MIB",
+        "object": "extremeEdpNeighborId"
+      },
+      {
+        "module": "EXTREME-EDP-MIB",
+        "object": "extremeEdpEntryAge"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAlias"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EXTREME-TRAP-MIB"
+  }
+}

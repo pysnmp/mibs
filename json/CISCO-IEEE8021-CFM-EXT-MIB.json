@@ -1,0 +1,657 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IEEE8021-CFM-MIB": [
+      "Dot1agCfmMpDirection",
+      "dot1agCfmMdIndex",
+      "dot1agCfmMaIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoIeee8021CfmExtMIB": {
+    "name": "ciscoIeee8021CfmExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.679",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cIeeeCfmExtMIBNotifs": {
+    "name": "cIeeeCfmExtMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.679.0",
+    "class": "objectidentity"
+  },
+  "cIeeeCfmExtMIBObjects": {
+    "name": "cIeeeCfmExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.679.1",
+    "class": "objectidentity"
+  },
+  "cIeeeCfmExtMIBConformance": {
+    "name": "cIeeeCfmExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.679.2",
+    "class": "objectidentity"
+  },
+  "ciceCfmGlobal": {
+    "name": "ciceCfmGlobal",
+    "oid": "1.3.6.1.4.1.9.9.679.1.1",
+    "class": "objectidentity"
+  },
+  "ciceCfmLtr": {
+    "name": "ciceCfmLtr",
+    "oid": "1.3.6.1.4.1.9.9.679.1.2",
+    "class": "objectidentity"
+  },
+  "ciceCfmMa": {
+    "name": "ciceCfmMa",
+    "oid": "1.3.6.1.4.1.9.9.679.1.3",
+    "class": "objectidentity"
+  },
+  "ciceCfmIfObjects": {
+    "name": "ciceCfmIfObjects",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4",
+    "class": "objectidentity"
+  },
+  "ciceCfmMep": {
+    "name": "ciceCfmMep",
+    "oid": "1.3.6.1.4.1.9.9.679.1.5",
+    "class": "objectidentity"
+  },
+  "ciceCfmEnable": {
+    "name": "ciceCfmEnable",
+    "oid": "1.3.6.1.4.1.9.9.679.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmMaxMdLevel": {
+    "name": "ciceCfmMaxMdLevel",
+    "oid": "1.3.6.1.4.1.9.9.679.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciceCfmBrainAddress": {
+    "name": "ciceCfmBrainAddress",
+    "oid": "1.3.6.1.4.1.9.9.679.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciceCfmCcMulticastAddress": {
+    "name": "ciceCfmCcMulticastAddress",
+    "oid": "1.3.6.1.4.1.9.9.679.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciceCfmLtmMulticastAddress": {
+    "name": "ciceCfmLtmMulticastAddress",
+    "oid": "1.3.6.1.4.1.9.9.679.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciceCfmEnableFaultAlarm": {
+    "name": "ciceCfmEnableFaultAlarm",
+    "oid": "1.3.6.1.4.1.9.9.679.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmLtrEnable": {
+    "name": "ciceCfmLtrEnable",
+    "oid": "1.3.6.1.4.1.9.9.679.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmLtrHoldTime": {
+    "name": "ciceCfmLtrHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.679.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmLtrSize": {
+    "name": "ciceCfmLtrSize",
+    "oid": "1.3.6.1.4.1.9.9.679.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmMaNetTable": {
+    "name": "ciceCfmMaNetTable",
+    "oid": "1.3.6.1.4.1.9.9.679.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciceCfmMaNetEntry": {
+    "name": "ciceCfmMaNetEntry",
+    "oid": "1.3.6.1.4.1.9.9.679.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmMaNetCciEnable": {
+    "name": "ciceCfmMaNetCciEnable",
+    "oid": "1.3.6.1.4.1.9.9.679.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmMaNetCciDirection": {
+    "name": "ciceCfmMaNetCciDirection",
+    "oid": "1.3.6.1.4.1.9.9.679.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMpDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmMaNetLossThreshold": {
+    "name": "ciceCfmMaNetLossThreshold",
+    "oid": "1.3.6.1.4.1.9.9.679.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmInterfaceTable": {
+    "name": "ciceCfmInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciceCfmInterfaceEntry": {
+    "name": "ciceCfmInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmIfIndex": {
+    "name": "ciceCfmIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciceCfmIfState": {
+    "name": "ciceCfmIfState",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "transparent": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciceCfmMipTable": {
+    "name": "ciceCfmMipTable",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciceCfmMipEntry": {
+    "name": "ciceCfmMipEntry",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMipVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmMipVlanIndex": {
+    "name": "ciceCfmMipVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciceCfmMipMdLevel": {
+    "name": "ciceCfmMipMdLevel",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciceCfmMipStorageType": {
+    "name": "ciceCfmMipStorageType",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciceCfmMipRowStatus": {
+    "name": "ciceCfmMipRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciceCfmMacEnableIfTable": {
+    "name": "ciceCfmMacEnableIfTable",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciceCfmMacEnableIfEntry": {
+    "name": "ciceCfmMacEnableIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMacEnableVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmMacEnableVlanIndex": {
+    "name": "ciceCfmMacEnableVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciceCfmMacEnableStorageType": {
+    "name": "ciceCfmMacEnableStorageType",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciceCfmMacEnableRowStatus": {
+    "name": "ciceCfmMacEnableRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.679.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciceCfmMIBCompliances": {
+    "name": "ciceCfmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.679.2.1",
+    "class": "objectidentity"
+  },
+  "ciceCfmMIBGroups": {
+    "name": "ciceCfmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.679.2.2",
+    "class": "objectidentity"
+  },
+  "ciceCfmMIBCompliance": {
+    "name": "ciceCfmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.679.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciceCfmGlobalObjectsGroup",
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB"
+      },
+      {
+        "object": "ciceCfmInterfaceGroup",
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB"
+      },
+      {
+        "object": "ciceCfmLtrConfigGroup",
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB"
+      },
+      {
+        "object": "ciceCfmMaNetGroup",
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB"
+      },
+      {
+        "object": "ciceCfmMipGroup",
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB"
+      },
+      {
+        "object": "ciceCfmMacEnableGroup",
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmGlobalObjectsGroup": {
+    "name": "ciceCfmGlobalObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.679.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmEnable"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMaxMdLevel"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmBrainAddress"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmCcMulticastAddress"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmLtmMulticastAddress"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmEnableFaultAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmLtrConfigGroup": {
+    "name": "ciceCfmLtrConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.679.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmLtrEnable"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmLtrHoldTime"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmLtrSize"
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmMaNetGroup": {
+    "name": "ciceCfmMaNetGroup",
+    "oid": "1.3.6.1.4.1.9.9.679.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMaNetCciEnable"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMaNetCciDirection"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMaNetLossThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmInterfaceGroup": {
+    "name": "ciceCfmInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.679.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmIfState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmMipGroup": {
+    "name": "ciceCfmMipGroup",
+    "oid": "1.3.6.1.4.1.9.9.679.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMipMdLevel"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMipStorageType"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMipRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciceCfmMacEnableGroup": {
+    "name": "ciceCfmMacEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.679.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMacEnableStorageType"
+      },
+      {
+        "module": "CISCO-IEEE8021-CFM-EXT-MIB",
+        "object": "ciceCfmMacEnableRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IEEE8021-CFM-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IEEE8021-CFM-EXT-MIB"
+  }
+}

@@ -1,0 +1,2696 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "enterprises",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "lumRegModule": {
+    "name": "lumRegModule",
+    "oid": "1.3.6.1.4.1.8708.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-08-30 00:00",
+        "description": "Changes made for release r33.1: - Add CO2xOTDR filter - Add CO-D4 filter series"
+      },
+      {
+        "revision": "2019-06-28 00:00",
+        "description": "Changes made for release r33.0: - Added oa1x21dBmVgEC board. - Added oa2x21dBmVgEC board."
+      },
+      {
+        "revision": "2018-06-29 00:00",
+        "description": "Changes made for release r31.0: - Added otdr8p board. - Added LUM-IFOTDR-MIB."
+      },
+      {
+        "revision": "2017-09-01 00:00",
+        "description": "Changes made for release r30.0: - Added emxp440 board. - Added oaraed20lg board. - Added ad1c2fotdr board."
+      },
+      {
+        "revision": "2017-06-15 00:00",
+        "description": "Changes made for release r29.0: - Changed ORGANIZATION and CONTACT-INFO"
+      },
+      {
+        "revision": "2016-11-30 00:00",
+        "description": "Changes made for release r28: - Added tp100gotnii board."
+      },
+      {
+        "revision": "2016-01-14 00:00",
+        "description": "Changes made for release r27: - Added fhau1 board - Added fha1u1 board - Added LUM-LLDPV2-MIB - Added oa1x20dBmVg2 board - Added oa2x20dBmVg2 board"
+      },
+      {
+        "revision": "2015-09-30 00:00",
+        "description": "Changes made for release r26: - Added fpu board. - Added oaraed21hghyb board - Added dcDk652km100 board - Added dcDk652km120 board - Added dcP652km20 board"
+      },
+      {
+        "revision": "2015-09-15 00:00",
+        "description": "Changes made for release r25.1: - Added tpmrHL16GUni board."
+      },
+      {
+        "revision": "2015-01-13 00:00",
+        "description": "Changes made for release r25: - Added emxp240iie board. - Added IFIWDM Mib."
+      },
+      {
+        "revision": "2014-09-30 00:00",
+        "description": "Changes made for release r23.1: - Added mxp100gotn board."
+      },
+      {
+        "revision": "2014-05-16 00:00",
+        "description": "Changes made for release r23: - Added emxp220iie board. - Added tpmrHL16G board. - Changed board name from tp10gotn to tphex10gotn."
+      },
+      {
+        "revision": "2013-11-15 00:00",
+        "description": "Changes made for release r22: - Added tp10gotn board. - Added tp100gotn board. - Added SoamPmMib."
+      },
+      {
+        "revision": "2013-05-01 00:00",
+        "description": "Changes made for release r21: - Added tpq10gfeci board. - Added tpq10gfecregi board."
+      },
+      {
+        "revision": "2012-12-20 00:00",
+        "description": "Changes made for r20 - Added msTp40G. - Added msMxp40G. - Added mxp10gotn. - Added ocudq. - Added ocuseed2p. - Added emxp62Giie. - Added emxp120Giie. - Added IFPERF MIB."
+      },
+      {
+        "revision": "2012-12-10 00:00",
+        "description": "Added IFBASIC, IFPHYSICAL and IFOPTICAL MIB."
+      },
+      {
+        "revision": "2012-01-20 00:00",
+        "description": "Changes made for r19 - Added PSR MIB. - Added MPLS OAM MIB."
+      },
+      {
+        "revision": "2011-12-20 00:00",
+        "description": "Changes made for release r18: - Added MPLS MIB. - Added PW MIB. - Added SITE MIB."
+      },
+      {
+        "revision": "2011-10-12 00:00",
+        "description": "Added TM4700 and TM4011."
+      },
+      {
+        "revision": "2011-04-13 00:00",
+        "description": "Added passive subracks."
+      },
+      {
+        "revision": "2007-04-16 00:00",
+        "description": "Added ROADM MIB."
+      },
+      {
+        "revision": "2006-12-15 00:00",
+        "description": "Added circuit MIB."
+      },
+      {
+        "revision": "2002-11-26 00:00",
+        "description": "Added MEM MIB"
+      },
+      {
+        "revision": "2002-11-15 00:00",
+        "description": "Added DCN MIB"
+      },
+      {
+        "revision": "2002-11-11 00:00",
+        "description": "TP Light -> TP Lite"
+      },
+      {
+        "revision": "2002-11-08 00:00",
+        "description": "Added the TP Light."
+      },
+      {
+        "revision": "2002-10-21 00:00",
+        "description": "Added the 10 G transponder."
+      },
+      {
+        "revision": "2002-05-30 00:00",
+        "description": "Added snmp MIB."
+      },
+      {
+        "revision": "2002-05-16 00:00",
+        "description": "Added sync MIB."
+      },
+      {
+        "revision": "2002-04-05 00:00",
+        "description": "Updated the names of the boards. Removed the separate traffic slot definitions."
+      },
+      {
+        "revision": "2002-03-08 00:00",
+        "description": "Added 4 channel AD boards and the dual gigabit ethernet board. Fixed the name of the multi-rate transponder board."
+      },
+      {
+        "revision": "2001-11-20 00:00",
+        "description": "Added the IP-mib."
+      },
+      {
+        "revision": "2001-10-10 00:00",
+        "description": "Deprecated the LAMBDA- and the TRANSPONDER-mib. Added the EQUIPMENT- and the MULTIRATE-mib."
+      },
+      {
+        "revision": "2001-09-05 00:00",
+        "description": "Updated the product definitions with the proper product names."
+      },
+      {
+        "revision": "2001-08-09 00:00",
+        "description": "Added lambda, wdm, transponder and topology modules."
+      },
+      {
+        "revision": "2001-08-01 00:00",
+        "description": "Added backup module."
+      },
+      {
+        "revision": "2001-04-26 00:00",
+        "description": "Changed name of the entity MIB to inventory MIB. Assigned dummy product names. Added system and WDM MIB."
+      },
+      {
+        "revision": "2001-03-12 00:00",
+        "description": "Changed naming convention from 'lumemtis' to 'lum'."
+      },
+      {
+        "revision": "2001-03-09 00:00",
+        "description": "Assigned the proper enterprise OID."
+      },
+      {
+        "revision": "2001-03-01 00:00",
+        "description": "The initial revision of this module."
+      }
+    ]
+  },
+  "lumentis": {
+    "name": "lumentis",
+    "oid": "1.3.6.1.4.1.8708",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumReg": {
+    "name": "lumReg",
+    "oid": "1.3.6.1.4.1.8708.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumModules": {
+    "name": "lumModules",
+    "oid": "1.3.6.1.4.1.8708.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumGeneric": {
+    "name": "lumGeneric",
+    "oid": "1.3.6.1.4.1.8708.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumAlarmMIB": {
+    "name": "lumAlarmMIB",
+    "oid": "1.3.6.1.4.1.8708.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSystemMIB": {
+    "name": "lumSystemMIB",
+    "oid": "1.3.6.1.4.1.8708.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumInventoryMIB": {
+    "name": "lumInventoryMIB",
+    "oid": "1.3.6.1.4.1.8708.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumWdmMIB": {
+    "name": "lumWdmMIB",
+    "oid": "1.3.6.1.4.1.8708.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumBackupMIB": {
+    "name": "lumBackupMIB",
+    "oid": "1.3.6.1.4.1.8708.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumLambdaMIB": {
+    "name": "lumLambdaMIB",
+    "oid": "1.3.6.1.4.1.8708.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumTransponderMIB": {
+    "name": "lumTransponderMIB",
+    "oid": "1.3.6.1.4.1.8708.2.7",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "lumTopologyMIB": {
+    "name": "lumTopologyMIB",
+    "oid": "1.3.6.1.4.1.8708.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumPowerMIB": {
+    "name": "lumPowerMIB",
+    "oid": "1.3.6.1.4.1.8708.2.9",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "lumOxcMIB": {
+    "name": "lumOxcMIB",
+    "oid": "1.3.6.1.4.1.8708.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumEquipmentMIB": {
+    "name": "lumEquipmentMIB",
+    "oid": "1.3.6.1.4.1.8708.2.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumMultirateMIB": {
+    "name": "lumMultirateMIB",
+    "oid": "1.3.6.1.4.1.8708.2.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumMuxMIB": {
+    "name": "lumMuxMIB",
+    "oid": "1.3.6.1.4.1.8708.2.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIpMIB": {
+    "name": "lumIpMIB",
+    "oid": "1.3.6.1.4.1.8708.2.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumPmMIB": {
+    "name": "lumPmMIB",
+    "oid": "1.3.6.1.4.1.8708.2.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSyncMIB": {
+    "name": "lumSyncMIB",
+    "oid": "1.3.6.1.4.1.8708.2.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSnmpMIB": {
+    "name": "lumSnmpMIB",
+    "oid": "1.3.6.1.4.1.8708.2.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumEthMIB": {
+    "name": "lumEthMIB",
+    "oid": "1.3.6.1.4.1.8708.2.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumOaMIB": {
+    "name": "lumOaMIB",
+    "oid": "1.3.6.1.4.1.8708.2.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumDcnMIB": {
+    "name": "lumDcnMIB",
+    "oid": "1.3.6.1.4.1.8708.2.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumMemMIB": {
+    "name": "lumMemMIB",
+    "oid": "1.3.6.1.4.1.8708.2.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumFcMIB": {
+    "name": "lumFcMIB",
+    "oid": "1.3.6.1.4.1.8708.2.22",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "lumSwuMIB": {
+    "name": "lumSwuMIB",
+    "oid": "1.3.6.1.4.1.8708.2.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumGmplsMIB": {
+    "name": "lumGmplsMIB",
+    "oid": "1.3.6.1.4.1.8708.2.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumGmplsStdMIB": {
+    "name": "lumGmplsStdMIB",
+    "oid": "1.3.6.1.4.1.8708.2.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumConnMIB": {
+    "name": "lumConnMIB",
+    "oid": "1.3.6.1.4.1.8708.2.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumClientMIB": {
+    "name": "lumClientMIB",
+    "oid": "1.3.6.1.4.1.8708.2.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSoftwareMIB": {
+    "name": "lumSoftwareMIB",
+    "oid": "1.3.6.1.4.1.8708.2.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumAuxMIB": {
+    "name": "lumAuxMIB",
+    "oid": "1.3.6.1.4.1.8708.2.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumCircuitMIB": {
+    "name": "lumCircuitMIB",
+    "oid": "1.3.6.1.4.1.8708.2.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumRoadmMIB": {
+    "name": "lumRoadmMIB",
+    "oid": "1.3.6.1.4.1.8708.2.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumMesMIB": {
+    "name": "lumMesMIB",
+    "oid": "1.3.6.1.4.1.8708.2.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumOcmMIB": {
+    "name": "lumOcmMIB",
+    "oid": "1.3.6.1.4.1.8708.2.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumOtnMIB": {
+    "name": "lumOtnMIB",
+    "oid": "1.3.6.1.4.1.8708.2.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSdhpdhMIB": {
+    "name": "lumSdhpdhMIB",
+    "oid": "1.3.6.1.4.1.8708.2.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSatelliteMIB": {
+    "name": "lumSatelliteMIB",
+    "oid": "1.3.6.1.4.1.8708.2.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumMulticastMIB": {
+    "name": "lumMulticastMIB",
+    "oid": "1.3.6.1.4.1.8708.2.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumTrailMIB": {
+    "name": "lumTrailMIB",
+    "oid": "1.3.6.1.4.1.8708.2.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumNcMIB": {
+    "name": "lumNcMIB",
+    "oid": "1.3.6.1.4.1.8708.2.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumMplsMIB": {
+    "name": "lumMplsMIB",
+    "oid": "1.3.6.1.4.1.8708.2.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumPwMIB": {
+    "name": "lumPwMIB",
+    "oid": "1.3.6.1.4.1.8708.2.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSiteMIB": {
+    "name": "lumSiteMIB",
+    "oid": "1.3.6.1.4.1.8708.2.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumPsrMIB": {
+    "name": "lumPsrMIB",
+    "oid": "1.3.6.1.4.1.8708.2.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumMplsOamMIB": {
+    "name": "lumMplsOamMIB",
+    "oid": "1.3.6.1.4.1.8708.2.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumLinkLossMIB": {
+    "name": "lumLinkLossMIB",
+    "oid": "1.3.6.1.4.1.8708.2.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfBasicMIB": {
+    "name": "lumIfBasicMIB",
+    "oid": "1.3.6.1.4.1.8708.2.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfPhysicalMIB": {
+    "name": "lumIfPhysicalMIB",
+    "oid": "1.3.6.1.4.1.8708.2.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfOpticalMIB": {
+    "name": "lumIfOpticalMIB",
+    "oid": "1.3.6.1.4.1.8708.2.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumPmServerMIB": {
+    "name": "lumPmServerMIB",
+    "oid": "1.3.6.1.4.1.8708.2.49",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfOtnMIB": {
+    "name": "lumIfOtnMIB",
+    "oid": "1.3.6.1.4.1.8708.2.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfXcMIB": {
+    "name": "lumIfXcMIB",
+    "oid": "1.3.6.1.4.1.8708.2.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfSdhMIB": {
+    "name": "lumIfSdhMIB",
+    "oid": "1.3.6.1.4.1.8708.2.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfSonetMIB": {
+    "name": "lumIfSonetMIB",
+    "oid": "1.3.6.1.4.1.8708.2.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfEthMIB": {
+    "name": "lumIfEthMIB",
+    "oid": "1.3.6.1.4.1.8708.2.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfOtnMonMIB": {
+    "name": "lumIfOtnMonMIB",
+    "oid": "1.3.6.1.4.1.8708.2.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfPerfMIB": {
+    "name": "lumIfPerfMIB",
+    "oid": "1.3.6.1.4.1.8708.2.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumPortdeviceMIB": {
+    "name": "lumPortdeviceMIB",
+    "oid": "1.3.6.1.4.1.8708.2.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumPortdeviceIfMIB": {
+    "name": "lumPortdeviceIfMIB",
+    "oid": "1.3.6.1.4.1.8708.2.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfFcMIB": {
+    "name": "lumIfFcMIB",
+    "oid": "1.3.6.1.4.1.8708.2.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSoamPmMIB": {
+    "name": "lumSoamPmMIB",
+    "oid": "1.3.6.1.4.1.8708.2.60",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIccpMIB": {
+    "name": "lumIccpMIB",
+    "oid": "1.3.6.1.4.1.8708.2.61",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumMclagMIB": {
+    "name": "lumMclagMIB",
+    "oid": "1.3.6.1.4.1.8708.2.62",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfIwdmMIB": {
+    "name": "lumIfIwdmMIB",
+    "oid": "1.3.6.1.4.1.8708.2.63",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfMcMIB": {
+    "name": "lumIfMcMIB",
+    "oid": "1.3.6.1.4.1.8708.2.64",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfAmplifierMIB": {
+    "name": "lumIfAmplifierMIB",
+    "oid": "1.3.6.1.4.1.8708.2.65",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumFpuMIB": {
+    "name": "lumFpuMIB",
+    "oid": "1.3.6.1.4.1.8708.2.66",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumLldpV2MIB": {
+    "name": "lumLldpV2MIB",
+    "oid": "1.3.6.1.4.1.8708.2.67",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfFhMIB": {
+    "name": "lumIfFhMIB",
+    "oid": "1.3.6.1.4.1.8708.2.68",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumOpenflowMIB": {
+    "name": "lumOpenflowMIB",
+    "oid": "1.3.6.1.4.1.8708.2.69",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfXcFlexMIB": {
+    "name": "lumIfXcFlexMIB",
+    "oid": "1.3.6.1.4.1.8708.2.70",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumSysinfoMIB": {
+    "name": "lumSysinfoMIB",
+    "oid": "1.3.6.1.4.1.8708.2.71",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumIfOtdrMIB": {
+    "name": "lumIfOtdrMIB",
+    "oid": "1.3.6.1.4.1.8708.2.72",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumCryptoMIB": {
+    "name": "lumCryptoMIB",
+    "oid": "1.3.6.1.4.1.8708.2.73",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumCommlinkMIB": {
+    "name": "lumCommlinkMIB",
+    "oid": "1.3.6.1.4.1.8708.2.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumAcfMIB": {
+    "name": "lumAcfMIB",
+    "oid": "1.3.6.1.4.1.8708.2.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumProducts": {
+    "name": "lumProducts",
+    "oid": "1.3.6.1.4.1.8708.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumProductsGeneric": {
+    "name": "lumProductsGeneric",
+    "oid": "1.3.6.1.4.1.8708.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis": {
+    "name": "mentis",
+    "oid": "1.3.6.1.4.1.8708.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisControlSlot": {
+    "name": "mentisControlSlot",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTrafficSlot": {
+    "name": "mentisTrafficSlot",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisControlUnit": {
+    "name": "mentisControlUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMultirate2500TransponderUnit": {
+    "name": "mentisMultirate2500TransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMuxponder028Unit": {
+    "name": "mentisMuxponder028Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalCrossConnect8Unit": {
+    "name": "mentisOpticalCrossConnect8Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalCrossConnect16Unit": {
+    "name": "mentisOpticalCrossConnect16Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSingleAddDropABUnit": {
+    "name": "mentisSingleAddDropABUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSingleAddDropBAUnit": {
+    "name": "mentisSingleAddDropBAUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualAddDropABUnit": {
+    "name": "mentisDualAddDropABUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualAddDropBAUnit": {
+    "name": "mentisDualAddDropBAUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualOpticalCirculationUnit": {
+    "name": "mentisDualOpticalCirculationUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4ChAddDropABUnit": {
+    "name": "mentis4ChAddDropABUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4ChAddDropBAUnit": {
+    "name": "mentis4ChAddDropBAUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualGbETransponderUnit": {
+    "name": "mentisDualGbETransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalAmplifierUnit": {
+    "name": "mentisOpticalAmplifierUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8chMuxDemuxExtensionUnit": {
+    "name": "mentis8chMuxDemuxExtensionUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8chMuxDemuxTerminalUnit": {
+    "name": "mentis8chMuxDemuxTerminalUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisQuadOpticalCouplerUnit": {
+    "name": "mentisQuadOpticalCouplerUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMuxponder004Unit": {
+    "name": "mentisMuxponder004Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2chOpticalAmplifierAddDropABUnit": {
+    "name": "mentis2chOpticalAmplifierAddDropABUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2chOpticalAmplifierAddDropBAUnit": {
+    "name": "mentis2chOpticalAmplifierAddDropBAUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualOpticalAmplifierUnit": {
+    "name": "mentisDualOpticalAmplifierUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCwdmAddDropUnit": {
+    "name": "mentisCwdmAddDropUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSingleSpurAddDropUnit": {
+    "name": "mentisSingleSpurAddDropUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GTransponderUnit": {
+    "name": "mentis10GTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisLiteMr2500TransponderUnit": {
+    "name": "mentisLiteMr2500TransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisControlOscUnit": {
+    "name": "mentisControlOscUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisControlDualOscUnit": {
+    "name": "mentisControlDualOscUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalBandUnit": {
+    "name": "mentisOpticalBandUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSync2MHzUnit": {
+    "name": "mentisSync2MHzUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMxp8Unit": {
+    "name": "mentisMxp8Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMxp16Unit": {
+    "name": "mentisMxp16Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualGbEDwdmUnit": {
+    "name": "mentisDualGbEDwdmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualGbECwdmUnit": {
+    "name": "mentisDualGbECwdmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualFiberChannelDwdmUnit": {
+    "name": "mentisDualFiberChannelDwdmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualFiberChannelCwdmUnit": {
+    "name": "mentisDualFiberChannelCwdmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFiberChannelGbEDwdmUnit": {
+    "name": "mentisFiberChannelGbEDwdmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFiberChannelGbECwdmUnit": {
+    "name": "mentisFiberChannelGbECwdmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTrippleFiberChannelDwdmUnit": {
+    "name": "mentisTrippleFiberChannelDwdmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisQuadMultirateTransponderUnit": {
+    "name": "mentisQuadMultirateTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4chMuxDemuxTerminalABUnit": {
+    "name": "mentis4chMuxDemuxTerminalABUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4chMuxDemuxTerminalBAUnit": {
+    "name": "mentis4chMuxDemuxTerminalBAUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSingleCwdmAddDropUnit": {
+    "name": "mentisSingleCwdmAddDropUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualCwdmAddDropUnit": {
+    "name": "mentisDualCwdmAddDropUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GLANTransponderUnit": {
+    "name": "mentis10GLANTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GRCTransponderUnit": {
+    "name": "mentis10GRCTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.49",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEsconMxp8Unit": {
+    "name": "mentisEsconMxp8Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalAmplifier15dBmUnit": {
+    "name": "mentisOpticalAmplifier15dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualOpticalAmplifier15dBmUnit": {
+    "name": "mentisDualOpticalAmplifier15dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisGxpD2500Unit": {
+    "name": "mentisGxpD2500Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisGxpC2500Unit": {
+    "name": "mentisGxpC2500Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisGxpD10GUnit": {
+    "name": "mentisGxpD10GUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualGbEDwdmV2Unit": {
+    "name": "mentisDualGbEDwdmV2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualGbECwdmV2Unit": {
+    "name": "mentisDualGbECwdmV2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualFiberChannelDwdmV2Unit": {
+    "name": "mentisDualFiberChannelDwdmV2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualFiberChannelCwdmV2Unit": {
+    "name": "mentisDualFiberChannelCwdmV2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2xSingleCwdmAddDropUnit": {
+    "name": "mentis2xSingleCwdmAddDropUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.60",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2xDualCwdmAddDropUnit": {
+    "name": "mentis2xDualCwdmAddDropUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.61",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8chMuxDemuxTerminal2Unit": {
+    "name": "mentis8chMuxDemuxTerminal2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.62",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDoubleDualGbETransponderUnit": {
+    "name": "mentisDoubleDualGbETransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.63",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFpuOas2824Unit": {
+    "name": "mentisFpuOas2824Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.64",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2Fiber8chCwdmMuxUnit": {
+    "name": "mentis2Fiber8chCwdmMuxUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.65",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2Fiber8chCwdmDemuxUnit": {
+    "name": "mentis2Fiber8chCwdmDemuxUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.66",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDouble10GLiteTransponderUnit": {
+    "name": "mentisDouble10GLiteTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.67",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GBuTransponderUnit": {
+    "name": "mentis10GBuTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.68",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GLANBuTransponderUnit": {
+    "name": "mentis10GLANBuTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.69",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GClBuTransponderUnit": {
+    "name": "mentis10GClBuTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.70",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GLANClBuTransponderUnit": {
+    "name": "mentis10GLANClBuTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.71",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8chMuxDemuxEvenExtensionUnit": {
+    "name": "mentis8chMuxDemuxEvenExtensionUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.72",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8chMuxDemuxEvenTerminalUnit": {
+    "name": "mentis8chMuxDemuxEvenTerminalUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.73",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalPreAmplifier17dBmUnit": {
+    "name": "mentisOpticalPreAmplifier17dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualOpticalAmplifier17dBmUnit": {
+    "name": "mentisDualOpticalAmplifier17dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalInterleaverUnit": {
+    "name": "mentisOpticalInterleaverUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.76",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalPowAmplifier17dBmUnit": {
+    "name": "mentisOpticalPowAmplifier17dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.77",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSingleOpticalAmplifier17dBmUnit": {
+    "name": "mentisSingleOpticalAmplifier17dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.78",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis9xGbEMuxponderUnit": {
+    "name": "mentis9xGbEMuxponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.79",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis1chAddDropDwdm2FiberUnit": {
+    "name": "mentis1chAddDropDwdm2FiberUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.80",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis1chAddDropCwdm2FiberUnit": {
+    "name": "mentis1chAddDropCwdm2FiberUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.81",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMdu4chExtendable2FiberUnit": {
+    "name": "mentisMdu4chExtendable2FiberUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.82",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMdu4chTerminal2FiberUnit": {
+    "name": "mentisMdu4chTerminal2FiberUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.83",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8chVoltageControlledAttenuatorUnit": {
+    "name": "mentis8chVoltageControlledAttenuatorUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.84",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSingleOpticalAmplifier20dBmUnit": {
+    "name": "mentisSingleOpticalAmplifier20dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.85",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualOpticalAmplifier20dBmUnit": {
+    "name": "mentisDualOpticalAmplifier20dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.86",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFpuYm235Unit": {
+    "name": "mentisFpuYm235Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.87",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4chAddDropDwdm2FiberUnit": {
+    "name": "mentis4chAddDropDwdm2FiberUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.88",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisQuadMultirateTransponder2Unit": {
+    "name": "mentisQuadMultirateTransponder2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.89",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisRamanOar450CUnit": {
+    "name": "mentisRamanOar450CUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.90",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisControlSfpUnit": {
+    "name": "mentisControlSfpUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.91",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMultirate2500TransponderV2Unit": {
+    "name": "mentisMultirate2500TransponderV2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.92",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDouble10GbeUnit": {
+    "name": "mentisDouble10GbeUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.93",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4chMuxDemuxExtensionABUnit": {
+    "name": "mentis4chMuxDemuxExtensionABUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.94",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4chMuxDemuxExtensionBAUnit": {
+    "name": "mentis4chMuxDemuxExtensionBAUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.95",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalInterleaver50100Unit": {
+    "name": "mentisOpticalInterleaver50100Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.96",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisReconfigurableOpticalAddDropUnit": {
+    "name": "mentisReconfigurableOpticalAddDropUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.97",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis6pGbeEthernetDemarcationUnit": {
+    "name": "mentis6pGbeEthernetDemarcationUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.98",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GClTcTransponderUnit": {
+    "name": "mentis10GClTcTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.99",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4xSTM16MuxponderUnit": {
+    "name": "mentis4xSTM16MuxponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMroadm1p800Unit": {
+    "name": "mentisMroadm1p800Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSingleOpticalLowGainAmplifier20dBmUnit": {
+    "name": "mentisSingleOpticalLowGainAmplifier20dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualOpticalLowGainAmplifier20dBmUnit": {
+    "name": "mentisDualOpticalLowGainAmplifier20dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.103",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisSingleOpticalFlatGainAmplifier10dBmUnit": {
+    "name": "mentisSingleOpticalFlatGainAmplifier10dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.104",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDualOpticalFlatGainAmplifier10dBmUnit": {
+    "name": "mentisDualOpticalFlatGainAmplifier10dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.105",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GOtnTcTransponderUnit": {
+    "name": "mentis10GOtnTcTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.106",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis40channelMuxDemuxEven50GHzDWDMUnit": {
+    "name": "mentis40channelMuxDemuxEven50GHzDWDMUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.107",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis40channelMuxDemuxOdd50GHzDWDMUnit": {
+    "name": "mentis40channelMuxDemuxOdd50GHzDWDMUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.108",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8channelMuxDemuxExtEvenUnit": {
+    "name": "mentis8channelMuxDemuxExtEvenUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.109",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8channelMuxDemuxExtOddUnit": {
+    "name": "mentis8channelMuxDemuxExtOddUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.110",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2portOpticalChannelMonitor": {
+    "name": "mentis2portOpticalChannelMonitor",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.111",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMultiServiceMuxPonder": {
+    "name": "mentisMultiServiceMuxPonder",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.112",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8chVariableOpticalAttenuatorII": {
+    "name": "mentis8chVariableOpticalAttenuatorII",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.113",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMultiServiceDoubleQuadGbEMuxPonder": {
+    "name": "mentisMultiServiceDoubleQuadGbEMuxPonder",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.114",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10GTcErTransponderUnit": {
+    "name": "mentis10GTcErTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.115",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10xEthernetMuxPonder": {
+    "name": "mentis10xEthernetMuxPonder",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.116",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis12pGbeEthernetDemarcationUnit": {
+    "name": "mentis12pGbeEthernetDemarcationUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.117",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisGbeMxp10GFecUnit": {
+    "name": "mentisGbeMxp10GFecUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.118",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisRoadm1x4G100Unit": {
+    "name": "mentisRoadm1x4G100Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.119",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisQuadMultiServiceTransponder": {
+    "name": "mentisQuadMultiServiceTransponder",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.120",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis22xEthernetMuxPonder": {
+    "name": "mentis22xEthernetMuxPonder",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.121",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisPEOa1x26dBmUnit": {
+    "name": "mentisPEOa1x26dBmUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.122",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2PortProtectionControlUnit": {
+    "name": "mentis2PortProtectionControlUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.123",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2chVariableOpticalAttenuator": {
+    "name": "mentis2chVariableOpticalAttenuator",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.124",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMultiServiceMuxPonder10GTCEr": {
+    "name": "mentisMultiServiceMuxPonder10GTCEr",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.125",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMultiServiceMuxPonder10G": {
+    "name": "mentisMultiServiceMuxPonder10G",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.126",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMultiServiceQuad2G5Transponder": {
+    "name": "mentisMultiServiceQuad2G5Transponder",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.127",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4x2G510GOcMuxponder": {
+    "name": "mentis4x2G510GOcMuxponder",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.128",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis22xEthernetMuxPonderII": {
+    "name": "mentis22xEthernetMuxPonderII",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.129",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisBandSplitterUnit1x5Even": {
+    "name": "mentisBandSplitterUnit1x5Even",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.130",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisBandSplitterUnit1x5Odd": {
+    "name": "mentisBandSplitterUnit1x5Odd",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.131",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis10xEthernetMuxPonderII": {
+    "name": "mentis10xEthernetMuxPonderII",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.132",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMSAccessCollector8xE1T1_2xEth": {
+    "name": "mentisMSAccessCollector8xE1T1_2xEth",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.133",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMSAccessCollector16xE1T1_4xEth": {
+    "name": "mentisMSAccessCollector16xE1T1_4xEth",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.134",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMSAccessHub4xSTM_1_16xEth": {
+    "name": "mentisMSAccessHub4xSTM_1_16xEth",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.135",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMSAccessHub4xOC_3_16xEth": {
+    "name": "mentisMSAccessHub4xOC_3_16xEth",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.136",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisRoadm1x8G50Unit": {
+    "name": "mentisRoadm1x8G50Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.137",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4ChAddDropDwdmEven50G": {
+    "name": "mentis4ChAddDropDwdmEven50G",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.138",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis4ChAddDropDwdmOdd50G": {
+    "name": "mentis4ChAddDropDwdmOdd50G",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.139",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8x10EthernetMuxPonderII": {
+    "name": "mentis8x10EthernetMuxPonderII",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.140",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMxp8iiSdhUnit": {
+    "name": "mentisMxp8iiSdhUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.141",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMxp8iiSonetUnit": {
+    "name": "mentisMxp8iiSonetUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.142",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMSAccessCollector16xE1T1_4xEthTempHardend": {
+    "name": "mentisMSAccessCollector16xE1T1_4xEthTempHardend",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.143",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMdu40EvenL": {
+    "name": "mentisMdu40EvenL",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.144",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMdu40OddL": {
+    "name": "mentisMdu40OddL",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.145",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOa1x20dBmVg": {
+    "name": "mentisOa1x20dBmVg",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.146",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOa2x20dBmVg": {
+    "name": "mentisOa2x20dBmVg",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.147",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisRoadm1x2G100": {
+    "name": "mentisRoadm1x2G100",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.148",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisRoadm1x2G50": {
+    "name": "mentisRoadm1x2G50",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.149",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTpq10GfecUnit": {
+    "name": "mentisTpq10GfecUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.150",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisControlSfpiiUnit": {
+    "name": "mentisControlSfpiiUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.151",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD40evUnit": {
+    "name": "mentisCoD40evUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.152",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD40eveUnit": {
+    "name": "mentisCoD40eveUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.153",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD40odUnit": {
+    "name": "mentisCoD40odUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.154",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD40odeUnit": {
+    "name": "mentisCoD40odeUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.155",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcDk652km20Unit": {
+    "name": "mentisDcDk652km20Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.156",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcDk652km40Unit": {
+    "name": "mentisDcDk652km40Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.157",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcDk652km60Unit": {
+    "name": "mentisDcDk652km60Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.158",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcDk652km80Unit": {
+    "name": "mentisDcDk652km80Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.159",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcP652km40Unit": {
+    "name": "mentisDcP652km40Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.160",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcP652km60Unit": {
+    "name": "mentisDcP652km60Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.161",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcP652km80Unit": {
+    "name": "mentisDcP652km80Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.162",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcP652km100Unit": {
+    "name": "mentisDcP652km100Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.163",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcP652km120Unit": {
+    "name": "mentisDcP652km120Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.164",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEmxp40GiiUnit": {
+    "name": "mentisEmxp40GiiUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.165",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisQuadMultiProtocolTransponderUnit": {
+    "name": "mentisQuadMultiProtocolTransponderUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.166",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTpq10GfecRegUnit": {
+    "name": "mentisTpq10GfecRegUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.167",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisColorlessMuxDemuxUnit": {
+    "name": "mentisColorlessMuxDemuxUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.168",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis8chSfpBasedVoaUnit": {
+    "name": "mentis8chSfpBasedVoaUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.169",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMsTp40GUnit": {
+    "name": "mentisMsTp40GUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.170",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMsMxp40GUnit": {
+    "name": "mentisMsMxp40GUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.171",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMXP10GOTN": {
+    "name": "mentisMXP10GOTN",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.172",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOpticalCouplerUnitDualQuad": {
+    "name": "mentisOpticalCouplerUnitDualQuad",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.173",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTm4700Unit": {
+    "name": "mentisTm4700Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.174",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTm4011Unit": {
+    "name": "mentisTm4011Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.175",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTm100MxpUnit": {
+    "name": "mentisTm100MxpUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.176",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTm100TpUnit": {
+    "name": "mentisTm100TpUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.177",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTm100RegUnit": {
+    "name": "mentisTm100RegUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.178",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2PSeedLightCouplerUnit": {
+    "name": "mentis2PSeedLightCouplerUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.179",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDual21dBmSeedLightUnit": {
+    "name": "mentisDual21dBmSeedLightUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.180",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEmxp62GiieUnit": {
+    "name": "mentisEmxp62GiieUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.181",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEmxp120GiieUnit": {
+    "name": "mentisEmxp120GiieUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.182",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOYPatchCordUnit": {
+    "name": "mentisOYPatchCordUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.183",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTpq10gfeciUnit": {
+    "name": "mentisTpq10gfeciUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.184",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTpq10gfecregiUnit": {
+    "name": "mentisTpq10gfecregiUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.185",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTphex10gotn": {
+    "name": "mentisTphex10gotn",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.186",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEmxp48GiieUnit": {
+    "name": "mentisEmxp48GiieUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.187",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTp100gotn": {
+    "name": "mentisTp100gotn",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.188",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEmxp220GiieUnit": {
+    "name": "mentisEmxp220GiieUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.189",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTpmrHL16GUnit": {
+    "name": "mentisTpmrHL16GUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.190",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFronthaulMuxPonder10G": {
+    "name": "mentisFronthaulMuxPonder10G",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.191",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMxp100gotn": {
+    "name": "mentisMxp100gotn",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.192",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEmxp240GiieUnit": {
+    "name": "mentisEmxp240GiieUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.193",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEmxp3Unit": {
+    "name": "mentisEmxp3Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.194",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisBoardTypeAUnit": {
+    "name": "mentisBoardTypeAUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.195",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisBoardTypeBUnit": {
+    "name": "mentisBoardTypeBUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.196",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFpu1Unit": {
+    "name": "mentisFpu1Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.197",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOaraed21hghybUnit": {
+    "name": "mentisOaraed21hghybUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.198",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTpmrHL16GUniUnit": {
+    "name": "mentisTpmrHL16GUniUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.199",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcDk652km100Unit": {
+    "name": "mentisDcDk652km100Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcDk652km120Unit": {
+    "name": "mentisDcDk652km120Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.201",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisDcP652km20Unit": {
+    "name": "mentisDcP652km20Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.202",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFhau1Unit": {
+    "name": "mentisFhau1Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.203",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFha1u1Unit": {
+    "name": "mentisFha1u1Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.204",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOa1x20dBmVg2Unit": {
+    "name": "mentisOa1x20dBmVg2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.205",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOa2x20dBmVg2Unit": {
+    "name": "mentisOa2x20dBmVg2Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.206",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisPtio10GUnit": {
+    "name": "mentisPtio10GUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.207",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFxp400gotnUnit": {
+    "name": "mentisFxp400gotnUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.208",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCompo24Unit": {
+    "name": "mentisCompo24Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.209",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisTp100gotnii": {
+    "name": "mentisTp100gotnii",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.210",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisPtio100GUnit": {
+    "name": "mentisPtio100GUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.211",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisRfu1Unit": {
+    "name": "mentisRfu1Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.212",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD919926Unit": {
+    "name": "mentisCoD919926Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.213",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD927934Unit": {
+    "name": "mentisCoD927934Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.214",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD935942Unit": {
+    "name": "mentisCoD935942Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.215",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD943950Unit": {
+    "name": "mentisCoD943950Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.216",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD951958Unit": {
+    "name": "mentisCoD951958Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.217",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD919926eUnit": {
+    "name": "mentisCoD919926eUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.218",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD927934eUnit": {
+    "name": "mentisCoD927934eUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.219",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD935942eUnit": {
+    "name": "mentisCoD935942eUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.220",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD943950eUnit": {
+    "name": "mentisCoD943950eUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.221",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD951958eUnit": {
+    "name": "mentisCoD951958eUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.222",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCo4Unit": {
+    "name": "mentisCo4Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.223",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCo5Unit": {
+    "name": "mentisCo5Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.224",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf20evaUnit": {
+    "name": "mentisCodsf20evaUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.225",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf20evbUnit": {
+    "name": "mentisCodsf20evbUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.226",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4919Unit": {
+    "name": "mentisCodsf4919Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.227",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4926Unit": {
+    "name": "mentisCodsf4926Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.228",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4927Unit": {
+    "name": "mentisCodsf4927Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.229",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4934Unit": {
+    "name": "mentisCodsf4934Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.230",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4935Unit": {
+    "name": "mentisCodsf4935Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.231",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4942Unit": {
+    "name": "mentisCodsf4942Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.232",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4943Unit": {
+    "name": "mentisCodsf4943Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.233",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4950Unit": {
+    "name": "mentisCodsf4950Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.234",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4951Unit": {
+    "name": "mentisCodsf4951Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.235",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf4958Unit": {
+    "name": "mentisCodsf4958Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.236",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2919Unit": {
+    "name": "mentisCodsf2919Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.237",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2922Unit": {
+    "name": "mentisCodsf2922Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.238",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2923Unit": {
+    "name": "mentisCodsf2923Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.239",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2926Unit": {
+    "name": "mentisCodsf2926Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.240",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2927Unit": {
+    "name": "mentisCodsf2927Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.241",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2930Unit": {
+    "name": "mentisCodsf2930Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.242",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2931Unit": {
+    "name": "mentisCodsf2931Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.243",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2934Unit": {
+    "name": "mentisCodsf2934Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.244",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2935Unit": {
+    "name": "mentisCodsf2935Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.245",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2938Unit": {
+    "name": "mentisCodsf2938Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.246",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2939Unit": {
+    "name": "mentisCodsf2939Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.247",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2942Unit": {
+    "name": "mentisCodsf2942Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.248",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2943Unit": {
+    "name": "mentisCodsf2943Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.249",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2946Unit": {
+    "name": "mentisCodsf2946Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.250",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2947Unit": {
+    "name": "mentisCodsf2947Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.251",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2950Unit": {
+    "name": "mentisCodsf2950Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.252",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2951Unit": {
+    "name": "mentisCodsf2951Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.253",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2954Unit": {
+    "name": "mentisCodsf2954Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.254",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2955Unit": {
+    "name": "mentisCodsf2955Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.255",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf2958Unit": {
+    "name": "mentisCodsf2958Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.256",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOadm2chUnit": {
+    "name": "mentisOadm2chUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.257",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMxp200gotnUnit": {
+    "name": "mentisMxp200gotnUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.258",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisEmxp440Unit": {
+    "name": "mentisEmxp440Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.259",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOaraed20lghybUnit": {
+    "name": "mentisOaraed20lghybUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.260",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisAd1c2fotdrUnit": {
+    "name": "mentisAd1c2fotdrUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.261",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCodsf243xMPOUnit": {
+    "name": "mentisCodsf243xMPOUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.262",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOtdr8pUnit": {
+    "name": "mentisOtdr8pUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.263",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOa1x21dBmVgEC": {
+    "name": "mentisOa1x21dBmVgEC",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.264",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisOa2x21dBmVgEC": {
+    "name": "mentisOa2x21dBmVgEC",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.265",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCo10Unit": {
+    "name": "mentisCo10Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.266",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD48evUnit": {
+    "name": "mentisCoD48evUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.267",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "entisCoD48odUnit": {
+    "name": "entisCoD48odUnit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.268",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "entisCoOcuD4x4Unit": {
+    "name": "entisCoOcuD4x4Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.269",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "entisCoocuD4x8Unit": {
+    "name": "entisCoocuD4x8Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.270",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoOiu50100Unit": {
+    "name": "mentisCoOiu50100Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.271",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCo2xOTDR1611Unit": {
+    "name": "mentisCo2xOTDR1611Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.272",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4919Unit": {
+    "name": "mentisCoD4919Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.273",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4923Unit": {
+    "name": "mentisCoD4923Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.274",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4927Unit": {
+    "name": "mentisCoD4927Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.275",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4931Unit": {
+    "name": "mentisCoD4931Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.276",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4935Unit": {
+    "name": "mentisCoD4935Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.277",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4939Unit": {
+    "name": "mentisCoD4939Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.278",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4943Unit": {
+    "name": "mentisCoD4943Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.279",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4947Unit": {
+    "name": "mentisCoD4947Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.280",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4951Unit": {
+    "name": "mentisCoD4951Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.281",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisCoD4955Unit": {
+    "name": "mentisCoD4955Unit",
+    "oid": "1.3.6.1.4.1.8708.3.1.1.282",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis300": {
+    "name": "mentis300",
+    "oid": "1.3.6.1.4.1.8708.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis300Backplane": {
+    "name": "mentis300Backplane",
+    "oid": "1.3.6.1.4.1.8708.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis300PowerSlot": {
+    "name": "mentis300PowerSlot",
+    "oid": "1.3.6.1.4.1.8708.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis300FanSlot": {
+    "name": "mentis300FanSlot",
+    "oid": "1.3.6.1.4.1.8708.3.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis300PowerSupply": {
+    "name": "mentis300PowerSupply",
+    "oid": "1.3.6.1.4.1.8708.3.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis300Fan": {
+    "name": "mentis300Fan",
+    "oid": "1.3.6.1.4.1.8708.3.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis3000": {
+    "name": "mentis3000",
+    "oid": "1.3.6.1.4.1.8708.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis3000Backplane": {
+    "name": "mentis3000Backplane",
+    "oid": "1.3.6.1.4.1.8708.3.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis3000PowerSlot": {
+    "name": "mentis3000PowerSlot",
+    "oid": "1.3.6.1.4.1.8708.3.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis3000FanSlot": {
+    "name": "mentis3000FanSlot",
+    "oid": "1.3.6.1.4.1.8708.3.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis3000PowerSupply": {
+    "name": "mentis3000PowerSupply",
+    "oid": "1.3.6.1.4.1.8708.3.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis3000Fan": {
+    "name": "mentis3000Fan",
+    "oid": "1.3.6.1.4.1.8708.3.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis301": {
+    "name": "mentis301",
+    "oid": "1.3.6.1.4.1.8708.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis301Backplane": {
+    "name": "mentis301Backplane",
+    "oid": "1.3.6.1.4.1.8708.3.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis301PowerSlot": {
+    "name": "mentis301PowerSlot",
+    "oid": "1.3.6.1.4.1.8708.3.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis301FanSlot": {
+    "name": "mentis301FanSlot",
+    "oid": "1.3.6.1.4.1.8708.3.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis301PowerSupply": {
+    "name": "mentis301PowerSupply",
+    "oid": "1.3.6.1.4.1.8708.3.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis301Fan": {
+    "name": "mentis301Fan",
+    "oid": "1.3.6.1.4.1.8708.3.4.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis101": {
+    "name": "mentis101",
+    "oid": "1.3.6.1.4.1.8708.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis101Backplane": {
+    "name": "mentis101Backplane",
+    "oid": "1.3.6.1.4.1.8708.3.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis101PowerSlot": {
+    "name": "mentis101PowerSlot",
+    "oid": "1.3.6.1.4.1.8708.3.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis101FanSlot": {
+    "name": "mentis101FanSlot",
+    "oid": "1.3.6.1.4.1.8708.3.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis101PowerSupply": {
+    "name": "mentis101PowerSupply",
+    "oid": "1.3.6.1.4.1.8708.3.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis101Fan": {
+    "name": "mentis101Fan",
+    "oid": "1.3.6.1.4.1.8708.3.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisAux": {
+    "name": "mentisAux",
+    "oid": "1.3.6.1.4.1.8708.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisAuxBackplane": {
+    "name": "mentisAuxBackplane",
+    "oid": "1.3.6.1.4.1.8708.3.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "transmodeNetworkManager": {
+    "name": "transmodeNetworkManager",
+    "oid": "1.3.6.1.4.1.8708.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102": {
+    "name": "mentis102",
+    "oid": "1.3.6.1.4.1.8708.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102Backplane": {
+    "name": "mentis102Backplane",
+    "oid": "1.3.6.1.4.1.8708.3.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102PowerSlot": {
+    "name": "mentis102PowerSlot",
+    "oid": "1.3.6.1.4.1.8708.3.8.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102FanSlot": {
+    "name": "mentis102FanSlot",
+    "oid": "1.3.6.1.4.1.8708.3.8.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102PowerSupply": {
+    "name": "mentis102PowerSupply",
+    "oid": "1.3.6.1.4.1.8708.3.8.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102Fan": {
+    "name": "mentis102Fan",
+    "oid": "1.3.6.1.4.1.8708.3.8.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMba1": {
+    "name": "mentisMba1",
+    "oid": "1.3.6.1.4.1.8708.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMba2": {
+    "name": "mentisMba2",
+    "oid": "1.3.6.1.4.1.8708.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisMba2E": {
+    "name": "mentisMba2E",
+    "oid": "1.3.6.1.4.1.8708.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102Pas3": {
+    "name": "mentis102Pas3",
+    "oid": "1.3.6.1.4.1.8708.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102Pas3Backplane": {
+    "name": "mentis102Pas3Backplane",
+    "oid": "1.3.6.1.4.1.8708.3.12.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102Pas": {
+    "name": "mentis102Pas",
+    "oid": "1.3.6.1.4.1.8708.3.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis102PasBackplane": {
+    "name": "mentis102PasBackplane",
+    "oid": "1.3.6.1.4.1.8708.3.13.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis101P": {
+    "name": "mentis101P",
+    "oid": "1.3.6.1.4.1.8708.3.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2000": {
+    "name": "mentis2000",
+    "oid": "1.3.6.1.4.1.8708.3.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2000Backplane": {
+    "name": "mentis2000Backplane",
+    "oid": "1.3.6.1.4.1.8708.3.15.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2000PowerSlot": {
+    "name": "mentis2000PowerSlot",
+    "oid": "1.3.6.1.4.1.8708.3.15.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2000FanSlot": {
+    "name": "mentis2000FanSlot",
+    "oid": "1.3.6.1.4.1.8708.3.15.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2000PowerSupply": {
+    "name": "mentis2000PowerSupply",
+    "oid": "1.3.6.1.4.1.8708.3.15.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis2000Fan": {
+    "name": "mentis2000Fan",
+    "oid": "1.3.6.1.4.1.8708.3.15.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentis101PBackplane": {
+    "name": "mentis101PBackplane",
+    "oid": "1.3.6.1.4.1.8708.3.14.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisFha1u": {
+    "name": "mentisFha1u",
+    "oid": "1.3.6.1.4.1.8708.3.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mentisRfuAc1": {
+    "name": "mentisRfuAc1",
+    "oid": "1.3.6.1.4.1.8708.3.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumCaps": {
+    "name": "lumCaps",
+    "oid": "1.3.6.1.4.1.8708.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumReqs": {
+    "name": "lumReqs",
+    "oid": "1.3.6.1.4.1.8708.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lumExpr": {
+    "name": "lumExpr",
+    "oid": "1.3.6.1.4.1.8708.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infinera/LUM-REG",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LUM-REG"
+  }
+}

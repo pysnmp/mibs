@@ -1,0 +1,445 @@
+{
+  "imports": {
+    "class": "imports",
+    "GMPLS-TC-STD-MIB": [
+      "GmplsSegmentDirectionTC"
+    ],
+    "IF-MIB": [
+      "ifGeneralInformationGroup",
+      "ifCounterDiscontinuityGroup"
+    ],
+    "MPLS-LSR-STD-MIB": [
+      "mplsInterfaceIndex",
+      "mplsPerfGroup",
+      "mplsLsrNotificationGroup",
+      "mplsOutSegmentGroup",
+      "mplsXCGroup",
+      "mplsInterfaceGroup",
+      "mplsInSegmentIndex",
+      "mplsOutSegmentIndex",
+      "mplsInSegmentGroup"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "mplsStdMIB"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "zeroDotZero",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gmplsLsrStdMIB": {
+    "name": "gmplsLsrStdMIB",
+    "oid": "1.3.6.1.2.1.10.166.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-02-27 00:00",
+        "description": "Initial version issued as part of RFC 4803."
+      }
+    ]
+  },
+  "gmplsLsrObjects": {
+    "name": "gmplsLsrObjects",
+    "oid": "1.3.6.1.2.1.10.166.15.1",
+    "class": "objectidentity"
+  },
+  "gmplsLsrConformance": {
+    "name": "gmplsLsrConformance",
+    "oid": "1.3.6.1.2.1.10.166.15.2",
+    "class": "objectidentity"
+  },
+  "gmplsInterfaceTable": {
+    "name": "gmplsInterfaceTable",
+    "oid": "1.3.6.1.2.1.10.166.15.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gmplsInterfaceEntry": {
+    "name": "gmplsInterfaceEntry",
+    "oid": "1.3.6.1.2.1.10.166.15.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-LSR-STD-MIB",
+        "object": "mplsInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gmplsInterfaceSignalingCaps": {
+    "name": "gmplsInterfaceSignalingCaps",
+    "oid": "1.3.6.1.2.1.10.166.15.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unknown": 0,
+        "rsvpGmpls": 1,
+        "crldpGmpls": 2,
+        "otherGmpls": 3
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "rsvpGmpls": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gmplsInterfaceRsvpHelloPeriod": {
+    "name": "gmplsInterfaceRsvpHelloPeriod",
+    "oid": "1.3.6.1.2.1.10.166.15.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gmplsInSegmentTable": {
+    "name": "gmplsInSegmentTable",
+    "oid": "1.3.6.1.2.1.10.166.15.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gmplsInSegmentEntry": {
+    "name": "gmplsInSegmentEntry",
+    "oid": "1.3.6.1.2.1.10.166.15.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-LSR-STD-MIB",
+        "object": "mplsInSegmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gmplsInSegmentDirection": {
+    "name": "gmplsInSegmentDirection",
+    "oid": "1.3.6.1.2.1.10.166.15.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GmplsSegmentDirectionTC",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "forward",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gmplsInSegmentExtraParamsPtr": {
+    "name": "gmplsInSegmentExtraParamsPtr",
+    "oid": "1.3.6.1.2.1.10.166.15.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gmplsOutSegmentTable": {
+    "name": "gmplsOutSegmentTable",
+    "oid": "1.3.6.1.2.1.10.166.15.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gmplsOutSegmentEntry": {
+    "name": "gmplsOutSegmentEntry",
+    "oid": "1.3.6.1.2.1.10.166.15.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-LSR-STD-MIB",
+        "object": "mplsOutSegmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gmplsOutSegmentDirection": {
+    "name": "gmplsOutSegmentDirection",
+    "oid": "1.3.6.1.2.1.10.166.15.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GmplsSegmentDirectionTC",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "forward",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gmplsOutSegmentTTLDecrement": {
+    "name": "gmplsOutSegmentTTLDecrement",
+    "oid": "1.3.6.1.2.1.10.166.15.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gmplsOutSegmentExtraParamsPtr": {
+    "name": "gmplsOutSegmentExtraParamsPtr",
+    "oid": "1.3.6.1.2.1.10.166.15.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gmplsLsrGroups": {
+    "name": "gmplsLsrGroups",
+    "oid": "1.3.6.1.2.1.10.166.15.2.1",
+    "class": "objectidentity"
+  },
+  "gmplsLsrCompliances": {
+    "name": "gmplsLsrCompliances",
+    "oid": "1.3.6.1.2.1.10.166.15.2.2",
+    "class": "objectidentity"
+  },
+  "gmplsLsrModuleFullCompliance": {
+    "name": "gmplsLsrModuleFullCompliance",
+    "oid": "1.3.6.1.2.1.10.166.15.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifGeneralInformationGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "mplsInterfaceGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsInSegmentGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsOutSegmentGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsXCGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsPerfGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsLsrNotificationGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "gmplsInterfaceGroup",
+        "module": "GMPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "gmplsInSegmentGroup",
+        "module": "GMPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "gmplsOutSegmentGroup",
+        "module": "GMPLS-LSR-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "gmplsLsrModuleReadOnlyCompliance": {
+    "name": "gmplsLsrModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.2.1.10.166.15.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifGeneralInformationGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "mplsInterfaceGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsInSegmentGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsOutSegmentGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsXCGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "mplsPerfGroup",
+        "module": "MPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "gmplsInterfaceGroup",
+        "module": "GMPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "gmplsInSegmentGroup",
+        "module": "GMPLS-LSR-STD-MIB"
+      },
+      {
+        "object": "gmplsOutSegmentGroup",
+        "module": "GMPLS-LSR-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "gmplsInterfaceGroup": {
+    "name": "gmplsInterfaceGroup",
+    "oid": "1.3.6.1.2.1.10.166.15.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GMPLS-LSR-STD-MIB",
+        "object": "gmplsInterfaceSignalingCaps"
+      },
+      {
+        "module": "GMPLS-LSR-STD-MIB",
+        "object": "gmplsInterfaceRsvpHelloPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "gmplsInSegmentGroup": {
+    "name": "gmplsInSegmentGroup",
+    "oid": "1.3.6.1.2.1.10.166.15.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GMPLS-LSR-STD-MIB",
+        "object": "gmplsInSegmentDirection"
+      },
+      {
+        "module": "GMPLS-LSR-STD-MIB",
+        "object": "gmplsInSegmentExtraParamsPtr"
+      }
+    ],
+    "status": "current"
+  },
+  "gmplsOutSegmentGroup": {
+    "name": "gmplsOutSegmentGroup",
+    "oid": "1.3.6.1.2.1.10.166.15.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GMPLS-LSR-STD-MIB",
+        "object": "gmplsOutSegmentDirection"
+      },
+      {
+        "module": "GMPLS-LSR-STD-MIB",
+        "object": "gmplsOutSegmentTTLDecrement"
+      },
+      {
+        "module": "GMPLS-LSR-STD-MIB",
+        "object": "gmplsOutSegmentExtraParamsPtr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/GMPLS-LSR-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "GMPLS-LSR-STD-MIB"
+  }
+}

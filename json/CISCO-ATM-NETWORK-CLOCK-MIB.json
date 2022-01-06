@@ -1,0 +1,776 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoAtmNetworkClockMIB": {
+    "name": "ciscoAtmNetworkClockMIB",
+    "oid": "1.3.6.1.4.1.9.9.121",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-02-18 00:00",
+        "description": "The SYNTAX of following objects changed from INTEGER to Integer32. cncNcdpMessageInterval, cncNcdpHoldTime ,cncNcdpPriority , CncNcdpAtmEntry ,cncNcdpAdminWeight,cncNcdpVpi, cncNcdpVci ."
+      },
+      {
+        "revision": "2001-12-11 00:00",
+        "description": "Intial MIB version."
+      }
+    ]
+  },
+  "ciscoAtmNetworkClockMIBObjects": {
+    "name": "ciscoAtmNetworkClockMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.121.1",
+    "class": "objectidentity"
+  },
+  "cncGlobal": {
+    "name": "cncGlobal",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1",
+    "class": "objectidentity"
+  },
+  "cncManualSource": {
+    "name": "cncManualSource",
+    "oid": "1.3.6.1.4.1.9.9.121.1.2",
+    "class": "objectidentity"
+  },
+  "cncNcdpSource": {
+    "name": "cncNcdpSource",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3",
+    "class": "objectidentity"
+  },
+  "cncNcdp": {
+    "name": "cncNcdp",
+    "oid": "1.3.6.1.4.1.9.9.121.1.4",
+    "class": "objectidentity"
+  },
+  "CncStratum": {
+    "name": "CncStratum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s1": 1,
+          "s2e": 2,
+          "s2": 3,
+          "s3e": 4,
+          "s3": 5,
+          "s4e": 6,
+          "s4": 7,
+          "other": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CncHealth": {
+    "name": "CncHealth",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "bad": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cncDistributionMethod": {
+    "name": "cncDistributionMethod",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ncdp": 1,
+          "manual": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "manual",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncNotificationOnChange": {
+    "name": "cncNotificationOnChange",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncNodeStratum": {
+    "name": "cncNodeStratum",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CncStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cncNcdpMaxDiameter": {
+    "name": "cncNcdpMaxDiameter",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncNcdpMessageInterval": {
+    "name": "cncNcdpMessageInterval",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 75,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncNcdpHoldTime": {
+    "name": "cncNcdpHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 75,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncSourceChangeReason": {
+    "name": "cncSourceChangeReason",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "lossOfLock": 2,
+          "lossOfActivity": 3,
+          "ncdpRestructure": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cncSourceChangeTimeStamp": {
+    "name": "cncSourceChangeTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cncRootClockSource": {
+    "name": "cncRootClockSource",
+    "oid": "1.3.6.1.4.1.9.9.121.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cncManualSourceTable": {
+    "name": "cncManualSourceTable",
+    "oid": "1.3.6.1.4.1.9.9.121.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cncManualSourceEntry": {
+    "name": "cncManualSourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.121.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncManualSourcePriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cncManualSourcePriority": {
+    "name": "cncManualSourcePriority",
+    "oid": "1.3.6.1.4.1.9.9.121.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "default": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cncManualSourceId": {
+    "name": "cncManualSourceId",
+    "oid": "1.3.6.1.4.1.9.9.121.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cncManualSourceHealth": {
+    "name": "cncManualSourceHealth",
+    "oid": "1.3.6.1.4.1.9.9.121.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CncHealth",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cncManualRowStatus": {
+    "name": "cncManualRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.121.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cncNcdpSourceTable": {
+    "name": "cncNcdpSourceTable",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cncNcdpSourceEntry": {
+    "name": "cncNcdpSourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cncNcdpBestClockSource": {
+    "name": "cncNcdpBestClockSource",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cncNcdpPriority": {
+    "name": "cncNcdpPriority",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cncNcdpStratum": {
+    "name": "cncNcdpStratum",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CncStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cncNcdpPRSReference": {
+    "name": "cncNcdpPRSReference",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cncNcdpSourceHealth": {
+    "name": "cncNcdpSourceHealth",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CncHealth",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cncNcdpRowStatus": {
+    "name": "cncNcdpRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.121.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cncNcdpAtmTable": {
+    "name": "cncNcdpAtmTable",
+    "oid": "1.3.6.1.4.1.9.9.121.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cncNcdpAtmEntry": {
+    "name": "cncNcdpAtmEntry",
+    "oid": "1.3.6.1.4.1.9.9.121.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cncNcdpEnable": {
+    "name": "cncNcdpEnable",
+    "oid": "1.3.6.1.4.1.9.9.121.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncNcdpAdminWeight": {
+    "name": "cncNcdpAdminWeight",
+    "oid": "1.3.6.1.4.1.9.9.121.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncNcdpVpi": {
+    "name": "cncNcdpVpi",
+    "oid": "1.3.6.1.4.1.9.9.121.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncNcdpVci": {
+    "name": "cncNcdpVci",
+    "oid": "1.3.6.1.4.1.9.9.121.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 34,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cncNcdpHealth": {
+    "name": "cncNcdpHealth",
+    "oid": "1.3.6.1.4.1.9.9.121.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CncHealth",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmNetworkClockNotificationPrefix": {
+    "name": "ciscoAtmNetworkClockNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.121.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmNetworkClockMIBNotifications": {
+    "name": "ciscoAtmNetworkClockMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.121.2.0",
+    "class": "objectidentity"
+  },
+  "cncNotifySourceChange": {
+    "name": "cncNotifySourceChange",
+    "oid": "1.3.6.1.4.1.9.9.121.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncSourceChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmNetworkClockConformance": {
+    "name": "ciscoAtmNetworkClockConformance",
+    "oid": "1.3.6.1.4.1.9.9.121.3",
+    "class": "objectidentity"
+  },
+  "ciscoAtmNetworkClockMIBCompliances": {
+    "name": "ciscoAtmNetworkClockMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.121.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmNetworkClockMIBGroups": {
+    "name": "ciscoAtmNetworkClockMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.121.3.2",
+    "class": "objectidentity"
+  },
+  "cncMIBCompliance": {
+    "name": "cncMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.121.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cncGroup",
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB"
+      },
+      {
+        "object": "cncNotificationGroup",
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cncGroup": {
+    "name": "cncGroup",
+    "oid": "1.3.6.1.4.1.9.9.121.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncDistributionMethod"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNotificationOnChange"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNodeStratum"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpMaxDiameter"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpMessageInterval"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpHoldTime"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncSourceChangeReason"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncSourceChangeTimeStamp"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncRootClockSource"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncManualSourceId"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncManualSourceHealth"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncManualRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpBestClockSource"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpPriority"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpStratum"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpPRSReference"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpSourceHealth"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpEnable"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpAdminWeight"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpVpi"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpVci"
+      },
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNcdpHealth"
+      }
+    ],
+    "status": "current"
+  },
+  "cncNotificationGroup": {
+    "name": "cncNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.121.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-NETWORK-CLOCK-MIB",
+        "object": "cncNotifySourceChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-NETWORK-CLOCK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-NETWORK-CLOCK-MIB"
+  }
+}

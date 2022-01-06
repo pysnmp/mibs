@@ -1,0 +1,833 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "StorageType"
+    ]
+  },
+  "accessControl": {
+    "name": "accessControl",
+    "oid": "1.3.6.1.4.1.3373.1103.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-09-17 00:00",
+        "description": "Added accessControlExtLoginTable. "
+      },
+      {
+        "revision": "2014-04-08 00:00",
+        "description": "Introduced accessControlGroupTelnet leaf Fixed IMPORTS clause "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of accessControlMibVersion "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "accessControlMibVersion": {
+    "name": "accessControlMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessControlGroupTable": {
+    "name": "accessControlGroupTable",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessControlGroupRecord": {
+    "name": "accessControlGroupRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-USER-MIB",
+        "object": "accessControlGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessControlGroupName": {
+    "name": "accessControlGroupName",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupProfile": {
+    "name": "accessControlGroupProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admin": 1,
+          "readwrite": 2,
+          "maintenance": 3,
+          "readonly": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupHttp": {
+    "name": "accessControlGroupHttp",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "allow": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupHttps": {
+    "name": "accessControlGroupHttps",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "allow": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupSnmp": {
+    "name": "accessControlGroupSnmp",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "allowV1": 2,
+          "allowV2c": 3,
+          "allowV3": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupFtp": {
+    "name": "accessControlGroupFtp",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "allow": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupSftp": {
+    "name": "accessControlGroupSftp",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "allow": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupSsh": {
+    "name": "accessControlGroupSsh",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "allow": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupRowStatus": {
+    "name": "accessControlGroupRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlGroupCli": {
+    "name": "accessControlGroupCli",
+    "oid": "1.3.6.1.4.1.3373.1103.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "allow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessControlUserTable": {
+    "name": "accessControlUserTable",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessControlUserRecord": {
+    "name": "accessControlUserRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-USER-MIB",
+        "object": "accessControlUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessControlUserName": {
+    "name": "accessControlUserName",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlUserGroupName": {
+    "name": "accessControlUserGroupName",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlUserPwd": {
+    "name": "accessControlUserPwd",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlUserSnmpAuthProt": {
+    "name": "accessControlUserSnmpAuthProt",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuth": 1,
+          "md5": 2,
+          "sha": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlUserSnmpAuthKey": {
+    "name": "accessControlUserSnmpAuthKey",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlUserSnmpPrivProt": {
+    "name": "accessControlUserSnmpPrivProt",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noPriv": 1,
+          "des": 2,
+          "aes": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlUserSnmpPrivKey": {
+    "name": "accessControlUserSnmpPrivKey",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlUserTimeout": {
+    "name": "accessControlUserTimeout",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlUserRowStatus": {
+    "name": "accessControlUserRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlLoginTable": {
+    "name": "accessControlLoginTable",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessControlLoginRecord": {
+    "name": "accessControlLoginRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-USER-MIB",
+        "object": "accessControlLoginIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-USER-MIB",
+        "object": "accessControlLoginUserName",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-USER-MIB",
+        "object": "accessControlLoginType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessControlLoginUserName": {
+    "name": "accessControlLoginUserName",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessControlLoginIpAddress": {
+    "name": "accessControlLoginIpAddress",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessControlLoginRequest": {
+    "name": "accessControlLoginRequest",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "logout": 2,
+          "forcelogout": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessControlLoginTrapEnable": {
+    "name": "accessControlLoginTrapEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessControlLoginType": {
+    "name": "accessControlLoginType",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "web": 1,
+          "snmp": 2,
+          "cli": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessControlLoginPwd": {
+    "name": "accessControlLoginPwd",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accessControlLoginPolling": {
+    "name": "accessControlLoginPolling",
+    "oid": "1.3.6.1.4.1.3373.1103.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "polling": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessControlClientTable": {
+    "name": "accessControlClientTable",
+    "oid": "1.3.6.1.4.1.3373.1103.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessControlClientRecord": {
+    "name": "accessControlClientRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-USER-MIB",
+        "object": "accessControlClientService",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accessControlClientService": {
+    "name": "accessControlClientService",
+    "oid": "1.3.6.1.4.1.3373.1103.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlClientServiceStatus": {
+    "name": "accessControlClientServiceStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlClientName": {
+    "name": "accessControlClientName",
+    "oid": "1.3.6.1.4.1.3373.1103.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlClientPwd": {
+    "name": "accessControlClientPwd",
+    "oid": "1.3.6.1.4.1.3373.1103.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlClientStorageType": {
+    "name": "accessControlClientStorageType",
+    "oid": "1.3.6.1.4.1.3373.1103.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlClientRowStatus": {
+    "name": "accessControlClientRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "accessControlExtLoginTable": {
+    "name": "accessControlExtLoginTable",
+    "oid": "1.3.6.1.4.1.3373.1103.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accessControlExtLoginRecord": {
+    "name": "accessControlExtLoginRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "accessControlExtLoginRecord",
+      "module": "SIAE-USER-MIB",
+      "object": "accessControlLoginRecord"
+    },
+    "status": "current"
+  },
+  "accessControlExtLoginProfile": {
+    "name": "accessControlExtLoginProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admin": 1,
+          "readwrite": 2,
+          "maintenance": 3,
+          "readonly": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accessControlExtLoginAuthMode": {
+    "name": "accessControlExtLoginAuthMode",
+    "oid": "1.3.6.1.4.1.3373.1103.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-USER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-USER-MIB"
+  }
+}

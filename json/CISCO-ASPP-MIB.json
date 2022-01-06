@@ -1,0 +1,573 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAsppMIB": {
+    "name": "ciscoAsppMIB",
+    "oid": "1.3.6.1.4.1.9.9.55",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-02-10 00:00",
+        "description": "Added Asynchronous Point of Sale(POS) to IP conversion support. The APOS protocol utilizes asynchrounous communications with 1 start, 1 stop and 7 data bits with even parity. The connection to the POS terminal will always be an asynchronous leased line. The protocol has many characteristics of BSC except it is simplified to minimize overhead on the point to point connection. The added APOS traffic will be locally acknowledged unlike the other polled asynchronous protocol which function in passthrough mode. The LRC/VRC will be verified and any necessary recovery will be done by the router. This is necessary since we are converting the protocol so the data can be passed to an IP attached host."
+      },
+      {
+        "revision": "1995-08-21 00:00",
+        "description": "Initial mib for async security polled protocols."
+      }
+    ]
+  },
+  "asppObjects": {
+    "name": "asppObjects",
+    "oid": "1.3.6.1.4.1.9.9.55.1",
+    "class": "objectidentity"
+  },
+  "asppPorts": {
+    "name": "asppPorts",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1",
+    "class": "objectidentity"
+  },
+  "asppPortTable": {
+    "name": "asppPortTable",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asppPortEntry": {
+    "name": "asppPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "asppPortProtocol": {
+    "name": "asppPortProtocol",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adplex": 1,
+          "adtPollSelect": 2,
+          "adtVariPoll": 3,
+          "diebold": 4,
+          "asyncGeneric": 5,
+          "mdi": 6,
+          "mosec": 7,
+          "gddb": 8,
+          "apos": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortRole": {
+    "name": "asppPortRole",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortReceiveInterFrameTimeout": {
+    "name": "asppPortReceiveInterFrameTimeout",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortDeviceAddressOffset": {
+    "name": "asppPortDeviceAddressOffset",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortEOFCharacter": {
+    "name": "asppPortEOFCharacter",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortSOFCharacter": {
+    "name": "asppPortSOFCharacter",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortIgnoreSequenceNumber": {
+    "name": "asppPortIgnoreSequenceNumber",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortRspTimer": {
+    "name": "asppPortRspTimer",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortRxTimer": {
+    "name": "asppPortRxTimer",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortHostTimer": {
+    "name": "asppPortHostTimer",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortConnectTimer": {
+    "name": "asppPortConnectTimer",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortRetryCount": {
+    "name": "asppPortRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortDelayEnq": {
+    "name": "asppPortDelayEnq",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortDisableEnq": {
+    "name": "asppPortDisableEnq",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortSendAck": {
+    "name": "asppPortSendAck",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortDirect": {
+    "name": "asppPortDirect",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppPortDCDAlways": {
+    "name": "asppPortDCDAlways",
+    "oid": "1.3.6.1.4.1.9.9.55.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asppMibConformance": {
+    "name": "asppMibConformance",
+    "oid": "1.3.6.1.4.1.9.9.55.3",
+    "class": "objectidentity"
+  },
+  "asppMibCompliances": {
+    "name": "asppMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.55.3.1",
+    "class": "objectidentity"
+  },
+  "asppMibGroups": {
+    "name": "asppMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.55.3.2",
+    "class": "objectidentity"
+  },
+  "asppMibCompliance": {
+    "name": "asppMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.55.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "asppPortsGroup",
+        "module": "CISCO-ASPP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "asppMibComplianceRev1": {
+    "name": "asppMibComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.55.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "asppPortsGroup",
+        "module": "CISCO-ASPP-MIB"
+      },
+      {
+        "object": "asppPortsGenericGroup",
+        "module": "CISCO-ASPP-MIB"
+      },
+      {
+        "object": "asppPortsAposGroup",
+        "module": "CISCO-ASPP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "asppPortsGroup": {
+    "name": "asppPortsGroup",
+    "oid": "1.3.6.1.4.1.9.9.55.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortProtocol"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortRole"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortReceiveInterFrameTimeout"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortDeviceAddressOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "asppPortsGenericGroup": {
+    "name": "asppPortsGenericGroup",
+    "oid": "1.3.6.1.4.1.9.9.55.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortEOFCharacter"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortSOFCharacter"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortIgnoreSequenceNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "asppPortsAposGroup": {
+    "name": "asppPortsAposGroup",
+    "oid": "1.3.6.1.4.1.9.9.55.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortRspTimer"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortRxTimer"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortHostTimer"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortConnectTimer"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortRetryCount"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortDelayEnq"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortDisableEnq"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortSendAck"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortDirect"
+      },
+      {
+        "module": "CISCO-ASPP-MIB",
+        "object": "asppPortDCDAlways"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ASPP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ASPP-MIB"
+  }
+}

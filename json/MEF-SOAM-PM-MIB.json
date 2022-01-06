@@ -1,0 +1,6844 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-CFM-MIB": [
+      "dot1agCfmMepIdentifier",
+      "Dot1afCfmIndexIntegerNextFree",
+      "dot1agCfmMepEntry",
+      "dot1agCfmMaIndex",
+      "Dot1agCfmMepIdOrZero",
+      "dot1agCfmMdIndex"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021PriorityValue"
+    ],
+    "MEF-SOAM-TC-MIB": [
+      "MefSoamTcMeasurementPeriodType",
+      "MefSoamTcDelayMeasurementBinType",
+      "MefSoamTcStatusType",
+      "MefSoamTcAvailabilityType",
+      "MefSoamTcSessionType",
+      "MefSoamTcTestPatternType",
+      "MefSoamTcDataPatternType",
+      "MefSoamTcOperationTimeType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TimeInterval",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "mefSoamPmMib": {
+    "name": "mefSoamPmMib",
+    "oid": "1.3.6.1.4.1.15007.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-13 12:00",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "mefSoamPmNotifications": {
+    "name": "mefSoamPmNotifications",
+    "oid": "1.3.6.1.4.1.15007.1.3.0",
+    "class": "objectidentity"
+  },
+  "mefSoamPmMibObjects": {
+    "name": "mefSoamPmMibObjects",
+    "oid": "1.3.6.1.4.1.15007.1.3.1",
+    "class": "objectidentity"
+  },
+  "mefSoamPmMibConformance": {
+    "name": "mefSoamPmMibConformance",
+    "oid": "1.3.6.1.4.1.15007.1.3.2",
+    "class": "objectidentity"
+  },
+  "mefSoamPmMep": {
+    "name": "mefSoamPmMep",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "mefSoamPmLmObjects": {
+    "name": "mefSoamPmLmObjects",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "mefSoamPmDmObjects": {
+    "name": "mefSoamPmDmObjects",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "mefSoamPmNotificationCfg": {
+    "name": "mefSoamPmNotificationCfg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.4",
+    "class": "objectidentity"
+  },
+  "mefSoamPmNotificationObj": {
+    "name": "mefSoamPmNotificationObj",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5",
+    "class": "objectidentity"
+  },
+  "mefSoamPmMepTable": {
+    "name": "mefSoamPmMepTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamPmMepEntry": {
+    "name": "mefSoamPmMepEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mefSoamPmMepEntry",
+      "module": "MEF-SOAM-PM-MIB",
+      "object": "dot1agCfmMepEntry"
+    },
+    "status": "current"
+  },
+  "mefSoamPmMepOperNextIndex": {
+    "name": "mefSoamPmMepOperNextIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1afCfmIndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamPmMepLmSingleEndedResponder": {
+    "name": "mefSoamPmMepLmSingleEndedResponder",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefSoamPmMepSlmSingleEndedResponder": {
+    "name": "mefSoamPmMepSlmSingleEndedResponder",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefSoamPmMepDmSingleEndedResponder": {
+    "name": "mefSoamPmMepDmSingleEndedResponder",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefSoamLmCfgTable": {
+    "name": "mefSoamLmCfgTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmCfgEntry": {
+    "name": "mefSoamLmCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCfgIndex": {
+    "name": "mefSoamLmCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmCfgType": {
+    "name": "mefSoamLmCfgType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lmLmm": 1,
+          "lmSlm": 2,
+          "lmCcm": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "lmSlm",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgVersion": {
+    "name": "mefSoamLmCfgVersion",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgEnabled": {
+    "name": "mefSoamLmCfgEnabled",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgMeasurementEnable": {
+    "name": "mefSoamLmCfgMeasurementEnable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bForwardTransmitedFrames": 0,
+        "bForwardReceivedFrames": 1,
+        "bForwardMinFlr": 2,
+        "bForwardMaxFlr": 3,
+        "bForwardAvgFlr": 4,
+        "bBackwardTransmitedFrames": 5,
+        "bBackwardReceivedFrames": 6,
+        "bBackwardMinFlr": 7,
+        "bBackwardMaxFlr": 8,
+        "bBackwardAvgFlr": 9,
+        "bSoamPdusSent": 10,
+        "bSoamPdusReceived": 11,
+        "bAvailForwardHighLoss": 12,
+        "bAvailForwardConsecutiveHighLoss": 13,
+        "bAvailForwardAvailable": 14,
+        "bAvailForwardUnavailable": 15,
+        "bAvailForwardMinFlr": 16,
+        "bAvailForwardMaxFlr": 17,
+        "bAvailForwardAvgFlr": 18,
+        "bAvailBackwardHighLoss": 19,
+        "bAvailBackwardConsecutiveHighLoss": 20,
+        "bAvailBackwardAvailable": 21,
+        "bAvailBackwardUnavailable": 22,
+        "bAvailBackwardMinFlr": 23,
+        "bAvailBackwardMaxFlr": 24,
+        "bAvailBackwardAvgFlr": 25,
+        "bMeasuredStatsForwardMeasuredFlr": 26,
+        "bMeasuredStatsBackwardMeasuredFlr": 27,
+        "bMeasuredStatsAvailForwardStatus": 28,
+        "bMeasuredStatsAvailBackwardStatus": 29
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgMessagePeriod": {
+    "name": "mefSoamLmCfgMessagePeriod",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcMeasurementPeriodType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgPriority": {
+    "name": "mefSoamLmCfgPriority",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgFrameSize": {
+    "name": "mefSoamLmCfgFrameSize",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgDataPattern": {
+    "name": "mefSoamLmCfgDataPattern",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcDataPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "zeroPattern",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgTestTlvIncluded": {
+    "name": "mefSoamLmCfgTestTlvIncluded",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgTestTlvPattern": {
+    "name": "mefSoamLmCfgTestTlvPattern",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcTestPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "null",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgMeasurementInterval": {
+    "name": "mefSoamLmCfgMeasurementInterval",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 525600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgNumIntervalsStored": {
+    "name": "mefSoamLmCfgNumIntervalsStored",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgDestMacAddress": {
+    "name": "mefSoamLmCfgDestMacAddress",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgDestMepId": {
+    "name": "mefSoamLmCfgDestMepId",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgDestIsMepId": {
+    "name": "mefSoamLmCfgDestIsMepId",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgStartTimeType": {
+    "name": "mefSoamLmCfgStartTimeType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcOperationTimeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "immediate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgFixedStartDateAndTime": {
+    "name": "mefSoamLmCfgFixedStartDateAndTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000010100000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgRelativeStartTime": {
+    "name": "mefSoamLmCfgRelativeStartTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgStopTimeType": {
+    "name": "mefSoamLmCfgStopTimeType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcOperationTimeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgFixedStopDateAndTime": {
+    "name": "mefSoamLmCfgFixedStopDateAndTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000010100000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgRelativeStopTime": {
+    "name": "mefSoamLmCfgRelativeStopTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgRepetitionTime": {
+    "name": "mefSoamLmCfgRepetitionTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31536000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgAlignMeasurementIntervals": {
+    "name": "mefSoamLmCfgAlignMeasurementIntervals",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgAlignMeasurementOffset": {
+    "name": "mefSoamLmCfgAlignMeasurementOffset",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 525600
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgAvailabilityMeasurementInterval": {
+    "name": "mefSoamLmCfgAvailabilityMeasurementInterval",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 525600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgAvailabilityNumConsecutiveMeasPdus": {
+    "name": "mefSoamLmCfgAvailabilityNumConsecutiveMeasPdus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgAvailabilityFlrThreshold": {
+    "name": "mefSoamLmCfgAvailabilityFlrThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgAvailabilityNumConsecutiveIntervals": {
+    "name": "mefSoamLmCfgAvailabilityNumConsecutiveIntervals",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgAvailabilityNumConsecutiveHighFlr": {
+    "name": "mefSoamLmCfgAvailabilityNumConsecutiveHighFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgSessionType": {
+    "name": "mefSoamLmCfgSessionType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcSessionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "proactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgSessionStatus": {
+    "name": "mefSoamLmCfgSessionStatus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCfgHistoryClear": {
+    "name": "mefSoamLmCfgHistoryClear",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmCfgRowStatus": {
+    "name": "mefSoamLmCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsTable": {
+    "name": "mefSoamLmMeasuredStatsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsEntry": {
+    "name": "mefSoamLmMeasuredStatsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsForwardFlr": {
+    "name": "mefSoamLmMeasuredStatsForwardFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsBackwardFlr": {
+    "name": "mefSoamLmMeasuredStatsBackwardFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsAvailForwardStatus": {
+    "name": "mefSoamLmMeasuredStatsAvailForwardStatus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcAvailabilityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsAvailBackwardStatus": {
+    "name": "mefSoamLmMeasuredStatsAvailBackwardStatus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcAvailabilityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsAvailForwardLastTransitionTime": {
+    "name": "mefSoamLmMeasuredStatsAvailForwardLastTransitionTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsAvailBackwardLastTransitionTime": {
+    "name": "mefSoamLmMeasuredStatsAvailBackwardLastTransitionTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsTable": {
+    "name": "mefSoamLmCurrentAvailStatsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsEntry": {
+    "name": "mefSoamLmCurrentAvailStatsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsIndex": {
+    "name": "mefSoamLmCurrentAvailStatsIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsStartTime": {
+    "name": "mefSoamLmCurrentAvailStatsStartTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsElapsedTime": {
+    "name": "mefSoamLmCurrentAvailStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsSuspect": {
+    "name": "mefSoamLmCurrentAvailStatsSuspect",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsForwardHighLoss": {
+    "name": "mefSoamLmCurrentAvailStatsForwardHighLoss",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsBackwardHighLoss": {
+    "name": "mefSoamLmCurrentAvailStatsBackwardHighLoss",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsForwardConsecutiveHighLoss": {
+    "name": "mefSoamLmCurrentAvailStatsForwardConsecutiveHighLoss",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsBackwardConsecutiveHighLoss": {
+    "name": "mefSoamLmCurrentAvailStatsBackwardConsecutiveHighLoss",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsForwardAvailable": {
+    "name": "mefSoamLmCurrentAvailStatsForwardAvailable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsBackwardAvailable": {
+    "name": "mefSoamLmCurrentAvailStatsBackwardAvailable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsForwardUnavailable": {
+    "name": "mefSoamLmCurrentAvailStatsForwardUnavailable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsBackwardUnavailable": {
+    "name": "mefSoamLmCurrentAvailStatsBackwardUnavailable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsForwardMinFlr": {
+    "name": "mefSoamLmCurrentAvailStatsForwardMinFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsForwardMaxFlr": {
+    "name": "mefSoamLmCurrentAvailStatsForwardMaxFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsForwardAvgFlr": {
+    "name": "mefSoamLmCurrentAvailStatsForwardAvgFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsBackwardMinFlr": {
+    "name": "mefSoamLmCurrentAvailStatsBackwardMinFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsBackwardMaxFlr": {
+    "name": "mefSoamLmCurrentAvailStatsBackwardMaxFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsBackwardAvgFlr": {
+    "name": "mefSoamLmCurrentAvailStatsBackwardAvgFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsTable": {
+    "name": "mefSoamLmCurrentStatsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsEntry": {
+    "name": "mefSoamLmCurrentStatsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsIndex": {
+    "name": "mefSoamLmCurrentStatsIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsStartTime": {
+    "name": "mefSoamLmCurrentStatsStartTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsElapsedTime": {
+    "name": "mefSoamLmCurrentStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsSuspect": {
+    "name": "mefSoamLmCurrentStatsSuspect",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsForwardTransmittedFrames": {
+    "name": "mefSoamLmCurrentStatsForwardTransmittedFrames",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsForwardReceivedFrames": {
+    "name": "mefSoamLmCurrentStatsForwardReceivedFrames",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsForwardMinFlr": {
+    "name": "mefSoamLmCurrentStatsForwardMinFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsForwardMaxFlr": {
+    "name": "mefSoamLmCurrentStatsForwardMaxFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsForwardAvgFlr": {
+    "name": "mefSoamLmCurrentStatsForwardAvgFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsBackwardTransmittedFrames": {
+    "name": "mefSoamLmCurrentStatsBackwardTransmittedFrames",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsBackwardReceivedFrames": {
+    "name": "mefSoamLmCurrentStatsBackwardReceivedFrames",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsBackwardMinFlr": {
+    "name": "mefSoamLmCurrentStatsBackwardMinFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsBackwardMaxFlr": {
+    "name": "mefSoamLmCurrentStatsBackwardMaxFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsBackwardAvgFlr": {
+    "name": "mefSoamLmCurrentStatsBackwardAvgFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsSoamPdusSent": {
+    "name": "mefSoamLmCurrentStatsSoamPdusSent",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsSoamPdusReceived": {
+    "name": "mefSoamLmCurrentStatsSoamPdusReceived",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsTable": {
+    "name": "mefSoamLmHistoryAvailStatsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsEntry": {
+    "name": "mefSoamLmHistoryAvailStatsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsIndex": {
+    "name": "mefSoamLmHistoryAvailStatsIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsEndTime": {
+    "name": "mefSoamLmHistoryAvailStatsEndTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsElapsedTime": {
+    "name": "mefSoamLmHistoryAvailStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsSuspect": {
+    "name": "mefSoamLmHistoryAvailStatsSuspect",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsForwardHighLoss": {
+    "name": "mefSoamLmHistoryAvailStatsForwardHighLoss",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsBackwardHighLoss": {
+    "name": "mefSoamLmHistoryAvailStatsBackwardHighLoss",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsForwardConsecutiveHighLoss": {
+    "name": "mefSoamLmHistoryAvailStatsForwardConsecutiveHighLoss",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsBackwardConsecutiveHighLoss": {
+    "name": "mefSoamLmHistoryAvailStatsBackwardConsecutiveHighLoss",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsForwardAvailable": {
+    "name": "mefSoamLmHistoryAvailStatsForwardAvailable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsBackwardAvailable": {
+    "name": "mefSoamLmHistoryAvailStatsBackwardAvailable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsForwardUnavailable": {
+    "name": "mefSoamLmHistoryAvailStatsForwardUnavailable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsBackwardUnavailable": {
+    "name": "mefSoamLmHistoryAvailStatsBackwardUnavailable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsForwardMinFlr": {
+    "name": "mefSoamLmHistoryAvailStatsForwardMinFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsForwardMaxFlr": {
+    "name": "mefSoamLmHistoryAvailStatsForwardMaxFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsForwardAvgFlr": {
+    "name": "mefSoamLmHistoryAvailStatsForwardAvgFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsBackwardMinFlr": {
+    "name": "mefSoamLmHistoryAvailStatsBackwardMinFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsBackwardMaxFlr": {
+    "name": "mefSoamLmHistoryAvailStatsBackwardMaxFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsBackwardAvgFlr": {
+    "name": "mefSoamLmHistoryAvailStatsBackwardAvgFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsTable": {
+    "name": "mefSoamLmHistoryStatsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsEntry": {
+    "name": "mefSoamLmHistoryStatsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsIndex": {
+    "name": "mefSoamLmHistoryStatsIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsEndTime": {
+    "name": "mefSoamLmHistoryStatsEndTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsElapsedTime": {
+    "name": "mefSoamLmHistoryStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsSuspect": {
+    "name": "mefSoamLmHistoryStatsSuspect",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsForwardTransmittedFrames": {
+    "name": "mefSoamLmHistoryStatsForwardTransmittedFrames",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsForwardReceivedFrames": {
+    "name": "mefSoamLmHistoryStatsForwardReceivedFrames",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsForwardMinFlr": {
+    "name": "mefSoamLmHistoryStatsForwardMinFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsForwardMaxFlr": {
+    "name": "mefSoamLmHistoryStatsForwardMaxFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsForwardAvgFlr": {
+    "name": "mefSoamLmHistoryStatsForwardAvgFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsBackwardTransmittedFrames": {
+    "name": "mefSoamLmHistoryStatsBackwardTransmittedFrames",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsBackwardReceivedFrames": {
+    "name": "mefSoamLmHistoryStatsBackwardReceivedFrames",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsBackwardMinFlr": {
+    "name": "mefSoamLmHistoryStatsBackwardMinFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsBackwardMaxFlr": {
+    "name": "mefSoamLmHistoryStatsBackwardMaxFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsBackwardAvgFlr": {
+    "name": "mefSoamLmHistoryStatsBackwardAvgFlr",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsSoamPdusSent": {
+    "name": "mefSoamLmHistoryStatsSoamPdusSent",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsSoamPdusReceived": {
+    "name": "mefSoamLmHistoryStatsSoamPdusReceived",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCfgTable": {
+    "name": "mefSoamDmCfgTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmCfgEntry": {
+    "name": "mefSoamDmCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCfgIndex": {
+    "name": "mefSoamDmCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmCfgType": {
+    "name": "mefSoamDmCfgType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dmDmm": 1,
+          "dm1DmTx": 2,
+          "dm1DmRx": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgVersion": {
+    "name": "mefSoamDmCfgVersion",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgEnabled": {
+    "name": "mefSoamDmCfgEnabled",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgMeasurementEnable": {
+    "name": "mefSoamDmCfgMeasurementEnable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bSoamPdusSent": 0,
+        "bSoamPdusReceived": 1,
+        "bFrameDelayTwoWayBins": 2,
+        "bFrameDelayTwoWayMin": 3,
+        "bFrameDelayTwoWayMax": 4,
+        "bFrameDelayTwoWayAvg": 5,
+        "bFrameDelayForwardBins": 6,
+        "bFrameDelayForwardMin": 7,
+        "bFrameDelayForwardMax": 8,
+        "bFrameDelayForwardAvg": 9,
+        "bFrameDelayBackwardBins": 10,
+        "bFrameDelayBackwardMin": 11,
+        "bFrameDelayBackwardMax": 12,
+        "bFrameDelayBackwardAvg": 13,
+        "bIfdvForwardBins": 14,
+        "bIfdvForwardMin": 15,
+        "bIfdvForwardMax": 16,
+        "bIfdvForwardAvg": 17,
+        "bIfdvBackwardBins": 18,
+        "bIfdvBackwardMin": 19,
+        "bIfdvBackwardMax": 20,
+        "bIfdvBackwardAvg": 21,
+        "bIfdvTwoWayBins": 22,
+        "bIfdvTwoWayMin": 23,
+        "bIfdvTwoWayMax": 24,
+        "bIfdvTwoWayAvg": 25,
+        "bFrameDelayRangeForwardBins": 26,
+        "bFrameDelayRangeForwardMax": 27,
+        "bFrameDelayRangeForwardAvg": 28,
+        "bFrameDelayRangeBackwardBins": 29,
+        "bFrameDelayRangeBackwardMax": 30,
+        "bFrameDelayRangeBackwardAvg": 31,
+        "bFrameDelayRangeTwoWayBins": 32,
+        "bFrameDelayRangeTwoWayMax": 33,
+        "bFrameDelayRangeTwoWayAvg": 34,
+        "bMeasuredStatsFrameDelayTwoWay": 35,
+        "bMeasuredStatsFrameDelayForward": 36,
+        "bMeasuredStatsFrameDelayBackward": 37,
+        "bMeasuredStatsIfdvTwoWay": 38,
+        "bMeasuredStatsIfdvForward": 39,
+        "bMeasuredStatsIfdvBackward": 40
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgMessagePeriod": {
+    "name": "mefSoamDmCfgMessagePeriod",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcMeasurementPeriodType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgPriority": {
+    "name": "mefSoamDmCfgPriority",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgFrameSize": {
+    "name": "mefSoamDmCfgFrameSize",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgDataPattern": {
+    "name": "mefSoamDmCfgDataPattern",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcDataPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "zeroPattern",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgTestTlvIncluded": {
+    "name": "mefSoamDmCfgTestTlvIncluded",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgTestTlvPattern": {
+    "name": "mefSoamDmCfgTestTlvPattern",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcTestPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "null",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgMeasurementInterval": {
+    "name": "mefSoamDmCfgMeasurementInterval",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgNumIntervalsStored": {
+    "name": "mefSoamDmCfgNumIntervalsStored",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgDestMacAddress": {
+    "name": "mefSoamDmCfgDestMacAddress",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgDestMepId": {
+    "name": "mefSoamDmCfgDestMepId",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgDestIsMepId": {
+    "name": "mefSoamDmCfgDestIsMepId",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgSourceMacAddress": {
+    "name": "mefSoamDmCfgSourceMacAddress",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgStartTimeType": {
+    "name": "mefSoamDmCfgStartTimeType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcOperationTimeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "immediate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgFixedStartDateAndTime": {
+    "name": "mefSoamDmCfgFixedStartDateAndTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000010100000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgRelativeStartTime": {
+    "name": "mefSoamDmCfgRelativeStartTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgStopTimeType": {
+    "name": "mefSoamDmCfgStopTimeType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcOperationTimeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgFixedStopDateAndTime": {
+    "name": "mefSoamDmCfgFixedStopDateAndTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000010100000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgRelativeStopTime": {
+    "name": "mefSoamDmCfgRelativeStopTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgRepetitionTime": {
+    "name": "mefSoamDmCfgRepetitionTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31536000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgAlignMeasurementIntervals": {
+    "name": "mefSoamDmCfgAlignMeasurementIntervals",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgAlignMeasurementOffset": {
+    "name": "mefSoamDmCfgAlignMeasurementOffset",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 525600
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgNumMeasBinsPerFrameDelayInterval": {
+    "name": "mefSoamDmCfgNumMeasBinsPerFrameDelayInterval",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgNumMeasBinsPerInterFrameDelayVariationInterval": {
+    "name": "mefSoamDmCfgNumMeasBinsPerInterFrameDelayVariationInterval",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgInterFrameDelayVariationSelectionOffset": {
+    "name": "mefSoamDmCfgInterFrameDelayVariationSelectionOffset",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgNumMeasBinsPerFrameDelayRangeInterval": {
+    "name": "mefSoamDmCfgNumMeasBinsPerFrameDelayRangeInterval",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgSessionType": {
+    "name": "mefSoamDmCfgSessionType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcSessionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "proactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgSessionStatus": {
+    "name": "mefSoamDmCfgSessionStatus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCfgHistoryClear": {
+    "name": "mefSoamDmCfgHistoryClear",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgRowStatus": {
+    "name": "mefSoamDmCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmCfgMeasBinTable": {
+    "name": "mefSoamDmCfgMeasBinTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmCfgMeasBinEntry": {
+    "name": "mefSoamDmCfgMeasBinEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasBinType",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCfgMeasBinType": {
+    "name": "mefSoamDmCfgMeasBinType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefSoamTcDelayMeasurementBinType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmCfgMeasBinNumber": {
+    "name": "mefSoamDmCfgMeasBinNumber",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmCfgMeasBinLowerBound": {
+    "name": "mefSoamDmCfgMeasBinLowerBound",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds (us)",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsTable": {
+    "name": "mefSoamDmMeasuredStatsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsEntry": {
+    "name": "mefSoamDmMeasuredStatsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsFrameDelayTwoWay": {
+    "name": "mefSoamDmMeasuredStatsFrameDelayTwoWay",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsFrameDelayForward": {
+    "name": "mefSoamDmMeasuredStatsFrameDelayForward",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsFrameDelayBackward": {
+    "name": "mefSoamDmMeasuredStatsFrameDelayBackward",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsIfdvTwoWay": {
+    "name": "mefSoamDmMeasuredStatsIfdvTwoWay",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsIfdvForward": {
+    "name": "mefSoamDmMeasuredStatsIfdvForward",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsIfdvBackward": {
+    "name": "mefSoamDmMeasuredStatsIfdvBackward",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsTable": {
+    "name": "mefSoamDmCurrentStatsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsEntry": {
+    "name": "mefSoamDmCurrentStatsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIndex": {
+    "name": "mefSoamDmCurrentStatsIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsStartTime": {
+    "name": "mefSoamDmCurrentStatsStartTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsElapsedTime": {
+    "name": "mefSoamDmCurrentStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsSuspect": {
+    "name": "mefSoamDmCurrentStatsSuspect",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayTwoWayMin": {
+    "name": "mefSoamDmCurrentStatsFrameDelayTwoWayMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayTwoWayMax": {
+    "name": "mefSoamDmCurrentStatsFrameDelayTwoWayMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayTwoWayAvg": {
+    "name": "mefSoamDmCurrentStatsFrameDelayTwoWayAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayForwardMin": {
+    "name": "mefSoamDmCurrentStatsFrameDelayForwardMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayForwardMax": {
+    "name": "mefSoamDmCurrentStatsFrameDelayForwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayForwardAvg": {
+    "name": "mefSoamDmCurrentStatsFrameDelayForwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayBackwardMin": {
+    "name": "mefSoamDmCurrentStatsFrameDelayBackwardMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayBackwardMax": {
+    "name": "mefSoamDmCurrentStatsFrameDelayBackwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayBackwardAvg": {
+    "name": "mefSoamDmCurrentStatsFrameDelayBackwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvForwardMin": {
+    "name": "mefSoamDmCurrentStatsIfdvForwardMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvForwardMax": {
+    "name": "mefSoamDmCurrentStatsIfdvForwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvForwardAvg": {
+    "name": "mefSoamDmCurrentStatsIfdvForwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvBackwardMin": {
+    "name": "mefSoamDmCurrentStatsIfdvBackwardMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvBackwardMax": {
+    "name": "mefSoamDmCurrentStatsIfdvBackwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvBackwardAvg": {
+    "name": "mefSoamDmCurrentStatsIfdvBackwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvTwoWayMin": {
+    "name": "mefSoamDmCurrentStatsIfdvTwoWayMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvTwoWayMax": {
+    "name": "mefSoamDmCurrentStatsIfdvTwoWayMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsIfdvTwoWayAvg": {
+    "name": "mefSoamDmCurrentStatsIfdvTwoWayAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayRangeForwardMax": {
+    "name": "mefSoamDmCurrentStatsFrameDelayRangeForwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayRangeForwardAvg": {
+    "name": "mefSoamDmCurrentStatsFrameDelayRangeForwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayRangeBackwardMax": {
+    "name": "mefSoamDmCurrentStatsFrameDelayRangeBackwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayRangeBackwardAvg": {
+    "name": "mefSoamDmCurrentStatsFrameDelayRangeBackwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayRangeTwoWayMax": {
+    "name": "mefSoamDmCurrentStatsFrameDelayRangeTwoWayMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsFrameDelayRangeTwoWayAvg": {
+    "name": "mefSoamDmCurrentStatsFrameDelayRangeTwoWayAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsSoamPdusSent": {
+    "name": "mefSoamDmCurrentStatsSoamPdusSent",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsSoamPdusReceived": {
+    "name": "mefSoamDmCurrentStatsSoamPdusReceived",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsBinsTable": {
+    "name": "mefSoamDmCurrentStatsBinsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsBinsEntry": {
+    "name": "mefSoamDmCurrentStatsBinsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasBinType",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsBinsCounter": {
+    "name": "mefSoamDmCurrentStatsBinsCounter",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsTable": {
+    "name": "mefSoamDmHistoryStatsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsEntry": {
+    "name": "mefSoamDmHistoryStatsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIndex": {
+    "name": "mefSoamDmHistoryStatsIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsEndTime": {
+    "name": "mefSoamDmHistoryStatsEndTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsElapsedTime": {
+    "name": "mefSoamDmHistoryStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsSuspect": {
+    "name": "mefSoamDmHistoryStatsSuspect",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayTwoWayMin": {
+    "name": "mefSoamDmHistoryStatsFrameDelayTwoWayMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayTwoWayMax": {
+    "name": "mefSoamDmHistoryStatsFrameDelayTwoWayMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayTwoWayAvg": {
+    "name": "mefSoamDmHistoryStatsFrameDelayTwoWayAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayForwardMin": {
+    "name": "mefSoamDmHistoryStatsFrameDelayForwardMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayForwardMax": {
+    "name": "mefSoamDmHistoryStatsFrameDelayForwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayForwardAvg": {
+    "name": "mefSoamDmHistoryStatsFrameDelayForwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayBackwardMin": {
+    "name": "mefSoamDmHistoryStatsFrameDelayBackwardMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayBackwardMax": {
+    "name": "mefSoamDmHistoryStatsFrameDelayBackwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayBackwardAvg": {
+    "name": "mefSoamDmHistoryStatsFrameDelayBackwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvForwardMin": {
+    "name": "mefSoamDmHistoryStatsIfdvForwardMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvForwardMax": {
+    "name": "mefSoamDmHistoryStatsIfdvForwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvForwardAvg": {
+    "name": "mefSoamDmHistoryStatsIfdvForwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvBackwardMin": {
+    "name": "mefSoamDmHistoryStatsIfdvBackwardMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvBackwardMax": {
+    "name": "mefSoamDmHistoryStatsIfdvBackwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvBackwardAvg": {
+    "name": "mefSoamDmHistoryStatsIfdvBackwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvTwoWayMin": {
+    "name": "mefSoamDmHistoryStatsIfdvTwoWayMin",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvTwoWayMax": {
+    "name": "mefSoamDmHistoryStatsIfdvTwoWayMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsIfdvTwoWayAvg": {
+    "name": "mefSoamDmHistoryStatsIfdvTwoWayAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayRangeForwardMax": {
+    "name": "mefSoamDmHistoryStatsFrameDelayRangeForwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayRangeForwardAvg": {
+    "name": "mefSoamDmHistoryStatsFrameDelayRangeForwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayRangeBackwardMax": {
+    "name": "mefSoamDmHistoryStatsFrameDelayRangeBackwardMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayRangeBackwardAvg": {
+    "name": "mefSoamDmHistoryStatsFrameDelayRangeBackwardAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayRangeTwoWayMax": {
+    "name": "mefSoamDmHistoryStatsFrameDelayRangeTwoWayMax",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsFrameDelayRangeTwoWayAvg": {
+    "name": "mefSoamDmHistoryStatsFrameDelayRangeTwoWayAvg",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsSoamPdusSent": {
+    "name": "mefSoamDmHistoryStatsSoamPdusSent",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsSoamPdusReceived": {
+    "name": "mefSoamDmHistoryStatsSoamPdusReceived",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsBinsTable": {
+    "name": "mefSoamDmHistoryStatsBinsTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsBinsEntry": {
+    "name": "mefSoamDmHistoryStatsBinsEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasBinType",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsBinsCounter": {
+    "name": "mefSoamDmHistoryStatsBinsCounter",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgTable": {
+    "name": "mefSoamLmThresholdCfgTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgEntry": {
+    "name": "mefSoamLmThresholdCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgIndex": {
+    "name": "mefSoamLmThresholdCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgEnable": {
+    "name": "mefSoamLmThresholdCfgEnable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bMefSoamLmMeasuredFlrForwardThreshold": 0,
+        "bMefSoamLmMaxFlrForwardThreshold": 1,
+        "bMefSoamLmAvgFlrForwardThreshold": 2,
+        "bMefSoamLmMeasuredFlrBackwardThreshold": 3,
+        "bMefSoamLmMaxFlrBackwardThreshold": 4,
+        "bMefSoamLmAvgFlrBackwardThreshold": 5,
+        "bMefSoamLmForwardHighLossThreshold": 6,
+        "bMefSoamLmForwardConsecutiveHighLossThreshold": 7,
+        "bMefSoamLmBackwardHighLossThreshold": 8,
+        "bMefSoamLmBackwardConsecutiveHighLossThreshold": 9,
+        "bMefSoamLmUnavailForwardThreshold": 10,
+        "bMefSoamLmAvailRatioForwardThreshold": 11,
+        "bMefSoamLmUnavailBackwardThreshold": 12,
+        "bMefSoamLmAvailRatioBackwardThreshold": 13
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgMeasuredFlrForwardThreshold": {
+    "name": "mefSoamLmThresholdCfgMeasuredFlrForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgMaxFlrForwardThreshold": {
+    "name": "mefSoamLmThresholdCfgMaxFlrForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgAvgFlrForwardThreshold": {
+    "name": "mefSoamLmThresholdCfgAvgFlrForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgMeasuredFlrBackwardThreshold": {
+    "name": "mefSoamLmThresholdCfgMeasuredFlrBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgMaxFlrBackwardThreshold": {
+    "name": "mefSoamLmThresholdCfgMaxFlrBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgAvgFlrBackwardThreshold": {
+    "name": "mefSoamLmThresholdCfgAvgFlrBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgForwardHighLossThreshold": {
+    "name": "mefSoamLmThresholdCfgForwardHighLossThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgForwardConsecutiveHighLossThreshold": {
+    "name": "mefSoamLmThresholdCfgForwardConsecutiveHighLossThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgBackwardHighLossThreshold": {
+    "name": "mefSoamLmThresholdCfgBackwardHighLossThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgBackwardConsecutiveHighLossThreshold": {
+    "name": "mefSoamLmThresholdCfgBackwardConsecutiveHighLossThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgForwardUnavailCountThreshold": {
+    "name": "mefSoamLmThresholdCfgForwardUnavailCountThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgForwardAvailRatioThreshold": {
+    "name": "mefSoamLmThresholdCfgForwardAvailRatioThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgBackwardUnavailCountThreshold": {
+    "name": "mefSoamLmThresholdCfgBackwardUnavailCountThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgBackwardAvailRatioThreshold": {
+    "name": "mefSoamLmThresholdCfgBackwardAvailRatioThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamLmThresholdCfgRowStatus": {
+    "name": "mefSoamLmThresholdCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgTable": {
+    "name": "mefSoamDmThresholdCfgTable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgEntry": {
+    "name": "mefSoamDmThresholdCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgIndex": {
+    "name": "mefSoamDmThresholdCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgEnable": {
+    "name": "mefSoamDmThresholdCfgEnable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bMefSoamDmMeasuredFrameDelayTwoWayThreshold": 0,
+        "bMefSoamDmMaxFrameDelayTwoWayThreshold": 1,
+        "bMefSoamDmAvgFrameDelayTwoWayThreshold": 2,
+        "bMefSoamDmMeasuredIfdvTwoWayThreshold": 3,
+        "bMefSoamDmMaxIfdvTwoWayThreshold": 4,
+        "bMefSoamDmAvgIfdvTwoWayThreshold": 5,
+        "bMefSoamDmMaxFrameDelayRangeTwoWayThreshold": 6,
+        "bMefSoamDmAvgFrameDelayRangeTwoWayThreshold": 7,
+        "bMefSoamDmMeasuredFrameDelayForwardThreshold": 8,
+        "bMefSoamDmMaxFrameDelayForwardThreshold": 9,
+        "bMefSoamDmAvgFrameDelayForwardThreshold": 10,
+        "bMefSoamDmMeasuredIfdvForwardThreshold": 11,
+        "bMefSoamDmMaxIfdvForwardThreshold": 12,
+        "bMefSoamDmAvgIfdvForwardThreshold": 13,
+        "bMefSoamDmMaxFrameDelayRangeForwardThreshold": 14,
+        "bMefSoamDmAvgFrameDelayRangeForwardThreshold": 15,
+        "bMefSoamDmMeasuredFrameDelayBackwardThreshold": 16,
+        "bMefSoamDmMaxFrameDelayBackwardThreshold": 17,
+        "bMefSoamDmAvgFrameDelayBackwardThreshold": 18,
+        "bMefSoamDmMeasuredIfdvBackwardThreshold": 19,
+        "bMefSoamDmMaxIfdvBackwardThreshold": 20,
+        "bMefSoamDmAvgIfdvBackwardThreshold": 21,
+        "bMefSoamDmMaxFrameDelayRangeBackwardThreshold": 22,
+        "bMefSoamDmAvgFrameDelayRangeBackwardThreshold": 23
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMeasuredFrameDelayTwoWayThreshold": {
+    "name": "mefSoamDmThresholdCfgMeasuredFrameDelayTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxFrameDelayTwoWayThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxFrameDelayTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgFrameDelayTwoWayThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgFrameDelayTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMeasuredIfdvTwoWayThreshold": {
+    "name": "mefSoamDmThresholdCfgMeasuredIfdvTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxIfdvTwoWayThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxIfdvTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgIfdvTwoWayThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgIfdvTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxFrameDelayRangeTwoWayThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxFrameDelayRangeTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgFrameDelayRangeTwoWayThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgFrameDelayRangeTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMeasuredFrameDelayForwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMeasuredFrameDelayForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxFrameDelayForwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxFrameDelayForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgFrameDelayForwardThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgFrameDelayForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMeasuredIfdvForwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMeasuredIfdvForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxIfdvForwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxIfdvForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgIfdvForwardThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgIfdvForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxFrameDelayRangeForwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxFrameDelayRangeForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgFrameDelayRangeForwardThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgFrameDelayRangeForwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMeasuredFrameDelayBackwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMeasuredFrameDelayBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxFrameDelayBackwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxFrameDelayBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgFrameDelayBackwardThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgFrameDelayBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMeasuredIfdvBackwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMeasuredIfdvBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxIfdvBackwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxIfdvBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgIfdvBackwardThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgIfdvBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgMaxFrameDelayRangeBackwardThreshold": {
+    "name": "mefSoamDmThresholdCfgMaxFrameDelayRangeBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgAvgFrameDelayRangeBackwardThreshold": {
+    "name": "mefSoamDmThresholdCfgAvgFrameDelayRangeBackwardThreshold",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamDmThresholdCfgRowStatus": {
+    "name": "mefSoamDmThresholdCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.3.8.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefSoamPmNotificationCfgAlarmInterval": {
+    "name": "mefSoamPmNotificationCfgAlarmInterval",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefSoamPmNotificationCfgAlarmEnable": {
+    "name": "mefSoamPmNotificationCfgAlarmEnable",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bAvailabilityChangeAlarm": 0,
+        "bLmSessionStartStopAlarm": 1,
+        "bDmSessionStartStopAlarm": 2,
+        "bPmThresholdAboveAlarm": 3,
+        "bPmThresholdSetClearAlarm": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjDateAndTime": {
+    "name": "mefSoamPmNotificationObjDateAndTime",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjThresholdId": {
+    "name": "mefSoamPmNotificationObjThresholdId",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjThresholdConfig": {
+    "name": "mefSoamPmNotificationObjThresholdConfig",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjThresholdValue": {
+    "name": "mefSoamPmNotificationObjThresholdValue",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjSuspect": {
+    "name": "mefSoamPmNotificationObjSuspect",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjCrossingType": {
+    "name": "mefSoamPmNotificationObjCrossingType",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aboveAlarm": 1,
+          "setAlarm": 2,
+          "clearAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjDestinationMep": {
+    "name": "mefSoamPmNotificationObjDestinationMep",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjPriority": {
+    "name": "mefSoamPmNotificationObjPriority",
+    "oid": "1.3.6.1.4.1.15007.1.3.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefSoamAvailabilityChangeAlarm": {
+    "name": "mefSoamAvailabilityChangeAlarm",
+    "oid": "1.3.6.1.4.1.15007.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsAvailForwardStatus"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsAvailBackwardStatus"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsAvailForwardLastTransitionTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsAvailBackwardLastTransitionTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardAvailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardUnavailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardAvailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardUnavailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDestinationMep"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmSessionStartStopAlarm": {
+    "name": "mefSoamLmSessionStartStopAlarm",
+    "oid": "1.3.6.1.4.1.15007.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgSessionStatus"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDestinationMep"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmSessionStartStopAlarm": {
+    "name": "mefSoamDmSessionStartStopAlarm",
+    "oid": "1.3.6.1.4.1.15007.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgSessionStatus"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDestinationMep"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmThresholdCrossingAlarm": {
+    "name": "mefSoamPmThresholdCrossingAlarm",
+    "oid": "1.3.6.1.4.1.15007.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjCrossingType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjThresholdId"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjThresholdConfig"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjThresholdValue"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjSuspect"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDestinationMep"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmMibCompliances": {
+    "name": "mefSoamPmMibCompliances",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "mefSoamPmMibGroups": {
+    "name": "mefSoamPmMibGroups",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "mefSoamPmMepMandatoryGroup": {
+    "name": "mefSoamPmMepMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmMepOperNextIndex"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmMepSlmSingleEndedResponder"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmMepDmSingleEndedResponder"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmMepOptionalGroup": {
+    "name": "mefSoamPmMepOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmMepLmSingleEndedResponder"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCfgMandatoryGroup": {
+    "name": "mefSoamLmCfgMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgEnabled"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgMeasurementEnable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgMessagePeriod"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgPriority"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgFrameSize"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgDataPattern"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgMeasurementInterval"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgNumIntervalsStored"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgDestMacAddress"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgDestMepId"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgDestIsMepId"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgStartTimeType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgFixedStartDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgRelativeStartTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgStopTimeType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgFixedStopDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgRelativeStopTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgRepetitionTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgAvailabilityMeasurementInterval"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgAvailabilityNumConsecutiveMeasPdus"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgAvailabilityFlrThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgAvailabilityNumConsecutiveIntervals"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgSessionType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgSessionStatus"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgHistoryClear"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCfgOptionalGroup": {
+    "name": "mefSoamLmCfgOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgVersion"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgTestTlvIncluded"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgTestTlvPattern"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgAlignMeasurementIntervals"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgAvailabilityNumConsecutiveHighFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCfgAlignMeasurementOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsMandatoryGroup": {
+    "name": "mefSoamLmMeasuredStatsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsAvailForwardLastTransitionTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsAvailBackwardLastTransitionTime"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmMeasuredStatsOptionalGroup": {
+    "name": "mefSoamLmMeasuredStatsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsForwardFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsBackwardFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsAvailForwardStatus"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmMeasuredStatsAvailBackwardStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsMandatoryGroup": {
+    "name": "mefSoamLmCurrentAvailStatsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsIndex"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsStartTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsElapsedTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsSuspect"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardAvailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardAvailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardUnavailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardUnavailable"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCurrentAvailStatsOptionalGroup": {
+    "name": "mefSoamLmCurrentAvailStatsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardHighLoss"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardHighLoss"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardConsecutiveHighLoss"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardConsecutiveHighLoss"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardMinFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardMaxFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsForwardAvgFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardMinFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardMaxFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentAvailStatsBackwardAvgFlr"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsMandatoryGroup": {
+    "name": "mefSoamLmCurrentStatsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsIndex"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsStartTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsElapsedTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsSuspect"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsSoamPdusSent"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsSoamPdusReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmCurrentStatsOptionalGroup": {
+    "name": "mefSoamLmCurrentStatsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsForwardTransmittedFrames"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsForwardReceivedFrames"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsBackwardTransmittedFrames"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsBackwardReceivedFrames"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsForwardMinFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsForwardMaxFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsForwardAvgFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsBackwardMinFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsBackwardMaxFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmCurrentStatsBackwardAvgFlr"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsMandatoryGroup": {
+    "name": "mefSoamLmHistoryAvailStatsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsEndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsElapsedTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsSuspect"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsForwardAvailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsBackwardAvailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsForwardUnavailable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsBackwardUnavailable"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmHistoryAvailStatsOptionalGroup": {
+    "name": "mefSoamLmHistoryAvailStatsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsForwardHighLoss"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsBackwardHighLoss"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsForwardConsecutiveHighLoss"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsBackwardConsecutiveHighLoss"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsForwardMinFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsForwardMaxFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsForwardAvgFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsBackwardMinFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsBackwardMaxFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryAvailStatsBackwardAvgFlr"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsMandatoryGroup": {
+    "name": "mefSoamLmHistoryStatsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsEndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsElapsedTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsSuspect"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsSoamPdusSent"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsSoamPdusReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmHistoryStatsOptionalGroup": {
+    "name": "mefSoamLmHistoryStatsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsForwardTransmittedFrames"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsForwardReceivedFrames"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsBackwardTransmittedFrames"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsBackwardReceivedFrames"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsForwardMinFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsForwardMaxFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsForwardAvgFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsBackwardMinFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsBackwardMaxFlr"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmHistoryStatsBackwardAvgFlr"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCfgMandatoryGroup": {
+    "name": "mefSoamDmCfgMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgEnabled"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasurementEnable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMessagePeriod"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgPriority"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgFrameSize"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgDataPattern"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasurementInterval"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgNumIntervalsStored"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgDestMacAddress"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgDestMepId"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgDestIsMepId"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgStartTimeType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgFixedStartDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgRelativeStartTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgStopTimeType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgFixedStopDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgRelativeStopTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgRepetitionTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgAlignMeasurementIntervals"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgNumMeasBinsPerFrameDelayInterval"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgNumMeasBinsPerInterFrameDelayVariationInterval"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgNumMeasBinsPerFrameDelayRangeInterval"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgSessionType"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgSessionStatus"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgHistoryClear"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCfgOptionalGroup": {
+    "name": "mefSoamDmCfgOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgVersion"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgTestTlvIncluded"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgTestTlvPattern"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgSourceMacAddress"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgAlignMeasurementOffset"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgInterFrameDelayVariationSelectionOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCfgMeasBinMandatoryGroup": {
+    "name": "mefSoamDmCfgMeasBinMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCfgMeasBinLowerBound"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmMeasuredStatsOptionalGroup": {
+    "name": "mefSoamDmMeasuredStatsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmMeasuredStatsFrameDelayTwoWay"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmMeasuredStatsFrameDelayForward"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmMeasuredStatsFrameDelayBackward"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmMeasuredStatsIfdvTwoWay"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmMeasuredStatsIfdvForward"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmMeasuredStatsIfdvBackward"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsMandatoryGroup": {
+    "name": "mefSoamDmCurrentStatsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIndex"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsStartTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsElapsedTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsSuspect"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayTwoWayMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayTwoWayMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayTwoWayAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayForwardMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayForwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayForwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayBackwardMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayBackwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayBackwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvForwardMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvForwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvForwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvBackwardMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvBackwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvBackwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayRangeForwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayRangeForwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayRangeBackwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayRangeBackwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsSoamPdusSent"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsSoamPdusReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsOptionalGroup": {
+    "name": "mefSoamDmCurrentStatsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvTwoWayMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvTwoWayMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsIfdvTwoWayAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayRangeTwoWayMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsFrameDelayRangeTwoWayAvg"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmCurrentStatsBinsMandatoryGroup": {
+    "name": "mefSoamDmCurrentStatsBinsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmCurrentStatsBinsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsMandatoryGroup": {
+    "name": "mefSoamDmHistoryStatsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsEndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsElapsedTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsSuspect"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayTwoWayMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayTwoWayMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayTwoWayAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayForwardMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayForwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayForwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayBackwardMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayBackwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayBackwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvForwardMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvForwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvForwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvBackwardMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvBackwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvBackwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayRangeForwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayRangeForwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayRangeBackwardMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayRangeBackwardAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsSoamPdusSent"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsSoamPdusReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsOptionalGroup": {
+    "name": "mefSoamDmHistoryStatsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvTwoWayMin"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvTwoWayMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsIfdvTwoWayAvg"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayRangeTwoWayMax"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsFrameDelayRangeTwoWayAvg"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmHistoryStatsBinsMandatoryGroup": {
+    "name": "mefSoamDmHistoryStatsBinsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmHistoryStatsBinsCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmThresholdMandatoryGroup": {
+    "name": "mefSoamLmThresholdMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgEnable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgMaxFlrForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgAvgFlrForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgMaxFlrBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgAvgFlrBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgForwardUnavailCountThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgForwardAvailRatioThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgBackwardUnavailCountThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgBackwardAvailRatioThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamLmThresholdOptionalGroup": {
+    "name": "mefSoamLmThresholdOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgForwardHighLossThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgForwardConsecutiveHighLossThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgBackwardHighLossThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgBackwardConsecutiveHighLossThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgMeasuredFlrForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmThresholdCfgMeasuredFlrBackwardThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmThresholdMandatoryGroup": {
+    "name": "mefSoamDmThresholdMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgEnable"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxFrameDelayTwoWayThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgFrameDelayTwoWayThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxFrameDelayForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgFrameDelayForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxIfdvForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgIfdvForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxFrameDelayRangeForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgFrameDelayRangeForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxFrameDelayBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgFrameDelayBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxIfdvBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgIfdvBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxFrameDelayRangeBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgFrameDelayRangeBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamDmThresholdOptionalGroup": {
+    "name": "mefSoamDmThresholdOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMeasuredIfdvTwoWayThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMeasuredFrameDelayTwoWayThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMeasuredFrameDelayForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMeasuredIfdvForwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMeasuredFrameDelayBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMeasuredIfdvBackwardThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxIfdvTwoWayThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgIfdvTwoWayThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgMaxFrameDelayRangeTwoWayThreshold"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmThresholdCfgAvgFrameDelayRangeTwoWayThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmNotificationsMandatoryGroup": {
+    "name": "mefSoamPmNotificationsMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.29",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamAvailabilityChangeAlarm"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamLmSessionStartStopAlarm"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamDmSessionStartStopAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmNotificationsOptionalGroup": {
+    "name": "mefSoamPmNotificationsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.30",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmThresholdCrossingAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmNotificationCfgMandatoryGroup": {
+    "name": "mefSoamPmNotificationCfgMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationCfgAlarmInterval"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationCfgAlarmEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjMandatoryGroup": {
+    "name": "mefSoamPmNotificationObjMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDateAndTime"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjSuspect"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjDestinationMep"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmNotificationObjOptionalGroup": {
+    "name": "mefSoamPmNotificationObjOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjThresholdConfig"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjThresholdId"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjThresholdValue"
+      },
+      {
+        "module": "MEF-SOAM-PM-MIB",
+        "object": "mefSoamPmNotificationObjCrossingType"
+      }
+    ],
+    "status": "current"
+  },
+  "mefSoamPmMibCompliance": {
+    "name": "mefSoamPmMibCompliance",
+    "oid": "1.3.6.1.4.1.15007.1.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mefSoamPmMepMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmCfgMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmMeasuredStatsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmCurrentAvailStatsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmCurrentStatsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmHistoryAvailStatsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmHistoryStatsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmCfgMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmCfgMeasBinMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmCurrentStatsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmCurrentStatsBinsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmHistoryStatsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmHistoryStatsBinsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmThresholdMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmThresholdMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamPmNotificationsMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamPmNotificationCfgMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamPmNotificationObjMandatoryGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamPmMepOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmCfgOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmMeasuredStatsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmCurrentAvailStatsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmCurrentStatsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmHistoryAvailStatsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmHistoryStatsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmCfgOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmMeasuredStatsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmCurrentStatsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmHistoryStatsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamLmThresholdOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamDmThresholdOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamPmNotificationsOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      },
+      {
+        "object": "mefSoamPmNotificationObjOptionalGroup",
+        "module": "MEF-SOAM-PM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MEF-SOAM-PM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MEF-SOAM-PM-MIB"
+  }
+}

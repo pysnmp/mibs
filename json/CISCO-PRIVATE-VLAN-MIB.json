@@ -1,0 +1,886 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VTP-MIB": [
+      "vtpVlanEntry",
+      "vtpVlanEditEntry"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPrivateVlanMIB": {
+    "name": "ciscoPrivateVlanMIB",
+    "oid": "1.3.6.1.4.1.9.9.173",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-09-08 00:00",
+        "description": "Added support for Private VLAN Promiscuous Trunk Ports. by adding a new mode type"
+      },
+      {
+        "revision": "2002-07-24 00:00",
+        "description": "Added support for Private VLAN Trunk Ports. Added the TCs for VlanIndex Bitmaps"
+      },
+      {
+        "revision": "2001-05-23 00:00",
+        "description": "Added support for Private VLAN port mode and SVI mapping."
+      },
+      {
+        "revision": "2001-04-17 00:00",
+        "description": " The Initial version of this MIB module."
+      }
+    ]
+  },
+  "PrivateVlanType": {
+    "name": "PrivateVlanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "primary": 2,
+          "isolated": 3,
+          "community": 4,
+          "twoWayCommunity": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VlanIndexOrZero": {
+    "name": "VlanIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VlanIndexBitmap": {
+    "name": "VlanIndexBitmap",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cpvlanMIBObjects": {
+    "name": "cpvlanMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.173.1",
+    "class": "objectidentity"
+  },
+  "cpvlanVlanObjects": {
+    "name": "cpvlanVlanObjects",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1",
+    "class": "objectidentity"
+  },
+  "cpvlanPortObjects": {
+    "name": "cpvlanPortObjects",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2",
+    "class": "objectidentity"
+  },
+  "cpvlanSVIObjects": {
+    "name": "cpvlanSVIObjects",
+    "oid": "1.3.6.1.4.1.9.9.173.1.3",
+    "class": "objectidentity"
+  },
+  "cpvlanVlanTable": {
+    "name": "cpvlanVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpvlanVlanEntry": {
+    "name": "cpvlanVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpvlanVlanEntry",
+      "module": "CISCO-PRIVATE-VLAN-MIB",
+      "object": "vtpVlanEntry"
+    },
+    "status": "current"
+  },
+  "cpvlanVlanPrivateVlanType": {
+    "name": "cpvlanVlanPrivateVlanType",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivateVlanType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpvlanVlanAssociatedPrimaryVlan": {
+    "name": "cpvlanVlanAssociatedPrimaryVlan",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpvlanVlanEditTable": {
+    "name": "cpvlanVlanEditTable",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpvlanVlanEditEntry": {
+    "name": "cpvlanVlanEditEntry",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpvlanVlanEditEntry",
+      "module": "CISCO-PRIVATE-VLAN-MIB",
+      "object": "vtpVlanEditEntry"
+    },
+    "status": "current"
+  },
+  "cpvlanVlanEditPrivateVlanType": {
+    "name": "cpvlanVlanEditPrivateVlanType",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivateVlanType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanVlanEditAssocPrimaryVlan": {
+    "name": "cpvlanVlanEditAssocPrimaryVlan",
+    "oid": "1.3.6.1.4.1.9.9.173.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanPrivatePortTable": {
+    "name": "cpvlanPrivatePortTable",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpvlanPrivatePortEntry": {
+    "name": "cpvlanPrivatePortEntry",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanPrivatePortSecondaryVlan": {
+    "name": "cpvlanPrivatePortSecondaryVlan",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanPromPortTable": {
+    "name": "cpvlanPromPortTable",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpvlanPromPortEntry": {
+    "name": "cpvlanPromPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanPromPortMultiPrimaryVlan": {
+    "name": "cpvlanPromPortMultiPrimaryVlan",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpvlanPromPortSecondaryRemap": {
+    "name": "cpvlanPromPortSecondaryRemap",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanPromPortSecondaryRemap2k": {
+    "name": "cpvlanPromPortSecondaryRemap2k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanPromPortSecondaryRemap3k": {
+    "name": "cpvlanPromPortSecondaryRemap3k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanPromPortSecondaryRemap4k": {
+    "name": "cpvlanPromPortSecondaryRemap4k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanPromPortTwoWayRemapCapable": {
+    "name": "cpvlanPromPortTwoWayRemapCapable",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpvlanPortModeTable": {
+    "name": "cpvlanPortModeTable",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpvlanPortModeEntry": {
+    "name": "cpvlanPortModeEntry",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanPortMode": {
+    "name": "cpvlanPortMode",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonPrivateVlan": 1,
+          "host": 2,
+          "promiscuous": 3,
+          "secondaryTrunk": 4,
+          "promiscuousTrunk": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nonPrivateVlan",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortTable": {
+    "name": "cpvlanTrunkPortTable",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpvlanTrunkPortEntry": {
+    "name": "cpvlanTrunkPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanTrunkPortDynamicState": {
+    "name": "cpvlanTrunkPortDynamicState",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "onNoNegotiate": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortEncapType": {
+    "name": "cpvlanTrunkPortEncapType",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1Q": 1,
+          "isl": 2,
+          "negotiate": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortNativeVlan": {
+    "name": "cpvlanTrunkPortNativeVlan",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortSecondaryVlans": {
+    "name": "cpvlanTrunkPortSecondaryVlans",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortSecondaryVlans2k": {
+    "name": "cpvlanTrunkPortSecondaryVlans2k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortSecondaryVlans3k": {
+    "name": "cpvlanTrunkPortSecondaryVlans3k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortSecondaryVlans4k": {
+    "name": "cpvlanTrunkPortSecondaryVlans4k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortNormalVlans": {
+    "name": "cpvlanTrunkPortNormalVlans",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortNormalVlans2k": {
+    "name": "cpvlanTrunkPortNormalVlans2k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortNormalVlans3k": {
+    "name": "cpvlanTrunkPortNormalVlans3k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortNormalVlans4k": {
+    "name": "cpvlanTrunkPortNormalVlans4k",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanTrunkPortDynamicStatus": {
+    "name": "cpvlanTrunkPortDynamicStatus",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trunking": 1,
+          "notTrunking": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpvlanTrunkPortEncapOperType": {
+    "name": "cpvlanTrunkPortEncapOperType",
+    "oid": "1.3.6.1.4.1.9.9.173.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1Q": 1,
+          "isl": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpvlanSVIMappingTable": {
+    "name": "cpvlanSVIMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.173.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpvlanSVIMappingEntry": {
+    "name": "cpvlanSVIMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.173.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanSVIMappingVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanSVIMappingVlanIndex": {
+    "name": "cpvlanSVIMappingVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.173.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpvlanSVIMappingPrimarySVI": {
+    "name": "cpvlanSVIMappingPrimarySVI",
+    "oid": "1.3.6.1.4.1.9.9.173.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpvlanMIBConformance": {
+    "name": "cpvlanMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.173.2",
+    "class": "objectidentity"
+  },
+  "cpvlanMIBCompliances": {
+    "name": "cpvlanMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.173.2.1",
+    "class": "objectidentity"
+  },
+  "cpvlanMIBGroups": {
+    "name": "cpvlanMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.173.2.2",
+    "class": "objectidentity"
+  },
+  "cpvlanMIBCompliance": {
+    "name": "cpvlanMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.173.2.1.1",
+    "class": "modulecompliance",
+    "status": "current"
+  },
+  "cpvlanVlanGroup": {
+    "name": "cpvlanVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.173.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanVlanPrivateVlanType"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanVlanAssociatedPrimaryVlan"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanVlanEditPrivateVlanType"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanVlanEditAssocPrimaryVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanPrivatePortGroup": {
+    "name": "cpvlanPrivatePortGroup",
+    "oid": "1.3.6.1.4.1.9.9.173.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanPrivatePortSecondaryVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanPromPortGroup": {
+    "name": "cpvlanPromPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.173.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanPromPortMultiPrimaryVlan"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanPromPortSecondaryRemap"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanPromPortTwoWayRemapCapable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanPromPort4kGroup": {
+    "name": "cpvlanPromPort4kGroup",
+    "oid": "1.3.6.1.4.1.9.9.173.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanPromPortSecondaryRemap2k"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanPromPortSecondaryRemap3k"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanPromPortSecondaryRemap4k"
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanPortModeGroup": {
+    "name": "cpvlanPortModeGroup",
+    "oid": "1.3.6.1.4.1.9.9.173.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanPortMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanSVIMappingGroup": {
+    "name": "cpvlanSVIMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.173.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanSVIMappingPrimarySVI"
+      }
+    ],
+    "status": "current"
+  },
+  "cpvlanTrunkPortGroup": {
+    "name": "cpvlanTrunkPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.173.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortDynamicState"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortEncapType"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortNativeVlan"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortSecondaryVlans"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortSecondaryVlans2k"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortSecondaryVlans3k"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortSecondaryVlans4k"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortNormalVlans"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortNormalVlans2k"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortNormalVlans3k"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortNormalVlans4k"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortDynamicStatus"
+      },
+      {
+        "module": "CISCO-PRIVATE-VLAN-MIB",
+        "object": "cpvlanTrunkPortEncapOperType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PRIVATE-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PRIVATE-VLAN-MIB"
+  }
+}

@@ -1,0 +1,2171 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "iso",
+      "Opaque",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ucdavis": {
+    "name": "ucdavis",
+    "oid": "1.3.6.1.4.1.2021",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-06-10 00:00",
+        "description": "New 64-bit memory objects"
+      },
+      {
+        "revision": "2014-07-31 00:00",
+        "description": "New object for number of CPUs as counted by the agent"
+      },
+      {
+        "revision": "2011-05-14 00:00",
+        "description": "New objects for monitoring CPU Steal, Guest and Nice values"
+      },
+      {
+        "revision": "2009-01-19 00:00",
+        "description": "New 64-bit objects for monitoring large disk usage"
+      },
+      {
+        "revision": "2006-11-22 00:00",
+        "description": "Clarify behaviour of objects in the memory & systemStats groups (including updated versions of malnamed mem*Text objects). Define suitable TCs to describe error reporting/fix behaviour."
+      },
+      {
+        "revision": "2004-04-07 00:00",
+        "description": "Added ssCpuRawSoftIRQ for Linux (2.6) and forgotten raw swap counters."
+      },
+      {
+        "revision": "2002-09-05 00:00",
+        "description": "Deprecate the non-raw objects."
+      },
+      {
+        "revision": "2001-09-20 00:00",
+        "description": "Group to monitor log files"
+      },
+      {
+        "revision": "2001-01-17 00:00",
+        "description": "Added raw CPU and IO counters."
+      },
+      {
+        "revision": "1999-12-09 00:00",
+        "description": "SMIv2 version converted from older MIB definitions."
+      }
+    ]
+  },
+  "ucdInternal": {
+    "name": "ucdInternal",
+    "oid": "1.3.6.1.4.1.2021.12",
+    "class": "objectidentity"
+  },
+  "ucdExperimental": {
+    "name": "ucdExperimental",
+    "oid": "1.3.6.1.4.1.2021.13",
+    "class": "objectidentity"
+  },
+  "ucdSnmpAgent": {
+    "name": "ucdSnmpAgent",
+    "oid": "1.3.6.1.4.1.2021.250",
+    "class": "objectidentity"
+  },
+  "hpux9": {
+    "name": "hpux9",
+    "oid": "1.3.6.1.4.1.2021.250.1",
+    "class": "objectidentity"
+  },
+  "sunos4": {
+    "name": "sunos4",
+    "oid": "1.3.6.1.4.1.2021.250.2",
+    "class": "objectidentity"
+  },
+  "solaris": {
+    "name": "solaris",
+    "oid": "1.3.6.1.4.1.2021.250.3",
+    "class": "objectidentity"
+  },
+  "osf": {
+    "name": "osf",
+    "oid": "1.3.6.1.4.1.2021.250.4",
+    "class": "objectidentity"
+  },
+  "ultrix": {
+    "name": "ultrix",
+    "oid": "1.3.6.1.4.1.2021.250.5",
+    "class": "objectidentity"
+  },
+  "hpux10": {
+    "name": "hpux10",
+    "oid": "1.3.6.1.4.1.2021.250.6",
+    "class": "objectidentity"
+  },
+  "netbsd1": {
+    "name": "netbsd1",
+    "oid": "1.3.6.1.4.1.2021.250.7",
+    "class": "objectidentity"
+  },
+  "freebsd": {
+    "name": "freebsd",
+    "oid": "1.3.6.1.4.1.2021.250.8",
+    "class": "objectidentity"
+  },
+  "irix": {
+    "name": "irix",
+    "oid": "1.3.6.1.4.1.2021.250.9",
+    "class": "objectidentity"
+  },
+  "linux": {
+    "name": "linux",
+    "oid": "1.3.6.1.4.1.2021.250.10",
+    "class": "objectidentity"
+  },
+  "bsdi": {
+    "name": "bsdi",
+    "oid": "1.3.6.1.4.1.2021.250.11",
+    "class": "objectidentity"
+  },
+  "openbsd": {
+    "name": "openbsd",
+    "oid": "1.3.6.1.4.1.2021.250.12",
+    "class": "objectidentity"
+  },
+  "win32": {
+    "name": "win32",
+    "oid": "1.3.6.1.4.1.2021.250.13",
+    "class": "objectidentity"
+  },
+  "hpux11": {
+    "name": "hpux11",
+    "oid": "1.3.6.1.4.1.2021.250.14",
+    "class": "objectidentity"
+  },
+  "aix": {
+    "name": "aix",
+    "oid": "1.3.6.1.4.1.2021.250.15",
+    "class": "objectidentity"
+  },
+  "macosx": {
+    "name": "macosx",
+    "oid": "1.3.6.1.4.1.2021.250.16",
+    "class": "objectidentity"
+  },
+  "dragonfly": {
+    "name": "dragonfly",
+    "oid": "1.3.6.1.4.1.2021.250.17",
+    "class": "objectidentity"
+  },
+  "unknown": {
+    "name": "unknown",
+    "oid": "1.3.6.1.4.1.2021.250.255",
+    "class": "objectidentity"
+  },
+  "Float": {
+    "name": "Float",
+    "class": "textualconvention",
+    "type": {
+      "type": "Opaque",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "UCDErrorFlag": {
+    "name": "UCDErrorFlag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "error": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UCDErrorFix": {
+    "name": "UCDErrorFix",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "runFix": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prTable": {
+    "name": "prTable",
+    "oid": "1.3.6.1.4.1.2021.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prEntry": {
+    "name": "prEntry",
+    "oid": "1.3.6.1.4.1.2021.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UCD-SNMP-MIB",
+        "object": "prIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prIndex": {
+    "name": "prIndex",
+    "oid": "1.3.6.1.4.1.2021.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prNames": {
+    "name": "prNames",
+    "oid": "1.3.6.1.4.1.2021.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prMin": {
+    "name": "prMin",
+    "oid": "1.3.6.1.4.1.2021.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prMax": {
+    "name": "prMax",
+    "oid": "1.3.6.1.4.1.2021.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prCount": {
+    "name": "prCount",
+    "oid": "1.3.6.1.4.1.2021.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prErrorFlag": {
+    "name": "prErrorFlag",
+    "oid": "1.3.6.1.4.1.2021.2.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prErrMessage": {
+    "name": "prErrMessage",
+    "oid": "1.3.6.1.4.1.2021.2.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prErrFix": {
+    "name": "prErrFix",
+    "oid": "1.3.6.1.4.1.2021.2.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFix",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prErrFixCmd": {
+    "name": "prErrFixCmd",
+    "oid": "1.3.6.1.4.1.2021.2.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extTable": {
+    "name": "extTable",
+    "oid": "1.3.6.1.4.1.2021.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extEntry": {
+    "name": "extEntry",
+    "oid": "1.3.6.1.4.1.2021.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UCD-SNMP-MIB",
+        "object": "extIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extIndex": {
+    "name": "extIndex",
+    "oid": "1.3.6.1.4.1.2021.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extNames": {
+    "name": "extNames",
+    "oid": "1.3.6.1.4.1.2021.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extCommand": {
+    "name": "extCommand",
+    "oid": "1.3.6.1.4.1.2021.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extResult": {
+    "name": "extResult",
+    "oid": "1.3.6.1.4.1.2021.8.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extOutput": {
+    "name": "extOutput",
+    "oid": "1.3.6.1.4.1.2021.8.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extErrFix": {
+    "name": "extErrFix",
+    "oid": "1.3.6.1.4.1.2021.8.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFix",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extErrFixCmd": {
+    "name": "extErrFixCmd",
+    "oid": "1.3.6.1.4.1.2021.8.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memory": {
+    "name": "memory",
+    "oid": "1.3.6.1.4.1.2021.4",
+    "class": "objectidentity"
+  },
+  "memIndex": {
+    "name": "memIndex",
+    "oid": "1.3.6.1.4.1.2021.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memErrorName": {
+    "name": "memErrorName",
+    "oid": "1.3.6.1.4.1.2021.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memTotalSwap": {
+    "name": "memTotalSwap",
+    "oid": "1.3.6.1.4.1.2021.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memAvailSwap": {
+    "name": "memAvailSwap",
+    "oid": "1.3.6.1.4.1.2021.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memTotalReal": {
+    "name": "memTotalReal",
+    "oid": "1.3.6.1.4.1.2021.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memAvailReal": {
+    "name": "memAvailReal",
+    "oid": "1.3.6.1.4.1.2021.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memTotalSwapTXT": {
+    "name": "memTotalSwapTXT",
+    "oid": "1.3.6.1.4.1.2021.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memAvailSwapTXT": {
+    "name": "memAvailSwapTXT",
+    "oid": "1.3.6.1.4.1.2021.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "memTotalRealTXT": {
+    "name": "memTotalRealTXT",
+    "oid": "1.3.6.1.4.1.2021.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memAvailRealTXT": {
+    "name": "memAvailRealTXT",
+    "oid": "1.3.6.1.4.1.2021.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "memTotalFree": {
+    "name": "memTotalFree",
+    "oid": "1.3.6.1.4.1.2021.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memMinimumSwap": {
+    "name": "memMinimumSwap",
+    "oid": "1.3.6.1.4.1.2021.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memShared": {
+    "name": "memShared",
+    "oid": "1.3.6.1.4.1.2021.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memBuffer": {
+    "name": "memBuffer",
+    "oid": "1.3.6.1.4.1.2021.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memCached": {
+    "name": "memCached",
+    "oid": "1.3.6.1.4.1.2021.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memUsedSwapTXT": {
+    "name": "memUsedSwapTXT",
+    "oid": "1.3.6.1.4.1.2021.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memUsedRealTXT": {
+    "name": "memUsedRealTXT",
+    "oid": "1.3.6.1.4.1.2021.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memTotalSwapX": {
+    "name": "memTotalSwapX",
+    "oid": "1.3.6.1.4.1.2021.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memAvailSwapX": {
+    "name": "memAvailSwapX",
+    "oid": "1.3.6.1.4.1.2021.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memTotalRealX": {
+    "name": "memTotalRealX",
+    "oid": "1.3.6.1.4.1.2021.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memAvailRealX": {
+    "name": "memAvailRealX",
+    "oid": "1.3.6.1.4.1.2021.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memTotalFreeX": {
+    "name": "memTotalFreeX",
+    "oid": "1.3.6.1.4.1.2021.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memMinimumSwapX": {
+    "name": "memMinimumSwapX",
+    "oid": "1.3.6.1.4.1.2021.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memSharedX": {
+    "name": "memSharedX",
+    "oid": "1.3.6.1.4.1.2021.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memBufferX": {
+    "name": "memBufferX",
+    "oid": "1.3.6.1.4.1.2021.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memCachedX": {
+    "name": "memCachedX",
+    "oid": "1.3.6.1.4.1.2021.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memSysAvail": {
+    "name": "memSysAvail",
+    "oid": "1.3.6.1.4.1.2021.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memSwapError": {
+    "name": "memSwapError",
+    "oid": "1.3.6.1.4.1.2021.4.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memSwapErrorMsg": {
+    "name": "memSwapErrorMsg",
+    "oid": "1.3.6.1.4.1.2021.4.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskTable": {
+    "name": "dskTable",
+    "oid": "1.3.6.1.4.1.2021.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dskEntry": {
+    "name": "dskEntry",
+    "oid": "1.3.6.1.4.1.2021.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UCD-SNMP-MIB",
+        "object": "dskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dskIndex": {
+    "name": "dskIndex",
+    "oid": "1.3.6.1.4.1.2021.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskPath": {
+    "name": "dskPath",
+    "oid": "1.3.6.1.4.1.2021.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskDevice": {
+    "name": "dskDevice",
+    "oid": "1.3.6.1.4.1.2021.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskMinimum": {
+    "name": "dskMinimum",
+    "oid": "1.3.6.1.4.1.2021.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskMinPercent": {
+    "name": "dskMinPercent",
+    "oid": "1.3.6.1.4.1.2021.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskTotal": {
+    "name": "dskTotal",
+    "oid": "1.3.6.1.4.1.2021.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskAvail": {
+    "name": "dskAvail",
+    "oid": "1.3.6.1.4.1.2021.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskUsed": {
+    "name": "dskUsed",
+    "oid": "1.3.6.1.4.1.2021.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskPercent": {
+    "name": "dskPercent",
+    "oid": "1.3.6.1.4.1.2021.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskPercentNode": {
+    "name": "dskPercentNode",
+    "oid": "1.3.6.1.4.1.2021.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskTotalLow": {
+    "name": "dskTotalLow",
+    "oid": "1.3.6.1.4.1.2021.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskTotalHigh": {
+    "name": "dskTotalHigh",
+    "oid": "1.3.6.1.4.1.2021.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskAvailLow": {
+    "name": "dskAvailLow",
+    "oid": "1.3.6.1.4.1.2021.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskAvailHigh": {
+    "name": "dskAvailHigh",
+    "oid": "1.3.6.1.4.1.2021.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskUsedLow": {
+    "name": "dskUsedLow",
+    "oid": "1.3.6.1.4.1.2021.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskUsedHigh": {
+    "name": "dskUsedHigh",
+    "oid": "1.3.6.1.4.1.2021.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskErrorFlag": {
+    "name": "dskErrorFlag",
+    "oid": "1.3.6.1.4.1.2021.9.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dskErrorMsg": {
+    "name": "dskErrorMsg",
+    "oid": "1.3.6.1.4.1.2021.9.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "laTable": {
+    "name": "laTable",
+    "oid": "1.3.6.1.4.1.2021.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "laEntry": {
+    "name": "laEntry",
+    "oid": "1.3.6.1.4.1.2021.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UCD-SNMP-MIB",
+        "object": "laIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "laIndex": {
+    "name": "laIndex",
+    "oid": "1.3.6.1.4.1.2021.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "laNames": {
+    "name": "laNames",
+    "oid": "1.3.6.1.4.1.2021.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "laLoad": {
+    "name": "laLoad",
+    "oid": "1.3.6.1.4.1.2021.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "laConfig": {
+    "name": "laConfig",
+    "oid": "1.3.6.1.4.1.2021.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "laLoadInt": {
+    "name": "laLoadInt",
+    "oid": "1.3.6.1.4.1.2021.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "laLoadFloat": {
+    "name": "laLoadFloat",
+    "oid": "1.3.6.1.4.1.2021.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Float",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "laErrorFlag": {
+    "name": "laErrorFlag",
+    "oid": "1.3.6.1.4.1.2021.10.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "laErrMessage": {
+    "name": "laErrMessage",
+    "oid": "1.3.6.1.4.1.2021.10.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "version": {
+    "name": "version",
+    "oid": "1.3.6.1.4.1.2021.100",
+    "class": "objectidentity"
+  },
+  "versionIndex": {
+    "name": "versionIndex",
+    "oid": "1.3.6.1.4.1.2021.100.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "versionTag": {
+    "name": "versionTag",
+    "oid": "1.3.6.1.4.1.2021.100.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "versionDate": {
+    "name": "versionDate",
+    "oid": "1.3.6.1.4.1.2021.100.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "versionCDate": {
+    "name": "versionCDate",
+    "oid": "1.3.6.1.4.1.2021.100.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "versionIdent": {
+    "name": "versionIdent",
+    "oid": "1.3.6.1.4.1.2021.100.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "versionConfigureOptions": {
+    "name": "versionConfigureOptions",
+    "oid": "1.3.6.1.4.1.2021.100.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "versionClearCache": {
+    "name": "versionClearCache",
+    "oid": "1.3.6.1.4.1.2021.100.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "versionUpdateConfig": {
+    "name": "versionUpdateConfig",
+    "oid": "1.3.6.1.4.1.2021.100.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "versionRestartAgent": {
+    "name": "versionRestartAgent",
+    "oid": "1.3.6.1.4.1.2021.100.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "versionSavePersistentData": {
+    "name": "versionSavePersistentData",
+    "oid": "1.3.6.1.4.1.2021.100.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "versionDoDebugging": {
+    "name": "versionDoDebugging",
+    "oid": "1.3.6.1.4.1.2021.100.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmperrs": {
+    "name": "snmperrs",
+    "oid": "1.3.6.1.4.1.2021.101",
+    "class": "objectidentity"
+  },
+  "snmperrIndex": {
+    "name": "snmperrIndex",
+    "oid": "1.3.6.1.4.1.2021.101.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmperrNames": {
+    "name": "snmperrNames",
+    "oid": "1.3.6.1.4.1.2021.101.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmperrErrorFlag": {
+    "name": "snmperrErrorFlag",
+    "oid": "1.3.6.1.4.1.2021.101.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmperrErrMessage": {
+    "name": "snmperrErrMessage",
+    "oid": "1.3.6.1.4.1.2021.101.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mrTable": {
+    "name": "mrTable",
+    "oid": "1.3.6.1.4.1.2021.102",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mrEntry": {
+    "name": "mrEntry",
+    "oid": "1.3.6.1.4.1.2021.102.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UCD-SNMP-MIB",
+        "object": "mrIndex",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "mrIndex": {
+    "name": "mrIndex",
+    "oid": "1.3.6.1.4.1.2021.102.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mrModuleName": {
+    "name": "mrModuleName",
+    "oid": "1.3.6.1.4.1.2021.102.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemStats": {
+    "name": "systemStats",
+    "oid": "1.3.6.1.4.1.2021.11",
+    "class": "objectidentity"
+  },
+  "ssIndex": {
+    "name": "ssIndex",
+    "oid": "1.3.6.1.4.1.2021.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssErrorName": {
+    "name": "ssErrorName",
+    "oid": "1.3.6.1.4.1.2021.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssSwapIn": {
+    "name": "ssSwapIn",
+    "oid": "1.3.6.1.4.1.2021.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssSwapOut": {
+    "name": "ssSwapOut",
+    "oid": "1.3.6.1.4.1.2021.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssIOSent": {
+    "name": "ssIOSent",
+    "oid": "1.3.6.1.4.1.2021.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "blocks/s",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ssIOReceive": {
+    "name": "ssIOReceive",
+    "oid": "1.3.6.1.4.1.2021.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "blocks/s",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ssSysInterrupts": {
+    "name": "ssSysInterrupts",
+    "oid": "1.3.6.1.4.1.2021.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "interrupts/s",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ssSysContext": {
+    "name": "ssSysContext",
+    "oid": "1.3.6.1.4.1.2021.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "switches/s",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ssCpuUser": {
+    "name": "ssCpuUser",
+    "oid": "1.3.6.1.4.1.2021.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ssCpuSystem": {
+    "name": "ssCpuSystem",
+    "oid": "1.3.6.1.4.1.2021.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ssCpuIdle": {
+    "name": "ssCpuIdle",
+    "oid": "1.3.6.1.4.1.2021.11.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ssCpuRawUser": {
+    "name": "ssCpuRawUser",
+    "oid": "1.3.6.1.4.1.2021.11.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawNice": {
+    "name": "ssCpuRawNice",
+    "oid": "1.3.6.1.4.1.2021.11.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawSystem": {
+    "name": "ssCpuRawSystem",
+    "oid": "1.3.6.1.4.1.2021.11.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawIdle": {
+    "name": "ssCpuRawIdle",
+    "oid": "1.3.6.1.4.1.2021.11.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawWait": {
+    "name": "ssCpuRawWait",
+    "oid": "1.3.6.1.4.1.2021.11.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawKernel": {
+    "name": "ssCpuRawKernel",
+    "oid": "1.3.6.1.4.1.2021.11.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawInterrupt": {
+    "name": "ssCpuRawInterrupt",
+    "oid": "1.3.6.1.4.1.2021.11.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssIORawSent": {
+    "name": "ssIORawSent",
+    "oid": "1.3.6.1.4.1.2021.11.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssIORawReceived": {
+    "name": "ssIORawReceived",
+    "oid": "1.3.6.1.4.1.2021.11.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssRawInterrupts": {
+    "name": "ssRawInterrupts",
+    "oid": "1.3.6.1.4.1.2021.11.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssRawContexts": {
+    "name": "ssRawContexts",
+    "oid": "1.3.6.1.4.1.2021.11.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawSoftIRQ": {
+    "name": "ssCpuRawSoftIRQ",
+    "oid": "1.3.6.1.4.1.2021.11.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssRawSwapIn": {
+    "name": "ssRawSwapIn",
+    "oid": "1.3.6.1.4.1.2021.11.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssRawSwapOut": {
+    "name": "ssRawSwapOut",
+    "oid": "1.3.6.1.4.1.2021.11.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawSteal": {
+    "name": "ssCpuRawSteal",
+    "oid": "1.3.6.1.4.1.2021.11.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawGuest": {
+    "name": "ssCpuRawGuest",
+    "oid": "1.3.6.1.4.1.2021.11.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuRawGuestNice": {
+    "name": "ssCpuRawGuestNice",
+    "oid": "1.3.6.1.4.1.2021.11.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ssCpuNumCpus": {
+    "name": "ssCpuNumCpus",
+    "oid": "1.3.6.1.4.1.2021.11.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ucdTraps": {
+    "name": "ucdTraps",
+    "oid": "1.3.6.1.4.1.2021.251",
+    "class": "objectidentity"
+  },
+  "ucdStart": {
+    "name": "ucdStart",
+    "oid": "1.3.6.1.4.1.2021.251.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ucdShutdown": {
+    "name": "ucdShutdown",
+    "oid": "1.3.6.1.4.1.2021.251.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "fileTable": {
+    "name": "fileTable",
+    "oid": "1.3.6.1.4.1.2021.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fileEntry": {
+    "name": "fileEntry",
+    "oid": "1.3.6.1.4.1.2021.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UCD-SNMP-MIB",
+        "object": "fileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fileIndex": {
+    "name": "fileIndex",
+    "oid": "1.3.6.1.4.1.2021.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileName": {
+    "name": "fileName",
+    "oid": "1.3.6.1.4.1.2021.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileSize": {
+    "name": "fileSize",
+    "oid": "1.3.6.1.4.1.2021.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileMax": {
+    "name": "fileMax",
+    "oid": "1.3.6.1.4.1.2021.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileErrorFlag": {
+    "name": "fileErrorFlag",
+    "oid": "1.3.6.1.4.1.2021.15.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileErrorMsg": {
+    "name": "fileErrorMsg",
+    "oid": "1.3.6.1.4.1.2021.15.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatch": {
+    "name": "logMatch",
+    "oid": "1.3.6.1.4.1.2021.16",
+    "class": "objectidentity"
+  },
+  "logMatchMaxEntries": {
+    "name": "logMatchMaxEntries",
+    "oid": "1.3.6.1.4.1.2021.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchTable": {
+    "name": "logMatchTable",
+    "oid": "1.3.6.1.4.1.2021.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "logMatchEntry": {
+    "name": "logMatchEntry",
+    "oid": "1.3.6.1.4.1.2021.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UCD-SNMP-MIB",
+        "object": "logMatchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "logMatchIndex": {
+    "name": "logMatchIndex",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchName": {
+    "name": "logMatchName",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchFilename": {
+    "name": "logMatchFilename",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchRegEx": {
+    "name": "logMatchRegEx",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchGlobalCounter": {
+    "name": "logMatchGlobalCounter",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchGlobalCount": {
+    "name": "logMatchGlobalCount",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchCurrentCounter": {
+    "name": "logMatchCurrentCounter",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchCurrentCount": {
+    "name": "logMatchCurrentCount",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchCounter": {
+    "name": "logMatchCounter",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchCount": {
+    "name": "logMatchCount",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchCycle": {
+    "name": "logMatchCycle",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchErrorFlag": {
+    "name": "logMatchErrorFlag",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UCDErrorFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logMatchRegExCompilation": {
+    "name": "logMatchRegExCompilation",
+    "oid": "1.3.6.1.4.1.2021.16.2.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/UCD-SNMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:39 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "UCD-SNMP-MIB"
+  }
+}

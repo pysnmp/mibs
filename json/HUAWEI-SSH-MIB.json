@@ -1,0 +1,1763 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwSSH": {
+    "name": "hwSSH",
+    "oid": "1.3.6.1.4.1.2011.5.25.118",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 00:00",
+        "description": "V2.19, 1.modify hwStelnetServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.1; 2.modify hwSftpServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.2; 3.modify hwSNetConfServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.15; 4.modify hwStelnetIPv4ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.21; 5.modify hwStelnetIPv6ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.22; 6.modify hwSftpIPv4ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.23; 7.modify hwSftpIPv6ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.24; 8.modify hwSCPIPv4ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.25; 9.modify hwSCPIPv6ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.26; 10.modify hwSNetConfIPv4ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.27; 11.modify hwSNetConfIPv6ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.28; 12.modify hwSSHFirstTimeAuthEnable OID:1.3.6.1.4.1.2011.5.25.118.2.1; 13.modify hwSSHUserName OID:1.3.6.1.4.1.2011.5.25.118.1.11.1.2;"
+      },
+      {
+        "revision": "2017-05-17 00:00",
+        "description": "V2.18, Modify the type of mib-node according to the field type in DOM"
+      },
+      {
+        "revision": "2017-03-14 00:00",
+        "description": "V2.17, 1.Add hwSNetConfIPv4ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.27; 2.Add hwSNetConfIPv6ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.28;"
+      },
+      {
+        "revision": "2017-01-24 00:00",
+        "description": "V2.16, 1.Add hwSSHIPv4ServerPort OID:1.3.6.1.4.1.2011.5.25.118.1.19; 2.Add hwSSHIPv6ServerPort OID:1.3.6.1.4.1.2011.5.25.118.1.20; 3.Add hwStelnetIPv4ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.21; 4.Add hwStelnetIPv6ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.22; 5.Add hwSftpIPv4ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.23; 6.Add hwSftpIPv6ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.24; 7.Add hwSCPIPv4ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.25; 8.Add hwSCPIPv6ServerEnable OID:1.3.6.1.4.1.2011.5.25.118.1.26."
+      },
+      {
+        "revision": "2014-09-26 00:00",
+        "description": "V2.15, defect - DTS2014091709267 (default value in the description is updated)."
+      },
+      {
+        "revision": "2014-06-30 00:00",
+        "description": "V2.14, 1. Modify the value range of the node hwSSHServerTimeOut, hwSSHServerPort,hwSftpMaxUserNum, hwSftpOnLineUserNum,hwSSHUserName,hwSSHUserSftpDirectory,hwSSHServerName,hwSSHServerAssignKey. 2. Modify the description of the node hwSSHServerTimeOut,hwSSHServerPort,hwSftpMaxUserNum,hwSSHUserName, hwSSHUserAuthorizationCMD,hwSSHSftpUserNumExceedMax. 3. Add the following enums of the hwSSHUserAuthType:authDSA(6),authDSAandPASSWORD(7),authAny(8),authECC(9), authECCandPASSWORD(10). 4. Add the following enums of the hwSSHUserServiceType:servicetypeSNetConf(5),servicetypeSftpSNetConf(6), servicetypeSTelnetSftp(7),servicetypeSTelnetSNetConf(8). 5. Add the following enums of the hwSSHSessionConnectType:none(0),vty15(16),vty16(17),vty17(18),vty18(19), vty19(20),vty20(21). 6. modified 'MAX-ACCESS read-only' to 'MAX-ACCESS read-write' of hwSftpMaxUserNum. 7. Add hwSSHUserAssignKeyType in hwSSHUserTable. 8. Add hwSSHSessionKeyType, hwSSHSessionConnectionIndex, hwSSHSessionCtosCompress, hwSSHSessionStocCompress in hwSSHServerSessionTable. 9. Add hwSNetConfMaxUserNum, hwSNetConfServerEnable, hwSSHKeepAliveEnable, hwSCPServerEnable, hwSCPMaxUserNum in hwSSHServer. 10. Add hwSSHServerAssignDSAKey and hwSSHServerAssignECCKey in hwSSHServerInfoTable. 11. Add hwSSHKeepAliveInterval and hwSSHKeepAliveMaxCount in hwSSHClient. "
+      },
+      {
+        "revision": "2014-05-06 00:00",
+        "description": "V1.08, 1. Add hwRSAPublicKeyFingerprint in hwRSAPublicKeyTable. 2. Add hwRSALocalKeyTable."
+      },
+      {
+        "revision": "2010-11-09 00:00",
+        "description": "V1.07, The description of this MIB is modified according to the tool."
+      },
+      {
+        "revision": "2010-08-25 00:00",
+        "description": "V1.06, modified the contact-info and the revision history. Modified the description of leaves."
+      },
+      {
+        "revision": "2010-06-17 00:00",
+        "description": "V1.05, the description of hwSSHServerTimeOut, hwSSHServerPort, hwSSHServerKeyTimeOut, hwSSHUserTable, hwSSHUserEntry, hwSSHUserAuthType and hwSSHUserServiceType were modified and supplemented."
+      },
+      {
+        "revision": "2010-04-18 00:00",
+        "description": "V1.04, DT requirements were implemented and the syntax and semantics of SIMPLETEST were changed."
+      },
+      {
+        "revision": "2010-03-03 00:00",
+        "description": "V1.03, DT requirements were implemented and the syntax and semantics of SIMPLETEST were changed."
+      },
+      {
+        "revision": "2010-01-29 00:00",
+        "description": "V1.02, hwRSAPublicKeyTable was added."
+      },
+      {
+        "revision": "2006-09-05 00:00",
+        "description": "V1.00, completed the draft."
+      }
+    ]
+  },
+  "hwSSHServer": {
+    "name": "hwSSHServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1",
+    "class": "objectidentity"
+  },
+  "hwStelnetServerEnable": {
+    "name": "hwStelnetServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSftpServerEnable": {
+    "name": "hwSftpServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHServerComp1x": {
+    "name": "hwSSHServerComp1x",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHServerTimeOut": {
+    "name": "hwSSHServerTimeOut",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHServerRetry": {
+    "name": "hwSSHServerRetry",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHServerPort": {
+    "name": "hwSSHServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 22,
+            "max": 22
+          },
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHServerKeyTimeOut": {
+    "name": "hwSSHServerKeyTimeOut",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "units": "hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHServerAlarmEnable": {
+    "name": "hwSSHServerAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSftpMaxUserNum": {
+    "name": "hwSftpMaxUserNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSftpOnLineUserNum": {
+    "name": "hwSftpOnLineUserNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHUserTable": {
+    "name": "hwSSHUserTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSSHUserEntry": {
+    "name": "hwSSHUserEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHUserIndex": {
+    "name": "hwSSHUserIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSSHUserName": {
+    "name": "hwSSHUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHUserAssignKey": {
+    "name": "hwSSHUserAssignKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHUserAuthType": {
+    "name": "hwSSHUserAuthType",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authNULL": 1,
+          "authPASSWORD": 2,
+          "authRSA": 3,
+          "authRSAorPASSWORD": 4,
+          "authRSAandPASSWORD": 5,
+          "authDSA": 6,
+          "authDSAandPASSWORD": 7,
+          "authAny": 8,
+          "authECC": 9,
+          "authECCandPASSWORD": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "authPASSWORD",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHUserServiceType": {
+    "name": "hwSSHUserServiceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "servicetypeNULL": 1,
+          "servicetypeSTELNET": 2,
+          "servicetypeSFTP": 3,
+          "servicetypeALL": 4,
+          "servicetypeSNetConf": 5,
+          "servicetypeSftpSNetConf": 6,
+          "servicetypeSTelnetSftp": 7,
+          "servicetypeSTelnetSNetConf": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "servicetypeNULL",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHUserSftpDirectory": {
+    "name": "hwSSHUserSftpDirectory",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHUserAuthorizationCMD": {
+    "name": "hwSSHUserAuthorizationCMD",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authorizationNULL": 1,
+          "authorizationAAA": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "authorizationNULL",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHUserRowStatus": {
+    "name": "hwSSHUserRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHUserAssignKeyType": {
+    "name": "hwSSHUserAssignKeyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyTypeNULL": 0,
+          "keyTypeRSA": 1,
+          "keyTypeDSA": 2,
+          "keyTypeECC": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHServerSessionTable": {
+    "name": "hwSSHServerSessionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSSHServerSessionEntry": {
+    "name": "hwSSHServerSessionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHSessionIndex": {
+    "name": "hwSSHSessionIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSSHSessionUserName": {
+    "name": "hwSSHSessionUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionConnectType": {
+    "name": "hwSSHSessionConnectType",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "vty0": 1,
+          "vty1": 2,
+          "vty2": 3,
+          "vty3": 4,
+          "vty4": 5,
+          "vty5": 6,
+          "vty6": 7,
+          "vty7": 8,
+          "vty8": 9,
+          "vty9": 10,
+          "vty10": 11,
+          "vty11": 12,
+          "vty12": 13,
+          "vty13": 14,
+          "vty14": 15,
+          "vty15": 16,
+          "vty16": 17,
+          "vty17": 18,
+          "vty18": 19,
+          "vty19": 20,
+          "vty20": 21
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionVer": {
+    "name": "hwSSHSessionVer",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionState": {
+    "name": "hwSSHSessionState",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "started": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionRetry": {
+    "name": "hwSSHSessionRetry",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionCtosCipher": {
+    "name": "hwSSHSessionCtosCipher",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionStocCipher": {
+    "name": "hwSSHSessionStocCipher",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionCtosHmac": {
+    "name": "hwSSHSessionCtosHmac",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionStocHmac": {
+    "name": "hwSSHSessionStocHmac",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionKex": {
+    "name": "hwSSHSessionKex",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionAuthType": {
+    "name": "hwSSHSessionAuthType",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionServiceType": {
+    "name": "hwSSHSessionServiceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionKeyType": {
+    "name": "hwSSHSessionKeyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyTypeRSA": 1,
+          "keyTypeDSA": 2,
+          "keyTypeECC": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionConnectionIndex": {
+    "name": "hwSSHSessionConnectionIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionCtosCompress": {
+    "name": "hwSSHSessionCtosCompress",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSSHSessionStocCompress": {
+    "name": "hwSSHSessionStocCompress",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRSAPublicKeyTable": {
+    "name": "hwRSAPublicKeyTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRSAPublicKeyEntry": {
+    "name": "hwRSAPublicKeyEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwRSAPublicKeyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRSAPublicKeyName": {
+    "name": "hwRSAPublicKeyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRSAPublicKeyCode": {
+    "name": "hwRSAPublicKeyCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRSAPublicKeyRowStatus": {
+    "name": "hwRSAPublicKeyRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRSAPublicKeyFingerprint": {
+    "name": "hwRSAPublicKeyFingerprint",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSNetConfMaxUserNum": {
+    "name": "hwSNetConfMaxUserNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSNetConfServerEnable": {
+    "name": "hwSNetConfServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHKeepAliveEnable": {
+    "name": "hwSSHKeepAliveEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSCPServerEnable": {
+    "name": "hwSCPServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSCPMaxUserNum": {
+    "name": "hwSCPMaxUserNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHIPv4ServerPort": {
+    "name": "hwSSHIPv4ServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 22,
+            "max": 22
+          },
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHIPv6ServerPort": {
+    "name": "hwSSHIPv6ServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 22,
+            "max": 22
+          },
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStelnetIPv4ServerEnable": {
+    "name": "hwStelnetIPv4ServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStelnetIPv6ServerEnable": {
+    "name": "hwStelnetIPv6ServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSftpIPv4ServerEnable": {
+    "name": "hwSftpIPv4ServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSftpIPv6ServerEnable": {
+    "name": "hwSftpIPv6ServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSCPIPv4ServerEnable": {
+    "name": "hwSCPIPv4ServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSCPIPv6ServerEnable": {
+    "name": "hwSCPIPv6ServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSNetConfIPv4ServerEnable": {
+    "name": "hwSNetConfIPv4ServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSNetConfIPv6ServerEnable": {
+    "name": "hwSNetConfIPv6ServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHClient": {
+    "name": "hwSSHClient",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2",
+    "class": "objectidentity"
+  },
+  "hwSSHFirstTimeAuthEnable": {
+    "name": "hwSSHFirstTimeAuthEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHServerInfoTable": {
+    "name": "hwSSHServerInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSSHServerInfoEntry": {
+    "name": "hwSSHServerInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHServerIndex": {
+    "name": "hwSSHServerIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSSHServerName": {
+    "name": "hwSSHServerName",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHServerAssignKey": {
+    "name": "hwSSHServerAssignKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHServerRowStatus": {
+    "name": "hwSSHServerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHServerAssignDSAKey": {
+    "name": "hwSSHServerAssignDSAKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHServerAssignECCKey": {
+    "name": "hwSSHServerAssignECCKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSSHKeepAliveInterval": {
+    "name": "hwSSHKeepAliveInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHKeepAliveMaxCount": {
+    "name": "hwSSHKeepAliveMaxCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSSHNotifications": {
+    "name": "hwSSHNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.3",
+    "class": "objectidentity"
+  },
+  "hwSSHSftpUserNumExceedMax": {
+    "name": "hwSSHSftpUserNumExceedMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpOnLineUserNum"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHMIBConformance": {
+    "name": "hwSSHMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4",
+    "class": "objectidentity"
+  },
+  "hwSSHMIBCompliances": {
+    "name": "hwSSHMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.1",
+    "class": "objectidentity"
+  },
+  "hwSSHMIBCompliance": {
+    "name": "hwSSHMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwSSHServerGroup",
+        "module": "HUAWEI-SSH-MIB"
+      },
+      {
+        "object": "hwSSHUserGroup",
+        "module": "HUAWEI-SSH-MIB"
+      },
+      {
+        "object": "hwSSHServerSessionGroup",
+        "module": "HUAWEI-SSH-MIB"
+      },
+      {
+        "object": "hwSSHClientGroup",
+        "module": "HUAWEI-SSH-MIB"
+      },
+      {
+        "object": "hwSSHServerInfoGroup",
+        "module": "HUAWEI-SSH-MIB"
+      },
+      {
+        "object": "hwSSHNotificationGroup",
+        "module": "HUAWEI-SSH-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHMIBGroups": {
+    "name": "hwSSHMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2",
+    "class": "objectidentity"
+  },
+  "hwSSHServerGroup": {
+    "name": "hwSSHServerGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwStelnetServerEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpServerEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerComp1x"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerTimeOut"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerRetry"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerPort"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerKeyTimeOut"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpOnLineUserNum"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSNetConfMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSNetConfServerEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHKeepAliveEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSCPServerEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSCPMaxUserNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHUserGroup": {
+    "name": "hwSSHUserGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserName"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserAssignKey"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserAuthType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserServiceType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserSftpDirectory"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserAuthorizationCMD"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserRowStatus"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserAssignKeyType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHServerSessionGroup": {
+    "name": "hwSSHServerSessionGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionUserName"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionConnectType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionVer"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionState"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionRetry"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionCtosCipher"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionStocCipher"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionCtosHmac"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionStocHmac"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionKex"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionAuthType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionServiceType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionKeyType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionConnectionIndex"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionCtosCompress"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionStocCompress"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHClientGroup": {
+    "name": "hwSSHClientGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHFirstTimeAuthEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHKeepAliveInterval"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHKeepAliveMaxCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHServerInfoGroup": {
+    "name": "hwSSHServerInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerName"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerAssignKey"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerRowStatus"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerAssignDSAKey"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSSHNotificationGroup": {
+    "name": "hwSSHNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSftpUserNumExceedMax"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRSALocalKeyTable": {
+    "name": "hwRSALocalKeyTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5",
+    "class": "objectidentity"
+  },
+  "hwRSALocalHostPublicKeyCode": {
+    "name": "hwRSALocalHostPublicKeyCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRSALocalHostPublicKeyFingerprint": {
+    "name": "hwRSALocalHostPublicKeyFingerprint",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRSALocalServerPublicKeyCode": {
+    "name": "hwRSALocalServerPublicKeyCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRSALocalServerPublicKeyFingerprint": {
+    "name": "hwRSALocalServerPublicKeyFingerprint",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SSH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-SSH-MIB"
+  }
+}

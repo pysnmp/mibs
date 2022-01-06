@@ -1,0 +1,5690 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "JUNIPER-SMI": [
+      "jnxIpSecMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "jnxIpSecFlowMonMIB": {
+    "name": "jnxIpSecFlowMonMIB",
+    "oid": "1.3.6.1.4.1.2636.3.52.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-04-29 00:00",
+        "description": "Added New field for jnxIkeGlobalInitiatorIkev2SaInitStats for the global IKE stats"
+      },
+      {
+        "revision": "2020-04-28 00:00",
+        "description": "A new field jnxIkeTunMonTunType of type JnxIkeTunType is added to table jnxIkeTunnelMonTableunder which will identify the tunnel as regular(1) or halink(2). A new field jnxIpSecTunMonTunType of type JnxIkeTunType is added to table jnxIpSecTunnelMonTable which will identify the tunnel as regular(1) or halink(2). A new table jnxIkeHaLinkGlobalStats is added which lists IKE global stats for ha-link tunnels. A new table jnxIpSecHaLinkGlobalStats is added which lists IPSec global stats for ha-link tunnels. A new field jnxIkePeerStatsTunType of type JnxIkeTunType is added to table jnxIkePeerStatsTable which will identify the tunnel as regular(1) or halink(2)."
+      },
+      {
+        "revision": "2020-04-19 00:00",
+        "description": "Added New MIB jnxIpSecGlobalStats for the global IPsec stats"
+      },
+      {
+        "revision": "2019-09-10 00:00",
+        "description": "Added IPSec-tunnel statistics counters to IPSec Tunnel monitor entry table"
+      },
+      {
+        "revision": "2019-08-22 00:00",
+        "description": "Added the IKE tunnel statistics counters to IKE tunnel monitor table"
+      },
+      {
+        "revision": "2016-06-22 00:00",
+        "description": "Added traffic-selector-name and vpn-name to ipsec-tunnel -monitor-entry table"
+      },
+      {
+        "revision": "2007-05-16 00:00",
+        "description": "Revised the MIB to exlude platform/product specific attributes"
+      },
+      {
+        "revision": "2016-05-31 00:00",
+        "description": "Consolidated TC duplicated b/n jnx-ipsec-flow-mon.mib, jnx-ipsec-monitor-asp.mib"
+      }
+    ]
+  },
+  "jnxIpSecFlowMonNotifications": {
+    "name": "jnxIpSecFlowMonNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0",
+    "class": "objectidentity"
+  },
+  "jnxIpSecFlowMonPhaseOne": {
+    "name": "jnxIpSecFlowMonPhaseOne",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1",
+    "class": "objectidentity"
+  },
+  "jnxIpSecFlowMonPhaseTwo": {
+    "name": "jnxIpSecFlowMonPhaseTwo",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2",
+    "class": "objectidentity"
+  },
+  "JnxIkePeerType": {
+    "name": "JnxIkePeerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "idIpv4Addr": 1,
+          "idFqdn": 2,
+          "idDn": 3,
+          "idUfqdn": 4,
+          "idIpv6Addr": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxIkeNegoMode": {
+    "name": "JnxIkeNegoMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 1,
+          "aggressive": 2,
+          "ikev2": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxIkeHashAlgo": {
+    "name": "JnxIkeHashAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "md5": 1,
+          "sha": 2,
+          "sha256": 3,
+          "sha384": 4,
+          "sha512": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxIkeAuthMethod": {
+    "name": "JnxIkeAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preSharedKey": 1,
+          "dssSignature": 2,
+          "rsaSignature": 3,
+          "rsaEncryption": 4,
+          "revRsaEncryption": 5,
+          "xauthPreSharedKey": 6,
+          "xauthDssSignature": 7,
+          "xauthRsaSignature": 8,
+          "xauthRsaEncryption": 9,
+          "xauthRevRsaEncryption": 10,
+          "ecdsa256Signature": 11,
+          "ecdsa384Signature": 12,
+          "ecdsa521Signature": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxIkePeerRole": {
+    "name": "JnxIkePeerRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initiator": 1,
+          "responder": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxIkeTunStateType": {
+    "name": "JnxIkeTunStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxDiffHellmanGrp": {
+    "name": "JnxDiffHellmanGrp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "modp768": 1,
+          "modp1024": 2,
+          "modp1536": 5,
+          "modp2048": 14,
+          "modp3072": 15,
+          "modp4096": 16,
+          "ecmodp256": 19,
+          "ecmodp384": 20,
+          "ecmodp521": 21,
+          "modp2048s256": 24
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxKeyType": {
+    "name": "JnxKeyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "keyIke": 1,
+          "keyManual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxEncapMode": {
+    "name": "JnxEncapMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "tunnel": 1,
+          "transport": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxEncryptAlgo": {
+    "name": "JnxEncryptAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "espDes": 1,
+          "esp3des": 2,
+          "espNull": 3,
+          "espAes128": 4,
+          "espAes192": 5,
+          "espAes256": 6,
+          "espAesGcm128": 7,
+          "espAesGcm192": 8,
+          "espAesGcm256": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxAuthAlgo": {
+    "name": "JnxAuthAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "hmacMd5": 1,
+          "hmacSha": 2,
+          "hmacSha256": 3,
+          "hmacSha384": 4,
+          "hmacSha512": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxRemotePeerType": {
+    "name": "JnxRemotePeerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxPeerStateType": {
+    "name": "JnxPeerStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxSpiType": {
+    "name": "JnxSpiType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JnxSAType": {
+    "name": "JnxSAType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "manual": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxEsnMode": {
+    "name": "JnxEsnMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxIkeTunType": {
+    "name": "JnxIkeTunType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regular": 1,
+          "halink": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxIkeNotificationType": {
+    "name": "jnxIkeNotificationType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.0",
+    "class": "objectidentity"
+  },
+  "jnxIkeNotificationObj": {
+    "name": "jnxIkeNotificationObj",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1",
+    "class": "objectidentity"
+  },
+  "jnxIkeTrapPeerRemoteGwAddrType": {
+    "name": "jnxIkeTrapPeerRemoteGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerRemoteGwAddr": {
+    "name": "jnxIkeTrapPeerRemoteGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerRemotePort": {
+    "name": "jnxIkeTrapPeerRemotePort",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerLocalGwAddrType": {
+    "name": "jnxIkeTrapPeerLocalGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerLocalGwAddr": {
+    "name": "jnxIkeTrapPeerLocalGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerLocalPort": {
+    "name": "jnxIkeTrapPeerLocalPort",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerRoutingInstance": {
+    "name": "jnxIkeTrapPeerRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerLocalIdType": {
+    "name": "jnxIkeTrapPeerLocalIdType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerLocalIdValue": {
+    "name": "jnxIkeTrapPeerLocalIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerRemoteIdType": {
+    "name": "jnxIkeTrapPeerRemoteIdType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerRemoteIdValue": {
+    "name": "jnxIkeTrapPeerRemoteIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerAAAUserName": {
+    "name": "jnxIkeTrapPeerAAAUserName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapPeerGwName": {
+    "name": "jnxIkeTrapPeerGwName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapIpSecTunVpnName": {
+    "name": "jnxIkeTrapIpSecTunVpnName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapIpSecTunTsName": {
+    "name": "jnxIkeTrapIpSecTunTsName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapIpSecTunLocalTS": {
+    "name": "jnxIkeTrapIpSecTunLocalTS",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTrapIpSecTunRemoteTS": {
+    "name": "jnxIkeTrapIpSecTunRemoteTS",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerDown": {
+    "name": "jnxIkePeerDown",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemoteGwAddrType"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemoteGwAddr"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemotePort"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalGwAddrType"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalGwAddr"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalPort"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRoutingInstance"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalIdType"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalIdValue"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemoteIdType"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemoteIdValue"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerAAAUserName"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIkePeerIPSecTunnelDown": {
+    "name": "jnxIkePeerIPSecTunnelDown",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemoteGwAddrType"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemoteGwAddr"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemotePort"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalGwAddrType"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalGwAddr"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalPort"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRoutingInstance"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalIdType"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerLocalIdValue"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemoteIdType"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerRemoteIdValue"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerAAAUserName"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapPeerGwName"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapIpSecTunVpnName"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapIpSecTunTsName"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapIpSecTunLocalTS"
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTrapIpSecTunRemoteTS"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIkeNumOfTunnels": {
+    "name": "jnxIkeNumOfTunnels",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunnelMonTable": {
+    "name": "jnxIkeTunnelMonTable",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkeTunnelMonEntry": {
+    "name": "jnxIkeTunnelMonEntry",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTunMonRemoteGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTunMonRemoteGwAddr",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkeTunMonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIkeTunMonRemoteGwAddrType": {
+    "name": "jnxIkeTunMonRemoteGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkeTunMonRemoteGwAddr": {
+    "name": "jnxIkeTunMonRemoteGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkeTunMonIndex": {
+    "name": "jnxIkeTunMonIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkeTunMonLocalGwAddr": {
+    "name": "jnxIkeTunMonLocalGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonLocalGwAddrType": {
+    "name": "jnxIkeTunMonLocalGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonState": {
+    "name": "jnxIkeTunMonState",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeTunStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorCookie": {
+    "name": "jnxIkeTunMonInitiatorCookie",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonResponderCookie": {
+    "name": "jnxIkeTunMonResponderCookie",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonLocalRole": {
+    "name": "jnxIkeTunMonLocalRole",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonLocalIdType": {
+    "name": "jnxIkeTunMonLocalIdType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonLocalIdValue": {
+    "name": "jnxIkeTunMonLocalIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonLocalCertName": {
+    "name": "jnxIkeTunMonLocalCertName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonRemoteIdType": {
+    "name": "jnxIkeTunMonRemoteIdType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonRemoteIdValue": {
+    "name": "jnxIkeTunMonRemoteIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonNegoMode": {
+    "name": "jnxIkeTunMonNegoMode",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeNegoMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonDiffHellmanGrp": {
+    "name": "jnxIkeTunMonDiffHellmanGrp",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxDiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonEncryptAlgo": {
+    "name": "jnxIkeTunMonEncryptAlgo",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxEncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonHashAlgo": {
+    "name": "jnxIkeTunMonHashAlgo",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeHashAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonAuthMethod": {
+    "name": "jnxIkeTunMonAuthMethod",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonLifeTime": {
+    "name": "jnxIkeTunMonLifeTime",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonActiveTime": {
+    "name": "jnxIkeTunMonActiveTime",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInOctets": {
+    "name": "jnxIkeTunMonInOctets",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInPkts": {
+    "name": "jnxIkeTunMonInPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonOutOctets": {
+    "name": "jnxIkeTunMonOutOctets",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonOutPkts": {
+    "name": "jnxIkeTunMonOutPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonXAuthUserId": {
+    "name": "jnxIkeTunMonXAuthUserId",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonDPDDownCount": {
+    "name": "jnxIkeTunMonDPDDownCount",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyRequestOut": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResponseIn": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyNoProposalChosenIn": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyInvalidKeIn": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyInvalidKeIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyTsUnacceptableIn": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyTsUnacceptableIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResVerifySaFail": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResVerifyDhGroupFail": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResVerifyTsFail": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResVerifyTsFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeTunMonInitiatorIkev2IPSecSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonResponderIkev2IPSecSaRekeyRequestIn": {
+    "name": "jnxIkeTunMonResponderIkev2IPSecSaRekeyRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonResponderIkev2IPSecSaRekeyResponseOut": {
+    "name": "jnxIkeTunMonResponderIkev2IPSecSaRekeyResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonResponderIkev2IPSecSaRekeyNoProposalChosenOut": {
+    "name": "jnxIkeTunMonResponderIkev2IPSecSaRekeyNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonResponderIkev2IPSecSaRekeyInvalidKeOut": {
+    "name": "jnxIkeTunMonResponderIkev2IPSecSaRekeyInvalidKeOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonResponderIkev2IPSecSaRekeyTsUnacceptableOut": {
+    "name": "jnxIkeTunMonResponderIkev2IPSecSaRekeyTsUnacceptableOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonResponderIkev2IPSecSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeTunMonResponderIkev2IPSecSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonGwName": {
+    "name": "jnxIkeTunMonGwName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeTunMonTunType": {
+    "name": "jnxIkeTunMonTunType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeTunType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalStats": {
+    "name": "jnxIkeGlobalStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitStats": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitRequestOut": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitResponseIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitResInvalidIkeSpi": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitResInvalidIkeSpi",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitInvalidKePayloadIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitInvalidKePayloadIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitNoProposalChosenIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitResVerifySaFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitResIkeSaFillFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitResIkeSaFillFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitResVerifyDhGroupFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitCookieRequestIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitCookieRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitCookieResponseOut": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitCookieResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2SaInitResDhComputeKeyFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2SaInitResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitStats": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitRequestIn": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitResponseOut": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitNoProposalChosenOut": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitInvalidKePayloadOut": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitInvalidKePayloadOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitResInvalidDhGroupConf": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitResInvalidDhGroupConf",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitResDhGenKeyFail": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitResDhGenKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitResGetCAsFail": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitResGetCAsFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitResGetVidFail": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitResGetVidFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitResDhComputeKeyFail": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitCookieRequestOut": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitCookieRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2SaInitCookieResponseIn": {
+    "name": "jnxIkeGlobalResponderIkev2SaInitCookieResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2AuthStats": {
+    "name": "jnxIkeGlobalInitiatorIkev2AuthStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.3",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalInitiatorIkev2AuthRequestOut": {
+    "name": "jnxIkeGlobalInitiatorIkev2AuthRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2AuthResponseIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2AuthResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2AuthNoProposalChosenIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2AuthNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2AuthTsUnacceptableIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2AuthTsUnacceptableIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2AuthAuthenticationFailedIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2AuthAuthenticationFailedIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2AuthStats": {
+    "name": "jnxIkeGlobalResponderIkev2AuthStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.4",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalResponderIkev2AuthRequestIn": {
+    "name": "jnxIkeGlobalResponderIkev2AuthRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2AuthResponseOut": {
+    "name": "jnxIkeGlobalResponderIkev2AuthResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2AuthNoProposalChosenOut": {
+    "name": "jnxIkeGlobalResponderIkev2AuthNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2AuthTsUnacceptableOut": {
+    "name": "jnxIkeGlobalResponderIkev2AuthTsUnacceptableOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2AuthAuthenticationFailedOut": {
+    "name": "jnxIkeGlobalResponderIkev2AuthAuthenticationFailedOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyStats": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyRequestOut": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResponseIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyNoProposalChosenIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyInvalidKeIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyInvalidKeIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResVerifySaFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResFillIkeSaFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResFillIkeSaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResVerifyDhGroupFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2IkeSaRekeyResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IkeSaRekeyStats": {
+    "name": "jnxIkeGlobalResponderIkev2IkeSaRekeyStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.6",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalResponderIkev2IkeSaRekeyRequestIn": {
+    "name": "jnxIkeGlobalResponderIkev2IkeSaRekeyRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IkeSaRekeyResponseOut": {
+    "name": "jnxIkeGlobalResponderIkev2IkeSaRekeyResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IkeSaRekeyNoProposalChosenOut": {
+    "name": "jnxIkeGlobalResponderIkev2IkeSaRekeyNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IkeSaRekeyInvalidKeOut": {
+    "name": "jnxIkeGlobalResponderIkev2IkeSaRekeyInvalidKeOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IkeSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeGlobalResponderIkev2IkeSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyStats": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyRequestOut": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResponseIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyNoProposalChosenIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyInvalidKeIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyInvalidKeIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyTsUnacceptableIn": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyTsUnacceptableIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResVerifySaFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResVerifyDhGroupFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResVerifyTsFail": {
+    "name": "jnxIkeGlobalInitiatorIkev2IpsecSaRekeyResVerifyTsFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IpsecSaRekeyStats": {
+    "name": "jnxIkeGlobalResponderIkev2IpsecSaRekeyStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.8",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalResponderIkev2IpsecSaRekeyRequestIn": {
+    "name": "jnxIkeGlobalResponderIkev2IpsecSaRekeyRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IpsecSaRekeyResponseOut": {
+    "name": "jnxIkeGlobalResponderIkev2IpsecSaRekeyResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IpsecSaRekeyNoProposalChosenOut": {
+    "name": "jnxIkeGlobalResponderIkev2IpsecSaRekeyNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IpsecSaRekeyInvalidKeOut": {
+    "name": "jnxIkeGlobalResponderIkev2IpsecSaRekeyInvalidKeOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IpsecSaRekeyTsUnacceptableOut": {
+    "name": "jnxIkeGlobalResponderIkev2IpsecSaRekeyTsUnacceptableOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalResponderIkev2IpsecSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeGlobalResponderIkev2IpsecSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalIkev2MsgFailStats": {
+    "name": "jnxIkeGlobalIkev2MsgFailStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.9",
+    "class": "objectidentity"
+  },
+  "jnxIkeGlobalIkev2TotalDiscarded": {
+    "name": "jnxIkeGlobalIkev2TotalDiscarded",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalIkev2TotalIdError": {
+    "name": "jnxIkeGlobalIkev2TotalIdError",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalIkev2TotalIntegrityFail": {
+    "name": "jnxIkeGlobalIkev2TotalIntegrityFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalIkev2TotalInvalidSPI": {
+    "name": "jnxIkeGlobalIkev2TotalInvalidSPI",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalIkev2TotalInvalidExchgType": {
+    "name": "jnxIkeGlobalIkev2TotalInvalidExchgType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalIkev2TotalInvalidLength": {
+    "name": "jnxIkeGlobalIkev2TotalInvalidLength",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeGlobalIkev2TotalDisorder": {
+    "name": "jnxIkeGlobalIkev2TotalDisorder",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.3.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrTable": {
+    "name": "jnxIkePeerAddrTable",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkePeerAddrEntry": {
+    "name": "jnxIkePeerAddrEntry",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerAddrState",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerAddrRemoteGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerAddrRemoteGwAddr",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerAddrRemotePort",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerAddrLocalGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerAddrLocalGwAddr",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerAddrLocalPort",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerAddrRoutingInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIkePeerAddrState": {
+    "name": "jnxIkePeerAddrState",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPeerStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrRemoteGwAddrType": {
+    "name": "jnxIkePeerAddrRemoteGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrRemoteGwAddr": {
+    "name": "jnxIkePeerAddrRemoteGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrRemotePort": {
+    "name": "jnxIkePeerAddrRemotePort",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrLocalGwAddrType": {
+    "name": "jnxIkePeerAddrLocalGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrLocalGwAddr": {
+    "name": "jnxIkePeerAddrLocalGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrLocalPort": {
+    "name": "jnxIkePeerAddrLocalPort",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrRoutingInstance": {
+    "name": "jnxIkePeerAddrRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerAddrIndex": {
+    "name": "jnxIkePeerAddrIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerIdTable": {
+    "name": "jnxIkePeerIdTable",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkePeerIdEntry": {
+    "name": "jnxIkePeerIdEntry",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerIdState",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerIdRemoteIdType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerIdRemoteIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerIdLocalIdType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerIdLocalIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerIdAAAUserName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerInternalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIkePeerIdState": {
+    "name": "jnxIkePeerIdState",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPeerStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerIdRemoteIdType": {
+    "name": "jnxIkePeerIdRemoteIdType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerIdRemoteIdValue": {
+    "name": "jnxIkePeerIdRemoteIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerIdLocalIdType": {
+    "name": "jnxIkePeerIdLocalIdType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerIdLocalIdValue": {
+    "name": "jnxIkePeerIdLocalIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerIdAAAUserName": {
+    "name": "jnxIkePeerIdAAAUserName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerInternalIndex": {
+    "name": "jnxIkePeerInternalIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkePeerIdIndex": {
+    "name": "jnxIkePeerIdIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsTable": {
+    "name": "jnxIkePeerStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIkePeerStatsEntry": {
+    "name": "jnxIkePeerStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerStatsState",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIkePeerStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIkePeerStatsState": {
+    "name": "jnxIkePeerStatsState",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPeerStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIndex": {
+    "name": "jnxIkePeerStatsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsRemoteGwAddrType": {
+    "name": "jnxIkePeerStatsRemoteGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsRemoteGwAddr": {
+    "name": "jnxIkePeerStatsRemoteGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsRemotePort": {
+    "name": "jnxIkePeerStatsRemotePort",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsLocalGwAddrType": {
+    "name": "jnxIkePeerStatsLocalGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsLocalGwAddr": {
+    "name": "jnxIkePeerStatsLocalGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsLocalPort": {
+    "name": "jnxIkePeerStatsLocalPort",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsRoutingInstance": {
+    "name": "jnxIkePeerStatsRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsRemoteIdType": {
+    "name": "jnxIkePeerStatsRemoteIdType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsRemoteIdValue": {
+    "name": "jnxIkePeerStatsRemoteIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsLocalIdType": {
+    "name": "jnxIkePeerStatsLocalIdType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsLocalIdValue": {
+    "name": "jnxIkePeerStatsLocalIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsAAAUserName": {
+    "name": "jnxIkePeerStatsAAAUserName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsGwName": {
+    "name": "jnxIkePeerStatsGwName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitRequestOut": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResponseIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResInvalidIkeSpi": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResInvalidIkeSpi",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitInvalidKePayloadIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitInvalidKePayloadIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitNoProposalChosenIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResVerifySaFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResIkeSaFillFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResIkeSaFillFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResVerifyDhGroupFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitCookieRequestIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitCookieRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitCookieResponseOut": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitCookieResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResDhComputeKeyFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2SaInitResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitRequestIn": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitResponseOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitNoProposalChosenOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitInvalidKePayloadOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitInvalidKePayloadOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitResInvalidDhGroupConf": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitResInvalidDhGroupConf",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitResDhGenKeyFail": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitResDhGenKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitResGetCAsFail": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitResGetCAsFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitResGetVidFail": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitResGetVidFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitResDhComputeKeyFail": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitCookieRequestOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitCookieRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2SaInitCookieResponseIn": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2SaInitCookieResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2AuthRequestOut": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2AuthRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2AuthResponseIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2AuthResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2AuthNoProposalChosenIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2AuthNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2AuthTsUnacceptableIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2AuthTsUnacceptableIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2AuthAuthenticationFailedIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2AuthAuthenticationFailedIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2AuthRequestIn": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2AuthRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2AuthResponseOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2AuthResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2AuthAuthenticationFailedOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2AuthAuthenticationFailedOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2AuthNoProposalChosenOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2AuthNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2AuthTsUnacceptableOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2AuthTsUnacceptableOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyRequestOut": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResponseIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyNoProposalChosenIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyInvalidKeIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyInvalidKeIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResVerifySaFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResFillIkeSaFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResFillIkeSaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResVerifyDhGroupFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IkeSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyRequestIn": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyResponseOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyNoProposalChosenOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyInvalidKeOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyInvalidKeOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IkeSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyRequestOut": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResponseIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyNoProposalChosenIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyInvalidKeIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyInvalidKeIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyTsUnacceptableIn": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyTsUnacceptableIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResVerifySaFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResVerifyDhGrpFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResVerifyDhGrpFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResVerifyTsFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResVerifyTsFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResDhCompKeyFail": {
+    "name": "jnxIkePeerStatsIkeSaInitiatorIkev2IPSecSaRekeyResDhCompKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyRequestIn": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyResponseOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyNoPropChosenOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyNoPropChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyInvalidKeOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyInvalidKeOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyTsUnacceptableOut": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyTsUnacceptableOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyResDhCompKeyFail": {
+    "name": "jnxIkePeerStatsIkeSaResponderIkev2IPSecSaRekeyResDhCompKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkePeerStatsTunType": {
+    "name": "jnxIkePeerStatsTunType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.6.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeTunType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPeerIkeSaCorrTable": {
+    "name": "jnxPeerIkeSaCorrTable",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPeerIkeSaCorrEntry": {
+    "name": "jnxPeerIkeSaCorrEntry",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxPeerIkeSaCorrPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxPeerIkeSaCorrIntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPeerIkeSaCorrPeerIndex": {
+    "name": "jnxPeerIkeSaCorrPeerIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPeerIkeSaCorrIntIndex": {
+    "name": "jnxPeerIkeSaCorrIntIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPeerIkeSaCorrIkeTunMonIndex": {
+    "name": "jnxPeerIkeSaCorrIkeTunMonIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPeerIPSecTunnelCorrTable": {
+    "name": "jnxPeerIPSecTunnelCorrTable",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPeerIPSecTunnelCorrEntry": {
+    "name": "jnxPeerIPSecTunnelCorrEntry",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxPeerIPSecTunnelCorrPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxPeerIPSecTunnelCorrIntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPeerIPSecTunnelCorrPeerIndex": {
+    "name": "jnxPeerIPSecTunnelCorrPeerIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPeerIPSecTunnelCorrIntIndex": {
+    "name": "jnxPeerIPSecTunnelCorrIntIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPeerIPSecTunnelCorrIPSecTunMonIndex": {
+    "name": "jnxPeerIPSecTunnelCorrIPSecTunMonIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalStats": {
+    "name": "jnxIkeHaLinkGlobalStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitStats": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitRequestOut": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResponseIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResInvalidIkeSpi": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResInvalidIkeSpi",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitInvalidKePayloadIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitInvalidKePayloadIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitNoProposalChosenIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResVerifySaFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResIkeSaFillFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResIkeSaFillFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResVerifyDhGroupFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitCookieRequestIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitCookieRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2SaInitCookieResponseOut": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2SaInitCookieResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitStats": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitRequestIn": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitResponseOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitNoProposalChosenOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitInvalidKePayloadOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitInvalidKePayloadOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitResInvalidDhGroupConf": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitResInvalidDhGroupConf",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitResDhGenKeyFail": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitResDhGenKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitResGetCAsFail": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitResGetCAsFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitResGetVidFail": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitResGetVidFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitResDhComputeKeyFail": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitCookieRequestOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitCookieRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2SaInitCookieResponseIn": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2SaInitCookieResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2AuthStats": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2AuthStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.3",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2AuthRequestOut": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2AuthRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2AuthResponseIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2AuthResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2AuthNoProposalChosenIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2AuthNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2AuthTsUnacceptableIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2AuthTsUnacceptableIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2AuthAuthenticationFailedIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2AuthAuthenticationFailedIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2AuthStats": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2AuthStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.4",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2AuthRequestIn": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2AuthRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2AuthResponseOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2AuthResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2AuthNoProposalChosenOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2AuthNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2AuthTsUnacceptableOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2AuthTsUnacceptableOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2AuthAuthenticationFailedOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2AuthAuthenticationFailedOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyStats": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyRequestOut": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResponseIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyNoProposalChosenIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyInvalidKeIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyInvalidKeIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResVerifySaFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResFillIkeSaFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResFillIkeSaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResVerifyDhGroupFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IkeSaRekeyResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyStats": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.6",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyRequestIn": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyResponseOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyNoProposalChosenOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyInvalidKeOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyInvalidKeOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IkeSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyStats": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyRequestOut": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyRequestOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResponseIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResponseIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyNoProposalChosenIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyNoProposalChosenIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyInvalidKeIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyInvalidKeIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyTsUnacceptableIn": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyTsUnacceptableIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResVerifySaFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResVerifySaFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResVerifyDhGroupFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResVerifyDhGroupFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResVerifyTsFail": {
+    "name": "jnxIkeHaLinkGlobalInitiatorIkev2IpsecSaRekeyResVerifyTsFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyStats": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.8",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyRequestIn": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyRequestIn",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyResponseOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyResponseOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyNoProposalChosenOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyNoProposalChosenOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyInvalidKeOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyInvalidKeOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyTsUnacceptableOut": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyTsUnacceptableOut",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyResDhComputeKeyFail": {
+    "name": "jnxIkeHaLinkGlobalResponderIkev2IpsecSaRekeyResDhComputeKeyFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalIkev2MsgFailStats": {
+    "name": "jnxIkeHaLinkGlobalIkev2MsgFailStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.9",
+    "class": "objectidentity"
+  },
+  "jnxIkeHaLinkGlobalIkev2TotalDiscarded": {
+    "name": "jnxIkeHaLinkGlobalIkev2TotalDiscarded",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalIkev2TotalIdError": {
+    "name": "jnxIkeHaLinkGlobalIkev2TotalIdError",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalIkev2TotalIntegrityFail": {
+    "name": "jnxIkeHaLinkGlobalIkev2TotalIntegrityFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalIkev2TotalInvalidSPI": {
+    "name": "jnxIkeHaLinkGlobalIkev2TotalInvalidSPI",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalIkev2TotalInvalidExchgType": {
+    "name": "jnxIkeHaLinkGlobalIkev2TotalInvalidExchgType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalIkev2TotalInvalidLength": {
+    "name": "jnxIkeHaLinkGlobalIkev2TotalInvalidLength",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIkeHaLinkGlobalIkev2TotalDisorder": {
+    "name": "jnxIkeHaLinkGlobalIkev2TotalDisorder",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.1.9.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecNumOfTunnels": {
+    "name": "jnxIpSecNumOfTunnels",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunnelMonTable": {
+    "name": "jnxIpSecTunnelMonTable",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecTunnelMonEntry": {
+    "name": "jnxIpSecTunnelMonEntry",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIpSecTunMonRemoteGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIpSecTunMonRemoteGwAddr",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIpSecTunMonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIpSecTunMonRemoteGwAddrType": {
+    "name": "jnxIpSecTunMonRemoteGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecTunMonRemoteGwAddr": {
+    "name": "jnxIpSecTunMonRemoteGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecTunMonIndex": {
+    "name": "jnxIpSecTunMonIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecTunMonLocalGwAddrType": {
+    "name": "jnxIpSecTunMonLocalGwAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonLocalGwAddr": {
+    "name": "jnxIpSecTunMonLocalGwAddr",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonLocalProxyId": {
+    "name": "jnxIpSecTunMonLocalProxyId",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonRemoteProxyId": {
+    "name": "jnxIpSecTunMonRemoteProxyId",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonKeyType": {
+    "name": "jnxIpSecTunMonKeyType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxKeyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonRemotePeerType": {
+    "name": "jnxIpSecTunMonRemotePeerType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxRemotePeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonOutEncryptedBytes": {
+    "name": "jnxIpSecTunMonOutEncryptedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonOutEncryptedPkts": {
+    "name": "jnxIpSecTunMonOutEncryptedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonInDecryptedBytes": {
+    "name": "jnxIpSecTunMonInDecryptedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonInDecryptedPkts": {
+    "name": "jnxIpSecTunMonInDecryptedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonAHInBytes": {
+    "name": "jnxIpSecTunMonAHInBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonAHInPkts": {
+    "name": "jnxIpSecTunMonAHInPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonAHOutBytes": {
+    "name": "jnxIpSecTunMonAHOutBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonAHOutPkts": {
+    "name": "jnxIpSecTunMonAHOutPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonReplayDropPkts": {
+    "name": "jnxIpSecTunMonReplayDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonAhAuthFails": {
+    "name": "jnxIpSecTunMonAhAuthFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonEspAuthFails": {
+    "name": "jnxIpSecTunMonEspAuthFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonDecryptFails": {
+    "name": "jnxIpSecTunMonDecryptFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonBadHeaders": {
+    "name": "jnxIpSecTunMonBadHeaders",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonBadTrailers": {
+    "name": "jnxIpSecTunMonBadTrailers",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonDroppedPkts": {
+    "name": "jnxIpSecTunMonDroppedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "jnxIpSecTunMonVpnName": {
+    "name": "jnxIpSecTunMonVpnName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonTsName": {
+    "name": "jnxIpSecTunMonTsName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonMultiSa": {
+    "name": "jnxIpSecTunMonMultiSa",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonInvalidSpi": {
+    "name": "jnxIpSecTunMonInvalidSpi",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonTsCheckFail": {
+    "name": "jnxIpSecTunMonTsCheckFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonDiscarded": {
+    "name": "jnxIpSecTunMonDiscarded",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecTunMonTunType": {
+    "name": "jnxIpSecTunMonTunType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxIkeTunType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonTable": {
+    "name": "jnxIpSecSaMonTable",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecSaMonEntry": {
+    "name": "jnxIpSecSaMonEntry",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIpSecTunMonRemoteGwAddrType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIpSecTunMonRemoteGwAddr",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIpSecTunMonIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-IPSEC-FLOW-MON-MIB",
+        "object": "jnxIpSecSaMonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIpSecSaMonIndex": {
+    "name": "jnxIpSecSaMonIndex",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxIpSecSaMonProtocol": {
+    "name": "jnxIpSecSaMonProtocol",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ah": 1,
+          "esp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonInSpi": {
+    "name": "jnxIpSecSaMonInSpi",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSpiType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonOutSpi": {
+    "name": "jnxIpSecSaMonOutSpi",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSpiType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonType": {
+    "name": "jnxIpSecSaMonType",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSAType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonEncapMode": {
+    "name": "jnxIpSecSaMonEncapMode",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxEncapMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonLifeSize": {
+    "name": "jnxIpSecSaMonLifeSize",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonLifeTime": {
+    "name": "jnxIpSecSaMonLifeTime",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonActiveTime": {
+    "name": "jnxIpSecSaMonActiveTime",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonLifeSizeThreshold": {
+    "name": "jnxIpSecSaMonLifeSizeThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonLifeTimeThreshold": {
+    "name": "jnxIpSecSaMonLifeTimeThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonEncryptAlgo": {
+    "name": "jnxIpSecSaMonEncryptAlgo",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxEncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonAuthAlgo": {
+    "name": "jnxIpSecSaMonAuthAlgo",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxAuthAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonState": {
+    "name": "jnxIpSecSaMonState",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "active": 1,
+          "expiring": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonFcName": {
+    "name": "jnxIpSecSaMonFcName",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecSaMonEsnMode": {
+    "name": "jnxIpSecSaMonEsnMode",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxEsnMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalStats": {
+    "name": "jnxIpSecGlobalStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4",
+    "class": "objectidentity"
+  },
+  "jnxIpSecGlobalOutEncryptedBytes": {
+    "name": "jnxIpSecGlobalOutEncryptedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalOutEncryptedPkts": {
+    "name": "jnxIpSecGlobalOutEncryptedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalInDecryptedBytes": {
+    "name": "jnxIpSecGlobalInDecryptedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalInDecryptedPkts": {
+    "name": "jnxIpSecGlobalInDecryptedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalAHInBytes": {
+    "name": "jnxIpSecGlobalAHInBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalAHInPkts": {
+    "name": "jnxIpSecGlobalAHInPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalAHOutBytes": {
+    "name": "jnxIpSecGlobalAHOutBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalAHOutPkts": {
+    "name": "jnxIpSecGlobalAHOutPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalReplayDropPkts": {
+    "name": "jnxIpSecGlobalReplayDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalAhAuthFails": {
+    "name": "jnxIpSecGlobalAhAuthFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalEspAuthFails": {
+    "name": "jnxIpSecGlobalEspAuthFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalDecryptFails": {
+    "name": "jnxIpSecGlobalDecryptFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalBadHeaders": {
+    "name": "jnxIpSecGlobalBadHeaders",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalBadTrailers": {
+    "name": "jnxIpSecGlobalBadTrailers",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalInvalidSpi": {
+    "name": "jnxIpSecGlobalInvalidSpi",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalTsCheckFail": {
+    "name": "jnxIpSecGlobalTsCheckFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecGlobalDiscarded": {
+    "name": "jnxIpSecGlobalDiscarded",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalStats": {
+    "name": "jnxIpSecHaLinkGlobalStats",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5",
+    "class": "objectidentity"
+  },
+  "jnxIpSecHaLinkGlobalOutEncryptedBytes": {
+    "name": "jnxIpSecHaLinkGlobalOutEncryptedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalOutEncryptedPkts": {
+    "name": "jnxIpSecHaLinkGlobalOutEncryptedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalInDecryptedBytes": {
+    "name": "jnxIpSecHaLinkGlobalInDecryptedBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalInDecryptedPkts": {
+    "name": "jnxIpSecHaLinkGlobalInDecryptedPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalAHInBytes": {
+    "name": "jnxIpSecHaLinkGlobalAHInBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalAHInPkts": {
+    "name": "jnxIpSecHaLinkGlobalAHInPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalAHOutBytes": {
+    "name": "jnxIpSecHaLinkGlobalAHOutBytes",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalAHOutPkts": {
+    "name": "jnxIpSecHaLinkGlobalAHOutPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalReplayDropPkts": {
+    "name": "jnxIpSecHaLinkGlobalReplayDropPkts",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalAhAuthFails": {
+    "name": "jnxIpSecHaLinkGlobalAhAuthFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalEspAuthFails": {
+    "name": "jnxIpSecHaLinkGlobalEspAuthFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalDecryptFails": {
+    "name": "jnxIpSecHaLinkGlobalDecryptFails",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalBadHeaders": {
+    "name": "jnxIpSecHaLinkGlobalBadHeaders",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalBadTrailers": {
+    "name": "jnxIpSecHaLinkGlobalBadTrailers",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalInvalidSpi": {
+    "name": "jnxIpSecHaLinkGlobalInvalidSpi",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalTsCheckFail": {
+    "name": "jnxIpSecHaLinkGlobalTsCheckFail",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIpSecHaLinkGlobalDiscarded": {
+    "name": "jnxIpSecHaLinkGlobalDiscarded",
+    "oid": "1.3.6.1.4.1.2636.3.52.1.2.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-IPSEC-FLOW-MON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-IPSEC-FLOW-MON-MIB"
+  }
+}

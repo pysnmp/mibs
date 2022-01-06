@@ -1,0 +1,1356 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "UShortReal": {
+    "name": "UShortReal",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "CimDateTime": {
+    "name": "CimDateTime",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 24,
+            "max": 24
+          }
+        ]
+      }
+    }
+  },
+  "UINT64": {
+    "name": "UINT64",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "UINT32": {
+    "name": "UINT32",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "UINT16": {
+    "name": "UINT16",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "ibm3584": {
+    "name": "ibm3584",
+    "oid": "1.3.6.1.4.1.2.6.182",
+    "class": "objectidentity"
+  },
+  "smlRoot": {
+    "name": "smlRoot",
+    "oid": "1.3.6.1.4.1.2.6.182.3",
+    "class": "objectidentity"
+  },
+  "smlMibVersion": {
+    "name": "smlMibVersion",
+    "oid": "1.3.6.1.4.1.2.6.182.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "smlCimVersion": {
+    "name": "smlCimVersion",
+    "oid": "1.3.6.1.4.1.2.6.182.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productGroup": {
+    "name": "productGroup",
+    "oid": "1.3.6.1.4.1.2.6.182.3.3",
+    "class": "objectidentity"
+  },
+  "product_Name": {
+    "name": "product_Name",
+    "oid": "1.3.6.1.4.1.2.6.182.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "product_IdentifyingNumber": {
+    "name": "product_IdentifyingNumber",
+    "oid": "1.3.6.1.4.1.2.6.182.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "product_Vendor": {
+    "name": "product_Vendor",
+    "oid": "1.3.6.1.4.1.2.6.182.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "product_Version": {
+    "name": "product_Version",
+    "oid": "1.3.6.1.4.1.2.6.182.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "chassisGroup": {
+    "name": "chassisGroup",
+    "oid": "1.3.6.1.4.1.2.6.182.3.4",
+    "class": "objectidentity"
+  },
+  "chassis_Manufacturer": {
+    "name": "chassis_Manufacturer",
+    "oid": "1.3.6.1.4.1.2.6.182.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "chassis_Model": {
+    "name": "chassis_Model",
+    "oid": "1.3.6.1.4.1.2.6.182.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "chassis_SerialNumber": {
+    "name": "chassis_SerialNumber",
+    "oid": "1.3.6.1.4.1.2.6.182.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "chassis_LockPresent": {
+    "name": "chassis_LockPresent",
+    "oid": "1.3.6.1.4.1.2.6.182.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "chassis_SecurityBreach": {
+    "name": "chassis_SecurityBreach",
+    "oid": "1.3.6.1.4.1.2.6.182.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "other": 1,
+          "noBreach": 2,
+          "breachAttempted": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "chassis_IsLocked": {
+    "name": "chassis_IsLocked",
+    "oid": "1.3.6.1.4.1.2.6.182.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "storageLibraryGroup": {
+    "name": "storageLibraryGroup",
+    "oid": "1.3.6.1.4.1.2.6.182.3.5",
+    "class": "objectidentity"
+  },
+  "storageLibrary_Name": {
+    "name": "storageLibrary_Name",
+    "oid": "1.3.6.1.4.1.2.6.182.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "storageLibrary_Description": {
+    "name": "storageLibrary_Description",
+    "oid": "1.3.6.1.4.1.2.6.182.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "storageLibrary_Caption": {
+    "name": "storageLibrary_Caption",
+    "oid": "1.3.6.1.4.1.2.6.182.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "storageLibrary_Status": {
+    "name": "storageLibrary_Status",
+    "oid": "1.3.6.1.4.1.2.6.182.3.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "storageLibrary_InstallDate": {
+    "name": "storageLibrary_InstallDate",
+    "oid": "1.3.6.1.4.1.2.6.182.3.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CimDateTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mediaAccessDeviceGroup": {
+    "name": "mediaAccessDeviceGroup",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6",
+    "class": "objectidentity"
+  },
+  "numberOfMediaAccessDevices": {
+    "name": "numberOfMediaAccessDevices",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mediaAccessDeviceTable": {
+    "name": "mediaAccessDeviceTable",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mediaAccessDeviceEntry": {
+    "name": "mediaAccessDeviceEntry",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SML-MIB",
+        "object": "mediaAccessDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mediaAccessDeviceIndex": {
+    "name": "mediaAccessDeviceIndex",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UINT32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mediaAccessDeviceObjectType": {
+    "name": "mediaAccessDeviceObjectType",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "wormDrive": 1,
+          "magnetoOpticalDrive": 2,
+          "tapeDrive": 3,
+          "dvdDrive": 4,
+          "cdromDrive": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mediaAccessDevice_Name": {
+    "name": "mediaAccessDevice_Name",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mediaAccessDevice_Status": {
+    "name": "mediaAccessDevice_Status",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mediaAccessDevice_Availability": {
+    "name": "mediaAccessDevice_Availability",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "other": 1,
+          "runningFullPower": 2,
+          "warning": 3,
+          "inTest": 4,
+          "notApplicable": 5,
+          "powerOff": 6,
+          "offLine": 7,
+          "offDuty": 8,
+          "degraded": 9,
+          "notInstalled": 10,
+          "installError": 11,
+          "powerSaveUnknown": 12,
+          "powerSaveLowPowerMode": 13,
+          "powerSaveStandby": 14,
+          "powerCycle": 15,
+          "powerSaveWarning": 16,
+          "paused": 17,
+          "notReady": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mediaAccessDevice_NeedsCleaning": {
+    "name": "mediaAccessDevice_NeedsCleaning",
+    "oid": "1.3.6.1.4.1.2.6.182.3.6.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMediaGroup": {
+    "name": "physicalMediaGroup",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7",
+    "class": "objectidentity"
+  },
+  "numberOfPhysicalMedias": {
+    "name": "numberOfPhysicalMedias",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMediaTable": {
+    "name": "physicalMediaTable",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "physicalMediaEntry": {
+    "name": "physicalMediaEntry",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SML-MIB",
+        "object": "physicalMediaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "physicalMediaIndex": {
+    "name": "physicalMediaIndex",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UINT32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMediaObjectType": {
+    "name": "physicalMediaObjectType",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tape": 0,
+          "other": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_Removable": {
+    "name": "physicalMedia_Removable",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_Replaceable": {
+    "name": "physicalMedia_Replaceable",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_HotSwappable": {
+    "name": "physicalMedia_HotSwappable",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_Capacity": {
+    "name": "physicalMedia_Capacity",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UINT64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_MediaType": {
+    "name": "physicalMedia_MediaType",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "other": 1,
+          "tape": 2,
+          "qic": 3,
+          "ait": 4,
+          "dtf": 5,
+          "dat": 6,
+          "eightmmTape": 7,
+          "nineteenmmTape": 8,
+          "dlt": 9,
+          "halfInchMO": 10,
+          "catridgeDisk": 11,
+          "jazDisk": 12,
+          "zipDisk": 13,
+          "syQuestDisk": 14,
+          "winchesterDisk": 15,
+          "cdRom": 16,
+          "cdRomXA": 17,
+          "cdI": 18,
+          "cdRecordable": 19,
+          "dvd": 20,
+          "dvdRWPlus": 21,
+          "dvdRAM": 22,
+          "dvdROM": 23,
+          "dvdVideo": 24,
+          "divx": 25,
+          "cdRW": 26,
+          "cdDA": 27,
+          "cdPlus": 28,
+          "dvdRecordable": 29,
+          "dvdRW": 30,
+          "dvdAudio": 31,
+          "dvd5": 32,
+          "dvd9": 33,
+          "dvd10": 34,
+          "dvd18": 35,
+          "moRewriteable": 36,
+          "moWriteOnce": 37,
+          "moLIMDOW": 38,
+          "phaseChangeWO": 39,
+          "phaseChangeRewriteable": 40,
+          "phaseChangeDualRewriteable": 41,
+          "ablativeWriteOnce": 42,
+          "nearField": 43,
+          "miniQic": 44,
+          "travan": 45,
+          "eightmmMetal": 46,
+          "eightmmAdvanced": 47,
+          "nctp": 48,
+          "ltoUltrium": 49,
+          "ltoAccelis": 50,
+          "tape9Track": 51,
+          "tape18Track": 52,
+          "tape36Track": 53,
+          "magstar3590": 54,
+          "magstarMP": 55,
+          "d2Tape": 56,
+          "dstSmall": 57,
+          "dstMedium": 58,
+          "dstLarge": 59
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_MediaDescription": {
+    "name": "physicalMedia_MediaDescription",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_CleanerMedia": {
+    "name": "physicalMedia_CleanerMedia",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_DualSided": {
+    "name": "physicalMedia_DualSided",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalMedia_PhysicalLabel": {
+    "name": "physicalMedia_PhysicalLabel",
+    "oid": "1.3.6.1.4.1.2.6.182.3.7.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalPackageGroup": {
+    "name": "physicalPackageGroup",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8",
+    "class": "objectidentity"
+  },
+  "numberOfPhysicalPackages": {
+    "name": "numberOfPhysicalPackages",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalPackageTable": {
+    "name": "physicalPackageTable",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "physicalPackageEntry": {
+    "name": "physicalPackageEntry",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SML-MIB",
+        "object": "physicalPackageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "physicalPackageIndex": {
+    "name": "physicalPackageIndex",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UINT32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalPackage_Manufacturer": {
+    "name": "physicalPackage_Manufacturer",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalPackage_Model": {
+    "name": "physicalPackage_Model",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalPackage_SerialNumber": {
+    "name": "physicalPackage_SerialNumber",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalPackage_Realizes_MediaAccessDeviceIndex": {
+    "name": "physicalPackage_Realizes_MediaAccessDeviceIndex",
+    "oid": "1.3.6.1.4.1.2.6.182.3.8.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElementGroup": {
+    "name": "softwareElementGroup",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9",
+    "class": "objectidentity"
+  },
+  "numberOfSoftwareElements": {
+    "name": "numberOfSoftwareElements",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElementTable": {
+    "name": "softwareElementTable",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "softwareElementEntry": {
+    "name": "softwareElementEntry",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SML-MIB",
+        "object": "softwareElementIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "softwareElementIndex": {
+    "name": "softwareElementIndex",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UINT32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_Name": {
+    "name": "softwareElement_Name",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_Version": {
+    "name": "softwareElement_Version",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_SoftwareElementID": {
+    "name": "softwareElement_SoftwareElementID",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_Manufacturer": {
+    "name": "softwareElement_Manufacturer",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_BuildNumber": {
+    "name": "softwareElement_BuildNumber",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_SerialNumber": {
+    "name": "softwareElement_SerialNumber",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_CodeSet": {
+    "name": "softwareElement_CodeSet",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_IdentificationCode": {
+    "name": "softwareElement_IdentificationCode",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_LanguageEdition": {
+    "name": "softwareElement_LanguageEdition",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_Associations": {
+    "name": "softwareElement_Associations",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "softwareElement_DeviceSoftware_LogicalDeviceAssociation_ObjectT": {
+    "name": "softwareElement_DeviceSoftware_LogicalDeviceAssociation_ObjectT",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mediaAccessDevice": 0,
+          "storageLibrary": 1,
+          "other": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareElement_DeviceSoftware_LogicalDeviceAssociationId": {
+    "name": "softwareElement_DeviceSoftware_LogicalDeviceAssociationId",
+    "oid": "1.3.6.1.4.1.2.6.182.3.9.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "endOfSmlMib": {
+    "name": "endOfSmlMib",
+    "oid": "1.3.6.1.4.1.2.6.182.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SML-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SML-MIB"
+  }
+}

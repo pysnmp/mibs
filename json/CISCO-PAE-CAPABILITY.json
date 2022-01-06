@@ -1,0 +1,234 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "CISCO-VTP-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPaeCapability": {
+    "name": "ciscoPaeCapability",
+    "oid": "1.3.6.1.4.1.9.7.319",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-01 00:00",
+        "description": "Added capability statement ciscoPaeCapV12R0250SYPCat6K."
+      },
+      {
+        "revision": "2010-03-22 00:00",
+        "description": "Added capability statement ciscoPaeCapV12R0233SXI4PCat6K."
+      },
+      {
+        "revision": "2010-03-15 00:00",
+        "description": "Added capability statement ciscoPaeCapV120252SGPCat4K. Added VARIATIONs for cpaePortEntry, cpaeAuthConfigEntry, and cpaeMacAuthBypassPortEntry in capability statement ciscoPaeCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2009-12-31 00:00",
+        "description": "Removed cpaePortAuthFailUserInfoGroup from capability statement ciscoPaeCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2008-11-06 00:00",
+        "description": "Added capability statement ciscoPaeCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2008-11-04 00:00",
+        "description": "Added capability statement ciscoPaeCapCatOSV08R0702."
+      },
+      {
+        "revision": "2008-10-20 00:00",
+        "description": "Added capability statement ciscoPaeCapV12R0246SECat3K."
+      },
+      {
+        "revision": "2008-04-24 00:00",
+        "description": "Added capability statement ciscoPaeCapCatOSV08R0701. Added VARIATION for cpaePortMode in capability statement ciscoPaeCapV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2007-07-09 00:00",
+        "description": "Added capability statement ciscoPaeCapV12R0233SXHPCat6K."
+      },
+      {
+        "revision": "2007-04-26 00:00",
+        "description": "Added capability statement ciscoPaeCapCatOSV08R0602."
+      },
+      {
+        "revision": "2007-02-27 00:00",
+        "description": "Added capability statement ciscoPaeCapCatOSV08R0601."
+      },
+      {
+        "revision": "2005-09-05 00:00",
+        "description": "Added capability statement ciscoPaeCapCatOSV08R0501. Added VARIATION for cpaeGuestVlanNumber in capability statement ciscoPaeCapCatOSV08R0101Cat6K. Added VARIATION for cpaeGuestVlanNumber in capability statement ciscoPaeCapCatOSV08R0101Cat4K. Added VARIATION for cpaeGuestVlanNumber in capability statement ciscoPaeCapCatOSV08R0301"
+      },
+      {
+        "revision": "2004-01-16 00:00",
+        "description": "Added capability statement ciscoPaeCapCatOSV08R0301."
+      },
+      {
+        "revision": "2003-08-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPaeCapV12R0111bEXCat6K": {
+    "name": "ciscoPaeCapV12R0111bEXCat6K",
+    "oid": "1.3.6.1.4.1.9.7.319.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(11b)EX on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV07R0101": {
+    "name": "ciscoPaeCapCatOSV07R0101",
+    "oid": "1.3.6.1.4.1.9.7.319.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 7.1(1).",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV07R0501Cat6K": {
+    "name": "ciscoPaeCapCatOSV07R0501Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.319.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 7.5(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV07R0601Cat6K": {
+    "name": "ciscoPaeCapCatOSV07R0601Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.319.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 7.6(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV08R0101Cat6K": {
+    "name": "ciscoPaeCapCatOSV08R0101Cat6K",
+    "oid": "1.3.6.1.4.1.9.7.319.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV08R0101Cat4K": {
+    "name": "ciscoPaeCapCatOSV08R0101Cat4K",
+    "oid": "1.3.6.1.4.1.9.7.319.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.1(1) on Catalyst 4000 series\n                    devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV08R0301": {
+    "name": "ciscoPaeCapCatOSV08R0301",
+    "oid": "1.3.6.1.4.1.9.7.319.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.3(1) on Catalyst 6000/6500\n                    and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV08R0501": {
+    "name": "ciscoPaeCapCatOSV08R0501",
+    "oid": "1.3.6.1.4.1.9.7.319.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.5(1).",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV08R0601": {
+    "name": "ciscoPaeCapCatOSV08R0601",
+    "oid": "1.3.6.1.4.1.9.7.319.9",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(1).",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV08R0602": {
+    "name": "ciscoPaeCapCatOSV08R0602",
+    "oid": "1.3.6.1.4.1.9.7.319.10",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.6(2).",
+    "status": "current"
+  },
+  "ciscoPaeCapV12R0233SXHPCat6K": {
+    "name": "ciscoPaeCapV12R0233SXHPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.319.11",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                    series devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV08R0701": {
+    "name": "ciscoPaeCapCatOSV08R0701",
+    "oid": "1.3.6.1.4.1.9.7.319.12",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(1).",
+    "status": "current"
+  },
+  "ciscoPaeCapV12R0246SECat3K": {
+    "name": "ciscoPaeCapV12R0246SECat3K",
+    "oid": "1.3.6.1.4.1.9.7.319.13",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(46)SE.",
+    "status": "current"
+  },
+  "ciscoPaeCapCatOSV08R0702": {
+    "name": "ciscoPaeCapCatOSV08R0702",
+    "oid": "1.3.6.1.4.1.9.7.319.14",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.7(2).",
+    "status": "current"
+  },
+  "ciscoPaeCapV12R0233SXIPCat6K": {
+    "name": "ciscoPaeCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.319.15",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                    series devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapV120252SGPCat4K": {
+    "name": "ciscoPaeCapV120252SGPCat4K",
+    "oid": "1.3.6.1.4.1.9.7.319.16",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(52)SG on Cat4K family switches.",
+    "status": "current"
+  },
+  "ciscoPaeCapV12R0233SXI4PCat6K": {
+    "name": "ciscoPaeCapV12R0233SXI4PCat6K",
+    "oid": "1.3.6.1.4.1.9.7.319.17",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI4 on Catalyst 6000/6500\n                    series devices.",
+    "status": "current"
+  },
+  "ciscoPaeCapV12R0250SYPCat6K": {
+    "name": "ciscoPaeCapV12R0250SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.319.18",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(50)SY on Catalyst 6000/6500\n                    series devices.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PAE-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PAE-CAPABILITY"
+  }
+}

@@ -1,0 +1,973 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApSysMacAddress",
+      "cLApDot11IfSlotId"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappDot11ClientCalibMIB": {
+    "name": "ciscoLwappDot11ClientCalibMIB",
+    "oid": "1.3.6.1.4.1.9.9.522",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-11-25 00:00",
+        "description": "Added following OBJECT-GROUP: - cLD11ClientCalibClientConfigGroup - cLD11ClientCalibGlobalConfigGroup - cLD11ClientCalibRssiDataSampleGroup Depreated following OBJECT-GROUP: - ciscoLwappDot11ClientCalibMIBConfigGroup Added new compliance: - ciscoLwappDot11ClientCalibMIBComplianceRev1"
+      },
+      {
+        "revision": "2007-02-12 00:00",
+        "description": "Added ciscoLwappDot11ClientCalibMIBConfigGroupSup1 OBJECT-GROUP."
+      },
+      {
+        "revision": "2006-04-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappDot11ClientCalibMIBNotifs": {
+    "name": "ciscoLwappDot11ClientCalibMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.522.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11ClientCalibMIBObjects": {
+    "name": "ciscoLwappDot11ClientCalibMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.522.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11ClientCalibMIBConform": {
+    "name": "ciscoLwappDot11ClientCalibMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.522.2",
+    "class": "objectidentity"
+  },
+  "cldccConfig": {
+    "name": "cldccConfig",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1",
+    "class": "objectidentity"
+  },
+  "cldccStatus": {
+    "name": "cldccStatus",
+    "oid": "1.3.6.1.4.1.9.9.522.1.2",
+    "class": "objectidentity"
+  },
+  "cldccRssiSamples": {
+    "name": "cldccRssiSamples",
+    "oid": "1.3.6.1.4.1.9.9.522.1.2.1",
+    "class": "objectidentity"
+  },
+  "cLD11ClientCalibTable": {
+    "name": "cLD11ClientCalibTable",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLD11ClientCalibEntry": {
+    "name": "cLD11ClientCalibEntry",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLD11ClientCalibMacAddress": {
+    "name": "cLD11ClientCalibMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLD11ClientCalibBeaconInterval": {
+    "name": "cLD11ClientCalibBeaconInterval",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3240000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60000,
+        "format": "decimal"
+      }
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cLD11ClientCalibRowStatus": {
+    "name": "cLD11ClientCalibRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLD11ClientCalibNumberOfRadios": {
+    "name": "cLD11ClientCalibNumberOfRadios",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLD11ClientCalibNumberOfSamples": {
+    "name": "cLD11ClientCalibNumberOfSamples",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLD11ClientCalibSamplesCollected": {
+    "name": "cLD11ClientCalibSamplesCollected",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLD11ClientCalibBeaconIntervalExt": {
+    "name": "cLD11ClientCalibBeaconIntervalExt",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60000,
+        "format": "decimal"
+      }
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLD11ClientCalibStorageType": {
+    "name": "cLD11ClientCalibStorageType",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLD11ClientCalibTableMaxEntries": {
+    "name": "cLD11ClientCalibTableMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibDataTable": {
+    "name": "cLD11ClientCalibDataTable",
+    "oid": "1.3.6.1.4.1.9.9.522.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLD11ClientCalibDataEntry": {
+    "name": "cLD11ClientCalibDataEntry",
+    "oid": "1.3.6.1.4.1.9.9.522.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11IfSlotId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "clD11ClientCalibDataTimeStamp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "clD11ClientCalibDataAntennaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clD11ClientCalibDataTimeStamp": {
+    "name": "clD11ClientCalibDataTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.522.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clD11ClientCalibDataAntennaIndex": {
+    "name": "clD11ClientCalibDataAntennaIndex",
+    "oid": "1.3.6.1.4.1.9.9.522.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "antenna1": 1,
+          "antenna2": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clD11ClientCalibDataRssiValue": {
+    "name": "clD11ClientCalibDataRssiValue",
+    "oid": "1.3.6.1.4.1.9.9.522.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clD11ClientCalibDataTransmitPower": {
+    "name": "clD11ClientCalibDataTransmitPower",
+    "oid": "1.3.6.1.4.1.9.9.522.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiAlgorithm": {
+    "name": "cLD11ClientCalibRssiAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "simple": 2,
+          "average": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiClientExpiryTimeout": {
+    "name": "cLD11ClientCalibRssiClientExpiryTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiCalibClientExpiryTimeout": {
+    "name": "cLD11ClientCalibRssiCalibClientExpiryTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiRfidTagExpiryTimeout": {
+    "name": "cLD11ClientCalibRssiRfidTagExpiryTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiRogueApExpiryTimeout": {
+    "name": "cLD11ClientCalibRssiRogueApExpiryTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiClientHalflifeTimeout": {
+    "name": "cLD11ClientCalibRssiClientHalflifeTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          },
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 20,
+            "max": 20
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 90,
+            "max": 90
+          },
+          {
+            "min": 120,
+            "max": 120
+          },
+          {
+            "min": 180,
+            "max": 180
+          },
+          {
+            "min": 300,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiCalibClientHalflifeTimeout": {
+    "name": "cLD11ClientCalibRssiCalibClientHalflifeTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          },
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 20,
+            "max": 20
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 90,
+            "max": 90
+          },
+          {
+            "min": 120,
+            "max": 120
+          },
+          {
+            "min": 180,
+            "max": 180
+          },
+          {
+            "min": 300,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiRfidTagHalflifeTimeout": {
+    "name": "cLD11ClientCalibRssiRfidTagHalflifeTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          },
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 20,
+            "max": 20
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 90,
+            "max": 90
+          },
+          {
+            "min": 120,
+            "max": 120
+          },
+          {
+            "min": 180,
+            "max": 180
+          },
+          {
+            "min": 300,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiRogueApHalflifeTimeout": {
+    "name": "cLD11ClientCalibRssiRogueApHalflifeTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          },
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 20,
+            "max": 20
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 90,
+            "max": 90
+          },
+          {
+            "min": 120,
+            "max": 120
+          },
+          {
+            "min": 180,
+            "max": 180
+          },
+          {
+            "min": 300,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRfidDataEnable": {
+    "name": "cLD11ClientCalibRfidDataEnable",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRfidTimeout": {
+    "name": "cLD11ClientCalibRfidTimeout",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibClientMultiBandEnable": {
+    "name": "cLD11ClientCalibClientMultiBandEnable",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibClientRequestEnable": {
+    "name": "cLD11ClientCalibClientRequestEnable",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibClientBurstIntervalEnable": {
+    "name": "cLD11ClientCalibClientBurstIntervalEnable",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibClientBurstInterval": {
+    "name": "cLD11ClientCalibClientBurstInterval",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibClientInterval": {
+    "name": "cLD11ClientCalibClientInterval",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRfidInterval": {
+    "name": "cLD11ClientCalibRfidInterval",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLD11ClientCalibRogueInterval": {
+    "name": "cLD11ClientCalibRogueInterval",
+    "oid": "1.3.6.1.4.1.9.9.522.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappDot11ClientCalibMIBCompliances": {
+    "name": "ciscoLwappDot11ClientCalibMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.522.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11ClientCalibMIBGroups": {
+    "name": "ciscoLwappDot11ClientCalibMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.522.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11ClientCalibMIBCompliance": {
+    "name": "ciscoLwappDot11ClientCalibMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.522.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDot11ClientCalibMIBConfigGroup",
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappDot11ClientCalibMIBComplianceRev1": {
+    "name": "ciscoLwappDot11ClientCalibMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.522.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLD11ClientCalibClientConfigGroup",
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB"
+      },
+      {
+        "object": "cLD11ClientCalibGlobalConfigGroup",
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB"
+      },
+      {
+        "object": "cLD11ClientCalibRssiDataSampleGroup",
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11ClientCalibMIBConfigGroup": {
+    "name": "ciscoLwappDot11ClientCalibMIBConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.522.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibBeaconInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibTableMaxEntries"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cLD11ClientCalibClientConfigGroup": {
+    "name": "cLD11ClientCalibClientConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.522.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibBeaconIntervalExt"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibNumberOfRadios"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibNumberOfSamples"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibSamplesCollected"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibTableMaxEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "cLD11ClientCalibGlobalConfigGroup": {
+    "name": "cLD11ClientCalibGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.522.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiAlgorithm"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiClientExpiryTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiCalibClientExpiryTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiRfidTagExpiryTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiRogueApExpiryTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiClientHalflifeTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiCalibClientHalflifeTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiRfidTagHalflifeTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRssiRogueApHalflifeTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRfidDataEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRfidTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibClientMultiBandEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibClientRequestEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibClientBurstIntervalEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibClientBurstInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibClientInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRfidInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "cLD11ClientCalibRogueInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cLD11ClientCalibRssiDataSampleGroup": {
+    "name": "cLD11ClientCalibRssiDataSampleGroup",
+    "oid": "1.3.6.1.4.1.9.9.522.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "clD11ClientCalibDataRssiValue"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+        "object": "clD11ClientCalibDataTransmitPower"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB"
+  }
+}

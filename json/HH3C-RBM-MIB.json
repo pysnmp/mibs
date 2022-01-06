@@ -1,0 +1,128 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cRbm": {
+    "name": "hh3cRbm",
+    "oid": "1.3.6.1.4.1.25506.2.187",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-05-19 11:05",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hh3cRbmTables": {
+    "name": "hh3cRbmTables",
+    "oid": "1.3.6.1.4.1.25506.2.187.1",
+    "class": "objectidentity"
+  },
+  "hh3cRbmTrapObjects": {
+    "name": "hh3cRbmTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.187.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cRbmTrapVar": {
+    "name": "hh3cRbmTrapVar",
+    "oid": "1.3.6.1.4.1.25506.2.187.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cRbmMonitor": {
+    "name": "hh3cRbmMonitor",
+    "oid": "1.3.6.1.4.1.25506.2.187.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cRbmTrap": {
+    "name": "hh3cRbmTrap",
+    "oid": "1.3.6.1.4.1.25506.2.187.1.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cRbmKeepaliveNormal": {
+    "name": "hh3cRbmKeepaliveNormal",
+    "oid": "1.3.6.1.4.1.25506.2.187.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RBM-MIB",
+        "object": "hh3cRbmTrapVar"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRbmKeepaliveFailure": {
+    "name": "hh3cRbmKeepaliveFailure",
+    "oid": "1.3.6.1.4.1.25506.2.187.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RBM-MIB",
+        "object": "hh3cRbmTrapVar"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRbmStateChange": {
+    "name": "hh3cRbmStateChange",
+    "oid": "1.3.6.1.4.1.25506.2.187.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RBM-MIB",
+        "object": "hh3cRbmTrapVar"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-RBM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-RBM-MIB"
+  }
+}

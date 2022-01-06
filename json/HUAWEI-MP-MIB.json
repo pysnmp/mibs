@@ -1,0 +1,594 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwMultilinkPPP": {
+    "name": "hwMultilinkPPP",
+    "oid": "1.3.6.1.4.1.2011.5.25.33",
+    "class": "moduleidentity"
+  },
+  "hwMpObjects": {
+    "name": "hwMpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1",
+    "class": "objectidentity"
+  },
+  "hwMpMultilinkTable": {
+    "name": "hwMpMultilinkTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMpMultilinkEntry": {
+    "name": "hwMpMultilinkEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpMultilinkDescr": {
+    "name": "hwMpMultilinkDescr",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpBundleName": {
+    "name": "hwMpBundleName",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpBundledSlot": {
+    "name": "hwMpBundledSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpBundledMemberCnt": {
+    "name": "hwMpBundledMemberCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpLostFragments": {
+    "name": "hwMpLostFragments",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpReorderedPkts": {
+    "name": "hwMpReorderedPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpUnassignedPkts": {
+    "name": "hwMpUnassignedPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpInterleavedPkts": {
+    "name": "hwMpInterleavedPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpRcvdSequence": {
+    "name": "hwMpRcvdSequence",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpSentSequence": {
+    "name": "hwMpSentSequence",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpDetectTime": {
+    "name": "hwMpDetectTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMpFlappingCnt": {
+    "name": "hwMpFlappingCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMpDampingTime": {
+    "name": "hwMpDampingTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMpBundleThreshold": {
+    "name": "hwMpBundleThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMpSequenceReorder": {
+    "name": "hwMpSequenceReorder",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMpMemberlinkTable": {
+    "name": "hwMpMemberlinkTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMpMemberlinkEntry": {
+    "name": "hwMpMemberlinkEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkSeqNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpMemberlinkSeqNumber": {
+    "name": "hwMpMemberlinkSeqNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpMemberlinkIfIndex": {
+    "name": "hwMpMemberlinkIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpMemberlinkDescr": {
+    "name": "hwMpMemberlinkDescr",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpMemberlinkMpStatus": {
+    "name": "hwMpMemberlinkMpStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMpNotifications": {
+    "name": "hwMpNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2",
+    "class": "objectidentity"
+  },
+  "hwMpTraps": {
+    "name": "hwMpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1",
+    "class": "objectidentity"
+  },
+  "hwMpSonChannelDampingDetect": {
+    "name": "hwMpSonChannelDampingDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpSonChannelDampingResume": {
+    "name": "hwMpSonChannelDampingResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpThresholdControlDetect": {
+    "name": "hwMpThresholdControlDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpThresholdControlDetectClear": {
+    "name": "hwMpThresholdControlDetectClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpConformance": {
+    "name": "hwMpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3",
+    "class": "objectidentity"
+  },
+  "hwMpCompliances": {
+    "name": "hwMpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.1",
+    "class": "objectidentity"
+  },
+  "hwMpCompliance": {
+    "name": "hwMpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMpMandatoryGroup",
+        "module": "HUAWEI-MP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpGroups": {
+    "name": "hwMpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.2",
+    "class": "objectidentity"
+  },
+  "hwMpMandatoryGroup": {
+    "name": "hwMpMandatoryGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundledMemberCnt"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkSeqNumber"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpInfoGroup": {
+    "name": "hwMpInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMultilinkDescr"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundleName"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundledSlot"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundledMemberCnt"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpLostFragments"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpReorderedPkts"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpUnassignedPkts"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpInterleavedPkts"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpRcvdSequence"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpSentSequence"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpDetectTime"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpFlappingCnt"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpDampingTime"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundleThreshold"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpSequenceReorder"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkDescr"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkMpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMpTrapGroup": {
+    "name": "hwMpTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpSonChannelDampingDetect"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpSonChannelDampingResume"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpThresholdControlDetect"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpThresholdControlDetectClear"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-MP-MIB"
+  }
+}

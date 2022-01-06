@@ -1,0 +1,4748 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwBRASRadius": {
+    "name": "hwBRASRadius",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-05-28 16:13",
+        "description": "Add hwRadiusGlobalSettingTable, hwRadiusGlobalSettingEntry, hwRadiusGlobalServerSourceIp, hwRadiusGlobalServerSourceIpv6, hwRadiusGlobalAttrNasIp, hwRadiusGlobalAttrNasIpv6."
+      },
+      {
+        "revision": "2016-11-01 16:13",
+        "description": "Add hwRadiusStateInRequest."
+      },
+      {
+        "revision": "2016-08-31 16:13",
+        "description": "Add hwRadiusServerSourceLoopBackEachServer."
+      },
+      {
+        "revision": "2016-07-11 16:13",
+        "description": "Add hwRadiusServerSourceIPAddressEachServer, hwRadiusServerSourceIPv6AddressEachServer."
+      },
+      {
+        "revision": "2016-04-22 16:13",
+        "description": "Modified the packetcount."
+      },
+      {
+        "revision": "2016-04-13 19:33",
+        "description": "Modified hwRadiusAuthorServerRowStatus for read-create."
+      },
+      {
+        "revision": "2016-03-15 19:33",
+        "description": "Added trap hwRadiusDiscardCachePacket, hwRadiusCachePacketThresholdAlarm, hwRadiusCachePacketThresholdResume."
+      },
+      {
+        "revision": "2015-06-28 19:33",
+        "description": "The MIB contains objects of module Radius."
+      },
+      {
+        "revision": "2014-12-17 14:57",
+        "description": "The MIB contains objects of module Radius."
+      },
+      {
+        "revision": "2014-10-08 16:20",
+        "description": "The MIB contains objects of module Radius."
+      },
+      {
+        "revision": "2014-02-28 17:34",
+        "description": "The MIB contains objects of module Radius."
+      },
+      {
+        "revision": "2013-09-10 20:40",
+        "description": "The MIB contains objects of module Radius."
+      },
+      {
+        "revision": "2013-08-08 20:40",
+        "description": "The MIB contains objects of module Radius."
+      },
+      {
+        "revision": "2013-07-05 15:45",
+        "description": "The MIB contains objects of module Radius."
+      },
+      {
+        "revision": "2013-02-18 16:34",
+        "description": "The MIB contains objects of module Radius."
+      },
+      {
+        "revision": "2013-07-27 14:19",
+        "description": "V1.0-V1.1."
+      },
+      {
+        "revision": "2014-02-15 00:00",
+        "description": "Revision 2.17"
+      },
+      {
+        "revision": "2014-12-31 14:57",
+        "description": "The MIB contains objects of module Radius."
+      }
+    ]
+  },
+  "hwRadiusGroupObject": {
+    "name": "hwRadiusGroupObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1",
+    "class": "objectidentity"
+  },
+  "hwRadiusGroupTable": {
+    "name": "hwRadiusGroupTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusGroupEntry": {
+    "name": "hwRadiusGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusGroupName": {
+    "name": "hwRadiusGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusServerKey": {
+    "name": "hwRadiusServerKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 188
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerProtType": {
+    "name": "hwRadiusServerProtType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 1,
+          "radiusPlus10": 2,
+          "radiusPlus11": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerRetransmit": {
+    "name": "hwRadiusServerRetransmit",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerTimeout": {
+    "name": "hwRadiusServerTimeout",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerAttrTran": {
+    "name": "hwRadiusServerAttrTran",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusPacketUnit": {
+    "name": "hwRadiusPacketUnit",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "byte": 1,
+          "kbyte": 2,
+          "mbyte": 3,
+          "gbyte": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "byte",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusDomainInclude": {
+    "name": "hwRadiusDomainInclude",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "includingDomain": 1,
+          "notIncludingDomain": 2,
+          "original": 3
+        }
+      }
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusClassASCar": {
+    "name": "hwRadiusClassASCar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusAlgorithm": {
+    "name": "hwRadiusAlgorithm",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "masterbackup": 1,
+          "shareloading": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "masterbackup",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerNasPortFmt": {
+    "name": "hwRadiusServerNasPortFmt",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusGroupRowStatus": {
+    "name": "hwRadiusGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusServerSourceInterface": {
+    "name": "hwRadiusServerSourceInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerNasIpAddress": {
+    "name": "hwRadiusServerNasIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerCallingStationId": {
+    "name": "hwRadiusServerCallingStationId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerCallingStationIdDelimiter": {
+    "name": "hwRadiusServerCallingStationIdDelimiter",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusAttributeNoExistPolicy": {
+    "name": "hwRadiusAttributeNoExistPolicy",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerKeyType": {
+    "name": "hwRadiusServerKeyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 0,
+          "cipher": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerNasPortIdOption82": {
+    "name": "hwRadiusServerNasPortIdOption82",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerAcctStopPacket": {
+    "name": "hwRadiusServerAcctStopPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusMasterServerDeadTime": {
+    "name": "hwRadiusMasterServerDeadTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerDetectServer": {
+    "name": "hwRadiusServerDetectServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerNasPortIdFmt": {
+    "name": "hwRadiusServerNasPortIdFmt",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "new": 0,
+          "old": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerTestuserName": {
+    "name": "hwRadiusServerTestuserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerTestuserPassword": {
+    "name": "hwRadiusServerTestuserPassword",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerNasIpv6Address": {
+    "name": "hwRadiusServerNasIpv6Address",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusStateInRequest": {
+    "name": "hwRadiusStateInRequest",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerTable": {
+    "name": "hwRadiusServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusServerEntry": {
+    "name": "hwRadiusServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusServerIndex": {
+    "name": "hwRadiusServerIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusServerType": {
+    "name": "hwRadiusServerType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auth": 1,
+          "acct": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusServerVRF": {
+    "name": "hwRadiusServerVRF",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerIP": {
+    "name": "hwRadiusServerIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerPort": {
+    "name": "hwRadiusServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerWeight": {
+    "name": "hwRadiusServerWeight",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerSecretKey": {
+    "name": "hwRadiusServerSecretKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 188
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerRowStatus": {
+    "name": "hwRadiusServerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusServerPktSendNumber": {
+    "name": "hwRadiusServerPktSendNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerPktSendInterval": {
+    "name": "hwRadiusServerPktSendInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerSourceInterfaceEachServer": {
+    "name": "hwRadiusServerSourceInterfaceEachServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerResponses": {
+    "name": "hwRadiusServerResponses",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusServerSecretKeyType": {
+    "name": "hwRadiusServerSecretKeyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 0,
+          "cipher": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerDeadCount": {
+    "name": "hwRadiusServerDeadCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusServerDeadTime": {
+    "name": "hwRadiusServerDeadTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusServerDeadInterval": {
+    "name": "hwRadiusServerDeadInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusServerIPv6Address": {
+    "name": "hwRadiusServerIPv6Address",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerSourceIPAddressEachServer": {
+    "name": "hwRadiusServerSourceIPAddressEachServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerSourceIPv6AddressEachServer": {
+    "name": "hwRadiusServerSourceIPv6AddressEachServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerSourceLoopBackEachServer": {
+    "name": "hwRadiusServerSourceLoopBackEachServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusServerSourceVlanifEachServer": {
+    "name": "hwRadiusServerSourceVlanifEachServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusClientTable": {
+    "name": "hwRadiusClientTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusClientEntry": {
+    "name": "hwRadiusClientEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientIP",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientVrf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusClientIP": {
+    "name": "hwRadiusClientIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusClientVrf": {
+    "name": "hwRadiusClientVrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusClientKey": {
+    "name": "hwRadiusClientKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 188
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusClientGroupName": {
+    "name": "hwRadiusClientGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusClientRowStatus": {
+    "name": "hwRadiusClientRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusClientKeyType": {
+    "name": "hwRadiusClientKeyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 0,
+          "cipher": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerTable": {
+    "name": "hwRadiusAuthorServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerEntry": {
+    "name": "hwRadiusAuthorServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerIP",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerVrf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAuthorServerIP": {
+    "name": "hwRadiusAuthorServerIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerVrf": {
+    "name": "hwRadiusAuthorServerVrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerKey": {
+    "name": "hwRadiusAuthorServerKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 188
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerGroupName": {
+    "name": "hwRadiusAuthorServerGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerRowStatus": {
+    "name": "hwRadiusAuthorServerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerKeyType": {
+    "name": "hwRadiusAuthorServerKeyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 0,
+          "cipher": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusSetting": {
+    "name": "hwRadiusSetting",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5",
+    "class": "objectidentity"
+  },
+  "hwRadiusSettingEntry": {
+    "name": "hwRadiusSettingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1",
+    "class": "objectidentity"
+  },
+  "hwEnableSourcePortsExtended": {
+    "name": "hwEnableSourcePortsExtended",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSourcePortsExtendedStartPort": {
+    "name": "hwSourcePortsExtendedStartPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5000,
+            "max": 55535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSourcePortsExtendedPortNum": {
+    "name": "hwSourcePortsExtendedPortNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusResetStatAll": {
+    "name": "hwRadiusResetStatAll",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwResetRadiusAttrCount": {
+    "name": "hwResetRadiusAttrCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusTotalDeadCount": {
+    "name": "hwRadiusTotalDeadCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusTotalDeadTime": {
+    "name": "hwRadiusTotalDeadTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusTotalDeadInterval": {
+    "name": "hwRadiusTotalDeadInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Table": {
+    "name": "hwRadiusStatAuthenIpv4Table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Entry": {
+    "name": "hwRadiusStatAuthenIpv4Entry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthenIpv4ServerIP",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthenIpv4Vrf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4ServerIP": {
+    "name": "hwRadiusStatAuthenIpv4ServerIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Vrf": {
+    "name": "hwRadiusStatAuthenIpv4Vrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Requests": {
+    "name": "hwRadiusStatAuthenIpv4Requests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Accepts": {
+    "name": "hwRadiusStatAuthenIpv4Accepts",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Rejects": {
+    "name": "hwRadiusStatAuthenIpv4Rejects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Retransmissions": {
+    "name": "hwRadiusStatAuthenIpv4Retransmissions",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Challenges": {
+    "name": "hwRadiusStatAuthenIpv4Challenges",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4MalformedResponses": {
+    "name": "hwRadiusStatAuthenIpv4MalformedResponses",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4BadAuthenticators": {
+    "name": "hwRadiusStatAuthenIpv4BadAuthenticators",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4PendingRequests": {
+    "name": "hwRadiusStatAuthenIpv4PendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Timeouts": {
+    "name": "hwRadiusStatAuthenIpv4Timeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4UnknownTypes": {
+    "name": "hwRadiusStatAuthenIpv4UnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4DroppedPackets": {
+    "name": "hwRadiusStatAuthenIpv4DroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4SpeedLimitBlock": {
+    "name": "hwRadiusStatAuthenIpv4SpeedLimitBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4PendingLimitBlock": {
+    "name": "hwRadiusStatAuthenIpv4PendingLimitBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4ServerDownBlock": {
+    "name": "hwRadiusStatAuthenIpv4ServerDownBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4NoSourceIPBlock": {
+    "name": "hwRadiusStatAuthenIpv4NoSourceIPBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4ServerNotReply": {
+    "name": "hwRadiusStatAuthenIpv4ServerNotReply",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4Table": {
+    "name": "hwRadiusStatAcctIpv4Table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4Entry": {
+    "name": "hwRadiusStatAcctIpv4Entry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAcctIpv4ServerIP",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAcctIpv4Vrf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4ServerIP": {
+    "name": "hwRadiusStatAcctIpv4ServerIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4Vrf": {
+    "name": "hwRadiusStatAcctIpv4Vrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4Requests": {
+    "name": "hwRadiusStatAcctIpv4Requests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4Responses": {
+    "name": "hwRadiusStatAcctIpv4Responses",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4Retransmissions": {
+    "name": "hwRadiusStatAcctIpv4Retransmissions",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4MalformedResponses": {
+    "name": "hwRadiusStatAcctIpv4MalformedResponses",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4BadAuthenticators": {
+    "name": "hwRadiusStatAcctIpv4BadAuthenticators",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4PendingRequests": {
+    "name": "hwRadiusStatAcctIpv4PendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4Timeouts": {
+    "name": "hwRadiusStatAcctIpv4Timeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4UnknownTypes": {
+    "name": "hwRadiusStatAcctIpv4UnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4DroppedPackets": {
+    "name": "hwRadiusStatAcctIpv4DroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4SpeedLimitBlock": {
+    "name": "hwRadiusStatAcctIpv4SpeedLimitBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4PendingLimitBlock": {
+    "name": "hwRadiusStatAcctIpv4PendingLimitBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4ServerDownBlock": {
+    "name": "hwRadiusStatAcctIpv4ServerDownBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4NoSourceIPBlock": {
+    "name": "hwRadiusStatAcctIpv4NoSourceIPBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4ServerNotReply": {
+    "name": "hwRadiusStatAcctIpv4ServerNotReply",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Table": {
+    "name": "hwRadiusStatAuthorIpv4Table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Entry": {
+    "name": "hwRadiusStatAuthorIpv4Entry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthorIpv4ServerType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthorIpv4ServerIP",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthorIpv4Vrf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4ServerType": {
+    "name": "hwRadiusStatAuthorIpv4ServerType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4ServerIP": {
+    "name": "hwRadiusStatAuthorIpv4ServerIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Vrf": {
+    "name": "hwRadiusStatAuthorIpv4Vrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Requests": {
+    "name": "hwRadiusStatAuthorIpv4Requests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Accepts": {
+    "name": "hwRadiusStatAuthorIpv4Accepts",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Rejects": {
+    "name": "hwRadiusStatAuthorIpv4Rejects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4BadAuthenticators": {
+    "name": "hwRadiusStatAuthorIpv4BadAuthenticators",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Retransmissions": {
+    "name": "hwRadiusStatAuthorIpv4Retransmissions",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4MalformedResponses": {
+    "name": "hwRadiusStatAuthorIpv4MalformedResponses",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Timeouts": {
+    "name": "hwRadiusStatAuthorIpv4Timeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4UnknownTypes": {
+    "name": "hwRadiusStatAuthorIpv4UnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4DroppedPackets": {
+    "name": "hwRadiusStatAuthorIpv4DroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Table": {
+    "name": "hwRadiusStatAuthenIpv6Table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Entry": {
+    "name": "hwRadiusStatAuthenIpv6Entry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthenIpv6ServerIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6ServerIP": {
+    "name": "hwRadiusStatAuthenIpv6ServerIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Requests": {
+    "name": "hwRadiusStatAuthenIpv6Requests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Accepts": {
+    "name": "hwRadiusStatAuthenIpv6Accepts",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Rejects": {
+    "name": "hwRadiusStatAuthenIpv6Rejects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Retransmissions": {
+    "name": "hwRadiusStatAuthenIpv6Retransmissions",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Challenges": {
+    "name": "hwRadiusStatAuthenIpv6Challenges",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6MalformedResponses": {
+    "name": "hwRadiusStatAuthenIpv6MalformedResponses",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6BadAuthenticators": {
+    "name": "hwRadiusStatAuthenIpv6BadAuthenticators",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6PendingRequests": {
+    "name": "hwRadiusStatAuthenIpv6PendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Timeouts": {
+    "name": "hwRadiusStatAuthenIpv6Timeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6UnknownTypes": {
+    "name": "hwRadiusStatAuthenIpv6UnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6DroppedPackets": {
+    "name": "hwRadiusStatAuthenIpv6DroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6SpeedLimitBlock": {
+    "name": "hwRadiusStatAuthenIpv6SpeedLimitBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6PendingLimitBlock": {
+    "name": "hwRadiusStatAuthenIpv6PendingLimitBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6ServerDownBlock": {
+    "name": "hwRadiusStatAuthenIpv6ServerDownBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6NoSourceIPBlock": {
+    "name": "hwRadiusStatAuthenIpv6NoSourceIPBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6ServerNotReply": {
+    "name": "hwRadiusStatAuthenIpv6ServerNotReply",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6Table": {
+    "name": "hwRadiusStatAcctIpv6Table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6Entry": {
+    "name": "hwRadiusStatAcctIpv6Entry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAcctIpv6ServerIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6ServerIP": {
+    "name": "hwRadiusStatAcctIpv6ServerIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6Requests": {
+    "name": "hwRadiusStatAcctIpv6Requests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6Responses": {
+    "name": "hwRadiusStatAcctIpv6Responses",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6Retransmissions": {
+    "name": "hwRadiusStatAcctIpv6Retransmissions",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6MalformedResponses": {
+    "name": "hwRadiusStatAcctIpv6MalformedResponses",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6BadAuthenticators": {
+    "name": "hwRadiusStatAcctIpv6BadAuthenticators",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6PendingRequests": {
+    "name": "hwRadiusStatAcctIpv6PendingRequests",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6Timeouts": {
+    "name": "hwRadiusStatAcctIpv6Timeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6UnknownTypes": {
+    "name": "hwRadiusStatAcctIpv6UnknownTypes",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6DroppedPackets": {
+    "name": "hwRadiusStatAcctIpv6DroppedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6SpeedLimitBlock": {
+    "name": "hwRadiusStatAcctIpv6SpeedLimitBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAAcctIpv6PendingLimitBlock": {
+    "name": "hwRadiusStatAAcctIpv6PendingLimitBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6ServerDownBlock": {
+    "name": "hwRadiusStatAcctIpv6ServerDownBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6NoSourceIPBlock": {
+    "name": "hwRadiusStatAcctIpv6NoSourceIPBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6ServerNotReply": {
+    "name": "hwRadiusStatAcctIpv6ServerNotReply",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrCountTable": {
+    "name": "hwRadiusAttrCountTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusAttrCountEntry": {
+    "name": "hwRadiusAttrCountEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwAttributeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAttributeName": {
+    "name": "hwAttributeName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAuthRequestPacketNum": {
+    "name": "hwAuthRequestPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAuthAcceptPacketNum": {
+    "name": "hwAuthAcceptPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAuthRejectPacketNum": {
+    "name": "hwAuthRejectPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAcctRequestPacketNum": {
+    "name": "hwAcctRequestPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAcctResponsePacketNum": {
+    "name": "hwAcctResponsePacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCOARequestPacketNum": {
+    "name": "hwCOARequestPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCOAAcknowledgePacketNum": {
+    "name": "hwCOAAcknowledgePacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDMRequestPacketNum": {
+    "name": "hwDMRequestPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDMAcknowledgePacketNum": {
+    "name": "hwDMAcknowledgePacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrApplyTable": {
+    "name": "hwRadiusAttrApplyTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusAttrApplyEntry": {
+    "name": "hwRadiusAttrApplyEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttrApplyAttribute",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttrApplyAction",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttrApplyActionParameter",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAttrApplyAttribute": {
+    "name": "hwRadiusAttrApplyAttribute",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrApplyAction": {
+    "name": "hwRadiusAttrApplyAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "match": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrApplyActionParameter": {
+    "name": "hwRadiusAttrApplyActionParameter",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pooltype": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrApplyRowStatus": {
+    "name": "hwRadiusAttrApplyRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.12.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrCheckTable": {
+    "name": "hwRadiusAttrCheckTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusAttrCheckEntry": {
+    "name": "hwRadiusAttrCheckEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttrCheckIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAttrCheckIndex": {
+    "name": "hwRadiusAttrCheckIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrCheckName": {
+    "name": "hwRadiusAttrCheckName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusAttrCheckRowStatus": {
+    "name": "hwRadiusAttrCheckRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrDisableTable": {
+    "name": "hwRadiusAttrDisableTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusAttrDisableEntry": {
+    "name": "hwRadiusAttrDisableEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttrDisableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAttrDisableIndex": {
+    "name": "hwRadiusAttrDisableIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrDisableName": {
+    "name": "hwRadiusAttrDisableName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusAttrDisableDirection": {
+    "name": "hwRadiusAttrDisableDirection",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "send": 1,
+          "receive": 2,
+          "sendreceive": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrDisableRowStatus": {
+    "name": "hwRadiusAttrDisableRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateTable": {
+    "name": "hwRadiusAttrTranslateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateEntry": {
+    "name": "hwRadiusAttrTranslateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttrTranslateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateIndex": {
+    "name": "hwRadiusAttrTranslateIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateSrcDescription": {
+    "name": "hwRadiusAttrTranslateSrcDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateDestDescription": {
+    "name": "hwRadiusAttrTranslateDestDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateDirection": {
+    "name": "hwRadiusAttrTranslateDirection",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "send": 1,
+          "receive": 2,
+          "sendreceive": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslatePacketType": {
+    "name": "hwRadiusAttrTranslatePacketType",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "authrequest": 1,
+          "authaccept": 2,
+          "authrequestauthaccept": 3,
+          "acctrequst": 4,
+          "authrequestacctrequst": 5,
+          "authacceptacctrequst": 6,
+          "authrequestauthacceptacctrequst": 7,
+          "acctresponse": 8,
+          "authrequestacctresponse": 9,
+          "authacceptacctresponse": 10,
+          "authrequestauthacceptacctresponse": 11,
+          "acctrequstacctresponse": 12,
+          "authrequestacctrequstacctresponse": 13,
+          "authacceptacctrequstacctresponse": 14,
+          "authrequestauthacceptacctrequstacctresponse": 15
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateSrcVendorId": {
+    "name": "hwRadiusAttrTranslateSrcVendorId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateSrcSubAttrId": {
+    "name": "hwRadiusAttrTranslateSrcSubAttrId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateDstVendorId": {
+    "name": "hwRadiusAttrTranslateDstVendorId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateDstSubAttrId": {
+    "name": "hwRadiusAttrTranslateDstSubAttrId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrTranslateRowStatus": {
+    "name": "hwRadiusAttrTranslateRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAttrSetTable": {
+    "name": "hwRadiusAttrSetTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRadiusAttrSetEntry": {
+    "name": "hwRadiusAttrSetEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttrSetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAttrSetIndex": {
+    "name": "hwRadiusAttrSetIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusAttrSetName": {
+    "name": "hwRadiusAttrSetName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusAttrSetValue": {
+    "name": "hwRadiusAttrSetValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusSetRowStatus": {
+    "name": "hwRadiusSetRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRadiusAccountTest": {
+    "name": "hwRadiusAccountTest",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.17",
+    "class": "objectidentity"
+  },
+  "hwRadiusAccountTestEntry": {
+    "name": "hwRadiusAccountTestEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.17.1",
+    "class": "objectidentity"
+  },
+  "hwRadiusAccountTestResult": {
+    "name": "hwRadiusAccountTestResult",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "busy": 0,
+          "fail": 1,
+          "success": 2,
+          "wrongnameorpassword": 3,
+          "timeout": 4,
+          "servernotexist": 5,
+          "invalid": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRadiusGlobalSettingTable": {
+    "name": "hwRadiusGlobalSettingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.18",
+    "class": "objectidentity"
+  },
+  "hwRadiusGlobalSettingEntry": {
+    "name": "hwRadiusGlobalSettingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.18.1",
+    "class": "objectidentity"
+  },
+  "hwRadiusGlobalServerSourceIp": {
+    "name": "hwRadiusGlobalServerSourceIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusGlobalServerSourceIpv6": {
+    "name": "hwRadiusGlobalServerSourceIpv6",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.18.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusGlobalAttrNasIp": {
+    "name": "hwRadiusGlobalAttrNasIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.18.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusGlobalAttrNasIpv6": {
+    "name": "hwRadiusGlobalAttrNasIpv6",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.18.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRadiusMIBTrap": {
+    "name": "hwRadiusMIBTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2",
+    "class": "objectidentity"
+  },
+  "hwRadiusTrapObject": {
+    "name": "hwRadiusTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1",
+    "class": "objectidentity"
+  },
+  "hwStateChangeServerIp": {
+    "name": "hwStateChangeServerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStateChangeServerVrf": {
+    "name": "hwStateChangeServerVrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStateChangeServerPort": {
+    "name": "hwStateChangeServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwRadiusMemoryUsage": {
+    "name": "hwRadiusMemoryUsage",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwRadiusThreshold": {
+    "name": "hwRadiusThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwRadiusCachePackets": {
+    "name": "hwRadiusCachePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256000
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwRadiusMaxCachePackets": {
+    "name": "hwRadiusMaxCachePackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256000
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwRadiusTrapsDefine": {
+    "name": "hwRadiusTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2",
+    "class": "objectidentity"
+  },
+  "hwRadiusServerTraps": {
+    "name": "hwRadiusServerTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1",
+    "class": "objectidentity"
+  },
+  "hwRadiusAuthServerUp": {
+    "name": "hwRadiusAuthServerUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAuthServerDown": {
+    "name": "hwRadiusAuthServerDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAcctServerUp": {
+    "name": "hwRadiusAcctServerUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAcctServerDown": {
+    "name": "hwRadiusAcctServerDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusDiscardCachePacket": {
+    "name": "hwRadiusDiscardCachePacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusMemoryUsage"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusCachePackets"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusCachePacketThresholdAlarm": {
+    "name": "hwRadiusCachePacketThresholdAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusMaxCachePackets"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusCachePacketThresholdResume": {
+    "name": "hwRadiusCachePacketThresholdResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusMaxCachePackets"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusConformance": {
+    "name": "hwRadiusConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3",
+    "class": "objectidentity"
+  },
+  "hwRadiusCompliances": {
+    "name": "hwRadiusCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.1",
+    "class": "objectidentity"
+  },
+  "hwRadiusCompliance": {
+    "name": "hwRadiusCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwRadiusGroupGroup",
+        "module": "HUAWEI-BRAS-RADIUS-MIB"
+      },
+      {
+        "object": "hwRadiusServerGroup",
+        "module": "HUAWEI-BRAS-RADIUS-MIB"
+      },
+      {
+        "object": "hwRadiusClientGroup",
+        "module": "HUAWEI-BRAS-RADIUS-MIB"
+      },
+      {
+        "object": "hwRadiusAuthorServerGroup",
+        "module": "HUAWEI-BRAS-RADIUS-MIB"
+      },
+      {
+        "object": "hwRadiusSettingGroup",
+        "module": "HUAWEI-BRAS-RADIUS-MIB"
+      },
+      {
+        "object": "hwRadiusTrapObjectGroup",
+        "module": "HUAWEI-BRAS-RADIUS-MIB"
+      },
+      {
+        "object": "hwRadiusTrapsDefineGroup",
+        "module": "HUAWEI-BRAS-RADIUS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusGroups": {
+    "name": "hwRadiusGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2",
+    "class": "objectidentity"
+  },
+  "hwRadiusGroupGroup": {
+    "name": "hwRadiusGroupGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerKey"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerProtType"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerRetransmit"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerAttrTran"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusPacketUnit"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusDomainInclude"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClassASCar"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAlgorithm"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerNasPortFmt"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSourceInterface"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerNasIpAddress"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerCallingStationId"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerCallingStationIdDelimiter"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttributeNoExistPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusServerGroup": {
+    "name": "hwRadiusServerGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerType"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerVRF"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerIP"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerPort"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSecretKey"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerPktSendNumber"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerPktSendInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSourceInterfaceEachServer"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerResponses"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSecretKeyType"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerDeadCount"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerDeadTime"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerDeadInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerIPv6Address"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSourceIPAddressEachServer"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSourceIPv6AddressEachServer"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSourceLoopBackEachServer"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSourceVlanifEachServer"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusClientGroup": {
+    "name": "hwRadiusClientGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientIP"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientKey"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusAuthorServerGroup": {
+    "name": "hwRadiusAuthorServerGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerIP"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerKey"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusSettingGroup": {
+    "name": "hwRadiusSettingGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwEnableSourcePortsExtended"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwSourcePortsExtendedStartPort"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwSourcePortsExtendedPortNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusTotalDeadInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusTotalDeadTime"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusResetStatAll"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwResetRadiusAttrCount"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusTotalDeadCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusTrapObjectGroup": {
+    "name": "hwRadiusTrapObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRadiusTrapsDefineGroup": {
+    "name": "hwRadiusTrapsDefineGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthServerUp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthServerDown"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAcctServerUp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAcctServerDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-RADIUS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BRAS-RADIUS-MIB"
+  }
+}

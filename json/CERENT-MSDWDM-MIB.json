@@ -1,0 +1,3547 @@
+{
+  "imports": {
+    "class": "imports",
+    "CERENT-GLOBAL-REGISTRY": [
+      "cerentModules",
+      "cerentRequirements",
+      "cerentGeneric"
+    ],
+    "CERENT-TC": [
+      "CerentPeriod"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cerentMsDwdmMIB": {
+    "name": "cerentMsDwdmMIB",
+    "oid": "1.3.6.1.4.1.3607.1.10.80",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1903-02-15 00:00",
+        "description": "Added DWDM Network Tables, 8B10B tables."
+      },
+      {
+        "revision": "1902-11-11 00:00",
+        "description": "The initial revision of this MIB."
+      }
+    ]
+  },
+  "ProtocolType": {
+    "name": "ProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "tenGigEth": 4,
+          "fibreChOrOneGigEth": 5,
+          "unframed": 7,
+          "sonet": 8,
+          "sdh": 9,
+          "sysplexIscCompatibility": 10,
+          "sysplexIscPeer": 11,
+          "sysplexTimerEtr": 12,
+          "sysplexTimerClo": 13,
+          "fastEthernet": 14,
+          "fddi": 15,
+          "eightGfc": 16,
+          "oc768": 17,
+          "otn": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IntervalType": {
+    "name": "IntervalType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMin": 1,
+          "oneDay": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LocationAndIntervalType": {
+    "name": "LocationAndIntervalType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nearEnd15Min": 1,
+          "nearEndOneDay": 2,
+          "farEnd15Min": 3,
+          "farEndOneDay": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MonitorType": {
+    "name": "MonitorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "path": 1,
+          "section": 2,
+          "tcm1": 3,
+          "tcm2": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RingDirection": {
+    "name": "RingDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "westEast": 1,
+          "eastWest": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SideIdentifier": {
+    "name": "SideIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownSide": 0,
+          "sideA": 1,
+          "sideB": 2,
+          "sideC": 3,
+          "sideD": 4,
+          "sideE": 5,
+          "sideF": 6,
+          "sideG": 7,
+          "sideH": 8,
+          "sideI": 9,
+          "sideJ": 10,
+          "sideK": 11,
+          "sideL": 12,
+          "sideM": 13,
+          "sideN": 14,
+          "sideO": 15,
+          "sideP": 16,
+          "sideQ": 17,
+          "sideR": 18,
+          "sideS": 19,
+          "sideT": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalPortRule": {
+    "name": "OpticalPortRule",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inputLine": 1,
+          "outputLine": 2,
+          "inputCom": 3,
+          "outputCom": 4,
+          "inputOsc": 5,
+          "outputOsc": 6,
+          "inputDc": 7,
+          "outputDc": 8,
+          "inputExpress": 9,
+          "outputExpress": 10,
+          "add": 11,
+          "drop": 12,
+          "inputPassThru": 13,
+          "inputWorking": 14,
+          "outputWorking": 15,
+          "inputProtected": 16,
+          "outputProtected": 17,
+          "inputRaman": 18,
+          "outputRaman": 19,
+          "com": 20,
+          "ead": 21,
+          "ad": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LaserStatus": {
+    "name": "LaserStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "apr": 3,
+          "none": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalAmplifierMode": {
+    "name": "OpticalAmplifierMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gain": 1,
+          "power": 2,
+          "none": 3,
+          "fixed-gain": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalBand": {
+    "name": "OpticalBand",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "bn1530d33To1532d68": 5,
+          "bn1534d25To1536d61": 25,
+          "bn1538d19To1540d56": 45,
+          "bn1542d14To1544d53": 65,
+          "bn1546d12To1548d51": 85,
+          "bn1550d12To1552d52": 105,
+          "bn1554d13To1556d55": 125,
+          "bn1558d17To1560d61": 145
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalWavelength": {
+    "name": "OpticalWavelength",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "wv1529d55": 3,
+          "wv1529d94": 4,
+          "wv1530d33": 5,
+          "wv1530d72": 7,
+          "wv1531d12": 10,
+          "wv1531d51": 12,
+          "wv1531d90": 15,
+          "wv1532d29": 17,
+          "wv1532d68": 20,
+          "wv1533d07": 22,
+          "wv1533d47": 23,
+          "wv1533d86": 24,
+          "wv1534d25": 25,
+          "wv1534d64": 27,
+          "wv1535d04": 30,
+          "wv1535d43": 32,
+          "wv1535d82": 35,
+          "wv1536d22": 37,
+          "wv1536d61": 40,
+          "wv1537d00": 42,
+          "wv1537d40": 43,
+          "wv1537d79": 44,
+          "wv1538d19": 45,
+          "wv1538d58": 47,
+          "wv1538d98": 50,
+          "wv1539d37": 52,
+          "wv1539d77": 55,
+          "wv1540d16": 57,
+          "wv1540d56": 60,
+          "wv1540d95": 62,
+          "wv1541d35": 63,
+          "wv1541d75": 64,
+          "wv1542d14": 65,
+          "wv1470": 66,
+          "wv1542d54": 67,
+          "wv1510": 68,
+          "wv1590": 69,
+          "wv1542d94": 70,
+          "wv850": 71,
+          "wv1543d33": 72,
+          "wv1310": 73,
+          "wv1550": 74,
+          "wv1543d73": 75,
+          "wv1490": 76,
+          "wv1544d13": 77,
+          "wv1530": 78,
+          "wv1570": 79,
+          "wv1544d53": 80,
+          "wv1610": 81,
+          "wv1544d92": 82,
+          "wv1545d32": 83,
+          "wv1545d72": 84,
+          "wv1546d12": 85,
+          "wv1546d52": 87,
+          "wv1546d92": 90,
+          "wv1547d32": 92,
+          "wv1547d72": 95,
+          "wv1548d11": 97,
+          "wv1548d51": 100,
+          "wv1548d91": 102,
+          "wv1549d32": 103,
+          "wv1549d72": 104,
+          "wv1550d12": 105,
+          "wv1550d52": 107,
+          "wv1550d92": 110,
+          "wv1551d32": 112,
+          "wv1551d72": 115,
+          "wv1552d12": 117,
+          "wv1552d52": 120,
+          "wv1552d93": 122,
+          "wv1553d33": 123,
+          "wv1553d73": 124,
+          "wv1554d13": 125,
+          "wv1554d54": 127,
+          "wv1554d94": 130,
+          "wv1555d34": 132,
+          "wv1555d75": 135,
+          "wv1556d15": 137,
+          "wv1556d55": 140,
+          "wv1556d96": 142,
+          "wv1557d36": 143,
+          "wv1557d77": 144,
+          "wv1558d17": 145,
+          "wv1558d58": 147,
+          "wv1558d98": 150,
+          "wv1559d39": 152,
+          "wv1559d79": 155,
+          "wv1560d20": 157,
+          "wv1560d61": 160,
+          "wv1561d01": 162,
+          "wv1561d42": 164,
+          "wv1561d83": 166,
+          "wv1570d83": 168,
+          "wv1571d24": 170,
+          "wv1571d65": 172,
+          "wv1572d06": 174,
+          "wv1572d48": 176,
+          "wv1572d89": 178,
+          "wv1573d30": 180,
+          "wv1573d71": 182,
+          "wv1574d13": 184,
+          "wv1574d54": 186,
+          "wv1574d95": 188,
+          "wv1575d37": 190,
+          "wv1575d78": 192,
+          "wv1576d20": 194,
+          "wv1576d61": 196,
+          "wv1577d03": 198,
+          "wv1577d44": 200,
+          "wv1577d86": 205,
+          "wv1578d27": 210,
+          "wv1578d69": 215,
+          "wv1579d10": 220,
+          "wv1579d52": 225,
+          "wv1579d93": 230,
+          "wv1580d35": 235,
+          "wv1580d77": 240,
+          "wv1581d18": 245,
+          "wv1581d60": 250,
+          "wv1582d02": 255,
+          "wv1582d44": 260,
+          "wv1582d85": 265,
+          "wv1583d27": 270,
+          "wv1583d69": 275,
+          "wv1584d11": 280,
+          "wv1584d53": 285,
+          "wv1584d95": 290,
+          "wv1585d36": 295,
+          "wv1585d78": 300,
+          "wv1586d20": 305,
+          "wv1586d62": 310,
+          "wv1587d04": 315,
+          "wv1587d46": 320,
+          "wv1587d88": 325,
+          "wv1588d30": 330,
+          "wv1588d73": 335,
+          "wv1589d15": 340,
+          "wv1589d57": 345,
+          "wv1589d99": 350,
+          "wv1590d41": 355,
+          "wv1590d83": 360,
+          "wv1591d26": 365,
+          "wv1591d68": 370,
+          "wv1592d10": 375,
+          "wv1592d52": 380,
+          "wv1592d95": 385,
+          "wv1593d37": 390,
+          "wv1593d79": 395,
+          "wv1594d22": 400,
+          "wv1594d64": 405,
+          "wv1595d06": 410,
+          "wv1595d49": 415,
+          "wv1595d91": 420,
+          "wv1596d34": 425,
+          "wv1596d76": 430,
+          "wv1597d19": 435,
+          "wv1597d62": 440,
+          "wv1598d04": 445,
+          "wv1598d47": 450,
+          "wv1598d89": 455,
+          "wv1599d32": 460,
+          "wv1599d75": 465,
+          "wv1600d17": 470,
+          "wv1600d60": 475,
+          "wv1601d03": 480,
+          "wv1601d46": 485,
+          "wv1601d88": 490,
+          "wv1602d31": 500,
+          "wv1602d74": 505,
+          "wv1603d17": 510,
+          "wv1603d60": 515,
+          "wv1604d03": 520,
+          "firsttunablewv": 530,
+          "wv1528d77": 540
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalPowerInDbm": {
+    "name": "OpticalPowerInDbm",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -400,
+            "max": 250
+          },
+          {
+            "min": -1000,
+            "max": -1000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "OpticalAttenInDb": {
+    "name": "OpticalAttenInDb",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 400
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TDCUCompensation": {
+    "name": "TDCUCompensation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "psnmNotApplicable": -1,
+          "psnm0": 0,
+          "psnmFineMinus45": 1,
+          "psnmFineMinus90": 2,
+          "psnmFineMinus135": 3,
+          "psnmFineMinus180": 4,
+          "psnmFineMinus225": 5,
+          "psnmFineMinus270": 6,
+          "psnmFineMinus315": 7,
+          "psnmFineMinus360": 8,
+          "psnmFineMinus405": 9,
+          "psnmFineMinus450": 10,
+          "psnmFineMinus495": 11,
+          "psnmFineMinus540": 12,
+          "psnmFineMinus585": 13,
+          "psnmFineMinus630": 14,
+          "psnmFineMinus675": 15,
+          "psnmCoarseMinus110": 16,
+          "psnmCoarseMinus220": 17,
+          "psnmCoarseMinus330": 18,
+          "psnmCoarseMinus440": 19,
+          "psnmCoarseMinus550": 20,
+          "psnmCoarseMinus660": 21,
+          "psnmCoarseMinus770": 22,
+          "psnmCoarseMinus880": 23,
+          "psnmCoarseMinus990": 24,
+          "psnmCoarseMinus1100": 25,
+          "psnmCoarseMinus1210": 26,
+          "psnmCoarseMinus1320": 27,
+          "psnmCoarseMinus1430": 28,
+          "psnmCoarseMinus1540": 29,
+          "psnmCoarseMinus1650": 30
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cerentMsDwdmMIBObjects": {
+    "name": "cerentMsDwdmMIBObjects",
+    "oid": "1.3.6.1.4.1.3607.2.40",
+    "class": "objectidentity"
+  },
+  "cerentMsDwdmIf": {
+    "name": "cerentMsDwdmIf",
+    "oid": "1.3.6.1.4.1.3607.2.40.1",
+    "class": "objectidentity"
+  },
+  "cerentMsDwdmOtn": {
+    "name": "cerentMsDwdmOtn",
+    "oid": "1.3.6.1.4.1.3607.2.40.2",
+    "class": "objectidentity"
+  },
+  "cerentMsDwdmFEC": {
+    "name": "cerentMsDwdmFEC",
+    "oid": "1.3.6.1.4.1.3607.2.40.3",
+    "class": "objectidentity"
+  },
+  "cerentMsDwdm8B10B": {
+    "name": "cerentMsDwdm8B10B",
+    "oid": "1.3.6.1.4.1.3607.2.40.4",
+    "class": "objectidentity"
+  },
+  "cMsDwdmIfConfigTable": {
+    "name": "cMsDwdmIfConfigTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmIfConfigEntry": {
+    "name": "cMsDwdmIfConfigEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmIfConfigProtocol": {
+    "name": "cMsDwdmIfConfigProtocol",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfConfigDataRate": {
+    "name": "cMsDwdmIfConfigDataRate",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passThru": 10,
+          "stm1": 20,
+          "stm4": 30,
+          "stm16": 40,
+          "stm64": 50,
+          "stm256": 55,
+          "gigE": 60,
+          "tenGigE": 70,
+          "fc": 80,
+          "oneGfcFicon": 90,
+          "twoGfcFiconIsc3": 100,
+          "escon": 110,
+          "dv6000": 120,
+          "sdiD1Video": 130,
+          "hdtv": 140,
+          "oc3": 150,
+          "oc12": 160,
+          "oc48": 170,
+          "oc192": 180,
+          "fourGfcFicon": 190,
+          "tenGfc": 200,
+          "isc1": 210,
+          "isc3": 220,
+          "oneGigIsc3": 230,
+          "twoGigIsc3": 240,
+          "etrClo": 250,
+          "infiniBand": 280,
+          "fe": 290,
+          "e1t1": 300,
+          "e3t3": 310,
+          "oc3Ge": 320,
+          "eightGfc": 330,
+          "oc768": 340,
+          "otu1": 350,
+          "otu2": 360,
+          "otu3": 370,
+          "otu4": 380,
+          "oneHundredGe": 390
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfConfigLoopback": {
+    "name": "cMsDwdmIfConfigLoopback",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLoop": 1,
+          "diagnosticLoop": 2,
+          "lineLoop": 3,
+          "otherLoop": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfConfigWavelength": {
+    "name": "cMsDwdmIfConfigWavelength",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalWavelength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfConfigOtnStatus": {
+    "name": "cMsDwdmIfConfigOtnStatus",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfConfigFECStatus": {
+    "name": "cMsDwdmIfConfigFECStatus",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfOpticsValidIntervals": {
+    "name": "cMsDwdmIfOpticsValidIntervals",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfOTNValidIntervals": {
+    "name": "cMsDwdmIfOTNValidIntervals",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfFECValidIntervals": {
+    "name": "cMsDwdmIfFECValidIntervals",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfConfigFECMode": {
+    "name": "cMsDwdmIfConfigFECMode",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enableStandard": 2,
+          "enableEnhanced": 3,
+          "enableEnhancedI4": 4,
+          "enableEnhancedI7": 5,
+          "enableEnhanced20": 6,
+          "enableHG7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportTable": {
+    "name": "cMsDwdmIfTransportTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportEntry": {
+    "name": "cMsDwdmIfTransportEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmIfTransportRingDirection": {
+    "name": "cMsDwdmIfTransportRingDirection",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RingDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cMsDwdmIfTransportPortRule": {
+    "name": "cMsDwdmIfTransportPortRule",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPortRule",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportPower": {
+    "name": "cMsDwdmIfTransportPower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportReferencePower": {
+    "name": "cMsDwdmIfTransportReferencePower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportCalibratedPower": {
+    "name": "cMsDwdmIfTransportCalibratedPower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportInsertionLoss": {
+    "name": "cMsDwdmIfTransportInsertionLoss",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAttenInDb",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportLaserStatus": {
+    "name": "cMsDwdmIfTransportLaserStatus",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportAmplifierMode": {
+    "name": "cMsDwdmIfTransportAmplifierMode",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAmplifierMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportGain": {
+    "name": "cMsDwdmIfTransportGain",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAttenInDb",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportReferenceTilt": {
+    "name": "cMsDwdmIfTransportReferenceTilt",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAttenInDb",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportCalibratedTilt": {
+    "name": "cMsDwdmIfTransportCalibratedTilt",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAttenInDb",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportDCULoss": {
+    "name": "cMsDwdmIfTransportDCULoss",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAttenInDb",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportOSRI": {
+    "name": "cMsDwdmIfTransportOSRI",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "none": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportExpectedGain": {
+    "name": "cMsDwdmIfTransportExpectedGain",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAttenInDb",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportSideIdentifier": {
+    "name": "cMsDwdmIfTransportSideIdentifier",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SideIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportTDCUCompensation": {
+    "name": "cMsDwdmIfTransportTDCUCompensation",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDCUCompensation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportAddPower": {
+    "name": "cMsDwdmIfTransportAddPower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfTransportOSCPower": {
+    "name": "cMsDwdmIfTransportOSCPower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionTable": {
+    "name": "cMsDwdmIfMultiplexSectionTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionEntry": {
+    "name": "cMsDwdmIfMultiplexSectionEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionRingDirection": {
+    "name": "cMsDwdmIfMultiplexSectionRingDirection",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RingDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cMsDwdmIfMultiplexSectionPortRule": {
+    "name": "cMsDwdmIfMultiplexSectionPortRule",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPortRule",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionPower": {
+    "name": "cMsDwdmIfMultiplexSectionPower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionReferencePower": {
+    "name": "cMsDwdmIfMultiplexSectionReferencePower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionCalibratedPower": {
+    "name": "cMsDwdmIfMultiplexSectionCalibratedPower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionInsertionLoss": {
+    "name": "cMsDwdmIfMultiplexSectionInsertionLoss",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAttenInDb",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionActualBand": {
+    "name": "cMsDwdmIfMultiplexSectionActualBand",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalBand",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionExpectedBand": {
+    "name": "cMsDwdmIfMultiplexSectionExpectedBand",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalBand",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionSideIdentifier": {
+    "name": "cMsDwdmIfMultiplexSectionSideIdentifier",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SideIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelTable": {
+    "name": "cMsDwdmIfChannelTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelEntry": {
+    "name": "cMsDwdmIfChannelEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmIfChannelRingDirection": {
+    "name": "cMsDwdmIfChannelRingDirection",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RingDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cMsDwdmIfChannelPortRule": {
+    "name": "cMsDwdmIfChannelPortRule",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPortRule",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelPower": {
+    "name": "cMsDwdmIfChannelPower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelReferencePower": {
+    "name": "cMsDwdmIfChannelReferencePower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelCalibratedPower": {
+    "name": "cMsDwdmIfChannelCalibratedPower",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPowerInDbm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelInsertionLoss": {
+    "name": "cMsDwdmIfChannelInsertionLoss",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalAttenInDb",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelActualWavelength": {
+    "name": "cMsDwdmIfChannelActualWavelength",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalWavelength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelExpectedWavelength": {
+    "name": "cMsDwdmIfChannelExpectedWavelength",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalWavelength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmIfChannelSideIdentifier": {
+    "name": "cMsDwdmIfChannelSideIdentifier",
+    "oid": "1.3.6.1.4.1.3607.2.40.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SideIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnThresholdsTable": {
+    "name": "cMsDwdmOtnThresholdsTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnThresholdsEntry": {
+    "name": "cMsDwdmOtnThresholdsEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnThreshMonType",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnThreshIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmOtnThreshMonType": {
+    "name": "cMsDwdmOtnThreshMonType",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnThreshIntervalType": {
+    "name": "cMsDwdmOtnThreshIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocationAndIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnThreshFC": {
+    "name": "cMsDwdmOtnThreshFC",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmOtnThreshES": {
+    "name": "cMsDwdmOtnThreshES",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmOtnThreshSES": {
+    "name": "cMsDwdmOtnThreshSES",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmOtnThreshUAS": {
+    "name": "cMsDwdmOtnThreshUAS",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmOtnThreshBBE": {
+    "name": "cMsDwdmOtnThreshBBE",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentTable": {
+    "name": "cMsDwdmOtnCurrentTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentEntry": {
+    "name": "cMsDwdmOtnCurrentEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentMonType",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentMonType": {
+    "name": "cMsDwdmOtnCurrentMonType",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurIntervalType": {
+    "name": "cMsDwdmOtnCurIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocationAndIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentFC": {
+    "name": "cMsDwdmOtnCurrentFC",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentES": {
+    "name": "cMsDwdmOtnCurrentES",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentSES": {
+    "name": "cMsDwdmOtnCurrentSES",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentUAS": {
+    "name": "cMsDwdmOtnCurrentUAS",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentBBE": {
+    "name": "cMsDwdmOtnCurrentBBE",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentESR": {
+    "name": "cMsDwdmOtnCurrentESR",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentSESR": {
+    "name": "cMsDwdmOtnCurrentSESR",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnCurrentBBER": {
+    "name": "cMsDwdmOtnCurrentBBER",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalTable": {
+    "name": "cMsDwdmOtnIntervalTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalEntry": {
+    "name": "cMsDwdmOtnIntervalEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalMonType",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalMonType": {
+    "name": "cMsDwdmOtnIntervalMonType",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalType": {
+    "name": "cMsDwdmOtnIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocationAndIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalNum": {
+    "name": "cMsDwdmOtnIntervalNum",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalFC": {
+    "name": "cMsDwdmOtnIntervalFC",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalES": {
+    "name": "cMsDwdmOtnIntervalES",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalSES": {
+    "name": "cMsDwdmOtnIntervalSES",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalUAS": {
+    "name": "cMsDwdmOtnIntervalUAS",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalBBE": {
+    "name": "cMsDwdmOtnIntervalBBE",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalESR": {
+    "name": "cMsDwdmOtnIntervalESR",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalSESR": {
+    "name": "cMsDwdmOtnIntervalSESR",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalBBER": {
+    "name": "cMsDwdmOtnIntervalBBER",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmOtnIntervalValidData": {
+    "name": "cMsDwdmOtnIntervalValidData",
+    "oid": "1.3.6.1.4.1.3607.2.40.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECThresholdsTable": {
+    "name": "cMsDwdmFECThresholdsTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmFECThresholdsEntry": {
+    "name": "cMsDwdmFECThresholdsEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECThreshIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmFECThreshIntervalType": {
+    "name": "cMsDwdmFECThreshIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CerentPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmFECThreshBitErrCor": {
+    "name": "cMsDwdmFECThreshBitErrCor",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmFECThreshByteErrCor": {
+    "name": "cMsDwdmFECThreshByteErrCor",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmFECThreshZeroErrDet": {
+    "name": "cMsDwdmFECThreshZeroErrDet",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmFECThreshOneErrDet": {
+    "name": "cMsDwdmFECThreshOneErrDet",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmFECThreshUncorWords": {
+    "name": "cMsDwdmFECThreshUncorWords",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cMsDwdmFECCurrentTable": {
+    "name": "cMsDwdmFECCurrentTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmFECCurrentEntry": {
+    "name": "cMsDwdmFECCurrentEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECCurIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmFECCurIntervalType": {
+    "name": "cMsDwdmFECCurIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CerentPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmFECCurrentBitErrCor": {
+    "name": "cMsDwdmFECCurrentBitErrCor",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECCurrentByteErrCor": {
+    "name": "cMsDwdmFECCurrentByteErrCor",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECCurrentZeroErrDet": {
+    "name": "cMsDwdmFECCurrentZeroErrDet",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECCurrentOneErrDet": {
+    "name": "cMsDwdmFECCurrentOneErrDet",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECCurrentUncorWords": {
+    "name": "cMsDwdmFECCurrentUncorWords",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalTable": {
+    "name": "cMsDwdmFECIntervalTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalEntry": {
+    "name": "cMsDwdmFECIntervalEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECIntervalNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalType": {
+    "name": "cMsDwdmFECIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CerentPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalNum": {
+    "name": "cMsDwdmFECIntervalNum",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalBitErrCor": {
+    "name": "cMsDwdmFECIntervalBitErrCor",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalByteErrCor": {
+    "name": "cMsDwdmFECIntervalByteErrCor",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalZeroErrDet": {
+    "name": "cMsDwdmFECIntervalZeroErrDet",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalOneErrDet": {
+    "name": "cMsDwdmFECIntervalOneErrDet",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalUncorWords": {
+    "name": "cMsDwdmFECIntervalUncorWords",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMsDwdmFECIntervalValidData": {
+    "name": "cMsDwdmFECIntervalValidData",
+    "oid": "1.3.6.1.4.1.3607.2.40.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BThresholdsTable": {
+    "name": "c8B10BThresholdsTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c8B10BThresholdsEntry": {
+    "name": "c8B10BThresholdsEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c8B10BThreshIntervalType": {
+    "name": "c8B10BThreshIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c8B10BThreshInvalidPkts": {
+    "name": "c8B10BThreshInvalidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshIPOverflow": {
+    "name": "c8B10BThreshIPOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshHCInvalidPkts": {
+    "name": "c8B10BThreshHCInvalidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BThreshValidPkts": {
+    "name": "c8B10BThreshValidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshVPOverflow": {
+    "name": "c8B10BThreshVPOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshHCValidPkts": {
+    "name": "c8B10BThreshHCValidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BThreshIdleSets": {
+    "name": "c8B10BThreshIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshISOverflow": {
+    "name": "c8B10BThreshISOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshHCIdleSets": {
+    "name": "c8B10BThreshHCIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BThreshNonIdleSets": {
+    "name": "c8B10BThreshNonIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshNISOverflow": {
+    "name": "c8B10BThreshNISOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshHCNonIdleSets": {
+    "name": "c8B10BThreshHCNonIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BThreshDataSets": {
+    "name": "c8B10BThreshDataSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshDSOverflow": {
+    "name": "c8B10BThreshDSOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshHCDataSets": {
+    "name": "c8B10BThreshHCDataSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BThreshCodeViols": {
+    "name": "c8B10BThreshCodeViols",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshCVOverflow": {
+    "name": "c8B10BThreshCVOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c8B10BThreshHCCodeViols": {
+    "name": "c8B10BThreshHCCodeViols",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentTable": {
+    "name": "c8B10BCurrentTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c8B10BCurrentEntry": {
+    "name": "c8B10BCurrentEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c8B10BCurIntervalType": {
+    "name": "c8B10BCurIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c8B10BCurrentCodeViols": {
+    "name": "c8B10BCurrentCodeViols",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentCVOverflow": {
+    "name": "c8B10BCurrentCVOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentHCCodeViols": {
+    "name": "c8B10BCurrentHCCodeViols",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentValidPkts": {
+    "name": "c8B10BCurrentValidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentVPOverflow": {
+    "name": "c8B10BCurrentVPOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentHCValidPkts": {
+    "name": "c8B10BCurrentHCValidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentInvalidPkts": {
+    "name": "c8B10BCurrentInvalidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentIPOverflow": {
+    "name": "c8B10BCurrentIPOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentHCInvalidPkts": {
+    "name": "c8B10BCurrentHCInvalidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentIdleSets": {
+    "name": "c8B10BCurrentIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentISOverflow": {
+    "name": "c8B10BCurrentISOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentHCIdleSets": {
+    "name": "c8B10BCurrentHCIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentNonIdleSets": {
+    "name": "c8B10BCurrentNonIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentNISOverflow": {
+    "name": "c8B10BCurrentNISOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentHCNonIdleSets": {
+    "name": "c8B10BCurrentHCNonIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentDataSets": {
+    "name": "c8B10BCurrentDataSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentDSOverflow": {
+    "name": "c8B10BCurrentDSOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BCurrentHCDataSets": {
+    "name": "c8B10BCurrentHCDataSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalTable": {
+    "name": "c8B10BIntervalTable",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c8B10BIntervalEntry": {
+    "name": "c8B10BIntervalEntry",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c8B10BIntervalType": {
+    "name": "c8B10BIntervalType",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c8B10BIntervalNum": {
+    "name": "c8B10BIntervalNum",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c8B10BIntervalCodeViols": {
+    "name": "c8B10BIntervalCodeViols",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalCVOverflow": {
+    "name": "c8B10BIntervalCVOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalHCCodeViols": {
+    "name": "c8B10BIntervalHCCodeViols",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalValidPkts": {
+    "name": "c8B10BIntervalValidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalVPOverflow": {
+    "name": "c8B10BIntervalVPOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalHCValidPkts": {
+    "name": "c8B10BIntervalHCValidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalInvalidPkts": {
+    "name": "c8B10BIntervalInvalidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalIPOverflow": {
+    "name": "c8B10BIntervalIPOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalHCInvalidPkts": {
+    "name": "c8B10BIntervalHCInvalidPkts",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalIdleSets": {
+    "name": "c8B10BIntervalIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalISOverflow": {
+    "name": "c8B10BIntervalISOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalHCIdleSets": {
+    "name": "c8B10BIntervalHCIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalNonIdleSets": {
+    "name": "c8B10BIntervalNonIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalNISOverflow": {
+    "name": "c8B10BIntervalNISOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalHCNonIdleSets": {
+    "name": "c8B10BIntervalHCNonIdleSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalDataSets": {
+    "name": "c8B10BIntervalDataSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalDSOverflow": {
+    "name": "c8B10BIntervalDSOverflow",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalHCDataSets": {
+    "name": "c8B10BIntervalHCDataSets",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c8B10BIntervalValidData": {
+    "name": "c8B10BIntervalValidData",
+    "oid": "1.3.6.1.4.1.3607.2.40.4.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cerentMsDwdmMIBConformance": {
+    "name": "cerentMsDwdmMIBConformance",
+    "oid": "1.3.6.1.4.1.3607.5.30",
+    "class": "objectidentity"
+  },
+  "cerentMsDwdmMIBCompliances": {
+    "name": "cerentMsDwdmMIBCompliances",
+    "oid": "1.3.6.1.4.1.3607.5.30.1",
+    "class": "objectidentity"
+  },
+  "cerentMsDwdmMIBGroups": {
+    "name": "cerentMsDwdmMIBGroups",
+    "oid": "1.3.6.1.4.1.3607.5.30.2",
+    "class": "objectidentity"
+  },
+  "cerentMsDwdmMIBCompliance": {
+    "name": "cerentMsDwdmMIBCompliance",
+    "oid": "1.3.6.1.4.1.3607.5.30.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cerentMsDwdmIfConfigGroup",
+        "module": "CERENT-MSDWDM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cerentMsDwdmIfConfigGroup": {
+    "name": "cerentMsDwdmIfConfigGroup",
+    "oid": "1.3.6.1.4.1.3607.5.30.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfConfigProtocol"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfConfigDataRate"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfConfigLoopback"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfConfigWavelength"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfConfigOtnStatus"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfConfigFECStatus"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfOpticsValidIntervals"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfOTNValidIntervals"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfFECValidIntervals"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfConfigFECMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cerentMsDwdmOtnGroup": {
+    "name": "cerentMsDwdmOtnGroup",
+    "oid": "1.3.6.1.4.1.3607.5.30.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnThreshFC"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnThreshES"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnThreshSES"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnThreshUAS"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnThreshBBE"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentFC"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentES"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentSES"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentUAS"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentBBE"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentESR"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentSESR"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnCurrentBBER"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalFC"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalES"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalSES"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalUAS"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalBBE"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalESR"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalSESR"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalBBER"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmOtnIntervalValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "cerentMsDwdmFECGroup": {
+    "name": "cerentMsDwdmFECGroup",
+    "oid": "1.3.6.1.4.1.3607.5.30.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECThreshBitErrCor"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECThreshByteErrCor"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECThreshZeroErrDet"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECThreshOneErrDet"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECThreshUncorWords"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECCurrentBitErrCor"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECCurrentByteErrCor"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECCurrentZeroErrDet"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECCurrentOneErrDet"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECCurrentUncorWords"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECIntervalBitErrCor"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECIntervalByteErrCor"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECIntervalZeroErrDet"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECIntervalOneErrDet"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECIntervalUncorWords"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmFECIntervalValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmIfTransportGroup": {
+    "name": "cMsDwdmIfTransportGroup",
+    "oid": "1.3.6.1.4.1.3607.5.30.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportPortRule"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportPower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportReferencePower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportCalibratedPower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportInsertionLoss"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportLaserStatus"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportAmplifierMode"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportGain"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportReferenceTilt"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportCalibratedTilt"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportDCULoss"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportExpectedGain"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportOSRI"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfTransportSideIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmIfMultiplexSectionTableGroup": {
+    "name": "cMsDwdmIfMultiplexSectionTableGroup",
+    "oid": "1.3.6.1.4.1.3607.5.30.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfMultiplexSectionPortRule"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfMultiplexSectionPower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfMultiplexSectionReferencePower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfMultiplexSectionCalibratedPower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfMultiplexSectionInsertionLoss"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfMultiplexSectionActualBand"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfMultiplexSectionExpectedBand"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfMultiplexSectionSideIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "cMsDwdmIfChannelGroup": {
+    "name": "cMsDwdmIfChannelGroup",
+    "oid": "1.3.6.1.4.1.3607.5.30.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfChannelPortRule"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfChannelPower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfChannelReferencePower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfChannelCalibratedPower"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfChannelInsertionLoss"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfChannelActualWavelength"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfChannelExpectedWavelength"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "cMsDwdmIfChannelSideIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "cerent8B10BThreshGroup": {
+    "name": "cerent8B10BThreshGroup",
+    "oid": "1.3.6.1.4.1.3607.5.30.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshInvalidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshValidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshNonIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshDataSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshCodeViols"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalCodeViols"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshIPOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshVPOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshISOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshNISOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshDSOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshCVOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshHCInvalidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshHCValidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshHCIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshHCNonIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshHCDataSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BThreshHCCodeViols"
+      }
+    ],
+    "status": "current"
+  },
+  "cerent8B10BStatsGroup": {
+    "name": "cerent8B10BStatsGroup",
+    "oid": "1.3.6.1.4.1.3607.5.30.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentCodeViols"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentCVOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentHCCodeViols"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentValidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentVPOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentHCValidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentInvalidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentIPOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentHCInvalidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentISOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentHCIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentNonIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentNISOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentHCNonIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentDataSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentDSOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BCurrentHCDataSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalHCCodeViols"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalValidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalHCValidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalInvalidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalHCInvalidPkts"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalHCIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalNonIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalHCNonIdleSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalDataSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalHCDataSets"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalCVOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalVPOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalIPOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalISOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalNISOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalDSOverflow"
+      },
+      {
+        "module": "CERENT-MSDWDM-MIB",
+        "object": "c8B10BIntervalValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CERENT-MSDWDM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CERENT-MSDWDM-MIB"
+  }
+}

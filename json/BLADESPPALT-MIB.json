@@ -1,0 +1,6201 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "supportProcessor": {
+    "name": "supportProcessor",
+    "oid": "1.3.6.1.4.1.2.6.158",
+    "class": "objectidentity"
+  },
+  "mmRemoteSupTrapMIB": {
+    "name": "mmRemoteSupTrapMIB",
+    "oid": "1.3.6.1.4.1.2.6.158.3",
+    "class": "objectidentity"
+  },
+  "remoteSupTrapMibObjects": {
+    "name": "remoteSupTrapMibObjects",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1",
+    "class": "objectidentity"
+  },
+  "spTrapInfo": {
+    "name": "spTrapInfo",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1",
+    "class": "objectidentity"
+  },
+  "spTrapDateTime": {
+    "name": "spTrapDateTime",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapAppId": {
+    "name": "spTrapAppId",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSpTxtId": {
+    "name": "spTrapSpTxtId",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSysUuid": {
+    "name": "spTrapSysUuid",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSysSern": {
+    "name": "spTrapSysSern",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapAppType": {
+    "name": "spTrapAppType",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapPriority": {
+    "name": "spTrapPriority",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapMsgText": {
+    "name": "spTrapMsgText",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapHostContact": {
+    "name": "spTrapHostContact",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapHostLocation": {
+    "name": "spTrapHostLocation",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapBladeName": {
+    "name": "spTrapBladeName",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapBladeSern": {
+    "name": "spTrapBladeSern",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapBladeUuid": {
+    "name": "spTrapBladeUuid",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapEvtName": {
+    "name": "spTrapEvtName",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSourceId": {
+    "name": "spTrapSourceId",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapCallHomeFlag": {
+    "name": "spTrapCallHomeFlag",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSysIPAddress": {
+    "name": "spTrapSysIPAddress",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSysMachineModel": {
+    "name": "spTrapSysMachineModel",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapBladeMachineModel": {
+    "name": "spTrapBladeMachineModel",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapBladeFRUSerialNumber": {
+    "name": "spTrapBladeFRUSerialNumber",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapBladeEvtName": {
+    "name": "spTrapBladeEvtName",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spBladeEventDataSource": {
+    "name": "spBladeEventDataSource",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapAuxData": {
+    "name": "spTrapAuxData",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapComponentID": {
+    "name": "spTrapComponentID",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapComponentFRUInfo": {
+    "name": "spTrapComponentFRUInfo",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapChassisName": {
+    "name": "spTrapChassisName",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSysRoomId": {
+    "name": "spTrapSysRoomId",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSysRackId": {
+    "name": "spTrapSysRackId",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapSysRackU": {
+    "name": "spTrapSysRackU",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spTrapServiceableEventFlag": {
+    "name": "spTrapServiceableEventFlag",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spLogSequenceNum": {
+    "name": "spLogSequenceNum",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spCimMsgID": {
+    "name": "spCimMsgID",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spCimMsgPrefix": {
+    "name": "spCimMsgPrefix",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "spEventCorrelator": {
+    "name": "spEventCorrelator",
+    "oid": "1.3.6.1.4.1.2.6.158.3.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mmTrapTempC": {
+    "name": "mmTrapTempC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.0",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapVoltC": {
+    "name": "mmTrapVoltC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapTampC": {
+    "name": "mmTrapTampC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapMffC": {
+    "name": "mmTrapMffC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPsC": {
+    "name": "mmTrapPsC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mTrapHdC": {
+    "name": "mTrapHdC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapVrmC": {
+    "name": "mmTrapVrmC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapSffC": {
+    "name": "mmTrapSffC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapMsC": {
+    "name": "mmTrapMsC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapIhcC": {
+    "name": "mmTrapIhcC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapBladeC": {
+    "name": "mmTrapBladeC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.128",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapIOC": {
+    "name": "mmTrapIOC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.129",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapStorageC": {
+    "name": "mmTrapStorageC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.131",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapChassisC": {
+    "name": "mmTrapChassisC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapFanC": {
+    "name": "mmTrapFanC",
+    "oid": "1.3.6.1.4.1.2.6.158.30.133",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapRdpsN": {
+    "name": "mmTrapRdpsN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapTempN": {
+    "name": "mmTrapTempN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapVoltN": {
+    "name": "mmTrapVoltN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      }
+    ]
+  },
+  "mmTrapRmN": {
+    "name": "mmTrapRmN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapBladeN": {
+    "name": "mmTrapBladeN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.160",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapION": {
+    "name": "mmTrapION",
+    "oid": "1.3.6.1.4.1.2.6.158.30.161",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapLogFullN": {
+    "name": "mmTrapLogFullN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapStorageN": {
+    "name": "mmTrapStorageN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.163",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPowerN": {
+    "name": "mmTrapPowerN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.164",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapChassisN": {
+    "name": "mmTrapChassisN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.162",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapFanN": {
+    "name": "mmTrapFanN",
+    "oid": "1.3.6.1.4.1.2.6.158.30.165",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapSecDvS": {
+    "name": "mmTrapSecDvS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPostToS": {
+    "name": "mmTrapPostToS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapOsToS": {
+    "name": "mmTrapOsToS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapAppS": {
+    "name": "mmTrapAppS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPoffS": {
+    "name": "mmTrapPoffS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPonS": {
+    "name": "mmTrapPonS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapBootS": {
+    "name": "mmTrapBootS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapLdrToS": {
+    "name": "mmTrapLdrToS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPFAS": {
+    "name": "mmTrapPFAS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapRemoteLoginS": {
+    "name": "mmTrapRemoteLoginS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapKVMSwitchS": {
+    "name": "mmTrapKVMSwitchS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapSysInvS": {
+    "name": "mmTrapSysInvS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapSysLogS": {
+    "name": "mmTrapSysLogS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapNwChangeS": {
+    "name": "mmTrapNwChangeS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapBlThrS": {
+    "name": "mmTrapBlThrS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPwrMgntS": {
+    "name": "mmTrapPwrMgntS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapBladeS": {
+    "name": "mmTrapBladeS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.176",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapIOS": {
+    "name": "mmTrapIOS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.177",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapStorageS": {
+    "name": "mmTrapStorageS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.179",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPowerS": {
+    "name": "mmTrapPowerS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.180",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapChassisS": {
+    "name": "mmTrapChassisS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.178",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapFanS": {
+    "name": "mmTrapFanS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.181",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "mmTrapPwrDOS": {
+    "name": "mmTrapPwrDOS",
+    "oid": "1.3.6.1.4.1.2.6.158.30.182",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapDateTime"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSpTxtId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAppType"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapPriority"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapMsgText"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostContact"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapHostLocation"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeSern"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeUuid"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSourceId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapCallHomeFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysIPAddress"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeMachineModel"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeFRUSerialNumber"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapBladeEvtName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spBladeEventDataSource"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapAuxData"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapComponentFRUInfo"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapChassisName"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRoomId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackId"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapSysRackU"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spTrapServiceableEventFlag"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spLogSequenceNum"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgID"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spCimMsgPrefix"
+      },
+      {
+        "module": "BLADESPPALT-MIB",
+        "object": "spEventCorrelator"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/BLADESPPALT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BLADESPPALT-MIB"
+  }
+}

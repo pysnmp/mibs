@@ -1,0 +1,104 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cSwitchHwCapacityCapability": {
+    "name": "cSwitchHwCapacityCapability",
+    "oid": "1.3.6.1.4.1.9.7.572",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-03 00:01",
+        "description": "Add agent capability statement cSwitchHwCapacityCapNxOSV06R0208PN7k."
+      },
+      {
+        "revision": "2013-07-26 00:01",
+        "description": "Add agent capability statement cSwitchHwCapacityCapNxOSV06R0202PN7k."
+      },
+      {
+        "revision": "2013-07-16 00:01",
+        "description": "Add agent capability statement cSwitchHwCapacityCapNxOSV06R0104PN7k."
+      },
+      {
+        "revision": "2011-09-28 00:01",
+        "description": "Add agent capability statement cSwitchHwCapacityCapV15R0001SYPCat6kSup2T."
+      },
+      {
+        "revision": "2008-10-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cSwitchHwCapacityCapV12R0233SXIPCat6k": {
+    "name": "cSwitchHwCapacityCapV12R0233SXIPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.572.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                         series devices.",
+    "status": "current"
+  },
+  "cSwitchHwCapacityCapV15R0001SYPCat6kSup2T": {
+    "name": "cSwitchHwCapacityCapV15R0001SYPCat6kSup2T",
+    "oid": "1.3.6.1.4.1.9.7.572.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.0(1)SY on Catalyst 6000/6500\n                         series devices with Supervisor 2T present.",
+    "status": "current"
+  },
+  "cSwitchHwCapacityCapNxOSV06R0104PN7k": {
+    "name": "cSwitchHwCapacityCapNxOSV06R0104PN7k",
+    "oid": "1.3.6.1.4.1.9.7.572.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.1(4) on Nexus 7000 series devices.",
+    "status": "current"
+  },
+  "cSwitchHwCapacityCapNxOSV06R0202PN7k": {
+    "name": "cSwitchHwCapacityCapNxOSV06R0202PN7k",
+    "oid": "1.3.6.1.4.1.9.7.572.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(2) on Nexus 7000 series devices.",
+    "status": "current"
+  },
+  "cSwitchHwCapacityCapNxOSV06R0208PN7k": {
+    "name": "cSwitchHwCapacityCapNxOSV06R0208PN7k",
+    "oid": "1.3.6.1.4.1.9.7.572.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(8) on Nexus 7000 series devices.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-HARDWARE-CAPACITY-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SWITCH-HARDWARE-CAPACITY-CAPABILITY"
+  }
+}

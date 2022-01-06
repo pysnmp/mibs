@@ -1,0 +1,382 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "enterprises",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "SensorState": {
+    "name": "SensorState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "normal": 1,
+          "alarm": 3
+        }
+      }
+    }
+  },
+  "SensorValue": {
+    "name": "SensorValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "flooded": 1,
+          "disconnect": 2,
+          "invalid": 3
+        }
+      }
+    }
+  },
+  "SensorSN": {
+    "name": "SensorSN",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    }
+  },
+  "SensorName": {
+    "name": "SensorName",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    }
+  },
+  "SensorID": {
+    "name": "SensorID",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "hwgroup": {
+    "name": "hwgroup",
+    "oid": "1.3.6.1.4.1.21796",
+    "class": "objectidentity"
+  },
+  "x390": {
+    "name": "x390",
+    "oid": "1.3.6.1.4.1.21796.4",
+    "class": "objectidentity"
+  },
+  "hwgwld": {
+    "name": "hwgwld",
+    "oid": "1.3.6.1.4.1.21796.4.5",
+    "class": "objectidentity"
+  },
+  "info": {
+    "name": "info",
+    "oid": "1.3.6.1.4.1.21796.4.5.70",
+    "class": "objectidentity"
+  },
+  "infoAddressMAC": {
+    "name": "infoAddressMAC",
+    "oid": "1.3.6.1.4.1.21796.4.5.70.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wldTable": {
+    "name": "wldTable",
+    "oid": "1.3.6.1.4.1.21796.4.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wldEntry": {
+    "name": "wldEntry",
+    "oid": "1.3.6.1.4.1.21796.4.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wldIndex": {
+    "name": "wldIndex",
+    "oid": "1.3.6.1.4.1.21796.4.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wldName": {
+    "name": "wldName",
+    "oid": "1.3.6.1.4.1.21796.4.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wldState": {
+    "name": "wldState",
+    "oid": "1.3.6.1.4.1.21796.4.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wldSN": {
+    "name": "wldSN",
+    "oid": "1.3.6.1.4.1.21796.4.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorSN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wldID": {
+    "name": "wldID",
+    "oid": "1.3.6.1.4.1.21796.4.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wldValue": {
+    "name": "wldValue",
+    "oid": "1.3.6.1.4.1.21796.4.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wldStateToAlarm": {
+    "name": "wldStateToAlarm",
+    "oid": "1.3.6.1.4.1.21796.4.50.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "infoAddressMAC"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldIndex"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldName"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldState"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldSN"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldID"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldValue"
+      }
+    ]
+  },
+  "wldStateToNormal": {
+    "name": "wldStateToNormal",
+    "oid": "1.3.6.1.4.1.21796.4.50.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "infoAddressMAC"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldIndex"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldName"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldState"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldSN"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldID"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldValue"
+      }
+    ]
+  },
+  "wldPeriodicAlarm": {
+    "name": "wldPeriodicAlarm",
+    "oid": "1.3.6.1.4.1.21796.4.50.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "infoAddressMAC"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldIndex"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldName"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldState"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldSN"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldID"
+      },
+      {
+        "module": "HWg-WLD-MIB",
+        "object": "wldValue"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/HWg-WLD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HWg-WLD-MIB"
+  }
+}

@@ -1,0 +1,721 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalEntry"
+    ],
+    "PT-MIB": [
+      "pt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ptSFP": {
+    "name": "ptSFP",
+    "oid": "1.3.6.1.4.1.193.223.2.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-05-22 10:30",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "ptSFPConformance": {
+    "name": "ptSFPConformance",
+    "oid": "1.3.6.1.4.1.193.223.2.6.2",
+    "class": "objectidentity"
+  },
+  "PortInterfaceTC": {
+    "name": "PortInterfaceTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eNONE": 1,
+          "eUNKNOWN": 2,
+          "e100BASELX10": 5,
+          "e100BASEFX": 7,
+          "e1000BASET": 8,
+          "e1000BASEZX": 10,
+          "e1000BASELX10": 11,
+          "eS11": 12,
+          "eS11E": 13,
+          "eL11": 14,
+          "eL12": 15,
+          "eS41": 16,
+          "eL41": 17,
+          "eL42": 18,
+          "eL42CWDM32DB": 19,
+          "eS161": 20,
+          "eL161": 21,
+          "eL162": 22,
+          "eL162CWDM32DB": 23,
+          "eL12CWDM28DB": 24,
+          "e1000BASESX": 25,
+          "e1000BASECWDM32DB": 26,
+          "e1000BASECWDM28DB": 27,
+          "eL12CWDM32DB": 29,
+          "e10GBASELRLW": 30,
+          "e10GBASEEREW": 31,
+          "e10GBASEZpRZpW": 32,
+          "eL42CWDM28DB": 33,
+          "eL162CWDM28DB": 34,
+          "eMULTIRATECWDM28DB": 35,
+          "eMULTIRATECWDM32DB": 36,
+          "eMULTIRATES11S41": 37,
+          "e100BASEBX10U": 38,
+          "e100BASEBX10D": 39,
+          "e1000BASEBX10U": 40,
+          "e1000BASEBX10D": 41,
+          "e10GBASESX": 42,
+          "e10GBASELH": 43,
+          "eSTM1SFWD": 44,
+          "eSTM1SFWU": 45,
+          "eSTM4SFWD": 46,
+          "eSTM4SFWU": 47,
+          "e1000BASELX": 48,
+          "e10GBASESRSW": 49,
+          "e1000BASETFIXED": 50,
+          "e1000BASEBX20U": 51,
+          "e1000BASEBX20D": 52,
+          "e10GBASEDWDM": 53,
+          "eDWDMSFPHP": 54,
+          "eUNRECOGNIZEDSFP": 55
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InstallStateTC": {
+    "name": "InstallStateTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eEMPTY": 1,
+          "eNOTINSTALLED": 2,
+          "eINSTALLEDANDNOTPROVISIONED": 3,
+          "eINSTALLEDANDPROVISIONED": 4,
+          "eUNAVAILABLE": 5,
+          "eUNKNOWN": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "WaveLengthTC": {
+    "name": "WaveLengthTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eNA": 1,
+          "eUNKNOWN": 2,
+          "e1471": 3,
+          "e1491": 4,
+          "e1511": 5,
+          "e1531": 6,
+          "e1551": 7,
+          "e1571": 8,
+          "e1591": 9,
+          "e1611": 10,
+          "eNOTPROVISIONED": 11,
+          "e1311": 12,
+          "e1560d6": 13,
+          "e1559d8": 14,
+          "e1559d0": 15,
+          "e1558d2": 16,
+          "e1557d4": 17,
+          "e1556d6": 18,
+          "e1555d8": 19,
+          "e1554d9": 20,
+          "e1554d1": 21,
+          "e1553d3": 22,
+          "e1552d5": 23,
+          "e1551d7": 24,
+          "e1550d9": 25,
+          "e1550d1": 26,
+          "e1549d3": 27,
+          "e1548d5": 28,
+          "e1547d7": 29,
+          "e1546d9": 30,
+          "e1546d1": 31,
+          "e1545d3": 32,
+          "e1544d5": 33,
+          "e1543d7": 34,
+          "e1542d9": 35,
+          "e1542d1": 36,
+          "e1541d4": 37,
+          "e1540d6": 38,
+          "e1539d8": 39,
+          "e1539d0": 40,
+          "e1538d2": 41,
+          "e1537d4": 42,
+          "e1536d6": 43,
+          "e1535d8": 44,
+          "e1535d0": 45,
+          "e1534d3": 46,
+          "e1533d5": 47,
+          "e1532d7": 48,
+          "e1531d9": 49,
+          "e1531d1": 50,
+          "e1530d3": 51,
+          "e1529d6": 52,
+          "e850": 53
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConnectorTypeTC": {
+    "name": "ConnectorTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eUNKNOWNORUNSPECIFIED": 1,
+          "eSC": 2,
+          "eFIBERCHANNELSTYLE1COPPER": 3,
+          "eFIBERCHANNELSTYLE2COPPER": 4,
+          "eBNCTNC": 5,
+          "eFIBERCHANNELCOAXIALHEADERS": 6,
+          "eFIBERJACK": 7,
+          "eLC": 8,
+          "eMTRT": 9,
+          "eMU": 10,
+          "eSG": 11,
+          "eOPTICALPIGTAIL": 12,
+          "eRESERVED": 13,
+          "eHSSDCII": 14,
+          "eCOPPERPIGTAIL": 15,
+          "eVENDORSPECIFIC": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ptSFPTable": {
+    "name": "ptSFPTable",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptSFPEntry": {
+    "name": "ptSFPEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ptSFPEntry",
+      "module": "PT-SFP-MIB",
+      "object": "entPhysicalEntry"
+    },
+    "status": "current"
+  },
+  "installedSFP": {
+    "name": "installedSFP",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortInterfaceTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "installState": {
+    "name": "installState",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstallStateTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vendorName": {
+    "name": "vendorName",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vendorOui": {
+    "name": "vendorOui",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vendorPn": {
+    "name": "vendorPn",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vendorRev": {
+    "name": "vendorRev",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vendorSn": {
+    "name": "vendorSn",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saleableEntityCode": {
+    "name": "saleableEntityCode",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "connectorType": {
+    "name": "connectorType",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnectorTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "installedWavelength": {
+    "name": "installedWavelength",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WaveLengthTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "levelRx": {
+    "name": "levelRx",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPower": {
+    "name": "rxPower",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txPower": {
+    "name": "txPower",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "brNominal": {
+    "name": "brNominal",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "length9m1km": {
+    "name": "length9m1km",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "length9m100m": {
+    "name": "length9m100m",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "length50m10m": {
+    "name": "length50m10m",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "length62m10m": {
+    "name": "length62m10m",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lengthCopper1m": {
+    "name": "lengthCopper1m",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperature": {
+    "name": "temperature",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcc": {
+    "name": "vcc",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "biasCurrent": {
+    "name": "biasCurrent",
+    "oid": "1.3.6.1.4.1.193.223.2.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptSFPCompliances": {
+    "name": "ptSFPCompliances",
+    "oid": "1.3.6.1.4.1.193.223.2.6.2.1",
+    "class": "objectidentity"
+  },
+  "ptSFPGroups": {
+    "name": "ptSFPGroups",
+    "oid": "1.3.6.1.4.1.193.223.2.6.2.2",
+    "class": "objectidentity"
+  },
+  "ptSFPFullCompliance": {
+    "name": "ptSFPFullCompliance",
+    "oid": "1.3.6.1.4.1.193.223.2.6.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ptSFPCompleteGroup",
+        "module": "PT-SFP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ptSFPCompleteGroup": {
+    "name": "ptSFPCompleteGroup",
+    "oid": "1.3.6.1.4.1.193.223.2.6.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PT-SFP-MIB",
+        "object": "installedSFP"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "installState"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "installedWavelength"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "levelRx"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "vendorName"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "vendorOui"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "vendorPn"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "vendorRev"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "connectorType"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "brNominal"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "length9m1km"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "length9m100m"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "length50m10m"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "length62m10m"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "lengthCopper1m"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "saleableEntityCode"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "vendorSn"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "rxPower"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "txPower"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "temperature"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "vcc"
+      },
+      {
+        "module": "PT-SFP-MIB",
+        "object": "biasCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-SFP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:31 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PT-SFP-MIB"
+  }
+}

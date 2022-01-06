@@ -1,0 +1,265 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtDryContactsMIB": {
+    "name": "prvtDryContactsMIB",
+    "oid": "1.3.6.1.4.1.738.1.5.112",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-11-27 00:00",
+        "description": "Compilation fixes"
+      }
+    ]
+  },
+  "dryContactsNotifications": {
+    "name": "dryContactsNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.112.0",
+    "class": "objectidentity"
+  },
+  "dryContactsObjects": {
+    "name": "dryContactsObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1",
+    "class": "objectidentity"
+  },
+  "cfgTable": {
+    "name": "cfgTable",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfgEntry": {
+    "name": "cfgEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DRY-CONTACTS-MIB",
+        "object": "prvtAlarmID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtAlarmID": {
+    "name": "prvtAlarmID",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtSensorType": {
+    "name": "prvtSensorType",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtName": {
+    "name": "prvtName",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtDescription": {
+    "name": "prvtDescription",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEnableStatus": {
+    "name": "prvtEnableStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtAlarmStatus": {
+    "name": "prvtAlarmStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-alarm": 1,
+          "alarm": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtAlarmSeverity": {
+    "name": "prvtAlarmSeverity",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "info": 1,
+          "minor": 2,
+          "major": 3,
+          "critical": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtPolarity": {
+    "name": "prvtPolarity",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normally-opened": 1,
+          "normally-closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLastChange": {
+    "name": "prvtLastChange",
+    "oid": "1.3.6.1.4.1.738.1.5.112.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stateChanged": {
+    "name": "stateChanged",
+    "oid": "1.3.6.1.4.1.738.1.5.112.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-DRY-CONTACTS-MIB",
+        "object": "prvtAlarmID"
+      },
+      {
+        "module": "PRVT-DRY-CONTACTS-MIB",
+        "object": "prvtSensorType"
+      },
+      {
+        "module": "PRVT-DRY-CONTACTS-MIB",
+        "object": "prvtName"
+      },
+      {
+        "module": "PRVT-DRY-CONTACTS-MIB",
+        "object": "prvtDescription"
+      },
+      {
+        "module": "PRVT-DRY-CONTACTS-MIB",
+        "object": "prvtAlarmStatus"
+      },
+      {
+        "module": "PRVT-DRY-CONTACTS-MIB",
+        "object": "prvtAlarmSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-DRY-CONTACTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-DRY-CONTACTS-MIB"
+  }
+}

@@ -1,0 +1,868 @@
+{
+  "imports": {
+    "class": "imports",
+    "LAN-EMULATION-CLIENT-MIB": [
+      "VpiInteger",
+      "atmfLanEmulation",
+      "VciInteger"
+    ],
+    "LAN-EMULATION-ELAN-MIB": [
+      "TIMESTAMP",
+      "Integer",
+      "IfIndexOrZero",
+      "AtmLaneMask"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "busMIB": {
+    "name": "busMIB",
+    "oid": "1.3.6.1.4.1.353.5.3.4",
+    "class": "objectidentity"
+  },
+  "RowStatus": {
+    "name": "RowStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "AtmLaneAddress": {
+    "name": "AtmLaneAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    }
+  },
+  "busConfGroup": {
+    "name": "busConfGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1",
+    "class": "objectidentity"
+  },
+  "busStatGroup": {
+    "name": "busStatGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2",
+    "class": "objectidentity"
+  },
+  "busFaultGroup": {
+    "name": "busFaultGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3",
+    "class": "objectidentity"
+  },
+  "busConfNextId": {
+    "name": "busConfNextId",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busConfTable": {
+    "name": "busConfTable",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busConfEntry": {
+    "name": "busConfEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "busConfIndex": {
+    "name": "busConfIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busConfAtmAddrSpec": {
+    "name": "busConfAtmAddrSpec",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busConfAtmAddrMask": {
+    "name": "busConfAtmAddrMask",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busConfAtmAddrActual": {
+    "name": "busConfAtmAddrActual",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busConfElanName": {
+    "name": "busConfElanName",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busConfLastChange": {
+    "name": "busConfLastChange",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIMESTAMP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busConfMaxFrameAge": {
+    "name": "busConfMaxFrameAge",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busConfOperStatus": {
+    "name": "busConfOperStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busConfAdminStatus": {
+    "name": "busConfAdminStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busConfRowStatus": {
+    "name": "busConfRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busVccTable": {
+    "name": "busVccTable",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busVccEntry": {
+    "name": "busVccEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busVccAtmIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busVccMtFwdVpi",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busVccMtFwdVci",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "busVccAtmIfIndex": {
+    "name": "busVccAtmIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busVccMtFwdVpi": {
+    "name": "busVccMtFwdVpi",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busVccMtFwdVci": {
+    "name": "busVccMtFwdVci",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VciInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busVccRowStatus": {
+    "name": "busVccRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busLecTableLastChange": {
+    "name": "busLecTableLastChange",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIMESTAMP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busLecTable": {
+    "name": "busLecTable",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busLecEntry": {
+    "name": "busLecEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busLecAtmAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "busLecAtmAddr": {
+    "name": "busLecAtmAddr",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busLecMcastSendAtmIfIndex": {
+    "name": "busLecMcastSendAtmIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busLecMcastSendVpi": {
+    "name": "busLecMcastSendVpi",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busLecMcastSendVci": {
+    "name": "busLecMcastSendVci",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VciInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busLecRowStatus": {
+    "name": "busLecRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.4.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busStatTable": {
+    "name": "busStatTable",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busStatEntry": {
+    "name": "busStatEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "busStatInDiscards": {
+    "name": "busStatInDiscards",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busStatInOctets": {
+    "name": "busStatInOctets",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busStatInUcastFrms": {
+    "name": "busStatInUcastFrms",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busStatInMcastFrms": {
+    "name": "busStatInMcastFrms",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busStatFrmTimeOuts": {
+    "name": "busStatFrmTimeOuts",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busStatMcastSendRefused": {
+    "name": "busStatMcastSendRefused",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busStatMcastFwdFailure": {
+    "name": "busStatMcastFwdFailure",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busLecStatTable": {
+    "name": "busLecStatTable",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busLecStatEntry": {
+    "name": "busLecStatEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busLecAtmAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "busLecRecvs": {
+    "name": "busLecRecvs",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busLecForwards": {
+    "name": "busLecForwards",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busLecDiscards": {
+    "name": "busLecDiscards",
+    "oid": "1.3.6.1.4.1.353.5.3.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busErrCtlTable": {
+    "name": "busErrCtlTable",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busErrCtlEntry": {
+    "name": "busErrCtlEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "busErrCtlAdminStatus": {
+    "name": "busErrCtlAdminStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busErrCtlOperStatus": {
+    "name": "busErrCtlOperStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2,
+          "outOfRes": 3,
+          "failed": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busErrCtlClearLog": {
+    "name": "busErrCtlClearLog",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busErrCtlMaxEntries": {
+    "name": "busErrCtlMaxEntries",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busErrCtlLastEntry": {
+    "name": "busErrCtlLastEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "busErrLogTable": {
+    "name": "busErrLogTable",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busErrLogEntry": {
+    "name": "busErrLogEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-BUS-MIB",
+        "object": "busErrLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "busErrLogIndex": {
+    "name": "busErrLogIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "busErrLogAtmAddr": {
+    "name": "busErrLogAtmAddr",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busErrLogErrCode": {
+    "name": "busErrLogErrCode",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outOfRes": 1,
+          "badCtlFrame": 2,
+          "badDataFrame": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "busErrLogTime": {
+    "name": "busErrLogTime",
+    "oid": "1.3.6.1.4.1.353.5.3.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIMESTAMP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LAN-EMULATION-BUS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LAN-EMULATION-BUS-MIB"
+  }
+}

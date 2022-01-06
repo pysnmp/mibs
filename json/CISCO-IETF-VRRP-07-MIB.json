@@ -1,0 +1,1815 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoVrrp07MIB": {
+    "name": "ciscoVrrp07MIB",
+    "oid": "1.3.6.1.4.1.9.10.143",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-02-23 00:00",
+        "description": "Cisco'ized version of draft revision 200903100000Z"
+      },
+      {
+        "revision": "2009-03-10 00:00",
+        "description": "IP version neutral revision as published in RFCxxxx. Key revisions include : o Deprecating vrrpOperTable, vrrpRouterStatsTable and vrrpAssoIpAddrTable in favor of IP version neutral vrrpOperationsTable, vrrpRouterStatisticsTable and vrrpAssociatedIpAddrTable. o vrrpNodeVersion scalar objects has been deprecated and is replaced by the vrrpOperationsInetAddrType object in the vrrpOperationsTable. o vrrpAuthFailureTrap has been deprecated. o vrrpNewMasterReason object has been added to vrrpTrapNewMaster notification. o A new notification vrrpTrapProtoError has been added. o DEFVAL clause has been added."
+      },
+      {
+        "revision": "2000-03-03 00:00",
+        "description": "This MIB describes objects used for managing Virtual Router Redundancy Protocol (VRRP) routers. Initial version as published in RFC 2787."
+      }
+    ]
+  },
+  "C07VrId": {
+    "name": "C07VrId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "c07vrrpOperations": {
+    "name": "c07vrrpOperations",
+    "oid": "1.3.6.1.4.1.9.10.143.1",
+    "class": "objectidentity"
+  },
+  "c07vrrpStatistics": {
+    "name": "c07vrrpStatistics",
+    "oid": "1.3.6.1.4.1.9.10.143.2",
+    "class": "objectidentity"
+  },
+  "c07vrrpConformance": {
+    "name": "c07vrrpConformance",
+    "oid": "1.3.6.1.4.1.9.10.143.3",
+    "class": "objectidentity"
+  },
+  "c07vrrpNodeVersion": {
+    "name": "c07vrrpNodeVersion",
+    "oid": "1.3.6.1.4.1.9.10.143.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpNotificationCntl": {
+    "name": "c07vrrpNotificationCntl",
+    "oid": "1.3.6.1.4.1.9.10.143.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "c07vrrpOperationsTable": {
+    "name": "c07vrrpOperationsTable",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c07vrrpOperationsEntry": {
+    "name": "c07vrrpOperationsEntry",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsVrId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpOperationsInetAddrType": {
+    "name": "c07vrrpOperationsInetAddrType",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c07vrrpOperationsVrId": {
+    "name": "c07vrrpOperationsVrId",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C07VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c07vrrpOperationsVirtualMacAddr": {
+    "name": "c07vrrpOperationsVirtualMacAddr",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpOperationsState": {
+    "name": "c07vrrpOperationsState",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpOperationsPriority": {
+    "name": "c07vrrpOperationsPriority",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpOperationsAddrCount": {
+    "name": "c07vrrpOperationsAddrCount",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpOperationsMasterIpAddr": {
+    "name": "c07vrrpOperationsMasterIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpOperationsPrimaryIpAddr": {
+    "name": "c07vrrpOperationsPrimaryIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpOperationsAdvInterval": {
+    "name": "c07vrrpOperationsAdvInterval",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpOperationsPreemptMode": {
+    "name": "c07vrrpOperationsPreemptMode",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpOperationsAcceptMode": {
+    "name": "c07vrrpOperationsAcceptMode",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpOperationsUpTime": {
+    "name": "c07vrrpOperationsUpTime",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpOperationsStorageType": {
+    "name": "c07vrrpOperationsStorageType",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpOperationsRowStatus": {
+    "name": "c07vrrpOperationsRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.143.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpAssociatedIpAddrTable": {
+    "name": "c07vrrpAssociatedIpAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.143.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c07vrrpAssociatedIpAddrEntry": {
+    "name": "c07vrrpAssociatedIpAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.143.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsVrId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpAssociatedIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpAssociatedIpAddr": {
+    "name": "c07vrrpAssociatedIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.143.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c07vrrpAssociatedStorageType": {
+    "name": "c07vrrpAssociatedStorageType",
+    "oid": "1.3.6.1.4.1.9.10.143.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpAssociatedIpAddrRowStatus": {
+    "name": "c07vrrpAssociatedIpAddrRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.143.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c07vrrpRouterChecksumErrors": {
+    "name": "c07vrrpRouterChecksumErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpRouterVersionErrors": {
+    "name": "c07vrrpRouterVersionErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpRouterVrIdErrors": {
+    "name": "c07vrrpRouterVrIdErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpRouterStatisticsTable": {
+    "name": "c07vrrpRouterStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c07vrrpRouterStatisticsEntry": {
+    "name": "c07vrrpRouterStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "c07vrrpRouterStatisticsEntry",
+      "module": "CISCO-IETF-VRRP-07-MIB",
+      "object": "c07vrrpOperationsEntry"
+    },
+    "status": "current"
+  },
+  "c07vrrpStatisticsMasterTransitions": {
+    "name": "c07vrrpStatisticsMasterTransitions",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsRcvdAdvertisements": {
+    "name": "c07vrrpStatisticsRcvdAdvertisements",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsAdvIntervalErrors": {
+    "name": "c07vrrpStatisticsAdvIntervalErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsIpTtlErrors": {
+    "name": "c07vrrpStatisticsIpTtlErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsRcvdPriZeroPackets": {
+    "name": "c07vrrpStatisticsRcvdPriZeroPackets",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsSentPriZeroPackets": {
+    "name": "c07vrrpStatisticsSentPriZeroPackets",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsRcvdInvalidTypePkts": {
+    "name": "c07vrrpStatisticsRcvdInvalidTypePkts",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsAddressListErrors": {
+    "name": "c07vrrpStatisticsAddressListErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsPacketLengthErrors": {
+    "name": "c07vrrpStatisticsPacketLengthErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsRcvdInvalidAuthentications": {
+    "name": "c07vrrpStatisticsRcvdInvalidAuthentications",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsDiscontinuityTime": {
+    "name": "c07vrrpStatisticsDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpStatisticsRefreshRate": {
+    "name": "c07vrrpStatisticsRefreshRate",
+    "oid": "1.3.6.1.4.1.9.10.143.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milli-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c07vrrpNotifications": {
+    "name": "c07vrrpNotifications",
+    "oid": "1.3.6.1.4.1.9.10.143.0",
+    "class": "objectidentity"
+  },
+  "c07vrrpNewMasterReason": {
+    "name": "c07vrrpNewMasterReason",
+    "oid": "1.3.6.1.4.1.9.10.143.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notmaster": 0,
+          "priority": 1,
+          "preempted": 2,
+          "masterNoResponse": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "c07vrrpTrapProtoErrReason": {
+    "name": "c07vrrpTrapProtoErrReason",
+    "oid": "1.3.6.1.4.1.9.10.143.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipTtlError": 0,
+          "versionError": 1,
+          "checksumError": 2,
+          "vridError": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "c07vrrpTrapNewMasterCntl": {
+    "name": "c07vrrpTrapNewMasterCntl",
+    "oid": "1.3.6.1.4.1.9.10.143.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c07vrrpTrapProtoErrorCntl": {
+    "name": "c07vrrpTrapProtoErrorCntl",
+    "oid": "1.3.6.1.4.1.9.10.143.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c07vrrpTrapNewMaster": {
+    "name": "c07vrrpTrapNewMaster",
+    "oid": "1.3.6.1.4.1.9.10.143.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsMasterIpAddr"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpNewMasterReason"
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpTrapProtoError": {
+    "name": "c07vrrpTrapProtoError",
+    "oid": "1.3.6.1.4.1.9.10.143.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapProtoErrReason"
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpOperTable": {
+    "name": "c07vrrpOperTable",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "c07vrrpOperEntry": {
+    "name": "c07vrrpOperEntry",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperVrId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "c07vrrpOperVrId": {
+    "name": "c07vrrpOperVrId",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C07VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "c07vrrpOperVirtualMacAddr": {
+    "name": "c07vrrpOperVirtualMacAddr",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpOperState": {
+    "name": "c07vrrpOperState",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpOperAdminState": {
+    "name": "c07vrrpOperAdminState",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpOperPriority": {
+    "name": "c07vrrpOperPriority",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpOperIpAddrCount": {
+    "name": "c07vrrpOperIpAddrCount",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpOperMasterIpAddr": {
+    "name": "c07vrrpOperMasterIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpOperPrimaryIpAddr": {
+    "name": "c07vrrpOperPrimaryIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpOperAuthType": {
+    "name": "c07vrrpOperAuthType",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuthentication": 1,
+          "simpleTextPassword": 2,
+          "ipAuthenticationHeader": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAuthentication",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpOperAuthKey": {
+    "name": "c07vrrpOperAuthKey",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpOperAdvertisementInterval": {
+    "name": "c07vrrpOperAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpOperPreemptMode": {
+    "name": "c07vrrpOperPreemptMode",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpOperVirtualRouterUpTime": {
+    "name": "c07vrrpOperVirtualRouterUpTime",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpOperProtocol": {
+    "name": "c07vrrpOperProtocol",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "bridge": 2,
+          "decnet": 3,
+          "other": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ip",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpOperRowStatus": {
+    "name": "c07vrrpOperRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.143.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpAssoIpAddrTable": {
+    "name": "c07vrrpAssoIpAddrTable",
+    "oid": "1.3.6.1.4.1.9.10.143.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "c07vrrpAssoIpAddrEntry": {
+    "name": "c07vrrpAssoIpAddrEntry",
+    "oid": "1.3.6.1.4.1.9.10.143.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperVrId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpAssoIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "c07vrrpAssoIpAddr": {
+    "name": "c07vrrpAssoIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.143.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "c07vrrpAssoIpAddrRowStatus": {
+    "name": "c07vrrpAssoIpAddrRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.143.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "c07vrrpRouterStatsTable": {
+    "name": "c07vrrpRouterStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "c07vrrpRouterStatsEntry": {
+    "name": "c07vrrpRouterStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "c07vrrpRouterStatsEntry",
+      "module": "CISCO-IETF-VRRP-07-MIB",
+      "object": "c07vrrpOperEntry"
+    },
+    "status": "deprecated"
+  },
+  "c07vrrpStatsBecomeMaster": {
+    "name": "c07vrrpStatsBecomeMaster",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsAdvertiseRcvd": {
+    "name": "c07vrrpStatsAdvertiseRcvd",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsAdvertiseIntervalErrors": {
+    "name": "c07vrrpStatsAdvertiseIntervalErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsAuthFailures": {
+    "name": "c07vrrpStatsAuthFailures",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsIpTtlErrors": {
+    "name": "c07vrrpStatsIpTtlErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsPriorityZeroPktsRcvd": {
+    "name": "c07vrrpStatsPriorityZeroPktsRcvd",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsPriorityZeroPktsSent": {
+    "name": "c07vrrpStatsPriorityZeroPktsSent",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsInvalidTypePktsRcvd": {
+    "name": "c07vrrpStatsInvalidTypePktsRcvd",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsAddressListErrors": {
+    "name": "c07vrrpStatsAddressListErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsInvalidAuthType": {
+    "name": "c07vrrpStatsInvalidAuthType",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsAuthTypeMismatch": {
+    "name": "c07vrrpStatsAuthTypeMismatch",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpStatsPacketLengthErrors": {
+    "name": "c07vrrpStatsPacketLengthErrors",
+    "oid": "1.3.6.1.4.1.9.10.143.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "c07vrrpTrapPacketSrc": {
+    "name": "c07vrrpTrapPacketSrc",
+    "oid": "1.3.6.1.4.1.9.10.143.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "c07vrrpTrapAuthErrorType": {
+    "name": "c07vrrpTrapAuthErrorType",
+    "oid": "1.3.6.1.4.1.9.10.143.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidAuthType": 1,
+          "authTypeMismatch": 2,
+          "authFailure": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "c07vrrpTrapAuthFailure": {
+    "name": "c07vrrpTrapAuthFailure",
+    "oid": "1.3.6.1.4.1.9.10.143.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapPacketSrc"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapAuthErrorType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "c07vrrpMIBCompliances": {
+    "name": "c07vrrpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.143.3.1",
+    "class": "objectidentity"
+  },
+  "c07vrrpMIBGroups": {
+    "name": "c07vrrpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2",
+    "class": "objectidentity"
+  },
+  "c07vrrpMIBCompliance": {
+    "name": "c07vrrpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.143.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "c07vrrpOperGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpStatsGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpTrapGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpNotificationGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "c07vrrpModuleFullCompliance": {
+    "name": "c07vrrpModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.9.10.143.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "c07vrrpOperationsGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpStatisticsGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpTrapInfoGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpNotificationsGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpModuleReadOnlyCompliance": {
+    "name": "c07vrrpModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.9.10.143.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "c07vrrpOperationsGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpStatisticsGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpTrapInfoGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      },
+      {
+        "object": "c07vrrpNotificationsGroup",
+        "module": "CISCO-IETF-VRRP-07-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpOperGroup": {
+    "name": "c07vrrpOperGroup",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpNodeVersion"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpNotificationCntl"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperVirtualMacAddr"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperState"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperAdminState"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperPriority"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperIpAddrCount"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperMasterIpAddr"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperPrimaryIpAddr"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperAuthType"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperAuthKey"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperAdvertisementInterval"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperPreemptMode"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperVirtualRouterUpTime"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperProtocol"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpAssoIpAddrRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "c07vrrpStatsGroup": {
+    "name": "c07vrrpStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpRouterChecksumErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpRouterVersionErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpRouterVrIdErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsBecomeMaster"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsAdvertiseRcvd"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsAdvertiseIntervalErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsAuthFailures"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsIpTtlErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsPriorityZeroPktsRcvd"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsPriorityZeroPktsSent"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsInvalidTypePktsRcvd"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsAddressListErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsInvalidAuthType"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsAuthTypeMismatch"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatsPacketLengthErrors"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "c07vrrpTrapGroup": {
+    "name": "c07vrrpTrapGroup",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapPacketSrc"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapAuthErrorType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "c07vrrpNotificationGroup": {
+    "name": "c07vrrpNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapAuthFailure"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "c07vrrpOperationsGroup": {
+    "name": "c07vrrpOperationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapNewMasterCntl"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapProtoErrorCntl"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsVirtualMacAddr"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsState"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsPriority"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsMasterIpAddr"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsAdvInterval"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsPreemptMode"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsAcceptMode"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsUpTime"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsStorageType"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsAddrCount"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpOperationsPrimaryIpAddr"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpAssociatedStorageType"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpAssociatedIpAddrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpStatisticsGroup": {
+    "name": "c07vrrpStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpRouterChecksumErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpRouterVersionErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpRouterVrIdErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsMasterTransitions"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsRcvdAdvertisements"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsAdvIntervalErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsRcvdPriZeroPackets"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsSentPriZeroPackets"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsRcvdInvalidTypePkts"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsIpTtlErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsAddressListErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsPacketLengthErrors"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsRcvdInvalidAuthentications"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpStatisticsRefreshRate"
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpTrapInfoGroup": {
+    "name": "c07vrrpTrapInfoGroup",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapProtoErrReason"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpNewMasterReason"
+      }
+    ],
+    "status": "current"
+  },
+  "c07vrrpNotificationsGroup": {
+    "name": "c07vrrpNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.143.3.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapNewMaster"
+      },
+      {
+        "module": "CISCO-IETF-VRRP-07-MIB",
+        "object": "c07vrrpTrapProtoError"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-VRRP-07-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-VRRP-07-MIB"
+  }
+}

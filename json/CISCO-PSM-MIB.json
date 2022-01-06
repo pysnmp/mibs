@@ -1,0 +1,4125 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId",
+      "PortMemberList",
+      "FcNameIdOrZero",
+      "DomainId",
+      "DomainIdOrZero"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoPsmMIB": {
+    "name": "ciscoPsmMIB",
+    "oid": "1.3.6.1.4.1.9.9.364",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-10-15 00:00",
+        "description": "Added cpsmPortBindNextFreeTable and cpsmFabricBindNextFreeTable. Added new enumeration to the TC CpsmPortBindSwPortType."
+      },
+      {
+        "revision": "2004-03-16 00:00",
+        "description": "Added a new enumeration to the TC CpsmViolationReasonCode."
+      },
+      {
+        "revision": "2003-11-27 00:00",
+        "description": "Added cpsmFabricBindDenialReasonCode to cpsmFabricBindViolationNewTable and the notification ciscoPsmFabricBindDenyNotifyNew."
+      },
+      {
+        "revision": "2003-11-10 00:00",
+        "description": "Added cpsmFabricBindDenialDomId object to cpsmFabricBindViolationNewTable."
+      },
+      {
+        "revision": "2003-10-17 00:00",
+        "description": "Made cpsmFabricBindDomId mandatory during creation of fabric-binding entry. Deprecated cpsmFabricBindAutoLearnTable."
+      },
+      {
+        "revision": "2003-10-06 00:00",
+        "description": "Deprecated object cpsmFabricBindClearAutoLearnIntf. Updated description of cpsmFabricBindClearAutoLearnDb object to reflect the fact that fabric-binding entries cannot be cleared on an interface basis. Deprecated cpsmFabricBindViolationTable and defined new table cpsmFabricBindViolationNewTable. Deprecated ciscoPsmFabricBindDenyNotify and defined a new notification ciscoPsmFabricBindDenyNotifyNew. Added cpsmEfmdConfigTable and cpsmEfmdStatsTable."
+      },
+      {
+        "revision": "2003-08-07 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoPsmMIBNotifs": {
+    "name": "ciscoPsmMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.364.0",
+    "class": "objectidentity"
+  },
+  "ciscoPsmMIBObjects": {
+    "name": "ciscoPsmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.364.1",
+    "class": "objectidentity"
+  },
+  "ciscoPsmMIBConform": {
+    "name": "ciscoPsmMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.364.2",
+    "class": "objectidentity"
+  },
+  "cpsmConfiguration": {
+    "name": "cpsmConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1",
+    "class": "objectidentity"
+  },
+  "cpsmStats": {
+    "name": "cpsmStats",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2",
+    "class": "objectidentity"
+  },
+  "CpsmVirtNwType": {
+    "name": "CpsmVirtNwType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vsan": 1,
+          "vlan": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmPortBindDevType": {
+    "name": "CpsmPortBindDevType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "nWwn": 2,
+          "pWwn": 3,
+          "sWwn": 4,
+          "wildCard": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmPortBindSwPortType": {
+    "name": "CpsmPortBindSwPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fwwn": 1,
+          "intfIndex": 2,
+          "wildCard": 3,
+          "swwn": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmDbActivate": {
+    "name": "CpsmDbActivate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 1,
+          "activateWithAutoLearnOff": 2,
+          "forceActivate": 3,
+          "forceActivateWithAutoLearnOff": 4,
+          "deactivate": 5,
+          "noop": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmActivateResult": {
+    "name": "CpsmActivateResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "actFailNullDb": 2,
+          "actFailConflictDb": 3,
+          "actFailSystemErr": 4,
+          "actFailAutoLearnOn": 5,
+          "deactFailNoActive": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmAutoLearnEnable": {
+    "name": "CpsmAutoLearnEnable",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmClearStats": {
+    "name": "CpsmClearStats",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noop": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmClearAutoLearnDb": {
+    "name": "CpsmClearAutoLearnDb",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearOnVsan": 1,
+          "clearOnIntf": 2,
+          "noop": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmDiffDb": {
+    "name": "CpsmDiffDb",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configDb": 1,
+          "activeDb": 2,
+          "noop": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmDiffReason": {
+    "name": "CpsmDiffReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extra": 1,
+          "missing": 2,
+          "conflict": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpsmStatsCounter": {
+    "name": "CpsmStatsCounter",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CpsmViolationReasonCode": {
+    "name": "CpsmViolationReasonCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noSwwn": 2,
+          "domIdMismatch": 3,
+          "efmdDbMismatch": 4,
+          "noRespFromRemote": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cpsmPortBindTable": {
+    "name": "cpsmPortBindTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindEntry": {
+    "name": "cpsmPortBindEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindNwType": {
+    "name": "cpsmPortBindNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindNwIndex": {
+    "name": "cpsmPortBindNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindIndex": {
+    "name": "cpsmPortBindIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindLoginDevType": {
+    "name": "cpsmPortBindLoginDevType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmPortBindDevType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "pWwn",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsmPortBindLoginDev": {
+    "name": "cpsmPortBindLoginDev",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsmPortBindLoginPointType": {
+    "name": "cpsmPortBindLoginPointType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmPortBindSwPortType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "fwwn",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsmPortBindLoginPoint": {
+    "name": "cpsmPortBindLoginPoint",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsmPortBindRowStatus": {
+    "name": "cpsmPortBindRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsmPortBindActivateTable": {
+    "name": "cpsmPortBindActivateTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindActivateEntry": {
+    "name": "cpsmPortBindActivateEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindActivate": {
+    "name": "cpsmPortBindActivate",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDbActivate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmPortBindResult": {
+    "name": "cpsmPortBindResult",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmActivateResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindLastActTime": {
+    "name": "cpsmPortBindLastActTime",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindActState": {
+    "name": "cpsmPortBindActState",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindTable": {
+    "name": "cpsmFabricBindTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindEntry": {
+    "name": "cpsmFabricBindEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindNwType": {
+    "name": "cpsmFabricBindNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindNwIndex": {
+    "name": "cpsmFabricBindNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindIndex": {
+    "name": "cpsmFabricBindIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindSwitchWwn": {
+    "name": "cpsmFabricBindSwitchWwn",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsmFabricBindDomId": {
+    "name": "cpsmFabricBindDomId",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsmFabricBindRowStatus": {
+    "name": "cpsmFabricBindRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpsmFabricBindActivateTable": {
+    "name": "cpsmFabricBindActivateTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindActivateEntry": {
+    "name": "cpsmFabricBindActivateEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindActivate": {
+    "name": "cpsmFabricBindActivate",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDbActivate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmFabricBindResult": {
+    "name": "cpsmFabricBindResult",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmActivateResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindLastActTime": {
+    "name": "cpsmFabricBindLastActTime",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindActState": {
+    "name": "cpsmFabricBindActState",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindCopyTable": {
+    "name": "cpsmPortBindCopyTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindCopyEntry": {
+    "name": "cpsmPortBindCopyEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindCopyActToConfig": {
+    "name": "cpsmPortBindCopyActToConfig",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copy": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmPortBindLastChangeTime": {
+    "name": "cpsmPortBindLastChangeTime",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindCopyTable": {
+    "name": "cpsmFabricBindCopyTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindCopyEntry": {
+    "name": "cpsmFabricBindCopyEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindCopyActToConfig": {
+    "name": "cpsmFabricBindCopyActToConfig",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copy": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmFabricBindLastChangeTime": {
+    "name": "cpsmFabricBindLastChangeTime",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindEnfTable": {
+    "name": "cpsmPortBindEnfTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindEnfEntry": {
+    "name": "cpsmPortBindEnfEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindEnfNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindEnfNwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindEnfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindEnfNwType": {
+    "name": "cpsmPortBindEnfNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindEnfNwIndex": {
+    "name": "cpsmPortBindEnfNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindEnfIndex": {
+    "name": "cpsmPortBindEnfIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindEnfLoginDevType": {
+    "name": "cpsmPortBindEnfLoginDevType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmPortBindDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindEnfLoginDev": {
+    "name": "cpsmPortBindEnfLoginDev",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindEnfLoginPointType": {
+    "name": "cpsmPortBindEnfLoginPointType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmPortBindSwPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindEnfLoginPoint": {
+    "name": "cpsmPortBindEnfLoginPoint",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindEnfIsLearnt": {
+    "name": "cpsmPortBindEnfIsLearnt",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindEnfTable": {
+    "name": "cpsmFabricBindEnfTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindEnfEntry": {
+    "name": "cpsmFabricBindEnfEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindEnfNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindEnfNwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindEnfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindEnfNwType": {
+    "name": "cpsmFabricBindEnfNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindEnfNwIndex": {
+    "name": "cpsmFabricBindEnfNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindEnfIndex": {
+    "name": "cpsmFabricBindEnfIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindEnfSwitchWwn": {
+    "name": "cpsmFabricBindEnfSwitchWwn",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindEnfDomId": {
+    "name": "cpsmFabricBindEnfDomId",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindEnfIsLearnt": {
+    "name": "cpsmFabricBindEnfIsLearnt",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindAutoLearnTable": {
+    "name": "cpsmPortBindAutoLearnTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindAutoLearnEntry": {
+    "name": "cpsmPortBindAutoLearnEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindAutoLearnIndexType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindAutoLearnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindAutoLearnIndexType": {
+    "name": "cpsmPortBindAutoLearnIndexType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindAutoLearnIndex": {
+    "name": "cpsmPortBindAutoLearnIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindAutoLearnEnable": {
+    "name": "cpsmPortBindAutoLearnEnable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmAutoLearnEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmFabricBindAutoLearnTable": {
+    "name": "cpsmFabricBindAutoLearnTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindAutoLearnEntry": {
+    "name": "cpsmFabricBindAutoLearnEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindAutoLearnIndexType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindAutoLearnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpsmFabricBindAutoLearnIndexType": {
+    "name": "cpsmFabricBindAutoLearnIndexType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindAutoLearnIndex": {
+    "name": "cpsmFabricBindAutoLearnIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindAutoLearnEnable": {
+    "name": "cpsmFabricBindAutoLearnEnable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmAutoLearnEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cpsmPortBindClearTable": {
+    "name": "cpsmPortBindClearTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindClearEntry": {
+    "name": "cpsmPortBindClearEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindClearNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindClearNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindClearNwType": {
+    "name": "cpsmPortBindClearNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindClearNwIndex": {
+    "name": "cpsmPortBindClearNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindClearStats": {
+    "name": "cpsmPortBindClearStats",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmClearStats",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmPortBindClearAutoLearnDb": {
+    "name": "cpsmPortBindClearAutoLearnDb",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmClearAutoLearnDb",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmPortBindClearAutoLearnIntf": {
+    "name": "cpsmPortBindClearAutoLearnIntf",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMemberList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmFabricBindClearTable": {
+    "name": "cpsmFabricBindClearTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindClearEntry": {
+    "name": "cpsmFabricBindClearEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindClearNwType": {
+    "name": "cpsmFabricBindClearNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindClearNwIndex": {
+    "name": "cpsmFabricBindClearNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindClearStats": {
+    "name": "cpsmFabricBindClearStats",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmClearStats",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmFabricBindClearAutoLearnDb": {
+    "name": "cpsmFabricBindClearAutoLearnDb",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmClearAutoLearnDb",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmFabricBindClearAutoLearnIntf": {
+    "name": "cpsmFabricBindClearAutoLearnIntf",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cpsmPortBindDiffConfigTable": {
+    "name": "cpsmPortBindDiffConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindDiffConfigEntry": {
+    "name": "cpsmPortBindDiffConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffConfigNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffConfigNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindDiffConfigNwType": {
+    "name": "cpsmPortBindDiffConfigNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindDiffConfigNwIndex": {
+    "name": "cpsmPortBindDiffConfigNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindDiffConfigDb": {
+    "name": "cpsmPortBindDiffConfigDb",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDiffDb",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmPortBindDiffTable": {
+    "name": "cpsmPortBindDiffTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindDiffEntry": {
+    "name": "cpsmPortBindDiffEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffNwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindDiffNwType": {
+    "name": "cpsmPortBindDiffNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindDiffNwIndex": {
+    "name": "cpsmPortBindDiffNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindDiffIndex": {
+    "name": "cpsmPortBindDiffIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindDiffReason": {
+    "name": "cpsmPortBindDiffReason",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDiffReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindDiffLoginDevType": {
+    "name": "cpsmPortBindDiffLoginDevType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmPortBindDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindDiffLoginDev": {
+    "name": "cpsmPortBindDiffLoginDev",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindDiffLoginPointType": {
+    "name": "cpsmPortBindDiffLoginPointType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmPortBindSwPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindDiffLoginPoint": {
+    "name": "cpsmPortBindDiffLoginPoint",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffConfigTable": {
+    "name": "cpsmFabricBindDiffConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffConfigEntry": {
+    "name": "cpsmFabricBindDiffConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffConfigNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffConfigNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindDiffConfigNwType": {
+    "name": "cpsmFabricBindDiffConfigNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffConfigNwIndex": {
+    "name": "cpsmFabricBindDiffConfigNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffConfigDb": {
+    "name": "cpsmFabricBindDiffConfigDb",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDiffDb",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffTable": {
+    "name": "cpsmFabricBindDiffTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffEntry": {
+    "name": "cpsmFabricBindDiffEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffNwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindDiffNwType": {
+    "name": "cpsmFabricBindDiffNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffNwIndex": {
+    "name": "cpsmFabricBindDiffNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffIndex": {
+    "name": "cpsmFabricBindDiffIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffReason": {
+    "name": "cpsmFabricBindDiffReason",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDiffReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffSwitchWwn": {
+    "name": "cpsmFabricBindDiffSwitchWwn",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindDiffDomId": {
+    "name": "cpsmFabricBindDiffDomId",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindStatsTable": {
+    "name": "cpsmPortBindStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindStatsEntry": {
+    "name": "cpsmPortBindStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindVsanVlanType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindVsanVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindVsanVlanType": {
+    "name": "cpsmPortBindVsanVlanType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindVsanVlanIndex": {
+    "name": "cpsmPortBindVsanVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindAllowedLogins": {
+    "name": "cpsmPortBindAllowedLogins",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmStatsCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindDeniedLogins": {
+    "name": "cpsmPortBindDeniedLogins",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmStatsCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindStatsTable": {
+    "name": "cpsmFabricBindStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindStatsEntry": {
+    "name": "cpsmFabricBindStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindVsanVlanType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindVsanVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindVsanVlanType": {
+    "name": "cpsmFabricBindVsanVlanType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindVsanVlanIndex": {
+    "name": "cpsmFabricBindVsanVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindAllowedReqs": {
+    "name": "cpsmFabricBindAllowedReqs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmStatsCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindDeniedReqs": {
+    "name": "cpsmFabricBindDeniedReqs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmStatsCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindViolationTable": {
+    "name": "cpsmPortBindViolationTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindViolationEntry": {
+    "name": "cpsmPortBindViolationEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindViolationNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindViolationNwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindViolationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindViolationNwType": {
+    "name": "cpsmPortBindViolationNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindViolationNwIndex": {
+    "name": "cpsmPortBindViolationNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindViolationIndex": {
+    "name": "cpsmPortBindViolationIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindLoginPwwn": {
+    "name": "cpsmPortBindLoginPwwn",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindLoginNwwn": {
+    "name": "cpsmPortBindLoginNwwn",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindLoginSwwn": {
+    "name": "cpsmPortBindLoginSwwn",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindLoginPort": {
+    "name": "cpsmPortBindLoginPort",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindLoginTime": {
+    "name": "cpsmPortBindLoginTime",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindLoginCount": {
+    "name": "cpsmPortBindLoginCount",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmPortBindLoginIntf": {
+    "name": "cpsmPortBindLoginIntf",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindViolationTable": {
+    "name": "cpsmFabricBindViolationTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindViolationEntry": {
+    "name": "cpsmFabricBindViolationEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindViolationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpsmFabricBindViolationIndex": {
+    "name": "cpsmFabricBindViolationIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindSwwn": {
+    "name": "cpsmFabricBindSwwn",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindLocalPort": {
+    "name": "cpsmFabricBindLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindDenialTime": {
+    "name": "cpsmFabricBindDenialTime",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindLocalIntf": {
+    "name": "cpsmFabricBindLocalIntf",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpsmFabricBindViolationNewTable": {
+    "name": "cpsmFabricBindViolationNewTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindViolationNewEntry": {
+    "name": "cpsmFabricBindViolationNewEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindViolationNwTypeR1",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindViolationNwIndexR1",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindViolationIndexR1",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindViolationNwTypeR1": {
+    "name": "cpsmFabricBindViolationNwTypeR1",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindViolationNwIndexR1": {
+    "name": "cpsmFabricBindViolationNwIndexR1",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindViolationIndexR1": {
+    "name": "cpsmFabricBindViolationIndexR1",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindSwwnR1": {
+    "name": "cpsmFabricBindSwwnR1",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindDenialTimeR1": {
+    "name": "cpsmFabricBindDenialTimeR1",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindDenialCountR1": {
+    "name": "cpsmFabricBindDenialCountR1",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindDenialDomId": {
+    "name": "cpsmFabricBindDenialDomId",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindDenialReasonCode": {
+    "name": "cpsmFabricBindDenialReasonCode",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmViolationReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdStatsTable": {
+    "name": "cpsmEfmdStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmEfmdStatsEntry": {
+    "name": "cpsmEfmdStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmEfmdTxMergeReqs": {
+    "name": "cpsmEfmdTxMergeReqs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdRxMergeReqs": {
+    "name": "cpsmEfmdRxMergeReqs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdTxMergeAccs": {
+    "name": "cpsmEfmdTxMergeAccs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdRxMergeAccs": {
+    "name": "cpsmEfmdRxMergeAccs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdTxMergeRejs": {
+    "name": "cpsmEfmdTxMergeRejs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdRxMergeRejs": {
+    "name": "cpsmEfmdRxMergeRejs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdTxMergeBusys": {
+    "name": "cpsmEfmdTxMergeBusys",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdRxMergeBusys": {
+    "name": "cpsmEfmdRxMergeBusys",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdTxMergeErrs": {
+    "name": "cpsmEfmdTxMergeErrs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmEfmdRxMergeErrs": {
+    "name": "cpsmEfmdRxMergeErrs",
+    "oid": "1.3.6.1.4.1.9.9.364.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmNotifyEnable": {
+    "name": "cpsmNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmEfmdConfigTable": {
+    "name": "cpsmEfmdConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmEfmdConfigEntry": {
+    "name": "cpsmEfmdConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmEfmdConfigEnforce": {
+    "name": "cpsmEfmdConfigEnforce",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpsmPortBindNextFreeTable": {
+    "name": "cpsmPortBindNextFreeTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindNextFreeEntry": {
+    "name": "cpsmPortBindNextFreeEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNextFreeNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNextFreeNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmPortBindNextFreeNwType": {
+    "name": "cpsmPortBindNextFreeNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindNextFreeNwIndex": {
+    "name": "cpsmPortBindNextFreeNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmPortBindNextFreeIndex": {
+    "name": "cpsmPortBindNextFreeIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpsmFabricBindNextFreeTable": {
+    "name": "cpsmFabricBindNextFreeTable",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindNextFreeEntry": {
+    "name": "cpsmFabricBindNextFreeEntry",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNextFreeNwType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNextFreeNwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpsmFabricBindNextFreeNwType": {
+    "name": "cpsmFabricBindNextFreeNwType",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmVirtNwType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindNextFreeNwIndex": {
+    "name": "cpsmFabricBindNextFreeNwIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpsmFabricBindNextFreeIndex": {
+    "name": "cpsmFabricBindNextFreeIndex",
+    "oid": "1.3.6.1.4.1.9.9.364.1.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoPsmPortBindFPortDenyNotify": {
+    "name": "ciscoPsmPortBindFPortDenyNotify",
+    "oid": "1.3.6.1.4.1.9.9.364.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPwwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPort"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmPortBindEPortDenyNotify": {
+    "name": "ciscoPsmPortBindEPortDenyNotify",
+    "oid": "1.3.6.1.4.1.9.9.364.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginSwwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPort"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmFabricBindDenyNotify": {
+    "name": "ciscoPsmFabricBindDenyNotify",
+    "oid": "1.3.6.1.4.1.9.9.364.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLocalPort"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmFabricBindDenyNotifyNew": {
+    "name": "ciscoPsmFabricBindDenyNotifyNew",
+    "oid": "1.3.6.1.4.1.9.9.364.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwwnR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialTimeR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialReasonCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmMIBCompliances": {
+    "name": "ciscoPsmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.364.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoPsmMIBGroups": {
+    "name": "ciscoPsmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoPsmMIBCompliance": {
+    "name": "ciscoPsmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.364.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPsmPortBindConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindNotifyGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindNotifyGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmNotifyEnableGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindAutoLearnGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindAutoLearnGroup",
+        "module": "CISCO-PSM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmMIBComplianceRev1": {
+    "name": "ciscoPsmMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.364.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPsmPortBindConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindConfigGroup1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindStatsGroup1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindNotifyGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindNotifyGroupR1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmNotifyEnableGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindAutoLearnGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindAutoLearnGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmMIBComplianceRev2": {
+    "name": "ciscoPsmMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.364.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPsmPortBindConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindConfigGroup1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindStatsGroup1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindNotifyGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindNotifyGroupR1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmNotifyEnableGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindAutoLearnGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmMIBComplianceRev3": {
+    "name": "ciscoPsmMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.364.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPsmPortBindConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindConfigGroup1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindStatsGroup2",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindNotifyGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindNotifyGroupR1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmNotifyEnableGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindAutoLearnGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmMIBComplianceRev4": {
+    "name": "ciscoPsmMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.364.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPsmPortBindConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindConfigGroup1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindStatsGroup3",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindNotifyGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindNotifyGroupR1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmNotifyEnableGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindAutoLearnGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmMIBComplianceRev5": {
+    "name": "ciscoPsmMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.364.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPsmPortBindConfigGroup1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindConfigGroup2",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindEnforcedGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindStatsGroup3",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindNotifyGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmFabricBindNotifyGroupR1",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmNotifyEnableGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmPortBindAutoLearnGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdConfigGroup",
+        "module": "CISCO-PSM-MIB"
+      },
+      {
+        "object": "ciscoPsmEfmdStatsGroup",
+        "module": "CISCO-PSM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmPortBindConfigGroup": {
+    "name": "ciscoPsmPortBindConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginDevType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginDev"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPointType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPoint"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindRowStatus"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindActivate"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindResult"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLastActTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindActState"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindCopyActToConfig"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLastChangeTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindClearStats"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindClearAutoLearnDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindClearAutoLearnIntf"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffConfigDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffReason"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffLoginDevType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffLoginDev"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffLoginPointType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffLoginPoint"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmFabricBindConfigGroup": {
+    "name": "ciscoPsmFabricBindConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwitchWwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDomId"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindRowStatus"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindActivate"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindResult"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLastActTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindActState"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindCopyActToConfig"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLastChangeTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearStats"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearAutoLearnDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearAutoLearnIntf"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffConfigDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffReason"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffSwitchWwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffDomId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmPortBindEnforcedGroup": {
+    "name": "ciscoPsmPortBindEnforcedGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindEnfLoginDevType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindEnfLoginDev"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindEnfLoginPointType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindEnfLoginPoint"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindEnfIsLearnt"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmFabricBindEnforcedGroup": {
+    "name": "ciscoPsmFabricBindEnforcedGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindEnfSwitchWwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindEnfDomId"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindEnfIsLearnt"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmPortBindStatsGroup": {
+    "name": "ciscoPsmPortBindStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindAllowedLogins"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDeniedLogins"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPwwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginNwwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginSwwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPort"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginCount"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginIntf"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmFabricBindStatsGroup": {
+    "name": "ciscoPsmFabricBindStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindAllowedReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDeniedReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLocalPort"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLocalIntf"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmPortBindNotifyGroup": {
+    "name": "ciscoPsmPortBindNotifyGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "ciscoPsmPortBindFPortDenyNotify"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "ciscoPsmPortBindEPortDenyNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmFabricBindNotifyGroup": {
+    "name": "ciscoPsmFabricBindNotifyGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "ciscoPsmFabricBindDenyNotify"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmPortBindAutoLearnGroup": {
+    "name": "ciscoPsmPortBindAutoLearnGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindAutoLearnEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmFabricBindAutoLearnGroup": {
+    "name": "ciscoPsmFabricBindAutoLearnGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindAutoLearnEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmNotifyEnableGroup": {
+    "name": "ciscoPsmNotifyEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmFabricBindConfigGroup1": {
+    "name": "ciscoPsmFabricBindConfigGroup1",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwitchWwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDomId"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindRowStatus"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindActivate"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindResult"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLastActTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindActState"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindCopyActToConfig"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLastChangeTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearStats"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearAutoLearnDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffConfigDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffReason"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffSwitchWwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffDomId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmFabricBindStatsGroup1": {
+    "name": "ciscoPsmFabricBindStatsGroup1",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindAllowedReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDeniedReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwwnR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialTimeR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialCountR1"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmFabricBindNotifyGroupR1": {
+    "name": "ciscoPsmFabricBindNotifyGroupR1",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "ciscoPsmFabricBindDenyNotifyNew"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmEfmdConfigGroup": {
+    "name": "ciscoPsmEfmdConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdConfigEnforce"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmEfmdStatsGroup": {
+    "name": "ciscoPsmEfmdStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdTxMergeReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdRxMergeReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdTxMergeAccs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdRxMergeAccs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdTxMergeRejs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdRxMergeRejs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdTxMergeBusys"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdRxMergeBusys"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdTxMergeErrs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmEfmdRxMergeErrs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmFabricBindStatsGroup2": {
+    "name": "ciscoPsmFabricBindStatsGroup2",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindAllowedReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDeniedReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwwnR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialTimeR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialCountR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialDomId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPsmFabricBindStatsGroup3": {
+    "name": "ciscoPsmFabricBindStatsGroup3",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindAllowedReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDeniedReqs"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwwnR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialTimeR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialCountR1"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialDomId"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDenialReasonCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmPortBindConfigGroup1": {
+    "name": "ciscoPsmPortBindConfigGroup1",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginDevType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginDev"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPointType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLoginPoint"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindRowStatus"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindActivate"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindResult"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLastActTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindActState"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindCopyActToConfig"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindLastChangeTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindClearStats"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindClearAutoLearnDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindClearAutoLearnIntf"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffConfigDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffReason"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffLoginDevType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffLoginDev"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffLoginPointType"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindDiffLoginPoint"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmPortBindNextFreeIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsmFabricBindConfigGroup2": {
+    "name": "ciscoPsmFabricBindConfigGroup2",
+    "oid": "1.3.6.1.4.1.9.9.364.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindSwitchWwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDomId"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindRowStatus"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindActivate"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindResult"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLastActTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindActState"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindCopyActToConfig"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindLastChangeTime"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearStats"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindClearAutoLearnDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffConfigDb"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffReason"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffSwitchWwn"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindDiffDomId"
+      },
+      {
+        "module": "CISCO-PSM-MIB",
+        "object": "cpsmFabricBindNextFreeIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PSM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PSM-MIB"
+  }
+}

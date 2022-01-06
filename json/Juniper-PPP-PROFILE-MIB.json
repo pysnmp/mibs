@@ -1,0 +1,2044 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-PPP-MIB": [
+      "JuniPppAuthentication"
+    ],
+    "Juniper-TC": [
+      "JuniNibbleConfig",
+      "JuniName",
+      "JuniEnable",
+      "JuniSetMap"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniPppProfileMIB": {
+    "name": "juniPppProfileMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.45",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-09-18 07:24",
+        "description": "Added new multiclass multilink objects. Added new traffic class mapping for multiclasses."
+      },
+      {
+        "revision": "2009-08-10 14:23",
+        "description": "Added IPCP dns prompt and lockout option element in juniPppProfileTable."
+      },
+      {
+        "revision": "2007-07-12 12:15",
+        "description": "Added new ignore magic number mismatch element in juniPppProfileEntry MIB. Added new authentication elements to use JuniNibbleConfig."
+      },
+      {
+        "revision": "2005-10-19 16:26",
+        "description": "Added new object for multilink."
+      },
+      {
+        "revision": "2003-11-03 21:10",
+        "description": "Added support for MLPPP fragmentation and reassembly."
+      },
+      {
+        "revision": "2003-09-29 18:58",
+        "description": "Increased the maximum range of the PPP Profile LCP keep-alive time."
+      },
+      {
+        "revision": "2003-03-11 21:59",
+        "description": "Added juniPppProfileInitiateIp and juniPppProfileInitiateIpv6."
+      },
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-09-03 22:38",
+        "description": "Added juniPppProfileAaaProfile."
+      },
+      {
+        "revision": "2002-01-25 14:00",
+        "description": "Added juniPppProfileAuthenticatorVirtualRouter."
+      },
+      {
+        "revision": "2002-01-16 17:58",
+        "description": "Added support for negotiation of the IPCP option netmask."
+      },
+      {
+        "revision": "2002-01-08 19:43",
+        "description": "Added support for dynamic multilink PPP (MLPPP) interfaces."
+      },
+      {
+        "revision": "2001-10-02 12:41",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniPppProfileObjects": {
+    "name": "juniPppProfileObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1",
+    "class": "objectidentity"
+  },
+  "juniPppProfile": {
+    "name": "juniPppProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1",
+    "class": "objectidentity"
+  },
+  "juniPppProfileTable": {
+    "name": "juniPppProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPppProfileEntry": {
+    "name": "juniPppProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPppProfileId": {
+    "name": "juniPppProfileId",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPppProfileSetMap": {
+    "name": "juniPppProfileSetMap",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniSetMap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileLcpMagicNumber": {
+    "name": "juniPppProfileLcpMagicNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileLcpKeepalive": {
+    "name": "juniPppProfileLcpKeepalive",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 64800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileLcpAuthentication": {
+    "name": "juniPppProfileLcpAuthentication",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPppAuthentication",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "juniPppProfileIpPeerDnsPriority": {
+    "name": "juniPppProfileIpPeerDnsPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileIpPeerWinsPriority": {
+    "name": "juniPppProfileIpPeerWinsPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileLcpInitialMRU": {
+    "name": "juniPppProfileLcpInitialMRU",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 64,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfilePacketLog": {
+    "name": "juniPppProfilePacketLog",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileStateLog": {
+    "name": "juniPppProfileStateLog",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileChapMinChallengeLength": {
+    "name": "juniPppProfileChapMinChallengeLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileChapMaxChallengeLength": {
+    "name": "juniPppProfileChapMaxChallengeLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfilePassiveMode": {
+    "name": "juniPppProfilePassiveMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileMlppp": {
+    "name": "juniPppProfileMlppp",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileIpcpNetmask": {
+    "name": "juniPppProfileIpcpNetmask",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileAuthenticatorVirtualRouter": {
+    "name": "juniPppProfileAuthenticatorVirtualRouter",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileAaaProfile": {
+    "name": "juniPppProfileAaaProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileInitiateIp": {
+    "name": "juniPppProfileInitiateIp",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileInitiateIpv6": {
+    "name": "juniPppProfileInitiateIpv6",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileFragmentation": {
+    "name": "juniPppProfileFragmentation",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileReassembly": {
+    "name": "juniPppProfileReassembly",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileMaxReceiveReconstructedUnit": {
+    "name": "juniPppProfileMaxReceiveReconstructedUnit",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 64,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileFragmentSize": {
+    "name": "juniPppProfileFragmentSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 128,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileHashLinkSelection": {
+    "name": "juniPppProfileHashLinkSelection",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileLcpAuthentication2": {
+    "name": "juniPppProfileLcpAuthentication2",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNibbleConfig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileIgnoreMagicNumberMismatch": {
+    "name": "juniPppProfileIgnoreMagicNumberMismatch",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileIpcpPromptDnsOption": {
+    "name": "juniPppProfileIpcpPromptDnsOption",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileIpcpLockout": {
+    "name": "juniPppProfileIpcpLockout",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileMultilinkMulticlass": {
+    "name": "juniPppProfileMultilinkMulticlass",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPppProfileMultilinkMaxMultiClasses": {
+    "name": "juniPppProfileMultilinkMaxMultiClasses",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "JuniPppProfileMulticlassTcName": {
+    "name": "JuniPppProfileMulticlassTcName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "juniPppProfileMulticlassTraffiClassTable": {
+    "name": "juniPppProfileMulticlassTraffiClassTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPppProfileMulticlassTrafficClassEntry": {
+    "name": "juniPppProfileMulticlassTrafficClassEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMulticlassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPppProfileMulticlassId": {
+    "name": "juniPppProfileMulticlassId",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPppProfileMulticlassIndex": {
+    "name": "juniPppProfileMulticlassIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPppProfileMulticlassTcName": {
+    "name": "juniPppProfileMulticlassTcName",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPppProfileMulticlassTcName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileMulticlassFragmentation": {
+    "name": "juniPppProfileMulticlassFragmentation",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileMulticlassReassembly": {
+    "name": "juniPppProfileMulticlassReassembly",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniPppProfileConformance": {
+    "name": "juniPppProfileConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4",
+    "class": "objectidentity"
+  },
+  "juniPppProfileCompliances": {
+    "name": "juniPppProfileCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1",
+    "class": "objectidentity"
+  },
+  "juniPppProfileGroups": {
+    "name": "juniPppProfileGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2",
+    "class": "objectidentity"
+  },
+  "juniPppProfileCompliance": {
+    "name": "juniPppProfileCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance2": {
+    "name": "juniPppProfileCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup2",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance3": {
+    "name": "juniPppProfileCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup3",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance4": {
+    "name": "juniPppProfileCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup4",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance5": {
+    "name": "juniPppProfileCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup5",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance6": {
+    "name": "juniPppProfileCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup6",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance7": {
+    "name": "juniPppProfileCompliance7",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup7",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance8": {
+    "name": "juniPppProfileCompliance8",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup8",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance9": {
+    "name": "juniPppProfileCompliance9",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup10",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileCompliance10": {
+    "name": "juniPppProfileCompliance10",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPppProfileGroup11",
+        "module": "Juniper-PPP-PROFILE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPppProfileGroup": {
+    "name": "juniPppProfileGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup2": {
+    "name": "juniPppProfileGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup3": {
+    "name": "juniPppProfileGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup4": {
+    "name": "juniPppProfileGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup5": {
+    "name": "juniPppProfileGroup5",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAaaProfile"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup6": {
+    "name": "juniPppProfileGroup6",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAaaProfile"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIpv6"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup7": {
+    "name": "juniPppProfileGroup7",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAaaProfile"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIpv6"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentation"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileReassembly"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMaxReceiveReconstructedUnit"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentSize"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup8": {
+    "name": "juniPppProfileGroup8",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAaaProfile"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIpv6"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentation"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileReassembly"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMaxReceiveReconstructedUnit"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentSize"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileHashLinkSelection"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup9": {
+    "name": "juniPppProfileGroup9",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAaaProfile"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIpv6"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentation"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileReassembly"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMaxReceiveReconstructedUnit"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentSize"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileHashLinkSelection"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication2"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup10": {
+    "name": "juniPppProfileGroup10",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAaaProfile"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIpv6"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentation"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileReassembly"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMaxReceiveReconstructedUnit"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentSize"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileHashLinkSelection"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication2"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIgnoreMagicNumberMismatch"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPppProfileGroup11": {
+    "name": "juniPppProfileGroup11",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAaaProfile"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIpv6"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentation"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileReassembly"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMaxReceiveReconstructedUnit"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentSize"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileHashLinkSelection"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication2"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIgnoreMagicNumberMismatch"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpPromptDnsOption"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpLockout"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPppProfileGroup12": {
+    "name": "juniPppProfileGroup12",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileSetMap"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpMagicNumber"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpKeepalive"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerDnsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpPeerWinsPriority"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpInitialMRU"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePacketLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileStateLog"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMinChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileChapMaxChallengeLength"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfilePassiveMode"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMlppp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIpcpNetmask"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAuthenticatorVirtualRouter"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileAaaProfile"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIp"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileInitiateIpv6"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentation"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileReassembly"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMaxReceiveReconstructedUnit"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileFragmentSize"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileHashLinkSelection"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileLcpAuthentication2"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileIgnoreMagicNumberMismatch"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMultilinkMulticlass"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMultilinkMaxMultiClasses"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPppProfileMulticlassTrafficClassGroup1": {
+    "name": "juniPppProfileMulticlassTrafficClassGroup1",
+    "oid": "1.3.6.1.4.1.4874.2.2.45.4.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMulticlassTcName"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMulticlassFragmentation"
+      },
+      {
+        "module": "Juniper-PPP-PROFILE-MIB",
+        "object": "juniPppProfileMulticlassReassembly"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-PPP-PROFILE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-PPP-PROFILE-MIB"
+  }
+}

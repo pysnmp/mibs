@@ -1,0 +1,646 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleDhcpSnooping": {
+    "name": "sleDhcpSnooping",
+    "oid": "1.3.6.1.4.1.6296.101.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-07-29 14:25",
+        "description": " "
+      }
+    ]
+  },
+  "sleGlobal": {
+    "name": "sleGlobal",
+    "oid": "1.3.6.1.4.1.6296.101.12.1",
+    "class": "objectidentity"
+  },
+  "sleGlobalInfo": {
+    "name": "sleGlobalInfo",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.1",
+    "class": "objectidentity"
+  },
+  "sleFeatureEnable": {
+    "name": "sleFeatureEnable",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleGlobalControl": {
+    "name": "sleGlobalControl",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.2",
+    "class": "objectidentity"
+  },
+  "sleGlobalControlRequest": {
+    "name": "sleGlobalControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setSnoopingEnable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleGlobalControlStatus": {
+    "name": "sleGlobalControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleGlobalControlTimer": {
+    "name": "sleGlobalControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleGlobalControlTimeStamp": {
+    "name": "sleGlobalControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleGlobalControlReqResult": {
+    "name": "sleGlobalControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleGlobalControlFeatureEnable": {
+    "name": "sleGlobalControlFeatureEnable",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleGlobalNotification": {
+    "name": "sleGlobalNotification",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.3",
+    "class": "objectidentity"
+  },
+  "sleGlobalFeatureEnableChanged": {
+    "name": "sleGlobalFeatureEnableChanged",
+    "oid": "1.3.6.1.4.1.6296.101.12.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "sleGlobalControlRequest"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "sleGlobalControlTimeStamp"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "sleGlobalControlReqResult"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "sleFeatureEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "slePortSrcGuard": {
+    "name": "slePortSrcGuard",
+    "oid": "1.3.6.1.4.1.6296.101.12.2",
+    "class": "objectidentity"
+  },
+  "slePortSrcGuardConfig": {
+    "name": "slePortSrcGuardConfig",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1",
+    "class": "objectidentity"
+  },
+  "slePortSrcGuardConfigTable": {
+    "name": "slePortSrcGuardConfigTable",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigEntry": {
+    "name": "slePortSrcGuardConfigEntry",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slePortSrcGuardIndex": {
+    "name": "slePortSrcGuardIndex",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardEnable": {
+    "name": "slePortSrcGuardEnable",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigControl": {
+    "name": "slePortSrcGuardConfigControl",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.2",
+    "class": "objectidentity"
+  },
+  "slePortSrcGuardConfigControlRequest": {
+    "name": "slePortSrcGuardConfigControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setPortSrcGuardConfig": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigControlStatus": {
+    "name": "slePortSrcGuardConfigControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigControlTimer": {
+    "name": "slePortSrcGuardConfigControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigControlTimeStamp": {
+    "name": "slePortSrcGuardConfigControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigControlReqResult": {
+    "name": "slePortSrcGuardConfigControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigControlIndex": {
+    "name": "slePortSrcGuardConfigControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigControlEnable": {
+    "name": "slePortSrcGuardConfigControlEnable",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardConfigNotification": {
+    "name": "slePortSrcGuardConfigNotification",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.3",
+    "class": "objectidentity"
+  },
+  "slePortSrcGuardConfigEnableChanged": {
+    "name": "slePortSrcGuardConfigEnableChanged",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardConfigControlRequest"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardConfigControlTImeStamp"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardConfigControlReqResult"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "slePortSrcGuardAddress": {
+    "name": "slePortSrcGuardAddress",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2",
+    "class": "objectidentity"
+  },
+  "slePortSrcGuardAddressTable": {
+    "name": "slePortSrcGuardAddressTable",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressEntry": {
+    "name": "slePortSrcGuardAddressEntry",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slePortSrcGuardAddressIp": {
+    "name": "slePortSrcGuardAddressIp",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressMask": {
+    "name": "slePortSrcGuardAddressMask",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressMac": {
+    "name": "slePortSrcGuardAddressMac",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressLease": {
+    "name": "slePortSrcGuardAddressLease",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressControl": {
+    "name": "slePortSrcGuardAddressControl",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2",
+    "class": "objectidentity"
+  },
+  "slePortSrcGuardAddressControlRequest": {
+    "name": "slePortSrcGuardAddressControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createPortSrcGuardAddress": 1,
+          "destroyPortSrcGuardAddress": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressControlStatus": {
+    "name": "slePortSrcGuardAddressControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressControlTimer": {
+    "name": "slePortSrcGuardAddressControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressControlTimeStamp": {
+    "name": "slePortSrcGuardAddressControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressControlReqResult": {
+    "name": "slePortSrcGuardAddressControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressControlIndex": {
+    "name": "slePortSrcGuardAddressControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressControlIp": {
+    "name": "slePortSrcGuardAddressControlIp",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressControlMask": {
+    "name": "slePortSrcGuardAddressControlMask",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slePortSrcGuardAddressNotification": {
+    "name": "slePortSrcGuardAddressNotification",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.3",
+    "class": "objectidentity"
+  },
+  "slePortSrcGuardAddressCreated": {
+    "name": "slePortSrcGuardAddressCreated",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressControlRequest"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressControlTImeStamp"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressControlReqResult"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressIp"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressMask"
+      }
+    ],
+    "status": "current"
+  },
+  "slePortSrcGuardAddressDestroyed": {
+    "name": "slePortSrcGuardAddressDestroyed",
+    "oid": "1.3.6.1.4.1.6296.101.12.2.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressControlRequest"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressControlTImeStamp"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressControlReqResult"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressIp"
+      },
+      {
+        "module": "SLE-DHCP-SNOOPING-MIB",
+        "object": "slePortSrcGuardAddressMask"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-DHCP-SNOOPING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-DHCP-SNOOPING-MIB"
+  }
+}

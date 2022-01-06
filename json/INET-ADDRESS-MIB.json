@@ -1,0 +1,276 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "inetAddressMIB": {
+    "name": "inetAddressMIB",
+    "oid": "1.3.6.1.2.1.76",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-04 00:00",
+        "description": "Third version, published as RFC 4001. This revision introduces the InetZoneIndex, InetScopeType, and InetVersion textual conventions."
+      },
+      {
+        "revision": "2002-05-09 00:00",
+        "description": "Second version, published as RFC 3291. This revision contains several clarifications and introduces several new textual conventions: InetAddressPrefixLength, InetPortNumber, InetAutonomousSystemNumber, InetAddressIPv4z, and InetAddressIPv6z."
+      },
+      {
+        "revision": "2000-06-08 00:00",
+        "description": "Initial version, published as RFC 2851."
+      }
+    ]
+  },
+  "InetAddressType": {
+    "name": "InetAddressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "dns": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InetAddress": {
+    "name": "InetAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "InetAddressIPv4": {
+    "name": "InetAddressIPv4",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d.1d.1d",
+    "status": "current"
+  },
+  "InetAddressIPv6": {
+    "name": "InetAddressIPv6",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:2x:2x:2x:2x:2x:2x:2x",
+    "status": "current"
+  },
+  "InetAddressIPv4z": {
+    "name": "InetAddressIPv4z",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d.1d.1d%4d",
+    "status": "current"
+  },
+  "InetAddressIPv6z": {
+    "name": "InetAddressIPv6z",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:2x:2x:2x:2x:2x:2x:2x%4d",
+    "status": "current"
+  },
+  "InetAddressDNS": {
+    "name": "InetAddressDNS",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "InetAddressPrefixLength": {
+    "name": "InetAddressPrefixLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2040
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "InetPortNumber": {
+    "name": "InetPortNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "InetAutonomousSystemNumber": {
+    "name": "InetAutonomousSystemNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "InetScopeType": {
+    "name": "InetScopeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceLocal": 1,
+          "linkLocal": 2,
+          "subnetLocal": 3,
+          "adminLocal": 4,
+          "siteLocal": 5,
+          "organizationLocal": 8,
+          "global": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InetZoneIndex": {
+    "name": "InetZoneIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "InetVersion": {
+    "name": "InetVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/INET-ADDRESS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "INET-ADDRESS-MIB"
+  }
+}

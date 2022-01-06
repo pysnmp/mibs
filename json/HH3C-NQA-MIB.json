@@ -1,0 +1,3679 @@
+{
+  "imports": {
+    "class": "imports",
+    "DISMAN-PING-MIB": [
+      "pingCtlEntry",
+      "pingCtlType",
+      "pingCtlTargetAddress",
+      "pingCtlOwnerIndex",
+      "pingCtlTestName",
+      "pingCtlDescr",
+      "pingCtlTargetAddressType"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cRhw"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cNqa": {
+    "name": "hh3cNqa",
+    "oid": "1.3.6.1.4.1.25506.8.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-03-25 00:00",
+        "description": "Add hh3cNqaProbeTimeAboveThreshold to hh3cNqaNotifications. Add hh3cNqaProbeTimeBelowThreshold to hh3cNqaNotifications. Add hh3cNqaProbeFailAboveThreshold to hh3cNqaNotifications. Add hh3cNqaProbeFailBelowThreshold to hh3cNqaNotifications."
+      }
+    ]
+  },
+  "VpnInstanceType": {
+    "name": "VpnInstanceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "public": 1,
+          "vpn": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cNqaObjects": {
+    "name": "hh3cNqaObjects",
+    "oid": "1.3.6.1.4.1.25506.8.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cNqaImplementationTypeDomains": {
+    "name": "hh3cNqaImplementationTypeDomains",
+    "oid": "1.3.6.1.4.1.25506.8.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cNqaUdpEcho": {
+    "name": "hh3cNqaUdpEcho",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqaTcpconnect": {
+    "name": "hh3cNqaTcpconnect",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqajitter": {
+    "name": "hh3cNqajitter",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqaHttp": {
+    "name": "hh3cNqaHttp",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqadlsw": {
+    "name": "hh3cNqadlsw",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqadhcp": {
+    "name": "hh3cNqadhcp",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqaftp": {
+    "name": "hh3cNqaftp",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqaTwampLight": {
+    "name": "hh3cNqaTwampLight",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqaArp": {
+    "name": "hh3cNqaArp",
+    "oid": "1.3.6.1.4.1.25506.8.3.2.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cNqaMIBVersion": {
+    "name": "hh3cNqaMIBVersion",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaCtlTable": {
+    "name": "hh3cNqaCtlTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaCtlEntry": {
+    "name": "hh3cNqaCtlEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hh3cNqaCtlEntry",
+      "module": "HH3C-NQA-MIB",
+      "object": "pingCtlEntry"
+    },
+    "status": "current"
+  },
+  "hh3cNqaCtlTargetPort": {
+    "name": "hh3cNqaCtlTargetPort",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlSourcePort": {
+    "name": "hh3cNqaCtlSourcePort",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlTTL": {
+    "name": "hh3cNqaCtlTTL",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlJitterAdminInterval": {
+    "name": "hh3cNqaCtlJitterAdminInterval",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlJitterAdminNumPackets": {
+    "name": "hh3cNqaCtlJitterAdminNumPackets",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlHttpOperationType": {
+    "name": "hh3cNqaCtlHttpOperationType",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "post": 2,
+          "raw": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlHttpOperationString": {
+    "name": "hh3cNqaCtlHttpOperationString",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlFtpOperationType": {
+    "name": "hh3cNqaCtlFtpOperationType",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "put": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlFtpUsername": {
+    "name": "hh3cNqaCtlFtpUsername",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlFtpPassword": {
+    "name": "hh3cNqaCtlFtpPassword",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlFtpOperationString": {
+    "name": "hh3cNqaCtlFtpOperationString",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlVPNInstance": {
+    "name": "hh3cNqaCtlVPNInstance",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlHistoryKeptTime": {
+    "name": "hh3cNqaCtlHistoryKeptTime",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlHistoryEnable": {
+    "name": "hh3cNqaCtlHistoryEnable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlICPIFAdvFactor": {
+    "name": "hh3cNqaCtlICPIFAdvFactor",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlCodecType": {
+    "name": "hh3cNqaCtlCodecType",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDefined": 1,
+          "g711Alaw": 2,
+          "g711Ulaw": 3,
+          "g729A": 4,
+          "icmpTimestamp": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notDefined",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaResultsTable": {
+    "name": "hh3cNqaResultsTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaResultsEntry": {
+    "name": "hh3cNqaResultsEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaResultsRttNumDisconnects": {
+    "name": "hh3cNqaResultsRttNumDisconnects",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsRttTimeouts": {
+    "name": "hh3cNqaResultsRttTimeouts",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsRttBusies": {
+    "name": "hh3cNqaResultsRttBusies",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsRttNoConnections": {
+    "name": "hh3cNqaResultsRttNoConnections",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsRttDrops": {
+    "name": "hh3cNqaResultsRttDrops",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsRttSequenceErrors": {
+    "name": "hh3cNqaResultsRttSequenceErrors",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsRttStatsErrors": {
+    "name": "hh3cNqaResultsRttStatsErrors",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsMaxDelaySD": {
+    "name": "hh3cNqaResultsMaxDelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsMaxDelayDS": {
+    "name": "hh3cNqaResultsMaxDelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsLostPacketRatio": {
+    "name": "hh3cNqaResultsLostPacketRatio",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsPacketLateArrival": {
+    "name": "hh3cNqaResultsPacketLateArrival",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsRttSum": {
+    "name": "hh3cNqaResultsRttSum",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsNumOfDelaySD": {
+    "name": "hh3cNqaResultsNumOfDelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsMinDelaySD": {
+    "name": "hh3cNqaResultsMinDelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsSumDelaySD": {
+    "name": "hh3cNqaResultsSumDelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsSum2DelaySD": {
+    "name": "hh3cNqaResultsSum2DelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsNumOfDelayDS": {
+    "name": "hh3cNqaResultsNumOfDelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsMinDelayDS": {
+    "name": "hh3cNqaResultsMinDelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsSumDelayDS": {
+    "name": "hh3cNqaResultsSumDelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaResultsSum2DelayDS": {
+    "name": "hh3cNqaResultsSum2DelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsTable": {
+    "name": "hh3cNqaJitterStatsTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsEntry": {
+    "name": "hh3cNqaJitterStatsEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsNumOfRTT": {
+    "name": "hh3cNqaJitterStatsNumOfRTT",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsMinOfPositivesSD": {
+    "name": "hh3cNqaJitterStatsMinOfPositivesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsMaxOfPositivesSD": {
+    "name": "hh3cNqaJitterStatsMaxOfPositivesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsNumOfPositivesSD": {
+    "name": "hh3cNqaJitterStatsNumOfPositivesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsSumOfPositivesSD": {
+    "name": "hh3cNqaJitterStatsSumOfPositivesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsSum2PositivesSD": {
+    "name": "hh3cNqaJitterStatsSum2PositivesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsMinOfNegativesSD": {
+    "name": "hh3cNqaJitterStatsMinOfNegativesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsMaxOfNegativesSD": {
+    "name": "hh3cNqaJitterStatsMaxOfNegativesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsNumOfNegativesSD": {
+    "name": "hh3cNqaJitterStatsNumOfNegativesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsSumOfNegativesSD": {
+    "name": "hh3cNqaJitterStatsSumOfNegativesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsSum2NegativesSD": {
+    "name": "hh3cNqaJitterStatsSum2NegativesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsMinOfPositivesDS": {
+    "name": "hh3cNqaJitterStatsMinOfPositivesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsMaxOfPositivesDS": {
+    "name": "hh3cNqaJitterStatsMaxOfPositivesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsNumOfPositivesDS": {
+    "name": "hh3cNqaJitterStatsNumOfPositivesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsSumOfPositivesDS": {
+    "name": "hh3cNqaJitterStatsSumOfPositivesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsSum2PositivesDS": {
+    "name": "hh3cNqaJitterStatsSum2PositivesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsMinOfNegativesDS": {
+    "name": "hh3cNqaJitterStatsMinOfNegativesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsMaxOfNegativesDS": {
+    "name": "hh3cNqaJitterStatsMaxOfNegativesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsNumOfNegativesDS": {
+    "name": "hh3cNqaJitterStatsNumOfNegativesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsSumOfNegativesDS": {
+    "name": "hh3cNqaJitterStatsSumOfNegativesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsSum2NegativesDS": {
+    "name": "hh3cNqaJitterStatsSum2NegativesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsPacketLossSD": {
+    "name": "hh3cNqaJitterStatsPacketLossSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsPacketLossDS": {
+    "name": "hh3cNqaJitterStatsPacketLossDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsAvePositivesSD": {
+    "name": "hh3cNqaJitterStatsAvePositivesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsAveNegativesSD": {
+    "name": "hh3cNqaJitterStatsAveNegativesSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsAvePositivesDS": {
+    "name": "hh3cNqaJitterStatsAvePositivesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsAveNegativesDS": {
+    "name": "hh3cNqaJitterStatsAveNegativesDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsPktLossUnknown": {
+    "name": "hh3cNqaJitterStatsPktLossUnknown",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsOperOfICPIF": {
+    "name": "hh3cNqaJitterStatsOperOfICPIF",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsOperOfMOS": {
+    "name": "hh3cNqaJitterStatsOperOfMOS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsAveSD": {
+    "name": "hh3cNqaJitterStatsAveSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsAveDS": {
+    "name": "hh3cNqaJitterStatsAveDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaJitterStatsLostPacketPermillage": {
+    "name": "hh3cNqaJitterStatsLostPacketPermillage",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaAgentEnable": {
+    "name": "hh3cNqaAgentEnable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerTable": {
+    "name": "hh3cNqaTcpServerTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerEntry": {
+    "name": "hh3cNqaTcpServerEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaTcpServerIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaTcpServerPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaTcpServerIpAddress": {
+    "name": "hh3cNqaTcpServerIpAddress",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerPort": {
+    "name": "hh3cNqaTcpServerPort",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerRowStatus": {
+    "name": "hh3cNqaTcpServerRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerTable": {
+    "name": "hh3cNqaUdpServerTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerEntry": {
+    "name": "hh3cNqaUdpServerEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaUdpServerIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaUdpServerPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaUdpServerIpAddress": {
+    "name": "hh3cNqaUdpServerIpAddress",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerPort": {
+    "name": "hh3cNqaUdpServerPort",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerRowStatus": {
+    "name": "hh3cNqaUdpServerRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaServerEnable": {
+    "name": "hh3cNqaServerEnable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cNqaStatsMaxGroupNumber": {
+    "name": "hh3cNqaStatsMaxGroupNumber",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatisticsCtlTable": {
+    "name": "hh3cNqaStatisticsCtlTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatisticsCtlEntry": {
+    "name": "hh3cNqaStatisticsCtlEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hh3cNqaStatisticsCtlEntry",
+      "module": "HH3C-NQA-MIB",
+      "object": "pingCtlEntry"
+    },
+    "status": "current"
+  },
+  "hh3cNqaCtlStatisticsInterval": {
+    "name": "hh3cNqaCtlStatisticsInterval",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlStatisticsGroupNumber": {
+    "name": "hh3cNqaCtlStatisticsGroupNumber",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlStatisticsKeptTime": {
+    "name": "hh3cNqaCtlStatisticsKeptTime",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlBeginTime": {
+    "name": "hh3cNqaCtlBeginTime",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaCtlLifeTime": {
+    "name": "hh3cNqaCtlLifeTime",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaStatisticsResultsTable": {
+    "name": "hh3cNqaStatisticsResultsTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatisticsResultsEntry": {
+    "name": "hh3cNqaStatisticsResultsEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaStatResIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaStatResIndex": {
+    "name": "hh3cNqaStatResIndex",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatResIpTargetAddressType": {
+    "name": "hh3cNqaStatResIpTargetAddressType",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResIpTargetAddress": {
+    "name": "hh3cNqaStatResIpTargetAddress",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResMinRtt": {
+    "name": "hh3cNqaStatResMinRtt",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResMaxRtt": {
+    "name": "hh3cNqaStatResMaxRtt",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResAverageRtt": {
+    "name": "hh3cNqaStatResAverageRtt",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResProbeResponses": {
+    "name": "hh3cNqaStatResProbeResponses",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResSentProbes": {
+    "name": "hh3cNqaStatResSentProbes",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "probes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttSumOfSquares": {
+    "name": "hh3cNqaStatResRttSumOfSquares",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResStartTime": {
+    "name": "hh3cNqaStatResStartTime",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResInterval": {
+    "name": "hh3cNqaStatResInterval",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttNumDisconnects": {
+    "name": "hh3cNqaStatResRttNumDisconnects",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttTimeouts": {
+    "name": "hh3cNqaStatResRttTimeouts",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttBusies": {
+    "name": "hh3cNqaStatResRttBusies",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttNoConnections": {
+    "name": "hh3cNqaStatResRttNoConnections",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttDrops": {
+    "name": "hh3cNqaStatResRttDrops",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttSequenceErrors": {
+    "name": "hh3cNqaStatResRttSequenceErrors",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttErrors": {
+    "name": "hh3cNqaStatResRttErrors",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResLostPacketRatio": {
+    "name": "hh3cNqaStatResLostPacketRatio",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResPacketLateArrival": {
+    "name": "hh3cNqaStatResPacketLateArrival",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResRttSum": {
+    "name": "hh3cNqaStatResRttSum",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResNumOfDelaySD": {
+    "name": "hh3cNqaStatResNumOfDelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResMinDelaySD": {
+    "name": "hh3cNqaStatResMinDelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResMaxDelaySD": {
+    "name": "hh3cNqaStatResMaxDelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResSumDelaySD": {
+    "name": "hh3cNqaStatResSumDelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResSum2DelaySD": {
+    "name": "hh3cNqaStatResSum2DelaySD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResNumOfDelayDS": {
+    "name": "hh3cNqaStatResNumOfDelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResMinDelayDS": {
+    "name": "hh3cNqaStatResMinDelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResMaxDelayDS": {
+    "name": "hh3cNqaStatResMaxDelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResSumDelayDS": {
+    "name": "hh3cNqaStatResSumDelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResSum2DelayDS": {
+    "name": "hh3cNqaStatResSum2DelayDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatResLostPacketPermillage": {
+    "name": "hh3cNqaStatResLostPacketPermillage",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.11.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaGroupStatsJitterTable": {
+    "name": "hh3cNqaGroupStatsJitterTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaGroupStatsJitterEntry": {
+    "name": "hh3cNqaGroupStatsJitterEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaStatJitterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaStatJitterIndex": {
+    "name": "hh3cNqaStatJitterIndex",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMinOfPosSD": {
+    "name": "hh3cNqaStatJitterMinOfPosSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMaxOfPosSD": {
+    "name": "hh3cNqaStatJitterMaxOfPosSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterNumOfPosSD": {
+    "name": "hh3cNqaStatJitterNumOfPosSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterSumOfPosSD": {
+    "name": "hh3cNqaStatJitterSumOfPosSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterSumOfSquarePosSD": {
+    "name": "hh3cNqaStatJitterSumOfSquarePosSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMinOfNegSD": {
+    "name": "hh3cNqaStatJitterMinOfNegSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMaxOfNegSD": {
+    "name": "hh3cNqaStatJitterMaxOfNegSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterNumOfNegSD": {
+    "name": "hh3cNqaStatJitterNumOfNegSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterSumOfNegSD": {
+    "name": "hh3cNqaStatJitterSumOfNegSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterSumOfSquareNegSD": {
+    "name": "hh3cNqaStatJitterSumOfSquareNegSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMinOfPosDS": {
+    "name": "hh3cNqaStatJitterMinOfPosDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMaxOfPosDS": {
+    "name": "hh3cNqaStatJitterMaxOfPosDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterNumOfPosDS": {
+    "name": "hh3cNqaStatJitterNumOfPosDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterSumOfPosDS": {
+    "name": "hh3cNqaStatJitterSumOfPosDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterSumOfSquarePosDS": {
+    "name": "hh3cNqaStatJitterSumOfSquarePosDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMinOfNegDS": {
+    "name": "hh3cNqaStatJitterMinOfNegDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMaxOfNegDS": {
+    "name": "hh3cNqaStatJitterMaxOfNegDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterNumOfNegDS": {
+    "name": "hh3cNqaStatJitterNumOfNegDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterSumOfNegDS": {
+    "name": "hh3cNqaStatJitterSumOfNegDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterSumOfSquareNegDS": {
+    "name": "hh3cNqaStatJitterSumOfSquareNegDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterPacketLossSD": {
+    "name": "hh3cNqaStatJitterPacketLossSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterPacketLossDS": {
+    "name": "hh3cNqaStatJitterPacketLossDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterAvePosSD": {
+    "name": "hh3cNqaStatJitterAvePosSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterAveNegSD": {
+    "name": "hh3cNqaStatJitterAveNegSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterAvePosDS": {
+    "name": "hh3cNqaStatJitterAvePosDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterAveNegDS": {
+    "name": "hh3cNqaStatJitterAveNegDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterPktLossUnknown": {
+    "name": "hh3cNqaStatJitterPktLossUnknown",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMaxOfICPIF": {
+    "name": "hh3cNqaStatJitterMaxOfICPIF",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMinOfICPIF": {
+    "name": "hh3cNqaStatJitterMinOfICPIF",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMaxOfMOS": {
+    "name": "hh3cNqaStatJitterMaxOfMOS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterMinOfMOS": {
+    "name": "hh3cNqaStatJitterMinOfMOS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterAveSD": {
+    "name": "hh3cNqaStatJitterAveSD",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatJitterAveDS": {
+    "name": "hh3cNqaStatJitterAveDS",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.12.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaReactionTable": {
+    "name": "hh3cNqaReactionTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaReactionEntry": {
+    "name": "hh3cNqaReactionEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaReactOwnerIndex": {
+    "name": "hh3cNqaReactOwnerIndex",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cNqaReactTestName": {
+    "name": "hh3cNqaReactTestName",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cNqaReactItemIndex": {
+    "name": "hh3cNqaReactItemIndex",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cNqaReactCheckedElement": {
+    "name": "hh3cNqaReactCheckedElement",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "probetime": 1,
+          "probefailure": 2,
+          "jitterrtt": 3,
+          "jitterpacketloss": 4,
+          "jittersd": 5,
+          "jitterds": 6,
+          "icpif": 7,
+          "mos": 8,
+          "jitterOwdSD": 9,
+          "jitterOwdDS": 10
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaReactThresholdUpperLimit": {
+    "name": "hh3cNqaReactThresholdUpperLimit",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaReactThresholdLowerLimit": {
+    "name": "hh3cNqaReactThresholdLowerLimit",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaReactThresholdType": {
+    "name": "hh3cNqaReactThresholdType",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "average": 1,
+          "consecutive": 2,
+          "accumulative": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaReactThresholdConsecNum": {
+    "name": "hh3cNqaReactThresholdConsecNum",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaReactThresholdAccumNum": {
+    "name": "hh3cNqaReactThresholdAccumNum",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaReactActionType": {
+    "name": "hh3cNqaReactActionType",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "trapOnly": 1,
+          "triggerOnly": 2,
+          "trapAndTrigger": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaReactCurrentStatus": {
+    "name": "hh3cNqaReactCurrentStatus",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "overThreshold": 2,
+          "belowThreshold": 3,
+          "overUpperThreshold": 4,
+          "belowLowerThreshold": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaReactRowStatus": {
+    "name": "hh3cNqaReactRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaReactCheckedNum": {
+    "name": "hh3cNqaReactCheckedNum",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaReactThresholdNum": {
+    "name": "hh3cNqaReactThresholdNum",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatisticsReactionTable": {
+    "name": "hh3cNqaStatisticsReactionTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatisticsReactionEntry": {
+    "name": "hh3cNqaStatisticsReactionEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaStatReactOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaStatReactTestName",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaStatReactIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaStatReactItemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaStatReactOwnerIndex": {
+    "name": "hh3cNqaStatReactOwnerIndex",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatReactTestName": {
+    "name": "hh3cNqaStatReactTestName",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatReactIndex": {
+    "name": "hh3cNqaStatReactIndex",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatReactItemIndex": {
+    "name": "hh3cNqaStatReactItemIndex",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaStatReactCheckedNum": {
+    "name": "hh3cNqaStatReactCheckedNum",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaStatReactThresholdNum": {
+    "name": "hh3cNqaStatReactThresholdNum",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerExtendTable": {
+    "name": "hh3cNqaTcpServerExtendTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerExtendEntry": {
+    "name": "hh3cNqaTcpServerExtendEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaTcpServerExtIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaTcpServerExtPort",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaTcpServerExtVPNType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaTcpServerExtVPNInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaTcpServerExtIpAddress": {
+    "name": "hh3cNqaTcpServerExtIpAddress",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerExtPort": {
+    "name": "hh3cNqaTcpServerExtPort",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerExtVPNType": {
+    "name": "hh3cNqaTcpServerExtVPNType",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpnInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerExtVPNInstance": {
+    "name": "hh3cNqaTcpServerExtVPNInstance",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerExtDSField": {
+    "name": "hh3cNqaTcpServerExtDSField",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaTcpServerExtRowStatus": {
+    "name": "hh3cNqaTcpServerExtRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerExtendTable": {
+    "name": "hh3cNqaUdpServerExtendTable",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerExtendEntry": {
+    "name": "hh3cNqaUdpServerExtendEntry",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaUdpServerExtIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaUdpServerExtPort",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaUdpServerExtVPNType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaUdpServerExtVPNInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaUdpServerExtIpAddress": {
+    "name": "hh3cNqaUdpServerExtIpAddress",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerExtPort": {
+    "name": "hh3cNqaUdpServerExtPort",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerExtVPNType": {
+    "name": "hh3cNqaUdpServerExtVPNType",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpnInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerExtVPNInstance": {
+    "name": "hh3cNqaUdpServerExtVPNInstance",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerExtDSField": {
+    "name": "hh3cNqaUdpServerExtDSField",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaUdpServerExtRowStatus": {
+    "name": "hh3cNqaUdpServerExtRowStatus",
+    "oid": "1.3.6.1.4.1.25506.8.3.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNqaNotifications": {
+    "name": "hh3cNqaNotifications",
+    "oid": "1.3.6.1.4.1.25506.8.3.3",
+    "class": "objectidentity"
+  },
+  "hh3cNqaProbeTimeOverThreshold": {
+    "name": "hh3cNqaProbeTimeOverThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaJitterRTTOverThreshold": {
+    "name": "hh3cNqaJitterRTTOverThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaProbeFailure": {
+    "name": "hh3cNqaProbeFailure",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaJitterPacketLoss": {
+    "name": "hh3cNqaJitterPacketLoss",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaJitterSDOverThreshold": {
+    "name": "hh3cNqaJitterSDOverThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaJitterDSOverThreshold": {
+    "name": "hh3cNqaJitterDSOverThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaICPIFOverThreshold": {
+    "name": "hh3cNqaICPIFOverThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaMOSOverThreshold": {
+    "name": "hh3cNqaMOSOverThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaJitterOverThreshold": {
+    "name": "hh3cNqaJitterOverThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaProbeTimeAboveThreshold": {
+    "name": "hh3cNqaProbeTimeAboveThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaProbeTimeBelowThreshold": {
+    "name": "hh3cNqaProbeTimeBelowThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaProbeFailAboveThreshold": {
+    "name": "hh3cNqaProbeFailAboveThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNqaProbeFailBelowThreshold": {
+    "name": "hh3cNqaProbeFailBelowThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.3.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactOwnerIndex"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactTestName"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HH3C-NQA-MIB",
+        "object": "hh3cNqaReactThresholdType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-NQA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-NQA-MIB"
+  }
+}

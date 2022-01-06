@@ -1,0 +1,299 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwL3Vlan": {
+    "name": "hwL3Vlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.100",
+    "class": "moduleidentity"
+  },
+  "hwL3VlanMIBObjects": {
+    "name": "hwL3VlanMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1",
+    "class": "objectidentity"
+  },
+  "hwSubIfVlanTable": {
+    "name": "hwSubIfVlanTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSubIfVlanEntry": {
+    "name": "hwSubIfVlanEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSubIfIndex": {
+    "name": "hwSubIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSubIfVlanId": {
+    "name": "hwSubIfVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSubIfVlanType": {
+    "name": "hwSubIfVlanType",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1q": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSubIfVlanStatus": {
+    "name": "hwSubIfVlanStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVLANMibRoutertVlanCountTable": {
+    "name": "hwVLANMibRoutertVlanCountTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hwVLANMibRoutertVlanCountEntry": {
+    "name": "hwVLANMibRoutertVlanCountEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwVLANMibRouterPort",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwVLANMibRouterVID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hwVLANMibRouterPort": {
+    "name": "hwVLANMibRouterPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hwVLANMibRouterVID": {
+    "name": "hwVLANMibRouterVID",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hwVLANMibRouterVlanPacketTran": {
+    "name": "hwVLANMibRouterVlanPacketTran",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hwVLANMibRouterVlanPacketSent": {
+    "name": "hwVLANMibRouterVlanPacketSent",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hwVLANMibClearVidStatistics": {
+    "name": "hwVLANMibClearVidStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hwL3VlanTraps": {
+    "name": "hwL3VlanTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.2",
+    "class": "objectidentity"
+  },
+  "hwL3VlanConformance": {
+    "name": "hwL3VlanConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3",
+    "class": "objectidentity"
+  },
+  "hwL3VlanCompliances": {
+    "name": "hwL3VlanCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3.1",
+    "class": "objectidentity"
+  },
+  "hwL3VlanCompliance": {
+    "name": "hwL3VlanCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwSubIfVlanGroup",
+        "module": "HUAWEI-L3VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3VlanGroups": {
+    "name": "hwL3VlanGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3.2",
+    "class": "objectidentity"
+  },
+  "hwSubIfVlanGroup": {
+    "name": "hwSubIfVlanGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanType"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanId"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L3VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-L3VLAN-MIB"
+  }
+}

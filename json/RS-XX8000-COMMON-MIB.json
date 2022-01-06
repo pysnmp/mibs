@@ -1,0 +1,2986 @@
+{
+  "imports": {
+    "class": "imports",
+    "RS-COMMON-MIB": [
+      "rsRegModules",
+      "rsProdBroadcastTransmitter"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "DateAndTime"
+    ]
+  },
+  "rsXx8000MibModule": {
+    "name": "rsXx8000MibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.163",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-05-11 08:00",
+        "description": "FailDelayMode, FailDelayStatus added"
+      },
+      {
+        "revision": "2011-02-23 08:00",
+        "description": "trapSinkInformUnacknowledged obsoleted"
+      },
+      {
+        "revision": "2010-05-06 08:00",
+        "description": "ntpSyncFailed, indexProgram added"
+      },
+      {
+        "revision": "2009-12-08 08:00",
+        "description": "excSFNIdleRegulation, excInput1Available, excInput2Available, excInput1LPAvailable, excInput2LPAvailable added to LogbookEntryMessagesExcTv"
+      },
+      {
+        "revision": "2009-09-10 08:00",
+        "description": "new value 'inconsistent' for textual convention TvStandard additional values for LogbookEntryMessagesNetCCU"
+      },
+      {
+        "revision": "2009-06-26 09:00",
+        "description": "new textual convention InputSource"
+      },
+      {
+        "revision": "2009-06-03 09:00",
+        "description": "intPwrSupply, extPwrSupply added to LogbookEntryMessagesNetCCU; rackTemperatureWarning added to LogbookEntryMessagesOST"
+      },
+      {
+        "revision": "2009-04-30 09:00",
+        "description": "Sx801 messages added to LogbookEntryMessagesExcTv"
+      },
+      {
+        "revision": "2009-03-13 09:00",
+        "description": "reserveInputLost added to LogbookEntryMessagesExcTv rackProbeNotCalibrated added to LogbookEntryMessagesOST update LogbookEntryMessagesNSU update LogbookEntryMessagesNetCCU"
+      },
+      {
+        "revision": "2009-02-10 16:00",
+        "description": "add to eventHistoryModule: gps, dvbRecMon, gpParIO LogbookEntryMessagesExcTv updated"
+      },
+      {
+        "revision": "2008-12-12 14:00",
+        "description": "new: swMaintenance and eventTx, rackExtCoolingWarning renamed to rackGpiWarning rackExtCoolingFault renamed to rackGpiFault"
+      },
+      {
+        "revision": "2008-10-20 09:00",
+        "description": "LogbookEntryMessagesNSU: antennaRedundancySumWarning(196) tcbTxBPowerSupply(197) txBPosition(198) antennaRedundancySumFault(226) LogbookEntryMessagesNetCCU: monitorFaultExcA(107) monitorFaultExcA(108)"
+      },
+      {
+        "revision": "2008-10-10 09:00",
+        "description": "eventHistoryTable with new index 'eventHistoryTxIdx'"
+      },
+      {
+        "revision": "2008-09-30 09:00",
+        "description": "NTP configuration"
+      },
+      {
+        "revision": "2008-09-03 09:00",
+        "description": "eventHistoryModule: additional values for pump and antenna"
+      },
+      {
+        "revision": "2008-07-23 15:30",
+        "description": "- new TC 'AtvStandard' - obsoleted TC LogbookEntryMessagesExcATV and DVB -> use LogbookEntryMessagesExcTv"
+      },
+      {
+        "revision": "2008-06-16 09:00",
+        "description": "new TC 'TvStandard'"
+      },
+      {
+        "revision": "2008-06-10 08:00",
+        "description": "dateTime with UTC values LogbookMaxEntryNumber: range to max 255"
+      },
+      {
+        "revision": "2008-06-02 10:30",
+        "description": "LogbookEntryMessagesExcTv extended"
+      },
+      {
+        "revision": "2008-05-13 15:00",
+        "description": "LogbookEntryMessagesExcTv extended added TrapHandling under snmpConfig"
+      },
+      {
+        "revision": "2008-04-23 11:00",
+        "description": "new TC EqualizerCalibrationState new TC LogbookEntryMessagesExcTv remove LogbookEntryMessagesExcMediaFLO"
+      },
+      {
+        "revision": "2008-02-18 13:30",
+        "description": "add A8 to IndexTransmitter"
+      },
+      {
+        "revision": "2008-02-11 12:00",
+        "description": "updated LogbookEntryMessagesExcATV, added LockState"
+      },
+      {
+        "revision": "2008-02-06 12:00",
+        "description": "update LogbookEntryMessagesExcMediaFLO add transmitterConfig with dateTime new TCs: TimeOfDay and NoValue"
+      },
+      {
+        "revision": "2007-12-17 12:00",
+        "description": "update LogbookEntryMessagesNSU update LogbookEntryMessagesNetCCU new TCs: ProdInfoModuleNameTv and ProdInfoModuleNameFm"
+      },
+      {
+        "revision": "2007-10-02 10:00",
+        "description": "extend trapSinkTable extend LogbookEntryMessagesOST (2 new messages for PumpUnit)"
+      },
+      {
+        "revision": "2007-09-04 13:00",
+        "description": "Added logbook messages for PumpUnit and logbook messages (TC) for MediaFLO."
+      },
+      {
+        "revision": "2007-06-29 10:00",
+        "description": "Enhanced logbook messages for ExcFM."
+      },
+      {
+        "revision": "2007-05-16 10:00",
+        "description": "Added logbook messages (TC) for XV703 transposers."
+      },
+      {
+        "revision": "2007-03-14 10:00",
+        "description": "Enhanced logbook messsages for ExcDVB and ExcFM (TextualConvention)."
+      },
+      {
+        "revision": "2006-12-21 10:00",
+        "description": "Added IndexAB for easier handling of exciterA/B and outputstageA/B in other MIBs."
+      },
+      {
+        "revision": "2006-11-20 10:00",
+        "description": "This is the initial version."
+      }
+    ]
+  },
+  "ReadableString": {
+    "name": "ReadableString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "FloatingPoint": {
+    "name": "FloatingPoint",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TimeOfDay": {
+    "name": "TimeOfDay",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1d:1d:1d",
+    "status": "current"
+  },
+  "EventMask": {
+    "name": "EventMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EventPriority": {
+    "name": "EventPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EventClass": {
+    "name": "EventClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault": 1,
+          "warning": 2,
+          "info": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EventState": {
+    "name": "EventState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EventMaxEntryNumber": {
+    "name": "EventMaxEntryNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SwitchOnOff": {
+    "name": "SwitchOnOff",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Trigger": {
+    "name": "Trigger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "trigger": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookEntryMessagesNetCCU": {
+    "name": "LogbookEntryMessagesNetCCU",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 3,
+          "rfOn": 4,
+          "excAutoReady": 6,
+          "excAutoChanged": 7,
+          "ostAutoReady": 8,
+          "ostAutoChanged": 9,
+          "rfOnSound1": 10,
+          "rfOnSound2": 11,
+          "activeExcA": 12,
+          "activeExcB": 13,
+          "activeOstA": 14,
+          "activeOstB": 15,
+          "rfOnVision": 16,
+          "rfOnActiveExc": 17,
+          "rfOnDLoad": 18,
+          "rfOkDLoad": 19,
+          "swBackupStarted": 20,
+          "swBackupDone": 21,
+          "swBackupFailed": 22,
+          "swRestoreStarted": 23,
+          "swRestoreDone": 24,
+          "swRestoreFailed": 25,
+          "optionKeyExpired": 30,
+          "txModeSwitchOverStarted": 37,
+          "txModeSwitchOverEnded": 38,
+          "reboot": 40,
+          "rfLoopProgram": 41,
+          "rfLoopReserve": 42,
+          "rfWarning": 43,
+          "reflectionWarning": 44,
+          "intPwrSupply": 45,
+          "extPwrSupply": 46,
+          "rfVisionWarning": 47,
+          "rfSound1Warning": 48,
+          "rfSound2Warning": 49,
+          "fanFault": 51,
+          "sumWarningRec": 52,
+          "sumWarningExcA": 53,
+          "sumWarningExcB": 54,
+          "sumWarningOstA": 55,
+          "sumWarningOstB": 56,
+          "rfDLoadWarning": 57,
+          "rfDLoadReflection": 58,
+          "receiverConnect": 59,
+          "receiverSumFault": 60,
+          "txModeInconsistent": 61,
+          "boardTemperatureWarning": 62,
+          "optionKeyWillExpire": 70,
+          "powerSupply": 81,
+          "rfFail": 82,
+          "reflectionFault": 83,
+          "boardTemperature": 84,
+          "excSwitch": 85,
+          "ostSwitch": 86,
+          "connectionExcA": 87,
+          "connectionExcB": 88,
+          "connectionOstA": 89,
+          "connectionOstB": 90,
+          "rfVision": 91,
+          "rfSound1Fault": 92,
+          "rfSound2Fault": 93,
+          "connectionRec": 95,
+          "summaryFaultRec": 96,
+          "summaryFaultExcA": 97,
+          "summaryFaultExcB": 98,
+          "summaryFaultOstA": 99,
+          "summaryFaultOstB": 100,
+          "rfDLoadFault": 101,
+          "rfDLoadReflectionFault": 102,
+          "apaConnect": 103,
+          "absorber": 104,
+          "monitorFaultExcA": 107,
+          "monitorFaultExcB": 108,
+          "txModeSwitchOverFailed": 109
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookEntryMessagesExcTv": {
+    "name": "LogbookEntryMessagesExcTv",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "excReboot": 0,
+          "excSumFault": 1,
+          "excSumWarning": 2,
+          "excLocal": 3,
+          "excExciterOn": 4,
+          "excRfOk": 5,
+          "excNoInput": 6,
+          "excReference": 7,
+          "excRfOn": 8,
+          "excMute": 9,
+          "excRelieveReq": 10,
+          "excSwDiag": 11,
+          "excOneFan": 12,
+          "excNoCCUComm": 13,
+          "excSwUpdated": 14,
+          "excBiosUpdated": 15,
+          "excPowerSupply": 16,
+          "excTemperature": 17,
+          "excFans": 18,
+          "excHwMainboard": 19,
+          "excHwCfCard": 20,
+          "excOutputOpen": 21,
+          "excRebootRqst": 22,
+          "excHwEEPROM": 23,
+          "excWatchdog": 24,
+          "excRfFail": 25,
+          "excLoopOpen": 26,
+          "excNoFPGA": 27,
+          "excCarrierLock": 28,
+          "excInputFail": 30,
+          "excOptionExpired": 37,
+          "excOptionWillEnd": 38,
+          "excFPGAConfig": 40,
+          "excHwIIFBoard": 41,
+          "excHwRfBoard": 42,
+          "excHwSynth1": 43,
+          "excHwSynth2": 44,
+          "excHwSynth3": 45,
+          "excMuteAudio1": 46,
+          "excMuteAudio2": 47,
+          "excVideoInp1": 48,
+          "excVideoInp2": 49,
+          "excVideoInpAct": 50,
+          "excRfOutExcV": 51,
+          "excRfOutAntV": 52,
+          "excRfOutExcA1": 53,
+          "excRfOutAntA1": 54,
+          "excRfOutExcA2": 55,
+          "excRfOutAntA2": 56,
+          "excClippingAntInp": 57,
+          "excNoHeadroomAnt": 58,
+          "excAudioMode": 59,
+          "excWhiteLine": 60,
+          "excWhiteLineLnAmp": 61,
+          "excWhiteLineLnAmpW": 62,
+          "excSyncCheck": 63,
+          "excWhiteLimiter": 64,
+          "excDevLimAud1": 65,
+          "excDevLimAud2": 66,
+          "excVideoInpClip": 67,
+          "excAud1InpClip": 68,
+          "excAud2InpClip": 69,
+          "excNICAM728Data": 70,
+          "excNICAM728Carr": 71,
+          "excAud2OutClip": 72,
+          "excRfMonFail": 73,
+          "excRfVideoFail": 74,
+          "excRfAudio1Fail": 75,
+          "excRfAudio2Fail": 76,
+          "excAudioLoopOpen": 77,
+          "excVideoLoopOpen": 78,
+          "excTestMode": 100,
+          "excExtRefFail": 101,
+          "excExtRefWeak": 102,
+          "excExtPPSFail": 103,
+          "excInputSwitched": 104,
+          "excInputFail2": 105,
+          "excWrongDatarate": 106,
+          "excFifoOverUnderflow": 107,
+          "excDelayChanged": 108,
+          "excSFNDelay": 109,
+          "excNoMIP": 110,
+          "excWrongMFArrivalTime": 111,
+          "excExtPPSAsynchron": 112,
+          "excPacketUnlock": 113,
+          "excMaxDelayChanged": 114,
+          "excReferenceAbsent": 115,
+          "excNoPPS": 116,
+          "excRfFailAmplifier": 117,
+          "excWarningAmplifier": 118,
+          "excAmpOverflow": 119,
+          "excModError": 120,
+          "excFLOModErr": 121,
+          "excInput1": 122,
+          "excInput2": 123,
+          "excInput1LP": 124,
+          "excInput2LP": 125,
+          "excNoReserveAvailable": 126,
+          "excSynthesizerUnlocked": 127,
+          "excSFNIdleRegulation": 128,
+          "excAmpVSWR": 170,
+          "excAmpTempWarn": 171,
+          "excAmpTempFault": 172,
+          "excAmpRegulation": 173,
+          "excAmpTransistor": 174,
+          "excAmpReducedPower": 175,
+          "excHWAmpEEPROM": 176,
+          "excRFWarningAmp": 177,
+          "excModSfnRAMInitErr": 180,
+          "excModTransportErr": 181,
+          "excModFIFOParErr": 182,
+          "excModFIFOSeqErr": 183,
+          "excModSfnBufEmpty": 184,
+          "excModSfnBufFull": 185,
+          "excModSsfMultiple": 186,
+          "excModSsfMissing": 187,
+          "excModLofTS1": 188,
+          "excModLofTS2": 189,
+          "excModCoreStall": 190,
+          "excModIqInactive": 191,
+          "excModMtiVersErr": 192,
+          "excModCoreReset": 193,
+          "excModConfigChanged": 194,
+          "excSFNBuffer": 195,
+          "excModIdleMode": 196,
+          "excSFNBufferTooEmpty": 197,
+          "excModMemError": 198,
+          "excSfnBufferTooFull": 199,
+          "excMissingSIP": 205,
+          "excTCLevelOutOfRange": 210,
+          "excTCLevelOverflow": 211,
+          "excInputFail3": 212,
+          "excInputWarning": 213,
+          "excEchoWarning": 214,
+          "xlxInputStepProtection": 215,
+          "excExt1PPSReference": 220,
+          "excInt1PPSReference": 221,
+          "exc5MHzReference": 222,
+          "exc10MHzReference": 223,
+          "excPrecorrectionSetupInfo": 230,
+          "excPrecorrectionSetupFail": 231,
+          "excFramecounter": 240,
+          "excMissingIIP": 241,
+          "excPSUOvertemp": 250,
+          "excPowerSupplyWarning": 251,
+          "excNSUConnected": 256,
+          "excMonHWError": 260,
+          "excRecvRxAUXHWError": 261,
+          "excRecvHWError": 262,
+          "excMonNoFrontendLock": 263,
+          "excRecvAUXNoFrontendLock": 264,
+          "excRecvNoFrontendLock": 265,
+          "excMonBadInputSignal": 266,
+          "excRecvAUXBadInputSignal": 267,
+          "excRecvBadInputSignal": 268,
+          "excMonNoInputSignal": 269,
+          "excRecvAUXWarningInputSignal": 270,
+          "excRecvWarningInputSignal": 271,
+          "excMonAUXHWError": 272,
+          "excMonAUXNoFrontendLock": 273,
+          "excMonAUXBadInputSignal": 274,
+          "excMonitorNoInputFail": 280,
+          "excNoSfnData": 300,
+          "excNoMobileDtvContent": 301,
+          "excInput1Available": 320,
+          "excInput2Available": 321,
+          "excInput1LPAvailable": 322,
+          "excInput2LPAvailable": 323,
+          "excRfTest": 400,
+          "excPRBSInsertion": 401,
+          "excTestEnsemble": 402,
+          "excInvalidTII": 403,
+          "excTIITransmission": 404,
+          "excTxModeChange": 405,
+          "excTIIChange": 406,
+          "excNullTIST": 407,
+          "excTISTJitter": 408,
+          "excTS1FrameLock": 409,
+          "excTS2FrameLock": 410,
+          "excCrcViolationRateTooHigh": 411,
+          "excSeamlessReady": 412,
+          "excTestFIC": 413,
+          "dvbt2NoL1Present": 500,
+          "dvbt2InvalidConfiguration": 501,
+          "dvbT2UnsupportedConfiguration": 502,
+          "dvbt2BandwidthMismatch": 503,
+          "iqHeader1Integrity": 550,
+          "iqHeader2Integrity": 551,
+          "iqHeader1Issues": 552,
+          "iqHeader2Issues": 553,
+          "iqInputRegulation": 554,
+          "iqWrongConfiguration": 555,
+          "iqTseMute": 556,
+          "iqInputOrder": 557,
+          "sx801PowerFail7Vpositive": 600,
+          "sx801PowerFail7Vnegative": 601,
+          "sx801PowerFail12V": 602,
+          "preAmpTemperatureFault": 603,
+          "preAmpRFFault": 604,
+          "parIoExcLink": 605,
+          "parIoTxLink": 606,
+          "parIoGpIoLink": 607,
+          "rfBoardRFFault": 608,
+          "sx801PhaseError": 640,
+          "sx801ReflectionWarning": 641,
+          "sx801ReflectionFault": 642,
+          "sx801RfWarning": 643,
+          "sx801AmplShutdown": 644,
+          "sx801PA1Supply1TooHot": 650,
+          "sx801PA1Supply2TooHot": 651,
+          "sx801PA1ReserveSupplyTooHot": 652,
+          "sx801PA1Supply1Fail": 653,
+          "sx801PA1Supply2Fail": 654,
+          "sx801PA1ReserveSupplyFail": 655,
+          "sx801PA1AcFail": 656,
+          "sx801PA1BlowerFail": 657,
+          "sx801PA1TransistorFail": 658,
+          "sx801PA1DriverFail": 659,
+          "sx801PA1RfInFail": 660,
+          "sx801PA1Reflection": 661,
+          "sx801PA1VSWR": 662,
+          "sx801PA1PowerFail": 663,
+          "sx801PA1Regulation": 664,
+          "sx801PA1Temperature": 665,
+          "sx801PA1Communication": 666,
+          "sx801PA1Update": 667,
+          "sx801PA2Supply1TooHot": 675,
+          "sx801PA2Supply2TooHot": 676,
+          "sx801PA2ReserveSupplyTooHot": 677,
+          "sx801PA2Supply1Fail": 678,
+          "sx801PA2Supply2Fail": 679,
+          "sx801PA2ReserveSupplyFail": 680,
+          "sx801PA2AcFail": 681,
+          "sx801PA2BlowerFail": 682,
+          "sx801PA2TransistorFail": 683,
+          "sx801PA2DriverFail": 684,
+          "sx801PA2RfInFail": 685,
+          "sx801PA2Reflection": 686,
+          "sx801PA2VSWR": 687,
+          "sx801PA2PowerFail": 688,
+          "sx801PA2Regulation": 689,
+          "sx801PA2Temperature": 690,
+          "sx801PA2Communication": 691,
+          "sx801PA2Update": 692,
+          "pa3Supply1TooHot": 700,
+          "pa3Supply2TooHot": 701,
+          "pa3ReserveSupplyTooHot": 702,
+          "pa3Supply1Fault": 703,
+          "pa3Supply2Fault": 704,
+          "pa3ReserveSupplyFault": 705,
+          "pa3ACFault": 706,
+          "pa3BlowerFault": 707,
+          "pa3TransistorFault": 708,
+          "pa3DriverFault": 709,
+          "pa3RFinFault": 710,
+          "pa3Reflection": 711,
+          "pa3VSWR": 712,
+          "pa3PowerFault": 713,
+          "pa3Regulation": 714,
+          "pa3Temperature": 715,
+          "pa3Communication": 716,
+          "pa3Update": 717,
+          "pa4Supply1TooHot": 725,
+          "pa4Supply2TooHot": 726,
+          "pa4ReserveSupplyTooHot": 727,
+          "pa4Supply1Fault": 728,
+          "pa4Supply2Fault": 729,
+          "pa4ReserveSupplyFault": 730,
+          "pa4ACFault": 731,
+          "pa4BlowerFault": 732,
+          "pa4TransistorFault": 733,
+          "pa4DriverFault": 734,
+          "pa4RFinFault": 735,
+          "pa4Reflection": 736,
+          "pa4VSWR": 737,
+          "pa4PowerFault": 738,
+          "pa4Regulation": 739,
+          "pa4Temperature": 740,
+          "pa4Communication": 741,
+          "pa4Update": 742,
+          "tse800NoConnect": 770,
+          "tse800Warning": 771,
+          "tse800Fault": 772,
+          "automaticOn": 800,
+          "automaticFault": 801,
+          "autoCtrlExcActive": 802,
+          "autoPrgmExcActive": 803,
+          "changeoverByUser": 804,
+          "changeoverByAuto": 805,
+          "automaticReady": 806,
+          "autoPrgmExcNoConnect": 807,
+          "autoPrgmExcFault": 808
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookEntryMessagesExcDVB": {
+    "name": "LogbookEntryMessagesExcDVB",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "excReboot": 0,
+          "excSummaryFault": 1,
+          "excSummaryWarning": 2,
+          "excLocal": 3,
+          "excOn": 4,
+          "excRfOk": 5,
+          "excNoInput": 6,
+          "excReferenceFail": 7,
+          "excRfOn": 8,
+          "excMute": 9,
+          "excFanWarning": 12,
+          "excNoCommunicationToNetCCU": 13,
+          "excPowerSupply": 16,
+          "excBoardTemperature": 17,
+          "excFanFault": 18,
+          "excSelfTest": 19,
+          "excHwCfCard": 20,
+          "excOutputOpen": 21,
+          "excHwEeprom": 23,
+          "excRfFail": 25,
+          "excLoop": 26,
+          "excCarrierLock": 28,
+          "excInputFault": 30,
+          "excOptionExpired": 37,
+          "excOptionExpires": 38,
+          "excHwFpgaConfig": 40,
+          "excHwIifBoard": 41,
+          "excHwRfBoard": 42,
+          "excHwSynth1": 43,
+          "excHwSynth2": 44,
+          "excHwSynth3": 45,
+          "excTestMode": 100,
+          "excExtRefFail": 101,
+          "excExtRefWeak": 102,
+          "excExtPPSFail": 103,
+          "excWrongConfig": 104,
+          "excInputFail": 105,
+          "excWrongDatarate": 106,
+          "excFifoWarning": 107,
+          "excExtDelayChanged": 108,
+          "excWrongDelay": 109,
+          "excNoMIP": 110,
+          "excWrongMFArrivalTime": 111,
+          "excExtPPSAsynchron": 112,
+          "excPacketUnlock": 113,
+          "excMaxDelayChanged": 114,
+          "excNoReference": 115,
+          "excNoPPS": 116,
+          "excRfFailAmplifier": 117,
+          "excWarningAmplifier": 118,
+          "excOverflowAmplifier": 119,
+          "excSynthUnlock": 127
+        }
+      }
+    },
+    "status": "obsolete"
+  },
+  "LogbookEntryMessagesExcFM": {
+    "name": "LogbookEntryMessagesExcFM",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "excReboot": 0,
+          "excSummaryFault": 1,
+          "excSummaryWarning": 2,
+          "excLocal": 3,
+          "excOn": 4,
+          "excRfOk": 5,
+          "excNoInput": 6,
+          "excReferenceFail": 7,
+          "excRfOn": 8,
+          "excMute": 9,
+          "excNoCommunicationToNetCCU": 13,
+          "excBiosUpdated": 15,
+          "excPowerSupply": 16,
+          "excOutputOpen": 21,
+          "excEEPROMError": 23,
+          "excRfFail": 25,
+          "excLoop": 26,
+          "excFPGANotLoaded": 27,
+          "excCarrierLock": 28,
+          "excInputFault": 30,
+          "ostSummaryFault": 32,
+          "excSoftFault": 33,
+          "ostSoftFault": 34,
+          "ostSummaryWarning": 36,
+          "excOptionKeyExpired": 37,
+          "excOptionKeyWarning": 38,
+          "excTemperatureWarning": 41,
+          "excTemperatureFault": 42,
+          "excRfUnitFault": 43,
+          "excFan1NotOk": 47,
+          "excFan2NotOk": 48,
+          "excMainPLLUnlocked": 49,
+          "excMainUPCUnlocked": 50,
+          "excMainCLKUnlocked": 51,
+          "exc12VFanWarning": 67,
+          "exc12VRackControllerWarning": 71,
+          "excInfoFrequencyChanged": 81,
+          "excLevelAESLeftTooLow": 84,
+          "excLevelAESRightTooLow": 85,
+          "excLevelMPXTooLow": 86,
+          "excNoDataInput": 87,
+          "excLevelAFLeftTooLow": 88,
+          "excLevelAFRightTooLow": 89,
+          "excLevelAUX1TooLow": 90,
+          "excLevelAUX2TooLow": 91,
+          "excLevelAUX3TooLow": 92,
+          "excLevelAESLeftTooHigh": 93,
+          "excLevelAESRightTooHigh": 94,
+          "excLevelMPXTooHigh": 95,
+          "excLevelAFLeftTooHigh": 97,
+          "excLevelAFRightTooHigh": 98,
+          "excLevelAUX1TooHigh": 99,
+          "excLevelAUX2TooHigh": 100,
+          "excLevelAUX3TooHigh": 101,
+          "excAESNoClock": 102,
+          "excAESParityBiphaseError": 103,
+          "excAESStateNotValid": 104,
+          "excInpCh1NotOk": 105,
+          "excInpCh2NotOk": 106,
+          "excInpCh1Active": 107,
+          "excInpCh2Active": 108,
+          "excInpAutomaticActive": 109,
+          "recSummaryWarning": 110,
+          "recSummaryFault": 111,
+          "ostRfPresent": 112,
+          "recRfWarning": 113,
+          "recCarrierNotPresent": 114,
+          "recNoConnection": 115,
+          "ostRfWarn": 116,
+          "ostRfFault": 117,
+          "ostNoInput": 118,
+          "recRfFault": 119,
+          "recRfPresent": 120,
+          "ostPowerRegulationActive": 121,
+          "ostTemperatureWarning": 122,
+          "ostSwrWarning": 123,
+          "ostSwrFault": 124,
+          "ostNoConnection": 125
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookEntryMessagesOST": {
+    "name": "LogbookEntryMessagesOST",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ostRfOn": 42,
+          "ostRfOk": 43,
+          "ostRfReduced": 44,
+          "ostNoInput": 45,
+          "ostRfWarning": 46,
+          "ostReflectionWarning": 47,
+          "ostRackWarning": 48,
+          "ostCoolingWarning": 49,
+          "ostRfFail": 50,
+          "ostReflectionFault": 51,
+          "ostACFault": 52,
+          "ostCoolingFault": 53,
+          "ostCommunicationFault": 54,
+          "rackLinkOk": 58,
+          "rackOn": 59,
+          "reducedRfExcA": 60,
+          "reducedRfExcB": 61,
+          "rackGpiWarning": 62,
+          "rackFan1Fault": 63,
+          "rackFan2Fault": 64,
+          "rackCoolingSumWarning": 65,
+          "rackAmplifierSumFault": 66,
+          "rackGpiFault": 67,
+          "rackTemperatureFault": 68,
+          "rackACFault": 69,
+          "rackCoolingSumFault": 70,
+          "rackTempFaultAbs1": 71,
+          "rackTempFaultAbs2": 72,
+          "rackDCFault": 73,
+          "ampNumberDiffers": 76,
+          "ampOn": 77,
+          "ampDCOk": 78,
+          "ampACOk": 79,
+          "ampRfInFail": 80,
+          "ampRfFail": 81,
+          "ampReflectionFault": 82,
+          "ampTemperatureFault": 83,
+          "ampFanFault": 84,
+          "ampTransistorFault": 85,
+          "pucFault": 86,
+          "pucWarning": 87,
+          "pucLink": 88,
+          "pucFan1Link": 89,
+          "pucFan2Link": 90,
+          "pucFan3Link": 91,
+          "pucFan4Link": 92,
+          "pucPump1Link": 93,
+          "pucPump2Link": 94,
+          "pucOn": 95,
+          "pucFan1": 96,
+          "pucFan2": 97,
+          "pucFan3": 98,
+          "pucFan4": 99,
+          "pucPump1": 100,
+          "pucPump2": 101,
+          "pucPressure": 102,
+          "pucMaintenance": 103,
+          "pucConfig": 104,
+          "pucFan1Fault": 105,
+          "pucFan2Fault": 106,
+          "pucFan3Fault": 107,
+          "pucFan4Fault": 108,
+          "pucPump1Fault": 109,
+          "pucPump2Fault": 110,
+          "pucPressureFault": 111,
+          "pucFilter": 117,
+          "pucPuOff": 118,
+          "rackProbeNotCalibrated": 119,
+          "rackTemperatureWarning": 120,
+          "rackSumFault": 121,
+          "rackAbsorberFault": 122,
+          "rackOvervoltageProtection": 123,
+          "psu1Fault": 124,
+          "psu2Fault": 125,
+          "psuRFault": 126,
+          "ampDriverFault": 127,
+          "ctxPowerFault": 128,
+          "ampRegulationFault": 129
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookEntryMessagesNSU": {
+    "name": "LogbookEntryMessagesNSU",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 3,
+          "automaticOn": 5,
+          "automaticReady": 6,
+          "automaticChangeover": 7,
+          "swBackupStarted": 10,
+          "program1RfOn": 11,
+          "program2RfOn": 12,
+          "program3RfOn": 13,
+          "program4RfOn": 14,
+          "program5RfOn": 15,
+          "program6RfOn": 16,
+          "program7RfOn": 17,
+          "program8RfOn": 18,
+          "programReserveRfOn": 19,
+          "swBackupDone": 20,
+          "txA1ToDummyLoad": 21,
+          "txA2ToDummyLoad": 22,
+          "txA3ToDummyLoad": 23,
+          "txA4ToDummyLoad": 24,
+          "txA5ToDummyLoad": 25,
+          "txA6ToDummyLoad": 26,
+          "txA7ToDummyLoad": 27,
+          "txA8ToDummyLoad": 28,
+          "txBToDummyLoad": 29,
+          "optionkeyExpired": 30,
+          "txA1Local": 31,
+          "txA2Local": 32,
+          "txA3Local": 33,
+          "txA4Local": 34,
+          "txA5Local": 35,
+          "txA6Local": 36,
+          "txA7Local": 37,
+          "txA8Local": 38,
+          "txBLocal": 39,
+          "reboot": 40,
+          "txA1SumWarning": 41,
+          "txA2SumWarning": 42,
+          "txA3SumWarning": 43,
+          "txA4SumWarning": 44,
+          "txA5SumWarning": 45,
+          "txA6SumWarning": 46,
+          "txA7SumWarning": 47,
+          "txA8SumWarning": 48,
+          "txBSumWarning": 49,
+          "swBackupFailed": 50,
+          "txA1NoConnect": 51,
+          "txA2NoConnect": 52,
+          "txA3NoConnect": 53,
+          "txA4NoConnect": 54,
+          "txA5NoConnect": 55,
+          "txA6NoConnect": 56,
+          "txA7NoConnect": 57,
+          "txA8NoConnect": 58,
+          "txBNoConnect": 59,
+          "swRestoreStarted": 60,
+          "txA1SumFault": 61,
+          "txA2SumFault": 62,
+          "txA3SumFault": 63,
+          "txA4SumFault": 64,
+          "txA5SumFault": 65,
+          "txA6SumFault": 66,
+          "txA7SumFault": 67,
+          "txA8SumFault": 68,
+          "txBSumFault": 69,
+          "swRestoreDone": 70,
+          "swRestoreFailed": 80,
+          "connBoardTxA1Updating": 81,
+          "connBoardTxA2Updating": 82,
+          "connBoardTxA3Updating": 83,
+          "connBoardTxA4Updating": 84,
+          "connBoardTxA5Updating": 85,
+          "connBoardTxA6Updating": 86,
+          "connBoardTxA7Updating": 87,
+          "connBoardTxA8Updating": 88,
+          "connBoardTxBUpdating": 89,
+          "inputSwitchUpdating": 90,
+          "connBoardTxA1SumWarning": 91,
+          "connBoardTxA2SumWarning": 92,
+          "connBoardTxA3SumWarning": 93,
+          "connBoardTxA4SumWarning": 94,
+          "connBoardTxA5SumWarning": 95,
+          "connBoardTxA6SumWarning": 96,
+          "connBoardTxA7SumWarning": 97,
+          "connBoardTxA8SumWarning": 98,
+          "connBoardTxBSumWarning": 99,
+          "inputSwitchSumWarning": 100,
+          "fanFault": 101,
+          "sumWngRCV": 102,
+          "rcvNoConnect": 103,
+          "sumFltRCV": 104,
+          "optionkeyWillExpire": 105,
+          "powerSupply": 106,
+          "boardTemperature": 107,
+          "automaticFault": 108,
+          "rcvNoConnectx": 109,
+          "sumFltRCVx": 110,
+          "connBoardTxA1SumFault": 111,
+          "connBoardTxA2SumFault": 112,
+          "connBoardTxA3SumFault": 113,
+          "connBoardTxA4SumFault": 114,
+          "connBoardTxA5SumFault": 115,
+          "connBoardTxA6SumFault": 116,
+          "connBoardTxA7SumFault": 117,
+          "connBoardTxA8SumFault": 118,
+          "connBoardTxBSumFault": 119,
+          "inputSwitchSumFault": 120,
+          "outputSwitch": 122,
+          "inputSwitchChangeOver": 123,
+          "txBParameterSet": 124,
+          "antennaRedundancySumWarning": 196,
+          "tcbTxBPowerSupply": 197,
+          "txBPosition": 198,
+          "intPwrSupply": 200,
+          "extPwrSupply": 201,
+          "antennaRedundancySumFault": 226
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookEntryMessagesXV703": {
+    "name": "LogbookEntryMessagesXV703",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noNetCCUConnection": 0,
+          "summaryFault": 1,
+          "summaryWarning": 2,
+          "local": 3,
+          "on": 4,
+          "ok": 5,
+          "fanWarning": 7,
+          "rfOn": 8,
+          "updatedBIOS": 9,
+          "powerSupply": 10,
+          "boardTemperature": 11,
+          "fanFault": 12,
+          "reboot": 14,
+          "loopOpen": 15,
+          "noConnection": 16,
+          "ampFail": 17,
+          "ifrPllFail": 18,
+          "rfiPllFail": 19,
+          "refFreqFail": 20,
+          "pInFail": 21,
+          "rfFail": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookEntrySlope": {
+    "name": "LogbookEntrySlope",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "reset": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookMaxEntryNumber": {
+    "name": "LogbookMaxEntryNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IndexTransmitter": {
+    "name": "IndexTransmitter",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmitterB": 1,
+          "transmitterA1": 2,
+          "transmitterA2": 3,
+          "transmitterA3": 4,
+          "transmitterA4": 5,
+          "transmitterA5": 6,
+          "transmitterA6": 7,
+          "transmitterA7": 8,
+          "transmitterA8": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IndexRack": {
+    "name": "IndexRack",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IndexAmplifier": {
+    "name": "IndexAmplifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IndexProgram": {
+    "name": "IndexProgram",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "programRes": 1,
+          "program1": 2,
+          "program2": 3,
+          "program3": 4,
+          "program4": 5,
+          "program5": 6,
+          "program6": 7,
+          "program7": 8,
+          "program8": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IndexAB": {
+    "name": "IndexAB",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ProdInfoModuleNameTv": {
+    "name": "ProdInfoModuleNameTv",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exciter": 1,
+          "exciterMainboard": 2,
+          "exciterInputInterface": 3,
+          "exciterRfBoard": 4,
+          "exciterSynth1": 5,
+          "exciterSynth2": 6,
+          "exciterSynth3": 7,
+          "netCCU": 50,
+          "rackcontroller": 100,
+          "amplifier": 101
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ProdInfoModuleNameFm": {
+    "name": "ProdInfoModuleNameFm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exciter": 1,
+          "exciterMainboard": 2,
+          "exciterBootprog": 3,
+          "exciterBootload": 4,
+          "exciterOs": 5,
+          "exciterFpga": 6,
+          "netCCU": 50,
+          "rackcontroller": 100,
+          "amplifier": 101
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ProdInfoModuleNameNsu": {
+    "name": "ProdInfoModuleNameNsu",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcBoard": 70
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LogbookEntryMessagesExcATV": {
+    "name": "LogbookEntryMessagesExcATV",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reboot": 0,
+          "summaryFault": 1,
+          "summaryWarning": 2,
+          "local": 3,
+          "exciterOn": 4,
+          "rfOk": 5,
+          "noInput": 6,
+          "reference": 7,
+          "rfOn": 8,
+          "mute": 9,
+          "relieveReq": 10,
+          "oneFan": 12,
+          "noCcuComm": 13,
+          "swUpdated": 14,
+          "biosUpdated": 15,
+          "powerSupply": 16,
+          "temperature": 17,
+          "fans": 18,
+          "hwMainboard": 19,
+          "hwCfCard": 20,
+          "outputOpen": 21,
+          "hwEEPROM": 23,
+          "rfFail": 25,
+          "loopOpen": 26,
+          "noFPGA": 27,
+          "carrierLock": 28,
+          "inputFail": 30,
+          "optionExpired": 37,
+          "optionWillEnd": 38,
+          "fpgaConfig": 40,
+          "hwIifBoard": 41,
+          "hwRfBoard": 42,
+          "hwSynth1": 43,
+          "hwSynth2": 44,
+          "hwSynth3": 45,
+          "muteAudio1": 46,
+          "muteAudio2": 47,
+          "videoInput1": 48,
+          "videoInput2": 49,
+          "videoInputAct": 50,
+          "rfOutExcV": 51,
+          "rfOutAntV": 52,
+          "rfOutExcA1": 53,
+          "rfOutAntA1": 54,
+          "rfOutExcA2": 55,
+          "rfOutAntA2": 56,
+          "clippingAntennaInput": 57,
+          "noHeadroomAntenna": 58,
+          "audioMode": 59,
+          "whiteLine": 60,
+          "whiteLineLnAmp": 61,
+          "whiteLineLnAmpW": 62,
+          "syncCheck": 63,
+          "whiteLimiter": 64,
+          "devLimAud1": 65,
+          "devLimAud2": 66,
+          "videoInputClipping": 67,
+          "aud1InpClip": 68,
+          "aud2InpClip": 69,
+          "nicam728Data": 70,
+          "nicam728Carr": 71,
+          "aud2OutClip": 72,
+          "rfMonFail": 73,
+          "rfVideoFail": 74,
+          "rfAudio1Fail": 75,
+          "rfAudio2Fail": 76,
+          "audioLoopOpen": 77,
+          "videoLoopOpen": 78,
+          "testMode": 100,
+          "extRefFail": 101,
+          "extRefWeak": 102,
+          "extPpsFail": 103,
+          "wrongConfig": 104,
+          "wrongDatarate": 106,
+          "fifoOverUnderFlow": 107,
+          "delayChanged": 108,
+          "wrongDelay": 109,
+          "noMIP": 110,
+          "wrongMfArrivalTime": 111,
+          "packetUnlock": 113,
+          "maxDelayChanged": 114,
+          "referenceAbsent": 115,
+          "noPPS": 116,
+          "rfFailAmplifier": 117,
+          "warningAmplifier": 118,
+          "amplifierOverflow": 119,
+          "synthesizerUnlocked": 127
+        }
+      }
+    },
+    "status": "obsolete"
+  },
+  "LockState": {
+    "name": "LockState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 1,
+          "unlocked": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EqualizerCalibrationState": {
+    "name": "EqualizerCalibrationState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "warning": 3,
+          "fail": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TvStandard": {
+    "name": "TvStandard",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atv": 1,
+          "dvb": 2,
+          "atsc": 3,
+          "dtmb": 4,
+          "mediaFLO": 5,
+          "test": 6,
+          "dab": 7,
+          "isdbt": 8,
+          "dvbt2": 9,
+          "inconsistent": 100
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtvStandard": {
+    "name": "AtvStandard",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bg": 1,
+          "m": 2,
+          "m1": 3,
+          "n": 4,
+          "dk": 5,
+          "i": 6,
+          "i1": 7,
+          "dkfm2": 8,
+          "l": 9,
+          "k1": 10,
+          "h": 11,
+          "b": 12,
+          "g": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InputSource": {
+    "name": "InputSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bnc": 1,
+          "rx": 2,
+          "sat": 3,
+          "ip": 4,
+          "reserved": 5,
+          "tp": 6,
+          "vf": 7,
+          "t2Mi": 8,
+          "iq": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Sx801AmplifierState": {
+    "name": "Sx801AmplifierState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "warning": 2,
+          "ok": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FailDelayMode": {
+    "name": "FailDelayMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "ifQualified": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FailDelayStatus": {
+    "name": "FailDelayStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "warning": 2,
+          "ok": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rsXx8000": {
+    "name": "rsXx8000",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsXx8000Common": {
+    "name": "rsXx8000Common",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsXx8000CommonObjs": {
+    "name": "rsXx8000CommonObjs",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1",
+    "class": "objectidentity"
+  },
+  "productInformation": {
+    "name": "productInformation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.1",
+    "class": "objectidentity"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identNumberSW": {
+    "name": "identNumberSW",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "versionNumberSW": {
+    "name": "versionNumberSW",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identNumberHW": {
+    "name": "identNumberHW",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "versionNumberHW": {
+    "name": "versionNumberHW",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpConfig": {
+    "name": "snmpConfig",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2",
+    "class": "objectidentity"
+  },
+  "trapSinkTable": {
+    "name": "trapSinkTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapSinkEntry": {
+    "name": "trapSinkEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "trapSinkNumber": {
+    "name": "trapSinkNumber",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapSinkVersion": {
+    "name": "trapSinkVersion",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1Trap": 1,
+          "v2Trap": 2,
+          "v2Inform": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapSinkAddress": {
+    "name": "trapSinkAddress",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapSinkPort": {
+    "name": "trapSinkPort",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapSinkCommunity": {
+    "name": "trapSinkCommunity",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapSinkInformRetry": {
+    "name": "trapSinkInformRetry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapSinkInformTimeout": {
+    "name": "trapSinkInformTimeout",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapSinkInformUnacknowledged": {
+    "name": "trapSinkInformUnacknowledged",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "trapSinkUse": {
+    "name": "trapSinkUse",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sendTestTrap": {
+    "name": "sendTestTrap",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "irtTrapsAllOn": {
+    "name": "irtTrapsAllOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "irtTrapsAllOff": {
+    "name": "irtTrapsAllOff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsTrapsAllOn": {
+    "name": "rsTrapsAllOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsTrapsAllOff": {
+    "name": "rsTrapsAllOff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsTrapsAllFaultsOn": {
+    "name": "rsTrapsAllFaultsOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsTrapsAllFaultsOff": {
+    "name": "rsTrapsAllFaultsOff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsTrapsAllWarningsOn": {
+    "name": "rsTrapsAllWarningsOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsTrapsAllWarningsOff": {
+    "name": "rsTrapsAllWarningsOff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "transmitterConfig": {
+    "name": "transmitterConfig",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3",
+    "class": "objectidentity"
+  },
+  "dateTime": {
+    "name": "dateTime",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntp": {
+    "name": "ntp",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "ntpMode": {
+    "name": "ntpMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "stepAdjust": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpSyncTimeInterval": {
+    "name": "ntpSyncTimeInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpServerAddrTable": {
+    "name": "ntpServerAddrTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ntpServerAddrEntry": {
+    "name": "ntpServerAddrEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "ntpServerAddrIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ntpServerAddrIdx": {
+    "name": "ntpServerAddrIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ntpServerAddress": {
+    "name": "ntpServerAddress",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpState": {
+    "name": "ntpState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "notRunning": 4,
+          "syncFailed": 5,
+          "synchronizing": 6,
+          "syncOk": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpLastSync": {
+    "name": "ntpLastSync",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swMaintenance": {
+    "name": "swMaintenance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.5",
+    "class": "objectidentity"
+  },
+  "restart": {
+    "name": "restart",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUpdate": {
+    "name": "swUpdate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.5.5",
+    "class": "objectidentity"
+  },
+  "swUpdateStart": {
+    "name": "swUpdateStart",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUpdateMode": {
+    "name": "swUpdateMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUpdateDeviceName": {
+    "name": "swUpdateDeviceName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUpdateDeviceGroup": {
+    "name": "swUpdateDeviceGroup",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.1.3.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadableString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsXx8000CommonEvents": {
+    "name": "rsXx8000CommonEvents",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2",
+    "class": "objectidentity"
+  },
+  "rsXx8000EventsV2": {
+    "name": "rsXx8000EventsV2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0",
+    "class": "objectidentity"
+  },
+  "testTrap": {
+    "name": "testTrap",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "counterEvents"
+      }
+    ],
+    "status": "current"
+  },
+  "eventTx": {
+    "name": "eventTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10",
+    "class": "objectidentity"
+  },
+  "eventsTxV2": {
+    "name": "eventsTxV2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swUpdateStarted": {
+    "name": "swUpdateStarted",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventAlarmPriority"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventAlarmClass"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpSyncFailed": {
+    "name": "ntpSyncFailed",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventAlarmPriority"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventAlarmClass"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "eventsTxTable": {
+    "name": "eventsTxTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventsTxEntry": {
+    "name": "eventsTxEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventTxNameIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eventTxNameIdx": {
+    "name": "eventTxNameIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventMaxEntryNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventTxName": {
+    "name": "eventTxName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swUpdateStarted": 1,
+          "ntpSyncFailed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventTxMask": {
+    "name": "eventTxMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eventTxPriority": {
+    "name": "eventTxPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eventTxEvent": {
+    "name": "eventTxEvent",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.0.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventHistory": {
+    "name": "eventHistory",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "counterEvents": {
+    "name": "counterEvents",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventHistoryTable": {
+    "name": "eventHistoryTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventHistoryEntry": {
+    "name": "eventHistoryEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventHistoryNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eventHistoryNumber": {
+    "name": "eventHistoryNumber",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventHistoryModule": {
+    "name": "eventHistoryModule",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchoverUnit": 1,
+          "netccu": 2,
+          "exciterA": 3,
+          "exciterB": 4,
+          "outputstageA": 5,
+          "outputstageB": 6,
+          "dvbReceiver": 7,
+          "pumpA": 8,
+          "pumpB": 9,
+          "antenna": 10,
+          "gps": 11,
+          "dvbRecMon": 12,
+          "gpParIO": 13,
+          "program": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventHistoryEvent": {
+    "name": "eventHistoryEvent",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventHistoryEventState": {
+    "name": "eventHistoryEventState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventHistoryEventDate": {
+    "name": "eventHistoryEventDate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventHistoryTx": {
+    "name": "eventHistoryTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.1.2.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventMapObjects": {
+    "name": "eventMapObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3",
+    "class": "objectidentity"
+  },
+  "eventAlarmPriority": {
+    "name": "eventAlarmPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventPriority",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eventAlarmClass": {
+    "name": "eventAlarmClass",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventClass",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eventEvent": {
+    "name": "eventEvent",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "indexTransmitter": {
+    "name": "indexTransmitter",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "indexAB": {
+    "name": "indexAB",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "indexRack": {
+    "name": "indexRack",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexRack",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "indexAmplifier": {
+    "name": "indexAmplifier",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAmplifier",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "indexProgram": {
+    "name": "indexProgram",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexProgram",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "rsXx8000CommonConf": {
+    "name": "rsXx8000CommonConf",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3",
+    "class": "objectidentity"
+  },
+  "rsXx8000CommonGroups": {
+    "name": "rsXx8000CommonGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1",
+    "class": "objectidentity"
+  },
+  "groupNotifyTest": {
+    "name": "groupNotifyTest",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "testTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "groupNotify": {
+    "name": "groupNotify",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "swUpdateStarted"
+      }
+    ],
+    "status": "current"
+  },
+  "groupEventTest": {
+    "name": "groupEventTest",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "sendTestTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "groupEventHistory": {
+    "name": "groupEventHistory",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "counterEvents"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventHistoryModule"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventHistoryEvent"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventHistoryEventState"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventHistoryEventDate"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventHistoryTx"
+      }
+    ],
+    "status": "current"
+  },
+  "groupEventObjects": {
+    "name": "groupEventObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventTxName"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventTxMask"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventTxPriority"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventTxEvent"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventAlarmPriority"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventAlarmClass"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "eventEvent"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "indexTransmitter"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "indexAB"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "indexRack"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "indexAmplifier"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "indexProgram"
+      }
+    ],
+    "status": "current"
+  },
+  "groupProductInformation": {
+    "name": "groupProductInformation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "identNumberSW"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "versionNumberSW"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "identNumberHW"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "versionNumberHW"
+      }
+    ],
+    "status": "current"
+  },
+  "groupSnmpConfig": {
+    "name": "groupSnmpConfig",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkVersion"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkAddress"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkPort"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkCommunity"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkInformRetry"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkInformTimeout"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkUse"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "irtTrapsAllOn"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "irtTrapsAllOff"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "rsTrapsAllOn"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "rsTrapsAllOff"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "rsTrapsAllFaultsOn"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "rsTrapsAllFaultsOff"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "rsTrapsAllWarningsOn"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "rsTrapsAllWarningsOff"
+      }
+    ],
+    "status": "current"
+  },
+  "groupTransmitterConfig": {
+    "name": "groupTransmitterConfig",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "dateTime"
+      }
+    ],
+    "status": "current"
+  },
+  "groupNTP": {
+    "name": "groupNTP",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "ntpMode"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "ntpSyncTimeInterval"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "ntpServerAddress"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "ntpState"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "ntpLastSync"
+      }
+    ],
+    "status": "current"
+  },
+  "groupSwMaintenance": {
+    "name": "groupSwMaintenance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "restart"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "swUpdateStart"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "swUpdateMode"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "swUpdateDeviceName"
+      },
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "swUpdateDeviceGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "groupNotifyNTP": {
+    "name": "groupNotifyNTP",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "ntpSyncFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "groupObsoletedObjects": {
+    "name": "groupObsoletedObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX8000-COMMON-MIB",
+        "object": "trapSinkInformUnacknowledged"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "rsXx8000CommonCompls": {
+    "name": "rsXx8000CommonCompls",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.2",
+    "class": "objectidentity"
+  },
+  "xx8000BasicCompliance": {
+    "name": "xx8000BasicCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.167.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "groupNotifyTest",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupNotify",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupEventTest",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupEventHistory",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupEventObjects",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupProductInformation",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupSnmpConfig",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupTransmitterConfig",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupSwMaintenance",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupNTP",
+        "module": "RS-XX8000-COMMON-MIB"
+      },
+      {
+        "object": "groupNotifyNTP",
+        "module": "RS-XX8000-COMMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX8000-COMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RS-XX8000-COMMON-MIB"
+  }
+}

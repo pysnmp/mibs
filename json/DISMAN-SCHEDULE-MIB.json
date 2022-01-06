@@ -1,0 +1,906 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "mib-2",
+      "zeroDotZero",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer",
+      "RowStatus",
+      "StorageType"
+    ]
+  },
+  "schedMIB": {
+    "name": "schedMIB",
+    "oid": "1.3.6.1.2.1.63",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-01-07 00:00",
+        "description": "Revised version, published as RFC 3231. This revision introduces a new object type called schedTriggers. Created new conformance and compliance statements that take care of the new schedTriggers object. Several clarifications have been added to remove ambiguities that were discovered and reported by implementors."
+      },
+      {
+        "revision": "1998-11-17 18:00",
+        "description": "Initial version, published as RFC 2591."
+      }
+    ]
+  },
+  "schedObjects": {
+    "name": "schedObjects",
+    "oid": "1.3.6.1.2.1.63.1",
+    "class": "objectidentity"
+  },
+  "schedNotifications": {
+    "name": "schedNotifications",
+    "oid": "1.3.6.1.2.1.63.2",
+    "class": "objectidentity"
+  },
+  "schedConformance": {
+    "name": "schedConformance",
+    "oid": "1.3.6.1.2.1.63.3",
+    "class": "objectidentity"
+  },
+  "SnmpPduErrorStatus": {
+    "name": "SnmpPduErrorStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noResponse": -1,
+          "noError": 0,
+          "tooBig": 1,
+          "noSuchName": 2,
+          "badValue": 3,
+          "readOnly": 4,
+          "genErr": 5,
+          "noAccess": 6,
+          "wrongType": 7,
+          "wrongLength": 8,
+          "wrongEncoding": 9,
+          "wrongValue": 10,
+          "noCreation": 11,
+          "inconsistentValue": 12,
+          "resourceUnavailable": 13,
+          "commitFailed": 14,
+          "undoFailed": 15,
+          "authorizationError": 16,
+          "notWritable": 17,
+          "inconsistentName": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "schedLocalTime": {
+    "name": "schedLocalTime",
+    "oid": "1.3.6.1.2.1.63.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 11,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schedTable": {
+    "name": "schedTable",
+    "oid": "1.3.6.1.2.1.63.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "schedEntry": {
+    "name": "schedEntry",
+    "oid": "1.3.6.1.2.1.63.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "schedOwner": {
+    "name": "schedOwner",
+    "oid": "1.3.6.1.2.1.63.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "schedName": {
+    "name": "schedName",
+    "oid": "1.3.6.1.2.1.63.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "schedDescr": {
+    "name": "schedDescr",
+    "oid": "1.3.6.1.2.1.63.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedInterval": {
+    "name": "schedInterval",
+    "oid": "1.3.6.1.2.1.63.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedWeekDay": {
+    "name": "schedWeekDay",
+    "oid": "1.3.6.1.2.1.63.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sunday": 0,
+        "monday": 1,
+        "tuesday": 2,
+        "wednesday": 3,
+        "thursday": 4,
+        "friday": 5,
+        "saturday": 6
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedMonth": {
+    "name": "schedMonth",
+    "oid": "1.3.6.1.2.1.63.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "january": 0,
+        "february": 1,
+        "march": 2,
+        "april": 3,
+        "may": 4,
+        "june": 5,
+        "july": 6,
+        "august": 7,
+        "september": 8,
+        "october": 9,
+        "november": 10,
+        "december": 11
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedDay": {
+    "name": "schedDay",
+    "oid": "1.3.6.1.2.1.63.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 2,
+        "d4": 3,
+        "d5": 4,
+        "d6": 5,
+        "d7": 6,
+        "d8": 7,
+        "d9": 8,
+        "d10": 9,
+        "d11": 10,
+        "d12": 11,
+        "d13": 12,
+        "d14": 13,
+        "d15": 14,
+        "d16": 15,
+        "d17": 16,
+        "d18": 17,
+        "d19": 18,
+        "d20": 19,
+        "d21": 20,
+        "d22": 21,
+        "d23": 22,
+        "d24": 23,
+        "d25": 24,
+        "d26": 25,
+        "d27": 26,
+        "d28": 27,
+        "d29": 28,
+        "d30": 29,
+        "d31": 30,
+        "r1": 31,
+        "r2": 32,
+        "r3": 33,
+        "r4": 34,
+        "r5": 35,
+        "r6": 36,
+        "r7": 37,
+        "r8": 38,
+        "r9": 39,
+        "r10": 40,
+        "r11": 41,
+        "r12": 42,
+        "r13": 43,
+        "r14": 44,
+        "r15": 45,
+        "r16": 46,
+        "r17": 47,
+        "r18": 48,
+        "r19": 49,
+        "r20": 50,
+        "r21": 51,
+        "r22": 52,
+        "r23": 53,
+        "r24": 54,
+        "r25": 55,
+        "r26": 56,
+        "r27": 57,
+        "r28": 58,
+        "r29": 59,
+        "r30": 60,
+        "r31": 61
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedHour": {
+    "name": "schedHour",
+    "oid": "1.3.6.1.2.1.63.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "h0": 0,
+        "h1": 1,
+        "h2": 2,
+        "h3": 3,
+        "h4": 4,
+        "h5": 5,
+        "h6": 6,
+        "h7": 7,
+        "h8": 8,
+        "h9": 9,
+        "h10": 10,
+        "h11": 11,
+        "h12": 12,
+        "h13": 13,
+        "h14": 14,
+        "h15": 15,
+        "h16": 16,
+        "h17": 17,
+        "h18": 18,
+        "h19": 19,
+        "h20": 20,
+        "h21": 21,
+        "h22": 22,
+        "h23": 23
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedMinute": {
+    "name": "schedMinute",
+    "oid": "1.3.6.1.2.1.63.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "m0": 0,
+        "m1": 1,
+        "m2": 2,
+        "m3": 3,
+        "m4": 4,
+        "m5": 5,
+        "m6": 6,
+        "m7": 7,
+        "m8": 8,
+        "m9": 9,
+        "m10": 10,
+        "m11": 11,
+        "m12": 12,
+        "m13": 13,
+        "m14": 14,
+        "m15": 15,
+        "m16": 16,
+        "m17": 17,
+        "m18": 18,
+        "m19": 19,
+        "m20": 20,
+        "m21": 21,
+        "m22": 22,
+        "m23": 23,
+        "m24": 24,
+        "m25": 25,
+        "m26": 26,
+        "m27": 27,
+        "m28": 28,
+        "m29": 29,
+        "m30": 30,
+        "m31": 31,
+        "m32": 32,
+        "m33": 33,
+        "m34": 34,
+        "m35": 35,
+        "m36": 36,
+        "m37": 37,
+        "m38": 38,
+        "m39": 39,
+        "m40": 40,
+        "m41": 41,
+        "m42": 42,
+        "m43": 43,
+        "m44": 44,
+        "m45": 45,
+        "m46": 46,
+        "m47": 47,
+        "m48": 48,
+        "m49": 49,
+        "m50": 50,
+        "m51": 51,
+        "m52": 52,
+        "m53": 53,
+        "m54": 54,
+        "m55": 55,
+        "m56": 56,
+        "m57": 57,
+        "m58": 58,
+        "m59": 59
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedContextName": {
+    "name": "schedContextName",
+    "oid": "1.3.6.1.2.1.63.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedVariable": {
+    "name": "schedVariable",
+    "oid": "1.3.6.1.2.1.63.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedValue": {
+    "name": "schedValue",
+    "oid": "1.3.6.1.2.1.63.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedType": {
+    "name": "schedType",
+    "oid": "1.3.6.1.2.1.63.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "periodic": 1,
+          "calendar": 2,
+          "oneshot": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "periodic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedAdminStatus": {
+    "name": "schedAdminStatus",
+    "oid": "1.3.6.1.2.1.63.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedOperStatus": {
+    "name": "schedOperStatus",
+    "oid": "1.3.6.1.2.1.63.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "finished": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schedFailures": {
+    "name": "schedFailures",
+    "oid": "1.3.6.1.2.1.63.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schedLastFailure": {
+    "name": "schedLastFailure",
+    "oid": "1.3.6.1.2.1.63.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpPduErrorStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noError",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schedLastFailed": {
+    "name": "schedLastFailed",
+    "oid": "1.3.6.1.2.1.63.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schedStorageType": {
+    "name": "schedStorageType",
+    "oid": "1.3.6.1.2.1.63.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedRowStatus": {
+    "name": "schedRowStatus",
+    "oid": "1.3.6.1.2.1.63.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "schedTriggers": {
+    "name": "schedTriggers",
+    "oid": "1.3.6.1.2.1.63.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schedTraps": {
+    "name": "schedTraps",
+    "oid": "1.3.6.1.2.1.63.2.0",
+    "class": "objectidentity"
+  },
+  "schedActionFailure": {
+    "name": "schedActionFailure",
+    "oid": "1.3.6.1.2.1.63.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedLastFailure"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedLastFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "schedCompliances": {
+    "name": "schedCompliances",
+    "oid": "1.3.6.1.2.1.63.3.1",
+    "class": "objectidentity"
+  },
+  "schedGroups": {
+    "name": "schedGroups",
+    "oid": "1.3.6.1.2.1.63.3.2",
+    "class": "objectidentity"
+  },
+  "schedCompliance2": {
+    "name": "schedCompliance2",
+    "oid": "1.3.6.1.2.1.63.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "schedGroup2",
+        "module": "DISMAN-SCHEDULE-MIB"
+      },
+      {
+        "object": "schedNotificationsGroup",
+        "module": "DISMAN-SCHEDULE-MIB"
+      },
+      {
+        "object": "schedCalendarGroup",
+        "module": "DISMAN-SCHEDULE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "schedGroup2": {
+    "name": "schedGroup2",
+    "oid": "1.3.6.1.2.1.63.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedDescr"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedInterval"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedContextName"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedVariable"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedValue"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedType"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedAdminStatus"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedOperStatus"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedFailures"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedLastFailure"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedLastFailed"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedStorageType"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedRowStatus"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedTriggers"
+      }
+    ],
+    "status": "current"
+  },
+  "schedCalendarGroup": {
+    "name": "schedCalendarGroup",
+    "oid": "1.3.6.1.2.1.63.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedLocalTime"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedWeekDay"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedMonth"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedDay"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedHour"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedMinute"
+      }
+    ],
+    "status": "current"
+  },
+  "schedNotificationsGroup": {
+    "name": "schedNotificationsGroup",
+    "oid": "1.3.6.1.2.1.63.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedActionFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "schedCompliance": {
+    "name": "schedCompliance",
+    "oid": "1.3.6.1.2.1.63.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "schedGroup",
+        "module": "DISMAN-SCHEDULE-MIB"
+      },
+      {
+        "object": "schedNotificationsGroup",
+        "module": "DISMAN-SCHEDULE-MIB"
+      },
+      {
+        "object": "schedCalendarGroup",
+        "module": "DISMAN-SCHEDULE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "schedGroup": {
+    "name": "schedGroup",
+    "oid": "1.3.6.1.2.1.63.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedDescr"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedInterval"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedContextName"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedVariable"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedValue"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedType"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedAdminStatus"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedOperStatus"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedFailures"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedLastFailure"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedLastFailed"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedStorageType"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DISMAN-SCHEDULE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DISMAN-SCHEDULE-MIB"
+  }
+}

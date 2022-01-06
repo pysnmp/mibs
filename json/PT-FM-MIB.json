@@ -1,0 +1,1498 @@
+{
+  "imports": {
+    "class": "imports",
+    "PT-MIB": [
+      "pt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ]
+  },
+  "ptFM": {
+    "name": "ptFM",
+    "oid": "1.3.6.1.4.1.193.223.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-21 12:00",
+        "description": "Added Managed and Reference OID to the current alarms"
+      },
+      {
+        "revision": "2016-03-09 12:00",
+        "description": "Validated."
+      },
+      {
+        "revision": "2016-02-10 12:30",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "config": {
+    "name": "config",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1",
+    "class": "objectidentity"
+  },
+  "alarm": {
+    "name": "alarm",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2",
+    "class": "objectidentity"
+  },
+  "log": {
+    "name": "log",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3",
+    "class": "objectidentity"
+  },
+  "ptFMConformance": {
+    "name": "ptFMConformance",
+    "oid": "1.3.6.1.4.1.193.223.2.3.4",
+    "class": "objectidentity"
+  },
+  "NotificationIdTC": {
+    "name": "NotificationIdTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eNONE": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MoClassTC": {
+    "name": "MoClassTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eNONE": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SeverityTC": {
+    "name": "SeverityTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eINDETERMINATE": 1,
+          "eCRITICAL": 2,
+          "eMAJOR": 3,
+          "eMINOR": 4,
+          "eWARNING": 5,
+          "eCLEARED": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ProbableCauseTC": {
+    "name": "ProbableCauseTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eNONE": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CategoryTC": {
+    "name": "CategoryTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eHIGHORDERLEVEL": 1,
+          "eUNFILTERED": 2,
+          "eLOWORDERLEVEL": 3,
+          "eNONE": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClearableTC": {
+    "name": "ClearableTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eTRUE": 1,
+          "eFALSE": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EnableStatusTypeTC": {
+    "name": "EnableStatusTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eENABLED": 1,
+          "eDISABLED": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LayerRateTC": {
+    "name": "LayerRateTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eLRNOTAPPLICABLE": 1,
+          "eLRT3ANDDS345M": 4,
+          "eLRE12M": 5,
+          "eLRE334M": 7,
+          "eLRVT2ANDTU12VC12": 11,
+          "eLRLOWORDERTU3VC3": 13,
+          "eLRSTS3CANDAU4VC4": 15,
+          "eLRSTS12CVC44C": 16,
+          "eLRSECTIONOC3STS3ANDRSSTM1": 20,
+          "eLRSECTIONOC12STS12ANDRSSTM4": 21,
+          "eLRSECTIONOC48STS48ANDRSSTM16": 22,
+          "eLRLINEOC3STS3ANDMSSTM1": 25,
+          "eLRLINEOC12STS12ANDMSSTM4": 26,
+          "eLRLINEOC48STS48ANDMSSTM16": 27,
+          "eLRDSROC3STM1": 73,
+          "eLRDSROC12STM4": 74,
+          "eLRDSROC48STM16": 76,
+          "eLRDSRGIGABITETHERNET": 87,
+          "eLRENCAPSULATION": 98,
+          "eLRFRAGMENT": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EventTypeTC": {
+    "name": "EventTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eINFORMATION": 1,
+          "eWARNING": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EventCauseTC": {
+    "name": "EventCauseTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eNONE": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SwitchTypeTC": {
+    "name": "SwitchTypeTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eSDHMSP": 1,
+          "eSDHSNCP": 2,
+          "eEQUIPEMEMTPROTECTION": 3,
+          "eSYNCHRONISATION": 4,
+          "eSCSWITCHOVER": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SwitchReasonTC": {
+    "name": "SwitchReasonTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eNA": 1,
+          "eRESTORED": 2,
+          "eSIGNALFAIL": 3,
+          "eSIGNALMISMATCH": 4,
+          "eSIGNALDEGRADE": 5,
+          "eAUTOMATICSWITCH": 6,
+          "eMANUAL": 7,
+          "eREMOTEREQUEST": 8,
+          "ePROTECTIONDISABLED": 9,
+          "eMODULEFAIL": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alarmConfigTable": {
+    "name": "alarmConfigTable",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmConfigEntry": {
+    "name": "alarmConfigEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-FM-MIB",
+        "object": "notificationId",
+        "implied": 0
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "moClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "notificationId": {
+    "name": "notificationId",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationIdTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "moClass": {
+    "name": "moClass",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MoClassTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "severity": {
+    "name": "severity",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SeverityTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "probableCauseQualifier": {
+    "name": "probableCauseQualifier",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "probableCause": {
+    "name": "probableCause",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProbableCauseTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "category": {
+    "name": "category",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CategoryTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clearable": {
+    "name": "clearable",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClearableTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmPersistencyConfigTable": {
+    "name": "alarmPersistencyConfigTable",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmPersistencyConfigEntry": {
+    "name": "alarmPersistencyConfigEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-FM-MIB",
+        "object": "category",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "persistencyConfigcategory": {
+    "name": "persistencyConfigcategory",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CategoryTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onFilter": {
+    "name": "onFilter",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "offFilter": {
+    "name": "offFilter",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notificationConfig": {
+    "name": "notificationConfig",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.3",
+    "class": "objectidentity"
+  },
+  "notificationReporting": {
+    "name": "notificationReporting",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lCASExtendedAlarms": {
+    "name": "lCASExtendedAlarms",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nIMAlarms": {
+    "name": "nIMAlarms",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pJEAlarms": {
+    "name": "pJEAlarms",
+    "oid": "1.3.6.1.4.1.193.223.2.3.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmsTable": {
+    "name": "currentAlarmsTable",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "currentAlarmsEntry": {
+    "name": "currentAlarmsEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-FM-MIB",
+        "object": "sequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sequenceNumber": {
+    "name": "sequenceNumber",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "currentAlarmTimeStamp": {
+    "name": "currentAlarmTimeStamp",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmNotificationId": {
+    "name": "currentAlarmNotificationId",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmManagedObjectId": {
+    "name": "currentAlarmManagedObjectId",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmReferenceObjectId": {
+    "name": "currentAlarmReferenceObjectId",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmSeverity": {
+    "name": "currentAlarmSeverity",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SeverityTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmProbableCause": {
+    "name": "currentAlarmProbableCause",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProbableCauseTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmProbableCauseQualifier": {
+    "name": "currentAlarmProbableCauseQualifier",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmAdditionalText": {
+    "name": "currentAlarmAdditionalText",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentAlarmLayerRate": {
+    "name": "currentAlarmLayerRate",
+    "oid": "1.3.6.1.4.1.193.223.2.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LayerRateTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLog": {
+    "name": "alarmLog",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1",
+    "class": "objectidentity"
+  },
+  "maxNumOfEntriesForAlarm": {
+    "name": "maxNumOfEntriesForAlarm",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lastSeqNumForAlarm": {
+    "name": "lastSeqNumForAlarm",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogTable": {
+    "name": "alarmLogTable",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmLogEntry": {
+    "name": "alarmLogEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-FM-MIB",
+        "object": "alarmLogSequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmLogSequenceNumber": {
+    "name": "alarmLogSequenceNumber",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmLogTimeStamp": {
+    "name": "alarmLogTimeStamp",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogNotificationId": {
+    "name": "alarmLogNotificationId",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogSeverity": {
+    "name": "alarmLogSeverity",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SeverityTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogProbableCause": {
+    "name": "alarmLogProbableCause",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProbableCauseTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogProbableCauseQualifier": {
+    "name": "alarmLogProbableCauseQualifier",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogAdditionalText": {
+    "name": "alarmLogAdditionalText",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogLayerRate": {
+    "name": "alarmLogLayerRate",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LayerRateTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnNotificationLog": {
+    "name": "tmnNotificationLog",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2",
+    "class": "objectidentity"
+  },
+  "maxNumOfEntriesForTMN": {
+    "name": "maxNumOfEntriesForTMN",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lastSeqNumForTMN": {
+    "name": "lastSeqNumForTMN",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnNotificationLogTable": {
+    "name": "tmnNotificationLogTable",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnNotificationLogEntry": {
+    "name": "tmnNotificationLogEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-FM-MIB",
+        "object": "tmnSequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnSequenceNumber": {
+    "name": "tmnSequenceNumber",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnTimeStamp": {
+    "name": "tmnTimeStamp",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnNotificationId": {
+    "name": "tmnNotificationId",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnAdditionalText": {
+    "name": "tmnAdditionalText",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventLog": {
+    "name": "eventLog",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3",
+    "class": "objectidentity"
+  },
+  "maxNumOfEntriesForEvent": {
+    "name": "maxNumOfEntriesForEvent",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lastSeqNumForEvent": {
+    "name": "lastSeqNumForEvent",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventLogTable": {
+    "name": "eventLogTable",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventLogEntry": {
+    "name": "eventLogEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-FM-MIB",
+        "object": "eventLogSequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eventLogSequenceNumber": {
+    "name": "eventLogSequenceNumber",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventLogTimeStamp": {
+    "name": "eventLogTimeStamp",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventLogNotificationId": {
+    "name": "eventLogNotificationId",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventType": {
+    "name": "eventType",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventLogAdditionalText": {
+    "name": "eventLogAdditionalText",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventCause": {
+    "name": "eventCause",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventCauseTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protectionSwitchLog": {
+    "name": "protectionSwitchLog",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4",
+    "class": "objectidentity"
+  },
+  "maxNumOfEntriesForSwitch": {
+    "name": "maxNumOfEntriesForSwitch",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lastSeqNumForSwitch": {
+    "name": "lastSeqNumForSwitch",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protectionSwitchLogTable": {
+    "name": "protectionSwitchLogTable",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "protectionSwitchLogEntry": {
+    "name": "protectionSwitchLogEntry",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PT-FM-MIB",
+        "object": "switchLogSequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "switchLogSequenceNumber": {
+    "name": "switchLogSequenceNumber",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "switchLogTimeStamp": {
+    "name": "switchLogTimeStamp",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchLogNotificationId": {
+    "name": "switchLogNotificationId",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationIdTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchType": {
+    "name": "switchType",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchLogAdditionalText": {
+    "name": "switchLogAdditionalText",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchReason": {
+    "name": "switchReason",
+    "oid": "1.3.6.1.4.1.193.223.2.3.3.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchReasonTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptFMCompliances": {
+    "name": "ptFMCompliances",
+    "oid": "1.3.6.1.4.1.193.223.2.3.4.1",
+    "class": "objectidentity"
+  },
+  "ptFMGroups": {
+    "name": "ptFMGroups",
+    "oid": "1.3.6.1.4.1.193.223.2.3.4.2",
+    "class": "objectidentity"
+  },
+  "ptFMFullCompliance": {
+    "name": "ptFMFullCompliance",
+    "oid": "1.3.6.1.4.1.193.223.2.3.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ptFMCompleteGroup",
+        "module": "PT-FM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ptFMCompleteGroup": {
+    "name": "ptFMCompleteGroup",
+    "oid": "1.3.6.1.4.1.193.223.2.3.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PT-FM-MIB",
+        "object": "alarmLogTimeStamp"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "alarmLogNotificationId"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "alarmLogSeverity"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "alarmLogProbableCause"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "alarmLogProbableCauseQualifier"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "alarmLogAdditionalText"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "alarmLogLayerRate"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "category"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "clearable"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmTimeStamp"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmNotificationId"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmManagedObjectId"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmReferenceObjectId"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmSeverity"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmProbableCause"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmProbableCauseQualifier"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmAdditionalText"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "currentAlarmLayerRate"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "eventLogTimeStamp"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "eventLogNotificationId"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "eventType"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "eventLogAdditionalText"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "eventCause"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "lastSeqNumForAlarm"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "lastSeqNumForTMN"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "lastSeqNumForEvent"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "lastSeqNumForSwitch"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "lCASExtendedAlarms"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "maxNumOfEntriesForAlarm"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "maxNumOfEntriesForTMN"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "maxNumOfEntriesForEvent"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "maxNumOfEntriesForSwitch"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "notificationReporting"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "nIMAlarms"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "onFilter"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "offFilter"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "pJEAlarms"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "probableCauseQualifier"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "severity"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "switchLogTimeStamp"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "switchLogNotificationId"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "switchType"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "switchLogAdditionalText"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "switchReason"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "tmnTimeStamp"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "tmnNotificationId"
+      },
+      {
+        "module": "PT-FM-MIB",
+        "object": "tmnAdditionalText"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-FM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:31 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PT-FM-MIB"
+  }
+}

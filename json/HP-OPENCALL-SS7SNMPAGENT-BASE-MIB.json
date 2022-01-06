@@ -1,0 +1,2663 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "openCall": {
+    "name": "openCall",
+    "oid": "1.3.6.1.4.1.11.2.29.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-09 00:00",
+        "description": "text"
+      },
+      {
+        "revision": "2003-09-09 00:00",
+        "description": "text"
+      }
+    ]
+  },
+  "openCallTraps": {
+    "name": "openCallTraps",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0",
+    "class": "objectidentity"
+  },
+  "sourcePlatformEntity": {
+    "name": "sourcePlatformEntity",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sourceObjectID": {
+    "name": "sourceObjectID",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "perceveidSeverity": {
+    "name": "perceveidSeverity",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmText": {
+    "name": "alarmText",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "probableCause": {
+    "name": "probableCause",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "correctiveAction": {
+    "name": "correctiveAction",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "htimeStamp": {
+    "name": "htimeStamp",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hHPOC_3100155": {
+    "name": "hHPOC_3100155",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.3100155",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_8400042": {
+    "name": "hHPOC_8400042",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.8400042",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_8400084": {
+    "name": "hHPOC_8400084",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.8400084",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_8400085": {
+    "name": "hHPOC_8400085",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.8400085",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_8400086": {
+    "name": "hHPOC_8400086",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.8400086",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_8400087": {
+    "name": "hHPOC_8400087",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.8400087",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_8400088": {
+    "name": "hHPOC_8400088",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.8400088",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000332": {
+    "name": "hHPOC_9000332",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000332",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000334": {
+    "name": "hHPOC_9000334",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000334",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000336": {
+    "name": "hHPOC_9000336",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000336",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000341": {
+    "name": "hHPOC_9000341",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000341",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000342": {
+    "name": "hHPOC_9000342",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000342",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000343": {
+    "name": "hHPOC_9000343",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000343",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000344": {
+    "name": "hHPOC_9000344",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000344",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000345": {
+    "name": "hHPOC_9000345",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000345",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000346": {
+    "name": "hHPOC_9000346",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000346",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000347": {
+    "name": "hHPOC_9000347",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000347",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000348": {
+    "name": "hHPOC_9000348",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000348",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000349": {
+    "name": "hHPOC_9000349",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000349",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000350": {
+    "name": "hHPOC_9000350",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000350",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000354": {
+    "name": "hHPOC_9000354",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000354",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000355": {
+    "name": "hHPOC_9000355",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000355",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000356": {
+    "name": "hHPOC_9000356",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000356",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000357": {
+    "name": "hHPOC_9000357",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000357",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000635": {
+    "name": "hHPOC_9000635",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000635",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000636": {
+    "name": "hHPOC_9000636",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000636",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000681": {
+    "name": "hHPOC_9000681",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000681",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9000682": {
+    "name": "hHPOC_9000682",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9000682",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001260": {
+    "name": "hHPOC_9001260",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001260",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001262": {
+    "name": "hHPOC_9001262",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001262",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001268": {
+    "name": "hHPOC_9001268",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001268",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001269": {
+    "name": "hHPOC_9001269",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001269",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001270": {
+    "name": "hHPOC_9001270",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001270",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001271": {
+    "name": "hHPOC_9001271",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001271",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001272": {
+    "name": "hHPOC_9001272",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001272",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001273": {
+    "name": "hHPOC_9001273",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001273",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001274": {
+    "name": "hHPOC_9001274",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001274",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001275": {
+    "name": "hHPOC_9001275",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001275",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001276": {
+    "name": "hHPOC_9001276",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001276",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001277": {
+    "name": "hHPOC_9001277",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001277",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001278": {
+    "name": "hHPOC_9001278",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001278",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001279": {
+    "name": "hHPOC_9001279",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001279",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_9001280": {
+    "name": "hHPOC_9001280",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.9001280",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_8400089": {
+    "name": "hHPOC_8400089",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.8400089",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40400001": {
+    "name": "hHPOC_40400001",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40400001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40400002": {
+    "name": "hHPOC_40400002",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40400002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40400003": {
+    "name": "hHPOC_40400003",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40400003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100001": {
+    "name": "hHPOC_40100001",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100011": {
+    "name": "hHPOC_40100011",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100011",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100040": {
+    "name": "hHPOC_40100040",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100040",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100501": {
+    "name": "hHPOC_40100501",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100501",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100502": {
+    "name": "hHPOC_40100502",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100502",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100601": {
+    "name": "hHPOC_40100601",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100601",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100607": {
+    "name": "hHPOC_40100607",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100607",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100608": {
+    "name": "hHPOC_40100608",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100608",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100801": {
+    "name": "hHPOC_40100801",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100801",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100802": {
+    "name": "hHPOC_40100802",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100802",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100803": {
+    "name": "hHPOC_40100803",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100803",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100804": {
+    "name": "hHPOC_40100804",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100804",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100806": {
+    "name": "hHPOC_40100806",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100806",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100807": {
+    "name": "hHPOC_40100807",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100807",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100809": {
+    "name": "hHPOC_40100809",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100809",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40100810": {
+    "name": "hHPOC_40100810",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40100810",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40300002": {
+    "name": "hHPOC_40300002",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40300002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40300003": {
+    "name": "hHPOC_40300003",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40300003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40300006": {
+    "name": "hHPOC_40300006",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.40300006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40300011": {
+    "name": "hHPOC_40300011",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.403000011",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40300015": {
+    "name": "hHPOC_40300015",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.403000015",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40300016": {
+    "name": "hHPOC_40300016",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.403000016",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "hHPOC_40300017": {
+    "name": "hHPOC_40300017",
+    "oid": "1.3.6.1.4.1.11.2.29.2.0.403000017",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourcePlatformEntity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "sourceObjectID"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "perceveidSeverity"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "probableCause"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "correctiveAction"
+      },
+      {
+        "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+        "object": "htimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB"
+  }
+}

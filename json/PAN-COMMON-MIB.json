@@ -1,0 +1,3441 @@
+{
+  "imports": {
+    "class": "imports",
+    "PAN-GLOBAL-REG": [
+      "panModules",
+      "panCommonMib"
+    ],
+    "PAN-GLOBAL-TC": [
+      "TcChassisType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "panCommonMibModule": {
+    "name": "panCommonMibModule",
+    "oid": "1.3.6.1.4.1.25461.1.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-30 00:00",
+        "description": " Rev 2.3 Added entries for Log Collector."
+      },
+      {
+        "revision": "2014-09-04 00:00",
+        "description": " Rev 2.2 Added entries for Wildfire content versions. Added entry for new platform PA 3060."
+      },
+      {
+        "revision": "2014-03-06 00:00",
+        "description": " Rev 2.1 Fixed a capitalization error with PanVsysEntry."
+      },
+      {
+        "revision": "2013-03-01 00:00",
+        "description": " Rev 2.0 Updated with panGlobalProtect and panVsysTable."
+      },
+      {
+        "revision": "2011-02-09 16:10",
+        "description": " Rev 1.0 Initial version of MIB module PAN-COMMON-MIB."
+      }
+    ]
+  },
+  "FloatValue": {
+    "name": "FloatValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "panCommonConfMib": {
+    "name": "panCommonConfMib",
+    "oid": "1.3.6.1.4.1.25461.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panCommonObjs": {
+    "name": "panCommonObjs",
+    "oid": "1.3.6.1.4.1.25461.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panCommonEvents": {
+    "name": "panCommonEvents",
+    "oid": "1.3.6.1.4.1.25461.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panSys": {
+    "name": "panSys",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panChassis": {
+    "name": "panChassis",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panSession": {
+    "name": "panSession",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panMgmt": {
+    "name": "panMgmt",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panGlobalProtect": {
+    "name": "panGlobalProtect",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panLogCollector": {
+    "name": "panLogCollector",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panDeviceLogging": {
+    "name": "panDeviceLogging",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panSSLBroker": {
+    "name": "panSSLBroker",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panGlobalCounters": {
+    "name": "panGlobalCounters",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panSysSwVersion": {
+    "name": "panSysSwVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysHwVersion": {
+    "name": "panSysHwVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysSerialNumber": {
+    "name": "panSysSerialNumber",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysTimeZoneOffset": {
+    "name": "panSysTimeZoneOffset",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysDaylightSaving": {
+    "name": "panSysDaylightSaving",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysVpnClientVersion": {
+    "name": "panSysVpnClientVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysAppVersion": {
+    "name": "panSysAppVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysAvVersion": {
+    "name": "panSysAvVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysThreatVersion": {
+    "name": "panSysThreatVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysUrlFilteringVersion": {
+    "name": "panSysUrlFilteringVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysHAState": {
+    "name": "panSysHAState",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysHAPeerState": {
+    "name": "panSysHAPeerState",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysHAMode": {
+    "name": "panSysHAMode",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysUrlFilteringDatabase": {
+    "name": "panSysUrlFilteringDatabase",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysGlobalProtectClientVersion": {
+    "name": "panSysGlobalProtectClientVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysOpswatDatafileVersion": {
+    "name": "panSysOpswatDatafileVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysWildfireVersion": {
+    "name": "panSysWildfireVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysWildfirePrivateCloudVersion": {
+    "name": "panSysWildfirePrivateCloudVersion",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysAppReleaseDate": {
+    "name": "panSysAppReleaseDate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysThreatReleaseDate": {
+    "name": "panSysThreatReleaseDate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysAvReleaseDate": {
+    "name": "panSysAvReleaseDate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSysWfReleaseDate": {
+    "name": "panSysWfReleaseDate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panChassisType": {
+    "name": "panChassisType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panMSeriesMode": {
+    "name": "panMSeriesMode",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionUtilization": {
+    "name": "panSessionUtilization",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionMax": {
+    "name": "panSessionMax",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionActive": {
+    "name": "panSessionActive",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionActiveTcp": {
+    "name": "panSessionActiveTcp",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionActiveUdp": {
+    "name": "panSessionActiveUdp",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionActiveICMP": {
+    "name": "panSessionActiveICMP",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionActiveSslProxy": {
+    "name": "panSessionActiveSslProxy",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionSslProxyUtilization": {
+    "name": "panSessionSslProxyUtilization",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panVsysTable": {
+    "name": "panVsysTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panZoneTable": {
+    "name": "panZoneTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panIfTable": {
+    "name": "panIfTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panVsysEntry": {
+    "name": "panVsysEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panVsysId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panVsysId": {
+    "name": "panVsysId",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panVsysName": {
+    "name": "panVsysName",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panVsysSessionUtilizationPct": {
+    "name": "panVsysSessionUtilizationPct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panVsysActiveSessions": {
+    "name": "panVsysActiveSessions",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panVsysMaxSessions": {
+    "name": "panVsysMaxSessions",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panVsysActiveTcpCps": {
+    "name": "panVsysActiveTcpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panVsysActiveUdpCps": {
+    "name": "panVsysActiveUdpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panVsysActiveOtherIpCps": {
+    "name": "panVsysActiveOtherIpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panMgmtPanoramaConnected": {
+    "name": "panMgmtPanoramaConnected",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panMgmtPanorama2Connected": {
+    "name": "panMgmtPanorama2Connected",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panGPGatewayUtilization": {
+    "name": "panGPGatewayUtilization",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panGPGWUtilizationPct": {
+    "name": "panGPGWUtilizationPct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panGPGWUtilizationMaxTunnels": {
+    "name": "panGPGWUtilizationMaxTunnels",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panGPGWUtilizationActiveTunnels": {
+    "name": "panGPGWUtilizationActiveTunnels",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogRate": {
+    "name": "panDeviceLoggingLogRate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panDeviceLoggingLogTypeStatTable": {
+    "name": "panDeviceLoggingLogTypeStatTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panDeviceLoggingLogUsageTable": {
+    "name": "panDeviceLoggingLogUsageTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwd": {
+    "name": "panDeviceLoggingExtFwd",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panDeviceLoggingCollectorConnectionTable": {
+    "name": "panDeviceLoggingCollectorConnectionTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panSSLBrokerStatsTable": {
+    "name": "panSSLBrokerStatsTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panSSLBrokerStatsEntry": {
+    "name": "panSSLBrokerStatsEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "index": {
+    "name": "index",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chainName": {
+    "name": "chainName",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "avgLatency": {
+    "name": "avgLatency",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sessionCount": {
+    "name": "sessionCount",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceIncomingLogRate": {
+    "name": "panDeviceIncomingLogRate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceWriteLogRate": {
+    "name": "panDeviceWriteLogRate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogTypeStatEntry": {
+    "name": "panDeviceLoggingLogTypeStatEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panDeviceLoggingDevice",
+        "implied": 0
+      },
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panDeviceLoggingLogType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panDeviceLoggingDevice": {
+    "name": "panDeviceLoggingDevice",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingDeviceIndex": {
+    "name": "panDeviceLoggingDeviceIndex",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogType": {
+    "name": "panDeviceLoggingLogType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogLastLogCreated": {
+    "name": "panDeviceLoggingLogLastLogCreated",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogLastLogFwded": {
+    "name": "panDeviceLoggingLogLastLogFwded",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogLastSeqNumberFwded": {
+    "name": "panDeviceLoggingLogLastSeqNumberFwded",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogLastSeqNumberAck": {
+    "name": "panDeviceLoggingLogLastSeqNumberAck",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogTotalLogsFwded": {
+    "name": "panDeviceLoggingLogTotalLogsFwded",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingLogUsageEntry": {
+    "name": "panDeviceLoggingLogUsageEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panDeviceLoggingLogUsageLogType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panDeviceLoggingLogUsageLogType": {
+    "name": "panDeviceLoggingLogUsageLogType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingDiskUsageDiskSpace": {
+    "name": "panDeviceLoggingDiskUsageDiskSpace",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingDiskUsageRetention": {
+    "name": "panDeviceLoggingDiskUsageRetention",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingDiskQuotaPct": {
+    "name": "panDeviceLoggingDiskQuotaPct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingDiskQuota": {
+    "name": "panDeviceLoggingDiskQuota",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdCount": {
+    "name": "panDeviceLoggingExtFwdCount",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdQueueDrop": {
+    "name": "panDeviceLoggingExtFwdQueueDrop",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsSendErr": {
+    "name": "panDeviceLoggingExtFwdStatsSendErr",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsTable": {
+    "name": "panDeviceLoggingExtFwdStatsTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsEntry": {
+    "name": "panDeviceLoggingExtFwdStatsEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panDeviceLoggingExtFwdStatsTableType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsTableType": {
+    "name": "panDeviceLoggingExtFwdStatsTableType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsTableEnqueueCount": {
+    "name": "panDeviceLoggingExtFwdStatsTableEnqueueCount",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsTableSendCount": {
+    "name": "panDeviceLoggingExtFwdStatsTableSendCount",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsTableDropCount": {
+    "name": "panDeviceLoggingExtFwdStatsTableDropCount",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsTableQueueDepth": {
+    "name": "panDeviceLoggingExtFwdStatsTableQueueDepth",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingExtFwdStatsTable1minAvgSendRate": {
+    "name": "panDeviceLoggingExtFwdStatsTable1minAvgSendRate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingCollectorConnectionEntry": {
+    "name": "panDeviceLoggingCollectorConnectionEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panDeviceLoggingCollectorConnectionIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panDeviceLoggingCollectorConnectionType": {
+    "name": "panDeviceLoggingCollectorConnectionType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingCollectorConnectionIP": {
+    "name": "panDeviceLoggingCollectorConnectionIP",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingCollectorConnectionHostname": {
+    "name": "panDeviceLoggingCollectorConnectionHostname",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDeviceLoggingCollectorConnectionStatus": {
+    "name": "panDeviceLoggingCollectorConnectionStatus",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.7.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcStat": {
+    "name": "panLcStat",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panLcLogRate": {
+    "name": "panLcLogRate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogDuration": {
+    "name": "panLcLogDuration",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "panLcDiskUsageTable": {
+    "name": "panLcDiskUsageTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "panLcLogUsageTable": {
+    "name": "panLcLogUsageTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panLocalLogUsageTable": {
+    "name": "panLocalLogUsageTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panLcDiskIOPSTable": {
+    "name": "panLcDiskIOPSTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "panLcLogDurationTraffic": {
+    "name": "panLcLogDurationTraffic",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationConfig": {
+    "name": "panLcLogDurationConfig",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationSystem": {
+    "name": "panLcLogDurationSystem",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationThreat": {
+    "name": "panLcLogDurationThreat",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationAppstat": {
+    "name": "panLcLogDurationAppstat",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationTrsum": {
+    "name": "panLcLogDurationTrsum",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationThsum": {
+    "name": "panLcLogDurationThsum",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationEvent": {
+    "name": "panLcLogDurationEvent",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationAlarm": {
+    "name": "panLcLogDurationAlarm",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationHipmatch": {
+    "name": "panLcLogDurationHipmatch",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcLogDurationUserid": {
+    "name": "panLcLogDurationUserid",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcDiskUsageEntry": {
+    "name": "panLcDiskUsageEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panLcDiskUsageId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "panLocalLogUsageEntry": {
+    "name": "panLocalLogUsageEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panLcLogType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panLocalLogType": {
+    "name": "panLocalLogType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLocalDiskUsageDiskSpace": {
+    "name": "panLocalDiskUsageDiskSpace",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLocalDiskUsageRetention": {
+    "name": "panLocalDiskUsageRetention",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLocalDiskQuota": {
+    "name": "panLocalDiskQuota",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLocalDiskQuotaPct": {
+    "name": "panLocalDiskQuotaPct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcDiskIOPSEntry": {
+    "name": "panLcDiskIOPSEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panLcDiskIOPSId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panLcDiskIOPSId": {
+    "name": "panLcDiskIOPSId",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcDiskIORead5min": {
+    "name": "panLcDiskIORead5min",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcDiskIOWrite5min": {
+    "name": "panLcDiskIOWrite5min",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogUsageEntry": {
+    "name": "panLcLogUsageEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panLcLogType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panLcLogType": {
+    "name": "panLcLogType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcDiskUsageDiskSpacePct": {
+    "name": "panLcDiskUsageDiskSpacePct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcDiskUsageRetention": {
+    "name": "panLcDiskUsageRetention",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcDiskQuotaPct": {
+    "name": "panLcDiskQuotaPct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcDiskUsageId": {
+    "name": "panLcDiskUsageId",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcDiskUsage": {
+    "name": "panLcDiskUsage",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "panLcIsRedundancyMember": {
+    "name": "panLcIsRedundancyMember",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogFwdStatsTable": {
+    "name": "panLcLogFwdStatsTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogFwdStatsEntry": {
+    "name": "panLcLogFwdStatsEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panLcLogFwdStatsTableType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panLcLogFwdStatsTableType": {
+    "name": "panLcLogFwdStatsTableType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogFwdStatsTableEnqueueCount": {
+    "name": "panLcLogFwdStatsTableEnqueueCount",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogFwdStatsTableSendCount": {
+    "name": "panLcLogFwdStatsTableSendCount",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogFwdStatsTableDropCount": {
+    "name": "panLcLogFwdStatsTableDropCount",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogFwdStatsTableQueueDepth": {
+    "name": "panLcLogFwdStatsTableQueueDepth",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLoggingConnectedDeviceTable": {
+    "name": "panLcLoggingConnectedDeviceTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLoggingConnectedDeviceEntry": {
+    "name": "panLcLoggingConnectedDeviceEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panLcLoggingConnectedDeviceConnectionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panLcLoggingConnectedDeviceName": {
+    "name": "panLcLoggingConnectedDeviceName",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLoggingConnectedDeviceConnectionId": {
+    "name": "panLcLoggingConnectedDeviceConnectionId",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLoggingConnectedIdLogRate": {
+    "name": "panLcLoggingConnectedIdLogRate",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLoggingDeviceTable": {
+    "name": "panLcLoggingDeviceTable",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLoggingDeviceEntry": {
+    "name": "panLcLoggingDeviceEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panLcLoggingDeviceConnectionId",
+        "implied": 0
+      },
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panLcLoggingLogType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panLcLoggingDeviceConnectionId": {
+    "name": "panLcLoggingDeviceConnectionId",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLoggingLogType": {
+    "name": "panLcLoggingLogType",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogTypeLastLogRecd": {
+    "name": "panLcLogTypeLastLogRecd",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogTypeLastSeqNumRecd": {
+    "name": "panLcLogTypeLastSeqNumRecd",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panLcLogTypeLastLogGen": {
+    "name": "panLcLogTypeLastLogGen",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panCommonEventObjs": {
+    "name": "panCommonEventObjs",
+    "oid": "1.3.6.1.4.1.25461.2.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panCommonEventEvents": {
+    "name": "panCommonEventEvents",
+    "oid": "1.3.6.1.4.1.25461.2.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panCommonEventEventsV2": {
+    "name": "panCommonEventEventsV2",
+    "oid": "1.3.6.1.4.1.25461.2.1.3.2.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panCommonEventDescr": {
+    "name": "panCommonEventDescr",
+    "oid": "1.3.6.1.4.1.25461.2.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "panCommonEventLog": {
+    "name": "panCommonEventLog",
+    "oid": "1.3.6.1.4.1.25461.2.1.3.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "panCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "panAhoSw": {
+    "name": "panAhoSw",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDfaSw": {
+    "name": "panDfaSw",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowHostServiceAllow": {
+    "name": "panFlowHostServiceAllow",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panHaPathmonSent": {
+    "name": "panHaPathmonSent",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panAhoFpga": {
+    "name": "panAhoFpga",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panDfaFpga": {
+    "name": "panDfaFpga",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFpgaPkt": {
+    "name": "panFpgaPkt",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panGlobalCountersDOSCounters": {
+    "name": "panGlobalCountersDOSCounters",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panGlobalCountersDropCounters": {
+    "name": "panGlobalCountersDropCounters",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panGlobalCountersIPFragmentationCounters": {
+    "name": "panGlobalCountersIPFragmentationCounters",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panGlobalCountersTCPState": {
+    "name": "panGlobalCountersTCPState",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panGlobalCountersTunnelInspect": {
+    "name": "panGlobalCountersTunnelInspect",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "panFlowDosAgMaxSessLimit": {
+    "name": "panFlowDosAgMaxSessLimit",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosBlkNumEntries": {
+    "name": "panFlowDosBlkNumEntries",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosClMaxSessLimit": {
+    "name": "panFlowDosClMaxSessLimit",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosClSyncookieAckErr": {
+    "name": "panFlowDosClSyncookieAckErr",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosClSyncookieAckRcv": {
+    "name": "panFlowDosClSyncookieAckRcv",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosClSyncookieBlkDur": {
+    "name": "panFlowDosClSyncookieBlkDur",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosClSyncookieMax": {
+    "name": "panFlowDosClSyncookieMax",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosClSyncookieSent": {
+    "name": "panFlowDosClSyncookieSent",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowMeterVsysThrottle": {
+    "name": "panFlowMeterVsysThrottle",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowPolicyDeny": {
+    "name": "panFlowPolicyDeny",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowPolicyNat": {
+    "name": "panFlowPolicyNat",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowScanDrop": {
+    "name": "panFlowScanDrop",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosDropIpBlocked": {
+    "name": "panFlowDosDropIpBlocked",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRedIcmp": {
+    "name": "panFlowDosRedIcmp",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRedIcmp6": {
+    "name": "panFlowDosRedIcmp6",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRedIp": {
+    "name": "panFlowDosRedIp",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRedTcp": {
+    "name": "panFlowDosRedTcp",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRedUdp": {
+    "name": "panFlowDosRedUdp",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleAgBlkDur": {
+    "name": "panFlowDosRuleAgBlkDur",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleAgRedAct": {
+    "name": "panFlowDosRuleAgRedAct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleAgRedMax": {
+    "name": "panFlowDosRuleAgRedMax",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleDeny": {
+    "name": "panFlowDosRuleDeny",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleDrop": {
+    "name": "panFlowDosRuleDrop",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleDropAggr": {
+    "name": "panFlowDosRuleDropAggr",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleDropClBlkDur": {
+    "name": "panFlowDosRuleDropClBlkDur",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleDropClRedAct": {
+    "name": "panFlowDosRuleDropClRedAct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleDropClRedMax": {
+    "name": "panFlowDosRuleDropClRedMax",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosRuleDropClassified": {
+    "name": "panFlowDosRuleDropClassified",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosSyncookieBlkDur": {
+    "name": "panFlowDosSyncookieBlkDur",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosSyncookieMax": {
+    "name": "panFlowDosSyncookieMax",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosZoneRedAct": {
+    "name": "panFlowDosZoneRedAct",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosZoneRedMax": {
+    "name": "panFlowDosZoneRedMax",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosBlkSwEntries": {
+    "name": "panFlowDosBlkSwEntries",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosBlkHwEntries": {
+    "name": "panFlowDosBlkHwEntries",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosSyncookieNotTcpSyn": {
+    "name": "panFlowDosSyncookieNotTcpSyn",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosSyncookieNotTcpSynAck": {
+    "name": "panFlowDosSyncookieNotTcpSynAck",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfIpspoof": {
+    "name": "panFlowDosPfIpspoof",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfIpfrag": {
+    "name": "panFlowDosPfIpfrag",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfPing0": {
+    "name": "panFlowDosPfPing0",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfIcmpfrag": {
+    "name": "panFlowDosPfIcmpfrag",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfIcmplpkt": {
+    "name": "panFlowDosPfIcmplpkt",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfIcmperr": {
+    "name": "panFlowDosPfIcmperr",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfNoreplyttl": {
+    "name": "panFlowDosPfNoreplyttl",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfNoreplyneedfrag": {
+    "name": "panFlowDosPfNoreplyneedfrag",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfStrictsource": {
+    "name": "panFlowDosPfStrictsource",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfLoosesource": {
+    "name": "panFlowDosPfLoosesource",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfTimestamp": {
+    "name": "panFlowDosPfTimestamp",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfRecordroute": {
+    "name": "panFlowDosPfRecordroute",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfSecurity": {
+    "name": "panFlowDosPfSecurity",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfSatnetid": {
+    "name": "panFlowDosPfSatnetid",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfUnknown": {
+    "name": "panFlowDosPfUnknown",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfBadoption": {
+    "name": "panFlowDosPfBadoption",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfTcpoverlappingmismatch": {
+    "name": "panFlowDosPfTcpoverlappingmismatch",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfStrictip": {
+    "name": "panFlowDosPfStrictip",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfTcpsplithandshake": {
+    "name": "panFlowDosPfTcpsplithandshake",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfTcpsyndata": {
+    "name": "panFlowDosPfTcpsyndata",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPfTcpsynackdata": {
+    "name": "panFlowDosPfTcpsynackdata",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Route0": {
+    "name": "panFlowDosIp6Route0",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Route1": {
+    "name": "panFlowDosIp6Route1",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Route3": {
+    "name": "panFlowDosIp6Route3",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Route4to252": {
+    "name": "panFlowDosIp6Route4to252",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Route253": {
+    "name": "panFlowDosIp6Route253",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Route254": {
+    "name": "panFlowDosIp6Route254",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Route255": {
+    "name": "panFlowDosIp6Route255",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Ip4cmpt": {
+    "name": "panFlowDosIp6Ip4cmpt",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Acast": {
+    "name": "panFlowDosIp6Acast",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6OptionsInvalidIPv6": {
+    "name": "panFlowDosIp6OptionsInvalidIPv6",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6Icmpv6ErrorInvalid": {
+    "name": "panFlowDosIp6Icmpv6ErrorInvalid",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6NeedlessIpv6FragHdr": {
+    "name": "panFlowDosIp6NeedlessIpv6FragHdr",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6RsvdSet": {
+    "name": "panFlowDosIp6RsvdSet",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIPv6ExtHdrHopByHop": {
+    "name": "panFlowDosIPv6ExtHdrHopByHop",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosip6IPv6ExtHdrRouting": {
+    "name": "panFlowDosip6IPv6ExtHdrRouting",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosIp6IPv6ExtHdrDestOpt": {
+    "name": "panFlowDosIp6IPv6ExtHdrDestOpt",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosPbpDrop": {
+    "name": "panFlowDosPbpDrop",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosCurrSessIncrFailed": {
+    "name": "panFlowDosCurrSessIncrFailed",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowDosCurrSessDecrFailed": {
+    "name": "panFlowDosCurrSessDecrFailed",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.8.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowFwdL3TtlZero": {
+    "name": "panFlowFwdL3TtlZero",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowMeterHostThrottle": {
+    "name": "panFlowMeterHostThrottle",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowHostServiceDeny": {
+    "name": "panFlowHostServiceDeny",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowHostServiceUnknown": {
+    "name": "panFlowHostServiceUnknown",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panPktAllocFailure": {
+    "name": "panPktAllocFailure",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panPktAllocFailureCos": {
+    "name": "panPktAllocFailureCos",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panSessionDiscard": {
+    "name": "panSessionDiscard",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowIpfragFragErr": {
+    "name": "panFlowIpfragFragErr",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowIpfragRecv": {
+    "name": "panFlowIpfragRecv",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panTcpAllocWqeFailed": {
+    "name": "panTcpAllocWqeFailed",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panTcpDeny": {
+    "name": "panTcpDeny",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panTcpDropOutOfWnd": {
+    "name": "panTcpDropOutOfWnd",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panTcpDropPacket": {
+    "name": "panTcpDropPacket",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowActionClose": {
+    "name": "panFlowActionClose",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowActionReset": {
+    "name": "panFlowActionReset",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTcpNonSyn": {
+    "name": "panFlowTcpNonSyn",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panTcpExceedSegLimit": {
+    "name": "panTcpExceedSegLimit",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciGreDecapSuccess": {
+    "name": "panFlowTciGreDecapSuccess",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciGreDecapFailed": {
+    "name": "panFlowTciGreDecapFailed",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciGreDecapUnknown": {
+    "name": "panFlowTciGreDecapUnknown",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciIpsecDecapSuccess": {
+    "name": "panFlowTciIpsecDecapSuccess",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciIpsecDecapFailed": {
+    "name": "panFlowTciIpsecDecapFailed",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciIpsecDecapUnknown": {
+    "name": "panFlowTciIpsecDecapUnknown",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciGtpDecapSuccess": {
+    "name": "panFlowTciGtpDecapSuccess",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciGtpDecapFailed": {
+    "name": "panFlowTciGtpDecapFailed",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panFlowTciGtpDecapUnknown": {
+    "name": "panFlowTciGtpDecapUnknown",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.1.19.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panIfEntry": {
+    "name": "panIfEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifIndex": {
+    "name": "ifIndex",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifDescr": {
+    "name": "ifDescr",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panIfActiveTcpCps": {
+    "name": "panIfActiveTcpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panIfActiveUdpCps": {
+    "name": "panIfActiveUdpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panIfActiveOtherIpCps": {
+    "name": "panIfActiveOtherIpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panZoneEntry": {
+    "name": "panZoneEntry",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PAN-COMMON-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "panZoneName": {
+    "name": "panZoneName",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panZoneActiveTcpCps": {
+    "name": "panZoneActiveTcpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panZoneActiveUdpCps": {
+    "name": "panZoneActiveUdpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "panZoneActiveOtherIpCps": {
+    "name": "panZoneActiveOtherIpCps",
+    "oid": "1.3.6.1.4.1.25461.2.1.2.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-COMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:59 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PAN-COMMON-MIB"
+  }
+}

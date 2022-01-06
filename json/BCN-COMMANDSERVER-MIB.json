@@ -1,0 +1,227 @@
+{
+  "imports": {
+    "class": "imports",
+    "BCN-SMI-MIB": [
+      "bcnServices"
+    ],
+    "BCN-TC-MIB": [
+      "BcnAlarmSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bcnCommandServerMIB": {
+    "name": "bcnCommandServerMIB",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-06-30 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "bcnCommandServer": {
+    "name": "bcnCommandServer",
+    "oid": "1.3.6.1.4.1.13315.3.1.7",
+    "class": "objectidentity"
+  },
+  "bcnCommandServerObjects": {
+    "name": "bcnCommandServerObjects",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.2",
+    "class": "objectidentity"
+  },
+  "bcnCommandServerNotification": {
+    "name": "bcnCommandServerNotification",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.3",
+    "class": "objectidentity"
+  },
+  "bcnCommandServerConformance": {
+    "name": "bcnCommandServerConformance",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.4",
+    "class": "objectidentity"
+  },
+  "bcnCommandServerServiceStatus": {
+    "name": "bcnCommandServerServiceStatus",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnCommandServerSerOperState": {
+    "name": "bcnCommandServerSerOperState",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "notRunning": 2,
+          "starting": 3,
+          "stopping": 4,
+          "fault": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnCommandServerNotificationEvents": {
+    "name": "bcnCommandServerNotificationEvents",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.3.0",
+    "class": "objectidentity"
+  },
+  "bcnCommandServerNotificationData": {
+    "name": "bcnCommandServerNotificationData",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.3.1",
+    "class": "objectidentity"
+  },
+  "bcnCommandServerAlarmSeverity": {
+    "name": "bcnCommandServerAlarmSeverity",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BcnAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnCommandServerAlarmInfo": {
+    "name": "bcnCommandServerAlarmInfo",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnCommandServerAlarmNotif": {
+    "name": "bcnCommandServerAlarmNotif",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BCN-COMMANDSERVER-MIB",
+        "object": "bcnCommandServerSerOperState"
+      },
+      {
+        "module": "BCN-COMMANDSERVER-MIB",
+        "object": "bcnCommandServerAlarmSeverity"
+      },
+      {
+        "module": "BCN-COMMANDSERVER-MIB",
+        "object": "bcnCommandServerAlarmInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnCommandServerServiceCompliances": {
+    "name": "bcnCommandServerServiceCompliances",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.4.1",
+    "class": "objectidentity"
+  },
+  "bcnCommandServerServiceGroups": {
+    "name": "bcnCommandServerServiceGroups",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.4.2",
+    "class": "objectidentity"
+  },
+  "bcnCommandServerServiceStatusGroup": {
+    "name": "bcnCommandServerServiceStatusGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-COMMANDSERVER-MIB",
+        "object": "bcnCommandServerSerOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnCommandServerNotificationEventGroup": {
+    "name": "bcnCommandServerNotificationEventGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.4.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BCN-COMMANDSERVER-MIB",
+        "object": "bcnCommandServerAlarmNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnCommandServerNotificationDataGroup": {
+    "name": "bcnCommandServerNotificationDataGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-COMMANDSERVER-MIB",
+        "object": "bcnCommandServerAlarmSeverity"
+      },
+      {
+        "module": "BCN-COMMANDSERVER-MIB",
+        "object": "bcnCommandServerAlarmInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnCommandServerStatusCompliance": {
+    "name": "bcnCommandServerStatusCompliance",
+    "oid": "1.3.6.1.4.1.13315.3.1.7.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bcnCommandServerServiceStatusGroup",
+        "module": "BCN-COMMANDSERVER-MIB"
+      },
+      {
+        "object": "bcnCommandServerNotificationEventGroup",
+        "module": "BCN-COMMANDSERVER-MIB"
+      },
+      {
+        "object": "bcnCommandServerNotificationDataGroup",
+        "module": "BCN-COMMANDSERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-COMMANDSERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BCN-COMMANDSERVER-MIB"
+  }
+}

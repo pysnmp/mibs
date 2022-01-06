@@ -1,0 +1,3134 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-DEVICE-MIB": [
+      "coDevDisIndex"
+    ],
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "COLUBRIS-TC": [
+      "ColubrisRadioType",
+      "ColubrisSSIDOrNone",
+      "ColubrisNotificationEnable"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "colubrisDeviceWirelessMIB": {
+    "name": "colubrisDeviceWirelessMIB",
+    "oid": "1.3.6.1.4.1.8744.5.25",
+    "class": "moduleidentity"
+  },
+  "colubrisDeviceWirelessMIBObjects": {
+    "name": "colubrisDeviceWirelessMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.25.1",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessConfigGroup": {
+    "name": "coDeviceWirelessConfigGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.1",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessIfStatusGroup": {
+    "name": "coDeviceWirelessIfStatusGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessIfStatsGroup": {
+    "name": "coDeviceWirelessIfStatsGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessIfQosGroup": {
+    "name": "coDeviceWirelessIfQosGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.4",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessVscStatusGroup": {
+    "name": "coDeviceWirelessVscStatusGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessVscStatsGroup": {
+    "name": "coDeviceWirelessVscStatsGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessClientStatusGroup": {
+    "name": "coDeviceWirelessClientStatusGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessClientStatsGroup": {
+    "name": "coDeviceWirelessClientStatsGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.8",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessClientRatesGroup": {
+    "name": "coDeviceWirelessClientRatesGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessClientHTRatesGroup": {
+    "name": "coDeviceWirelessClientHTRatesGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessDetectedAPGroup": {
+    "name": "coDeviceWirelessDetectedAPGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13",
+    "class": "objectidentity"
+  },
+  "coDevWirSNRLevelNotificationEnabled": {
+    "name": "coDevWirSNRLevelNotificationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDevWirSNRLevelNotificationInterval": {
+    "name": "coDevWirSNRLevelNotificationInterval",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDevWirMinimumSNRLevel": {
+    "name": "coDevWirMinimumSNRLevel",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 92
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDevWirAssociationNotificationEnabled": {
+    "name": "coDevWirAssociationNotificationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDeviceWirelessInterfaceStatusTable": {
+    "name": "coDeviceWirelessInterfaceStatusTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessInterfaceStatusEntry": {
+    "name": "coDeviceWirelessInterfaceStatusEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWirIfStaRadioIndex": {
+    "name": "coDevWirIfStaRadioIndex",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWirIfStaIfIndex": {
+    "name": "coDevWirIfStaIfIndex",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaOperatingMode": {
+    "name": "coDevWirIfStaOperatingMode",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "station": 1,
+          "apAndWds": 2,
+          "apOnly": 3,
+          "wdsOnly": 4,
+          "monitor": 5,
+          "sensor": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaTransmitPower": {
+    "name": "coDevWirIfStaTransmitPower",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaOperatingChannel": {
+    "name": "coDevWirIfStaOperatingChannel",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 199
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaRadioMode": {
+    "name": "coDevWirIfStaRadioMode",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee802dot11a": 1,
+          "ieee802dot11b": 2,
+          "ieee802dot11g": 3,
+          "ieee802dot11bAndg": 4,
+          "ieee802dot11aTurbo": 5,
+          "ieee802dot11na": 6,
+          "ieee802dot11ng": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaRadioType": {
+    "name": "coDevWirIfStaRadioType",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisRadioType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaRadioOperState": {
+    "name": "coDevWirIfStaRadioOperState",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaNumberOfClient": {
+    "name": "coDevWirIfStaNumberOfClient",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaAutoChannelEnabled": {
+    "name": "coDevWirIfStaAutoChannelEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaAutoChannelInterval": {
+    "name": "coDevWirIfStaAutoChannelInterval",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaAutoPowerEnabled": {
+    "name": "coDevWirIfStaAutoPowerEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaAutoPowerInterval": {
+    "name": "coDevWirIfStaAutoPowerInterval",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStaResetStats": {
+    "name": "coDevWirIfStaResetStats",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDevWirIfStaGreenfieldOptionEnabled": {
+    "name": "coDevWirIfStaGreenfieldOptionEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWirelessInterfaceStatsTable": {
+    "name": "coDeviceWirelessInterfaceStatsTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessInterfaceStatsEntry": {
+    "name": "coDeviceWirelessInterfaceStatsEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "coDeviceWirelessInterfaceStatsEntry",
+      "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+      "object": "coDeviceWirelessInterfaceStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDevWirIfStsTransmittedFragmentCount": {
+    "name": "coDevWirIfStsTransmittedFragmentCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsMulticastTransmittedFrameCount": {
+    "name": "coDevWirIfStsMulticastTransmittedFrameCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsFailedCount": {
+    "name": "coDevWirIfStsFailedCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsRetryCount": {
+    "name": "coDevWirIfStsRetryCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsMultipleRetryCount": {
+    "name": "coDevWirIfStsMultipleRetryCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsFrameDuplicateCount": {
+    "name": "coDevWirIfStsFrameDuplicateCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsRTSSuccessCount": {
+    "name": "coDevWirIfStsRTSSuccessCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsRTSFailureCount": {
+    "name": "coDevWirIfStsRTSFailureCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsACKFailureCount": {
+    "name": "coDevWirIfStsACKFailureCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsReceivedFragmentCount": {
+    "name": "coDevWirIfStsReceivedFragmentCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsMulticastReceivedFrameCount": {
+    "name": "coDevWirIfStsMulticastReceivedFrameCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsFCSErrorCount": {
+    "name": "coDevWirIfStsFCSErrorCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsTransmittedFrameCount": {
+    "name": "coDevWirIfStsTransmittedFrameCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirIfStsReceivedFrameCount": {
+    "name": "coDevWirIfStsReceivedFrameCount",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWirelessVscStatusTable": {
+    "name": "coDeviceWirelessVscStatusTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessVscStatusEntry": {
+    "name": "coDeviceWirelessVscStatusEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaRadioIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaVscIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWirVscStaVscIndex": {
+    "name": "coDevWirVscStaVscIndex",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWirVscStaMscVscIndex": {
+    "name": "coDevWirVscStaMscVscIndex",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStaBSSID": {
+    "name": "coDevWirVscStaBSSID",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStaDefaultVLAN": {
+    "name": "coDevWirVscStaDefaultVLAN",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStaMaximumNumberOfUsers": {
+    "name": "coDevWirVscStaMaximumNumberOfUsers",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStaCurrentNumberOfUsers": {
+    "name": "coDevWirVscStaCurrentNumberOfUsers",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStaAverageSNR": {
+    "name": "coDevWirVscStaAverageSNR",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 92
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStaResetStats": {
+    "name": "coDevWirVscStaResetStats",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDeviceWirelessVscStatsTable": {
+    "name": "coDeviceWirelessVscStatsTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessVscStatsEntry": {
+    "name": "coDeviceWirelessVscStatsEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "coDeviceWirelessVscStatsEntry",
+      "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+      "object": "coDeviceWirelessVscStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDevWirVscStsTxSecurityFilter": {
+    "name": "coDevWirVscStsTxSecurityFilter",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsRxSecurityFilter": {
+    "name": "coDevWirVscStsRxSecurityFilter",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsWEPICVError": {
+    "name": "coDevWirVscStsWEPICVError",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsWEPExcluded": {
+    "name": "coDevWirVscStsWEPExcluded",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsTKIPICVError": {
+    "name": "coDevWirVscStsTKIPICVError",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsTKIPMICError": {
+    "name": "coDevWirVscStsTKIPMICError",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsTKIPCounterMeasure": {
+    "name": "coDevWirVscStsTKIPCounterMeasure",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsTKIPReplay": {
+    "name": "coDevWirVscStsTKIPReplay",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsAESError": {
+    "name": "coDevWirVscStsAESError",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirVscStsAESReplay": {
+    "name": "coDevWirVscStsAESReplay",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWirelessClientStatusTable": {
+    "name": "coDeviceWirelessClientStatusTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessClientStatusEntry": {
+    "name": "coDeviceWirelessClientStatusEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaRadioIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWirCliStaIndex": {
+    "name": "coDevWirCliStaIndex",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWirCliStaMACAddress": {
+    "name": "coDevWirCliStaMACAddress",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaVscIndex": {
+    "name": "coDevWirCliStaVscIndex",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaConnectTime": {
+    "name": "coDevWirCliStaConnectTime",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaSignalLevel": {
+    "name": "coDevWirCliStaSignalLevel",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaNoiseLevel": {
+    "name": "coDevWirCliStaNoiseLevel",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaSNR": {
+    "name": "coDevWirCliStaSNR",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaVLAN": {
+    "name": "coDevWirCliStaVLAN",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaTransmitRate": {
+    "name": "coDevWirCliStaTransmitRate",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "500Kb/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaReceiveRate": {
+    "name": "coDevWirCliStaReceiveRate",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "500Kb/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaTrafficAuthorized": {
+    "name": "coDevWirCliStaTrafficAuthorized",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliSta8021xAuthenticated": {
+    "name": "coDevWirCliSta8021xAuthenticated",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaMACAuthenticated": {
+    "name": "coDevWirCliStaMACAuthenticated",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaMACFiltered": {
+    "name": "coDevWirCliStaMACFiltered",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaPhyType": {
+    "name": "coDevWirCliStaPhyType",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee802dot11a": 1,
+          "ieee802dot11b": 2,
+          "ieee802dot11g": 3,
+          "ieee802dot11bAndg": 4,
+          "ieee802dot11n": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaWPAType": {
+    "name": "coDevWirCliStaWPAType",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "wpaTkip": 2,
+          "wpa2Aes": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaIpAddress": {
+    "name": "coDevWirCliStaIpAddress",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaPowerSavingMode": {
+    "name": "coDevWirCliStaPowerSavingMode",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaWME": {
+    "name": "coDevWirCliStaWME",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaPreviousAPAddress": {
+    "name": "coDevWirCliStaPreviousAPAddress",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaResetStats": {
+    "name": "coDevWirCliStaResetStats",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "resetStats": 1,
+          "resetRates": 2,
+          "resetAll": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coDevWirCliStaHT": {
+    "name": "coDevWirCliStaHT",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaTransmitMCS": {
+    "name": "coDevWirCliStaTransmitMCS",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaReceiveMCS": {
+    "name": "coDevWirCliStaReceiveMCS",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaChannelWidth": {
+    "name": "coDevWirCliStaChannelWidth",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cw20MHz": 1,
+          "cw40MHz": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStaShortGI": {
+    "name": "coDevWirCliStaShortGI",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.7.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWirelessClientStatsTable": {
+    "name": "coDeviceWirelessClientStatsTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessClientStatsEntry": {
+    "name": "coDeviceWirelessClientStatsEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "coDeviceWirelessClientStatsEntry",
+      "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+      "object": "coDeviceWirelessClientStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDevWirCliStsInPkts": {
+    "name": "coDevWirCliStsInPkts",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsOutPkts": {
+    "name": "coDevWirCliStsOutPkts",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsInOctets": {
+    "name": "coDevWirCliStsInOctets",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsOutOctets": {
+    "name": "coDevWirCliStsOutOctets",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWirelessClientStatsRatesTable": {
+    "name": "coDeviceWirelessClientStatsRatesTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessClientStatsRatesEntry": {
+    "name": "coDeviceWirelessClientStatsRatesEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "coDeviceWirelessClientStatsRatesEntry",
+      "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+      "object": "coDeviceWirelessClientStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate1": {
+    "name": "coDevWirCliStsPktsTxRate1",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate2": {
+    "name": "coDevWirCliStsPktsTxRate2",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate5dot5": {
+    "name": "coDevWirCliStsPktsTxRate5dot5",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate11": {
+    "name": "coDevWirCliStsPktsTxRate11",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate6": {
+    "name": "coDevWirCliStsPktsTxRate6",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate9": {
+    "name": "coDevWirCliStsPktsTxRate9",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate12": {
+    "name": "coDevWirCliStsPktsTxRate12",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate18": {
+    "name": "coDevWirCliStsPktsTxRate18",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate24": {
+    "name": "coDevWirCliStsPktsTxRate24",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate36": {
+    "name": "coDevWirCliStsPktsTxRate36",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate48": {
+    "name": "coDevWirCliStsPktsTxRate48",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxRate54": {
+    "name": "coDevWirCliStsPktsTxRate54",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate1": {
+    "name": "coDevWirCliStsPktsRxRate1",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate2": {
+    "name": "coDevWirCliStsPktsRxRate2",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate5dot5": {
+    "name": "coDevWirCliStsPktsRxRate5dot5",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate11": {
+    "name": "coDevWirCliStsPktsRxRate11",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate6": {
+    "name": "coDevWirCliStsPktsRxRate6",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate9": {
+    "name": "coDevWirCliStsPktsRxRate9",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate12": {
+    "name": "coDevWirCliStsPktsRxRate12",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate18": {
+    "name": "coDevWirCliStsPktsRxRate18",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate24": {
+    "name": "coDevWirCliStsPktsRxRate24",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate36": {
+    "name": "coDevWirCliStsPktsRxRate36",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate48": {
+    "name": "coDevWirCliStsPktsRxRate48",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxRate54": {
+    "name": "coDevWirCliStsPktsRxRate54",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.9.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWirelessClientStatsHTRatesTable": {
+    "name": "coDeviceWirelessClientStatsHTRatesTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessClientStatsHTRatesEntry": {
+    "name": "coDeviceWirelessClientStatsHTRatesEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "coDeviceWirelessClientStatsHTRatesEntry",
+      "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+      "object": "coDeviceWirelessClientStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS0": {
+    "name": "coDevWirCliStsPktsTxMCS0",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS1": {
+    "name": "coDevWirCliStsPktsTxMCS1",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS2": {
+    "name": "coDevWirCliStsPktsTxMCS2",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS3": {
+    "name": "coDevWirCliStsPktsTxMCS3",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS4": {
+    "name": "coDevWirCliStsPktsTxMCS4",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS5": {
+    "name": "coDevWirCliStsPktsTxMCS5",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS6": {
+    "name": "coDevWirCliStsPktsTxMCS6",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS7": {
+    "name": "coDevWirCliStsPktsTxMCS7",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS8": {
+    "name": "coDevWirCliStsPktsTxMCS8",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS9": {
+    "name": "coDevWirCliStsPktsTxMCS9",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS10": {
+    "name": "coDevWirCliStsPktsTxMCS10",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS11": {
+    "name": "coDevWirCliStsPktsTxMCS11",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS12": {
+    "name": "coDevWirCliStsPktsTxMCS12",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS13": {
+    "name": "coDevWirCliStsPktsTxMCS13",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS14": {
+    "name": "coDevWirCliStsPktsTxMCS14",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsTxMCS15": {
+    "name": "coDevWirCliStsPktsTxMCS15",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS0": {
+    "name": "coDevWirCliStsPktsRxMCS0",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS1": {
+    "name": "coDevWirCliStsPktsRxMCS1",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS2": {
+    "name": "coDevWirCliStsPktsRxMCS2",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS3": {
+    "name": "coDevWirCliStsPktsRxMCS3",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS4": {
+    "name": "coDevWirCliStsPktsRxMCS4",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS5": {
+    "name": "coDevWirCliStsPktsRxMCS5",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS6": {
+    "name": "coDevWirCliStsPktsRxMCS6",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS7": {
+    "name": "coDevWirCliStsPktsRxMCS7",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS8": {
+    "name": "coDevWirCliStsPktsRxMCS8",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS9": {
+    "name": "coDevWirCliStsPktsRxMCS9",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS10": {
+    "name": "coDevWirCliStsPktsRxMCS10",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS11": {
+    "name": "coDevWirCliStsPktsRxMCS11",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS12": {
+    "name": "coDevWirCliStsPktsRxMCS12",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS13": {
+    "name": "coDevWirCliStsPktsRxMCS13",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS14": {
+    "name": "coDevWirCliStsPktsRxMCS14",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirCliStsPktsRxMCS15": {
+    "name": "coDevWirCliStsPktsRxMCS15",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.10.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceWirelessDetectedAPTable": {
+    "name": "coDeviceWirelessDetectedAPTable",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceWirelessDetectedAPEntry": {
+    "name": "coDeviceWirelessDetectedAPEntry",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDevWirApIndex": {
+    "name": "coDevWirApIndex",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDevWirApBSSID": {
+    "name": "coDevWirApBSSID",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirApRadioIndex": {
+    "name": "coDevWirApRadioIndex",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirApSSID": {
+    "name": "coDevWirApSSID",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisSSIDOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirApChannel": {
+    "name": "coDevWirApChannel",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirApSignalLevel": {
+    "name": "coDevWirApSignalLevel",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirApNoiseLevel": {
+    "name": "coDevWirApNoiseLevel",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirApSNR": {
+    "name": "coDevWirApSNR",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirApPHYType": {
+    "name": "coDevWirApPHYType",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee802dot11a": 1,
+          "ieee802dot11b": 2,
+          "ieee802dot11g": 3,
+          "ieee802dot11na": 4,
+          "ieee802dot11ng": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDevWirApSecurity": {
+    "name": "coDevWirApSecurity",
+    "oid": "1.3.6.1.4.1.8744.5.25.1.13.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "wep": 2,
+          "wpa": 3,
+          "wpa2": 4,
+          "wpaAndWpa2": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisDeviceWirelessMIBNotificationPrefix": {
+    "name": "colubrisDeviceWirelessMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.8744.5.25.2",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWirelessMIBNotifications": {
+    "name": "colubrisDeviceWirelessMIBNotifications",
+    "oid": "1.3.6.1.4.1.8744.5.25.2.0",
+    "class": "objectidentity"
+  },
+  "coDeviceWirelessSNRLevelNotification": {
+    "name": "coDeviceWirelessSNRLevelNotification",
+    "oid": "1.3.6.1.4.1.8744.5.25.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaBSSID"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaMscVscIndex"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaAverageSNR"
+      }
+    ],
+    "status": "current"
+  },
+  "coDeviceWirelessAssociationNotification": {
+    "name": "coDeviceWirelessAssociationNotification",
+    "oid": "1.3.6.1.4.1.8744.5.25.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaMACAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaBSSID"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaMscVscIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessMIBConformance": {
+    "name": "colubrisDeviceWirelessMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.25.3",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWirelessMIBCompliances": {
+    "name": "colubrisDeviceWirelessMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.1",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWirelessMIBGroups": {
+    "name": "colubrisDeviceWirelessMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceWirelessMIBCompliance": {
+    "name": "colubrisDeviceWirelessMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisDeviceWirelessConfigMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWirelessIfStatusMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWirelessIfStatsMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceVscStatusMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceVscStatsMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWirelessClientStatusMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWirelessClientStatsMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWirelessClientStatsRatesMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWirelessDetectedAPMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWirelessNotificationGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      },
+      {
+        "object": "colubrisDeviceWirelessClientStatsHTRatesMIBGroup",
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessConfigMIBGroup": {
+    "name": "colubrisDeviceWirelessConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirSNRLevelNotificationEnabled"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirSNRLevelNotificationInterval"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirMinimumSNRLevel"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirAssociationNotificationEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessIfStatusMIBGroup": {
+    "name": "colubrisDeviceWirelessIfStatusMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaIfIndex"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaOperatingMode"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaTransmitPower"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaOperatingChannel"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaRadioMode"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaRadioType"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaRadioOperState"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaNumberOfClient"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaAutoChannelEnabled"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaAutoChannelInterval"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaAutoPowerEnabled"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaAutoPowerInterval"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaResetStats"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStaGreenfieldOptionEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessIfStatsMIBGroup": {
+    "name": "colubrisDeviceWirelessIfStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsTransmittedFragmentCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsMulticastTransmittedFrameCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsFailedCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsRetryCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsMultipleRetryCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsFrameDuplicateCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsRTSSuccessCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsRTSFailureCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsACKFailureCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsReceivedFragmentCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsMulticastReceivedFrameCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsFCSErrorCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsTransmittedFrameCount"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirIfStsReceivedFrameCount"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceVscStatusMIBGroup": {
+    "name": "colubrisDeviceVscStatusMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaMscVscIndex"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaBSSID"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaDefaultVLAN"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaMaximumNumberOfUsers"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaCurrentNumberOfUsers"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaAverageSNR"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStaResetStats"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceVscStatsMIBGroup": {
+    "name": "colubrisDeviceVscStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsTxSecurityFilter"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsRxSecurityFilter"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsWEPICVError"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsWEPExcluded"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsTKIPICVError"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsTKIPMICError"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsTKIPCounterMeasure"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsTKIPReplay"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsAESError"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirVscStsAESReplay"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessClientStatusMIBGroup": {
+    "name": "colubrisDeviceWirelessClientStatusMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaMACAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaVscIndex"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaConnectTime"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaSignalLevel"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaNoiseLevel"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaSNR"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaVLAN"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaTransmitRate"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaReceiveRate"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaTrafficAuthorized"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliSta8021xAuthenticated"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaMACAuthenticated"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaMACFiltered"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaPhyType"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaWPAType"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaIpAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaPowerSavingMode"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaWME"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaPreviousAPAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaResetStats"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaHT"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaTransmitMCS"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaReceiveMCS"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaChannelWidth"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStaShortGI"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessClientStatsMIBGroup": {
+    "name": "colubrisDeviceWirelessClientStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsInPkts"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsOutPkts"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsInOctets"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsOutOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessClientStatsRatesMIBGroup": {
+    "name": "colubrisDeviceWirelessClientStatsRatesMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate1"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate2"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate5dot5"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate11"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate6"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate9"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate12"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate18"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate24"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate36"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate48"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxRate54"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate1"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate2"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate5dot5"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate11"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate6"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate9"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate12"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate18"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate24"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate36"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate48"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxRate54"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessDetectedAPMIBGroup": {
+    "name": "colubrisDeviceWirelessDetectedAPMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApBSSID"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApRadioIndex"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApSSID"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApChannel"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApSignalLevel"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApNoiseLevel"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApSNR"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApPHYType"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirApSecurity"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessNotificationGroup": {
+    "name": "colubrisDeviceWirelessNotificationGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDeviceWirelessSNRLevelNotification"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDeviceWirelessAssociationNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceWirelessClientStatsHTRatesMIBGroup": {
+    "name": "colubrisDeviceWirelessClientStatsHTRatesMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.25.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS0"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS1"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS2"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS3"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS4"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS5"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS6"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS7"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS8"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS9"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS10"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS11"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS12"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS13"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS14"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsTxMCS15"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS0"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS1"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS2"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS3"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS4"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS5"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS6"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS7"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS8"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS9"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS10"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS11"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS12"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS13"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS14"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-WIRELESS-MIB",
+        "object": "coDevWirCliStsPktsRxMCS15"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-DEVICE-WIRELESS-MIB.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
+  }
+}

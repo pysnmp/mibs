@@ -1,0 +1,342 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFirewallTc": {
+    "name": "ciscoFirewallTc",
+    "oid": "1.3.6.1.4.1.9.9.488",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-03 00:00",
+        "description": "Initial version of this module."
+      }
+    ]
+  },
+  "CFWNetworkProtocol": {
+    "name": "CFWNetworkProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "ip": 3,
+          "icmp": 4,
+          "gre": 5,
+          "udp": 6,
+          "tcp": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CFWApplicationProtocol": {
+    "name": "CFWApplicationProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "ftp": 3,
+          "telnet": 4,
+          "smtp": 5,
+          "http": 6,
+          "tacacs": 7,
+          "dns": 8,
+          "sqlnet": 9,
+          "https": 10,
+          "tftp": 11,
+          "gopher": 12,
+          "finger": 13,
+          "kerberos": 14,
+          "pop2": 15,
+          "pop3": 16,
+          "sunRpc": 17,
+          "msRpc": 18,
+          "nntp": 19,
+          "snmp": 20,
+          "imap": 21,
+          "ldap": 22,
+          "exec": 23,
+          "login": 24,
+          "shell": 25,
+          "msSql": 26,
+          "sybaseSql": 27,
+          "nfs": 28,
+          "lotusnote": 29,
+          "h323": 30,
+          "cuseeme": 31,
+          "realmedia": 32,
+          "netshow": 33,
+          "streamworks": 34,
+          "vdolive": 35,
+          "sap": 36,
+          "sip": 37,
+          "mgcp": 38,
+          "rtsp": 39,
+          "skinny": 40,
+          "gtpV0": 41,
+          "gtpV1": 42,
+          "echo": 43,
+          "discard": 44,
+          "daytime": 45,
+          "netstat": 46,
+          "ssh": 47,
+          "time": 48,
+          "tacacsDs": 49,
+          "bootps": 50,
+          "bootpc": 51,
+          "dnsix": 52,
+          "rtelnet": 53,
+          "ident": 54,
+          "sqlServ": 55,
+          "ntp": 56,
+          "pwdgen": 57,
+          "ciscoFna": 58,
+          "ciscoTna": 59,
+          "ciscoSys": 60,
+          "netbiosNs": 61,
+          "netbiosDgm": 62,
+          "netbiosSsn": 63,
+          "sqlSrv": 64,
+          "snmpTrap": 65,
+          "rsvd": 66,
+          "send": 67,
+          "xdmcp": 68,
+          "bgp": 69,
+          "irc": 70,
+          "qmtp": 71,
+          "ipx": 72,
+          "dbase": 73,
+          "imap3": 74,
+          "rsvpTunnel": 75,
+          "hpCollector": 76,
+          "hpManagedNode": 77,
+          "hpAlarmMgr": 78,
+          "microsoftDs": 79,
+          "creativeServer": 80,
+          "creativePartnr": 81,
+          "appleQtc": 82,
+          "igmpV3Lite": 83,
+          "isakmp": 84,
+          "biff": 85,
+          "who": 86,
+          "syslog": 87,
+          "router": 88,
+          "ncp": 89,
+          "timed": 90,
+          "ircServ": 91,
+          "uucp": 92,
+          "syslogConn": 93,
+          "sshell": 94,
+          "ldaps": 95,
+          "dhcpFailover": 96,
+          "msexchRouting": 97,
+          "entrustSvcs": 98,
+          "entrustSvcHandler": 99,
+          "ciscoTdp": 100,
+          "webster": 101,
+          "gdoi": 102,
+          "iscsi": 103,
+          "cddbp": 104,
+          "ftps": 105,
+          "telnets": 106,
+          "imaps": 107,
+          "ircs": 108,
+          "pop3s": 109,
+          "socks": 110,
+          "kazaa": 111,
+          "msSqlM": 112,
+          "msSna": 113,
+          "wins": 114,
+          "ica": 115,
+          "orasrv": 116,
+          "rdbDbsDisp": 117,
+          "vqp": 118,
+          "icabrowser": 119,
+          "kermit": 120,
+          "rsvpEncap": 121,
+          "l2tp": 122,
+          "pptp": 123,
+          "h323Gatestat": 124,
+          "rWinsock": 125,
+          "radius": 126,
+          "hsrp": 127,
+          "net8Cman": 128,
+          "oracleEmVp": 129,
+          "oracleNames": 130,
+          "oracle": 131,
+          "ciscoSvcs": 132,
+          "ciscoNetMgmt": 133,
+          "stun": 134,
+          "trRsrb": 135,
+          "ddnsV3": 136,
+          "aceSvr": 137,
+          "giop": 138,
+          "ttc": 139,
+          "ipass": 140,
+          "clp": 141,
+          "citrixImaClient": 142,
+          "sms": 143,
+          "citrix": 144,
+          "realSecure": 145,
+          "lotusMtap": 146,
+          "cifs": 147,
+          "msDotnetster": 148,
+          "tarantella": 149,
+          "fcipPort": 150,
+          "ssp": 151,
+          "iscsiTarget": 152,
+          "mySql": 153,
+          "msClusterNet": 154,
+          "ldapAdmin": 155,
+          "ieee80211Iapp": 156,
+          "oemAgent": 157,
+          "rtcPmPort": 158,
+          "dbControlAgent": 159,
+          "ipsecMsft": 160,
+          "sipTls": 161,
+          "aim": 162,
+          "pcAnyWhereData": 163,
+          "pcAnyWhereStat": 164,
+          "x11": 165,
+          "ircu": 166,
+          "n2h2Server": 167,
+          "h323CallSigAlt": 168,
+          "yahooMsgr": 169,
+          "msnMsgr": 170
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CFWPolicy": {
+    "name": "CFWPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CFWPolicyTarget": {
+    "name": "CFWPolicyTarget",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CFWPolicyTargetType": {
+    "name": "CFWPolicyTargetType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "other": 2,
+          "interface": 3,
+          "zone": 4,
+          "zonepair": 5,
+          "user": 6,
+          "usergroup": 7,
+          "context": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CFWUrlfVendorId": {
+    "name": "CFWUrlfVendorId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "websense": 2,
+          "n2h2": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CFWUrlServerStatus": {
+    "name": "CFWUrlServerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2,
+          "indeterminate": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FIREWALL-TC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FIREWALL-TC"
+  }
+}

@@ -1,0 +1,529 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "radiusAccServMIB": {
+    "name": "radiusAccServMIB",
+    "oid": "1.3.6.1.2.1.67.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-06-11 00:00",
+        "description": "Initial version as published in RFC 2621"
+      }
+    ]
+  },
+  "radiusMIB": {
+    "name": "radiusMIB",
+    "oid": "1.3.6.1.2.1.67",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "radiusAccounting": {
+    "name": "radiusAccounting",
+    "oid": "1.3.6.1.2.1.67.2",
+    "class": "objectidentity"
+  },
+  "radiusAccServMIBObjects": {
+    "name": "radiusAccServMIBObjects",
+    "oid": "1.3.6.1.2.1.67.2.1.1",
+    "class": "objectidentity"
+  },
+  "radiusAccServ": {
+    "name": "radiusAccServ",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "radiusAccServIdent": {
+    "name": "radiusAccServIdent",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServUpTime": {
+    "name": "radiusAccServUpTime",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServResetTime": {
+    "name": "radiusAccServResetTime",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServConfigReset": {
+    "name": "radiusAccServConfigReset",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2,
+          "initializing": 3,
+          "running": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radiusAccServTotalRequests": {
+    "name": "radiusAccServTotalRequests",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServTotalInvalidRequests": {
+    "name": "radiusAccServTotalInvalidRequests",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServTotalDupRequests": {
+    "name": "radiusAccServTotalDupRequests",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServTotalResponses": {
+    "name": "radiusAccServTotalResponses",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServTotalMalformedRequests": {
+    "name": "radiusAccServTotalMalformedRequests",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServTotalBadAuthenticators": {
+    "name": "radiusAccServTotalBadAuthenticators",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServTotalPacketsDropped": {
+    "name": "radiusAccServTotalPacketsDropped",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServTotalNoRecords": {
+    "name": "radiusAccServTotalNoRecords",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServTotalUnknownTypes": {
+    "name": "radiusAccServTotalUnknownTypes",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccClientTable": {
+    "name": "radiusAccClientTable",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radiusAccClientEntry": {
+    "name": "radiusAccClientEntry",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccClientIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radiusAccClientIndex": {
+    "name": "radiusAccClientIndex",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radiusAccClientAddress": {
+    "name": "radiusAccClientAddress",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccClientID": {
+    "name": "radiusAccClientID",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServPacketsDropped": {
+    "name": "radiusAccServPacketsDropped",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServRequests": {
+    "name": "radiusAccServRequests",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServDupRequests": {
+    "name": "radiusAccServDupRequests",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServResponses": {
+    "name": "radiusAccServResponses",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServBadAuthenticators": {
+    "name": "radiusAccServBadAuthenticators",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServMalformedRequests": {
+    "name": "radiusAccServMalformedRequests",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServNoRecords": {
+    "name": "radiusAccServNoRecords",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServUnknownTypes": {
+    "name": "radiusAccServUnknownTypes",
+    "oid": "1.3.6.1.2.1.67.2.1.1.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAccServMIBConformance": {
+    "name": "radiusAccServMIBConformance",
+    "oid": "1.3.6.1.2.1.67.2.1.2",
+    "class": "objectidentity"
+  },
+  "radiusAccServMIBCompliances": {
+    "name": "radiusAccServMIBCompliances",
+    "oid": "1.3.6.1.2.1.67.2.1.2.1",
+    "class": "objectidentity"
+  },
+  "radiusAccServMIBGroups": {
+    "name": "radiusAccServMIBGroups",
+    "oid": "1.3.6.1.2.1.67.2.1.2.2",
+    "class": "objectidentity"
+  },
+  "radiusAccServMIBCompliance": {
+    "name": "radiusAccServMIBCompliance",
+    "oid": "1.3.6.1.2.1.67.2.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "radiusAccServMIBGroup",
+        "module": "RADIUS-ACC-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "radiusAccServMIBGroup": {
+    "name": "radiusAccServMIBGroup",
+    "oid": "1.3.6.1.2.1.67.2.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServIdent"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServUpTime"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServResetTime"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServConfigReset"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalRequests"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalInvalidRequests"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalDupRequests"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalResponses"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalMalformedRequests"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalBadAuthenticators"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalPacketsDropped"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalNoRecords"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServTotalUnknownTypes"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccClientAddress"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccClientID"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServPacketsDropped"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServRequests"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServDupRequests"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServResponses"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServBadAuthenticators"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServMalformedRequests"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServNoRecords"
+      },
+      {
+        "module": "RADIUS-ACC-SERVER-MIB",
+        "object": "radiusAccServUnknownTypes"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/RADIUS-ACC-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RADIUS-ACC-SERVER-MIB"
+  }
+}

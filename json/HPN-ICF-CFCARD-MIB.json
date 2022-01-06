@@ -1,0 +1,488 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCfCard"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfCfCardMIB": {
+    "name": "hpnicfCfCardMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1",
+    "class": "moduleidentity"
+  },
+  "hpnicfCfCardMIBObjects": {
+    "name": "hpnicfCfCardMIBObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfCfCardScalarObjects": {
+    "name": "hpnicfCfCardScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfCfCardNumber": {
+    "name": "hpnicfCfCardNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardInfoObjects": {
+    "name": "hpnicfCfCardInfoObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfCfCardInfoTable": {
+    "name": "hpnicfCfCardInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfCfCardInfoEntry": {
+    "name": "hpnicfCfCardInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfCfCardIndex": {
+    "name": "hpnicfCfCardIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardIsPresent": {
+    "name": "hpnicfCfCardIsPresent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardContainedIn": {
+    "name": "hpnicfCfCardContainedIn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardParentRelPos": {
+    "name": "hpnicfCfCardParentRelPos",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardDescription": {
+    "name": "hpnicfCfCardDescription",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardSerialNumber": {
+    "name": "hpnicfCfCardSerialNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardFirewareVersion": {
+    "name": "hpnicfCfCardFirewareVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardModelNumber": {
+    "name": "hpnicfCfCardModelNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardState": {
+    "name": "hpnicfCfCardState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sNoError": 1,
+          "sFormatError": 2,
+          "sSectorBufferError": 3,
+          "sECCError": 4,
+          "sCMPError": 5,
+          "sSlaveError": 128,
+          "sIOError": 240,
+          "sOther": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardSize": {
+    "name": "hpnicfCfCardSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardUsedSize": {
+    "name": "hpnicfCfCardUsedSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardFreeSize": {
+    "name": "hpnicfCfCardFreeSize",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfCfCardNotifications": {
+    "name": "hpnicfCfCardNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfCfCardNotificationsV2": {
+    "name": "hpnicfCfCardNotificationsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.2.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfCfCardHotSwapOn": {
+    "name": "hpnicfCfCardHotSwapOn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardContainedIn"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardParentRelPos"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfCfCardHotSwapOff": {
+    "name": "hpnicfCfCardHotSwapOff",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardContainedIn"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardParentRelPos"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfCfCardMIBConformance": {
+    "name": "hpnicfCfCardMIBConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfCfCardMIBGroups": {
+    "name": "hpnicfCfCardMIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.4.1",
+    "class": "objectidentity"
+  },
+  "hpnicfcurrentObjectGroup": {
+    "name": "hpnicfcurrentObjectGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.4.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardNumber"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardIndex"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardIsPresent"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardContainedIn"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardParentRelPos"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardDescription"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardFirewareVersion"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardModelNumber"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardState"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardSize"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardUsedSize"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardFreeSize"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfcurrentNotificationGroup": {
+    "name": "hpnicfcurrentNotificationGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.4.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardHotSwapOn"
+      },
+      {
+        "module": "HPN-ICF-CFCARD-MIB",
+        "object": "hpnicfCfCardHotSwapOff"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfCfCardMIBCompliances": {
+    "name": "hpnicfCfCardMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.4.2",
+    "class": "objectidentity"
+  },
+  "hpnicfbasicCompliance": {
+    "name": "hpnicfbasicCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.41.1.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfcurrentObjectGroup",
+        "module": "HPN-ICF-CFCARD-MIB"
+      },
+      {
+        "object": "hpnicfcurrentNotificationGroup",
+        "module": "HPN-ICF-CFCARD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-CFCARD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-CFCARD-MIB"
+  }
+}

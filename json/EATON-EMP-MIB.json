@@ -1,0 +1,383 @@
+{
+  "imports": {
+    "class": "imports",
+    "EATON-OIDS": [
+      "xupsEnvironment"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "eatonEMPMIB": {
+    "name": "eatonEMPMIB",
+    "oid": "1.3.6.1.4.1.534.1.6.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-03-12 00:00",
+        "description": "Initial Version of eatonEMPMIB."
+      }
+    ]
+  },
+  "xupsEnvRemoteTemp": {
+    "name": "xupsEnvRemoteTemp",
+    "oid": "1.3.6.1.4.1.534.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsEnvRemoteHumidity": {
+    "name": "xupsEnvRemoteHumidity",
+    "oid": "1.3.6.1.4.1.534.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsEnvNumContacts": {
+    "name": "xupsEnvNumContacts",
+    "oid": "1.3.6.1.4.1.534.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsContactSenseTable": {
+    "name": "xupsContactSenseTable",
+    "oid": "1.3.6.1.4.1.534.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xupsContactsTableEntry": {
+    "name": "xupsContactsTableEntry",
+    "oid": "1.3.6.1.4.1.534.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xupsContactIndex": {
+    "name": "xupsContactIndex",
+    "oid": "1.3.6.1.4.1.534.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsContactType": {
+    "name": "xupsContactType",
+    "oid": "1.3.6.1.4.1.534.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normallyOpen": 1,
+          "normallyClosed": 2,
+          "anyChange": 3,
+          "notUsed": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsContactState": {
+    "name": "xupsContactState",
+    "oid": "1.3.6.1.4.1.534.1.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "openWithNotice": 3,
+          "closedWithNotice": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsContactDescr": {
+    "name": "xupsContactDescr",
+    "oid": "1.3.6.1.4.1.534.1.6.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsEnvRemoteTempLowerLimit": {
+    "name": "xupsEnvRemoteTempLowerLimit",
+    "oid": "1.3.6.1.4.1.534.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsEnvRemoteTempUpperLimit": {
+    "name": "xupsEnvRemoteTempUpperLimit",
+    "oid": "1.3.6.1.4.1.534.1.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsEnvRemoteHumidityLowerLimit": {
+    "name": "xupsEnvRemoteHumidityLowerLimit",
+    "oid": "1.3.6.1.4.1.534.1.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsEnvRemoteHumidityUpperLimit": {
+    "name": "xupsEnvRemoteHumidityUpperLimit",
+    "oid": "1.3.6.1.4.1.534.1.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eatonEMPConformance": {
+    "name": "eatonEMPConformance",
+    "oid": "1.3.6.1.4.1.534.1.6.0.2",
+    "class": "objectidentity"
+  },
+  "eatonEMPGroup": {
+    "name": "eatonEMPGroup",
+    "oid": "1.3.6.1.4.1.534.1.6.0.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteTemp"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteHumidity"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteTempLowerLimit"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteTempUpperLimit"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteHumidityLowerLimit"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteHumidityUpperLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "eatonEMPTableGroup": {
+    "name": "eatonEMPTableGroup",
+    "oid": "1.3.6.1.4.1.534.1.6.0.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvNumContacts"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactIndex"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactType"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactState"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "eatonEMPSimpleCompliance": {
+    "name": "eatonEMPSimpleCompliance",
+    "oid": "1.3.6.1.4.1.534.1.6.0.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "eatonEMPGroup",
+        "module": "EATON-EMP-MIB"
+      },
+      {
+        "object": "eatonEMPTableGroup",
+        "module": "EATON-EMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-EMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EATON-EMP-MIB"
+  }
+}

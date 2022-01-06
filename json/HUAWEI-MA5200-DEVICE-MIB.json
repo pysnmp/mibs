@@ -1,0 +1,978 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-DEVICE-MIB": [
+      "hwSlotIndex",
+      "hwFrameIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwMA5200Mib"
+    ],
+    "HUAWEI-TC-MIB": [
+      "HWSubPCBType",
+      "HWFrameType",
+      "HWPCBType",
+      "HWPortType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwMA5200Device": {
+    "name": "hwMA5200Device",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201",
+    "class": "moduleidentity"
+  },
+  "hw52DevSlot": {
+    "name": "hw52DevSlot",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.1",
+    "class": "objectidentity"
+  },
+  "hw52DevSlotNum": {
+    "name": "hw52DevSlotNum",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevSubSlotNum": {
+    "name": "hw52DevSubSlotNum",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevPortNum": {
+    "name": "hw52DevPortNum",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevPortOperateStatus": {
+    "name": "hw52DevPortOperateStatus",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevSlotTrap": {
+    "name": "hw52DevSlotTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.2",
+    "class": "objectidentity"
+  },
+  "hw52DevSlotReset": {
+    "name": "hw52DevSlotReset",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.2.1006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevSlotRegOK": {
+    "name": "hw52DevSlotRegOK",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.2.1007",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevSlotPlugOut": {
+    "name": "hw52DevSlotPlugOut",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.2.1008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwHdDev": {
+    "name": "hwHdDev",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.5",
+    "class": "objectidentity"
+  },
+  "hwHdDevTable": {
+    "name": "hwHdDevTable",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwHdDevEntry": {
+    "name": "hwHdDevEntry",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hwHdDevIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwHdDevIndex": {
+    "name": "hwHdDevIndex",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwHdDevSize": {
+    "name": "hwHdDevSize",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwHdDevFree": {
+    "name": "hwHdDevFree",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hw52DevPortTrap": {
+    "name": "hw52DevPortTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.6",
+    "class": "objectidentity"
+  },
+  "hw52DevPortUp": {
+    "name": "hw52DevPortUp",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSubSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortOperateStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevPortDown": {
+    "name": "hw52DevPortDown",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.6.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSubSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortOperateStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevUserAttackInfo": {
+    "name": "hw52DevUserAttackInfo",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.7",
+    "class": "objectidentity"
+  },
+  "hw52DevUserIPAddr": {
+    "name": "hw52DevUserIPAddr",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevUserMac": {
+    "name": "hw52DevUserMac",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevUserIndex": {
+    "name": "hw52DevUserIndex",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevUserOuterVlan": {
+    "name": "hw52DevUserOuterVlan",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevUserAttack": {
+    "name": "hw52DevUserAttack",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.8",
+    "class": "objectidentity"
+  },
+  "hw52DevUserAttackTrap": {
+    "name": "hw52DevUserAttackTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.8.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserIPAddr"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserMac"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSubSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserIndex"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserOuterVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52TrapSwitch": {
+    "name": "hw52TrapSwitch",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.9",
+    "class": "objectidentity"
+  },
+  "hw52HwdeviceOrBasetrap": {
+    "name": "hw52HwdeviceOrBasetrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "hwdevice": 2,
+          "basetrap": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hw52DevMemUsage": {
+    "name": "hw52DevMemUsage",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.10",
+    "class": "objectidentity"
+  },
+  "hw52DevMemUsageThreshold": {
+    "name": "hw52DevMemUsageThreshold",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevMemUsageTrap": {
+    "name": "hw52DevMemUsageTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.11",
+    "class": "objectidentity"
+  },
+  "hw52DevMemUsageAlarm": {
+    "name": "hw52DevMemUsageAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.11.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevMemUsageThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevMemUsageResume": {
+    "name": "hw52DevMemUsageResume",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.11.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevMemUsageThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevStartupFileFail": {
+    "name": "hw52DevStartupFileFail",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.12",
+    "class": "objectidentity"
+  },
+  "hw52DevDefaultStartupFileName": {
+    "name": "hw52DevDefaultStartupFileName",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevCurrentStartupFileName": {
+    "name": "hw52DevCurrentStartupFileName",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevStartupFileFailTrap": {
+    "name": "hw52DevStartupFileFailTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.13",
+    "class": "objectidentity"
+  },
+  "hw52DevStartupFileReloadAlarm": {
+    "name": "hw52DevStartupFileReloadAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.13.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevDefaultStartupFileName"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevCurrentStartupFileName"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevDiskSelfTestFail": {
+    "name": "hw52DevDiskSelfTestFail",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.14",
+    "class": "objectidentity"
+  },
+  "hw52DevDiskSelfTestDiskType": {
+    "name": "hw52DevDiskSelfTestDiskType",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevDiskSelfTestFailStep": {
+    "name": "hw52DevDiskSelfTestFailStep",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hw52DevDiskSelfTestFailTrap": {
+    "name": "hw52DevDiskSelfTestFailTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.15",
+    "class": "objectidentity"
+  },
+  "hw52DevDiskSelfTestFailAlarm": {
+    "name": "hw52DevDiskSelfTestFailAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.15.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevDiskSelfTestDiskType"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevDiskSelfTestFailStep"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevCfUnregisterTrap": {
+    "name": "hw52DevCfUnregisterTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.16",
+    "class": "objectidentity"
+  },
+  "hw52DevCfUnregisteredAlarm": {
+    "name": "hw52DevCfUnregisteredAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.16.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevHpt372ErrorTrap": {
+    "name": "hw52DevHpt372ErrorTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.17",
+    "class": "objectidentity"
+  },
+  "hw52DevHpt372ErrorAlarm": {
+    "name": "hw52DevHpt372ErrorAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.17.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevHarddiskUsageTrap": {
+    "name": "hw52DevHarddiskUsageTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.18",
+    "class": "objectidentity"
+  },
+  "hw52DevHarddiskUsageAlarm": {
+    "name": "hw52DevHarddiskUsageAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.18.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevHarddiskUsageResume": {
+    "name": "hw52DevHarddiskUsageResume",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.18.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52PacketError": {
+    "name": "hw52PacketError",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.19",
+    "class": "objectidentity"
+  },
+  "hw52InPacketErrorTrap": {
+    "name": "hw52InPacketErrorTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.19.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSubSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52OutPacketErrorTrap": {
+    "name": "hw52OutPacketErrorTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.19.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSubSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevCfcardUsageTrap": {
+    "name": "hw52DevCfcardUsageTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.20",
+    "class": "objectidentity"
+  },
+  "hw52DevCfcardUsageAlarm": {
+    "name": "hw52DevCfcardUsageAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevCfcardUsageResume": {
+    "name": "hw52DevCfcardUsageResume",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.20.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevFlashUsageTrap": {
+    "name": "hw52DevFlashUsageTrap",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.21",
+    "class": "objectidentity"
+  },
+  "hw52DevFlashUsageAlarm": {
+    "name": "hw52DevFlashUsageAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.21.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevFlashUsageResume": {
+    "name": "hw52DevFlashUsageResume",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.21.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevConformance": {
+    "name": "hw52DevConformance",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.200",
+    "class": "objectidentity"
+  },
+  "hw52DevCompliances": {
+    "name": "hw52DevCompliances",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.200.1",
+    "class": "objectidentity"
+  },
+  "hw52DevCompliance": {
+    "name": "hw52DevCompliance",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.200.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hw52DevSlotGroup",
+        "module": "HUAWEI-MA5200-DEVICE-MIB"
+      },
+      {
+        "object": "hw52DevHdTableGroup",
+        "module": "HUAWEI-MA5200-DEVICE-MIB"
+      },
+      {
+        "object": "hw52DevTrapsGroup",
+        "module": "HUAWEI-MA5200-DEVICE-MIB"
+      },
+      {
+        "object": "hw52DevTrapObjectsGroup",
+        "module": "HUAWEI-MA5200-DEVICE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevObjectGroups": {
+    "name": "hw52DevObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.200.2",
+    "class": "objectidentity"
+  },
+  "hw52DevSlotGroup": {
+    "name": "hw52DevSlotGroup",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.200.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSubSlotNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortNum"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortOperateStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevHdTableGroup": {
+    "name": "hw52DevHdTableGroup",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.200.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hwHdDevSize"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hwHdDevFree"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevTrapsGroup": {
+    "name": "hw52DevTrapsGroup",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.200.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotReset"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotRegOK"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevSlotPlugOut"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortUp"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevPortDown"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserAttackTrap"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevMemUsageAlarm"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevMemUsageResume"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevStartupFileReloadAlarm"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevDiskSelfTestFailAlarm"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevCfUnregisteredAlarm"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevHpt372ErrorAlarm"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevHarddiskUsageAlarm"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevHarddiskUsageResume"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52InPacketErrorTrap"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52OutPacketErrorTrap"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevCfcardUsageAlarm"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevCfcardUsageResume"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevFlashUsageAlarm"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevFlashUsageResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hw52DevTrapObjectsGroup": {
+    "name": "hw52DevTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.201.200.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserIPAddr"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserMac"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserIndex"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevUserOuterVlan"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52HwdeviceOrBasetrap"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevMemUsageThreshold"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevDefaultStartupFileName"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevCurrentStartupFileName"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevDiskSelfTestDiskType"
+      },
+      {
+        "module": "HUAWEI-MA5200-DEVICE-MIB",
+        "object": "hw52DevDiskSelfTestFailStep"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MA5200-DEVICE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-MA5200-DEVICE-MIB"
+  }
+}

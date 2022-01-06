@@ -1,0 +1,720 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "hwTAD": {
+    "name": "hwTAD",
+    "oid": "1.3.6.1.4.1.2011.5.25.128",
+    "class": "moduleidentity"
+  },
+  "HWEnableValue": {
+    "name": "HWEnableValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwTADObjects": {
+    "name": "hwTADObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1",
+    "class": "objectidentity"
+  },
+  "hwTADInterfaceTable": {
+    "name": "hwTADInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTADInterfaceEntry": {
+    "name": "hwTADInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTADInterfaceIndex": {
+    "name": "hwTADInterfaceIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTADFilterEnable": {
+    "name": "hwTADFilterEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADFilterExpireTime": {
+    "name": "hwTADFilterExpireTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADDampingEnable": {
+    "name": "hwTADDampingEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADSuppress": {
+    "name": "hwTADSuppress",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 19999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADCeiling": {
+    "name": "hwTADCeiling",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1001,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADReuse": {
+    "name": "hwTADReuse",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 19998
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 750,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADDecayOk": {
+    "name": "hwTADDecayOk",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADDecayNg": {
+    "name": "hwTADDecayNg",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADResetStatistics": {
+    "name": "hwTADResetStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unreset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADResetTime": {
+    "name": "hwTADResetTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTADB3tcaThreshold": {
+    "name": "hwTADB3tcaThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADSdbereThreshold": {
+    "name": "hwTADSdbereThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADSfbereThreshold": {
+    "name": "hwTADSfbereThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADAlarmTable": {
+    "name": "hwTADAlarmTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTADAlarmEntry": {
+    "name": "hwTADAlarmEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTADAlarmIfIndex": {
+    "name": "hwTADAlarmIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTADAlarmType": {
+    "name": "hwTADAlarmType",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auais": 1,
+          "b3tca": 2,
+          "lais": 3,
+          "lof": 4,
+          "lom": 5,
+          "lop": 6,
+          "los": 7,
+          "lrdi": 8,
+          "lrei": 9,
+          "oof": 10,
+          "pais": 11,
+          "prdi": 12,
+          "prei": 13,
+          "pplm": 14,
+          "rdool": 15,
+          "rrool": 16,
+          "sdbere": 17,
+          "sfbere": 18,
+          "trool": 19,
+          "puneq": 20,
+          "lcd": 21,
+          "wlnk": 22
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTADAlarmIfDown": {
+    "name": "hwTADAlarmIfDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADAlarmLog": {
+    "name": "hwTADAlarmLog",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTADAlarmStatus": {
+    "name": "hwTADAlarmStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTADAlarmInFilter": {
+    "name": "hwTADAlarmInFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTADAlarmFigure": {
+    "name": "hwTADAlarmFigure",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTADAlarmInSuppress": {
+    "name": "hwTADAlarmInSuppress",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "suppressed": 1,
+          "unsuppressed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTADAlarmFlappingCount": {
+    "name": "hwTADAlarmFlappingCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTADAlarmSuppressCount": {
+    "name": "hwTADAlarmSuppressCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTADConformance": {
+    "name": "hwTADConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.2",
+    "class": "objectidentity"
+  },
+  "hwTADGroups": {
+    "name": "hwTADGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.2.1",
+    "class": "objectidentity"
+  },
+  "hwTADInterfaceGroup": {
+    "name": "hwTADInterfaceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADFilterEnable"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADFilterExpireTime"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADDampingEnable"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADSuppress"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADCeiling"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADReuse"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADDecayOk"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADDecayNg"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADResetStatistics"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADResetTime"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADB3tcaThreshold"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADSdbereThreshold"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADSfbereThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTADAlarmGroup": {
+    "name": "hwTADAlarmGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmIfDown"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmLog"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmStatus"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmInFilter"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmFigure"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmInSuppress"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmFlappingCount"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmSuppressCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-TAD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-TAD-MIB"
+  }
+}

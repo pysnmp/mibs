@@ -1,0 +1,404 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoQinqVlanMIB": {
+    "name": "ciscoQinqVlanMIB",
+    "oid": "1.3.6.1.4.1.9.9.445",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoQinqVlanMIBNotifs": {
+    "name": "ciscoQinqVlanMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.445.0",
+    "class": "objectidentity"
+  },
+  "ciscoQinqVlanMIBObjects": {
+    "name": "ciscoQinqVlanMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.445.1",
+    "class": "objectidentity"
+  },
+  "ciscoQinqVlanMIBConform": {
+    "name": "ciscoQinqVlanMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.445.2",
+    "class": "objectidentity"
+  },
+  "cqvTermination": {
+    "name": "cqvTermination",
+    "oid": "1.3.6.1.4.1.9.9.445.1.1",
+    "class": "objectidentity"
+  },
+  "cqvTranslation": {
+    "name": "cqvTranslation",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2",
+    "class": "objectidentity"
+  },
+  "CqvVlanIdOrZero": {
+    "name": "CqvVlanIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CqvEncapsulationType": {
+    "name": "CqvEncapsulationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isl": 1,
+          "dot1Q": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cqvTerminationTable": {
+    "name": "cqvTerminationTable",
+    "oid": "1.3.6.1.4.1.9.9.445.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqvTerminationEntry": {
+    "name": "cqvTerminationEntry",
+    "oid": "1.3.6.1.4.1.9.9.445.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTerminationPeVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTerminationCeVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cqvTerminationPeVlanId": {
+    "name": "cqvTerminationPeVlanId",
+    "oid": "1.3.6.1.4.1.9.9.445.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqvTerminationCeVlanId": {
+    "name": "cqvTerminationCeVlanId",
+    "oid": "1.3.6.1.4.1.9.9.445.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqvTerminationPeEncap": {
+    "name": "cqvTerminationPeEncap",
+    "oid": "1.3.6.1.4.1.9.9.445.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CqvEncapsulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cqvTerminationRowStatus": {
+    "name": "cqvTerminationRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.445.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cqvTranslationTable": {
+    "name": "cqvTranslationTable",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqvTranslationEntry": {
+    "name": "cqvTranslationEntry",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTranslationInternalPeVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTranslationInternalCeVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cqvTranslationInternalPeVlanId": {
+    "name": "cqvTranslationInternalPeVlanId",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CqvVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqvTranslationInternalCeVlanId": {
+    "name": "cqvTranslationInternalCeVlanId",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CqvVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqvTranslationTrunkPeVlanId": {
+    "name": "cqvTranslationTrunkPeVlanId",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CqvVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cqvTranslationTrunkCeVlanId": {
+    "name": "cqvTranslationTrunkCeVlanId",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CqvVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cqvTranslationType": {
+    "name": "cqvTranslationType",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doubleToSingle": 1,
+          "doubleToDouble": 2,
+          "doubleToDoubleOutOfRange": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cqvTranslationCosPBits": {
+    "name": "cqvTranslationCosPBits",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyFromOuterTag": 1,
+          "copyFromInnerTag": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "copyFromOuterTag",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cqvTranslationRowStatus": {
+    "name": "cqvTranslationRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.445.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoQinqVlanMIBCompliances": {
+    "name": "ciscoQinqVlanMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.445.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoQinqVlanMIBGroups": {
+    "name": "ciscoQinqVlanMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.445.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoQinQVlanMIBCompliance": {
+    "name": "ciscoQinQVlanMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.445.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoQinqVlanTerminationGroup",
+        "module": "CISCO-QINQ-VLAN-MIB"
+      },
+      {
+        "object": "ciscoQinqVlanTranslationGroup",
+        "module": "CISCO-QINQ-VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoQinqVlanTerminationGroup": {
+    "name": "ciscoQinqVlanTerminationGroup",
+    "oid": "1.3.6.1.4.1.9.9.445.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTerminationPeEncap"
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTerminationRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoQinqVlanTranslationGroup": {
+    "name": "ciscoQinqVlanTranslationGroup",
+    "oid": "1.3.6.1.4.1.9.9.445.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTranslationTrunkPeVlanId"
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTranslationTrunkCeVlanId"
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTranslationType"
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTranslationCosPBits"
+      },
+      {
+        "module": "CISCO-QINQ-VLAN-MIB",
+        "object": "cqvTranslationRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-QINQ-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-QINQ-VLAN-MIB"
+  }
+}

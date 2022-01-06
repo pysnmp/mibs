@@ -1,0 +1,1627 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "enterprises",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TDomain",
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "sa": {
+    "name": "sa",
+    "oid": "1.3.6.1.4.1.1429",
+    "class": "objectidentity"
+  },
+  "saCmMib": {
+    "name": "saCmMib",
+    "oid": "1.3.6.1.4.1.1429.77",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-05-18 00:00",
+        "description": "Added saCmSoftwareDownload tree"
+      },
+      {
+        "revision": "2015-05-26 00:00",
+        "description": "Initial release of reduced-set module for releases based on BFC 5.7.x."
+      }
+    ]
+  },
+  "dpxCmMibObjects": {
+    "name": "dpxCmMibObjects",
+    "oid": "1.3.6.1.4.1.1429.77.1",
+    "class": "objectidentity"
+  },
+  "cmVendorInfo": {
+    "name": "cmVendorInfo",
+    "oid": "1.3.6.1.4.1.1429.77.1.2",
+    "class": "objectidentity"
+  },
+  "cmAPInfo": {
+    "name": "cmAPInfo",
+    "oid": "1.3.6.1.4.1.1429.77.1.3",
+    "class": "objectidentity"
+  },
+  "cmInterfaceInfo": {
+    "name": "cmInterfaceInfo",
+    "oid": "1.3.6.1.4.1.1429.77.1.4",
+    "class": "objectidentity"
+  },
+  "vendorDefaultDSfreq": {
+    "name": "vendorDefaultDSfreq",
+    "oid": "1.3.6.1.4.1.1429.77.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 93000000,
+            "max": 855000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vendorDSLEDTreatment": {
+    "name": "vendorDSLEDTreatment",
+    "oid": "1.3.6.1.4.1.1429.77.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signalNB": 0,
+          "signalWB": 1,
+          "signalWBNBG": 2,
+          "signalWBNBA": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vendorLINKLEDTreatment": {
+    "name": "vendorLINKLEDTreatment",
+    "oid": "1.3.6.1.4.1.1429.77.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "showlinkspeed": 1,
+          "d3Amberledslowspeed": 2,
+          "d3Greenledslowspeed": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vendorUSLEDTreatment": {
+    "name": "vendorUSLEDTreatment",
+    "oid": "1.3.6.1.4.1.1429.77.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signalWBNBG": 0,
+          "signalNB": 1,
+          "signalWB": 2,
+          "signalWBNBA": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vendorONLINELEDTreatment": {
+    "name": "vendorONLINELEDTreatment",
+    "oid": "1.3.6.1.4.1.1429.77.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signalWBNBG": 0,
+          "signalNB": 1,
+          "signalWB": 2,
+          "signalWBNBA": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAPIgmp": {
+    "name": "cmAPIgmp",
+    "oid": "1.3.6.1.4.1.1429.77.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disableIGMP": 0,
+          "enableIGMP": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAPAgingOut": {
+    "name": "cmAPAgingOut",
+    "oid": "1.3.6.1.4.1.1429.77.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disableAgingOut": 0,
+          "enableAgingOut": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAPMulticastPromiscuousMode": {
+    "name": "cmAPMulticastPromiscuousMode",
+    "oid": "1.3.6.1.4.1.1429.77.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAPInternalInterface": {
+    "name": "cmAPInternalInterface",
+    "oid": "1.3.6.1.4.1.1429.77.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAPFactoryReset": {
+    "name": "cmAPFactoryReset",
+    "oid": "1.3.6.1.4.1.1429.77.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmArpRateLimit": {
+    "name": "saCmArpRateLimit",
+    "oid": "1.3.6.1.4.1.1429.77.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "packets-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmInternalDhcpServer": {
+    "name": "saCmInternalDhcpServer",
+    "oid": "1.3.6.1.4.1.1429.77.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmConsoleMode": {
+    "name": "cmConsoleMode",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "readOnly": 1,
+          "readWrite": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmTimerT4": {
+    "name": "cmTimerT4",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmTodRenewal": {
+    "name": "saCmTodRenewal",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmAutoResetNoActivity": {
+    "name": "saCmAutoResetNoActivity",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 43200
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmCpeMacAging": {
+    "name": "saCmCpeMacAging",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmBpiForward": {
+    "name": "saCmBpiForward",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macTable": 1,
+          "allPackets": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmForceDualscan": {
+    "name": "saCmForceDualscan",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "useFactorySetting": 0,
+          "enable": 1,
+          "docsis1": 2,
+          "euroDocsis": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmDsBonding": {
+    "name": "saCmDsBonding",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1,
+          "enable2DS": 2,
+          "enable3DS": 3,
+          "enable4DS": 4,
+          "enable5DS": 5,
+          "enable6DS": 6,
+          "enable7DS": 7,
+          "enable8DS": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmDocsisCapableVersion": {
+    "name": "saCmDocsisCapableVersion",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saOorDsidOverride": {
+    "name": "saOorDsidOverride",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmCpeL2VpnMacAging": {
+    "name": "saCmCpeL2VpnMacAging",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmL2VpnUsForwardingCriteria": {
+    "name": "saCmL2VpnUsForwardingCriteria",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwardOnPrimarySF": 0,
+          "discard": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmEthernetOperTable": {
+    "name": "cmEthernetOperTable",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.41",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmEthernetOperEntry": {
+    "name": "cmEthernetOperEntry",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.41.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-CM-MIB",
+        "object": "cmEthernetOperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmEthernetOperIndex": {
+    "name": "cmEthernetOperIndex",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.41.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmEthernetOperSetting": {
+    "name": "cmEthernetOperSetting",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.41.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link-down": 0,
+          "half-duplex-10Mbps": 1,
+          "full-duplex-10Mbps": 2,
+          "half-duplex-100Mbps": 3,
+          "full-duplex-100Mbps": 4,
+          "ethernetNotConnected": 5,
+          "half-duplex-1Gbps": 6,
+          "full-duplex-1Gbps": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmEthernetOperMode": {
+    "name": "cmEthernetOperMode",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.41.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto-negotiate": 0,
+          "manual": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmEthernetIfAdminStatus": {
+    "name": "cmEthernetIfAdminStatus",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.41.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmEthernetIfAdminOverride": {
+    "name": "cmEthernetIfAdminOverride",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmUsBonding": {
+    "name": "saCmUsBonding",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saCmIcmpRateLimit": {
+    "name": "saCmIcmpRateLimit",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "packets-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmTftpBlockSizeV4": {
+    "name": "saCmTftpBlockSizeV4",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmTftpBlockSizeV6": {
+    "name": "saCmTftpBlockSizeV6",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmUsPowerLimit": {
+    "name": "saCmUsPowerLimit",
+    "oid": "1.3.6.1.4.1.1429.77.1.4.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 51,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmSoftwareDownload": {
+    "name": "saCmSoftwareDownload",
+    "oid": "1.3.6.1.4.1.1429.77.1.6",
+    "class": "objectidentity"
+  },
+  "saCmSoftwareTable": {
+    "name": "saCmSoftwareTable",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSoftwareEntry": {
+    "name": "saCmSoftwareEntry",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-CM-MIB",
+        "object": "saCmSwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saCmSwIndex": {
+    "name": "saCmSwIndex",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwModel": {
+    "name": "saCmSwModel",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwHwVer": {
+    "name": "saCmSwHwVer",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "string"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwBootLoader": {
+    "name": "saCmSwBootLoader",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "string"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwProtocol": {
+    "name": "saCmSwProtocol",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "ncs": 1,
+          "sip": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwFilename": {
+    "name": "saCmSwFilename",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwServer": {
+    "name": "saCmSwServer",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "saCmSwAdminStatus": {
+    "name": "saCmSwAdminStatus",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "saCmSwAllowProvisioningUpgrade": 2,
+          "saCmSwIgnoreProvisioningUpgrade": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwMethod": {
+    "name": "saCmSwMethod",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secure": 1,
+          "unsecure": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwServerAddressType": {
+    "name": "saCmSwServerAddressType",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSwServerAddress": {
+    "name": "saCmSwServerAddress",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmSoftwareDownloadTFTPServer": {
+    "name": "saCmSoftwareDownloadTFTPServer",
+    "oid": "1.3.6.1.4.1.1429.77.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sameAsCM": 1,
+          "dhcpOption54": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saCmWebAccess": {
+    "name": "saCmWebAccess",
+    "oid": "1.3.6.1.4.1.1429.77.1.7",
+    "class": "objectidentity"
+  },
+  "saCmWebAccessUserIfTypeTable": {
+    "name": "saCmWebAccessUserIfTypeTable",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmWebAccessUserIfTypeEntry": {
+    "name": "saCmWebAccessUserIfTypeEntry",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-CM-MIB",
+        "object": "saCmWebAccessUserTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "SA-CM-MIB",
+        "object": "saCmWebAccessIfTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saCmWebAccessUserTypeIndex": {
+    "name": "saCmWebAccessUserTypeIndex",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "home-user": 1,
+          "cus-admin": 5,
+          "adv-user": 10,
+          "all-users": 100
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saCmWebAccessIfTypeIndex": {
+    "name": "saCmWebAccessIfTypeIndex",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lan": 1,
+          "rf-cm": 2,
+          "mta": 16,
+          "wan-rg": 40,
+          "all-ifs": 100
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saCmWebAccessUserIfLevel": {
+    "name": "saCmWebAccessUserIfLevel",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": -1,
+          "off": 0,
+          "system": 1,
+          "basic": 2,
+          "readonly": 3,
+          "advanced": 100
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmWebAccessHomeUsername": {
+    "name": "saCmWebAccessHomeUsername",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmWebAccessHomeUserPassword": {
+    "name": "saCmWebAccessHomeUserPassword",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmWebAccessAdvancedType": {
+    "name": "saCmWebAccessAdvancedType",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "plain": 1,
+          "potd": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saCmWebAccessAdvancedUsername": {
+    "name": "saCmWebAccessAdvancedUsername",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "admin",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saCmWebAccessAdvancedPassword": {
+    "name": "saCmWebAccessAdvancedPassword",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saCmWebAccessNoActivityTimeout": {
+    "name": "saCmWebAccessNoActivityTimeout",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saCmWebAccessHomeUserClearPassword": {
+    "name": "saCmWebAccessHomeUserClearPassword",
+    "oid": "1.3.6.1.4.1.1429.77.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saPUF": {
+    "name": "saPUF",
+    "oid": "1.3.6.1.4.1.1429.77.1.10",
+    "class": "objectidentity"
+  },
+  "saPUFTable": {
+    "name": "saPUFTable",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saPUFEntry": {
+    "name": "saPUFEntry",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-CM-MIB",
+        "object": "saPUFIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saPUFIndex": {
+    "name": "saPUFIndex",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saPUFRowStatus": {
+    "name": "saPUFRowStatus",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saPUFFrequency": {
+    "name": "saPUFFrequency",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 93000000,
+            "max": 999000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "saPUFAnnex": {
+    "name": "saPUFAnnex",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "annexA": 0,
+          "annexB": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saPUFScanNow": {
+    "name": "saPUFScanNow",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saPUFScanOnNextBoot": {
+    "name": "saPUFScanOnNextBoot",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unset": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saPUFScanResults": {
+    "name": "saPUFScanResults",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDetected": 0,
+          "detected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saPUFScanTimestamp": {
+    "name": "saPUFScanTimestamp",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saPUFScanResultsType": {
+    "name": "saPUFScanResultsType",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDetected": 0,
+          "qam": 1,
+          "docsisQam": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saPUFTrapServer": {
+    "name": "saPUFTrapServer",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saPUFTrapControl": {
+    "name": "saPUFTrapControl",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enableOnEnergyDetection": 1,
+          "enableOnNoEnergyDetected": 2,
+          "enableOnFrequencyScan": 3,
+          "enableOnQamDetection": 4,
+          "enableOnDocsisQamDetection": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saPUFScanAllNow": {
+    "name": "saPUFScanAllNow",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saPUFEntriesClearOnRFD": {
+    "name": "saPUFEntriesClearOnRFD",
+    "oid": "1.3.6.1.4.1.1429.77.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saLKF": {
+    "name": "saLKF",
+    "oid": "1.3.6.1.4.1.1429.77.1.11",
+    "class": "objectidentity"
+  },
+  "saLKFTable": {
+    "name": "saLKFTable",
+    "oid": "1.3.6.1.4.1.1429.77.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saLKFEntry": {
+    "name": "saLKFEntry",
+    "oid": "1.3.6.1.4.1.1429.77.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-CM-MIB",
+        "object": "saLKFIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saLKFIndex": {
+    "name": "saLKFIndex",
+    "oid": "1.3.6.1.4.1.1429.77.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saLKFFrequency": {
+    "name": "saLKFFrequency",
+    "oid": "1.3.6.1.4.1.1429.77.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "saSoftwareIdentity": {
+    "name": "saSoftwareIdentity",
+    "oid": "1.3.6.1.4.1.1429.77.1.14",
+    "class": "objectidentity"
+  },
+  "saSoftwareTable": {
+    "name": "saSoftwareTable",
+    "oid": "1.3.6.1.4.1.1429.77.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saSoftwareTableEntry": {
+    "name": "saSoftwareTableEntry",
+    "oid": "1.3.6.1.4.1.1429.77.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-CM-MIB",
+        "object": "saSoftwareIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saSoftwareIndex": {
+    "name": "saSoftwareIndex",
+    "oid": "1.3.6.1.4.1.1429.77.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saSoftwareBaseVersion": {
+    "name": "saSoftwareBaseVersion",
+    "oid": "1.3.6.1.4.1.1429.77.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saSoftwareFeatureName": {
+    "name": "saSoftwareFeatureName",
+    "oid": "1.3.6.1.4.1.1429.77.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/SA-CM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SA-CM-MIB"
+  }
+}

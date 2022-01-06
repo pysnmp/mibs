@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TAIT-COMMON-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-COMMON-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:30:35 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:50:32 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, Gauge32, MibIdentifier, Unsigned32, enterprises, ObjectIdentity, Counter64, Counter32, NotificationType, Integer32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Gauge32", "MibIdentifier", "Unsigned32", "enterprises", "ObjectIdentity", "Counter64", "Counter32", "NotificationType", "Integer32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, NotificationType, Gauge32, MibIdentifier, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, IpAddress, enterprises, Counter32, Bits, Unsigned32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "NotificationType", "Gauge32", "MibIdentifier", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "IpAddress", "enterprises", "Counter32", "Bits", "Unsigned32", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 taitCommonRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3570, 1, 1, 1))
 taitCommonRegModule.setRevisions(('2012-02-20 12:00',))
 
@@ -35,4 +35,4 @@ if mibBuilder.loadTexts: taitGeneric.setDescription('Sub-tree for common objects
 taitProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3570, 3))
 if mibBuilder.loadTexts: taitProducts.setStatus('current')
 if mibBuilder.loadTexts: taitProducts.setDescription('Sub-tree for product-specific objects and events.')
-mibBuilder.exportSymbols("TAIT-COMMON-MIB", tait=tait, PYSNMP_MODULE_ID=taitCommonRegModule, taitModules=taitModules, taitRegistrations=taitRegistrations, taitGeneric=taitGeneric, taitCommonRegModule=taitCommonRegModule, taitProducts=taitProducts)
+mibBuilder.exportSymbols("TAIT-COMMON-MIB", tait=tait, taitModules=taitModules, taitRegistrations=taitRegistrations, taitProducts=taitProducts, PYSNMP_MODULE_ID=taitCommonRegModule, taitGeneric=taitGeneric, taitCommonRegModule=taitCommonRegModule)

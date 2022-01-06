@@ -1,0 +1,89 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSyslogExtCapability": {
+    "name": "ciscoSyslogExtCapability",
+    "oid": "1.3.6.1.4.1.9.7.454",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-30 00:00",
+        "description": "Added ciscoSyslogExtCapabilityc4710aceVA1R700 agent capabilities for ACE 4710 Application Control Engine Appliance. Obsoleted ciscoSyslogExtCapabilityACSWV03R0000 for Application Control Engine(ACE) module, as VARIATION description for some of the objects was missing. Added ciscoSyslogExtCapACSWV03R0000Rev1 for Application Control Engine(ACE) module."
+      },
+      {
+        "revision": "2006-04-18 00:00",
+        "description": "Added ciscoSyslogExtCapabilityACSWV03R0000 for Application Control Engine(ACE) module."
+      },
+      {
+        "revision": "2005-09-01 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoSyslogExtCapabilityMDS3R0": {
+    "name": "ciscoSyslogExtCapabilityMDS3R0",
+    "oid": "1.3.6.1.4.1.9.7.454.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco MDS 3.0(1)",
+    "status": "current"
+  },
+  "ciscoSyslogExtCapabilityACSWV03R0000": {
+    "name": "ciscoSyslogExtCapabilityACSWV03R0000",
+    "oid": "1.3.6.1.4.1.9.7.454.2",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0\n                for Application Control Engine(ACE) module.",
+    "status": "obsolete"
+  },
+  "ciscoSyslogExtCapACSWV03R0000Rev1": {
+    "name": "ciscoSyslogExtCapACSWV03R0000Rev1",
+    "oid": "1.3.6.1.4.1.9.7.454.3",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) 3.0\n                    for Application Control Engine(ACE) module.",
+    "status": "current"
+  },
+  "ciscoSyslogExtCapabilityc4710aceVA1R700": {
+    "name": "ciscoSyslogExtCapabilityc4710aceVA1R700",
+    "oid": "1.3.6.1.4.1.9.7.454.4",
+    "class": "agentcapabilities",
+    "productrelease": "ACSW (Application Control Software) A1(7)\n                    for ACE 4710 Application Control Engine \n                    Appliance.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SYSLOG-EXT-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SYSLOG-EXT-CAPABILITY"
+  }
+}

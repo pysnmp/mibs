@@ -1,0 +1,1143 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "DLINKSW-TC-MIB": [
+      "Dlink2kVlanList"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwDhcpRelayMIB": {
+    "name": "dlinkSwDhcpRelayMIB",
+    "oid": "1.3.6.1.4.1.171.14.23",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-19 00:00",
+        "description": "This is the first version of the MIB file for 'BOOTP/DHCP Relay' functionality."
+      },
+      {
+        "revision": "2013-09-09 00:00",
+        "description": "1.Update dDhcpROption82RemoteIdUserDef and dDhcpROption82CircuitIdUserDef value length(Note:follow UIS). 2.Remove dDhcpRIfIgnoreBootpRowStatus and add dDhcpRIfIgnoreBootpEnabled(Note:follow IP interface). 3.Remove dDhcpRIfAgentInfoChkRowStatus and modify dDhcpRIfAgentInfoChkState SYNTAX(Note:follow IP interface). 4.Remove dDhcpRIfAgentInfoInsertRowStatus and modify dDhcpRIfAgentInfoInsertState SYNTAX(Note:follow IP interface). 5.Remove dDhcpRIfAgentInfoPolicyRowStatus(Note:follow IP interface). 6.Remove dDhcpRIfAgentInfoTrustRowStatus and add dDhcpRIfAgentInfoTrustEnabled(Note:follow IP interface)."
+      },
+      {
+        "revision": "2013-09-26 00:00",
+        "description": "1.Modify dDhcpROption82RemoteIdUserDef and dDhcpROption82CircuitIdUserDef value length for IWL test. 2.Update dDhcpRVlanLocalRelayCrlSecond2K description "
+      }
+    ]
+  },
+  "dDhcpRelayMIBNotifications": {
+    "name": "dDhcpRelayMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.23.0",
+    "class": "objectidentity"
+  },
+  "dDhcpRelayMIBObjects": {
+    "name": "dDhcpRelayMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.23.1",
+    "class": "objectidentity"
+  },
+  "dDhcpRelayMIBConformance": {
+    "name": "dDhcpRelayMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.23.2",
+    "class": "objectidentity"
+  },
+  "dDhcpRelayGeneral": {
+    "name": "dDhcpRelayGeneral",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1",
+    "class": "objectidentity"
+  },
+  "dDhcpRelayAgentInfoCheckEnabled": {
+    "name": "dDhcpRelayAgentInfoCheckEnabled",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRelayAgentInfoInsertEnabled": {
+    "name": "dDhcpRelayAgentInfoInsertEnabled",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRelayAgentInfoPolicy": {
+    "name": "dDhcpRelayAgentInfoPolicy",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "keep": 2,
+          "replace": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "keep",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRelayInfoTrustAll": {
+    "name": "dDhcpRelayInfoTrustAll",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRelaySmartRelay": {
+    "name": "dDhcpRelaySmartRelay",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpROption82RemoteIdType": {
+    "name": "dDhcpROption82RemoteIdType",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "userDefined": 2,
+          "vendor2": 4,
+          "vendor3": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpROption82RemoteIdUserDef": {
+    "name": "dDhcpROption82RemoteIdUserDef",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpROption82CircuitIdType": {
+    "name": "dDhcpROption82CircuitIdType",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "userDefined": 2,
+          "vendor1": 3,
+          "vendor2": 4,
+          "vendor3": 5,
+          "vendor4": 6,
+          "vendor5": 7,
+          "vendor6": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpROption82CircuitIdUserDef": {
+    "name": "dDhcpROption82CircuitIdUserDef",
+    "oid": "1.3.6.1.4.1.171.14.23.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRPoolObjects": {
+    "name": "dDhcpRPoolObjects",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2",
+    "class": "objectidentity"
+  },
+  "dDhcpRPoolClassRelayTargetTable": {
+    "name": "dDhcpRPoolClassRelayTargetTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolClassRelayTargetEntry": {
+    "name": "dDhcpRPoolClassRelayTargetEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoClRelayTargetPoolName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoClRelayTargetClassName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoClRelayTargetVrfName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoClRelayTargetAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRPoClRelayTargetPoolName": {
+    "name": "dDhcpRPoClRelayTargetPoolName",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoClRelayTargetClassName": {
+    "name": "dDhcpRPoClRelayTargetClassName",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoClRelayTargetVrfName": {
+    "name": "dDhcpRPoClRelayTargetVrfName",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoClRelayTargetAddr": {
+    "name": "dDhcpRPoClRelayTargetAddr",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoClRelayTargetRowStatus": {
+    "name": "dDhcpRPoClRelayTargetRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcpRPoolRelayDestTable": {
+    "name": "dDhcpRPoolRelayDestTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolRelayDestEntry": {
+    "name": "dDhcpRPoolRelayDestEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoolRelayDestPoolName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoolRelayDestVrfName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoolRelayDestAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRPoolRelayDestPoolName": {
+    "name": "dDhcpRPoolRelayDestPoolName",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolRelayDestVrfName": {
+    "name": "dDhcpRPoolRelayDestVrfName",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolRelayDestAddr": {
+    "name": "dDhcpRPoolRelayDestAddr",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolRelayDestRowStatus": {
+    "name": "dDhcpRPoolRelayDestRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcpRPoolRelaySourceTable": {
+    "name": "dDhcpRPoolRelaySourceTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolRelaySourceEntry": {
+    "name": "dDhcpRPoolRelaySourceEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoolRelaySourcePoolName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoolRelaySourceSubnet",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoolRelaySourceSubnetMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRPoolRelaySourcePoolName": {
+    "name": "dDhcpRPoolRelaySourcePoolName",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolRelaySourceSubnet": {
+    "name": "dDhcpRPoolRelaySourceSubnet",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolRelaySourceSubnetMask": {
+    "name": "dDhcpRPoolRelaySourceSubnetMask",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPoolRelaySourceRowStatus": {
+    "name": "dDhcpRPoolRelaySourceRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.23.1.2.3.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcpRelayIfObjects": {
+    "name": "dDhcpRelayIfObjects",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3",
+    "class": "objectidentity"
+  },
+  "dDhcpRIfIgnoreBootpTable": {
+    "name": "dDhcpRIfIgnoreBootpTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfIgnoreBootpEntry": {
+    "name": "dDhcpRIfIgnoreBootpEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfIgnoreBootpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRIfIgnoreBootpIfIndex": {
+    "name": "dDhcpRIfIgnoreBootpIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfIgnoreBootpEnabled": {
+    "name": "dDhcpRIfIgnoreBootpEnabled",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoChkTable": {
+    "name": "dDhcpRIfAgentInfoChkTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoChkEntry": {
+    "name": "dDhcpRIfAgentInfoChkEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfAgentInfoChkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoChkIfIndex": {
+    "name": "dDhcpRIfAgentInfoChkIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoChkState": {
+    "name": "dDhcpRIfAgentInfoChkState",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoInsertTable": {
+    "name": "dDhcpRIfAgentInfoInsertTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoInsertEntry": {
+    "name": "dDhcpRIfAgentInfoInsertEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfAgentInfoInsertIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoInsertIfIndex": {
+    "name": "dDhcpRIfAgentInfoInsertIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoInsertState": {
+    "name": "dDhcpRIfAgentInfoInsertState",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoPolicyTable": {
+    "name": "dDhcpRIfAgentInfoPolicyTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoPolicyEntry": {
+    "name": "dDhcpRIfAgentInfoPolicyEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfAgentInfoPolicyIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoPolicyIfIndex": {
+    "name": "dDhcpRIfAgentInfoPolicyIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoPolicyAction": {
+    "name": "dDhcpRIfAgentInfoPolicyAction",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "keep": 2,
+          "replace": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoTrustTable": {
+    "name": "dDhcpRIfAgentInfoTrustTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoTrustEntry": {
+    "name": "dDhcpRIfAgentInfoTrustEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfAgentInfoTrustIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoTrustIfIndex": {
+    "name": "dDhcpRIfAgentInfoTrustIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRIfAgentInfoTrustEnabled": {
+    "name": "dDhcpRIfAgentInfoTrustEnabled",
+    "oid": "1.3.6.1.4.1.171.14.23.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRelayPortIfOption82Objects": {
+    "name": "dDhcpRelayPortIfOption82Objects",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4",
+    "class": "objectidentity"
+  },
+  "dDhcpRPortIfOp82RemIdTable": {
+    "name": "dDhcpRPortIfOp82RemIdTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPortIfOp82RemIdEntry": {
+    "name": "dDhcpRPortIfOp82RemIdEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPortIfOp82RemIdIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRPortIfOp82RemIdIfIndex": {
+    "name": "dDhcpRPortIfOp82RemIdIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPortIfOp82RemIdVendor3Cfg": {
+    "name": "dDhcpRPortIfOp82RemIdVendor3Cfg",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRPortIfOp82CirIdTable": {
+    "name": "dDhcpRPortIfOp82CirIdTable",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPortIfOp82CirIdEntry": {
+    "name": "dDhcpRPortIfOp82CirIdEntry",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPortIfOp82CirIdIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRPortIfOp82CirIdIfIndex": {
+    "name": "dDhcpRPortIfOp82CirIdIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpRPortIfOp82CirIdVendor3Cfg": {
+    "name": "dDhcpRPortIfOp82CirIdVendor3Cfg",
+    "oid": "1.3.6.1.4.1.171.14.23.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRelayVlanObjects": {
+    "name": "dDhcpRelayVlanObjects",
+    "oid": "1.3.6.1.4.1.171.14.23.1.5",
+    "class": "objectidentity"
+  },
+  "dDhcpRVlanLocalRelayCrlFirst2K": {
+    "name": "dDhcpRVlanLocalRelayCrlFirst2K",
+    "oid": "1.3.6.1.4.1.171.14.23.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRVlanLocalRelayCrlSecond2K": {
+    "name": "dDhcpRVlanLocalRelayCrlSecond2K",
+    "oid": "1.3.6.1.4.1.171.14.23.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpRelayCompliances": {
+    "name": "dDhcpRelayCompliances",
+    "oid": "1.3.6.1.4.1.171.14.23.2.1",
+    "class": "objectidentity"
+  },
+  "dDhcpRelayCompliance": {
+    "name": "dDhcpRelayCompliance",
+    "oid": "1.3.6.1.4.1.171.14.23.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dDhcpRGblCfgGroup",
+        "module": "DLINKSW-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "dDhcpRPoolCfgGroup",
+        "module": "DLINKSW-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "dDhcpRInterfaceGroup",
+        "module": "DLINKSW-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "dDhcpROp82SuboptionGroup",
+        "module": "DLINKSW-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "dDhcpRVlanCfgGroup",
+        "module": "DLINKSW-DHCP-RELAY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRelayGroups": {
+    "name": "dDhcpRelayGroups",
+    "oid": "1.3.6.1.4.1.171.14.23.2.2",
+    "class": "objectidentity"
+  },
+  "dDhcpRGblCfgGroup": {
+    "name": "dDhcpRGblCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.23.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRelayAgentInfoCheckEnabled"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRelayAgentInfoInsertEnabled"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRelayAgentInfoPolicy"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRelayInfoTrustAll"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRelaySmartRelay"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRPoolCfgGroup": {
+    "name": "dDhcpRPoolCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.23.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoClRelayTargetRowStatus"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoolRelayDestRowStatus"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPoolRelaySourceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRInterfaceGroup": {
+    "name": "dDhcpRInterfaceGroup",
+    "oid": "1.3.6.1.4.1.171.14.23.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfIgnoreBootpEnabled"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfAgentInfoChkState"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfAgentInfoInsertState"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfAgentInfoPolicyAction"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRIfAgentInfoTrustEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpROp82SuboptionGroup": {
+    "name": "dDhcpROp82SuboptionGroup",
+    "oid": "1.3.6.1.4.1.171.14.23.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpROption82RemoteIdType"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpROption82RemoteIdUserDef"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpROption82CircuitIdType"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpROption82CircuitIdUserDef"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPortIfOp82RemIdVendor3Cfg"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRPortIfOp82CirIdVendor3Cfg"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpRVlanCfgGroup": {
+    "name": "dDhcpRVlanCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.23.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRVlanLocalRelayCrlFirst2K"
+      },
+      {
+        "module": "DLINKSW-DHCP-RELAY-MIB",
+        "object": "dDhcpRVlanLocalRelayCrlSecond2K"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP-RELAY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-DHCP-RELAY-MIB"
+  }
+}

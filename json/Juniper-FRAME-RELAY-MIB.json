@@ -1,0 +1,2105 @@
+{
+  "imports": {
+    "class": "imports",
+    "FRAME-RELAY-DTE-MIB": [
+      "DLCI"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniNextIfIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TimeStamp"
+    ]
+  },
+  "juniFrameRelayMIB": {
+    "name": "juniFrameRelayMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-12-13 14:35",
+        "description": "Replaced Unisphere names with Juniper names. Added multi-link support."
+      },
+      {
+        "revision": "2000-09-26 17:30",
+        "description": "Make it SMIv2 conformant."
+      },
+      {
+        "revision": "1999-06-01 00:00",
+        "description": "Add support for NNI behavior."
+      },
+      {
+        "revision": "1998-11-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniFrMlFrBundleName": {
+    "name": "JuniFrMlFrBundleName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "juniFrObjects": {
+    "name": "juniFrObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1",
+    "class": "objectidentity"
+  },
+  "juniFrIfLayer": {
+    "name": "juniFrIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1",
+    "class": "objectidentity"
+  },
+  "juniFrSubIfLayer": {
+    "name": "juniFrSubIfLayer",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2",
+    "class": "objectidentity"
+  },
+  "juniFrMlFr": {
+    "name": "juniFrMlFr",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3",
+    "class": "objectidentity"
+  },
+  "juniFrNextIfIndex": {
+    "name": "juniFrNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiTable": {
+    "name": "juniFrDlcmiTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrDlcmiEntry": {
+    "name": "juniFrDlcmiEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrDlcmiIfIndex": {
+    "name": "juniFrDlcmiIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiState": {
+    "name": "juniFrDlcmiState",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLmiConfigured": 1,
+          "lmiRev1": 2,
+          "ansiT1617D": 3,
+          "ansiT1617B": 4,
+          "itut933A": 5,
+          "ansiT1617D1994": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiAddress": {
+    "name": "juniFrDlcmiAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "q921": 1,
+          "q922March90": 2,
+          "q922November90": 3,
+          "q922": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "q922",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiAddressLen": {
+    "name": "juniFrDlcmiAddressLen",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoOctets": 2,
+          "threeOctets": 3,
+          "fourOctets": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "twoOctets",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiPollingInterval": {
+    "name": "juniFrDlcmiPollingInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiFullEnquiryInterval": {
+    "name": "juniFrDlcmiFullEnquiryInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiErrorThreshold": {
+    "name": "juniFrDlcmiErrorThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiMonitoredEvents": {
+    "name": "juniFrDlcmiMonitoredEvents",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiMaxSupportedVCs": {
+    "name": "juniFrDlcmiMaxSupportedVCs",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DLCI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiMulticast": {
+    "name": "juniFrDlcmiMulticast",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonBroadcast": 1,
+          "broadcast": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nonBroadcast",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiStatus": {
+    "name": "juniFrDlcmiStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "fault": 2,
+          "initializing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiRowStatus": {
+    "name": "juniFrDlcmiRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiLowerIfIndex": {
+    "name": "juniFrDlcmiLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiRole": {
+    "name": "juniFrDlcmiRole",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte": 0,
+          "dce": 1,
+          "nni": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiDcePollingInterval": {
+    "name": "juniFrDlcmiDcePollingInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiDceErrorThreshold": {
+    "name": "juniFrDlcmiDceErrorThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiDceMonitoredEvents": {
+    "name": "juniFrDlcmiDceMonitoredEvents",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiMultilinkFrBundleName": {
+    "name": "juniFrDlcmiMultilinkFrBundleName",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniFrMlFrBundleName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsTable": {
+    "name": "juniFrDlcmiStatsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsEntry": {
+    "name": "juniFrDlcmiStatsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDteEnquiries": {
+    "name": "juniFrDlcmiStatsDteEnquiries",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDteFullEnquiries": {
+    "name": "juniFrDlcmiStatsDteFullEnquiries",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDteEnquiryResponses": {
+    "name": "juniFrDlcmiStatsDteEnquiryResponses",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDteFullEnquiryResponses": {
+    "name": "juniFrDlcmiStatsDteFullEnquiryResponses",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDteAsyncUpdates": {
+    "name": "juniFrDlcmiStatsDteAsyncUpdates",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDteUnknownRxMessages": {
+    "name": "juniFrDlcmiStatsDteUnknownRxMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDteLossOfSequences": {
+    "name": "juniFrDlcmiStatsDteLossOfSequences",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDteNoResponseTimeouts": {
+    "name": "juniFrDlcmiStatsDteNoResponseTimeouts",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDceEnquiries": {
+    "name": "juniFrDlcmiStatsDceEnquiries",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDceFullEnquiries": {
+    "name": "juniFrDlcmiStatsDceFullEnquiries",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDceEnquiryResponses": {
+    "name": "juniFrDlcmiStatsDceEnquiryResponses",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDceFullEnquiryResponses": {
+    "name": "juniFrDlcmiStatsDceFullEnquiryResponses",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDceAsyncUpdates": {
+    "name": "juniFrDlcmiStatsDceAsyncUpdates",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDceUnknownRxMessages": {
+    "name": "juniFrDlcmiStatsDceUnknownRxMessages",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDceLossOfSequences": {
+    "name": "juniFrDlcmiStatsDceLossOfSequences",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDceNoResponseTimeouts": {
+    "name": "juniFrDlcmiStatsDceNoResponseTimeouts",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrDlcmiStatsDiscontinuityTime": {
+    "name": "juniFrDlcmiStatsDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitTable": {
+    "name": "juniFrCircuitTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrCircuitEntry": {
+    "name": "juniFrCircuitEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrCircuitIfIndex": {
+    "name": "juniFrCircuitIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrCircuitDlci": {
+    "name": "juniFrCircuitDlci",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DLCI",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrCircuitState": {
+    "name": "juniFrCircuitState",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrCircuitReceivedFECNs": {
+    "name": "juniFrCircuitReceivedFECNs",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitReceivedBECNs": {
+    "name": "juniFrCircuitReceivedBECNs",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitSentFrames": {
+    "name": "juniFrCircuitSentFrames",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitSentOctets": {
+    "name": "juniFrCircuitSentOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitReceivedFrames": {
+    "name": "juniFrCircuitReceivedFrames",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitReceivedOctets": {
+    "name": "juniFrCircuitReceivedOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitCreationTime": {
+    "name": "juniFrCircuitCreationTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitLastTimeChange": {
+    "name": "juniFrCircuitLastTimeChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitCommittedBurst": {
+    "name": "juniFrCircuitCommittedBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrCircuitExcessBurst": {
+    "name": "juniFrCircuitExcessBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrCircuitThroughput": {
+    "name": "juniFrCircuitThroughput",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrCircuitMulticast": {
+    "name": "juniFrCircuitMulticast",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "oneWay": 2,
+          "twoWay": 3,
+          "nWay": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unicast",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrCircuitType": {
+    "name": "juniFrCircuitType",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitDiscards": {
+    "name": "juniFrCircuitDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitReceivedDEs": {
+    "name": "juniFrCircuitReceivedDEs",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitSentDEs": {
+    "name": "juniFrCircuitSentDEs",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitLogicalIfIndex": {
+    "name": "juniFrCircuitLogicalIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrCircuitRowStatus": {
+    "name": "juniFrCircuitRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrCircuitSentFECNs": {
+    "name": "juniFrCircuitSentFECNs",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrCircuitSentBECNs": {
+    "name": "juniFrCircuitSentBECNs",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrSubIfNextIfIndex": {
+    "name": "juniFrSubIfNextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrSubIfTable": {
+    "name": "juniFrSubIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrSubIfEntry": {
+    "name": "juniFrSubIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrSubIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrSubIfIndex": {
+    "name": "juniFrSubIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrSubIfRowStatus": {
+    "name": "juniFrSubIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrSubIfLowerIfIndex": {
+    "name": "juniFrSubIfLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrSubIfId": {
+    "name": "juniFrSubIfId",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrSubIfCktTable": {
+    "name": "juniFrSubIfCktTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrSubIfCktEntry": {
+    "name": "juniFrSubIfCktEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrSubIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrSubIfCktDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrSubIfCktDlci": {
+    "name": "juniFrSubIfCktDlci",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DLCI",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrSubIfCktRowStatus": {
+    "name": "juniFrSubIfCktRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrMlFrBundleTable": {
+    "name": "juniFrMlFrBundleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrBundleEntry": {
+    "name": "juniFrMlFrBundleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrBundleName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrMlFrBundleName": {
+    "name": "juniFrMlFrBundleName",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniFrMlFrBundleName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrBundleRowStatus": {
+    "name": "juniFrMlFrBundleRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrMlFrNextLinkIfIndex": {
+    "name": "juniFrMlFrNextLinkIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniFrMlFrLinkConfigTable": {
+    "name": "juniFrMlFrLinkConfigTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrLinkConfigEntry": {
+    "name": "juniFrMlFrLinkConfigEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrLinkConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrMlFrLinkConfigIfIndex": {
+    "name": "juniFrMlFrLinkConfigIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrLinkConfigLowerIfIndex": {
+    "name": "juniFrMlFrLinkConfigLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrMlFrLinkConfigRowStatus": {
+    "name": "juniFrMlFrLinkConfigRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrMlFrMajorConfigTable": {
+    "name": "juniFrMlFrMajorConfigTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrMajorConfigEntry": {
+    "name": "juniFrMlFrMajorConfigEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrMajorConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrMlFrMajorConfigIfIndex": {
+    "name": "juniFrMlFrMajorConfigIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrMajorConfigLowerIfIndex": {
+    "name": "juniFrMlFrMajorConfigLowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrMlFrMajorBundleName": {
+    "name": "juniFrMlFrMajorBundleName",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniFrMlFrBundleName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrMlFrMajorRowStatus": {
+    "name": "juniFrMlFrMajorRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrMlFrLinkBindTable": {
+    "name": "juniFrMlFrLinkBindTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrLinkBindEntry": {
+    "name": "juniFrMlFrLinkBindEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrBindMajorIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrBindLinkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrMlFrBindMajorIfIndex": {
+    "name": "juniFrMlFrBindMajorIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrBindLinkIfIndex": {
+    "name": "juniFrMlFrBindLinkIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFrMlFrBindRowStatus": {
+    "name": "juniFrMlFrBindRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFrConformance": {
+    "name": "juniFrConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4",
+    "class": "objectidentity"
+  },
+  "juniFrCompliances": {
+    "name": "juniFrCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4.1",
+    "class": "objectidentity"
+  },
+  "juniFrGroups": {
+    "name": "juniFrGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4.2",
+    "class": "objectidentity"
+  },
+  "juniFrCompliance": {
+    "name": "juniFrCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniFrGroup",
+        "module": "Juniper-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "juniFrSubIfGroup",
+        "module": "Juniper-FRAME-RELAY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniFrCompliance2": {
+    "name": "juniFrCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniFrGroup2",
+        "module": "Juniper-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "juniFrSubIfGroup",
+        "module": "Juniper-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "juniFrMlFrGroup",
+        "module": "Juniper-FRAME-RELAY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrGroup": {
+    "name": "juniFrGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrNextIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiState"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiAddress"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiAddressLen"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiPollingInterval"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiFullEnquiryInterval"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiErrorThreshold"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiMonitoredEvents"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiMaxSupportedVCs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiMulticast"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiRowStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiLowerIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiRole"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiDcePollingInterval"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiDceErrorThreshold"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiDceMonitoredEvents"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteEnquiries"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteFullEnquiries"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteEnquiryResponses"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteFullEnquiryResponses"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteAsyncUpdates"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteUnknownRxMessages"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteLossOfSequences"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteNoResponseTimeouts"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceEnquiries"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceFullEnquiries"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceEnquiryResponses"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceFullEnquiryResponses"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceAsyncUpdates"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceUnknownRxMessages"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceLossOfSequences"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceNoResponseTimeouts"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDiscontinuityTime"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitState"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedFECNs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedBECNs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentFrames"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentOctets"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedFrames"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedOctets"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitCreationTime"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitLastTimeChange"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitCommittedBurst"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitExcessBurst"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitThroughput"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitMulticast"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitType"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitDiscards"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedDEs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentDEs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitLogicalIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitRowStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentFECNs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentBECNs"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniFrSubIfGroup": {
+    "name": "juniFrSubIfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrSubIfNextIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrSubIfRowStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrSubIfLowerIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrSubIfId"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrSubIfCktRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrGroup2": {
+    "name": "juniFrGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrNextIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiState"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiAddress"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiAddressLen"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiPollingInterval"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiFullEnquiryInterval"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiErrorThreshold"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiMonitoredEvents"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiMaxSupportedVCs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiMulticast"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiRowStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiLowerIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiRole"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiDcePollingInterval"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiDceErrorThreshold"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiDceMonitoredEvents"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiMultilinkFrBundleName"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteEnquiries"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteFullEnquiries"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteEnquiryResponses"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteFullEnquiryResponses"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteAsyncUpdates"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteUnknownRxMessages"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteLossOfSequences"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDteNoResponseTimeouts"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceEnquiries"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceFullEnquiries"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceEnquiryResponses"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceFullEnquiryResponses"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceAsyncUpdates"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceUnknownRxMessages"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceLossOfSequences"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDceNoResponseTimeouts"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrDlcmiStatsDiscontinuityTime"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitState"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedFECNs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedBECNs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentFrames"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentOctets"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedFrames"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedOctets"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitCreationTime"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitLastTimeChange"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitCommittedBurst"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitExcessBurst"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitThroughput"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitMulticast"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitType"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitDiscards"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitReceivedDEs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentDEs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitLogicalIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitRowStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentFECNs"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrCircuitSentBECNs"
+      }
+    ],
+    "status": "current"
+  },
+  "juniFrMlFrGroup": {
+    "name": "juniFrMlFrGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.10.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrBundleRowStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrNextLinkIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrLinkConfigLowerIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrLinkConfigRowStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrMajorConfigLowerIfIndex"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrMajorBundleName"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrMajorRowStatus"
+      },
+      {
+        "module": "Juniper-FRAME-RELAY-MIB",
+        "object": "juniFrMlFrBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-FRAME-RELAY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-FRAME-RELAY-MIB"
+  }
+}

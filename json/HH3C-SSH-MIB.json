@@ -1,0 +1,746 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cSSH": {
+    "name": "hh3cSSH",
+    "oid": "1.3.6.1.4.1.25506.2.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-28 00:00",
+        "description": "Added enum value other(11) to hh3cSSHSessionEncry."
+      },
+      {
+        "revision": "2018-02-06 00:00",
+        "description": "Added enum value keyboardInteractive(6) to hh3cSSHUserAuthType."
+      },
+      {
+        "revision": "2016-04-26 00:00",
+        "description": "Added enum values aes128CTR(5), aes192CTR(6), aes256CTR(7), aes128GCM(8), aes256GCM(9), and aes256CBC(10) to hh3cSSHSessionEncry. Added hh3cSSHUserPublicKeyName2, and hh3cSSHUserPublicKeyName3, hh3cSSHUserPublicKeyName4, hh3cSSHUserPublicKeyName5, and hh3cSSHUserPublicKeyName6 to Hh3cSSHUserConfigEntry."
+      },
+      {
+        "revision": "2014-10-25 00:00",
+        "description": "Added enum value netconf(6) to hh3cSSHUserServiceType, add enum value netconf(5) to hh3cSSHSessionServiceType."
+      },
+      {
+        "revision": "2014-02-20 00:00",
+        "description": "Added hh3cSCPServerEnable and hh3cSTelnetServerEnable."
+      },
+      {
+        "revision": "2014-01-17 00:00",
+        "description": "Added enum value scp(4) to hh3cSSHSessionServiceType."
+      },
+      {
+        "revision": "2013-12-21 00:00",
+        "description": "Added enum value scp(5) to hh3cSSHUserServiceType."
+      },
+      {
+        "revision": "2007-11-19 00:00",
+        "description": "The initial version."
+      }
+    ]
+  },
+  "hh3cSSHServerMIB": {
+    "name": "hh3cSSHServerMIB",
+    "oid": "1.3.6.1.4.1.25506.2.22.1",
+    "class": "objectidentity"
+  },
+  "hh3cSSHServerMIBObjects": {
+    "name": "hh3cSSHServerMIBObjects",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cSSHServerGlobalConfig": {
+    "name": "hh3cSSHServerGlobalConfig",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cSSHServerVersion": {
+    "name": "hh3cSSHServerVersion",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSSHServerCompatibleSSH1x": {
+    "name": "hh3cSSHServerCompatibleSSH1x",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableCompatibleSSH1x": 1,
+          "disableCompatibleSSH1x": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSSHServerRekeyInterval": {
+    "name": "hh3cSSHServerRekeyInterval",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSSHServerAuthRetries": {
+    "name": "hh3cSSHServerAuthRetries",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSSHServerAuthTimeout": {
+    "name": "hh3cSSHServerAuthTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSFTPServerIdleTimeout": {
+    "name": "hh3cSFTPServerIdleTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSSHServerEnable": {
+    "name": "hh3cSSHServerEnable",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableSSHServer": 1,
+          "disableSSHServer": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSFTPServerEnable": {
+    "name": "hh3cSFTPServerEnable",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableSFTPService": 1,
+          "disableSFTPService": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSTelnetServerEnable": {
+    "name": "hh3cSTelnetServerEnable",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableSTelnetServer": 1,
+          "disableSTelnetServer": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSCPServerEnable": {
+    "name": "hh3cSCPServerEnable",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableSCPService": 1,
+          "disableSCPService": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSSHUserConfig": {
+    "name": "hh3cSSHUserConfig",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cSSHUserConfigTable": {
+    "name": "hh3cSSHUserConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSSHUserConfigEntry": {
+    "name": "hh3cSSHUserConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSSHUserName": {
+    "name": "hh3cSSHUserName",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSSHUserServiceType": {
+    "name": "hh3cSSHUserServiceType",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "all": 2,
+          "stelnet": 3,
+          "sftp": 4,
+          "scp": 5,
+          "netconf": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "invalid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserAuthType": {
+    "name": "hh3cSSHUserAuthType",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "password": 2,
+          "publicKey": 3,
+          "any": 4,
+          "publicKeyPassword": 5,
+          "keyboardInteractive": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "invalid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserPublicKeyName": {
+    "name": "hh3cSSHUserPublicKeyName",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserWorkDirectory": {
+    "name": "hh3cSSHUserWorkDirectory",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserRowStatus": {
+    "name": "hh3cSSHUserRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserPublicKeyName2": {
+    "name": "hh3cSSHUserPublicKeyName2",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserPublicKeyName3": {
+    "name": "hh3cSSHUserPublicKeyName3",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserPublicKeyName4": {
+    "name": "hh3cSSHUserPublicKeyName4",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserPublicKeyName5": {
+    "name": "hh3cSSHUserPublicKeyName5",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHUserPublicKeyName6": {
+    "name": "hh3cSSHUserPublicKeyName6",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSSHSessionInfoTable": {
+    "name": "hh3cSSHSessionInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSSHSessionInfoEntry": {
+    "name": "hh3cSSHSessionInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHSessionID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSSHSessionID": {
+    "name": "hh3cSSHSessionID",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSSHSessionUserName": {
+    "name": "hh3cSSHSessionUserName",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSSHSessionUserIpAddrType": {
+    "name": "hh3cSSHSessionUserIpAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSSHSessionUserIpAddr": {
+    "name": "hh3cSSHSessionUserIpAddr",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSSHSessionClientVersion": {
+    "name": "hh3cSSHSessionClientVersion",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSSHSessionServiceType": {
+    "name": "hh3cSSHSessionServiceType",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "stelnet": 2,
+          "sftp": 3,
+          "scp": 4,
+          "netconf": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSSHSessionEncry": {
+    "name": "hh3cSSHSessionEncry",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "aes128CBC": 2,
+          "desCBC": 3,
+          "des3CBC": 4,
+          "aes128CTR": 5,
+          "aes192CTR": 6,
+          "aes256CTR": 7,
+          "aes128GCM": 8,
+          "aes256GCM": 9,
+          "aes256CBC": 10,
+          "other": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSSHSessionState": {
+    "name": "hh3cSSHSessionState",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "verExchange": 2,
+          "keysExchange": 3,
+          "authRequest": 4,
+          "serviceRequest": 5,
+          "established": 6,
+          "disconnect": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSSHServerObjForTrap": {
+    "name": "hh3cSSHServerObjForTrap",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cSSHAttemptUserName": {
+    "name": "hh3cSSHAttemptUserName",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSSHAttemptIpAddrType": {
+    "name": "hh3cSSHAttemptIpAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSSHAttemptIpAddr": {
+    "name": "hh3cSSHAttemptIpAddr",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSSHUserAuthFailureReason": {
+    "name": "hh3cSSHUserAuthFailureReason",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exceedRetries": 1,
+          "authTimeout": 2,
+          "otherReason": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSSHServerNotifications": {
+    "name": "hh3cSSHServerNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cSSHServerNotificationsPrefix": {
+    "name": "hh3cSSHServerNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cSSHUserAuthFailure": {
+    "name": "hh3cSSHUserAuthFailure",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHAttemptUserName"
+      },
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHAttemptIpAddrType"
+      },
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHAttemptIpAddr"
+      },
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHUserAuthFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSSHVersionNegotiationFailure": {
+    "name": "hh3cSSHVersionNegotiationFailure",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHAttemptIpAddrType"
+      },
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHAttemptIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSSHUserLogin": {
+    "name": "hh3cSSHUserLogin",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHSessionUserName"
+      },
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHSessionUserIpAddrType"
+      },
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHSessionUserIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSSHUserLogoff": {
+    "name": "hh3cSSHUserLogoff",
+    "oid": "1.3.6.1.4.1.25506.2.22.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHSessionUserName"
+      },
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHSessionUserIpAddrType"
+      },
+      {
+        "module": "HH3C-SSH-MIB",
+        "object": "hh3cSSHSessionUserIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SSH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-SSH-MIB"
+  }
+}

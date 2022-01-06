@@ -1,0 +1,260 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "juniHostMIB": {
+    "name": "juniHostMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.33",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-26 00:00",
+        "description": "Added Tftp option in juniHostProtocol object."
+      },
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2001-05-07 17:02",
+        "description": "Increase the max lenght of the host name."
+      },
+      {
+        "revision": "2000-01-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniHostObjects": {
+    "name": "juniHostObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1",
+    "class": "objectidentity"
+  },
+  "juniHost": {
+    "name": "juniHost",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1",
+    "class": "objectidentity"
+  },
+  "juniHostTable": {
+    "name": "juniHostTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniHostEntry": {
+    "name": "juniHostEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-HOST-MIB",
+        "object": "juniHostName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "juniHostName": {
+    "name": "juniHostName",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniHostIpAddress": {
+    "name": "juniHostIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniHostProtocol": {
+    "name": "juniHostProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "juniHostFtp": 1,
+          "juniHostTftp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniHostUserName": {
+    "name": "juniHostUserName",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniHostUserPassword": {
+    "name": "juniHostUserPassword",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniHostRowStatus": {
+    "name": "juniHostRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniHostMIBConformance": {
+    "name": "juniHostMIBConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.4",
+    "class": "objectidentity"
+  },
+  "juniHostMIBCompliances": {
+    "name": "juniHostMIBCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.4.1",
+    "class": "objectidentity"
+  },
+  "juniHostMIBGroups": {
+    "name": "juniHostMIBGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.4.2",
+    "class": "objectidentity"
+  },
+  "juniHostCompliance": {
+    "name": "juniHostCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniHostGroup",
+        "module": "Juniper-HOST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniHostGroup": {
+    "name": "juniHostGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.33.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-HOST-MIB",
+        "object": "juniHostName"
+      },
+      {
+        "module": "Juniper-HOST-MIB",
+        "object": "juniHostIpAddress"
+      },
+      {
+        "module": "Juniper-HOST-MIB",
+        "object": "juniHostProtocol"
+      },
+      {
+        "module": "Juniper-HOST-MIB",
+        "object": "juniHostUserName"
+      },
+      {
+        "module": "Juniper-HOST-MIB",
+        "object": "juniHostUserPassword"
+      },
+      {
+        "module": "Juniper-HOST-MIB",
+        "object": "juniHostRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-HOST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-HOST-MIB"
+  }
+}

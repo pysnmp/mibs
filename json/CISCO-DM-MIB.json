@@ -1,0 +1,1620 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-FC-FE-MIB": [
+      "cffFcFeElementName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId",
+      "FcNameIdOrZero",
+      "FcAddressId",
+      "DomainId",
+      "DomainIdOrZero"
+    ],
+    "CISCO-VSAN-MIB": [
+      "notifyVsanIndex",
+      "vsanIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDmMIB": {
+    "name": "ciscoDmMIB",
+    "oid": "1.3.6.1.4.1.9.9.302",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-22 00:00",
+        "description": "Added a new table dmAllowedDomainIDListTable. Added a new compliance statement dmMIBCompliance2 which obseletes dmMIBCompliance1."
+      },
+      {
+        "revision": "2003-06-20 00:00",
+        "description": "Changed the default values for dmEnable, dmFabricName and dmFcIdPersistencyNum."
+      },
+      {
+        "revision": "2003-02-27 00:00",
+        "description": "Updated the copyright"
+      },
+      {
+        "revision": "2003-02-21 00:00",
+        "description": "Fixed a problem with dmFcIdPersistencyGroup being both mandatory and conditional."
+      },
+      {
+        "revision": "2003-01-28 00:00",
+        "description": "Changed the SYNTAX of dmFcIdPersistencyNum to INTEGER from Unsigned32."
+      },
+      {
+        "revision": "2003-01-02 00:00",
+        "description": "Added objects dmFcIdPersistency and dmFcIdPurge to dmTable. Added a new table dmFcIdPersistencyTable. Added objects dmLocalPrincipalSwitchSelctns."
+      },
+      {
+        "revision": "2002-10-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDmMIBObjects": {
+    "name": "ciscoDmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.302.1",
+    "class": "objectidentity"
+  },
+  "dmMIBConformance": {
+    "name": "dmMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.302.2",
+    "class": "objectidentity"
+  },
+  "dmConfiguration": {
+    "name": "dmConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1",
+    "class": "objectidentity"
+  },
+  "dmInfo": {
+    "name": "dmInfo",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2",
+    "class": "objectidentity"
+  },
+  "dmNotificationPrefix": {
+    "name": "dmNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.302.1.3",
+    "class": "objectidentity"
+  },
+  "DomainPriority": {
+    "name": "DomainPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DomainPriorityOrZero": {
+    "name": "DomainPriorityOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DomainInterfaceRole": {
+    "name": "DomainInterfaceRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonPrincipal": 1,
+          "principalUpstream": 2,
+          "principalDownsteam": 3,
+          "isolated": 4,
+          "down": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DmState": {
+    "name": "DmState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "starting": 1,
+          "unconfigured": 2,
+          "principalSwitchSelection": 3,
+          "domainIdDistribution": 4,
+          "buildFabricPhase": 5,
+          "reconfigureFabricPhase": 6,
+          "stable": 7,
+          "stableWithNoEports": 8,
+          "stableWithDomainConfigured": 9,
+          "noDomains": 10,
+          "disabled": 11,
+          "suspended": 12,
+          "unknown": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dmTable": {
+    "name": "dmTable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmEntry": {
+    "name": "dmEntry",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmConfigDomainId": {
+    "name": "dmConfigDomainId",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmConfigDomainIdType": {
+    "name": "dmConfigDomainIdType",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "preferred": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "preferred",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmEnable": {
+    "name": "dmEnable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmAutoReconfigure": {
+    "name": "dmAutoReconfigure",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmContiguousAllocation": {
+    "name": "dmContiguousAllocation",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmPriority": {
+    "name": "dmPriority",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmRestart": {
+    "name": "dmRestart",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonDisruptive": 1,
+          "disruptive": 2,
+          "noOp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmFabricName": {
+    "name": "dmFabricName",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "20010005300028df",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmPrincipalSwitchWwn": {
+    "name": "dmPrincipalSwitchWwn",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmLocalSwitchWwn": {
+    "name": "dmLocalSwitchWwn",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmAssignedAreaIdList": {
+    "name": "dmAssignedAreaIdList",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmFcIdsGranted": {
+    "name": "dmFcIdsGranted",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmFcIdsRecovered": {
+    "name": "dmFcIdsRecovered",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmFreeFcIds": {
+    "name": "dmFreeFcIds",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmAssignedFcIds": {
+    "name": "dmAssignedFcIds",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmReservedFcIds": {
+    "name": "dmReservedFcIds",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmRunningPriority": {
+    "name": "dmRunningPriority",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmPrincSwRunningPriority": {
+    "name": "dmPrincSwRunningPriority",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmState": {
+    "name": "dmState",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmPrincipalSwitchSelections": {
+    "name": "dmPrincipalSwitchSelections",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmBuildFabrics": {
+    "name": "dmBuildFabrics",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmFabricReconfigures": {
+    "name": "dmFabricReconfigures",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmDomainId": {
+    "name": "dmDomainId",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmLocalPrincipalSwitchSelctns": {
+    "name": "dmLocalPrincipalSwitchSelctns",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmFcIdPersistency": {
+    "name": "dmFcIdPersistency",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmFcIdPurge": {
+    "name": "dmFcIdPurge",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmIfTable": {
+    "name": "dmIfTable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmIfEntry": {
+    "name": "dmIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmIfRcfReject": {
+    "name": "dmIfRcfReject",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dmIfRole": {
+    "name": "dmIfRole",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainInterfaceRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmIfRowStatus": {
+    "name": "dmIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dmAreaTable": {
+    "name": "dmAreaTable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmAreaEntry": {
+    "name": "dmAreaEntry",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAreaAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmAreaAreaId": {
+    "name": "dmAreaAreaId",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmAreaAssignedPortIdList": {
+    "name": "dmAreaAssignedPortIdList",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmDatabaseTable": {
+    "name": "dmDatabaseTable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmDatabaseEntry": {
+    "name": "dmDatabaseEntry",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmDatabaseDomainId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmDatabaseDomainId": {
+    "name": "dmDatabaseDomainId",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmDatabaseSwitchWwn": {
+    "name": "dmDatabaseSwitchWwn",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmMaxFcIdCacheSize": {
+    "name": "dmMaxFcIdCacheSize",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmFcIdCacheTable": {
+    "name": "dmFcIdCacheTable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmFcIdCacheEntry": {
+    "name": "dmFcIdCacheEntry",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdCacheWwn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmFcIdCacheWwn": {
+    "name": "dmFcIdCacheWwn",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmFcIdCacheAreaIdPortId": {
+    "name": "dmFcIdCacheAreaIdPortId",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmFcIdCachePortIds": {
+    "name": "dmFcIdCachePortIds",
+    "oid": "1.3.6.1.4.1.9.9.302.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmReConfFabricChangeNotifyEnable": {
+    "name": "dmReConfFabricChangeNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmFcIdPersistencyTable": {
+    "name": "dmFcIdPersistencyTable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmFcIdPersistencyEntry": {
+    "name": "dmFcIdPersistencyEntry",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdPersistencyWwn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmFcIdPersistencyWwn": {
+    "name": "dmFcIdPersistencyWwn",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmFcIdPersistencyFcId": {
+    "name": "dmFcIdPersistencyFcId",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dmFcIdPersistencyNum": {
+    "name": "dmFcIdPersistencyNum",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one": 1,
+          "area": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "one",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dmFcIdPersistencyUsed": {
+    "name": "dmFcIdPersistencyUsed",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmFcIdPersistencyType": {
+    "name": "dmFcIdPersistencyType",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "static",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dmFcIdPersistencyRowStatus": {
+    "name": "dmFcIdPersistencyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dmAllowedDomainIDListTable": {
+    "name": "dmAllowedDomainIDListTable",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmAllowedDomainIDListEntry": {
+    "name": "dmAllowedDomainIDListEntry",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAllowedDomainIDListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmAllowedDomainIDListId": {
+    "name": "dmAllowedDomainIDListId",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmAllowedDomainIDList": {
+    "name": "dmAllowedDomainIDList",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmAllowedDomainIDListUser": {
+    "name": "dmAllowedDomainIDListUser",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmNotification": {
+    "name": "dmNotification",
+    "oid": "1.3.6.1.4.1.9.9.302.1.3.0",
+    "class": "objectidentity"
+  },
+  "dmDomainIdNotAssignedNotify": {
+    "name": "dmDomainIdNotAssignedNotify",
+    "oid": "1.3.6.1.4.1.9.9.302.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "cffFcFeElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "dmNewPrincipalSwitchNotify": {
+    "name": "dmNewPrincipalSwitchNotify",
+    "oid": "1.3.6.1.4.1.9.9.302.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "cffFcFeElementName"
+      }
+    ],
+    "status": "current"
+  },
+  "dmFabricChangeNotify": {
+    "name": "dmFabricChangeNotify",
+    "oid": "1.3.6.1.4.1.9.9.302.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dmMIBCompliances": {
+    "name": "dmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.302.2.1",
+    "class": "objectidentity"
+  },
+  "dmMIBGroups": {
+    "name": "dmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2",
+    "class": "objectidentity"
+  },
+  "dmMIBCompliance": {
+    "name": "dmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.302.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dmGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmDatabaseGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmAreaGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmCacheGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmNotificationGroup",
+        "module": "CISCO-DM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dmMIBCompliance1": {
+    "name": "dmMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.302.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dmGroupRev1",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmDatabaseGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmAreaGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmCacheGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmNotificationGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmFcIdPersistencyGroup",
+        "module": "CISCO-DM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dmMIBCompliance2": {
+    "name": "dmMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.302.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dmGroupRev1",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmDatabaseGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmAreaGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmCacheGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmNotificationGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmFcIdPersistencyGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmDomainIDAllowedGroup",
+        "module": "CISCO-DM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dmGroup": {
+    "name": "dmGroup",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmConfigDomainId"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmConfigDomainIdType"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmEnable"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAutoReconfigure"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmContiguousAllocation"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmRestart"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFabricName"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincipalSwitchWwn"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmLocalSwitchWwn"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAssignedAreaIdList"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdsGranted"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdsRecovered"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFreeFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAssignedFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmReservedFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmRunningPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincSwRunningPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmState"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincipalSwitchSelections"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmBuildFabrics"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFabricReconfigures"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmDomainId"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmReConfFabricChangeNotifyEnable"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRcfReject"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRole"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dmDatabaseGroup": {
+    "name": "dmDatabaseGroup",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmDatabaseSwitchWwn"
+      }
+    ],
+    "status": "current"
+  },
+  "dmAreaGroup": {
+    "name": "dmAreaGroup",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAreaAssignedPortIdList"
+      }
+    ],
+    "status": "current"
+  },
+  "dmCacheGroup": {
+    "name": "dmCacheGroup",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmMaxFcIdCacheSize"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdCacheAreaIdPortId"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdCachePortIds"
+      }
+    ],
+    "status": "current"
+  },
+  "dmNotificationGroup": {
+    "name": "dmNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmDomainIdNotAssignedNotify"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmNewPrincipalSwitchNotify"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFabricChangeNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "dmGroupRev1": {
+    "name": "dmGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmConfigDomainId"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmConfigDomainIdType"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmEnable"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAutoReconfigure"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmContiguousAllocation"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmRestart"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFabricName"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincipalSwitchWwn"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmLocalSwitchWwn"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAssignedAreaIdList"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdsGranted"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdsRecovered"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFreeFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAssignedFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmReservedFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmRunningPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincSwRunningPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmState"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincipalSwitchSelections"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmBuildFabrics"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFabricReconfigures"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmDomainId"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmLocalPrincipalSwitchSelctns"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmReConfFabricChangeNotifyEnable"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRcfReject"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRole"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dmFcIdPersistencyGroup": {
+    "name": "dmFcIdPersistencyGroup",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdPersistency"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdPurge"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdPersistencyFcId"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdPersistencyNum"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdPersistencyUsed"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdPersistencyType"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdPersistencyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dmDomainIDAllowedGroup": {
+    "name": "dmDomainIDAllowedGroup",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAllowedDomainIDList"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAllowedDomainIDListUser"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DM-MIB"
+  }
+}

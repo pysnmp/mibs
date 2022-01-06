@@ -1,0 +1,299 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "DisplayStringUnsized"
+    ],
+    "AT-SYSINFO-MIB": [
+      "sysinfo"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atAlmMon": {
+    "name": "atAlmMon",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-08 00:00",
+        "description": "Added g8032 as an alarm type."
+      },
+      {
+        "revision": "2014-05-12 00:15",
+        "description": "Changes from maintainer review"
+      },
+      {
+        "revision": "2013-12-13 11:46",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "AtAlmMonAlarmType": {
+    "name": "AtAlmMonAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmTypeInvalid": 0,
+          "externalPSU": 1,
+          "epsr": 2,
+          "contactInput": 3,
+          "portLinkDown": 4,
+          "loopDetect": 5,
+          "mainPse": 6,
+          "portPoeFailure": 7,
+          "temperature": 8,
+          "g8032": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtAlmMonActionUseOutput": {
+    "name": "AtAlmMonActionUseOutput",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 1,
+          "used": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtAlmMonAbnormalState": {
+    "name": "AtAlmMonAbnormalState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtAlmMonActionState": {
+    "name": "AtAlmMonActionState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "atAlmMonActionTable": {
+    "name": "atAlmMonActionTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atAlmMonActionEntry": {
+    "name": "atAlmMonActionEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ALMMON-MIB",
+        "object": "atAlmMonActionStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ALMMON-MIB",
+        "object": "atAlmMonActionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atAlmMonActionStackMemberId": {
+    "name": "atAlmMonActionStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAlmMonActionIndex": {
+    "name": "atAlmMonActionIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAlmMonAlarmType": {
+    "name": "atAlmMonAlarmType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtAlmMonAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAlmMonAlarmTypeSelection": {
+    "name": "atAlmMonAlarmTypeSelection",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAlmMonActionDescription": {
+    "name": "atAlmMonActionDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atAlmMonActionUseRelay1": {
+    "name": "atAlmMonActionUseRelay1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtAlmMonActionUseOutput",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atAlmMonActionUseRelay2": {
+    "name": "atAlmMonActionUseRelay2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtAlmMonActionUseOutput",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atAlmMonActionUseRelay3": {
+    "name": "atAlmMonActionUseRelay3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtAlmMonActionUseOutput",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atAlmMonActionUseFaultLed": {
+    "name": "atAlmMonActionUseFaultLed",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtAlmMonActionUseOutput",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atAlmMonAbnormalState": {
+    "name": "atAlmMonAbnormalState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtAlmMonAbnormalState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atAlmMonActionState": {
+    "name": "atAlmMonActionState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.26.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtAlmMonActionState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-ALMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-ALMMON-MIB"
+  }
+}

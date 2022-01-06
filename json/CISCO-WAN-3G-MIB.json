@@ -1,0 +1,7543 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoWan3gMIB": {
+    "name": "ciscoWan3gMIB",
+    "oid": "1.3.6.1.4.1.9.9.661",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-12 00:00",
+        "description": "Added new notifications c3gModemTemperOnsetRecoveryNotif, c3gModemTemperAbateRecoveryNotif."
+      },
+      {
+        "revision": "2012-07-25 00:00",
+        "description": "Modified Description of the ciscoWan3gMIB module. Modified the description of c3gWanCommonTable, c3gWanLbsCommonTable, c3gSmsCommonTable and all its objects to emphazise that it is technology independent. Added enumerated value lte to objects C3gServiceCapability, c3gCurrentIdleDigitalMode, c3gGsmPacketService. Modified the descriptions of c3gGsmIdentityTable, and all its objects to emphazise that these objects are applicable to both 3G and 4G-LTE Technology. Added new object c3gGpsState to the table c3gWanCommonTable. Added enumerated value lteBand for c3gGsmCurrentBand. Modified ciscoWan3gMIBGsmObjectGroup, ciscoWan3gMIBSmsObjectGroup, ciscoWan3gMIBLbsObjectGroup, ciscoWan3gMIBGsmObjectGroup description in Module ciscoWan3gMIBCompliance, ciscoWan3gMIBCompliance1. Added c3gGpsState to the group ciscoWan3gMIBCommonObjectGroup."
+      },
+      {
+        "revision": "2012-07-10 00:00",
+        "description": "Added enumerated values rate56kbps(12) to rate8dot4mbps(18) for C3gUmtsQosLinkBitRate."
+      },
+      {
+        "revision": "2010-08-11 00:00",
+        "description": "Fixed spelling errors."
+      },
+      {
+        "revision": "2010-08-04 00:00",
+        "description": "Added c3gWanLbs and c3gWanSms. Added ciscoWan3gMIBSmsObjectGroup and ciscoWan3gMIBSmsObjectGroup. Deprecated ciscoWan3gMIBCompliance and replaced by ciscoWan3gMIBCompliance1."
+      },
+      {
+        "revision": "2009-02-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "C3gServiceCapability": {
+    "name": "C3gServiceCapability",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "oneXRtt": 0,
+        "evDoRel0": 1,
+        "evDoRelA": 2,
+        "evDoRelB": 3,
+        "gprs": 4,
+        "edge": 5,
+        "umtsWcdma": 6,
+        "hsdpa": 7,
+        "hsupa": 8,
+        "hspa": 9,
+        "hspaPlus": 10,
+        "lteTdd": 11,
+        "lteFdd": 12
+      }
+    },
+    "status": "current"
+  },
+  "C3gRssi": {
+    "name": "C3gRssi",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "C3gEcIo": {
+    "name": "C3gEcIo",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "C3gTemperature": {
+    "name": "C3gTemperature",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -50,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "C3gPdpType": {
+    "name": "C3gPdpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ipV4": 2,
+          "ppp": 3,
+          "ipV6": 4,
+          "ipV4V6": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosTrafficClass": {
+    "name": "C3gUmtsQosTrafficClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "conversational": 2,
+          "streaming": 3,
+          "interactive": 4,
+          "background": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosLinkBitRate": {
+    "name": "C3gUmtsQosLinkBitRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "rate16kbps": 2,
+          "rate32kbps": 3,
+          "rate64kbps": 4,
+          "rate128kbps": 5,
+          "rate256kbps": 6,
+          "rate384kbps": 7,
+          "rate1dot8mbps": 8,
+          "rate3dot6mbps": 9,
+          "rate7dot2mbps": 10,
+          "rate14dot4mbps": 11,
+          "rate56kbps": 12,
+          "rate1dot15mbps": 13,
+          "rate1dot6mbps": 14,
+          "rate2dot1mbps": 15,
+          "rate2dot8mbps": 16,
+          "rate4dot2mbps": 17,
+          "rate8dot4mbps": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosOrder": {
+    "name": "C3gUmtsQosOrder",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "withDeliverOrder": 2,
+          "withoutDeliverOrder": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosErroneousSdu": {
+    "name": "C3gUmtsQosErroneousSdu",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "noDetect": 2,
+          "errSduDeliver": 3,
+          "errSduNotDeliver": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosSer": {
+    "name": "C3gUmtsQosSer",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "oneExpMinus2": 2,
+          "sevenExpMinus3": 3,
+          "oneExpMinus3": 4,
+          "oneExpMinus4": 5,
+          "oneExpMinus5": 6,
+          "oneExpMinus6": 7,
+          "oneExpMinus1": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosBer": {
+    "name": "C3gUmtsQosBer",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "fiveExpMinus2": 2,
+          "oneExpMinus2": 3,
+          "fiveExpMinus3": 4,
+          "fourExpMinus3": 5,
+          "oneExpMinus3": 6,
+          "oneExpMinus4": 7,
+          "oneExpMinus5": 8,
+          "oneExpMinus6": 9,
+          "sixExpMinus8": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosPriority": {
+    "name": "C3gUmtsQosPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "level1": 2,
+          "level2": 3,
+          "level3": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosSrcStatDescriptor": {
+    "name": "C3gUmtsQosSrcStatDescriptor",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "speech": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gUmtsQosSignalIndication": {
+    "name": "C3gUmtsQosSignalIndication",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notOptimized": 1,
+          "optimized": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gGprsQosPrecedence": {
+    "name": "C3gGprsQosPrecedence",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "highPriority": 2,
+          "normalPriority": 3,
+          "lowPriority": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gGprsQosDelay": {
+    "name": "C3gGprsQosDelay",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "delayClass1": 2,
+          "delayClass2": 3,
+          "delayClass3": 4,
+          "delayClass4": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gGprsQosReliability": {
+    "name": "C3gGprsQosReliability",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "ackGtpLlcRlcProtData": 2,
+          "unAckGtpAckLlcRlcProtData": 3,
+          "unAckGtpLlcAckRlcProtData": 4,
+          "unAckGtpLlcRlcProtData": 5,
+          "unAckGtpLlcRlcUnProtData": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gGprsQosPeakRate": {
+    "name": "C3gGprsQosPeakRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "upTo1kops": 2,
+          "upTo2kops": 3,
+          "upTo4kops": 4,
+          "upTo8kops": 5,
+          "upTo16kops": 6,
+          "upTo32kops": 7,
+          "upTo64kops": 8,
+          "upTo128kops": 9,
+          "upTo256kops": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "C3gGprsQosMeanRate": {
+    "name": "C3gGprsQosMeanRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscription": 1,
+          "rate100": 2,
+          "rate200": 3,
+          "rate500": 4,
+          "rate1k": 5,
+          "rate2k": 6,
+          "rate5k": 7,
+          "rate10k": 8,
+          "rate20k": 9,
+          "rate50k": 10,
+          "rate100k": 11,
+          "rate200k": 12,
+          "rate500k": 13,
+          "rate1m": 14,
+          "rate2m": 15,
+          "rate5m": 16,
+          "rate10m": 17,
+          "rate20m": 18,
+          "rate50m": 19,
+          "resv1": 20,
+          "resv2": 21,
+          "resv3": 22,
+          "resv4": 23,
+          "resv5": 24,
+          "resv6": 25,
+          "resv7": 26,
+          "resv8": 27,
+          "resv9": 28,
+          "resv10": 29,
+          "resv11": 30,
+          "resv12": 31,
+          "bestEffort": 32
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoWan3gMIBNotifs": {
+    "name": "ciscoWan3gMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.661.0",
+    "class": "objectidentity"
+  },
+  "ciscoWan3gMIBObjects": {
+    "name": "ciscoWan3gMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.661.1",
+    "class": "objectidentity"
+  },
+  "ciscoWan3gMIBConform": {
+    "name": "ciscoWan3gMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.661.2",
+    "class": "objectidentity"
+  },
+  "c3gWanCommonTable": {
+    "name": "c3gWanCommonTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gWanCommonEntry": {
+    "name": "c3gWanCommonEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gStandard": {
+    "name": "c3gStandard",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdma": 1,
+          "gsm": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCapability": {
+    "name": "c3gCapability",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gModemState": {
+    "name": "c3gModemState",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gPreviousServiceType": {
+    "name": "c3gPreviousServiceType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrentServiceType": {
+    "name": "c3gCurrentServiceType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gRoamingStatus": {
+    "name": "c3gRoamingStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "roaming": 2,
+          "home": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrentSystemTime": {
+    "name": "c3gCurrentSystemTime",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gConnectionStatus": {
+    "name": "c3gConnectionStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "error": 2,
+          "connecting": 3,
+          "dormant": 4,
+          "connected": 5,
+          "disconnected": 6,
+          "idle": 7,
+          "active": 8,
+          "inactive": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gNotifRadioService": {
+    "name": "c3gNotifRadioService",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gNotifRssi": {
+    "name": "c3gNotifRssi",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gRssi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gNotifEcIo": {
+    "name": "c3gNotifEcIo",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gEcIo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gModemTemperature": {
+    "name": "c3gModemTemperature",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gTemperature",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gRssiOnsetNotifThreshold": {
+    "name": "c3gRssiOnsetNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gRssi",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gRssiAbateNotifThreshold": {
+    "name": "c3gRssiAbateNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gRssi",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gEcIoOnsetNotifThreshold": {
+    "name": "c3gEcIoOnsetNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gEcIo",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gEcIoAbateNotifThreshold": {
+    "name": "c3gEcIoAbateNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gEcIo",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gModemTemperOnsetNotifThreshold": {
+    "name": "c3gModemTemperOnsetNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gTemperature",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gModemTemperAbateNotifThreshold": {
+    "name": "c3gModemTemperAbateNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gTemperature",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -50,
+        "format": "decimal"
+      }
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gModemReset": {
+    "name": "c3gModemReset",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "powerCycle": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gModemUpNotifEnabled": {
+    "name": "c3gModemUpNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gModemDownNotifEnabled": {
+    "name": "c3gModemDownNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gServiceChangedNotifEnabled": {
+    "name": "c3gServiceChangedNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gNetworkChangedNotifEnabled": {
+    "name": "c3gNetworkChangedNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gConnectionStatusChangedNotifFlag": {
+    "name": "c3gConnectionStatusChangedNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unknown": 0,
+        "error": 1,
+        "connecting": 2,
+        "dormant": 3,
+        "connected": 4,
+        "disconnected": 5,
+        "idle": 6,
+        "active": 7,
+        "inactive": 8
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gRssiOnsetNotifFlag": {
+    "name": "c3gRssiOnsetNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gRssiAbateNotifFlag": {
+    "name": "c3gRssiAbateNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gEcIoOnsetNotifFlag": {
+    "name": "c3gEcIoOnsetNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gEcIoAbateNotifFlag": {
+    "name": "c3gEcIoAbateNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gModemTemperOnsetNotifEnabled": {
+    "name": "c3gModemTemperOnsetNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gModemTemperAbateNotifEnabled": {
+    "name": "c3gModemTemperAbateNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gGpsState": {
+    "name": "c3gGpsState",
+    "oid": "1.3.6.1.4.1.9.9.661.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gWanCdma": {
+    "name": "c3gWanCdma",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2",
+    "class": "objectidentity"
+  },
+  "c3gWanGsm": {
+    "name": "c3gWanGsm",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3",
+    "class": "objectidentity"
+  },
+  "c3gWanLbs": {
+    "name": "c3gWanLbs",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4",
+    "class": "objectidentity"
+  },
+  "c3gWanSmsCommon": {
+    "name": "c3gWanSmsCommon",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5",
+    "class": "objectidentity"
+  },
+  "c3gCdmaSessionTable": {
+    "name": "c3gCdmaSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaSessionEntry": {
+    "name": "c3gCdmaSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gCdmaTotalCallDuration": {
+    "name": "c3gCdmaTotalCallDuration",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaTotalTransmitted": {
+    "name": "c3gCdmaTotalTransmitted",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaTotalReceived": {
+    "name": "c3gCdmaTotalReceived",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrDdtmPreference": {
+    "name": "c3gHdrDdtmPreference",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "off": 2,
+          "on": 3,
+          "noChange": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCdmaConnectionTable": {
+    "name": "c3gCdmaConnectionTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaConnectionEntry": {
+    "name": "c3gCdmaConnectionEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gOutgoingCallNumber": {
+    "name": "c3gOutgoingCallNumber",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrAtState": {
+    "name": "c3gHdrAtState",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inactive": 2,
+          "acquisition": 3,
+          "sync": 4,
+          "idle": 5,
+          "access": 6,
+          "connected": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrSessionState": {
+    "name": "c3gHdrSessionState",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "open": 2,
+          "close": 3,
+          "addressManagementProtocolSetup": 4,
+          "atInitiated": 5,
+          "anInitiated": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gUati": {
+    "name": "c3gUati",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gColorCode": {
+    "name": "c3gColorCode",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gRati": {
+    "name": "c3gRati",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrSessionDuration": {
+    "name": "c3gHdrSessionDuration",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrSessionStart": {
+    "name": "c3gHdrSessionStart",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrSessionEnd": {
+    "name": "c3gHdrSessionEnd",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gAuthStatus": {
+    "name": "c3gAuthStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notAuthenticated": 2,
+          "authenticated": 3,
+          "failed": 4,
+          "authenticationDisabled": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrDrc": {
+    "name": "c3gHdrDrc",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrDrcCover": {
+    "name": "c3gHdrDrcCover",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrRri": {
+    "name": "c3gHdrRri",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "pilotOnly": 2,
+          "rri9dot6kbps": 3,
+          "rri19dot2kbps": 4,
+          "rri38dot4kbps": 5,
+          "rri76dot8kbps": 6,
+          "rri153dot6kbps": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gMobileIpErrorCode": {
+    "name": "c3gMobileIpErrorCode",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaCurrentTransmitted": {
+    "name": "c3gCdmaCurrentTransmitted",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaCurrentReceived": {
+    "name": "c3gCdmaCurrentReceived",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaCurrentCallStatus": {
+    "name": "c3gCdmaCurrentCallStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "error": 2,
+          "connecting": 3,
+          "dormant": 4,
+          "connected": 5,
+          "disconnected": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaCurrentCallDuration": {
+    "name": "c3gCdmaCurrentCallDuration",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaCurrentCallType": {
+    "name": "c3gCdmaCurrentCallType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "asyncData": 2,
+          "voiceCall": 3,
+          "packet1xRttCall": 4,
+          "atAsyncDataCall": 5,
+          "atVoiceCall": 6,
+          "atPacketCall": 7,
+          "faxCall": 8,
+          "smsCall": 9,
+          "otaCall": 10,
+          "testCall": 11,
+          "callWaiting": 12,
+          "positionDetermination": 13,
+          "dormant": 14,
+          "e911Call": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaLastCallDisconnReason": {
+    "name": "c3gCdmaLastCallDisconnReason",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "modemOffline": 2,
+          "modemCdmaLocTilPowCyc": 3,
+          "noService": 4,
+          "abnormalCallEnd": 5,
+          "baseStatIntercept": 6,
+          "baseStatRelease": 7,
+          "baseStatReleaseNoReas": 8,
+          "baseStatReleaseSoRej": 9,
+          "incomingCall": 10,
+          "baseStatAlertStop": 11,
+          "clientEndedCall": 12,
+          "activationEndedOtasp": 13,
+          "ndssFailure": 14,
+          "maxAccesProbTransmit": 15,
+          "persistTestFailure": 16,
+          "ruimNotPresent": 17,
+          "accessAttemptInProg": 18,
+          "reasonUnspecified": 19,
+          "recdRetryOrder": 20,
+          "modemLocked": 21,
+          "gpsCallEnded": 22,
+          "smsCallEnded": 23,
+          "noConcurrentService": 24,
+          "noResponseFromBs": 25,
+          "rejectedByBs": 26,
+          "notCompatConcurServ": 27,
+          "accessBlockedByBs": 28,
+          "alreadyOnTraffChann": 29,
+          "emergencyCall": 30,
+          "dataCallEnded": 31,
+          "busyHdr": 32,
+          "billingOrAuthErrHdr": 33,
+          "sysChangeDueToPrlHdr": 34,
+          "hdrExitDueToPrl": 35,
+          "noSessionHdr": 36,
+          "callEndedHdr": 37
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaLastConnError": {
+    "name": "c3gCdmaLastConnError",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "invalidClientId": 2,
+          "badCallType": 3,
+          "badServiceType": 4,
+          "expectingNumber": 5,
+          "nullNumberBuffer": 6,
+          "invalidDigits": 7,
+          "outOfRangeNumber": 8,
+          "nullAalphaBuffer": 9,
+          "outOfRangeAlphaNumber": 10,
+          "invalidOtaspActivatCode": 11,
+          "modemOffline": 12,
+          "modemLocked": 13,
+          "unsupportedFlash": 14,
+          "dialedNumberProhibited": 15,
+          "onlyE911Calls": 16,
+          "modemInUse": 17,
+          "unsupportedServiceType": 18,
+          "wrongCallType": 19,
+          "invalidCommandCallState": 20,
+          "invalidCommandModemState": 21,
+          "noValidService": 22,
+          "cannotAnswerIncomingCall": 23,
+          "badPrivacySetting": 24,
+          "noCommandBuffers": 25,
+          "communicationProblem": 26,
+          "unspecifiedError": 27,
+          "invalidLastActiveNetwork": 28,
+          "noCollocatedHdr": 29,
+          "uimNotPresent": 30
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaIdentityTable": {
+    "name": "c3gCdmaIdentityTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaIdentityEntry": {
+    "name": "c3gCdmaIdentityEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gEsn": {
+    "name": "c3gEsn",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gModemActivationStatus": {
+    "name": "c3gModemActivationStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "activated": 2,
+          "notActivated": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gAccountActivationDate": {
+    "name": "c3gAccountActivationDate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaRoamingPreference": {
+    "name": "c3gCdmaRoamingPreference",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "home": 2,
+          "affiliated": 3,
+          "any": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gPrlVersion": {
+    "name": "c3gPrlVersion",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gMdn": {
+    "name": "c3gMdn",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gMsid": {
+    "name": "c3gMsid",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gMsl": {
+    "name": "c3gMsl",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCdmaNetworkTable": {
+    "name": "c3gCdmaNetworkTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaNetworkEntry": {
+    "name": "c3gCdmaNetworkEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gCdmaCurrentServiceStatus": {
+    "name": "c3gCdmaCurrentServiceStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaHybridModePreference": {
+    "name": "c3gCdmaHybridModePreference",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "hybrid": 2,
+          "evDoOnly": 3,
+          "oneXRttOnly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCdmaCurrentRoamingStatus": {
+    "name": "c3gCdmaCurrentRoamingStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "home": 2,
+          "roamingWithSid": 3,
+          "roamingWithoutSid": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrentIdleDigitalMode": {
+    "name": "c3gCurrentIdleDigitalMode",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noService": 2,
+          "amps": 3,
+          "cdma": 4,
+          "gsm": 5,
+          "hdr": 6,
+          "wcdma": 7,
+          "gps": 8,
+          "lte": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrentSid": {
+    "name": "c3gCurrentSid",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCurrentNid": {
+    "name": "c3gCurrentNid",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCurrentCallSetupMode": {
+    "name": "c3gCurrentCallSetupMode",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "simpleIpOnly": 2,
+          "mobileIpPreferWithSipFallback": 3,
+          "mobileIpOnly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gSipUsername": {
+    "name": "c3gSipUsername",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gSipPassword": {
+    "name": "c3gSipPassword",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gServingBaseStationLongitude": {
+    "name": "c3gServingBaseStationLongitude",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gServingBaseStationLatitude": {
+    "name": "c3gServingBaseStationLatitude",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaProfile": {
+    "name": "c3gCdmaProfile",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5",
+    "class": "objectidentity"
+  },
+  "c3gCdmaProfileCommonTable": {
+    "name": "c3gCdmaProfileCommonTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaProfileCommonEntry": {
+    "name": "c3gCdmaProfileCommonEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gNumberOfDataProfileConfigurable": {
+    "name": "c3gNumberOfDataProfileConfigurable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCurrentActiveDataProfile": {
+    "name": "c3gCurrentActiveDataProfile",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCdmaProfileTable": {
+    "name": "c3gCdmaProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaProfileEntry": {
+    "name": "c3gCdmaProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gCdmaProfileIndex": {
+    "name": "c3gCdmaProfileIndex",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gNai": {
+    "name": "c3gNai",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gAaaPassword": {
+    "name": "c3gAaaPassword",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gMnHaSs": {
+    "name": "c3gMnHaSs",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "notSet": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notSet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gMnHaSpi": {
+    "name": "c3gMnHaSpi",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gMnAaaSs": {
+    "name": "c3gMnAaaSs",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "notSet": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notSet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gMnAaaSpi": {
+    "name": "c3gMnAaaSpi",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gReverseTunnelPreference": {
+    "name": "c3gReverseTunnelPreference",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "notSet": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gHomeAddrType": {
+    "name": "c3gHomeAddrType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gHomeAddr": {
+    "name": "c3gHomeAddr",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gPriHaAddrType": {
+    "name": "c3gPriHaAddrType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gPriHaAddr": {
+    "name": "c3gPriHaAddr",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gSecHaAddrType": {
+    "name": "c3gSecHaAddrType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gSecHaAddr": {
+    "name": "c3gSecHaAddr",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCdmaRadio": {
+    "name": "c3gCdmaRadio",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6",
+    "class": "objectidentity"
+  },
+  "c3gCdma1xRttRadioTable": {
+    "name": "c3gCdma1xRttRadioTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdma1xRttRadioEntry": {
+    "name": "c3gCdma1xRttRadioEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gCurrent1xRttRssi": {
+    "name": "c3gCurrent1xRttRssi",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gRssi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrent1xRttEcIo": {
+    "name": "c3gCurrent1xRttEcIo",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gEcIo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrent1xRttChannelNumber": {
+    "name": "c3gCurrent1xRttChannelNumber",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrent1xRttChannelState": {
+    "name": "c3gCurrent1xRttChannelState",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notAcquired": 2,
+          "acquired": 3,
+          "scanning": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notAcquired",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdma1xRttBandClassTable": {
+    "name": "c3gCdma1xRttBandClassTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdma1xRttBandClassEntry": {
+    "name": "c3gCdma1xRttBandClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gBandClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gBandClassIndex": {
+    "name": "c3gBandClassIndex",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3g1xRttBandClass": {
+    "name": "c3g1xRttBandClass",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaEvDoRadioTable": {
+    "name": "c3gCdmaEvDoRadioTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaEvDoRadioEntry": {
+    "name": "c3gCdmaEvDoRadioEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gCurrentEvDoRssi": {
+    "name": "c3gCurrentEvDoRssi",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gRssi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrentEvDoEcIo": {
+    "name": "c3gCurrentEvDoEcIo",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gEcIo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrentEvDoChannelNumber": {
+    "name": "c3gCurrentEvDoChannelNumber",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSectorId": {
+    "name": "c3gSectorId",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSubnetMask": {
+    "name": "c3gSubnetMask",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gHdrColorCode": {
+    "name": "c3gHdrColorCode",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gPnOffset": {
+    "name": "c3gPnOffset",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gRxMainGainControl": {
+    "name": "c3gRxMainGainControl",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gRxDiversityGainControl": {
+    "name": "c3gRxDiversityGainControl",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gTxTotalPower": {
+    "name": "c3gTxTotalPower",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gTxGainAdjust": {
+    "name": "c3gTxGainAdjust",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCarrierToInterferenceRatio": {
+    "name": "c3gCarrierToInterferenceRatio",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaEvDoBandClassTable": {
+    "name": "c3gCdmaEvDoBandClassTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaEvDoBandClassEntry": {
+    "name": "c3gCdmaEvDoBandClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gBandClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gEvDoBandClass": {
+    "name": "c3gEvDoBandClass",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaHistoryTable": {
+    "name": "c3gCdmaHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaHistoryEntry": {
+    "name": "c3gCdmaHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gCdmaHistory1xRttRssiPerSecond": {
+    "name": "c3gCdmaHistory1xRttRssiPerSecond",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaHistory1xRttRssiPerMinute": {
+    "name": "c3gCdmaHistory1xRttRssiPerMinute",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaHistory1xRttRssiPerHour": {
+    "name": "c3gCdmaHistory1xRttRssiPerHour",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 72,
+            "max": 72
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaHistoryEvDoRssiPerSecond": {
+    "name": "c3gCdmaHistoryEvDoRssiPerSecond",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaHistoryEvDoRssiPerMinute": {
+    "name": "c3gCdmaHistoryEvDoRssiPerMinute",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaHistoryEvDoRssiPerHour": {
+    "name": "c3gCdmaHistoryEvDoRssiPerHour",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 72,
+            "max": 72
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCdmaSecurity": {
+    "name": "c3gCdmaSecurity",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.7",
+    "class": "objectidentity"
+  },
+  "c3gCdmaSecurityTable": {
+    "name": "c3gCdmaSecurityTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gCdmaSecurityEntry": {
+    "name": "c3gCdmaSecurityEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gCdmaPinSecurityStatus": {
+    "name": "c3gCdmaPinSecurityStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "locked": 2,
+          "unlocked": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unlocked",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gCdmaPowerUpLockStatus": {
+    "name": "c3gCdmaPowerUpLockStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.2.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gGsmIdentityTable": {
+    "name": "c3gGsmIdentityTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmIdentityEntry": {
+    "name": "c3gGsmIdentityEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gImsi": {
+    "name": "c3gImsi",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gImei": {
+    "name": "c3gImei",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gIccId": {
+    "name": "c3gIccId",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gMsisdn": {
+    "name": "c3gMsisdn",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gFsn": {
+    "name": "c3gFsn",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gModemStatus": {
+    "name": "c3gModemStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "offLine": 2,
+          "onLine": 3,
+          "lowPowerMode": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmRoamingPreference": {
+    "name": "c3gGsmRoamingPreference",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "home": 2,
+          "roaming": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gGsmNetworkTable": {
+    "name": "c3gGsmNetworkTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmNetworkEntry": {
+    "name": "c3gGsmNetworkEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmLac": {
+    "name": "c3gGsmLac",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmCurrentServiceStatus": {
+    "name": "c3gGsmCurrentServiceStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noService": 2,
+          "normal": 3,
+          "emergencyOnly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmCurrentServiceError": {
+    "name": "c3gGsmCurrentServiceError",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "imsiUnknownInHlr": 3,
+          "illegalMs": 4,
+          "imsiUnknownInVlr": 5,
+          "imeiNotAccepted": 6,
+          "illegalMe": 7,
+          "gprsServNotAllowed": 8,
+          "gprsNonGprsServNotAllow": 9,
+          "msIdentUnknown": 10,
+          "implicitlyDetached": 11,
+          "plmnNotAllowed": 12,
+          "lacNotAllowed": 13,
+          "roamingNotAllowed": 14,
+          "gprsServNotAllowInPlmn": 15,
+          "noSuitableCellInLa": 16,
+          "mscTempNotReachable": 17,
+          "networkFailure": 18,
+          "macFailure": 19,
+          "synchFailure": 20,
+          "congestion": 21,
+          "gsmAuthenNotAccept": 22,
+          "servOptionNotSupport": 23,
+          "reqServOptionNotSub": 24,
+          "servOptionOutOfOrder": 25,
+          "callCannotIdentified": 26,
+          "noPdpContextActivated": 27,
+          "invalidMandatInfo": 28,
+          "unpsecProtErr": 29
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmCurrentService": {
+    "name": "c3gGsmCurrentService",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "invalid": 2,
+          "circuitSwitched": 3,
+          "packetSwitched": 4,
+          "combined": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmPacketService": {
+    "name": "c3gGsmPacketService",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "gprs": 3,
+          "edge": 4,
+          "umtsWcdma": 5,
+          "hsdpa": 6,
+          "hsupa": 7,
+          "hspa": 8,
+          "hspaPlus": 9,
+          "lte": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmCurrentRoamingStatus": {
+    "name": "c3gGsmCurrentRoamingStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "roaming": 2,
+          "home": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "home",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNetworkSelectionMode": {
+    "name": "c3gGsmNetworkSelectionMode",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "automatic": 2,
+          "manual": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "automatic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gGsmCountry": {
+    "name": "c3gGsmCountry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNetwork": {
+    "name": "c3gGsmNetwork",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmMcc": {
+    "name": "c3gGsmMcc",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gGsmMnc": {
+    "name": "c3gGsmMnc",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gGsmRac": {
+    "name": "c3gGsmRac",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmCurrentCellId": {
+    "name": "c3gGsmCurrentCellId",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmCurrentPrimaryScramblingCode": {
+    "name": "c3gGsmCurrentPrimaryScramblingCode",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmPlmnSelection": {
+    "name": "c3gGsmPlmnSelection",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "manual": 2,
+          "automatic": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "automatic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gGsmRegPlmn": {
+    "name": "c3gGsmRegPlmn",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmPlmnAbbr": {
+    "name": "c3gGsmPlmnAbbr",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmServiceProvider": {
+    "name": "c3gGsmServiceProvider",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmTotalByteTransmitted": {
+    "name": "c3gGsmTotalByteTransmitted",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmTotalByteReceived": {
+    "name": "c3gGsmTotalByteReceived",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmPdpProfile": {
+    "name": "c3gGsmPdpProfile",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3",
+    "class": "objectidentity"
+  },
+  "c3gGsmPdpProfileTable": {
+    "name": "c3gGsmPdpProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmPdpProfileEntry": {
+    "name": "c3gGsmPdpProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmPdpProfileIndex": {
+    "name": "c3gGsmPdpProfileIndex",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmPdpProfileType": {
+    "name": "c3gGsmPdpProfileType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gPdpType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmPdpProfileAddr": {
+    "name": "c3gGsmPdpProfileAddr",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmPdpProfileApn": {
+    "name": "c3gGsmPdpProfileApn",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmPdpProfileAuthenType": {
+    "name": "c3gGsmPdpProfileAuthenType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "chap": 3,
+          "pap": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmPdpProfileUsername": {
+    "name": "c3gGsmPdpProfileUsername",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmPdpProfilePassword": {
+    "name": "c3gGsmPdpProfilePassword",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmPdpProfileRowStatus": {
+    "name": "c3gGsmPdpProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmPacketSessionTable": {
+    "name": "c3gGsmPacketSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmPacketSessionEntry": {
+    "name": "c3gGsmPacketSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmPacketSessionStatus": {
+    "name": "c3gGsmPacketSessionStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmPdpType": {
+    "name": "c3gGsmPdpType",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gPdpType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmPdpAddress": {
+    "name": "c3gGsmPdpAddress",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosTable": {
+    "name": "c3gGsmReqUmtsQosTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosEntry": {
+    "name": "c3gGsmReqUmtsQosEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosTrafficClass": {
+    "name": "c3gGsmReqUmtsQosTrafficClass",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosTrafficClass",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosMaxUpLinkBitRate": {
+    "name": "c3gGsmReqUmtsQosMaxUpLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosMaxDownLinkBitRate": {
+    "name": "c3gGsmReqUmtsQosMaxDownLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosGuaUpLinkBitRate": {
+    "name": "c3gGsmReqUmtsQosGuaUpLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosGuaDownLinkBitRate": {
+    "name": "c3gGsmReqUmtsQosGuaDownLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosOrder": {
+    "name": "c3gGsmReqUmtsQosOrder",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosOrder",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosErroneousSdu": {
+    "name": "c3gGsmReqUmtsQosErroneousSdu",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosErroneousSdu",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosMaxSduSize": {
+    "name": "c3gGsmReqUmtsQosMaxSduSize",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1520
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosSer": {
+    "name": "c3gGsmReqUmtsQosSer",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosBer": {
+    "name": "c3gGsmReqUmtsQosBer",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosBer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosDelay": {
+    "name": "c3gGsmReqUmtsQosDelay",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosPriority": {
+    "name": "c3gGsmReqUmtsQosPriority",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosSrcStatDescriptor": {
+    "name": "c3gGsmReqUmtsQosSrcStatDescriptor",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSrcStatDescriptor",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosSignalIndication": {
+    "name": "c3gGsmReqUmtsQosSignalIndication",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSignalIndication",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqUmtsQosRowStatus": {
+    "name": "c3gGsmReqUmtsQosRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosTable": {
+    "name": "c3gGsmMinUmtsQosTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosEntry": {
+    "name": "c3gGsmMinUmtsQosEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosTrafficClass": {
+    "name": "c3gGsmMinUmtsQosTrafficClass",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosTrafficClass",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosMaxUpLinkBitRate": {
+    "name": "c3gGsmMinUmtsQosMaxUpLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosMaxDownLinkBitRate": {
+    "name": "c3gGsmMinUmtsQosMaxDownLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosGuaUpLinkBitRate": {
+    "name": "c3gGsmMinUmtsQosGuaUpLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosGuaDownLinkBitRate": {
+    "name": "c3gGsmMinUmtsQosGuaDownLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosOrder": {
+    "name": "c3gGsmMinUmtsQosOrder",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosOrder",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosErroneousSdu": {
+    "name": "c3gGsmMinUmtsQosErroneousSdu",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosErroneousSdu",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosMaxSduSize": {
+    "name": "c3gGsmMinUmtsQosMaxSduSize",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1520
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosSer": {
+    "name": "c3gGsmMinUmtsQosSer",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosBer": {
+    "name": "c3gGsmMinUmtsQosBer",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosBer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosDelay": {
+    "name": "c3gGsmMinUmtsQosDelay",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosPriority": {
+    "name": "c3gGsmMinUmtsQosPriority",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosSrcStatDescriptor": {
+    "name": "c3gGsmMinUmtsQosSrcStatDescriptor",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSrcStatDescriptor",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosSignalIndication": {
+    "name": "c3gGsmMinUmtsQosSignalIndication",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSignalIndication",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinUmtsQosRowStatus": {
+    "name": "c3gGsmMinUmtsQosRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosTable": {
+    "name": "c3gGsmNegoUmtsQosTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosEntry": {
+    "name": "c3gGsmNegoUmtsQosEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosTrafficClass": {
+    "name": "c3gGsmNegoUmtsQosTrafficClass",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosTrafficClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosMaxUpLinkBitRate": {
+    "name": "c3gGsmNegoUmtsQosMaxUpLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosMaxDownLinkBitRate": {
+    "name": "c3gGsmNegoUmtsQosMaxDownLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosGuaUpLinkBitRate": {
+    "name": "c3gGsmNegoUmtsQosGuaUpLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosGuaDownLinkBitRate": {
+    "name": "c3gGsmNegoUmtsQosGuaDownLinkBitRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosLinkBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosOrder": {
+    "name": "c3gGsmNegoUmtsQosOrder",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosOrder",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosErroneousSdu": {
+    "name": "c3gGsmNegoUmtsQosErroneousSdu",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosErroneousSdu",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosMaxSduSize": {
+    "name": "c3gGsmNegoUmtsQosMaxSduSize",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1520
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosSer": {
+    "name": "c3gGsmNegoUmtsQosSer",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosBer": {
+    "name": "c3gGsmNegoUmtsQosBer",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosBer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosDelay": {
+    "name": "c3gGsmNegoUmtsQosDelay",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosPriority": {
+    "name": "c3gGsmNegoUmtsQosPriority",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosSrcStatDescriptor": {
+    "name": "c3gGsmNegoUmtsQosSrcStatDescriptor",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSrcStatDescriptor",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoUmtsQosSignalIndication": {
+    "name": "c3gGsmNegoUmtsQosSignalIndication",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gUmtsQosSignalIndication",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmReqGprsQosTable": {
+    "name": "c3gGsmReqGprsQosTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmReqGprsQosEntry": {
+    "name": "c3gGsmReqGprsQosEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmReqGprsQosPrecedence": {
+    "name": "c3gGsmReqGprsQosPrecedence",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosPrecedence",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqGprsQosDelay": {
+    "name": "c3gGsmReqGprsQosDelay",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosDelay",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqGprsQosReliability": {
+    "name": "c3gGsmReqGprsQosReliability",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosReliability",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqGprsQosPeakRate": {
+    "name": "c3gGsmReqGprsQosPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosPeakRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqGprsQosMeanRate": {
+    "name": "c3gGsmReqGprsQosMeanRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosMeanRate",
+      "class": "type"
+    },
+    "units": "octet-per-hour",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmReqGprsQosRowStatus": {
+    "name": "c3gGsmReqGprsQosRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinGprsQosTable": {
+    "name": "c3gGsmMinGprsQosTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmMinGprsQosEntry": {
+    "name": "c3gGsmMinGprsQosEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmMinGprsQosPrecedence": {
+    "name": "c3gGsmMinGprsQosPrecedence",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosPrecedence",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinGprsQosDelay": {
+    "name": "c3gGsmMinGprsQosDelay",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosDelay",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinGprsQosReliability": {
+    "name": "c3gGsmMinGprsQosReliability",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosReliability",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinGprsQosPeakRate": {
+    "name": "c3gGsmMinGprsQosPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosPeakRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinGprsQosMeanRate": {
+    "name": "c3gGsmMinGprsQosMeanRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosMeanRate",
+      "class": "type"
+    },
+    "units": "octet-per-hour",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmMinGprsQosRowStatus": {
+    "name": "c3gGsmMinGprsQosRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gGsmNegoGprsQosTable": {
+    "name": "c3gGsmNegoGprsQosTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmNegoGprsQosEntry": {
+    "name": "c3gGsmNegoGprsQosEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmNegoGprsQosPrecedence": {
+    "name": "c3gGsmNegoGprsQosPrecedence",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosPrecedence",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoGprsQosDelay": {
+    "name": "c3gGsmNegoGprsQosDelay",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosDelay",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoGprsQosReliability": {
+    "name": "c3gGsmNegoGprsQosReliability",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosReliability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoGprsQosPeakRate": {
+    "name": "c3gGsmNegoGprsQosPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosPeakRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNegoGprsQosMeanRate": {
+    "name": "c3gGsmNegoGprsQosMeanRate",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gGprsQosMeanRate",
+      "class": "type"
+    },
+    "units": "octet-per-hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmRadio": {
+    "name": "c3gGsmRadio",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4",
+    "class": "objectidentity"
+  },
+  "c3gGsmRadioTable": {
+    "name": "c3gGsmRadioTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmRadioEntry": {
+    "name": "c3gGsmRadioEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gCurrentGsmRssi": {
+    "name": "c3gCurrentGsmRssi",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gRssi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gCurrentGsmEcIo": {
+    "name": "c3gCurrentGsmEcIo",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gEcIo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmCurrentBand": {
+    "name": "c3gGsmCurrentBand",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "invalid": 2,
+          "none": 3,
+          "gsm850": 4,
+          "gsm900": 5,
+          "gsm1800": 6,
+          "gsm1900": 7,
+          "wcdma800": 8,
+          "wcdma850": 9,
+          "wcdma1900": 10,
+          "wcdma2100": 11,
+          "lteBand": 12
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmChannelNumber": {
+    "name": "c3gGsmChannelNumber",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNumberOfNearbyCell": {
+    "name": "c3gGsmNumberOfNearbyCell",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNearbyCellTable": {
+    "name": "c3gGsmNearbyCellTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmNearbyCellEntry": {
+    "name": "c3gGsmNearbyCellEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNearbyCellIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmNearbyCellIndex": {
+    "name": "c3gGsmNearbyCellIndex",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmNearbyCellPrimaryScramblingCode": {
+    "name": "c3gGsmNearbyCellPrimaryScramblingCode",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNearbyCellRscp": {
+    "name": "c3gGsmNearbyCellRscp",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNearbyCellEcIoMeasurement": {
+    "name": "c3gGsmNearbyCellEcIoMeasurement",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gEcIo",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmHistoryTable": {
+    "name": "c3gGsmHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmHistoryEntry": {
+    "name": "c3gGsmHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmHistoryRssiPerSecond": {
+    "name": "c3gGsmHistoryRssiPerSecond",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmHistoryRssiPerMinute": {
+    "name": "c3gGsmHistoryRssiPerMinute",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmHistoryRssiPerHour": {
+    "name": "c3gGsmHistoryRssiPerHour",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 72,
+            "max": 72
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmSecurity": {
+    "name": "c3gGsmSecurity",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.5",
+    "class": "objectidentity"
+  },
+  "c3gGsmSecurityTable": {
+    "name": "c3gGsmSecurityTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gGsmSecurityEntry": {
+    "name": "c3gGsmSecurityEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gGsmChv1": {
+    "name": "c3gGsmChv1",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "c3gGsmSimStatus": {
+    "name": "c3gGsmSimStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "notInserted": 3,
+          "removed": 4,
+          "initFailure": 5,
+          "generalFailure": 6,
+          "locked": 7,
+          "chv1Blocked": 8,
+          "chv2Blocked": 9,
+          "chv1Rejected": 10,
+          "chv2Rejected": 11,
+          "mepLocked": 12,
+          "networkRejected": 13
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmSimUserOperationRequired": {
+    "name": "c3gGsmSimUserOperationRequired",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "enterChv1": 3,
+          "enterChv2": 4,
+          "enterUnblockChv1": 5,
+          "enterUnblockChv2": 6,
+          "enterMepCode": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gGsmNumberOfRetriesRemaining": {
+    "name": "c3gGsmNumberOfRetriesRemaining",
+    "oid": "1.3.6.1.4.1.9.9.661.1.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gWanLbsCommon": {
+    "name": "c3gWanLbsCommon",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1",
+    "class": "objectidentity"
+  },
+  "c3gWanLbsCommonTable": {
+    "name": "c3gWanLbsCommonTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gWanLbsCommonEntry": {
+    "name": "c3gWanLbsCommonEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gLbsModeSelected": {
+    "name": "c3gLbsModeSelected",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unKnown": 1,
+          "standAlone": 2,
+          "msBased": 3,
+          "msAssist": 4,
+          "reserved": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unKnown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsState": {
+    "name": "c3gLbsState",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gpsDisabled": 1,
+          "gpsAcquiring": 2,
+          "gpsEnabled": 3,
+          "gpsLocError": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "gpsDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsLocFixError": {
+    "name": "c3gLbsLocFixError",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 1,
+          "noService": 2,
+          "noConnection": 3,
+          "noData": 4,
+          "sessionBusy": 5,
+          "reserved": 6,
+          "gpsDisabled": 7,
+          "connectionFailed": 8,
+          "errorState": 9,
+          "clientEnded": 10,
+          "uiEnded": 11,
+          "networkEnded": 12,
+          "timeout": 13,
+          "privacyLevel": 14,
+          "networkAccessError": 15,
+          "fixError": 16,
+          "pdeRejected": 17,
+          "trafficChannelExited": 18,
+          "e911": 19,
+          "serverError": 20,
+          "staleBSinformation": 21,
+          "resourceContention": 22,
+          "authenticationParameterFailed": 23,
+          "authenticationFailedLocal": 24,
+          "authenticationFailedNetwork": 25,
+          "vxLcsAgentAuthFail": 26,
+          "unknownSystemError": 27,
+          "unsupportedService": 28,
+          "subscriptionViolation": 29,
+          "desiredFixMethodFailed": 30,
+          "antennaSwitch": 31,
+          "noTxConfirmationReceived": 32,
+          "normalEndOfSession": 33,
+          "noErrorFromNetwork": 34,
+          "noResourcesLeftOnNetwork": 35,
+          "positionServerNotAvailable": 36,
+          "unsupportedProtocolVersion": 37,
+          "ssmolrErrorSystemFailure": 38,
+          "ssmolrErrorUnexpectedDataValue": 39,
+          "ssmolrErrorDataMissing": 40,
+          "ssmolrErrorFacilityNotSupported": 41,
+          "ssmolrErrorSsSubscriptionViolation": 42,
+          "ssmolrErrorPositionMethodFailure": 43,
+          "ssmolrErrorUndefined": 44,
+          "smlcTimeout": 45,
+          "mtGguardTimeExpired": 46,
+          "additionalAssistanceNeeded": 47,
+          "noFixError": 48
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noFixError",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsLatitude": {
+    "name": "c3gLbsLatitude",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsLongitude": {
+    "name": "c3gLbsLongitude",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsTimeStamp": {
+    "name": "c3gLbsTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsLocUncertaintyAngle": {
+    "name": "c3gLbsLocUncertaintyAngle",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsLocUncertaintyA": {
+    "name": "c3gLbsLocUncertaintyA",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsLocUncertaintyPos": {
+    "name": "c3gLbsLocUncertaintyPos",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsFixtype": {
+    "name": "c3gLbsFixtype",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "twoDimension": 2,
+          "threeDimension": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsHeightValid": {
+    "name": "c3gLbsHeightValid",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsHeight": {
+    "name": "c3gLbsHeight",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsLocUncertaintyVertical": {
+    "name": "c3gLbsLocUncertaintyVertical",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "meters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsVelocityValid": {
+    "name": "c3gLbsVelocityValid",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsHeading": {
+    "name": "c3gLbsHeading",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsVelocityHorizontal": {
+    "name": "c3gLbsVelocityHorizontal",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "meters per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsVelocityVertical": {
+    "name": "c3gLbsVelocityVertical",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "meters per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsHepe": {
+    "name": "c3gLbsHepe",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "centimeters",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gLbsNumSatellites": {
+    "name": "c3gLbsNumSatellites",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteInfo": {
+    "name": "c3gWanLbsSatelliteInfo",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2",
+    "class": "objectidentity"
+  },
+  "c3gWanLbsSatelliteInfoTable": {
+    "name": "c3gWanLbsSatelliteInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteInfoEntry": {
+    "name": "c3gWanLbsSatelliteInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gWanLbsSatelliteInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteInfoIndex": {
+    "name": "c3gWanLbsSatelliteInfoIndex",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteNumber": {
+    "name": "c3gWanLbsSatelliteNumber",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteElevation": {
+    "name": "c3gWanLbsSatelliteElevation",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteAzimuth": {
+    "name": "c3gWanLbsSatelliteAzimuth",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteInfoSignalNoiseRatio": {
+    "name": "c3gWanLbsSatelliteInfoSignalNoiseRatio",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "db",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteUsed": {
+    "name": "c3gWanLbsSatelliteUsed",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gWanLbsSatelliteInfoRowStatus": {
+    "name": "c3gWanLbsSatelliteInfoRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "c3gWanSms": {
+    "name": "c3gWanSms",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1",
+    "class": "objectidentity"
+  },
+  "c3gSmsCommonTable": {
+    "name": "c3gSmsCommonTable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "c3gSmsCommonEntry": {
+    "name": "c3gSmsCommonEntry",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "c3gSmsServiceAvailable": {
+    "name": "c3gSmsServiceAvailable",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsOutSmsCount": {
+    "name": "c3gSmsOutSmsCount",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsOutSmsErrorCount": {
+    "name": "c3gSmsOutSmsErrorCount",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsStorageUsed": {
+    "name": "c3gSmsInSmsStorageUsed",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsStorageUnused": {
+    "name": "c3gSmsInSmsStorageUnused",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsArchiveCount": {
+    "name": "c3gSmsInSmsArchiveCount",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsArchiveErrorCount": {
+    "name": "c3gSmsInSmsArchiveErrorCount",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsArchiveUrl": {
+    "name": "c3gSmsArchiveUrl",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsOutSmsStatus": {
+    "name": "c3gSmsOutSmsStatus",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "success": 2,
+          "copySmsHeader": 3,
+          "copySmsBody": 4,
+          "sent": 5,
+          "receivedSentNotification": 6,
+          "receivedOutMsgNumber": 7,
+          "receivedOutMsgStatus": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsCount": {
+    "name": "c3gSmsInSmsCount",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsDeleted": {
+    "name": "c3gSmsInSmsDeleted",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsStorageMax": {
+    "name": "c3gSmsInSmsStorageMax",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsCallBack": {
+    "name": "c3gSmsInSmsCallBack",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsOutSmsPendingCount": {
+    "name": "c3gSmsOutSmsPendingCount",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsOutSmsArchiveCount": {
+    "name": "c3gSmsOutSmsArchiveCount",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsOutSmsArchiveErrorCount": {
+    "name": "c3gSmsOutSmsArchiveErrorCount",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gSmsInSmsArchived": {
+    "name": "c3gSmsInSmsArchived",
+    "oid": "1.3.6.1.4.1.9.9.661.1.5.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "msgs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c3gModemUpNotif": {
+    "name": "c3gModemUpNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gModemDownNotif": {
+    "name": "c3gModemDownNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gServiceChangedNotif": {
+    "name": "c3gServiceChangedNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gPreviousServiceType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentServiceType"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gNetworkChangedNotif": {
+    "name": "c3gNetworkChangedNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentSid"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentNid"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMcc"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMnc"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRoamingStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gConnectionStatusChangedNotif": {
+    "name": "c3gConnectionStatusChangedNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gConnectionStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentServiceType"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gRssiOnsetNotif": {
+    "name": "c3gRssiOnsetNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifRadioService"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifRssi"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gRssiAbateNotif": {
+    "name": "c3gRssiAbateNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifRadioService"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifRssi"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gEcIoOnsetNotif": {
+    "name": "c3gEcIoOnsetNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifRadioService"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifEcIo"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gEcIoAbateNotif": {
+    "name": "c3gEcIoAbateNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifRadioService"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifEcIo"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gModemTemperOnsetNotif": {
+    "name": "c3gModemTemperOnsetNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gModemTemperAbateNotif": {
+    "name": "c3gModemTemperAbateNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gModemTemperOnsetRecoveryNotif": {
+    "name": "c3gModemTemperOnsetRecoveryNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "c3gModemTemperAbateRecoveryNotif": {
+    "name": "c3gModemTemperAbateRecoveryNotif",
+    "oid": "1.3.6.1.4.1.9.9.661.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWan3gMIBCompliances": {
+    "name": "ciscoWan3gMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.661.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoWan3gMIBGroups": {
+    "name": "ciscoWan3gMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.661.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWan3gMIBCompliance": {
+    "name": "ciscoWan3gMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.661.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWan3gMIBNotificationGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBCommonObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBCdmaObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBGsmObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBSmsObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBLbsObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoWan3gMIBCompliance1": {
+    "name": "ciscoWan3gMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.661.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWan3gMIBNotificationGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBCommonObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBCdmaObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBGsmObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBSmsObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBLbsObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoWan3gMIBComplianceRev1": {
+    "name": "ciscoWan3gMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.661.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWan3gMIBNotificationGroupRev1",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBCommonObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBCdmaObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBGsmObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBSmsObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBLbsObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWan3gMIBCompliance1Rev1": {
+    "name": "ciscoWan3gMIBCompliance1Rev1",
+    "oid": "1.3.6.1.4.1.9.9.661.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWan3gMIBNotificationGroupRev1",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBCommonObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBCdmaObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBGsmObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBSmsObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      },
+      {
+        "object": "ciscoWan3gMIBLbsObjectGroup",
+        "module": "CISCO-WAN-3G-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWan3gMIBCommonObjectGroup": {
+    "name": "ciscoWan3gMIBCommonObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.661.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gStandard"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCapability"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemState"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gPreviousServiceType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentServiceType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRoamingStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentSystemTime"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gConnectionStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifRadioService"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifRssi"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNotifEcIo"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperature"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRssiOnsetNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRssiAbateNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEcIoOnsetNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEcIoAbateNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperOnsetNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperAbateNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemReset"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemUpNotifEnabled"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemDownNotifEnabled"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gServiceChangedNotifEnabled"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNetworkChangedNotifEnabled"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gConnectionStatusChangedNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRssiOnsetNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRssiAbateNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEcIoOnsetNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEcIoAbateNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperOnsetNotifEnabled"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperAbateNotifEnabled"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGpsState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWan3gMIBCdmaObjectGroup": {
+    "name": "ciscoWan3gMIBCdmaObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.661.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaTotalCallDuration"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaTotalTransmitted"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaTotalReceived"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrDdtmPreference"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gOutgoingCallNumber"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrAtState"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrSessionState"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gUati"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gColorCode"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRati"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrSessionDuration"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrSessionStart"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrSessionEnd"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gAuthStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrDrc"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrDrcCover"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrRri"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaCurrentTransmitted"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaCurrentReceived"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaCurrentCallStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaCurrentCallDuration"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaCurrentCallType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaLastCallDisconnReason"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaLastConnError"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMobileIpErrorCode"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEsn"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemActivationStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gAccountActivationDate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaRoamingPreference"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gPrlVersion"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMdn"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMsid"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMsl"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaCurrentServiceStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaHybridModePreference"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaCurrentRoamingStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentIdleDigitalMode"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentSid"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentNid"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentCallSetupMode"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSipUsername"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSipPassword"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gServingBaseStationLongitude"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gServingBaseStationLatitude"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNumberOfDataProfileConfigurable"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentActiveDataProfile"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNai"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gAaaPassword"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMnHaSs"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMnHaSpi"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMnAaaSs"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMnAaaSpi"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gReverseTunnelPreference"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHomeAddrType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHomeAddr"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gPriHaAddrType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gPriHaAddr"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSecHaAddrType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSecHaAddr"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrent1xRttRssi"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrent1xRttEcIo"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrent1xRttChannelNumber"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrent1xRttChannelState"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentEvDoRssi"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentEvDoEcIo"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentEvDoChannelNumber"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSectorId"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSubnetMask"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gHdrColorCode"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gPnOffset"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRxMainGainControl"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRxDiversityGainControl"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gTxTotalPower"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gTxGainAdjust"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCarrierToInterferenceRatio"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3g1xRttBandClass"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEvDoBandClass"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaHistory1xRttRssiPerSecond"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaHistory1xRttRssiPerMinute"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaHistory1xRttRssiPerHour"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaHistoryEvDoRssiPerSecond"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaHistoryEvDoRssiPerMinute"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaHistoryEvDoRssiPerHour"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaPinSecurityStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCdmaPowerUpLockStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWan3gMIBGsmObjectGroup": {
+    "name": "ciscoWan3gMIBGsmObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.661.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmTotalByteTransmitted"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmTotalByteReceived"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPacketSessionStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpAddress"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosTrafficClass"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosMaxUpLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosMaxDownLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosGuaUpLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosGuaDownLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosOrder"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosErroneousSdu"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosMaxSduSize"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosSer"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosBer"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosDelay"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosPriority"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosSrcStatDescriptor"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoUmtsQosSignalIndication"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoGprsQosPrecedence"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoGprsQosDelay"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoGprsQosReliability"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoGprsQosPeakRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNegoGprsQosMeanRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gImsi"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gImei"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gIccId"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gMsisdn"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gFsn"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmRoamingPreference"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmLac"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmCurrentServiceStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmCurrentServiceError"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmCurrentService"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPacketService"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmCurrentRoamingStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNetworkSelectionMode"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmCountry"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNetwork"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMcc"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMnc"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmRac"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmCurrentCellId"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmCurrentPrimaryScramblingCode"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPlmnSelection"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmRegPlmn"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPlmnAbbr"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmServiceProvider"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileAddr"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileApn"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileAuthenType"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileUsername"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfilePassword"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmPdpProfileRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosTrafficClass"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosMaxUpLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosMaxDownLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosGuaUpLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosGuaDownLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosOrder"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosErroneousSdu"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosMaxSduSize"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosSer"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosBer"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosDelay"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosPriority"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosSrcStatDescriptor"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosSignalIndication"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqUmtsQosRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosTrafficClass"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosMaxUpLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosMaxDownLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosGuaUpLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosGuaDownLinkBitRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosOrder"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosErroneousSdu"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosMaxSduSize"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosSer"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosBer"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosDelay"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosPriority"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosSrcStatDescriptor"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosSignalIndication"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinUmtsQosRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqGprsQosPrecedence"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqGprsQosDelay"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqGprsQosReliability"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqGprsQosPeakRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqGprsQosMeanRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmReqGprsQosRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinGprsQosPrecedence"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinGprsQosDelay"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinGprsQosReliability"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinGprsQosPeakRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinGprsQosMeanRate"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmMinGprsQosRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentGsmRssi"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gCurrentGsmEcIo"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmCurrentBand"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmChannelNumber"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNumberOfNearbyCell"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNearbyCellPrimaryScramblingCode"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNearbyCellRscp"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNearbyCellEcIoMeasurement"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmHistoryRssiPerSecond"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmHistoryRssiPerMinute"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmHistoryRssiPerHour"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmChv1"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmSimStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmSimUserOperationRequired"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gGsmNumberOfRetriesRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWan3gMIBNotificationGroup": {
+    "name": "ciscoWan3gMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.661.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemUpNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemDownNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gServiceChangedNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNetworkChangedNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gConnectionStatusChangedNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRssiOnsetNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEcIoOnsetNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRssiAbateNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEcIoAbateNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperOnsetNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperAbateNotif"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoWan3gMIBLbsObjectGroup": {
+    "name": "ciscoWan3gMIBLbsObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.661.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsModeSelected"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsState"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsLocFixError"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsLatitude"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsLongitude"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsLocUncertaintyAngle"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsLocUncertaintyA"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsLocUncertaintyPos"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsFixtype"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsHeightValid"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsHeight"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsLocUncertaintyVertical"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsVelocityValid"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsHeading"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsVelocityHorizontal"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsVelocityVertical"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsHepe"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gLbsNumSatellites"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gWanLbsSatelliteNumber"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gWanLbsSatelliteElevation"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gWanLbsSatelliteAzimuth"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gWanLbsSatelliteUsed"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gWanLbsSatelliteInfoSignalNoiseRatio"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gWanLbsSatelliteInfoRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWan3gMIBSmsObjectGroup": {
+    "name": "ciscoWan3gMIBSmsObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.661.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsServiceAvailable"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsOutSmsCount"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsOutSmsErrorCount"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsStorageUsed"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsStorageUnused"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsArchiveCount"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsArchiveErrorCount"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsArchived"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsArchiveUrl"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsOutSmsStatus"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsCount"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsDeleted"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsStorageMax"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsInSmsCallBack"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsOutSmsPendingCount"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsOutSmsArchiveCount"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gSmsOutSmsArchiveErrorCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWan3gMIBNotificationGroupRev1": {
+    "name": "ciscoWan3gMIBNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.661.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemUpNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemDownNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gServiceChangedNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gNetworkChangedNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gConnectionStatusChangedNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRssiOnsetNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEcIoOnsetNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gRssiAbateNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gEcIoAbateNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperOnsetNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperAbateNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperOnsetRecoveryNotif"
+      },
+      {
+        "module": "CISCO-WAN-3G-MIB",
+        "object": "c3gModemTemperAbateRecoveryNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-3G-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-3G-MIB"
+  }
+}

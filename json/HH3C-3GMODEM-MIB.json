@@ -1,0 +1,2171 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3c3GModem": {
+    "name": "hh3c3GModem",
+    "oid": "1.3.6.1.4.1.25506.2.98",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-12-01 12:00",
+        "description": "Modified description and added lte(5) in hh3cWirelessCardModemMode."
+      },
+      {
+        "revision": "2014-09-09 12:00",
+        "description": "Added hh3c3GCdma1xRttTable and hh3c3GCdmaEvDoTable."
+      },
+      {
+        "revision": "2009-04-30 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "Hh3cUIMStatusType": {
+    "name": "Hh3cUIMStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 1,
+          "initial": 2,
+          "fault": 3,
+          "unprotected": 4,
+          "protected": 5,
+          "pinLocked": 6,
+          "pukLocked": 7,
+          "selfDestruct": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cSmsEncodeType": {
+    "name": "Hh3cSmsEncodeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "ucs2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3c3GModemObjects": {
+    "name": "hh3c3GModemObjects",
+    "oid": "1.3.6.1.4.1.25506.2.98.1",
+    "class": "objectidentity"
+  },
+  "hh3cWirelessCard": {
+    "name": "hh3cWirelessCard",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cUIM": {
+    "name": "hh3cUIM",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2",
+    "class": "objectidentity"
+  },
+  "hh3c3GCdma": {
+    "name": "hh3c3GCdma",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3",
+    "class": "objectidentity"
+  },
+  "hh3c3GGsm": {
+    "name": "hh3c3GGsm",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cLte": {
+    "name": "hh3cLte",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5",
+    "class": "objectidentity"
+  },
+  "hh3cWirelessCardTable": {
+    "name": "hh3cWirelessCardTable",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWirelessCardEntry": {
+    "name": "hh3cWirelessCardEntry",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWirelessCardIndex": {
+    "name": "hh3cWirelessCardIndex",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardModelName": {
+    "name": "hh3cWirelessCardModelName",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardMfgName": {
+    "name": "hh3cWirelessCardMfgName",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardDescription": {
+    "name": "hh3cWirelessCardDescription",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardSerialNumber": {
+    "name": "hh3cWirelessCardSerialNumber",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardCMIIID": {
+    "name": "hh3cWirelessCardCMIIID",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardHardwareVersion": {
+    "name": "hh3cWirelessCardHardwareVersion",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardFirmwareVersion": {
+    "name": "hh3cWirelessCardFirmwareVersion",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardPRLVersion": {
+    "name": "hh3cWirelessCardPRLVersion",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardInterfaceIndex": {
+    "name": "hh3cWirelessCardInterfaceIndex",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardModemStatus": {
+    "name": "hh3cWirelessCardModemStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "onLine": 2,
+          "offLine": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardModemMode": {
+    "name": "hh3cWirelessCardModemMode",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "tdscdma": 2,
+          "wcdma": 3,
+          "cdma": 4,
+          "lte": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cWirelessCardCurNetConn": {
+    "name": "hh3cWirelessCardCurNetConn",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noService": 2,
+          "gsm": 3,
+          "gprs": 4,
+          "edge": 5,
+          "hsdpa": 6,
+          "hsupa": 7,
+          "hsupaAndhsdpa": 8,
+          "hspaPlus": 9,
+          "umts": 10,
+          "dchspaPlus": 11,
+          "lte": 12,
+          "onexrtt": 13,
+          "evdo": 14,
+          "onexrttAndevdo": 15,
+          "tdscdma": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSmsGroup": {
+    "name": "hh3cSmsGroup",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cSmsScalarObjects": {
+    "name": "hh3cSmsScalarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cSmsRxNotifSwitch": {
+    "name": "hh3cSmsRxNotifSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSmsOperationTable": {
+    "name": "hh3cSmsOperationTable",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSmsOperationEntry": {
+    "name": "hh3cSmsOperationEntry",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSmsDestNumber": {
+    "name": "hh3cSmsDestNumber",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSmsEncode": {
+    "name": "hh3cSmsEncode",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cSmsEncodeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSmsContent": {
+    "name": "hh3cSmsContent",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSmsSendStatus": {
+    "name": "hh3cSmsSendStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set2Send": 1,
+          "ready2Send": 2,
+          "sending": 3,
+          "sentAlready": 4,
+          "telnumberInvalid": 5,
+          "paramInvalid": 6,
+          "contentTooLong": 7,
+          "codeError": 8,
+          "unknown": 9,
+          "busy": 10,
+          "notPresent": 11,
+          "notSupport": 12,
+          "initializing": 13,
+          "noCenterNum": 14,
+          "noSim": 15,
+          "simNotReady": 16,
+          "sendAtFailed": 17,
+          "sendDisable": 18
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cWirelessCardOnlineTable": {
+    "name": "hh3cWirelessCardOnlineTable",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWirelessCardOnlineEntry": {
+    "name": "hh3cWirelessCardOnlineEntry",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardOnlineTime",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWirelessCardOnlineTime": {
+    "name": "hh3cWirelessCardOnlineTime",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cWirelessCardOnlineType": {
+    "name": "hh3cWirelessCardOnlineType",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUIMInfoTable": {
+    "name": "hh3cUIMInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUIMInfoEntry": {
+    "name": "hh3cUIMInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cUIMIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUIMIndex": {
+    "name": "hh3cUIMIndex",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUIMStatus": {
+    "name": "hh3cUIMStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cUIMStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUIMImsi": {
+    "name": "hh3cUIMImsi",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUIMPin": {
+    "name": "hh3cUIMPin",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUIMVoltage": {
+    "name": "hh3cUIMVoltage",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milli-volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUIMProvider": {
+    "name": "hh3cUIMProvider",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUIMSignal": {
+    "name": "hh3cUIMSignal",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          },
+          {
+            "min": 99,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUIMTryPinPukTimes": {
+    "name": "hh3cUIMTryPinPukTimes",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUIMOldPin": {
+    "name": "hh3cUIMOldPin",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttTable": {
+    "name": "hh3c3GCdma1xRttTable",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttEntry": {
+    "name": "hh3c3GCdma1xRttEntry",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttCurrentRssi": {
+    "name": "hh3c3GCdma1xRttCurrentRssi",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttRssiMediumThreshold": {
+    "name": "hh3c3GCdma1xRttRssiMediumThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttRssiWeakThreshold": {
+    "name": "hh3c3GCdma1xRttRssiWeakThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttCurServiceStatus": {
+    "name": "hh3c3GCdma1xRttCurServiceStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "emergency": 3,
+          "lowPower": 4,
+          "noService": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttCurRoamingStatus": {
+    "name": "hh3c3GCdma1xRttCurRoamingStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "roaming": 2,
+          "home": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttBID": {
+    "name": "hh3c3GCdma1xRttBID",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttSID": {
+    "name": "hh3c3GCdma1xRttSID",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdma1xRttNID": {
+    "name": "hh3c3GCdma1xRttNID",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdmaEvDoTable": {
+    "name": "hh3c3GCdmaEvDoTable",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3c3GCdmaEvDoEntry": {
+    "name": "hh3c3GCdmaEvDoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3c3GCdmaEvDoCurrentRssi": {
+    "name": "hh3c3GCdmaEvDoCurrentRssi",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdmaEvDoRssiMediumThreshold": {
+    "name": "hh3c3GCdmaEvDoRssiMediumThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3c3GCdmaEvDoRssiWeakThreshold": {
+    "name": "hh3c3GCdmaEvDoRssiWeakThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3c3GCdmaEvDoCurServiceStatus": {
+    "name": "hh3c3GCdmaEvDoCurServiceStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "emergency": 3,
+          "lowPower": 4,
+          "noService": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdmaEvDoCurRoamingStatus": {
+    "name": "hh3c3GCdmaEvDoCurRoamingStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "roaming": 2,
+          "home": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GCdmaEvDoSubNetID": {
+    "name": "hh3c3GCdmaEvDoSubNetID",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmInfoTable": {
+    "name": "hh3c3GGsmInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3c3GGsmInfoEntry": {
+    "name": "hh3c3GGsmInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3c3GGsmCurrentRssi": {
+    "name": "hh3c3GGsmCurrentRssi",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmRssiMediumThreshold": {
+    "name": "hh3c3GGsmRssiMediumThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3c3GGsmRssiWeakThreshold": {
+    "name": "hh3c3GGsmRssiWeakThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3c3GGsmImsi": {
+    "name": "hh3c3GGsmImsi",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmImei": {
+    "name": "hh3c3GGsmImei",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmApn": {
+    "name": "hh3c3GGsmApn",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3c3GGsmPacketSessionStatus": {
+    "name": "hh3c3GGsmPacketSessionStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmNetworkSelectionMode": {
+    "name": "hh3c3GGsmNetworkSelectionMode",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "automatic": 2,
+          "manual": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmMobileNetworkName": {
+    "name": "hh3c3GGsmMobileNetworkName",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmLac": {
+    "name": "hh3c3GGsmLac",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmCellId": {
+    "name": "hh3c3GGsmCellId",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmSimStatus": {
+    "name": "hh3c3GGsmSimStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "notInsert": 3,
+          "networkReject": 4,
+          "blocked": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmCurServiceStatus": {
+    "name": "hh3c3GGsmCurServiceStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "emergency": 3,
+          "lowPower": 4,
+          "noService": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmCurRoamingStatus": {
+    "name": "hh3c3GGsmCurRoamingStatus",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "roaming": 2,
+          "home": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmMcc": {
+    "name": "hh3c3GGsmMcc",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3c3GGsmMnc": {
+    "name": "hh3c3GGsmMnc",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLteInfoTable": {
+    "name": "hh3cLteInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLteInfoEntry": {
+    "name": "hh3cLteInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLteCurrentRsrp": {
+    "name": "hh3cLteCurrentRsrp",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLteCurrentRsrq": {
+    "name": "hh3cLteCurrentRsrq",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLteCurrentSinr": {
+    "name": "hh3cLteCurrentSinr",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLteTxPower": {
+    "name": "hh3cLteTxPower",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLteCurrentRssi": {
+    "name": "hh3cLteCurrentRssi",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLteRssiMediumThreshold": {
+    "name": "hh3cLteRssiMediumThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLteRssiWeakThreshold": {
+    "name": "hh3cLteRssiWeakThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.98.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3c3GModemTrap": {
+    "name": "hh3c3GModemTrap",
+    "oid": "1.3.6.1.4.1.25506.2.98.2",
+    "class": "objectidentity"
+  },
+  "hh3c3GModemTraps": {
+    "name": "hh3c3GModemTraps",
+    "oid": "1.3.6.1.4.1.25506.2.98.3",
+    "class": "objectidentity"
+  },
+  "hh3c3GModemTrapPrefix": {
+    "name": "hh3c3GModemTrapPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cDevSerialNumber": {
+    "name": "hh3cDevSerialNumber",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDeviceOUI": {
+    "name": "hh3cDeviceOUI",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cAccessMedia": {
+    "name": "hh3cAccessMedia",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "air": 2,
+          "cable": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3c3GCurrentService": {
+    "name": "hh3c3GCurrentService",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "oneXRtt": 2,
+          "evDo": 3,
+          "gsm": 4,
+          "lte": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3c3GCurrentRssiBind": {
+    "name": "hh3c3GCurrentRssiBind",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3c3GImsiBind": {
+    "name": "hh3c3GImsiBind",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSmsSrcNumberBind": {
+    "name": "hh3cSmsSrcNumberBind",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSmsTimeBind": {
+    "name": "hh3cSmsTimeBind",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSmsEncodeBind": {
+    "name": "hh3cSmsEncodeBind",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cSmsEncodeType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSmsContentBind": {
+    "name": "hh3cSmsContentBind",
+    "oid": "1.3.6.1.4.1.25506.2.98.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cWirelessCardInserted": {
+    "name": "hh3cWirelessCardInserted",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDeviceOUI"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDevSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cUIMImsi"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cWirelessCardPulledOut": {
+    "name": "hh3cWirelessCardPulledOut",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDeviceOUI"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDevSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cUIMImsi"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUIMPinInvalid": {
+    "name": "hh3cUIMPinInvalid",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDeviceOUI"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDevSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cUIMImsi"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUIMPinChanged": {
+    "name": "hh3cUIMPinChanged",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDeviceOUI"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDevSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cUIMImsi"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cUIMOldPin"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cUIMPin"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cAccessMediaChanged": {
+    "name": "hh3cAccessMediaChanged",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDeviceOUI"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDevSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cUIMImsi"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cAccessMedia"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3c3GRssiStrongSignalTrap": {
+    "name": "hh3c3GRssiStrongSignalTrap",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDeviceOUI"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDevSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GCurrentService"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GCurrentRssiBind"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GImsiBind"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3c3GRssiMediumSignalTrap": {
+    "name": "hh3c3GRssiMediumSignalTrap",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDeviceOUI"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDevSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GCurrentService"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GCurrentRssiBind"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GImsiBind"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3c3GRssiWeakSignalTrap": {
+    "name": "hh3c3GRssiWeakSignalTrap",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDeviceOUI"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cDevSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardSerialNumber"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GCurrentService"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GCurrentRssiBind"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3c3GImsiBind"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSmsTxNotification": {
+    "name": "hh3cSmsTxNotification",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cSmsSendStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSmsRxNotification": {
+    "name": "hh3cSmsRxNotification",
+    "oid": "1.3.6.1.4.1.25506.2.98.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cWirelessCardIndex"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cSmsSrcNumberBind"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cSmsTimeBind"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cSmsEncodeBind"
+      },
+      {
+        "module": "HH3C-3GMODEM-MIB",
+        "object": "hh3cSmsContentBind"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-3GMODEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-3GMODEM-MIB"
+  }
+}

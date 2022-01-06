@@ -1,0 +1,1275 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DIAL-CONTROL-MIB": [
+      "cCallHistoryIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
+      "CvcGUid"
+    ],
+    "DIAL-CONTROL-MIB": [
+      "callActiveIndex",
+      "AbsoluteCounter32",
+      "callActiveSetupTime"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoProxyControlMIB": {
+    "name": "ciscoProxyControlMIB",
+    "oid": "1.3.6.1.4.1.9.10.57",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-02-11 00:00",
+        "description": "[1] Added acronyms for iSAC codecs [2] Added iSAC enum to CProxyAudioCodec textual convention. [3] Added REFERENCE clause to CProxyAudioCodec textual convention for iSAC codec."
+      },
+      {
+        "revision": "2006-03-12 00:00",
+        "description": "[1] Added acronyms for GSM AMR-NB and iLBC codecs [2] Added iLBC enum to CProxyAudioCodec textual convention. [3] Added REFERENCE clause to CProxyAudioCodec textual convention for GSM AMR-NB and iLBC codecs."
+      },
+      {
+        "revision": "2005-03-06 00:00",
+        "description": "Added gsmAmrNb enum to CProxyAudioCodec textual convention."
+      },
+      {
+        "revision": "2000-02-04 00:00",
+        "description": "First release of this MIB."
+      }
+    ]
+  },
+  "ciscoProxyControlMIBObjects": {
+    "name": "ciscoProxyControlMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.57.1",
+    "class": "objectidentity"
+  },
+  "cProxyCallActive": {
+    "name": "cProxyCallActive",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1",
+    "class": "objectidentity"
+  },
+  "cProxyCallHistory": {
+    "name": "cProxyCallHistory",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2",
+    "class": "objectidentity"
+  },
+  "CProxyEndptType": {
+    "name": "CProxyEndptType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "proxy": 1,
+          "gateway": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CProxyAudioCodec": {
+    "name": "CProxyAudioCodec",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "nonStandard": 1,
+          "g711Alawr64k": 2,
+          "g711Alawr56k": 3,
+          "g711Ulawr64k": 4,
+          "g711Ulawr56k": 5,
+          "g722r64k": 6,
+          "g722r56k": 7,
+          "g722r48k": 8,
+          "g7231": 9,
+          "g728": 10,
+          "g729": 11,
+          "g729AnnexA": 12,
+          "is11172": 13,
+          "is13818": 14,
+          "g729AnnexB": 15,
+          "g729AnnexAB": 16,
+          "g729AnnexC": 17,
+          "gsmFullRate": 18,
+          "gsmHalfRate": 19,
+          "gsmEnhancedFullRate": 20,
+          "gsmAmrNb": 21,
+          "iLBC": 22,
+          "iSAC": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CProxyVideoCodec": {
+    "name": "CProxyVideoCodec",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "nonStandard": 1,
+          "h261": 2,
+          "h262": 3,
+          "h263": 4,
+          "is11172": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cProxyCallActiveTable": {
+    "name": "cProxyCallActiveTable",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cProxyCallActiveEntry": {
+    "name": "cProxyCallActiveEntry",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cProxyCallActiveConnectionId": {
+    "name": "cProxyCallActiveConnectionId",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcGUid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveRemoteIPAddress": {
+    "name": "cProxyCallActiveRemoteIPAddress",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveAudioUDPPort": {
+    "name": "cProxyCallActiveAudioUDPPort",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveVideoUDPPort": {
+    "name": "cProxyCallActiveVideoUDPPort",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveT120TCPPort1": {
+    "name": "cProxyCallActiveT120TCPPort1",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveT120TCPPort2": {
+    "name": "cProxyCallActiveT120TCPPort2",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveT120TCPPort3": {
+    "name": "cProxyCallActiveT120TCPPort3",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveT120TCPPort4": {
+    "name": "cProxyCallActiveT120TCPPort4",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveEndpointType": {
+    "name": "cProxyCallActiveEndpointType",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CProxyEndptType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveEndpointVendor": {
+    "name": "cProxyCallActiveEndpointVendor",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveRequestBandwidth": {
+    "name": "cProxyCallActiveRequestBandwidth",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveActualBandwidth": {
+    "name": "cProxyCallActiveActualBandwidth",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveAudioCoderRate": {
+    "name": "cProxyCallActiveAudioCoderRate",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CProxyAudioCodec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveVideoCoderRate": {
+    "name": "cProxyCallActiveVideoCoderRate",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CProxyVideoCodec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveRxAudioPackets": {
+    "name": "cProxyCallActiveRxAudioPackets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveRxAudioBytes": {
+    "name": "cProxyCallActiveRxAudioBytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveTxAudioPackets": {
+    "name": "cProxyCallActiveTxAudioPackets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveTxAudioBytes": {
+    "name": "cProxyCallActiveTxAudioBytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveRxVideoPackets": {
+    "name": "cProxyCallActiveRxVideoPackets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveRxVideoBytes": {
+    "name": "cProxyCallActiveRxVideoBytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveTxVideoPackets": {
+    "name": "cProxyCallActiveTxVideoPackets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveTxVideoBytes": {
+    "name": "cProxyCallActiveTxVideoBytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveRxT120Packets": {
+    "name": "cProxyCallActiveRxT120Packets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveRxT120Bytes": {
+    "name": "cProxyCallActiveRxT120Bytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveTxT120Packets": {
+    "name": "cProxyCallActiveTxT120Packets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallActiveTxT120Bytes": {
+    "name": "cProxyCallActiveTxT120Bytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryTable": {
+    "name": "cProxyCallHistoryTable",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cProxyCallHistoryEntry": {
+    "name": "cProxyCallHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAL-CONTROL-MIB",
+        "object": "cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cProxyCallHistoryConnectionId": {
+    "name": "cProxyCallHistoryConnectionId",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcGUid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryRemoteIPAddress": {
+    "name": "cProxyCallHistoryRemoteIPAddress",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryAudioUDPPort": {
+    "name": "cProxyCallHistoryAudioUDPPort",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryVideoUDPPort": {
+    "name": "cProxyCallHistoryVideoUDPPort",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryT120TCPPort1": {
+    "name": "cProxyCallHistoryT120TCPPort1",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryT120TCPPort2": {
+    "name": "cProxyCallHistoryT120TCPPort2",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryT120TCPPort3": {
+    "name": "cProxyCallHistoryT120TCPPort3",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryT120TCPPort4": {
+    "name": "cProxyCallHistoryT120TCPPort4",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryEndpointType": {
+    "name": "cProxyCallHistoryEndpointType",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CProxyEndptType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryEndpointVendor": {
+    "name": "cProxyCallHistoryEndpointVendor",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryRequestBandwidth": {
+    "name": "cProxyCallHistoryRequestBandwidth",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryActualBandwidth": {
+    "name": "cProxyCallHistoryActualBandwidth",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryAudioCoderRate": {
+    "name": "cProxyCallHistoryAudioCoderRate",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CProxyAudioCodec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryVideoCoderRate": {
+    "name": "cProxyCallHistoryVideoCoderRate",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CProxyVideoCodec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryRxAudioPackets": {
+    "name": "cProxyCallHistoryRxAudioPackets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryRxAudioBytes": {
+    "name": "cProxyCallHistoryRxAudioBytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryTxAudioPackets": {
+    "name": "cProxyCallHistoryTxAudioPackets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryTxAudioBytes": {
+    "name": "cProxyCallHistoryTxAudioBytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryRxVideoPackets": {
+    "name": "cProxyCallHistoryRxVideoPackets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryRxVideoBytes": {
+    "name": "cProxyCallHistoryRxVideoBytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryTxVideoPackets": {
+    "name": "cProxyCallHistoryTxVideoPackets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryTxVideoBytes": {
+    "name": "cProxyCallHistoryTxVideoBytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryRxT120Packets": {
+    "name": "cProxyCallHistoryRxT120Packets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryRxT120Bytes": {
+    "name": "cProxyCallHistoryRxT120Bytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryTxT120Packets": {
+    "name": "cProxyCallHistoryTxT120Packets",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cProxyCallHistoryTxT120Bytes": {
+    "name": "cProxyCallHistoryTxT120Bytes",
+    "oid": "1.3.6.1.4.1.9.10.57.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoProxyControlMIBNotificationPrefix": {
+    "name": "ciscoProxyControlMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.57.2",
+    "class": "objectidentity"
+  },
+  "ciscoProxyControlMIBNotifications": {
+    "name": "ciscoProxyControlMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.57.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoProxyControlMIBConformance": {
+    "name": "ciscoProxyControlMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.57.3",
+    "class": "objectidentity"
+  },
+  "ciscoProxyControlMIBCompliances": {
+    "name": "ciscoProxyControlMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.57.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoProxyControlMIBGroups": {
+    "name": "ciscoProxyControlMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.57.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoProxyControlMIBCompliance": {
+    "name": "ciscoProxyControlMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.57.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cProxyCallActiveGroup",
+        "module": "CISCO-PROXY-CONTROL-MIB"
+      },
+      {
+        "object": "cProxyCallHistoryGroup",
+        "module": "CISCO-PROXY-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cProxyCallActiveGroup": {
+    "name": "cProxyCallActiveGroup",
+    "oid": "1.3.6.1.4.1.9.10.57.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveConnectionId"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveRemoteIPAddress"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveAudioUDPPort"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveVideoUDPPort"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveT120TCPPort1"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveT120TCPPort2"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveT120TCPPort3"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveT120TCPPort4"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveEndpointType"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveEndpointVendor"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveRequestBandwidth"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveActualBandwidth"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveAudioCoderRate"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveVideoCoderRate"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveRxAudioPackets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveRxAudioBytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveTxAudioPackets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveTxAudioBytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveRxVideoPackets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveRxVideoBytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveTxVideoPackets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveTxVideoBytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveRxT120Packets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveRxT120Bytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveTxT120Packets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallActiveTxT120Bytes"
+      }
+    ],
+    "status": "current"
+  },
+  "cProxyCallHistoryGroup": {
+    "name": "cProxyCallHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.10.57.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryConnectionId"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryRemoteIPAddress"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryAudioUDPPort"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryVideoUDPPort"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryT120TCPPort1"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryT120TCPPort2"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryT120TCPPort3"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryT120TCPPort4"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryEndpointType"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryEndpointVendor"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryRequestBandwidth"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryActualBandwidth"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryAudioCoderRate"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryVideoCoderRate"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryRxAudioPackets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryRxAudioBytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryTxAudioPackets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryTxAudioBytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryRxVideoPackets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryRxVideoBytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryTxVideoPackets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryTxVideoBytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryRxT120Packets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryRxT120Bytes"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryTxT120Packets"
+      },
+      {
+        "module": "CISCO-PROXY-CONTROL-MIB",
+        "object": "cProxyCallHistoryTxT120Bytes"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PROXY-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PROXY-CONTROL-MIB"
+  }
+}

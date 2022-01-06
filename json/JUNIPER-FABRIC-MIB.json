@@ -1,0 +1,449 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "JUNIPER-SMI": [
+      "jnxFabricMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxFabricMib": {
+    "name": "jnxFabricMib",
+    "oid": "1.3.6.1.4.1.2636.3.81.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-10-09 00:00",
+        "description": "Initial"
+      }
+    ]
+  },
+  "jnxFabricMibObjects": {
+    "name": "jnxFabricMibObjects",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1",
+    "class": "objectidentity"
+  },
+  "JnxFabricType": {
+    "name": "JnxFabricType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch-fabric": 1,
+          "linecard": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxFabricStatisticsPriority": {
+    "name": "JnxFabricStatisticsPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 0,
+          "low": 1,
+          "all": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxFabricStatistics": {
+    "name": "jnxFabricStatistics",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxFabricSourceStatisticsTable": {
+    "name": "jnxFabricSourceStatisticsTable",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsEntry": {
+    "name": "jnxFabricSourceStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-FABRIC-MIB",
+        "object": "jnxFabricSourceType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FABRIC-MIB",
+        "object": "jnxFabricSourceSlot",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FABRIC-MIB",
+        "object": "jnxFabricSourcePfe",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FABRIC-MIB",
+        "object": "jnxFabricDestinationType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FABRIC-MIB",
+        "object": "jnxFabricDestinationSlot",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FABRIC-MIB",
+        "object": "jnxFabricDestinationPfe",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FABRIC-MIB",
+        "object": "jnxFabricSourceStatisticsPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFabricSourceType": {
+    "name": "jnxFabricSourceType",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxFabricType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFabricSourceSlot": {
+    "name": "jnxFabricSourceSlot",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFabricSourcePfe": {
+    "name": "jnxFabricSourcePfe",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFabricDestinationType": {
+    "name": "jnxFabricDestinationType",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxFabricType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFabricDestinationSlot": {
+    "name": "jnxFabricDestinationSlot",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFabricDestinationPfe": {
+    "name": "jnxFabricDestinationPfe",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsPriority": {
+    "name": "jnxFabricSourceStatisticsPriority",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxFabricStatisticsPriority",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsPackets": {
+    "name": "jnxFabricSourceStatisticsPackets",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsBytes": {
+    "name": "jnxFabricSourceStatisticsBytes",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsPps": {
+    "name": "jnxFabricSourceStatisticsPps",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsBps": {
+    "name": "jnxFabricSourceStatisticsBps",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsDropPackets": {
+    "name": "jnxFabricSourceStatisticsDropPackets",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsDropBytes": {
+    "name": "jnxFabricSourceStatisticsDropBytes",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsDropPps": {
+    "name": "jnxFabricSourceStatisticsDropPps",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsDropBps": {
+    "name": "jnxFabricSourceStatisticsDropBps",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsQueueDepthAverage": {
+    "name": "jnxFabricSourceStatisticsQueueDepthAverage",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsQueueDepthCurrent": {
+    "name": "jnxFabricSourceStatisticsQueueDepthCurrent",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsQueueDepthPeak": {
+    "name": "jnxFabricSourceStatisticsQueueDepthPeak",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsQueueDepthMaximum": {
+    "name": "jnxFabricSourceStatisticsQueueDepthMaximum",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsErrorPackets": {
+    "name": "jnxFabricSourceStatisticsErrorPackets",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFabricSourceStatisticsErrorPps": {
+    "name": "jnxFabricSourceStatisticsErrorPps",
+    "oid": "1.3.6.1.4.1.2636.3.81.1.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-FABRIC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-FABRIC-MIB"
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DS0BUNDLE-MIB": [
+      "dsx0BundleEntry"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDs0BundleExtMIB": {
+    "name": "ciscoDs0BundleExtMIB",
+    "oid": "1.3.6.1.4.1.9.10.33",
+    "class": "moduleidentity"
+  },
+  "ciscoDs0BundleExtMIBObjects": {
+    "name": "ciscoDs0BundleExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.33.1",
+    "class": "objectidentity"
+  },
+  "cdsx0BundleConfig": {
+    "name": "cdsx0BundleConfig",
+    "oid": "1.3.6.1.4.1.9.10.33.1.1",
+    "class": "objectidentity"
+  },
+  "cdsx0BundleInfo": {
+    "name": "cdsx0BundleInfo",
+    "oid": "1.3.6.1.4.1.9.10.33.1.2",
+    "class": "objectidentity"
+  },
+  "Ds0ChannelList": {
+    "name": "Ds0ChannelList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cdsx0BundleExtTable": {
+    "name": "cdsx0BundleExtTable",
+    "oid": "1.3.6.1.4.1.9.10.33.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsx0BundleExtEntry": {
+    "name": "cdsx0BundleExtEntry",
+    "oid": "1.3.6.1.4.1.9.10.33.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdsx0BundleExtEntry",
+      "module": "CISCO-DS0BUNDLE-EXT-MIB",
+      "object": "dsx0BundleEntry"
+    },
+    "status": "current"
+  },
+  "cdsx0BundleExtDs1Index": {
+    "name": "cdsx0BundleExtDs1Index",
+    "oid": "1.3.6.1.4.1.9.10.33.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsx0BundleExtChannelMap": {
+    "name": "cdsx0BundleExtChannelMap",
+    "oid": "1.3.6.1.4.1.9.10.33.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ds0ChannelList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsx0BundleExtEncapType": {
+    "name": "cdsx0BundleExtEncapType",
+    "oid": "1.3.6.1.4.1.9.10.33.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "atmFuni": 2,
+          "frameRelay": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsx0BundleExtChannelRate": {
+    "name": "cdsx0BundleExtChannelRate",
+    "oid": "1.3.6.1.4.1.9.10.33.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate56": 1,
+          "rate64": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rate64",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsx0BundleUseTable": {
+    "name": "cdsx0BundleUseTable",
+    "oid": "1.3.6.1.4.1.9.10.33.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsx0BundleUseEntry": {
+    "name": "cdsx0BundleUseEntry",
+    "oid": "1.3.6.1.4.1.9.10.33.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsx0BundleUseDs0Used": {
+    "name": "cdsx0BundleUseDs0Used",
+    "oid": "1.3.6.1.4.1.9.10.33.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ds0ChannelList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDs0BundleExtMIBConformance": {
+    "name": "ciscoDs0BundleExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.33.3",
+    "class": "objectidentity"
+  },
+  "ciscoDs0BundleExtMIBCompliances": {
+    "name": "ciscoDs0BundleExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.33.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoDs0BundleExtMIBGroups": {
+    "name": "ciscoDs0BundleExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.33.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoDs0BundleExtMIBCompliance": {
+    "name": "ciscoDs0BundleExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.33.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDs0BundleExtConfigGroup",
+        "module": "CISCO-DS0BUNDLE-EXT-MIB"
+      },
+      {
+        "object": "ciscoDs0BundleExtInfoGroup",
+        "module": "CISCO-DS0BUNDLE-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs0BundleExtConfigGroup": {
+    "name": "ciscoDs0BundleExtConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.33.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS0BUNDLE-EXT-MIB",
+        "object": "cdsx0BundleExtDs1Index"
+      },
+      {
+        "module": "CISCO-DS0BUNDLE-EXT-MIB",
+        "object": "cdsx0BundleExtChannelMap"
+      },
+      {
+        "module": "CISCO-DS0BUNDLE-EXT-MIB",
+        "object": "cdsx0BundleExtEncapType"
+      },
+      {
+        "module": "CISCO-DS0BUNDLE-EXT-MIB",
+        "object": "cdsx0BundleExtChannelRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDs0BundleExtInfoGroup": {
+    "name": "ciscoDs0BundleExtInfoGroup",
+    "oid": "1.3.6.1.4.1.9.10.33.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DS0BUNDLE-EXT-MIB",
+        "object": "cdsx0BundleUseDs0Used"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS0BUNDLE-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DS0BUNDLE-EXT-MIB"
+  }
+}

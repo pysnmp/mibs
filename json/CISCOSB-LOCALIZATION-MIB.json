@@ -1,0 +1,380 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlLocalization": {
+    "name": "rlLocalization",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-15 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlLocalizationActivelanguage": {
+    "name": "rlLocalizationActivelanguage",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlLocalizationLoginlanguage": {
+    "name": "rlLocalizationLoginlanguage",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesTable": {
+    "name": "rlLocalizationLanguagesTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesEntry": {
+    "name": "rlLocalizationLanguagesEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-LOCALIZATION-MIB",
+        "object": "rlLocalizationLanguagesName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlLocalizationLanguagesName": {
+    "name": "rlLocalizationLanguagesName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesUnicodeName": {
+    "name": "rlLocalizationLanguagesUnicodeName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesUrlDir": {
+    "name": "rlLocalizationLanguagesUrlDir",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguagesUrlHelpDir": {
+    "name": "rlLocalizationLanguagesUrlHelpDir",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLanguageCode": {
+    "name": "rlLocalizationLanguageCode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationNumOfSections": {
+    "name": "rlLocalizationNumOfSections",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationNumOfEmbSections": {
+    "name": "rlLocalizationNumOfEmbSections",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationDirection": {
+    "name": "rlLocalizationDirection",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationDateFormat": {
+    "name": "rlLocalizationDateFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationTimeFormat": {
+    "name": "rlLocalizationTimeFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationNumberFormat": {
+    "name": "rlLocalizationNumberFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationShortButtonWidthPercentage": {
+    "name": "rlLocalizationShortButtonWidthPercentage",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationLongButtonWidthPercentage": {
+    "name": "rlLocalizationLongButtonWidthPercentage",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationVersion": {
+    "name": "rlLocalizationVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlLocalizationMd5ChksumFile": {
+    "name": "rlLocalizationMd5ChksumFile",
+    "oid": "1.3.6.1.4.1.9.6.1.101.103.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-LOCALIZATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-LOCALIZATION-MIB"
+  }
+}

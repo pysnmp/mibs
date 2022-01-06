@@ -1,0 +1,1638 @@
+{
+  "imports": {
+    "class": "imports",
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "MERU-SMI": [
+      "mwConfiguration"
+    ],
+    "MERU-TC": [
+      "MwlVpnClientProtocol",
+      "MwlBonding",
+      "MwlVpnConnectivityStatus",
+      "MwlAlarmState",
+      "MwlAvailabilityStatus",
+      "MwlControllerHwType",
+      "MwlRegionSettings",
+      "MwlOperationalState",
+      "MwlOnOffSwitch",
+      "MwlEnableDisableOption"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "enterprises",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "DateAndTime",
+      "TruthValue",
+      "TimeInterval",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mwConfigController": {
+    "name": "mwConfigController",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1",
+    "class": "moduleidentity"
+  },
+  "mwWncVars": {
+    "name": "mwWncVars",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "mwSystemFileVars": {
+    "name": "mwSystemFileVars",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.3",
+    "class": "objectidentity"
+  },
+  "mwVpnServer": {
+    "name": "mwVpnServer",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.10",
+    "class": "objectidentity"
+  },
+  "mwVpnClient": {
+    "name": "mwVpnClient",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "mwWncVarsDescr": {
+    "name": "mwWncVarsDescr",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsLocation": {
+    "name": "mwWncVarsLocation",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsContact": {
+    "name": "mwWncVarsContact",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsAutoApUpgrade": {
+    "name": "mwWncVarsAutoApUpgrade",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsDhcpServer": {
+    "name": "mwWncVarsDhcpServer",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsStatPollingPeriod": {
+    "name": "mwWncVarsStatPollingPeriod",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsAuditPeriod": {
+    "name": "mwWncVarsAuditPeriod",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsApInitScript": {
+    "name": "mwWncVarsApInitScript",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsDhcpRelayPassThroughFlag": {
+    "name": "mwWncVarsDhcpRelayPassThroughFlag",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsManagementFromWirelessClients": {
+    "name": "mwWncVarsManagementFromWirelessClients",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsControllerIndex": {
+    "name": "mwWncVarsControllerIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsFastPath": {
+    "name": "mwWncVarsFastPath",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsBonding": {
+    "name": "mwWncVarsBonding",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlBonding",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsNodeId": {
+    "name": "mwWncVarsNodeId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsHostName": {
+    "name": "mwWncVarsHostName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsUpTime": {
+    "name": "mwWncVarsUpTime",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsOperationalState": {
+    "name": "mwWncVarsOperationalState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsAvailabilityStatus": {
+    "name": "mwWncVarsAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlAvailabilityStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsAlarmState": {
+    "name": "mwWncVarsAlarmState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsVirtualIpAddress": {
+    "name": "mwWncVarsVirtualIpAddress",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsVirtualNetMask": {
+    "name": "mwWncVarsVirtualNetMask",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsDefaultGatewayAddr": {
+    "name": "mwWncVarsDefaultGatewayAddr",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsSoftwareVersion": {
+    "name": "mwWncVarsSoftwareVersion",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsSerialNumber": {
+    "name": "mwWncVarsSerialNumber",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsSystemId": {
+    "name": "mwWncVarsSystemId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsHardwareType": {
+    "name": "mwWncVarsHardwareType",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlControllerHwType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsCountry": {
+    "name": "mwWncVarsCountry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsManSerialNumber": {
+    "name": "mwWncVarsManSerialNumber",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsStationAgingOutPeriod": {
+    "name": "mwWncVarsStationAgingOutPeriod",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsRoamingDomainState": {
+    "name": "mwWncVarsRoamingDomainState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEnableDisableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwWncVarsL3RoutingMode": {
+    "name": "mwWncVarsL3RoutingMode",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsRegion": {
+    "name": "mwWncVarsRegion",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlRegionSettings",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwWncVarsRoamingTimeOutPeriod": {
+    "name": "mwWncVarsRoamingTimeOutPeriod",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwSystemFileVarspHostName": {
+    "name": "mwSystemFileVarspHostName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwSystemFileVarspDnsDomainName": {
+    "name": "mwSystemFileVarspDnsDomainName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamTable": {
+    "name": "mwUdpBcastUpstreamTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamEntry": {
+    "name": "mwUdpBcastUpstreamEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwUdpBcastUpstreamTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamTableIndex": {
+    "name": "mwUdpBcastUpstreamTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamPort": {
+    "name": "mwUdpBcastUpstreamPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamRowStatus": {
+    "name": "mwUdpBcastUpstreamRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamTable": {
+    "name": "mwUdpBcastDownstreamTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamEntry": {
+    "name": "mwUdpBcastDownstreamEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwUdpBcastDownstreamTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamTableIndex": {
+    "name": "mwUdpBcastDownstreamTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamPort": {
+    "name": "mwUdpBcastDownstreamPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamRowStatus": {
+    "name": "mwUdpBcastDownstreamRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDnsServerTable": {
+    "name": "mwDnsServerTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwDnsServerEntry": {
+    "name": "mwDnsServerEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwDnsServerTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwDnsServerTableIndex": {
+    "name": "mwDnsServerTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwDnsServer": {
+    "name": "mwDnsServer",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDnsServerRowStatus": {
+    "name": "mwDnsServerRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncNetworkConfigTable": {
+    "name": "mwWncNetworkConfigTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwWncNetworkConfigEntry": {
+    "name": "mwWncNetworkConfigEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwWncNetworkConfigTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwWncNetworkConfigTableIndex": {
+    "name": "mwWncNetworkConfigTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwWncNetworkConfigFastPath": {
+    "name": "mwWncNetworkConfigFastPath",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncNetworkConfigBonding": {
+    "name": "mwWncNetworkConfigBonding",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlBonding",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncNetworkConfigTenGigModule": {
+    "name": "mwWncNetworkConfigTenGigModule",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEnableDisableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncNetworkConfigRebridHandOffLogic": {
+    "name": "mwWncNetworkConfigRebridHandOffLogic",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncNetworkConfigOneGigSFP": {
+    "name": "mwWncNetworkConfigOneGigSFP",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEnableDisableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncNetworkConfigRowStatus": {
+    "name": "mwWncNetworkConfigRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileTable": {
+    "name": "mwVirtualInterfaceProfileTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileEntry": {
+    "name": "mwVirtualInterfaceProfileEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwVirtualInterfaceProfileTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileTableIndex": {
+    "name": "mwVirtualInterfaceProfileTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileName": {
+    "name": "mwVirtualInterfaceProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileId": {
+    "name": "mwVirtualInterfaceProfileId",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileState": {
+    "name": "mwVirtualInterfaceProfileState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEnableDisableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileSubnetIp": {
+    "name": "mwVirtualInterfaceProfileSubnetIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileSubnetMask": {
+    "name": "mwVirtualInterfaceProfileSubnetMask",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileGatewayIp": {
+    "name": "mwVirtualInterfaceProfileGatewayIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVirtualInterfaceProfileRowStatus": {
+    "name": "mwVirtualInterfaceProfileRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerTable": {
+    "name": "mwDhcpServerTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwDhcpServerEntry": {
+    "name": "mwDhcpServerEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwDhcpServerTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwDhcpServerTableIndex": {
+    "name": "mwDhcpServerTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwDhcpServerName": {
+    "name": "mwDhcpServerName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerVlanName": {
+    "name": "mwDhcpServerVlanName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerVirtualInterfaceProfileName": {
+    "name": "mwDhcpServerVirtualInterfaceProfileName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerState": {
+    "name": "mwDhcpServerState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEnableDisableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerLeaseTime": {
+    "name": "mwDhcpServerLeaseTime",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerIpPoolStart": {
+    "name": "mwDhcpServerIpPoolStart",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerIpPoolEnd": {
+    "name": "mwDhcpServerIpPoolEnd",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerDomainName": {
+    "name": "mwDhcpServerDomainName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerDnsServer1": {
+    "name": "mwDhcpServerDnsServer1",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerDnsServer2": {
+    "name": "mwDhcpServerDnsServer2",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerNetbiosServer1": {
+    "name": "mwDhcpServerNetbiosServer1",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerNetbiosServer2": {
+    "name": "mwDhcpServerNetbiosServer2",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerOption43": {
+    "name": "mwDhcpServerOption43",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwDhcpServerRowStatus": {
+    "name": "mwDhcpServerRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVpnServerState": {
+    "name": "mwVpnServerState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEnableDisableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVpnServerIp": {
+    "name": "mwVpnServerIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVpnServerHostName": {
+    "name": "mwVpnServerHostName",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVpnServerPort": {
+    "name": "mwVpnServerPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVpnServerIpPool": {
+    "name": "mwVpnServerIpPool",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVpnServerSubnetMask": {
+    "name": "mwVpnServerSubnetMask",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwVpnClientState": {
+    "name": "mwVpnClientState",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlEnableDisableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwVpnClientVpnServerIp": {
+    "name": "mwVpnClientVpnServerIp",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwVpnClientVpnServerPort": {
+    "name": "mwVpnClientVpnServerPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwVpnClientStatus": {
+    "name": "mwVpnClientStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlVpnConnectivityStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mwVpnClientProtocol": {
+    "name": "mwVpnClientProtocol",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlVpnClientProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamBridgedTable": {
+    "name": "mwUdpBcastUpstreamBridgedTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamBridgedEntry": {
+    "name": "mwUdpBcastUpstreamBridgedEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwUdpBcastUpstreamBridgedTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamBridgedTableIndex": {
+    "name": "mwUdpBcastUpstreamBridgedTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamBridgedPort": {
+    "name": "mwUdpBcastUpstreamBridgedPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwUdpBcastUpstreamBridgedRowStatus": {
+    "name": "mwUdpBcastUpstreamBridgedRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamBridgedTable": {
+    "name": "mwUdpBcastDownstreamBridgedTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamBridgedEntry": {
+    "name": "mwUdpBcastDownstreamBridgedEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwUdpBcastDownstreamBridgedTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamBridgedTableIndex": {
+    "name": "mwUdpBcastDownstreamBridgedTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamBridgedPort": {
+    "name": "mwUdpBcastDownstreamBridgedPort",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwUdpBcastDownstreamBridgedRowStatus": {
+    "name": "mwUdpBcastDownstreamBridgedRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncMobilityVarsTable": {
+    "name": "mwWncMobilityVarsTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwWncMobilityVarsEntry": {
+    "name": "mwWncMobilityVarsEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwWncMobilityVarsTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwWncMobilityVarsTableIndex": {
+    "name": "mwWncMobilityVarsTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwWncMobilityVarsTopoUpdate": {
+    "name": "mwWncMobilityVarsTopoUpdate",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncMobilityVarsAssocStationMaxIdlePeriod": {
+    "name": "mwWncMobilityVarsAssocStationMaxIdlePeriod",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncMobilityVarsAdequateRssi": {
+    "name": "mwWncMobilityVarsAdequateRssi",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -75,
+            "max": -25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncMobilityVarsRowStatus": {
+    "name": "mwWncMobilityVarsRowStatus",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mwWncIpv6VarsTable": {
+    "name": "mwWncIpv6VarsTable",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwWncIpv6VarsEntry": {
+    "name": "mwWncIpv6VarsEntry",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MERU-CONFIG-CONTROLLER-MIB",
+        "object": "mwWncIpv6VarsTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mwWncIpv6VarsTableIndex": {
+    "name": "mwWncIpv6VarsTableIndex",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mwWncIpv6VarsNeighborDiscOptimization": {
+    "name": "mwWncIpv6VarsNeighborDiscOptimization",
+    "oid": "1.3.6.1.4.1.15983.1.1.4.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MwlOnOffSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-CONTROLLER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MERU-CONFIG-CONTROLLER-MIB"
+  }
+}

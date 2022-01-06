@@ -1,0 +1,799 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwInfoCenter": {
+    "name": "hwInfoCenter",
+    "oid": "1.3.6.1.4.1.2011.5.25.212",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 17:54",
+        "description": "Add hwICLogFileNumThrd."
+      },
+      {
+        "revision": "2017-05-16 21:04",
+        "description": "Add hwICLogFileNumThrd."
+      },
+      {
+        "revision": "2017-05-11 20:18",
+        "description": "Add hwICLogFileStorageThreshold."
+      },
+      {
+        "revision": "2016-05-28 14:47",
+        "description": "Add oper(3) and security(4)."
+      },
+      {
+        "revision": "2016-05-27 14:47",
+        "description": "Add hwICLogWriteFail and hwICLogWriteFailCleared . "
+      },
+      {
+        "revision": "2015-08-17 15:44",
+        "description": "Add hwICLogBufferLose."
+      },
+      {
+        "revision": "2014-08-05 11:50",
+        "description": "Add hwICInsufficientSpace."
+      },
+      {
+        "revision": "2014-12-16 17:06",
+        "description": "To compile on linux"
+      },
+      {
+        "revision": "2013-07-11 16:40",
+        "description": "The initial revision of this MIB module ."
+      },
+      {
+        "revision": "2013-07-05 17:10",
+        "description": "The initial revision of this MIB module ."
+      },
+      {
+        "revision": "2011-08-08 12:00",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "HWMessageLevel": {
+    "name": "HWMessageLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergencies": 0,
+          "alerts": 1,
+          "critical": 2,
+          "errors": 3,
+          "warnings": 4,
+          "notifications": 5,
+          "informational": 6,
+          "debugging": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWFacilityType": {
+    "name": "HWFacilityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local0": 16,
+          "local1": 17,
+          "local2": 18,
+          "local3": 19,
+          "local4": 20,
+          "local5": 21,
+          "local6": 22,
+          "local7": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwInfoCenterObjects": {
+    "name": "hwInfoCenterObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1",
+    "class": "objectidentity"
+  },
+  "hwICEnable": {
+    "name": "hwICEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwICLoghost": {
+    "name": "hwICLoghost",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2",
+    "class": "objectidentity"
+  },
+  "hwICLoghostSourceInterface": {
+    "name": "hwICLoghostSourceInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwICLoghostTable": {
+    "name": "hwICLoghostTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwICLoghostEntry": {
+    "name": "hwICLoghostEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLoghostIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLoghostIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLoghostVpnInstance",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hwICLoghostIpAddressType": {
+    "name": "hwICLoghostIpAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwICLoghostIpAddress": {
+    "name": "hwICLoghostIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwICLoghostVpnInstance": {
+    "name": "hwICLoghostVpnInstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwICLoghostChannel": {
+    "name": "hwICLoghostChannel",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwICLoghostFacility": {
+    "name": "hwICLoghostFacility",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWFacilityType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "local7",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwICLoghostLanguage": {
+    "name": "hwICLoghostLanguage",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chinese": 1,
+          "english": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "english",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwICLoghostRowStatus": {
+    "name": "hwICLoghostRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwICChannel": {
+    "name": "hwICChannel",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3",
+    "class": "objectidentity"
+  },
+  "hwICChannelTable": {
+    "name": "hwICChannelTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwICChannelEntry": {
+    "name": "hwICChannelEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwICChannelIndex": {
+    "name": "hwICChannelIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwICChannelName": {
+    "name": "hwICChannelName",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwICModule": {
+    "name": "hwICModule",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4",
+    "class": "objectidentity"
+  },
+  "hwICModuleTable": {
+    "name": "hwICModuleTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwICModuleEntry": {
+    "name": "hwICModuleEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwICModuleIndex": {
+    "name": "hwICModuleIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwICModuleName": {
+    "name": "hwICModuleName",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwICLogFilter": {
+    "name": "hwICLogFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5",
+    "class": "objectidentity"
+  },
+  "hwICLogFilterTable": {
+    "name": "hwICLogFilterTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwICLogFilterEntry": {
+    "name": "hwICLogFilterEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICModuleName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hwICLogFilterState": {
+    "name": "hwICLogFilterState",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwICLogFilterLevel": {
+    "name": "hwICLogFilterLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWMessageLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwICLogFilterRowStatus": {
+    "name": "hwICLogFilterRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwICLogFile": {
+    "name": "hwICLogFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6",
+    "class": "objectidentity"
+  },
+  "hwICLogFileType": {
+    "name": "hwICLogFileType",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "log": 1,
+          "diag": 2,
+          "oper": 3,
+          "security": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwICLogFileName": {
+    "name": "hwICLogFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwICLogFileStorageUsage": {
+    "name": "hwICLogFileStorageUsage",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwICLogFileCurNum": {
+    "name": "hwICLogFileCurNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwICLogFileThrdNum": {
+    "name": "hwICLogFileThrdNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwInfoCenterNotifications": {
+    "name": "hwInfoCenterNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2",
+    "class": "objectidentity"
+  },
+  "hwICLogFileStorageThrd": {
+    "name": "hwICLogFileStorageThrd",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwICLogFileAging": {
+    "name": "hwICLogFileAging",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwICInsufficientSpace": {
+    "name": "hwICInsufficientSpace",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwICLogBufferLose": {
+    "name": "hwICLogBufferLose",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwICLogWriteFail": {
+    "name": "hwICLogWriteFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwICLogWriteFailCleared": {
+    "name": "hwICLogWriteFailCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwICLogFileStorageThreshold": {
+    "name": "hwICLogFileStorageThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileStorageUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "hwICLogFileNumThrd": {
+    "name": "hwICLogFileNumThrd",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileType"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileCurNum"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileThrdNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoCenterConformance": {
+    "name": "hwInfoCenterConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3",
+    "class": "objectidentity"
+  },
+  "hwInfoCenterCompliances": {
+    "name": "hwInfoCenterCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.1",
+    "class": "objectidentity"
+  },
+  "hwInfoCenterCompliance": {
+    "name": "hwInfoCenterCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwInfoCenterGroup",
+        "module": "HUAWEI-INFOCENTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoCenterGroups": {
+    "name": "hwInfoCenterGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.2",
+    "class": "objectidentity"
+  },
+  "hwInfoCenterGroup": {
+    "name": "hwInfoCenterGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICEnable"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLoghostSourceInterface"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileType"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoCenterTrapGroup": {
+    "name": "hwInfoCenterTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileStorageThrd"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileAging"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogBufferLose"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogWriteFail"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogWriteFailCleared"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileNumThrd"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-INFOCENTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-INFOCENTER-MIB"
+  }
+}

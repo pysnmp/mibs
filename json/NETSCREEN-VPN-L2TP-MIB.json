@@ -1,0 +1,677 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenVpnMibModule",
+      "netscreenVpn"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netscreenVpnL2tpMibModule": {
+    "name": "netscreenVpnL2tpMibModule",
+    "oid": "1.3.6.1.4.1.3224.4.0.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2000-08-27 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "nsVpnL2TP": {
+    "name": "nsVpnL2TP",
+    "oid": "1.3.6.1.4.1.3224.4.8",
+    "class": "objectidentity"
+  },
+  "nsVpnL2tpDefTable": {
+    "name": "nsVpnL2tpDefTable",
+    "oid": "1.3.6.1.4.1.3224.4.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVpnL2tpDefEntry": {
+    "name": "nsVpnL2tpDefEntry",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VPN-L2TP-MIB",
+        "object": "nsVpnL2tpDefVsys",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVpnL2tpDefVsys": {
+    "name": "nsVpnL2tpDefVsys",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpDefPool": {
+    "name": "nsVpnL2tpDefPool",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpDefAuthDb": {
+    "name": "nsVpnL2tpDefAuthDb",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 0,
+          "radius": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpDefPPPAuth": {
+    "name": "nsVpnL2tpDefPPPAuth",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pap": 1,
+          "chap": 2,
+          "any": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpDefRadServer": {
+    "name": "nsVpnL2tpDefRadServer",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpDefPriDns": {
+    "name": "nsVpnL2tpDefPriDns",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpDefSecDns": {
+    "name": "nsVpnL2tpDefSecDns",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpDefPriWins": {
+    "name": "nsVpnL2tpDefPriWins",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpDefSecWins": {
+    "name": "nsVpnL2tpDefSecWins",
+    "oid": "1.3.6.1.4.1.3224.4.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpTunnelTable": {
+    "name": "nsVpnL2tpTunnelTable",
+    "oid": "1.3.6.1.4.1.3224.4.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVpnL2tpTunnelEntry": {
+    "name": "nsVpnL2tpTunnelEntry",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VPN-L2TP-MIB",
+        "object": "nsVpnL2tpTunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVpnL2tpTunIndex": {
+    "name": "nsVpnL2tpTunIndex",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpTunId": {
+    "name": "nsVpnL2tpTunId",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpTunName": {
+    "name": "nsVpnL2tpTunName",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpTunUsrOrGroup": {
+    "name": "nsVpnL2tpTunUsrOrGroup",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpTunPeerIp": {
+    "name": "nsVpnL2tpTunPeerIp",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpTunHost": {
+    "name": "nsVpnL2tpTunHost",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpTunKeepAlive": {
+    "name": "nsVpnL2tpTunKeepAlive",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpTunVsys": {
+    "name": "nsVpnL2tpTunVsys",
+    "oid": "1.3.6.1.4.1.3224.4.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunnelTable": {
+    "name": "nsVpnL2tpMonTunnelTable",
+    "oid": "1.3.6.1.4.1.3224.4.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunnelEntry": {
+    "name": "nsVpnL2tpMonTunnelEntry",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VPN-L2TP-MIB",
+        "object": "nsVpnL2tpMonTunId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunId": {
+    "name": "nsVpnL2tpMonTunId",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunPeerId": {
+    "name": "nsVpnL2tpMonTunPeerId",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunName": {
+    "name": "nsVpnL2tpMonTunName",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunPeerIp": {
+    "name": "nsVpnL2tpMonTunPeerIp",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunPort": {
+    "name": "nsVpnL2tpMonTunPort",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunPeerHost": {
+    "name": "nsVpnL2tpMonTunPeerHost",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunCalls": {
+    "name": "nsVpnL2tpMonTunCalls",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunState": {
+    "name": "nsVpnL2tpMonTunState",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "wait-reply": 2,
+          "wait-conn": 3,
+          "establish": 4,
+          "dead": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonTunVsys": {
+    "name": "nsVpnL2tpMonTunVsys",
+    "oid": "1.3.6.1.4.1.3224.4.8.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallTable": {
+    "name": "nsVpnL2tpMonCallTable",
+    "oid": "1.3.6.1.4.1.3224.4.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallEntry": {
+    "name": "nsVpnL2tpMonCallEntry",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VPN-L2TP-MIB",
+        "object": "nsVpnL2tpMonCallTunId",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VPN-L2TP-MIB",
+        "object": "nsVpnL2tpMonCallId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallTunId": {
+    "name": "nsVpnL2tpMonCallTunId",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallId": {
+    "name": "nsVpnL2tpMonCallId",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallPeerId": {
+    "name": "nsVpnL2tpMonCallPeerId",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallIp": {
+    "name": "nsVpnL2tpMonCallIp",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallUser": {
+    "name": "nsVpnL2tpMonCallUser",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallType": {
+    "name": "nsVpnL2tpMonCallType",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "incoming": 2,
+          "outgoing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallState": {
+    "name": "nsVpnL2tpMonCallState",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "wait-conn": 2,
+          "establish": 3,
+          "wait-tunnel": 4,
+          "wait-reply": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallEstTime": {
+    "name": "nsVpnL2tpMonCallEstTime",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnL2tpMonCallVsys": {
+    "name": "nsVpnL2tpMonCallVsys",
+    "oid": "1.3.6.1.4.1.3224.4.8.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-VPN-L2TP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-VPN-L2TP-MIB"
+  }
+}

@@ -1,0 +1,789 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-SFPS-INCLUDE-MIB": [
+      "sfpsSap",
+      "sfpsCallByTuple",
+      "sfpsSapAPI",
+      "sfpsCallTableStats"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "HexInteger": {
+    "name": "HexInteger",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "sfpsSapTable": {
+    "name": "sfpsSapTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsSapTableEntry": {
+    "name": "sfpsSapTableEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-CALL-MIB",
+        "object": "sfpsSapTableTag",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-CALL-MIB",
+        "object": "sfpsSapTableHash",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-CALL-MIB",
+        "object": "sfpsSapTableHashIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsSapTableTag": {
+    "name": "sfpsSapTableTag",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableHash": {
+    "name": "sfpsSapTableHash",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableHashIndex": {
+    "name": "sfpsSapTableHashIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableSourceCP": {
+    "name": "sfpsSapTableSourceCP",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableDestCP": {
+    "name": "sfpsSapTableDestCP",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableSAP": {
+    "name": "sfpsSapTableSAP",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableOperStatus": {
+    "name": "sfpsSapTableOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableAdminStatus": {
+    "name": "sfpsSapTableAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableStateTime": {
+    "name": "sfpsSapTableStateTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableDescription": {
+    "name": "sfpsSapTableDescription",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableNumAccepted": {
+    "name": "sfpsSapTableNumAccepted",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableNumDropped": {
+    "name": "sfpsSapTableNumDropped",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapTableUnicastSap": {
+    "name": "sfpsSapTableUnicastSap",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSapTableNVStatus": {
+    "name": "sfpsSapTableNVStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3,
+          "unset": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapAPIVerb": {
+    "name": "sfpsSapAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "getStatus": 1,
+          "next": 2,
+          "first": 3,
+          "disable": 4,
+          "disableInNvram": 5,
+          "enable": 6,
+          "enableInNvram": 7,
+          "clearFromNvram": 8,
+          "clearAllNvram": 9,
+          "resetStats": 10,
+          "resetAllStats": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSapAPISourceCP": {
+    "name": "sfpsSapAPISourceCP",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSapAPIDestCP": {
+    "name": "sfpsSapAPIDestCP",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSapAPISAP": {
+    "name": "sfpsSapAPISAP",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSapAPINVStatus": {
+    "name": "sfpsSapAPINVStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3,
+          "unset": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapAPIAdminStatus": {
+    "name": "sfpsSapAPIAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapAPIOperStatus": {
+    "name": "sfpsSapAPIOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapAPINvSet": {
+    "name": "sfpsSapAPINvSet",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapAPINVTotal": {
+    "name": "sfpsSapAPINVTotal",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsSapAPINumAccept": {
+    "name": "sfpsSapAPINumAccept",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapAPINvDiscard": {
+    "name": "sfpsSapAPINvDiscard",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsSapAPIDefaultStatus": {
+    "name": "sfpsSapAPIDefaultStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.2.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleTable": {
+    "name": "sfpsCallByTupleTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleEntry": {
+    "name": "sfpsCallByTupleEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-CALL-MIB",
+        "object": "sfpsCallByTupleInPort",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-CALL-MIB",
+        "object": "sfpsCallByTupleSrcHash",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-CALL-MIB",
+        "object": "sfpsCallByTupleDstHash",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-CALL-MIB",
+        "object": "sfpsCallByTupleHashIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleInPort": {
+    "name": "sfpsCallByTupleInPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleSrcHash": {
+    "name": "sfpsCallByTupleSrcHash",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleDstHash": {
+    "name": "sfpsCallByTupleDstHash",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleHashIndex": {
+    "name": "sfpsCallByTupleHashIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleBotSrcType": {
+    "name": "sfpsCallByTupleBotSrcType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleBotSrcAddress": {
+    "name": "sfpsCallByTupleBotSrcAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleBotDstType": {
+    "name": "sfpsCallByTupleBotDstType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleBotDstAddress": {
+    "name": "sfpsCallByTupleBotDstAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleTopSrcType": {
+    "name": "sfpsCallByTupleTopSrcType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleTopSrcAddress": {
+    "name": "sfpsCallByTupleTopSrcAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleTopDstType": {
+    "name": "sfpsCallByTupleTopDstType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleTopDstAddress": {
+    "name": "sfpsCallByTupleTopDstAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleCallProcName": {
+    "name": "sfpsCallByTupleCallProcName",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleCallTag": {
+    "name": "sfpsCallByTupleCallTag",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleCallState": {
+    "name": "sfpsCallByTupleCallState",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallByTupleTimeRemaining": {
+    "name": "sfpsCallByTupleTimeRemaining",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallTableStatsRam": {
+    "name": "sfpsCallTableStatsRam",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallTableStatsSize": {
+    "name": "sfpsCallTableStatsSize",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallTableStatsInUse": {
+    "name": "sfpsCallTableStatsInUse",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallTableStatsMax": {
+    "name": "sfpsCallTableStatsMax",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallTableStatsTotMisses": {
+    "name": "sfpsCallTableStatsTotMisses",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallTableStatsMissStart": {
+    "name": "sfpsCallTableStatsMissStart",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallTableStatsMissStop": {
+    "name": "sfpsCallTableStatsMissStop",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCallTableStatsLastMiss": {
+    "name": "sfpsCallTableStatsLastMiss",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.2.5.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-CALL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-SFPS-CALL-MIB"
+  }
+}

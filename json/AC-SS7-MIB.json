@@ -1,0 +1,5828 @@
+{
+  "imports": {
+    "class": "imports",
+    "AUDIOCODES-TYPES-MIB": [
+      "audioCodes",
+      "acGeneric",
+      "acRegistrations",
+      "acProducts",
+      "acBoardMibs"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TAddress",
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "acSS7": {
+    "name": "acSS7",
+    "oid": "1.3.6.1.4.1.5003.9.10.12",
+    "class": "moduleidentity"
+  },
+  "acSS7Configuration": {
+    "name": "acSS7Configuration",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1",
+    "class": "objectidentity"
+  },
+  "acSS7MTP2": {
+    "name": "acSS7MTP2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1",
+    "class": "objectidentity"
+  },
+  "acSS7MTP2M3bSlDiscardCongThreshold": {
+    "name": "acSS7MTP2M3bSlDiscardCongThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTable": {
+    "name": "acSS7MTP2AttribTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7MTP2AttribEntry": {
+    "name": "acSS7MTP2AttribEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7MTP2AttribIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7MTP2AttribIndex": {
+    "name": "acSS7MTP2AttribIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7MTP2AttribIsUsed": {
+    "name": "acSS7MTP2AttribIsUsed",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7MTP2AttribLinkRate": {
+    "name": "acSS7MTP2AttribLinkRate",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribErrorCorectionMethod": {
+    "name": "acSS7MTP2AttribErrorCorectionMethod",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribIacCp": {
+    "name": "acSS7MTP2AttribIacCp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribSUERMThreshold": {
+    "name": "acSS7MTP2AttribSUERMThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribAERMNormalThreshold": {
+    "name": "acSS7MTP2AttribAERMNormalThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribAERMEmerglThreshold": {
+    "name": "acSS7MTP2AttribAERMEmerglThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribSUERMSigUnitDThreshold": {
+    "name": "acSS7MTP2AttribSUERMSigUnitDThreshold",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribOctetCounting": {
+    "name": "acSS7MTP2AttribOctetCounting",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTimerT1": {
+    "name": "acSS7MTP2AttribTimerT1",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTimerT2": {
+    "name": "acSS7MTP2AttribTimerT2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTimerT3": {
+    "name": "acSS7MTP2AttribTimerT3",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTimerT4Normal": {
+    "name": "acSS7MTP2AttribTimerT4Normal",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTimerT4Emerg": {
+    "name": "acSS7MTP2AttribTimerT4Emerg",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTimerT5": {
+    "name": "acSS7MTP2AttribTimerT5",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTimerT6": {
+    "name": "acSS7MTP2AttribTimerT6",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribTimerT7": {
+    "name": "acSS7MTP2AttribTimerT7",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribLSSULength": {
+    "name": "acSS7MTP2AttribLSSULength",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribPcrN2": {
+    "name": "acSS7MTP2AttribPcrN2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7MTP2AttribRowStatus": {
+    "name": "acSS7MTP2AttribRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.1.21.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7Timers": {
+    "name": "acSS7Timers",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2",
+    "class": "objectidentity"
+  },
+  "acSS7SignalingNodeTimersTable": {
+    "name": "acSS7SignalingNodeTimersTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersEntry": {
+    "name": "acSS7SignalingNodeTimersEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7SignalingNodeTimersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersIndex": {
+    "name": "acSS7SignalingNodeTimersIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersIsUsed": {
+    "name": "acSS7SignalingNodeTimersIsUsed",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersAction": {
+    "name": "acSS7SignalingNodeTimersAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersActionResult": {
+    "name": "acSS7SignalingNodeTimersActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersName": {
+    "name": "acSS7SignalingNodeTimersName",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT6": {
+    "name": "acSS7SignalingNodeTimersT6",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT8": {
+    "name": "acSS7SignalingNodeTimersT8",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT10": {
+    "name": "acSS7SignalingNodeTimersT10",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT11": {
+    "name": "acSS7SignalingNodeTimersT11",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT15": {
+    "name": "acSS7SignalingNodeTimersT15",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT16": {
+    "name": "acSS7SignalingNodeTimersT16",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT18ITU": {
+    "name": "acSS7SignalingNodeTimersT18ITU",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT19ITU": {
+    "name": "acSS7SignalingNodeTimersT19ITU",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT20ITU": {
+    "name": "acSS7SignalingNodeTimersT20ITU",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT21ITU": {
+    "name": "acSS7SignalingNodeTimersT21ITU",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT24ITU": {
+    "name": "acSS7SignalingNodeTimersT24ITU",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT22ANSI": {
+    "name": "acSS7SignalingNodeTimersT22ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT23ANSI": {
+    "name": "acSS7SignalingNodeTimersT23ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT24ANSI": {
+    "name": "acSS7SignalingNodeTimersT24ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT25ANSI": {
+    "name": "acSS7SignalingNodeTimersT25ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT26ANSI": {
+    "name": "acSS7SignalingNodeTimersT26ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT27ANSI": {
+    "name": "acSS7SignalingNodeTimersT27ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT28ANSI": {
+    "name": "acSS7SignalingNodeTimersT28ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT29ANSI": {
+    "name": "acSS7SignalingNodeTimersT29ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersT30ANSI": {
+    "name": "acSS7SignalingNodeTimersT30ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.21.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersTable": {
+    "name": "acSS7LinkSetTimersTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersEntry": {
+    "name": "acSS7LinkSetTimersEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkSetTimersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7LinkSetTimersIndex": {
+    "name": "acSS7LinkSetTimersIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersIsUsed": {
+    "name": "acSS7LinkSetTimersIsUsed",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersAction": {
+    "name": "acSS7LinkSetTimersAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersActionResult": {
+    "name": "acSS7LinkSetTimersActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersName": {
+    "name": "acSS7LinkSetTimersName",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT1SLT": {
+    "name": "acSS7LinkSetTimersT1SLT",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT2SLT": {
+    "name": "acSS7LinkSetTimersT2SLT",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT1": {
+    "name": "acSS7LinkSetTimersT1",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT2": {
+    "name": "acSS7LinkSetTimersT2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT3": {
+    "name": "acSS7LinkSetTimersT3",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT4": {
+    "name": "acSS7LinkSetTimersT4",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT5": {
+    "name": "acSS7LinkSetTimersT5",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT7": {
+    "name": "acSS7LinkSetTimersT7",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT12": {
+    "name": "acSS7LinkSetTimersT12",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT13": {
+    "name": "acSS7LinkSetTimersT13",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT14": {
+    "name": "acSS7LinkSetTimersT14",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT17": {
+    "name": "acSS7LinkSetTimersT17",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT20ANSI": {
+    "name": "acSS7LinkSetTimersT20ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT21ANSI": {
+    "name": "acSS7LinkSetTimersT21ANSI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT22ITU": {
+    "name": "acSS7LinkSetTimersT22ITU",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersT23ITU": {
+    "name": "acSS7LinkSetTimersT23ITU",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.2.22.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7Links": {
+    "name": "acSS7Links",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3",
+    "class": "objectidentity"
+  },
+  "acSS7LinkCommonTable": {
+    "name": "acSS7LinkCommonTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkCommonEntry": {
+    "name": "acSS7LinkCommonEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkCommonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7LinkCommonIndex": {
+    "name": "acSS7LinkCommonIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkCommonRowStatus": {
+    "name": "acSS7LinkCommonRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkCommonAction": {
+    "name": "acSS7LinkCommonAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "offLine": 1,
+          "inService": 2,
+          "activate": 3,
+          "deActivate": 4,
+          "inhibit": 5,
+          "unInhibit": 6,
+          "lpo": 7,
+          "lpr": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkCommonActionResult": {
+    "name": "acSS7LinkCommonActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkCommonName": {
+    "name": "acSS7LinkCommonName",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkCommonAdminState": {
+    "name": "acSS7LinkCommonAdminState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkCommonOperState": {
+    "name": "acSS7LinkCommonOperState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "busy": 1,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkCommonTraceLevel": {
+    "name": "acSS7LinkCommonTraceLevel",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "traceLevel0": 0,
+          "traceLevel1": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkCommonL2TypeSelector": {
+    "name": "acSS7LinkCommonL2TypeSelector",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonetype-L2": 0,
+          "mtp2": 1,
+          "m2ua-mgc": 2,
+          "ss7monitoring": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkCommonL3TypeSelector": {
+    "name": "acSS7LinkCommonL3TypeSelector",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonetype-L3": 0,
+          "m2ua-sg": 1,
+          "mtp3": 2,
+          "mtp2-tunneling": 3,
+          "mtp2OverIP": 4,
+          "ss7monitoring": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkCommonVariant": {
+    "name": "acSS7LinkCommonVariant",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "itu": 1,
+          "ansi": 2,
+          "china": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkCommonMtcBusy": {
+    "name": "acSS7LinkCommonMtcBusy",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkCommonRdcyBoardNum": {
+    "name": "acSS7LinkCommonRdcyBoardNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rdcyBoardNum0": 0,
+          "rdcyBoardNum1": 1,
+          "rdcyBoardNum2": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkCommonMonSuFilterRequest": {
+    "name": "acSS7LinkCommonMonSuFilterRequest",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "filterAll": 0,
+          "filterLSSUandFISU": 1,
+          "filterFISU": 2,
+          "noFilter": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTDMTable": {
+    "name": "acSS7LinkTDMTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkTDMEntry": {
+    "name": "acSS7LinkTDMEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkCommonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7LinkTDMTrunkNumber": {
+    "name": "acSS7LinkTDMTrunkNumber",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 84
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTDMTimeSlotNumber": {
+    "name": "acSS7LinkTDMTimeSlotNumber",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTDMInhibit": {
+    "name": "acSS7LinkTDMInhibit",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unInhibited": 0,
+          "inhibited": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkTDMMtp2Atts": {
+    "name": "acSS7LinkTDMMtp2Atts",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mtp2Atts0": 0,
+          "mtp2Atts1": 1,
+          "mtp2Atts2": 2,
+          "mtp2Atts3": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTDMCongestionLowMark": {
+    "name": "acSS7LinkTDMCongestionLowMark",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTDMCongestionHighMark": {
+    "name": "acSS7LinkTDMCongestionHighMark",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTDMBlock": {
+    "name": "acSS7LinkTDMBlock",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l3linkunblocked": 0,
+          "l3linklocalblocked": 1,
+          "l3linkremoteblockde": 2,
+          "l3linklocalandremotelocked": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkSigTranTable": {
+    "name": "acSS7LinkSigTranTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSigTranEntry": {
+    "name": "acSS7LinkSigTranEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkCommonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7LinkSigTranGroupId": {
+    "name": "acSS7LinkSigTranGroupId",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSigTranIfid": {
+    "name": "acSS7LinkSigTranIfid",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkATMTable": {
+    "name": "acSS7LinkATMTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "acSS7LinkATMEntry": {
+    "name": "acSS7LinkATMEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkCommonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "acSS7LinkATMSAALLinkProfileNum": {
+    "name": "acSS7LinkATMSAALLinkProfileNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7LinkATMSAALLinkType": {
+    "name": "acSS7LinkATMSAALLinkType",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aTM-VCC-Type-PVC": 0,
+          "aTM-VCC-Type-SVC": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7LinkATMSAALLinkInterfaceNum": {
+    "name": "acSS7LinkATMSAALLinkInterfaceNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7LinkATMSAALLinkVPI": {
+    "name": "acSS7LinkATMSAALLinkVPI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7LinkATMSAALLinkVCI": {
+    "name": "acSS7LinkATMSAALLinkVCI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7LinkTNLTable": {
+    "name": "acSS7LinkTNLTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkTNLEntry": {
+    "name": "acSS7LinkTNLEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkCommonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7LinkTNLOtherSideLinkNum": {
+    "name": "acSS7LinkTNLOtherSideLinkNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTNLAlignmentMode": {
+    "name": "acSS7LinkTNLAlignmentMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "emergency": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTNLCongestionMode": {
+    "name": "acSS7LinkTNLCongestionMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accept": 0,
+          "discard": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTNLWaitStartCompTimer": {
+    "name": "acSS7LinkTNLWaitStartCompTimer",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTNLOosStartDelayTimer": {
+    "name": "acSS7LinkTNLOosStartDelayTimer",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkTNLWaitOtherSideInsvTimer": {
+    "name": "acSS7LinkTNLWaitOtherSideInsvTimer",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.3.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7Nodes": {
+    "name": "acSS7Nodes",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4",
+    "class": "objectidentity"
+  },
+  "acSS7SignalingNodeTable": {
+    "name": "acSS7SignalingNodeTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SignalingNodeEntry": {
+    "name": "acSS7SignalingNodeEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7SignalingNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7SignalingNodeIndex": {
+    "name": "acSS7SignalingNodeIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SignalingNodeRowStatus": {
+    "name": "acSS7SignalingNodeRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeAction": {
+    "name": "acSS7SignalingNodeAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "stop": 1,
+          "start": 2,
+          "inService": 3,
+          "offLine": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeActionResult": {
+    "name": "acSS7SignalingNodeActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SignalingNodeName": {
+    "name": "acSS7SignalingNodeName",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTraceLevel": {
+    "name": "acSS7SignalingNodeTraceLevel",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "traceLevel0": 0,
+          "traceLevel1": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeAdminState": {
+    "name": "acSS7SignalingNodeAdminState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SignalingNodeOperState": {
+    "name": "acSS7SignalingNodeOperState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "busy": 1,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SignalingNodeMtcBusy": {
+    "name": "acSS7SignalingNodeMtcBusy",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SignalingNodeVariant": {
+    "name": "acSS7SignalingNodeVariant",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "itu": 1,
+          "ansi": 2,
+          "china": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeNwIndicator": {
+    "name": "acSS7SignalingNodeNwIndicator",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "international": 0,
+          "internationalSpare": 1,
+          "national": 2,
+          "nationalSpare": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeSpStp": {
+    "name": "acSS7SignalingNodeSpStp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sp": 0,
+          "stp": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTfc": {
+    "name": "acSS7SignalingNodeTfc",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeOpc": {
+    "name": "acSS7SignalingNodeOpc",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeRouteSetCongestionWindow": {
+    "name": "acSS7SignalingNodeRouteSetCongestionWindow",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTimersIdx": {
+    "name": "acSS7SignalingNodeTimersIdx",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timersIdx0": 0,
+          "timersIdx1": 1,
+          "timersIdx2": 2,
+          "timersIdx3": 3,
+          "timersIdx4": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeIsupApp": {
+    "name": "acSS7SignalingNodeIsupApp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nill": 0,
+          "ual": 4,
+          "l4Gen": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeSccpApp": {
+    "name": "acSS7SignalingNodeSccpApp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nill": 0,
+          "ual": 4,
+          "l4Gen": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeBisupApp": {
+    "name": "acSS7SignalingNodeBisupApp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nill": 0,
+          "ual": 4,
+          "l4Gen": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeAlcapApp": {
+    "name": "acSS7SignalingNodeAlcapApp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nill": 0,
+          "ual": 4,
+          "alcap": 5,
+          "l4Gen": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "acSS7SignalingNodeRdcyOpc": {
+    "name": "acSS7SignalingNodeRdcyOpc",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SignalingNodeTupApp": {
+    "name": "acSS7SignalingNodeTupApp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nill": 0,
+          "ual": 4,
+          "l4Gen": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SignalingNodeBiccApp": {
+    "name": "acSS7SignalingNodeBiccApp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.21.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nil": 0,
+          "ual": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSets": {
+    "name": "acSS7LinkSets",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31",
+    "class": "objectidentity"
+  },
+  "acSS7LinkSetTable": {
+    "name": "acSS7LinkSetTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetEntry": {
+    "name": "acSS7LinkSetEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkSetSNIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkSetLksetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7LinkSetSNIndex": {
+    "name": "acSS7LinkSetSNIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetLksetIndex": {
+    "name": "acSS7LinkSetLksetIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetRowStatus": {
+    "name": "acSS7LinkSetRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetAction": {
+    "name": "acSS7LinkSetAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "offLine": 1,
+          "inService": 2,
+          "activate": 3,
+          "deActivate": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetActionResult": {
+    "name": "acSS7LinkSetActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkSetName": {
+    "name": "acSS7LinkSetName",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetAdminState": {
+    "name": "acSS7LinkSetAdminState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkSetOperState": {
+    "name": "acSS7LinkSetOperState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "busy": 1,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkSetMtcBusyState": {
+    "name": "acSS7LinkSetMtcBusyState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkSetDPC": {
+    "name": "acSS7LinkSetDPC",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetLinksMask": {
+    "name": "acSS7LinkSetLinksMask",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetLinksAltMask": {
+    "name": "acSS7LinkSetLinksAltMask",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetTimersIdx": {
+    "name": "acSS7LinkSetTimersIdx",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timersIdx0": 0,
+          "timersIdx1": 1,
+          "timersIdx2": 2,
+          "timersIdx3": 3,
+          "timersIdx4": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkTable": {
+    "name": "acSS7LinkSetLinkTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkEntry": {
+    "name": "acSS7LinkSetLinkEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkSetLinkSNIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkSetLinkLinksetIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7LinkSetLinkInnerLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7LinkSetLinkSNIndex": {
+    "name": "acSS7LinkSetLinkSNIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkLinksetIndex": {
+    "name": "acSS7LinkSetLinkLinksetIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkInnerLinkIndex": {
+    "name": "acSS7LinkSetLinkInnerLinkIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkRowStatus": {
+    "name": "acSS7LinkSetLinkRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkAction": {
+    "name": "acSS7LinkSetLinkAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkActionResult": {
+    "name": "acSS7LinkSetLinkActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkLinkNo": {
+    "name": "acSS7LinkSetLinkLinkNo",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7LinkSetLinkLinkSlc": {
+    "name": "acSS7LinkSetLinkLinkSlc",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.31.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSets": {
+    "name": "acSS7RouteSets",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32",
+    "class": "objectidentity"
+  },
+  "acSS7RouteSetTable": {
+    "name": "acSS7RouteSetTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RouteSetEntry": {
+    "name": "acSS7RouteSetEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7RouteSetSNIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7RouteSetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7RouteSetSNIndex": {
+    "name": "acSS7RouteSetSNIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RouteSetIndex": {
+    "name": "acSS7RouteSetIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RouteSetRowStatus": {
+    "name": "acSS7RouteSetRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSetAction": {
+    "name": "acSS7RouteSetAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "offLine": 1,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSetActionResult": {
+    "name": "acSS7RouteSetActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7RouteSetName": {
+    "name": "acSS7RouteSetName",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSetAdminState": {
+    "name": "acSS7RouteSetAdminState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7RouteSetOperState": {
+    "name": "acSS7RouteSetOperState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "busy": 1,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7RouteSetDPC": {
+    "name": "acSS7RouteSetDPC",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteMask": {
+    "name": "acSS7RouteSetRouteMask",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteTable": {
+    "name": "acSS7RouteSetRouteTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteEntry": {
+    "name": "acSS7RouteSetRouteEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7RouteSetRouteSNIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7RouteSetRouteRoutesetIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7RouteSetRouteInnerRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7RouteSetRouteSNIndex": {
+    "name": "acSS7RouteSetRouteSNIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteRoutesetIndex": {
+    "name": "acSS7RouteSetRouteRoutesetIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteInnerRouteIndex": {
+    "name": "acSS7RouteSetRouteInnerRouteIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteRowStatus": {
+    "name": "acSS7RouteSetRouteRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteAction": {
+    "name": "acSS7RouteSetRouteAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteActionResult": {
+    "name": "acSS7RouteSetRouteActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7RouteSetRouteLinkSetNo": {
+    "name": "acSS7RouteSetRouteLinkSetNo",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RouteSetRoutePriority": {
+    "name": "acSS7RouteSetRoutePriority",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.32.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7AliasPointCode": {
+    "name": "acSS7AliasPointCode",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33",
+    "class": "objectidentity"
+  },
+  "acSS7APCTable": {
+    "name": "acSS7APCTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7APCEntry": {
+    "name": "acSS7APCEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7APCSNIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7APCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7APCSNIndex": {
+    "name": "acSS7APCSNIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7APCIndex": {
+    "name": "acSS7APCIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7APCRowStatus": {
+    "name": "acSS7APCRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7APCAction": {
+    "name": "acSS7APCAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "offLine": 1,
+          "inService": 2,
+          "activate": 3,
+          "deActivate": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7APCActionResult": {
+    "name": "acSS7APCActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 0,
+          "inProgress": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7APCPC": {
+    "name": "acSS7APCPC",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7APCSNI": {
+    "name": "acSS7APCSNI",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7APCName": {
+    "name": "acSS7APCName",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7APCMtcBusy": {
+    "name": "acSS7APCMtcBusy",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7APCAdminState": {
+    "name": "acSS7APCAdminState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "busy": 1,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7APCOperState": {
+    "name": "acSS7APCOperState",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.4.33.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offLine": 0,
+          "busy": 1,
+          "inService": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SigTran": {
+    "name": "acSS7SigTran",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5",
+    "class": "objectidentity"
+  },
+  "acSS7SigTranM3UATrafficBehavior": {
+    "name": "acSS7SigTranM3UATrafficBehavior",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "deactivate": 1,
+          "sIPO": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupTable": {
+    "name": "acSS7SigTranIFGroupTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupEntry": {
+    "name": "acSS7SigTranIFGroupEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7SigTranIFGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupIndex": {
+    "name": "acSS7SigTranIFGroupIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupRowStatus": {
+    "name": "acSS7SigTranIFGroupRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupAction": {
+    "name": "acSS7SigTranIFGroupAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "activate": 1,
+          "deActivate": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupActionResult": {
+    "name": "acSS7SigTranIFGroupActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupId": {
+    "name": "acSS7SigTranIFGroupId",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupSgMgc": {
+    "name": "acSS7SigTranIFGroupSgMgc",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nat": 1,
+          "mgc": 77,
+          "sg": 83
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupSignalingLayer": {
+    "name": "acSS7SigTranIFGroupSignalingLayer",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLayer": 0,
+          "iua": 1,
+          "m2ua": 2,
+          "m3ua": 3,
+          "m2tunnel": 4,
+          "dua": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupTrafMode": {
+    "name": "acSS7SigTranIFGroupTrafMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "override": 1,
+          "loadShare": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupRecovTimer": {
+    "name": "acSS7SigTranIFGroupRecovTimer",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupAckTimer": {
+    "name": "acSS7SigTranIFGroupAckTimer",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupHBTimer": {
+    "name": "acSS7SigTranIFGroupHBTimer",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupMinAsp": {
+    "name": "acSS7SigTranIFGroupMinAsp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupBehavior": {
+    "name": "acSS7SigTranIFGroupBehavior",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupSCTPInst": {
+    "name": "acSS7SigTranIFGroupSCTPInst",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupSCTPLocalPort": {
+    "name": "acSS7SigTranIFGroupSCTPLocalPort",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupNetwork": {
+    "name": "acSS7SigTranIFGroupNetwork",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "itu": 1,
+          "ansi": 2,
+          "china": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupSCTPDestPort": {
+    "name": "acSS7SigTranIFGroupSCTPDestPort",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupDestIp": {
+    "name": "acSS7SigTranIFGroupDestIp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupSCTPMaxInbStreams": {
+    "name": "acSS7SigTranIFGroupSCTPMaxInbStreams",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupSCTPMaxOutbStreams": {
+    "name": "acSS7SigTranIFGroupSCTPMaxOutbStreams",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupRdcyBoardNum": {
+    "name": "acSS7SigTranIFGroupRdcyBoardNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupRoutingContextIndex": {
+    "name": "acSS7SigTranIFGroupRoutingContextIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupRoutingContextValue": {
+    "name": "acSS7SigTranIFGroupRoutingContextValue",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFGroupNetworkAppearance": {
+    "name": "acSS7SigTranIFGroupNetworkAppearance",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.21.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDTable": {
+    "name": "acSS7SigTranIFIDTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDEntry": {
+    "name": "acSS7SigTranIFIDEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7SigTranIFIDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7SigTranIFIDIndex": {
+    "name": "acSS7SigTranIFIDIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 83
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDRowStatus": {
+    "name": "acSS7SigTranIFIDRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDAction": {
+    "name": "acSS7SigTranIFIDAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "activate": 1,
+          "deActivate": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDActionResult": {
+    "name": "acSS7SigTranIFIDActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDValue": {
+    "name": "acSS7SigTranIFIDValue",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDName": {
+    "name": "acSS7SigTranIFIDName",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDOwnerGroup": {
+    "name": "acSS7SigTranIFIDOwnerGroup",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDSignalingLayer": {
+    "name": "acSS7SigTranIFIDSignalingLayer",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLayer": 0,
+          "iua": 1,
+          "m2ua": 2,
+          "m2tunnel": 4,
+          "dua": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDNai": {
+    "name": "acSS7SigTranIFIDNai",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2,
+            "max": 124
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranIFIDM3UASpc": {
+    "name": "acSS7SigTranIFIDM3UASpc",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.22.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7M3UAStaticRoutingTable": {
+    "name": "acSS7M3UAStaticRoutingTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingEntry": {
+    "name": "acSS7M3UAStaticRoutingEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7M3UAStaticRoutingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingIndex": {
+    "name": "acSS7M3UAStaticRoutingIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingRowStatus": {
+    "name": "acSS7M3UAStaticRoutingRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingAction": {
+    "name": "acSS7M3UAStaticRoutingAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "activate": 1,
+          "deActivate": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingActionResult": {
+    "name": "acSS7M3UAStaticRoutingActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingOwnerInterfaceGroup": {
+    "name": "acSS7M3UAStaticRoutingOwnerInterfaceGroup",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingRC": {
+    "name": "acSS7M3UAStaticRoutingRC",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingDestinationPointCode": {
+    "name": "acSS7M3UAStaticRoutingDestinationPointCode",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingNetworkAppearence": {
+    "name": "acSS7M3UAStaticRoutingNetworkAppearence",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingSeriviceIndicatorList": {
+    "name": "acSS7M3UAStaticRoutingSeriviceIndicatorList",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingOPC1": {
+    "name": "acSS7M3UAStaticRoutingOPC1",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingOPC2": {
+    "name": "acSS7M3UAStaticRoutingOPC2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingOPC3": {
+    "name": "acSS7M3UAStaticRoutingOPC3",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingOPC4": {
+    "name": "acSS7M3UAStaticRoutingOPC4",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingLowerCICValue1": {
+    "name": "acSS7M3UAStaticRoutingLowerCICValue1",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingUpperCICValue1": {
+    "name": "acSS7M3UAStaticRoutingUpperCICValue1",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingLowerCICValue2": {
+    "name": "acSS7M3UAStaticRoutingLowerCICValue2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingUpperCICValue2": {
+    "name": "acSS7M3UAStaticRoutingUpperCICValue2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingLowerCICValue3": {
+    "name": "acSS7M3UAStaticRoutingLowerCICValue3",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingUpperCICValue3": {
+    "name": "acSS7M3UAStaticRoutingUpperCICValue3",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingLowerCICValue4": {
+    "name": "acSS7M3UAStaticRoutingLowerCICValue4",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7M3UAStaticRoutingUpperCICValue4": {
+    "name": "acSS7M3UAStaticRoutingUpperCICValue4",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.23.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "acSS7SigTranRoutingContextTable": {
+    "name": "acSS7SigTranRoutingContextTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextEntry": {
+    "name": "acSS7SigTranRoutingContextEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7SigTranRoutingContextIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7SigTranRoutingContextInnerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextIndex": {
+    "name": "acSS7SigTranRoutingContextIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextInnerIndex": {
+    "name": "acSS7SigTranRoutingContextInnerIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextRowStatus": {
+    "name": "acSS7SigTranRoutingContextRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextAction": {
+    "name": "acSS7SigTranRoutingContextAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "activate": 1,
+          "deActivate": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextActionResult": {
+    "name": "acSS7SigTranRoutingContextActionResult",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextSnIdx": {
+    "name": "acSS7SigTranRoutingContextSnIdx",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextSpc": {
+    "name": "acSS7SigTranRoutingContextSpc",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextOpc1": {
+    "name": "acSS7SigTranRoutingContextOpc1",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextOpc2": {
+    "name": "acSS7SigTranRoutingContextOpc2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextOpc3": {
+    "name": "acSS7SigTranRoutingContextOpc3",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextOpc4": {
+    "name": "acSS7SigTranRoutingContextOpc4",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextSi1": {
+    "name": "acSS7SigTranRoutingContextSi1",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextSi2": {
+    "name": "acSS7SigTranRoutingContextSi2",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextSi3": {
+    "name": "acSS7SigTranRoutingContextSi3",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7SigTranRoutingContextSi4": {
+    "name": "acSS7SigTranRoutingContextSi4",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.5.24.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7Redundancy": {
+    "name": "acSS7Redundancy",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6",
+    "class": "objectidentity"
+  },
+  "acSS7RedundancyCrossLinkTransferType": {
+    "name": "acSS7RedundancyCrossLinkTransferType",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "tcp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7RedundancyMode": {
+    "name": "acSS7RedundancyMode",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7RedundancyBoardNum": {
+    "name": "acSS7RedundancyBoardNum",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7RedundancyCrossLinkTraceAll": {
+    "name": "acSS7RedundancyCrossLinkTraceAll",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "acSS7RedundancyMTP3RdcyTblSyncInterval": {
+    "name": "acSS7RedundancyMTP3RdcyTblSyncInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 144000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7RedundancySyncAllBoards": {
+    "name": "acSS7RedundancySyncAllBoards",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "sync": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7RedundancySyncBoard": {
+    "name": "acSS7RedundancySyncBoard",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7RedundancyKeepAliveWindow": {
+    "name": "acSS7RedundancyKeepAliveWindow",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7RedundancyKeepAliveInterval": {
+    "name": "acSS7RedundancyKeepAliveInterval",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acSS7RedundantSNTable": {
+    "name": "acSS7RedundantSNTable",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RedundantSNEntry": {
+    "name": "acSS7RedundantSNEntry",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7RedundantSNBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AC-SS7-MIB",
+        "object": "acSS7RedundantSNIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acSS7RedundantSNBoardIndex": {
+    "name": "acSS7RedundantSNBoardIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RedundantSNIndex": {
+    "name": "acSS7RedundantSNIndex",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acSS7RedundantSNRowStatus": {
+    "name": "acSS7RedundantSNRowStatus",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RedundantSNAction": {
+    "name": "acSS7RedundantSNAction",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RedundantSNActionRes": {
+    "name": "acSS7RedundantSNActionRes",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7RedundantSNBoardIp": {
+    "name": "acSS7RedundantSNBoardIp",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RedundantSNOPC": {
+    "name": "acSS7RedundantSNOPC",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7RedundantSNALCAPOPC": {
+    "name": "acSS7RedundantSNALCAPOPC",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.1.6.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acSS7Status": {
+    "name": "acSS7Status",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2",
+    "class": "objectidentity"
+  },
+  "acSS7Constants": {
+    "name": "acSS7Constants",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1",
+    "class": "objectidentity"
+  },
+  "acSS7ConstantsNumberOfNodes": {
+    "name": "acSS7ConstantsNumberOfNodes",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7ConstantsNumberOfLinks": {
+    "name": "acSS7ConstantsNumberOfLinks",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7ConstantsNumberOfLinkSetsPerSN": {
+    "name": "acSS7ConstantsNumberOfLinkSetsPerSN",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7ConstantsNumberOfLinksPerLinkSet": {
+    "name": "acSS7ConstantsNumberOfLinksPerLinkSet",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7ConstantsNumberOfRouteSetsPerSN": {
+    "name": "acSS7ConstantsNumberOfRouteSetsPerSN",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7ConstantsNumberOfRoutesPerRouteSets": {
+    "name": "acSS7ConstantsNumberOfRoutesPerRouteSets",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7ConstantsNumberOfNodeTimerSets": {
+    "name": "acSS7ConstantsNumberOfNodeTimerSets",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acSS7ConstantsNumberOfLinkSetTimerSets": {
+    "name": "acSS7ConstantsNumberOfLinkSetTimerSets",
+    "oid": "1.3.6.1.4.1.5003.9.10.12.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-SS7-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:49 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AC-SS7-MIB"
+  }
+}

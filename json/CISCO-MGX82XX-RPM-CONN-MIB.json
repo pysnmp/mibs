@@ -1,0 +1,983 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "rpmChanGrp"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMgx82xxRpmConnMIB": {
+    "name": "ciscoMgx82xxRpmConnMIB",
+    "oid": "1.3.6.1.4.1.351.150.62",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-08 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "RpmNsapAddress": {
+    "name": "RpmNsapAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "rpmChanGrpTable": {
+    "name": "rpmChanGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rpmChanGrpEntry": {
+    "name": "rpmChanGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanSlotNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rpmChanSlotNum": {
+    "name": "rpmChanSlotNum",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanInterface": {
+    "name": "rpmChanInterface",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanNum": {
+    "name": "rpmChanNum",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRowStatus": {
+    "name": "rpmChanRowStatus",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "del": 2,
+          "mod": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanVcd": {
+    "name": "rpmChanVcd",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanVpi": {
+    "name": "rpmChanVpi",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanVci": {
+    "name": "rpmChanVci",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanSubInterface": {
+    "name": "rpmChanSubInterface",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanLocalVpi": {
+    "name": "rpmChanLocalVpi",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanLocalVci": {
+    "name": "rpmChanLocalVci",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanLocalNsap": {
+    "name": "rpmChanLocalNsap",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RpmNsapAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRemoteVpi": {
+    "name": "rpmChanRemoteVpi",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRemoteVci": {
+    "name": "rpmChanRemoteVci",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRemoteNsap": {
+    "name": "rpmChanRemoteNsap",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RpmNsapAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanType": {
+    "name": "rpmChanType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "svc": 1,
+          "pvc": 2,
+          "spvc": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanConnType": {
+    "name": "rpmChanConnType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpc": 1,
+          "vcc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanServiceType": {
+    "name": "rpmChanServiceType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "vbr": 2,
+          "ubr": 4,
+          "atfr": 5,
+          "abrstd": 6,
+          "abrfst": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanMastership": {
+    "name": "rpmChanMastership",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRtePriority": {
+    "name": "rpmChanRtePriority",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanMaxCost": {
+    "name": "rpmChanMaxCost",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRestrictTrkType": {
+    "name": "rpmChanRestrictTrkType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRestriction": 1,
+          "terrestrialTrunk": 2,
+          "satelliteTrunk": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanPCR": {
+    "name": "rpmChanPCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 353208
+          }
+        ]
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRemotePCR": {
+    "name": "rpmChanRemotePCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 353208
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanMCR": {
+    "name": "rpmChanMCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 353208
+          }
+        ]
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRemoteMCR": {
+    "name": "rpmChanRemoteMCR",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 353208
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanPercentUtil": {
+    "name": "rpmChanPercentUtil",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanRemotePercentUtil": {
+    "name": "rpmChanRemotePercentUtil",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanEncapType": {
+    "name": "rpmChanEncapType",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aal5snap": 1,
+          "aal34smds": 2,
+          "aal5nlpid": 3,
+          "qsaal": 4,
+          "ilmi": 5,
+          "aal5muxXNS": 6,
+          "aal5muxIP": 7,
+          "aal5muxVINES": 8,
+          "aal5muxDECNET": 9,
+          "aal5muxNOVELL1": 10,
+          "ppp": 11,
+          "unknown": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanMidLow": {
+    "name": "rpmChanMidLow",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanMidHigh": {
+    "name": "rpmChanMidHigh",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanBurstSize": {
+    "name": "rpmChanBurstSize",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanInArpFreq": {
+    "name": "rpmChanInArpFreq",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanOAMloopback": {
+    "name": "rpmChanOAMloopback",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanState": {
+    "name": "rpmChanState",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "active": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanVirtualTemplate": {
+    "name": "rpmChanVirtualTemplate",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanAbrRDF": {
+    "name": "rpmChanAbrRDF",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rpmChanAbrRIF": {
+    "name": "rpmChanAbrRIF",
+    "oid": "1.3.6.1.4.1.351.110.5.2.10.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmrConnMIBConformance": {
+    "name": "cmrConnMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.62.2",
+    "class": "objectidentity"
+  },
+  "cmrConnMIBCompliances": {
+    "name": "cmrConnMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.62.2.1",
+    "class": "objectidentity"
+  },
+  "cmrConnMIBGroups": {
+    "name": "cmrConnMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.62.2.2",
+    "class": "objectidentity"
+  },
+  "cmrConnMIBCompliance": {
+    "name": "cmrConnMIBCompliance",
+    "oid": "1.3.6.1.4.1.351.150.62.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmrConnConfGroup",
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmrConnConfGroup": {
+    "name": "cmrConnConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.62.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanSlotNum"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanInterface"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanNum"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRowStatus"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanVcd"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanVpi"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanVci"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanSubInterface"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanLocalVpi"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanLocalVci"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanLocalNsap"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRemoteVpi"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRemoteVci"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRemoteNsap"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanType"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanConnType"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanServiceType"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanMastership"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRtePriority"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanMaxCost"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRestrictTrkType"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanPCR"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRemotePCR"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanMCR"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRemoteMCR"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanPercentUtil"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanRemotePercentUtil"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanMidLow"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanMidHigh"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanBurstSize"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanEncapType"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanInArpFreq"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanOAMloopback"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanState"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanVirtualTemplate"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanAbrRDF"
+      },
+      {
+        "module": "CISCO-MGX82XX-RPM-CONN-MIB",
+        "object": "rpmChanAbrRIF"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MGX82XX-RPM-CONN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MGX82XX-RPM-CONN-MIB"
+  }
+}

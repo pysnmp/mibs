@@ -1,0 +1,509 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfIpAddrMIB": {
+    "name": "hpnicfIpAddrMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-22 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfIpAddressObjects": {
+    "name": "hpnicfIpAddressObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIpAddressConfig": {
+    "name": "hpnicfIpAddressConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIpAddrSetTable": {
+    "name": "hpnicfIpAddrSetTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpAddrSetEntry": {
+    "name": "hpnicfIpAddrSetEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrSetIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrSetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrSetAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpAddrSetIfIndex": {
+    "name": "hpnicfIpAddrSetIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpAddrSetAddrType": {
+    "name": "hpnicfIpAddrSetAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpAddrSetAddr": {
+    "name": "hpnicfIpAddrSetAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpAddrSetMask": {
+    "name": "hpnicfIpAddrSetMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpAddrSetSourceType": {
+    "name": "hpnicfIpAddrSetSourceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assignedIp": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "assignedIp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpAddrSetCatalog": {
+    "name": "hpnicfIpAddrSetCatalog",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "sub": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "primary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpAddrSetRowStatus": {
+    "name": "hpnicfIpAddrSetRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpAddrReadTable": {
+    "name": "hpnicfIpAddrReadTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpAddrReadEntry": {
+    "name": "hpnicfIpAddrReadEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrReadIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrReadAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrReadAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpAddrReadIfIndex": {
+    "name": "hpnicfIpAddrReadIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpAddrReadAddrType": {
+    "name": "hpnicfIpAddrReadAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpAddrReadAddr": {
+    "name": "hpnicfIpAddrReadAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpAddrReadMask": {
+    "name": "hpnicfIpAddrReadMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpAddrReadSourceType": {
+    "name": "hpnicfIpAddrReadSourceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assignedIp": 1,
+          "cluster": 2,
+          "dhcp": 3,
+          "bootp": 4,
+          "negotiate": 5,
+          "unnumbered": 6,
+          "vrrp": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpAddrReadCatalog": {
+    "name": "hpnicfIpAddrReadCatalog",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "sub": 2,
+          "cluster": 3,
+          "vrrp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpv4AddrTable": {
+    "name": "hpnicfIpv4AddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpv4AddrEntry": {
+    "name": "hpnicfIpv4AddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpv4AddrAddr": {
+    "name": "hpnicfIpv4AddrAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpv4AddrMask": {
+    "name": "hpnicfIpv4AddrMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpv4AddrRowStatus": {
+    "name": "hpnicfIpv4AddrRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpAddrNotify": {
+    "name": "hpnicfIpAddrNotify",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIpAddrNotifyScalarObjects": {
+    "name": "hpnicfIpAddrNotifyScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIpAddrNotifyIfIndex": {
+    "name": "hpnicfIpAddrNotifyIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIpAddrOldIpAddress": {
+    "name": "hpnicfIpAddrOldIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIpAddrNewIpAddress": {
+    "name": "hpnicfIpAddrNewIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIpAddrFirstTrapTime": {
+    "name": "hpnicfIpAddrFirstTrapTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIpAddrNotifyObjects": {
+    "name": "hpnicfIpAddrNotifyObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIpAddrNotifyObjectsPrefix": {
+    "name": "hpnicfIpAddrNotifyObjectsPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2.2.0",
+    "class": "objectidentity"
+  },
+  "hpnicfIpAddressChangeNotify": {
+    "name": "hpnicfIpAddressChangeNotify",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.67.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrNotifyIfIndex"
+      },
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrOldIpAddress"
+      },
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrNewIpAddress"
+      },
+      {
+        "module": "HPN-ICF-IP-ADDRESS-MIB",
+        "object": "hpnicfIpAddrFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-IP-ADDRESS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-IP-ADDRESS-MIB"
+  }
+}

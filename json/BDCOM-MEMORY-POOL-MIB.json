@@ -1,0 +1,354 @@
+{
+  "imports": {
+    "class": "imports",
+    "BDCOM-QOS-PIB-MIB": [
+      "Percent"
+    ],
+    "BDCOM-SMI": [
+      "bdMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ]
+  },
+  "bdcomMemoryPoolMIB": {
+    "name": "bdcomMemoryPoolMIB",
+    "oid": "1.3.6.1.4.1.3320.9.48",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-16 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "BDCOMMemoryPoolTypes": {
+    "name": "BDCOMMemoryPoolTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "bdcomMemoryPoolObjects": {
+    "name": "bdcomMemoryPoolObjects",
+    "oid": "1.3.6.1.4.1.3320.9.48.1",
+    "class": "objectidentity"
+  },
+  "bdcomMemoryPoolTable": {
+    "name": "bdcomMemoryPoolTable",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bdcomMemoryPoolEntry": {
+    "name": "bdcomMemoryPoolEntry",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bdcomMemoryPoolType": {
+    "name": "bdcomMemoryPoolType",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BDCOMMemoryPoolTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bdcomMemoryPoolName": {
+    "name": "bdcomMemoryPoolName",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolAlternate": {
+    "name": "bdcomMemoryPoolAlternate",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolValid": {
+    "name": "bdcomMemoryPoolValid",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolUsed": {
+    "name": "bdcomMemoryPoolUsed",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolFree": {
+    "name": "bdcomMemoryPoolFree",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolLargestFree": {
+    "name": "bdcomMemoryPoolLargestFree",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolUtilizationTable": {
+    "name": "bdcomMemoryPoolUtilizationTable",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bdcomMemoryPoolUtilizationEntry": {
+    "name": "bdcomMemoryPoolUtilizationEntry",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "bdcomMemoryPoolUtilizationEntry",
+      "module": "BDCOM-MEMORY-POOL-MIB",
+      "object": "bdcomMemoryPoolEntry"
+    },
+    "status": "current"
+  },
+  "bdcomMemoryPoolUtilization1Min": {
+    "name": "bdcomMemoryPoolUtilization1Min",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolUtilization5Min": {
+    "name": "bdcomMemoryPoolUtilization5Min",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolUtilization10Min": {
+    "name": "bdcomMemoryPoolUtilization10Min",
+    "oid": "1.3.6.1.4.1.3320.9.48.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bdcomMemoryPoolNotifications": {
+    "name": "bdcomMemoryPoolNotifications",
+    "oid": "1.3.6.1.4.1.3320.9.48.2",
+    "class": "objectidentity"
+  },
+  "bdcomMemoryPoolConformance": {
+    "name": "bdcomMemoryPoolConformance",
+    "oid": "1.3.6.1.4.1.3320.9.48.3",
+    "class": "objectidentity"
+  },
+  "bdcomMemoryPoolCompliances": {
+    "name": "bdcomMemoryPoolCompliances",
+    "oid": "1.3.6.1.4.1.3320.9.48.3.1",
+    "class": "objectidentity"
+  },
+  "bdcomMemoryPoolGroups": {
+    "name": "bdcomMemoryPoolGroups",
+    "oid": "1.3.6.1.4.1.3320.9.48.3.2",
+    "class": "objectidentity"
+  },
+  "bdcomMemoryPoolCompliance": {
+    "name": "bdcomMemoryPoolCompliance",
+    "oid": "1.3.6.1.4.1.3320.9.48.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bdcomMemoryPoolGroup",
+        "module": "BDCOM-MEMORY-POOL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "bdcomMemoryPoolComplianceRev1": {
+    "name": "bdcomMemoryPoolComplianceRev1",
+    "oid": "1.3.6.1.4.1.3320.9.48.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bdcomMemoryPoolGroup",
+        "module": "BDCOM-MEMORY-POOL-MIB"
+      },
+      {
+        "object": "bdcomMemoryPoolUtilizationGroup",
+        "module": "BDCOM-MEMORY-POOL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bdcomMemoryPoolGroup": {
+    "name": "bdcomMemoryPoolGroup",
+    "oid": "1.3.6.1.4.1.3320.9.48.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolName"
+      },
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolAlternate"
+      },
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolValid"
+      },
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolUsed"
+      },
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolFree"
+      },
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolLargestFree"
+      }
+    ],
+    "status": "current"
+  },
+  "bdcomMemoryPoolUtilizationGroup": {
+    "name": "bdcomMemoryPoolUtilizationGroup",
+    "oid": "1.3.6.1.4.1.3320.9.48.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolUtilization1Min"
+      },
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolUtilization5Min"
+      },
+      {
+        "module": "BDCOM-MEMORY-POOL-MIB",
+        "object": "bdcomMemoryPoolUtilization10Min"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/BDCOM-MEMORY-POOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BDCOM-MEMORY-POOL-MIB"
+  }
+}

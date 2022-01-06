@@ -1,0 +1,3687 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "VlanId",
+      "IpVersion"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "VariablePointer"
+    ]
+  },
+  "cmIPMIB": {
+    "name": "cmIPMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-03-14 00:00",
+        "description": " Notes from release 201903140000Z (1) Added cmIpInterfaceGateway to cmIpInterfaceTable (2) Added cmIpv6InterfaceGateway to cmIpv6InterfaceTable Notes from release 201904050000Z (1) chaned cmStaticRouteNextHop to RO (2) chaned cmIpv6StaticRouteNextHop to RO Notes from release 201902030000Z (1) added cmIpTraceRouteInterface (2) added cmIpv6TraceRouteInterface Notes from release 201901300000Z (1) added cmPingInterface Notes from release 201901070000Z (1) Modified cmStaticRouteNextHop: MAX-ACCESS read-write instead read-only (2) Modified cmIpv6StaticRouteNextHop: MAX-ACCESS read-write instead not-accessible Notes from release 201802130000Z (1) added ipLoopbackInterfaceTable Notes from release 201802020000Z, (1) Added cmIpInterfaceDhcpVendorInfoHideControl to cmIpInterfaceTable (2) Added ipManagementTunnelDhcpVendorInfoHideControl to ipManagementTunnelTable Notes from release 201407180000Z, (1) Added new IpManagementTunnelType literals: - gcc0based, - gcc1based, - gcc2based. Notes from release 201012080000Z, (1)Added cmIpManagementTrafficBridgingSecurityEnabled scalar for the Bridged Management LAN feature on GE20x devices for Release 5.1CC. Notes from release 201010230000Z, (1)Added cmIpManagementTrafficBridgingEnabled scalar for the Bridged Management LAN feature on GE20x devices for Release 5.1CC. Notes from release 200904200000Z, (1)MIB version ready for release FSP150CC 4.1. (a)Added new table IpManagementTunnel (b)Added attribute cmIpInterfaceRIPv2Enabled (c)Added attribute cmARPEntryType (d)Added attribute cmStaticRouteInterface, cmStaticRouteAdvertise Notes from release 200803030000Z, (1)MIB version ready for release FSP150CM 3.1."
+      }
+    ]
+  },
+  "cmIpObjects": {
+    "name": "cmIpObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1",
+    "class": "objectidentity"
+  },
+  "cmIpConformance": {
+    "name": "cmIpConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.2",
+    "class": "objectidentity"
+  },
+  "cmIpScalars": {
+    "name": "cmIpScalars",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3",
+    "class": "objectidentity"
+  },
+  "CmDhcpRole": {
+    "name": "CmDhcpRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcp-client": 1,
+          "dhcp-server": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpManagementTunnelType": {
+    "name": "IpManagementTunnelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macbased": 1,
+          "vlanbased": 2,
+          "itagbased": 3,
+          "gcc0based": 4,
+          "gcc1based": 5,
+          "gcc2based": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpManagementTunnelEncapsulationType": {
+    "name": "IpManagementTunnelEncapsulationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "ppp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpEntryType": {
+    "name": "IpEntryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpSourceAddrType": {
+    "name": "IpSourceAddrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "systemipaddr": 1,
+          "outipinterfaceaddr": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpActionType": {
+    "name": "IpActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "initiate": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Ipv6OverIpv4TunnelType": {
+    "name": "Ipv6OverIpv4TunnelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sixToFour": 1,
+          "ipv4-compatible": 2,
+          "isatap": 3,
+          "static-config": 4,
+          "gre": 5,
+          "ipv6-6rd": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpMode": {
+    "name": "IpMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4-only": 0,
+          "ipv6-only": 1,
+          "ipv4-and-ipv6": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DHCPCIDType": {
+    "name": "DHCPCIDType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "sysName": 2,
+          "macAddr": 3,
+          "userDefined": 4,
+          "serialNumber": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DHCPHostNameType": {
+    "name": "DHCPHostNameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "sysName": 2,
+          "userDefined": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpArpActionType": {
+    "name": "PtpArpActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "retrieve": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DHCPVendorInfoType": {
+    "name": "DHCPVendorInfoType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "sysName": 2,
+          "userDefined": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cmIpSystemScalars": {
+    "name": "cmIpSystemScalars",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1",
+    "class": "objectidentity"
+  },
+  "cmIpSourceAddrScalars": {
+    "name": "cmIpSourceAddrScalars",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.2",
+    "class": "objectidentity"
+  },
+  "cmIpFlushARPCacheAction": {
+    "name": "cmIpFlushARPCacheAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpProxyARPEnabled": {
+    "name": "cmIpProxyARPEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpPingDestination": {
+    "name": "cmIpPingDestination",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInitiatePingAction": {
+    "name": "cmIpInitiatePingAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpPingResult": {
+    "name": "cmIpPingResult",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIpTraceRouteDestination": {
+    "name": "cmIpTraceRouteDestination",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInitiateTraceRouteAction": {
+    "name": "cmIpInitiateTraceRouteAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpTraceRouteResult": {
+    "name": "cmIpTraceRouteResult",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIpManagementTrafficBridgingEnabled": {
+    "name": "cmIpManagementTrafficBridgingEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpManagementTrafficBridgingSecurityEnabled": {
+    "name": "cmIpManagementTrafficBridgingSecurityEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6PingInterface": {
+    "name": "cmIpv6PingInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6PingDestination": {
+    "name": "cmIpv6PingDestination",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6InitiatePingAction": {
+    "name": "cmIpv6InitiatePingAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6TraceRouteDestination": {
+    "name": "cmIpv6TraceRouteDestination",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6InitiateTraceRouteAction": {
+    "name": "cmIpv6InitiateTraceRouteAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6ProxyNDPEnabled": {
+    "name": "cmIpv6ProxyNDPEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6FwdEnabled": {
+    "name": "cmIpv6FwdEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpFlushNDPCacheAction": {
+    "name": "cmIpFlushNDPCacheAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpPtpArpRtrvAction": {
+    "name": "cmIpPtpArpRtrvAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpArpActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpManagementTrafficDscpEnabled": {
+    "name": "cmIpManagementTrafficDscpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpManagementTrafficDscp": {
+    "name": "cmIpManagementTrafficDscp",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpManagementTrafficBridgingInterface": {
+    "name": "cmIpManagementTrafficBridgingInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpManagementTrafficBridgingIpv4Gateway": {
+    "name": "cmIpManagementTrafficBridgingIpv4Gateway",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpManagementTrafficBridgingIpv6Gateway": {
+    "name": "cmIpManagementTrafficBridgingIpv6Gateway",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmPingInterface": {
+    "name": "cmPingInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpTraceRouteInterface": {
+    "name": "cmIpTraceRouteInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6TraceRouteInterface": {
+    "name": "cmIpv6TraceRouteInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpSNMPv1InterfaceName": {
+    "name": "cmIpSNMPv1InterfaceName",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpSourceAddressType": {
+    "name": "cmIpSourceAddressType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpSourceAddrType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpSourceAddressInterfaceName": {
+    "name": "cmIpSourceAddressInterfaceName",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceTable": {
+    "name": "cmIpInterfaceTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpInterfaceEntry": {
+    "name": "cmIpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmIpInterfaceName": {
+    "name": "cmIpInterfaceName",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIpInterface": {
+    "name": "cmIpInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceMask": {
+    "name": "cmIpInterfaceMask",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpEnabled": {
+    "name": "cmIpInterfaceDhcpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceMTU": {
+    "name": "cmIpInterfaceMTU",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpRole": {
+    "name": "cmIpInterfaceDhcpRole",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmDhcpRole",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfacePhysicalAddress": {
+    "name": "cmIpInterfacePhysicalAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIpInterfaceRIPv2Enabled": {
+    "name": "cmIpInterfaceRIPv2Enabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDHCPClientIdEnabled": {
+    "name": "cmIpInterfaceDHCPClientIdEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDHCPClientId": {
+    "name": "cmIpInterfaceDHCPClientId",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceIpMode": {
+    "name": "cmIpInterfaceIpMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpClassIdEnabled": {
+    "name": "cmIpInterfaceDhcpClassIdEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpHostNameEnabled": {
+    "name": "cmIpInterfaceDhcpHostNameEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpHostName": {
+    "name": "cmIpInterfaceDhcpHostName",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpLogServerEnabled": {
+    "name": "cmIpInterfaceDhcpLogServerEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpNTPServerEnabled": {
+    "name": "cmIpInterfaceDhcpNTPServerEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpClientIdType": {
+    "name": "cmIpInterfaceDhcpClientIdType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHCPCIDType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpHostNameType": {
+    "name": "cmIpInterfaceDhcpHostNameType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHCPHostNameType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpVendorInfoEnabled": {
+    "name": "cmIpInterfaceDhcpVendorInfoEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpVendorInfoType": {
+    "name": "cmIpInterfaceDhcpVendorInfoType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHCPVendorInfoType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpVendorInfo": {
+    "name": "cmIpInterfaceDhcpVendorInfo",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceDhcpVendorInfoHideControl": {
+    "name": "cmIpInterfaceDhcpVendorInfoHideControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpInterfaceGateway": {
+    "name": "cmIpInterfaceGateway",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmStaticRouteTable": {
+    "name": "cmStaticRouteTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmStaticRouteEntry": {
+    "name": "cmStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteNextHop",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmStaticRouteDest": {
+    "name": "cmStaticRouteDest",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmStaticRouteMask": {
+    "name": "cmStaticRouteMask",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmStaticRouteNextHop": {
+    "name": "cmStaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmStaticRouteMetric": {
+    "name": "cmStaticRouteMetric",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmStaticRouteRowStatus": {
+    "name": "cmStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmStaticRouteInterface": {
+    "name": "cmStaticRouteInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmStaticRouteAdvertise": {
+    "name": "cmStaticRouteAdvertise",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmARPTable": {
+    "name": "cmARPTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmARPEntry": {
+    "name": "cmARPEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPInterface",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmARPIndex": {
+    "name": "cmARPIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cmARPIPAddress": {
+    "name": "cmARPIPAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmARPMacAddress": {
+    "name": "cmARPMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmARPInterface": {
+    "name": "cmARPInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmARPStorageType": {
+    "name": "cmARPStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmARPRowStatus": {
+    "name": "cmARPRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmARPEntryType": {
+    "name": "cmARPEntryType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpEntryType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmProxyARPTable": {
+    "name": "cmProxyARPTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmProxyARPEntry": {
+    "name": "cmProxyARPEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPInterface",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPIPAddress",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPSubnetMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmProxyARPIndex": {
+    "name": "cmProxyARPIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cmProxyARPIPAddress": {
+    "name": "cmProxyARPIPAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmProxyARPSubnetMask": {
+    "name": "cmProxyARPSubnetMask",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmProxyARPInterface": {
+    "name": "cmProxyARPInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmProxyARPStorageType": {
+    "name": "cmProxyARPStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmProxyARPRowStatus": {
+    "name": "cmProxyARPRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelTable": {
+    "name": "ipManagementTunnelTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipManagementTunnelEntry": {
+    "name": "ipManagementTunnelEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipManagementTunnelIndex": {
+    "name": "ipManagementTunnelIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelAssociatedPort": {
+    "name": "ipManagementTunnelAssociatedPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelName": {
+    "name": "ipManagementTunnelName",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelType": {
+    "name": "ipManagementTunnelType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpManagementTunnelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelMTU": {
+    "name": "ipManagementTunnelMTU",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelEncapsulationType": {
+    "name": "ipManagementTunnelEncapsulationType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpManagementTunnelEncapsulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelIpAddress": {
+    "name": "ipManagementTunnelIpAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelSubnetMask": {
+    "name": "ipManagementTunnelSubnetMask",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelVlanId": {
+    "name": "ipManagementTunnelVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelSVlanEnabled": {
+    "name": "ipManagementTunnelSVlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelSVlanId": {
+    "name": "ipManagementTunnelSVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpEnabled": {
+    "name": "ipManagementTunnelDhcpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelRip2PktsEnabled": {
+    "name": "ipManagementTunnelRip2PktsEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelPhysicalAddress": {
+    "name": "ipManagementTunnelPhysicalAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipManagementTunnelCOS": {
+    "name": "ipManagementTunnelCOS",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelCIR": {
+    "name": "ipManagementTunnelCIR",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelEIR": {
+    "name": "ipManagementTunnelEIR",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelBufferSize": {
+    "name": "ipManagementTunnelBufferSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelStorageType": {
+    "name": "ipManagementTunnelStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipManagementTunnelRowStatus": {
+    "name": "ipManagementTunnelRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDHCPClientIdEnabled": {
+    "name": "ipManagementTunnelDHCPClientIdEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDHCPClientId": {
+    "name": "ipManagementTunnelDHCPClientId",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelQosQueueProfile": {
+    "name": "ipManagementTunnelQosQueueProfile",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelCVlanEnabled": {
+    "name": "ipManagementTunnelCVlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDHCPv6Enabled": {
+    "name": "ipManagementTunnelDHCPv6Enabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelIpv6Address": {
+    "name": "ipManagementTunnelIpv6Address",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelIpv6AddrPrefixLen": {
+    "name": "ipManagementTunnelIpv6AddrPrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelIpv6StateAddrAutoConfigEnabled": {
+    "name": "ipManagementTunnelIpv6StateAddrAutoConfigEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnellinkLocIpv6Addr": {
+    "name": "ipManagementTunnellinkLocIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipManagementTunnellinkLocIpv6AddrPrefixLen": {
+    "name": "ipManagementTunnellinkLocIpv6AddrPrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipManagementTunnelIpv6PrefixAdvertiseEnabled": {
+    "name": "ipManagementTunnelIpv6PrefixAdvertiseEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelIpv6Prefix": {
+    "name": "ipManagementTunnelIpv6Prefix",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelIpv6PrefixLen": {
+    "name": "ipManagementTunnelIpv6PrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelIpMode": {
+    "name": "ipManagementTunnelIpMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelIpv6RipngEnabled": {
+    "name": "ipManagementTunnelIpv6RipngEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpClassIdEnabled": {
+    "name": "ipManagementTunnelDhcpClassIdEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpHostNameEnabled": {
+    "name": "ipManagementTunnelDhcpHostNameEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpHostName": {
+    "name": "ipManagementTunnelDhcpHostName",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpLogServerEnabled": {
+    "name": "ipManagementTunnelDhcpLogServerEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpNTPServerEnabled": {
+    "name": "ipManagementTunnelDhcpNTPServerEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpClientIdType": {
+    "name": "ipManagementTunnelDhcpClientIdType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHCPCIDType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpHostNameType": {
+    "name": "ipManagementTunnelDhcpHostNameType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHCPHostNameType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpVendorInfoEnabled": {
+    "name": "ipManagementTunnelDhcpVendorInfoEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpVendorInfoType": {
+    "name": "ipManagementTunnelDhcpVendorInfoType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DHCPVendorInfoType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpVendorInfo": {
+    "name": "ipManagementTunnelDhcpVendorInfo",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelDhcpVendorInfoHideControl": {
+    "name": "ipManagementTunnelDhcpVendorInfoHideControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipManagementTunnelSharedVim": {
+    "name": "ipManagementTunnelSharedVim",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.5.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6InterfaceTable": {
+    "name": "cmIpv6InterfaceTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpv6InterfaceEntry": {
+    "name": "cmIpv6InterfaceEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cmIpv6InterfaceEntry",
+      "module": "CM-IP-MIB",
+      "object": "cmIpInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "cmIpv6InterfaceMTU": {
+    "name": "cmIpv6InterfaceMTU",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6UnicastAddr": {
+    "name": "cmIpv6UnicastAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6UnicastAddrPrefixLen": {
+    "name": "cmIpv6UnicastAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6PrefixAdvertiseEnabled": {
+    "name": "cmIpv6PrefixAdvertiseEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6RAPrefix": {
+    "name": "cmIpv6RAPrefix",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6RAPrefixLength": {
+    "name": "cmIpv6RAPrefixLength",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6StateAddrAutoConfigEnabled": {
+    "name": "cmIpv6StateAddrAutoConfigEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6DhcpEnabled": {
+    "name": "cmIpv6DhcpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6DhcpRole": {
+    "name": "cmIpv6DhcpRole",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmDhcpRole",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6RIPngEnabled": {
+    "name": "cmIpv6RIPngEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6LinkLocAddr": {
+    "name": "cmIpv6LinkLocAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIpv6LinkLocAddrPrefixLen": {
+    "name": "cmIpv6LinkLocAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIpv6InterfaceGateway": {
+    "name": "cmIpv6InterfaceGateway",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6StaticRouteTable": {
+    "name": "cmIpv6StaticRouteTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpv6StaticRouteEntry": {
+    "name": "cmIpv6StaticRouteEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRoutePrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteNextHop",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmIpv6StaticRouteDest": {
+    "name": "cmIpv6StaticRouteDest",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpv6StaticRoutePrefixLen": {
+    "name": "cmIpv6StaticRoutePrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpv6StaticRouteNextHop": {
+    "name": "cmIpv6StaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpv6StaticRouteMetric": {
+    "name": "cmIpv6StaticRouteMetric",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmIpv6StaticRouteRowStatus": {
+    "name": "cmIpv6StaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmIpv6StaticRouteInterface": {
+    "name": "cmIpv6StaticRouteInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpv6StaticRouteAdvertise": {
+    "name": "cmIpv6StaticRouteAdvertise",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmNDPTable": {
+    "name": "cmNDPTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmNDPEntry": {
+    "name": "cmNDPEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmNDPInterface",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmNDPIpv6Address",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmNDPIpv6Address": {
+    "name": "cmNDPIpv6Address",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmNDPMacAddress": {
+    "name": "cmNDPMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmNDPInterface": {
+    "name": "cmNDPInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmNDPStorageType": {
+    "name": "cmNDPStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmNDPRowStatus": {
+    "name": "cmNDPRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmNDPEntryType": {
+    "name": "cmNDPEntryType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpEntryType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmProxyNDPTable": {
+    "name": "cmProxyNDPTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmProxyNDPEntry": {
+    "name": "cmProxyNDPEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyNDPInterface",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyNDPIpv6Address",
+        "implied": 0
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyNDPIpv6PrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmProxyNDPIpv6Address": {
+    "name": "cmProxyNDPIpv6Address",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmProxyNDPIpv6PrefixLen": {
+    "name": "cmProxyNDPIpv6PrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmProxyNDPInterface": {
+    "name": "cmProxyNDPInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmProxyNDPStorageType": {
+    "name": "cmProxyNDPStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmProxyNDPRowStatus": {
+    "name": "cmProxyNDPRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelTable": {
+    "name": "cmIpv6OverIpv4TunnelTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelEntry": {
+    "name": "cmIpv6OverIpv4TunnelEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelIndex": {
+    "name": "cmIpv6OverIpv4TunnelIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelName": {
+    "name": "cmIpv6OverIpv4TunnelName",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelType": {
+    "name": "cmIpv6OverIpv4TunnelType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6OverIpv4TunnelType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelDestIpv4Addr": {
+    "name": "cmIpv6OverIpv4TunnelDestIpv4Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelIpv6UnicastAddress": {
+    "name": "cmIpv6OverIpv4TunnelIpv6UnicastAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelIpv6UnicastAddrPrefixLen": {
+    "name": "cmIpv6OverIpv4TunnelIpv6UnicastAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelLinkLocalAddress": {
+    "name": "cmIpv6OverIpv4TunnelLinkLocalAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIpv60verIpv4TunnelLinkLocalAddrPrefixLen": {
+    "name": "cmIpv60verIpv4TunnelLinkLocalAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelAssociatedIpv4Interface": {
+    "name": "cmIpv6OverIpv4TunnelAssociatedIpv4Interface",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelStorageType": {
+    "name": "cmIpv6OverIpv4TunnelStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4TunnelRowStatus": {
+    "name": "cmIpv6OverIpv4TunnelRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmIpv6OverIpv4PotentialRouterList": {
+    "name": "cmIpv6OverIpv4PotentialRouterList",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceTable": {
+    "name": "ipLoopbackInterfaceTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceEntry": {
+    "name": "ipLoopbackInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipLoopbackInterfaceIndex": {
+    "name": "ipLoopbackInterfaceIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceName": {
+    "name": "ipLoopbackInterfaceName",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceIpAddress": {
+    "name": "ipLoopbackInterfaceIpAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceMask": {
+    "name": "ipLoopbackInterfaceMask",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceStorageType": {
+    "name": "ipLoopbackInterfaceStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceRowStatus": {
+    "name": "ipLoopbackInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceIpMode": {
+    "name": "ipLoopbackInterfaceIpMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceIpv6Address": {
+    "name": "ipLoopbackInterfaceIpv6Address",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLoopbackInterfaceIpv6AddrPrefixLen": {
+    "name": "ipLoopbackInterfaceIpv6AddrPrefixLen",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipCompliances": {
+    "name": "ipCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.2.1",
+    "class": "objectidentity"
+  },
+  "ipGroups": {
+    "name": "ipGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.2.2",
+    "class": "objectidentity"
+  },
+  "ipCompliance": {
+    "name": "ipCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ipGroup",
+        "module": "CM-IP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ipGroup": {
+    "name": "ipGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpFlushARPCacheAction"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpProxyARPEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpPingDestination"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInitiatePingAction"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpPingResult"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmPingInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpTraceRouteDestination"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInitiateTraceRouteAction"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpTraceRouteResult"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpTraceRouteInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpSNMPv1InterfaceName"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpSourceAddressType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpSourceAddressInterfaceName"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpManagementTrafficBridgingEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpManagementTrafficBridgingSecurityEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceName"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceMask"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceMTU"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpRole"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfacePhysicalAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceRIPv2Enabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDHCPClientIdEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDHCPClientId"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceIpMode"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpClassIdEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpHostNameEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpHostName"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpLogServerEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpNTPServerEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpClientIdType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpHostNameType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpVendorInfoEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpVendorInfoType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpVendorInfo"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceDhcpVendorInfoHideControl"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpInterfaceGateway"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteDest"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteMask"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteNextHop"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteMetric"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmStaticRouteAdvertise"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPIndex"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPIPAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPMacAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPStorageType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmARPEntryType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPIndex"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPIPAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPSubnetMask"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPStorageType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyARPRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIndex"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelAssociatedPort"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelName"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelMTU"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelEncapsulationType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelSubnetMask"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelVlanId"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelSVlanEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelSVlanId"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelRip2PktsEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelPhysicalAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelCOS"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelCIR"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelEIR"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelBufferSize"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelStorageType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelQosQueueProfile"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDHCPClientIdEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDHCPClientId"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelCVlanEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpMode"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpClassIdEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpHostNameEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpHostName"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpLogServerEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpNTPServerEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpClientIdType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpHostNameType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpManagementTrafficDscpEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpManagementTrafficDscp"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpManagementTrafficBridgingInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpManagementTrafficBridgingIpv4Gateway"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpManagementTrafficBridgingIpv6Gateway"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpVendorInfoEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpVendorInfoType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpVendorInfo"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDhcpVendorInfoHideControl"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelSharedVim"
+      }
+    ],
+    "status": "current"
+  },
+  "ipv6Group": {
+    "name": "ipv6Group",
+    "oid": "1.3.6.1.4.1.2544.1.12.11.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelDHCPv6Enabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpv6Address"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpv6AddrPrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpv6StateAddrAutoConfigEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnellinkLocIpv6Addr"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnellinkLocIpv6AddrPrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpv6PrefixAdvertiseEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpv6Prefix"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpv6PrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipManagementTunnelIpv6RipngEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6InterfaceMTU"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6UnicastAddr"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6UnicastAddrPrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6PrefixAdvertiseEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6RAPrefix"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6RAPrefixLength"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StateAddrAutoConfigEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6DhcpEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6DhcpRole"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6RIPngEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6LinkLocAddr"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6LinkLocAddrPrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6InterfaceGateway"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteDest"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRoutePrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteNextHop"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteMetric"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6StaticRouteAdvertise"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmNDPIpv6Address"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmNDPMacAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmNDPInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmNDPStorageType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmNDPRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmNDPEntryType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyNDPIpv6Address"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyNDPIpv6PrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyNDPInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyNDPStorageType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmProxyNDPRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelIndex"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelName"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelDestIpv4Addr"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelIpv6UnicastAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelAssociatedIpv4Interface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelStorageType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6InitiatePingAction"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6InitiatePingAction"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6TraceRouteDestination"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6InitiateTraceRouteAction"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6PingInterface"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelIpv6UnicastAddrPrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4TunnelLinkLocalAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv60verIpv4TunnelLinkLocalAddrPrefixLen"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6OverIpv4PotentialRouterList"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6FwdEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpv6ProxyNDPEnabled"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpFlushNDPCacheAction"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "cmIpPtpArpRtrvAction"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceIndex"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceName"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceIpAddress"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceMask"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceStorageType"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceRowStatus"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceIpMode"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceIpv6Address"
+      },
+      {
+        "module": "CM-IP-MIB",
+        "object": "ipLoopbackInterfaceIpv6AddrPrefixLen"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-IP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CM-IP-MIB"
+  }
+}

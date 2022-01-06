@@ -1,0 +1,1966 @@
+{
+  "imports": {
+    "class": "imports",
+    "DISMAN-PING-MIB": [
+      "pingResultsIpTargetAddressType",
+      "pingResultsEntry",
+      "pingResultsLastGoodProbe",
+      "pingCtlTargetAddress",
+      "pingResultsIpTargetAddress",
+      "pingProbeHistoryEntry",
+      "pingResultsMaxRtt",
+      "pingCtlTargetAddressType",
+      "pingResultsRttSumOfSquares",
+      "pingResultsSentProbes",
+      "pingResultsOperStatus",
+      "pingResultsMinRtt",
+      "OperationResponseStatus",
+      "pingResultsAverageRtt",
+      "pingResultsProbeResponses"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs",
+      "jnxPingNotifications"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "jnxPingMIB": {
+    "name": "jnxPingMIB",
+    "oid": "1.3.6.1.4.1.2636.3.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-09-20 00:00",
+        "description": "Updated the jnxPingCtlTargetPort description."
+      },
+      {
+        "revision": "2009-11-18 00:00",
+        "description": "Added jnxPingCtlEXseriesHWTimeStamp to jnxPingCtlTable."
+      },
+      {
+        "revision": "2009-04-20 00:00",
+        "description": "Added jnxPingCtlTargetPort to jnxPingCtlTable."
+      },
+      {
+        "revision": "2005-05-01 00:00",
+        "description": "Added jnxPingCtlTargetPort to jnxPingCtlTable."
+      },
+      {
+        "revision": "2004-04-15 00:00",
+        "description": "Added traps plus additional results & history data."
+      }
+    ]
+  },
+  "jnxPingObjects": {
+    "name": "jnxPingObjects",
+    "oid": "1.3.6.1.4.1.2636.3.7.1",
+    "class": "objectidentity"
+  },
+  "jnxPingImplementationTypeDomains": {
+    "name": "jnxPingImplementationTypeDomains",
+    "oid": "1.3.6.1.4.1.2636.3.7.2",
+    "class": "objectidentity"
+  },
+  "jnxPingIcmpTimeStamp": {
+    "name": "jnxPingIcmpTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.7.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxPingHttpGet": {
+    "name": "jnxPingHttpGet",
+    "oid": "1.3.6.1.4.1.2636.3.7.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxPingHttpGetMetadata": {
+    "name": "jnxPingHttpGetMetadata",
+    "oid": "1.3.6.1.4.1.2636.3.7.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxPingDnsQuery": {
+    "name": "jnxPingDnsQuery",
+    "oid": "1.3.6.1.4.1.2636.3.7.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxPingNtpQuery": {
+    "name": "jnxPingNtpQuery",
+    "oid": "1.3.6.1.4.1.2636.3.7.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxPingUdpTimestamp": {
+    "name": "jnxPingUdpTimestamp",
+    "oid": "1.3.6.1.4.1.2636.3.7.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxPingCtlTable": {
+    "name": "jnxPingCtlTable",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPingCtlEntry": {
+    "name": "jnxPingCtlEntry",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingCtlOwnerIndex": {
+    "name": "jnxPingCtlOwnerIndex",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPingCtlTestName": {
+    "name": "jnxPingCtlTestName",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPingCtlIfName": {
+    "name": "jnxPingCtlIfName",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlRoutingIfIndex": {
+    "name": "jnxPingCtlRoutingIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxPingCtlRoutingIfName": {
+    "name": "jnxPingCtlRoutingIfName",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "jnxPingCtlRoutingInstanceName": {
+    "name": "jnxPingCtlRoutingInstanceName",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlRttThreshold": {
+    "name": "jnxPingCtlRttThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlRttStdDevThreshold": {
+    "name": "jnxPingCtlRttStdDevThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlRttJitterThreshold": {
+    "name": "jnxPingCtlRttJitterThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlEgressTimeThreshold": {
+    "name": "jnxPingCtlEgressTimeThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlEgressStdDevThreshold": {
+    "name": "jnxPingCtlEgressStdDevThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlEgressJitterThreshold": {
+    "name": "jnxPingCtlEgressJitterThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlIngressTimeThreshold": {
+    "name": "jnxPingCtlIngressTimeThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlIngressStddevThreshold": {
+    "name": "jnxPingCtlIngressStddevThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlIngressJitterThreshold": {
+    "name": "jnxPingCtlIngressJitterThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlTrapGeneration": {
+    "name": "jnxPingCtlTrapGeneration",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rttThreshold": 0,
+        "rttStdDevThreshold": 1,
+        "rttJitterThreshold": 2,
+        "egressThreshold": 3,
+        "egressStdDevThreshold": 4,
+        "egressJitterThreshold": 5,
+        "ingressThreshold": 6,
+        "ingressStdDevThreshold": 7,
+        "ingressJitterThreshold": 8,
+        "maxrttThreshold": 9
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlTargetPort": {
+    "name": "jnxPingCtlTargetPort",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 7,
+            "max": 7
+          },
+          {
+            "min": 49152,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlJseriesHWTimeStamp": {
+    "name": "jnxPingCtlJseriesHWTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlOneWayHWTimeStamp": {
+    "name": "jnxPingCtlOneWayHWTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlMovAvgSize": {
+    "name": "jnxPingCtlMovAvgSize",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlMXseriesHWTimeStamp": {
+    "name": "jnxPingCtlMXseriesHWTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingCtlEXseriesHWTimeStamp": {
+    "name": "jnxPingCtlEXseriesHWTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingMaxRttThreshold": {
+    "name": "jnxPingMaxRttThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6000000
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxPingResultsTable": {
+    "name": "jnxPingResultsTable",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPingResultsEntry": {
+    "name": "jnxPingResultsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxPingResultsEntry",
+      "module": "JUNIPER-PING-MIB",
+      "object": "pingResultsEntry"
+    },
+    "status": "current"
+  },
+  "jnxPingResultsRttUs": {
+    "name": "jnxPingResultsRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsSumRttUs": {
+    "name": "jnxPingResultsSumRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsMinRttUs": {
+    "name": "jnxPingResultsMinRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsMaxRttUs": {
+    "name": "jnxPingResultsMaxRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsAvgRttUs": {
+    "name": "jnxPingResultsAvgRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsStdDevRttUs": {
+    "name": "jnxPingResultsStdDevRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsEgressUs": {
+    "name": "jnxPingResultsEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsMinEgressUs": {
+    "name": "jnxPingResultsMinEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsMaxEgressUs": {
+    "name": "jnxPingResultsMaxEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsAvgEgressUs": {
+    "name": "jnxPingResultsAvgEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsStddevEgressUs": {
+    "name": "jnxPingResultsStddevEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsIngressUs": {
+    "name": "jnxPingResultsIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsMinIngressUs": {
+    "name": "jnxPingResultsMinIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsMaxIngressUs": {
+    "name": "jnxPingResultsMaxIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsAvgIngressUs": {
+    "name": "jnxPingResultsAvgIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsStddevIngressUs": {
+    "name": "jnxPingResultsStddevIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsJitterRttUs": {
+    "name": "jnxPingResultsJitterRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsJitterEgressUs": {
+    "name": "jnxPingResultsJitterEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsJitterIngressUs": {
+    "name": "jnxPingResultsJitterIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsStatus": {
+    "name": "jnxPingResultsStatus",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationResponseStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsTime": {
+    "name": "jnxPingResultsTime",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsOwnerIndex": {
+    "name": "jnxPingResultsOwnerIndex",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingResultsTestName": {
+    "name": "jnxPingResultsTestName",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingProbeHistoryTable": {
+    "name": "jnxPingProbeHistoryTable",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPingProbeHistoryEntry": {
+    "name": "jnxPingProbeHistoryEntry",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxPingProbeHistoryEntry",
+      "module": "JUNIPER-PING-MIB",
+      "object": "pingProbeHistoryEntry"
+    },
+    "status": "current"
+  },
+  "jnxPingProbeHistoryResponseUs": {
+    "name": "jnxPingProbeHistoryResponseUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingProbeHistoryJitterUs": {
+    "name": "jnxPingProbeHistoryJitterUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingProbeHistoryResponseEgressUs": {
+    "name": "jnxPingProbeHistoryResponseEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingProbeHistoryResponseIngressUs": {
+    "name": "jnxPingProbeHistoryResponseIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingProbeHistoryEgressJitterUs": {
+    "name": "jnxPingProbeHistoryEgressJitterUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingProbeHistoryIngressJitterUs": {
+    "name": "jnxPingProbeHistoryIngressJitterUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultTable": {
+    "name": "jnxPingLastTestResultTable",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPingLastTestResultEntry": {
+    "name": "jnxPingLastTestResultEntry",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingLastTestResultProbeResponses": {
+    "name": "jnxPingLastTestResultProbeResponses",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultSentProbes": {
+    "name": "jnxPingLastTestResultSentProbes",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "probes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultSumRttUs": {
+    "name": "jnxPingLastTestResultSumRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultMinRttUs": {
+    "name": "jnxPingLastTestResultMinRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultMaxRttUs": {
+    "name": "jnxPingLastTestResultMaxRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultAvgRttUs": {
+    "name": "jnxPingLastTestResultAvgRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultStdDevRttUs": {
+    "name": "jnxPingLastTestResultStdDevRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultMinEgressUs": {
+    "name": "jnxPingLastTestResultMinEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultMaxEgressUs": {
+    "name": "jnxPingLastTestResultMaxEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultAvgEgressUs": {
+    "name": "jnxPingLastTestResultAvgEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultStddevEgressUs": {
+    "name": "jnxPingLastTestResultStddevEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultMinIngressUs": {
+    "name": "jnxPingLastTestResultMinIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultMaxIngressUs": {
+    "name": "jnxPingLastTestResultMaxIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultAvgIngressUs": {
+    "name": "jnxPingLastTestResultAvgIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultStddevIngressUs": {
+    "name": "jnxPingLastTestResultStddevIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultPeakToPeakJitterRttUs": {
+    "name": "jnxPingLastTestResultPeakToPeakJitterRttUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultPeakToPeakJitterEgressUs": {
+    "name": "jnxPingLastTestResultPeakToPeakJitterEgressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultPeakToPeakJitterIngressUs": {
+    "name": "jnxPingLastTestResultPeakToPeakJitterIngressUs",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingLastTestResultTime": {
+    "name": "jnxPingLastTestResultTime",
+    "oid": "1.3.6.1.4.1.2636.3.7.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPingNotificationPrefix": {
+    "name": "jnxPingNotificationPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.9.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxPingRttThresholdExceeded": {
+    "name": "jnxPingRttThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinRttUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxRttUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgRttUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsRttSumOfSquares"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlRttThreshold"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsRttUs"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingRttStdDevThresholdExceeded": {
+    "name": "jnxPingRttStdDevThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinRttUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxRttUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgRttUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsRttSumOfSquares"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlRttStdDevThreshold"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsStdDevRttUs"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingRttJitterThresholdExceeded": {
+    "name": "jnxPingRttJitterThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinRttUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxRttUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgRttUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsRttSumOfSquares"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlRttJitterThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingEgressThresholdExceeded": {
+    "name": "jnxPingEgressThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinEgressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxEgressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgEgressUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlEgressTimeThreshold"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsEgressUs"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingEgressStdDevThresholdExceeded": {
+    "name": "jnxPingEgressStdDevThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinEgressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxEgressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgEgressUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsStddevEgressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlEgressStdDevThreshold"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsStddevEgressUs"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingEgressJitterThresholdExceeded": {
+    "name": "jnxPingEgressJitterThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinEgressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxEgressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgEgressUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlEgressJitterThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingIngressThresholdExceeded": {
+    "name": "jnxPingIngressThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinIngressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxIngressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgIngressUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlIngressTimeThreshold"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsIngressUs"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingIngressStddevThresholdExceeded": {
+    "name": "jnxPingIngressStddevThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinIngressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxIngressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgIngressUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsStddevIngressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlIngressStddevThreshold"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsStddevIngressUs"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingIngressJitterThresholdExceeded": {
+    "name": "jnxPingIngressJitterThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinIngressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxIngressUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgIngressUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlIngressJitterThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPingMaxRttThresholdExceeded": {
+    "name": "jnxPingMaxRttThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.4.9.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsOperStatus"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsIpTargetAddress"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMinRttUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsMaxRttUs"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsAvgRttUs"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsProbeResponses"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsSentProbes"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsRttSumOfSquares"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingResultsLastGoodProbe"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingCtlRttThreshold"
+      },
+      {
+        "module": "JUNIPER-PING-MIB",
+        "object": "jnxPingResultsRttUs"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-PING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-PING-MIB"
+  }
+}

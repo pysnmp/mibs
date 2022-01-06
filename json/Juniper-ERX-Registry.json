@@ -1,0 +1,949 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Registry": [
+      "juniAdmin"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniErxRegistry": {
+    "name": "juniErxRegistry",
+    "oid": "1.3.6.1.4.1.4874.4.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-22 05:43",
+        "description": "Obsolete erxSrp5Plus SRP."
+      },
+      {
+        "revision": "2006-06-23 16:07",
+        "description": "Obsolete line cards: CT1-FULL, ERX-X21-V35-MOD, HSSI-3F, CE1-FULL."
+      },
+      {
+        "revision": "2006-04-03 10:43",
+        "description": "changed status of erxSrp5Plus, erxSrp310, erxSrp5g1gEcc, erxSrp5g2gEcc to deprecated."
+      },
+      {
+        "revision": "2006-05-02 14:53",
+        "description": "Deprecated line cards: CT1-FULL, ERX-X21-V35-MOD, HSSI-3F, CE1-FULL."
+      },
+      {
+        "revision": "2006-04-12 13:05",
+        "description": "Changed the status of the E3-3A board to obsolete."
+      },
+      {
+        "revision": "2006-03-31 13:12",
+        "description": "Changed the status of erxSrp5, erxSrp40, erxSrp40Plus, board to obsolete. Added new boards (erxSrp10g1gEcc, erxSrp10g2gEcc, erxSrp5g1gEcc, erxSrp5g2gEcc)."
+      },
+      {
+        "revision": "2006-02-28 08:22",
+        "description": "Added new board (erxSrp40g2gEc2)."
+      },
+      {
+        "revision": "2005-09-21 15:48",
+        "description": "Changed the status of the CT3, CT3 I/O, T3-3F, T3-3A, E3-3F, 10/100 FE-2 and 10/100 FE-2 I/O boards to obsolete."
+      },
+      {
+        "revision": "2004-05-25 18:32",
+        "description": "Added support for the Fe8 FX IOA."
+      },
+      {
+        "revision": "2003-11-12 20:20",
+        "description": "Added Hybrid line module and Hybrid IOA modules. Added GE2 line module and GE2 IOA module."
+      },
+      {
+        "revision": "2003-11-12 19:30",
+        "description": "Rebranded the ERX as an E-series product."
+      },
+      {
+        "revision": "2003-07-17 21:07",
+        "description": "Added ERX-310 hardware support. Added new Service module."
+      },
+      {
+        "revision": "2002-10-21 15:00",
+        "description": "Replaced Unisphere names with Juniper names. Added 256M versions of OCx ATM and GE/FE modules."
+      },
+      {
+        "revision": "2002-10-16 18:50",
+        "description": "Added support for OC12 channelized ATM/POS I/O adapters. Added support fo OC48 line card and I/O adapter. Added 12 port T3/E3 redundant midplane support."
+      },
+      {
+        "revision": "2002-10-10 18:51",
+        "description": "Added SRP module with 40 gbps plus switch fabric. Added Vitrual Tunneling Server (VTS) module. Added X.21/V.35 Server module and I/O adapter. Added OC12 APS I/O adapters. Added redundant midplane spare I/O adapters."
+      },
+      {
+        "revision": "2002-05-08 12:34",
+        "description": "Added GE SFP IOA module."
+      },
+      {
+        "revision": "2002-05-07 14:05",
+        "description": "Added SRP modules with 5 gbps and 40 gbps 'plus' switch fabrics."
+      },
+      {
+        "revision": "2001-08-20 16:08",
+        "description": "Added 12 port T3/E3 channelized modules."
+      },
+      {
+        "revision": "2001-06-12 18:27",
+        "description": "Added High Speed Serial Interface (HSSI) modules."
+      },
+      {
+        "revision": "2001-06-04 20:11",
+        "description": "Initial version of this SNMP management information module."
+      }
+    ]
+  },
+  "juniErxEntPhysicalType": {
+    "name": "juniErxEntPhysicalType",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1",
+    "class": "objectidentity"
+  },
+  "erxChassis": {
+    "name": "erxChassis",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx700Chassis": {
+    "name": "erx700Chassis",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1400Chassis": {
+    "name": "erx1400Chassis",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1440Chassis": {
+    "name": "erx1440Chassis",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx310ACChassis": {
+    "name": "erx310ACChassis",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx310DCChassis": {
+    "name": "erx310DCChassis",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxFanAssembly": {
+    "name": "erxFanAssembly",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx700FanAssembly": {
+    "name": "erx700FanAssembly",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1400FanAssembly": {
+    "name": "erx1400FanAssembly",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx300FanAssembly": {
+    "name": "erx300FanAssembly",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxPowerInput": {
+    "name": "erxPowerInput",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxPdu": {
+    "name": "erxPdu",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1440Pdu": {
+    "name": "erx1440Pdu",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx300ACPdu": {
+    "name": "erx300ACPdu",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx300DCPdu": {
+    "name": "erx300DCPdu",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxMidplane": {
+    "name": "erxMidplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx700Midplane": {
+    "name": "erx700Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1400Midplane": {
+    "name": "erx1400Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1Plus1RedundantT1E1Midplane": {
+    "name": "erx1Plus1RedundantT1E1Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.3",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erx2Plus1RedundantT1E1Midplane": {
+    "name": "erx2Plus1RedundantT1E1Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx3Plus1RedundantT1E1Midplane": {
+    "name": "erx3Plus1RedundantT1E1Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx4Plus1RedundantT1E1Midplane": {
+    "name": "erx4Plus1RedundantT1E1Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx5Plus1RedundantT1E1Midplane": {
+    "name": "erx5Plus1RedundantT1E1Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1Plus1RedundantT3E3Midplane": {
+    "name": "erx1Plus1RedundantT3E3Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.8",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erx2Plus1RedundantT3E3Midplane": {
+    "name": "erx2Plus1RedundantT3E3Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx3Plus1RedundantT3E3Midplane": {
+    "name": "erx3Plus1RedundantT3E3Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx4Plus1RedundantT3E3Midplane": {
+    "name": "erx4Plus1RedundantT3E3Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx5Plus1RedundantT3E3Midplane": {
+    "name": "erx5Plus1RedundantT3E3Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1Plus1RedundantOcMidplane": {
+    "name": "erx1Plus1RedundantOcMidplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.13",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erx2Plus1RedundantOcMidplane": {
+    "name": "erx2Plus1RedundantOcMidplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx3Plus1RedundantOcMidplane": {
+    "name": "erx3Plus1RedundantOcMidplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.15",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erx4Plus1RedundantOcMidplane": {
+    "name": "erx4Plus1RedundantOcMidplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.16",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erx5Plus1RedundantOcMidplane": {
+    "name": "erx5Plus1RedundantOcMidplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx2Plus1Redundant12T3E3Midplane": {
+    "name": "erx2Plus1Redundant12T3E3Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx5Plus1Redundant12T3E3Midplane": {
+    "name": "erx5Plus1Redundant12T3E3Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx1440Midplane": {
+    "name": "erx1440Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx300Midplane": {
+    "name": "erx300Midplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx2Plus1RedundantCOcMidplane": {
+    "name": "erx2Plus1RedundantCOcMidplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erx5Plus1RedundantCOcMidplane": {
+    "name": "erx5Plus1RedundantCOcMidplane",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.4.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxSrpModule": {
+    "name": "erxSrpModule",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxSrp5": {
+    "name": "erxSrp5",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.1",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxSrp10": {
+    "name": "erxSrp10",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.2",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxSrp10Ecc": {
+    "name": "erxSrp10Ecc",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxSrp40": {
+    "name": "erxSrp40",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.4",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxSrp5Plus": {
+    "name": "erxSrp5Plus",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.5",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxSrp40Plus": {
+    "name": "erxSrp40Plus",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.6",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxSrp310": {
+    "name": "erxSrp310",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.7",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxSrp40g2gEc2": {
+    "name": "erxSrp40g2gEc2",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxSrp10g1gEcc": {
+    "name": "erxSrp10g1gEcc",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxSrp10g2gEcc": {
+    "name": "erxSrp10g2gEcc",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxSrp5g1gEcc": {
+    "name": "erxSrp5g1gEcc",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.11",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxSrp5g2gEcc": {
+    "name": "erxSrp5g2gEcc",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.5.12",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxSrpIoAdapter": {
+    "name": "erxSrpIoAdapter",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxSrpIoa": {
+    "name": "erxSrpIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxSrp310Ioa": {
+    "name": "erxSrp310Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxLineModule": {
+    "name": "erxLineModule",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCt1": {
+    "name": "erxCt1",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.1",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxCe1": {
+    "name": "erxCe1",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.2",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxCt3": {
+    "name": "erxCt3",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.4",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxT3Atm": {
+    "name": "erxT3Atm",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.5",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxT3Frame": {
+    "name": "erxT3Frame",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.6",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxE3Atm": {
+    "name": "erxE3Atm",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.7",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxE3Frame": {
+    "name": "erxE3Frame",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.8",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxOc3": {
+    "name": "erxOc3",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.9",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxOc3Oc12Atm": {
+    "name": "erxOc3Oc12Atm",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3Oc12Pos": {
+    "name": "erxOc3Oc12Pos",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOcx": {
+    "name": "erxCOcx",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxFe2": {
+    "name": "erxFe2",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.13",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxGeFe": {
+    "name": "erxGeFe",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxTunnelService": {
+    "name": "erxTunnelService",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxHssi": {
+    "name": "erxHssi",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.16",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxVts": {
+    "name": "erxVts",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCt3P12": {
+    "name": "erxCt3P12",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxV35": {
+    "name": "erxV35",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.19",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxUt3E3Ocx": {
+    "name": "erxUt3E3Ocx",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc48": {
+    "name": "erxOc48",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3Oc12Atm256M": {
+    "name": "erxOc3Oc12Atm256M",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxGeFe256M": {
+    "name": "erxGeFe256M",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxService": {
+    "name": "erxService",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3Hybrid": {
+    "name": "erxOc3Hybrid",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxGe2": {
+    "name": "erxGe2",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.7.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxLineIoAdapter": {
+    "name": "erxLineIoAdapter",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCt1Ioa": {
+    "name": "erxCt1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.1",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxCe1Ioa": {
+    "name": "erxCe1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.2",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxCe1TIoa": {
+    "name": "erxCe1TIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.3",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxCt3Ioa": {
+    "name": "erxCt3Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.4",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxE3Ioa": {
+    "name": "erxE3Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3Mm2Ioa": {
+    "name": "erxOc3Mm2Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.6",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxOc3Sm2Ioa": {
+    "name": "erxOc3Sm2Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.7",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxOc3Mm4Ioa": {
+    "name": "erxOc3Mm4Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3SmIr4Ioa": {
+    "name": "erxOc3SmIr4Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3SmLr4Ioa": {
+    "name": "erxOc3SmLr4Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc3Mm4Ioa": {
+    "name": "erxCOc3Mm4Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc3SmIr4Ioa": {
+    "name": "erxCOc3SmIr4Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc3SmLr4Ioa": {
+    "name": "erxCOc3SmLr4Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc12Mm1Ioa": {
+    "name": "erxOc12Mm1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc12SmIr1Ioa": {
+    "name": "erxOc12SmIr1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc12SmLr1Ioa": {
+    "name": "erxOc12SmLr1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12Mm1Ioa": {
+    "name": "erxCOc12Mm1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12SmIr1Ioa": {
+    "name": "erxCOc12SmIr1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12SmLr1Ioa": {
+    "name": "erxCOc12SmLr1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxFe2Ioa": {
+    "name": "erxFe2Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.20",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxFe8Ioa": {
+    "name": "erxFe8Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxGeMm1Ioa": {
+    "name": "erxGeMm1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.22",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxGeSm1Ioa": {
+    "name": "erxGeSm1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.23",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "erxHssiIoa": {
+    "name": "erxHssiIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.24",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxCt3P12Ioa": {
+    "name": "erxCt3P12Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxV35Ioa": {
+    "name": "erxV35Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.26",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "erxGeSfpIoa": {
+    "name": "erxGeSfpIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxUe3P12Ioa": {
+    "name": "erxUe3P12Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxT3Atm4Ioa": {
+    "name": "erxT3Atm4Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12Mm1ApsIoa": {
+    "name": "erxCOc12Mm1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12SmIr1ApsIoa": {
+    "name": "erxCOc12SmIr1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12SmLr1ApsIoa": {
+    "name": "erxCOc12SmLr1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc12Mm1ApsIoa": {
+    "name": "erxOc12Mm1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc12SmIr1ApsIoa": {
+    "name": "erxOc12SmIr1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc12SmLr1ApsIoa": {
+    "name": "erxOc12SmLr1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12AtmPosMm1Ioa": {
+    "name": "erxCOc12AtmPosMm1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12AtmPosSmIr1Ioa": {
+    "name": "erxCOc12AtmPosSmIr1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12AtmPosSmLr1Ioa": {
+    "name": "erxCOc12AtmPosSmLr1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12AtmPosMm1ApsIoa": {
+    "name": "erxCOc12AtmPosMm1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12AtmPosSmIr1ApsIoa": {
+    "name": "erxCOc12AtmPosSmIr1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOc12AtmPosSmLr1ApsIoa": {
+    "name": "erxCOc12AtmPosSmLr1ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxT1E1RedundantIoa": {
+    "name": "erxT1E1RedundantIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxT3E3RedundantIoa": {
+    "name": "erxT3E3RedundantIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCt3RedundantIoa": {
+    "name": "erxCt3RedundantIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOcxRedundantIoa": {
+    "name": "erxOcxRedundantIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxCOcxRedundantIoa": {
+    "name": "erxCOcxRedundantIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3Mm4ApsIoa": {
+    "name": "erxOc3Mm4ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3SmIr4ApsIoa": {
+    "name": "erxOc3SmIr4ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3SmLr4ApsIoa": {
+    "name": "erxOc3SmLr4ApsIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.49",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc48Ioa": {
+    "name": "erxOc48Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3Atm2Ge1Ioa": {
+    "name": "erxOc3Atm2Ge1Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxOc3Atm2Pos2Ioa": {
+    "name": "erxOc3Atm2Pos2Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxGe2Ioa": {
+    "name": "erxGe2Ioa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "erxFe8FxIoa": {
+    "name": "erxFe8FxIoa",
+    "oid": "1.3.6.1.4.1.4874.4.2.2.1.8.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-ERX-Registry",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-ERX-Registry"
+  }
+}

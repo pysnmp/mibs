@@ -1,0 +1,2042 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "OperationalState",
+      "AdminState",
+      "SecondaryState",
+      "CmPmBinAction",
+      "PerfCounter64",
+      "VlanPriority"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "neIndex",
+      "shelfIndex"
+    ],
+    "CM-FACILITY-MIB": [
+      "cmEthernetTrafficPortIndex",
+      "cmEthernetNetPortIndex",
+      "cmEthernetAccPortIndex"
+    ],
+    "IEEE8021-CFM-MIB": [
+      "dot1agCfmMaCompEntry",
+      "Dot1agCfmMDLevel",
+      "dot1agCfmMaNetEntry",
+      "dot1agCfmMaIndex",
+      "Dot1agCfmMepId",
+      "dot1agCfmMepEntry",
+      "dot1agCfmMepIdentifier",
+      "dot1agCfmMdIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "VariablePointer"
+    ]
+  },
+  "f3CfmMIB": {
+    "name": "f3CfmMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-01-28 00:00",
+        "description": " Notes from release 201706220000Z, (1) Added TEXTUAL-CONVENTION CfmPduVersionType (2) Added object cfmMepVersion Notes from release 201302130000Z, (i)Added TEXTUAL-CONVENTION CfmSignalFailTriggers (ii)Added scalar cfmSignalFailTriggers Notes from release 201111220000Z, (i)Added the following objects to support CFM MEPs and Server MEPs on pluggable cards: -cfmMepOperationalState, cfmMepSecondaryState -cfmServerMepAdminState, cfmServerMepOperationalState, cfmServerMepSecondaryState Notes from release 201012160000Z, -Formalized the OBJECT-GROUP definitions Notes from release 201012160000Z, -Updated description of cfmAccPortQosShaperIndex Notes from release 201012140000Z, -Added object cfmMepStatsAction Notes from release 201005130000Z, (1)New scalars slmMulticastMacAddress, slmOpcode, slrOpcode are added Notes from release 201003310000Z, (1)New table cfmServerMepTable is added Notes from release 200903190000Z, (1)MIB version ready for release of FSP150CC devices GE101 and GE206."
+      }
+    ]
+  },
+  "cfmExtSvc": {
+    "name": "cfmExtSvc",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1",
+    "class": "objectidentity"
+  },
+  "cfmExtSvcObjects": {
+    "name": "cfmExtSvcObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1",
+    "class": "objectidentity"
+  },
+  "cfmExtSvcConformance": {
+    "name": "cfmExtSvcConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2",
+    "class": "objectidentity"
+  },
+  "CfmAisGenTriggerTypes": {
+    "name": "CfmAisGenTriggerTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bAisDefRemoteCCM": 0,
+        "bAisDefErrorCCM": 1,
+        "bAisDefXconCCM": 2,
+        "bAisDefAis": 3
+      }
+    },
+    "status": "current"
+  },
+  "CfmAisInterval": {
+    "name": "CfmAisInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aisInterval1sec": 1,
+          "aisInterval1min": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CfmLmmDmmInterval": {
+    "name": "CfmLmmDmmInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval10msec": 1,
+          "interval100msec": 2,
+          "interval1sec": 3,
+          "interval10sec": 4,
+          "interval1min": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CfmMepDefects": {
+    "name": "CfmMepDefects",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bDefAIS": 0
+      }
+    },
+    "status": "current"
+  },
+  "CfmLLFTriggerTypes": {
+    "name": "CfmLLFTriggerTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bAis": 0,
+        "bCcmIfStatusTlv": 1,
+        "bRemoteCCM": 2,
+        "bRDI": 3
+      }
+    },
+    "status": "current"
+  },
+  "CfmSignalFailTriggers": {
+    "name": "CfmSignalFailTriggers",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rdiCcm": 0,
+        "remoteCcm": 1,
+        "erroredCcm": 2,
+        "xconCcm": 3,
+        "ais": 4
+      }
+    },
+    "status": "current"
+  },
+  "CfmSlmEnabledTypes": {
+    "name": "CfmSlmEnabledTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cos0": 0,
+        "cos1": 1,
+        "cos2": 2,
+        "cos3": 3,
+        "cos4": 4,
+        "cos5": 5,
+        "cos6": 6,
+        "cos7": 7
+      }
+    },
+    "status": "current"
+  },
+  "CfmPduVersionType": {
+    "name": "CfmPduVersionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "y1731-2008": 1,
+          "y1731-2011": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cfmExtScalars": {
+    "name": "cfmExtScalars",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.1",
+    "class": "objectidentity"
+  },
+  "cfmEthType": {
+    "name": "cfmEthType",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMacAddress": {
+    "name": "cfmMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmMulticastMacAddress": {
+    "name": "slmMulticastMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmOpcode": {
+    "name": "slmOpcode",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slrOpcode": {
+    "name": "slrOpcode",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmSignalFailTriggers": {
+    "name": "cfmSignalFailTriggers",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmSignalFailTriggers",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepTable": {
+    "name": "cfmMepTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMepEntry": {
+    "name": "cfmMepEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfmMepEntry",
+      "module": "F3-CFM-MIB",
+      "object": "dot1agCfmMepEntry"
+    },
+    "status": "current"
+  },
+  "cfmMepAdminState": {
+    "name": "cfmMepAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepAisGenTriggerTypes": {
+    "name": "cfmMepAisGenTriggerTypes",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmAisGenTriggerTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepAisClientMdLevel": {
+    "name": "cfmMepAisClientMdLevel",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMDLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepAisInterval": {
+    "name": "cfmMepAisInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmAisInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepAisGenEnabled": {
+    "name": "cfmMepAisGenEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepAisPriority": {
+    "name": "cfmMepAisPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepLmTxCountAllPriosEnabled": {
+    "name": "cfmMepLmTxCountAllPriosEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepLmRxCountAllPriosEnabled": {
+    "name": "cfmMepLmRxCountAllPriosEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepLmDualEndedCountAllPriosEnabled": {
+    "name": "cfmMepLmDualEndedCountAllPriosEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepLmCountInProfileEnabled": {
+    "name": "cfmMepLmCountInProfileEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepLmTxPriority": {
+    "name": "cfmMepLmTxPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepDmPriority": {
+    "name": "cfmMepDmPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepRxCCMs": {
+    "name": "cfmMepRxCCMs",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMepErrCCMs": {
+    "name": "cfmMepErrCCMs",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMepLLFTriggerTypes": {
+    "name": "cfmMepLLFTriggerTypes",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmLLFTriggerTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepDefects": {
+    "name": "cfmMepDefects",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmMepDefects",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMepTagEtherType": {
+    "name": "cfmMepTagEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepStatsAction": {
+    "name": "cfmMepStatsAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmPmBinAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepLbmInterval": {
+    "name": "cfmMepLbmInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepOperationalState": {
+    "name": "cfmMepOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMepSecondaryState": {
+    "name": "cfmMepSecondaryState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMepSlmEnabled": {
+    "name": "cfmMepSlmEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmSlmEnabledTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepAssociatedObject": {
+    "name": "cfmMepAssociatedObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepPduVersion": {
+    "name": "cfmMepPduVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmPduVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepLlbResponderEnabled": {
+    "name": "cfmMepLlbResponderEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepLlbPortLLEnabled": {
+    "name": "cfmMepLlbPortLLEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepLlbVidList": {
+    "name": "cfmMepLlbVidList",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepCcmInterfaceStatusTLVControl": {
+    "name": "cfmMepCcmInterfaceStatusTLVControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmAccPortQosShaperTable": {
+    "name": "cfmAccPortQosShaperTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAccPortQosShaperEntry": {
+    "name": "cfmAccPortQosShaperEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetAccPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmAccPortQosShaperIndex": {
+    "name": "cfmAccPortQosShaperIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAccPortQosShaperCIR": {
+    "name": "cfmAccPortQosShaperCIR",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmAccPortQosShaperBufSize": {
+    "name": "cfmAccPortQosShaperBufSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmAccPortQosShaperAdminState": {
+    "name": "cfmAccPortQosShaperAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmNetPortQosShaperTable": {
+    "name": "cfmNetPortQosShaperTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmNetPortQosShaperEntry": {
+    "name": "cfmNetPortQosShaperEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetNetPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmNetPortQosShaperTypeIndex": {
+    "name": "cfmNetPortQosShaperTypeIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmNetPortQosShaperCIR": {
+    "name": "cfmNetPortQosShaperCIR",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmNetPortQosShaperBufSize": {
+    "name": "cfmNetPortQosShaperBufSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmNetPortQosShaperAdminState": {
+    "name": "cfmNetPortQosShaperAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmServerMepTable": {
+    "name": "cfmServerMepTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmServerMepEntry": {
+    "name": "cfmServerMepEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmServerMepIndex": {
+    "name": "cfmServerMepIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmServerMepAssociatedPort": {
+    "name": "cfmServerMepAssociatedPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmServerMepAisClientMdLevel": {
+    "name": "cfmServerMepAisClientMdLevel",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMDLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmServerMepAisInterval": {
+    "name": "cfmServerMepAisInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfmAisInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmServerMepAisGenEnabled": {
+    "name": "cfmServerMepAisGenEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmServerMepAisPriority": {
+    "name": "cfmServerMepAisPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmServerMepStorageType": {
+    "name": "cfmServerMepStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmServerMepRowStatus": {
+    "name": "cfmServerMepRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmServerMepAdminState": {
+    "name": "cfmServerMepAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmServerMepOperationalState": {
+    "name": "cfmServerMepOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmServerMepSecondaryState": {
+    "name": "cfmServerMepSecondaryState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmDownMEPQosShaperTable": {
+    "name": "cfmDownMEPQosShaperTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmDownMEPQosShaperEntry": {
+    "name": "cfmDownMEPQosShaperEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetTrafficPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmDownMEPQosShaperType",
+        "implied": 0
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmDownMEPQosShaperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmDownMEPQosShaperIndex": {
+    "name": "cfmDownMEPQosShaperIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmDownMEPQosShaperType": {
+    "name": "cfmDownMEPQosShaperType",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmDownMEPQosShaperCIR": {
+    "name": "cfmDownMEPQosShaperCIR",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmDownMEPQosShaperProfile": {
+    "name": "cfmDownMEPQosShaperProfile",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmDownMEPQosShaperAdminState": {
+    "name": "cfmDownMEPQosShaperAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepExcludedMepListTable": {
+    "name": "cfmMepExcludedMepListTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMepExcludedMepListEntry": {
+    "name": "cfmMepExcludedMepListEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepExcludedMepListIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmMepExcludedMepListIdentifier": {
+    "name": "cfmMepExcludedMepListIdentifier",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMepExcludedMepListRowStatus": {
+    "name": "cfmMepExcludedMepListRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMepLbrTable": {
+    "name": "cfmMepLbrTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMepLbrEntry": {
+    "name": "cfmMepLbrEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLbrMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmMepLbrMacAddress": {
+    "name": "cfmMepLbrMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMepLbrMepId": {
+    "name": "cfmMepLbrMepId",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMepLbrInOrder": {
+    "name": "cfmMepLbrInOrder",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMepLbrOutOfOder": {
+    "name": "cfmMepLbrOutOfOder",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMaCompTable": {
+    "name": "cfmMaCompTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMaCompEntry": {
+    "name": "cfmMaCompEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfmMaCompEntry",
+      "module": "F3-CFM-MIB",
+      "object": "dot1agCfmMaCompEntry"
+    },
+    "status": "current"
+  },
+  "cfmMaCompIndex": {
+    "name": "cfmMaCompIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMaCompEntity": {
+    "name": "cfmMaCompEntity",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmMaNetTable": {
+    "name": "cfmMaNetTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMaNetEntry": {
+    "name": "cfmMaNetEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfmMaNetEntry",
+      "module": "F3-CFM-MIB",
+      "object": "dot1agCfmMaNetEntry"
+    },
+    "status": "current"
+  },
+  "cfmMaNetRemoteMepAutoDiscovery": {
+    "name": "cfmMaNetRemoteMepAutoDiscovery",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMaNetMepNumbers": {
+    "name": "cfmMaNetMepNumbers",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmTrafficPortQosShaperTable": {
+    "name": "cfmTrafficPortQosShaperTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmTrafficPortQosShaperEntry": {
+    "name": "cfmTrafficPortQosShaperEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetTrafficPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmTrafficPortQosShaperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmTrafficPortQosShaperIndex": {
+    "name": "cfmTrafficPortQosShaperIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmTrafficPortQosShaperCIR": {
+    "name": "cfmTrafficPortQosShaperCIR",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmTrafficPortQosShaperBufSize": {
+    "name": "cfmTrafficPortQosShaperBufSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmTrafficPortQosShaperAdminState": {
+    "name": "cfmTrafficPortQosShaperAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmMepLlbMacAddressTable": {
+    "name": "cfmMepLlbMacAddressTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmLlbMacAddressEntry": {
+    "name": "cfmLlbMacAddressEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmLlbMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmLlbMacAddress": {
+    "name": "cfmLlbMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmLlbMacAddressRowStatus": {
+    "name": "cfmLlbMacAddressRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfmExtSvcCompliances": {
+    "name": "cfmExtSvcCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.1",
+    "class": "objectidentity"
+  },
+  "cfmExtSvcGroups": {
+    "name": "cfmExtSvcGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.2",
+    "class": "objectidentity"
+  },
+  "cfmExtCompliance": {
+    "name": "cfmExtCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfmExtGroup",
+        "module": "F3-CFM-MIB"
+      },
+      {
+        "object": "cfmGenGroup",
+        "module": "F3-CFM-MIB"
+      },
+      {
+        "object": "cfmMepGroup",
+        "module": "F3-CFM-MIB"
+      },
+      {
+        "object": "cfmPortShaperGroup",
+        "module": "F3-CFM-MIB"
+      },
+      {
+        "object": "cfmServerMepGroup",
+        "module": "F3-CFM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmExtGroup": {
+    "name": "cfmExtGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmEthType"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMacAddress"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "slmMulticastMacAddress"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "slmOpcode"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "slrOpcode"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAdminState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisGenTriggerTypes"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisClientMdLevel"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisInterval"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisGenEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisPriority"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmTxCountAllPriosEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmRxCountAllPriosEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmDualEndedCountAllPriosEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmCountInProfileEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmTxPriority"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepDmPriority"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepRxCCMs"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepErrCCMs"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLLFTriggerTypes"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepDefects"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepTagEtherType"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepStatsAction"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLbmInterval"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperIndex"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperCIR"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperBufSize"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperAdminState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperTypeIndex"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperCIR"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperBufSize"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperAdminState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepIndex"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAssociatedPort"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAisClientMdLevel"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAisInterval"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAisGenEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAisPriority"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepStorageType"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepRowStatus"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmDownMEPQosShaperIndex"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmDownMEPQosShaperType"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmDownMEPQosShaperCIR"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmDownMEPQosShaperProfile"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmDownMEPQosShaperAdminState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cfmGenGroup": {
+    "name": "cfmGenGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmEthType"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMacAddress"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "slmMulticastMacAddress"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "slmOpcode"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "slrOpcode"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmSignalFailTriggers"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmMepGroup": {
+    "name": "cfmMepGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAdminState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisGenTriggerTypes"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisClientMdLevel"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisInterval"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisGenEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAisPriority"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmTxCountAllPriosEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmRxCountAllPriosEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmDualEndedCountAllPriosEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmCountInProfileEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLmTxPriority"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepDmPriority"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepRxCCMs"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepErrCCMs"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLLFTriggerTypes"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepDefects"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepTagEtherType"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepStatsAction"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepOperationalState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepSecondaryState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepSlmEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepExcludedMepListIdentifier"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepExcludedMepListRowStatus"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLbrMacAddress"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLbrMepId"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLbrInOrder"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLbrOutOfOder"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepAssociatedObject"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepPduVersion"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLlbResponderEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLlbPortLLEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepLlbVidList"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmLlbMacAddress"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMepCcmInterfaceStatusTLVControl"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmPortShaperGroup": {
+    "name": "cfmPortShaperGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperIndex"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperCIR"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperBufSize"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmAccPortQosShaperAdminState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperTypeIndex"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperCIR"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperBufSize"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmNetPortQosShaperAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmServerMepGroup": {
+    "name": "cfmServerMepGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepIndex"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAssociatedPort"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAisClientMdLevel"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAisInterval"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAisGenEnabled"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAisPriority"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepStorageType"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepRowStatus"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepAdminState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepOperationalState"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmServerMepSecondaryState"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmMaCompGroup": {
+    "name": "cfmMaCompGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.13.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMaCompIndex"
+      },
+      {
+        "module": "F3-CFM-MIB",
+        "object": "cfmMaCompEntity"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CFM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-CFM-MIB"
+  }
+}

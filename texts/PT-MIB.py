@@ -1,23 +1,39 @@
 #
 # PySNMP MIB module PT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/protelevision/PT-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:31:24 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-MIB
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:29:29 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, Counter64, ObjectIdentity, TimeTicks, ModuleIdentity, Unsigned32, MibIdentifier, iso, NotificationType, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "Counter64", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "Unsigned32", "MibIdentifier", "iso", "NotificationType", "enterprises")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-pt = ModuleIdentity((1, 3, 6, 1, 4, 1, 18086))
-pt.setRevisions(('2014-08-08 12:00',))
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+miniLink, = mibBuilder.importSymbols("MINI-LINK-MIB", "miniLink")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Gauge32, IpAddress, MibIdentifier, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, iso, Bits, ModuleIdentity, Counter32, Integer32, Unsigned32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "MibIdentifier", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "iso", "Bits", "ModuleIdentity", "Counter32", "Integer32", "Unsigned32", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+pt = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 223, 2))
+pt.setRevisions(('2017-01-21 12:00', '2016-03-09 12:00', '2016-02-10 12:30',))
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    if mibBuilder.loadTexts: pt.setRevisionsDescriptions(('PTT General Device MIB File',))
-if mibBuilder.loadTexts: pt.setLastUpdated('201408081200Z')
-if mibBuilder.loadTexts: pt.setOrganization('Protelevision Technologies, Denmark')
-if mibBuilder.loadTexts: pt.setContactInfo('Contact:\n\n                Web: http://www.protelevision.com\n\n                Address: Valhoejs Alle 176, DK-2610 Roedovre, Denmark\n                Telephone: +45 44700000\n                Fax:       +45 44700001')
-if mibBuilder.loadTexts: pt.setDescription('This is the root MIB module for PT with OID of\n                {iso org dod internet private enterprises 18086}.\n\n                Copyright (c) 2004 Protelevision Technologies A/S. All rights reserved.\n                Reproduction of this document is authorized on the condition\n                that the foregoing copyright notice is included.\n\n                IANA allocated this enterprise OID (object identifier) for the\n                exclusive use of Protelevision Technologies A/S (PT). \n                Other than internet network equipment\n                distributed or licensed by PT, no other party has any right\n                what-so-ever to distribute or license internet network equipment\n                which responds to the PT enterprise OID or its subsidiary\n                branches. PT reserves the right to criminally prosecute and/or\n                to seek civil damages from anyone fraudently using the PT\n                enterprise OID to the full extent of the law.')
-mibBuilder.exportSymbols("PT-MIB", pt=pt, PYSNMP_MODULE_ID=pt)
+    if mibBuilder.loadTexts: pt.setRevisionsDescriptions(('MOC and MOI explained.', 'Validated.', 'The initial version of this MIB module.',))
+if mibBuilder.loadTexts: pt.setLastUpdated('201701211200Z')
+if mibBuilder.loadTexts: pt.setOrganization('Ericsson')
+if mibBuilder.loadTexts: pt.setContactInfo('Anders Ekvall\n             Postal: Ericsson AB,\n             E-Mail: anders.ekvall@ericsson.com')
+if mibBuilder.loadTexts: pt.setDescription('This is the MIB of PT specifics.\n            The entPhysical and ifIndex used are based on the MOC below:\n            IP_INTERFACE_MOC  10000\n            LANX_PORT_MOC     20000\n            WANX_PORT_MOC     30000\n            PT_MOC            40000\n            OM_MOC            50000\n            RMM_MOC           60000\n            SFP_MOC           70000\n            WIFI_MOC          80000\n            RJ45_MOC          90000\n            XPIC_MOC         100000\n            CT_MOC           110000\n            RLT_MOC          120000\n        \n            As MOI, slot and port are added according to:\n            Slot no * 100\n            Port no * 1\n            \n            For example an SFP in slot 1 port 3: 70103')
+ptDeviceType = MibScalar((1, 3, 6, 1, 4, 1, 193, 223, 2, 1), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ptDeviceType.setStatus('current')
+if mibBuilder.loadTexts: ptDeviceType.setDescription("This object represents type of the PT. Always set to the\n             same value as 'sysObjectID'.")
+ptConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 193, 223, 2, 8))
+ptCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 193, 223, 2, 8, 1))
+ptGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 193, 223, 2, 8, 2))
+ptCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 193, 223, 2, 8, 1, 1)).setObjects(("PT-MIB", "ptCompleteGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ptCompliance = ptCompliance.setStatus('current')
+if mibBuilder.loadTexts: ptCompliance.setDescription('The compliance statement for SNMP entities which implement everything.')
+ptCompleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 193, 223, 2, 8, 2, 1)).setObjects(("PT-MIB", "ptDeviceType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ptCompleteGroup = ptCompleteGroup.setStatus('current')
+if mibBuilder.loadTexts: ptCompleteGroup.setDescription('A collection of all current objects in this MIB module.')
+mibBuilder.exportSymbols("PT-MIB", ptCompleteGroup=ptCompleteGroup, ptConformance=ptConformance, PYSNMP_MODULE_ID=pt, pt=pt, ptDeviceType=ptDeviceType, ptGroups=ptGroups, ptCompliances=ptCompliances, ptCompliance=ptCompliance)

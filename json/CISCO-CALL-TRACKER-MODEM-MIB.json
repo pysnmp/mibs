@@ -1,0 +1,1641 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CALL-TRACKER-MIB": [
+      "cctActiveCallId",
+      "cctHistoryIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCallTrackerModemMIB": {
+    "name": "ciscoCallTrackerModemMIB",
+    "oid": "1.3.6.1.4.1.9.9.165",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-06 00:00",
+        "description": "Updated the imports such that Unsigned32 is imported from SNMPv2-SMI instead of CISCO-TC. Re-ordered the objects cctmActiveLocalDownRateShifts, cctmActiveRemoteUpRateShifts under CctmActiveEntry, and cctmHistoryLocalDownRateShifts and cctmHistoryRemoteUpRateShifts under CctmHistoryEntry to match the order in which they are defined."
+      },
+      {
+        "revision": "2001-12-14 00:00",
+        "description": "Initial version of this mib."
+      }
+    ]
+  },
+  "CctmModulation": {
+    "name": "CctmModulation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "bell103a": 2,
+          "bell212a": 3,
+          "v21": 4,
+          "v22": 5,
+          "v22bis": 6,
+          "v32": 7,
+          "v32bis": 8,
+          "vfc": 9,
+          "v34": 10,
+          "v17": 11,
+          "v29": 12,
+          "v33": 13,
+          "k56flex": 14,
+          "v23": 15,
+          "v32terbo": 16,
+          "v34plus": 17,
+          "v90": 18,
+          "v27ter": 19,
+          "v110": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CctmECProtocol": {
+    "name": "CctmECProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "direct": 2,
+          "mnp": 3,
+          "lapmV42": 4,
+          "syncMode": 5,
+          "asyncMode": 6,
+          "ara1": 7,
+          "ara2": 8,
+          "other": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CctmDataCompression": {
+    "name": "CctmDataCompression",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "v42bisTx": 2,
+          "v42bisRx": 3,
+          "v42bisBoth": 4,
+          "mnp5": 5,
+          "v44Tx": 6,
+          "v44Rx": 7,
+          "v44Both": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cctmMIBObjects": {
+    "name": "cctmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.165.1",
+    "class": "objectidentity"
+  },
+  "cctmActive": {
+    "name": "cctmActive",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1",
+    "class": "objectidentity"
+  },
+  "cctmHistory": {
+    "name": "cctmHistory",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2",
+    "class": "objectidentity"
+  },
+  "cctmActiveTable": {
+    "name": "cctmActiveTable",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cctmActiveEntry": {
+    "name": "cctmActiveEntry",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-TRACKER-MIB",
+        "object": "cctActiveCallId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cctmActiveProjectedMaxRxRate": {
+    "name": "cctmActiveProjectedMaxRxRate",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveProjectedMaxTxRate": {
+    "name": "cctmActiveProjectedMaxTxRate",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRxRate": {
+    "name": "cctmActiveRxRate",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveTxRate": {
+    "name": "cctmActiveTxRate",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveAttemptedModulation": {
+    "name": "cctmActiveAttemptedModulation",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveInitialModulation": {
+    "name": "cctmActiveInitialModulation",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveModulation": {
+    "name": "cctmActiveModulation",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveAttemptedECProtocol": {
+    "name": "cctmActiveAttemptedECProtocol",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmECProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveECProtocol": {
+    "name": "cctmActiveECProtocol",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmECProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveSupportedDC": {
+    "name": "cctmActiveSupportedDC",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mnp5": 0,
+        "v42bisRx": 1,
+        "v42bisTx": 2,
+        "v44Rx": 3,
+        "v44Tx": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveDataCompression": {
+    "name": "cctmActiveDataCompression",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmDataCompression",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRxHighWatermark": {
+    "name": "cctmActiveRxHighWatermark",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRxLowWatermark": {
+    "name": "cctmActiveRxLowWatermark",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveTxHighWatermark": {
+    "name": "cctmActiveTxHighWatermark",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveTxLowWatermark": {
+    "name": "cctmActiveTxLowWatermark",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveLocalUpRateShifts": {
+    "name": "cctmActiveLocalUpRateShifts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveLocalDownRateShifts": {
+    "name": "cctmActiveLocalDownRateShifts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRemoteUpRateShifts": {
+    "name": "cctmActiveRemoteUpRateShifts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRemoteDownRateShifts": {
+    "name": "cctmActiveRemoteDownRateShifts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRateShiftFailures": {
+    "name": "cctmActiveRateShiftFailures",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveLocalRetrains": {
+    "name": "cctmActiveLocalRetrains",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRemoteRetrains": {
+    "name": "cctmActiveRemoteRetrains",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRetrainFailures": {
+    "name": "cctmActiveRetrainFailures",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRxLinkOctets": {
+    "name": "cctmActiveRxLinkOctets",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveTxLinkOctets": {
+    "name": "cctmActiveTxLinkOctets",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRxECFrames": {
+    "name": "cctmActiveRxECFrames",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveTxECFrames": {
+    "name": "cctmActiveTxECFrames",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRxECNAKs": {
+    "name": "cctmActiveRxECNAKs",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveTxECNAKs": {
+    "name": "cctmActiveTxECNAKs",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRxECFramesBad": {
+    "name": "cctmActiveRxECFramesBad",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveECFramesResent": {
+    "name": "cctmActiveECFramesResent",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveECLinkTimeouts": {
+    "name": "cctmActiveECLinkTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmActiveRxCharLost": {
+    "name": "cctmActiveRxCharLost",
+    "oid": "1.3.6.1.4.1.9.9.165.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryTable": {
+    "name": "cctmHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cctmHistoryEntry": {
+    "name": "cctmHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-TRACKER-MIB",
+        "object": "cctHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cctmHistoryProjectedMaxRxRate": {
+    "name": "cctmHistoryProjectedMaxRxRate",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryProjectedMaxTxRate": {
+    "name": "cctmHistoryProjectedMaxTxRate",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryFinalRxRate": {
+    "name": "cctmHistoryFinalRxRate",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryFinalTxRate": {
+    "name": "cctmHistoryFinalTxRate",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryAttemptedModulation": {
+    "name": "cctmHistoryAttemptedModulation",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryInitialModulation": {
+    "name": "cctmHistoryInitialModulation",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryFinalModulation": {
+    "name": "cctmHistoryFinalModulation",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryAttemptedECProtocol": {
+    "name": "cctmHistoryAttemptedECProtocol",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmECProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryECProtocol": {
+    "name": "cctmHistoryECProtocol",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmECProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistorySupportedDC": {
+    "name": "cctmHistorySupportedDC",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mnp5": 0,
+        "v42bisRx": 1,
+        "v42bisTx": 2,
+        "v44Rx": 3,
+        "v44Tx": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryDataCompression": {
+    "name": "cctmHistoryDataCompression",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CctmDataCompression",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRxHighWatermark": {
+    "name": "cctmHistoryRxHighWatermark",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRxLowWatermark": {
+    "name": "cctmHistoryRxLowWatermark",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryTxHighWatermark": {
+    "name": "cctmHistoryTxHighWatermark",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryTxLowWatermark": {
+    "name": "cctmHistoryTxLowWatermark",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryLocalUpRateShifts": {
+    "name": "cctmHistoryLocalUpRateShifts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryLocalDownRateShifts": {
+    "name": "cctmHistoryLocalDownRateShifts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRemoteUpRateShifts": {
+    "name": "cctmHistoryRemoteUpRateShifts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRemoteDownRateShifts": {
+    "name": "cctmHistoryRemoteDownRateShifts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRateShiftFailures": {
+    "name": "cctmHistoryRateShiftFailures",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryLocalRetrains": {
+    "name": "cctmHistoryLocalRetrains",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRemoteRetrains": {
+    "name": "cctmHistoryRemoteRetrains",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRetrainFailures": {
+    "name": "cctmHistoryRetrainFailures",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRxLinkOctets": {
+    "name": "cctmHistoryRxLinkOctets",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryTxLinkOctets": {
+    "name": "cctmHistoryTxLinkOctets",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRxECFrames": {
+    "name": "cctmHistoryRxECFrames",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryTxECFrames": {
+    "name": "cctmHistoryTxECFrames",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRxECNAKs": {
+    "name": "cctmHistoryRxECNAKs",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryTxECNAKs": {
+    "name": "cctmHistoryTxECNAKs",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRxECFramesBad": {
+    "name": "cctmHistoryRxECFramesBad",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryECFramesResent": {
+    "name": "cctmHistoryECFramesResent",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryECLinkTimeouts": {
+    "name": "cctmHistoryECLinkTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryRxCharLost": {
+    "name": "cctmHistoryRxCharLost",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryDisconnectReason": {
+    "name": "cctmHistoryDisconnectReason",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmHistoryDisconnectReasonText": {
+    "name": "cctmHistoryDisconnectReasonText",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryTable": {
+    "name": "cctmXHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cctmXHistoryEntry": {
+    "name": "cctmXHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cctmXHistoryEntry",
+      "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+      "object": "cctmHistoryEntry"
+    },
+    "status": "current"
+  },
+  "cctmXHistoryRxECInfoFrameSize": {
+    "name": "cctmXHistoryRxECInfoFrameSize",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryTxECInfoFrameSize": {
+    "name": "cctmXHistoryTxECInfoFrameSize",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryRxECWindowSize": {
+    "name": "cctmXHistoryRxECWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryTxECWindowSize": {
+    "name": "cctmXHistoryTxECWindowSize",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryRxLevel": {
+    "name": "cctmXHistoryRxLevel",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryTxLevel": {
+    "name": "cctmXHistoryTxLevel",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryConstellation": {
+    "name": "cctmXHistoryConstellation",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "points4": 1,
+          "points16": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryV90Status": {
+    "name": "cctmXHistoryV90Status",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAttempted": 1,
+          "failure": 2,
+          "success": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryV90Failure": {
+    "name": "cctmXHistoryV90Failure",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFailure": 1,
+          "clientNonPCM": 2,
+          "clientFallback": 3,
+          "serverV90Disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryV90ClientId": {
+    "name": "cctmXHistoryV90ClientId",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmXHistoryECWindowClosures": {
+    "name": "cctmXHistoryECWindowClosures",
+    "oid": "1.3.6.1.4.1.9.9.165.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cctmMIBNotificationPrefix": {
+    "name": "cctmMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.165.2",
+    "class": "objectidentity"
+  },
+  "cctmMIBNotifications": {
+    "name": "cctmMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.165.2.0",
+    "class": "objectidentity"
+  },
+  "cctmMIBConformance": {
+    "name": "cctmMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.165.3",
+    "class": "objectidentity"
+  },
+  "cctmMIBCompliances": {
+    "name": "cctmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.165.3.1",
+    "class": "objectidentity"
+  },
+  "cctmMIBGroups": {
+    "name": "cctmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.165.3.2",
+    "class": "objectidentity"
+  },
+  "cctmMIBCompliance": {
+    "name": "cctmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.165.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cctmActiveGroup",
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB"
+      },
+      {
+        "object": "cctmHistoryGroup",
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB"
+      },
+      {
+        "object": "cctmXHistoryGroup",
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cctmActiveGroup": {
+    "name": "cctmActiveGroup",
+    "oid": "1.3.6.1.4.1.9.9.165.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveProjectedMaxRxRate"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveProjectedMaxTxRate"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRxRate"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveTxRate"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveAttemptedModulation"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveInitialModulation"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveModulation"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveAttemptedECProtocol"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveECProtocol"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveSupportedDC"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveDataCompression"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRxHighWatermark"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRxLowWatermark"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveTxHighWatermark"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveTxLowWatermark"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveLocalUpRateShifts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRemoteUpRateShifts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveLocalDownRateShifts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRemoteDownRateShifts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRateShiftFailures"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveLocalRetrains"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRemoteRetrains"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRetrainFailures"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRxLinkOctets"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveTxLinkOctets"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRxECFrames"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveTxECFrames"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRxECNAKs"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveTxECNAKs"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRxECFramesBad"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveECFramesResent"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveECLinkTimeouts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmActiveRxCharLost"
+      }
+    ],
+    "status": "current"
+  },
+  "cctmHistoryGroup": {
+    "name": "cctmHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.165.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryProjectedMaxRxRate"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryProjectedMaxTxRate"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryFinalRxRate"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryFinalTxRate"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryAttemptedModulation"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryInitialModulation"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryFinalModulation"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryAttemptedECProtocol"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryECProtocol"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistorySupportedDC"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryDataCompression"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRxHighWatermark"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRxLowWatermark"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryTxHighWatermark"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryTxLowWatermark"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryLocalUpRateShifts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRemoteUpRateShifts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryLocalDownRateShifts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRemoteDownRateShifts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRateShiftFailures"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryLocalRetrains"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRemoteRetrains"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRetrainFailures"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRxLinkOctets"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryTxLinkOctets"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRxECFrames"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryTxECFrames"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRxECNAKs"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryTxECNAKs"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRxECFramesBad"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryECFramesResent"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryECLinkTimeouts"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryRxCharLost"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryDisconnectReason"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmHistoryDisconnectReasonText"
+      }
+    ],
+    "status": "current"
+  },
+  "cctmXHistoryGroup": {
+    "name": "cctmXHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.165.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryRxECInfoFrameSize"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryTxECInfoFrameSize"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryRxECWindowSize"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryTxECWindowSize"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryRxLevel"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryTxLevel"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryConstellation"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryV90Status"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryV90Failure"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryV90ClientId"
+      },
+      {
+        "module": "CISCO-CALL-TRACKER-MODEM-MIB",
+        "object": "cctmXHistoryECWindowClosures"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CALL-TRACKER-MODEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CALL-TRACKER-MODEM-MIB"
+  }
+}

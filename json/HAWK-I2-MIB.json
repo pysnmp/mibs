@@ -1,0 +1,4485 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hawki2MIB": {
+    "name": "hawki2MIB",
+    "oid": "1.3.6.1.4.1.3711.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-27 12:00",
+        "description": "Name change and new objects added"
+      },
+      {
+        "revision": "2006-03-07 12:00",
+        "description": "First issue"
+      }
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "ContactState": {
+    "name": "ContactState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InputContactState": {
+    "name": "InputContactState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "armed": 3,
+          "triggered": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RelayState": {
+    "name": "RelayState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OutputControlState": {
+    "name": "OutputControlState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 1,
+          "deactivate": 2,
+          "logic": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EnableState": {
+    "name": "EnableState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InputDataType": {
+    "name": "InputDataType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autodetect": 1,
+          "temperature": 2,
+          "humidity": 3,
+          "analogue": 4,
+          "contact": 5,
+          "inactive": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "sinetica": {
+    "name": "sinetica",
+    "oid": "1.3.6.1.4.1.3711",
+    "class": "objectidentity"
+  },
+  "v1": {
+    "name": "v1",
+    "oid": "1.3.6.1.4.1.3711.24.1",
+    "class": "objectidentity"
+  },
+  "objects": {
+    "name": "objects",
+    "oid": "1.3.6.1.4.1.3711.24.1.1",
+    "class": "objectidentity"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.3711.24.0",
+    "class": "objectidentity"
+  },
+  "inputs": {
+    "name": "inputs",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1",
+    "class": "objectidentity"
+  },
+  "outputs": {
+    "name": "outputs",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2",
+    "class": "objectidentity"
+  },
+  "keypads": {
+    "name": "keypads",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4",
+    "class": "objectidentity"
+  },
+  "acus": {
+    "name": "acus",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5",
+    "class": "objectidentity"
+  },
+  "access": {
+    "name": "access",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6",
+    "class": "objectidentity"
+  },
+  "pdus": {
+    "name": "pdus",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7",
+    "class": "objectidentity"
+  },
+  "inventory": {
+    "name": "inventory",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99",
+    "class": "objectidentity"
+  },
+  "trapInfo": {
+    "name": "trapInfo",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.100",
+    "class": "objectidentity"
+  },
+  "ipCommon": {
+    "name": "ipCommon",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "ipTHA": {
+    "name": "ipTHA",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "ipContact": {
+    "name": "ipContact",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "ipEnable": {
+    "name": "ipEnable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "ipSelect": {
+    "name": "ipSelect",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipInsert": {
+    "name": "ipInsert",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputDataType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTempScaleFlag": {
+    "name": "ipTempScaleFlag",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 1,
+          "fahrenheit": 2,
+          "kelvin": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHATable": {
+    "name": "ipTHATable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipTHAEntry": {
+    "name": "ipTHAEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "ipTHAChan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipTHAChan": {
+    "name": "ipTHAChan",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHARS": {
+    "name": "ipTHARS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHAName": {
+    "name": "ipTHAName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHALocn": {
+    "name": "ipTHALocn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHAAutoDetect": {
+    "name": "ipTHAAutoDetect",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHAType": {
+    "name": "ipTHAType",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputDataType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHAValue": {
+    "name": "ipTHAValue",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHAScaling": {
+    "name": "ipTHAScaling",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHAOffset": {
+    "name": "ipTHAOffset",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHAHysteresis": {
+    "name": "ipTHAHysteresis",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHATrapsCfg": {
+    "name": "ipTHATrapsCfg",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "ipTHAThreshTable": {
+    "name": "ipTHAThreshTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipTHAThreshEntry": {
+    "name": "ipTHAThreshEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "ipTHAThreshChan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipTHAThreshChan": {
+    "name": "ipTHAThreshChan",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHAThreshRS": {
+    "name": "ipTHAThreshRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHAUCL": {
+    "name": "ipTHAUCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHAUWL": {
+    "name": "ipTHAUWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHALWL": {
+    "name": "ipTHALWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHALCL": {
+    "name": "ipTHALCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHATrapEnTable": {
+    "name": "ipTHATrapEnTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipTHATrapEnEntry": {
+    "name": "ipTHATrapEnEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "ipTHATrapEnChan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipTHATrapEnChan": {
+    "name": "ipTHATrapEnChan",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHATrapEnRS": {
+    "name": "ipTHATrapEnRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHAUCLTrapEn": {
+    "name": "ipTHAUCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHAUWLTrapEn": {
+    "name": "ipTHAUWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHALWLTrapEn": {
+    "name": "ipTHALWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHALCLTrapEn": {
+    "name": "ipTHALCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHATrapPerTable": {
+    "name": "ipTHATrapPerTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipTHATrapPerEntry": {
+    "name": "ipTHATrapPerEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "ipTHATrapPerChan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipTHATrapPerChan": {
+    "name": "ipTHATrapPerChan",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHATrapPerRS": {
+    "name": "ipTHATrapPerRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipTHATrapUCLPer": {
+    "name": "ipTHATrapUCLPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHATrapUWLPer": {
+    "name": "ipTHATrapUWLPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHATrapLWLPer": {
+    "name": "ipTHATrapLWLPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTHATrapLCLPer": {
+    "name": "ipTHATrapLCLPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.2.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipContTable": {
+    "name": "ipContTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipContEntry": {
+    "name": "ipContEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "ipContChan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipContChan": {
+    "name": "ipContChan",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipContRS": {
+    "name": "ipContRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipContName": {
+    "name": "ipContName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipContLocn": {
+    "name": "ipContLocn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipContAutoDetect": {
+    "name": "ipContAutoDetect",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipContNormState": {
+    "name": "ipContNormState",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ContactState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipContCurrState": {
+    "name": "ipContCurrState",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputContactState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipContTrigMode": {
+    "name": "ipContTrigMode",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positiveEdge": 1,
+          "negativeEdge": 2,
+          "level": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipContReset": {
+    "name": "ipContReset",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipContTrapEn": {
+    "name": "ipContTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "information": 3,
+          "disabled": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipContTrapPeriod": {
+    "name": "ipContTrapPeriod",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opEnable": {
+    "name": "opEnable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "opSelect": {
+    "name": "opSelect",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opInsert": {
+    "name": "opInsert",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opTable": {
+    "name": "opTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "opEntry": {
+    "name": "opEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "opChan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "opChan": {
+    "name": "opChan",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "opRS": {
+    "name": "opRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "opName": {
+    "name": "opName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opLocn": {
+    "name": "opLocn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "opNormState": {
+    "name": "opNormState",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelayState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opCurrState": {
+    "name": "opCurrState",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelayState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "opOnDelTime": {
+    "name": "opOnDelTime",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opOffDelTime": {
+    "name": "opOffDelTime",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opBooleanEqn": {
+    "name": "opBooleanEqn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opTrapEn": {
+    "name": "opTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "information": 3,
+          "disabled": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opTrapPeriod": {
+    "name": "opTrapPeriod",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "opControlState": {
+    "name": "opControlState",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OutputControlState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpEnable": {
+    "name": "kpEnable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "kpSelect": {
+    "name": "kpSelect",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpInsert": {
+    "name": "kpInsert",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpCtlTable": {
+    "name": "kpCtlTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "kpCtlEntry": {
+    "name": "kpCtlEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "kpNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "kpNumber": {
+    "name": "kpNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kpRS": {
+    "name": "kpRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kpManufacturer": {
+    "name": "kpManufacturer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpName": {
+    "name": "kpName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpDoorLatchTimeOut": {
+    "name": "kpDoorLatchTimeOut",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpRtnToStndbyTimeOut": {
+    "name": "kpRtnToStndbyTimeOut",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpEntryCodeValid": {
+    "name": "kpEntryCodeValid",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "kpDoorOpenTimeOut": {
+    "name": "kpDoorOpenTimeOut",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpRemoteDoorOpen": {
+    "name": "kpRemoteDoorOpen",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "kpInUseTrapEn": {
+    "name": "kpInUseTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "information": 3,
+          "disabled": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuEnable": {
+    "name": "acuEnable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "acuSelect": {
+    "name": "acuSelect",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuInsert": {
+    "name": "acuInsert",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuCtlTable": {
+    "name": "acuCtlTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acuCtlEntry": {
+    "name": "acuCtlEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "acuNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acuNumber": {
+    "name": "acuNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acuCtlRS": {
+    "name": "acuCtlRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acuManufacturer": {
+    "name": "acuManufacturer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuName": {
+    "name": "acuName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuDoorLatchTimeOut": {
+    "name": "acuDoorLatchTimeOut",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuRtnToStndbyTimeOut": {
+    "name": "acuRtnToStndbyTimeOut",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuEntryCodeValid": {
+    "name": "acuEntryCodeValid",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acuDoorOpenTimeOut": {
+    "name": "acuDoorOpenTimeOut",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuRemoteDoorOpen": {
+    "name": "acuRemoteDoorOpen",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acuInUseTrapEn": {
+    "name": "acuInUseTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "information": 3,
+          "disabled": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accUserCtl": {
+    "name": "accUserCtl",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1",
+    "class": "objectidentity"
+  },
+  "accUserInstance": {
+    "name": "accUserInstance",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accUserTable": {
+    "name": "accUserTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "accUserEntry": {
+    "name": "accUserEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "accUserNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "accUserNumber": {
+    "name": "accUserNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accUserRS": {
+    "name": "accUserRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "accUserName": {
+    "name": "accUserName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accUserCode": {
+    "name": "accUserCode",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accUserPrivileges": {
+    "name": "accUserPrivileges",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accUserExpires": {
+    "name": "accUserExpires",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "accUserSetup": {
+    "name": "accUserSetup",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduCommon": {
+    "name": "pduCommon",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1",
+    "class": "objectidentity"
+  },
+  "pduOutlets": {
+    "name": "pduOutlets",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2",
+    "class": "objectidentity"
+  },
+  "pduMonitor": {
+    "name": "pduMonitor",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3",
+    "class": "objectidentity"
+  },
+  "pdusEnable": {
+    "name": "pdusEnable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.1",
+    "class": "objectidentity"
+  },
+  "pduSelect": {
+    "name": "pduSelect",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduInsert": {
+    "name": "pduInsert",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduTable": {
+    "name": "pduTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pduEntry": {
+    "name": "pduEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "pduNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pduNumber": {
+    "name": "pduNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduRS": {
+    "name": "pduRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduName": {
+    "name": "pduName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutEn": {
+    "name": "pduOutEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMonEn": {
+    "name": "pduMonEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduCommsFail": {
+    "name": "pduCommsFail",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commsGood": 1,
+          "commsFailed": 2,
+          "commsBadData": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduOutAll": {
+    "name": "pduOutAll",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.1",
+    "class": "objectidentity"
+  },
+  "pduOutCycleAll": {
+    "name": "pduOutCycleAll",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutCycleAllPwd": {
+    "name": "pduOutCycleAllPwd",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutCycleAllAbort": {
+    "name": "pduOutCycleAllAbort",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutGlobalCycleDelay": {
+    "name": "pduOutGlobalCycleDelay",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutGlobalRebootTime": {
+    "name": "pduOutGlobalRebootTime",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutGlobalCycleAbortTime": {
+    "name": "pduOutGlobalCycleAbortTime",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutCmnTable": {
+    "name": "pduOutCmnTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pduOutCmnEntry": {
+    "name": "pduOutCmnEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "pduOutCmnPduNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pduOutCmnPduNumber": {
+    "name": "pduOutCmnPduNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduOutCmnRS": {
+    "name": "pduOutCmnRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduNumOfOutlets": {
+    "name": "pduNumOfOutlets",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutCycle": {
+    "name": "pduOutCycle",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutCyclePwd": {
+    "name": "pduOutCyclePwd",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutCycleAbortTask": {
+    "name": "pduOutCycleAbortTask",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutCycleAbortTime": {
+    "name": "pduOutCycleAbortTime",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutTable": {
+    "name": "pduOutTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pduOutEntry": {
+    "name": "pduOutEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "pduOutPduNumber",
+        "implied": 0
+      },
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "pduOutNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pduOutPduNumber": {
+    "name": "pduOutPduNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduOutNumber": {
+    "name": "pduOutNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduOutRS": {
+    "name": "pduOutRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduOutName": {
+    "name": "pduOutName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutOn": {
+    "name": "pduOutOn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "reboot": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutPwd": {
+    "name": "pduOutPwd",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduOutCycleDelay": {
+    "name": "pduOutCycleDelay",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduOutRebootPeriod": {
+    "name": "pduOutRebootPeriod",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduMonTable": {
+    "name": "pduMonTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pduMonEntry": {
+    "name": "pduMonEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "pduMonPduNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pduMonPduNumber": {
+    "name": "pduMonPduNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduMonRS": {
+    "name": "pduMonRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduRMSVoltsValue": {
+    "name": "pduRMSVoltsValue",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduRMSAmpsValue": {
+    "name": "pduRMSAmpsValue",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduTotalEnergyValue": {
+    "name": "pduTotalEnergyValue",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduMeanKVAValue": {
+    "name": "pduMeanKVAValue",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduMeanKWattsValue": {
+    "name": "pduMeanKWattsValue",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduPwrFactorValue": {
+    "name": "pduPwrFactorValue",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduTrapThreshTable": {
+    "name": "pduTrapThreshTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pduTrapThreshEntry": {
+    "name": "pduTrapThreshEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "pduTrapThreshPduNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pduTrapThreshPduNumber": {
+    "name": "pduTrapThreshPduNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduTrapThreshRS": {
+    "name": "pduTrapThreshRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduRMSVoltsUCL": {
+    "name": "pduRMSVoltsUCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsUWL": {
+    "name": "pduRMSVoltsUWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsLWL": {
+    "name": "pduRMSVoltsLWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsLCL": {
+    "name": "pduRMSVoltsLCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsUCL": {
+    "name": "pduRMSAmpsUCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsUWL": {
+    "name": "pduRMSAmpsUWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsLWL": {
+    "name": "pduRMSAmpsLWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsLCL": {
+    "name": "pduRMSAmpsLCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduEnergyUCL": {
+    "name": "pduEnergyUCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduEnergyUWL": {
+    "name": "pduEnergyUWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVAUCL": {
+    "name": "pduMeanKVAUCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVAUWL": {
+    "name": "pduMeanKVAUWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVALWL": {
+    "name": "pduMeanKVALWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVALCL": {
+    "name": "pduMeanKVALCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsUCL": {
+    "name": "pduMeanKWattsUCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsUWL": {
+    "name": "pduMeanKWattsUWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsLWL": {
+    "name": "pduMeanKWattsLWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsLCL": {
+    "name": "pduMeanKWattsLCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorUCL": {
+    "name": "pduPwrFactorUCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorUWL": {
+    "name": "pduPwrFactorUWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorLWL": {
+    "name": "pduPwrFactorLWL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorLCL": {
+    "name": "pduPwrFactorLCL",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduTrapEnTable": {
+    "name": "pduTrapEnTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pduTrapEnEntry": {
+    "name": "pduTrapEnEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "pduTrapEnPduNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pduTrapEnPduNumber": {
+    "name": "pduTrapEnPduNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduTrapEnRS": {
+    "name": "pduTrapEnRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduRMSVoltsUCLTrapEn": {
+    "name": "pduRMSVoltsUCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsUWLTrapEn": {
+    "name": "pduRMSVoltsUWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsLWLTrapEn": {
+    "name": "pduRMSVoltsLWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsLCLTrapEn": {
+    "name": "pduRMSVoltsLCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsUCLTrapEn": {
+    "name": "pduRMSAmpsUCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsUWLTrapEn": {
+    "name": "pduRMSAmpsUWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsLWLTrapEn": {
+    "name": "pduRMSAmpsLWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsLCLTrapEn": {
+    "name": "pduRMSAmpsLCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduEnergyUCLTrapEn": {
+    "name": "pduEnergyUCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduEnergyUWLTrapEn": {
+    "name": "pduEnergyUWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVAUCLTrapEn": {
+    "name": "pduMeanKVAUCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVAUWLTrapEn": {
+    "name": "pduMeanKVAUWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVALWLTrapEn": {
+    "name": "pduMeanKVALWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVALCLTrapEn": {
+    "name": "pduMeanKVALCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsUCLTrapEn": {
+    "name": "pduMeanKWattsUCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsUWLTrapEn": {
+    "name": "pduMeanKWattsUWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsLWLTrapEn": {
+    "name": "pduMeanKWattsLWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsLCLTrapEn": {
+    "name": "pduMeanKWattsLCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorUCLTrapEn": {
+    "name": "pduPwrFactorUCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorUWLTrapEn": {
+    "name": "pduPwrFactorUWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorLWLTrapEn": {
+    "name": "pduPwrFactorLWLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorLCLTrapEn": {
+    "name": "pduPwrFactorLCLTrapEn",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduTrapPerTable": {
+    "name": "pduTrapPerTable",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pduTrapPerEntry": {
+    "name": "pduTrapPerEntry",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "pduTrapPduNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pduTrapPduNumber": {
+    "name": "pduTrapPduNumber",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduTrapPerRS": {
+    "name": "pduTrapPerRS",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pduRMSVoltsUCLTrapPer": {
+    "name": "pduRMSVoltsUCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsUWLTrapPer": {
+    "name": "pduRMSVoltsUWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsLWLTrapPer": {
+    "name": "pduRMSVoltsLWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSVoltsLCLTrapPer": {
+    "name": "pduRMSVoltsLCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsUCLTrapPer": {
+    "name": "pduRMSAmpsUCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsUWLTrapPer": {
+    "name": "pduRMSAmpsUWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsLWLTrapPer": {
+    "name": "pduRMSAmpsLWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduRMSAmpsLCLTrapPer": {
+    "name": "pduRMSAmpsLCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduEnergyUCLTrapPer": {
+    "name": "pduEnergyUCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduEnergyUWLTrapPer": {
+    "name": "pduEnergyUWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVAUCLTrapPer": {
+    "name": "pduMeanKVAUCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVAUWLTrapPer": {
+    "name": "pduMeanKVAUWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVALWLTrapPer": {
+    "name": "pduMeanKVALWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKVALCLTrapPer": {
+    "name": "pduMeanKVALCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsUCLTrapPer": {
+    "name": "pduMeanKWattsUCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsUWLTrapPer": {
+    "name": "pduMeanKWattsUWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsLWLTrapPer": {
+    "name": "pduMeanKWattsLWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduMeanKWattsLCLTrapPer": {
+    "name": "pduMeanKWattsLCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorUCLTrapPer": {
+    "name": "pduPwrFactorUCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorUWLTrapPer": {
+    "name": "pduPwrFactorUWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorLWLTrapPer": {
+    "name": "pduPwrFactorLWLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pduPwrFactorLCLTrapPer": {
+    "name": "pduPwrFactorLCLTrapPer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.7.3.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "invProdSignature": {
+    "name": "invProdSignature",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invProdFormatVer": {
+    "name": "invProdFormatVer",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invManufCode": {
+    "name": "invManufCode",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invOrderNum": {
+    "name": "invOrderNum",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invBatchNum": {
+    "name": "invBatchNum",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invProdTestTime": {
+    "name": "invProdTestTime",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invUnitName": {
+    "name": "invUnitName",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invUnitPartNum": {
+    "name": "invUnitPartNum",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invHwRevision": {
+    "name": "invHwRevision",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invFwRevision": {
+    "name": "invFwRevision",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invSerialNum": {
+    "name": "invSerialNum",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invDefaultIPAddrType": {
+    "name": "invDefaultIPAddrType",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invDefaultIPAddr": {
+    "name": "invDefaultIPAddr",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invDefaultSubNetMask": {
+    "name": "invDefaultSubNetMask",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invDefaultGWAddr": {
+    "name": "invDefaultGWAddr",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invMacAddr": {
+    "name": "invMacAddr",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invOk": {
+    "name": "invOk",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invInputCount": {
+    "name": "invInputCount",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invOutputCount": {
+    "name": "invOutputCount",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invKeypadCount": {
+    "name": "invKeypadCount",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invAcuCount": {
+    "name": "invAcuCount",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invAccessUserCount": {
+    "name": "invAccessUserCount",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "invPduCount": {
+    "name": "invPduCount",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.99.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapCode": {
+    "name": "trapCode",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.100.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapDescription": {
+    "name": "trapDescription",
+    "oid": "1.3.6.1.4.1.3711.24.1.1.100.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmCritical": {
+    "name": "alarmCritical",
+    "oid": "1.3.6.1.4.1.3711.24.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "trapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmWarning": {
+    "name": "alarmWarning",
+    "oid": "1.3.6.1.4.1.3711.24.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "trapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmInformation": {
+    "name": "alarmInformation",
+    "oid": "1.3.6.1.4.1.3711.24.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "trapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmCleared": {
+    "name": "alarmCleared",
+    "oid": "1.3.6.1.4.1.3711.24.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "trapCode"
+      },
+      {
+        "module": "HAWK-I2-MIB",
+        "object": "trapDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sinetica/HAWK-I2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HAWK-I2-MIB"
+  }
+}

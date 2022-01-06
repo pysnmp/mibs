@@ -1,0 +1,1033 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVpnLicUsageMonitorMIB": {
+    "name": "ciscoVpnLicUsageMonitorMIB",
+    "oid": "1.3.6.1.4.1.9.9.816",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-13 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "VPNLicType": {
+    "name": "VPNLicType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "anyconnectpremium": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VPNLicDeviceRole": {
+    "name": "VPNLicDeviceRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "server": 1,
+          "bkpserver": 2,
+          "client": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LicServerStatus": {
+    "name": "LicServerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "expired": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LicServerRegistered": {
+    "name": "LicServerRegistered",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoVpnLicUsageMonitorMIBObjects": {
+    "name": "ciscoVpnLicUsageMonitorMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.816.0",
+    "class": "objectidentity"
+  },
+  "ciscoVpnLicUsageMonitorMIBConform": {
+    "name": "ciscoVpnLicUsageMonitorMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.816.1",
+    "class": "objectidentity"
+  },
+  "ciscoVpnLicUsageMonitorMIBCompliances": {
+    "name": "ciscoVpnLicUsageMonitorMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.816.1.1",
+    "class": "objectidentity"
+  },
+  "cvpnLicDeviceRole": {
+    "name": "cvpnLicDeviceRole",
+    "oid": "1.3.6.1.4.1.9.9.816.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VPNLicDeviceRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServer": {
+    "name": "cvpnLicServer",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2",
+    "class": "objectidentity"
+  },
+  "cvpnLicBkpServer": {
+    "name": "cvpnLicBkpServer",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3",
+    "class": "objectidentity"
+  },
+  "cvpnLicClient": {
+    "name": "cvpnLicClient",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4",
+    "class": "objectidentity"
+  },
+  "cvpnLicServerAddrType": {
+    "name": "cvpnLicServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerAddr": {
+    "name": "cvpnLicServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpSerAddrType": {
+    "name": "cvpnLicBkpSerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpSerAddr": {
+    "name": "cvpnLicBkpSerAddr",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerVer": {
+    "name": "cvpnLicServerVer",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerStatus": {
+    "name": "cvpnLicServerStatus",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerTable": {
+    "name": "cvpnLicServerTable",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvpnLicServerEntry": {
+    "name": "cvpnLicServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerVPNLicType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvpnLicServerVPNLicType": {
+    "name": "cvpnLicServerVPNLicType",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VPNLicType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvpnLicServerNumLicCapacity": {
+    "name": "cvpnLicServerNumLicCapacity",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "license",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerNumLicAvail": {
+    "name": "cvpnLicServerNumLicAvail",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "license",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerUtilized": {
+    "name": "cvpnLicServerUtilized",
+    "oid": "1.3.6.1.4.1.9.9.816.0.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "license",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpServerAddrType": {
+    "name": "cvpnLicBkpServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpServerAddr": {
+    "name": "cvpnLicBkpServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpServerDevID": {
+    "name": "cvpnLicBkpServerDevID",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpServerVer": {
+    "name": "cvpnLicBkpServerVer",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "license",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpServerRegd": {
+    "name": "cvpnLicBkpServerRegd",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicServerRegistered",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpServerHAPeerDevID": {
+    "name": "cvpnLicBkpServerHAPeerDevID",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpServerHAPeerRegd": {
+    "name": "cvpnLicBkpServerHAPeerRegd",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicServerRegistered",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicBkpServerStatus": {
+    "name": "cvpnLicBkpServerStatus",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LicServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerHelloTx": {
+    "name": "cvpnLicServerHelloTx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerHelloRx": {
+    "name": "cvpnLicServerHelloRx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerHelloError": {
+    "name": "cvpnLicServerHelloError",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerSyncTx": {
+    "name": "cvpnLicServerSyncTx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerSyncRx": {
+    "name": "cvpnLicServerSyncRx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerSyncError": {
+    "name": "cvpnLicServerSyncError",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerUpdateTx": {
+    "name": "cvpnLicServerUpdateTx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerUpdateRx": {
+    "name": "cvpnLicServerUpdateRx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicServerUpdateError": {
+    "name": "cvpnLicServerUpdateError",
+    "oid": "1.3.6.1.4.1.9.9.816.0.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoTable": {
+    "name": "cvpnLicClntInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvpnLicClntInfoEntry": {
+    "name": "cvpnLicClntInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntVPNLicType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoDeviceID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvpnLicClntVPNLicType": {
+    "name": "cvpnLicClntVPNLicType",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VPNLicType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvpnLicClntInfoDeviceID": {
+    "name": "cvpnLicClntInfoDeviceID",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvpnLicClntInfoHostName": {
+    "name": "cvpnLicClntInfoHostName",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoPlatLmt": {
+    "name": "cvpnLicClntInfoPlatLmt",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "license",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoCurUsage": {
+    "name": "cvpnLicClntInfoCurUsage",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "license",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoHigh": {
+    "name": "cvpnLicClntInfoHigh",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "license",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoRegReqTx": {
+    "name": "cvpnLicClntInfoRegReqTx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoRegReqRx": {
+    "name": "cvpnLicClntInfoRegReqRx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoRegReqError": {
+    "name": "cvpnLicClntInfoRegReqError",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoGetReqTx": {
+    "name": "cvpnLicClntInfoGetReqTx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoGetReqRx": {
+    "name": "cvpnLicClntInfoGetReqRx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoGetReqError": {
+    "name": "cvpnLicClntInfoGetReqError",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoRelReqTx": {
+    "name": "cvpnLicClntInfoRelReqTx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoRelReqRx": {
+    "name": "cvpnLicClntInfoRelReqRx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoRelReqError": {
+    "name": "cvpnLicClntInfoRelReqError",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoTransferReqTx": {
+    "name": "cvpnLicClntInfoTransferReqTx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoTransferReqRx": {
+    "name": "cvpnLicClntInfoTransferReqRx",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvpnLicClntInfoTransferReqError": {
+    "name": "cvpnLicClntInfoTransferReqError",
+    "oid": "1.3.6.1.4.1.9.9.816.0.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoVpnLicUsageMonitorMIBGroups": {
+    "name": "ciscoVpnLicUsageMonitorMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.816.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoVpnLicUsageMonitorMIBCompliance": {
+    "name": "ciscoVpnLicUsageMonitorMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.816.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVPNSharedLicUsageMandatoryGroup",
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB"
+      },
+      {
+        "object": "ciscoVPNSharedLicOptUsageGroup",
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVPNSharedLicUsageMandatoryGroup": {
+    "name": "ciscoVPNSharedLicUsageMandatoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.816.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicDeviceRole"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerAddrType"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerAddr"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpSerAddrType"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpSerAddr"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerVer"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerStatus"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerNumLicCapacity"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerNumLicAvail"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerUtilized"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoHostName"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoPlatLmt"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoCurUsage"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVPNSharedLicOptUsageGroup": {
+    "name": "ciscoVPNSharedLicOptUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.816.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpServerAddrType"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpServerAddr"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpServerDevID"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpServerVer"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpServerRegd"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpServerHAPeerDevID"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpServerHAPeerRegd"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicBkpServerStatus"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerHelloTx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerHelloRx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerHelloError"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerSyncTx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerSyncRx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerSyncError"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerUpdateTx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerUpdateRx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicServerUpdateError"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoRegReqTx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoRegReqRx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoRegReqError"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoGetReqTx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoGetReqRx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoGetReqError"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoRelReqTx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoRelReqRx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoRelReqError"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoTransferReqTx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoTransferReqRx"
+      },
+      {
+        "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+        "object": "cvpnLicClntInfoTransferReqError"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VPN-LIC-USAGE-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VPN-LIC-USAGE-MONITOR-MIB"
+  }
+}

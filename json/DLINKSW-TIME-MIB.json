@@ -1,0 +1,603 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "dlinkSwTimeMIB": {
+    "name": "dlinkSwTimeMIB",
+    "oid": "1.3.6.1.4.1.171.14.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-19 00:00",
+        "description": "This is the first version of the MIB file. "
+      },
+      {
+        "revision": "2013-08-20 00:00",
+        "description": "1.Add Year for date type of DlinkTimeSummerTimeValue . 2.Fixed bugs of type error for dTimeSntpServerLastReceive."
+      }
+    ]
+  },
+  "DlinkTimeSummerTimeValue": {
+    "name": "DlinkTimeSummerTimeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "dTimeMIBNotifications": {
+    "name": "dTimeMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.10.0",
+    "class": "objectidentity"
+  },
+  "dTimeMIBObjects": {
+    "name": "dTimeMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.10.1",
+    "class": "objectidentity"
+  },
+  "dTimeMIBConformance": {
+    "name": "dTimeMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.10.2",
+    "class": "objectidentity"
+  },
+  "dTimeGeneral": {
+    "name": "dTimeGeneral",
+    "oid": "1.3.6.1.4.1.171.14.10.1.1",
+    "class": "objectidentity"
+  },
+  "dTimeSntpEnabled": {
+    "name": "dTimeSntpEnabled",
+    "oid": "1.3.6.1.4.1.171.14.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeSntpBcastClientEnabled": {
+    "name": "dTimeSntpBcastClientEnabled",
+    "oid": "1.3.6.1.4.1.171.14.10.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeSntpPollInterval": {
+    "name": "dTimeSntpPollInterval",
+    "oid": "1.3.6.1.4.1.171.14.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 720,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeSntpSourceIfIndex": {
+    "name": "dTimeSntpSourceIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.10.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeClock": {
+    "name": "dTimeClock",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2",
+    "class": "objectidentity"
+  },
+  "dTimeManagedClock": {
+    "name": "dTimeManagedClock",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeCurrentTimeSource": {
+    "name": "dTimeCurrentTimeSource",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sntp": 1,
+          "noTimeSource": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTimeCurrentTime": {
+    "name": "dTimeCurrentTime",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTimeSummerTime": {
+    "name": "dTimeSummerTime",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2.5",
+    "class": "objectidentity"
+  },
+  "dTimeSummerTimeAutoSwitchMode": {
+    "name": "dTimeSummerTimeAutoSwitchMode",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "recurring": 2,
+          "date": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeSummerTimeStart": {
+    "name": "dTimeSummerTimeStart",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkTimeSummerTimeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeSummerTimeEnd": {
+    "name": "dTimeSummerTimeEnd",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkTimeSummerTimeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeSummerTimeOffset": {
+    "name": "dTimeSummerTimeOffset",
+    "oid": "1.3.6.1.4.1.171.14.10.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 90,
+            "max": 90
+          },
+          {
+            "min": 120,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTimeServer": {
+    "name": "dTimeServer",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3",
+    "class": "objectidentity"
+  },
+  "dTimeSntpServerTableNum": {
+    "name": "dTimeSntpServerTableNum",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTimeSntpServerTable": {
+    "name": "dTimeSntpServerTable",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeSntpServerEntry": {
+    "name": "dTimeSntpServerEntry",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dTimeSntpServerAddrType": {
+    "name": "dTimeSntpServerAddrType",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeSntpServerAddr": {
+    "name": "dTimeSntpServerAddr",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeSntpServerVrfName": {
+    "name": "dTimeSntpServerVrfName",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTimeSntpServerRowStatus": {
+    "name": "dTimeSntpServerRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dTimeSntpServerVersion": {
+    "name": "dTimeSntpServerVersion",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTimeSntpServerLastReceive": {
+    "name": "dTimeSntpServerLastReceive",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTimeSntpServerSynced": {
+    "name": "dTimeSntpServerSynced",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTimeSntpServerBcast": {
+    "name": "dTimeSntpServerBcast",
+    "oid": "1.3.6.1.4.1.171.14.10.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTimeCompliances": {
+    "name": "dTimeCompliances",
+    "oid": "1.3.6.1.4.1.171.14.10.2.1",
+    "class": "objectidentity"
+  },
+  "dTimeCompliance": {
+    "name": "dTimeCompliance",
+    "oid": "1.3.6.1.4.1.171.14.10.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dTimeSysInfoGroup",
+        "module": "DLINKSW-TIME-MIB"
+      },
+      {
+        "object": "dTimeClockGroup",
+        "module": "DLINKSW-TIME-MIB"
+      },
+      {
+        "object": "dTimeSntpGroup",
+        "module": "DLINKSW-TIME-MIB"
+      },
+      {
+        "object": "dTimeSummerTimeCfgGroup",
+        "module": "DLINKSW-TIME-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dTimeGroups": {
+    "name": "dTimeGroups",
+    "oid": "1.3.6.1.4.1.171.14.10.2.2",
+    "class": "objectidentity"
+  },
+  "dTimeSysInfoGroup": {
+    "name": "dTimeSysInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeCurrentTimeSource"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeCurrentTime"
+      }
+    ],
+    "status": "current"
+  },
+  "dTimeClockGroup": {
+    "name": "dTimeClockGroup",
+    "oid": "1.3.6.1.4.1.171.14.10.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeManagedClock"
+      }
+    ],
+    "status": "current"
+  },
+  "dTimeSntpGroup": {
+    "name": "dTimeSntpGroup",
+    "oid": "1.3.6.1.4.1.171.14.10.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpEnabled"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpBcastClientEnabled"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpPollInterval"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpSourceIfIndex"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerTableNum"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerRowStatus"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerVersion"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerLastReceive"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerSynced"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerBcast"
+      }
+    ],
+    "status": "current"
+  },
+  "dTimeSummerTimeCfgGroup": {
+    "name": "dTimeSummerTimeCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.10.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSummerTimeAutoSwitchMode"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSummerTimeStart"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSummerTimeEnd"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSummerTimeOffset"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerTableNum"
+      },
+      {
+        "module": "DLINKSW-TIME-MIB",
+        "object": "dTimeSntpServerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-TIME-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-TIME-MIB"
+  }
+}

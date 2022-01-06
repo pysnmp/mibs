@@ -1,0 +1,352 @@
+{
+  "imports": {
+    "class": "imports",
+    "IB-SMI-MIB": [
+      "IbString",
+      "IbIpAddr",
+      "ibDHCPOne"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "enterprises",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ibDhcpModule": {
+    "name": "ibDhcpModule",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-23 00:00",
+        "description": "Fixed smilint errors"
+      },
+      {
+        "revision": "2008-02-14 00:00",
+        "description": "change ibDHCPSubnetPercentUsed syntax"
+      },
+      {
+        "revision": "2005-01-10 00:00",
+        "description": "Added copyright"
+      },
+      {
+        "revision": "2004-05-21 00:00",
+        "description": "Creation of the MIB file"
+      }
+    ]
+  },
+  "ibDHCPSubnetTable": {
+    "name": "ibDHCPSubnetTable",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ibDHCPSubnetEntry": {
+    "name": "ibDHCPSubnetEntry",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IB-DHCPONE-MIB",
+        "object": "ibDHCPSubnetNetworkAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ibDHCPSubnetNetworkAddress": {
+    "name": "ibDHCPSubnetNetworkAddress",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbIpAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPSubnetNetworkMask": {
+    "name": "ibDHCPSubnetNetworkMask",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IbIpAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPSubnetPercentUsed": {
+    "name": "ibDHCPSubnetPercentUsed",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPStatistics": {
+    "name": "ibDHCPStatistics",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3",
+    "class": "objectidentity"
+  },
+  "ibDhcpTotalNoOfDiscovers": {
+    "name": "ibDhcpTotalNoOfDiscovers",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpTotalNoOfRequests": {
+    "name": "ibDhcpTotalNoOfRequests",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpTotalNoOfReleases": {
+    "name": "ibDhcpTotalNoOfReleases",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpTotalNoOfOffers": {
+    "name": "ibDhcpTotalNoOfOffers",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpTotalNoOfAcks": {
+    "name": "ibDhcpTotalNoOfAcks",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpTotalNoOfNacks": {
+    "name": "ibDhcpTotalNoOfNacks",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpTotalNoOfDeclines": {
+    "name": "ibDhcpTotalNoOfDeclines",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpTotalNoOfInforms": {
+    "name": "ibDhcpTotalNoOfInforms",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpTotalNoOfOthers": {
+    "name": "ibDhcpTotalNoOfOthers",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDhcpDeferredQueueSize": {
+    "name": "ibDhcpDeferredQueueSize",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPDDNSStats": {
+    "name": "ibDHCPDDNSStats",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5",
+    "class": "objectidentity"
+  },
+  "ibDHCPDDNSAvgLatency5": {
+    "name": "ibDHCPDDNSAvgLatency5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPDDNSAvgLatency15": {
+    "name": "ibDHCPDDNSAvgLatency15",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPDDNSAvgLatency60": {
+    "name": "ibDHCPDDNSAvgLatency60",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPDDNSAvgLatency1440": {
+    "name": "ibDHCPDDNSAvgLatency1440",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPDDNSTimeoutCount5": {
+    "name": "ibDHCPDDNSTimeoutCount5",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPDDNSTimeoutCount15": {
+    "name": "ibDHCPDDNSTimeoutCount15",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPDDNSTimeoutCount60": {
+    "name": "ibDHCPDDNSTimeoutCount60",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ibDHCPDDNSTimeoutCount1440": {
+    "name": "ibDHCPDDNSTimeoutCount1440",
+    "oid": "1.3.6.1.4.1.7779.3.1.1.4.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infoblox/IB-DHCPONE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IB-DHCPONE-MIB"
+  }
+}

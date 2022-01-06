@@ -1,0 +1,1851 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORCE10-SMI": [
+      "f10Mgmt"
+    ],
+    "FORCE10-TC": [
+      "F10PortPipeID",
+      "F10ProcessorModuleType",
+      "F10QueueID",
+      "F10CycloneVersion",
+      "F10SlotID",
+      "F10VlanID"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "f10MonitoringMib": {
+    "name": "f10MonitoringMib",
+    "oid": "1.3.6.1.4.1.6027.3.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-12-18 12:00",
+        "description": "Force10 Monitoring MIB version 1.3 Added CPU Ingress Queue Unicast Statistics table. "
+      },
+      {
+        "revision": "1906-01-20 00:00",
+        "description": "Force10 Monitoring MIB version 1.2 Added IP and ARP statistic objects that are not available in RFC1213. "
+      },
+      {
+        "revision": "2000-11-02 10:30",
+        "description": "Force10 Monitoring MIB version 1.1"
+      }
+    ]
+  },
+  "f10MonGroup": {
+    "name": "f10MonGroup",
+    "oid": "1.3.6.1.4.1.6027.3.3.1",
+    "class": "objectidentity"
+  },
+  "f10MonQueue": {
+    "name": "f10MonQueue",
+    "oid": "1.3.6.1.4.1.6027.3.3.2",
+    "class": "objectidentity"
+  },
+  "f10MonMac": {
+    "name": "f10MonMac",
+    "oid": "1.3.6.1.4.1.6027.3.3.3",
+    "class": "objectidentity"
+  },
+  "f10MonIfQueue": {
+    "name": "f10MonIfQueue",
+    "oid": "1.3.6.1.4.1.6027.3.3.4",
+    "class": "objectidentity"
+  },
+  "f10NetworkStat": {
+    "name": "f10NetworkStat",
+    "oid": "1.3.6.1.4.1.6027.3.3.5",
+    "class": "objectidentity"
+  },
+  "f10IpStatistic": {
+    "name": "f10IpStatistic",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.1",
+    "class": "objectidentity"
+  },
+  "f10ArpStatistic": {
+    "name": "f10ArpStatistic",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.2",
+    "class": "objectidentity"
+  },
+  "f10MonMibVersion": {
+    "name": "f10MonMibVersion",
+    "oid": "1.3.6.1.4.1.6027.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version1dot1": 2,
+          "version1dot2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MonQueueGroup": {
+    "name": "f10MonQueueGroup",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.1",
+    "class": "objectidentity"
+  },
+  "f10MonMaxQueue": {
+    "name": "f10MonMaxQueue",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueueStatisticsTable": {
+    "name": "f10InQueueStatisticsTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10InQueueStatisticsEntry": {
+    "name": "f10InQueueStatisticsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10InQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10InQueueId": {
+    "name": "f10InQueueId",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10QueueID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueueDropPackets": {
+    "name": "f10InQueueDropPackets",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueueBytes": {
+    "name": "f10InQueueBytes",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueueMatchPackets": {
+    "name": "f10InQueueMatchPackets",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueueMatchBytes": {
+    "name": "f10InQueueMatchBytes",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueueMatchBps": {
+    "name": "f10InQueueMatchBps",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueueCycloneVersion": {
+    "name": "f10InQueueCycloneVersion",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10CycloneVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueueBytesCount": {
+    "name": "f10InQueueBytesCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10InQueuePktsCount": {
+    "name": "f10InQueuePktsCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10OutQueueStatisticsTable": {
+    "name": "f10OutQueueStatisticsTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10OutQueueStatisticsEntry": {
+    "name": "f10OutQueueStatisticsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10OutQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10OutQueueId": {
+    "name": "f10OutQueueId",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10QueueID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10OutQueuePackets": {
+    "name": "f10OutQueuePackets",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10OutQueueBytes": {
+    "name": "f10OutQueueBytes",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10OutQueueBps": {
+    "name": "f10OutQueueBps",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10OutQueueCycloneVersion": {
+    "name": "f10OutQueueCycloneVersion",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10CycloneVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10OutQueueBytesCount": {
+    "name": "f10OutQueueBytesCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredStatisticsTable": {
+    "name": "f10WredStatisticsTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10WredStatisticsEntry": {
+    "name": "f10WredStatisticsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10WredQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10WredQueueId": {
+    "name": "f10WredQueueId",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10QueueID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredGreenName": {
+    "name": "f10WredGreenName",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredGreenThresholdLow": {
+    "name": "f10WredGreenThresholdLow",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredGreenThresholdHigh": {
+    "name": "f10WredGreenThresholdHigh",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredGreenDropPackets": {
+    "name": "f10WredGreenDropPackets",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredGreenReserve1": {
+    "name": "f10WredGreenReserve1",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredGreenReserve2": {
+    "name": "f10WredGreenReserve2",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredYellowName": {
+    "name": "f10WredYellowName",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredYellowThresholdLow": {
+    "name": "f10WredYellowThresholdLow",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredYellowThresholdHigh": {
+    "name": "f10WredYellowThresholdHigh",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredYellowDropPackets": {
+    "name": "f10WredYellowDropPackets",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredYellowReserve1": {
+    "name": "f10WredYellowReserve1",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredYellowReserve2": {
+    "name": "f10WredYellowReserve2",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredRedName": {
+    "name": "f10WredRedName",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredRedThresholdLow": {
+    "name": "f10WredRedThresholdLow",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredRedThresholdHigh": {
+    "name": "f10WredRedThresholdHigh",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredRedDropPackets": {
+    "name": "f10WredRedDropPackets",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredRedReserve1": {
+    "name": "f10WredRedReserve1",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10WredRedReserve2": {
+    "name": "f10WredRedReserve2",
+    "oid": "1.3.6.1.4.1.6027.3.3.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MacGroup": {
+    "name": "f10MacGroup",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.1",
+    "class": "objectidentity"
+  },
+  "f10MacAccounting": {
+    "name": "f10MacAccounting",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2",
+    "class": "objectidentity"
+  },
+  "f10MacAccountingDestTable": {
+    "name": "f10MacAccountingDestTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10MacAccountingDestEntry": {
+    "name": "f10MacAccountingDestEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10MacAccInIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10MacAccVlan",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10MacAccMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10MacAccInIfIndex": {
+    "name": "f10MacAccInIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MacAccVlan": {
+    "name": "f10MacAccVlan",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10VlanID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MacAccMacAddr": {
+    "name": "f10MacAccMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MacAccOutIfIndex": {
+    "name": "f10MacAccOutIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MacAccPackets": {
+    "name": "f10MacAccPackets",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MacAccBytes": {
+    "name": "f10MacAccBytes",
+    "oid": "1.3.6.1.4.1.6027.3.3.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10MonIfQueueGroup": {
+    "name": "f10MonIfQueueGroup",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.1",
+    "class": "objectidentity"
+  },
+  "f10IngQueueUnicastStatTable": {
+    "name": "f10IngQueueUnicastStatTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10IngQueueUnicastStatEntry": {
+    "name": "f10IngQueueUnicastStatEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10IngUnicastSrcCard",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10IngUnicastDestCard",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10IngUnicastSrcPortPipe",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10IngUnicastDestPortPipe",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10IngUnicastQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10IngUnicastSrcCard": {
+    "name": "f10IngUnicastSrcCard",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10SlotID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastDestCard": {
+    "name": "f10IngUnicastDestCard",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10SlotID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastSrcPortPipe": {
+    "name": "f10IngUnicastSrcPortPipe",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10PortPipeID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastDestPortPipe": {
+    "name": "f10IngUnicastDestPortPipe",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10PortPipeID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastQueueId": {
+    "name": "f10IngUnicastQueueId",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10QueueID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastCycloneVersion": {
+    "name": "f10IngUnicastCycloneVersion",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10CycloneVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastBytes": {
+    "name": "f10IngUnicastBytes",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastBytesCount": {
+    "name": "f10IngUnicastBytesCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastPacketCount": {
+    "name": "f10IngUnicastPacketCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastGreenMin": {
+    "name": "f10IngUnicastGreenMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastGreenMax": {
+    "name": "f10IngUnicastGreenMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastGreenDrop": {
+    "name": "f10IngUnicastGreenDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastYellowMin": {
+    "name": "f10IngUnicastYellowMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastYellowMax": {
+    "name": "f10IngUnicastYellowMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastYellowDrop": {
+    "name": "f10IngUnicastYellowDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngUnicastRedDrop": {
+    "name": "f10IngUnicastRedDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngQueueMulticastStatTable": {
+    "name": "f10IngQueueMulticastStatTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10IngQueueMulticastStatEntry": {
+    "name": "f10IngQueueMulticastStatEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10IngMulticastSrcCard",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10IngMulticastSrcPortPipe",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10IngMulticastQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10IngMulticastSrcCard": {
+    "name": "f10IngMulticastSrcCard",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10SlotID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastSrcPortPipe": {
+    "name": "f10IngMulticastSrcPortPipe",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10PortPipeID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastQueueId": {
+    "name": "f10IngMulticastQueueId",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10QueueID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastCycloneVersion": {
+    "name": "f10IngMulticastCycloneVersion",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10CycloneVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastBytes": {
+    "name": "f10IngMulticastBytes",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastBytesCount": {
+    "name": "f10IngMulticastBytesCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastPacketCount": {
+    "name": "f10IngMulticastPacketCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastGreenMin": {
+    "name": "f10IngMulticastGreenMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastGreenMax": {
+    "name": "f10IngMulticastGreenMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastGreenDrop": {
+    "name": "f10IngMulticastGreenDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastYellowMin": {
+    "name": "f10IngMulticastYellowMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastYellowMax": {
+    "name": "f10IngMulticastYellowMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastYellowDrop": {
+    "name": "f10IngMulticastYellowDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10IngMulticastRedDrop": {
+    "name": "f10IngMulticastRedDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgQueueUnicastStatTable": {
+    "name": "f10EgQueueUnicastStatTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10EgQueueUnicastStatEntry": {
+    "name": "f10EgQueueUnicastStatEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10EgUnicastQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10EgUnicastQueueId": {
+    "name": "f10EgUnicastQueueId",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10QueueID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastCycloneVersion": {
+    "name": "f10EgUnicastCycloneVersion",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10CycloneVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastBytes": {
+    "name": "f10EgUnicastBytes",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastBytesCount": {
+    "name": "f10EgUnicastBytesCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastPacketCount": {
+    "name": "f10EgUnicastPacketCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastGreenMin": {
+    "name": "f10EgUnicastGreenMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastGreenMax": {
+    "name": "f10EgUnicastGreenMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastGreenDrop": {
+    "name": "f10EgUnicastGreenDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastYellowMin": {
+    "name": "f10EgUnicastYellowMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastYellowMax": {
+    "name": "f10EgUnicastYellowMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastYellowDrop": {
+    "name": "f10EgUnicastYellowDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgUnicastRedDrop": {
+    "name": "f10EgUnicastRedDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgQueueMulticastStatTable": {
+    "name": "f10EgQueueMulticastStatTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10EgQueueMulticastStatEntry": {
+    "name": "f10EgQueueMulticastStatEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10EgMulticastQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10EgMulticastQueueId": {
+    "name": "f10EgMulticastQueueId",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10QueueID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastCycloneVersion": {
+    "name": "f10EgMulticastCycloneVersion",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10CycloneVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastBytes": {
+    "name": "f10EgMulticastBytes",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastBytesCount": {
+    "name": "f10EgMulticastBytesCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastPacketCount": {
+    "name": "f10EgMulticastPacketCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastGreenMin": {
+    "name": "f10EgMulticastGreenMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastGreenMax": {
+    "name": "f10EgMulticastGreenMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastGreenDrop": {
+    "name": "f10EgMulticastGreenDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastYellowMin": {
+    "name": "f10EgMulticastYellowMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastYellowMax": {
+    "name": "f10EgMulticastYellowMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastYellowDrop": {
+    "name": "f10EgMulticastYellowDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10EgMulticastRedDrop": {
+    "name": "f10EgMulticastRedDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngQueueUnicastStatTable": {
+    "name": "f10CpuIngQueueUnicastStatTable",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10CpuIngQueueUnicastStatEntry": {
+    "name": "f10CpuIngQueueUnicastStatEntry",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10CpuIngUnicastSrcCard",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10CpuIngUnicastSrcPortPipe",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10CpuIngUnicastDestCpu",
+        "implied": 0
+      },
+      {
+        "module": "FORCE10-MONITORING-MIB",
+        "object": "f10CpuIngUnicastQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f10CpuIngUnicastSrcCard": {
+    "name": "f10CpuIngUnicastSrcCard",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10SlotID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10CpuIngUnicastSrcPortPipe": {
+    "name": "f10CpuIngUnicastSrcPortPipe",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10PortPipeID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10CpuIngUnicastDestCpu": {
+    "name": "f10CpuIngUnicastDestCpu",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10ProcessorModuleType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10CpuIngUnicastQueueId": {
+    "name": "f10CpuIngUnicastQueueId",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10QueueID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f10CpuIngUnicastCycloneVersion": {
+    "name": "f10CpuIngUnicastCycloneVersion",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10CycloneVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastBytesCount": {
+    "name": "f10CpuIngUnicastBytesCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastPacketCount": {
+    "name": "f10CpuIngUnicastPacketCount",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastGreenMin": {
+    "name": "f10CpuIngUnicastGreenMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastGreenMax": {
+    "name": "f10CpuIngUnicastGreenMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastGreenDrop": {
+    "name": "f10CpuIngUnicastGreenDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastYellowMin": {
+    "name": "f10CpuIngUnicastYellowMin",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastYellowMax": {
+    "name": "f10CpuIngUnicastYellowMax",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastYellowDrop": {
+    "name": "f10CpuIngUnicastYellowDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10CpuIngUnicastRedDrop": {
+    "name": "f10CpuIngUnicastRedDrop",
+    "oid": "1.3.6.1.4.1.6027.3.3.4.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BcastPktRecv": {
+    "name": "f10BcastPktRecv",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10BcastPktSent": {
+    "name": "f10BcastPktSent",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10McastPktRecv": {
+    "name": "f10McastPktRecv",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10McastPktSent": {
+    "name": "f10McastPktSent",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10ArpReqRecv": {
+    "name": "f10ArpReqRecv",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10ArpReqSent": {
+    "name": "f10ArpReqSent",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10ArpReplyRecv": {
+    "name": "f10ArpReplyRecv",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10ArpReplySent": {
+    "name": "f10ArpReplySent",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f10ArpProxySent": {
+    "name": "f10ArpProxySent",
+    "oid": "1.3.6.1.4.1.6027.3.3.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-MONITORING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FORCE10-MONITORING-MIB"
+  }
+}

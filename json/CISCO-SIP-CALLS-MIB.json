@@ -1,0 +1,867 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
+      "CvcCoderTypeRate"
+    ],
+    "DIAL-CONTROL-MIB": [
+      "callActiveIndex",
+      "callActiveSetupTime"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSipCallsMIB": {
+    "name": "ciscoSipCallsMIB",
+    "oid": "1.3.6.1.4.1.9.9.995",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-04-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSipCallsMIBNotifs": {
+    "name": "ciscoSipCallsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.995.0",
+    "class": "objectidentity"
+  },
+  "ciscoSipCallsMIBObjects": {
+    "name": "ciscoSipCallsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.995.1",
+    "class": "objectidentity"
+  },
+  "cSipCallActive": {
+    "name": "cSipCallActive",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1",
+    "class": "objectidentity"
+  },
+  "cSipCallsMIBConformance": {
+    "name": "cSipCallsMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.995.1.2",
+    "class": "objectidentity"
+  },
+  "CSipCallState": {
+    "name": "CSipCallState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "idle": 2,
+          "setupBuffered": 3,
+          "sentInvite": 4,
+          "rcvdProceeding": 5,
+          "outgoingResrResv": 6,
+          "outgoingResrAllocated": 7,
+          "active": 8,
+          "rcvdTransfer": 9,
+          "disconnecting": 10,
+          "dead": 11,
+          "rcvdInvite": 12,
+          "sentQosProgress": 13,
+          "incomingResrResv": 14,
+          "sentAlerting": 15,
+          "sentSuccess": 16,
+          "midCallLocalRespPending": 17,
+          "sendMidCallInvitePending": 18,
+          "sentMidCallInvite": 19,
+          "rcvdSubscribe": 20,
+          "subscribeSuccess": 21,
+          "subscribeExpired": 22,
+          "sentPreAuthRequest": 23,
+          "sendNotify": 24,
+          "subscribeIdle": 25,
+          "sentSubscribe": 26,
+          "subscribed": 27,
+          "initTransfer": 28,
+          "outgoingRegister": 29,
+          "incomingRegister": 30,
+          "rcvdUnsolicitedNotify": 31
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CSipCallSubstate": {
+    "name": "CSipCallSubstate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "sentDns": 2,
+          "proceedingProceeding": 3,
+          "rcvdInviteCallSetup": 4,
+          "rcvdInviteProceeding": 5,
+          "sentEnum": 6,
+          "ackPending": 7,
+          "sentNotify": 8,
+          "callTransferSendByeAlso": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cSipUACActiveCalls": {
+    "name": "cSipUACActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipUASActiveCalls": {
+    "name": "cSipUASActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveTable": {
+    "name": "cSipCallActiveTable",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipCallActiveEntry": {
+    "name": "cSipCallActiveEntry",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSipCallActiveId": {
+    "name": "cSipCallActiveId",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveType": {
+    "name": "cSipCallActiveType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uac": 1,
+          "uas": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveState": {
+    "name": "cSipCallActiveState",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CSipCallState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveSubstate": {
+    "name": "cSipCallActiveSubstate",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CSipCallSubstate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveCallingNumber": {
+    "name": "cSipCallActiveCallingNumber",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveCalledNumber": {
+    "name": "cSipCallActiveCalledNumber",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveSigSrcIpAddrType": {
+    "name": "cSipCallActiveSigSrcIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveSigSrcIpAddr": {
+    "name": "cSipCallActiveSigSrcIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveDestReqIpAddrType": {
+    "name": "cSipCallActiveDestReqIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveDestReqIpAddr": {
+    "name": "cSipCallActiveDestReqIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveDestReqPort": {
+    "name": "cSipCallActiveDestReqPort",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveDestResIpAddrType": {
+    "name": "cSipCallActiveDestResIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveDestResIpAddr": {
+    "name": "cSipCallActiveDestResIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveDestResPort": {
+    "name": "cSipCallActiveDestResPort",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveDestIpAddrType": {
+    "name": "cSipCallActiveDestIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveDestIpAddr": {
+    "name": "cSipCallActiveDestIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveMediaStreams": {
+    "name": "cSipCallActiveMediaStreams",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallActiveMediaStreamsActive": {
+    "name": "cSipCallActiveMediaStreamsActive",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamsTable": {
+    "name": "cSipMediaStreamsTable",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipMediaStreamsEntry": {
+    "name": "cSipMediaStreamsEntry",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSipMediaStreamIndex": {
+    "name": "cSipMediaStreamIndex",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSipMediaStreamState": {
+    "name": "cSipMediaStreamState",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidStreamState": 1,
+          "idle": 2,
+          "adding": 3,
+          "deleting": 4,
+          "changing": 5,
+          "active": 6,
+          "dead": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamCallId": {
+    "name": "cSipMediaStreamCallId",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamType": {
+    "name": "cSipMediaStreamType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voiceOnly": 1,
+          "dtmfRelay": 2,
+          "voiceAndDtmfRelay": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamNegotdCodec": {
+    "name": "cSipMediaStreamNegotdCodec",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcCoderTypeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamCodecPayloadType": {
+    "name": "cSipMediaStreamCodecPayloadType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamNegotdDtmfRelay": {
+    "name": "cSipMediaStreamNegotdDtmfRelay",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inBandVoice": 1,
+          "rtpNte": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamDtmfPayloadType": {
+    "name": "cSipMediaStreamDtmfPayloadType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamSrcIpAddrType": {
+    "name": "cSipMediaStreamSrcIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamSrcIpAddr": {
+    "name": "cSipMediaStreamSrcIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamSrcPort": {
+    "name": "cSipMediaStreamSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamDestIpAddrType": {
+    "name": "cSipMediaStreamDestIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamDestIpAddr": {
+    "name": "cSipMediaStreamDestIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipMediaStreamDestPort": {
+    "name": "cSipMediaStreamDestPort",
+    "oid": "1.3.6.1.4.1.9.9.995.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSipCallsMIBCompliances": {
+    "name": "cSipCallsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.995.1.2.1",
+    "class": "objectidentity"
+  },
+  "cSipCallsMIBGroups": {
+    "name": "cSipCallsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.995.1.2.2",
+    "class": "objectidentity"
+  },
+  "cSipCallsMIBCompliance": {
+    "name": "cSipCallsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.995.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSipCallActiveGroup",
+        "module": "CISCO-SIP-CALLS-MIB"
+      },
+      {
+        "object": "cSipMediaStreamGroup",
+        "module": "CISCO-SIP-CALLS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cSipCallActiveGroup": {
+    "name": "cSipCallActiveGroup",
+    "oid": "1.3.6.1.4.1.9.9.995.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipUACActiveCalls"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipUASActiveCalls"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveId"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveState"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveSubstate"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveCallingNumber"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveCalledNumber"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveSigSrcIpAddrType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveSigSrcIpAddr"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveDestReqIpAddrType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveDestReqIpAddr"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveDestReqPort"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveDestResIpAddrType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveDestResIpAddr"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveDestResPort"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveDestIpAddrType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveDestIpAddr"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveMediaStreams"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipCallActiveMediaStreamsActive"
+      }
+    ],
+    "status": "current"
+  },
+  "cSipMediaStreamGroup": {
+    "name": "cSipMediaStreamGroup",
+    "oid": "1.3.6.1.4.1.9.9.995.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamState"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamCallId"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamNegotdCodec"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamCodecPayloadType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamNegotdDtmfRelay"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamDtmfPayloadType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamSrcIpAddrType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamSrcIpAddr"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamSrcPort"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamDestIpAddrType"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamDestIpAddr"
+      },
+      {
+        "module": "CISCO-SIP-CALLS-MIB",
+        "object": "cSipMediaStreamDestPort"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SIP-CALLS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SIP-CALLS-MIB"
+  }
+}

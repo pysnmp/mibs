@@ -1,0 +1,849 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime"
+    ],
+    "STXN-GLOBALREGISTER-MIB": [
+      "aviatModules"
+    ]
+  },
+  "aviatG826Module": {
+    "name": "aviatG826Module",
+    "oid": "1.3.6.1.4.1.2509.9.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-21 01:57",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "AviatPackedG826Data": {
+    "name": "AviatPackedG826Data",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 47,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "displayhint": "55x",
+    "status": "current"
+  },
+  "aviatG826Conformance": {
+    "name": "aviatG826Conformance",
+    "oid": "1.3.6.1.4.1.2509.9.14.1",
+    "class": "objectidentity"
+  },
+  "aviatG826Groups": {
+    "name": "aviatG826Groups",
+    "oid": "1.3.6.1.4.1.2509.9.14.1.1",
+    "class": "objectidentity"
+  },
+  "aviatG826Compliance": {
+    "name": "aviatG826Compliance",
+    "oid": "1.3.6.1.4.1.2509.9.14.1.2",
+    "class": "objectidentity"
+  },
+  "aviatG826MIBObjects": {
+    "name": "aviatG826MIBObjects",
+    "oid": "1.3.6.1.4.1.2509.9.14.2",
+    "class": "objectidentity"
+  },
+  "aviatG826ControlTable": {
+    "name": "aviatG826ControlTable",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatG826ControlEntry": {
+    "name": "aviatG826ControlEntry",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatG826LastQHourChangeIndex": {
+    "name": "aviatG826LastQHourChangeIndex",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826LastDayChangeIndex": {
+    "name": "aviatG826LastDayChangeIndex",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826Reset": {
+    "name": "aviatG826Reset",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "all": 2,
+          "realtime": 3,
+          "quarterhour": 4,
+          "daily": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatG826PerformTable": {
+    "name": "aviatG826PerformTable",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatG826PerformEntry": {
+    "name": "aviatG826PerformEntry",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatG826ErroredBlocks": {
+    "name": "aviatG826ErroredBlocks",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826ErroredSeconds": {
+    "name": "aviatG826ErroredSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826ErroredSecondsRatio": {
+    "name": "aviatG826ErroredSecondsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826SeverelyErroredSeconds": {
+    "name": "aviatG826SeverelyErroredSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826SeverelyErroredSecsRatio": {
+    "name": "aviatG826SeverelyErroredSecsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826BackgroundBlockErrors": {
+    "name": "aviatG826BackgroundBlockErrors",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826BackgroundBlockErrorsRatio": {
+    "name": "aviatG826BackgroundBlockErrorsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826AvailableSeconds": {
+    "name": "aviatG826AvailableSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826UnavailableSeconds": {
+    "name": "aviatG826UnavailableSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826PackedData": {
+    "name": "aviatG826PackedData",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPackedG826Data",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QuarterHourTable": {
+    "name": "aviatG826QuarterHourTable",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatG826QuarterHourEntry": {
+    "name": "aviatG826QuarterHourEntry",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourPeriod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatG826QHourIndex": {
+    "name": "aviatG826QHourIndex",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatG826QHourPeriod": {
+    "name": "aviatG826QHourPeriod",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatG826QHourDateAndTime": {
+    "name": "aviatG826QHourDateAndTime",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourErroredBlocks": {
+    "name": "aviatG826QHourErroredBlocks",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourErroredSeconds": {
+    "name": "aviatG826QHourErroredSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourErroredSecondsRatio": {
+    "name": "aviatG826QHourErroredSecondsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourSeverelyErroredSeconds": {
+    "name": "aviatG826QHourSeverelyErroredSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourSeverelyErroredSecsRatio": {
+    "name": "aviatG826QHourSeverelyErroredSecsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourBackgroundBlockErrors": {
+    "name": "aviatG826QHourBackgroundBlockErrors",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourBackgroundBlockErrorsRatio": {
+    "name": "aviatG826QHourBackgroundBlockErrorsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourAvailableSeconds": {
+    "name": "aviatG826QHourAvailableSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourUnavailableSeconds": {
+    "name": "aviatG826QHourUnavailableSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826QHourInvalidEntry": {
+    "name": "aviatG826QHourInvalidEntry",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayTable": {
+    "name": "aviatG826DayTable",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatG826DayEntry": {
+    "name": "aviatG826DayEntry",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayPeriod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatG826DayIndex": {
+    "name": "aviatG826DayIndex",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatG826DayPeriod": {
+    "name": "aviatG826DayPeriod",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatG826DayDateAndTime": {
+    "name": "aviatG826DayDateAndTime",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayErroredBlocks": {
+    "name": "aviatG826DayErroredBlocks",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayErroredSeconds": {
+    "name": "aviatG826DayErroredSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayErroredSecondsRatio": {
+    "name": "aviatG826DayErroredSecondsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DaySeverelyErroredSeconds": {
+    "name": "aviatG826DaySeverelyErroredSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DaySeverelyErroredSecsRatio": {
+    "name": "aviatG826DaySeverelyErroredSecsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayBackgroundBlockErrors": {
+    "name": "aviatG826DayBackgroundBlockErrors",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayBackgroundBlockErrorsRatio": {
+    "name": "aviatG826DayBackgroundBlockErrorsRatio",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayAvailableSeconds": {
+    "name": "aviatG826DayAvailableSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayUnavailableSeconds": {
+    "name": "aviatG826DayUnavailableSeconds",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826DayInvalidEntry": {
+    "name": "aviatG826DayInvalidEntry",
+    "oid": "1.3.6.1.4.1.2509.9.14.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatG826ObjectGroup": {
+    "name": "aviatG826ObjectGroup",
+    "oid": "1.3.6.1.4.1.2509.9.14.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826LastQHourChangeIndex"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826LastDayChangeIndex"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826Reset"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826ErroredBlocks"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826ErroredSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826ErroredSecondsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826SeverelyErroredSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826SeverelyErroredSecsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826BackgroundBlockErrors"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826BackgroundBlockErrorsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826AvailableSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826UnavailableSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826PackedData"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourDateAndTime"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourErroredBlocks"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourErroredSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourErroredSecondsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourSeverelyErroredSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourSeverelyErroredSecsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourBackgroundBlockErrors"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourBackgroundBlockErrorsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourAvailableSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourUnavailableSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826QHourInvalidEntry"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayDateAndTime"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayErroredBlocks"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayErroredSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayErroredSecondsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DaySeverelyErroredSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DaySeverelyErroredSecsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayBackgroundBlockErrors"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayBackgroundBlockErrorsRatio"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayAvailableSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayUnavailableSeconds"
+      },
+      {
+        "module": "AVIAT-G826-MIB",
+        "object": "aviatG826DayInvalidEntry"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatG826ComplV1": {
+    "name": "aviatG826ComplV1",
+    "oid": "1.3.6.1.4.1.2509.9.14.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aviatG826ObjectGroup",
+        "module": "AVIAT-G826-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-G826-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:56 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AVIAT-G826-MIB"
+  }
+}

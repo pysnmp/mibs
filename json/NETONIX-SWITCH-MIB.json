@@ -1,0 +1,499 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "snmpMIBGroups"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "enterprises",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "netonixSwitch": {
+    "name": "netonixSwitch",
+    "oid": "1.3.6.1.4.1.46242",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-03-23 18:00",
+        "description": "The MIB Module for Netonix Switches."
+      }
+    ]
+  },
+  "netonixSwitchGroup": {
+    "name": "netonixSwitchGroup",
+    "oid": "1.3.6.1.6.3.1.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "firmwareVersion"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "fanSpeed"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "tempDescription"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "temp"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "voltageDescription"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "voltage"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "poeStatus"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "totalPowerConsumption"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "dcdcInputCurrent"
+      },
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "dcdcEfficiency"
+      }
+    ],
+    "status": "current"
+  },
+  "netonixSwitchConformance": {
+    "name": "netonixSwitchConformance",
+    "oid": "1.3.6.1.4.1.46242.99",
+    "class": "objectidentity"
+  },
+  "netonixSwitchGroups": {
+    "name": "netonixSwitchGroups",
+    "oid": "1.3.6.1.4.1.46242.99.1",
+    "class": "objectidentity"
+  },
+  "netonixSwitchCompliances": {
+    "name": "netonixSwitchCompliances",
+    "oid": "1.3.6.1.4.1.46242.99.2",
+    "class": "objectidentity"
+  },
+  "netonixSwitchCompliance": {
+    "name": "netonixSwitchCompliance",
+    "oid": "1.3.6.1.4.1.46242.99.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "netonixSwitchGroup",
+        "module": "NETONIX-SWITCH-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "VoltageTC": {
+    "name": "VoltageTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "PowerTC": {
+    "name": "PowerTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "CurrentTC": {
+    "name": "CurrentTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "firmwareVersion": {
+    "name": "firmwareVersion",
+    "oid": "1.3.6.1.4.1.46242.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalPowerConsumption": {
+    "name": "totalPowerConsumption",
+    "oid": "1.3.6.1.4.1.46242.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcdcInputCurrent": {
+    "name": "dcdcInputCurrent",
+    "oid": "1.3.6.1.4.1.46242.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CurrentTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcdcEfficiency": {
+    "name": "dcdcEfficiency",
+    "oid": "1.3.6.1.4.1.46242.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanTable": {
+    "name": "fanTable",
+    "oid": "1.3.6.1.4.1.46242.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanEntry": {
+    "name": "fanEntry",
+    "oid": "1.3.6.1.4.1.46242.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "fanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fanIndex": {
+    "name": "fanIndex",
+    "oid": "1.3.6.1.4.1.46242.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanSpeed": {
+    "name": "fanSpeed",
+    "oid": "1.3.6.1.4.1.46242.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "poeStatusTable": {
+    "name": "poeStatusTable",
+    "oid": "1.3.6.1.4.1.46242.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "poeStatusEntry": {
+    "name": "poeStatusEntry",
+    "oid": "1.3.6.1.4.1.46242.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "poeStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "poeStatusIndex": {
+    "name": "poeStatusIndex",
+    "oid": "1.3.6.1.4.1.46242.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "poeStatus": {
+    "name": "poeStatus",
+    "oid": "1.3.6.1.4.1.46242.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempTable": {
+    "name": "tempTable",
+    "oid": "1.3.6.1.4.1.46242.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempEntry": {
+    "name": "tempEntry",
+    "oid": "1.3.6.1.4.1.46242.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "tempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tempIndex": {
+    "name": "tempIndex",
+    "oid": "1.3.6.1.4.1.46242.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempDescription": {
+    "name": "tempDescription",
+    "oid": "1.3.6.1.4.1.46242.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temp": {
+    "name": "temp",
+    "oid": "1.3.6.1.4.1.46242.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageTable": {
+    "name": "voltageTable",
+    "oid": "1.3.6.1.4.1.46242.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "voltageEntry": {
+    "name": "voltageEntry",
+    "oid": "1.3.6.1.4.1.46242.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETONIX-SWITCH-MIB",
+        "object": "voltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "voltageIndex": {
+    "name": "voltageIndex",
+    "oid": "1.3.6.1.4.1.46242.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "voltageDescription": {
+    "name": "voltageDescription",
+    "oid": "1.3.6.1.4.1.46242.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltage": {
+    "name": "voltage",
+    "oid": "1.3.6.1.4.1.46242.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltageTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netonix/NETONIX-SWITCH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETONIX-SWITCH-MIB"
+  }
+}

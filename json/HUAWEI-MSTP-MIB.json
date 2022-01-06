@@ -1,0 +1,5088 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "BridgeId"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex",
+      "ifName"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwMstp": {
+    "name": "hwMstp",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 10:00",
+        "description": "modified description"
+      },
+      {
+        "revision": "2017-03-04 10:00",
+        "description": "modified for:hwMstpiPortIndex."
+      },
+      {
+        "revision": "2015-11-26 10:00",
+        "description": "modified for:hwMstpDiameter hwMstpProDiameter hwMstpiStpTransLimit hwMstpTransmitLimitDefault hwMstpProNewPortStpTransLimit."
+      },
+      {
+        "revision": "2015-05-29 10:00",
+        "description": "Add for: hwMstpProFlushCapability."
+      },
+      {
+        "revision": "2014-08-14 00:00",
+        "description": "Add table node for port count trap. Add for : hwMstpPortCountUpperThreshold hwMstpPortCountLowerThreshold hwMstpPortCountExceedThreshold hwMstpPortCountExceedThresholdResume"
+      },
+      {
+        "revision": "2014-05-28 00:00",
+        "description": "Add table node for tc-snooping notify trill. Add for : hwMstpPortTcSnoopingTable"
+      },
+      {
+        "revision": "2014-02-13 00:00",
+        "description": "Add leaf node for pw name. Add for : hwMstpiEdgePortChanged hwMstpProNewEdgePortChanged"
+      },
+      {
+        "revision": "2014-01-27 00:00",
+        "description": "Add leaf node for pw name. Add for : hwMstpiPortStateForwarding hwMstpiPortStateDiscarding hwMstpiPortRootGuarded hwMstpiPortLoopGuarded hwMstpProNewPortStateForwarding hwMstpProNewPortStateDiscarding hwMstpProNewPortRootGuarded hwMstpProNewPortLoopGuarded hwMstpProLoopbackDetected"
+      },
+      {
+        "revision": "2013-09-07 00:00",
+        "description": "Fix the errors checked by a tool."
+      },
+      {
+        "revision": "2013-03-19 10:00",
+        "description": "Modify bpdu encapsulation enum value."
+      },
+      {
+        "revision": "2017-06-30 00:00",
+        "description": "Modify description : hwMstpiRowStatus, hwMstpPortVlanListLow, hwMstpPortVlanListHigh, hwMstpProNewPortType."
+      }
+    ]
+  },
+  "HwMSTPEnabledStatus": {
+    "name": "HwMSTPEnabledStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwL2Mgmt": {
+    "name": "hwL2Mgmt",
+    "oid": "1.3.6.1.4.1.2011.5.25.42",
+    "class": "objectidentity"
+  },
+  "hwMstpObjects": {
+    "name": "hwMstpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1",
+    "class": "objectidentity"
+  },
+  "hwMstpStatus": {
+    "name": "hwMstpStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpForceVersion": {
+    "name": "hwMstpForceVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stp": 0,
+          "rstp": 2,
+          "mstp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpDiameter": {
+    "name": "hwMstpDiameter",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 7
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpBridgeMaxHops": {
+    "name": "hwMstpBridgeMaxHops",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpMasterBridgeID": {
+    "name": "hwMstpMasterBridgeID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpMasterPathCost": {
+    "name": "hwMstpMasterPathCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpBpduGuard": {
+    "name": "hwMstpBpduGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpAdminFormatSelector": {
+    "name": "hwMstpAdminFormatSelector",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpAdminRegionName": {
+    "name": "hwMstpAdminRegionName",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpAdminRevisionLevel": {
+    "name": "hwMstpAdminRevisionLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpOperFormatSelector": {
+    "name": "hwMstpOperFormatSelector",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpOperRegionName": {
+    "name": "hwMstpOperRegionName",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpOperRevisionLevel": {
+    "name": "hwMstpOperRevisionLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpRegionConfActive": {
+    "name": "hwMstpRegionConfActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpDefaultVlanAllo": {
+    "name": "hwMstpDefaultVlanAllo",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpDefaultRegionName": {
+    "name": "hwMstpDefaultRegionName",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpPathCostStandard": {
+    "name": "hwMstpPathCostStandard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d1998": 1,
+          "dot1t": 2,
+          "legacy": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpVIDAllocationTable": {
+    "name": "hwMstpVIDAllocationTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpVIDAllocationEntry": {
+    "name": "hwMstpVIDAllocationEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpVID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpVID": {
+    "name": "hwMstpVID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpAdminMstID": {
+    "name": "hwMstpAdminMstID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpOperMstID": {
+    "name": "hwMstpOperMstID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpInstanceTable": {
+    "name": "hwMstpInstanceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpInstanceEntry": {
+    "name": "hwMstpInstanceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpInstanceID": {
+    "name": "hwMstpInstanceID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMstpiBridgeID": {
+    "name": "hwMstpiBridgeID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiBridgePriority": {
+    "name": "hwMstpiBridgePriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpiDesignedRoot": {
+    "name": "hwMstpiDesignedRoot",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiRootPathCost": {
+    "name": "hwMstpiRootPathCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiRootPort": {
+    "name": "hwMstpiRootPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiRootType": {
+    "name": "hwMstpiRootType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "secondary": 1,
+          "primary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpiRemainingHops": {
+    "name": "hwMstpiRemainingHops",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiAdminMappedVlanListLow": {
+    "name": "hwMstpiAdminMappedVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpiAdminMappedVlanListHigh": {
+    "name": "hwMstpiAdminMappedVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpiOperMappedVlanListLow": {
+    "name": "hwMstpiOperMappedVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiOperMappedVlanListHigh": {
+    "name": "hwMstpiOperMappedVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiRowStatus": {
+    "name": "hwMstpiRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.19.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpPortTable": {
+    "name": "hwMstpPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortEntry": {
+    "name": "hwMstpPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpiPortIndex": {
+    "name": "hwMstpiPortIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMstpiState": {
+    "name": "hwMstpiState",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "discarding": 2,
+          "learning": 4,
+          "forwarding": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiPortPriority": {
+    "name": "hwMstpiPortPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiPathCost": {
+    "name": "hwMstpiPathCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiDesignatedRoot": {
+    "name": "hwMstpiDesignatedRoot",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiDesignatedCost": {
+    "name": "hwMstpiDesignatedCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiDesignatedBridge": {
+    "name": "hwMstpiDesignatedBridge",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiDesignatedPort": {
+    "name": "hwMstpiDesignatedPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpPortEdgeport": {
+    "name": "hwMstpiStpPortEdgeport",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "undo": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiStpPortPointToPoint": {
+    "name": "hwMstpiStpPortPointToPoint",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 1,
+          "forceFalse": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiStpMcheck": {
+    "name": "hwMstpiStpMcheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiStpTransLimit": {
+    "name": "hwMstpiStpTransLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiStpRXStpBPDU": {
+    "name": "hwMstpiStpRXStpBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpTXStpBPDU": {
+    "name": "hwMstpiStpTXStpBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpRXTCNBPDU": {
+    "name": "hwMstpiStpRXTCNBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpTXTCNBPDU": {
+    "name": "hwMstpiStpTXTCNBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpRXRSTPBPDU": {
+    "name": "hwMstpiStpRXRSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpTXRSTPBPDU": {
+    "name": "hwMstpiStpTXRSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpRXMSTPBPDU": {
+    "name": "hwMstpiStpRXMSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpTXMSTPBPDU": {
+    "name": "hwMstpiStpTXMSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpiStpClearStatistics": {
+    "name": "hwMstpiStpClearStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiStpDefaultPortCost": {
+    "name": "hwMstpiStpDefaultPortCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiStpStatus": {
+    "name": "hwMstpiStpStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiPortRootGuard": {
+    "name": "hwMstpiPortRootGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiPortLoopGuard": {
+    "name": "hwMstpiPortLoopGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpPortCompliance": {
+    "name": "hwMstpPortCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "dotls": 2,
+          "legacy": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpConfigDigestSnooping": {
+    "name": "hwMstpConfigDigestSnooping",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpNoAgreementCheck": {
+    "name": "hwMstpNoAgreementCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpPortTCNotify": {
+    "name": "hwMstpPortTCNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiStpPortBpduFilter": {
+    "name": "hwMstpiStpPortBpduFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "undo": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "undo",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpiPortRole": {
+    "name": "hwMstpiPortRole",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.20.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "alternate": 2,
+          "backup": 3,
+          "root": 4,
+          "designated": 5,
+          "master": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpSnooping": {
+    "name": "hwMstpSnooping",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpAccessoryTable": {
+    "name": "hwMstpAccessoryTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpAccessoryEntry": {
+    "name": "hwMstpAccessoryEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpAccessoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpAccessoryIndex": {
+    "name": "hwMstpAccessoryIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpBackupReplyAgreement": {
+    "name": "hwMstpBackupReplyAgreement",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpStpNoAgreementCheck": {
+    "name": "hwMstpStpNoAgreementCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProTable": {
+    "name": "hwMstpProTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpProEntry": {
+    "name": "hwMstpProEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProID": {
+    "name": "hwMstpProID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 288
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpProStpState": {
+    "name": "hwMstpProStpState",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProPriority": {
+    "name": "hwMstpProPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "units": "4096",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProRootType": {
+    "name": "hwMstpProRootType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "secondary": 1,
+          "primary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProForceVersion": {
+    "name": "hwMstpProForceVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stp": 0,
+          "rstp": 2,
+          "mstp": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProBpduGuard": {
+    "name": "hwMstpProBpduGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProDiameter": {
+    "name": "hwMstpProDiameter",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 7
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProConvergeMode": {
+    "name": "hwMstpProConvergeMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fast": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProMaxHops": {
+    "name": "hwMstpProMaxHops",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProMCheck": {
+    "name": "hwMstpProMCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProPathCostStandard": {
+    "name": "hwMstpProPathCostStandard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d1998": 1,
+          "dot1t": 2,
+          "legacy": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProHelloTime": {
+    "name": "hwMstpProHelloTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "100",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProFwdDelay": {
+    "name": "hwMstpProFwdDelay",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "units": "100",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProMaxAge": {
+    "name": "hwMstpProMaxAge",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "units": "100",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProTimerFactor": {
+    "name": "hwMstpProTimerFactor",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProTCNotify": {
+    "name": "hwMstpProTCNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProNoLinkSharePortList": {
+    "name": "hwMstpProNoLinkSharePortList",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProLinkSharePortList": {
+    "name": "hwMstpProLinkSharePortList",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProTcGuard": {
+    "name": "hwMstpProTcGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProTcGuardThreshold": {
+    "name": "hwMstpProTcGuardThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProTcNotifyProcess": {
+    "name": "hwMstpProTcNotifyProcess",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProRegionConfActive": {
+    "name": "hwMstpProRegionConfActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProLinkShareGuard": {
+    "name": "hwMstpProLinkShareGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpConfigDegist": {
+    "name": "hwMstpConfigDegist",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProRegionConfShare": {
+    "name": "hwMstpProRegionConfShare",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProRowStatus": {
+    "name": "hwMstpProRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProTcGuardInterval": {
+    "name": "hwMstpProTcGuardInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProFlushCapability": {
+    "name": "hwMstpProFlushCapability",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.23.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpPortBindTable": {
+    "name": "hwMstpPortBindTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortBindEntry": {
+    "name": "hwMstpPortBindEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortId1",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortId2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortId3",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortId4",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortIdFlag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpPortId1": {
+    "name": "hwMstpPortId1",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortId2": {
+    "name": "hwMstpPortId2",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortId3": {
+    "name": "hwMstpPortId3",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortId4": {
+    "name": "hwMstpPortId4",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortIdFlag": {
+    "name": "hwMstpPortIdFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortVlanListLow": {
+    "name": "hwMstpPortVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpPortVlanListHigh": {
+    "name": "hwMstpPortVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProNewPortType": {
+    "name": "hwMstpProNewPortType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "nolinkshare": 2,
+          "linkshare": 3,
+          "nolinksharewithvlan": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProNewPortBpduVlan": {
+    "name": "hwMstpProNewPortBpduVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpPortBindRowStatus": {
+    "name": "hwMstpPortBindRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.24.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProPortTable": {
+    "name": "hwMstpProPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpProPortEntry": {
+    "name": "hwMstpProPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProPortState": {
+    "name": "hwMstpProPortState",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "discarding": 2,
+          "learning": 4,
+          "forwarding": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortPriority": {
+    "name": "hwMstpProPortPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortPathCost": {
+    "name": "hwMstpProPortPathCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortDesignatedRoot": {
+    "name": "hwMstpProPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortDesignatedCost": {
+    "name": "hwMstpProPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortDesignatedBridge": {
+    "name": "hwMstpProPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortDesignatedPort": {
+    "name": "hwMstpProPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpEdgeport": {
+    "name": "hwMstpProPortStpEdgeport",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortStpPointToPoint": {
+    "name": "hwMstpProPortStpPointToPoint",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 1,
+          "forceFalse": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortStpMcheck": {
+    "name": "hwMstpProPortStpMcheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortStpTransLimit": {
+    "name": "hwMstpProPortStpTransLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortStpRXStpBPDU": {
+    "name": "hwMstpProPortStpRXStpBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpTXStpBPDU": {
+    "name": "hwMstpProPortStpTXStpBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpRXTCNBPDU": {
+    "name": "hwMstpProPortStpRXTCNBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpTXTCNBPDU": {
+    "name": "hwMstpProPortStpTXTCNBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpRXRSTPBPDU": {
+    "name": "hwMstpProPortStpRXRSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpTXRSTPBPDU": {
+    "name": "hwMstpProPortStpTXRSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpRXMSTPBPDU": {
+    "name": "hwMstpProPortStpRXMSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpTXMSTPBPDU": {
+    "name": "hwMstpProPortStpTXMSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProPortStpClearStatistics": {
+    "name": "hwMstpProPortStpClearStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortStpDefaultPortCost": {
+    "name": "hwMstpProPortStpDefaultPortCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortStpStatus": {
+    "name": "hwMstpProPortStpStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortRootGuard": {
+    "name": "hwMstpProPortRootGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortLoopGuard": {
+    "name": "hwMstpProPortLoopGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortCompliance": {
+    "name": "hwMstpProPortCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "dotls": 2,
+          "legacy": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortConfigDigestSnooping": {
+    "name": "hwMstpProPortConfigDigestSnooping",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortNoAgreementCheck": {
+    "name": "hwMstpProPortNoAgreementCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortTCNotify": {
+    "name": "hwMstpProPortTCNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProPortType": {
+    "name": "hwMstpProPortType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.25.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "nolinkshare": 1,
+          "linkshare": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpTcGuard": {
+    "name": "hwMstpTcGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpTcGuardThreshold": {
+    "name": "hwMstpTcGuardThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProInstanceTable": {
+    "name": "hwMstpProInstanceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpProInstanceEntry": {
+    "name": "hwMstpProInstanceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProInstanceBridgeID": {
+    "name": "hwMstpProInstanceBridgeID",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProInstanceBridgePriority": {
+    "name": "hwMstpProInstanceBridgePriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProInstanceDesignedRoot": {
+    "name": "hwMstpProInstanceDesignedRoot",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProInstanceRootPathCost": {
+    "name": "hwMstpProInstanceRootPathCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProInstanceRootPort": {
+    "name": "hwMstpProInstanceRootPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProInstanceRootType": {
+    "name": "hwMstpProInstanceRootType",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "secondary": 1,
+          "primary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProInstanceRemainingHops": {
+    "name": "hwMstpProInstanceRemainingHops",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProInstanceAdminMappedVlanListLow": {
+    "name": "hwMstpProInstanceAdminMappedVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProInstanceAdminMappedVlanListHigh": {
+    "name": "hwMstpProInstanceAdminMappedVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProInstanceOperMappedVlanListLow": {
+    "name": "hwMstpProInstanceOperMappedVlanListLow",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProInstanceOperMappedVlanListHigh": {
+    "name": "hwMstpProInstanceOperMappedVlanListHigh",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProInstanceRowStatus": {
+    "name": "hwMstpProInstanceRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.28.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMstpProNewPortTable": {
+    "name": "hwMstpProNewPortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpProNewPortEntry": {
+    "name": "hwMstpProNewPortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortId1",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortId2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortId3",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortId4",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortIdFlag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNewPortState": {
+    "name": "hwMstpProNewPortState",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "discarding": 2,
+          "learning": 4,
+          "forwarding": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortPriority": {
+    "name": "hwMstpProNewPortPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortPathCost": {
+    "name": "hwMstpProNewPortPathCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortDesignatedRoot": {
+    "name": "hwMstpProNewPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortDesignatedCost": {
+    "name": "hwMstpProNewPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortDesignatedBridge": {
+    "name": "hwMstpProNewPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortDesignatedPort": {
+    "name": "hwMstpProNewPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpEdgeport": {
+    "name": "hwMstpProNewPortStpEdgeport",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "undo": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpPointToPoint": {
+    "name": "hwMstpProNewPortStpPointToPoint",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 1,
+          "forceFalse": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpMcheck": {
+    "name": "hwMstpProNewPortStpMcheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpTransLimit": {
+    "name": "hwMstpProNewPortStpTransLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpRXStpBPDU": {
+    "name": "hwMstpProNewPortStpRXStpBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpTXStpBPDU": {
+    "name": "hwMstpProNewPortStpTXStpBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpRXTCNBPDU": {
+    "name": "hwMstpProNewPortStpRXTCNBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpTXTCNBPDU": {
+    "name": "hwMstpProNewPortStpTXTCNBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpRXRSTPBPDU": {
+    "name": "hwMstpProNewPortStpRXRSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpTXRSTPBPDU": {
+    "name": "hwMstpProNewPortStpTXRSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpRXMSTPBPDU": {
+    "name": "hwMstpProNewPortStpRXMSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpTXMSTPBPDU": {
+    "name": "hwMstpProNewPortStpTXMSTPBPDU",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpClearStatistics": {
+    "name": "hwMstpProNewPortStpClearStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpDefaultPortCost": {
+    "name": "hwMstpProNewPortStpDefaultPortCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpStatus": {
+    "name": "hwMstpProNewPortStpStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortRootGuard": {
+    "name": "hwMstpProNewPortRootGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortLoopGuard": {
+    "name": "hwMstpProNewPortLoopGuard",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortCompliance": {
+    "name": "hwMstpProNewPortCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "dotls": 2,
+          "legacy": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortConfigDigestSnooping": {
+    "name": "hwMstpProNewPortConfigDigestSnooping",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortNoAgreementCheck": {
+    "name": "hwMstpProNewPortNoAgreementCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortVplsSubinterfaceEnable": {
+    "name": "hwMstpProNewPortVplsSubinterfaceEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortBpduEncapsulation": {
+    "name": "hwMstpProNewPortBpduEncapsulation",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vbst": 1,
+          "stp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "stp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortBpduFilter": {
+    "name": "hwMstpProNewPortBpduFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "undo": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "undo",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpRXTC": {
+    "name": "hwMstpProNewPortStpRXTC",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortStpTXTC": {
+    "name": "hwMstpProNewPortStpTXTC",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpProNewPortRole": {
+    "name": "hwMstpProNewPortRole",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.29.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "alternate": 2,
+          "backup": 3,
+          "root": 4,
+          "designated": 5,
+          "master": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMstpEdgedPortDefault": {
+    "name": "hwMstpEdgedPortDefault",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpBpduFilterPortDefault": {
+    "name": "hwMstpBpduFilterPortDefault",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpTransmitLimitDefault": {
+    "name": "hwMstpTransmitLimitDefault",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpPwName": {
+    "name": "hwMstpPwName",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMstpPortTcSnoopingTable": {
+    "name": "hwMstpPortTcSnoopingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortCountUpperThreshold": {
+    "name": "hwMstpPortCountUpperThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMstpPortCountLowerThreshold": {
+    "name": "hwMstpPortCountLowerThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMstpPortTcSnoopingEntry": {
+    "name": "hwMstpPortTcSnoopingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpPortIfIndex": {
+    "name": "hwMstpPortIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMstpPortTcSnoopingNotifyTrill": {
+    "name": "hwMstpPortTcSnoopingNotifyTrill",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.1.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwMSTPEnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwMstpTraps": {
+    "name": "hwMstpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwMstpiPortStateForwarding": {
+    "name": "hwMstpiPortStateForwarding",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpiPortStateDiscarding": {
+    "name": "hwMstpiPortStateDiscarding",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpiBridgeLostRootPrimary": {
+    "name": "hwMstpiBridgeLostRootPrimary",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpiPortRootGuarded": {
+    "name": "hwMstpiPortRootGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpiPortBpduGuarded": {
+    "name": "hwMstpiPortBpduGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpiPortLoopGuarded": {
+    "name": "hwMstpiPortLoopGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpInstanceID"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpiEdgePortChanged": {
+    "name": "hwMstpiEdgePortChanged",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpPortEdgeport"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProPortStateForwarding": {
+    "name": "hwMstpProPortStateForwarding",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProPortStateDiscarding": {
+    "name": "hwMstpProPortStateDiscarding",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProBridgeLostRootPrimary": {
+    "name": "hwMstpProBridgeLostRootPrimary",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProPortRootGuarded": {
+    "name": "hwMstpProPortRootGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProPortBpduGuarded": {
+    "name": "hwMstpProPortBpduGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProPortLoopGuarded": {
+    "name": "hwMstpProPortLoopGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProEdgePortChanged": {
+    "name": "hwMstpProEdgePortChanged",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortStpEdgeport"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpiTcGuarded": {
+    "name": "hwMstpiTcGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiBridgePriority"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProTcGuarded": {
+    "name": "hwMstpProTcGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProTcGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceBridgePriority"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProRootChanged": {
+    "name": "hwMstpProRootChanged",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceRootPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNewPortStateForwarding": {
+    "name": "hwMstpProNewPortStateForwarding",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNewPortStateDiscarding": {
+    "name": "hwMstpProNewPortStateDiscarding",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNewBridgeLostRootPrimary": {
+    "name": "hwMstpProNewBridgeLostRootPrimary",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceRootType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNewPortRootGuarded": {
+    "name": "hwMstpProNewPortRootGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNewPortBpduGuarded": {
+    "name": "hwMstpProNewPortBpduGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNewPortLoopGuarded": {
+    "name": "hwMstpProNewPortLoopGuarded",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNewEdgePortChanged": {
+    "name": "hwMstpProNewEdgePortChanged",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProLoopbackDetected": {
+    "name": "hwMstpProLoopbackDetected",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPwName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpPortCountExceedThreshold": {
+    "name": "hwMstpPortCountExceedThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortCountUpperThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpPortCountExceedThresholdResume": {
+    "name": "hwMstpPortCountExceedThresholdResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.2.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortCountLowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpConformance": {
+    "name": "hwMstpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3",
+    "class": "objectidentity"
+  },
+  "hwMstpGroups": {
+    "name": "hwMstpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1",
+    "class": "objectidentity"
+  },
+  "hwMstpBridgeInfoGroup": {
+    "name": "hwMstpBridgeInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpStatus"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpForceVersion"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpDiameter"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpBridgeMaxHops"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpMasterBridgeID"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpMasterPathCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpBpduGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpAdminFormatSelector"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpAdminRegionName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpAdminRevisionLevel"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpOperFormatSelector"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpOperRegionName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpOperRevisionLevel"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpRegionConfActive"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpDefaultVlanAllo"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpDefaultRegionName"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPathCostStandard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpSnooping"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpTcGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpTcGuardThreshold"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpEdgedPortDefault"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpBpduFilterPortDefault"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpTransmitLimitDefault"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortCountUpperThreshold"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortCountLowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpVlanInfoGroup": {
+    "name": "hwMstpVlanInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpAdminMstID"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpOperMstID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpInstanceInfoGroup": {
+    "name": "hwMstpInstanceInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiBridgeID"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiBridgePriority"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiDesignedRoot"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiRootPathCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiRootPort"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiRootType"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiRemainingHops"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiAdminMappedVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiAdminMappedVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiOperMappedVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiOperMappedVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpPortInfoGroup": {
+    "name": "hwMstpPortInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiState"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortPriority"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPathCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiDesignatedRoot"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiDesignatedCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiDesignatedBridge"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiDesignatedPort"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpPortEdgeport"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpPortPointToPoint"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpMcheck"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpTransLimit"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpRXStpBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpTXStpBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpRXTCNBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpTXTCNBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpRXRSTPBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpTXRSTPBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpRXMSTPBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpTXMSTPBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpClearStatistics"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpDefaultPortCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpStatus"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortRootGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortLoopGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortCompliance"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpConfigDigestSnooping"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpNoAgreementCheck"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortTCNotify"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiStpPortBpduFilter"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpAccessoryGroup": {
+    "name": "hwMstpAccessoryGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpBackupReplyAgreement"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpStpNoAgreementCheck"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpNotificationGroup": {
+    "name": "hwMstpNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortStateForwarding"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortStateDiscarding"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiBridgeLostRootPrimary"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortRootGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortBpduGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiPortLoopGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiEdgePortChanged"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpiTcGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortLoopGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortRootGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProBridgeLostRootPrimary"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortStateDiscarding"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortStateForwarding"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProLoopbackDetected"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProEdgePortChanged"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPortBpduGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortCountExceedThreshold"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortCountExceedThresholdResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProGroup": {
+    "name": "hwMstpProGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProStpState"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPriority"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProRootType"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProForceVersion"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProBpduGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProDiameter"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProConvergeMode"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProMaxHops"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProMCheck"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProPathCostStandard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProHelloTime"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProFwdDelay"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProMaxAge"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProTimerFactor"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProTcGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProTcGuardThreshold"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProTcNotifyProcess"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProRegionConfActive"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProRowStatus"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProLinkShareGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpConfigDegist"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProTcGuardInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProPortInfoGroup": {
+    "name": "hwMstpProPortInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortType"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortBpduVlan"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortBindRowStatus"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortState"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortPriority"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortPathCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortDesignatedRoot"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortDesignatedCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortDesignatedBridge"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortDesignatedPort"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpEdgeport"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpPointToPoint"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpMcheck"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpTransLimit"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpRXStpBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpTXStpBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpRXTCNBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpTXTCNBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpRXRSTPBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpTXRSTPBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpRXMSTPBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpTXMSTPBPDU"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpClearStatistics"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpDefaultPortCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpStatus"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortRootGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortLoopGuard"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortCompliance"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortConfigDigestSnooping"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortNoAgreementCheck"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortVplsSubinterfaceEnable"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortBpduEncapsulation"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortBpduFilter"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpRXTC"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStpTXTC"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProNotificationGroup": {
+    "name": "hwMstpProNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProTcGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProRootChanged"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStateForwarding"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortStateDiscarding"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewBridgeLostRootPrimary"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortRootGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortBpduGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewPortLoopGuarded"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProNewEdgePortChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpProInstanceInfoGroup": {
+    "name": "hwMstpProInstanceInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceBridgeID"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceBridgePriority"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceDesignedRoot"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceRootPathCost"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceRootPort"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceRootType"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceRemainingHops"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceAdminMappedVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceAdminMappedVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceOperMappedVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceOperMappedVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpProInstanceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpPortTcSnoopingGroup": {
+    "name": "hwMstpPortTcSnoopingGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSTP-MIB",
+        "object": "hwMstpPortTcSnoopingNotifyTrill"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMstpCompliances": {
+    "name": "hwMstpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.2",
+    "class": "objectidentity"
+  },
+  "hwMstpCompliance": {
+    "name": "hwMstpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.4.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwMstpBridgeInfoGroup",
+        "module": "HUAWEI-MSTP-MIB"
+      },
+      {
+        "object": "hwMstpVlanInfoGroup",
+        "module": "HUAWEI-MSTP-MIB"
+      },
+      {
+        "object": "hwMstpInstanceInfoGroup",
+        "module": "HUAWEI-MSTP-MIB"
+      },
+      {
+        "object": "hwMstpPortInfoGroup",
+        "module": "HUAWEI-MSTP-MIB"
+      },
+      {
+        "object": "hwMstpAccessoryGroup",
+        "module": "HUAWEI-MSTP-MIB"
+      },
+      {
+        "object": "hwMstpProGroup",
+        "module": "HUAWEI-MSTP-MIB"
+      },
+      {
+        "object": "hwMstpProPortInfoGroup",
+        "module": "HUAWEI-MSTP-MIB"
+      },
+      {
+        "object": "hwMstpProNotificationGroup",
+        "module": "HUAWEI-MSTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MSTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-MSTP-MIB"
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VTP-MIB": [
+      "managementDomainIndex",
+      "vtpVlanIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEthernetAccessMIB": {
+    "name": "ciscoEthernetAccessMIB",
+    "oid": "1.3.6.1.4.1.9.9.466",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-09-14 00:00",
+        "description": "Added ENI as a new port type to the ceaPortType and ceaPortCapability objects."
+      },
+      {
+        "revision": "2005-01-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEthernetAccessMIBObjects": {
+    "name": "ciscoEthernetAccessMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.466.1",
+    "class": "objectidentity"
+  },
+  "ciscoEthernetAccessMIBConform": {
+    "name": "ciscoEthernetAccessMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.466.2",
+    "class": "objectidentity"
+  },
+  "ceaGlobals": {
+    "name": "ceaGlobals",
+    "oid": "1.3.6.1.4.1.9.9.466.1.1",
+    "class": "objectidentity"
+  },
+  "ceaConfig": {
+    "name": "ceaConfig",
+    "oid": "1.3.6.1.4.1.9.9.466.1.2",
+    "class": "objectidentity"
+  },
+  "CeaVlanUNIType": {
+    "name": "CeaVlanUNIType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "isolated": 2,
+          "community": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ceaMaxNNIPorts": {
+    "name": "ceaMaxNNIPorts",
+    "oid": "1.3.6.1.4.1.9.9.466.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceaMaxUNIVlanCommunityPorts": {
+    "name": "ceaMaxUNIVlanCommunityPorts",
+    "oid": "1.3.6.1.4.1.9.9.466.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceaPortTable": {
+    "name": "ceaPortTable",
+    "oid": "1.3.6.1.4.1.9.9.466.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceaPortEntry": {
+    "name": "ceaPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.466.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceaPortType": {
+    "name": "ceaPortType",
+    "oid": "1.3.6.1.4.1.9.9.466.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 1,
+          "uni": 2,
+          "nni": 3,
+          "eni": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceaPortCapability": {
+    "name": "ceaPortCapability",
+    "oid": "1.3.6.1.4.1.9.9.466.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "nni": 0,
+        "uni": 1,
+        "eni": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceaUNIVlanTable": {
+    "name": "ceaUNIVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.466.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceaUNIVlanEntry": {
+    "name": "ceaUNIVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.466.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "managementDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VTP-MIB",
+        "object": "vtpVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceaUNIVlanType": {
+    "name": "ceaUNIVlanType",
+    "oid": "1.3.6.1.4.1.9.9.466.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeaVlanUNIType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cEthernetAccessMIBCompliances": {
+    "name": "cEthernetAccessMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.466.2.1",
+    "class": "objectidentity"
+  },
+  "cEthernetAccessMIBGroups": {
+    "name": "cEthernetAccessMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.466.2.2",
+    "class": "objectidentity"
+  },
+  "cEthernetAccessMIBCompliance": {
+    "name": "cEthernetAccessMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.466.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceaPortGroup",
+        "module": "CISCO-ETHERNET-ACCESS-MIB"
+      },
+      {
+        "object": "ceaVlanGroup",
+        "module": "CISCO-ETHERNET-ACCESS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ceaPortGroup": {
+    "name": "ceaPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.466.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ETHERNET-ACCESS-MIB",
+        "object": "ceaMaxNNIPorts"
+      },
+      {
+        "module": "CISCO-ETHERNET-ACCESS-MIB",
+        "object": "ceaPortType"
+      },
+      {
+        "module": "CISCO-ETHERNET-ACCESS-MIB",
+        "object": "ceaPortCapability"
+      }
+    ],
+    "status": "current"
+  },
+  "ceaVlanGroup": {
+    "name": "ceaVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.466.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ETHERNET-ACCESS-MIB",
+        "object": "ceaMaxUNIVlanCommunityPorts"
+      },
+      {
+        "module": "CISCO-ETHERNET-ACCESS-MIB",
+        "object": "ceaUNIVlanType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ETHERNET-ACCESS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ETHERNET-ACCESS-MIB"
+  }
+}

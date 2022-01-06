@@ -1,0 +1,1940 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleSynce": {
+    "name": "sleSynce",
+    "oid": "1.3.6.1.4.1.6296.101.93",
+    "class": "moduleidentity"
+  },
+  "SynceClockQualityLevel": {
+    "name": "SynceClockQualityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prc": 1,
+          "ssua": 2,
+          "ssub": 3,
+          "sec": 4,
+          "dnu": 5,
+          "stu": 7,
+          "st2": 8,
+          "tnc": 9,
+          "st3e": 10,
+          "st3": 11,
+          "smc": 12,
+          "prov": 13,
+          "dus": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "sleSynceBaseMode": {
+    "name": "sleSynceBaseMode",
+    "oid": "1.3.6.1.4.1.6296.101.93.1",
+    "class": "objectidentity"
+  },
+  "sleSynceBaseModeInfo": {
+    "name": "sleSynceBaseModeInfo",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.1",
+    "class": "objectidentity"
+  },
+  "sleSynceSyncOption": {
+    "name": "sleSynceSyncOption",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "option1": 1,
+          "option2gen1": 2,
+          "option2gen2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceSelectionMode": {
+    "name": "sleSynceSelectionMode",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qlEnable": 1,
+          "qlDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceBaseModeControl": {
+    "name": "sleSynceBaseModeControl",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.2",
+    "class": "objectidentity"
+  },
+  "sleSynceModeControlRequest": {
+    "name": "sleSynceModeControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setSelectionMode": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceModeControlStatus": {
+    "name": "sleSynceModeControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceModeControlTimer": {
+    "name": "sleSynceModeControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceModeControlTimeStamp": {
+    "name": "sleSynceModeControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceModeControlReqResult": {
+    "name": "sleSynceModeControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceModeControlSyncOption": {
+    "name": "sleSynceModeControlSyncOption",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "option1": 1,
+          "option2gen1": 2,
+          "option2gen2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceModeControlSelectionMode": {
+    "name": "sleSynceModeControlSelectionMode",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qlEnable": 1,
+          "qlDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceBaseModeNotification": {
+    "name": "sleSynceBaseModeNotification",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.3",
+    "class": "objectidentity"
+  },
+  "sleSynceSyncOptionChanged": {
+    "name": "sleSynceSyncOptionChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlSyncOption"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceSelectionModeChanged": {
+    "name": "sleSynceSelectionModeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlSelectionMode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfEnable": {
+    "name": "sleSynceIfEnable",
+    "oid": "1.3.6.1.4.1.6296.101.93.2",
+    "class": "objectidentity"
+  },
+  "sleSynceIfEnableTable": {
+    "name": "sleSynceIfEnableTable",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSynceIfEnableEntry": {
+    "name": "sleSynceIfEnableEntry",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfEnableIfIndex": {
+    "name": "sleSynceIfEnableIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfEnableName": {
+    "name": "sleSynceIfEnableName",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfEnableState": {
+    "name": "sleSynceIfEnableState",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfEnableControl": {
+    "name": "sleSynceIfEnableControl",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.2",
+    "class": "objectidentity"
+  },
+  "sleSynceIfEnableControlRequest": {
+    "name": "sleSynceIfEnableControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setSynceEnable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfEnableControlStatus": {
+    "name": "sleSynceIfEnableControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfEnableControlTimer": {
+    "name": "sleSynceIfEnableControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfEnableControlTimeStamp": {
+    "name": "sleSynceIfEnableControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfEnableControlReqResult": {
+    "name": "sleSynceIfEnableControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfEnableControlIfIndex": {
+    "name": "sleSynceIfEnableControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfEnableControlState": {
+    "name": "sleSynceIfEnableControlState",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfEnableNotification": {
+    "name": "sleSynceIfEnableNotification",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.3",
+    "class": "objectidentity"
+  },
+  "sleSynceIfEnableStateChanged": {
+    "name": "sleSynceIfEnableStateChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlState"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIf": {
+    "name": "sleSynceIf",
+    "oid": "1.3.6.1.4.1.6296.101.93.3",
+    "class": "objectidentity"
+  },
+  "sleSynceIfTable": {
+    "name": "sleSynceIfTable",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSynceIfEntry": {
+    "name": "sleSynceIfEntry",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfIfIndex": {
+    "name": "sleSynceIfIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfName": {
+    "name": "sleSynceIfName",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfInputSource": {
+    "name": "sleSynceIfInputSource",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfOoutputSource": {
+    "name": "sleSynceIfOoutputSource",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfPriority": {
+    "name": "sleSynceIfPriority",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfRecvQl": {
+    "name": "sleSynceIfRecvQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfSendQl": {
+    "name": "sleSynceIfSendQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfHoldOff": {
+    "name": "sleSynceIfHoldOff",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfWaitToRestore": {
+    "name": "sleSynceIfWaitToRestore",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfControl": {
+    "name": "sleSynceIfControl",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2",
+    "class": "objectidentity"
+  },
+  "sleSynceIfControlRequest": {
+    "name": "sleSynceIfControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setSynceIfAddInputSource": 1,
+          "setSynceIfDelInputSource": 2,
+          "setSynceIfAddOutputSource": 3,
+          "setSynceIfDelOutputSource": 4,
+          "setSynceIfRecvQl": 5,
+          "setSynceIfSendQl": 6,
+          "setSynceIfHoldOff": 7,
+          "setSynceIfWaitToRestore": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfControlStatus": {
+    "name": "sleSynceIfControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfControlTimer": {
+    "name": "sleSynceIfControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfControlTimeStamp": {
+    "name": "sleSynceIfControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfControlReqResult": {
+    "name": "sleSynceIfControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceIfControlIfIndex": {
+    "name": "sleSynceIfControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfControlPriority": {
+    "name": "sleSynceIfControlPriority",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfControlConfigRecvQl": {
+    "name": "sleSynceIfControlConfigRecvQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfControlConfigSendQl": {
+    "name": "sleSynceIfControlConfigSendQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfControlHoldOff": {
+    "name": "sleSynceIfControlHoldOff",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfControlWaitToRestore": {
+    "name": "sleSynceIfControlWaitToRestore",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceIfNotification": {
+    "name": "sleSynceIfNotification",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3",
+    "class": "objectidentity"
+  },
+  "sleSynceIfAddInputSourceChanged": {
+    "name": "sleSynceIfAddInputSourceChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfDelInputSourceChanged": {
+    "name": "sleSynceIfDelInputSourceChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfAddOutputSourceChanged": {
+    "name": "sleSynceIfAddOutputSourceChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfDelOutputSourceChanged": {
+    "name": "sleSynceIfDelOutputSourceChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfRecvQlChanged": {
+    "name": "sleSynceIfRecvQlChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlConfigRecvQl"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfSendQlChanged": {
+    "name": "sleSynceIfSendQlChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlConfigSendQl"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfHoldOffChanged": {
+    "name": "sleSynceIfHoldOffChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlHoldOff"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceIfWaitToRestoreChanged": {
+    "name": "sleSynceIfWaitToRestoreChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.3.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlWaitToRestore"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceInputSource": {
+    "name": "sleSynceInputSource",
+    "oid": "1.3.6.1.4.1.6296.101.93.4",
+    "class": "objectidentity"
+  },
+  "sleSynceInputSourceTable": {
+    "name": "sleSynceInputSourceTable",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSynceInputSourceEntry": {
+    "name": "sleSynceInputSourceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceInputSourceIfIndex": {
+    "name": "sleSynceInputSourceIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceName": {
+    "name": "sleSynceInputSourceName",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourcePriority": {
+    "name": "sleSynceInputSourcePriority",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceEsmcState": {
+    "name": "sleSynceInputSourceEsmcState",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "start": 1,
+          "ok": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceSelected": {
+    "name": "sleSynceInputSourceSelected",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceConfigRecvQl": {
+    "name": "sleSynceInputSourceConfigRecvQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceRecvQl": {
+    "name": "sleSynceInputSourceRecvQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceSignalFail": {
+    "name": "sleSynceInputSourceSignalFail",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceCmd": {
+    "name": "sleSynceInputSourceCmd",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lockout": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceControl": {
+    "name": "sleSynceInputSourceControl",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2",
+    "class": "objectidentity"
+  },
+  "sleSynceInputSourceControlRequest": {
+    "name": "sleSynceInputSourceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setSynceInputsourceSwitch": 1,
+          "setSynceInputsourceLockout": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceInputSourceControlStatus": {
+    "name": "sleSynceInputSourceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceControlTimer": {
+    "name": "sleSynceInputSourceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceInputSourceControlTimeStamp": {
+    "name": "sleSynceInputSourceControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceControlReqResult": {
+    "name": "sleSynceInputSourceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceInputSourceControlIfIndex": {
+    "name": "sleSynceInputSourceControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceInputSourceControlSwitchType": {
+    "name": "sleSynceInputSourceControlSwitchType",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceInputSourceControlLockoutState": {
+    "name": "sleSynceInputSourceControlLockoutState",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "set": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleSynceInputSourceNotification": {
+    "name": "sleSynceInputSourceNotification",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.3",
+    "class": "objectidentity"
+  },
+  "sleSynceInputSourceSwitchChanged": {
+    "name": "sleSynceInputSourceSwitchChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlSwitchType"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceInputSourceLockoutChanged": {
+    "name": "sleSynceInputSourceLockoutChanged",
+    "oid": "1.3.6.1.4.1.6296.101.93.4.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlLockoutState"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceOutputSource": {
+    "name": "sleSynceOutputSource",
+    "oid": "1.3.6.1.4.1.6296.101.93.5",
+    "class": "objectidentity"
+  },
+  "sleSynceOutputSourceTable": {
+    "name": "sleSynceOutputSourceTable",
+    "oid": "1.3.6.1.4.1.6296.101.93.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSynceOutputSourceEntry": {
+    "name": "sleSynceOutputSourceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.93.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceOutputSourceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceOutputSourceIfIndex": {
+    "name": "sleSynceOutputSourceIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.93.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceOutputSourceName": {
+    "name": "sleSynceOutputSourceName",
+    "oid": "1.3.6.1.4.1.6296.101.93.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceOutputSourceConfigSendQl": {
+    "name": "sleSynceOutputSourceConfigSendQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceOutputSourceSystemQl": {
+    "name": "sleSynceOutputSourceSystemQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceOutputSourceSendQl": {
+    "name": "sleSynceOutputSourceSendQl",
+    "oid": "1.3.6.1.4.1.6296.101.93.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SynceClockQualityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSynceObjectGroup": {
+    "name": "sleSynceObjectGroup",
+    "oid": "1.3.6.1.4.1.6296.101.93.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableName"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableState"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlTimer"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableControlState"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfName"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfInputSource"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfOoutputSource"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfPriority"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfRecvQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfSendQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfHoldOff"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfWaitToRestore"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimer"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlPriority"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlConfigRecvQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlConfigSendQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlHoldOff"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfControlWaitToRestore"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceName"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceEsmcState"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceSelected"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceConfigRecvQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceRecvQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceSignalFail"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceCmd"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlSwitchType"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlLockoutState"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceOutputSourceIfIndex"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceOutputSourceName"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceOutputSourceConfigSendQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceOutputSourceSystemQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceOutputSourceSendQl"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceSyncOption"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceSelectionMode"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlTimer"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlReqResult"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlSyncOption"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceModeControlSelectionMode"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourcePriority"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlRequest"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlStatus"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlTimer"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlTimeStamp"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleSynceNotificationGroup": {
+    "name": "sleSynceNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.93.30",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfEnableStateChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfAddInputSourceChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfDelInputSourceChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfAddOutputSourceChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfDelOutputSourceChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfRecvQlChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfSendQlChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfHoldOffChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceIfWaitToRestoreChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceSwitchChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceInputSourceLockoutChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceSyncOptionChanged"
+      },
+      {
+        "module": "SLE-SYNCE-MIB",
+        "object": "sleSynceSelectionModeChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-SYNCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-SYNCE-MIB"
+  }
+}

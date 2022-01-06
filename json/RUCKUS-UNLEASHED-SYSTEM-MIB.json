@@ -1,0 +1,441 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "RUCKUS-ROOT-MIB": [
+      "ruckusUnleashedSystemModule"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ruckusUnleashedSystemMIB": {
+    "name": "ruckusUnleashedSystemMIB",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1",
+    "class": "moduleidentity"
+  },
+  "ruckusUnleashedSystemObjects": {
+    "name": "ruckusUnleashedSystemObjects",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusUnleashedSystemInfo": {
+    "name": "ruckusUnleashedSystemInfo",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusUnleashedSystemName": {
+    "name": "ruckusUnleashedSystemName",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemIPAddr": {
+    "name": "ruckusUnleashedSystemIPAddr",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemMacAddr": {
+    "name": "ruckusUnleashedSystemMacAddr",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemUptime": {
+    "name": "ruckusUnleashedSystemUptime",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemModel": {
+    "name": "ruckusUnleashedSystemModel",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemLicensedAPs": {
+    "name": "ruckusUnleashedSystemLicensedAPs",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemMaxSta": {
+    "name": "ruckusUnleashedSystemMaxSta",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemSerialNumber": {
+    "name": "ruckusUnleashedSystemSerialNumber",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemVersion": {
+    "name": "ruckusUnleashedSystemVersion",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemCountryCode": {
+    "name": "ruckusUnleashedSystemCountryCode",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStats": {
+    "name": "ruckusUnleashedSystemStats",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15",
+    "class": "objectidentity"
+  },
+  "ruckusUnleashedSystemStatsNumAP": {
+    "name": "ruckusUnleashedSystemStatsNumAP",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsNumSta": {
+    "name": "ruckusUnleashedSystemStatsNumSta",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalRxPkts": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalRxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalRxBytes": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalRxMulticast": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalRxMulticast",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalTxPkts": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalTxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalTxBytes": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalTxMulticast": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalTxMulticast",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalTxFail": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalTxFail",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalTxRetry": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalTxRetry",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsCPUUtil": {
+    "name": "ruckusUnleashedSystemStatsCPUUtil",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsMemoryUtil": {
+    "name": "ruckusUnleashedSystemStatsMemoryUtil",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsNumRegisteredAP": {
+    "name": "ruckusUnleashedSystemStatsNumRegisteredAP",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalAssocFail": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalAssocFail",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalRxErrFrm": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalRxErrFrm",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalTxDroppedPkt": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalTxDroppedPkt",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalTxErrFrm": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalTxErrFrm",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsWLANTotalTxDroppedFrm": {
+    "name": "ruckusUnleashedSystemStatsWLANTotalTxDroppedFrm",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusUnleashedSystemStatsAllNumSta": {
+    "name": "ruckusUnleashedSystemStatsAllNumSta",
+    "oid": "1.3.6.1.4.1.25053.1.15.1.1.1.15.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-UNLEASHED-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUCKUS-UNLEASHED-SYSTEM-MIB"
+  }
+}

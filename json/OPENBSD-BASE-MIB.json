@@ -1,0 +1,95 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Counter32",
+      "enterprises",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "openBSD": {
+    "name": "openBSD",
+    "oid": "1.3.6.1.4.1.30155",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-31 00:00",
+        "description": "Document relayd(8)'s use of the openBSD.3 OID; move the CARP MIB to openBSD.6 to avoid a conflict with relayd."
+      },
+      {
+        "revision": "2008-12-23 00:00",
+        "description": "Updated for MIB for the OpenBSD snmpd(8) implementation."
+      }
+    ]
+  },
+  "pfMIBObjects": {
+    "name": "pfMIBObjects",
+    "oid": "1.3.6.1.4.1.30155.1",
+    "class": "objectidentity"
+  },
+  "sensorsMIBObjects": {
+    "name": "sensorsMIBObjects",
+    "oid": "1.3.6.1.4.1.30155.2",
+    "class": "objectidentity"
+  },
+  "relaydMIBObjects": {
+    "name": "relaydMIBObjects",
+    "oid": "1.3.6.1.4.1.30155.3",
+    "class": "objectidentity"
+  },
+  "memMIBObjects": {
+    "name": "memMIBObjects",
+    "oid": "1.3.6.1.4.1.30155.5",
+    "class": "objectidentity"
+  },
+  "carpMIBObjects": {
+    "name": "carpMIBObjects",
+    "oid": "1.3.6.1.4.1.30155.6",
+    "class": "objectidentity"
+  },
+  "localSystem": {
+    "name": "localSystem",
+    "oid": "1.3.6.1.4.1.30155.23",
+    "class": "objectidentity"
+  },
+  "openBSDDefaultObjectID": {
+    "name": "openBSDDefaultObjectID",
+    "oid": "1.3.6.1.4.1.30155.23.1",
+    "class": "objectidentity"
+  },
+  "localTest": {
+    "name": "localTest",
+    "oid": "1.3.6.1.4.1.30155.42",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OPENBSD-BASE-MIB"
+  }
+}

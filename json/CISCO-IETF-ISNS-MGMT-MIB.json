@@ -1,0 +1,4867 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameIdOrZero",
+      "FcAddressId"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIetfIsnsMgmtMIB": {
+    "name": "ciscoIetfIsnsMgmtMIB",
+    "oid": "1.3.6.1.4.1.9.10.116",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-08-13 00:00",
+        "description": "The MIB for internet Storage Name Service (iSNS) Management."
+      }
+    ]
+  },
+  "CIsnsDiscoveryDomainSetId": {
+    "name": "CIsnsDiscoveryDomainSetId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsDdsStatusId": {
+    "name": "CIsnsDdsStatusId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "enabled": 0
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsDiscoveryDomainId": {
+    "name": "CIsnsDiscoveryDomainId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsDdFeatureBitmapId": {
+    "name": "CIsnsDdFeatureBitmapId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bootlist": 0
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsDdDdsModificationBitmap": {
+    "name": "CIsnsDdDdsModificationBitmap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "snmpEnabled": 0,
+        "controlNode": 1,
+        "targetIscsiNode": 2,
+        "initiatorIscsiNode": 3,
+        "targetIfcpNode": 4,
+        "initiatorIfcpNode": 5
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsEntityIndexId": {
+    "name": "CIsnsEntityIndexId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsEntityProtocolId": {
+    "name": "CIsnsEntityProtocolId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noProtocol": 1,
+          "iSCSI": 2,
+          "iFCP": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsPortalGroupIndexId": {
+    "name": "CIsnsPortalGroupIndexId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsPortalIndexId": {
+    "name": "CIsnsPortalIndexId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsPortalPortId": {
+    "name": "CIsnsPortalPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsPortalPortTypeId": {
+    "name": "CIsnsPortalPortTypeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsPortalGroupTagIdOrZero": {
+    "name": "CIsnsPortalGroupTagIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsPortalSecurityBitmapId": {
+    "name": "CIsnsPortalSecurityBitmapId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tunnelModePreferred": 0,
+        "transportModePreferred": 1,
+        "pfsEnabled": 2,
+        "agressiveModeEnabled": 3,
+        "mainModeEnabled": 4,
+        "ikeIpsecEnabled": 5,
+        "bitmapVALID": 6
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsNodeIndexId": {
+    "name": "CIsnsNodeIndexId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsNodeIndexIdOrZero": {
+    "name": "CIsnsNodeIndexIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsNodeTypeId": {
+    "name": "CIsnsNodeTypeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "control": 0,
+        "initiator": 1,
+        "target": 2
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsCosBitmapId": {
+    "name": "CIsnsCosBitmapId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "class3": 0,
+        "class2": 1
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsScnBitmapId": {
+    "name": "CIsnsScnBitmapId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "initiatorAndSelfOnly": 0,
+        "targetAndSelfOnly": 1,
+        "managementRegistrationScn": 2,
+        "registeredObjectRemoved": 3,
+        "registeredObjectAdded": 4,
+        "registeredObjectUpdated": 5,
+        "ddOrDdsMemberRemoved": 6,
+        "ddOrDdsMemberAdded": 7
+      }
+    },
+    "status": "current"
+  },
+  "CIsnsSrvrDscvryMthdId": {
+    "name": "CIsnsSrvrDscvryMthdId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dhcp": 0,
+        "slp": 1,
+        "multicastGroupHb": 2,
+        "broadcastHb": 3,
+        "cfgdServerList": 4,
+        "other": 5
+      }
+    },
+    "status": "current"
+  },
+  "cIsnsObj": {
+    "name": "cIsnsObj",
+    "oid": "1.3.6.1.4.1.9.10.116.1",
+    "class": "objectidentity"
+  },
+  "cIsnsConformance": {
+    "name": "cIsnsConformance",
+    "oid": "1.3.6.1.4.1.9.10.116.2",
+    "class": "objectidentity"
+  },
+  "cIsnsSrvrInfo": {
+    "name": "cIsnsSrvrInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1",
+    "class": "objectidentity"
+  },
+  "cIsnsSrvrInstTable": {
+    "name": "cIsnsSrvrInstTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsSrvrInstEntry": {
+    "name": "cIsnsSrvrInstEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsSrvrInstIndex": {
+    "name": "cIsnsSrvrInstIndex",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsSrvrInstName": {
+    "name": "cIsnsSrvrInstName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstIsnsVersion": {
+    "name": "cIsnsSrvrInstIsnsVersion",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsSrvrInstDescription": {
+    "name": "cIsnsSrvrInstDescription",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsSrvrInstAddressType": {
+    "name": "cIsnsSrvrInstAddressType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstAddress": {
+    "name": "cIsnsSrvrInstAddress",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstTcpPort": {
+    "name": "cIsnsSrvrInstTcpPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstUdpPort": {
+    "name": "cIsnsSrvrInstUdpPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstUptime": {
+    "name": "cIsnsSrvrInstUptime",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsSrvrInstRole": {
+    "name": "cIsnsSrvrInstRole",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSet": 0,
+          "server": 1,
+          "serverNotPrimary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "server",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsSrvrInstDiscMthdsEnbld": {
+    "name": "cIsnsSrvrInstDiscMthdsEnbld",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsSrvrDscvryMthdId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstDiscMcGrpType": {
+    "name": "cIsnsSrvrInstDiscMcGrpType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstDiscMcGrp": {
+    "name": "cIsnsSrvrInstDiscMcGrp",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstEsiNonRespThrshld": {
+    "name": "cIsnsSrvrInstEsiNonRespThrshld",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstCntrlNodeAuth": {
+    "name": "cIsnsSrvrInstCntrlNodeAuth",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "anyNode": 1,
+          "viewNodes": 2,
+          "modifyNodes": 3,
+          "noSnmpAccess": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsSrvrInstEnblCntrlNdeMgtScn": {
+    "name": "cIsnsSrvrInstEnblCntrlNdeMgtScn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstDfltDdDdsStatus": {
+    "name": "cIsnsSrvrInstDfltDdDdsStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inNoDomain": 1,
+          "inDefaultDdAndDds": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inNoDomain",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsSrvrInstUpdateDdDdsSpprtd": {
+    "name": "cIsnsSrvrInstUpdateDdDdsSpprtd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsDdDdsModificationBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsSrvrInstUpdateDdDdsEnbld": {
+    "name": "cIsnsSrvrInstUpdateDdDdsEnbld",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsDdDdsModificationBitmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsNumObjTable": {
+    "name": "cIsnsNumObjTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsNumObjEntry": {
+    "name": "cIsnsNumObjEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIsnsNumObjEntry",
+      "module": "CISCO-IETF-ISNS-MGMT-MIB",
+      "object": "cIsnsSrvrInstEntry"
+    },
+    "status": "current"
+  },
+  "cIsnsNumDds": {
+    "name": "cIsnsNumDds",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNumDd": {
+    "name": "cIsnsNumDd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNumEntities": {
+    "name": "cIsnsNumEntities",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNumPortals": {
+    "name": "cIsnsNumPortals",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNumPortalGroups": {
+    "name": "cIsnsNumPortalGroups",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNumIscsiNodes": {
+    "name": "cIsnsNumIscsiNodes",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNumFcPorts": {
+    "name": "cIsnsNumFcPorts",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNumFcNodes": {
+    "name": "cIsnsNumFcNodes",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNextIdxTable": {
+    "name": "cIsnsNextIdxTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsNextIdxEntry": {
+    "name": "cIsnsNextIdxEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIsnsNextIdxEntry",
+      "module": "CISCO-IETF-ISNS-MGMT-MIB",
+      "object": "cIsnsSrvrInstEntry"
+    },
+    "status": "current"
+  },
+  "cIsnsNextIdxDds": {
+    "name": "cIsnsNextIdxDds",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsDiscoveryDomainSetId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNextIdxDd": {
+    "name": "cIsnsNextIdxDd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsDiscoveryDomainId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNextIdxUnregIscsiNodeInDd": {
+    "name": "cIsnsNextIdxUnregIscsiNodeInDd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsNodeIndexIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNextIdxUnregPortalInDd": {
+    "name": "cIsnsNextIdxUnregPortalInDd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalIndexId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsCntlNodeInfo": {
+    "name": "cIsnsCntlNodeInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4",
+    "class": "objectidentity"
+  },
+  "cIsnsCntlNodeIscsiTable": {
+    "name": "cIsnsCntlNodeIscsiTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsCntlNodeIscsiEntry": {
+    "name": "cIsnsCntlNodeIscsiEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsCntlNodeIscsiNodeIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsCntlNodeIscsiNodeIdx": {
+    "name": "cIsnsCntlNodeIscsiNodeIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsNodeIndexId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsCntlNodeIscsiNodeName": {
+    "name": "cIsnsCntlNodeIscsiNodeName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsCntlNodeIscsiRowStatus": {
+    "name": "cIsnsCntlNodeIscsiRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsCntlNodeFcPortTable": {
+    "name": "cIsnsCntlNodeFcPortTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsCntlNodeFcPortEntry": {
+    "name": "cIsnsCntlNodeFcPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsCntlNodeFcPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsCntlNodeFcPortName": {
+    "name": "cIsnsCntlNodeFcPortName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsCntlNodeFcPortRowStatus": {
+    "name": "cIsnsCntlNodeFcPortRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdsInfo": {
+    "name": "cIsnsDdsInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5",
+    "class": "objectidentity"
+  },
+  "cIsnsDdsTable": {
+    "name": "cIsnsDdsTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdsEntry": {
+    "name": "cIsnsDdsEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsDdsId": {
+    "name": "cIsnsDdsId",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsDiscoveryDomainSetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdsSymbolicName": {
+    "name": "cIsnsDdsSymbolicName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdsStatus": {
+    "name": "cIsnsDdsStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsDdsStatusId",
+      "class": "type"
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "enabled": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdsRowStatus": {
+    "name": "cIsnsDdsRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdsMemberTable": {
+    "name": "cIsnsDdsMemberTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdsMemberEntry": {
+    "name": "cIsnsDdsMemberEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsDdsMemberRowStatus": {
+    "name": "cIsnsDdsMemberRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdInfo": {
+    "name": "cIsnsDdInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6",
+    "class": "objectidentity"
+  },
+  "cIsnsDdTable": {
+    "name": "cIsnsDdTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdEntry": {
+    "name": "cIsnsDdEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsDdId": {
+    "name": "cIsnsDdId",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsDiscoveryDomainId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdSymbolicName": {
+    "name": "cIsnsDdSymbolicName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdFeatures": {
+    "name": "cIsnsDdFeatures",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsDdFeatureBitmapId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdRowStatus": {
+    "name": "cIsnsDdRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdIscsiMemberTable": {
+    "name": "cIsnsDdIscsiMemberTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdIscsiMemberEntry": {
+    "name": "cIsnsDdIscsiMemberEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberIscsiIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsDdMemberIscsiIdx": {
+    "name": "cIsnsDdMemberIscsiIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsNodeIndexId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdMemberIscsiName": {
+    "name": "cIsnsDdMemberIscsiName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdMemberIsRegistered": {
+    "name": "cIsnsDdMemberIsRegistered",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsDdMemberRowStatus": {
+    "name": "cIsnsDdMemberRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdPortalMemberTable": {
+    "name": "cIsnsDdPortalMemberTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdPortalMemberEntry": {
+    "name": "cIsnsDdPortalMemberEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsDdMemberPortalIdx": {
+    "name": "cIsnsDdMemberPortalIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalIndexId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdMemberPortalAddrType": {
+    "name": "cIsnsDdMemberPortalAddrType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdMemberPortalAddr": {
+    "name": "cIsnsDdMemberPortalAddr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdMemberPortalPortType": {
+    "name": "cIsnsDdMemberPortalPortType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortTypeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdMemberPortalPort": {
+    "name": "cIsnsDdMemberPortalPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdMemberPortalIsRegistered": {
+    "name": "cIsnsDdMemberPortalIsRegistered",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsDdMemberPortalRowStatus": {
+    "name": "cIsnsDdMemberPortalRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsDdFcPortMemberTable": {
+    "name": "cIsnsDdFcPortMemberTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdFcPortMemberEntry": {
+    "name": "cIsnsDdFcPortMemberEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberFcPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsDdMemberFcPortName": {
+    "name": "cIsnsDdMemberFcPortName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsDdMemberFcIsRegistered": {
+    "name": "cIsnsDdMemberFcIsRegistered",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsDdMemberFcRowStatus": {
+    "name": "cIsnsDdMemberFcRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsReg": {
+    "name": "cIsnsReg",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7",
+    "class": "objectidentity"
+  },
+  "cIsnsRegEntityInfo": {
+    "name": "cIsnsRegEntityInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1",
+    "class": "objectidentity"
+  },
+  "cIsnsRegEntityTable": {
+    "name": "cIsnsRegEntityTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegEntityEntry": {
+    "name": "cIsnsRegEntityEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsRegEntityIdx": {
+    "name": "cIsnsRegEntityIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsEntityIndexId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegEntityEID": {
+    "name": "cIsnsRegEntityEID",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityProtocol": {
+    "name": "cIsnsRegEntityProtocol",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsEntityProtocolId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityMgtAddrType": {
+    "name": "cIsnsRegEntityMgtAddrType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityMgtAddr": {
+    "name": "cIsnsRegEntityMgtAddr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityTimestamp": {
+    "name": "cIsnsRegEntityTimestamp",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityVersionMin": {
+    "name": "cIsnsRegEntityVersionMin",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityVersionMax": {
+    "name": "cIsnsRegEntityVersionMax",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityRegPeriod": {
+    "name": "cIsnsRegEntityRegPeriod",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityNumObjTable": {
+    "name": "cIsnsRegEntityNumObjTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegEntityNumObjEntry": {
+    "name": "cIsnsRegEntityNumObjEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIsnsRegEntityNumObjEntry",
+      "module": "CISCO-IETF-ISNS-MGMT-MIB",
+      "object": "cIsnsRegEntityEntry"
+    },
+    "status": "current"
+  },
+  "cIsnsRegEntityInfoNumPortals": {
+    "name": "cIsnsRegEntityInfoNumPortals",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityInfoNumPortalGroup": {
+    "name": "cIsnsRegEntityInfoNumPortalGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityInfoNumIscsiNodes": {
+    "name": "cIsnsRegEntityInfoNumIscsiNodes",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityInfoNumFcPorts": {
+    "name": "cIsnsRegEntityInfoNumFcPorts",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegEntityInfoNumFcNodes": {
+    "name": "cIsnsRegEntityInfoNumFcNodes",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalInfo": {
+    "name": "cIsnsRegPortalInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2",
+    "class": "objectidentity"
+  },
+  "cIsnsRegPortalTable": {
+    "name": "cIsnsRegPortalTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegPortalEntry": {
+    "name": "cIsnsRegPortalEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityIdx",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalPrtlIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsRegPortalPrtlIdx": {
+    "name": "cIsnsRegPortalPrtlIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalIndexId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegPortalAddrType": {
+    "name": "cIsnsRegPortalAddrType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalAddr": {
+    "name": "cIsnsRegPortalAddr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalPortType": {
+    "name": "cIsnsRegPortalPortType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortTypeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalPort": {
+    "name": "cIsnsRegPortalPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalSymName": {
+    "name": "cIsnsRegPortalSymName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalEsiInterval": {
+    "name": "cIsnsRegPortalEsiInterval",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalEsiPortType": {
+    "name": "cIsnsRegPortalEsiPortType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortTypeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalEsiPort": {
+    "name": "cIsnsRegPortalEsiPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalScnPortType": {
+    "name": "cIsnsRegPortalScnPortType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortTypeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalScnPort": {
+    "name": "cIsnsRegPortalScnPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalSecurityInfo": {
+    "name": "cIsnsRegPortalSecurityInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalSecurityBitmapId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPortalGroupInfo": {
+    "name": "cIsnsRegPortalGroupInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3",
+    "class": "objectidentity"
+  },
+  "cIsnsRegPgTable": {
+    "name": "cIsnsRegPgTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegPgEntry": {
+    "name": "cIsnsRegPgEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityIdx",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsRegPgIdx": {
+    "name": "cIsnsRegPgIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalGroupIndexId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegPgIscsiNodeIdx": {
+    "name": "cIsnsRegPgIscsiNodeIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsNodeIndexId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPgIscsiName": {
+    "name": "cIsnsRegPgIscsiName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPgPortalPrtlIdx": {
+    "name": "cIsnsRegPgPortalPrtlIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalIndexId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPgPortalAddrType": {
+    "name": "cIsnsRegPgPortalAddrType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPgPortalAddr": {
+    "name": "cIsnsRegPgPortalAddr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPgPortalPortType": {
+    "name": "cIsnsRegPgPortalPortType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortTypeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPgPortalPort": {
+    "name": "cIsnsRegPgPortalPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegPgPGT": {
+    "name": "cIsnsRegPgPGT",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsPortalGroupTagIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeInfo": {
+    "name": "cIsnsRegIscsiNodeInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4",
+    "class": "objectidentity"
+  },
+  "cIsnsRegIscsiNodeTable": {
+    "name": "cIsnsRegIscsiNodeTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeEntry": {
+    "name": "cIsnsRegIscsiNodeEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityIdx",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegIscsiNodeIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeIdx": {
+    "name": "cIsnsRegIscsiNodeIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsNodeIndexId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeName": {
+    "name": "cIsnsRegIscsiNodeName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeType": {
+    "name": "cIsnsRegIscsiNodeType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsNodeTypeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeAlias": {
+    "name": "cIsnsRegIscsiNodeAlias",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeScnBitmap": {
+    "name": "cIsnsRegIscsiNodeScnBitmap",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsScnBitmapId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeWwnToken": {
+    "name": "cIsnsRegIscsiNodeWwnToken",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegIscsiNodeAuthMethod": {
+    "name": "cIsnsRegIscsiNodeAuthMethod",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortInfo": {
+    "name": "cIsnsRegFcPortInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5",
+    "class": "objectidentity"
+  },
+  "cIsnsRegFcPortTable": {
+    "name": "cIsnsRegFcPortTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegFcPortEntry": {
+    "name": "cIsnsRegFcPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityIdx",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortWwpn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsRegFcPortWwpn": {
+    "name": "cIsnsRegFcPortWwpn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegFcPortID": {
+    "name": "cIsnsRegFcPortID",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortType": {
+    "name": "cIsnsRegFcPortType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortSymName": {
+    "name": "cIsnsRegFcPortSymName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortFabricPortWwn": {
+    "name": "cIsnsRegFcPortFabricPortWwn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortHA": {
+    "name": "cIsnsRegFcPortHA",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortAddrType": {
+    "name": "cIsnsRegFcPortAddrType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortAddr": {
+    "name": "cIsnsRegFcPortAddr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortFcCos": {
+    "name": "cIsnsRegFcPortFcCos",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsCosBitmapId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortFc4Types": {
+    "name": "cIsnsRegFcPortFc4Types",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortFc4Descr": {
+    "name": "cIsnsRegFcPortFc4Descr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortFc4Features": {
+    "name": "cIsnsRegFcPortFc4Features",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortScnBitmap": {
+    "name": "cIsnsRegFcPortScnBitmap",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsScnBitmapId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortRole": {
+    "name": "cIsnsRegFcPortRole",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsNodeTypeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortFcNodeWwn": {
+    "name": "cIsnsRegFcPortFcNodeWwn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcPortPpnWwn": {
+    "name": "cIsnsRegFcPortPpnWwn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeInfo": {
+    "name": "cIsnsRegFcNodeInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6",
+    "class": "objectidentity"
+  },
+  "cIsnsRegFcNodeTable": {
+    "name": "cIsnsRegFcNodeTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeEntry": {
+    "name": "cIsnsRegFcNodeEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeWwn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsRegFcNodeWwn": {
+    "name": "cIsnsRegFcNodeWwn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeSymName": {
+    "name": "cIsnsRegFcNodeSymName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeAddrType": {
+    "name": "cIsnsRegFcNodeAddrType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeAddr": {
+    "name": "cIsnsRegFcNodeAddr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeIPA": {
+    "name": "cIsnsRegFcNodeIPA",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeProxyIscsiName": {
+    "name": "cIsnsRegFcNodeProxyIscsiName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeInfoTable": {
+    "name": "cIsnsRegFcNodeInfoTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeInfoEntry": {
+    "name": "cIsnsRegFcNodeInfoEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIsnsRegFcNodeInfoEntry",
+      "module": "CISCO-IETF-ISNS-MGMT-MIB",
+      "object": "cIsnsRegFcNodeEntry"
+    },
+    "status": "current"
+  },
+  "cIsnsRegFcNodeInfoNumFcPorts": {
+    "name": "cIsnsRegFcNodeInfoNumFcPorts",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeFcPortTable": {
+    "name": "cIsnsRegFcNodeFcPortTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsRegFcNodeFcPortEntry": {
+    "name": "cIsnsRegFcNodeFcPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeWwn",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortWwpn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsRegFcNodeFcPortEntityEIdx": {
+    "name": "cIsnsRegFcNodeFcPortEntityEIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.1.7.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsEntityIndexId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntInfo": {
+    "name": "cIsnsClntInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2",
+    "class": "objectidentity"
+  },
+  "cIsnsClntInstTable": {
+    "name": "cIsnsClntInstTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntInstEntry": {
+    "name": "cIsnsClntInstEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClntInstIndex": {
+    "name": "cIsnsClntInstIndex",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntInstName": {
+    "name": "cIsnsClntInstName",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntInstIsnspVersion": {
+    "name": "cIsnsClntInstIsnspVersion",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntInstDescription": {
+    "name": "cIsnsClntInstDescription",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntInstAddressType": {
+    "name": "cIsnsClntInstAddressType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntInstAddress": {
+    "name": "cIsnsClntInstAddress",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntInstTcpPort": {
+    "name": "cIsnsClntInstTcpPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntInstUdpPort": {
+    "name": "cIsnsClntInstUdpPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntInstUptime": {
+    "name": "cIsnsClntInstUptime",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntInstAvailDiscMthd": {
+    "name": "cIsnsClntInstAvailDiscMthd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsSrvrDscvryMthdId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntInstPrmryDiscMthd": {
+    "name": "cIsnsClntInstPrmryDiscMthd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsSrvrDscvryMthdId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntInstScndryDiscMthd": {
+    "name": "cIsnsClntInstScndryDiscMthd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsSrvrDscvryMthdId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntInstDiscMcGrpType": {
+    "name": "cIsnsClntInstDiscMcGrpType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntInstDiscMcGrp": {
+    "name": "cIsnsClntInstDiscMcGrp",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrTable": {
+    "name": "cIsnsClntCfgSrvrTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrEntry": {
+    "name": "cIsnsClntCfgSrvrEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrIndex": {
+    "name": "cIsnsClntCfgSrvrIndex",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrAddrType": {
+    "name": "cIsnsClntCfgSrvrAddrType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrAddr": {
+    "name": "cIsnsClntCfgSrvrAddr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrTcpPort": {
+    "name": "cIsnsClntCfgSrvrTcpPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3205,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrUdpPort": {
+    "name": "cIsnsClntCfgSrvrUdpPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3205,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrPriority": {
+    "name": "cIsnsClntCfgSrvrPriority",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrTimeout": {
+    "name": "cIsnsClntCfgSrvrTimeout",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrRetries": {
+    "name": "cIsnsClntCfgSrvrRetries",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntCfgSrvrRowStatus": {
+    "name": "cIsnsClntCfgSrvrRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrTable": {
+    "name": "cIsnsClntDscvrdSrvrTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrEntry": {
+    "name": "cIsnsClntDscvrdSrvrEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntDscvrdSrvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrIndex": {
+    "name": "cIsnsClntDscvrdSrvrIndex",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrAddrType": {
+    "name": "cIsnsClntDscvrdSrvrAddrType",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrAddr": {
+    "name": "cIsnsClntDscvrdSrvrAddr",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrTcpPort": {
+    "name": "cIsnsClntDscvrdSrvrTcpPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3205,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrUdpPort": {
+    "name": "cIsnsClntDscvrdSrvrUdpPort",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3205,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrIsnsVersion": {
+    "name": "cIsnsClntDscvrdSrvrIsnsVersion",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntDscvrdSrvrDiscMthd": {
+    "name": "cIsnsClntDscvrdSrvrDiscMthd",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsSrvrDscvryMthdId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntRegEntityTable": {
+    "name": "cIsnsClntRegEntityTable",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntRegEntityEntry": {
+    "name": "cIsnsClntRegEntityEntry",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntDscvrdSrvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntRegEntityIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClntRegEntityIdx": {
+    "name": "cIsnsClntRegEntityIdx",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsEntityIndexId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIsnsClntRegEntityEID": {
+    "name": "cIsnsClntRegEntityEID",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsClntRegEntityProtocol": {
+    "name": "cIsnsClntRegEntityProtocol",
+    "oid": "1.3.6.1.4.1.9.10.116.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIsnsEntityProtocolId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIsnsNotification": {
+    "name": "cIsnsNotification",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3",
+    "class": "objectidentity"
+  },
+  "cIsnsNotificationInfo": {
+    "name": "cIsnsNotificationInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.1",
+    "class": "objectidentity"
+  },
+  "cIsnsInstInfo": {
+    "name": "cIsnsInstInfo",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cIsnsAddrTypeNotifctn": {
+    "name": "cIsnsAddrTypeNotifctn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cIsnsAddrNotifctn": {
+    "name": "cIsnsAddrNotifctn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cIsnsTcpPortNotifctn": {
+    "name": "cIsnsTcpPortNotifctn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cIsnsUdpPortNotifctn": {
+    "name": "cIsnsUdpPortNotifctn",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cIsnsNotificationPrefix": {
+    "name": "cIsnsNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.0",
+    "class": "objectidentity"
+  },
+  "cIsnsServerStart": {
+    "name": "cIsnsServerStart",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsInstInfo"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrTypeNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsTcpPortNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsUdpPortNotifctn"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerShutdown": {
+    "name": "cIsnsServerShutdown",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsInstInfo"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrTypeNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsTcpPortNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsUdpPortNotifctn"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClientStart": {
+    "name": "cIsnsClientStart",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsInstInfo"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrTypeNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsTcpPortNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsUdpPortNotifctn"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClientInitalRegistration": {
+    "name": "cIsnsClientInitalRegistration",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsInstInfo"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrTypeNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsTcpPortNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsUdpPortNotifctn"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClientLostConnection": {
+    "name": "cIsnsClientLostConnection",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsInstInfo"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrTypeNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsTcpPortNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsUdpPortNotifctn"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClientNoServerDiscovered": {
+    "name": "cIsnsClientNoServerDiscovered",
+    "oid": "1.3.6.1.4.1.9.10.116.1.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsInstInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsGroups": {
+    "name": "cIsnsGroups",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1",
+    "class": "objectidentity"
+  },
+  "cIsnsServerAttributesGroup": {
+    "name": "cIsnsServerAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstIsnsVersion"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstDescription"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstAddressType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstTcpPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstUdpPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstUptime"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstRole"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstDiscMthdsEnbld"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstDiscMcGrpType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstDiscMcGrp"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstCntrlNodeAuth"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstEsiNonRespThrshld"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstEnblCntrlNdeMgtScn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstDfltDdDdsStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstUpdateDdDdsSpprtd"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsSrvrInstUpdateDdDdsEnbld"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerNumObjGroup": {
+    "name": "cIsnsServerNumObjGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNumDds"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNumDd"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNumEntities"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNumPortals"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNumPortalGroups"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNumIscsiNodes"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNumFcPorts"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNumFcNodes"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumPortals"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumPortalGroup"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumIscsiNodes"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumFcPorts"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumFcNodes"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeInfoNumFcPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerNextIdxGroup": {
+    "name": "cIsnsServerNextIdxGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNextIdxDds"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNextIdxDd"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNextIdxUnregIscsiNodeInDd"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsNextIdxUnregPortalInDd"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerIscsiCntlNodeGroup": {
+    "name": "cIsnsServerIscsiCntlNodeGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsCntlNodeIscsiNodeName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsCntlNodeIscsiRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerIfcpCntlNodeGroup": {
+    "name": "cIsnsServerIfcpCntlNodeGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsCntlNodeFcPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerIscsiDdsDdObjGroup": {
+    "name": "cIsnsServerIscsiDdsDdObjGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsSymbolicName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsMemberRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdSymbolicName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdFeatures"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberIscsiName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberIsRegistered"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalIsRegistered"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerIfcpDdsDdObjGroup": {
+    "name": "cIsnsServerIfcpDdsDdObjGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsSymbolicName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdsMemberRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdSymbolicName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdFeatures"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberPortalIsRegistered"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberFcIsRegistered"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsDdMemberFcRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerRegIscsiObjGroup": {
+    "name": "cIsnsServerRegIscsiObjGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityEID"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityProtocol"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityMgtAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityMgtAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityTimestamp"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityVersionMin"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityVersionMax"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityRegPeriod"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumPortals"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumPortalGroup"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumIscsiNodes"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumFcPorts"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumFcNodes"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalSymName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalEsiInterval"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalEsiPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalEsiPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalScnPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalScnPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalSecurityInfo"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgIscsiNodeIdx"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgIscsiName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgPortalPrtlIdx"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgPortalAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgPortalAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgPortalPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgPortalPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPgPGT"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegIscsiNodeName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegIscsiNodeType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegIscsiNodeAlias"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegIscsiNodeScnBitmap"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegIscsiNodeWwnToken"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegIscsiNodeAuthMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerRegIfcpObjGroup": {
+    "name": "cIsnsServerRegIfcpObjGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityEID"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityProtocol"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityMgtAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityMgtAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityTimestamp"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityVersionMin"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityVersionMax"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityRegPeriod"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumPortals"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumPortalGroup"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumIscsiNodes"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumFcPorts"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegEntityInfoNumFcNodes"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalSymName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalEsiInterval"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalEsiPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalEsiPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalScnPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalScnPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegPortalSecurityInfo"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortID"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortSymName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortFabricPortWwn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortHA"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortFcCos"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortFc4Types"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortFc4Descr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortFc4Features"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortScnBitmap"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortRole"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortFcNodeWwn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcPortPpnWwn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeSymName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeIPA"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeProxyIscsiName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsRegFcNodeFcPortEntityEIdx"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClientAttributesGroup": {
+    "name": "cIsnsClientAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstName"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstIsnspVersion"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstDescription"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstAddressType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstAddress"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstTcpPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstUdpPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstUptime"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstAvailDiscMthd"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstPrmryDiscMthd"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstScndryDiscMthd"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstDiscMcGrpType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntInstDiscMcGrp"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrTcpPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrUdpPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrPriority"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrTimeout"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrRetries"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntCfgSrvrRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntDscvrdSrvrAddrType"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntDscvrdSrvrAddr"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntDscvrdSrvrTcpPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntDscvrdSrvrUdpPort"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntDscvrdSrvrIsnsVersion"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntDscvrdSrvrDiscMthd"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntRegEntityEID"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClntRegEntityProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsNotificationObjGroup": {
+    "name": "cIsnsNotificationObjGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsInstInfo"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrTypeNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsAddrNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsTcpPortNotifctn"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsUdpPortNotifctn"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerNotificationGroup": {
+    "name": "cIsnsServerNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsServerStart"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsServerShutdown"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsClientNotificationGroup": {
+    "name": "cIsnsClientNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.116.2.1.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClientStart"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClientInitalRegistration"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClientLostConnection"
+      },
+      {
+        "module": "CISCO-IETF-ISNS-MGMT-MIB",
+        "object": "cIsnsClientNoServerDiscovered"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsCompliances": {
+    "name": "cIsnsCompliances",
+    "oid": "1.3.6.1.4.1.9.10.116.2.2",
+    "class": "objectidentity"
+  },
+  "cIsnsIscsiServerComplianceV1": {
+    "name": "cIsnsIscsiServerComplianceV1",
+    "oid": "1.3.6.1.4.1.9.10.116.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIsnsServerAttributesGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerNextIdxGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerIscsiCntlNodeGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerIscsiDdsDdObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerRegIscsiObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsNotificationObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerNotificationGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsIscsiClientComplianceV1": {
+    "name": "cIsnsIscsiClientComplianceV1",
+    "oid": "1.3.6.1.4.1.9.10.116.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIsnsClientAttributesGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsNotificationObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsClientNotificationGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsIfcpServerComplianceV1": {
+    "name": "cIsnsIfcpServerComplianceV1",
+    "oid": "1.3.6.1.4.1.9.10.116.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIsnsServerAttributesGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerNextIdxGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerIfcpCntlNodeGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerIfcpDdsDdObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerRegIfcpObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsNotificationObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsServerNotificationGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsIfcpClientComplianceV1": {
+    "name": "cIsnsIfcpClientComplianceV1",
+    "oid": "1.3.6.1.4.1.9.10.116.2.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIsnsClientAttributesGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsNotificationObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      },
+      {
+        "object": "cIsnsClientNotificationGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cIsnsServerCountStatsCompliance": {
+    "name": "cIsnsServerCountStatsCompliance",
+    "oid": "1.3.6.1.4.1.9.10.116.2.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIsnsServerNumObjGroup",
+        "module": "CISCO-IETF-ISNS-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-ISNS-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-ISNS-MGMT-MIB"
+  }
+}

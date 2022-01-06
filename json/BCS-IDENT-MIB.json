@@ -1,0 +1,1148 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "gi": {
+    "name": "gi",
+    "oid": "1.3.6.1.4.1.1166",
+    "class": "moduleidentity"
+  },
+  "giproducts": {
+    "name": "giproducts",
+    "oid": "1.3.6.1.4.1.1166.1",
+    "class": "objectidentity"
+  },
+  "acc4000d": {
+    "name": "acc4000d",
+    "oid": "1.3.6.1.4.1.1166.1.1",
+    "class": "objectidentity"
+  },
+  "anicd": {
+    "name": "anicd",
+    "oid": "1.3.6.1.4.1.1166.1.2",
+    "class": "objectidentity"
+  },
+  "item1000": {
+    "name": "item1000",
+    "oid": "1.3.6.1.4.1.1166.1.4",
+    "class": "objectidentity"
+  },
+  "irt1000": {
+    "name": "irt1000",
+    "oid": "1.3.6.1.4.1.1166.1.5",
+    "class": "objectidentity"
+  },
+  "nc1500": {
+    "name": "nc1500",
+    "oid": "1.3.6.1.4.1.1166.1.6",
+    "class": "objectidentity"
+  },
+  "om1000": {
+    "name": "om1000",
+    "oid": "1.3.6.1.4.1.1166.1.7",
+    "class": "objectidentity"
+  },
+  "im1000": {
+    "name": "im1000",
+    "oid": "1.3.6.1.4.1.1166.1.8",
+    "class": "objectidentity"
+  },
+  "mps": {
+    "name": "mps",
+    "oid": "1.3.6.1.4.1.1166.1.9",
+    "class": "objectidentity"
+  },
+  "rpd1000": {
+    "name": "rpd1000",
+    "oid": "1.3.6.1.4.1.1166.1.10",
+    "class": "objectidentity"
+  },
+  "acpStatus": {
+    "name": "acpStatus",
+    "oid": "1.3.6.1.4.1.1166.1.11",
+    "class": "objectidentity"
+  },
+  "heartbeat": {
+    "name": "heartbeat",
+    "oid": "1.3.6.1.4.1.1166.1.12",
+    "class": "objectidentity"
+  },
+  "entitlementKey": {
+    "name": "entitlementKey",
+    "oid": "1.3.6.1.4.1.1166.1.13",
+    "class": "objectidentity"
+  },
+  "arpd": {
+    "name": "arpd",
+    "oid": "1.3.6.1.4.1.1166.1.14",
+    "class": "objectidentity"
+  },
+  "svom": {
+    "name": "svom",
+    "oid": "1.3.6.1.4.1.1166.1.15",
+    "class": "objectidentity"
+  },
+  "svm": {
+    "name": "svm",
+    "oid": "1.3.6.1.4.1.1166.1.16",
+    "class": "objectidentity"
+  },
+  "erm": {
+    "name": "erm",
+    "oid": "1.3.6.1.4.1.1166.1.17",
+    "class": "objectidentity"
+  },
+  "surfBbnh": {
+    "name": "surfBbnh",
+    "oid": "1.3.6.1.4.1.1166.1.18",
+    "class": "objectidentity"
+  },
+  "sb2100": {
+    "name": "sb2100",
+    "oid": "1.3.6.1.4.1.1166.1.19",
+    "class": "objectidentity"
+  },
+  "sb2100D": {
+    "name": "sb2100D",
+    "oid": "1.3.6.1.4.1.1166.1.20",
+    "class": "objectidentity"
+  },
+  "sb2000": {
+    "name": "sb2000",
+    "oid": "1.3.6.1.4.1.1166.1.21",
+    "class": "objectidentity"
+  },
+  "saDANIS": {
+    "name": "saDANIS",
+    "oid": "1.3.6.1.4.1.1166.1.30",
+    "class": "objectidentity"
+  },
+  "apex": {
+    "name": "apex",
+    "oid": "1.3.6.1.4.1.1166.1.31",
+    "class": "objectidentity"
+  },
+  "rem": {
+    "name": "rem",
+    "oid": "1.3.6.1.4.1.1166.1.32",
+    "class": "objectidentity"
+  },
+  "mpe": {
+    "name": "mpe",
+    "oid": "1.3.6.1.4.1.1166.1.33",
+    "class": "objectidentity"
+  },
+  "spe": {
+    "name": "spe",
+    "oid": "1.3.6.1.4.1.1166.1.34",
+    "class": "objectidentity"
+  },
+  "ne2000": {
+    "name": "ne2000",
+    "oid": "1.3.6.1.4.1.1166.1.35",
+    "class": "objectidentity"
+  },
+  "apex1500": {
+    "name": "apex1500",
+    "oid": "1.3.6.1.4.1.1166.1.36",
+    "class": "objectidentity"
+  },
+  "agb": {
+    "name": "agb",
+    "oid": "1.3.6.1.4.1.1166.1.37",
+    "class": "objectidentity"
+  },
+  "ne2500": {
+    "name": "ne2500",
+    "oid": "1.3.6.1.4.1.1166.1.38",
+    "class": "objectidentity"
+  },
+  "hdd2000": {
+    "name": "hdd2000",
+    "oid": "1.3.6.1.4.1.1166.1.40",
+    "class": "objectidentity"
+  },
+  "merlin": {
+    "name": "merlin",
+    "oid": "1.3.6.1.4.1.1166.1.50",
+    "class": "objectidentity"
+  },
+  "rsr": {
+    "name": "rsr",
+    "oid": "1.3.6.1.4.1.1166.1.60",
+    "class": "objectidentity"
+  },
+  "gsrm": {
+    "name": "gsrm",
+    "oid": "1.3.6.1.4.1.1166.1.61",
+    "class": "objectidentity"
+  },
+  "gom": {
+    "name": "gom",
+    "oid": "1.3.6.1.4.1.1166.1.62",
+    "class": "objectidentity"
+  },
+  "b3": {
+    "name": "b3",
+    "oid": "1.3.6.1.4.1.1166.1.63",
+    "class": "objectidentity"
+  },
+  "adm": {
+    "name": "adm",
+    "oid": "1.3.6.1.4.1.1166.1.64",
+    "class": "objectidentity"
+  },
+  "sem": {
+    "name": "sem",
+    "oid": "1.3.6.1.4.1.1166.1.70",
+    "class": "objectidentity"
+  },
+  "ecmg": {
+    "name": "ecmg",
+    "oid": "1.3.6.1.4.1.1166.1.71",
+    "class": "objectidentity"
+  },
+  "bsiAdapter": {
+    "name": "bsiAdapter",
+    "oid": "1.3.6.1.4.1.1166.1.72",
+    "class": "objectidentity"
+  },
+  "oles": {
+    "name": "oles",
+    "oid": "1.3.6.1.4.1.1166.1.73",
+    "class": "objectidentity"
+  },
+  "ne": {
+    "name": "ne",
+    "oid": "1.3.6.1.4.1.1166.1.74",
+    "class": "objectidentity"
+  },
+  "tmxCommTrap": {
+    "name": "tmxCommTrap",
+    "oid": "1.3.6.1.4.1.1166.1.75",
+    "class": "objectidentity"
+  },
+  "drmenginekskdc": {
+    "name": "drmenginekskdc",
+    "oid": "1.3.6.1.4.1.1166.1.76",
+    "class": "objectidentity"
+  },
+  "drmenginerte": {
+    "name": "drmenginerte",
+    "oid": "1.3.6.1.4.1.1166.1.77",
+    "class": "objectidentity"
+  },
+  "drmengineecmg": {
+    "name": "drmengineecmg",
+    "oid": "1.3.6.1.4.1.1166.1.78",
+    "class": "objectidentity"
+  },
+  "drmengineskgpkg": {
+    "name": "drmengineskgpkg",
+    "oid": "1.3.6.1.4.1.1166.1.79",
+    "class": "objectidentity"
+  },
+  "tmx": {
+    "name": "tmx",
+    "oid": "1.3.6.1.4.1.1166.1.80",
+    "class": "objectidentity"
+  },
+  "prs": {
+    "name": "prs",
+    "oid": "1.3.6.1.4.1.1166.1.81",
+    "class": "objectidentity"
+  },
+  "se2000": {
+    "name": "se2000",
+    "oid": "1.3.6.1.4.1.1166.1.82",
+    "class": "objectidentity"
+  },
+  "dem": {
+    "name": "dem",
+    "oid": "1.3.6.1.4.1.1166.1.83",
+    "class": "objectidentity"
+  },
+  "ncs": {
+    "name": "ncs",
+    "oid": "1.3.6.1.4.1.1166.1.84",
+    "class": "objectidentity"
+  },
+  "ucs": {
+    "name": "ucs",
+    "oid": "1.3.6.1.4.1.1166.1.85",
+    "class": "objectidentity"
+  },
+  "lmm": {
+    "name": "lmm",
+    "oid": "1.3.6.1.4.1.1166.1.86",
+    "class": "objectidentity"
+  },
+  "se4000": {
+    "name": "se4000",
+    "oid": "1.3.6.1.4.1.1166.1.87",
+    "class": "objectidentity"
+  },
+  "rc": {
+    "name": "rc",
+    "oid": "1.3.6.1.4.1.1166.1.88",
+    "class": "objectidentity"
+  },
+  "netSentry": {
+    "name": "netSentry",
+    "oid": "1.3.6.1.4.1.1166.1.99",
+    "class": "objectidentity"
+  },
+  "sdm": {
+    "name": "sdm",
+    "oid": "1.3.6.1.4.1.1166.1.100",
+    "class": "objectidentity"
+  },
+  "hfcEms": {
+    "name": "hfcEms",
+    "oid": "1.3.6.1.4.1.1166.1.101",
+    "class": "objectidentity"
+  },
+  "bnc": {
+    "name": "bnc",
+    "oid": "1.3.6.1.4.1.1166.1.102",
+    "class": "objectidentity"
+  },
+  "drmenginecm": {
+    "name": "drmenginecm",
+    "oid": "1.3.6.1.4.1.1166.1.103",
+    "class": "objectidentity"
+  },
+  "stdc": {
+    "name": "stdc",
+    "oid": "1.3.6.1.4.1.1166.1.104",
+    "class": "objectidentity"
+  },
+  "tview": {
+    "name": "tview",
+    "oid": "1.3.6.1.4.1.1166.1.105",
+    "class": "objectidentity"
+  },
+  "ponOa": {
+    "name": "ponOa",
+    "oid": "1.3.6.1.4.1.1166.1.150",
+    "class": "objectidentity"
+  },
+  "mwtea200": {
+    "name": "mwtea200",
+    "oid": "1.3.6.1.4.1.1166.1.151",
+    "class": "objectidentity"
+  },
+  "bti": {
+    "name": "bti",
+    "oid": "1.3.6.1.4.1.1166.1.200",
+    "class": "objectidentity"
+  },
+  "rfModMIB": {
+    "name": "rfModMIB",
+    "oid": "1.3.6.1.4.1.1166.1.201",
+    "class": "objectidentity"
+  },
+  "btiIntMIB": {
+    "name": "btiIntMIB",
+    "oid": "1.3.6.1.4.1.1166.1.202",
+    "class": "objectidentity"
+  },
+  "sg4000": {
+    "name": "sg4000",
+    "oid": "1.3.6.1.4.1.1166.1.203",
+    "class": "objectidentity"
+  },
+  "ponEm870": {
+    "name": "ponEm870",
+    "oid": "1.3.6.1.4.1.1166.1.210",
+    "class": "objectidentity"
+  },
+  "rpa": {
+    "name": "rpa",
+    "oid": "1.3.6.1.4.1.1166.1.250",
+    "class": "objectidentity"
+  },
+  "rpc": {
+    "name": "rpc",
+    "oid": "1.3.6.1.4.1.1166.1.251",
+    "class": "objectidentity"
+  },
+  "dct5000": {
+    "name": "dct5000",
+    "oid": "1.3.6.1.4.1.1166.1.300",
+    "class": "objectidentity"
+  },
+  "dct5100": {
+    "name": "dct5100",
+    "oid": "1.3.6.1.4.1.1166.1.301",
+    "class": "objectidentity"
+  },
+  "dct5200": {
+    "name": "dct5200",
+    "oid": "1.3.6.1.4.1.1166.1.302",
+    "class": "objectidentity"
+  },
+  "edfaMIB": {
+    "name": "edfaMIB",
+    "oid": "1.3.6.1.4.1.1166.1.311",
+    "class": "objectidentity"
+  },
+  "corvusMIB": {
+    "name": "corvusMIB",
+    "oid": "1.3.6.1.4.1.1166.1.312",
+    "class": "objectidentity"
+  },
+  "oa600": {
+    "name": "oa600",
+    "oid": "1.3.6.1.4.1.1166.1.313",
+    "class": "objectidentity"
+  },
+  "dsr350f": {
+    "name": "dsr350f",
+    "oid": "1.3.6.1.4.1.1166.1.321",
+    "class": "objectidentity"
+  },
+  "radd6000": {
+    "name": "radd6000",
+    "oid": "1.3.6.1.4.1.1166.1.400",
+    "class": "objectidentity"
+  },
+  "cs1000": {
+    "name": "cs1000",
+    "oid": "1.3.6.1.4.1.1166.1.401",
+    "class": "objectidentity"
+  },
+  "kls": {
+    "name": "kls",
+    "oid": "1.3.6.1.4.1.1166.1.402",
+    "class": "objectidentity"
+  },
+  "dac6000": {
+    "name": "dac6000",
+    "oid": "1.3.6.1.4.1.1166.1.403",
+    "class": "objectidentity"
+  },
+  "sdi": {
+    "name": "sdi",
+    "oid": "1.3.6.1.4.1.1166.1.404",
+    "class": "objectidentity"
+  },
+  "cpms": {
+    "name": "cpms",
+    "oid": "1.3.6.1.4.1.1166.1.405",
+    "class": "objectidentity"
+  },
+  "ap": {
+    "name": "ap",
+    "oid": "1.3.6.1.4.1.1166.1.406",
+    "class": "objectidentity"
+  },
+  "ps": {
+    "name": "ps",
+    "oid": "1.3.6.1.4.1.1166.1.407",
+    "class": "objectidentity"
+  },
+  "cableCard": {
+    "name": "cableCard",
+    "oid": "1.3.6.1.4.1.1166.1.350",
+    "class": "objectidentity"
+  },
+  "motoIPNSprodID": {
+    "name": "motoIPNSprodID",
+    "oid": "1.3.6.1.4.1.1166.1.450",
+    "class": "objectidentity"
+  },
+  "ird4500x": {
+    "name": "ird4500x",
+    "oid": "1.3.6.1.4.1.1166.1.610",
+    "class": "objectidentity"
+  },
+  "ird4520x": {
+    "name": "ird4520x",
+    "oid": "1.3.6.1.4.1.1166.1.620",
+    "class": "objectidentity"
+  },
+  "giproxies": {
+    "name": "giproxies",
+    "oid": "1.3.6.1.4.1.1166.3",
+    "class": "objectidentity"
+  },
+  "gicommon": {
+    "name": "gicommon",
+    "oid": "1.3.6.1.4.1.1166.4",
+    "class": "objectidentity"
+  },
+  "identity": {
+    "name": "identity",
+    "oid": "1.3.6.1.4.1.1166.4.1",
+    "class": "objectidentity"
+  },
+  "state": {
+    "name": "state",
+    "oid": "1.3.6.1.4.1.1166.4.2",
+    "class": "objectidentity"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.1166.4.3",
+    "class": "objectidentity"
+  },
+  "logs": {
+    "name": "logs",
+    "oid": "1.3.6.1.4.1.1166.4.4",
+    "class": "objectidentity"
+  },
+  "motproxies": {
+    "name": "motproxies",
+    "oid": "1.3.6.1.4.1.1166.6",
+    "class": "objectidentity"
+  },
+  "bcs": {
+    "name": "bcs",
+    "oid": "1.3.6.1.4.1.1166.7",
+    "class": "objectidentity"
+  },
+  "bcsIdent": {
+    "name": "bcsIdent",
+    "oid": "1.3.6.1.4.1.1166.7.1",
+    "class": "objectidentity"
+  },
+  "bcsLogs": {
+    "name": "bcsLogs",
+    "oid": "1.3.6.1.4.1.1166.7.4",
+    "class": "objectidentity"
+  },
+  "bcsSimulcryptScs": {
+    "name": "bcsSimulcryptScs",
+    "oid": "1.3.6.1.4.1.1166.7.7",
+    "class": "objectidentity"
+  },
+  "bcsSimulcryptMux": {
+    "name": "bcsSimulcryptMux",
+    "oid": "1.3.6.1.4.1.1166.7.8",
+    "class": "objectidentity"
+  },
+  "bcsSimulcrypt": {
+    "name": "bcsSimulcrypt",
+    "oid": "1.3.6.1.4.1.1166.7.9",
+    "class": "objectidentity"
+  },
+  "bcsDatabase": {
+    "name": "bcsDatabase",
+    "oid": "1.3.6.1.4.1.1166.7.11",
+    "class": "objectidentity"
+  },
+  "bcsRedundancy": {
+    "name": "bcsRedundancy",
+    "oid": "1.3.6.1.4.1.1166.7.12",
+    "class": "objectidentity"
+  },
+  "bcsMsgGeneration": {
+    "name": "bcsMsgGeneration",
+    "oid": "1.3.6.1.4.1.1166.7.21",
+    "class": "objectidentity"
+  },
+  "mea": {
+    "name": "mea",
+    "oid": "1.3.6.1.4.1.1166.8",
+    "class": "objectidentity"
+  },
+  "addressablecontrol": {
+    "name": "addressablecontrol",
+    "oid": "1.3.6.1.4.1.1166.9",
+    "class": "objectidentity"
+  },
+  "acCommon": {
+    "name": "acCommon",
+    "oid": "1.3.6.1.4.1.1166.9.1",
+    "class": "objectidentity"
+  },
+  "acSecurity": {
+    "name": "acSecurity",
+    "oid": "1.3.6.1.4.1.1166.9.2",
+    "class": "objectidentity"
+  },
+  "acServices": {
+    "name": "acServices",
+    "oid": "1.3.6.1.4.1.1166.9.3",
+    "class": "objectidentity"
+  },
+  "acBsi": {
+    "name": "acBsi",
+    "oid": "1.3.6.1.4.1.1166.9.4",
+    "class": "objectidentity"
+  },
+  "acOperations": {
+    "name": "acOperations",
+    "oid": "1.3.6.1.4.1.1166.9.5",
+    "class": "objectidentity"
+  },
+  "acTopology": {
+    "name": "acTopology",
+    "oid": "1.3.6.1.4.1.1166.9.6",
+    "class": "objectidentity"
+  },
+  "chsInternal": {
+    "name": "chsInternal",
+    "oid": "1.3.6.1.4.1.1166.10",
+    "class": "objectidentity"
+  },
+  "emLogin": {
+    "name": "emLogin",
+    "oid": "1.3.6.1.4.1.1166.10.1",
+    "class": "objectidentity"
+  },
+  "radiusClient": {
+    "name": "radiusClient",
+    "oid": "1.3.6.1.4.1.1166.10.2",
+    "class": "objectidentity"
+  },
+  "EntryStatus": {
+    "name": "EntryStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "createRequest": 2,
+          "underCreation": 3,
+          "invalid": 4
+        }
+      }
+    }
+  },
+  "identSerialNumber": {
+    "name": "identSerialNumber",
+    "oid": "1.3.6.1.4.1.1166.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identChassisNumber": {
+    "name": "identChassisNumber",
+    "oid": "1.3.6.1.4.1.1166.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfIndex": {
+    "name": "identIfIndex",
+    "oid": "1.3.6.1.4.1.1166.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identHardwareVersion": {
+    "name": "identHardwareVersion",
+    "oid": "1.3.6.1.4.1.1166.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identHardwareFeatures": {
+    "name": "identHardwareFeatures",
+    "oid": "1.3.6.1.4.1.1166.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identInventoryCode": {
+    "name": "identInventoryCode",
+    "oid": "1.3.6.1.4.1.1166.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identSoftwareVersion": {
+    "name": "identSoftwareVersion",
+    "oid": "1.3.6.1.4.1.1166.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identLocationArea": {
+    "name": "identLocationArea",
+    "oid": "1.3.6.1.4.1.1166.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identLocationRack": {
+    "name": "identLocationRack",
+    "oid": "1.3.6.1.4.1.1166.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identLocationShelf": {
+    "name": "identLocationShelf",
+    "oid": "1.3.6.1.4.1.1166.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identMIBVersion": {
+    "name": "identMIBVersion",
+    "oid": "1.3.6.1.4.1.1166.7.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identAgentVersion": {
+    "name": "identAgentVersion",
+    "oid": "1.3.6.1.4.1.1166.7.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identCommand": {
+    "name": "identCommand",
+    "oid": "1.3.6.1.4.1.1166.7.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restart": 1,
+          "currentlyRestarting": 2,
+          "unspecified": 3,
+          "purgeAndRestart": 4,
+          "currentlyPurgingAndRestarting": 5,
+          "purgeNvramAndRestart": 6,
+          "currentlyPurgingNvramAndRestarting": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identIfExtensionTable": {
+    "name": "identIfExtensionTable",
+    "oid": "1.3.6.1.4.1.1166.7.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "identIfExtensionEntry": {
+    "name": "identIfExtensionEntry",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BCS-IDENT-MIB",
+        "object": "identIfExtensionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "identIfExtensionIndex": {
+    "name": "identIfExtensionIndex",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfSerialNumber": {
+    "name": "identIfSerialNumber",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfHardwareVersion": {
+    "name": "identIfHardwareVersion",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfHardwareFeatures": {
+    "name": "identIfHardwareFeatures",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfInventoryCode": {
+    "name": "identIfInventoryCode",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identIfFirmwareVersion1": {
+    "name": "identIfFirmwareVersion1",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfFirmwareVersion2": {
+    "name": "identIfFirmwareVersion2",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfFirmwareVersion3": {
+    "name": "identIfFirmwareVersion3",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfFirmwareVersion4": {
+    "name": "identIfFirmwareVersion4",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfSlotId": {
+    "name": "identIfSlotId",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identIfCommand": {
+    "name": "identIfCommand",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 1,
+          "reset": 2,
+          "restart": 3,
+          "halt": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identIfAdministrativeState": {
+    "name": "identIfAdministrativeState",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 1,
+          "unlocked": 2,
+          "shuttingDown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identIfOperationalState": {
+    "name": "identIfOperationalState",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfAlarmStatus": {
+    "name": "identIfAlarmStatus",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "underRepair": 1,
+          "critical": 2,
+          "major": 3,
+          "minor": 4,
+          "alarmOutstanding": 5,
+          "idle": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identIfAvailabilityStatus": {
+    "name": "identIfAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inTest": 1,
+          "failed": 2,
+          "powerOff": 3,
+          "offLine": 4,
+          "offDuty": 5,
+          "dependency": 6,
+          "degraded": 7,
+          "notInstalled": 8,
+          "logFull": 9,
+          "available": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfSpecific": {
+    "name": "identIfSpecific",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "identIfEntryStatus": {
+    "name": "identIfEntryStatus",
+    "oid": "1.3.6.1.4.1.1166.7.1.14.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "valid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "identUnitModel": {
+    "name": "identUnitModel",
+    "oid": "1.3.6.1.4.1.1166.7.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/BCS-IDENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BCS-IDENT-MIB"
+  }
+}

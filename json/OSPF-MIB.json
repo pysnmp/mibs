@@ -1,0 +1,4732 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "ospf": {
+    "name": "ospf",
+    "oid": "1.3.6.1.2.1.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-10 00:00",
+        "description": "Updated for latest changes to OSPF Version 2: - updated the General Group with the new ospfRFC1583Compatibility, ospfReferenceBandwidth and ospfDiscontinuityTime objects - added graceful-restart-related objects - added stub-router-related objects - updated the Area Table with NSSA-related objects - added ospfAreaAggregateExtRouteTag object - added Opaque LSA-related objects - updates to the Compliances and Security sections - added area LSA counter table - added section describing translation of notification parameters between SNMP versions - added ospfComplianceObsolete to contain obsolete object groups - deprecated ospfExtLsdbTable See Appendix B of RFC 4750 for more details. This version published as part of RFC 4750"
+      },
+      {
+        "revision": "1995-01-20 12:25",
+        "description": "The initial SMIv2 revision of this MIB module, published in RFC 1850."
+      }
+    ]
+  },
+  "AreaID": {
+    "name": "AreaID",
+    "class": "textualconvention",
+    "type": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "RouterID": {
+    "name": "RouterID",
+    "class": "textualconvention",
+    "type": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Metric": {
+    "name": "Metric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "BigMetric": {
+    "name": "BigMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "Status": {
+    "name": "Status",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "HelloRange": {
+    "name": "HelloRange",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "UpToMaxAge": {
+    "name": "UpToMaxAge",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "DesignatedRouterPriority": {
+    "name": "DesignatedRouterPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "TOSType": {
+    "name": "TOSType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "displayhint": "d-0",
+    "status": "current"
+  },
+  "OspfAuthenticationType": {
+    "name": "OspfAuthenticationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "simplePassword": 1,
+          "md5": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ospfGeneralGroup": {
+    "name": "ospfGeneralGroup",
+    "oid": "1.3.6.1.2.1.14.1",
+    "class": "objectidentity"
+  },
+  "ospfRouterId": {
+    "name": "ospfRouterId",
+    "oid": "1.3.6.1.2.1.14.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfAdminStat": {
+    "name": "ospfAdminStat",
+    "oid": "1.3.6.1.2.1.14.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Status",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfVersionNumber": {
+    "name": "ospfVersionNumber",
+    "oid": "1.3.6.1.2.1.14.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaBdrRtrStatus": {
+    "name": "ospfAreaBdrRtrStatus",
+    "oid": "1.3.6.1.2.1.14.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfASBdrRtrStatus": {
+    "name": "ospfASBdrRtrStatus",
+    "oid": "1.3.6.1.2.1.14.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfExternLsaCount": {
+    "name": "ospfExternLsaCount",
+    "oid": "1.3.6.1.2.1.14.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfExternLsaCksumSum": {
+    "name": "ospfExternLsaCksumSum",
+    "oid": "1.3.6.1.2.1.14.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfTOSSupport": {
+    "name": "ospfTOSSupport",
+    "oid": "1.3.6.1.2.1.14.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfOriginateNewLsas": {
+    "name": "ospfOriginateNewLsas",
+    "oid": "1.3.6.1.2.1.14.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfRxNewLsas": {
+    "name": "ospfRxNewLsas",
+    "oid": "1.3.6.1.2.1.14.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfExtLsdbLimit": {
+    "name": "ospfExtLsdbLimit",
+    "oid": "1.3.6.1.2.1.14.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfMulticastExtensions": {
+    "name": "ospfMulticastExtensions",
+    "oid": "1.3.6.1.2.1.14.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfExitOverflowInterval": {
+    "name": "ospfExitOverflowInterval",
+    "oid": "1.3.6.1.2.1.14.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfDemandExtensions": {
+    "name": "ospfDemandExtensions",
+    "oid": "1.3.6.1.2.1.14.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRFC1583Compatibility": {
+    "name": "ospfRFC1583Compatibility",
+    "oid": "1.3.6.1.2.1.14.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfOpaqueLsaSupport": {
+    "name": "ospfOpaqueLsaSupport",
+    "oid": "1.3.6.1.2.1.14.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfReferenceBandwidth": {
+    "name": "ospfReferenceBandwidth",
+    "oid": "1.3.6.1.2.1.14.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRestartSupport": {
+    "name": "ospfRestartSupport",
+    "oid": "1.3.6.1.2.1.14.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "plannedOnly": 2,
+          "plannedAndUnplanned": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRestartInterval": {
+    "name": "ospfRestartInterval",
+    "oid": "1.3.6.1.2.1.14.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRestartStrictLsaChecking": {
+    "name": "ospfRestartStrictLsaChecking",
+    "oid": "1.3.6.1.2.1.14.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfRestartStatus": {
+    "name": "ospfRestartStatus",
+    "oid": "1.3.6.1.2.1.14.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRestarting": 1,
+          "plannedRestart": 2,
+          "unplannedRestart": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfRestartAge": {
+    "name": "ospfRestartAge",
+    "oid": "1.3.6.1.2.1.14.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfRestartExitReason": {
+    "name": "ospfRestartExitReason",
+    "oid": "1.3.6.1.2.1.14.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "completed": 3,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAsLsaCount": {
+    "name": "ospfAsLsaCount",
+    "oid": "1.3.6.1.2.1.14.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAsLsaCksumSum": {
+    "name": "ospfAsLsaCksumSum",
+    "oid": "1.3.6.1.2.1.14.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfStubRouterSupport": {
+    "name": "ospfStubRouterSupport",
+    "oid": "1.3.6.1.2.1.14.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfStubRouterAdvertisement": {
+    "name": "ospfStubRouterAdvertisement",
+    "oid": "1.3.6.1.2.1.14.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNotAdvertise": 1,
+          "advertise": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfDiscontinuityTime": {
+    "name": "ospfDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.14.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaTable": {
+    "name": "ospfAreaTable",
+    "oid": "1.3.6.1.2.1.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAreaEntry": {
+    "name": "ospfAreaEntry",
+    "oid": "1.3.6.1.2.1.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAreaId": {
+    "name": "ospfAreaId",
+    "oid": "1.3.6.1.2.1.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAuthType": {
+    "name": "ospfAuthType",
+    "oid": "1.3.6.1.2.1.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "ospfImportAsExtern": {
+    "name": "ospfImportAsExtern",
+    "oid": "1.3.6.1.2.1.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "importExternal": 1,
+          "importNoExternal": 2,
+          "importNssa": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "importExternal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfSpfRuns": {
+    "name": "ospfSpfRuns",
+    "oid": "1.3.6.1.2.1.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaBdrRtrCount": {
+    "name": "ospfAreaBdrRtrCount",
+    "oid": "1.3.6.1.2.1.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAsBdrRtrCount": {
+    "name": "ospfAsBdrRtrCount",
+    "oid": "1.3.6.1.2.1.14.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaLsaCount": {
+    "name": "ospfAreaLsaCount",
+    "oid": "1.3.6.1.2.1.14.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaLsaCksumSum": {
+    "name": "ospfAreaLsaCksumSum",
+    "oid": "1.3.6.1.2.1.14.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaSummary": {
+    "name": "ospfAreaSummary",
+    "oid": "1.3.6.1.2.1.14.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAreaSummary": 1,
+          "sendAreaSummary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAreaSummary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfAreaStatus": {
+    "name": "ospfAreaStatus",
+    "oid": "1.3.6.1.2.1.14.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfAreaNssaTranslatorRole": {
+    "name": "ospfAreaNssaTranslatorRole",
+    "oid": "1.3.6.1.2.1.14.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "candidate": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "candidate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfAreaNssaTranslatorState": {
+    "name": "ospfAreaNssaTranslatorState",
+    "oid": "1.3.6.1.2.1.14.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "elected": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaNssaTranslatorStabilityInterval": {
+    "name": "ospfAreaNssaTranslatorStabilityInterval",
+    "oid": "1.3.6.1.2.1.14.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfAreaNssaTranslatorEvents": {
+    "name": "ospfAreaNssaTranslatorEvents",
+    "oid": "1.3.6.1.2.1.14.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfStubAreaTable": {
+    "name": "ospfStubAreaTable",
+    "oid": "1.3.6.1.2.1.14.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfStubAreaEntry": {
+    "name": "ospfStubAreaEntry",
+    "oid": "1.3.6.1.2.1.14.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubTOS",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfStubAreaId": {
+    "name": "ospfStubAreaId",
+    "oid": "1.3.6.1.2.1.14.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfStubTOS": {
+    "name": "ospfStubTOS",
+    "oid": "1.3.6.1.2.1.14.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TOSType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfStubMetric": {
+    "name": "ospfStubMetric",
+    "oid": "1.3.6.1.2.1.14.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfStubStatus": {
+    "name": "ospfStubStatus",
+    "oid": "1.3.6.1.2.1.14.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfStubMetricType": {
+    "name": "ospfStubMetricType",
+    "oid": "1.3.6.1.2.1.14.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ospfMetric": 1,
+          "comparableCost": 2,
+          "nonComparable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ospfMetric",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfLsdbTable": {
+    "name": "ospfLsdbTable",
+    "oid": "1.3.6.1.2.1.14.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfLsdbEntry": {
+    "name": "ospfLsdbEntry",
+    "oid": "1.3.6.1.2.1.14.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfLsdbAreaId": {
+    "name": "ospfLsdbAreaId",
+    "oid": "1.3.6.1.2.1.14.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLsdbType": {
+    "name": "ospfLsdbType",
+    "oid": "1.3.6.1.2.1.14.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "asExternalLink": 5,
+          "multicastLink": 6,
+          "nssaExternalLink": 7,
+          "areaOpaqueLink": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLsdbLsid": {
+    "name": "ospfLsdbLsid",
+    "oid": "1.3.6.1.2.1.14.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLsdbRouterId": {
+    "name": "ospfLsdbRouterId",
+    "oid": "1.3.6.1.2.1.14.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLsdbSequence": {
+    "name": "ospfLsdbSequence",
+    "oid": "1.3.6.1.2.1.14.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLsdbAge": {
+    "name": "ospfLsdbAge",
+    "oid": "1.3.6.1.2.1.14.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLsdbChecksum": {
+    "name": "ospfLsdbChecksum",
+    "oid": "1.3.6.1.2.1.14.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLsdbAdvertisement": {
+    "name": "ospfLsdbAdvertisement",
+    "oid": "1.3.6.1.2.1.14.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaRangeTable": {
+    "name": "ospfAreaRangeTable",
+    "oid": "1.3.6.1.2.1.14.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ospfAreaRangeEntry": {
+    "name": "ospfAreaRangeEntry",
+    "oid": "1.3.6.1.2.1.14.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaRangeAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaRangeNet",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ospfAreaRangeAreaId": {
+    "name": "ospfAreaRangeAreaId",
+    "oid": "1.3.6.1.2.1.14.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ospfAreaRangeNet": {
+    "name": "ospfAreaRangeNet",
+    "oid": "1.3.6.1.2.1.14.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ospfAreaRangeMask": {
+    "name": "ospfAreaRangeMask",
+    "oid": "1.3.6.1.2.1.14.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "ospfAreaRangeStatus": {
+    "name": "ospfAreaRangeStatus",
+    "oid": "1.3.6.1.2.1.14.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "ospfAreaRangeEffect": {
+    "name": "ospfAreaRangeEffect",
+    "oid": "1.3.6.1.2.1.14.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertiseMatching": 1,
+          "doNotAdvertiseMatching": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "advertiseMatching",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "ospfHostTable": {
+    "name": "ospfHostTable",
+    "oid": "1.3.6.1.2.1.14.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfHostEntry": {
+    "name": "ospfHostEntry",
+    "oid": "1.3.6.1.2.1.14.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostTOS",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfHostIpAddress": {
+    "name": "ospfHostIpAddress",
+    "oid": "1.3.6.1.2.1.14.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfHostTOS": {
+    "name": "ospfHostTOS",
+    "oid": "1.3.6.1.2.1.14.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TOSType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfHostMetric": {
+    "name": "ospfHostMetric",
+    "oid": "1.3.6.1.2.1.14.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfHostStatus": {
+    "name": "ospfHostStatus",
+    "oid": "1.3.6.1.2.1.14.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfHostAreaID": {
+    "name": "ospfHostAreaID",
+    "oid": "1.3.6.1.2.1.14.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ospfHostCfgAreaID": {
+    "name": "ospfHostCfgAreaID",
+    "oid": "1.3.6.1.2.1.14.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfTable": {
+    "name": "ospfIfTable",
+    "oid": "1.3.6.1.2.1.14.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfIfEntry": {
+    "name": "ospfIfEntry",
+    "oid": "1.3.6.1.2.1.14.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAddressLessIf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfIfIpAddress": {
+    "name": "ospfIfIpAddress",
+    "oid": "1.3.6.1.2.1.14.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAddressLessIf": {
+    "name": "ospfAddressLessIf",
+    "oid": "1.3.6.1.2.1.14.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfAreaId": {
+    "name": "ospfIfAreaId",
+    "oid": "1.3.6.1.2.1.14.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfType": {
+    "name": "ospfIfType",
+    "oid": "1.3.6.1.2.1.14.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "nbma": 2,
+          "pointToPoint": 3,
+          "pointToMultipoint": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfAdminStat": {
+    "name": "ospfIfAdminStat",
+    "oid": "1.3.6.1.2.1.14.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Status",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfRtrPriority": {
+    "name": "ospfIfRtrPriority",
+    "oid": "1.3.6.1.2.1.14.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfTransitDelay": {
+    "name": "ospfIfTransitDelay",
+    "oid": "1.3.6.1.2.1.14.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfRetransInterval": {
+    "name": "ospfIfRetransInterval",
+    "oid": "1.3.6.1.2.1.14.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfHelloInterval": {
+    "name": "ospfIfHelloInterval",
+    "oid": "1.3.6.1.2.1.14.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfRtrDeadInterval": {
+    "name": "ospfIfRtrDeadInterval",
+    "oid": "1.3.6.1.2.1.14.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfPollInterval": {
+    "name": "ospfIfPollInterval",
+    "oid": "1.3.6.1.2.1.14.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfState": {
+    "name": "ospfIfState",
+    "oid": "1.3.6.1.2.1.14.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "loopback": 2,
+          "waiting": 3,
+          "pointToPoint": 4,
+          "designatedRouter": 5,
+          "backupDesignatedRouter": 6,
+          "otherDesignatedRouter": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfDesignatedRouter": {
+    "name": "ospfIfDesignatedRouter",
+    "oid": "1.3.6.1.2.1.14.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfBackupDesignatedRouter": {
+    "name": "ospfIfBackupDesignatedRouter",
+    "oid": "1.3.6.1.2.1.14.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfEvents": {
+    "name": "ospfIfEvents",
+    "oid": "1.3.6.1.2.1.14.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfAuthKey": {
+    "name": "ospfIfAuthKey",
+    "oid": "1.3.6.1.2.1.14.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfStatus": {
+    "name": "ospfIfStatus",
+    "oid": "1.3.6.1.2.1.14.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfMulticastForwarding": {
+    "name": "ospfIfMulticastForwarding",
+    "oid": "1.3.6.1.2.1.14.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocked": 1,
+          "multicast": 2,
+          "unicast": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "blocked",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfDemand": {
+    "name": "ospfIfDemand",
+    "oid": "1.3.6.1.2.1.14.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfAuthType": {
+    "name": "ospfIfAuthType",
+    "oid": "1.3.6.1.2.1.14.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfLsaCount": {
+    "name": "ospfIfLsaCount",
+    "oid": "1.3.6.1.2.1.14.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfLsaCksumSum": {
+    "name": "ospfIfLsaCksumSum",
+    "oid": "1.3.6.1.2.1.14.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfDesignatedRouterId": {
+    "name": "ospfIfDesignatedRouterId",
+    "oid": "1.3.6.1.2.1.14.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfBackupDesignatedRouterId": {
+    "name": "ospfIfBackupDesignatedRouterId",
+    "oid": "1.3.6.1.2.1.14.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfMetricTable": {
+    "name": "ospfIfMetricTable",
+    "oid": "1.3.6.1.2.1.14.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfIfMetricEntry": {
+    "name": "ospfIfMetricEntry",
+    "oid": "1.3.6.1.2.1.14.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMetricIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMetricAddressLessIf",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMetricTOS",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfIfMetricIpAddress": {
+    "name": "ospfIfMetricIpAddress",
+    "oid": "1.3.6.1.2.1.14.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfMetricAddressLessIf": {
+    "name": "ospfIfMetricAddressLessIf",
+    "oid": "1.3.6.1.2.1.14.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfMetricTOS": {
+    "name": "ospfIfMetricTOS",
+    "oid": "1.3.6.1.2.1.14.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TOSType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfIfMetricValue": {
+    "name": "ospfIfMetricValue",
+    "oid": "1.3.6.1.2.1.14.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfIfMetricStatus": {
+    "name": "ospfIfMetricStatus",
+    "oid": "1.3.6.1.2.1.14.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfVirtIfTable": {
+    "name": "ospfVirtIfTable",
+    "oid": "1.3.6.1.2.1.14.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfVirtIfEntry": {
+    "name": "ospfVirtIfEntry",
+    "oid": "1.3.6.1.2.1.14.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfNeighbor",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtIfAreaId": {
+    "name": "ospfVirtIfAreaId",
+    "oid": "1.3.6.1.2.1.14.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtIfNeighbor": {
+    "name": "ospfVirtIfNeighbor",
+    "oid": "1.3.6.1.2.1.14.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtIfTransitDelay": {
+    "name": "ospfVirtIfTransitDelay",
+    "oid": "1.3.6.1.2.1.14.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfVirtIfRetransInterval": {
+    "name": "ospfVirtIfRetransInterval",
+    "oid": "1.3.6.1.2.1.14.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfVirtIfHelloInterval": {
+    "name": "ospfVirtIfHelloInterval",
+    "oid": "1.3.6.1.2.1.14.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfVirtIfRtrDeadInterval": {
+    "name": "ospfVirtIfRtrDeadInterval",
+    "oid": "1.3.6.1.2.1.14.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfVirtIfState": {
+    "name": "ospfVirtIfState",
+    "oid": "1.3.6.1.2.1.14.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "pointToPoint": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtIfEvents": {
+    "name": "ospfVirtIfEvents",
+    "oid": "1.3.6.1.2.1.14.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtIfAuthKey": {
+    "name": "ospfVirtIfAuthKey",
+    "oid": "1.3.6.1.2.1.14.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfVirtIfStatus": {
+    "name": "ospfVirtIfStatus",
+    "oid": "1.3.6.1.2.1.14.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfVirtIfAuthType": {
+    "name": "ospfVirtIfAuthType",
+    "oid": "1.3.6.1.2.1.14.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfVirtIfLsaCount": {
+    "name": "ospfVirtIfLsaCount",
+    "oid": "1.3.6.1.2.1.14.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtIfLsaCksumSum": {
+    "name": "ospfVirtIfLsaCksumSum",
+    "oid": "1.3.6.1.2.1.14.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrTable": {
+    "name": "ospfNbrTable",
+    "oid": "1.3.6.1.2.1.14.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfNbrEntry": {
+    "name": "ospfNbrEntry",
+    "oid": "1.3.6.1.2.1.14.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrAddressLessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfNbrIpAddr": {
+    "name": "ospfNbrIpAddr",
+    "oid": "1.3.6.1.2.1.14.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrAddressLessIndex": {
+    "name": "ospfNbrAddressLessIndex",
+    "oid": "1.3.6.1.2.1.14.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrRtrId": {
+    "name": "ospfNbrRtrId",
+    "oid": "1.3.6.1.2.1.14.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrOptions": {
+    "name": "ospfNbrOptions",
+    "oid": "1.3.6.1.2.1.14.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrPriority": {
+    "name": "ospfNbrPriority",
+    "oid": "1.3.6.1.2.1.14.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfNbrState": {
+    "name": "ospfNbrState",
+    "oid": "1.3.6.1.2.1.14.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrEvents": {
+    "name": "ospfNbrEvents",
+    "oid": "1.3.6.1.2.1.14.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrLsRetransQLen": {
+    "name": "ospfNbrLsRetransQLen",
+    "oid": "1.3.6.1.2.1.14.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbmaNbrStatus": {
+    "name": "ospfNbmaNbrStatus",
+    "oid": "1.3.6.1.2.1.14.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfNbmaNbrPermanence": {
+    "name": "ospfNbmaNbrPermanence",
+    "oid": "1.3.6.1.2.1.14.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permanent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrHelloSuppressed": {
+    "name": "ospfNbrHelloSuppressed",
+    "oid": "1.3.6.1.2.1.14.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrRestartHelperStatus": {
+    "name": "ospfNbrRestartHelperStatus",
+    "oid": "1.3.6.1.2.1.14.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notHelping": 1,
+          "helping": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrRestartHelperAge": {
+    "name": "ospfNbrRestartHelperAge",
+    "oid": "1.3.6.1.2.1.14.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfNbrRestartHelperExitReason": {
+    "name": "ospfNbrRestartHelperExitReason",
+    "oid": "1.3.6.1.2.1.14.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "completed": 3,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrTable": {
+    "name": "ospfVirtNbrTable",
+    "oid": "1.3.6.1.2.1.14.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfVirtNbrEntry": {
+    "name": "ospfVirtNbrEntry",
+    "oid": "1.3.6.1.2.1.14.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrArea",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRtrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtNbrArea": {
+    "name": "ospfVirtNbrArea",
+    "oid": "1.3.6.1.2.1.14.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrRtrId": {
+    "name": "ospfVirtNbrRtrId",
+    "oid": "1.3.6.1.2.1.14.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrIpAddr": {
+    "name": "ospfVirtNbrIpAddr",
+    "oid": "1.3.6.1.2.1.14.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrOptions": {
+    "name": "ospfVirtNbrOptions",
+    "oid": "1.3.6.1.2.1.14.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrState": {
+    "name": "ospfVirtNbrState",
+    "oid": "1.3.6.1.2.1.14.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrEvents": {
+    "name": "ospfVirtNbrEvents",
+    "oid": "1.3.6.1.2.1.14.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrLsRetransQLen": {
+    "name": "ospfVirtNbrLsRetransQLen",
+    "oid": "1.3.6.1.2.1.14.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrHelloSuppressed": {
+    "name": "ospfVirtNbrHelloSuppressed",
+    "oid": "1.3.6.1.2.1.14.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrRestartHelperStatus": {
+    "name": "ospfVirtNbrRestartHelperStatus",
+    "oid": "1.3.6.1.2.1.14.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notHelping": 1,
+          "helping": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrRestartHelperAge": {
+    "name": "ospfVirtNbrRestartHelperAge",
+    "oid": "1.3.6.1.2.1.14.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtNbrRestartHelperExitReason": {
+    "name": "ospfVirtNbrRestartHelperExitReason",
+    "oid": "1.3.6.1.2.1.14.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "completed": 3,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfExtLsdbTable": {
+    "name": "ospfExtLsdbTable",
+    "oid": "1.3.6.1.2.1.14.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "ospfExtLsdbEntry": {
+    "name": "ospfExtLsdbEntry",
+    "oid": "1.3.6.1.2.1.14.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfExtLsdbType": {
+    "name": "ospfExtLsdbType",
+    "oid": "1.3.6.1.2.1.14.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asExternalLink": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ospfExtLsdbLsid": {
+    "name": "ospfExtLsdbLsid",
+    "oid": "1.3.6.1.2.1.14.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ospfExtLsdbRouterId": {
+    "name": "ospfExtLsdbRouterId",
+    "oid": "1.3.6.1.2.1.14.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ospfExtLsdbSequence": {
+    "name": "ospfExtLsdbSequence",
+    "oid": "1.3.6.1.2.1.14.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ospfExtLsdbAge": {
+    "name": "ospfExtLsdbAge",
+    "oid": "1.3.6.1.2.1.14.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ospfExtLsdbChecksum": {
+    "name": "ospfExtLsdbChecksum",
+    "oid": "1.3.6.1.2.1.14.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ospfExtLsdbAdvertisement": {
+    "name": "ospfExtLsdbAdvertisement",
+    "oid": "1.3.6.1.2.1.14.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 36,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ospfRouteGroup": {
+    "name": "ospfRouteGroup",
+    "oid": "1.3.6.1.2.1.14.13",
+    "class": "objectidentity"
+  },
+  "ospfIntraArea": {
+    "name": "ospfIntraArea",
+    "oid": "1.3.6.1.2.1.14.13.1",
+    "class": "objectidentity"
+  },
+  "ospfInterArea": {
+    "name": "ospfInterArea",
+    "oid": "1.3.6.1.2.1.14.13.2",
+    "class": "objectidentity"
+  },
+  "ospfExternalType1": {
+    "name": "ospfExternalType1",
+    "oid": "1.3.6.1.2.1.14.13.3",
+    "class": "objectidentity"
+  },
+  "ospfExternalType2": {
+    "name": "ospfExternalType2",
+    "oid": "1.3.6.1.2.1.14.13.4",
+    "class": "objectidentity"
+  },
+  "ospfAreaAggregateTable": {
+    "name": "ospfAreaAggregateTable",
+    "oid": "1.3.6.1.2.1.14.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAreaAggregateEntry": {
+    "name": "ospfAreaAggregateEntry",
+    "oid": "1.3.6.1.2.1.14.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateAreaID",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateNet",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAreaAggregateAreaID": {
+    "name": "ospfAreaAggregateAreaID",
+    "oid": "1.3.6.1.2.1.14.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaAggregateLsdbType": {
+    "name": "ospfAreaAggregateLsdbType",
+    "oid": "1.3.6.1.2.1.14.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "summaryLink": 3,
+          "nssaExternalLink": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaAggregateNet": {
+    "name": "ospfAreaAggregateNet",
+    "oid": "1.3.6.1.2.1.14.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaAggregateMask": {
+    "name": "ospfAreaAggregateMask",
+    "oid": "1.3.6.1.2.1.14.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaAggregateStatus": {
+    "name": "ospfAreaAggregateStatus",
+    "oid": "1.3.6.1.2.1.14.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfAreaAggregateEffect": {
+    "name": "ospfAreaAggregateEffect",
+    "oid": "1.3.6.1.2.1.14.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertiseMatching": 1,
+          "doNotAdvertiseMatching": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "advertiseMatching",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfAreaAggregateExtRouteTag": {
+    "name": "ospfAreaAggregateExtRouteTag",
+    "oid": "1.3.6.1.2.1.14.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ospfLocalLsdbTable": {
+    "name": "ospfLocalLsdbTable",
+    "oid": "1.3.6.1.2.1.14.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfLocalLsdbEntry": {
+    "name": "ospfLocalLsdbEntry",
+    "oid": "1.3.6.1.2.1.14.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbAddressLessIf",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfLocalLsdbIpAddress": {
+    "name": "ospfLocalLsdbIpAddress",
+    "oid": "1.3.6.1.2.1.14.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfLocalLsdbAddressLessIf": {
+    "name": "ospfLocalLsdbAddressLessIf",
+    "oid": "1.3.6.1.2.1.14.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfLocalLsdbType": {
+    "name": "ospfLocalLsdbType",
+    "oid": "1.3.6.1.2.1.14.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localOpaqueLink": 9
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfLocalLsdbLsid": {
+    "name": "ospfLocalLsdbLsid",
+    "oid": "1.3.6.1.2.1.14.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfLocalLsdbRouterId": {
+    "name": "ospfLocalLsdbRouterId",
+    "oid": "1.3.6.1.2.1.14.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfLocalLsdbSequence": {
+    "name": "ospfLocalLsdbSequence",
+    "oid": "1.3.6.1.2.1.14.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLocalLsdbAge": {
+    "name": "ospfLocalLsdbAge",
+    "oid": "1.3.6.1.2.1.14.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLocalLsdbChecksum": {
+    "name": "ospfLocalLsdbChecksum",
+    "oid": "1.3.6.1.2.1.14.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfLocalLsdbAdvertisement": {
+    "name": "ospfLocalLsdbAdvertisement",
+    "oid": "1.3.6.1.2.1.14.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbTable": {
+    "name": "ospfVirtLocalLsdbTable",
+    "oid": "1.3.6.1.2.1.14.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbEntry": {
+    "name": "ospfVirtLocalLsdbEntry",
+    "oid": "1.3.6.1.2.1.14.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbTransitArea",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbNeighbor",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbTransitArea": {
+    "name": "ospfVirtLocalLsdbTransitArea",
+    "oid": "1.3.6.1.2.1.14.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbNeighbor": {
+    "name": "ospfVirtLocalLsdbNeighbor",
+    "oid": "1.3.6.1.2.1.14.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbType": {
+    "name": "ospfVirtLocalLsdbType",
+    "oid": "1.3.6.1.2.1.14.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localOpaqueLink": 9
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbLsid": {
+    "name": "ospfVirtLocalLsdbLsid",
+    "oid": "1.3.6.1.2.1.14.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbRouterId": {
+    "name": "ospfVirtLocalLsdbRouterId",
+    "oid": "1.3.6.1.2.1.14.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbSequence": {
+    "name": "ospfVirtLocalLsdbSequence",
+    "oid": "1.3.6.1.2.1.14.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbAge": {
+    "name": "ospfVirtLocalLsdbAge",
+    "oid": "1.3.6.1.2.1.14.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbChecksum": {
+    "name": "ospfVirtLocalLsdbChecksum",
+    "oid": "1.3.6.1.2.1.14.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbAdvertisement": {
+    "name": "ospfVirtLocalLsdbAdvertisement",
+    "oid": "1.3.6.1.2.1.14.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAsLsdbTable": {
+    "name": "ospfAsLsdbTable",
+    "oid": "1.3.6.1.2.1.14.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAsLsdbEntry": {
+    "name": "ospfAsLsdbEntry",
+    "oid": "1.3.6.1.2.1.14.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAsLsdbType": {
+    "name": "ospfAsLsdbType",
+    "oid": "1.3.6.1.2.1.14.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asExternalLink": 5,
+          "asOpaqueLink": 11
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAsLsdbLsid": {
+    "name": "ospfAsLsdbLsid",
+    "oid": "1.3.6.1.2.1.14.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAsLsdbRouterId": {
+    "name": "ospfAsLsdbRouterId",
+    "oid": "1.3.6.1.2.1.14.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAsLsdbSequence": {
+    "name": "ospfAsLsdbSequence",
+    "oid": "1.3.6.1.2.1.14.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAsLsdbAge": {
+    "name": "ospfAsLsdbAge",
+    "oid": "1.3.6.1.2.1.14.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAsLsdbChecksum": {
+    "name": "ospfAsLsdbChecksum",
+    "oid": "1.3.6.1.2.1.14.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAsLsdbAdvertisement": {
+    "name": "ospfAsLsdbAdvertisement",
+    "oid": "1.3.6.1.2.1.14.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfAreaLsaCountTable": {
+    "name": "ospfAreaLsaCountTable",
+    "oid": "1.3.6.1.2.1.14.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAreaLsaCountEntry": {
+    "name": "ospfAreaLsaCountEntry",
+    "oid": "1.3.6.1.2.1.14.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaLsaCountAreaId",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaLsaCountLsaType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAreaLsaCountAreaId": {
+    "name": "ospfAreaLsaCountAreaId",
+    "oid": "1.3.6.1.2.1.14.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAreaLsaCountLsaType": {
+    "name": "ospfAreaLsaCountLsaType",
+    "oid": "1.3.6.1.2.1.14.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "multicastLink": 6,
+          "nssaExternalLink": 7,
+          "areaOpaqueLink": 10
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ospfAreaLsaCountNumber": {
+    "name": "ospfAreaLsaCountNumber",
+    "oid": "1.3.6.1.2.1.14.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ospfConformance": {
+    "name": "ospfConformance",
+    "oid": "1.3.6.1.2.1.14.15",
+    "class": "objectidentity"
+  },
+  "ospfGroups": {
+    "name": "ospfGroups",
+    "oid": "1.3.6.1.2.1.14.15.1",
+    "class": "objectidentity"
+  },
+  "ospfCompliances": {
+    "name": "ospfCompliances",
+    "oid": "1.3.6.1.2.1.14.15.2",
+    "class": "objectidentity"
+  },
+  "ospfCompliance": {
+    "name": "ospfCompliance",
+    "oid": "1.3.6.1.2.1.14.15.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ospfBasicGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfAreaGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfStubAreaGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfIfGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfIfMetricGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfVirtIfGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfNbrGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfVirtNbrGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfAreaAggregateGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfHostGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfLsdbGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfExtLsdbGroup",
+        "module": "OSPF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfCompliance2": {
+    "name": "ospfCompliance2",
+    "oid": "1.3.6.1.2.1.14.15.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ospfBasicGroup2",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfAreaGroup2",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfStubAreaGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfIfGroup2",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfIfMetricGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfVirtIfGroup2",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfNbrGroup2",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfVirtNbrGroup2",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfAreaAggregateGroup2",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfHostGroup2",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfLsdbGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfAsLsdbGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfLocalLsdbGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfVirtLocalLsdbGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfAreaLsaCountGroup",
+        "module": "OSPF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfComplianceObsolete": {
+    "name": "ospfComplianceObsolete",
+    "oid": "1.3.6.1.2.1.14.15.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ospfAreaRangeGroup",
+        "module": "OSPF-MIB"
+      },
+      {
+        "object": "ospfObsoleteGroup",
+        "module": "OSPF-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ospfBasicGroup": {
+    "name": "ospfBasicGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAdminStat"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVersionNumber"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaBdrRtrStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfASBdrRtrStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExternLsaCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExternLsaCksumSum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfTOSSupport"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfOriginateNewLsas"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRxNewLsas"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbLimit"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfMulticastExtensions"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExitOverflowInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfDemandExtensions"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfAreaGroup": {
+    "name": "ospfAreaGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfImportAsExtern"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfSpfRuns"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaBdrRtrCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsBdrRtrCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaLsaCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaLsaCksumSum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaSummary"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfStubAreaGroup": {
+    "name": "ospfStubAreaGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubTOS"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubMetric"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubMetricType"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfLsdbGroup": {
+    "name": "ospfLsdbGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbLsid"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbSequence"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbChecksum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbAdvertisement"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAreaRangeGroup": {
+    "name": "ospfAreaRangeGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaRangeAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaRangeNet"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaRangeMask"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaRangeStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaRangeEffect"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ospfHostGroup": {
+    "name": "ospfHostGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostIpAddress"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostTOS"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostMetric"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostAreaID"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfIfGroup": {
+    "name": "ospfIfGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfIpAddress"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAddressLessIf"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfAdminStat"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfRtrPriority"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfTransitDelay"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfRetransInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfHelloInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfRtrDeadInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfPollInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfDesignatedRouter"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfBackupDesignatedRouter"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfEvents"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfAuthType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfAuthKey"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMulticastForwarding"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfDemand"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfIfMetricGroup": {
+    "name": "ospfIfMetricGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMetricIpAddress"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMetricAddressLessIf"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMetricTOS"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMetricValue"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMetricStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtIfGroup": {
+    "name": "ospfVirtIfGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfNeighbor"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfTransitDelay"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfRetransInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfHelloInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfRtrDeadInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfEvents"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfAuthType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfAuthKey"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfNbrGroup": {
+    "name": "ospfNbrGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrIpAddr"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrAddressLessIndex"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRtrId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrOptions"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrPriority"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrEvents"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrLsRetransQLen"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbmaNbrStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbmaNbrPermanence"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrHelloSuppressed"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfVirtNbrGroup": {
+    "name": "ospfVirtNbrGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrArea"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRtrId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrIpAddr"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrOptions"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrEvents"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrLsRetransQLen"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrHelloSuppressed"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfExtLsdbGroup": {
+    "name": "ospfExtLsdbGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbLsid"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbSequence"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbChecksum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbAdvertisement"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfAreaAggregateGroup": {
+    "name": "ospfAreaAggregateGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateAreaID"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateLsdbType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateNet"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateMask"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateEffect"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ospfLocalLsdbGroup": {
+    "name": "ospfLocalLsdbGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbSequence"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbChecksum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLocalLsdbAdvertisement"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtLocalLsdbGroup": {
+    "name": "ospfVirtLocalLsdbGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbSequence"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbChecksum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtLocalLsdbAdvertisement"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAsLsdbGroup": {
+    "name": "ospfAsLsdbGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsdbSequence"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsdbAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsdbChecksum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsdbAdvertisement"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfBasicGroup2": {
+    "name": "ospfBasicGroup2",
+    "oid": "1.3.6.1.2.1.14.15.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAdminStat"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVersionNumber"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaBdrRtrStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfASBdrRtrStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExternLsaCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExternLsaCksumSum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfTOSSupport"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfOriginateNewLsas"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRxNewLsas"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExtLsdbLimit"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfMulticastExtensions"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfExitOverflowInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfDemandExtensions"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRFC1583Compatibility"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfOpaqueLsaSupport"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfReferenceBandwidth"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartSupport"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartStrictLsaChecking"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartExitReason"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsaCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsLsaCksumSum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubRouterSupport"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfStubRouterAdvertisement"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAreaGroup2": {
+    "name": "ospfAreaGroup2",
+    "oid": "1.3.6.1.2.1.14.15.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfImportAsExtern"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfSpfRuns"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaBdrRtrCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAsBdrRtrCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaLsaCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaLsaCksumSum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaSummary"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaNssaTranslatorRole"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaNssaTranslatorState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaNssaTranslatorStabilityInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaNssaTranslatorEvents"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfIfGroup2": {
+    "name": "ospfIfGroup2",
+    "oid": "1.3.6.1.2.1.14.15.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfIpAddress"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAddressLessIf"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfAdminStat"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfRtrPriority"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfTransitDelay"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfRetransInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfHelloInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfRtrDeadInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfPollInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfDesignatedRouter"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfBackupDesignatedRouter"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfEvents"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfAuthType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfAuthKey"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfMulticastForwarding"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfDemand"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfLsaCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfLsaCksumSum"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtIfGroup2": {
+    "name": "ospfVirtIfGroup2",
+    "oid": "1.3.6.1.2.1.14.15.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfNeighbor"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfTransitDelay"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfRetransInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfHelloInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfRtrDeadInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfEvents"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfAuthType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfAuthKey"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfLsaCount"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfLsaCksumSum"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfDesignatedRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfBackupDesignatedRouterId"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfNbrGroup2": {
+    "name": "ospfNbrGroup2",
+    "oid": "1.3.6.1.2.1.14.15.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrIpAddr"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrAddressLessIndex"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRtrId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrOptions"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrPriority"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrEvents"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrLsRetransQLen"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbmaNbrStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbmaNbrPermanence"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrHelloSuppressed"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRestartHelperStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRestartHelperAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRestartHelperExitReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtNbrGroup2": {
+    "name": "ospfVirtNbrGroup2",
+    "oid": "1.3.6.1.2.1.14.15.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrArea"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRtrId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrIpAddr"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrOptions"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrState"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrEvents"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrLsRetransQLen"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrHelloSuppressed"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRestartHelperStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRestartHelperAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRestartHelperExitReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAreaAggregateGroup2": {
+    "name": "ospfAreaAggregateGroup2",
+    "oid": "1.3.6.1.2.1.14.15.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateAreaID"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateLsdbType"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateNet"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateMask"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateEffect"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaAggregateExtRouteTag"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfAreaLsaCountGroup": {
+    "name": "ospfAreaLsaCountGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaLsaCountNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfHostGroup2": {
+    "name": "ospfHostGroup2",
+    "oid": "1.3.6.1.2.1.14.15.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostIpAddress"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostTOS"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostMetric"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfHostCfgAreaID"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfObsoleteGroup": {
+    "name": "ospfObsoleteGroup",
+    "oid": "1.3.6.1.2.1.14.15.1.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAuthType"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/OSPF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OSPF-MIB"
+  }
+}

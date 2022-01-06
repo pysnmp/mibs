@@ -1,0 +1,326 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "hh3cVoiceVlan": {
+    "name": "hh3cVoiceVlan",
+    "oid": "1.3.6.1.4.1.25506.2.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-12-01 00:00",
+        "description": "add value 0 to hh3cVoiceVlanAgingTime."
+      },
+      {
+        "revision": "2009-05-15 00:00",
+        "description": "To fix bugs in the MIB file."
+      },
+      {
+        "revision": "2002-07-01 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "hh3cvoiceVlanOuiTable": {
+    "name": "hh3cvoiceVlanOuiTable",
+    "oid": "1.3.6.1.4.1.25506.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cvoiceVlanOuiEntry": {
+    "name": "hh3cvoiceVlanOuiEntry",
+    "oid": "1.3.6.1.4.1.25506.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-VOICE-VLAN-MIB",
+        "object": "hh3cVoiceVlanOuiAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVoiceVlanOuiAddress": {
+    "name": "hh3cVoiceVlanOuiAddress",
+    "oid": "1.3.6.1.4.1.25506.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVoiceVlanOuiMask": {
+    "name": "hh3cVoiceVlanOuiMask",
+    "oid": "1.3.6.1.4.1.25506.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVoiceVlanOuiDescription": {
+    "name": "hh3cVoiceVlanOuiDescription",
+    "oid": "1.3.6.1.4.1.25506.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVoiceVlanOuiRowStatus": {
+    "name": "hh3cVoiceVlanOuiRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cVoiceVlanEnabledId": {
+    "name": "hh3cVoiceVlanEnabledId",
+    "oid": "1.3.6.1.4.1.25506.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVoiceVlanPortEnableList": {
+    "name": "hh3cVoiceVlanPortEnableList",
+    "oid": "1.3.6.1.4.1.25506.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVoiceVlanAgingTime": {
+    "name": "hh3cVoiceVlanAgingTime",
+    "oid": "1.3.6.1.4.1.25506.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 43200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1440,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVoiceVlanConfigState": {
+    "name": "hh3cVoiceVlanConfigState",
+    "oid": "1.3.6.1.4.1.25506.2.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVoiceVlanSecurityState": {
+    "name": "hh3cVoiceVlanSecurityState",
+    "oid": "1.3.6.1.4.1.25506.2.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "security": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cvoiceVlanPortTable": {
+    "name": "hh3cvoiceVlanPortTable",
+    "oid": "1.3.6.1.4.1.25506.2.9.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cvoiceVlanPortEntry": {
+    "name": "hh3cvoiceVlanPortEntry",
+    "oid": "1.3.6.1.4.1.25506.2.9.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-VOICE-VLAN-MIB",
+        "object": "hh3cVoiceVlanPortifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVoiceVlanPortifIndex": {
+    "name": "hh3cVoiceVlanPortifIndex",
+    "oid": "1.3.6.1.4.1.25506.2.9.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cVoiceVlanPortMode": {
+    "name": "hh3cVoiceVlanPortMode",
+    "oid": "1.3.6.1.4.1.25506.2.9.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVoiceVlanPortLegacy": {
+    "name": "hh3cVoiceVlanPortLegacy",
+    "oid": "1.3.6.1.4.1.25506.2.9.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVoiceVlanPortQosTrust": {
+    "name": "hh3cVoiceVlanPortQosTrust",
+    "oid": "1.3.6.1.4.1.25506.2.9.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-VOICE-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-VOICE-VLAN-MIB"
+  }
+}

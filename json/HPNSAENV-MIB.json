@@ -1,0 +1,1309 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nm": {
+    "name": "nm",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "hpnsa": {
+    "name": "hpnsa",
+    "oid": "1.3.6.1.4.1.11.2.23",
+    "class": "objectidentity"
+  },
+  "hpnsaEnvironment": {
+    "name": "hpnsaEnvironment",
+    "oid": "1.3.6.1.4.1.11.2.23.26",
+    "class": "objectidentity"
+  },
+  "hpnsaEnvMibRev": {
+    "name": "hpnsaEnvMibRev",
+    "oid": "1.3.6.1.4.1.11.2.23.26.1",
+    "class": "objectidentity"
+  },
+  "hpnsaEnvVoltageData": {
+    "name": "hpnsaEnvVoltageData",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2",
+    "class": "objectidentity"
+  },
+  "hpnsaEnvTemperatureData": {
+    "name": "hpnsaEnvTemperatureData",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3",
+    "class": "objectidentity"
+  },
+  "hpnsaEnvFanSensorData": {
+    "name": "hpnsaEnvFanSensorData",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4",
+    "class": "objectidentity"
+  },
+  "hpnsaEnvChassisData": {
+    "name": "hpnsaEnvChassisData",
+    "oid": "1.3.6.1.4.1.11.2.23.26.5",
+    "class": "objectidentity"
+  },
+  "hpnsaEnvMibRevMajor": {
+    "name": "hpnsaEnvMibRevMajor",
+    "oid": "1.3.6.1.4.1.11.2.23.26.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvMibRevMinor": {
+    "name": "hpnsaEnvMibRevMinor",
+    "oid": "1.3.6.1.4.1.11.2.23.26.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorTable": {
+    "name": "hpnsaEnvVoltageSensorTable",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorEntry": {
+    "name": "hpnsaEnvVoltageSensorEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAENV-MIB",
+        "object": "hpnsaEnvVoltageSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorIndex": {
+    "name": "hpnsaEnvVoltageSensorIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorType": {
+    "name": "hpnsaEnvVoltageSensorType",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "analog": 3,
+          "digital": 4,
+          "three-state-discrete": 5,
+          "four-state-discrete": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorLocation": {
+    "name": "hpnsaEnvVoltageSensorLocation",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "processor": 3,
+          "disk": 4,
+          "peripheral-bay": 5,
+          "system-management-module": 6,
+          "motherboard": 7,
+          "memory-module": 8,
+          "processor-module": 9,
+          "power-unit": 10,
+          "add-in-card": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorDescription": {
+    "name": "hpnsaEnvVoltageSensorDescription",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voltsensor-other": 1,
+          "voltsensor-unknown": 2,
+          "voltsensor-plus-5-volt": 3,
+          "voltsensor-minus-5-volt": 4,
+          "voltsensor-plus-12-volt": 5,
+          "voltsensor-minus-12-volt": 6,
+          "voltsensor-plus-3-3-volt": 7,
+          "voltsensor-plus-2-5-volt": 8,
+          "voltsensor-scsi-terminator": 9,
+          "voltsensor-processor-1": 10,
+          "voltsensor-processor-2": 11,
+          "voltsensor-processor-3": 12,
+          "voltsensor-processor-4": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorStatus": {
+    "name": "hpnsaEnvVoltageSensorStatus",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "ok": 3,
+          "non-critical": 4,
+          "critical": 5,
+          "non-recoverable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorLevel": {
+    "name": "hpnsaEnvVoltageSensorLevel",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorNominalLevel": {
+    "name": "hpnsaEnvVoltageSensorNominalLevel",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorNormalMaximum": {
+    "name": "hpnsaEnvVoltageSensorNormalMaximum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorNormalMinimum": {
+    "name": "hpnsaEnvVoltageSensorNormalMinimum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorMaximum": {
+    "name": "hpnsaEnvVoltageSensorMaximum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorMinimum": {
+    "name": "hpnsaEnvVoltageSensorMinimum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorLowerNonCriticalThreshold": {
+    "name": "hpnsaEnvVoltageSensorLowerNonCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorUpperNonCriticalThreshold": {
+    "name": "hpnsaEnvVoltageSensorUpperNonCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorLowerCriticalThreshold": {
+    "name": "hpnsaEnvVoltageSensorLowerCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorUpperCriticalThreshold": {
+    "name": "hpnsaEnvVoltageSensorUpperCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorLowerNonRecoverableThreshold": {
+    "name": "hpnsaEnvVoltageSensorLowerNonRecoverableThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorUpperNonRecoverableThreshold": {
+    "name": "hpnsaEnvVoltageSensorUpperNonRecoverableThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorResolution": {
+    "name": "hpnsaEnvVoltageSensorResolution",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorTolerance": {
+    "name": "hpnsaEnvVoltageSensorTolerance",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorAccuracy": {
+    "name": "hpnsaEnvVoltageSensorAccuracy",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorPositiveHysterisis": {
+    "name": "hpnsaEnvVoltageSensorPositiveHysterisis",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvVoltageSensorNegativeHysterisis": {
+    "name": "hpnsaEnvVoltageSensorNegativeHysterisis",
+    "oid": "1.3.6.1.4.1.11.2.23.26.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorTable": {
+    "name": "hpnsaEnvTemperatureSensorTable",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorEntry": {
+    "name": "hpnsaEnvTemperatureSensorEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAENV-MIB",
+        "object": "hpnsaEnvTemperatureSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorIndex": {
+    "name": "hpnsaEnvTemperatureSensorIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorType": {
+    "name": "hpnsaEnvTemperatureSensorType",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "analog": 3,
+          "digital": 4,
+          "three-state-discrete": 5,
+          "four-state-discrete": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorLocation": {
+    "name": "hpnsaEnvTemperatureSensorLocation",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "processor": 3,
+          "disk": 4,
+          "peripheral-bay": 5,
+          "system-management-module": 6,
+          "motherboard": 7,
+          "memory-module": 8,
+          "processor-module": 9,
+          "power-unit": 10,
+          "add-in-card": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorDescription": {
+    "name": "hpnsaEnvTemperatureSensorDescription",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperature-sensor-other": 1,
+          "temperature-sensor-unknown": 2,
+          "temperature-sensor-processor-1": 3,
+          "temperature-sensor-processor-2": 4,
+          "temperature-sensor-processor-3": 5,
+          "temperature-sensor-processor-4": 6,
+          "temperature-sensor-processor-5": 7,
+          "temperature-sensor-processor-6": 8,
+          "temperature-sensor-processor-7": 9,
+          "temperature-sensor-processor-8": 10,
+          "temperature-sensor-system-board": 11,
+          "temperature-sensor-disk-backplane": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorStatus": {
+    "name": "hpnsaEnvTemperatureSensorStatus",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "ok": 3,
+          "non-critical": 4,
+          "critical": 5,
+          "non-recoverable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorReading": {
+    "name": "hpnsaEnvTemperatureSensorReading",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorNominalReading": {
+    "name": "hpnsaEnvTemperatureSensorNominalReading",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorNormalMaximum": {
+    "name": "hpnsaEnvTemperatureSensorNormalMaximum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorNormalMinimum": {
+    "name": "hpnsaEnvTemperatureSensorNormalMinimum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorMaximum": {
+    "name": "hpnsaEnvTemperatureSensorMaximum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorMinimum": {
+    "name": "hpnsaEnvTemperatureSensorMinimum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorLowerNonCriticalThreshold": {
+    "name": "hpnsaEnvTemperatureSensorLowerNonCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorUpperNonCriticalThreshold": {
+    "name": "hpnsaEnvTemperatureSensorUpperNonCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorLowerCriticalThreshold": {
+    "name": "hpnsaEnvTemperatureSensorLowerCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorUpperCriticalThreshold": {
+    "name": "hpnsaEnvTemperatureSensorUpperCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorLowerNonRecoverableThreshold": {
+    "name": "hpnsaEnvTemperatureSensorLowerNonRecoverableThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorUpperNonRecoverableThreshold": {
+    "name": "hpnsaEnvTemperatureSensorUpperNonRecoverableThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorResolution": {
+    "name": "hpnsaEnvTemperatureSensorResolution",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorTolerance": {
+    "name": "hpnsaEnvTemperatureSensorTolerance",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorAccuracy": {
+    "name": "hpnsaEnvTemperatureSensorAccuracy",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorPositiveHysterisis": {
+    "name": "hpnsaEnvTemperatureSensorPositiveHysterisis",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvTemperatureSensorNegativeHysterisis": {
+    "name": "hpnsaEnvTemperatureSensorNegativeHysterisis",
+    "oid": "1.3.6.1.4.1.11.2.23.26.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorTable": {
+    "name": "hpnsaEnvFanSensorTable",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorEntry": {
+    "name": "hpnsaEnvFanSensorEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAENV-MIB",
+        "object": "hpnsaEnvFanSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorIndex": {
+    "name": "hpnsaEnvFanSensorIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorType": {
+    "name": "hpnsaEnvFanSensorType",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "analog": 3,
+          "digital": 4,
+          "three-state-discrete": 5,
+          "four-state-discrete": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorLocation": {
+    "name": "hpnsaEnvFanSensorLocation",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "processor": 3,
+          "disk": 4,
+          "peripheral-bay": 5,
+          "system-management-module": 6,
+          "motherboard": 7,
+          "memory-module": 8,
+          "processor-module": 9,
+          "power-unit": 10,
+          "add-in-card": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorDescription": {
+    "name": "hpnsaEnvFanSensorDescription",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fan-sensor-other": 1,
+          "fan-sensor-unknown": 2,
+          "fan-sensor-cpu-board": 3,
+          "fan-sensor-chassis": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorStatus": {
+    "name": "hpnsaEnvFanSensorStatus",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "ok": 3,
+          "non-critical": 4,
+          "critical": 5,
+          "non-recoverable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorReading": {
+    "name": "hpnsaEnvFanSensorReading",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorNominalReading": {
+    "name": "hpnsaEnvFanSensorNominalReading",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorNormalMaximum": {
+    "name": "hpnsaEnvFanSensorNormalMaximum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorNormalMinimum": {
+    "name": "hpnsaEnvFanSensorNormalMinimum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorMaximum": {
+    "name": "hpnsaEnvFanSensorMaximum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorMinimum": {
+    "name": "hpnsaEnvFanSensorMinimum",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorLowerNonCriticalThreshold": {
+    "name": "hpnsaEnvFanSensorLowerNonCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorUpperNonCriticalThreshold": {
+    "name": "hpnsaEnvFanSensorUpperNonCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorLowerCriticalThreshold": {
+    "name": "hpnsaEnvFanSensorLowerCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorUpperCriticalThreshold": {
+    "name": "hpnsaEnvFanSensorUpperCriticalThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorLowerNonRecoverableThreshold": {
+    "name": "hpnsaEnvFanSensorLowerNonRecoverableThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorUpperNonRecoverableThreshold": {
+    "name": "hpnsaEnvFanSensorUpperNonRecoverableThreshold",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorResolution": {
+    "name": "hpnsaEnvFanSensorResolution",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorTolerance": {
+    "name": "hpnsaEnvFanSensorTolerance",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorAccuracy": {
+    "name": "hpnsaEnvFanSensorAccuracy",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorPositiveHysterisis": {
+    "name": "hpnsaEnvFanSensorPositiveHysterisis",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvFanSensorNegativeHysterisis": {
+    "name": "hpnsaEnvFanSensorNegativeHysterisis",
+    "oid": "1.3.6.1.4.1.11.2.23.26.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEnvChassisStatus": {
+    "name": "hpnsaEnvChassisStatus",
+    "oid": "1.3.6.1.4.1.11.2.23.26.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chassis-open": 1,
+          "chassis-closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPNSAENV-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPNSAENV-MIB"
+  }
+}

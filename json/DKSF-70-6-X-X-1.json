@@ -1,0 +1,2215 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "snmpTraps"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "uniPingServerSolutionV3": {
+    "name": "uniPingServerSolutionV3",
+    "oid": "1.3.6.1.4.1.25728.70",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-08-24 00:00",
+        "description": "npThermoValuePrecise added npGsmSendSms renamed to npGsmSendSmsUtf8 npGsmSendWin1251 added"
+      },
+      {
+        "revision": "2015-07-14 00:00",
+        "description": "npSmoke branch added, npRelHum branch extended"
+      },
+      {
+        "revision": "2015-05-29 00:00",
+        "description": "npIoTrapLevelLegend added, npIrStatus values redefined"
+      },
+      {
+        "revision": "2014-12-03 00:00",
+        "description": "npRelayMode, npIoLevelOut values changed"
+      },
+      {
+        "revision": "2014-11-26 00:00",
+        "description": "npRelayN, npRelayMode, npIoLineN, npRelHumSensorStatusH, npRelHumSensorStatus values changed"
+      },
+      {
+        "revision": "2014-02-02 00:00",
+        "description": "npRelayMode valid values changed, (3) excluded "
+      },
+      {
+        "revision": "2014-01-29 00:00",
+        "description": "npCurLoop, npRelHumidity, npIr branches has added"
+      },
+      {
+        "revision": "2014-01-21 00:00",
+        "description": "partial rewrite for DKSF 70"
+      },
+      {
+        "revision": "2013-04-11 00:00",
+        "description": "partial rewrite for DKSF 48"
+      },
+      {
+        "revision": "2012-05-31 00:00",
+        "description": "npPwrRelayState branch was added"
+      },
+      {
+        "revision": "2012-04-17 00:00",
+        "description": "npReboot branch was added"
+      },
+      {
+        "revision": "2012-03-23 00:00",
+        "description": "Minor changes to IR module for IRC-TRv2"
+      },
+      {
+        "revision": "2011-09-23 00:00",
+        "description": "4 IO lines, Identification is changed from DKSF 52.4 to DKSF 52.5"
+      },
+      {
+        "revision": "2011-03-24 00:00",
+        "description": "npIoPulseCounter, npIoSinglePulseDuration, npIoSinglePulseStart is added Identification is changed from DKSF 52.3 to DKSF 52.4"
+      },
+      {
+        "revision": "2010-10-14 00:00",
+        "description": "IR module support"
+      },
+      {
+        "revision": "2010-09-20 00:00",
+        "description": "dksf 52.3 subversion"
+      },
+      {
+        "revision": "2010-05-31 00:00",
+        "description": "dksf 51.3 subversion"
+      },
+      {
+        "revision": "2010-04-14 00:00",
+        "description": "SMIv2-style rewrite"
+      }
+    ]
+  },
+  "lightcom": {
+    "name": "lightcom",
+    "oid": "1.3.6.1.4.1.25728",
+    "class": "objectidentity"
+  },
+  "FixedPoint1000": {
+    "name": "FixedPoint1000",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "npTrapInfo": {
+    "name": "npTrapInfo",
+    "oid": "1.3.6.1.4.1.25728.90",
+    "class": "objectidentity"
+  },
+  "npTrapEmailTo": {
+    "name": "npTrapEmailTo",
+    "oid": "1.3.6.1.4.1.25728.90.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelay": {
+    "name": "npRelay",
+    "oid": "1.3.6.1.4.1.25728.5500",
+    "class": "objectidentity"
+  },
+  "npRelayTable": {
+    "name": "npRelayTable",
+    "oid": "1.3.6.1.4.1.25728.5500.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "npRelayEntry": {
+    "name": "npRelayEntry",
+    "oid": "1.3.6.1.4.1.25728.5500.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelayN",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "npRelayN": {
+    "name": "npRelayN",
+    "oid": "1.3.6.1.4.1.25728.5500.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelayMode": {
+    "name": "npRelayMode",
+    "oid": "1.3.6.1.4.1.25728.5500.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flip": -1,
+          "off": 0,
+          "on": 1,
+          "watchdog": 2,
+          "schedule": 3,
+          "scheduleAndWatchdog": 4,
+          "logic": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npRelayStartReset": {
+    "name": "npRelayStartReset",
+    "oid": "1.3.6.1.4.1.25728.5500.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npRelayMemo": {
+    "name": "npRelayMemo",
+    "oid": "1.3.6.1.4.1.25728.5500.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelayState": {
+    "name": "npRelayState",
+    "oid": "1.3.6.1.4.1.25728.5500.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermo": {
+    "name": "npThermo",
+    "oid": "1.3.6.1.4.1.25728.8800",
+    "class": "objectidentity"
+  },
+  "npThermoTable": {
+    "name": "npThermoTable",
+    "oid": "1.3.6.1.4.1.25728.8800.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "npThermoEntry": {
+    "name": "npThermoEntry",
+    "oid": "1.3.6.1.4.1.25728.8800.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npThermoSensorN",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "npThermoSensorN": {
+    "name": "npThermoSensorN",
+    "oid": "1.3.6.1.4.1.25728.8800.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoValue": {
+    "name": "npThermoValue",
+    "oid": "1.3.6.1.4.1.25728.8800.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 280
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoStatus": {
+    "name": "npThermoStatus",
+    "oid": "1.3.6.1.4.1.25728.8800.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "low": 1,
+          "norm": 2,
+          "high": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoLow": {
+    "name": "npThermoLow",
+    "oid": "1.3.6.1.4.1.25728.8800.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 280
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoHigh": {
+    "name": "npThermoHigh",
+    "oid": "1.3.6.1.4.1.25728.8800.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 280
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoMemo": {
+    "name": "npThermoMemo",
+    "oid": "1.3.6.1.4.1.25728.8800.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoValuePrecise": {
+    "name": "npThermoValuePrecise",
+    "oid": "1.3.6.1.4.1.25728.8800.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FixedPoint1000",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoTraps": {
+    "name": "npThermoTraps",
+    "oid": "1.3.6.1.4.1.25728.8800.2",
+    "class": "objectidentity"
+  },
+  "npThermoTrapPrefix": {
+    "name": "npThermoTrapPrefix",
+    "oid": "1.3.6.1.4.1.25728.8800.2.0",
+    "class": "objectidentity"
+  },
+  "npThermoTrapSensorN": {
+    "name": "npThermoTrapSensorN",
+    "oid": "1.3.6.1.4.1.25728.8800.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoTrapValue": {
+    "name": "npThermoTrapValue",
+    "oid": "1.3.6.1.4.1.25728.8800.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 280
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoTrapStatus": {
+    "name": "npThermoTrapStatus",
+    "oid": "1.3.6.1.4.1.25728.8800.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 0,
+          "low": 1,
+          "norm": 2,
+          "high": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoTrapLow": {
+    "name": "npThermoTrapLow",
+    "oid": "1.3.6.1.4.1.25728.8800.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 280
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoTrapHigh": {
+    "name": "npThermoTrapHigh",
+    "oid": "1.3.6.1.4.1.25728.8800.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 280
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoTrapMemo": {
+    "name": "npThermoTrapMemo",
+    "oid": "1.3.6.1.4.1.25728.8800.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npThermoTrap": {
+    "name": "npThermoTrap",
+    "oid": "1.3.6.1.4.1.25728.8800.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npThermoTrapSensorN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npThermoTrapValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npThermoTrapStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npThermoTrapLow"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npThermoTrapHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npThermoTrapMemo"
+      }
+    ],
+    "status": "current"
+  },
+  "npIo": {
+    "name": "npIo",
+    "oid": "1.3.6.1.4.1.25728.8900",
+    "class": "objectidentity"
+  },
+  "npIoTable": {
+    "name": "npIoTable",
+    "oid": "1.3.6.1.4.1.25728.8900.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "npIoEntry": {
+    "name": "npIoEntry",
+    "oid": "1.3.6.1.4.1.25728.8900.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npIoLineN",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "npIoLineN": {
+    "name": "npIoLineN",
+    "oid": "1.3.6.1.4.1.25728.8900.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npIoLevelIn": {
+    "name": "npIoLevelIn",
+    "oid": "1.3.6.1.4.1.25728.8900.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npIoLevelOut": {
+    "name": "npIoLevelOut",
+    "oid": "1.3.6.1.4.1.25728.8900.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flip": -1,
+          "low": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npIoMemo": {
+    "name": "npIoMemo",
+    "oid": "1.3.6.1.4.1.25728.8900.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npIoPulseCounter": {
+    "name": "npIoPulseCounter",
+    "oid": "1.3.6.1.4.1.25728.8900.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npIoSinglePulseDuration": {
+    "name": "npIoSinglePulseDuration",
+    "oid": "1.3.6.1.4.1.25728.8900.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 25500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npIoSinglePulseStart": {
+    "name": "npIoSinglePulseStart",
+    "oid": "1.3.6.1.4.1.25728.8900.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npIoTraps": {
+    "name": "npIoTraps",
+    "oid": "1.3.6.1.4.1.25728.8900.2",
+    "class": "objectidentity"
+  },
+  "npIoTrapPrefix": {
+    "name": "npIoTrapPrefix",
+    "oid": "1.3.6.1.4.1.25728.8900.2.0",
+    "class": "objectidentity"
+  },
+  "npIoTrapLineN": {
+    "name": "npIoTrapLineN",
+    "oid": "1.3.6.1.4.1.25728.8900.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npIoTrapLevelIn": {
+    "name": "npIoTrapLevelIn",
+    "oid": "1.3.6.1.4.1.25728.8900.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npIoTrapMemo": {
+    "name": "npIoTrapMemo",
+    "oid": "1.3.6.1.4.1.25728.8900.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npIoTrapLevelLegend": {
+    "name": "npIoTrapLevelLegend",
+    "oid": "1.3.6.1.4.1.25728.8900.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npIoTrap": {
+    "name": "npIoTrap",
+    "oid": "1.3.6.1.4.1.25728.8900.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npIoTrapLineN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npIoTrapLevelIn"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npIoTrapMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npIoTrapLevelLegend"
+      }
+    ],
+    "status": "current"
+  },
+  "npCurLoop": {
+    "name": "npCurLoop",
+    "oid": "1.3.6.1.4.1.25728.8300",
+    "class": "objectidentity"
+  },
+  "npCurLoopTable": {
+    "name": "npCurLoopTable",
+    "oid": "1.3.6.1.4.1.25728.8300.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "npCurLoopEntry": {
+    "name": "npCurLoopEntry",
+    "oid": "1.3.6.1.4.1.25728.8300.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npCurLoopN",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "npCurLoopN": {
+    "name": "npCurLoopN",
+    "oid": "1.3.6.1.4.1.25728.8300.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopStatus": {
+    "name": "npCurLoopStatus",
+    "oid": "1.3.6.1.4.1.25728.8300.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alert": 1,
+          "cut": 2,
+          "short": 3,
+          "notPowered": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopI": {
+    "name": "npCurLoopI",
+    "oid": "1.3.6.1.4.1.25728.8300.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopV": {
+    "name": "npCurLoopV",
+    "oid": "1.3.6.1.4.1.25728.8300.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopR": {
+    "name": "npCurLoopR",
+    "oid": "1.3.6.1.4.1.25728.8300.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopPower": {
+    "name": "npCurLoopPower",
+    "oid": "1.3.6.1.4.1.25728.8300.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "cyclePower": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npCurLoopTraps": {
+    "name": "npCurLoopTraps",
+    "oid": "1.3.6.1.4.1.25728.8300.2",
+    "class": "objectidentity"
+  },
+  "npCurLoopTrapPrefix": {
+    "name": "npCurLoopTrapPrefix",
+    "oid": "1.3.6.1.4.1.25728.8300.2.0",
+    "class": "objectidentity"
+  },
+  "npCurLoopTrapN": {
+    "name": "npCurLoopTrapN",
+    "oid": "1.3.6.1.4.1.25728.8300.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopTrapStatus": {
+    "name": "npCurLoopTrapStatus",
+    "oid": "1.3.6.1.4.1.25728.8300.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alert": 1,
+          "cut": 2,
+          "short": 3,
+          "notPowered": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopTrapI": {
+    "name": "npCurLoopTrapI",
+    "oid": "1.3.6.1.4.1.25728.8300.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopTrapV": {
+    "name": "npCurLoopTrapV",
+    "oid": "1.3.6.1.4.1.25728.8300.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopTrapR": {
+    "name": "npCurLoopTrapR",
+    "oid": "1.3.6.1.4.1.25728.8300.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npCurLoopTrapPower": {
+    "name": "npCurLoopTrapPower",
+    "oid": "1.3.6.1.4.1.25728.8300.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npCurLoopTrap": {
+    "name": "npCurLoopTrap",
+    "oid": "1.3.6.1.4.1.25728.8300.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npCurLoopTrapN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npCurLoopTrapStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npCurLoopTrapI"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npCurLoopTrapV"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npCurLoopTrapR"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npCurLoopTrapPower"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npTrapEmailTo"
+      }
+    ],
+    "status": "current"
+  },
+  "npSmoke": {
+    "name": "npSmoke",
+    "oid": "1.3.6.1.4.1.25728.8200",
+    "class": "objectidentity"
+  },
+  "npSmokeTable": {
+    "name": "npSmokeTable",
+    "oid": "1.3.6.1.4.1.25728.8200.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "npSmokeEntry": {
+    "name": "npSmokeEntry",
+    "oid": "1.3.6.1.4.1.25728.8200.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npSmokeSensorN",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "npSmokeSensorN": {
+    "name": "npSmokeSensorN",
+    "oid": "1.3.6.1.4.1.25728.8200.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npSmokeStatus": {
+    "name": "npSmokeStatus",
+    "oid": "1.3.6.1.4.1.25728.8200.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1,
+          "off": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npSmokePower": {
+    "name": "npSmokePower",
+    "oid": "1.3.6.1.4.1.25728.8200.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npSmokeReset": {
+    "name": "npSmokeReset",
+    "oid": "1.3.6.1.4.1.25728.8200.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npSmokeMemo": {
+    "name": "npSmokeMemo",
+    "oid": "1.3.6.1.4.1.25728.8200.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npSmokeTraps": {
+    "name": "npSmokeTraps",
+    "oid": "1.3.6.1.4.1.25728.8200.2",
+    "class": "objectidentity"
+  },
+  "npSmokeTrapPrefix": {
+    "name": "npSmokeTrapPrefix",
+    "oid": "1.3.6.1.4.1.25728.8200.2.0",
+    "class": "objectidentity"
+  },
+  "npSmokeTrapSensorN": {
+    "name": "npSmokeTrapSensorN",
+    "oid": "1.3.6.1.4.1.25728.8200.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npSmokeTrapStatus": {
+    "name": "npSmokeTrapStatus",
+    "oid": "1.3.6.1.4.1.25728.8200.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1,
+          "off": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npSmokeTrapMemo": {
+    "name": "npSmokeTrapMemo",
+    "oid": "1.3.6.1.4.1.25728.8200.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npSmokeTrap": {
+    "name": "npSmokeTrap",
+    "oid": "1.3.6.1.4.1.25728.8200.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npSmokeTrapSensorN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npSmokeTrapStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npSmokeTrapMemo"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumidity": {
+    "name": "npRelHumidity",
+    "oid": "1.3.6.1.4.1.25728.8400",
+    "class": "objectidentity"
+  },
+  "npRelHumTable": {
+    "name": "npRelHumTable",
+    "oid": "1.3.6.1.4.1.25728.8400.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "npRelHumEntry": {
+    "name": "npRelHumEntry",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumN",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumN": {
+    "name": "npRelHumN",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumValue": {
+    "name": "npRelHumValue",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumStatus": {
+    "name": "npRelHumStatus",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sensorFailed": 0,
+          "belowSafeRange": 1,
+          "inSafeRange": 2,
+          "aboveSafeRange": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTempValue": {
+    "name": "npRelHumTempValue",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTempStatus": {
+    "name": "npRelHumTempStatus",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sensorFailed": 0,
+          "belowSafeRange": 1,
+          "inSafeRange": 2,
+          "aboveSafeRange": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumMemo": {
+    "name": "npRelHumMemo",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumSafeRangeHigh": {
+    "name": "npRelHumSafeRangeHigh",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumSafeRangeLow": {
+    "name": "npRelHumSafeRangeLow",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTempSafeRangeHigh": {
+    "name": "npRelHumTempSafeRangeHigh",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -55,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTempSafeRangeLow": {
+    "name": "npRelHumTempSafeRangeLow",
+    "oid": "1.3.6.1.4.1.25728.8400.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -55,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTrapData": {
+    "name": "npRelHumTrapData",
+    "oid": "1.3.6.1.4.1.25728.8400.3",
+    "class": "objectidentity"
+  },
+  "npRelHumTrapDataN": {
+    "name": "npRelHumTrapDataN",
+    "oid": "1.3.6.1.4.1.25728.8400.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTrapDataValue": {
+    "name": "npRelHumTrapDataValue",
+    "oid": "1.3.6.1.4.1.25728.8400.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTrapDataStatus": {
+    "name": "npRelHumTrapDataStatus",
+    "oid": "1.3.6.1.4.1.25728.8400.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sensorFailed": 0,
+          "belowSafeRange": 1,
+          "inSafeRange": 2,
+          "aboveSafeRange": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTrapDataMemo": {
+    "name": "npRelHumTrapDataMemo",
+    "oid": "1.3.6.1.4.1.25728.8400.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTrapDataSafeRangeHigh": {
+    "name": "npRelHumTrapDataSafeRangeHigh",
+    "oid": "1.3.6.1.4.1.25728.8400.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTrapDataSafeRangeLow": {
+    "name": "npRelHumTrapDataSafeRangeLow",
+    "oid": "1.3.6.1.4.1.25728.8400.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npRelHumTrap": {
+    "name": "npRelHumTrap",
+    "oid": "1.3.6.1.4.1.25728.8400.6",
+    "class": "objectidentity"
+  },
+  "npRelHumTrapAllEvents": {
+    "name": "npRelHumTrapAllEvents",
+    "oid": "1.3.6.1.4.1.25728.8400.6.127",
+    "class": "objectidentity"
+  },
+  "npRelHumTrapTemp": {
+    "name": "npRelHumTrapTemp",
+    "oid": "1.3.6.1.4.1.25728.8400.7",
+    "class": "objectidentity"
+  },
+  "npRelHumTrapTempAllEvents": {
+    "name": "npRelHumTrapTempAllEvents",
+    "oid": "1.3.6.1.4.1.25728.8400.7.127",
+    "class": "objectidentity"
+  },
+  "npRelHumTrapAllChannels": {
+    "name": "npRelHumTrapAllChannels",
+    "oid": "1.3.6.1.4.1.25728.8400.6.127.99",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapAboveSafe": {
+    "name": "npRelHumTrapAboveSafe",
+    "oid": "1.3.6.1.4.1.25728.8400.6.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapSafe": {
+    "name": "npRelHumTrapSafe",
+    "oid": "1.3.6.1.4.1.25728.8400.6.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapBelowSafe": {
+    "name": "npRelHumTrapBelowSafe",
+    "oid": "1.3.6.1.4.1.25728.8400.6.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapFail": {
+    "name": "npRelHumTrapFail",
+    "oid": "1.3.6.1.4.1.25728.8400.6.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapTempAllChannels": {
+    "name": "npRelHumTrapTempAllChannels",
+    "oid": "1.3.6.1.4.1.25728.8400.7.127.99",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapTempAboveSafe": {
+    "name": "npRelHumTrapTempAboveSafe",
+    "oid": "1.3.6.1.4.1.25728.8400.7.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapTempSafe": {
+    "name": "npRelHumTrapTempSafe",
+    "oid": "1.3.6.1.4.1.25728.8400.7.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapTempBelowSafe": {
+    "name": "npRelHumTrapTempBelowSafe",
+    "oid": "1.3.6.1.4.1.25728.8400.7.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npRelHumTrapTempFail": {
+    "name": "npRelHumTrapTempFail",
+    "oid": "1.3.6.1.4.1.25728.8400.7.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataN"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataStatus"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataValue"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataMemo"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeHigh"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npRelHumTrapDataSafeRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "npGsm": {
+    "name": "npGsm",
+    "oid": "1.3.6.1.4.1.25728.3800",
+    "class": "objectidentity"
+  },
+  "npGsmInfo": {
+    "name": "npGsmInfo",
+    "oid": "1.3.6.1.4.1.25728.3800.1",
+    "class": "objectidentity"
+  },
+  "npGsmFailed": {
+    "name": "npGsmFailed",
+    "oid": "1.3.6.1.4.1.25728.3800.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "failed": 1,
+          "fatalError": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npGsmRegistration": {
+    "name": "npGsmRegistration",
+    "oid": "1.3.6.1.4.1.25728.3800.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "impossible": 0,
+          "homeNetwork": 1,
+          "searching": 2,
+          "denied": 3,
+          "unknown": 4,
+          "roaming": 5,
+          "infoUpdate": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npGsmStrength": {
+    "name": "npGsmStrength",
+    "oid": "1.3.6.1.4.1.25728.3800.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npGsmSendSmsUtf8": {
+    "name": "npGsmSendSmsUtf8",
+    "oid": "1.3.6.1.4.1.25728.3800.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npGsmSendSmsWin1251": {
+    "name": "npGsmSendSmsWin1251",
+    "oid": "1.3.6.1.4.1.25728.3800.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npGsmTraps": {
+    "name": "npGsmTraps",
+    "oid": "1.3.6.1.4.1.25728.3800.2",
+    "class": "objectidentity"
+  },
+  "npGsmTrapPrefix": {
+    "name": "npGsmTrapPrefix",
+    "oid": "1.3.6.1.4.1.25728.3800.2.0",
+    "class": "objectidentity"
+  },
+  "npGsmTrap": {
+    "name": "npGsmTrap",
+    "oid": "1.3.6.1.4.1.25728.3800.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npGsmFailed"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npGsmRegistration"
+      },
+      {
+        "module": "DKSF-70-6-X-X-1",
+        "object": "npGsmStrength"
+      }
+    ],
+    "status": "current"
+  },
+  "npIr": {
+    "name": "npIr",
+    "oid": "1.3.6.1.4.1.25728.7900",
+    "class": "objectidentity"
+  },
+  "npIrCtrl": {
+    "name": "npIrCtrl",
+    "oid": "1.3.6.1.4.1.25728.7900.1",
+    "class": "objectidentity"
+  },
+  "npIrPlayCmd": {
+    "name": "npIrPlayCmd",
+    "oid": "1.3.6.1.4.1.25728.7900.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npIrReset": {
+    "name": "npIrReset",
+    "oid": "1.3.6.1.4.1.25728.7900.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npIrStatus": {
+    "name": "npIrStatus",
+    "oid": "1.3.6.1.4.1.25728.7900.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commandCompleted": 0,
+          "protocolError": 1,
+          "commandAccepted": 2,
+          "errorUnknown": 16,
+          "errorBadNumber": 17,
+          "errorEmptyRecord": 18,
+          "errorFlashChip": 19,
+          "errorTimeout": 20,
+          "errorExtBusBusy": 21
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "npReboot": {
+    "name": "npReboot",
+    "oid": "1.3.6.1.4.1.25728.911",
+    "class": "objectidentity"
+  },
+  "npSoftReboot": {
+    "name": "npSoftReboot",
+    "oid": "1.3.6.1.4.1.25728.911.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npResetStack": {
+    "name": "npResetStack",
+    "oid": "1.3.6.1.4.1.25728.911.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "npForcedReboot": {
+    "name": "npForcedReboot",
+    "oid": "1.3.6.1.4.1.25728.911.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netping/DKSF-70-6-X-X-1",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DKSF-70-6-X-X-1"
+  }
+}

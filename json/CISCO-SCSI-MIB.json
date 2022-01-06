@@ -1,0 +1,2843 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "AutonomousType",
+      "RowPointer",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoScsiMIB": {
+    "name": "ciscoScsiMIB",
+    "oid": "1.3.6.1.4.1.9.10.95",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-12-31 00:00",
+        "description": "Changed the SYNTAX of TruthValue object in the module compliance section so that it compiles with all MIB compilers."
+      },
+      {
+        "revision": "2002-11-08 00:00",
+        "description": "Changed the SYNTAX of RowStatus objects in the module compliance section so that it compiles with all MIB compilers."
+      },
+      {
+        "revision": "2002-10-05 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoScsiObjects": {
+    "name": "ciscoScsiObjects",
+    "oid": "1.3.6.1.4.1.9.10.95.1",
+    "class": "objectidentity"
+  },
+  "ciscoScsiNotification": {
+    "name": "ciscoScsiNotification",
+    "oid": "1.3.6.1.4.1.9.10.95.2",
+    "class": "objectidentity"
+  },
+  "ciscoScsiConformance": {
+    "name": "ciscoScsiConformance",
+    "oid": "1.3.6.1.4.1.9.10.95.3",
+    "class": "objectidentity"
+  },
+  "ciscoScsiTransportTypes": {
+    "name": "ciscoScsiTransportTypes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoScsiGeneral": {
+    "name": "ciscoScsiGeneral",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoScsiInitiator": {
+    "name": "ciscoScsiInitiator",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoScsiRemoteTarget": {
+    "name": "ciscoScsiRemoteTarget",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4",
+    "class": "objectidentity"
+  },
+  "ciscoScsiTarget": {
+    "name": "ciscoScsiTarget",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoScsiRemoteInitiators": {
+    "name": "ciscoScsiRemoteInitiators",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3",
+    "class": "objectidentity"
+  },
+  "ciscoScsiLogicalUnit": {
+    "name": "ciscoScsiLogicalUnit",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoScsiTranportOther": {
+    "name": "ciscoScsiTranportOther",
+    "oid": "1.3.6.1.4.1.9.10.95.1.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoScsiTranportSPI": {
+    "name": "ciscoScsiTranportSPI",
+    "oid": "1.3.6.1.4.1.9.10.95.1.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoScsiTransportFCP": {
+    "name": "ciscoScsiTransportFCP",
+    "oid": "1.3.6.1.4.1.9.10.95.1.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoScsiTransportSRP": {
+    "name": "ciscoScsiTransportSRP",
+    "oid": "1.3.6.1.4.1.9.10.95.1.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoScsiTransportISCSI": {
+    "name": "ciscoScsiTransportISCSI",
+    "oid": "1.3.6.1.4.1.9.10.95.1.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoScsiTransportSBP": {
+    "name": "ciscoScsiTransportSBP",
+    "oid": "1.3.6.1.4.1.9.10.95.1.1.6",
+    "class": "objectidentity"
+  },
+  "ciscoScsiNotifications": {
+    "name": "ciscoScsiNotifications",
+    "oid": "1.3.6.1.4.1.9.10.95.2.0",
+    "class": "objectidentity"
+  },
+  "ScsiLUNOrZero": {
+    "name": "ScsiLUNOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIndexValue": {
+    "name": "ScsiIndexValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiPortIndexValueOrZero": {
+    "name": "ScsiPortIndexValueOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIndexValueOrZero": {
+    "name": "ScsiIndexValueOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdentifier": {
+    "name": "ScsiIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 3,
+            "max": 3
+          },
+          {
+            "min": 11,
+            "max": 11
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 256,
+            "max": 256
+          },
+          {
+            "min": 258,
+            "max": 258
+          },
+          {
+            "min": 262,
+            "max": 262
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiName": {
+    "name": "ScsiName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 11,
+            "max": 11
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 256,
+            "max": 256
+          },
+          {
+            "min": 258,
+            "max": 258
+          },
+          {
+            "min": 262,
+            "max": 262
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiNameIdOrZero": {
+    "name": "ScsiNameIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiDeviceOrPort": {
+    "name": "ScsiDeviceOrPort",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "device": 1,
+          "port": 2,
+          "other": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdCodeSet": {
+    "name": "ScsiIdCodeSet",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdAssociation": {
+    "name": "ScsiIdAssociation",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdType": {
+    "name": "ScsiIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ScsiIdValue": {
+    "name": "ScsiIdValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HrSWInstalledIndexOrZero": {
+    "name": "HrSWInstalledIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoScsiInstanceTable": {
+    "name": "ciscoScsiInstanceTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiInstanceEntry": {
+    "name": "ciscoScsiInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiInstIndex": {
+    "name": "ciscoScsiInstIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiInstAlias": {
+    "name": "ciscoScsiInstAlias",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoScsiInstSoftwareIndex": {
+    "name": "ciscoScsiInstSoftwareIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HrSWInstalledIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiInstVendorVersion": {
+    "name": "ciscoScsiInstVendorVersion",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiInstNotifEnable": {
+    "name": "ciscoScsiInstNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoScsiDeviceTable": {
+    "name": "ciscoScsiDeviceTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDeviceEntry": {
+    "name": "ciscoScsiDeviceEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDeviceIndex": {
+    "name": "ciscoScsiDeviceIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDeviceAlias": {
+    "name": "ciscoScsiDeviceAlias",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoScsiDeviceRole": {
+    "name": "ciscoScsiDeviceRole",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "target": 0,
+        "initiator": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDevicePortNumber": {
+    "name": "ciscoScsiDevicePortNumber",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDeviceResets": {
+    "name": "ciscoScsiDeviceResets",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiPortTable": {
+    "name": "ciscoScsiPortTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiPortEntry": {
+    "name": "ciscoScsiPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiPortIndex": {
+    "name": "ciscoScsiPortIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiPortRole": {
+    "name": "ciscoScsiPortRole",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "target": 0,
+        "initiator": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiPortTrnsptPtr": {
+    "name": "ciscoScsiPortTrnsptPtr",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiPortBusyStatuses": {
+    "name": "ciscoScsiPortBusyStatuses",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTrnsptTable": {
+    "name": "ciscoScsiTrnsptTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiTrnsptEntry": {
+    "name": "ciscoScsiTrnsptEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTrnsptIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiTrnsptIndex": {
+    "name": "ciscoScsiTrnsptIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiTrnsptType": {
+    "name": "ciscoScsiTrnsptType",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTrnsptPointer": {
+    "name": "ciscoScsiTrnsptPointer",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTrnsptDevName": {
+    "name": "ciscoScsiTrnsptDevName",
+    "oid": "1.3.6.1.4.1.9.10.95.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiIntrDevTable": {
+    "name": "ciscoScsiIntrDevTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiIntrDevEntry": {
+    "name": "ciscoScsiIntrDevEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiIntrDevAccMode": {
+    "name": "ciscoScsiIntrDevAccMode",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "autoEnable": 2,
+          "manualEnable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoScsiIntrDevOutResets": {
+    "name": "ciscoScsiIntrDevOutResets",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiIntrPrtTable": {
+    "name": "ciscoScsiIntrPrtTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiIntrPrtEntry": {
+    "name": "ciscoScsiIntrPrtEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiIntrPrtName": {
+    "name": "ciscoScsiIntrPrtName",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiIntrPrtIdentifier": {
+    "name": "ciscoScsiIntrPrtIdentifier",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiIntrPrtOutCommands": {
+    "name": "ciscoScsiIntrPrtOutCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiIntrPrtWrMegaBytes": {
+    "name": "ciscoScsiIntrPrtWrMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiIntrPrtReadMegaBytes": {
+    "name": "ciscoScsiIntrPrtReadMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiIntrPrtHSOutCommands": {
+    "name": "ciscoScsiIntrPrtHSOutCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtTable": {
+    "name": "ciscoScsiDscTgtTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtEntry": {
+    "name": "ciscoScsiDscTgtEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtIntrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDscTgtIntrPortIndex": {
+    "name": "ciscoScsiDscTgtIntrPortIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiPortIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtIndex": {
+    "name": "ciscoScsiDscTgtIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtDevOrPort": {
+    "name": "ciscoScsiDscTgtDevOrPort",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiDeviceOrPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtName": {
+    "name": "ciscoScsiDscTgtName",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtConfigured": {
+    "name": "ciscoScsiDscTgtConfigured",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtDiscovered": {
+    "name": "ciscoScsiDscTgtDiscovered",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtInCommands": {
+    "name": "ciscoScsiDscTgtInCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtWrMegaBytes": {
+    "name": "ciscoScsiDscTgtWrMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtReadMegaBytes": {
+    "name": "ciscoScsiDscTgtReadMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtHSInCommands": {
+    "name": "ciscoScsiDscTgtHSInCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtLastCreation": {
+    "name": "ciscoScsiDscTgtLastCreation",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscTgtRowStatus": {
+    "name": "ciscoScsiDscTgtRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiDscLunTable": {
+    "name": "ciscoScsiDscLunTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDscLunEntry": {
+    "name": "ciscoScsiDscLunEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtIntrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscLunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDscLunIndex": {
+    "name": "ciscoScsiDscLunIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDscLunLun": {
+    "name": "ciscoScsiDscLunLun",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscLunIdTable": {
+    "name": "ciscoScsiDscLunIdTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDscLunIdEntry": {
+    "name": "ciscoScsiDscLunIdEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtIntrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscLunIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscLunIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDscLunIdIndex": {
+    "name": "ciscoScsiDscLunIdIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiDscLunIdCodeSet": {
+    "name": "ciscoScsiDscLunIdCodeSet",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdCodeSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscLunIdAssociation": {
+    "name": "ciscoScsiDscLunIdAssociation",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdAssociation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscLunIdType": {
+    "name": "ciscoScsiDscLunIdType",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiDscLunIdValue": {
+    "name": "ciscoScsiDscLunIdValue",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAttTgtPortTable": {
+    "name": "ciscoScsiAttTgtPortTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiAttTgtPortEntry": {
+    "name": "ciscoScsiAttTgtPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAttTgtPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiAttTgtPortIndex": {
+    "name": "ciscoScsiAttTgtPortIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiAttTgtPortDscTgtIdx": {
+    "name": "ciscoScsiAttTgtPortDscTgtIdx",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAttTgtPortName": {
+    "name": "ciscoScsiAttTgtPortName",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAttTgtPortIdentifier": {
+    "name": "ciscoScsiAttTgtPortIdentifier",
+    "oid": "1.3.6.1.4.1.9.10.95.1.3.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtDevTable": {
+    "name": "ciscoScsiTgtDevTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiTgtDevEntry": {
+    "name": "ciscoScsiTgtDevEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiTgtDevNumberOfLUs": {
+    "name": "ciscoScsiTgtDevNumberOfLUs",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtDeviceStatus": {
+    "name": "ciscoScsiTgtDeviceStatus",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "broken": 3,
+          "readying": 4,
+          "abnormal": 5,
+          "nonAddrFailure": 6,
+          "nonAddrFailReadying": 7,
+          "nonAddrFailAbnormal": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtDevNonAccLUs": {
+    "name": "ciscoScsiTgtDevNonAccLUs",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtPortTable": {
+    "name": "ciscoScsiTgtPortTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiTgtPortEntry": {
+    "name": "ciscoScsiTgtPortEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiTgtPortName": {
+    "name": "ciscoScsiTgtPortName",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtPortIdentifier": {
+    "name": "ciscoScsiTgtPortIdentifier",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtPortInCommands": {
+    "name": "ciscoScsiTgtPortInCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtPortWrMegaBytes": {
+    "name": "ciscoScsiTgtPortWrMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtPortReadMegaBytes": {
+    "name": "ciscoScsiTgtPortReadMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiTgtPortHSInCommands": {
+    "name": "ciscoScsiTgtPortHSInCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAuthorizedIntrTable": {
+    "name": "ciscoScsiAuthorizedIntrTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiAuthorizedIntrEntry": {
+    "name": "ciscoScsiAuthorizedIntrEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrTgtPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrTgtPortIndex": {
+    "name": "ciscoScsiAuthIntrTgtPortIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiPortIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrIndex": {
+    "name": "ciscoScsiAuthIntrIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrDevOrPort": {
+    "name": "ciscoScsiAuthIntrDevOrPort",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiDeviceOrPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrName": {
+    "name": "ciscoScsiAuthIntrName",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrLunMapIndex": {
+    "name": "ciscoScsiAuthIntrLunMapIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrAttachedTimes": {
+    "name": "ciscoScsiAuthIntrAttachedTimes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Times",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrOutCommands": {
+    "name": "ciscoScsiAuthIntrOutCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrReadMegaBytes": {
+    "name": "ciscoScsiAuthIntrReadMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrWrMegaBytes": {
+    "name": "ciscoScsiAuthIntrWrMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrHSOutCommands": {
+    "name": "ciscoScsiAuthIntrHSOutCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrLastCreation": {
+    "name": "ciscoScsiAuthIntrLastCreation",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAuthIntrRowStatus": {
+    "name": "ciscoScsiAuthIntrRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiAttIntrPrtTable": {
+    "name": "ciscoScsiAttIntrPrtTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiAttIntrPrtEntry": {
+    "name": "ciscoScsiAttIntrPrtEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAttIntrPrtIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiAttIntrPrtIdx": {
+    "name": "ciscoScsiAttIntrPrtIdx",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiAttIntrPrtAuthIntrIdx": {
+    "name": "ciscoScsiAttIntrPrtAuthIntrIdx",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValueOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAttIntrPrtName": {
+    "name": "ciscoScsiAttIntrPrtName",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiAttIntrPrtId": {
+    "name": "ciscoScsiAttIntrPrtId",
+    "oid": "1.3.6.1.4.1.9.10.95.1.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuTable": {
+    "name": "ciscoScsiLuTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiLuEntry": {
+    "name": "ciscoScsiLuEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiLuIndex": {
+    "name": "ciscoScsiLuIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiLuDefaultLun": {
+    "name": "ciscoScsiLuDefaultLun",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuWwnName": {
+    "name": "ciscoScsiLuWwnName",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuVendorId": {
+    "name": "ciscoScsiLuVendorId",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuProductId": {
+    "name": "ciscoScsiLuProductId",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuRevisionId": {
+    "name": "ciscoScsiLuRevisionId",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuPeripheralType": {
+    "name": "ciscoScsiLuPeripheralType",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuStatus": {
+    "name": "ciscoScsiLuStatus",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "notAvailable": 3,
+          "broken": 4,
+          "readying": 5,
+          "abnormal": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuState": {
+    "name": "ciscoScsiLuState",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dataLost": 0,
+        "dynamicReconfigurationInProgress": 1,
+        "exposed": 2,
+        "fractionallyExposed": 3,
+        "partiallyExposed": 4,
+        "protectedRebuild": 5,
+        "protectionDisabled": 6,
+        "rebuild": 7,
+        "recalculate": 8,
+        "spareInUse": 9,
+        "verifyInProgress": 10
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuInCommands": {
+    "name": "ciscoScsiLuInCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuReadMegaBytes": {
+    "name": "ciscoScsiLuReadMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuWrittenMegaBytes": {
+    "name": "ciscoScsiLuWrittenMegaBytes",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuInResets": {
+    "name": "ciscoScsiLuInResets",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "resets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuOutQueueFullStatus": {
+    "name": "ciscoScsiLuOutQueueFullStatus",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuHSInCommands": {
+    "name": "ciscoScsiLuHSInCommands",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "commands",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuIdTable": {
+    "name": "ciscoScsiLuIdTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiLuIdEntry": {
+    "name": "ciscoScsiLuIdEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiLuIdIndex": {
+    "name": "ciscoScsiLuIdIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiLuIdCodeSet": {
+    "name": "ciscoScsiLuIdCodeSet",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdCodeSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuIdAssociation": {
+    "name": "ciscoScsiLuIdAssociation",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdAssociation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuIdType": {
+    "name": "ciscoScsiLuIdType",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLuIdValue": {
+    "name": "ciscoScsiLuIdValue",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIdValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoScsiLunMapTable": {
+    "name": "ciscoScsiLunMapTable",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiLunMapEntry": {
+    "name": "ciscoScsiLunMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLunMapIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLunMapLun",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiLunMapIndex": {
+    "name": "ciscoScsiLunMapIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiLunMapLun": {
+    "name": "ciscoScsiLunMapLun",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiLUNOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoScsiLunMapLuIndex": {
+    "name": "ciscoScsiLunMapLuIndex",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiLunMapRowStatus": {
+    "name": "ciscoScsiLunMapRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.95.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoScsiTgtDevStatusChanged": {
+    "name": "ciscoScsiTgtDevStatusChanged",
+    "oid": "1.3.6.1.4.1.9.10.95.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtDeviceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiLuStatusChanged": {
+    "name": "ciscoScsiLuStatusChanged",
+    "oid": "1.3.6.1.4.1.9.10.95.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiCompliances": {
+    "name": "ciscoScsiCompliances",
+    "oid": "1.3.6.1.4.1.9.10.95.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoScsiGroups": {
+    "name": "ciscoScsiGroups",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoScsiCompliance": {
+    "name": "ciscoScsiCompliance",
+    "oid": "1.3.6.1.4.1.9.10.95.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoScsiDeviceGroup",
+        "module": "CISCO-SCSI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDeviceGroup": {
+    "name": "ciscoScsiDeviceGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstAlias"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstSoftwareIndex"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstVendorVersion"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiInstNotifEnable"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceAlias"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceRole"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDevicePortNumber"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiPortRole"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiPortTrnsptPtr"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTrnsptType"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTrnsptPointer"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTrnsptDevName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiInitiatorGroup": {
+    "name": "ciscoScsiInitiatorGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiIntrDevAccMode"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiIntrPrtName"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiIntrPrtIdentifier"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAttTgtPortDscTgtIdx"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAttTgtPortName"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAttTgtPortIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDiscoveryGroup": {
+    "name": "ciscoScsiDiscoveryGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtDevOrPort"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtName"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtConfigured"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtDiscovered"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtRowStatus"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtLastCreation"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscLunLun"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscLunIdCodeSet"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscLunIdAssociation"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscLunIdType"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscLunIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiTargetGroup": {
+    "name": "ciscoScsiTargetGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtDevNumberOfLUs"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtDeviceStatus"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtDevNonAccLUs"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtPortName"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtPortIdentifier"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAttIntrPrtAuthIntrIdx"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAttIntrPrtName"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAttIntrPrtId"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuDefaultLun"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuWwnName"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuVendorId"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuProductId"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuRevisionId"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuPeripheralType"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuStatus"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuState"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuIdCodeSet"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuIdAssociation"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuIdType"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiLunMapGroup": {
+    "name": "ciscoScsiLunMapGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLunMapLuIndex"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLunMapRowStatus"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrDevOrPort"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrName"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrLunMapIndex"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrLastCreation"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiTargetStatsGroup": {
+    "name": "ciscoScsiTargetStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtPortInCommands"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtPortWrMegaBytes"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtPortReadMegaBytes"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuInCommands"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuReadMegaBytes"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuWrittenMegaBytes"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuInResets"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuOutQueueFullStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiTargetHSStatsGroup": {
+    "name": "ciscoScsiTargetHSStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtPortHSInCommands"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuHSInCommands"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiLunMapStatsGroup": {
+    "name": "ciscoScsiLunMapStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrAttachedTimes"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrOutCommands"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrReadMegaBytes"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrWrMegaBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiLunMapHSStatsGroup": {
+    "name": "ciscoScsiLunMapHSStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiAuthIntrHSOutCommands"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiInitiatorStatsGroup": {
+    "name": "ciscoScsiInitiatorStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiIntrDevOutResets"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiIntrPrtOutCommands"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiIntrPrtWrMegaBytes"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiIntrPrtReadMegaBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiInitiatorHSStatsGroup": {
+    "name": "ciscoScsiInitiatorHSStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiIntrPrtHSOutCommands"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDiscoveryStatsGroup": {
+    "name": "ciscoScsiDiscoveryStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtInCommands"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtReadMegaBytes"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtWrMegaBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDiscoveryHSStatsGroup": {
+    "name": "ciscoScsiDiscoveryHSStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDscTgtHSInCommands"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiDeviceStatGroup": {
+    "name": "ciscoScsiDeviceStatGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiDeviceResets"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiPortBusyStatuses"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoScsiNotifGroup": {
+    "name": "ciscoScsiNotifGroup",
+    "oid": "1.3.6.1.4.1.9.10.95.3.2.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiTgtDevStatusChanged"
+      },
+      {
+        "module": "CISCO-SCSI-MIB",
+        "object": "ciscoScsiLuStatusChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SCSI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SCSI-MIB"
+  }
+}

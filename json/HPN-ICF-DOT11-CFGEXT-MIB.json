@@ -1,0 +1,253 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-DOT11-REF-MIB": [
+      "hpnicfDot11"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDot11CFGEXT": {
+    "name": "hpnicfDot11CFGEXT",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-02 14:00",
+        "description": "Modified to add new nodes."
+      },
+      {
+        "revision": "2007-04-25 20:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfDot11LoadBalance": {
+    "name": "hpnicfDot11LoadBalance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11LBGlobalGroup": {
+    "name": "hpnicfDot11LBGlobalGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11LoadBalanceTrafficEnable": {
+    "name": "hpnicfDot11LoadBalanceTrafficEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11LoadBalanceTrafficThres": {
+    "name": "hpnicfDot11LoadBalanceTrafficThres",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11LoadBalanceSessionEnable": {
+    "name": "hpnicfDot11LoadBalanceSessionEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11LoadBalanceSessionThres": {
+    "name": "hpnicfDot11LoadBalanceSessionThres",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11LoadBalanceTrafficGap": {
+    "name": "hpnicfDot11LoadBalanceTrafficGap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11LoadBalanceSessionGap": {
+    "name": "hpnicfDot11LoadBalanceSessionGap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11LBTrafficThresKbps": {
+    "name": "hpnicfDot11LBTrafficThresKbps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11LBTrafficGapKbps": {
+    "name": "hpnicfDot11LBTrafficGapKbps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11LBRadioGroupTable": {
+    "name": "hpnicfDot11LBRadioGroupTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11LBRadioGroupEntry": {
+    "name": "hpnicfDot11LBRadioGroupEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-CFGEXT-MIB",
+        "object": "hpnicfDot11LBRadioGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11LBRadioGroupId": {
+    "name": "hpnicfDot11LBRadioGroupId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11LBRadioGroupDesc": {
+    "name": "hpnicfDot11LBRadioGroupDesc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11LBRadioGroupRowStatus": {
+    "name": "hpnicfDot11LBRadioGroupRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-CFGEXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DOT11-CFGEXT-MIB"
+  }
+}

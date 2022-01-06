@@ -1,0 +1,219 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "raisecom": {
+    "name": "raisecom",
+    "oid": "1.3.6.1.4.1.8886",
+    "class": "objectidentity"
+  },
+  "raisecomAgent": {
+    "name": "raisecomAgent",
+    "oid": "1.3.6.1.4.1.8886.1",
+    "class": "objectidentity"
+  },
+  "rc002": {
+    "name": "rc002",
+    "oid": "1.3.6.1.4.1.8886.2",
+    "class": "objectidentity"
+  },
+  "rc003": {
+    "name": "rc003",
+    "oid": "1.3.6.1.4.1.8886.3",
+    "class": "objectidentity"
+  },
+  "rc004": {
+    "name": "rc004",
+    "oid": "1.3.6.1.4.1.8886.4",
+    "class": "objectidentity"
+  },
+  "rc701FE": {
+    "name": "rc701FE",
+    "oid": "1.3.6.1.4.1.8886.5",
+    "class": "objectidentity"
+  },
+  "iscomSeries": {
+    "name": "iscomSeries",
+    "oid": "1.3.6.1.4.1.8886.6",
+    "class": "objectidentity"
+  },
+  "opcomSeries": {
+    "name": "opcomSeries",
+    "oid": "1.3.6.1.4.1.8886.7",
+    "class": "objectidentity"
+  },
+  "raisecomManager": {
+    "name": "raisecomManager",
+    "oid": "1.3.6.1.4.1.8886.8",
+    "class": "objectidentity"
+  },
+  "pcAgent": {
+    "name": "pcAgent",
+    "oid": "1.3.6.1.4.1.8886.9",
+    "class": "objectidentity"
+  },
+  "pccomSeries": {
+    "name": "pccomSeries",
+    "oid": "1.3.6.1.4.1.8886.10",
+    "class": "objectidentity"
+  },
+  "oemSeries": {
+    "name": "oemSeries",
+    "oid": "1.3.6.1.4.1.8886.11",
+    "class": "objectidentity"
+  },
+  "rcSeries": {
+    "name": "rcSeries",
+    "oid": "1.3.6.1.4.1.8886.12",
+    "class": "objectidentity"
+  },
+  "raisecomOptSysCommon": {
+    "name": "raisecomOptSysCommon",
+    "oid": "1.3.6.1.4.1.8886.15",
+    "class": "objectidentity"
+  },
+  "rosliteSeries": {
+    "name": "rosliteSeries",
+    "oid": "1.3.6.1.4.1.8886.16",
+    "class": "objectidentity"
+  },
+  "draft": {
+    "name": "draft",
+    "oid": "1.3.6.1.4.1.8886.17",
+    "class": "objectidentity"
+  },
+  "ponSeries": {
+    "name": "ponSeries",
+    "oid": "1.3.6.1.4.1.8886.18",
+    "class": "objectidentity"
+  },
+  "tdmopSeries": {
+    "name": "tdmopSeries",
+    "oid": "1.3.6.1.4.1.8886.19",
+    "class": "objectidentity"
+  },
+  "dlcomSeries": {
+    "name": "dlcomSeries",
+    "oid": "1.3.6.1.4.1.8886.20",
+    "class": "objectidentity"
+  },
+  "raisecomTerminalMgmt": {
+    "name": "raisecomTerminalMgmt",
+    "oid": "1.3.6.1.4.1.8886.21",
+    "class": "objectidentity"
+  },
+  "msgSeries": {
+    "name": "msgSeries",
+    "oid": "1.3.6.1.4.1.8886.22",
+    "class": "objectidentity"
+  },
+  "iTNSeries": {
+    "name": "iTNSeries",
+    "oid": "1.3.6.1.4.1.8886.23",
+    "class": "objectidentity"
+  },
+  "gazelleSwitchSeries": {
+    "name": "gazelleSwitchSeries",
+    "oid": "1.3.6.1.4.1.8886.26",
+    "class": "objectidentity"
+  },
+  "gazelleTransmitSeries": {
+    "name": "gazelleTransmitSeries",
+    "oid": "1.3.6.1.4.1.8886.27",
+    "class": "objectidentity"
+  },
+  "gazelleRouterSeries": {
+    "name": "gazelleRouterSeries",
+    "oid": "1.3.6.1.4.1.8886.28",
+    "class": "objectidentity"
+  },
+  "shenlanxuntongSeries": {
+    "name": "shenlanxuntongSeries",
+    "oid": "1.3.6.1.4.1.8886.29",
+    "class": "objectidentity"
+  },
+  "sltSeries": {
+    "name": "sltSeries",
+    "oid": "1.3.6.1.4.1.8886.29.1",
+    "class": "objectidentity"
+  },
+  "OTNSeries": {
+    "name": "OTNSeries",
+    "oid": "1.3.6.1.4.1.8886.30",
+    "class": "objectidentity"
+  },
+  "rosMgmt": {
+    "name": "rosMgmt",
+    "oid": "1.3.6.1.4.1.8886.60",
+    "class": "objectidentity"
+  },
+  "iscomSwitch": {
+    "name": "iscomSwitch",
+    "oid": "1.3.6.1.4.1.8886.6.1",
+    "class": "objectidentity"
+  },
+  "iscomPM": {
+    "name": "iscomPM",
+    "oid": "1.3.6.1.4.1.8886.8.1",
+    "class": "objectidentity"
+  },
+  "optSysMgmt": {
+    "name": "optSysMgmt",
+    "oid": "1.3.6.1.4.1.8886.15.1",
+    "class": "objectidentity"
+  },
+  "optSysModules": {
+    "name": "optSysModules",
+    "oid": "1.3.6.1.4.1.8886.15.2",
+    "class": "objectidentity"
+  },
+  "optAgentCapability": {
+    "name": "optAgentCapability",
+    "oid": "1.3.6.1.4.1.8886.15.3",
+    "class": "objectidentity"
+  },
+  "optUdSysMgmt": {
+    "name": "optUdSysMgmt",
+    "oid": "1.3.6.1.4.1.8886.15.4",
+    "class": "objectidentity"
+  },
+  "optUdSysModules": {
+    "name": "optUdSysModules",
+    "oid": "1.3.6.1.4.1.8886.15.5",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/RAISECOM-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAISECOM-BASE-MIB"
+  }
+}

@@ -1,0 +1,575 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cSurveillanceMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cPUMan": {
+    "name": "hh3cPUMan",
+    "oid": "1.3.6.1.4.1.25506.9.2",
+    "class": "moduleidentity"
+  },
+  "hh3cPUCommonMan": {
+    "name": "hh3cPUCommonMan",
+    "oid": "1.3.6.1.4.1.25506.9.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cPUCommonManObjects": {
+    "name": "hh3cPUCommonManObjects",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cPUisOnline": {
+    "name": "hh3cPUisOnline",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUCMSAddr": {
+    "name": "hh3cPUCMSAddr",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUVersionServerAddr": {
+    "name": "hh3cPUVersionServerAddr",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUCommonManTables": {
+    "name": "hh3cPUCommonManTables",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cPUExternalInputAlarmTable": {
+    "name": "hh3cPUExternalInputAlarmTable",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPUExternalInputAlarmEntry": {
+    "name": "hh3cPUExternalInputAlarmEntry",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUExternalInputAlarmChannelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUExternalInputAlarmChannelID": {
+    "name": "hh3cPUExternalInputAlarmChannelID",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPUExternalInputAlarmStatus": {
+    "name": "hh3cPUExternalInputAlarmStatus",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUExternalOutputAlarmTable": {
+    "name": "hh3cPUExternalOutputAlarmTable",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPUExternalOutputAlarmEntry": {
+    "name": "hh3cPUExternalOutputAlarmEntry",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUExternalOutputAlarmChannelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUExternalOutputAlarmChannelID": {
+    "name": "hh3cPUExternalOutputAlarmChannelID",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPUExternalOutputAlarmStatus": {
+    "name": "hh3cPUExternalOutputAlarmStatus",
+    "oid": "1.3.6.1.4.1.25506.9.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUECMan": {
+    "name": "hh3cPUECMan",
+    "oid": "1.3.6.1.4.1.25506.9.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cPUECManObjects": {
+    "name": "hh3cPUECManObjects",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cPUECCameraOnlines": {
+    "name": "hh3cPUECCameraOnlines",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUECCameraAvailRate": {
+    "name": "hh3cPUECCameraAvailRate",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUECManTables": {
+    "name": "hh3cPUECManTables",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cPUECVideoChannelTable": {
+    "name": "hh3cPUECVideoChannelTable",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPUECVideoChannelEntry": {
+    "name": "hh3cPUECVideoChannelEntry",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECVideoChannelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECVideoChannelID": {
+    "name": "hh3cPUECVideoChannelID",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPUECVideoChannelName": {
+    "name": "hh3cPUECVideoChannelName",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUECVideoChannelServiceStatus": {
+    "name": "hh3cPUECVideoChannelServiceStatus",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unknown": 0,
+        "unused": 1,
+        "kinescope": 2,
+        "snapshot": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUDCMan": {
+    "name": "hh3cPUDCMan",
+    "oid": "1.3.6.1.4.1.25506.9.2.3",
+    "class": "objectidentity"
+  },
+  "hh3cPUDCManObjects": {
+    "name": "hh3cPUDCManObjects",
+    "oid": "1.3.6.1.4.1.25506.9.2.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cPUDCRcvVideoPackets": {
+    "name": "hh3cPUDCRcvVideoPackets",
+    "oid": "1.3.6.1.4.1.25506.9.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUDCRcvVideoRefFrames": {
+    "name": "hh3cPUDCRcvVideoRefFrames",
+    "oid": "1.3.6.1.4.1.25506.9.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUDCVideoPacketsLoss": {
+    "name": "hh3cPUDCVideoPacketsLoss",
+    "oid": "1.3.6.1.4.1.25506.9.2.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUDCVideoRefFramesLoss": {
+    "name": "hh3cPUDCVideoRefFramesLoss",
+    "oid": "1.3.6.1.4.1.25506.9.2.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPUECManMIBTrap": {
+    "name": "hh3cPUECManMIBTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3",
+    "class": "objectidentity"
+  },
+  "hh3cPUECManTrapPrex": {
+    "name": "hh3cPUECManTrapPrex",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cPUECManExternalSemaphoreTrap": {
+    "name": "hh3cPUECManExternalSemaphoreTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUExternalInputAlarmChannelID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECManVideoLossTrap": {
+    "name": "hh3cPUECManVideoLossTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECManVideoRecoverTrap": {
+    "name": "hh3cPUECManVideoRecoverTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECManMotionDetectTrap": {
+    "name": "hh3cPUECManMotionDetectTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECVideoChannelName"
+      },
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECRegionCoordinateX1"
+      },
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECRegionCoordinateY1"
+      },
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECRegionCoordinateX2"
+      },
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECRegionCoordinateY2"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECManOnLineFailureTrap": {
+    "name": "hh3cPUECManOnLineFailureTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUCMSAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECManConnectionCMSFailureTrap": {
+    "name": "hh3cPUECManConnectionCMSFailureTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUCMSAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECManConnectionVerSrvFailureTrap": {
+    "name": "hh3cPUECManConnectionVerSrvFailureTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUVersionServerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECManFlashFailureTrap": {
+    "name": "hh3cPUECManFlashFailureTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cPUECManCameraShelterTrap": {
+    "name": "hh3cPUECManCameraShelterTrap",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECVideoChannelName"
+      },
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECRegionCoordinateX1"
+      },
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECRegionCoordinateY1"
+      },
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECRegionCoordinateX2"
+      },
+      {
+        "module": "HH3C-PU-MAN-MIB",
+        "object": "hh3cPUECRegionCoordinateY2"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPUECManTrapObjects": {
+    "name": "hh3cPUECManTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cPUECRegionCoordinateX1": {
+    "name": "hh3cPUECRegionCoordinateX1",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPUECRegionCoordinateY1": {
+    "name": "hh3cPUECRegionCoordinateY1",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPUECRegionCoordinateX2": {
+    "name": "hh3cPUECRegionCoordinateX2",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cPUECRegionCoordinateY2": {
+    "name": "hh3cPUECRegionCoordinateY2",
+    "oid": "1.3.6.1.4.1.25506.9.2.2.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-PU-MAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-PU-MAN-MIB"
+  }
+}

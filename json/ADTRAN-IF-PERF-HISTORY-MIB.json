@@ -1,0 +1,1179 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSCommon",
+      "adGenAOSConformance"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "HC-PerfHist-TC-MIB": [
+      "HCPerfTimeElapsed",
+      "HCPerfIntervalCount",
+      "HCPerfInvalidIntervals",
+      "HCPerfCurrentCount",
+      "HCPerfTotalCount",
+      "HCPerfValidIntervals"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adGenAosIfPerfHistoryMib": {
+    "name": "adGenAosIfPerfHistoryMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.1.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-23 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "adGenAosIfPerfHistory": {
+    "name": "adGenAosIfPerfHistory",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7",
+    "class": "objectidentity"
+  },
+  "adIfPhCurTable": {
+    "name": "adIfPhCurTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adIfPhCurEntry": {
+    "name": "adIfPhCurEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adIfPhCurTimeElapsed15Min": {
+    "name": "adIfPhCurTimeElapsed15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurValidIntervals15Min": {
+    "name": "adIfPhCurValidIntervals15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInvalidIntervals15Min": {
+    "name": "adIfPhCurInvalidIntervals15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInOctets15Min": {
+    "name": "adIfPhCurInOctets15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInUcastPkts15Min": {
+    "name": "adIfPhCurInUcastPkts15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInMcastPkts15Min": {
+    "name": "adIfPhCurInMcastPkts15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInBcastPkts15Min": {
+    "name": "adIfPhCurInBcastPkts15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInDiscards15Min": {
+    "name": "adIfPhCurInDiscards15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInErrors15Min": {
+    "name": "adIfPhCurInErrors15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInUnknownProtos15Min": {
+    "name": "adIfPhCurInUnknownProtos15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutOctets15Min": {
+    "name": "adIfPhCurOutOctets15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutUcastPkts15Min": {
+    "name": "adIfPhCurOutUcastPkts15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutMcastPkts15Min": {
+    "name": "adIfPhCurOutMcastPkts15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutBcastPkts15Min": {
+    "name": "adIfPhCurOutBcastPkts15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutDiscards15Min": {
+    "name": "adIfPhCurOutDiscards15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutErrors15Min": {
+    "name": "adIfPhCurOutErrors15Min",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurTimeElapsed1Day": {
+    "name": "adIfPhCurTimeElapsed1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurValidIntervals1Day": {
+    "name": "adIfPhCurValidIntervals1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInvalidIntervals1Day": {
+    "name": "adIfPhCurInvalidIntervals1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInOctets1Day": {
+    "name": "adIfPhCurInOctets1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInUcastPkts1Day": {
+    "name": "adIfPhCurInUcastPkts1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInMcastPkts1Day": {
+    "name": "adIfPhCurInMcastPkts1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInBcastPkts1Day": {
+    "name": "adIfPhCurInBcastPkts1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInDiscards1Day": {
+    "name": "adIfPhCurInDiscards1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInErrors1Day": {
+    "name": "adIfPhCurInErrors1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurInUnknownProtos1Day": {
+    "name": "adIfPhCurInUnknownProtos1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutOctets1Day": {
+    "name": "adIfPhCurOutOctets1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutUcastPkts1Day": {
+    "name": "adIfPhCurOutUcastPkts1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutMcastPkts1Day": {
+    "name": "adIfPhCurOutMcastPkts1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutBcastPkts1Day": {
+    "name": "adIfPhCurOutBcastPkts1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutDiscards1Day": {
+    "name": "adIfPhCurOutDiscards1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPhCurOutErrors1Day": {
+    "name": "adIfPhCurOutErrors1Day",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinIntervalTable": {
+    "name": "adIfPh15MinIntervalTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adIfPh15MinIntervalEntry": {
+    "name": "adIfPh15MinIntervalEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adIfPh15MinIntervalNumber": {
+    "name": "adIfPh15MinIntervalNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adIfPh15MinInOctets": {
+    "name": "adIfPh15MinInOctets",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinInUcastPkts": {
+    "name": "adIfPh15MinInUcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinInMcastPkts": {
+    "name": "adIfPh15MinInMcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinInBcastPkts": {
+    "name": "adIfPh15MinInBcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinInDiscards": {
+    "name": "adIfPh15MinInDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinInErrors": {
+    "name": "adIfPh15MinInErrors",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinInUnknownProtos": {
+    "name": "adIfPh15MinInUnknownProtos",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinOutOctets": {
+    "name": "adIfPh15MinOutOctets",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinOutUcastPkts": {
+    "name": "adIfPh15MinOutUcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinOutMcastPkts": {
+    "name": "adIfPh15MinOutMcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinOutBcastPkts": {
+    "name": "adIfPh15MinOutBcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinOutDiscards": {
+    "name": "adIfPh15MinOutDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh15MinOutErrors": {
+    "name": "adIfPh15MinOutErrors",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayIntervalTable": {
+    "name": "adIfPh1DayIntervalTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adIfPh1DayIntervalEntry": {
+    "name": "adIfPh1DayIntervalEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adIfPh1DayIntervalNumber": {
+    "name": "adIfPh1DayIntervalNumber",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adIfPh1DayInOctets": {
+    "name": "adIfPh1DayInOctets",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayInUcastPkts": {
+    "name": "adIfPh1DayInUcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayInMcastPkts": {
+    "name": "adIfPh1DayInMcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayInBcastPkts": {
+    "name": "adIfPh1DayInBcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayInDiscards": {
+    "name": "adIfPh1DayInDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayInErrors": {
+    "name": "adIfPh1DayInErrors",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayInUnknownProtos": {
+    "name": "adIfPh1DayInUnknownProtos",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayOutOctets": {
+    "name": "adIfPh1DayOutOctets",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayOutUcastPkts": {
+    "name": "adIfPh1DayOutUcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayOutMcastPkts": {
+    "name": "adIfPh1DayOutMcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayOutBcastPkts": {
+    "name": "adIfPh1DayOutBcastPkts",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayOutDiscards": {
+    "name": "adIfPh1DayOutDiscards",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adIfPh1DayOutErrors": {
+    "name": "adIfPh1DayOutErrors",
+    "oid": "1.3.6.1.4.1.664.5.53.1.7.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAosIfPerfHistoryConformance": {
+    "name": "adGenAosIfPerfHistoryConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.16",
+    "class": "objectidentity"
+  },
+  "adGenAosIfPerfHistoryGroups": {
+    "name": "adGenAosIfPerfHistoryGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.16.1",
+    "class": "objectidentity"
+  },
+  "adGenAosIfPerfHistoryCompliances": {
+    "name": "adGenAosIfPerfHistoryCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.16.2",
+    "class": "objectidentity"
+  },
+  "adGenAosIfPerfHistoryCompliance": {
+    "name": "adGenAosIfPerfHistoryCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.16.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adIfPhCurGroup",
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB"
+      },
+      {
+        "object": "adIfPh15MinIntervalGroup",
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB"
+      },
+      {
+        "object": "adIfPh1DayIntervalGroup",
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adIfPhCurGroup": {
+    "name": "adIfPhCurGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.16.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurTimeElapsed15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurValidIntervals15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInvalidIntervals15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInOctets15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInUcastPkts15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInMcastPkts15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInBcastPkts15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInDiscards15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInErrors15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInUnknownProtos15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutOctets15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutUcastPkts15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutMcastPkts15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutBcastPkts15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutDiscards15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutErrors15Min"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurTimeElapsed1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurValidIntervals1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInvalidIntervals1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInOctets1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInUcastPkts1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInMcastPkts1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInBcastPkts1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInDiscards1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInErrors1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurInUnknownProtos1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutOctets1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutUcastPkts1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutMcastPkts1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutBcastPkts1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutDiscards1Day"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPhCurOutErrors1Day"
+      }
+    ],
+    "status": "current"
+  },
+  "adIfPh15MinIntervalGroup": {
+    "name": "adIfPh15MinIntervalGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.16.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinInOctets"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinInUcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinInMcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinInBcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinInDiscards"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinInErrors"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinInUnknownProtos"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinOutOctets"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinOutUcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinOutMcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinOutBcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinOutDiscards"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh15MinOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "adIfPh1DayIntervalGroup": {
+    "name": "adIfPh1DayIntervalGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.16.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayInOctets"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayInUcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayInMcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayInBcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayInDiscards"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayInErrors"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayInUnknownProtos"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayOutOctets"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayOutUcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayOutMcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayOutBcastPkts"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayOutDiscards"
+      },
+      {
+        "module": "ADTRAN-IF-PERF-HISTORY-MIB",
+        "object": "adIfPh1DayOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-IF-PERF-HISTORY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-IF-PERF-HISTORY-MIB"
+  }
+}

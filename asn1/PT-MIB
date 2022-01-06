@@ -1,105 +1,48 @@
+-- PT-MIB 
+-- This is the root MIB file of PT.
+--
+
 PT-MIB DEFINITIONS ::= BEGIN
 
-    IMPORTS
-        MODULE-IDENTITY,
-        OBJECT-TYPE FROM SNMPv2-SMI
-        MODULE-COMPLIANCE,
-        OBJECT-GROUP    FROM SNMPv2-CONF
-        miniLink       FROM MINI-LINK-MIB;
-        
-    pt MODULE-IDENTITY
-        LAST-UPDATED "201701211200Z"
-        ORGANIZATION "Ericsson"
+IMPORTS
+        MODULE-IDENTITY, enterprises
+                FROM SNMPv2-SMI;
+
+pt MODULE-IDENTITY
+        LAST-UPDATED "201408081200Z"
+        ORGANIZATION "Protelevision Technologies, Denmark"
         CONTACT-INFO
-            "Anders Ekvall
-             Postal: Ericsson AB,
-             E-Mail: anders.ekvall@ericsson.com"
+                "Contact:
+
+                Web: http://www.protelevision.com
+
+                Address: Valhoejs Alle 176, DK-2610 Roedovre, Denmark
+                Telephone: +45 44700000
+                Fax:       +45 44700001"
 
         DESCRIPTION
-            "This is the MIB of PT specifics.
-            The entPhysical and ifIndex used are based on the MOC below:
-            IP_INTERFACE_MOC  10000
-            LANX_PORT_MOC     20000
-            WANX_PORT_MOC     30000
-            PT_MOC            40000
-            OM_MOC            50000
-            RMM_MOC           60000
-            SFP_MOC           70000
-            WIFI_MOC          80000
-            RJ45_MOC          90000
-            XPIC_MOC         100000
-            CT_MOC           110000
-            RLT_MOC          120000
-        
-            As MOI, slot and port are added according to:
-            Slot no * 100
-            Port no * 1
-            
-            For example an SFP in slot 1 port 3: 70103"
+                "This is the root MIB module for PT with OID of
+                {iso org dod internet private enterprises 18086}.
 
-        REVISION      "201701211200Z"
-        DESCRIPTION
-            "MOC and MOI explained."
+                Copyright (c) 2004 Protelevision Technologies A/S. All rights reserved.
+                Reproduction of this document is authorized on the condition
+                that the foregoing copyright notice is included.
 
-        REVISION      "201603091200Z"
-        DESCRIPTION
-            "Validated."
-            
-        REVISION      "201602101230Z"
-        DESCRIPTION
-            "The initial version of this MIB module."
+                IANA allocated this enterprise OID (object identifier) for the
+                exclusive use of Protelevision Technologies A/S (PT). 
+                Other than internet network equipment
+                distributed or licensed by PT, no other party has any right
+                what-so-ever to distribute or license internet network equipment
+                which responds to the PT enterprise OID or its subsidiary
+                branches. PT reserves the right to criminally prosecute and/or
+                to seek civil damages from anyone fraudently using the PT
+                enterprise OID to the full extent of the law."
 
-        ::= { miniLink 2 }
+        REVISION
+          "201408081200Z"
 
-
-    -- ************
-    -- * PT       *     
-    -- ************
-    
-       ptDeviceType OBJECT-TYPE
-        SYNTAX      OBJECT IDENTIFIER
-        MAX-ACCESS  read-only
-        STATUS      current
-        DESCRIPTION
-            "This object represents type of the PT. Always set to the
-             same value as 'sysObjectID'."
-        ::= { pt 1 }   
-
---ptTrap    ::= { pt 2 }
---ptFM      ::= { pt 3 }
---ptMonitor ::= { pt 4 }
---ptPM      ::= { pt 5 }
---ptSFP     ::= { pt 6 }
---ptRadioLink ::= { pt 7 }
-
-    ptConformance OBJECT IDENTIFIER ::= { pt 8 }  
-    
---
--- Conformance
---
-
-    ptCompliances OBJECT IDENTIFIER ::= { ptConformance 1 }
-    ptGroups      OBJECT IDENTIFIER ::= { ptConformance 2 }
-
-    ptCompliance MODULE-COMPLIANCE
-        STATUS current
-        DESCRIPTION
-            "The compliance statement for SNMP entities which implement everything."
-        MODULE -- This Module
-        MANDATORY-GROUPS { ptCompleteGroup }
-        ::= { ptCompliances 1 }
-
-    ptCompleteGroup OBJECT-GROUP
-        OBJECTS
-        {
-            ptDeviceType
-        }
-        STATUS current
-        DESCRIPTION
-            "A collection of all current objects in this MIB module."
-        ::= { ptGroups 1 }
-        
+	DESCRIPTION
+		"PTT General Device MIB File"
+		
+        ::= {enterprises 18086}
 END
-
-
-

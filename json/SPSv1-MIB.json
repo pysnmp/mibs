@@ -1,0 +1,4604 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "MODULE-IDENTITY",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "powertek": {
+    "name": "powertek",
+    "oid": "1.3.6.1.4.1.42610",
+    "class": "objectidentity"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.42610.1",
+    "class": "objectidentity"
+  },
+  "pdu": {
+    "name": "pdu",
+    "oid": "1.3.6.1.4.1.42610.1.4",
+    "class": "objectidentity"
+  },
+  "sps": {
+    "name": "sps",
+    "oid": "1.3.6.1.4.1.42610.1.4.4",
+    "class": "objectidentity"
+  },
+  "pduObjects": {
+    "name": "pduObjects",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1",
+    "class": "objectidentity"
+  },
+  "pduTraps": {
+    "name": "pduTraps",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2",
+    "class": "objectidentity"
+  },
+  "pduIdent": {
+    "name": "pduIdent",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.1",
+    "class": "objectidentity"
+  },
+  "pduNetwork": {
+    "name": "pduNetwork",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2",
+    "class": "objectidentity"
+  },
+  "pduSystem": {
+    "name": "pduSystem",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3",
+    "class": "objectidentity"
+  },
+  "pduSNMP": {
+    "name": "pduSNMP",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4",
+    "class": "objectidentity"
+  },
+  "pduEmail": {
+    "name": "pduEmail",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5",
+    "class": "objectidentity"
+  },
+  "pduPwrMonitoring": {
+    "name": "pduPwrMonitoring",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6",
+    "class": "objectidentity"
+  },
+  "pduEnvMonitoring": {
+    "name": "pduEnvMonitoring",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7",
+    "class": "objectidentity"
+  },
+  "pduIdentAgentSoftwareVersion": {
+    "name": "pduIdentAgentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduIdentSerialNumber": {
+    "name": "pduIdentSerialNumber",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpip": {
+    "name": "pduNetworkTcpip",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "pduNetworkTcpipDhcpControl": {
+    "name": "pduNetworkTcpipDhcpControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv4": {
+    "name": "pduNetworkTcpipIpv4",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "pduNetworkTcpipIpv4Address": {
+    "name": "pduNetworkTcpipIpv4Address",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv4Gateway": {
+    "name": "pduNetworkTcpipIpv4Gateway",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv4Subnet": {
+    "name": "pduNetworkTcpipIpv4Subnet",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv4PrimaryDNS": {
+    "name": "pduNetworkTcpipIpv4PrimaryDNS",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv4SecondaryDNS": {
+    "name": "pduNetworkTcpipIpv4SecondaryDNS",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv6": {
+    "name": "pduNetworkTcpipIpv6",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "pduNetworkTcpipIpv6Control": {
+    "name": "pduNetworkTcpipIpv6Control",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv6AutoConfig": {
+    "name": "pduNetworkTcpipIpv6AutoConfig",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv6Address": {
+    "name": "pduNetworkTcpipIpv6Address",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv6Prefix": {
+    "name": "pduNetworkTcpipIpv6Prefix",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv6Router": {
+    "name": "pduNetworkTcpipIpv6Router",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv6PrimaryDNS": {
+    "name": "pduNetworkTcpipIpv6PrimaryDNS",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkTcpipIpv6SecondaryDNS": {
+    "name": "pduNetworkTcpipIpv6SecondaryDNS",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecurity": {
+    "name": "pduNetworkSecurity",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "pduNetworkSecurityControl": {
+    "name": "pduNetworkSecurityControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecuritySsh": {
+    "name": "pduNetworkSecuritySsh",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "pduNetworkSecuritySshControl": {
+    "name": "pduNetworkSecuritySshControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecuritySshInterval": {
+    "name": "pduNetworkSecuritySshInterval",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneMinute": 1,
+          "fiveMinutes": 2,
+          "tenMinutes": 3,
+          "thirtyMinutes": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecuritySshFailTimes": {
+    "name": "pduNetworkSecuritySshFailTimes",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "five": 1,
+          "ten": 2,
+          "twenty": 3,
+          "thirty": 4,
+          "hundred": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecuritySshBlock": {
+    "name": "pduNetworkSecuritySshBlock",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiveMinutes": 1,
+          "thirtyMinutes": 2,
+          "oneHour": 3,
+          "oneDay": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecuritySnmp": {
+    "name": "pduNetworkSecuritySnmp",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.3",
+    "class": "objectidentity"
+  },
+  "pduNetworkSecuritySnmpControl": {
+    "name": "pduNetworkSecuritySnmpControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecuritySnmpInterval": {
+    "name": "pduNetworkSecuritySnmpInterval",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneMinute": 1,
+          "fiveMinutes": 2,
+          "tenMinutes": 3,
+          "thirtyMinutes": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecuritySnmpFailTimes": {
+    "name": "pduNetworkSecuritySnmpFailTimes",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "five": 1,
+          "ten": 2,
+          "twenty": 3,
+          "thirty": 4,
+          "hundred": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecuritySnmpBlock": {
+    "name": "pduNetworkSecuritySnmpBlock",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiveMinutes": 1,
+          "thirtyMinutes": 2,
+          "oneHour": 3,
+          "oneDay": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecurityHttp": {
+    "name": "pduNetworkSecurityHttp",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.4",
+    "class": "objectidentity"
+  },
+  "pduNetworkSecurityHttpControl": {
+    "name": "pduNetworkSecurityHttpControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecurityHttpInterval": {
+    "name": "pduNetworkSecurityHttpInterval",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneMinute": 1,
+          "fiveMinutes": 2,
+          "tenMinutes": 3,
+          "thirtyMinutes": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecurityHttpFailTimes": {
+    "name": "pduNetworkSecurityHttpFailTimes",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "five": 1,
+          "ten": 2,
+          "twenty": 3,
+          "thirty": 4,
+          "hundred": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkSecurityHttpBlock": {
+    "name": "pduNetworkSecurityHttpBlock",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiveMinutes": 1,
+          "thirtyMinutes": 2,
+          "oneHour": 3,
+          "oneDay": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkService": {
+    "name": "pduNetworkService",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3",
+    "class": "objectidentity"
+  },
+  "pduNetworkServiceSsh": {
+    "name": "pduNetworkServiceSsh",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.1",
+    "class": "objectidentity"
+  },
+  "pduNetworkServiceSshControl": {
+    "name": "pduNetworkServiceSshControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceSshPort": {
+    "name": "pduNetworkServiceSshPort",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceSsl": {
+    "name": "pduNetworkServiceSsl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.2",
+    "class": "objectidentity"
+  },
+  "pduNetworkServiceSslControl": {
+    "name": "pduNetworkServiceSslControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceSslPort": {
+    "name": "pduNetworkServiceSslPort",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceSslForce": {
+    "name": "pduNetworkServiceSslForce",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServicePingControl": {
+    "name": "pduNetworkServicePingControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceRadius": {
+    "name": "pduNetworkServiceRadius",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.4",
+    "class": "objectidentity"
+  },
+  "pduNetworkServiceRadiusControl": {
+    "name": "pduNetworkServiceRadiusControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceRadiusIp": {
+    "name": "pduNetworkServiceRadiusIp",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceRadiusPort": {
+    "name": "pduNetworkServiceRadiusPort",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceRadiusSecretKey": {
+    "name": "pduNetworkServiceRadiusSecretKey",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceRadiusTimeout": {
+    "name": "pduNetworkServiceRadiusTimeout",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduNetworkServiceRadiusRetry": {
+    "name": "pduNetworkServiceRadiusRetry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.2.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemName": {
+    "name": "pduSystemName",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemContact": {
+    "name": "pduSystemContact",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemLocation": {
+    "name": "pduSystemLocation",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemLogInterval": {
+    "name": "pduSystemLogInterval",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemWebRefresh": {
+    "name": "pduSystemWebRefresh",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTime": {
+    "name": "pduSystemTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6",
+    "class": "objectidentity"
+  },
+  "pduSystemTimeDisplay": {
+    "name": "pduSystemTimeDisplay",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduSystemTimeZone": {
+    "name": "pduSystemTimeZone",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gMT-1200InternationalDateLineWest": 1,
+          "gMT-1200Eniwetok-Kwajalein": 2,
+          "gMT-1100MidwayIsland-Samoa": 3,
+          "gMT-1000Hawaii": 4,
+          "gMT-0900Alaska": 5,
+          "gMT-0800PacificTime-Tijuana": 6,
+          "gMT-0700Arizona-MountainTime": 7,
+          "gMT-0700Chihuahua-LaPaz-Mazatlan": 8,
+          "gMT-0700MountainTime": 9,
+          "gMT-0600CentralAmerica": 10,
+          "gMT-0600CentralTime": 11,
+          "gMT-0600Guadalajara-MexicoCity-Monterrey": 12,
+          "gMT-0600Saskatchewan": 13,
+          "gMT-0500Bogota-Lima-Quito": 14,
+          "gMT-0500EasternTime": 15,
+          "gMT-0500Indiana": 16,
+          "gMT-0400AtlanticTime": 17,
+          "gMT-0400Caracas-LaPaz": 18,
+          "gMT-0400Santiago": 19,
+          "gMT-0330Newfoundland": 20,
+          "gMT-0300Brasilia": 21,
+          "gMT-0300BuenosAires-Georgetown": 22,
+          "gMT-0300Greenland": 23,
+          "gMT-0200Mid-Atlantic": 24,
+          "gMT-0100Azores": 25,
+          "gMT-0100CapeVerdeIs": 26,
+          "gMT-0000Casablanca-Monrovia": 27,
+          "gMT-0000GreenwichMeanTime-Dublin-Edinburgh-Lisbon-London": 28,
+          "gMT0100Amsterdam-Berlin-Bern-Rome-Stockholm-Vienna": 29,
+          "gMT0100Belgrade-Bratislava-Budapest-Ljubljana-Prague": 30,
+          "gMT0100Brussels-Copenhagen-Madrid-Paris": 31,
+          "gMT0100Sarajevo-Skopje-Warsaw-Zagreb": 32,
+          "gMT0100WestCentralAfrica": 33,
+          "gMT0200Athens-Istanbul-Minsk": 34,
+          "gMT0200Bucharest": 35,
+          "gMT0200Cairo": 36,
+          "gMT0200Harare-Pretoria": 37,
+          "gMT0200Helsinki-Kyiv-Riga-Sofia-Tallinn-Vilnius": 38,
+          "gMT0200Jerusalem": 39,
+          "gMT0300Baghdad": 40,
+          "gMT0300Kuwait-Riyadh": 41,
+          "gMT0300Moscow-StPetersburg-Volgograd": 42,
+          "gMT0300Nairobi": 43,
+          "gMT0330Tehran": 44,
+          "gMT0400AbuDhabi-Muscat": 45,
+          "gMT0400Baku-Tbilisi-Yerevan": 46,
+          "gMT0430Kabul": 47,
+          "gMT0500Ekaterinburg": 48,
+          "gMT0500Islamabad-Karachi-Tashkent": 49,
+          "gMT0530Bombay-Calcutta": 50,
+          "gMT0530Chennai-Kolkata-Mumbai-NewDelhi": 51,
+          "gMT0545Kathmandu": 52,
+          "gMT0600Almaty-Novosibirsk": 53,
+          "gMT0600Astana-Dhaka": 54,
+          "gMT0600SriJayawardenepura": 55,
+          "gMT0630Rangoon": 56,
+          "gMT0700Bangkok-Hanoi-Jakarta": 57,
+          "gMT0700Krasnoyarsk": 58,
+          "gMT0800Beijing-Chongqing-HongKong-Urumqi": 59,
+          "gMT0800Irkutsk-UlaanBataar": 60,
+          "gMT0800KualaLumpur-Singapore": 61,
+          "gMT0800Perth": 62,
+          "gMT0800Taipei": 63,
+          "gMT0900Osaka-Sapporo-Tokyo": 64,
+          "gMT0900Seoul": 65,
+          "gMT0900Yakutsk": 66,
+          "gMT0930Adelaide": 67,
+          "gMT0930Darwin": 68,
+          "gMT1000Brisbane": 69,
+          "gMT1000Canberra-Melbourne-Sydney": 70,
+          "gMT1000Guam-PortMoresby": 71,
+          "gMT1000Hobart": 72,
+          "gMT1000Vladivostok": 73,
+          "gMT1100Magadan-SolomonIs-NewCaledonia": 74,
+          "gMT1200Auckland-Wellington": 75,
+          "gMT1200Fiji-Kamchatka-MarshallIs": 76,
+          "gMT1300NukuAlofa": 77
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeFormat": {
+    "name": "pduSystemTimeFormat",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mmddyyyy": 1,
+          "ddmmyyyy": 2,
+          "yyyymmdd": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeSetting": {
+    "name": "pduSystemTimeSetting",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twentyFourHrFormat": 1,
+          "twelveHrFormat": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeDayLightSaving": {
+    "name": "pduSystemTimeDayLightSaving",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeManual": {
+    "name": "pduSystemTimeManual",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.6",
+    "class": "objectidentity"
+  },
+  "pduSystemTimeManualDate": {
+    "name": "pduSystemTimeManualDate",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeManualTime": {
+    "name": "pduSystemTimeManualTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeNtp": {
+    "name": "pduSystemTimeNtp",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.7",
+    "class": "objectidentity"
+  },
+  "pduSystemTimeNtpControl": {
+    "name": "pduSystemTimeNtpControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeNtpServer": {
+    "name": "pduSystemTimeNtpServer",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeNtpSyncInterval": {
+    "name": "pduSystemTimeNtpSyncInterval",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemTimeNtpSyncUnit": {
+    "name": "pduSystemTimeNtpSyncUnit",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.6.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "day": 1,
+          "month": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemResetToDefault": {
+    "name": "pduSystemResetToDefault",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemReboot": {
+    "name": "pduSystemReboot",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 1,
+          "reboot": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSnmpControl": {
+    "name": "pduSnmpControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSnmpPort": {
+    "name": "pduSnmpPort",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSnmpVersion": {
+    "name": "pduSnmpVersion",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSnmpTrapsReceiversTable": {
+    "name": "pduSnmpTrapsReceiversTable",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduSnmpTrapsReceiversEntry": {
+    "name": "pduSnmpTrapsReceiversEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "trapsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "trapsIndex": {
+    "name": "trapsIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapsReceiverAddr": {
+    "name": "trapsReceiverAddr",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverEventLevel": {
+    "name": "receiverEventLevel",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "informational": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverSnmpVer": {
+    "name": "receiverSnmpVer",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverDescription": {
+    "name": "receiverDescription",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEmailServer": {
+    "name": "pduEmailServer",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEmailPort": {
+    "name": "pduEmailPort",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEmailSenderEmail": {
+    "name": "pduEmailSenderEmail",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEmailPrefix": {
+    "name": "pduEmailPrefix",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEmailAuthControl": {
+    "name": "pduEmailAuthControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEmailAuthUsername": {
+    "name": "pduEmailAuthUsername",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEmailAuthPassword": {
+    "name": "pduEmailAuthPassword",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEmailReceiversTable": {
+    "name": "pduEmailReceiversTable",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduEmailReceiversEntry": {
+    "name": "pduEmailReceiversEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "mailRecvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mailRecvIndex": {
+    "name": "mailRecvIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mailRecvReceiverAddr": {
+    "name": "mailRecvReceiverAddr",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mailRecvEmailType": {
+    "name": "mailRecvEmailType",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "events": 2,
+          "status": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mailRecvEventLevel": {
+    "name": "mailRecvEventLevel",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "informational": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mailRecvDescription": {
+    "name": "mailRecvDescription",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.5.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringInlet": {
+    "name": "pduPwrMonitoringInlet",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1",
+    "class": "objectidentity"
+  },
+  "pduPwrMonitoringInletNum": {
+    "name": "pduPwrMonitoringInletNum",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringInletStatusTable": {
+    "name": "pduPwrMonitoringInletStatusTable",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringInletStatusEntry": {
+    "name": "pduPwrMonitoringInletStatusEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "inletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "inletIndex": {
+    "name": "inletIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletPowerAll": {
+    "name": "inletPowerAll",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1W",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletResetFrom": {
+    "name": "inletResetFrom",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletEnergy": {
+    "name": "inletEnergy",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "KWh",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletStatus": {
+    "name": "inletStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletCurrPhase1": {
+    "name": "inletCurrPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.01A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletCurrPhase2": {
+    "name": "inletCurrPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.01A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletCurrPhase3": {
+    "name": "inletCurrPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.01A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletVoltPhase1": {
+    "name": "inletVoltPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletVoltPhase2": {
+    "name": "inletVoltPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletVoltPhase3": {
+    "name": "inletVoltPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletPwrFactorPhase1": {
+    "name": "inletPwrFactorPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletPwrFactorPhase2": {
+    "name": "inletPwrFactorPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletPwrFactorPhase3": {
+    "name": "inletPwrFactorPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletPowerPhase1": {
+    "name": "inletPowerPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1W",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletPowerPhase2": {
+    "name": "inletPowerPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1W",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletPowerPhase3": {
+    "name": "inletPowerPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1W",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletStatusPhase1": {
+    "name": "inletStatusPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletStatusPhase2": {
+    "name": "inletStatusPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletStatusPhase3": {
+    "name": "inletStatusPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringInletCfgTable": {
+    "name": "pduPwrMonitoringInletCfgTable",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringInletCfgEntry": {
+    "name": "pduPwrMonitoringInletCfgEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "inletCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "inletCfgIndex": {
+    "name": "inletCfgIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inletCfgLoadCritical": {
+    "name": "inletCfgLoadCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1kW",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgLoadWarning": {
+    "name": "inletCfgLoadWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1kW",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgCurrCritPhase1": {
+    "name": "inletCfgCurrCritPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgCurrCritPhase2": {
+    "name": "inletCfgCurrCritPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgCurrCritPhase3": {
+    "name": "inletCfgCurrCritPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgCurrWarnPhase1": {
+    "name": "inletCfgCurrWarnPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgCurrWarnPhase2": {
+    "name": "inletCfgCurrWarnPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgCurrWarnPhase3": {
+    "name": "inletCfgCurrWarnPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgVoltCritPhase1": {
+    "name": "inletCfgVoltCritPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgVoltCritPhase2": {
+    "name": "inletCfgVoltCritPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgVoltCritPhase3": {
+    "name": "inletCfgVoltCritPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgVoltWarnPhase1": {
+    "name": "inletCfgVoltWarnPhase1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgVoltWarnPhase2": {
+    "name": "inletCfgVoltWarnPhase2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inletCfgVoltWarnPhase3": {
+    "name": "inletCfgVoltWarnPhase3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1V",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutlet": {
+    "name": "pduPwrMonitoringOutlet",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2",
+    "class": "objectidentity"
+  },
+  "pduPwrMonitoringOutletPduA": {
+    "name": "pduPwrMonitoringOutletPduA",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1",
+    "class": "objectidentity"
+  },
+  "pduPwrMonitoringOutletNumPduA": {
+    "name": "pduPwrMonitoringOutletNumPduA",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletStatusTablePduA": {
+    "name": "pduPwrMonitoringOutletStatusTablePduA",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletStatusPduAEntry": {
+    "name": "pduPwrMonitoringOutletStatusPduAEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletPduAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletPduAIndex": {
+    "name": "outletPduAIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduAState": {
+    "name": "outletPduAState",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduACurrent": {
+    "name": "outletPduACurrent",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.01A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduAPwrFactor": {
+    "name": "outletPduAPwrFactor",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduAPower": {
+    "name": "outletPduAPower",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1W",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduAEnergy": {
+    "name": "outletPduAEnergy",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "KWh",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduAResetFrom": {
+    "name": "outletPduAResetFrom",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduAStatus": {
+    "name": "outletPduAStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCfgTablePduA": {
+    "name": "pduPwrMonitoringOutletCfgTablePduA",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCfgPduAEntry": {
+    "name": "pduPwrMonitoringOutletCfgPduAEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletCfgPduAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletCfgPduAIndex": {
+    "name": "outletCfgPduAIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletCfgPduAName": {
+    "name": "outletCfgPduAName",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduADelayOnStatus": {
+    "name": "outletCfgPduADelayOnStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodelay": 1,
+          "delay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduADelayOnTime": {
+    "name": "outletCfgPduADelayOnTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduADelayOffStatus": {
+    "name": "outletCfgPduADelayOffStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodelay": 1,
+          "delay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduADelayOffTime": {
+    "name": "outletCfgPduADelayOffTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduAReboot": {
+    "name": "outletCfgPduAReboot",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduAOverCurrCritical": {
+    "name": "outletCfgPduAOverCurrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduAOverCurrWarning": {
+    "name": "outletCfgPduAOverCurrWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduAOverPwrCritical": {
+    "name": "outletCfgPduAOverPwrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "1W",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduAOverPwrWarning": {
+    "name": "outletCfgPduAOverPwrWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "1W",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCtlTablePduA": {
+    "name": "pduPwrMonitoringOutletCtlTablePduA",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCtlPduAEntry": {
+    "name": "pduPwrMonitoringOutletCtlPduAEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletCtlPduAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletCtlPduAIndex": {
+    "name": "outletCtlPduAIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletCtlPduAControl": {
+    "name": "outletCtlPduAControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "immediateOn": 1,
+          "delayedOn": 2,
+          "immediateOff": 3,
+          "delayedOff": 4,
+          "immediateCycle": 5,
+          "delayedCycle": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletPduB": {
+    "name": "pduPwrMonitoringOutletPduB",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2",
+    "class": "objectidentity"
+  },
+  "pduPwrMonitoringOutletNumPduB": {
+    "name": "pduPwrMonitoringOutletNumPduB",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletStatusTablePduB": {
+    "name": "pduPwrMonitoringOutletStatusTablePduB",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletStatusPduBEntry": {
+    "name": "pduPwrMonitoringOutletStatusPduBEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletPduBIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletPduBIndex": {
+    "name": "outletPduBIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduBState": {
+    "name": "outletPduBState",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduBCurrent": {
+    "name": "outletPduBCurrent",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.01A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduBPwrFactor": {
+    "name": "outletPduBPwrFactor",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduBPower": {
+    "name": "outletPduBPower",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1W",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduBEnergy": {
+    "name": "outletPduBEnergy",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "KWh",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduBResetFrom": {
+    "name": "outletPduBResetFrom",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduBStatus": {
+    "name": "outletPduBStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCfgTablePduB": {
+    "name": "pduPwrMonitoringOutletCfgTablePduB",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCfgPduBEntry": {
+    "name": "pduPwrMonitoringOutletCfgPduBEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletCfgPduBIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletCfgPduBIndex": {
+    "name": "outletCfgPduBIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletCfgPduBName": {
+    "name": "outletCfgPduBName",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBDelayOnStatus": {
+    "name": "outletCfgPduBDelayOnStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodelay": 1,
+          "delay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBDelayOnTime": {
+    "name": "outletCfgPduBDelayOnTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBDelayOffStatus": {
+    "name": "outletCfgPduBDelayOffStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodelay": 1,
+          "delay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBDelayOffTime": {
+    "name": "outletCfgPduBDelayOffTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBReboot": {
+    "name": "outletCfgPduBReboot",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBOverCurrCritical": {
+    "name": "outletCfgPduBOverCurrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBOverCurrWarning": {
+    "name": "outletCfgPduBOverCurrWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBOverPwrCritical": {
+    "name": "outletCfgPduBOverPwrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "1W",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduBOverPwrWarning": {
+    "name": "outletCfgPduBOverPwrWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "1W",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCtlTablePduB": {
+    "name": "pduPwrMonitoringOutletCtlTablePduB",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCtlPduBEntry": {
+    "name": "pduPwrMonitoringOutletCtlPduBEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletCtlPduBIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletCtlPduBIndex": {
+    "name": "outletCtlPduBIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletCtlPduBControl": {
+    "name": "outletCtlPduBControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "immediateOn": 1,
+          "delayedOn": 2,
+          "immediateOff": 3,
+          "delayedOff": 4,
+          "immediateCycle": 5,
+          "delayedCycle": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletPduC": {
+    "name": "pduPwrMonitoringOutletPduC",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3",
+    "class": "objectidentity"
+  },
+  "pduPwrMonitoringOutletNumPduC": {
+    "name": "pduPwrMonitoringOutletNumPduC",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletStatusTablePduC": {
+    "name": "pduPwrMonitoringOutletStatusTablePduC",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletStatusPduCEntry": {
+    "name": "pduPwrMonitoringOutletStatusPduCEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletPduCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletPduCIndex": {
+    "name": "outletPduCIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduCState": {
+    "name": "outletPduCState",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduCCurrent": {
+    "name": "outletPduCCurrent",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.01A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduCPwrFactor": {
+    "name": "outletPduCPwrFactor",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduCPower": {
+    "name": "outletPduCPower",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1W",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduCEnergy": {
+    "name": "outletPduCEnergy",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "KWh",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduCResetFrom": {
+    "name": "outletPduCResetFrom",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduCStatus": {
+    "name": "outletPduCStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCfgTablePduC": {
+    "name": "pduPwrMonitoringOutletCfgTablePduC",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCfgPduCEntry": {
+    "name": "pduPwrMonitoringOutletCfgPduCEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletCfgPduCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletCfgPduCIndex": {
+    "name": "outletCfgPduCIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletCfgPduCName": {
+    "name": "outletCfgPduCName",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCDelayOnStatus": {
+    "name": "outletCfgPduCDelayOnStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodelay": 1,
+          "delay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCDelayOnTime": {
+    "name": "outletCfgPduCDelayOnTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCDelayOffStatus": {
+    "name": "outletCfgPduCDelayOffStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodelay": 1,
+          "delay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCDelayOffTime": {
+    "name": "outletCfgPduCDelayOffTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCReboot": {
+    "name": "outletCfgPduCReboot",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCOverCurrCritical": {
+    "name": "outletCfgPduCOverCurrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCOverCurrWarning": {
+    "name": "outletCfgPduCOverCurrWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCOverPwrCritical": {
+    "name": "outletCfgPduCOverPwrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "1W",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduCOverPwrWarning": {
+    "name": "outletCfgPduCOverPwrWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "1W",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCtlTablePduC": {
+    "name": "pduPwrMonitoringOutletCtlTablePduC",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCtlPduCEntry": {
+    "name": "pduPwrMonitoringOutletCtlPduCEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletCtlPduCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletCtlPduCIndex": {
+    "name": "outletCtlPduCIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletCtlPduCControl": {
+    "name": "outletCtlPduCControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "immediateOn": 1,
+          "delayedOn": 2,
+          "immediateOff": 3,
+          "delayedOff": 4,
+          "immediateCycle": 5,
+          "delayedCycle": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletPduD": {
+    "name": "pduPwrMonitoringOutletPduD",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4",
+    "class": "objectidentity"
+  },
+  "pduPwrMonitoringOutletNumPduD": {
+    "name": "pduPwrMonitoringOutletNumPduD",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletStatusTablePduD": {
+    "name": "pduPwrMonitoringOutletStatusTablePduD",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletStatusPduDEntry": {
+    "name": "pduPwrMonitoringOutletStatusPduDEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletPduDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletPduDIndex": {
+    "name": "outletPduDIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduDState": {
+    "name": "outletPduDState",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduDCurrent": {
+    "name": "outletPduDCurrent",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.01A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduDPwrFactor": {
+    "name": "outletPduDPwrFactor",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduDPower": {
+    "name": "outletPduDPower",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1W",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduDEnergy": {
+    "name": "outletPduDEnergy",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "KWh",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduDResetFrom": {
+    "name": "outletPduDResetFrom",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletPduDStatus": {
+    "name": "outletPduDStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCfgTablePduD": {
+    "name": "pduPwrMonitoringOutletCfgTablePduD",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCfgPduDEntry": {
+    "name": "pduPwrMonitoringOutletCfgPduDEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletCfgPduDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletCfgPduDIndex": {
+    "name": "outletCfgPduDIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletCfgPduDName": {
+    "name": "outletCfgPduDName",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDDelayOnStatus": {
+    "name": "outletCfgPduDDelayOnStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodelay": 1,
+          "delay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDDelayOnTime": {
+    "name": "outletCfgPduDDelayOnTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDDelayOffStatus": {
+    "name": "outletCfgPduDDelayOffStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodelay": 1,
+          "delay": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDDelayOffTime": {
+    "name": "outletCfgPduDDelayOffTime",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDReboot": {
+    "name": "outletCfgPduDReboot",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDOverCurrCritical": {
+    "name": "outletCfgPduDOverCurrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDOverCurrWarning": {
+    "name": "outletCfgPduDOverCurrWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1A",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDOverPwrCritical": {
+    "name": "outletCfgPduDOverPwrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "1W",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "outletCfgPduDOverPwrWarning": {
+    "name": "outletCfgPduDOverPwrWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "1W",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCtlTablePduD": {
+    "name": "pduPwrMonitoringOutletCtlTablePduD",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pduPwrMonitoringOutletCtlPduDEntry": {
+    "name": "pduPwrMonitoringOutletCtlPduDEntry",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPSv1-MIB",
+        "object": "outletCtlPduDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "outletCtlPduDIndex": {
+    "name": "outletCtlPduDIndex",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outletCtlPduDControl": {
+    "name": "outletCtlPduDControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.6.2.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "immediateOn": 1,
+          "delayedOn": 2,
+          "immediateOff": 3,
+          "delayedOff": 4,
+          "immediateCycle": 5,
+          "delayedCycle": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringStatus": {
+    "name": "pduEnvMonitoringStatus",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.1",
+    "class": "objectidentity"
+  },
+  "pduEnvMonitoringTemp": {
+    "name": "pduEnvMonitoringTemp",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degC",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringHumi": {
+    "name": "pduEnvMonitoringHumi",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringTempAlarm": {
+    "name": "pduEnvMonitoringTempAlarm",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringHumiAlarm": {
+    "name": "pduEnvMonitoringHumiAlarm",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringCfg": {
+    "name": "pduEnvMonitoringCfg",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2",
+    "class": "objectidentity"
+  },
+  "pduEnvMonitoringControl": {
+    "name": "pduEnvMonitoringControl",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringTempHighCritical": {
+    "name": "pduEnvMonitoringTempHighCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degC",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringTempHighWarning": {
+    "name": "pduEnvMonitoringTempHighWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degC",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringTempLowCritical": {
+    "name": "pduEnvMonitoringTempLowCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degC",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringTempLowWarning": {
+    "name": "pduEnvMonitoringTempLowWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degC",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringTempHystersis": {
+    "name": "pduEnvMonitoringTempHystersis",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degC",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringTempOffset": {
+    "name": "pduEnvMonitoringTempOffset",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "degC",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringHumiHighCritical": {
+    "name": "pduEnvMonitoringHumiHighCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringHumiHighWarning": {
+    "name": "pduEnvMonitoringHumiHighWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringHumiLowCritical": {
+    "name": "pduEnvMonitoringHumiLowCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringHumiLowWarning": {
+    "name": "pduEnvMonitoringHumiLowWarning",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringHumiHystersis": {
+    "name": "pduEnvMonitoringHumiHystersis",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduEnvMonitoringHumiOffset": {
+    "name": "pduEnvMonitoringHumiOffset",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.1.7.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1%",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pduSystemColdBoot": {
+    "name": "pduSystemColdBoot",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.1",
+    "class": "notificationtype"
+  },
+  "pduSystemWarmBoot": {
+    "name": "pduSystemWarmBoot",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.2",
+    "class": "notificationtype"
+  },
+  "pduSystemRestart": {
+    "name": "pduSystemRestart",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.3",
+    "class": "notificationtype"
+  },
+  "pduResetToDefault": {
+    "name": "pduResetToDefault",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.4",
+    "class": "notificationtype"
+  },
+  "pduFirmUpgrade": {
+    "name": "pduFirmUpgrade",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.5",
+    "class": "notificationtype"
+  },
+  "pduSystemLogClear": {
+    "name": "pduSystemLogClear",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.6",
+    "class": "notificationtype"
+  },
+  "pduEventlogClear": {
+    "name": "pduEventlogClear",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.7",
+    "class": "notificationtype"
+  },
+  "pduInletHistoryClear": {
+    "name": "pduInletHistoryClear",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.8",
+    "class": "notificationtype"
+  },
+  "pduOutletHistoryClear": {
+    "name": "pduOutletHistoryClear",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.9",
+    "class": "notificationtype"
+  },
+  "pduSystemTimeChangeUser": {
+    "name": "pduSystemTimeChangeUser",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.10",
+    "class": "notificationtype"
+  },
+  "pduSystemTimeChangeNtp": {
+    "name": "pduSystemTimeChangeNtp",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.11",
+    "class": "notificationtype"
+  },
+  "pduSystemTimeChangeRtc": {
+    "name": "pduSystemTimeChangeRtc",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.12",
+    "class": "notificationtype"
+  },
+  "pduMailTestPass": {
+    "name": "pduMailTestPass",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.13",
+    "class": "notificationtype"
+  },
+  "pduMailTestFail": {
+    "name": "pduMailTestFail",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.14",
+    "class": "notificationtype"
+  },
+  "pduMailSentPass": {
+    "name": "pduMailSentPass",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.15",
+    "class": "notificationtype"
+  },
+  "pduMailSentFail": {
+    "name": "pduMailSentFail",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.16",
+    "class": "notificationtype"
+  },
+  "pduSystemCfgChange": {
+    "name": "pduSystemCfgChange",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.17",
+    "class": "notificationtype"
+  },
+  "pduSystemParamImport": {
+    "name": "pduSystemParamImport",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.18",
+    "class": "notificationtype"
+  },
+  "pduInletCommLost": {
+    "name": "pduInletCommLost",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.19",
+    "class": "notificationtype"
+  },
+  "pduInletCommRestore": {
+    "name": "pduInletCommRestore",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.20",
+    "class": "notificationtype"
+  },
+  "pduOutletCommLost": {
+    "name": "pduOutletCommLost",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.21",
+    "class": "notificationtype"
+  },
+  "pduOutletCommRestore": {
+    "name": "pduOutletCommRestore",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.22",
+    "class": "notificationtype"
+  },
+  "pduOutletOnUser": {
+    "name": "pduOutletOnUser",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.23",
+    "class": "notificationtype"
+  },
+  "pduOutletOnSchedule": {
+    "name": "pduOutletOnSchedule",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.24",
+    "class": "notificationtype"
+  },
+  "pduOutletOffUser": {
+    "name": "pduOutletOffUser",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.25",
+    "class": "notificationtype"
+  },
+  "pduOutletOffSchedule": {
+    "name": "pduOutletOffSchedule",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.26",
+    "class": "notificationtype"
+  },
+  "pduOutletRebootUser": {
+    "name": "pduOutletRebootUser",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.27",
+    "class": "notificationtype"
+  },
+  "pduOutletRebootSchedule": {
+    "name": "pduOutletRebootSchedule",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.28",
+    "class": "notificationtype"
+  },
+  "pduInletEnergyReset": {
+    "name": "pduInletEnergyReset",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.29",
+    "class": "notificationtype"
+  },
+  "pduOutletEnergyReset": {
+    "name": "pduOutletEnergyReset",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.30",
+    "class": "notificationtype"
+  },
+  "pduSetUser": {
+    "name": "pduSetUser",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.31",
+    "class": "notificationtype"
+  },
+  "pduDeletUser": {
+    "name": "pduDeletUser",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.32",
+    "class": "notificationtype"
+  },
+  "pduUpgradeInletSuccess": {
+    "name": "pduUpgradeInletSuccess",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.33",
+    "class": "notificationtype"
+  },
+  "pduUpgradeInletFail": {
+    "name": "pduUpgradeInletFail",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.34",
+    "class": "notificationtype"
+  },
+  "pduUpgradeOutletSuccess": {
+    "name": "pduUpgradeOutletSuccess",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.35",
+    "class": "notificationtype"
+  },
+  "pduUpgradeOutletFail": {
+    "name": "pduUpgradeOutletFail",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.36",
+    "class": "notificationtype"
+  },
+  "pduEmdTempHighWarnToNormal": {
+    "name": "pduEmdTempHighWarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.101",
+    "class": "notificationtype"
+  },
+  "pduEmdTempHighWarn": {
+    "name": "pduEmdTempHighWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.102",
+    "class": "notificationtype"
+  },
+  "pduEmdTempLowWarnToNormal": {
+    "name": "pduEmdTempLowWarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.103",
+    "class": "notificationtype"
+  },
+  "pduEmdTempLowWarn": {
+    "name": "pduEmdTempLowWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.104",
+    "class": "notificationtype"
+  },
+  "pduEmdTempHighCritToWarn": {
+    "name": "pduEmdTempHighCritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.105",
+    "class": "notificationtype"
+  },
+  "pduEmdTempHighCritical": {
+    "name": "pduEmdTempHighCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.106",
+    "class": "notificationtype"
+  },
+  "pduEmdTempLowCritToWarn": {
+    "name": "pduEmdTempLowCritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.107",
+    "class": "notificationtype"
+  },
+  "pduEmdTempLowCritical": {
+    "name": "pduEmdTempLowCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.108",
+    "class": "notificationtype"
+  },
+  "pduEmdHumiHighWarnToNormal": {
+    "name": "pduEmdHumiHighWarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.109",
+    "class": "notificationtype"
+  },
+  "pduEmdHumiHighWarn": {
+    "name": "pduEmdHumiHighWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.110",
+    "class": "notificationtype"
+  },
+  "pduEmdHumiLowWarnToNormal": {
+    "name": "pduEmdHumiLowWarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.111",
+    "class": "notificationtype"
+  },
+  "pduEmdHumiLowWarn": {
+    "name": "pduEmdHumiLowWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.112",
+    "class": "notificationtype"
+  },
+  "pduEmdHumiHighCritToWarn": {
+    "name": "pduEmdHumiHighCritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.113",
+    "class": "notificationtype"
+  },
+  "pduEmdHumiHighCritical": {
+    "name": "pduEmdHumiHighCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.114",
+    "class": "notificationtype"
+  },
+  "pduEmdHumiLowCritToWarn": {
+    "name": "pduEmdHumiLowCritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.115",
+    "class": "notificationtype"
+  },
+  "pduEmdHumiLowCritical": {
+    "name": "pduEmdHumiLowCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.116",
+    "class": "notificationtype"
+  },
+  "pduEmdAlarm1NotActive": {
+    "name": "pduEmdAlarm1NotActive",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.117",
+    "class": "notificationtype"
+  },
+  "pduEmdAlarm1Active": {
+    "name": "pduEmdAlarm1Active",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.118",
+    "class": "notificationtype"
+  },
+  "pduEmdAlarm2NotActive": {
+    "name": "pduEmdAlarm2NotActive",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.119",
+    "class": "notificationtype"
+  },
+  "pduEmdAlarm2Active": {
+    "name": "pduEmdAlarm2Active",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.120",
+    "class": "notificationtype"
+  },
+  "pduRs485Online": {
+    "name": "pduRs485Online",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.121",
+    "class": "notificationtype"
+  },
+  "pduRs485Offline": {
+    "name": "pduRs485Offline",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.122",
+    "class": "notificationtype"
+  },
+  "pduInletLoadCritToWarn": {
+    "name": "pduInletLoadCritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.123",
+    "class": "notificationtype"
+  },
+  "pduInletLoadCritical": {
+    "name": "pduInletLoadCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.124",
+    "class": "notificationtype"
+  },
+  "pduInletLoadWarnToNormal": {
+    "name": "pduInletLoadWarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.125",
+    "class": "notificationtype"
+  },
+  "pduInletLoadWarn": {
+    "name": "pduInletLoadWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.126",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase1CritToWarn": {
+    "name": "pduInletCurrPhase1CritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.127",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase1Critical": {
+    "name": "pduInletCurrPhase1Critical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.128",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase1WarnToNormal": {
+    "name": "pduInletCurrPhase1WarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.129",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase1Warn": {
+    "name": "pduInletCurrPhase1Warn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.130",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase2CritToWarn": {
+    "name": "pduInletCurrPhase2CritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.131",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase2Critical": {
+    "name": "pduInletCurrPhase2Critical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.132",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase2WarnToNormal": {
+    "name": "pduInletCurrPhase2WarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.133",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase2Warn": {
+    "name": "pduInletCurrPhase2Warn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.134",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase3CritToWarn": {
+    "name": "pduInletCurrPhase3CritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.135",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase3Critical": {
+    "name": "pduInletCurrPhase3Critical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.136",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase3WarnToNormal": {
+    "name": "pduInletCurrPhase3WarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.137",
+    "class": "notificationtype"
+  },
+  "pduInletCurrPhase3Warn": {
+    "name": "pduInletCurrPhase3Warn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.138",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase1CritToWarn": {
+    "name": "pduInletVoltPhase1CritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.139",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase1Critical": {
+    "name": "pduInletVoltPhase1Critical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.140",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase1WarnToNormal": {
+    "name": "pduInletVoltPhase1WarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.141",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase1Warn": {
+    "name": "pduInletVoltPhase1Warn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.142",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase2CritToWarn": {
+    "name": "pduInletVoltPhase2CritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.143",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase2Critical": {
+    "name": "pduInletVoltPhase2Critical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.144",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase2WarnToNormal": {
+    "name": "pduInletVoltPhase2WarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.145",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase2Warn": {
+    "name": "pduInletVoltPhase2Warn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.146",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase3CritToWarn": {
+    "name": "pduInletVoltPhase3CritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.147",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase3Critical": {
+    "name": "pduInletVoltPhase3Critical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.148",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase3WarnToNormal": {
+    "name": "pduInletVoltPhase3WarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.149",
+    "class": "notificationtype"
+  },
+  "pduInletVoltPhase3Warn": {
+    "name": "pduInletVoltPhase3Warn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.150",
+    "class": "notificationtype"
+  },
+  "pduOutletCurrCritToWarn": {
+    "name": "pduOutletCurrCritToWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.151",
+    "class": "notificationtype"
+  },
+  "pduOutletCurrCritical": {
+    "name": "pduOutletCurrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.152",
+    "class": "notificationtype"
+  },
+  "pduOutletCurrWarnToNormal": {
+    "name": "pduOutletCurrWarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.153",
+    "class": "notificationtype"
+  },
+  "pduOutletCurrWarn": {
+    "name": "pduOutletCurrWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.154",
+    "class": "notificationtype"
+  },
+  "pduOutletPwrCritTOWarn": {
+    "name": "pduOutletPwrCritTOWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.155",
+    "class": "notificationtype"
+  },
+  "pduOutletPwrCritical": {
+    "name": "pduOutletPwrCritical",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.156",
+    "class": "notificationtype"
+  },
+  "pduOutletPwrWarnToNormal": {
+    "name": "pduOutletPwrWarnToNormal",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.157",
+    "class": "notificationtype"
+  },
+  "pduOutletPwrWarn": {
+    "name": "pduOutletPwrWarn",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.158",
+    "class": "notificationtype"
+  },
+  "pduAlarm1Disabled": {
+    "name": "pduAlarm1Disabled",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.159",
+    "class": "notificationtype"
+  },
+  "pduAlarm2Disabled": {
+    "name": "pduAlarm2Disabled",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.20.160",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bladeshelter/SPSv1-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:39 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SPSv1-MIB"
+  }
+}

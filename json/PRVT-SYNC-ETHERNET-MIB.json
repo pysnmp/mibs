@@ -1,0 +1,911 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtSyncEthernetMIB": {
+    "name": "prvtSyncEthernetMIB",
+    "oid": "1.3.6.1.4.1.738.1.5.170",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-10 00:00",
+        "description": "Initial"
+      }
+    ]
+  },
+  "PrvtSyncEthernetQualityLevelType": {
+    "name": "PrvtSyncEthernetQualityLevelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prc": 2,
+          "ssuA": 4,
+          "ssuB": 8,
+          "sec": 11,
+          "dnu": 15,
+          "stu": 16,
+          "prs": 17,
+          "tnc": 20,
+          "st2": 23,
+          "st3": 26,
+          "smc": 28,
+          "st3e": 29,
+          "prov": 30,
+          "dus": 31,
+          "invalid": 64,
+          "failed": 65
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtSyncEthernetMIBNotifications": {
+    "name": "prvtSyncEthernetMIBNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.170.0",
+    "class": "objectidentity"
+  },
+  "prvtSyncEthernetMIBObjects": {
+    "name": "prvtSyncEthernetMIBObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1",
+    "class": "objectidentity"
+  },
+  "syncEthernetHoldOffTime": {
+    "name": "syncEthernetHoldOffTime",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syncEthernetWaitToRestoreTime": {
+    "name": "syncEthernetWaitToRestoreTime",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syncEthernetG781OptionMode": {
+    "name": "syncEthernetG781OptionMode",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "option1": 1,
+          "option2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syncEthernetClockSourceTable": {
+    "name": "syncEthernetClockSourceTable",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syncEthernetClockSourceEntry": {
+    "name": "syncEthernetClockSourceEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetClockSourceRowStatus": {
+    "name": "syncEthernetClockSourceRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockSourceAdminStatus": {
+    "name": "syncEthernetClockSourceAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockSourceEsmc": {
+    "name": "syncEthernetClockSourceEsmc",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockSourceFrequency": {
+    "name": "syncEthernetClockSourceFrequency",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2431
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockSourceQuality": {
+    "name": "syncEthernetClockSourceQuality",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtSyncEthernetQualityLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockSourceQualityChangeNotify": {
+    "name": "syncEthernetClockSourceQualityChangeNotify",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockSourceRecvQualityLevel": {
+    "name": "syncEthernetClockSourceRecvQualityLevel",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtSyncEthernetQualityLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockSourceLastRecvEsmcPduTime": {
+    "name": "syncEthernetClockSourceLastRecvEsmcPduTime",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockSourceLastRecvEsmcErrorPduTime": {
+    "name": "syncEthernetClockSourceLastRecvEsmcErrorPduTime",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockSourceLastRecvEsmcPduType": {
+    "name": "syncEthernetClockSourceLastRecvEsmcPduType",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockSourceLastRecvLastError": {
+    "name": "syncEthernetClockSourceLastRecvLastError",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockSourceNumRecvEsmcPdu": {
+    "name": "syncEthernetClockSourceNumRecvEsmcPdu",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockSourceNumDiscEsmcPdu": {
+    "name": "syncEthernetClockSourceNumDiscEsmcPdu",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockSourceNumSignalFail": {
+    "name": "syncEthernetClockSourceNumSignalFail",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockSourceQualityInvalidNotify": {
+    "name": "syncEthernetClockSourceQualityInvalidNotify",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockSourceEsmcInvalidNotify": {
+    "name": "syncEthernetClockSourceEsmcInvalidNotify",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockOutputTable": {
+    "name": "syncEthernetClockOutputTable",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syncEthernetClockOutputEntry": {
+    "name": "syncEthernetClockOutputEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetClockOutputRowStatus": {
+    "name": "syncEthernetClockOutputRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockOutputEsmc": {
+    "name": "syncEthernetClockOutputEsmc",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockOutputFrequency": {
+    "name": "syncEthernetClockOutputFrequency",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2431
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockOutputDpll": {
+    "name": "syncEthernetClockOutputDpll",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetClockOutputQualityLevel": {
+    "name": "syncEthernetClockOutputQualityLevel",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtSyncEthernetQualityLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockOutputLastQualityLevelChange": {
+    "name": "syncEthernetClockOutputLastQualityLevelChange",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockOutputMsgEvent": {
+    "name": "syncEthernetClockOutputMsgEvent",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockOutputNumTransmittedEsmcPdu": {
+    "name": "syncEthernetClockOutputNumTransmittedEsmcPdu",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetClockOutputNumTransmittedEventEsmcPdu": {
+    "name": "syncEthernetClockOutputNumTransmittedEventEsmcPdu",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetDpllTable": {
+    "name": "syncEthernetDpllTable",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syncEthernetDpllEntry": {
+    "name": "syncEthernetDpllEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SYNC-ETHERNET-MIB",
+        "object": "syncEthernetDpllModuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetDpllModuleId": {
+    "name": "syncEthernetDpllModuleId",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syncEthernetDpllRowStatus": {
+    "name": "syncEthernetDpllRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllAdminStatus": {
+    "name": "syncEthernetDpllAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllReferenceSelection": {
+    "name": "syncEthernetDpllReferenceSelection",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freerun": 1,
+          "static": 2,
+          "g781": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllEnableQualityLevel": {
+    "name": "syncEthernetDpllEnableQualityLevel",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllStatusChangeNotify": {
+    "name": "syncEthernetDpllStatusChangeNotify",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllReferenceChangeNotify": {
+    "name": "syncEthernetDpllReferenceChangeNotify",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllStatus": {
+    "name": "syncEthernetDpllStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freerun": 0,
+          "locked": 1,
+          "holdover": 2,
+          "refFailure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetDpllStatusLastChange": {
+    "name": "syncEthernetDpllStatusLastChange",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetDpllSystemQualityLevel": {
+    "name": "syncEthernetDpllSystemQualityLevel",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtSyncEthernetQualityLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetDpllSystemQualityLevelLastChange": {
+    "name": "syncEthernetDpllSystemQualityLevelLastChange",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetDpllSelectedReferenceClock": {
+    "name": "syncEthernetDpllSelectedReferenceClock",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetDpllSelectedReferenceClockChange": {
+    "name": "syncEthernetDpllSelectedReferenceClockChange",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetDpllClkRefTable": {
+    "name": "syncEthernetDpllClkRefTable",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syncEthernetDpllClkRefEntry": {
+    "name": "syncEthernetDpllClkRefEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SYNC-ETHERNET-MIB",
+        "object": "syncEthernetDpllModuleId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetDpllClkRefRowStatus": {
+    "name": "syncEthernetDpllClkRefRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllClkRefPriority": {
+    "name": "syncEthernetDpllClkRefPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllClkRefLockOut": {
+    "name": "syncEthernetDpllClkRefLockOut",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syncEthernetDpllClkRefFailStatus": {
+    "name": "syncEthernetDpllClkRefFailStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.170.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syncEthernetInvalidESMC": {
+    "name": "syncEthernetInvalidESMC",
+    "oid": "1.3.6.1.4.1.738.1.5.170.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SYNC-ETHERNET-MIB",
+        "object": "syncEthernetClockSourceLastRecvLastError"
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetQualityLevelChange": {
+    "name": "syncEthernetQualityLevelChange",
+    "oid": "1.3.6.1.4.1.738.1.5.170.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SYNC-ETHERNET-MIB",
+        "object": "syncEthernetClockSourceQuality"
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetInvalidQualityLevelReceived": {
+    "name": "syncEthernetInvalidQualityLevelReceived",
+    "oid": "1.3.6.1.4.1.738.1.5.170.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SYNC-ETHERNET-MIB",
+        "object": "syncEthernetClockSourceRecvQualityLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetDPLLReferenceChange": {
+    "name": "syncEthernetDPLLReferenceChange",
+    "oid": "1.3.6.1.4.1.738.1.5.170.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SYNC-ETHERNET-MIB",
+        "object": "syncEthernetDpllSelectedReferenceClockChange"
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetDPLLChanged": {
+    "name": "syncEthernetDPLLChanged",
+    "oid": "1.3.6.1.4.1.738.1.5.170.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SYNC-ETHERNET-MIB",
+        "object": "syncEthernetDpllStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "syncEthernetDPLLLockFailed": {
+    "name": "syncEthernetDPLLLockFailed",
+    "oid": "1.3.6.1.4.1.738.1.5.170.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SYNC-ETHERNET-MIB",
+        "object": "syncEthernetDpllClkRefFailStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-SYNC-ETHERNET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-SYNC-ETHERNET-MIB"
+  }
+}

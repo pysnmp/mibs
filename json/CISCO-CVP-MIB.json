@@ -1,0 +1,3523 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoURLString"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressDNS"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoCvpMIB": {
+    "name": "ciscoCvpMIB",
+    "oid": "1.3.6.1.4.1.9.9.590",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-09-22 00:00",
+        "description": "Added ccvpSipIntPostCallAnswered, ccvpSipIntWhisperAnswered,ccvpSipIntWhisperFailed,ccvpSipIntGree tingAnswered , ccvpSipIntGreetingFailed"
+      },
+      {
+        "revision": "2007-10-31 00:00",
+        "description": "Added ccvpSipVideoTableGroup, ccvpIvrVideoTableGroup and ccvpIcmVideoTableGroup to include Video statistics."
+      },
+      {
+        "revision": "2006-10-06 00:00",
+        "description": "Added objects: ccvpLicPortUsageWarning and ccvpLicPortUsageCritical to expose the current threshold settings for the port usage states of 'warning' and 'critical' respectively. Also added UNITS clause 'minutes' to ccvpServiceIntPeriod."
+      },
+      {
+        "revision": "2006-05-19 12:00",
+        "description": "This is the initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCvpMIBNotifs": {
+    "name": "ciscoCvpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.590.0",
+    "class": "objectidentity"
+  },
+  "ciscoCvpMIBObjects": {
+    "name": "ciscoCvpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.590.1",
+    "class": "objectidentity"
+  },
+  "ccvpGeneralInfo": {
+    "name": "ccvpGeneralInfo",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1",
+    "class": "objectidentity"
+  },
+  "ccvpLicensingInfo": {
+    "name": "ccvpLicensingInfo",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2",
+    "class": "objectidentity"
+  },
+  "ccvpThreadPoolInfo": {
+    "name": "ccvpThreadPoolInfo",
+    "oid": "1.3.6.1.4.1.9.9.590.1.3",
+    "class": "objectidentity"
+  },
+  "ccvpJvmInfo": {
+    "name": "ccvpJvmInfo",
+    "oid": "1.3.6.1.4.1.9.9.590.1.4",
+    "class": "objectidentity"
+  },
+  "ccvpServices": {
+    "name": "ccvpServices",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5",
+    "class": "objectidentity"
+  },
+  "ccvpServiceInfo": {
+    "name": "ccvpServiceInfo",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6",
+    "class": "objectidentity"
+  },
+  "ccvpNotificationInfo": {
+    "name": "ccvpNotificationInfo",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7",
+    "class": "objectidentity"
+  },
+  "ciscoCvpMIBConform": {
+    "name": "ciscoCvpMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.590.2",
+    "class": "objectidentity"
+  },
+  "ciscoCvpMIBCompliances": {
+    "name": "ciscoCvpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.590.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCvpMIBGroups": {
+    "name": "ciscoCvpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2",
+    "class": "objectidentity"
+  },
+  "CcvpIndex": {
+    "name": "CcvpIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CcvpServiceType": {
+    "name": "CcvpServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sip": 1,
+          "h323": 2,
+          "ivr": 3,
+          "icm": 4,
+          "reporting": 5,
+          "vxml": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CcvpServiceStatus": {
+    "name": "CcvpServiceStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "starting": 1,
+          "inService": 2,
+          "inServiceWarning": 3,
+          "inServiceCritical": 4,
+          "partialService": 5,
+          "stopping": 6,
+          "stopped": 7,
+          "unknown": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ccvpServerName": {
+    "name": "ccvpServerName",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpDescription": {
+    "name": "ccvpDescription",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVersion": {
+    "name": "ccvpVersion",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpStartTime": {
+    "name": "ccvpStartTime",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpTimeZoneName": {
+    "name": "ccvpTimeZoneName",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpTimeZoneOffsetHours": {
+    "name": "ccvpTimeZoneOffsetHours",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpTimeZoneOffsetMinutes": {
+    "name": "ccvpTimeZoneOffsetMinutes",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -59,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpOpsConsoleURL": {
+    "name": "ccvpOpsConsoleURL",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSupportToolsURL": {
+    "name": "ccvpSupportToolsURL",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpEnableNotifications": {
+    "name": "ccvpEnableNotifications",
+    "oid": "1.3.6.1.4.1.9.9.590.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicRtPortsAvail": {
+    "name": "ccvpLicRtPortsAvail",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicRtPortsInUse": {
+    "name": "ccvpLicRtPortsInUse",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicRtPortState": {
+    "name": "ccvpLicRtPortState",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "safe": 0,
+          "unknown": 1,
+          "warning": 2,
+          "critical": 3,
+          "failure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicIntLastUpdate": {
+    "name": "ccvpLicIntLastUpdate",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicIntPeriod": {
+    "name": "ccvpLicIntPeriod",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicIntPortReqs": {
+    "name": "ccvpLicIntPortReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicIntAvgPortReqs": {
+    "name": "ccvpLicIntAvgPortReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicIntMaxPortsInUse": {
+    "name": "ccvpLicIntMaxPortsInUse",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicIntPortReqsDenied": {
+    "name": "ccvpLicIntPortReqsDenied",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicAggPortReqs": {
+    "name": "ccvpLicAggPortReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicAggAvgPortReqs": {
+    "name": "ccvpLicAggAvgPortReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicAggMaxPortsInUse": {
+    "name": "ccvpLicAggMaxPortsInUse",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicAggPortReqsDenied": {
+    "name": "ccvpLicAggPortReqsDenied",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicPortUsageWarning": {
+    "name": "ccvpLicPortUsageWarning",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 94,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpLicPortUsageCritical": {
+    "name": "ccvpLicPortUsageCritical",
+    "oid": "1.3.6.1.4.1.9.9.590.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 97,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpTPoolRtIdleThreads": {
+    "name": "ccvpTPoolRtIdleThreads",
+    "oid": "1.3.6.1.4.1.9.9.590.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpTPoolRtRunningThreads": {
+    "name": "ccvpTPoolRtRunningThreads",
+    "oid": "1.3.6.1.4.1.9.9.590.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpTPoolRtCoreThreads": {
+    "name": "ccvpTPoolRtCoreThreads",
+    "oid": "1.3.6.1.4.1.9.9.590.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpTPoolRtMaxThreadsAvail": {
+    "name": "ccvpTPoolRtMaxThreadsAvail",
+    "oid": "1.3.6.1.4.1.9.9.590.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpTPoolRtMaxThreadsUsed": {
+    "name": "ccvpTPoolRtMaxThreadsUsed",
+    "oid": "1.3.6.1.4.1.9.9.590.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpJvmRtMaxMemUsed": {
+    "name": "ccvpJvmRtMaxMemUsed",
+    "oid": "1.3.6.1.4.1.9.9.590.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpJvmRtCurrMemUsed": {
+    "name": "ccvpJvmRtCurrMemUsed",
+    "oid": "1.3.6.1.4.1.9.9.590.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpJvmRtMaxMemAvail": {
+    "name": "ccvpJvmRtMaxMemAvail",
+    "oid": "1.3.6.1.4.1.9.9.590.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpJvmRtCurrMemAvail": {
+    "name": "ccvpJvmRtCurrMemAvail",
+    "oid": "1.3.6.1.4.1.9.9.590.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpJvmRtCurrThreadsInUse": {
+    "name": "ccvpJvmRtCurrThreadsInUse",
+    "oid": "1.3.6.1.4.1.9.9.590.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpJvmRtMaxThreadsUsed": {
+    "name": "ccvpJvmRtMaxThreadsUsed",
+    "oid": "1.3.6.1.4.1.9.9.590.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpJvmRtUpTime": {
+    "name": "ccvpJvmRtUpTime",
+    "oid": "1.3.6.1.4.1.9.9.590.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpServiceTable": {
+    "name": "ccvpServiceTable",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccvpServiceEntry": {
+    "name": "ccvpServiceEntry",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpServiceIndex": {
+    "name": "ccvpServiceIndex",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcvpIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccvpServiceType": {
+    "name": "ccvpServiceType",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcvpServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpServiceName": {
+    "name": "ccvpServiceName",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpServiceStatus": {
+    "name": "ccvpServiceStatus",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcvpServiceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpServiceIntLastUpdate": {
+    "name": "ccvpServiceIntLastUpdate",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpServiceIntPeriod": {
+    "name": "ccvpServiceIntPeriod",
+    "oid": "1.3.6.1.4.1.9.9.590.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipTable": {
+    "name": "ccvpSipTable",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccvpSipEntry": {
+    "name": "ccvpSipEntry",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpSipRtActiveCalls": {
+    "name": "ccvpSipRtActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipRtTotalCallLegs": {
+    "name": "ccvpSipRtTotalCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntNewCalls": {
+    "name": "ccvpSipIntNewCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntConnectsRcv": {
+    "name": "ccvpSipIntConnectsRcv",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "connects",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntAvgLatency1": {
+    "name": "ccvpSipIntAvgLatency1",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntAvgLatency2": {
+    "name": "ccvpSipIntAvgLatency2",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntFailedXferPre": {
+    "name": "ccvpSipIntFailedXferPre",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "transfers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntFailedXferPost": {
+    "name": "ccvpSipIntFailedXferPost",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "transfers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipAggNewCalls": {
+    "name": "ccvpSipAggNewCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipAggConnectsRcv": {
+    "name": "ccvpSipAggConnectsRcv",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connects",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipAggAvgLatency1": {
+    "name": "ccvpSipAggAvgLatency1",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipAggAvgLatency2": {
+    "name": "ccvpSipAggAvgLatency2",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipAggFailedXferPre": {
+    "name": "ccvpSipAggFailedXferPre",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "transfers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipAggFailedXferPost": {
+    "name": "ccvpSipAggFailedXferPost",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "transfers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipRtBasicVideoOffered": {
+    "name": "ccvpSipRtBasicVideoOffered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipRtBasicVideoAnswered": {
+    "name": "ccvpSipRtBasicVideoAnswered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntBasicVideoOffered": {
+    "name": "ccvpSipIntBasicVideoOffered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntBasicVideoAnswered": {
+    "name": "ccvpSipIntBasicVideoAnswered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipAggBasicVideoOffered": {
+    "name": "ccvpSipAggBasicVideoOffered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipAggBasicVideoAnswered": {
+    "name": "ccvpSipAggBasicVideoAnswered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntPostCallAnswered": {
+    "name": "ccvpSipIntPostCallAnswered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntWhisperAnswered": {
+    "name": "ccvpSipIntWhisperAnswered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntWhisperFailed": {
+    "name": "ccvpSipIntWhisperFailed",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntGreetingAnswered": {
+    "name": "ccvpSipIntGreetingAnswered",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpSipIntGreetingFailed": {
+    "name": "ccvpSipIntGreetingFailed",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323Table": {
+    "name": "ccvpH323Table",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccvpH323Entry": {
+    "name": "ccvpH323Entry",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpH323RtCallsInProgress": {
+    "name": "ccvpH323RtCallsInProgress",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323RtMemoryInUse": {
+    "name": "ccvpH323RtMemoryInUse",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntArrivalRate": {
+    "name": "ccvpH323IntArrivalRate",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntTransferRate": {
+    "name": "ccvpH323IntTransferRate",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntMaxNewCallLatency": {
+    "name": "ccvpH323IntMaxNewCallLatency",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntAvgNewCallLatency": {
+    "name": "ccvpH323IntAvgNewCallLatency",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntMaxXferToAlert": {
+    "name": "ccvpH323IntMaxXferToAlert",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntAvgXferToAlert": {
+    "name": "ccvpH323IntAvgXferToAlert",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntMaxXferToAnswer": {
+    "name": "ccvpH323IntMaxXferToAnswer",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntAvgXferToAnswer": {
+    "name": "ccvpH323IntAvgXferToAnswer",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntNewCalls": {
+    "name": "ccvpH323IntNewCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntTransferred": {
+    "name": "ccvpH323IntTransferred",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntRedirected": {
+    "name": "ccvpH323IntRedirected",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntNotTransferred": {
+    "name": "ccvpH323IntNotTransferred",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntPromptsNotFound": {
+    "name": "ccvpH323IntPromptsNotFound",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntCriticalMedia": {
+    "name": "ccvpH323IntCriticalMedia",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntCallsFinished": {
+    "name": "ccvpH323IntCallsFinished",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntMaxCpuUsage": {
+    "name": "ccvpH323IntMaxCpuUsage",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpH323IntAvgCpuUsage": {
+    "name": "ccvpH323IntAvgCpuUsage",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrTable": {
+    "name": "ccvpIvrTable",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccvpIvrEntry": {
+    "name": "ccvpIvrEntry",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpIvrRtActiveCalls": {
+    "name": "ccvpIvrRtActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrRtActiveHttpReqs": {
+    "name": "ccvpIvrRtActiveHttpReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntNewCalls": {
+    "name": "ccvpIvrIntNewCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntMaxActiveCalls": {
+    "name": "ccvpIvrIntMaxActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntCallsFinished": {
+    "name": "ccvpIvrIntCallsFinished",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntAvgCallLatency": {
+    "name": "ccvpIvrIntAvgCallLatency",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntMaxCallLatency": {
+    "name": "ccvpIvrIntMaxCallLatency",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntMinCallLatency": {
+    "name": "ccvpIvrIntMinCallLatency",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntHttpReqs": {
+    "name": "ccvpIvrIntHttpReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntMaxActiveHttpReqs": {
+    "name": "ccvpIvrIntMaxActiveHttpReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntMaxHttpReqRate": {
+    "name": "ccvpIvrIntMaxHttpReqRate",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntAvgHttpReqRate": {
+    "name": "ccvpIvrIntAvgHttpReqRate",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggNewCalls": {
+    "name": "ccvpIvrAggNewCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggMaxActiveCalls": {
+    "name": "ccvpIvrAggMaxActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggHttpReqs": {
+    "name": "ccvpIvrAggHttpReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggMaxHttpReqs": {
+    "name": "ccvpIvrAggMaxHttpReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrRtFullVideoCalls": {
+    "name": "ccvpIvrRtFullVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntFullVideoCalls": {
+    "name": "ccvpIvrIntFullVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggFullVideoCalls": {
+    "name": "ccvpIvrAggFullVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrIntMaxFullVideoCalls": {
+    "name": "ccvpIvrIntMaxFullVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggMaxFullVideoCalls": {
+    "name": "ccvpIvrAggMaxFullVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggAgentPushedVideo": {
+    "name": "ccvpIvrAggAgentPushedVideo",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggAgentInitiatedRecordings": {
+    "name": "ccvpIvrAggAgentInitiatedRecordings",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIvrAggAgentVCRControlInvocations": {
+    "name": "ccvpIvrAggAgentVCRControlInvocations",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmTable": {
+    "name": "ccvpIcmTable",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccvpIcmEntry": {
+    "name": "ccvpIcmEntry",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpIcmRtActiveCalls": {
+    "name": "ccvpIcmRtActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmRtActiveSIPCallLegs": {
+    "name": "ccvpIcmRtActiveSIPCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmRtActiveH323CallLegs": {
+    "name": "ccvpIcmRtActiveH323CallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmRtActiveVRUCallLegs": {
+    "name": "ccvpIcmRtActiveVRUCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmRtActiveICMLookupReqs": {
+    "name": "ccvpIcmRtActiveICMLookupReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmIntNewCalls": {
+    "name": "ccvpIcmIntNewCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmIntSipCallLegs": {
+    "name": "ccvpIcmIntSipCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmIntH323CallLegs": {
+    "name": "ccvpIcmIntH323CallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmIntVruCallLegs": {
+    "name": "ccvpIcmIntVruCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmIntIcmLookupReqs": {
+    "name": "ccvpIcmIntIcmLookupReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmAggCalls": {
+    "name": "ccvpIcmAggCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmAggSipCallLegs": {
+    "name": "ccvpIcmAggSipCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmAggH323CallLegs": {
+    "name": "ccvpIcmAggH323CallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmAggVruCallLegs": {
+    "name": "ccvpIcmAggVruCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "call legs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmAggIcmLookupReqs": {
+    "name": "ccvpIcmAggIcmLookupReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmRtFullVideoCalls": {
+    "name": "ccvpIcmRtFullVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmRtOfferedBasicVideoCalls": {
+    "name": "ccvpIcmRtOfferedBasicVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmRtAcceptedBasicVideoCalls": {
+    "name": "ccvpIcmRtAcceptedBasicVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmIntFullVideoCalls": {
+    "name": "ccvpIcmIntFullVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmIntOfferedBasicVideoCalls": {
+    "name": "ccvpIcmIntOfferedBasicVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmIntAcceptedBasicVideoCalls": {
+    "name": "ccvpIcmIntAcceptedBasicVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmAggFullVideoCalls": {
+    "name": "ccvpIcmAggFullVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmAggOfferedBasicVideoCalls": {
+    "name": "ccvpIcmAggOfferedBasicVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpIcmAggAcceptedBasicVideoCalls": {
+    "name": "ccvpIcmAggAcceptedBasicVideoCalls",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpReptTable": {
+    "name": "ccvpReptTable",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccvpReptEntry": {
+    "name": "ccvpReptEntry",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpReptIntVxmlEvents": {
+    "name": "ccvpReptIntVxmlEvents",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpReptIntSipEvents": {
+    "name": "ccvpReptIntSipEvents",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpReptIntIvrEvents": {
+    "name": "ccvpReptIntIvrEvents",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpReptIntDatabaseWrites": {
+    "name": "ccvpReptIntDatabaseWrites",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "writes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpReptAggVxmlEvents": {
+    "name": "ccvpReptAggVxmlEvents",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpReptAggSipEvents": {
+    "name": "ccvpReptAggSipEvents",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpReptAggIvrEvents": {
+    "name": "ccvpReptAggIvrEvents",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpReptAggDatabaseWrites": {
+    "name": "ccvpReptAggDatabaseWrites",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "writes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlTable": {
+    "name": "ccvpVxmlTable",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccvpVxmlEntry": {
+    "name": "ccvpVxmlEntry",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpVxmlRtActiveSessions": {
+    "name": "ccvpVxmlRtActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlRtActiveIcmLookups": {
+    "name": "ccvpVxmlRtActiveIcmLookups",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlIntSessions": {
+    "name": "ccvpVxmlIntSessions",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlIntReptEvents": {
+    "name": "ccvpVxmlIntReptEvents",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlIntIcmLookupReqs": {
+    "name": "ccvpVxmlIntIcmLookupReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlIntIcmLookupResp": {
+    "name": "ccvpVxmlIntIcmLookupResp",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlIntIcmLookupSuccess": {
+    "name": "ccvpVxmlIntIcmLookupSuccess",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlIntIcmLookupFails": {
+    "name": "ccvpVxmlIntIcmLookupFails",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlAggSessions": {
+    "name": "ccvpVxmlAggSessions",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlAggReptEvents": {
+    "name": "ccvpVxmlAggReptEvents",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlAggIcmLookupReqs": {
+    "name": "ccvpVxmlAggIcmLookupReqs",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlAggIcmLookupResp": {
+    "name": "ccvpVxmlAggIcmLookupResp",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "responses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlAggIcmLookupSuccess": {
+    "name": "ccvpVxmlAggIcmLookupSuccess",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpVxmlAggIcmLookupFails": {
+    "name": "ccvpVxmlAggIcmLookupFails",
+    "oid": "1.3.6.1.4.1.9.9.590.1.6.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccvpEventMessageId": {
+    "name": "ccvpEventMessageId",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccvpEventHostName": {
+    "name": "ccvpEventHostName",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccvpEventAppName": {
+    "name": "ccvpEventAppName",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccvpEventMessageName": {
+    "name": "ccvpEventMessageName",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccvpEventState": {
+    "name": "ccvpEventState",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raise": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccvpEventSeverity": {
+    "name": "ccvpEventSeverity",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "informational": 6,
+          "debug": 7
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccvpEventTimestamp": {
+    "name": "ccvpEventTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccvpEventText": {
+    "name": "ccvpEventText",
+    "oid": "1.3.6.1.4.1.9.9.590.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccvpCvpEvent": {
+    "name": "ccvpCvpEvent",
+    "oid": "1.3.6.1.4.1.9.9.590.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventMessageId"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventHostName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventAppName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventMessageName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventState"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventSeverity"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventTimestamp"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventText"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCcvpMIBComplianceRev1": {
+    "name": "ciscoCcvpMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.590.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccvpGeneralInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpLicensingInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpThreadPoolInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpJvmInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpServiceTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpSipTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpH323TableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpIvrTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpIcmTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpReptTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpVxmlTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpCvpNotificationInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpCvpEventsGroup",
+        "module": "CISCO-CVP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCcvpMIBComplianceRev2": {
+    "name": "ciscoCcvpMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.590.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccvpGeneralInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpLicensingInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpThreadPoolInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpJvmInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpServiceTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpSipTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpSipVideoTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpH323TableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpIvrTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpIvrVideoTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpIcmTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpIcmVideoTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpReptTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpVxmlTableGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpCvpNotificationInfoGroup",
+        "module": "CISCO-CVP-MIB"
+      },
+      {
+        "object": "ccvpCvpEventsGroup",
+        "module": "CISCO-CVP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpGeneralInfoGroup": {
+    "name": "ccvpGeneralInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServerName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpDescription"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVersion"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpStartTime"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpTimeZoneName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpTimeZoneOffsetHours"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpTimeZoneOffsetMinutes"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpOpsConsoleURL"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSupportToolsURL"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEnableNotifications"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpLicensingInfoGroup": {
+    "name": "ccvpLicensingInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicRtPortsAvail"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicRtPortsInUse"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicRtPortState"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicIntLastUpdate"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicIntPeriod"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicIntPortReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicIntAvgPortReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicIntMaxPortsInUse"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicIntPortReqsDenied"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicAggPortReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicAggAvgPortReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicAggMaxPortsInUse"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicAggPortReqsDenied"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicPortUsageWarning"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpLicPortUsageCritical"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpThreadPoolInfoGroup": {
+    "name": "ccvpThreadPoolInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpTPoolRtIdleThreads"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpTPoolRtRunningThreads"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpTPoolRtCoreThreads"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpTPoolRtMaxThreadsAvail"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpTPoolRtMaxThreadsUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpJvmInfoGroup": {
+    "name": "ccvpJvmInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpJvmRtMaxMemUsed"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpJvmRtCurrMemUsed"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpJvmRtMaxMemAvail"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpJvmRtCurrMemAvail"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpJvmRtCurrThreadsInUse"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpJvmRtMaxThreadsUsed"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpJvmRtUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpServiceTableGroup": {
+    "name": "ccvpServiceTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceType"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceStatus"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIntLastUpdate"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpServiceIntPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpSipTableGroup": {
+    "name": "ccvpSipTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipRtActiveCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipRtTotalCallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntNewCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntConnectsRcv"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntAvgLatency1"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntAvgLatency2"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntFailedXferPre"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntFailedXferPost"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipAggNewCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipAggConnectsRcv"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipAggAvgLatency1"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipAggAvgLatency2"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipAggFailedXferPre"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipAggFailedXferPost"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntPostCallAnswered"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntWhisperAnswered"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntWhisperFailed"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntGreetingAnswered"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntGreetingFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpH323TableGroup": {
+    "name": "ccvpH323TableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323RtCallsInProgress"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323RtMemoryInUse"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntArrivalRate"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntTransferRate"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntMaxNewCallLatency"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntAvgNewCallLatency"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntMaxXferToAlert"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntAvgXferToAlert"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntMaxXferToAnswer"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntAvgXferToAnswer"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntNewCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntTransferred"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntRedirected"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntNotTransferred"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntPromptsNotFound"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntCriticalMedia"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntCallsFinished"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntMaxCpuUsage"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpH323IntAvgCpuUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpIvrTableGroup": {
+    "name": "ccvpIvrTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrRtActiveCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrRtActiveHttpReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntNewCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntMaxActiveCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntCallsFinished"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntAvgCallLatency"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntMaxCallLatency"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntMinCallLatency"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntHttpReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntMaxActiveHttpReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntMaxHttpReqRate"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntAvgHttpReqRate"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggNewCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggMaxActiveCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggHttpReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggMaxHttpReqs"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpIcmTableGroup": {
+    "name": "ccvpIcmTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmRtActiveCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmRtActiveSIPCallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmRtActiveH323CallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmRtActiveVRUCallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmRtActiveICMLookupReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmIntNewCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmIntSipCallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmIntH323CallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmIntVruCallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmIntIcmLookupReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmAggCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmAggSipCallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmAggH323CallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmAggVruCallLegs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmAggIcmLookupReqs"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpReptTableGroup": {
+    "name": "ccvpReptTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpReptIntVxmlEvents"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpReptIntSipEvents"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpReptIntIvrEvents"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpReptIntDatabaseWrites"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpReptAggVxmlEvents"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpReptAggSipEvents"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpReptAggIvrEvents"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpReptAggDatabaseWrites"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpVxmlTableGroup": {
+    "name": "ccvpVxmlTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlRtActiveSessions"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlRtActiveIcmLookups"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlIntSessions"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlIntReptEvents"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlIntIcmLookupReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlIntIcmLookupResp"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlIntIcmLookupSuccess"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlIntIcmLookupFails"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlAggSessions"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlAggReptEvents"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlAggIcmLookupReqs"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlAggIcmLookupResp"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlAggIcmLookupSuccess"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpVxmlAggIcmLookupFails"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpCvpNotificationInfoGroup": {
+    "name": "ccvpCvpNotificationInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventMessageId"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventHostName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventAppName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventMessageName"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventState"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventSeverity"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventTimestamp"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpEventText"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpCvpEventsGroup": {
+    "name": "ccvpCvpEventsGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpCvpEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpSipVideoTableGroup": {
+    "name": "ccvpSipVideoTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipRtBasicVideoOffered"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipRtBasicVideoAnswered"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntBasicVideoOffered"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipIntBasicVideoAnswered"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipAggBasicVideoOffered"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpSipAggBasicVideoAnswered"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpIvrVideoTableGroup": {
+    "name": "ccvpIvrVideoTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrRtFullVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntFullVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggFullVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrIntMaxFullVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggMaxFullVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggAgentPushedVideo"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggAgentInitiatedRecordings"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIvrAggAgentVCRControlInvocations"
+      }
+    ],
+    "status": "current"
+  },
+  "ccvpIcmVideoTableGroup": {
+    "name": "ccvpIcmVideoTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.590.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmRtFullVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmRtOfferedBasicVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmRtAcceptedBasicVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmIntFullVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmIntOfferedBasicVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmIntAcceptedBasicVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmAggFullVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmAggOfferedBasicVideoCalls"
+      },
+      {
+        "module": "CISCO-CVP-MIB",
+        "object": "ccvpIcmAggAcceptedBasicVideoCalls"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CVP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CVP-MIB"
+  }
+}

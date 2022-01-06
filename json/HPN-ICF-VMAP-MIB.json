@@ -1,0 +1,657 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfVmap": {
+    "name": "hpnicfVmap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-08 00:00",
+        "description": "The initial version of this MIB."
+      }
+    ]
+  },
+  "hpnicfVMAPNNITable": {
+    "name": "hpnicfVMAPNNITable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAPNNIEntry": {
+    "name": "hpnicfVMAPNNIEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVMAPNNIState": {
+    "name": "hpnicfVMAPNNIState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfVMAP1to1Table": {
+    "name": "hpnicfVMAP1to1Table",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP1to1Entry": {
+    "name": "hpnicfVMAP1to1Entry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VMAP-MIB",
+        "object": "hpnicfVMAP1to1Vlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVMAP1to1Vlan": {
+    "name": "hpnicfVMAP1to1Vlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP1to1TranslatedVlan": {
+    "name": "hpnicfVMAP1to1TranslatedVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP1to1RowStatus": {
+    "name": "hpnicfVMAP1to1RowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1RangeTable": {
+    "name": "hpnicfVMAPNto1RangeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1RangeEntry": {
+    "name": "hpnicfVMAPNto1RangeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VMAP-MIB",
+        "object": "hpnicfVMAPNto1StartVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVMAPNto1StartVlan": {
+    "name": "hpnicfVMAPNto1StartVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1EndVlan": {
+    "name": "hpnicfVMAPNto1EndVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1RangeTranslatedVlan": {
+    "name": "hpnicfVMAPNto1RangeTranslatedVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1RangeRowStatus": {
+    "name": "hpnicfVMAPNto1RangeRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1SingleTable": {
+    "name": "hpnicfVMAPNto1SingleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1SingleEntry": {
+    "name": "hpnicfVMAPNto1SingleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VMAP-MIB",
+        "object": "hpnicfVMAPNto1Vlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVMAPNto1Vlan": {
+    "name": "hpnicfVMAPNto1Vlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1SingleTranslatedVlan": {
+    "name": "hpnicfVMAPNto1SingleTranslatedVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAPNto1SingleRowStatus": {
+    "name": "hpnicfVMAPNto1SingleRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2RangeTable": {
+    "name": "hpnicfVMAP1to2RangeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2RangeEntry": {
+    "name": "hpnicfVMAP1to2RangeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VMAP-MIB",
+        "object": "hpnicfVMAP1to2StartVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVMAP1to2StartVlan": {
+    "name": "hpnicfVMAP1to2StartVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2EndVlan": {
+    "name": "hpnicfVMAP1to2EndVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2RangeNestedVlan": {
+    "name": "hpnicfVMAP1to2RangeNestedVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2RangeRowStatus": {
+    "name": "hpnicfVMAP1to2RangeRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2SingleTable": {
+    "name": "hpnicfVMAP1to2SingleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2SingleEntry": {
+    "name": "hpnicfVMAP1to2SingleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VMAP-MIB",
+        "object": "hpnicfVMAP1to2Vlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVMAP1to2Vlan": {
+    "name": "hpnicfVMAP1to2Vlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2SingleNestedVlan": {
+    "name": "hpnicfVMAP1to2SingleNestedVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP1to2SingleRowStatus": {
+    "name": "hpnicfVMAP1to2SingleRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP2to2Table": {
+    "name": "hpnicfVMAP2to2Table",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP2to2Entry": {
+    "name": "hpnicfVMAP2to2Entry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VMAP-MIB",
+        "object": "hpnicfVMAP2to2OuterVlan",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-VMAP-MIB",
+        "object": "hpnicfVMAP2to2InnerVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVMAP2to2OuterVlan": {
+    "name": "hpnicfVMAP2to2OuterVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP2to2InnerVlan": {
+    "name": "hpnicfVMAP2to2InnerVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVMAP2to2TranslatedOuterVlan": {
+    "name": "hpnicfVMAP2to2TranslatedOuterVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP2to2TranslatedInnerVlan": {
+    "name": "hpnicfVMAP2to2TranslatedInnerVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfVMAP2to2RowStatus": {
+    "name": "hpnicfVMAP2to2RowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.138.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-VMAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-VMAP-MIB"
+  }
+}

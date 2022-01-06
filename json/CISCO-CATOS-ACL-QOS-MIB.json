@@ -1,0 +1,7546 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-QOS-PIB-MIB": [
+      "QosLayer2Cos",
+      "QosInterfaceQueueType",
+      "Percent",
+      "Dscp"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-SWITCH-ENGINE-MIB": [
+      "cseFlowDataEntry"
+    ],
+    "CISCO-TC": [
+      "CiscoPortList",
+      "CiscoIpProtocol"
+    ],
+    "CISCO-VTP-MIB": [
+      "VlanIndex"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCatOSAclQosMIB": {
+    "name": "ciscoCatOSAclQosMIB",
+    "oid": "1.3.6.1.4.1.9.9.179",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-11-02 00:00",
+        "description": "Add the following groups: caqDownloadClassifierGroup, caqIpOperClassifierGroup, caqSecurityDownloadAclInfoGroup, caqSecurityDownloadIpAceGroup, caqIfDownloadAclMapGroup, caqIfIpPhoneMapGroup, caqArpLoggingSourceGroup, caqIpAceTypeGroup."
+      },
+      {
+        "revision": "2006-07-15 00:00",
+        "description": "Add 'include' enumeration value for caqSecurityAction. Add caqQosL3StatsRateGroup, caqQosL3StatsPeakGroup, caqAggPolicerOctetsRateGroup, caqAggPolicerPacketsRateGroup, caqAggPolicerOctetsPeakGroup, caqAggPolicerPacketsPeakGroup, caqQosPortRateGroup, caqQosPortPeakGroup, caqSecurityActionDnldAceGroup."
+      },
+      {
+        "revision": "2005-07-26 00:00",
+        "description": "Add 'matchEapoudp' and 'matchUrlRedirect' enum value for caqIpProtocolMatchCriteria object."
+      },
+      {
+        "revision": "2004-05-26 00:00",
+        "description": "Add the following groups to support ACL hit count configuration and statistics: caqAclFeatureGroup caqAclHitCountGroup Add the following groups to support additional matching criteria for MAC ACE and MAC packet classify feature on VLAN: caqMacAceExtGroup. caqMacPktClassifyVlanGroup."
+      },
+      {
+        "revision": "2003-11-26 00:00",
+        "description": "Add the following objects to support group name for source and destination fields in caqIpAceTable: caqIpAceSrcGroup caqIpAceDestGroup."
+      },
+      {
+        "revision": "2003-10-28 00:00",
+        "description": "Add caqIfSecurityAclConfigGroup to support port ACL."
+      },
+      {
+        "revision": "2003-09-30 00:00",
+        "description": "Add the dhcpSnooping bit for caqSecurityRateLimitFeatures object. Fix a typo in the DESCRIPTION clause for caqSecurityAction object."
+      },
+      {
+        "revision": "2003-07-01 00:00",
+        "description": "Deprecate caqSecurityRedirectPortList object and add caqSecurityRedirect2kPortList to support up to 2048 bridge ports."
+      },
+      {
+        "revision": "2003-03-05 00:00",
+        "description": "Add the following objects and tables: caqClassifierMapDirection, caqIpAceSecurityId, caqDscpRewriteEnabled, caqAggPolicerOctets, caqAggPolicerNRExceedOctets, caqAggPolicerERExceedOctets, caqDscpMutationMapTable, caqVlanMutationIdMapTable, caqQosDefaultActionTable."
+      },
+      {
+        "revision": "2002-10-10 00:00",
+        "description": "Add the caqLoggingGroup, caqArpInspGroup and caqSecurityRateLimitGroup to support security ACL logging, security ACL features rate limit and ARP Inspection device configuration."
+      },
+      {
+        "revision": "2002-01-17 00:00",
+        "description": "Add the caqIfTrustDeviceGroup and caqQosExcessBurstGroup to support Qos information on excess burst size and trusted device configuration."
+      },
+      {
+        "revision": "2001-10-18 00:00",
+        "description": "Add the caqPbfObjects group and modify the caqSecurityActionTable to support policy based forwarding."
+      },
+      {
+        "revision": "2001-02-15 00:00",
+        "description": "Add the following objects: caqAggPolicerName, caqAggPolicerPackets, caqAggPolicerNRExceedPackets, caqAggPolicerERExceedPackets."
+      },
+      {
+        "revision": "2001-02-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CaqAclName": {
+    "name": "CaqAclName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "CaqPolicerName": {
+    "name": "CaqPolicerName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "CaqPolicerNameOrEmpty": {
+    "name": "CaqPolicerNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "displayhint": "31a",
+    "status": "current"
+  },
+  "CaqAdjacencyName": {
+    "name": "CaqAdjacencyName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "displayhint": "18a",
+    "status": "current"
+  },
+  "CaqDirection": {
+    "name": "CaqDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CaqIpPrecedence": {
+    "name": "CaqIpPrecedence",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CaqQueueNumber": {
+    "name": "CaqQueueNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CaqThresholdNumber": {
+    "name": "CaqThresholdNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CaqHitCountAclType": {
+    "name": "CaqHitCountAclType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipSecurity": 1,
+          "ipxSecurity": 2,
+          "macSecurity": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoCatOSAclQosMIBObjects": {
+    "name": "ciscoCatOSAclQosMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1",
+    "class": "objectidentity"
+  },
+  "caqGlobalObjects": {
+    "name": "caqGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1",
+    "class": "objectidentity"
+  },
+  "caqInterfaceObjects": {
+    "name": "caqInterfaceObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2",
+    "class": "objectidentity"
+  },
+  "caqAclObjects": {
+    "name": "caqAclObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3",
+    "class": "objectidentity"
+  },
+  "caqQosStatsObjects": {
+    "name": "caqQosStatsObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4",
+    "class": "objectidentity"
+  },
+  "caqExtObjects": {
+    "name": "caqExtObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5",
+    "class": "objectidentity"
+  },
+  "caqPbfObjects": {
+    "name": "caqPbfObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6",
+    "class": "objectidentity"
+  },
+  "caqLoggingObjects": {
+    "name": "caqLoggingObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7",
+    "class": "objectidentity"
+  },
+  "caqArpInspObjects": {
+    "name": "caqArpInspObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8",
+    "class": "objectidentity"
+  },
+  "caqAclHitCountObjects": {
+    "name": "caqAclHitCountObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9",
+    "class": "objectidentity"
+  },
+  "caqDownloadAclObjects": {
+    "name": "caqDownloadAclObjects",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10",
+    "class": "objectidentity"
+  },
+  "caqCosToDscpTable": {
+    "name": "caqCosToDscpTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqCosToDscpEntry": {
+    "name": "caqCosToDscpEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosToDscpCos",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqCosToDscpCos": {
+    "name": "caqCosToDscpCos",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqCosToDscpDscp": {
+    "name": "caqCosToDscpDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIpPrecToDscpTable": {
+    "name": "caqIpPrecToDscpTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpPrecToDscpEntry": {
+    "name": "caqIpPrecToDscpEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpPrecToDscpIpPrec",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpPrecToDscpIpPrec": {
+    "name": "caqIpPrecToDscpIpPrec",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqIpPrecedence",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpPrecToDscpDscp": {
+    "name": "caqIpPrecToDscpDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqDscpMappingTable": {
+    "name": "caqDscpMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDscpMappingEntry": {
+    "name": "caqDscpMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDscpMappingDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqDscpMappingDscp": {
+    "name": "caqDscpMappingDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDscpMappingCos": {
+    "name": "caqDscpMappingCos",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqDscpMappingNRPolicedDscp": {
+    "name": "caqDscpMappingNRPolicedDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqDscpMappingERPolicedDscp": {
+    "name": "caqDscpMappingERPolicedDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqCosAssignmentTable": {
+    "name": "caqCosAssignmentTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqCosAssignmentEntry": {
+    "name": "caqCosAssignmentEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosAssignQueueType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosAssignCos",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqCosAssignQueueType": {
+    "name": "caqCosAssignQueueType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosInterfaceQueueType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqCosAssignCos": {
+    "name": "caqCosAssignCos",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqCosAssignQueueNumber": {
+    "name": "caqCosAssignQueueNumber",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqQueueNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqCosAssignThresholdNumber": {
+    "name": "caqCosAssignThresholdNumber",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqThresholdNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQueueThresholdTable": {
+    "name": "caqQueueThresholdTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueueThresholdEntry": {
+    "name": "caqQueueThresholdEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueThreshQueueType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueThreshQueueIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueThreshThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqQueueThreshQueueType": {
+    "name": "caqQueueThreshQueueType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosInterfaceQueueType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueueThreshQueueIndex": {
+    "name": "caqQueueThreshQueueIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqQueueNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueueThreshThresholdIndex": {
+    "name": "caqQueueThreshThresholdIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqThresholdNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueueThreshDropAlgorithm": {
+    "name": "caqQueueThreshDropAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tailDrop": 1,
+          "wred": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqQueueThreshDropThreshold": {
+    "name": "caqQueueThreshDropThreshold",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQueueThreshMinWredThreshold": {
+    "name": "caqQueueThreshMinWredThreshold",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQueueThreshMaxWredThreshold": {
+    "name": "caqQueueThreshMaxWredThreshold",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQueueTable": {
+    "name": "caqQueueTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueueEntry": {
+    "name": "caqQueueEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqQueueDirection": {
+    "name": "caqQueueDirection",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueueType": {
+    "name": "caqQueueType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosInterfaceQueueType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueueNumber": {
+    "name": "caqQueueNumber",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqQueueNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueueWrrWeight": {
+    "name": "caqQueueWrrWeight",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQueueBufferSizeRatio": {
+    "name": "caqQueueBufferSizeRatio",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqDscpMutationMapTable": {
+    "name": "caqDscpMutationMapTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDscpMutationMapEntry": {
+    "name": "caqDscpMutationMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDscpMutationTableId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDscpMutationOldDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqDscpMutationTableId": {
+    "name": "caqDscpMutationTableId",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDscpMutationOldDscp": {
+    "name": "caqDscpMutationOldDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDscpMutationNewDscp": {
+    "name": "caqDscpMutationNewDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVlanMutationIdMapTable": {
+    "name": "caqVlanMutationIdMapTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqVlanMutationIdMapEntry": {
+    "name": "caqVlanMutationIdMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqVlanMutationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqVlanMutationIndex": {
+    "name": "caqVlanMutationIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqVlanMutationTableId": {
+    "name": "caqVlanMutationTableId",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqDscpRewriteEnabled": {
+    "name": "caqDscpRewriteEnabled",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqMacPktClassifyVlansLow": {
+    "name": "caqMacPktClassifyVlansLow",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqMacPktClassifyVlansHigh": {
+    "name": "caqMacPktClassifyVlansHigh",
+    "oid": "1.3.6.1.4.1.9.9.179.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIfConfigTable": {
+    "name": "caqIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfConfigEntry": {
+    "name": "caqIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfCos": {
+    "name": "caqIfCos",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIfTrustStateConfig": {
+    "name": "caqIfTrustStateConfig",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untrusted": 1,
+          "trustCoS": 2,
+          "trustIpPrec": 3,
+          "trustDscp": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "untrusted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIfAclBase": {
+    "name": "caqIfAclBase",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "port": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIfTrustDevice": {
+    "name": "caqIfTrustDevice",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "trustCiscoIPPhone": 0
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIfOperTrustState": {
+    "name": "caqIfOperTrustState",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untrusted": 1,
+          "trustCoS": 2,
+          "trustIpPrec": 3,
+          "trustDscp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqClassifierTable": {
+    "name": "caqClassifierTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqClassifierEntry": {
+    "name": "caqClassifierEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqClassifierAclType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqClassifierAclName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "caqClassifierAclType": {
+    "name": "caqClassifierAclType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipQos": 1,
+          "ipxQos": 2,
+          "macQos": 3,
+          "ipSecurity": 4,
+          "ipxSecurity": 5,
+          "macSecurity": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqClassifierAclName": {
+    "name": "caqClassifierAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqClassifierMapStatus": {
+    "name": "caqClassifierMapStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqClassifierMapDirection": {
+    "name": "caqClassifierMapDirection",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ingress": 0,
+        "egress": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "ingress": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIfSecurityAclConfigTable": {
+    "name": "caqIfSecurityAclConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfSecurityAclConfigEntry": {
+    "name": "caqIfSecurityAclConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfSecurityAclBase": {
+    "name": "caqIfSecurityAclBase",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "vlan": 2,
+          "merge": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIpOperClassifierTable": {
+    "name": "caqIpOperClassifierTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpOperClassifierEntry": {
+    "name": "caqIpOperClassifierEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpOperAclFeature",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpOperAclFeature": {
+    "name": "caqIpOperAclFeature",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingressIpQos": 1,
+          "egressIpQos": 2,
+          "ipSecurity": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpOperAclName": {
+    "name": "caqIpOperAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpOperAclMapSource": {
+    "name": "caqIpOperAclMapSource",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "configured": 0,
+        "dot1x": 1,
+        "macAuth": 2,
+        "webAuth": 3,
+        "eou": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqDownloadClassifierTable": {
+    "name": "caqDownloadClassifierTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDownloadClassifierEntry": {
+    "name": "caqDownloadClassifierEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDownloadAclFeature",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqDownloadAclFeature": {
+    "name": "caqDownloadAclFeature",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingressIpQos": 1,
+          "egressIpQos": 2,
+          "ipSecurity": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDownloadClassifierAclName": {
+    "name": "caqDownloadClassifierAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqDownloadMapSource": {
+    "name": "caqDownloadMapSource",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1x": 1,
+          "macAuth": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqDownloadAclType": {
+    "name": "caqDownloadAclType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pacl": 1,
+          "vacl": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAclCapabilities": {
+    "name": "caqAclCapabilities",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipQos": 0,
+        "ipxQos": 1,
+        "macQos": 2,
+        "ipSecurity": 3,
+        "ipxSecurity": 4,
+        "macSecurity": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpAceTable": {
+    "name": "caqIpAceTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpAceEntry": {
+    "name": "caqIpAceEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceFeature",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpAceFeature": {
+    "name": "caqIpAceFeature",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qos": 1,
+          "security": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpAclName": {
+    "name": "caqIpAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpAceIndex": {
+    "name": "caqIpAceIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpAceMatchedAction": {
+    "name": "caqIpAceMatchedAction",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceProtocolType": {
+    "name": "caqIpAceProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceAddrType": {
+    "name": "caqIpAceAddrType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpAceSrcIp": {
+    "name": "caqIpAceSrcIp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceSrcIpMask": {
+    "name": "caqIpAceSrcIpMask",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceSrcPortOp": {
+    "name": "caqIpAceSrcPortOp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperator": 1,
+          "lt": 2,
+          "gt": 3,
+          "eq": 4,
+          "neq": 5,
+          "range": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOperator",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceSrcPort": {
+    "name": "caqIpAceSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceSrcPortRange": {
+    "name": "caqIpAceSrcPortRange",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceDestIp": {
+    "name": "caqIpAceDestIp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceDestIpMask": {
+    "name": "caqIpAceDestIpMask",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceDestPortOp": {
+    "name": "caqIpAceDestPortOp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperator": 1,
+          "lt": 2,
+          "gt": 3,
+          "eq": 4,
+          "neq": 5,
+          "range": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOperator",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceDestPort": {
+    "name": "caqIpAceDestPort",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceDestPortRange": {
+    "name": "caqIpAceDestPortRange",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceTosMatchCriteria": {
+    "name": "caqIpAceTosMatchCriteria",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "matchDscp": 2,
+          "matchIpPrec": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceIpPrec": {
+    "name": "caqIpAceIpPrec",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqIpPrecedence",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceDscp": {
+    "name": "caqIpAceDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceProtocolMatchCriteria": {
+    "name": "caqIpAceProtocolMatchCriteria",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "matchIgmpType": 2,
+          "matchIcmpType": 3,
+          "matchIcmpTypeAndCode": 4,
+          "matchEstablished": 5,
+          "matchSecurityId": 6,
+          "matchEapoudp": 7,
+          "matchUrlRedirect": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceIcmpType": {
+    "name": "caqIpAceIcmpType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceIcmpCode": {
+    "name": "caqIpAceIcmpCode",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceIgmpType": {
+    "name": "caqIpAceIgmpType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceOrderPosition": {
+    "name": "caqIpAceOrderPosition",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpAceBeforePosition": {
+    "name": "caqIpAceBeforePosition",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceStatus": {
+    "name": "caqIpAceStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceSecurityId": {
+    "name": "caqIpAceSecurityId",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 233
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceSrcGroup": {
+    "name": "caqIpAceSrcGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceDestGroup": {
+    "name": "caqIpAceDestGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpAceType": {
+    "name": "caqIpAceType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "systemGenerated": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpxAceTable": {
+    "name": "caqIpxAceTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpxAceEntry": {
+    "name": "caqIpxAceEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceFeature",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpxAceFeature": {
+    "name": "caqIpxAceFeature",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qos": 1,
+          "security": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpxAclName": {
+    "name": "caqIpxAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpxAceIndex": {
+    "name": "caqIpxAceIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpxAceMatchedAction": {
+    "name": "caqIpxAceMatchedAction",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceSrcNet": {
+    "name": "caqIpxAceSrcNet",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceDestMatchCriteria": {
+    "name": "caqIpxAceDestMatchCriteria",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "matchProtocol": 0,
+        "matchIpxDestNet": 1,
+        "matchIpxDestNode": 2,
+        "matchIpxDestNetMask": 3,
+        "matchIpxDestNodeMask": 4
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceProtocolType": {
+    "name": "caqIpxAceProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceDestNet": {
+    "name": "caqIpxAceDestNet",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceDestNode": {
+    "name": "caqIpxAceDestNode",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceDestNetMask": {
+    "name": "caqIpxAceDestNetMask",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceDestNodeMask": {
+    "name": "caqIpxAceDestNodeMask",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceOrderPosition": {
+    "name": "caqIpxAceOrderPosition",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpxAceBeforePosition": {
+    "name": "caqIpxAceBeforePosition",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqIpxAceStatus": {
+    "name": "caqIpxAceStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceTable": {
+    "name": "caqMacAceTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqMacAceEntry": {
+    "name": "caqMacAceEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceFeature",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqMacAceFeature": {
+    "name": "caqMacAceFeature",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qos": 1,
+          "security": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqMacAclName": {
+    "name": "caqMacAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqMacAceIndex": {
+    "name": "caqMacAceIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqMacAceMatchedAction": {
+    "name": "caqMacAceMatchedAction",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceSrcMac": {
+    "name": "caqMacAceSrcMac",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceSrcMacMask": {
+    "name": "caqMacAceSrcMacMask",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceDestMac": {
+    "name": "caqMacAceDestMac",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceDestMacMask": {
+    "name": "caqMacAceDestMacMask",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceEthertype": {
+    "name": "caqMacAceEthertype",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceOrderPosition": {
+    "name": "caqMacAceOrderPosition",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqMacAceBeforePosition": {
+    "name": "caqMacAceBeforePosition",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceStatus": {
+    "name": "caqMacAceStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceMatchCriteria": {
+    "name": "caqMacAceMatchCriteria",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "matchCos": 0,
+        "matchVlan": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceCos": {
+    "name": "caqMacAceCos",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqMacAceVlan": {
+    "name": "caqMacAceVlan",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicingCpb": {
+    "name": "caqFlowPolicingCpb",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "microFlow": 0,
+        "aggregate": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqQosActionSelectTable": {
+    "name": "caqQosActionSelectTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQosActionSelectEntry": {
+    "name": "caqQosActionSelectEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosActionSelectIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosActionSelectIndex": {
+    "name": "caqQosActionSelectIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQosActionSelectTrust": {
+    "name": "caqQosActionSelectTrust",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTrust": 1,
+          "trustCos": 2,
+          "trustIpPrec": 3,
+          "trustDscp": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqQosActionSelectDscp": {
+    "name": "caqQosActionSelectDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqQosActionSelectMicroflow": {
+    "name": "caqQosActionSelectMicroflow",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqPolicerNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqQosActionSelectAggregate": {
+    "name": "caqQosActionSelectAggregate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqPolicerNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqQosActionSelectStatus": {
+    "name": "caqQosActionSelectStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerExcessRateSupport": {
+    "name": "caqFlowPolicerExcessRateSupport",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqFlowPolicerTable": {
+    "name": "caqFlowPolicerTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqFlowPolicerEntry": {
+    "name": "caqFlowPolicerEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "caqFlowPolicerName": {
+    "name": "caqFlowPolicerName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqPolicerName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqFlowPolicerType": {
+    "name": "caqFlowPolicerType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "microflow": 1,
+          "aggregate": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerNormalRateRequest": {
+    "name": "caqFlowPolicerNormalRateRequest",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 8000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerNormalRateGrant": {
+    "name": "caqFlowPolicerNormalRateGrant",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqFlowPolicerNormalRateAction": {
+    "name": "caqFlowPolicerNormalRateAction",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "policedDscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerExcessRateRequest": {
+    "name": "caqFlowPolicerExcessRateRequest",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 8000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerExcessRateGrant": {
+    "name": "caqFlowPolicerExcessRateGrant",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqFlowPolicerExcessRateAction": {
+    "name": "caqFlowPolicerExcessRateAction",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "policedDscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerBurstSizeRequest": {
+    "name": "caqFlowPolicerBurstSizeRequest",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "units": "kilo-bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerBurstSizeGrant": {
+    "name": "caqFlowPolicerBurstSizeGrant",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilo-bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqFlowPolicerStatus": {
+    "name": "caqFlowPolicerStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerExcessBurstRequest": {
+    "name": "caqFlowPolicerExcessBurstRequest",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "units": "kilo-bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqFlowPolicerExcessBurstGrant": {
+    "name": "caqFlowPolicerExcessBurstGrant",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "units": "kilo-bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqSecurityActionTable": {
+    "name": "caqSecurityActionTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqSecurityActionEntry": {
+    "name": "caqSecurityActionEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityActionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityActionIndex": {
+    "name": "caqSecurityActionIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqSecurityAction": {
+    "name": "caqSecurityAction",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2,
+          "redirect": 3,
+          "redirectWithAdj": 4,
+          "denyWithLog": 5,
+          "denyArpInspection": 6,
+          "denyArpInspWithLog": 7,
+          "permitArpInspection": 8,
+          "include": 9
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqSecurityRedirectPortList": {
+    "name": "caqSecurityRedirectPortList",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "caqSecurityCapture": {
+    "name": "caqSecurityCapture",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqSecurityActionStatus": {
+    "name": "caqSecurityActionStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqSecurityAdjIndex": {
+    "name": "caqSecurityAdjIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqSecurityArpMacAddress": {
+    "name": "caqSecurityArpMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqSecurityRedirect2kPortList": {
+    "name": "caqSecurityRedirect2kPortList",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqSecurityDownloadedAceFeature": {
+    "name": "caqSecurityDownloadedAceFeature",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "dot1x": 2,
+          "macAuth": 3,
+          "webAuth": 4,
+          "eou": 5,
+          "ipPhone": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqSecurityAclCaptureIfTable": {
+    "name": "caqSecurityAclCaptureIfTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqSecurityAclCaptureIfEntry": {
+    "name": "caqSecurityAclCaptureIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityAclCaptureEnable": {
+    "name": "caqSecurityAclCaptureEnable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqFlowPolicerExcessBurstSupport": {
+    "name": "caqFlowPolicerExcessBurstSupport",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqSecurityRateLimitFeatures": {
+    "name": "caqSecurityRateLimitFeatures",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "arpInspection": 0,
+        "dot1xDHCP": 1,
+        "dhcpSnooping": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqSecurityAclRateLimit": {
+    "name": "caqSecurityAclRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packet per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQosDefaultActionTable": {
+    "name": "caqQosDefaultActionTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQosDefaultActionEntry": {
+    "name": "caqQosDefaultActionEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosTrafficDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosTrafficDirection": {
+    "name": "caqQosTrafficDirection",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQosTrafficType": {
+    "name": "caqQosTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "ip": 2,
+          "ipx": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQosDefaultTrustState": {
+    "name": "caqQosDefaultTrustState",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTrust": 1,
+          "trustCos": 2,
+          "trustIpPrec": 3,
+          "trustDscp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQosDefaultDscp": {
+    "name": "caqQosDefaultDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQosDefaultMicroflow": {
+    "name": "caqQosDefaultMicroflow",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqPolicerNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqQosDefaultAggregate": {
+    "name": "caqQosDefaultAggregate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqPolicerNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAclFeatureCpb": {
+    "name": "caqAclFeatureCpb",
+    "oid": "1.3.6.1.4.1.9.9.179.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vlanAclHitCount": 0,
+        "portAclHitCount": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqL3PacketsDropByPolicer": {
+    "name": "caqL3PacketsDropByPolicer",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqTosChangedIpPackets": {
+    "name": "caqTosChangedIpPackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqCosChangedIpPackets": {
+    "name": "caqCosChangedIpPackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqCosChangedNonIpPackets": {
+    "name": "caqCosChangedNonIpPackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqPortStatsTable": {
+    "name": "caqPortStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqPortStatsEntry": {
+    "name": "caqPortStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqPortStatsDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqPortStatsQueueNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqPortStatsThresholdNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqPortStatsDirection": {
+    "name": "caqPortStatsDirection",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqPortStatsQueueNumber": {
+    "name": "caqPortStatsQueueNumber",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqQueueNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqPortStatsThresholdNumber": {
+    "name": "caqPortStatsThresholdNumber",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqThresholdNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqPortStatsDropPkts": {
+    "name": "caqPortStatsDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqPortStatsDropPktsAveRate": {
+    "name": "caqPortStatsDropPktsAveRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqPortStatsDropPktsPeakRate": {
+    "name": "caqPortStatsDropPktsPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqFlowStatsTable": {
+    "name": "caqFlowStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqFlowStatsEntry": {
+    "name": "caqFlowStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "caqFlowStatsEntry",
+      "module": "CISCO-CATOS-ACL-QOS-MIB",
+      "object": "cseFlowDataEntry"
+    },
+    "status": "current"
+  },
+  "caqFlowStatsOutOfProfilePackets": {
+    "name": "caqFlowStatsOutOfProfilePackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerStatsTable": {
+    "name": "caqAggPolicerStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAggPolicerStatsEntry": {
+    "name": "caqAggPolicerStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "caqAggPolicerName": {
+    "name": "caqAggPolicerName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqPolicerName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAggPolicerPackets": {
+    "name": "caqAggPolicerPackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerNRExceedPackets": {
+    "name": "caqAggPolicerNRExceedPackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerERExceedPackets": {
+    "name": "caqAggPolicerERExceedPackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerOctets": {
+    "name": "caqAggPolicerOctets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerNRExceedOctets": {
+    "name": "caqAggPolicerNRExceedOctets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerERExceedOctets": {
+    "name": "caqAggPolicerERExceedOctets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerOctetsRate": {
+    "name": "caqAggPolicerOctetsRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerNRExceedOctetsRate": {
+    "name": "caqAggPolicerNRExceedOctetsRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerERExceedOctetsRate": {
+    "name": "caqAggPolicerERExceedOctetsRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerOctetsPeakRate": {
+    "name": "caqAggPolicerOctetsPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerPacketsRate": {
+    "name": "caqAggPolicerPacketsRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerNRExceedPacketsRate": {
+    "name": "caqAggPolicerNRExceedPacketsRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerERExceedPacketsRate": {
+    "name": "caqAggPolicerERExceedPacketsRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAggPolicerPacketsPeakRate": {
+    "name": "caqAggPolicerPacketsPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqL3PacketsDropByPolicerAveRate": {
+    "name": "caqL3PacketsDropByPolicerAveRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqL3PacketsDropByPolicerPeakRate": {
+    "name": "caqL3PacketsDropByPolicerPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqTosChangedIpPacketsAveRate": {
+    "name": "caqTosChangedIpPacketsAveRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqTosChangedIpPacketsPeakRate": {
+    "name": "caqTosChangedIpPacketsPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqCosChangedIpPacketsAveRate": {
+    "name": "caqCosChangedIpPacketsAveRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqCosChangedIpPacketsPeakRate": {
+    "name": "caqCosChangedIpPacketsPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqCosChangedNonIpPacketsAveRate": {
+    "name": "caqCosChangedNonIpPacketsAveRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqCosChangedNonIpPacketPeakRate": {
+    "name": "caqCosChangedNonIpPacketPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.179.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqBridgedPolicerTable": {
+    "name": "caqBridgedPolicerTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqBridgedPolicerEntry": {
+    "name": "caqBridgedPolicerEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqBridgedFlowVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqBridgedFlowVlanIndex": {
+    "name": "caqBridgedFlowVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqBridgedFlowEnabled": {
+    "name": "caqBridgedFlowEnabled",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqCosMacVlanRouterTable": {
+    "name": "caqCosMacVlanRouterTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqCosMacVlanRouterEntry": {
+    "name": "caqCosMacVlanRouterEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosVlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqCosMacAddress": {
+    "name": "caqCosMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqCosVlanNumber": {
+    "name": "caqCosVlanNumber",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqMacAddressCpb": {
+    "name": "caqMacAddressCpb",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "routerMac": 0,
+        "cosVlanMac": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqCosValue": {
+    "name": "caqCosValue",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosLayer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqCosMacVlanRouterStatus": {
+    "name": "caqCosMacVlanRouterStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqPbfStatus": {
+    "name": "caqPbfStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macAddrOk": 1,
+          "macAddrNotSet": 2,
+          "msfcPresent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqPbfMacAddress": {
+    "name": "caqPbfMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAdjacencyTable": {
+    "name": "caqAdjacencyTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAdjacencyEntry": {
+    "name": "caqAdjacencyEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAdjIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqAdjIndex": {
+    "name": "caqAdjIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAdjDstVlanNumber": {
+    "name": "caqAdjDstVlanNumber",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqAdjDstMacAddress": {
+    "name": "caqAdjDstMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqAdjSrcMacAddress": {
+    "name": "caqAdjSrcMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqAdjName": {
+    "name": "caqAdjName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAdjacencyName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqAdjMtu": {
+    "name": "caqAdjMtu",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 576,
+            "max": 18190
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9216,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqAdjHitCount": {
+    "name": "caqAdjHitCount",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAdjStatus": {
+    "name": "caqAdjStatus",
+    "oid": "1.3.6.1.4.1.9.9.179.1.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caqAclLogMaxFlow": {
+    "name": "caqAclLogMaxFlow",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAclSecurityLoggingRateLimit": {
+    "name": "caqAclSecurityLoggingRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "units": "packet per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAclRouterAclRateLimit": {
+    "name": "caqAclRouterAclRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "packet per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIpFlowLoggingTable": {
+    "name": "caqIpFlowLoggingTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpFlowLoggingEntry": {
+    "name": "caqIpFlowLoggingEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowLoggingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpFlowLoggingIndex": {
+    "name": "caqIpFlowLoggingIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpFlowVlan": {
+    "name": "caqIpFlowVlan",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowIfIndex": {
+    "name": "caqIpFlowIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowProtocolType": {
+    "name": "caqIpFlowProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowAddrType": {
+    "name": "caqIpFlowAddrType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowSrcIp": {
+    "name": "caqIpFlowSrcIp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowSrcPort": {
+    "name": "caqIpFlowSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowDestIp": {
+    "name": "caqIpFlowDestIp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowDestPort": {
+    "name": "caqIpFlowDestPort",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowIcmpType": {
+    "name": "caqIpFlowIcmpType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowIcmpCode": {
+    "name": "caqIpFlowIcmpCode",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowIgmpType": {
+    "name": "caqIpFlowIgmpType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowArpOpcode": {
+    "name": "caqIpFlowArpOpcode",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "request": 2,
+          "reply": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowArpSrcMacAddr": {
+    "name": "caqIpFlowArpSrcMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowArpHeaderSrcMacAddr": {
+    "name": "caqIpFlowArpHeaderSrcMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowPacketsCount": {
+    "name": "caqIpFlowPacketsCount",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowLoggingTTL": {
+    "name": "caqIpFlowLoggingTTL",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowArpLoggingSource": {
+    "name": "caqIpFlowArpLoggingSource",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "dai": 2,
+          "acl": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowArpAclName": {
+    "name": "caqIpFlowArpAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpFlowArpAceNumber": {
+    "name": "caqIpFlowArpAceNumber",
+    "oid": "1.3.6.1.4.1.9.9.179.1.7.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAclArpInspMatchMac": {
+    "name": "caqAclArpInspMatchMac",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "drop": 3,
+          "dropAndLog": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAclArpInspAddrValidation": {
+    "name": "caqAclArpInspAddrValidation",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "drop": 3,
+          "dropAndLog": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqArpInspGlobalForwardedPkts": {
+    "name": "caqArpInspGlobalForwardedPkts",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqArpInspGlobalDroppedPkts": {
+    "name": "caqArpInspGlobalDroppedPkts",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqRARPForwardedPkts": {
+    "name": "caqRARPForwardedPkts",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqMatchedMacFailedPkts": {
+    "name": "caqMatchedMacFailedPkts",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAddrValidationFailedPkts": {
+    "name": "caqAddrValidationFailedPkts",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqArpInspIpDroppedPkts": {
+    "name": "caqArpInspIpDroppedPkts",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqArpInspStatsTable": {
+    "name": "caqArpInspStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqArpInspStatsEntry": {
+    "name": "caqArpInspStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqArpInspAclName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "caqArpInspAclName": {
+    "name": "caqArpInspAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqArpInspForwardedPackets": {
+    "name": "caqArpInspForwardedPackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqArpInspDroppedPackets": {
+    "name": "caqArpInspDroppedPackets",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIfArpInspConfigTable": {
+    "name": "caqIfArpInspConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfArpInspConfigEntry": {
+    "name": "caqIfArpInspConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfArpInspDropThreshold": {
+    "name": "caqIfArpInspDropThreshold",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "units": "packet per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqIfArpInspShutdownThreshold": {
+    "name": "caqIfArpInspShutdownThreshold",
+    "oid": "1.3.6.1.4.1.9.9.179.1.8.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "units": "packet per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAclHitCountVlansLow": {
+    "name": "caqAclHitCountVlansLow",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAclHitCountVlansHigh": {
+    "name": "caqAclHitCountVlansHigh",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAclHitCountPortList": {
+    "name": "caqAclHitCountPortList",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAclHitCountTable": {
+    "name": "caqAclHitCountTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAclHitCountEntry": {
+    "name": "caqAclHitCountEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclHitCountAclType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclHitCountAclName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "caqAclHitCountAclType": {
+    "name": "caqAclHitCountAclType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqHitCountAclType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAclHitCountAclName": {
+    "name": "caqAclHitCountAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAclHitCountEnable": {
+    "name": "caqAclHitCountEnable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAceHitCountTable": {
+    "name": "caqAceHitCountTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAceHitCountEntry": {
+    "name": "caqAceHitCountEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAceHitCountAclType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAceHitCountAclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAceHitCountAceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqAceHitCountAclType": {
+    "name": "caqAceHitCountAclType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqHitCountAclType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAceHitCountAclName": {
+    "name": "caqAceHitCountAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAceHitCountAceIndex": {
+    "name": "caqAceHitCountAceIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqAceHitCountEnable": {
+    "name": "caqAceHitCountEnable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqAceIngressHitCount": {
+    "name": "caqAceIngressHitCount",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqAceEgressHitCount": {
+    "name": "caqAceEgressHitCount",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIfAclHitCountTable": {
+    "name": "caqIfAclHitCountTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfAclHitCountEntry": {
+    "name": "caqIfAclHitCountEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfAclHitCountAclType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfAclHitCountAclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfAclHitCountAceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfAclHitCountAclType": {
+    "name": "caqIfAclHitCountAclType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqHitCountAclType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfAclHitCountAclName": {
+    "name": "caqIfAclHitCountAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqAclName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfAclHitCountAceIndex": {
+    "name": "caqIfAclHitCountAceIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfAclIngressHitCount": {
+    "name": "caqIfAclIngressHitCount",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIfAclEgressHitCount": {
+    "name": "caqIfAclEgressHitCount",
+    "oid": "1.3.6.1.4.1.9.9.179.1.9.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqDownloadAclInfoTable": {
+    "name": "caqDownloadAclInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDownloadAclInfoEntry": {
+    "name": "caqDownloadAclInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDownloadAclName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "caqDownloadAclName": {
+    "name": "caqDownloadAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqDownloadAclUserCount": {
+    "name": "caqDownloadAclUserCount",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqDownloadAclDownloadTime": {
+    "name": "caqDownloadAclDownloadTime",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceTable": {
+    "name": "caqIpDownloadAceTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpDownloadAceEntry": {
+    "name": "caqIpDownloadAceEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpDownloadAclName": {
+    "name": "caqIpDownloadAclName",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpDownloadAceIndex": {
+    "name": "caqIpDownloadAceIndex",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIpDownloadAceMatchedAction": {
+    "name": "caqIpDownloadAceMatchedAction",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2,
+          "denyAndLog": 3,
+          "permitAndCapture": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceProtocolType": {
+    "name": "caqIpDownloadAceProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceAddrType": {
+    "name": "caqIpDownloadAceAddrType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceSrcIp": {
+    "name": "caqIpDownloadAceSrcIp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceSrcIpMask": {
+    "name": "caqIpDownloadAceSrcIpMask",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceSrcPortOp": {
+    "name": "caqIpDownloadAceSrcPortOp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperator": 1,
+          "lt": 2,
+          "gt": 3,
+          "eq": 4,
+          "neq": 5,
+          "range": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceSrcPort": {
+    "name": "caqIpDownloadAceSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceSrcPortRange": {
+    "name": "caqIpDownloadAceSrcPortRange",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceDestIp": {
+    "name": "caqIpDownloadAceDestIp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceDestIpMask": {
+    "name": "caqIpDownloadAceDestIpMask",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceDestPortOp": {
+    "name": "caqIpDownloadAceDestPortOp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperator": 1,
+          "lt": 2,
+          "gt": 3,
+          "eq": 4,
+          "neq": 5,
+          "range": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceDestPort": {
+    "name": "caqIpDownloadAceDestPort",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceDestPortRange": {
+    "name": "caqIpDownloadAceDestPortRange",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceTosMatchCriteria": {
+    "name": "caqIpDownloadAceTosMatchCriteria",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "matchDscp": 2,
+          "matchIpPrec": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceIpPrec": {
+    "name": "caqIpDownloadAceIpPrec",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CaqIpPrecedence",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceDscp": {
+    "name": "caqIpDownloadAceDscp",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDnldAcePrtocolMatchCriteria": {
+    "name": "caqIpDnldAcePrtocolMatchCriteria",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "matchIcmpType": 2,
+          "matchIcmpTypeAndCode": 3,
+          "matchEstablished": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceIcmpType": {
+    "name": "caqIpDownloadAceIcmpType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIpDownloadAceIcmpCode": {
+    "name": "caqIpDownloadAceIcmpCode",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIfDownloadAclTable": {
+    "name": "caqIfDownloadAclTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfDownloadAclEntry": {
+    "name": "caqIfDownloadAclEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDownloadAclName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfDownloadAclFeature": {
+    "name": "caqIfDownloadAclFeature",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1x": 1,
+          "eou": 2,
+          "macAuth": 3,
+          "webAuth": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIfDownloadAclAddressType": {
+    "name": "caqIfDownloadAclAddressType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIfDownloadAclHostAddress": {
+    "name": "caqIfDownloadAclHostAddress",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIfIpPhoneMapTable": {
+    "name": "caqIfIpPhoneMapTable",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqIfIpPhoneMapEntry": {
+    "name": "caqIfIpPhoneMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfIpPhoneAddressType": {
+    "name": "caqIfIpPhoneAddressType",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqIfIpPhoneHostAddress": {
+    "name": "caqIfIpPhoneHostAddress",
+    "oid": "1.3.6.1.4.1.9.9.179.1.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqMIBNotifications": {
+    "name": "caqMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.179.2",
+    "class": "objectidentity"
+  },
+  "caqMIBConformance": {
+    "name": "caqMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.179.3",
+    "class": "objectidentity"
+  },
+  "caqMIBCompliances": {
+    "name": "caqMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.179.3.1",
+    "class": "objectidentity"
+  },
+  "caqMIBGroups": {
+    "name": "caqMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2",
+    "class": "objectidentity"
+  },
+  "caqMIBCompliance": {
+    "name": "caqMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.179.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caqIfConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqAclCpbGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqFlowPolicingCpbGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQueueAssignmentGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQueueGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosStatsGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosMappingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIfAclConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpxAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqMacAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqPolicingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqActionGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqSecurityGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosBridgedFlowPolicerGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosMacVlanGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosExcessRateGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caqMIBCompliance2": {
+    "name": "caqMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.179.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caqIfConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqAclCpbGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqFlowPolicingCpbGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQueueAssignmentGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQueueGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosStatsGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosMappingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIfAclConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpxAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqMacAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqPolicingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqActionGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqSecurityGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosBridgedFlowPolicerGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosMacVlanGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqLoggingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqArpInspGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caqMIBCompliance3": {
+    "name": "caqMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.179.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caqIfConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqAclCpbGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqFlowPolicingCpbGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQueueAssignmentGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQueueGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosStatsGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosMappingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIfAclConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpxAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqMacAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqPolicingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqActionGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqSecurityGroup2",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosBridgedFlowPolicerGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosMacVlanGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqLoggingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqArpInspGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caqMIBCompliance4": {
+    "name": "caqMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.179.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caqIfConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqAclCpbGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqFlowPolicingCpbGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQueueAssignmentGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQueueGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosStatsGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosMappingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIfAclConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpxAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqMacAceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqPolicingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqActionGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqSecurityGroup2",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosBridgedFlowPolicerGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosMacVlanGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqLoggingGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqArpInspGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosStatsGroup2",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqSecurityPBFGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosExcessBurstGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIfTrustDeviceGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqSecurityRateLimitGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqDscpMutationGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqQosDefaultActionGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIfAclConfigGroup2",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpEspGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqDscpRewriteGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqAggPolicerOctetStatsGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIfSecurityAclConfigGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqIpAceExtGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqAclHitCountGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqMacAceExtGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqMacPktClassifyVlanGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqAclFeatureGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqPortAclHitCountGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      },
+      {
+        "object": "caqVlanAclHitCountGroup",
+        "module": "CISCO-CATOS-ACL-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfConfigGroup": {
+    "name": "caqIfConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfTrustStateConfig"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfCos"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfAclConfigGroup": {
+    "name": "caqIfAclConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfAclBase"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqClassifierMapStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caqAclCpbGroup": {
+    "name": "caqAclCpbGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpAceGroup": {
+    "name": "caqIpAceGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceMatchedAction"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceProtocolType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceAddrType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceSrcIp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceSrcIpMask"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceSrcPortOp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceSrcPort"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceSrcPortRange"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceDestIp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceDestIpMask"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceDestPortOp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceDestPort"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceDestPortRange"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceTosMatchCriteria"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceProtocolMatchCriteria"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceIpPrec"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceDscp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceIcmpType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceIcmpCode"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceIgmpType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceOrderPosition"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceBeforePosition"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpxAceGroup": {
+    "name": "caqIpxAceGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceMatchedAction"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceSrcNet"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceDestMatchCriteria"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceDestNet"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceProtocolType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceDestNode"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceDestNetMask"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceDestNodeMask"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceOrderPosition"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceBeforePosition"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpxAceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caqMacAceGroup": {
+    "name": "caqMacAceGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceMatchedAction"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceSrcMac"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceSrcMacMask"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceDestMac"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceDestMacMask"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceEthertype"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceOrderPosition"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceBeforePosition"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caqActionGroup": {
+    "name": "caqActionGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosActionSelectTrust"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosActionSelectDscp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosActionSelectMicroflow"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosActionSelectAggregate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosActionSelectStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caqPolicingGroup": {
+    "name": "caqPolicingGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerExcessRateSupport"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerNormalRateRequest"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerNormalRateGrant"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerBurstSizeRequest"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerBurstSizeGrant"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerNormalRateAction"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosExcessRateGroup": {
+    "name": "caqQosExcessRateGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerExcessRateRequest"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerExcessRateGrant"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerExcessRateAction"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosMappingGroup": {
+    "name": "caqQosMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosToDscpDscp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpPrecToDscpDscp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDscpMappingCos"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDscpMappingNRPolicedDscp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDscpMappingERPolicedDscp"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQueueAssignmentGroup": {
+    "name": "caqQueueAssignmentGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosAssignQueueNumber"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosAssignThresholdNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQueueGroup": {
+    "name": "caqQueueGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueThreshDropAlgorithm"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueThreshDropThreshold"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueThreshMinWredThreshold"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueThreshMaxWredThreshold"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueWrrWeight"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQueueBufferSizeRatio"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosBridgedFlowPolicerGroup": {
+    "name": "caqQosBridgedFlowPolicerGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqBridgedFlowEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosMacVlanGroup": {
+    "name": "caqQosMacVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAddressCpb"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosValue"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosMacVlanRouterStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosStatsGroup": {
+    "name": "caqQosStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqL3PacketsDropByPolicer"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqTosChangedIpPackets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosChangedIpPackets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosChangedNonIpPackets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqPortStatsDropPkts"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowStatsOutOfProfilePackets"
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityGroup": {
+    "name": "caqSecurityGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityAction"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityCapture"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityRedirectPortList"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityActionStatus"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityAclCaptureEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caqFlowPolicingCpbGroup": {
+    "name": "caqFlowPolicingCpbGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicingCpb"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosStatsGroup2": {
+    "name": "caqQosStatsGroup2",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerPackets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerNRExceedPackets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerERExceedPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityPBFGroup": {
+    "name": "caqSecurityPBFGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqPbfStatus"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqPbfMacAddress"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAdjDstVlanNumber"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAdjDstMacAddress"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAdjSrcMacAddress"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAdjName"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAdjMtu"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAdjHitCount"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAdjStatus"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityAdjIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosExcessBurstGroup": {
+    "name": "caqQosExcessBurstGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerExcessBurstSupport"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerExcessBurstRequest"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqFlowPolicerExcessBurstGrant"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfTrustDeviceGroup": {
+    "name": "caqIfTrustDeviceGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfTrustDevice"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfOperTrustState"
+      }
+    ],
+    "status": "current"
+  },
+  "caqLoggingGroup": {
+    "name": "caqLoggingGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclLogMaxFlow"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclSecurityLoggingRateLimit"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclRouterAclRateLimit"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowVlan"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowIfIndex"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowProtocolType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowAddrType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowSrcIp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowSrcPort"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowDestIp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowDestPort"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowIcmpType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowIcmpCode"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowIgmpType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowArpOpcode"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowArpSrcMacAddr"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowArpHeaderSrcMacAddr"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowPacketsCount"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowLoggingTTL"
+      }
+    ],
+    "status": "current"
+  },
+  "caqArpInspGroup": {
+    "name": "caqArpInspGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityArpMacAddress"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclArpInspMatchMac"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclArpInspAddrValidation"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqArpInspGlobalForwardedPkts"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqArpInspGlobalDroppedPkts"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqRARPForwardedPkts"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMatchedMacFailedPkts"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAddrValidationFailedPkts"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqArpInspIpDroppedPkts"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqArpInspForwardedPackets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqArpInspDroppedPackets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfArpInspDropThreshold"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfArpInspShutdownThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityRateLimitGroup": {
+    "name": "caqSecurityRateLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityRateLimitFeatures"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityAclRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "caqDscpMutationGroup": {
+    "name": "caqDscpMutationGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDscpMutationNewDscp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqVlanMutationTableId"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosDefaultActionGroup": {
+    "name": "caqQosDefaultActionGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosDefaultTrustState"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosDefaultDscp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosDefaultMicroflow"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqQosDefaultAggregate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfAclConfigGroup2": {
+    "name": "caqIfAclConfigGroup2",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqClassifierMapDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpEspGroup": {
+    "name": "caqIpEspGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceSecurityId"
+      }
+    ],
+    "status": "current"
+  },
+  "caqDscpRewriteGroup": {
+    "name": "caqDscpRewriteGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDscpRewriteEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "caqAggPolicerOctetStatsGroup": {
+    "name": "caqAggPolicerOctetStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerOctets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerNRExceedOctets"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerERExceedOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityGroup2": {
+    "name": "caqSecurityGroup2",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityAction"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityCapture"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityRedirect2kPortList"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityActionStatus"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityAclCaptureEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfSecurityAclConfigGroup": {
+    "name": "caqIfSecurityAclConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfSecurityAclBase"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpAceExtGroup": {
+    "name": "caqIpAceExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceSrcGroup"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceDestGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "caqAclHitCountGroup": {
+    "name": "caqAclHitCountGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclHitCountEnable"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAceHitCountEnable"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAceIngressHitCount"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAceEgressHitCount"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfAclIngressHitCount"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfAclEgressHitCount"
+      }
+    ],
+    "status": "current"
+  },
+  "caqMacAceExtGroup": {
+    "name": "caqMacAceExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceMatchCriteria"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceVlan"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacAceCos"
+      }
+    ],
+    "status": "current"
+  },
+  "caqMacPktClassifyVlanGroup": {
+    "name": "caqMacPktClassifyVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacPktClassifyVlansLow"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqMacPktClassifyVlansHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "caqAclFeatureGroup": {
+    "name": "caqAclFeatureGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclFeatureCpb"
+      }
+    ],
+    "status": "current"
+  },
+  "caqPortAclHitCountGroup": {
+    "name": "caqPortAclHitCountGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclHitCountPortList"
+      }
+    ],
+    "status": "current"
+  },
+  "caqVlanAclHitCountGroup": {
+    "name": "caqVlanAclHitCountGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclHitCountVlansLow"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAclHitCountVlansHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosL3StatsRateGroup": {
+    "name": "caqQosL3StatsRateGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqL3PacketsDropByPolicerAveRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqTosChangedIpPacketsAveRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosChangedNonIpPacketsAveRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosChangedIpPacketsAveRate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosL3StatsPeakGroup": {
+    "name": "caqQosL3StatsPeakGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosChangedNonIpPacketPeakRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqCosChangedIpPacketsPeakRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqL3PacketsDropByPolicerPeakRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqTosChangedIpPacketsPeakRate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqAggPolicerOctetsRateGroup": {
+    "name": "caqAggPolicerOctetsRateGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerOctetsRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerNRExceedOctetsRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerERExceedOctetsRate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqAggPolicerPacketsRateGroup": {
+    "name": "caqAggPolicerPacketsRateGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.43",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerPacketsRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerNRExceedPacketsRate"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerERExceedPacketsRate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqAggPolicerOctetsPeakGroup": {
+    "name": "caqAggPolicerOctetsPeakGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.44",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerOctetsPeakRate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqAggPolicerPacketsPeakGroup": {
+    "name": "caqAggPolicerPacketsPeakGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.45",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqAggPolicerPacketsPeakRate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosPortRateGroup": {
+    "name": "caqQosPortRateGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.46",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqPortStatsDropPktsAveRate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqQosPortPeakGroup": {
+    "name": "caqQosPortPeakGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.47",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqPortStatsDropPktsPeakRate"
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityActionDnldAceGroup": {
+    "name": "caqSecurityActionDnldAceGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.48",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqSecurityDownloadedAceFeature"
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityDownloadAclInfoGroup": {
+    "name": "caqSecurityDownloadAclInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.49",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDownloadAclUserCount"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDownloadAclDownloadTime"
+      }
+    ],
+    "status": "current"
+  },
+  "caqSecurityDownloadIpAceGroup": {
+    "name": "caqSecurityDownloadIpAceGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.50",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceMatchedAction"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceProtocolType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceAddrType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceSrcIp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceSrcIpMask"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceSrcPortOp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceSrcPort"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceSrcPortRange"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceDestIp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceDestIpMask"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceDestPortOp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceDestPort"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceDestPortRange"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceTosMatchCriteria"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceIpPrec"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceDscp"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDnldAcePrtocolMatchCriteria"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceIcmpType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpDownloadAceIcmpCode"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfDownloadAclMapGroup": {
+    "name": "caqIfDownloadAclMapGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.51",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfDownloadAclFeature"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfDownloadAclAddressType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfDownloadAclHostAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIfIpPhoneMapGroup": {
+    "name": "caqIfIpPhoneMapGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.52",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfIpPhoneAddressType"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIfIpPhoneHostAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpAceTypeGroup": {
+    "name": "caqIpAceTypeGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.53",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpAceType"
+      }
+    ],
+    "status": "current"
+  },
+  "caqIpOperClassifierGroup": {
+    "name": "caqIpOperClassifierGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.54",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpOperAclName"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpOperAclMapSource"
+      }
+    ],
+    "status": "current"
+  },
+  "caqDownloadClassifierGroup": {
+    "name": "caqDownloadClassifierGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.55",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDownloadClassifierAclName"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDownloadMapSource"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqDownloadAclType"
+      }
+    ],
+    "status": "current"
+  },
+  "caqArpLoggingSourceGroup": {
+    "name": "caqArpLoggingSourceGroup",
+    "oid": "1.3.6.1.4.1.9.9.179.3.2.56",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowArpLoggingSource"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowArpAclName"
+      },
+      {
+        "module": "CISCO-CATOS-ACL-QOS-MIB",
+        "object": "caqIpFlowArpAceNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CATOS-ACL-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CATOS-ACL-QOS-MIB"
+  }
+}

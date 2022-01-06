@@ -1,839 +1,1894 @@
--- Cambium MIB Release CAMBIUM_MIB_VERSION
-   CAMBIUM-MIB DEFINITIONS ::= BEGIN
 
-   IMPORTS
-       OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE,
-       enterprises, IpAddress, Integer32, Counter32, Counter64, TimeTicks, snmpModules
-           FROM SNMPv2-SMI
-       OBJECT-GROUP
-           FROM SNMPv2-CONF
-       MacAddress, DisplayString, TEXTUAL-CONVENTION
-           FROM SNMPv2-TC;
-
-   cnPilotMIB MODULE-IDENTITY 
-       LAST-UPDATED "201509091238Z"
-       ORGANIZATION "Cambium Networks Inc."
-       CONTACT-INFO
-            "Cambium Networks Support
-             http://www.cambiumnetworks.com/support/     
-            E-mail:     support@cambiumnetworks.com"
-       DESCRIPTION
-           "This module contains MIB definitions for APs"
-       REVISION        "201509091238Z"
-       DESCRIPTION
-           "The initial Version."
-       ::= { cambium 22 }
-
-   cambium                         OBJECT IDENTIFIER ::= { enterprises 17713 }
-
-   cambiumStateGroup               OBJECT IDENTIFIER ::= { cnPilotMIB 1 }
-
-
-   cambiumAccessPointTable  OBJECT-TYPE 
-       SYNTAX       SEQUENCE OF CambiumAccessPointEntry
-       MAX-ACCESS   not-accessible              
-       STATUS       current 
-       DESCRIPTION 
-                "This contains all details about AP"
-       ::= { cambiumStateGroup 1 } 
-
-   cambiumAccessPointEntry OBJECT-TYPE 
-       SYNTAX       CambiumAccessPointEntry 
-       MAX-ACCESS   not-accessible            
-       STATUS       current 
-       DESCRIPTION 
-             " "
-          INDEX { cambiumAPMACAddress }
-       ::= { cambiumAccessPointTable 1 } 
-
-   CambiumAccessPointEntry ::=
-   SEQUENCE {
-        cambiumAPMACAddress      MacAddress,
-        cambiumAPName            DisplayString,
-        cambiumAPIPAddress       DisplayString,
-        cambiumAPSerialNum       DisplayString,
-        cambiumAPModel           DisplayString,
-        cambiumAPCPUUtilization  Integer32,
-        cambiumAPMemoryFree      Integer32,
-        cambiumAPSWVersion       DisplayString,
-        cambiumAPUptime          TimeTicks,
-        cambiumAPHWType          DisplayString,
-        cambiumAPRegulatory      DisplayString,
-        cambiumAPCnmConstaus     DisplayString,
-        cambiumAPCnmAccID        DisplayString,
-        cambiumAPTotalClients    Integer32,
-        cambiumAPCheckUpgradeStatus    DisplayString
-   }
-
-   cambiumAPMACAddress OBJECT-TYPE
-       SYNTAX       MacAddress 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Access Point MAC Address"
-      ::= { cambiumAccessPointEntry 1 }
-
-   cambiumAPName OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..64))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point hostname"
-       ::= { cambiumAccessPointEntry 2 }
-
-   cambiumAPIPAddress OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..64)) 
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point IP Address"
-       ::= { cambiumAccessPointEntry 3 }
-
-   cambiumAPSerialNum OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..64))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point Serial Number"
-       ::= { cambiumAccessPointEntry 4 }
-
-   cambiumAPModel OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point Model Name"
-       ::= { cambiumAccessPointEntry 5 }
-
-   cambiumAPCPUUtilization OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point CPU Utilization"
-       ::= { cambiumAccessPointEntry 6 }
-
-   cambiumAPMemoryFree OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Amount of memory free in the access point in bytes"
-       ::= { cambiumAccessPointEntry 7 }
-
-   cambiumAPSWVersion OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..64))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point Software Version"
-       ::= { cambiumAccessPointEntry 8 }
-
-   cambiumAPUptime OBJECT-TYPE
-       SYNTAX      TimeTicks
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point uptime"
-       ::= { cambiumAccessPointEntry 9 }
-
-   cambiumAPHWType OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point Hardware Type"
-       ::= { cambiumAccessPointEntry 10 }
-
-   cambiumAPRegulatory OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point Regulatory detail"
-       ::= { cambiumAccessPointEntry 11 }
-
-   cambiumAPCnmConstaus OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point cnMaestro Connection Status"
-       ::= { cambiumAccessPointEntry 12 }
-
-   cambiumAPCnmAccID OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point cnMaestro Account ID"
-       ::= { cambiumAccessPointEntry 13 }
-
-   cambiumAPTotalClients OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total clients connected with this Access Point"
-       ::= { cambiumAccessPointEntry 14 }
-
-   cambiumAPCheckUpgradeStatus OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..64))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Access Point check upgrade status"
-       ::= { cambiumAccessPointEntry 15 }
-
-
-   cambiumRadioTable  OBJECT-TYPE 
-       SYNTAX       SEQUENCE OF CambiumRadioEntry
-       MAX-ACCESS   not-accessible              
-       STATUS       current 
-       DESCRIPTION 
-                "This table contains all radios of access point"
-       ::= { cambiumStateGroup 2 } 
-
-   cambiumRadioEntry OBJECT-TYPE 
-       SYNTAX       CambiumRadioEntry 
-       MAX-ACCESS   not-accessible            
-       STATUS       current 
-       DESCRIPTION 
-             " "
-          INDEX { cambiumRadioIndex }
-       ::= { cambiumRadioTable 1 } 
-
-   CambiumRadioEntry ::=
-   SEQUENCE {
-        cambiumRadioIndex             Integer32,
-        cambiumRadioMACAddress        MacAddress,
-        cambiumRadioBandType          DisplayString,
-        cambiumRadioWlan              Integer32,
-        cambiumRadioNumClients        Integer32,
-        cambiumRadioChannel           DisplayString,
-        cambiumRadioChannelWidth      DisplayString,
-        cambiumRadioTransmitPower     Integer32,
-        cambiumRadioTotalTxPackets    Counter32,
-        cambiumRadioTotalRxPackets    Counter32,
-        cambiumRadioTxDataBytes       Counter32,
-        cambiumRadioTxDataBytes       Counter32,
-        cambiumRadioRxDataBytes       Counter32,
-        cambiumRadioState             DisplayString,
-        cambiumRadioDfsStatus         Integer32,
-        cambiumRadioDfsDetect         Integer32,
-        cambiumRadioNoiseFloor        DisplayString,
-        cambiumRadioInterference      DisplayString,
-        cambiumRadioAirtime           DisplayString
-   }
-
-   cambiumRadioIndex OBJECT-TYPE
-       SYNTAX       Integer32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio number"
-      ::= { cambiumRadioEntry 1 }
-
-
-   cambiumRadioMACAddress OBJECT-TYPE
-       SYNTAX       MacAddress 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio MAC Address"
-      ::= { cambiumRadioEntry 2 }
-
-   cambiumRadioBandType OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32)) 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio band type"
-      ::= { cambiumRadioEntry 3 }
-
-   cambiumRadioWlan OBJECT-TYPE
-       SYNTAX       Integer32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio WLAN number"
-      ::= { cambiumRadioEntry 4 }
-
-   cambiumRadioNumClients OBJECT-TYPE
-       SYNTAX       Integer32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Number of clients connected with a radio"
-      ::= { cambiumRadioEntry 5 }
-
-   cambiumRadioChannel OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32))
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio channel"
-      ::= { cambiumRadioEntry 6 }
-
-   cambiumRadioChannelWidth OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32))
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio channel width"
-      ::= { cambiumRadioEntry 7 }
-
-   cambiumRadioTransmitPower OBJECT-TYPE
-       SYNTAX       Integer32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio Power"
-      ::= { cambiumRadioEntry 8 }
-
-   cambiumRadioTotalTxPackets OBJECT-TYPE
-       SYNTAX       Counter32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Total packets transmitted by a radio"
-      ::= { cambiumRadioEntry 9 }
-
-   cambiumRadioTotalRxPackets OBJECT-TYPE
-       SYNTAX       Counter32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Total packets received by a radio"
-      ::= { cambiumRadioEntry 10 }
-
-   cambiumRadioTxDataBytes OBJECT-TYPE
-       SYNTAX       Counter32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Transmitted data packets in bytes by a radio"
-      ::= { cambiumRadioEntry 11 }
-
-   cambiumRadioRxDataBytes OBJECT-TYPE
-       SYNTAX       Counter32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Received data packets in bytes by a radio"
-      ::= { cambiumRadioEntry 12 }
-
-   cambiumRadioState OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32))
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio state (ON/OFF)"
-      ::= { cambiumRadioEntry 13 }
-
-   cambiumRadioDfsStatus OBJECT-TYPE
-       SYNTAX       Integer32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "DFS status"
-      ::= { cambiumRadioEntry 14 }
-
-   cambiumRadioDfsDetect OBJECT-TYPE
-       SYNTAX       Integer32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "DFS detected by a radio"
-      ::= { cambiumRadioEntry 15 }
-
-   cambiumRadioNoiseFloor OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32)) 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio noise floor"
-      ::= { cambiumRadioEntry 16 }
-
-   cambiumRadioInterference OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32)) 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio channel interference"
-      ::= { cambiumRadioEntry 17 }
-
-   cambiumRadioAirtime OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..64)) 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio airtime (total/tx/rx/busy)"
-      ::= { cambiumRadioEntry 18 }
-
-   cambiumClientTable  OBJECT-TYPE 
-       SYNTAX       SEQUENCE OF CambiumClientEntry
-       MAX-ACCESS   not-accessible              
-       STATUS       current 
-       DESCRIPTION 
-                "This table contain information about all clients
-                connected to the access point"
-       ::= { cambiumStateGroup 3 } 
-
-   cambiumClientEntry OBJECT-TYPE 
-       SYNTAX       CambiumClientEntry 
-       MAX-ACCESS   not-accessible            
-       STATUS       current 
-       DESCRIPTION 
-             " "
-          INDEX { cambiumClientMACAddressIndex }
-       ::= { cambiumClientTable 1 } 
-
-   CambiumClientEntry ::=
-   SEQUENCE {
-        cambiumClientMACAddressIndex Integer32,
-        cambiumClientMACAddress      MacAddress,
-        cambiumClientIPAddress       DisplayString,
-        cambiumClientName            DisplayString,
-        cambiumClientSsid            DisplayString,
-        cambiumClientVendorName	     DisplayString,
-        cambiumClientHwmode          DisplayString,
-        cambiumClientRadioIndex	     Integer32,
-        cambiumClientWlan            Integer32,
-        cambiumClientVlan            Integer32,
-        cambiumClientSNR             Integer32,
-        cambiumClientTxRate          DisplayString,
-        cambiumClientTotalTxPackets  Counter32,
-        cambiumClientTxDataBytes     Counter32,
-        cambiumClientTotalRxPackets  Counter32,
-        cambiumClientRxDataBytes     Counter32
-   }
-
-   cambiumClientMACAddressIndex OBJECT-TYPE
-       SYNTAX       Integer32 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION  
-            "The auxiliary variable used to identify instances
-            of the columnar objects in the Client Table."
-       ::= { cambiumClientEntry 1 }
-
-   cambiumClientMACAddress OBJECT-TYPE
-       SYNTAX       MacAddress 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Client MAC address"
-      ::= { cambiumClientEntry 2 }
-
-   cambiumClientIPAddress OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32)) 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Client IP Address"
-      ::= { cambiumClientEntry 3 }
-
-   cambiumClientName OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32)) 
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Name of user using the client"
-       ::= { cambiumClientEntry 4 }
-
-
-   cambiumClientSsid OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))  
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Client is connected with SSID"
-       ::= { cambiumClientEntry 5 }
-
-   cambiumClientVendorName OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Client operating system"
-       ::= { cambiumClientEntry 6 }
-
-   cambiumClientHwmode OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Client hardware mode"
-       ::= { cambiumClientEntry 7 }
-
-   cambiumClientRadioIndex OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Client is connected with radio"
-       ::= { cambiumClientEntry 8 }
-
-   cambiumClientWlan OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Client wlan number"
-       ::= { cambiumClientEntry 9 }
-
-   cambiumClientVlan OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Client Vlan number"
-       ::= { cambiumClientEntry 10 }
-
-   cambiumClientSNR OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Signal to noise ratio of client connection to the access point"
-       ::= { cambiumClientEntry 11 }
-
-   cambiumClientTxRate OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Transmit rate of client in mbps"
-       ::= { cambiumClientEntry 12 }
-
-   cambiumClientTotalTxPackets OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total packets transmitted by the client"
-       ::= { cambiumClientEntry 13 }
-
-   cambiumClientTxDataBytes OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total bytes transmitted by the client"
-       ::= { cambiumClientEntry 14 }
-
-   cambiumClientTotalRxPackets OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total packets received by the client"
-       ::= { cambiumClientEntry 15 }
-
-   cambiumClientRxDataBytes OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total bytes received by the client"
-       ::= { cambiumClientEntry 16 }
-
-   cambiumWlanTable  OBJECT-TYPE 
-       SYNTAX       SEQUENCE OF CambiumWlanEntry
-       MAX-ACCESS   not-accessible              
-       STATUS       current 
-       DESCRIPTION 
-                "This table contain information about all WLAN
-                configured on the access point"
-       ::= { cambiumStateGroup 4 } 
-
-   cambiumWlanEntry OBJECT-TYPE 
-       SYNTAX       CambiumWlanEntry 
-       MAX-ACCESS   not-accessible            
-       STATUS       current 
-       DESCRIPTION 
-             " "
-          INDEX { cambiumWlanIndex }
-       ::= { cambiumWlanTable 1 } 
-
-   CambiumWlanEntry ::=
-   SEQUENCE {
-        cambiumWlanIndex           Integer32,
-        cambiumWlanSsid            DisplayString,
-        cambiumWlanBand            DisplayString,
-        cambiumWlanVlan            Integer32,
-        cambiumWlanSecurity        DisplayString,
-        cambiumWlanGuestAccess     DisplayString,
-        cambiumWlanNumClients      Integer32,
-        cambiumWlanTotalTxPackets  Counter32,
-        cambiumWlanTxDataBytes     Counter32,
-        cambiumWlanTotalRxPackets  Counter32,
-        cambiumWlanRxDataBytes     Counter32
-   }
-
-   cambiumWlanIndex OBJECT-TYPE
-       SYNTAX       Integer32
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "The auxiliary variable used to identify instances
-            of the columnar objects in the Wlan Table."
-       ::= { cambiumWlanEntry 1 }
-
-   cambiumWlanSsid OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32))
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Wlan SSID"
-      ::= { cambiumWlanEntry 2 }
-
-   cambiumWlanBand OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32)) 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Radio band configuration on Wlan"
-      ::= { cambiumWlanEntry 3 }
-
-   cambiumWlanVlan OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Wlan vlan number"
-       ::= { cambiumWlanEntry 4 }
-
-   cambiumWlanSecurity OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Security configuration on Wlan"
-       ::= { cambiumWlanEntry 5 }
-
-   cambiumWlanGuestAccess OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Guest Access configuration on Wlan"
-       ::= { cambiumWlanEntry 6 }
-
-   cambiumWlanNumClients OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Number of clients connected to Wlan"
-       ::= { cambiumWlanEntry 7 }
-
-   cambiumWlanTotalTxPackets OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total packets transmitted"
-       ::= { cambiumWlanEntry 8 }
-
-   cambiumWlanTxDataBytes OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total bytes transmitted"
-       ::= { cambiumWlanEntry 9 }
-
-   cambiumWlanTotalRxPackets OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total packets received"
-       ::= { cambiumWlanEntry 10 }
-
-   cambiumWlanRxDataBytes OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total bytes received"
-       ::= { cambiumWlanEntry 11 }
-
-   cambiumMeshClientTable  OBJECT-TYPE 
-       SYNTAX       SEQUENCE OF CambiumMeshClientEntry
-       MAX-ACCESS   not-accessible              
-       STATUS       current 
-       DESCRIPTION 
-                "This table contain information about all Mesh
-                 clients connected to the access point"
-       ::= { cambiumStateGroup 5 } 
-
-   cambiumMeshClientEntry OBJECT-TYPE 
-       SYNTAX       CambiumMeshClientEntry 
-       MAX-ACCESS   not-accessible            
-       STATUS       current 
-       DESCRIPTION 
-             " "
-          INDEX { cambiumMeshClientMACAddressIndex }
-       ::= { cambiumMeshClientTable 1 } 
-
-   CambiumMeshClientEntry ::=
-   SEQUENCE {
-        cambiumMeshClientMACAddressIndex Integer32,
-        cambiumMeshClientMACAddress      MacAddress,
-        cambiumMeshClientBaseMACAddress  MacAddress,
-        cambiumMeshClientIPAddress       DisplayString,
-        cambiumMeshClientName            DisplayString,
-        cambiumMeshClientSsid            DisplayString,
-        cambiumMeshClientRadioBand       DisplayString,
-        cambiumMeshClientSNR             Integer32,
-        cambiumMeshClientRSSI            Integer32,
-        cambiumMeshClientStatus          DisplayString,
-        cambiumMeshClientDataRate        DisplayString,
-        cambiumMeshClientTotalTxPackets  Counter32,
-        cambiumMeshClientTxDataBytes     Counter32,
-        cambiumMeshClientTotalRxPackets  Counter32,
-        cambiumMeshClientRxDataBytes     Counter32
-   }
-
-   cambiumMeshClientMACAddressIndex OBJECT-TYPE
-       SYNTAX       Integer32 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION  
-            "The auxiliary variable used to identify instances
-            of the columnar objects in the mesh client Table."
-       ::= { cambiumMeshClientEntry 1 }
-
-   cambiumMeshClientMACAddress OBJECT-TYPE
-       SYNTAX       MacAddress 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Mesh client MAC address"
-      ::= { cambiumMeshClientEntry 2 }
-
-   cambiumMeshClientBaseMACAddress OBJECT-TYPE
-       SYNTAX       MacAddress 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Mesh client AP MAC address"
-      ::= { cambiumMeshClientEntry 3 }
-
-   cambiumMeshClientIPAddress OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32)) 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Mesh client IP Address"
-      ::= { cambiumMeshClientEntry 4 }
-
-   cambiumMeshClientName OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32)) 
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Hostname of the mesh client"
-       ::= { cambiumMeshClientEntry 5 }
-
-
-   cambiumMeshClientSsid OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))  
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Mesh client is connected with SSID"
-       ::= { cambiumMeshClientEntry 6 }
-
-   cambiumMeshClientRadioBand OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Mesh client is connected with Radio"
-       ::= { cambiumMeshClientEntry 7 }
-
-   cambiumMeshClientSNR OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Signal to noise ratio of mesh client connection to the access point"
-       ::= { cambiumMeshClientEntry 8 }
-
-   cambiumMeshClientRSSI OBJECT-TYPE
-       SYNTAX      Integer32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Signal strength of mesh client connection to the access point"
-       ::= { cambiumMeshClientEntry 9 }
-
-   cambiumMeshClientStatus OBJECT-TYPE
-       SYNTAX       DisplayString (SIZE(0..32)) 
-       MAX-ACCESS   read-only
-       STATUS       current
-       DESCRIPTION
-            "Mesh client connection status"
-      ::= { cambiumMeshClientEntry 10 }
-
-   cambiumMeshClientDataRate OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..32))
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Data rate of mesh client in mbps"
-       ::= { cambiumMeshClientEntry 11 }
-
-   cambiumMeshClientTotalTxPackets OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total packets transmitted by the mesh client"
-       ::= { cambiumMeshClientEntry 12 }
-
-   cambiumMeshClientTxDataBytes OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total bytes transmitted by the mesh client"
-       ::= { cambiumMeshClientEntry 13 }
-
-   cambiumMeshClientTotalRxPackets OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total packets received by the mesh client"
-       ::= { cambiumMeshClientEntry 14 }
-
-   cambiumMeshClientRxDataBytes OBJECT-TYPE
-       SYNTAX      Counter32
-       MAX-ACCESS  read-only
-       STATUS      current
-       DESCRIPTION
-            "Total bytes received by the mesh client"
-       ::= { cambiumMeshClientEntry 15 }
-
-   cambiumAPSetIPAddress OBJECT-TYPE
-       SYNTAX      DisplayString (SIZE(0..64)) 
-       MAX-ACCESS  read-write
-       STATUS      current
-       DESCRIPTION
-            "Set Access Point IP Address"
-       ::= { cambiumStateGroup 6 }
-
-    cambiumAPReboot OBJECT-TYPE
-       SYNTAX      Integer32 (1) 
-       MAX-ACCESS  read-write
-       STATUS      current
-       DESCRIPTION
-            "OID for Device Reboot, send reboot command to device"
-       ::= { cambiumStateGroup 7 }
+	CAMBIUM-MIB DEFINITIONS ::= BEGIN
  
-END
+		IMPORTS
+			enterprises, Integer32, Gauge32, Counter32, OBJECT-TYPE, IpAddress,
+			MODULE-IDENTITY, NOTIFICATION-TYPE			
+				FROM SNMPv2-SMI			
+			TEXTUAL-CONVENTION			
+				FROM SNMPv2-TC;
+	
+		-- 1.3.6.1.4.1.41010
+		cambiumnetwork OBJECT IDENTIFIER ::= { enterprises 41010 }
+		-- 1.3.6.1.4.1.41010.1
+		ata MODULE-IDENTITY 
+			LAST-UPDATED "201309161714Z"		-- September 16, 2013 at 17:14 GMT
+			ORGANIZATION 
+				"cambiumnetwork."
+			CONTACT-INFO 
+				"Contact info."
+			DESCRIPTION 
+				"cambiumnetwork Mib."
+
+			::= { cambiumnetwork 1 }
+
+
+		-- 1.3.6.1.4.1.41010.1.1
+		status OBJECT IDENTIFIER ::= { ata 1 }
+
+		-- 1.3.6.1.4.1.41010.1.1.1
+		productName OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 1 }
+
+		-- 1.3.6.1.4.1.41010.1.1.2
+		internetWanMacAddress OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 2 }
+
+		-- 1.3.6.1.4.1.41010.1.1.3
+		pcLanMacAddress OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 3 }	
+
+		-- 1.3.6.1.4.1.41010.1.1.4
+		 hardwareVersion OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 4 }
+
+		-- 1.3.6.1.4.1.41010.1.1.5
+		firmwareVersion OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 5 }   
+			
+		-- 1.3.6.1.4.1.41010.1.1.6
+		serialNumber OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 6 }  
+		
+		-- 1.3.6.1.4.1.41010.1.1.7	  
+		connectionType OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				dhcp(0),
+				static(1),
+				pppoe(2)
+				}			
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 7 }
+          
+        -- 1.3.6.1.4.1.41010.1.1.8
+        managementPortIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 8 } 
+		
+		-- 1.3.6.1.4.1.41010.1.1.9	
+		managementPortSubnetMask OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 9 }
+	
+		-- 1.3.6.1.4.1.41010.1.1.10		
+		managementPortDefaultGateway OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 10 } 
+			
+		-- 1.3.6.1.4.1.41010.1.1.11		
+		managementPortPrimaryDns OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 11 }
+			
+		-- 1.3.6.1.4.1.41010.1.1.12		
+		managementPortSecondaryDns OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 12 }
+					
+		-- 1.3.6.1.4.1.41010.1.1.13		
+		lanPortIpAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 13 }
+			
+		-- 1.3.6.1.4.1.41010.1.1.14		
+		lanPortSubnetMask OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 14 }			
+
+		-- 1.3.6.1.4.1.41010.1.1.15		
+		systemCurrentTime OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 15 }
+
+			-- 1.3.6.1.4.1.41010.1.1.16		
+		fxs1SipAccountStatus OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				disable(0),
+				registered(1), 
+				registering(2),
+				fail(3)
+			}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 16 }
+		
+     		-- 1.3.6.1.4.1.41010.1.1.17		
+		fxs2SipAccountStatus OBJECT-TYPE
+			SYNTAX INTEGER  
+			{
+				disable(0),
+				registered(1),
+				registering(2),
+				fail(3)
+			}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { status 17 }
+  
+  			-- 1.3.6.1.4.1.41010.1.1.18		
+		wanPortStatus OBJECT-TYPE
+			SYNTAX OCTET STRING
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"10MHalf,10MFull,100MHalf,100MFull,Disconnected"
+			::= { status 18 }
+		
+     		-- 1.3.6.1.4.1.41010.1.1.19		
+		lanPortStatus OBJECT-TYPE
+			SYNTAX OCTET STRING  
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"10MHalf,10MFull,100MHalf,100MFull,Disconnected"
+			::= { status 19 }
+               
+         	-- 1.3.6.1.4.1.41010.1.1.20
+		lineStatus OBJECT IDENTIFIER ::= { status 20 }		
+
+		lineStatusTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF LineStatusEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			::= { lineStatus 1 }
+
+		
+		lineStatusEntry OBJECT-TYPE
+			SYNTAX LineStatusEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			INDEX { lineIndex }
+			::= { lineStatusTable 1 }
+
+		
+		LineStatusEntry ::=
+			SEQUENCE { 
+				lineIndex
+					Integer32,
+				sipLineStatus
+					INTEGER,
+			 }
+
+
+		lineIndex OBJECT-TYPE
+			SYNTAX Integer32 (1..2)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { lineStatusEntry 1 }
+
+		
+		sipLineStatus OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				disable(0),
+				registered(1), 
+				registering(2),
+				fail(3)
+			}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { lineStatusEntry 2 }
+
+			
+		-- 1.3.6.1.4.1.41010.1.2
+		wan OBJECT IDENTIFIER ::= { ata 2 }
+
+ 		wanTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF WanEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wan 1 }
+
+		
+		wanEntry OBJECT-TYPE
+			SYNTAX WanEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			INDEX { wanIndex }
+			::= { wanTable 1 }
+
+		
+		WanEntry ::=
+			SEQUENCE { 
+				wanIndex
+					Integer32,
+				vlanId
+					Integer32,
+				vlanPri
+					Integer32,
+				bridgeMode
+					INTEGER,
+				service
+					INTEGER,
+				vlanTag
+					INTEGER, 
+				internetMode
+					INTEGER,
+				dnsMode
+					INTEGER,
+				primaryDNS
+					IpAddress,
+				secondaryDNS
+					IpAddress,
+				portBind
+					INTEGER,
+				ipAddress
+					IpAddress,
+				subnetMask
+					IpAddress,
+				gateway
+					IpAddress,
+				bridgeType
+					INTEGER
+			 }
+
+
+		wanIndex OBJECT-TYPE
+			SYNTAX Integer32 (1..16)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"max vlan number is 16"
+			::= { wanEntry 1 }
+
+		vlanId OBJECT-TYPE
+			SYNTAX Integer32 (1..4094)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 2 }
+
+		vlanPri OBJECT-TYPE
+			SYNTAX Integer32 (0..7)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 3 }
+			
+ 		bridgeMode OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				route(0),
+				bridge(1)		
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 4 }
+
+ 		service OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				voice(0),
+				tr069(1),
+				internet(2),
+				tr069-internet(3),
+				tr069-voice(4),
+				voice-internet(5),
+				tr069-voice-internet(6)				
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 5 }
+
+ 		vlanTag OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				disable(0),
+				enable(1)
+				
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 6 }
+
+ 		internetMode OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				static(0),
+				dhcp(1),
+				pppoe(2),
+				noip(3)
+				
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 7 }
+ 
+  		dnsMode OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				auto(0),
+				manual(1)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 8 }   
+
+  		primaryDNS OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 9 }  
+			 			
+   		secondaryDNS OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 10 }  
+
+   		portBind OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				disable(0),
+				enable(1)
+				}			
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"bind lan port to wan"
+			::= { wanEntry 11 } 	
+
+   		ipAddress OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"bind lan port to wan"
+			::= { wanEntry 12 } 	
+
+   		subnetMask OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"static ip mask"
+			::= { wanEntry 13 } 				
+
+   		gateway OBJECT-TYPE
+			SYNTAX IpAddress
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"static gateway"
+			::= { wanEntry 14 } 
+			
+ 		bridgeType OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				ip(0),
+				pppoe(1),
+				hardware-ip(2)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wanEntry 15 }
+
+		-- 1.3.6.1.4.1.41010.1.3
+		lan OBJECT IDENTIFIER ::= { ata 3 }    
+		
+			-- 1.3.6.1.4.1.41010.1.3.1
+		localIpAddress OBJECT-TYPE
+			SYNTAX IpAddress			
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { lan 1 }
+
+ 		-- 1.3.6.1.4.1.41010.1.3.2
+		localSubnetMask OBJECT-TYPE
+			SYNTAX IpAddress			
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { lan 2 }   
+
+		-- 1.3.6.1.4.1.41010.1.4
+		sip OBJECT IDENTIFIER ::= { ata 4 }
+ 
+ 
+	        -- 1.3.6.1.4.1.41010.1.4.1
+		natTraversal OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				disable(0),
+				enable(1)
+				}			
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sip 1 }
+
+		-- 1.3.6.1.4.1.41010.1.4.2			
+ 		stunServerAddress OBJECT-TYPE
+			SYNTAX OCTET STRING	(SIZE(0..63))		
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sip 2 }
+        
+        -- 1.3.6.1.4.1.41010.1.4.3
+ 		stunServerPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)			
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sip 3 }
+        
+        -- 1.3.6.1.4.1.41010.1.4.4
+		sipQos OBJECT-TYPE
+			SYNTAX Integer32 (0..63)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sip 4 }
+        
+        -- 1.3.6.1.4.1.41010.1.4.5
+		rtpQos OBJECT-TYPE
+			SYNTAX Integer32 (0..63)			
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sip 5 }   
+
+		-- 1.3.6.1.4.1.41010.1.4.6			
+		dataQos OBJECT-TYPE
+			SYNTAX Integer32 (0..63)		
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sip 6 } 			
+
+
+		-- 1.3.6.1.4.1.41010.1.5
+		account OBJECT IDENTIFIER ::= { ata 5 }		
+	
+	
+		
+		sipUaTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF SipUaEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			::= { account 1 }
+
+		
+		sipUaEntry OBJECT-TYPE
+			SYNTAX SipUaEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			INDEX { sipLineIndex }
+			::= { sipUaTable 1 }
+
+		
+		SipUaEntry ::=
+			SEQUENCE { 
+				sipLineIndex
+					Integer32,
+				lineEnable
+					INTEGER,
+				proxyServer
+					OCTET STRING,
+				proxyPort
+					Integer32,
+				outboundServer
+					OCTET STRING,
+				outboundPort
+					Integer32,
+				backupOutboundServer
+					OCTET STRING,
+				backupOutboundPort
+					Integer32,
+				displayName
+					OCTET STRING,
+				phoneNumber
+					OCTET STRING,
+				sipAccount
+					OCTET STRING,
+				sipPassword
+					OCTET STRING,
+				codecType1
+					INTEGER,
+				codecType2
+					INTEGER,
+				codecType3
+					INTEGER,
+				codecType4
+					INTEGER,
+				codecType5
+					INTEGER,
+				g723Coding
+					INTEGER,
+				packetCycle
+					INTEGER,
+				silenceSupp
+					INTEGER,
+				echoCancel
+					INTEGER,
+				dtmfType
+					INTEGER,
+				registerRefreshInterval
+					Integer32,															
+			 }
+
+
+		sipLineIndex OBJECT-TYPE
+			SYNTAX Integer32 (1..2)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 1 }
+
+		
+		lineEnable OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				disable(0),
+				enable(1)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 2 }
+
+
+		proxyServer OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 3 }
+
+		
+		proxyPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535) 
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 4 }
+
+		
+		outboundServer OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 5 }
+
+		
+		outboundPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 6 }
+
+		backupOutboundServer OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 7 }
+
+		
+		backupOutboundPort OBJECT-TYPE
+			SYNTAX Integer32 (0..65535)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 8 }
+
+		
+		displayName OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 9 }
+
+		phoneNumber OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 10 }
+
+		sipAccount OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 11 } 
+			
+		sipPassword OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 12 } 
+			
+		codecType1 OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				g711u(0),
+				g711a(1),
+				g722(2),
+				g729(3),
+				g723(4)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 13 } 
+			
+		codecType2 OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				g711u(0),
+				g711a(1),
+				g722(2),
+				g729(3),
+				g723(4)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 14 }
+
+		codecType3 OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				g711u(0),
+				g711a(1),
+				g722(2),
+				g729(3),
+				g723(4)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 15 } 
+			
+		codecType4 OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				g711u(0),
+				g711a(1),
+				g722(2),
+				g729(3),
+				g723(4)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 16 }
+
+		codecType5 OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				g711u(0),
+				g711a(1),
+				g722(2),
+				g729(3),
+				g723(4)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 17 }
+ 
+ 		g723Coding OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				g723-53(0),
+				g723-63(1)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 18 }
+
+ 		packetCycle OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				ptime-10(0),
+				ptime-20(1),
+				ptime-30(2),
+				ptime-40(3),
+				ptime-50(4),
+				ptime-60(5)				
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 19 }
+
+ 		silenceSupp OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				disable(0),
+				enable(1)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"VAD/CNG"
+			::= { sipUaEntry 20 }
+
+ 		echoCancel OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				disable(0),
+				enable(1)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 21 } 
+			
+  		dtmfType OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				inband(0),
+				rfc2833(1),
+				sipinfo(2)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { sipUaEntry 22 } 
+			
+ 		registerRefreshInterval OBJECT-TYPE
+			SYNTAX Integer32 (10..3600)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"unit is seconds."
+			DEFVAL { 3600 }
+			::= { sipUaEntry 23 }
+
+
+ 
+		-- 1.3.6.1.4.1.41010.1.6
+		preferences OBJECT IDENTIFIER ::= { ata 6 }	
+  
+  		preferencesTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF PreferencesEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			::= { preferences 1 }
+
+		
+		preferencesEntry OBJECT-TYPE
+			SYNTAX PreferencesEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			INDEX { lineIndex }
+			::= { preferencesTable 1 }
+
+		
+		PreferencesEntry ::=
+			SEQUENCE { 
+				lineIndex
+					Integer32,
+				inputGain
+					Integer32,
+				outputGain
+					Integer32,	
+				toneType
+					INTEGER,
+	            flashTimeMax
+	                OCTET STRING,
+	            flashTimeMin
+	            	OCTET STRING,
+	            loopCurrent
+	                Integer32,
+	            impedanceMaching
+	                INTEGER				
+			 }
+
+
+		lineIndex OBJECT-TYPE
+			SYNTAX Integer32 (1..2)
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"line number."
+			::= { preferencesEntry 1 }
+
+		inputGain OBJECT-TYPE
+			SYNTAX Integer32 (0..7)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"mic gain"
+			::= { preferencesEntry 2 }
+
+		outputGain OBJECT-TYPE
+			SYNTAX Integer32  (0..7)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"speaker gain"
+			::= { preferencesEntry 3 }
+         
+		toneType OBJECT-TYPE
+			SYNTAX INTEGER
+			{       
+				  custom(0),
+		          australia(1),
+		          austria(2),
+		          brazil(3),
+		          belgium(4),
+		          china(5),
+		          czech(6),
+		          denmark(7),
+		          finland(8),
+		          france(9),
+		          germany(10),
+		          great-britain(11),
+		          greece(12),
+		          hungary(13),
+		          lithuania(14),
+		          india(15),
+		          italy(16),
+		          japan(17),
+		          korea(18),
+		          mexico(19),
+		          new-zealand(20),      
+		          netherlands(21),
+		          norway(22),
+		          portugal(23),
+		          spain(24),
+		          switzerland(25),
+		          sweden(26),
+		          russia(27),
+		          united-states(28)			
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { preferencesEntry 4 }
+
+        flashTimeMax  OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"unit is second"    
+			DEFVAL { "0.9" }	
+			::= { preferencesEntry 5 }
+
+        flashTimeMin  OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"unit is second" 
+			DEFVAL { "0.1" }
+			::= { preferencesEntry 6 }
+
+        loopCurrent  OBJECT-TYPE
+			SYNTAX Integer32 (20..41)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { preferencesEntry 7 }
+
+        impedanceMaching OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+			   us-korean-taiwan(0),
+			   standard(1),
+			   japan(2),
+			   bellcore(3),
+			   ctr21(4),
+			   china-co(5),
+			   china-pbx(6),
+			   japan-pbx(7),
+			   india-newzealand(8),
+			   germany-legacy(9),
+			   uk-legacy(10),
+			   australia(11),
+			   variation(12)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { preferencesEntry 8 }
+
+
+  
+		-- 1.3.6.1.4.1.41010.1.7
+		management OBJECT IDENTIFIER ::= { ata 7 }	
+
+		-- 1.3.6.1.4.1.41010.1.7.1	
+  		save OBJECT-TYPE
+			SYNTAX Integer32 (0..1)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"1:save.
+				Return 0 after saving."
+			::= { management 1 }
+
+		-- 1.3.6.1.4.1.41010.1.7.2	
+   		reboot OBJECT-TYPE
+			SYNTAX Integer32 (0..1)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"1:reboot.
+				Return 0 after reboot."
+			::= { management 2 } 
+			                      
+		-- 1.3.6.1.4.1.41010.1.7.3				                      
+   		factoryDefault OBJECT-TYPE
+			SYNTAX Integer32 (0..1)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"1:factory reset.
+				Return 0 after factory reset finish."
+			::= { management 3 }
+
+		-- 1.3.6.1.4.1.41010.1.7.4	  
+		ntpSetting OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				west-11-MidwayIsland-Samoa(0),
+				west-10-Hawaii(1),
+				west-09-Alaska(2),
+				west-08-PacificTime(3), 
+				west-07-MountainTime(4),
+				west-07-Arizona(5),
+				west-06-CentralTime(6),
+				west-06-MiddleAmerica(7),
+				west-05-IndianaEast-Colombia(8),
+				west-05-EasternTime(9),
+				west-05-Altanticime-BrazilWest(10),
+				west-04-Bolivia-Venezuela(11),
+				west-03-Guyana(12),
+				west-03-BrazilEast-Greenland(13),
+				west-02-Mid-Atlantic(14), 
+				west-01-AzoresIslands(15),
+				east-00-Gambia-Liberia-Morocco(16),
+				east-00-England(17),   
+				east-01-CzechRepublic-N(18), 
+				east-01-Germany(19), 
+				east-01-Tunisia(20), 
+				east-02-Greece-Ukraine-Turkey(21), 
+				east-02-SouthAfrica(22), 
+				east-03-Iraq-Jordan-Kuwait(23), 
+				east-03-MoscowWinterTime(24),  
+				east-04-Armenia(25),  
+				east-05-Pakistan-Russia(26),  
+				east-06-Bangladesh-Russia(27),  
+				east-07-Thailand-Russia(28), 
+				east-08-ChinaCoast-HongKong(29),
+				east-08-Taipei(30),  
+				east-08-Singapore(31),   
+				east-08-AustraliaWA(32), 
+				east-09-Japan-Korea(33), 
+				east-09-Korean(34),      
+				east-10-Guam-Russia(35), 
+				east-10-Australia-QLD-TAS-NSW-ACT-VIC(36),
+				east-11-SolomonIslands(37), 
+				east-12-Fiji(38), 
+				east-12-NewZealand(39)
+				}			
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"time zone"
+			::= { management 4 }
+			
+		-- 1.3.6.1.4.1.41010.1.7.5
+		primaryNtpServer OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { management 5 } 
+
+		-- 1.3.6.1.4.1.41010.1.7.6			
+		secondaryNtpServer OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { management 6 }
+
+		-- 1.3.6.1.4.1.41010.1.7.7			
+		daylightSavingTime OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+			disable(0),
+			enable(1)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Summer time."
+			::= { management 7 }
+			
+		-- 1.3.6.1.4.1.41010.1.7.8			
+		offset OBJECT-TYPE
+			SYNTAX Integer32 (0..23)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"The offset specifies the time value you must add to the local time to get a Coordinated Universal Time value.
+				The hour must be between 0 and 23"
+			::= { management 8 } 
+			
+		-- 1.3.6.1.4.1.41010.1.7.9			
+		dstStartByWeek OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Start time of summer time.
+				Format: m.w.d.h
+				This specifies day d of week w of month m. The day d must be between 0 (Sunday) and 6. 
+				The week w must be between 1 and 5; week 1 is the first week in which day d occurs, 
+				and week 5 specifies the last d day in the month. The month m should be between 1 and 12.
+				Default setting is that summer time begins on the first Sunday in April at 2:00am."  
+		    DEFVAL { "04.1.0.2" }
+			::= { management 9 }
+			
+		-- 1.3.6.1.4.1.41010.1.7.10			
+		dstEndByWeek OBJECT-TYPE 
+		    SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"End time of summer time.
+				Format: m.w.d.h
+				This specifies day d of week w of month m. The day d must be between 0 (Sunday) and 6. 
+				The week w must be between 1 and 5; week 1 is the first week in which day d occurs, 
+				and week 5 specifies the last d day in the month. The month m should be between 1 and 12.
+				Default setting is that summer time ends on the last Sunday in October at 2:00am."  
+		    DEFVAL { "10.5.0.2" }
+			::= { management 10 }
+			
+   
+   		-- 1.3.6.1.4.1.41010.1.7.11			
+		userType OBJECT-TYPE
+			SYNTAX INTEGER
+			{
+				 admin(0),
+				 basic(1),
+				 normal(2)
+			}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"admin: high level.
+				basic: middle level.
+				normal: low level."
+			::= { management 11 }
+			
+   		-- 1.3.6.1.4.1.41010.1.7.12			
+		userName OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { management 12 }
+
+   		-- 1.3.6.1.4.1.41010.1.7.13			
+		password OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { management 13 }
+            
+         -- 1.3.6.1.4.1.41010.1.7.14	 
+         resyncProvision OBJECT-TYPE
+			SYNTAX Integer32 (0..1)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"1:Synchronous provision.
+				Return 0 after Synchronous provision finish."
+			::= { management 14 }
+
+        -- 1.3.6.1.4.1.41010.1.7.15	 
+         operatingmode OBJECT-TYPE
+			SYNTAX Integer32 (0..1)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"1:Basic Mode. 0: Advanced Mode.
+				Return 0 after finish."
+			::= { management 15 }
+   
+		-- 1.3.6.1.4.1.41010.1.8
+		firmware OBJECT IDENTIFIER ::= { ata 8 }
+			
+		upgradeUrl OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..128))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"For example: http://url/firmware.bin.
+				Ftp and Tftp are supported also."
+			::= { firmware 1 } 
+
+		upgradeSet OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				normal(0),
+				upgrade(1)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"1: start upgrade.
+				After upgrade, it will return 0."
+			::= { firmware 2 }
+			
+  		upgradeStatus OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				idle(10),
+				updateProgress(20),
+				updateFail(30),
+				updateSuccess(40)
+				}
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { firmware 3 }
+
+
+ 
+		-- 1.3.6.1.4.1.41010.1.9
+		snmp OBJECT IDENTIFIER ::= { ata 9 }	
+		-- 1.3.6.1.4.1.41010.1.9.1			
+		trapServerAddress OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"trap address"
+			::= { snmp 1 }
+			
+		-- 1.3.6.1.4.1.41010.1.9.2			
+		readCommunityName OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { snmp 2 }
+			
+		-- 1.3.6.1.4.1.41010.1.9.3			
+		writeCommunityName OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { snmp 3 }
+		
+		-- 1.3.6.1.4.1.41010.1.9.4			
+		trapCommunity OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { snmp 4 }	
+
+	     -- 1.3.6.1.4.1.41010.1.9.5			
+		trapPeriodInterval OBJECT-TYPE
+			SYNTAX Integer32 (0..3600)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"interval of keep alive trap"
+			::= { snmp 5 }     
+			
+			
+			
+			
+		-- 1.3.6.1.4.1.41010.1.10
+		wlan OBJECT IDENTIFIER ::= { ata 10 }
+
+		-- 1.3.6.1.4.1.41010.1.10.1
+		bssid OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wlan 1 }	
+
+		
+		-- 1.3.6.1.4.1.41010.1.10.2
+	
+		ssid OBJECT IDENTIFIER ::= { wlan 2 }
+		-- 1.3.6.1.4.1.41010.1.10.2.1
+		ssid_2g OBJECT IDENTIFIER ::= { ssid 1 }
+        -- 1.3.6.1.4.1.41010.1.10.2.1.1
+ 		ssid_2gTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF Ssid_2gEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			::= { ssid_2g 1 }
+
+		-- 1.3.6.1.4.1.41010.1.10.2.1.1.1
+		ssid_2gEntry OBJECT-TYPE
+			SYNTAX Ssid_2gEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			INDEX { lineIndex }
+			::= { ssid_2gTable 1 }
+
+		Ssid_2gEntry ::=
+			SEQUENCE { 
+				lineIndex
+					INTEGER,
+				radioOnOff
+					INTEGER,
+				wlanMode
+					OCTET STRING,
+				channel
+					INTEGER,
+				autoChannel
+					INTEGER,
+				ssid_2gName
+					OCTET STRING,
+				authMode
+					OCTET STRING,
+				pskPasswd
+					OCTET STRING,
+				defaultKey
+					INTEGER,
+				wepkey1
+					OCTET STRING,
+				wepkey2
+					OCTET STRING,
+				wepkey3
+					OCTET STRING,
+				wepkey4
+					OCTET STRING,
+				bandwidth
+					INTEGER,
+			 }
+		lineIndex OBJECT-TYPE
+			SYNTAX INTEGER
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"MIB index number."
+			::= { ssid_2gEntry 1 }
+		radioOnOff OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				on(0),
+				off(1)
+				}
+			MAX-ACCESS read-write
+			STATUS	current
+			DESCRIPTION
+				"wlan_2g on\off"
+			::= { ssid_2gEntry 2 }
+		wlanMode OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { ssid_2gEntry 3 }
+			
+		channel OBJECT-TYPE
+			SYNTAX INTEGER (0..11)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"your choice of channel"
+			::= { ssid_2gEntry 4 }	
+		autoChannel OBJECT-TYPE
+			SYNTAX INTEGER
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"if your choice is 0,the system will choose 'autoChannel'."
+			::= { ssid_2gEntry 5 }
+		ssid_2gName OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_2gname."
+			::= { ssid_2gEntry 6 }
+		authMode OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_2g connect AuthMode."
+			::= { ssid_2gEntry 7 }
+			
+		pskPasswd OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"pskPasswd."
+			::= { ssid_2gEntry 8 }
+		defaultKey OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+					null(0),
+					key1(1),
+					key2(2),
+					key3(3),
+					key4(4)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_2g default wepkey."
+			::= { ssid_2gEntry 9 }
+		wepkey1 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..26))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_2g wepKey1."
+			::= { ssid_2gEntry 10 }
+		wepkey2 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..26))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_2g wepkey2."
+			::= { ssid_2gEntry 11 }
+		wepkey3 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..26))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_2g wepkey3."
+			::= { ssid_2gEntry 12 }
+		wepkey4 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..26))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_2g wepkey4."
+			::= { ssid_2gEntry 13 }
+			
+		bandwidth OBJECT-TYPE
+			SYNTAX INTEGER (0..1)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Channel Bandwidth .0:20,1:20/40"
+			::= { ssid_2gEntry 14 }
+			
+		-- 1.3.6.1.4.1.41010.1.10.2.2			
+		ssid_5g OBJECT IDENTIFIER ::= { ssid 2 }
+        
+        -- 1.3.6.1.4.1.41010.1.10.2.2.1
+ 		ssid_5gTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF Ssid_5gEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			::= { ssid_5g 1 }
+
+		-- 1.3.6.1.4.1.41010.1.10.2.2.1.1
+		ssid_5gEntry OBJECT-TYPE
+			SYNTAX Ssid_5gEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			INDEX { lineIndex }
+			::= { ssid_5gTable 1 }
+
+		Ssid_5gEntry ::=
+			SEQUENCE { 
+				lineIndex
+					INTEGER,
+				radioOnOff
+					INTEGER,
+				wlanMode
+					OCTET STRING,
+				channel
+					INTEGER,
+				autoChannel
+					INTEGER,
+				ssid_5gName
+					OCTET STRING,
+				authMode
+					OCTET STRING,
+				pskPasswd
+					OCTET STRING,
+				defaultKey
+					INTEGER,
+				wepkey1
+					OCTET STRING,
+				wepkey2
+					OCTET STRING,
+				wepkey3
+					OCTET STRING,
+				wepkey4
+					OCTET STRING,
+				bandwidth
+					INTEGER,
+				vhtbandwidth
+					INTEGER,
+			 }
+		lineIndex OBJECT-TYPE
+			SYNTAX INTEGER
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"MIB index number."
+			::= { ssid_5gEntry 1 }
+		radioOnOff OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+				on(0),
+				off(1)
+				}
+			MAX-ACCESS read-write
+			STATUS	current
+			DESCRIPTION
+				"wlan_5g on\off"
+			::= { ssid_5gEntry 2 }
+		wlanMode OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				""
+			::= { ssid_5gEntry 3 }
+			
+		channel OBJECT-TYPE
+			SYNTAX INTEGER (0..200)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { ssid_5gEntry 4 }
+		 autoChannel OBJECT-TYPE
+			SYNTAX INTEGER
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				""
+			::= { ssid_5gEntry 5 }
+		ssid_5gName OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_5gname."
+			::= { ssid_5gEntry 6 }
+		authMode OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_5g connect AuthMode."
+			::= { ssid_5gEntry 7 }
+			
+		pskPasswd OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"pskPasswd."
+			::= { ssid_5gEntry 8 }
+		defaultKey OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+					null(0),
+					key1(1),
+					key2(2),
+					key3(3),
+					key4(4)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_5g default wepkey."
+			::= { ssid_5gEntry 9 }
+		wepkey1 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..26))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_5g wepKey4."
+			::= { ssid_5gEntry 10 }
+		wepkey2 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..26))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_5g wepkey4."
+			::= { ssid_5gEntry 11 }
+		wepkey3 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..26))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_5g wepkey4."
+			::= { ssid_5gEntry 12 }
+		wepkey4 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..26))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"ssid_5g wepkey4."
+			::= { ssid_5gEntry 13 }
+			
+		bandwidth OBJECT-TYPE
+			SYNTAX INTEGER (0..1)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Channel Bandwidth .0:20,1:20/40"
+			::= { ssid_5gEntry 14 }
+		
+		vhtbandwidth OBJECT-TYPE
+			SYNTAX INTEGER (0..1)
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Channel VHT Bandwidth .0:20/40,1:80"
+			::= { ssid_5gEntry 15 }
+			
+		repeater OBJECT IDENTIFIER ::= { wlan 3 } 
+		
+		wifi_2g OBJECT IDENTIFIER ::= { repeater 1 }
+
+ 		wifi_2gTable OBJECT-TYPE
+			SYNTAX SEQUENCE OF Wifi_2gEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			::= { wifi_2g 1 }
+
+		
+		wifi_2gEntry OBJECT-TYPE
+			SYNTAX Wifi_2gEntry
+			MAX-ACCESS not-accessible
+			STATUS current
+			DESCRIPTION
+				""
+			INDEX { lineIndex }
+			::= { wifi_2gTable 1 }
+
+		Wifi_2gEntry ::=
+			SEQUENCE { 
+				lineIndex
+					INTEGER,
+				connectedWIFI
+					OCTET STRING,
+				authMode
+					OCTET STRING,
+				enctryptType
+					OCTET STRING,
+				passWord
+					OCTET STRING,
+				defaultKey
+					INTEGER,
+				wepKey1
+					OCTET STRING,
+				wepKey2
+					OCTET STRING,
+				wepKey3
+					OCTET STRING,
+				wepKey4
+					OCTET STRING,
+				wifiIPmode
+					INTEGER,
+				wifiIPaddr
+					OCTET STRING,
+			 }
+		lineIndex OBJECT-TYPE
+			SYNTAX INTEGER
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"MIB index number."
+			::= { wifi_2gEntry 1 }
+		
+		connectedWIFI OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"DBID_WIFI_SSID."
+			::= { wifi_2gEntry 2 }
+		authMode OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"DBID_WIFI_AUTH_MODE."
+			::= { wifi_2gEntry 3 }
+		enctryptType OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"DBID_WIFI_ENCTRYPT_TYPE."
+			::= { wifi_2gEntry 4 }
+		passWord OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"WIFI password."
+			::= { wifi_2gEntry 5 }
+		defaultKey OBJECT-TYPE
+			SYNTAX INTEGER
+				{
+					null(0),
+					key1(1),
+					key2(2),
+					key3(3),
+					key4(4)
+				}
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"WIFI_OPEN_WEP_DEFAULT_KEY"
+			::= { wifi_2gEntry 6 }
+		wepKey1 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE (0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"WIFI_WEP_KEY_PASSWD1"
+			::= { wifi_2gEntry 7 }
+		wepKey2 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE (0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"WIFI_WEP_KEY_PASSWD2"
+			::= { wifi_2gEntry 8 }
+		wepKey3 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE (0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"WIFI_WEP_KEY_PASSWD3"
+			::= { wifi_2gEntry 9 }
+		wepKey4 OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE (0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"WIFI_WEP_KEY_PASSWD4"
+			::= { wifi_2gEntry 10}
+		wifiIPmode OBJECT-TYPE
+			SYNTAX INTEGER
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"IP Mode"
+			::= { wifi_2gEntry 11 }
+		wifiIPaddr OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE (0..63))
+			MAX-ACCESS read-only
+			STATUS current
+			DESCRIPTION
+				"IP address"
+			::= { wifi_2gEntry 12 }
+			
+		
+	-- 1.3.6.1.4.1.41010.1.11
+		deviceagent OBJECT IDENTIFIER ::= { ata 11 }	
+		-- 1.3.6.1.4.1.41010.1.11.1			
+		cambium_id OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"cambium id"
+			::= { deviceagent 1 }
+			
+		-- 1.3.6.1.4.1.41010.1.9.2			
+		cambium_token OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..63))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"cambium token"
+			::= { deviceagent 2 }
+			
+		-- 1.3.6.1.4.1.41010.1.9.3			
+		cns_staic_url OBJECT-TYPE
+			SYNTAX OCTET STRING (SIZE(0..127))
+			MAX-ACCESS read-write
+			STATUS current
+			DESCRIPTION
+				"Cloud Manager URL"
+			::= { deviceagent 3 }
+			
+		END
+--
+-- 20150609-CAMBIUM-MIB.my
+--

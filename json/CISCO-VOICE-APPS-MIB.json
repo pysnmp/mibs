@@ -1,0 +1,593 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceAppsMIB": {
+    "name": "ciscoVoiceAppsMIB",
+    "oid": "1.3.6.1.4.1.9.9.190",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-22 00:00",
+        "description": "Imported Unsigned32 from SNMPv2-SMI instead of CISCO-TC."
+      },
+      {
+        "revision": "2001-02-26 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoVoiceAppsMIBObjects": {
+    "name": "ciscoVoiceAppsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.190.1",
+    "class": "objectidentity"
+  },
+  "cvaGeneralInfo": {
+    "name": "cvaGeneralInfo",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1",
+    "class": "objectidentity"
+  },
+  "cvaModuleFailureInfo": {
+    "name": "cvaModuleFailureInfo",
+    "oid": "1.3.6.1.4.1.9.9.190.1.2",
+    "class": "objectidentity"
+  },
+  "cvaWorkflowInstallTable": {
+    "name": "cvaWorkflowInstallTable",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvaWorkflowInstallEntry": {
+    "name": "cvaWorkflowInstallEntry",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaWorkflowInstallIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvaWorkflowInstallIndex": {
+    "name": "cvaWorkflowInstallIndex",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvaWorkflowInstallName": {
+    "name": "cvaWorkflowInstallName",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvaWorkflowInstallLocator": {
+    "name": "cvaWorkflowInstallLocator",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvaWorkflowInstallScriptName": {
+    "name": "cvaWorkflowInstallScriptName",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvaWorkflowInstallEnable": {
+    "name": "cvaWorkflowInstallEnable",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvaNotificationEnable": {
+    "name": "cvaNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.9.190.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvaAlarmSeverity": {
+    "name": "cvaAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.190.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 1,
+          "alert": 2,
+          "critical": 3,
+          "error": 4,
+          "warning": 5,
+          "notice": 6,
+          "informational": 7
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cvaModuleName": {
+    "name": "cvaModuleName",
+    "oid": "1.3.6.1.4.1.9.9.190.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cvaProcessId": {
+    "name": "cvaProcessId",
+    "oid": "1.3.6.1.4.1.9.9.190.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cvaModuleFailureName": {
+    "name": "cvaModuleFailureName",
+    "oid": "1.3.6.1.4.1.9.9.190.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cvaModuleFailureCause": {
+    "name": "cvaModuleFailureCause",
+    "oid": "1.3.6.1.4.1.9.9.190.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "gracefulShutDown": 2,
+          "heartBeatFailure": 3,
+          "initFailure": 4,
+          "outOfResource": 5,
+          "partialFailure": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cvaModuleFailureMessage": {
+    "name": "cvaModuleFailureMessage",
+    "oid": "1.3.6.1.4.1.9.9.190.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cvaModuleRunTimeFailureCause": {
+    "name": "cvaModuleRunTimeFailureCause",
+    "oid": "1.3.6.1.4.1.9.9.190.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "readAccessFailure": 2,
+          "writeAccessFailure": 3,
+          "createFailure": 4,
+          "deleteFailure": 5,
+          "updateFailure": 6,
+          "initFailure": 7,
+          "loadFailure": 8,
+          "outOfResource": 9,
+          "callProcessFailure": 10,
+          "registrationFailure": 11,
+          "deRegistrationFailure": 12,
+          "connectionFailure": 13,
+          "disconnectionFailure": 14,
+          "unknownTarget": 15,
+          "unReacheableTarget": 16
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoVoiceAppsMIBNotificationPrefix": {
+    "name": "ciscoVoiceAppsMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.190.2",
+    "class": "objectidentity"
+  },
+  "ciscoVoiceAppsMIBNotifications": {
+    "name": "ciscoVoiceAppsMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.190.2.0",
+    "class": "objectidentity"
+  },
+  "cvaModuleStart": {
+    "name": "cvaModuleStart",
+    "oid": "1.3.6.1.4.1.9.9.190.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaAlarmSeverity"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleName"
+      }
+    ],
+    "status": "current"
+  },
+  "cvaModuleStop": {
+    "name": "cvaModuleStop",
+    "oid": "1.3.6.1.4.1.9.9.190.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaAlarmSeverity"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleFailureCause"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleFailureName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleFailureMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cvaModuleRunTimeFailure": {
+    "name": "cvaModuleRunTimeFailure",
+    "oid": "1.3.6.1.4.1.9.9.190.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaAlarmSeverity"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleRunTimeFailureCause"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleFailureName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleFailureMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cvaProcessStart": {
+    "name": "cvaProcessStart",
+    "oid": "1.3.6.1.4.1.9.9.190.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaAlarmSeverity"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaProcessId"
+      }
+    ],
+    "status": "current"
+  },
+  "cvaProcessStop": {
+    "name": "cvaProcessStop",
+    "oid": "1.3.6.1.4.1.9.9.190.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaAlarmSeverity"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaProcessId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVoiceAppsMIBConformance": {
+    "name": "ciscoVoiceAppsMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.190.3",
+    "class": "objectidentity"
+  },
+  "ciscoVoiceAppsMIBCompliances": {
+    "name": "ciscoVoiceAppsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.190.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoVoiceAppsMIBGroups": {
+    "name": "ciscoVoiceAppsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.190.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoVoiceAppsMIBCompliance": {
+    "name": "ciscoVoiceAppsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.190.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvaModuleInfoGroup",
+        "module": "CISCO-VOICE-APPS-MIB"
+      },
+      {
+        "object": "cvaNotificationInfoGroup",
+        "module": "CISCO-VOICE-APPS-MIB"
+      },
+      {
+        "object": "cvaNotificationGroup",
+        "module": "CISCO-VOICE-APPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvaModuleInfoGroup": {
+    "name": "cvaModuleInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.190.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaWorkflowInstallName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaWorkflowInstallLocator"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaWorkflowInstallScriptName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaWorkflowInstallEnable"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cvaNotificationInfoGroup": {
+    "name": "cvaNotificationInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.190.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaAlarmSeverity"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaProcessId"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleFailureName"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleFailureCause"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleFailureMessage"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleRunTimeFailureCause"
+      }
+    ],
+    "status": "current"
+  },
+  "cvaNotificationGroup": {
+    "name": "cvaNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.190.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleStart"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleStop"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaModuleRunTimeFailure"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaProcessStart"
+      },
+      {
+        "module": "CISCO-VOICE-APPS-MIB",
+        "object": "cvaProcessStop"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VOICE-APPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VOICE-APPS-MIB"
+  }
+}

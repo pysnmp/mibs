@@ -1,0 +1,1358 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "DisplayStringUnsized",
+      "atRouter"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sysinfo": {
+    "name": "sysinfo",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-14 00:00",
+        "description": "Initial version of this MIB module."
+      },
+      {
+        "revision": "2008-02-26 00:00",
+        "description": "Changed top DESCRIPTION section."
+      },
+      {
+        "revision": "2010-06-04 00:00",
+        "description": "Added new object atPortRenumberEvents."
+      },
+      {
+        "revision": "2010-06-15 00:15",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2010-08-16 00:16",
+        "description": "Added SFP Plus descriptions to atPortInfoTransceiverEntry."
+      },
+      {
+        "revision": "2010-08-31 00:31",
+        "description": "Added Infinband descriptions to atPortInfoTransceiverEntry."
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
+      }
+    ]
+  },
+  "fanAndPs": {
+    "name": "fanAndPs",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1",
+    "class": "objectidentity"
+  },
+  "fanAndPsTrap": {
+    "name": "fanAndPsTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0",
+    "class": "objectidentity"
+  },
+  "fanAndPsRpsConnectionTrap": {
+    "name": "fanAndPsRpsConnectionTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsRpsConnectionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsMainPSUStatusTrap": {
+    "name": "fanAndPsMainPSUStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsMainPSUStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsRedundantPSUStatusTrap": {
+    "name": "fanAndPsRedundantPSUStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsRedundantPSUStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsMainFanStatusTrap": {
+    "name": "fanAndPsMainFanStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsMainFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsRedundantFanStatusTrap": {
+    "name": "fanAndPsRedundantFanStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsRedundantFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsTemperatureStatusTrap": {
+    "name": "fanAndPsTemperatureStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsTemperatureStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsFanTrayPresentTrap": {
+    "name": "fanAndPsFanTrayPresentTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsFanTrayPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsFanTrayStatusTrap": {
+    "name": "fanAndPsFanTrayStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsFanTrayStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsMainMonitoringStatusTrap": {
+    "name": "fanAndPsMainMonitoringStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsMainMonitoringStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsAccelFanStatusTrap": {
+    "name": "fanAndPsAccelFanStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsAccelFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsRpsConnectionStatus": {
+    "name": "fanAndPsRpsConnectionStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "connected": 1,
+          "notConnected": 2,
+          "notMonitoring": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsMainPSUStatus": {
+    "name": "fanAndPsMainPSUStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "faulty": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsRedundantPSUStatus": {
+    "name": "fanAndPsRedundantPSUStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "on": 1,
+          "off": 2,
+          "notMonitoring": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsRpsMonitoringStatus": {
+    "name": "fanAndPsRpsMonitoringStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fanAndPsMainFanStatus": {
+    "name": "fanAndPsMainFanStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "ok": 1,
+          "notOk": 2,
+          "warning": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsRedundantFanStatus": {
+    "name": "fanAndPsRedundantFanStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "ok": 1,
+          "notOk": 2,
+          "notMonitoring": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsTemperatureStatus": {
+    "name": "fanAndPsTemperatureStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "notOk": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsFanTrayPresent": {
+    "name": "fanAndPsFanTrayPresent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "present": 1,
+          "notPresent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsFanTrayStatus": {
+    "name": "fanAndPsFanTrayStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "ok": 1,
+          "notOk": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsMainMonitoringStatus": {
+    "name": "fanAndPsMainMonitoringStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "ok": 1,
+          "notOk": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsPsuStatusTable": {
+    "name": "fanAndPsPsuStatusTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanAndPsPsuStatusEntry": {
+    "name": "fanAndPsPsuStatusEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "fanAndPsPsuNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fanAndPsPsuNumber": {
+    "name": "fanAndPsPsuNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsPsuPresent": {
+    "name": "fanAndPsPsuPresent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 0,
+          "no": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsPsuType": {
+    "name": "fanAndPsPsuType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ac": 0,
+          "dc": 1,
+          "fan": 2,
+          "notPresent": 3,
+          "notSupported": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsPsuFan": {
+    "name": "fanAndPsPsuFan",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "fail": 1,
+          "notPresent": 2,
+          "notSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsPsuTemperature": {
+    "name": "fanAndPsPsuTemperature",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "high": 1,
+          "notPresent": 2,
+          "notSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsPsuPower": {
+    "name": "fanAndPsPsuPower",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "bad": 1,
+          "notPresent": 2,
+          "notSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanAndPsAccelFanStatus": {
+    "name": "fanAndPsAccelFanStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "ok": 1,
+          "notOk": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "restartGroup": {
+    "name": "restartGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.2",
+    "class": "objectidentity"
+  },
+  "restart": {
+    "name": "restart",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restartNone": 0,
+          "restartWarm": 1,
+          "restartCold": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "restartCause": {
+    "name": "restartCause",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "hardwareReset": 1,
+          "hardwareWatchdog": 2,
+          "softwareRequest": 3,
+          "softwareException": 4,
+          "softwareInvalidImage": 5,
+          "softwareLicenceCheckFailure": 6,
+          "powerOnSelfTestfailure": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "restartLog": {
+    "name": "restartLog",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "restartNotification": {
+    "name": "restartNotification",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "restartCause"
+      }
+    ],
+    "status": "current"
+  },
+  "cpu": {
+    "name": "cpu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3",
+    "class": "objectidentity"
+  },
+  "cpuUtilisationMax": {
+    "name": "cpuUtilisationMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationAvg": {
+    "name": "cpuUtilisationAvg",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationAvgLastMinute": {
+    "name": "cpuUtilisationAvgLastMinute",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationAvgLast10Seconds": {
+    "name": "cpuUtilisationAvgLast10Seconds",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationAvgLastSecond": {
+    "name": "cpuUtilisationAvgLastSecond",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationMaxLast5Minutes": {
+    "name": "cpuUtilisationMaxLast5Minutes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationAvgLast5Minutes": {
+    "name": "cpuUtilisationAvgLast5Minutes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysTemperature": {
+    "name": "sysTemperature",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4",
+    "class": "objectidentity"
+  },
+  "generalTemperature": {
+    "name": "generalTemperature",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.1",
+    "class": "objectidentity"
+  },
+  "generalTemperatureTrap": {
+    "name": "generalTemperatureTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.1.0",
+    "class": "objectidentity"
+  },
+  "generalTemperatureStatusTrap": {
+    "name": "generalTemperatureStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "generalTemperatureStatus"
+      },
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "generalTemperatureActualTemp"
+      },
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "generalTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "generalTemperatureSupported": {
+    "name": "generalTemperatureSupported",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "supported": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "generalTemperatureActualTemp": {
+    "name": "generalTemperatureActualTemp",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "generalTemperatureStatus": {
+    "name": "generalTemperatureStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "notOk": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "generalTemperatureThreshold": {
+    "name": "generalTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sbTemperature": {
+    "name": "sbTemperature",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2",
+    "class": "objectidentity"
+  },
+  "sbTemperatureTrap": {
+    "name": "sbTemperatureTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.0",
+    "class": "objectidentity"
+  },
+  "sbTempFixedThresholdTrap": {
+    "name": "sbTempFixedThresholdTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "sbTempFixedThresholdStatus"
+      },
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "sbTempActualTemperature"
+      },
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "sbTempFixedThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "sbTempSettableThresholdTrap": {
+    "name": "sbTempSettableThresholdTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "sbTempSettableThresholdStatus"
+      },
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "sbTempActualTemperature"
+      },
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "sbTempSettableThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "sbTempTable": {
+    "name": "sbTempTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sbTempEntry": {
+    "name": "sbTempEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "sbTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sbTempIndex": {
+    "name": "sbTempIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sbTempActualTemperature": {
+    "name": "sbTempActualTemperature",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sbTempFixedThresholdStatus": {
+    "name": "sbTempFixedThresholdStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "crossover": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sbTempSettableThresholdStatus": {
+    "name": "sbTempSettableThresholdStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "crossover": 2,
+          "undefined": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sbTempSettableThreshold": {
+    "name": "sbTempSettableThreshold",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sbTempFixedThreshold": {
+    "name": "sbTempFixedThreshold",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acceleratorTemperature": {
+    "name": "acceleratorTemperature",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.3",
+    "class": "objectidentity"
+  },
+  "acceleratorTemperatureTrap": {
+    "name": "acceleratorTemperatureTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.3.0",
+    "class": "objectidentity"
+  },
+  "acceleratorTemperatureStatusTrap": {
+    "name": "acceleratorTemperatureStatusTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "acceleratorTemperatureStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "acceleratorTemperatureSupported": {
+    "name": "acceleratorTemperatureSupported",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "supported": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acceleratorTemperatureActualTemp": {
+    "name": "acceleratorTemperatureActualTemp",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acceleratorTemperatureStatus": {
+    "name": "acceleratorTemperatureStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "notOk": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acceleratorTemperatureThreshold": {
+    "name": "acceleratorTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atContactDetails": {
+    "name": "atContactDetails",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bbrNvs": {
+    "name": "bbrNvs",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.6",
+    "class": "objectidentity"
+  },
+  "bbrNvsTrap": {
+    "name": "bbrNvsTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.6.0",
+    "class": "objectidentity"
+  },
+  "bbrNvsReinitialiseTrap": {
+    "name": "bbrNvsReinitialiseTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.6.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "memory": {
+    "name": "memory",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.7",
+    "class": "objectidentity"
+  },
+  "freeMemory": {
+    "name": "freeMemory",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalBuffers": {
+    "name": "totalBuffers",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lowMemoryTrap": {
+    "name": "lowMemoryTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.7.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "freeMemory"
+      },
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "totalBuffers"
+      }
+    ],
+    "status": "current"
+  },
+  "realTimeClockStatus": {
+    "name": "realTimeClockStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "normal": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostId": {
+    "name": "hostId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atPortInfo": {
+    "name": "atPortInfo",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.14",
+    "class": "objectidentity"
+  },
+  "atPortInfoTransceiverTable": {
+    "name": "atPortInfoTransceiverTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atPortInfoTransceiverEntry": {
+    "name": "atPortInfoTransceiverEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "atPortInfoTransceiverifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atPortInfoTransceiverifIndex": {
+    "name": "atPortInfoTransceiverifIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPortInfoTransceiverType": {
+    "name": "atPortInfoTransceiverType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rj45": 1,
+          "sfp-px": 2,
+          "sfp-bx10": 3,
+          "sfp-fx": 4,
+          "sfp-100base-lx": 5,
+          "sfp-t": 6,
+          "sfp-cx": 7,
+          "sfp-zx-cwdm": 8,
+          "sfp-lx": 9,
+          "sfp-sx": 10,
+          "sfp-oc3-lr": 11,
+          "sfp-oc3-ir": 12,
+          "sfp-oc3-mm": 13,
+          "xfp-srsw": 14,
+          "xfp-lrlw": 15,
+          "xfp-erew": 16,
+          "xfp-sr": 17,
+          "xfp-lr": 18,
+          "xfp-er": 19,
+          "xfp-lrm": 20,
+          "xfp-sw": 21,
+          "xfp-lw": 22,
+          "xfp-ew": 23,
+          "unknown": 24,
+          "empty": 25,
+          "sfpp-sr": 26,
+          "sfpp-lr": 27,
+          "sfpp-er": 28,
+          "sfpp-lrm": 29,
+          "inf-1-x-copper-pasv": 30,
+          "inf-1-x-copper-actv": 31,
+          "inf-1-x-lx": 32,
+          "inf-1-x-sx": 33
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atPortRenumberEvents": {
+    "name": "atPortRenumberEvents",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-SYSINFO-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-SYSINFO-MIB"
+  }
+}

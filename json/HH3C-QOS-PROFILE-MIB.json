@@ -1,0 +1,2179 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "hh3cQosProfile": {
+    "name": "hh3cQosProfile",
+    "oid": "1.3.6.1.4.1.25506.2.17",
+    "class": "moduleidentity"
+  },
+  "Hh3cQoSDirection": {
+    "name": "Hh3cQoSDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "input": 1,
+          "ouput": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cQoSProfObjects": {
+    "name": "hh3cQoSProfObjects",
+    "oid": "1.3.6.1.4.1.25506.2.17.1",
+    "class": "objectidentity"
+  },
+  "hh3cQoSProf": {
+    "name": "hh3cQoSProf",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cQoSProfTable": {
+    "name": "hh3cQoSProfTable",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfEntry": {
+    "name": "hh3cQoSProfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSProfIndex": {
+    "name": "hh3cQoSProfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfName": {
+    "name": "hh3cQoSProfName",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSProfActionNumber": {
+    "name": "hh3cQoSProfActionNumber",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cQoSProfRowStatus": {
+    "name": "hh3cQoSProfRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSAction": {
+    "name": "hh3cQoSAction",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cQoSTrafficLimitTable": {
+    "name": "hh3cQoSTrafficLimitTable",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafficLimitEntry": {
+    "name": "hh3cQoSTrafficLimitEntry",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtProfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtActionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtProfIndex": {
+    "name": "hh3cQoSTrafLmtProfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtActionIndex": {
+    "name": "hh3cQoSTrafLmtActionIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtDirection": {
+    "name": "hh3cQoSTrafLmtDirection",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cQoSDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtUserAclNum": {
+    "name": "hh3cQoSTrafLmtUserAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5000,
+            "max": 5999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtUserAclRule": {
+    "name": "hh3cQoSTrafLmtUserAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtIpAclNum": {
+    "name": "hh3cQoSTrafLmtIpAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2000,
+            "max": 3999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtIpAclRule": {
+    "name": "hh3cQoSTrafLmtIpAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtLinkAclNum": {
+    "name": "hh3cQoSTrafLmtLinkAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4000,
+            "max": 4999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtLinkAclRule": {
+    "name": "hh3cQoSTrafLmtLinkAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtTargetRateMbps": {
+    "name": "hh3cQoSTrafLmtTargetRateMbps",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtTargetRateKbps": {
+    "name": "hh3cQoSTrafLmtTargetRateKbps",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtPeakRate": {
+    "name": "hh3cQoSTrafLmtPeakRate",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 64,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtCIR": {
+    "name": "hh3cQoSTrafLmtCIR",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 34120000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtCBS": {
+    "name": "hh3cQoSTrafLmtCBS",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtEBS": {
+    "name": "hh3cQoSTrafLmtEBS",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 268435455
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtPIR": {
+    "name": "hh3cQoSTrafLmtPIR",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 34120000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtConformLocalPre": {
+    "name": "hh3cQoSTrafLmtConformLocalPre",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtConformActionType": {
+    "name": "hh3cQoSTrafLmtConformActionType",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "remark-cos": 1,
+          "remark-drop-priority": 2,
+          "remark-cos-drop-priority": 3,
+          "remark-policed-service": 4,
+          "remark-dscp": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtExceedActionType": {
+    "name": "hh3cQoSTrafLmtExceedActionType",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "forward": 1,
+          "drop": 2,
+          "remarkdscp": 3,
+          "exceed-cos": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtExceedDscp": {
+    "name": "hh3cQoSTrafLmtExceedDscp",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtExceedCos": {
+    "name": "hh3cQoSTrafLmtExceedCos",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtRowStatus": {
+    "name": "hh3cQoSTrafLmtRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtConformCos": {
+    "name": "hh3cQoSTrafLmtConformCos",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafLmtConformDscp": {
+    "name": "hh3cQoSTrafLmtConformDscp",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafficPriorityTable": {
+    "name": "hh3cQoSTrafficPriorityTable",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafficPriorityEntry": {
+    "name": "hh3cQoSTrafficPriorityEntry",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioProfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioActionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioProfIndex": {
+    "name": "hh3cQoSTrafPrioProfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioActionIndex": {
+    "name": "hh3cQoSTrafPrioActionIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioDirection": {
+    "name": "hh3cQoSTrafPrioDirection",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cQoSDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioUserAclNum": {
+    "name": "hh3cQoSTrafPrioUserAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5000,
+            "max": 5999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioUserAclRule": {
+    "name": "hh3cQoSTrafPrioUserAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioIpAclNum": {
+    "name": "hh3cQoSTrafPrioIpAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2000,
+            "max": 3999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioIpAclRule": {
+    "name": "hh3cQoSTrafPrioIpAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioLinkAclNum": {
+    "name": "hh3cQoSTrafPrioLinkAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4000,
+            "max": 4999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioLinkAclRule": {
+    "name": "hh3cQoSTrafPrioLinkAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioDscp": {
+    "name": "hh3cQoSTrafPrioDscp",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioIpPre": {
+    "name": "hh3cQoSTrafPrioIpPre",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioIpPreFromCos": {
+    "name": "hh3cQoSTrafPrioIpPreFromCos",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioCos": {
+    "name": "hh3cQoSTrafPrioCos",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioCosFromIpPre": {
+    "name": "hh3cQoSTrafPrioCosFromIpPre",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioLocalPre": {
+    "name": "hh3cQoSTrafPrioLocalPre",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioPolicedServiceType": {
+    "name": "hh3cQoSTrafPrioPolicedServiceType",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "trust-dscp": 2,
+          "new-dscp": 3,
+          "untrusted": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "invalid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioPolicedServiceDscp": {
+    "name": "hh3cQoSTrafPrioPolicedServiceDscp",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioPolicedServiceExp": {
+    "name": "hh3cQoSTrafPrioPolicedServiceExp",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioPolicedServiceCos": {
+    "name": "hh3cQoSTrafPrioPolicedServiceCos",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioPolicedServiceLoaclPre": {
+    "name": "hh3cQoSTrafPrioPolicedServiceLoaclPre",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioPolicedServiceDropPriority": {
+    "name": "hh3cQoSTrafPrioPolicedServiceDropPriority",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafPrioRowStatus": {
+    "name": "hh3cQoSTrafPrioRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafficFilterTable": {
+    "name": "hh3cQoSTrafficFilterTable",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafficFilterEntry": {
+    "name": "hh3cQoSTrafficFilterEntry",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterProfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterActionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterProfIndex": {
+    "name": "hh3cQoSTrafFilterProfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterActionIndex": {
+    "name": "hh3cQoSTrafFilterActionIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterDirection": {
+    "name": "hh3cQoSTrafFilterDirection",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cQoSDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterUserAclNum": {
+    "name": "hh3cQoSTrafFilterUserAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5000,
+            "max": 5999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterUserAclRule": {
+    "name": "hh3cQoSTrafFilterUserAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterIpAclNum": {
+    "name": "hh3cQoSTrafFilterIpAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2000,
+            "max": 3999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterIpAclRule": {
+    "name": "hh3cQoSTrafFilterIpAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterLinkAclNum": {
+    "name": "hh3cQoSTrafFilterLinkAclNum",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4000,
+            "max": 4999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterLinkAclRule": {
+    "name": "hh3cQoSTrafFilterLinkAclRule",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSTrafFilterRowStatus": {
+    "name": "hh3cQoSTrafFilterRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSProfPortMapping": {
+    "name": "hh3cQoSProfPortMapping",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cQoSProfPortMappingTable": {
+    "name": "hh3cQoSProfPortMappingTable",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingEntry": {
+    "name": "hh3cQoSProfPortMappingEntry",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfPortMappingIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfPortMappingProfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingIfIndex": {
+    "name": "hh3cQoSProfPortMappingIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingProfIndex": {
+    "name": "hh3cQoSProfPortMappingProfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingRowStatus": {
+    "name": "hh3cQoSProfPortMappingRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingModeTable": {
+    "name": "hh3cQoSProfPortMappingModeTable",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingModeEntry": {
+    "name": "hh3cQoSProfPortMappingModeEntry",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfPortMappingModeIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingModeIfIndex": {
+    "name": "hh3cQoSProfPortMappingModeIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingMode": {
+    "name": "hh3cQoSProfPortMappingMode",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user-based": 1,
+          "port-based": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cQoSProfDynPortMappingTable": {
+    "name": "hh3cQoSProfDynPortMappingTable",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfDynPortMappingEntry": {
+    "name": "hh3cQoSProfDynPortMappingEntry",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfDynPortMappingIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfDynPortMappingUserSrcMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSProfDynPortMappingIfIndex": {
+    "name": "hh3cQoSProfDynPortMappingIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfDynPortMappingUserSrcMAC": {
+    "name": "hh3cQoSProfDynPortMappingUserSrcMAC",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cQoSProfDynPortMappingUserName": {
+    "name": "hh3cQoSProfDynPortMappingUserName",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cQoSProfDynPortMappingUserIPAddr": {
+    "name": "hh3cQoSProfDynPortMappingUserIPAddr",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cQoSProfDynPortMappingUserVLANID": {
+    "name": "hh3cQoSProfDynPortMappingUserVLANID",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cQoSProfDynPortMappingUserProfName": {
+    "name": "hh3cQoSProfDynPortMappingUserProfName",
+    "oid": "1.3.6.1.4.1.25506.2.17.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingTraps": {
+    "name": "hh3cQoSProfPortMappingTraps",
+    "oid": "1.3.6.1.4.1.25506.2.17.2",
+    "class": "objectidentity"
+  },
+  "hh3cQoSProfPortMappingError": {
+    "name": "hh3cQoSProfPortMappingError",
+    "oid": "1.3.6.1.4.1.25506.2.17.2.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cQoSProfMibConformance": {
+    "name": "hh3cQoSProfMibConformance",
+    "oid": "1.3.6.1.4.1.25506.2.17.3",
+    "class": "objectidentity"
+  },
+  "hh3cQoSProfMibCompliances": {
+    "name": "hh3cQoSProfMibCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.17.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cQoSProfMibCompliance": {
+    "name": "hh3cQoSProfMibCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.17.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cQoSProfGroup",
+        "module": "HH3C-QOS-PROFILE-MIB"
+      },
+      {
+        "object": "hh3cQoSActionGroup",
+        "module": "HH3C-QOS-PROFILE-MIB"
+      },
+      {
+        "object": "hh3cQoSProfPortMappingGroup",
+        "module": "HH3C-QOS-PROFILE-MIB"
+      },
+      {
+        "object": "hh3cQoSProfPortMappingTrapsGroup",
+        "module": "HH3C-QOS-PROFILE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSProfMibGroups": {
+    "name": "hh3cQoSProfMibGroups",
+    "oid": "1.3.6.1.4.1.25506.2.17.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cQoSProfGroup": {
+    "name": "hh3cQoSProfGroup",
+    "oid": "1.3.6.1.4.1.25506.2.17.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfName"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfActionNumber"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSActionGroup": {
+    "name": "hh3cQoSActionGroup",
+    "oid": "1.3.6.1.4.1.25506.2.17.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtDirection"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtUserAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtUserAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtIpAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtIpAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtLinkAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtLinkAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtTargetRateMbps"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtTargetRateKbps"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtPeakRate"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtCIR"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtCBS"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtEBS"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtPIR"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtConformLocalPre"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtConformActionType"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtExceedActionType"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtExceedDscp"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtExceedCos"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtRowStatus"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtConformCos"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafLmtConformDscp"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioDirection"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioUserAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioUserAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioIpAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioIpAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioLinkAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioLinkAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioDscp"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioIpPre"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioIpPreFromCos"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioCos"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioCosFromIpPre"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioLocalPre"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioPolicedServiceType"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioPolicedServiceDscp"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioPolicedServiceExp"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioPolicedServiceCos"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioPolicedServiceLoaclPre"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioPolicedServiceDropPriority"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafPrioRowStatus"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterDirection"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterUserAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterUserAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterIpAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterIpAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterLinkAclNum"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterLinkAclRule"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSTrafFilterRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingGroup": {
+    "name": "hh3cQoSProfPortMappingGroup",
+    "oid": "1.3.6.1.4.1.25506.2.17.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfPortMappingRowStatus"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfPortMappingMode"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfDynPortMappingUserName"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfDynPortMappingUserIPAddr"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfDynPortMappingUserVLANID"
+      },
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfDynPortMappingUserProfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cQoSProfPortMappingTrapsGroup": {
+    "name": "hh3cQoSProfPortMappingTrapsGroup",
+    "oid": "1.3.6.1.4.1.25506.2.17.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HH3C-QOS-PROFILE-MIB",
+        "object": "hh3cQoSProfPortMappingError"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-QOS-PROFILE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-QOS-PROFILE-MIB"
+  }
+}

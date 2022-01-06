@@ -1,0 +1,3045 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Cisco2KVlanList",
+      "CiscoVrfName"
+    ],
+    "CISCO-TRUSTSEC-TC-MIB": [
+      "CtsAclName",
+      "CtsAclListOrEmpty",
+      "CtsSecurityGroupTag",
+      "CtsSgaclMonitorMode",
+      "CtsGenerationId",
+      "CtsAclList",
+      "CtsAclNameOrEmpty"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoTrustSecPolicyMIB": {
+    "name": "ciscoTrustSecPolicyMIB",
+    "oid": "1.3.6.1.4.1.9.9.713",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-12-19 00:00",
+        "description": "Added following OBJECT-GROUP: - ctspNotifCtrlGroup - ctspNotifGroup - ctspNotifInfoGroup - ctspIfSgtMappingGroup - ctspVlanSgtMappingGroup - ctspSgtCachingGroup - ctspSgaclMonitorGroup - ctspSgaclMonitorStatisticGroup Added new compliance - ciscoTrustSecPolicyMIBCompliances Modified ctspIpSgtSource to add l3if(6), vlan(7), caching(8)."
+      },
+      {
+        "revision": "2009-11-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTrustSecPolicyMIBNotifs": {
+    "name": "ciscoTrustSecPolicyMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.713.0",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecPolicyMIBObjects": {
+    "name": "ciscoTrustSecPolicyMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.713.1",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecPolicyMIBConformance": {
+    "name": "ciscoTrustSecPolicyMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.713.2",
+    "class": "objectidentity"
+  },
+  "ctspSgacl": {
+    "name": "ctspSgacl",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1",
+    "class": "objectidentity"
+  },
+  "ctspPeerPolicy": {
+    "name": "ctspPeerPolicy",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2",
+    "class": "objectidentity"
+  },
+  "ctspLayer3Transport": {
+    "name": "ctspLayer3Transport",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3",
+    "class": "objectidentity"
+  },
+  "ctspIpSgtMappings": {
+    "name": "ctspIpSgtMappings",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4",
+    "class": "objectidentity"
+  },
+  "ctspSgtPolicy": {
+    "name": "ctspSgtPolicy",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5",
+    "class": "objectidentity"
+  },
+  "ctspIfSgtMappings": {
+    "name": "ctspIfSgtMappings",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6",
+    "class": "objectidentity"
+  },
+  "ctspVlanSgtMappings": {
+    "name": "ctspVlanSgtMappings",
+    "oid": "1.3.6.1.4.1.9.9.713.1.7",
+    "class": "objectidentity"
+  },
+  "ctspSgtCaching": {
+    "name": "ctspSgtCaching",
+    "oid": "1.3.6.1.4.1.9.9.713.1.8",
+    "class": "objectidentity"
+  },
+  "ctspNotifsControl": {
+    "name": "ctspNotifsControl",
+    "oid": "1.3.6.1.4.1.9.9.713.1.9",
+    "class": "objectidentity"
+  },
+  "ctspNotifsOnlyInfo": {
+    "name": "ctspNotifsOnlyInfo",
+    "oid": "1.3.6.1.4.1.9.9.713.1.10",
+    "class": "objectidentity"
+  },
+  "ctspSgaclGlobals": {
+    "name": "ctspSgaclGlobals",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1",
+    "class": "objectidentity"
+  },
+  "ctspSgaclMappings": {
+    "name": "ctspSgaclMappings",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2",
+    "class": "objectidentity"
+  },
+  "ctspSgaclStatistics": {
+    "name": "ctspSgaclStatistics",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3",
+    "class": "objectidentity"
+  },
+  "ctspSgaclEnforcementEnable": {
+    "name": "ctspSgaclEnforcementEnable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "l3Only": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspSgaclIpv4DropNetflowMonitor": {
+    "name": "ctspSgaclIpv4DropNetflowMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspSgaclIpv6DropNetflowMonitor": {
+    "name": "ctspSgaclIpv6DropNetflowMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspVlanConfigTable": {
+    "name": "ctspVlanConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspVlanConfigEntry": {
+    "name": "ctspVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspVlanConfigIndex": {
+    "name": "ctspVlanConfigIndex",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspVlanConfigSgaclEnforcement": {
+    "name": "ctspVlanConfigSgaclEnforcement",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspVlanSviActive": {
+    "name": "ctspVlanSviActive",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspVlanConfigVrfName": {
+    "name": "ctspVlanConfigVrfName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspVlanConfigStorageType": {
+    "name": "ctspVlanConfigStorageType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspVlanConfigRowStatus": {
+    "name": "ctspVlanConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingTable": {
+    "name": "ctspConfigSgaclMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingEntry": {
+    "name": "ctspConfigSgaclMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspConfigSgaclMappingIpTrafficType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspConfigSgaclMappingDestSgt",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspConfigSgaclMappingSourceSgt",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingIpTrafficType": {
+    "name": "ctspConfigSgaclMappingIpTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingDestSgt": {
+    "name": "ctspConfigSgaclMappingDestSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingSourceSgt": {
+    "name": "ctspConfigSgaclMappingSourceSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingSgaclName": {
+    "name": "ctspConfigSgaclMappingSgaclName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingStorageType": {
+    "name": "ctspConfigSgaclMappingStorageType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingRowStatus": {
+    "name": "ctspConfigSgaclMappingRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspConfigSgaclMonitor": {
+    "name": "ctspConfigSgaclMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSgaclMonitorMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspDefConfigIpv4Sgacls": {
+    "name": "ctspDefConfigIpv4Sgacls",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclListOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspDefConfigIpv6Sgacls": {
+    "name": "ctspDefConfigIpv6Sgacls",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclListOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspDownloadedSgaclMappingTable": {
+    "name": "ctspDownloadedSgaclMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDownloadedSgaclMappingEntry": {
+    "name": "ctspDownloadedSgaclMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgaclDestSgt",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgaclSourceSgt",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgaclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDownloadedSgaclDestSgt": {
+    "name": "ctspDownloadedSgaclDestSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDownloadedSgaclSourceSgt": {
+    "name": "ctspDownloadedSgaclSourceSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDownloadedSgaclIndex": {
+    "name": "ctspDownloadedSgaclIndex",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDownloadedSgaclName": {
+    "name": "ctspDownloadedSgaclName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedSgaclGenId": {
+    "name": "ctspDownloadedSgaclGenId",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedIpTrafficType": {
+    "name": "ctspDownloadedIpTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipv4": 0,
+        "ipv6": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedSgaclMonitor": {
+    "name": "ctspDownloadedSgaclMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSgaclMonitorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefDownloadedSgaclMappingTable": {
+    "name": "ctspDefDownloadedSgaclMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDefDownloadedSgaclMappingEntry": {
+    "name": "ctspDefDownloadedSgaclMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefDownloadedSgaclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDefDownloadedSgaclIndex": {
+    "name": "ctspDefDownloadedSgaclIndex",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDefDownloadedSgaclName": {
+    "name": "ctspDefDownloadedSgaclName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefDownloadedSgaclGenId": {
+    "name": "ctspDefDownloadedSgaclGenId",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefDownloadedIpTrafficType": {
+    "name": "ctspDefDownloadedIpTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipv4": 0,
+        "ipv6": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefDownloadedSgaclMonitor": {
+    "name": "ctspDefDownloadedSgaclMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSgaclMonitorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspOperSgaclMappingTable": {
+    "name": "ctspOperSgaclMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspOperSgaclMappingEntry": {
+    "name": "ctspOperSgaclMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperIpTrafficType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperSgaclDestSgt",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperSgaclSourceSgt",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperSgaclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspOperIpTrafficType": {
+    "name": "ctspOperIpTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspOperSgaclDestSgt": {
+    "name": "ctspOperSgaclDestSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspOperSgaclSourceSgt": {
+    "name": "ctspOperSgaclSourceSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspOperSgaclIndex": {
+    "name": "ctspOperSgaclIndex",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspOperationalSgaclName": {
+    "name": "ctspOperationalSgaclName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspOperationalSgaclGenId": {
+    "name": "ctspOperationalSgaclGenId",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspOperSgaclMappingSource": {
+    "name": "ctspOperSgaclMappingSource",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "downloaded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspOperSgaclConfigSource": {
+    "name": "ctspOperSgaclConfigSource",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "downloaded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspOperSgaclMonitor": {
+    "name": "ctspOperSgaclMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSgaclMonitorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefOperSgaclMappingTable": {
+    "name": "ctspDefOperSgaclMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDefOperSgaclMappingEntry": {
+    "name": "ctspDefOperSgaclMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefOperIpTrafficType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefOperSgaclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDefOperIpTrafficType": {
+    "name": "ctspDefOperIpTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDefOperSgaclIndex": {
+    "name": "ctspDefOperSgaclIndex",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDefOperationalSgaclName": {
+    "name": "ctspDefOperationalSgaclName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefOperationalSgaclGenId": {
+    "name": "ctspDefOperationalSgaclGenId",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefOperSgaclMappingSource": {
+    "name": "ctspDefOperSgaclMappingSource",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "downloaded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefOperSgaclConfigSource": {
+    "name": "ctspDefOperSgaclConfigSource",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "downloaded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefOperSgaclMonitor": {
+    "name": "ctspDefOperSgaclMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSgaclMonitorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefConfigIpv4SgaclsMonitor": {
+    "name": "ctspDefConfigIpv4SgaclsMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSgaclMonitorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspDefConfigIpv6SgaclsMonitor": {
+    "name": "ctspDefConfigIpv6SgaclsMonitor",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSgaclMonitorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspSgaclMonitorEnable": {
+    "name": "ctspSgaclMonitorEnable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSgaclMonitorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspSgtStatsTable": {
+    "name": "ctspSgtStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspSgtStatsEntry": {
+    "name": "ctspSgtStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsIpTrafficType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsDestSgt",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsSourceSgt",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspStatsIpTrafficType": {
+    "name": "ctspStatsIpTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspStatsDestSgt": {
+    "name": "ctspStatsDestSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspStatsSourceSgt": {
+    "name": "ctspStatsSourceSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspStatsIpSwDropPkts": {
+    "name": "ctspStatsIpSwDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspStatsIpHwDropPkts": {
+    "name": "ctspStatsIpHwDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspStatsIpSwPermitPkts": {
+    "name": "ctspStatsIpSwPermitPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspStatsIpHwPermitPkts": {
+    "name": "ctspStatsIpHwPermitPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspStatsIpSwMonitorPkts": {
+    "name": "ctspStatsIpSwMonitorPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspStatsIpHwMonitorPkts": {
+    "name": "ctspStatsIpHwMonitorPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefStatsTable": {
+    "name": "ctspDefStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDefStatsEntry": {
+    "name": "ctspDefStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefIpTrafficType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDefIpTrafficType": {
+    "name": "ctspDefIpTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDefIpSwDropPkts": {
+    "name": "ctspDefIpSwDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefIpHwDropPkts": {
+    "name": "ctspDefIpHwDropPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefIpSwPermitPkts": {
+    "name": "ctspDefIpSwPermitPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefIpHwPermitPkts": {
+    "name": "ctspDefIpHwPermitPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefIpSwMonitorPkts": {
+    "name": "ctspDefIpSwMonitorPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDefIpHwMonitorPkts": {
+    "name": "ctspDefIpHwMonitorPkts",
+    "oid": "1.3.6.1.4.1.9.9.713.1.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspAllPeerPolicyAction": {
+    "name": "ctspAllPeerPolicyAction",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "refresh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspPeerPolicyTable": {
+    "name": "ctspPeerPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspPeerPolicyEntry": {
+    "name": "ctspPeerPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ctspPeerName": {
+    "name": "ctspPeerName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspPeerSgt": {
+    "name": "ctspPeerSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspPeerSgtGenId": {
+    "name": "ctspPeerSgtGenId",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspPeerTrustState": {
+    "name": "ctspPeerTrustState",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trusted": 1,
+          "noTrust": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspPeerPolicyLifeTime": {
+    "name": "ctspPeerPolicyLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspPeerPolicyLastUpdate": {
+    "name": "ctspPeerPolicyLastUpdate",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspPeerPolicyAction": {
+    "name": "ctspPeerPolicyAction",
+    "oid": "1.3.6.1.4.1.9.9.713.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "refresh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspLayer3PolicyTable": {
+    "name": "ctspLayer3PolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspLayer3PolicyEntry": {
+    "name": "ctspLayer3PolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspLayer3PolicyIpTrafficType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspLayer3PolicyType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspLayer3PolicyIpTrafficType": {
+    "name": "ctspLayer3PolicyIpTrafficType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspLayer3PolicyType": {
+    "name": "ctspLayer3PolicyType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "exception": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspLayer3PolicyLocalConfig": {
+    "name": "ctspLayer3PolicyLocalConfig",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspLayer3PolicyDownloaded": {
+    "name": "ctspLayer3PolicyDownloaded",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspLayer3PolicyOperational": {
+    "name": "ctspLayer3PolicyOperational",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsAclNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspIfL3PolicyConfigTable": {
+    "name": "ctspIfL3PolicyConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspIfL3PolicyConfigEntry": {
+    "name": "ctspIfL3PolicyConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspIfL3Ipv4PolicyEnabled": {
+    "name": "ctspIfL3Ipv4PolicyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspIfL3Ipv6PolicyEnabled": {
+    "name": "ctspIfL3Ipv6PolicyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.713.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspIpSgtMappingTable": {
+    "name": "ctspIpSgtMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspIpSgtMappingEntry": {
+    "name": "ctspIpSgtMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIpSgtVrfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIpSgtAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIpSgtIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIpSgtAddressLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspIpSgtVrfName": {
+    "name": "ctspIpSgtVrfName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspIpSgtAddressType": {
+    "name": "ctspIpSgtAddressType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspIpSgtIpAddress": {
+    "name": "ctspIpSgtIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspIpSgtAddressLength": {
+    "name": "ctspIpSgtAddressLength",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspIpSgtValue": {
+    "name": "ctspIpSgtValue",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspIpSgtSource": {
+    "name": "ctspIpSgtSource",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "arp": 2,
+          "localAuthenticated": 3,
+          "sxp": 4,
+          "internal": 5,
+          "l3if": 6,
+          "vlan": 7,
+          "caching": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspIpSgtStorageType": {
+    "name": "ctspIpSgtStorageType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspIpSgtRowStatus": {
+    "name": "ctspIpSgtRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.713.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspAllSgtPolicyAction": {
+    "name": "ctspAllSgtPolicyAction",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "refresh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspDownloadedSgtPolicyTable": {
+    "name": "ctspDownloadedSgtPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDownloadedSgtPolicyEntry": {
+    "name": "ctspDownloadedSgtPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgtPolicySgt",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDownloadedSgtPolicySgt": {
+    "name": "ctspDownloadedSgtPolicySgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDownloadedSgtPolicySgtGenId": {
+    "name": "ctspDownloadedSgtPolicySgtGenId",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedSgtPolicyLifeTime": {
+    "name": "ctspDownloadedSgtPolicyLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedSgtPolicyLastUpdate": {
+    "name": "ctspDownloadedSgtPolicyLastUpdate",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedSgtPolicyAction": {
+    "name": "ctspDownloadedSgtPolicyAction",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "refresh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspDownloadedDefSgtPolicyTable": {
+    "name": "ctspDownloadedDefSgtPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDownloadedDefSgtPolicyEntry": {
+    "name": "ctspDownloadedDefSgtPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedDefSgtPolicyType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDownloadedDefSgtPolicyType": {
+    "name": "ctspDownloadedDefSgtPolicyType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicastDefault": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspDownloadedDefSgtPolicySgtGenId": {
+    "name": "ctspDownloadedDefSgtPolicySgtGenId",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsGenerationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedDefSgtPolicyLifeTime": {
+    "name": "ctspDownloadedDefSgtPolicyLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedDefSgtPolicyLastUpdate": {
+    "name": "ctspDownloadedDefSgtPolicyLastUpdate",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspDownloadedDefSgtPolicyAction": {
+    "name": "ctspDownloadedDefSgtPolicyAction",
+    "oid": "1.3.6.1.4.1.9.9.713.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "refresh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspIfSgtMappingTable": {
+    "name": "ctspIfSgtMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspIfSgtMappingEntry": {
+    "name": "ctspIfSgtMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspIfSgtValue": {
+    "name": "ctspIfSgtValue",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspIfSgName": {
+    "name": "ctspIfSgName",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspIfSgtStorageType": {
+    "name": "ctspIfSgtStorageType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspIfSgtRowStatus": {
+    "name": "ctspIfSgtRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspIfSgtMappingInfoTable": {
+    "name": "ctspIfSgtMappingInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspIfSgtMappingInfoEntry": {
+    "name": "ctspIfSgtMappingInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspL3IPMStatus": {
+    "name": "ctspL3IPMStatus",
+    "oid": "1.3.6.1.4.1.9.9.713.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctspVlanSgtMappingTable": {
+    "name": "ctspVlanSgtMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspVlanSgtMappingEntry": {
+    "name": "ctspVlanSgtMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.713.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanSgtMappingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctspVlanSgtMappingIndex": {
+    "name": "ctspVlanSgtMappingIndex",
+    "oid": "1.3.6.1.4.1.9.9.713.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctspVlanSgtMapValue": {
+    "name": "ctspVlanSgtMapValue",
+    "oid": "1.3.6.1.4.1.9.9.713.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspVlanSgtStorageType": {
+    "name": "ctspVlanSgtStorageType",
+    "oid": "1.3.6.1.4.1.9.9.713.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspVlanSgtRowStatus": {
+    "name": "ctspVlanSgtRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.713.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctspSgtCachingMode": {
+    "name": "ctspSgtCachingMode",
+    "oid": "1.3.6.1.4.1.9.9.713.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "standAlone": 2,
+          "withEnforcement": 3,
+          "vlan": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspSgtCachingVlansFirst2K": {
+    "name": "ctspSgtCachingVlansFirst2K",
+    "oid": "1.3.6.1.4.1.9.9.713.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cisco2KVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspSgtCachingVlansSecond2K": {
+    "name": "ctspSgtCachingVlansSecond2K",
+    "oid": "1.3.6.1.4.1.9.9.713.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cisco2KVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspPeerPolicyUpdatedNotifEnable": {
+    "name": "ctspPeerPolicyUpdatedNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspAuthorizationSgaclFailNotifEnable": {
+    "name": "ctspAuthorizationSgaclFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.713.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctspOldPeerSgt": {
+    "name": "ctspOldPeerSgt",
+    "oid": "1.3.6.1.4.1.9.9.713.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctspAuthorizationSgaclFailReason": {
+    "name": "ctspAuthorizationSgaclFailReason",
+    "oid": "1.3.6.1.4.1.9.9.713.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloadACE": 1,
+          "downloadSrc": 2,
+          "downloadDst": 3,
+          "installPolicy": 4,
+          "installPolicyStandby": 5,
+          "installForIP": 6,
+          "uninstall": 7
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctspAuthorizationSgaclFailInfo": {
+    "name": "ctspAuthorizationSgaclFailInfo",
+    "oid": "1.3.6.1.4.1.9.9.713.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctspPeerPolicyUpdatedNotif": {
+    "name": "ctspPeerPolicyUpdatedNotif",
+    "oid": "1.3.6.1.4.1.9.9.713.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOldPeerSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerSgt"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspAuthorizationSgaclFailNotif": {
+    "name": "ctspAuthorizationSgaclFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.713.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspAuthorizationSgaclFailReason"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspAuthorizationSgaclFailInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecPolicyMIBCompliances": {
+    "name": "ciscoTrustSecPolicyMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.713.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecPolicyMIBGroups": {
+    "name": "ciscoTrustSecPolicyMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecPolicyMIBCompliance": {
+    "name": "ciscoTrustSecPolicyMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.713.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ctspGlobalSgaclEnforcementGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspOperSgaclMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspDownloadedSgaclMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIpSwStatisticsGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspDefSwStatisticsGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspVlanConfigGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspConfigSgaclMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIpHwStatisticsGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspDefHwStatisticsGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgaclIpv4DropNetflowMonitorGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgaclIpv6DropNetflowMonitorGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspPeerPolicyGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspPeerPolicyActionGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspLayer3TransportGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIpSgtMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIfL3PolicyConfigGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgtPolicyGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecPolicyMIBComplianceRev2": {
+    "name": "ciscoTrustSecPolicyMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.713.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ctspGlobalSgaclEnforcementGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspOperSgaclMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspDownloadedSgaclMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIpSwStatisticsGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspDefSwStatisticsGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspVlanConfigGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspConfigSgaclMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIpHwStatisticsGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspDefHwStatisticsGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgaclIpv4DropNetflowMonitorGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgaclIpv6DropNetflowMonitorGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspPeerPolicyGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspPeerPolicyActionGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspLayer3TransportGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIpSgtMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIfL3PolicyConfigGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgtPolicyGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspIfSgtMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspVlanSgtMappingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgtCachingGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgaclMonitorGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspSgaclMonitorStatisticGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspNotifCtrlGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspNotifGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      },
+      {
+        "object": "ctspNotifInfoGroup",
+        "module": "CISCO-TRUSTSEC-POLICY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspGlobalSgaclEnforcementGroup": {
+    "name": "ctspGlobalSgaclEnforcementGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspSgaclEnforcementEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspSgaclIpv4DropNetflowMonitorGroup": {
+    "name": "ctspSgaclIpv4DropNetflowMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspSgaclIpv4DropNetflowMonitor"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspSgaclIpv6DropNetflowMonitorGroup": {
+    "name": "ctspSgaclIpv6DropNetflowMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspSgaclIpv6DropNetflowMonitor"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspVlanConfigGroup": {
+    "name": "ctspVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanConfigSgaclEnforcement"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanSviActive"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanConfigVrfName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanConfigStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspConfigSgaclMappingGroup": {
+    "name": "ctspConfigSgaclMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspConfigSgaclMappingSgaclName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspConfigSgaclMappingStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspConfigSgaclMappingRowStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefConfigIpv4Sgacls"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefConfigIpv6Sgacls"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDownloadedSgaclMappingGroup": {
+    "name": "ctspDownloadedSgaclMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgaclName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgaclGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedIpTrafficType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefDownloadedSgaclName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefDownloadedSgaclGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefDownloadedIpTrafficType"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspOperSgaclMappingGroup": {
+    "name": "ctspOperSgaclMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperationalSgaclName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperationalSgaclGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperSgaclMappingSource"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperSgaclConfigSource"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefOperationalSgaclName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefOperationalSgaclGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefOperSgaclMappingSource"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefOperSgaclConfigSource"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspIpSwStatisticsGroup": {
+    "name": "ctspIpSwStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsIpSwDropPkts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsIpSwPermitPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspIpHwStatisticsGroup": {
+    "name": "ctspIpHwStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsIpHwDropPkts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsIpHwPermitPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDefSwStatisticsGroup": {
+    "name": "ctspDefSwStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefIpSwDropPkts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefIpSwPermitPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspDefHwStatisticsGroup": {
+    "name": "ctspDefHwStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefIpHwDropPkts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefIpHwPermitPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspPeerPolicyActionGroup": {
+    "name": "ctspPeerPolicyActionGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspAllPeerPolicyAction"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspPeerPolicyGroup": {
+    "name": "ctspPeerPolicyGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerSgtGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerTrustState"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerPolicyLifeTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerPolicyLastUpdate"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerPolicyAction"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspLayer3TransportGroup": {
+    "name": "ctspLayer3TransportGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspLayer3PolicyLocalConfig"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspLayer3PolicyDownloaded"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspLayer3PolicyOperational"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspIfL3PolicyConfigGroup": {
+    "name": "ctspIfL3PolicyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIfL3Ipv4PolicyEnabled"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIfL3Ipv6PolicyEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspIpSgtMappingGroup": {
+    "name": "ctspIpSgtMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIpSgtValue"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIpSgtSource"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIpSgtStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIpSgtRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspSgtPolicyGroup": {
+    "name": "ctspSgtPolicyGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspAllSgtPolicyAction"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgtPolicySgtGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgtPolicyLifeTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgtPolicyLastUpdate"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgtPolicyAction"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedDefSgtPolicySgtGenId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedDefSgtPolicyLifeTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedDefSgtPolicyLastUpdate"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedDefSgtPolicyAction"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspIfSgtMappingGroup": {
+    "name": "ctspIfSgtMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIfSgtValue"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIfSgName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspL3IPMStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIfSgtStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspIfSgtRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspVlanSgtMappingGroup": {
+    "name": "ctspVlanSgtMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanSgtMapValue"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanSgtStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspVlanSgtRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspSgtCachingGroup": {
+    "name": "ctspSgtCachingGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspSgtCachingMode"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspSgtCachingVlansFirst2K"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspSgtCachingVlansSecond2K"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspSgaclMonitorGroup": {
+    "name": "ctspSgaclMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspSgaclMonitorEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspConfigSgaclMonitor"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefConfigIpv4SgaclsMonitor"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefConfigIpv6SgaclsMonitor"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDownloadedSgaclMonitor"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefDownloadedSgaclMonitor"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOperSgaclMonitor"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefOperSgaclMonitor"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspSgaclMonitorStatisticGroup": {
+    "name": "ctspSgaclMonitorStatisticGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsIpSwMonitorPkts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspStatsIpHwMonitorPkts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefIpSwMonitorPkts"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspDefIpHwMonitorPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspNotifCtrlGroup": {
+    "name": "ctspNotifCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerPolicyUpdatedNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspAuthorizationSgaclFailNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspNotifGroup": {
+    "name": "ctspNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.24",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspPeerPolicyUpdatedNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspAuthorizationSgaclFailNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ctspNotifInfoGroup": {
+    "name": "ctspNotifInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.713.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspOldPeerSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspAuthorizationSgaclFailReason"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-POLICY-MIB",
+        "object": "ctspAuthorizationSgaclFailInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-TRUSTSEC-POLICY-MIB"
+  }
+}

@@ -1,0 +1,2418 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwMgmdSnoopingMIB": {
+    "name": "dlinkSwMgmdSnoopingMIB",
+    "oid": "1.3.6.1.4.1.171.14.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-05 00:00",
+        "description": "This is the first version of the MIB file for 'MGMD snooping' functionality."
+      }
+    ]
+  },
+  "SnoopingType": {
+    "name": "SnoopingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igmpSnooping": 1,
+          "mldSnooping": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dMgmdSnpMIBNotifications": {
+    "name": "dMgmdSnpMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.6.0",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpMIBObjects": {
+    "name": "dMgmdSnpMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.6.1",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpMIBConformance": {
+    "name": "dMgmdSnpMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.6.2",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpGlobalCtrl": {
+    "name": "dMgmdSnpGlobalCtrl",
+    "oid": "1.3.6.1.4.1.171.14.6.1.1",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpStateGblEnabled": {
+    "name": "dMgmdSnpStateGblEnabled",
+    "oid": "1.3.6.1.4.1.171.14.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipv4": 0,
+        "ipv6": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dMgmdSnpClearAllState": {
+    "name": "dMgmdSnpClearAllState",
+    "oid": "1.3.6.1.4.1.171.14.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notClear": 0,
+          "igmpClear": 1,
+          "mldClear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dMgmdSnpClearIgmpSnoopByPortIf": {
+    "name": "dMgmdSnpClearIgmpSnoopByPortIf",
+    "oid": "1.3.6.1.4.1.171.14.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dMgmdSnpClearMldSnoopByPortIf": {
+    "name": "dMgmdSnpClearMldSnoopByPortIf",
+    "oid": "1.3.6.1.4.1.171.14.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dMgmdSnpClearIgmpSnoopByVlanId": {
+    "name": "dMgmdSnpClearIgmpSnoopByVlanId",
+    "oid": "1.3.6.1.4.1.171.14.6.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dMgmdSnpClearMldSnoopByVlanId": {
+    "name": "dMgmdSnpClearMldSnoopByVlanId",
+    "oid": "1.3.6.1.4.1.171.14.6.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dMgmdSnpVlanIfCtrl": {
+    "name": "dMgmdSnpVlanIfCtrl",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpIfTable": {
+    "name": "dMgmdSnpIfTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpIfEntry": {
+    "name": "dMgmdSnpIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfSnoopingType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpIfVlanIfIndex": {
+    "name": "dMgmdSnpIfVlanIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpIfSnoopingType": {
+    "name": "dMgmdSnpIfSnoopingType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnoopingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpIfRowStatus": {
+    "name": "dMgmdSnpIfRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfStateEnabled": {
+    "name": "dMgmdSnpIfStateEnabled",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfQuerierStateEnabled": {
+    "name": "dMgmdSnpIfQuerierStateEnabled",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfQuerierRouter": {
+    "name": "dMgmdSnpIfQuerierRouter",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absence": 1,
+          "active": 2,
+          "nonActive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpIfFastLeaveEnabled": {
+    "name": "dMgmdSnpIfFastLeaveEnabled",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfFastLeaveHostBased": {
+    "name": "dMgmdSnpIfFastLeaveHostBased",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfMinimumVersion": {
+    "name": "dMgmdSnpIfMinimumVersion",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "version2": 2,
+          "version3": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfExplicitTrackEnabled": {
+    "name": "dMgmdSnpIfExplicitTrackEnabled",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfReportSuppresEnabled": {
+    "name": "dMgmdSnpIfReportSuppresEnabled",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfProxyReportingEnabled": {
+    "name": "dMgmdSnpIfProxyReportingEnabled",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfAutoLearnMrouter": {
+    "name": "dMgmdSnpIfAutoLearnMrouter",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfProxyReportSrcAddrType": {
+    "name": "dMgmdSnpIfProxyReportSrcAddrType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfProxyReportSrcAddr": {
+    "name": "dMgmdSnpIfProxyReportSrcAddr",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfQueryInterval": {
+    "name": "dMgmdSnpIfQueryInterval",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 125,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfQueryMaxResponseTime": {
+    "name": "dMgmdSnpIfQueryMaxResponseTime",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfQueryVersion": {
+    "name": "dMgmdSnpIfQueryVersion",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfRobustness": {
+    "name": "dMgmdSnpIfRobustness",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfLastMemberQueryInterval": {
+    "name": "dMgmdSnpIfLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfSuppressionTime": {
+    "name": "dMgmdSnpIfSuppressionTime",
+    "oid": "1.3.6.1.4.1.171.14.6.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpPortIfCtrl": {
+    "name": "dMgmdSnpPortIfCtrl",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpMrouterTable": {
+    "name": "dMgmdSnpMrouterTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpMrouterEntry": {
+    "name": "dMgmdSnpMrouterEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpMrouterIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpMrouterVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpMrouterQuerierType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpMrouterIfIndex": {
+    "name": "dMgmdSnpMrouterIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpMrouterVlanIfIndex": {
+    "name": "dMgmdSnpMrouterVlanIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpMrouterQuerierType": {
+    "name": "dMgmdSnpMrouterQuerierType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnoopingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpMrouterStatus": {
+    "name": "dMgmdSnpMrouterStatus",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpMrouterAdminState": {
+    "name": "dMgmdSnpMrouterAdminState",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "designated": 2,
+          "forbidden": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpMrouterDynamicMrouter": {
+    "name": "dMgmdSnpMrouterDynamicMrouter",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpIfLimitTable": {
+    "name": "dMgmdSnpIfLimitTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpIfLimitEntry": {
+    "name": "dMgmdSnpIfLimitEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfLimitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfLimitVlanId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfLimitSnoopingType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpIfLimitIfIndex": {
+    "name": "dMgmdSnpIfLimitIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpIfLimitVlanId": {
+    "name": "dMgmdSnpIfLimitVlanId",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpIfLimitSnoopingType": {
+    "name": "dMgmdSnpIfLimitSnoopingType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnoopingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpIfLimitRowStatus": {
+    "name": "dMgmdSnpIfLimitRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfLimitExceptAccLstName": {
+    "name": "dMgmdSnpIfLimitExceptAccLstName",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpIfLimitValue": {
+    "name": "dMgmdSnpIfLimitValue",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpAccGrpTable": {
+    "name": "dMgmdSnpAccGrpTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpAccGrpEntry": {
+    "name": "dMgmdSnpAccGrpEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpAccGrpIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpAccGrpVlanId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpAccGrpSnoopingType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpAccGrpIfIndex": {
+    "name": "dMgmdSnpAccGrpIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpAccGrpVlanId": {
+    "name": "dMgmdSnpAccGrpVlanId",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpAccGrpSnoopingType": {
+    "name": "dMgmdSnpAccGrpSnoopingType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnoopingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpAccGrpStatus": {
+    "name": "dMgmdSnpAccGrpStatus",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpAccessGroupName": {
+    "name": "dMgmdSnpAccessGroupName",
+    "oid": "1.3.6.1.4.1.171.14.6.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpGroupCtrl": {
+    "name": "dMgmdSnpGroupCtrl",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpGroupTable": {
+    "name": "dMgmdSnpGroupTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupEntry": {
+    "name": "dMgmdSnpGroupEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpGroupVlanIfIndex": {
+    "name": "dMgmdSnpGroupVlanIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupAddressType": {
+    "name": "dMgmdSnpGroupAddressType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupAddress": {
+    "name": "dMgmdSnpGroupAddress",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupIfIndex": {
+    "name": "dMgmdSnpGroupIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupVersion": {
+    "name": "dMgmdSnpGroupVersion",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2,
+          "version3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpGroupUpTime": {
+    "name": "dMgmdSnpGroupUpTime",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpGroupExpire": {
+    "name": "dMgmdSnpGroupExpire",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpGroupMode": {
+    "name": "dMgmdSnpGroupMode",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpGroupLastReportAddrType": {
+    "name": "dMgmdSnpGroupLastReportAddrType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpGroupLastReportAddr": {
+    "name": "dMgmdSnpGroupLastReportAddr",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpGroupSrcTable": {
+    "name": "dMgmdSnpGroupSrcTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupSrcEntry": {
+    "name": "dMgmdSnpGroupSrcEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupSrcAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupSrcIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpGroupSrcAddrType": {
+    "name": "dMgmdSnpGroupSrcAddrType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupSrcAddress": {
+    "name": "dMgmdSnpGroupSrcAddress",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupSrcIfIndex": {
+    "name": "dMgmdSnpGroupSrcIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpGroupSrcUpTime": {
+    "name": "dMgmdSnpGroupSrcUpTime",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpGroupSrcExpire": {
+    "name": "dMgmdSnpGroupSrcExpire",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpGroupSrcForward": {
+    "name": "dMgmdSnpGroupSrcForward",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpTable": {
+    "name": "dMgmdSnpStaticGrpTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpEntry": {
+    "name": "dMgmdSnpStaticGrpEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpVlanIfIndex": {
+    "name": "dMgmdSnpStaticGrpVlanIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpAddressType": {
+    "name": "dMgmdSnpStaticGrpAddressType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpAddress": {
+    "name": "dMgmdSnpStaticGrpAddress",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpIfIndex": {
+    "name": "dMgmdSnpStaticGrpIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpStatus": {
+    "name": "dMgmdSnpStaticGrpStatus",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpSrcTable": {
+    "name": "dMgmdSnpStaticGrpSrcTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpSrcEntry": {
+    "name": "dMgmdSnpStaticGrpSrcEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpSrcAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpSrcIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpSrcAddrType": {
+    "name": "dMgmdSnpStaticGrpSrcAddrType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpSrcAddress": {
+    "name": "dMgmdSnpStaticGrpSrcAddress",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpSrcIfIndex": {
+    "name": "dMgmdSnpStaticGrpSrcIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStaticGrpSrcStatus": {
+    "name": "dMgmdSnpStaticGrpSrcStatus",
+    "oid": "1.3.6.1.4.1.171.14.6.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dMgmdSnpHostTable": {
+    "name": "dMgmdSnpHostTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpHostEntry": {
+    "name": "dMgmdSnpHostEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpHostVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpHostGrpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpHostGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpHostIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpHostAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpHostVlanIfIndex": {
+    "name": "dMgmdSnpHostVlanIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpHostGrpAddressType": {
+    "name": "dMgmdSnpHostGrpAddressType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpHostGrpAddress": {
+    "name": "dMgmdSnpHostGrpAddress",
+    "oid": "1.3.6.1.4.1.171.14.6.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpHostIfIndex": {
+    "name": "dMgmdSnpHostIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpHostAddrType": {
+    "name": "dMgmdSnpHostAddrType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpHostAddress": {
+    "name": "dMgmdSnpHostAddress",
+    "oid": "1.3.6.1.4.1.171.14.6.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatistics": {
+    "name": "dMgmdSnpStatistics",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpStatPortIfTable": {
+    "name": "dMgmdSnpStatPortIfTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfEntry": {
+    "name": "dMgmdSnpStatPortIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfIndex": {
+    "name": "dMgmdSnpStatPortIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfType": {
+    "name": "dMgmdSnpStatPortIfType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnoopingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV1RxReport": {
+    "name": "dMgmdSnpStatPortIfV1RxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV1RxQuery": {
+    "name": "dMgmdSnpStatPortIfV1RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV1TxReport": {
+    "name": "dMgmdSnpStatPortIfV1TxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV1TxQuery": {
+    "name": "dMgmdSnpStatPortIfV1TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV2RxReport": {
+    "name": "dMgmdSnpStatPortIfV2RxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV2RxQuery": {
+    "name": "dMgmdSnpStatPortIfV2RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV2RxLeave": {
+    "name": "dMgmdSnpStatPortIfV2RxLeave",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV2TxReport": {
+    "name": "dMgmdSnpStatPortIfV2TxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV2TxQuery": {
+    "name": "dMgmdSnpStatPortIfV2TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV2TxLeave": {
+    "name": "dMgmdSnpStatPortIfV2TxLeave",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV3RxReport": {
+    "name": "dMgmdSnpStatPortIfV3RxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV3RxQuery": {
+    "name": "dMgmdSnpStatPortIfV3RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV3TxReport": {
+    "name": "dMgmdSnpStatPortIfV3TxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfV3TxQuery": {
+    "name": "dMgmdSnpStatPortIfV3TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfDropByAccGroup": {
+    "name": "dMgmdSnpStatPortIfDropByAccGroup",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatPortIfDropByGrpLimit": {
+    "name": "dMgmdSnpStatPortIfDropByGrpLimit",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfTable": {
+    "name": "dMgmdSnpStatVlanIfTable",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfEntry": {
+    "name": "dMgmdSnpStatVlanIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfIndex": {
+    "name": "dMgmdSnpStatVlanIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfType": {
+    "name": "dMgmdSnpStatVlanIfType",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnoopingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV1RxReport": {
+    "name": "dMgmdSnpStatVlanIfV1RxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV1RxQuery": {
+    "name": "dMgmdSnpStatVlanIfV1RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV1TxReport": {
+    "name": "dMgmdSnpStatVlanIfV1TxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV1TxQuery": {
+    "name": "dMgmdSnpStatVlanIfV1TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV2RxReport": {
+    "name": "dMgmdSnpStatVlanIfV2RxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV2RxQuery": {
+    "name": "dMgmdSnpStatVlanIfV2RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV2RxLeave": {
+    "name": "dMgmdSnpStatVlanIfV2RxLeave",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV2TxReport": {
+    "name": "dMgmdSnpStatVlanIfV2TxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV2TxQuery": {
+    "name": "dMgmdSnpStatVlanIfV2TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV2TxLeave": {
+    "name": "dMgmdSnpStatVlanIfV2TxLeave",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV3RxReport": {
+    "name": "dMgmdSnpStatVlanIfV3RxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV3RxQuery": {
+    "name": "dMgmdSnpStatVlanIfV3RxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV3TxReport": {
+    "name": "dMgmdSnpStatVlanIfV3TxReport",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfV3TxQuery": {
+    "name": "dMgmdSnpStatVlanIfV3TxQuery",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfDropByAccGroup": {
+    "name": "dMgmdSnpStatVlanIfDropByAccGroup",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpStatVlanIfDropByGrpLimit": {
+    "name": "dMgmdSnpStatVlanIfDropByGrpLimit",
+    "oid": "1.3.6.1.4.1.171.14.6.1.6.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dMgmdSnpCompliances": {
+    "name": "dMgmdSnpCompliances",
+    "oid": "1.3.6.1.4.1.171.14.6.2.1",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpCompliance": {
+    "name": "dMgmdSnpCompliance",
+    "oid": "1.3.6.1.4.1.171.14.6.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dMgmdSnpGblCfgGroup",
+        "module": "DLINKSW-MGMD-SNOOPING-MIB"
+      },
+      {
+        "object": "dMgmdSnpVlanIfCfgGoup",
+        "module": "DLINKSW-MGMD-SNOOPING-MIB"
+      },
+      {
+        "object": "dMgmdSnpPortIfCfgGoup",
+        "module": "DLINKSW-MGMD-SNOOPING-MIB"
+      },
+      {
+        "object": "dMgmdSnpDynamicInfoGroup",
+        "module": "DLINKSW-MGMD-SNOOPING-MIB"
+      },
+      {
+        "object": "dMgmdSnpStatisticsInfoGoup",
+        "module": "DLINKSW-MGMD-SNOOPING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpGroups": {
+    "name": "dMgmdSnpGroups",
+    "oid": "1.3.6.1.4.1.171.14.6.2.2",
+    "class": "objectidentity"
+  },
+  "dMgmdSnpGblCfgGroup": {
+    "name": "dMgmdSnpGblCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.6.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStateGblEnabled"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpClearAllState"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpClearIgmpSnoopByPortIf"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpClearMldSnoopByPortIf"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpClearIgmpSnoopByVlanId"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpClearMldSnoopByVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpVlanIfCfgGoup": {
+    "name": "dMgmdSnpVlanIfCfgGoup",
+    "oid": "1.3.6.1.4.1.171.14.6.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfRowStatus"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfStateEnabled"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfQuerierStateEnabled"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfQuerierRouter"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfFastLeaveEnabled"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfFastLeaveHostBased"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfExplicitTrackEnabled"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfReportSuppresEnabled"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfMinimumVersion"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfProxyReportingEnabled"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfAutoLearnMrouter"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfProxyReportSrcAddrType"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfProxyReportSrcAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpPortIfCfgGoup": {
+    "name": "dMgmdSnpPortIfCfgGoup",
+    "oid": "1.3.6.1.4.1.171.14.6.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpMrouterStatus"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpMrouterAdminState"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfLimitRowStatus"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfLimitExceptAccLstName"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpIfLimitValue"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpAccGrpStatus"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpAccessGroupName"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpStatus"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStaticGrpSrcStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpDynamicInfoGroup": {
+    "name": "dMgmdSnpDynamicInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.6.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpMrouterDynamicMrouter"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpHostAddress"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupVersion"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupUpTime"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupExpire"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupMode"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupLastReportAddrType"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupLastReportAddr"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupSrcUpTime"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupSrcExpire"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpGroupSrcForward"
+      }
+    ],
+    "status": "current"
+  },
+  "dMgmdSnpStatisticsInfoGoup": {
+    "name": "dMgmdSnpStatisticsInfoGoup",
+    "oid": "1.3.6.1.4.1.171.14.6.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV1RxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV1RxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV1TxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV1TxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV2RxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV2RxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV2RxLeave"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV2TxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV2TxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV2TxLeave"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV3RxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV3RxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV3TxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfV3TxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfDropByAccGroup"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatPortIfDropByGrpLimit"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV1RxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV1RxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV1TxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV1TxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV2RxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV2RxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV2RxLeave"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV2TxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV2TxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV2TxLeave"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV3RxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV3RxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV3TxReport"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfV3TxQuery"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfDropByAccGroup"
+      },
+      {
+        "module": "DLINKSW-MGMD-SNOOPING-MIB",
+        "object": "dMgmdSnpStatVlanIfDropByGrpLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-MGMD-SNOOPING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-MGMD-SNOOPING-MIB"
+  }
+}

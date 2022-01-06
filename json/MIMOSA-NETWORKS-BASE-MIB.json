@@ -1,0 +1,260 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "enterprises",
+      "iso",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "mimosa": {
+    "name": "mimosa",
+    "oid": "1.3.6.1.4.1.43356",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-06-03 00:00",
+        "description": "First draft"
+      }
+    ]
+  },
+  "mimosaProduct": {
+    "name": "mimosaProduct",
+    "oid": "1.3.6.1.4.1.43356.1",
+    "class": "objectidentity"
+  },
+  "mimosaMgmt": {
+    "name": "mimosaMgmt",
+    "oid": "1.3.6.1.4.1.43356.2",
+    "class": "objectidentity"
+  },
+  "mimosaHardware": {
+    "name": "mimosaHardware",
+    "oid": "1.3.6.1.4.1.43356.1.1",
+    "class": "objectidentity"
+  },
+  "mimosaSoftware": {
+    "name": "mimosaSoftware",
+    "oid": "1.3.6.1.4.1.43356.1.2",
+    "class": "objectidentity"
+  },
+  "mimosaB5": {
+    "name": "mimosaB5",
+    "oid": "1.3.6.1.4.1.43356.1.1.1",
+    "class": "objectidentity"
+  },
+  "mimosaB5Lite": {
+    "name": "mimosaB5Lite",
+    "oid": "1.3.6.1.4.1.43356.1.1.2",
+    "class": "objectidentity"
+  },
+  "mimosaA5": {
+    "name": "mimosaA5",
+    "oid": "1.3.6.1.4.1.43356.1.1.3",
+    "class": "objectidentity"
+  },
+  "mimosaC5": {
+    "name": "mimosaC5",
+    "oid": "1.3.6.1.4.1.43356.1.1.4",
+    "class": "objectidentity"
+  },
+  "mimosaTrap": {
+    "name": "mimosaTrap",
+    "oid": "1.3.6.1.4.1.43356.2.0",
+    "class": "objectidentity"
+  },
+  "mimosaMib": {
+    "name": "mimosaMib",
+    "oid": "1.3.6.1.4.1.43356.2.1",
+    "class": "objectidentity"
+  },
+  "mimosaMIBGroups": {
+    "name": "mimosaMIBGroups",
+    "oid": "1.3.6.1.4.1.43356.2.3",
+    "class": "objectidentity"
+  },
+  "mimosaConformanceGroup": {
+    "name": "mimosaConformanceGroup",
+    "oid": "1.3.6.1.4.1.43356.2.4",
+    "class": "objectidentity"
+  },
+  "mimosaTrapMib": {
+    "name": "mimosaTrapMib",
+    "oid": "1.3.6.1.4.1.43356.2.1.1",
+    "class": "objectidentity"
+  },
+  "mimosaWireless": {
+    "name": "mimosaWireless",
+    "oid": "1.3.6.1.4.1.43356.2.1.2",
+    "class": "objectidentity"
+  },
+  "mimosaTrapMIBGroup": {
+    "name": "mimosaTrapMIBGroup",
+    "oid": "1.3.6.1.4.1.43356.2.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaTrapMessage"
+      },
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaOldSpeed"
+      },
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaNewSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "mimosaTrapMessage": {
+    "name": "mimosaTrapMessage",
+    "oid": "1.3.6.1.4.1.43356.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mimosaOldSpeed": {
+    "name": "mimosaOldSpeed",
+    "oid": "1.3.6.1.4.1.43356.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mimosaNewSpeed": {
+    "name": "mimosaNewSpeed",
+    "oid": "1.3.6.1.4.1.43356.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mimosaGenericNotificationsGroup": {
+    "name": "mimosaGenericNotificationsGroup",
+    "oid": "1.3.6.1.4.1.43356.2.3.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaCriticalFault"
+      },
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaTempWarning"
+      },
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaTempNormal"
+      },
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaEthernetSpeedChange"
+      }
+    ],
+    "status": "current"
+  },
+  "mimosaCriticalFault": {
+    "name": "mimosaCriticalFault",
+    "oid": "1.3.6.1.4.1.43356.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "mimosaTempWarning": {
+    "name": "mimosaTempWarning",
+    "oid": "1.3.6.1.4.1.43356.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "mimosaTempNormal": {
+    "name": "mimosaTempNormal",
+    "oid": "1.3.6.1.4.1.43356.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "mimosaEthernetSpeedChange": {
+    "name": "mimosaEthernetSpeedChange",
+    "oid": "1.3.6.1.4.1.43356.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaOldSpeed"
+      },
+      {
+        "module": "MIMOSA-NETWORKS-BASE-MIB",
+        "object": "mimosaNewSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mimosa/MIMOSA-NETWORKS-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:56 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MIMOSA-NETWORKS-BASE-MIB"
+  }
+}

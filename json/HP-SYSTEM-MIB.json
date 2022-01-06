@@ -1,0 +1,770 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-BASE-MIB": [
+      "hpProcurveCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpProcurveSystem": {
+    "name": "hpProcurveSystem",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-01 14:55",
+        "description": "Modified to reflect new OID hierarchy for HP J8162A XL Access Controller Module."
+      }
+    ]
+  },
+  "hpProcurveSysMib": {
+    "name": "hpProcurveSysMib",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpSystemMIBObjects": {
+    "name": "hpSystemMIBObjects",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpConfig": {
+    "name": "hpConfig",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "hpStatus": {
+    "name": "hpStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "hpNotificationsConfig": {
+    "name": "hpNotificationsConfig",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "hpProductDescription": {
+    "name": "hpProductDescription",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpProductHWVersion": {
+    "name": "hpProductHWVersion",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpProductSWVersion": {
+    "name": "hpProductSWVersion",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpProductSerialNumber": {
+    "name": "hpProductSerialNumber",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpProductLastChange": {
+    "name": "hpProductLastChange",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpCpuTemperature": {
+    "name": "hpCpuTemperature",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpPowerSupplyTemperature": {
+    "name": "hpPowerSupplyTemperature",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hpChassisTemperature": {
+    "name": "hpChassisTemperature",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpFanStatusTable": {
+    "name": "hpFanStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpFanStatusEntry": {
+    "name": "hpFanStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpFanNumber": {
+    "name": "hpFanNumber",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpu": 1,
+          "power": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpFanOperational": {
+    "name": "hpFanOperational",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpFanSpeed": {
+    "name": "hpFanSpeed",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpName": {
+    "name": "hpName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSystemID": {
+    "name": "hpSystemID",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpState": {
+    "name": "hpState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "up": 2,
+          "down": 3,
+          "primary": 4,
+          "secondary": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDistributionType": {
+    "name": "hpDistributionType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "rightsPush": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpDistributionStatus": {
+    "name": "hpDistributionStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "succeeded": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpIpAddress": {
+    "name": "hpIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpPeerIpAddress": {
+    "name": "hpPeerIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpTechSupportEnabled": {
+    "name": "hpTechSupportEnabled",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpFailedAdminIpAddress": {
+    "name": "hpFailedAdminIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpNumAccessControllers": {
+    "name": "hpNumAccessControllers",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpNumClients": {
+    "name": "hpNumClients",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpFailoverNotificationEnabled": {
+    "name": "hpFailoverNotificationEnabled",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpDistributionNotificationEnabled": {
+    "name": "hpDistributionNotificationEnabled",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpAdminAuthFailureNotificationEnabled": {
+    "name": "hpAdminAuthFailureNotificationEnabled",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpSystemTraps": {
+    "name": "hpSystemTraps",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.0",
+    "class": "objectidentity"
+  },
+  "fanDown": {
+    "name": "fanDown",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFanNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "fanUp": {
+    "name": "fanUp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFanNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureAlarm": {
+    "name": "temperatureAlarm",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpCpuTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "hpFailover": {
+    "name": "hpFailover",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hpDistributionEvent": {
+    "name": "hpDistributionEvent",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpDistributionType"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpDistributionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpAdminAuthFailure": {
+    "name": "hpAdminAuthFailure",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFailedAdminIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSystemMIBConformance": {
+    "name": "hpSystemMIBConformance",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3",
+    "class": "objectidentity"
+  },
+  "hpCompliances": {
+    "name": "hpCompliances",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "hpGroups": {
+    "name": "hpGroups",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "hpSystemMIBCompliance1": {
+    "name": "hpSystemMIBCompliance1",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpSystemGroup",
+        "module": "HP-SYSTEM-MIB"
+      },
+      {
+        "object": "hpConfigGroup",
+        "module": "HP-SYSTEM-MIB"
+      },
+      {
+        "object": "hpEnvGroup",
+        "module": "HP-SYSTEM-MIB"
+      },
+      {
+        "object": "hpStatusGroup",
+        "module": "HP-SYSTEM-MIB"
+      },
+      {
+        "object": "hpNotificationsConfigGroup",
+        "module": "HP-SYSTEM-MIB"
+      },
+      {
+        "object": "hpNotificationsGroup",
+        "module": "HP-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpSystemGroup": {
+    "name": "hpSystemGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpProductDescription"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpProductHWVersion"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpProductSWVersion"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpProductSerialNumber"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpProductLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "hpEnvGroup": {
+    "name": "hpEnvGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpCpuTemperature"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpPowerSupplyTemperature"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpChassisTemperature"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFanNumber"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFanOperational"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFanSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "hpConfigGroup": {
+    "name": "hpConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpName"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpSystemID"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpState"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpIpAddress"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpPeerIpAddress"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpTechSupportEnabled"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpDistributionType"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpDistributionStatus"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFailedAdminIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hpStatusGroup": {
+    "name": "hpStatusGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpNumAccessControllers"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpNumClients"
+      }
+    ],
+    "status": "current"
+  },
+  "hpNotificationsConfigGroup": {
+    "name": "hpNotificationsConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFailoverNotificationEnabled"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpDistributionNotificationEnabled"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpAdminAuthFailureNotificationEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "hpNotificationsGroup": {
+    "name": "hpNotificationsGroup",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.17.7.1.1.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "fanDown"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "fanUp"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "temperatureAlarm"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpFailover"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpDistributionEvent"
+      },
+      {
+        "module": "HP-SYSTEM-MIB",
+        "object": "hpAdminAuthFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HP-SYSTEM-MIB"
+  }
+}

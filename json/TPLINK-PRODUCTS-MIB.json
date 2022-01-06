@@ -1,0 +1,301 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TPLINK-MIB": [
+      "tplinkProducts"
+    ]
+  },
+  "tplink_tlsl5428": {
+    "name": "tplink_tlsl5428",
+    "oid": "1.3.6.1.4.1.11863.5.1",
+    "class": "objectidentity"
+  },
+  "tplink_tlsl3452": {
+    "name": "tplink_tlsl3452",
+    "oid": "1.3.6.1.4.1.11863.5.2",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg3424": {
+    "name": "tplink_tlsg3424",
+    "oid": "1.3.6.1.4.1.11863.5.3",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg3216": {
+    "name": "tplink_tlsg3216",
+    "oid": "1.3.6.1.4.1.11863.5.4",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg3210": {
+    "name": "tplink_tlsg3210",
+    "oid": "1.3.6.1.4.1.11863.5.5",
+    "class": "objectidentity"
+  },
+  "tplink_tlsl3428": {
+    "name": "tplink_tlsl3428",
+    "oid": "1.3.6.1.4.1.11863.5.6",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg5428": {
+    "name": "tplink_tlsg5428",
+    "oid": "1.3.6.1.4.1.11863.5.7",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg3424p": {
+    "name": "tplink_tlsg3424p",
+    "oid": "1.3.6.1.4.1.11863.5.8",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg5412f": {
+    "name": "tplink_tlsg5412f",
+    "oid": "1.3.6.1.4.1.11863.5.9",
+    "class": "objectidentity"
+  },
+  "tplink_t2700_28tct": {
+    "name": "tplink_t2700_28tct",
+    "oid": "1.3.6.1.4.1.11863.5.10",
+    "class": "objectidentity"
+  },
+  "tplink_tlsl2428": {
+    "name": "tplink_tlsl2428",
+    "oid": "1.3.6.1.4.1.11863.5.11",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg2216": {
+    "name": "tplink_tlsg2216",
+    "oid": "1.3.6.1.4.1.11863.5.12",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg2424": {
+    "name": "tplink_tlsg2424",
+    "oid": "1.3.6.1.4.1.11863.5.13",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg5428cn": {
+    "name": "tplink_tlsg5428cn",
+    "oid": "1.3.6.1.4.1.11863.5.14",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg2452": {
+    "name": "tplink_tlsg2452",
+    "oid": "1.3.6.1.4.1.11863.5.15",
+    "class": "objectidentity"
+  },
+  "tplink_tlsl2218": {
+    "name": "tplink_tlsl2218",
+    "oid": "1.3.6.1.4.1.11863.5.16",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg2424p": {
+    "name": "tplink_tlsg2424p",
+    "oid": "1.3.6.1.4.1.11863.5.17",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg2210": {
+    "name": "tplink_tlsg2210",
+    "oid": "1.3.6.1.4.1.11863.5.18",
+    "class": "objectidentity"
+  },
+  "tplink_tlsl2210": {
+    "name": "tplink_tlsl2210",
+    "oid": "1.3.6.1.4.1.11863.5.19",
+    "class": "objectidentity"
+  },
+  "tplink_t3700g_28tq": {
+    "name": "tplink_t3700g_28tq",
+    "oid": "1.3.6.1.4.1.11863.5.20",
+    "class": "objectidentity"
+  },
+  "tplink_tlsl2226p": {
+    "name": "tplink_tlsl2226p",
+    "oid": "1.3.6.1.4.1.11863.5.21",
+    "class": "objectidentity"
+  },
+  "tplink_tlsl2452": {
+    "name": "tplink_tlsl2452",
+    "oid": "1.3.6.1.4.1.11863.5.22",
+    "class": "objectidentity"
+  },
+  "tplink_tlsl2218p": {
+    "name": "tplink_tlsl2218p",
+    "oid": "1.3.6.1.4.1.11863.5.23",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg3424_ipv6": {
+    "name": "tplink_tlsg3424_ipv6",
+    "oid": "1.3.6.1.4.1.11863.5.24",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg2008": {
+    "name": "tplink_tlsg2008",
+    "oid": "1.3.6.1.4.1.11863.5.25",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg2210p": {
+    "name": "tplink_tlsg2210p",
+    "oid": "1.3.6.1.4.1.11863.5.26",
+    "class": "objectidentity"
+  },
+  "tplink_t2700g_28tq": {
+    "name": "tplink_t2700g_28tq",
+    "oid": "1.3.6.1.4.1.11863.5.27",
+    "class": "objectidentity"
+  },
+  "tplink_t1600g_28ts": {
+    "name": "tplink_t1600g_28ts",
+    "oid": "1.3.6.1.4.1.11863.5.28",
+    "class": "objectidentity"
+  },
+  "tplink_t1600g_52ts": {
+    "name": "tplink_t1600g_52ts",
+    "oid": "1.3.6.1.4.1.11863.5.29",
+    "class": "objectidentity"
+  },
+  "tplink_t3700g_54tq": {
+    "name": "tplink_t3700g_54tq",
+    "oid": "1.3.6.1.4.1.11863.5.30",
+    "class": "objectidentity"
+  },
+  "tplink_t1700g_28tq": {
+    "name": "tplink_t1700g_28tq",
+    "oid": "1.3.6.1.4.1.11863.5.31",
+    "class": "objectidentity"
+  },
+  "tplink_t1700g_52tq": {
+    "name": "tplink_t1700g_52tq",
+    "oid": "1.3.6.1.4.1.11863.5.32",
+    "class": "objectidentity"
+  },
+  "tplink_t2600g_28ts": {
+    "name": "tplink_t2600g_28ts",
+    "oid": "1.3.6.1.4.1.11863.5.33",
+    "class": "objectidentity"
+  },
+  "tplink_t2600g_52ts": {
+    "name": "tplink_t2600g_52ts",
+    "oid": "1.3.6.1.4.1.11863.5.34",
+    "class": "objectidentity"
+  },
+  "tplink_t1600g_28ps": {
+    "name": "tplink_t1600g_28ps",
+    "oid": "1.3.6.1.4.1.11863.5.37",
+    "class": "objectidentity"
+  },
+  "tplink_t1600g_52ps": {
+    "name": "tplink_t1600g_52ps",
+    "oid": "1.3.6.1.4.1.11863.5.38",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg2224p": {
+    "name": "tplink_tlsg2224p",
+    "oid": "1.3.6.1.4.1.11863.5.39",
+    "class": "objectidentity"
+  },
+  "tplink_tlsg3428": {
+    "name": "tplink_tlsg3428",
+    "oid": "1.3.6.1.4.1.11863.5.40",
+    "class": "objectidentity"
+  },
+  "tplink_t1700x_16ts": {
+    "name": "tplink_t1700x_16ts",
+    "oid": "1.3.6.1.4.1.11863.5.41",
+    "class": "objectidentity"
+  },
+  "tplink_t2500_28tc": {
+    "name": "tplink_t2500_28tc",
+    "oid": "1.3.6.1.4.1.11863.5.44",
+    "class": "objectidentity"
+  },
+  "tplink_t2500g_10ts": {
+    "name": "tplink_t2500g_10ts",
+    "oid": "1.3.6.1.4.1.11863.5.59",
+    "class": "objectidentity"
+  },
+  "tplink_t2600g_18ts": {
+    "name": "tplink_t2600g_18ts",
+    "oid": "1.3.6.1.4.1.11863.5.72",
+    "class": "objectidentity"
+  },
+  "tplink_t2600g_28mps": {
+    "name": "tplink_t2600g_28mps",
+    "oid": "1.3.6.1.4.1.11863.5.74",
+    "class": "objectidentity"
+  },
+  "tplink_t1500g_8t": {
+    "name": "tplink_t1500g_8t",
+    "oid": "1.3.6.1.4.1.11863.5.76",
+    "class": "objectidentity"
+  },
+  "tplink_t1500g_10ps": {
+    "name": "tplink_t1500g_10ps",
+    "oid": "1.3.6.1.4.1.11863.5.78",
+    "class": "objectidentity"
+  },
+  "tplink_t1500g_10mps": {
+    "name": "tplink_t1500g_10mps",
+    "oid": "1.3.6.1.4.1.11863.5.80",
+    "class": "objectidentity"
+  },
+  "tplink_t1500_28tc": {
+    "name": "tplink_t1500_28tc",
+    "oid": "1.3.6.1.4.1.11863.5.82",
+    "class": "objectidentity"
+  },
+  "tplink_t1500_28pct": {
+    "name": "tplink_t1500_28pct",
+    "oid": "1.3.6.1.4.1.11863.5.84",
+    "class": "objectidentity"
+  },
+  "tplink_t1600g_18ts": {
+    "name": "tplink_t1600g_18ts",
+    "oid": "1.3.6.1.4.1.11863.5.86",
+    "class": "objectidentity"
+  },
+  "tplink_t2500g_10mps": {
+    "name": "tplink_t2500g_10mps",
+    "oid": "1.3.6.1.4.1.11863.5.88",
+    "class": "objectidentity"
+  },
+  "tplink_t2600g_28ps": {
+    "name": "tplink_t2600g_28ps",
+    "oid": "1.3.6.1.4.1.11863.5.90",
+    "class": "objectidentity"
+  },
+  "tplink_t2600g_28sq": {
+    "name": "tplink_t2600g_28sq",
+    "oid": "1.3.6.1.4.1.11863.5.92",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-PRODUCTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TPLINK-PRODUCTS-MIB"
+  }
+}

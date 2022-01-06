@@ -1,0 +1,703 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwBRASSrvcfgStaticUser": {
+    "name": "hwBRASSrvcfgStaticUser",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5",
+    "class": "moduleidentity"
+  },
+  "hwSrvcfgStaticUserMibObjects": {
+    "name": "hwSrvcfgStaticUserMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1",
+    "class": "objectidentity"
+  },
+  "hwStaticUserTable": {
+    "name": "hwStaticUserTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticUserEntry": {
+    "name": "hwStaticUserEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserStartIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticUserStartIpAddr": {
+    "name": "hwStaticUserStartIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticUserEndIpAddr": {
+    "name": "hwStaticUserEndIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserIfIndex": {
+    "name": "hwStaticUserIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserVlan": {
+    "name": "hwStaticUserVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserVpi": {
+    "name": "hwStaticUserVpi",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserVci": {
+    "name": "hwStaticUserVci",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserMac": {
+    "name": "hwStaticUserMac",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserDomain": {
+    "name": "hwStaticUserDomain",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserDetect": {
+    "name": "hwStaticUserDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserRowStatus": {
+    "name": "hwStaticUserRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStaticUserStatus": {
+    "name": "hwStaticUserStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "detecting": 1,
+          "deleting": 2,
+          "online": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticUserQinQVlan": {
+    "name": "hwStaticUserQinQVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserDescription": {
+    "name": "hwStaticUserDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserTableV2": {
+    "name": "hwStaticUserTableV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticUserEntryV2": {
+    "name": "hwStaticUserEntryV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserVrfNameV2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserStartIpAddrV2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticUserStartIpAddrV2": {
+    "name": "hwStaticUserStartIpAddrV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticUserEndIpAddrV2": {
+    "name": "hwStaticUserEndIpAddrV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserIfIndexV2": {
+    "name": "hwStaticUserIfIndexV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserVlanV2": {
+    "name": "hwStaticUserVlanV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserVpiV2": {
+    "name": "hwStaticUserVpiV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserVciV2": {
+    "name": "hwStaticUserVciV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserMacV2": {
+    "name": "hwStaticUserMacV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserDomainV2": {
+    "name": "hwStaticUserDomainV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserDetectV2": {
+    "name": "hwStaticUserDetectV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserRowStatusV2": {
+    "name": "hwStaticUserRowStatusV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStaticUserStatusV2": {
+    "name": "hwStaticUserStatusV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 0,
+          "detecting": 1,
+          "deleting": 2,
+          "online": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticUserQinQVlanV2": {
+    "name": "hwStaticUserQinQVlanV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticUserVrfNameV2": {
+    "name": "hwStaticUserVrfNameV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticUserConformance": {
+    "name": "hwStaticUserConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.2",
+    "class": "objectidentity"
+  },
+  "hwStaticUserCompliances": {
+    "name": "hwStaticUserCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.2.1",
+    "class": "objectidentity"
+  },
+  "hwStaticUserCompliance": {
+    "name": "hwStaticUserCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwStaticUserTableGroup",
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB"
+      },
+      {
+        "object": "hwStaticUserTableV2Group",
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticUserObjectGroups": {
+    "name": "hwStaticUserObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.2.1.2",
+    "class": "objectidentity"
+  },
+  "hwStaticUserTableGroup": {
+    "name": "hwStaticUserTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.2.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserStartIpAddr"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserEndIpAddr"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserVpi"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserVci"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserMac"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserDomain"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserDetect"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserQinQVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticUserTableV2Group": {
+    "name": "hwStaticUserTableV2Group",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.5.2.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserStartIpAddrV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserEndIpAddrV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserIfIndexV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserVlanV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserVpiV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserVciV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserMacV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserDomainV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserDetectV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserRowStatusV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserStatusV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserQinQVlanV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+        "object": "hwStaticUserVrfNameV2"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-SRVCFG-STATICUSER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BRAS-SRVCFG-STATICUSER-MIB"
+  }
+}

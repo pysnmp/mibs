@@ -1,0 +1,891 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoAAAServerMIB": {
+    "name": "ciscoAAAServerMIB",
+    "oid": "1.3.6.1.4.1.9.10.56",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-11-17 00:00",
+        "description": "Expanded the list of AAA protocols to include LDAP, Kerberos, NTLM and SDI; defined textual convention CiscoAAAProtocol to denote the type of AAA protocols. "
+      },
+      {
+        "revision": "2002-03-28 00:00",
+        "description": "Imported Unsigned32 from SNMPv2-SMI instead of CISCO-TC"
+      },
+      {
+        "revision": "2000-01-20 00:00",
+        "description": "Added objects to support AAA server configuration casConfigTable casProtocol casIndex casAddress casAuthenPort casAcctPort casConfigRowStatus "
+      }
+    ]
+  },
+  "CiscoAAAProtocol": {
+    "name": "CiscoAAAProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tacacsplus": 1,
+          "radius": 2,
+          "ldap": 3,
+          "kerberos": 4,
+          "ntlm": 5,
+          "sdi": 6,
+          "other": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cAAAServerMIBObjects": {
+    "name": "cAAAServerMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.56.1",
+    "class": "objectidentity"
+  },
+  "casConfig": {
+    "name": "casConfig",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1",
+    "class": "objectidentity"
+  },
+  "casStatistics": {
+    "name": "casStatistics",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2",
+    "class": "objectidentity"
+  },
+  "casServerStateChangeEnable": {
+    "name": "casServerStateChangeEnable",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "casConfigTable": {
+    "name": "casConfigTable",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casConfigEntry": {
+    "name": "casConfigEntry",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casProtocol",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casProtocol": {
+    "name": "casProtocol",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAAAProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casIndex": {
+    "name": "casIndex",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casAddress": {
+    "name": "casAddress",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casAuthenPort": {
+    "name": "casAuthenPort",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1645,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casAcctPort": {
+    "name": "casAcctPort",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1646,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casKey": {
+    "name": "casKey",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casPriority": {
+    "name": "casPriority",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casConfigRowStatus": {
+    "name": "casConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.56.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "casStatisticsTable": {
+    "name": "casStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casStatisticsEntry": {
+    "name": "casStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "casStatisticsEntry",
+      "module": "CISCO-AAA-SERVER-MIB",
+      "object": "casConfigEntry"
+    },
+    "status": "current"
+  },
+  "casAuthenRequests": {
+    "name": "casAuthenRequests",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthenRequestTimeouts": {
+    "name": "casAuthenRequestTimeouts",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthenUnexpectedResponses": {
+    "name": "casAuthenUnexpectedResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthenServerErrorResponses": {
+    "name": "casAuthenServerErrorResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthenIncorrectResponses": {
+    "name": "casAuthenIncorrectResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthenResponseTime": {
+    "name": "casAuthenResponseTime",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthenTransactionSuccesses": {
+    "name": "casAuthenTransactionSuccesses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthenTransactionFailures": {
+    "name": "casAuthenTransactionFailures",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthorRequests": {
+    "name": "casAuthorRequests",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthorRequestTimeouts": {
+    "name": "casAuthorRequestTimeouts",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthorUnexpectedResponses": {
+    "name": "casAuthorUnexpectedResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthorServerErrorResponses": {
+    "name": "casAuthorServerErrorResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthorIncorrectResponses": {
+    "name": "casAuthorIncorrectResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthorResponseTime": {
+    "name": "casAuthorResponseTime",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthorTransactionSuccesses": {
+    "name": "casAuthorTransactionSuccesses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAuthorTransactionFailures": {
+    "name": "casAuthorTransactionFailures",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAcctRequests": {
+    "name": "casAcctRequests",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAcctRequestTimeouts": {
+    "name": "casAcctRequestTimeouts",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAcctUnexpectedResponses": {
+    "name": "casAcctUnexpectedResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAcctServerErrorResponses": {
+    "name": "casAcctServerErrorResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAcctIncorrectResponses": {
+    "name": "casAcctIncorrectResponses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAcctResponseTime": {
+    "name": "casAcctResponseTime",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAcctTransactionSuccesses": {
+    "name": "casAcctTransactionSuccesses",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casAcctTransactionFailures": {
+    "name": "casAcctTransactionFailures",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casState": {
+    "name": "casState",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "dead": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casCurrentStateDuration": {
+    "name": "casCurrentStateDuration",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casPreviousStateDuration": {
+    "name": "casPreviousStateDuration",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casTotalDeadTime": {
+    "name": "casTotalDeadTime",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casDeadCount": {
+    "name": "casDeadCount",
+    "oid": "1.3.6.1.4.1.9.10.56.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAAAServerMIBNotificationPrefix": {
+    "name": "cAAAServerMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.56.2",
+    "class": "objectidentity"
+  },
+  "cAAAServerMIBNotifications": {
+    "name": "cAAAServerMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.56.2.0",
+    "class": "objectidentity"
+  },
+  "casServerStateChange": {
+    "name": "casServerStateChange",
+    "oid": "1.3.6.1.4.1.9.10.56.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casState"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casPreviousStateDuration"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casTotalDeadTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cAAAServerMIBConformance": {
+    "name": "cAAAServerMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.56.3",
+    "class": "objectidentity"
+  },
+  "casMIBCompliances": {
+    "name": "casMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.56.3.1",
+    "class": "objectidentity"
+  },
+  "casMIBGroups": {
+    "name": "casMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.56.3.2",
+    "class": "objectidentity"
+  },
+  "casMIBCompliance": {
+    "name": "casMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.56.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "casConfigGroup",
+        "module": "CISCO-AAA-SERVER-MIB"
+      },
+      {
+        "object": "casStatisticsGroup",
+        "module": "CISCO-AAA-SERVER-MIB"
+      },
+      {
+        "object": "casServerNotificationGroup",
+        "module": "CISCO-AAA-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "casStatisticsGroup": {
+    "name": "casStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.10.56.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenRequests"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenRequestTimeouts"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenUnexpectedResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenServerErrorResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenIncorrectResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenResponseTime"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenTransactionSuccesses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenTransactionFailures"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthorRequests"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthorRequestTimeouts"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthorUnexpectedResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthorServerErrorResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthorIncorrectResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthorResponseTime"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthorTransactionSuccesses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthorTransactionFailures"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctRequests"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctRequestTimeouts"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctUnexpectedResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctServerErrorResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctIncorrectResponses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctResponseTime"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctTransactionSuccesses"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctTransactionFailures"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casState"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casCurrentStateDuration"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casPreviousStateDuration"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casTotalDeadTime"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casDeadCount"
+      }
+    ],
+    "status": "current"
+  },
+  "casConfigGroup": {
+    "name": "casConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.56.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casServerStateChangeEnable"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAddress"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAuthenPort"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casAcctPort"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casKey"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casPriority"
+      },
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "casServerNotificationGroup": {
+    "name": "casServerNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.56.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-AAA-SERVER-MIB",
+        "object": "casServerStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-AAA-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-AAA-SERVER-MIB"
+  }
+}

@@ -1,0 +1,518 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "NbsTcPartIndex",
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsPartMib": {
+    "name": "nbsPartMib",
+    "oid": "1.3.6.1.4.1.629.231",
+    "class": "moduleidentity"
+  },
+  "nbsPartHardGrp": {
+    "name": "nbsPartHardGrp",
+    "oid": "1.3.6.1.4.1.629.231.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsPartFirmGrp": {
+    "name": "nbsPartFirmGrp",
+    "oid": "1.3.6.1.4.1.629.231.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsPartProgGrp": {
+    "name": "nbsPartProgGrp",
+    "oid": "1.3.6.1.4.1.629.231.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsPartHardTable": {
+    "name": "nbsPartHardTable",
+    "oid": "1.3.6.1.4.1.629.231.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartHardEntry": {
+    "name": "nbsPartHardEntry",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-PART-MIB",
+        "object": "nbsPartHardIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-PART-MIB",
+        "object": "nbsPartHardPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsPartHardIfIndex": {
+    "name": "nbsPartHardIfIndex",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartHardPartIndex": {
+    "name": "nbsPartHardPartIndex",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsTcPartIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartHardDescription": {
+    "name": "nbsPartHardDescription",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartHardSerialNumber": {
+    "name": "nbsPartHardSerialNumber",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartHardProductionId": {
+    "name": "nbsPartHardProductionId",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartHardVendor": {
+    "name": "nbsPartHardVendor",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartHardModel": {
+    "name": "nbsPartHardModel",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartHardWareRev": {
+    "name": "nbsPartHardWareRev",
+    "oid": "1.3.6.1.4.1.629.231.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartFirmTable": {
+    "name": "nbsPartFirmTable",
+    "oid": "1.3.6.1.4.1.629.231.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartFirmEntry": {
+    "name": "nbsPartFirmEntry",
+    "oid": "1.3.6.1.4.1.629.231.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-PART-MIB",
+        "object": "nbsPartFirmIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-PART-MIB",
+        "object": "nbsPartFirmPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsPartFirmIfIndex": {
+    "name": "nbsPartFirmIfIndex",
+    "oid": "1.3.6.1.4.1.629.231.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartFirmPartIndex": {
+    "name": "nbsPartFirmPartIndex",
+    "oid": "1.3.6.1.4.1.629.231.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsTcPartIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartFirmFpgaRev": {
+    "name": "nbsPartFirmFpgaRev",
+    "oid": "1.3.6.1.4.1.629.231.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartFirmSwMajor": {
+    "name": "nbsPartFirmSwMajor",
+    "oid": "1.3.6.1.4.1.629.231.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartFirmSwMinor": {
+    "name": "nbsPartFirmSwMinor",
+    "oid": "1.3.6.1.4.1.629.231.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartFirmSwBuild": {
+    "name": "nbsPartFirmSwBuild",
+    "oid": "1.3.6.1.4.1.629.231.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartFirmWareIndex": {
+    "name": "nbsPartFirmWareIndex",
+    "oid": "1.3.6.1.4.1.629.231.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartProgTable": {
+    "name": "nbsPartProgTable",
+    "oid": "1.3.6.1.4.1.629.231.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartProgEntry": {
+    "name": "nbsPartProgEntry",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-PART-MIB",
+        "object": "nbsPartProgIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-PART-MIB",
+        "object": "nbsPartProgPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsPartProgIfIndex": {
+    "name": "nbsPartProgIfIndex",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartProgPartIndex": {
+    "name": "nbsPartProgPartIndex",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsTcPartIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsPartProgFirmwareCaps": {
+    "name": "nbsPartProgFirmwareCaps",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartProgFirmwareLoad": {
+    "name": "nbsPartProgFirmwareLoad",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsPartProgLoader": {
+    "name": "nbsPartProgLoader",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartProgNVAreaAdmin": {
+    "name": "nbsPartProgNVAreaAdmin",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsPartProgNVAreaOper": {
+    "name": "nbsPartProgNVAreaOper",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartProgNVAreaStart": {
+    "name": "nbsPartProgNVAreaStart",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsPartProgNVAreaBanks": {
+    "name": "nbsPartProgNVAreaBanks",
+    "oid": "1.3.6.1.4.1.629.231.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-PART-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-PART-MIB"
+  }
+}

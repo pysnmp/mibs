@@ -1,0 +1,204 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwEVC": {
+    "name": "hwEVC",
+    "oid": "1.3.6.1.4.1.2011.5.25.336",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-06-17 09:18",
+        "description": "modify the range of Bridge-domain ."
+      },
+      {
+        "revision": "2014-09-11 16:55",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hwEVCMngObjects": {
+    "name": "hwEVCMngObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.1",
+    "class": "objectidentity"
+  },
+  "hwBDStatTable": {
+    "name": "hwBDStatTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBDStatEntry": {
+    "name": "hwBDStatEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-EVC-MIB",
+        "object": "hwBDStatBDID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBDStatBDID": {
+    "name": "hwBDStatBDID",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBDStatInboundPackets": {
+    "name": "hwBDStatInboundPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBDStatOutboundPackets": {
+    "name": "hwBDStatOutboundPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBDStatInboundBytes": {
+    "name": "hwBDStatInboundBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBDStatOutboundBytes": {
+    "name": "hwBDStatOutboundBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEVCConformance": {
+    "name": "hwEVCConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.2",
+    "class": "objectidentity"
+  },
+  "hwEVCCompliances": {
+    "name": "hwEVCCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.2.1",
+    "class": "objectidentity"
+  },
+  "hwEVCCompliance": {
+    "name": "hwEVCCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwBDStatGroup",
+        "module": "HUAWEI-EVC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEVCGroups": {
+    "name": "hwEVCGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.2.2",
+    "class": "objectidentity"
+  },
+  "hwBDStatGroup": {
+    "name": "hwBDStatGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.336.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EVC-MIB",
+        "object": "hwBDStatInboundPackets"
+      },
+      {
+        "module": "HUAWEI-EVC-MIB",
+        "object": "hwBDStatOutboundPackets"
+      },
+      {
+        "module": "HUAWEI-EVC-MIB",
+        "object": "hwBDStatInboundBytes"
+      },
+      {
+        "module": "HUAWEI-EVC-MIB",
+        "object": "hwBDStatOutboundBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-EVC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-EVC-MIB"
+  }
+}

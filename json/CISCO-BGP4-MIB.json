@@ -1,0 +1,2466 @@
+{
+  "imports": {
+    "class": "imports",
+    "BGP4-MIB": [
+      "bgpPeerLastError",
+      "bgpPeerRemoteAddr",
+      "bgpPeerEntry",
+      "bgpPeerState"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress",
+      "InetAutonomousSystemNumber"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoBgp4MIB": {
+    "name": "ciscoBgp4MIB",
+    "oid": "1.3.6.1.4.1.9.9.187",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-09-30 00:00",
+        "description": "+Added cbgpNotifsEnable and cbgpLocalAs +Modified CbgpNetworkAddress TC +Added cbgpPeer2Table +Added cbgpPeer2CapsTable +Added cbgpPeer2AddrFamilyTable +Added cbgpPeer2AddrFamilyPrefixTable +Added notification cbgpPeer2EstablishedNotification +Added notification cbgpPeer2BackwardTransNotification +Added notification cbgpPeer2FsmStateChange +Added notification cbgpPeer2BackwardTransition +Added notification cbgpPeer2PrefixThresholdExceeded +Added notification cbgpPeer2PrefixThresholdClear"
+      },
+      {
+        "revision": "2003-02-24 00:00",
+        "description": "+Added cbgpPeerCapsTable +Added cbgpPeerAddrFamilyTable +Added cbgpPeerAddrFamilyPrefixTable +Added notification event cbgpBackwardTransition +Added notification event cbgpPrefixThresholdExceeded +Added notification event cbgpPrefixThresholdClear"
+      },
+      {
+        "revision": "2002-12-19 00:00",
+        "description": "+Added cbgpPeerPrefixTable +Added notification event cbgpFsmStateChange"
+      },
+      {
+        "revision": "2001-08-13 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoBgp4MIBObjects": {
+    "name": "ciscoBgp4MIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.187.1",
+    "class": "objectidentity"
+  },
+  "cbgpRoute": {
+    "name": "cbgpRoute",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1",
+    "class": "objectidentity"
+  },
+  "cbgpPeer": {
+    "name": "cbgpPeer",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2",
+    "class": "objectidentity"
+  },
+  "cbgpGlobal": {
+    "name": "cbgpGlobal",
+    "oid": "1.3.6.1.4.1.9.9.187.1.3",
+    "class": "objectidentity"
+  },
+  "CbgpSafi": {
+    "name": "CbgpSafi",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2,
+          "unicastAndMulticast": 3,
+          "vpn": 128
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CbgpNetworkAddress": {
+    "name": "CbgpNetworkAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cbgpNotifsEnable": {
+    "name": "cbgpNotifsEnable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "notifsEnable": 0,
+        "notifsPeer2Enable": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpLocalAs": {
+    "name": "cbgpLocalAs",
+    "oid": "1.3.6.1.4.1.9.9.187.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteTable": {
+    "name": "cbgpRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpRouteEntry": {
+    "name": "cbgpRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteAfi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteSafi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRoutePeerType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRoutePeer",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteAddrPrefix",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteAddrPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpRouteAfi": {
+    "name": "cbgpRouteAfi",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpRouteSafi": {
+    "name": "cbgpRouteSafi",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbgpSafi",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpRoutePeerType": {
+    "name": "cbgpRoutePeerType",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpRoutePeer": {
+    "name": "cbgpRoutePeer",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpRouteAddrPrefix": {
+    "name": "cbgpRouteAddrPrefix",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbgpNetworkAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpRouteAddrPrefixLen": {
+    "name": "cbgpRouteAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2040
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpRouteOrigin": {
+    "name": "cbgpRouteOrigin",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteASPathSegment": {
+    "name": "cbgpRouteASPathSegment",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteNextHop": {
+    "name": "cbgpRouteNextHop",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbgpNetworkAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteMedPresent": {
+    "name": "cbgpRouteMedPresent",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteMultiExitDisc": {
+    "name": "cbgpRouteMultiExitDisc",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteLocalPrefPresent": {
+    "name": "cbgpRouteLocalPrefPresent",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteLocalPref": {
+    "name": "cbgpRouteLocalPref",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteAtomicAggregate": {
+    "name": "cbgpRouteAtomicAggregate",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessSpecificRouteNotSelected": 1,
+          "lessSpecificRouteSelected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteAggregatorAS": {
+    "name": "cbgpRouteAggregatorAS",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteAggregatorAddrType": {
+    "name": "cbgpRouteAggregatorAddrType",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteAggregatorAddr": {
+    "name": "cbgpRouteAggregatorAddr",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteBest": {
+    "name": "cbgpRouteBest",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpRouteUnknownAttr": {
+    "name": "cbgpRouteUnknownAttr",
+    "oid": "1.3.6.1.4.1.9.9.187.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerTable": {
+    "name": "cbgpPeerTable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeerEntry": {
+    "name": "cbgpPeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cbgpPeerEntry",
+      "module": "CISCO-BGP4-MIB",
+      "object": "bgpPeerEntry"
+    },
+    "status": "current"
+  },
+  "cbgpPeerPrefixAccepted": {
+    "name": "cbgpPeerPrefixAccepted",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cbgpPeerPrefixDenied": {
+    "name": "cbgpPeerPrefixDenied",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cbgpPeerPrefixLimit": {
+    "name": "cbgpPeerPrefixLimit",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cbgpPeerPrefixAdvertised": {
+    "name": "cbgpPeerPrefixAdvertised",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cbgpPeerPrefixSuppressed": {
+    "name": "cbgpPeerPrefixSuppressed",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cbgpPeerPrefixWithdrawn": {
+    "name": "cbgpPeerPrefixWithdrawn",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cbgpPeerLastErrorTxt": {
+    "name": "cbgpPeerLastErrorTxt",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerPrevState": {
+    "name": "cbgpPeerPrevState",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerCapsTable": {
+    "name": "cbgpPeerCapsTable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeerCapsEntry": {
+    "name": "cbgpPeerCapsEntry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerCapCode",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerCapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeerCapCode": {
+    "name": "cbgpPeerCapCode",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multiProtocol": 1,
+          "routeRefresh": 2,
+          "gracefulRestart": 64,
+          "routeRefreshOld": 128
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeerCapIndex": {
+    "name": "cbgpPeerCapIndex",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeerCapValue": {
+    "name": "cbgpPeerCapValue",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerAddrFamilyTable": {
+    "name": "cbgpPeerAddrFamilyTable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeerAddrFamilyEntry": {
+    "name": "cbgpPeerAddrFamilyEntry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerAddrFamilyAfi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerAddrFamilySafi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeerAddrFamilyAfi": {
+    "name": "cbgpPeerAddrFamilyAfi",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeerAddrFamilySafi": {
+    "name": "cbgpPeerAddrFamilySafi",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbgpSafi",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeerAddrFamilyName": {
+    "name": "cbgpPeerAddrFamilyName",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerAddrFamilyPrefixTable": {
+    "name": "cbgpPeerAddrFamilyPrefixTable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeerAddrFamilyPrefixEntry": {
+    "name": "cbgpPeerAddrFamilyPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerRemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerAddrFamilyAfi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerAddrFamilySafi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeerAcceptedPrefixes": {
+    "name": "cbgpPeerAcceptedPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerDeniedPrefixes": {
+    "name": "cbgpPeerDeniedPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerPrefixAdminLimit": {
+    "name": "cbgpPeerPrefixAdminLimit",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeerPrefixThreshold": {
+    "name": "cbgpPeerPrefixThreshold",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeerPrefixClearThreshold": {
+    "name": "cbgpPeerPrefixClearThreshold",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerAdvertisedPrefixes": {
+    "name": "cbgpPeerAdvertisedPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerSuppressedPrefixes": {
+    "name": "cbgpPeerSuppressedPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeerWithdrawnPrefixes": {
+    "name": "cbgpPeerWithdrawnPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2Table": {
+    "name": "cbgpPeer2Table",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2Entry": {
+    "name": "cbgpPeer2Entry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2Type",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2RemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2Type": {
+    "name": "cbgpPeer2Type",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2RemoteAddr": {
+    "name": "cbgpPeer2RemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2State": {
+    "name": "cbgpPeer2State",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2AdminStatus": {
+    "name": "cbgpPeer2AdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer2NegotiatedVersion": {
+    "name": "cbgpPeer2NegotiatedVersion",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2LocalAddr": {
+    "name": "cbgpPeer2LocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2LocalPort": {
+    "name": "cbgpPeer2LocalPort",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2LocalAs": {
+    "name": "cbgpPeer2LocalAs",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2LocalIdentifier": {
+    "name": "cbgpPeer2LocalIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2RemotePort": {
+    "name": "cbgpPeer2RemotePort",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2RemoteAs": {
+    "name": "cbgpPeer2RemoteAs",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2RemoteIdentifier": {
+    "name": "cbgpPeer2RemoteIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2InUpdates": {
+    "name": "cbgpPeer2InUpdates",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2OutUpdates": {
+    "name": "cbgpPeer2OutUpdates",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2InTotalMessages": {
+    "name": "cbgpPeer2InTotalMessages",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2OutTotalMessages": {
+    "name": "cbgpPeer2OutTotalMessages",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2LastError": {
+    "name": "cbgpPeer2LastError",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2FsmEstablishedTransitions": {
+    "name": "cbgpPeer2FsmEstablishedTransitions",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2FsmEstablishedTime": {
+    "name": "cbgpPeer2FsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2ConnectRetryInterval": {
+    "name": "cbgpPeer2ConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer2HoldTime": {
+    "name": "cbgpPeer2HoldTime",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2KeepAlive": {
+    "name": "cbgpPeer2KeepAlive",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2HoldTimeConfigured": {
+    "name": "cbgpPeer2HoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer2KeepAliveConfigured": {
+    "name": "cbgpPeer2KeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer2MinASOriginationInterval": {
+    "name": "cbgpPeer2MinASOriginationInterval",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer2MinRouteAdvertisementInterval": {
+    "name": "cbgpPeer2MinRouteAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer2InUpdateElapsedTime": {
+    "name": "cbgpPeer2InUpdateElapsedTime",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2LastErrorTxt": {
+    "name": "cbgpPeer2LastErrorTxt",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2PrevState": {
+    "name": "cbgpPeer2PrevState",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2CapsTable": {
+    "name": "cbgpPeer2CapsTable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2CapsEntry": {
+    "name": "cbgpPeer2CapsEntry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2Type",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2RemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2CapCode",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2CapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2CapCode": {
+    "name": "cbgpPeer2CapCode",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multiProtocol": 1,
+          "routeRefresh": 2,
+          "gracefulRestart": 64,
+          "fourByteAs": 65,
+          "addPath": 69,
+          "routeRefreshOld": 128
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2CapIndex": {
+    "name": "cbgpPeer2CapIndex",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2CapValue": {
+    "name": "cbgpPeer2CapValue",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2AddrFamilyTable": {
+    "name": "cbgpPeer2AddrFamilyTable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2AddrFamilyEntry": {
+    "name": "cbgpPeer2AddrFamilyEntry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2Type",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2RemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2AddrFamilyAfi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2AddrFamilySafi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2AddrFamilyAfi": {
+    "name": "cbgpPeer2AddrFamilyAfi",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2AddrFamilySafi": {
+    "name": "cbgpPeer2AddrFamilySafi",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbgpSafi",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2AddrFamilyName": {
+    "name": "cbgpPeer2AddrFamilyName",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2AddrFamilyPrefixTable": {
+    "name": "cbgpPeer2AddrFamilyPrefixTable",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer2AddrFamilyPrefixEntry": {
+    "name": "cbgpPeer2AddrFamilyPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2Type",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2RemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2AddrFamilyAfi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2AddrFamilySafi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2AcceptedPrefixes": {
+    "name": "cbgpPeer2AcceptedPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2DeniedPrefixes": {
+    "name": "cbgpPeer2DeniedPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2PrefixAdminLimit": {
+    "name": "cbgpPeer2PrefixAdminLimit",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer2PrefixThreshold": {
+    "name": "cbgpPeer2PrefixThreshold",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer2PrefixClearThreshold": {
+    "name": "cbgpPeer2PrefixClearThreshold",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2AdvertisedPrefixes": {
+    "name": "cbgpPeer2AdvertisedPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2SuppressedPrefixes": {
+    "name": "cbgpPeer2SuppressedPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer2WithdrawnPrefixes": {
+    "name": "cbgpPeer2WithdrawnPrefixes",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBgp4NotifyPrefix": {
+    "name": "ciscoBgp4NotifyPrefix",
+    "oid": "1.3.6.1.4.1.9.9.187.0",
+    "class": "objectidentity"
+  },
+  "cbgpFsmStateChange": {
+    "name": "cbgpFsmStateChange",
+    "oid": "1.3.6.1.4.1.9.9.187.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLastError"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerState"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerLastErrorTxt"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrevState"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpBackwardTransition": {
+    "name": "cbgpBackwardTransition",
+    "oid": "1.3.6.1.4.1.9.9.187.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerLastError"
+      },
+      {
+        "module": "BGP4-MIB",
+        "object": "bgpPeerState"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerLastErrorTxt"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrevState"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPrefixThresholdExceeded": {
+    "name": "cbgpPrefixThresholdExceeded",
+    "oid": "1.3.6.1.4.1.9.9.187.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixAdminLimit"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPrefixThresholdClear": {
+    "name": "cbgpPrefixThresholdClear",
+    "oid": "1.3.6.1.4.1.9.9.187.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixAdminLimit"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixClearThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2EstablishedNotification": {
+    "name": "cbgpPeer2EstablishedNotification",
+    "oid": "1.3.6.1.4.1.9.9.187.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LastError"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2State"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2BackwardTransNotification": {
+    "name": "cbgpPeer2BackwardTransNotification",
+    "oid": "1.3.6.1.4.1.9.9.187.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LastError"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2State"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2FsmStateChange": {
+    "name": "cbgpPeer2FsmStateChange",
+    "oid": "1.3.6.1.4.1.9.9.187.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LastError"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2State"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LastErrorTxt"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrevState"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2BackwardTransition": {
+    "name": "cbgpPeer2BackwardTransition",
+    "oid": "1.3.6.1.4.1.9.9.187.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LastError"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2State"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LastErrorTxt"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrevState"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2PrefixThresholdExceeded": {
+    "name": "cbgpPeer2PrefixThresholdExceeded",
+    "oid": "1.3.6.1.4.1.9.9.187.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixAdminLimit"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer2PrefixThresholdClear": {
+    "name": "cbgpPeer2PrefixThresholdClear",
+    "oid": "1.3.6.1.4.1.9.9.187.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixAdminLimit"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixClearThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBgp4NotificationPrefix": {
+    "name": "ciscoBgp4NotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.187.2",
+    "class": "objectidentity"
+  },
+  "ciscoBgp4MIBConformance": {
+    "name": "ciscoBgp4MIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.187.3",
+    "class": "objectidentity"
+  },
+  "ciscoBgp4MIBCompliances": {
+    "name": "ciscoBgp4MIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.187.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoBgp4MIBGroups": {
+    "name": "ciscoBgp4MIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoBgp4MIBCompliance": {
+    "name": "ciscoBgp4MIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.187.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBgp4RouteGroup",
+        "module": "CISCO-BGP4-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBgp4MIBComplianceRev1": {
+    "name": "ciscoBgp4MIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.187.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBgp4RouteGroup",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4PeerGroup",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4NotificationsGroup",
+        "module": "CISCO-BGP4-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBgp4MIBComplianceRev2": {
+    "name": "ciscoBgp4MIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.187.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBgp4RouteGroup",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4PeerGroup1",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4NotificationsGroup1",
+        "module": "CISCO-BGP4-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBgp4MIBComplianceRev3": {
+    "name": "ciscoBgp4MIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.187.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBgp4RouteGroup",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4PeerGroup1",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4GlobalGroup",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4NotificationsGroup1",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4Peer2Group",
+        "module": "CISCO-BGP4-MIB"
+      },
+      {
+        "object": "ciscoBgp4Peer2NotificationsGroup",
+        "module": "CISCO-BGP4-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBgp4RouteGroup": {
+    "name": "ciscoBgp4RouteGroup",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteOrigin"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteASPathSegment"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteNextHop"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteMedPresent"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteMultiExitDisc"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteLocalPrefPresent"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteLocalPref"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteAtomicAggregate"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteAggregatorAS"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteAggregatorAddrType"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteAggregatorAddr"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteBest"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpRouteUnknownAttr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBgp4PeerGroup": {
+    "name": "ciscoBgp4PeerGroup",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixAccepted"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixDenied"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixLimit"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixAdvertised"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixSuppressed"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixWithdrawn"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBgp4NotificationsGroup": {
+    "name": "ciscoBgp4NotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpFsmStateChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoBgp4PeerGroup1": {
+    "name": "ciscoBgp4PeerGroup1",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrevState"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerLastErrorTxt"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerCapValue"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerAddrFamilyName"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerAcceptedPrefixes"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerDeniedPrefixes"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixAdminLimit"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixThreshold"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerPrefixClearThreshold"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerAdvertisedPrefixes"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerSuppressedPrefixes"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeerWithdrawnPrefixes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBgp4NotificationsGroup1": {
+    "name": "ciscoBgp4NotificationsGroup1",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpFsmStateChange"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpBackwardTransition"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPrefixThresholdExceeded"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPrefixThresholdClear"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBgp4Peer2Group": {
+    "name": "ciscoBgp4Peer2Group",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2State"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2AdminStatus"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2NegotiatedVersion"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LocalAddr"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LocalPort"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LocalAs"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LocalIdentifier"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2RemotePort"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2RemoteAs"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2RemoteIdentifier"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2InUpdates"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2OutUpdates"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2InTotalMessages"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2OutTotalMessages"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LastError"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2FsmEstablishedTransitions"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2FsmEstablishedTime"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2ConnectRetryInterval"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2HoldTime"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2KeepAlive"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2HoldTimeConfigured"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2KeepAliveConfigured"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2MinASOriginationInterval"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2MinRouteAdvertisementInterval"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2InUpdateElapsedTime"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2LastErrorTxt"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrevState"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2CapValue"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2AddrFamilyName"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2AcceptedPrefixes"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2DeniedPrefixes"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixAdminLimit"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixThreshold"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixClearThreshold"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2AdvertisedPrefixes"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2SuppressedPrefixes"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2WithdrawnPrefixes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBgp4Peer2NotificationsGroup": {
+    "name": "ciscoBgp4Peer2NotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2EstablishedNotification"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2BackwardTransNotification"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2FsmStateChange"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2BackwardTransition"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixThresholdExceeded"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer2PrefixThresholdClear"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBgp4GlobalGroup": {
+    "name": "ciscoBgp4GlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.187.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpNotifsEnable"
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpLocalAs"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-BGP4-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-BGP4-MIB"
+  }
+}

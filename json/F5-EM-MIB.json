@@ -1,0 +1,860 @@
+{
+  "imports": {
+    "class": "imports",
+    "F5-BIGIP-COMMON-MIB": [
+      "f5",
+      "LongDisplayString",
+      "bigipCompliances",
+      "bigipGroups"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "IpAddress",
+      "Opaque",
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "enterpriseManagement": {
+    "name": "enterpriseManagement",
+    "oid": "1.3.6.1.4.1.3375.3",
+    "class": "moduleidentity"
+  },
+  "emDevices": {
+    "name": "emDevices",
+    "oid": "1.3.6.1.4.1.3375.3.1",
+    "class": "objectidentity"
+  },
+  "emDeviceGroups": {
+    "name": "emDeviceGroups",
+    "oid": "1.3.6.1.4.1.3375.3.2",
+    "class": "objectidentity"
+  },
+  "emImages": {
+    "name": "emImages",
+    "oid": "1.3.6.1.4.1.3375.3.3",
+    "class": "objectidentity"
+  },
+  "emArchives": {
+    "name": "emArchives",
+    "oid": "1.3.6.1.4.1.3375.3.4",
+    "class": "objectidentity"
+  },
+  "emGlobals": {
+    "name": "emGlobals",
+    "oid": "1.3.6.1.4.1.3375.3.5",
+    "class": "objectidentity"
+  },
+  "emAlert": {
+    "name": "emAlert",
+    "oid": "1.3.6.1.4.1.3375.3.6",
+    "class": "objectidentity"
+  },
+  "emAlerts": {
+    "name": "emAlerts",
+    "oid": "1.3.6.1.4.1.3375.3.6.0",
+    "class": "objectidentity"
+  },
+  "emAlertObjects": {
+    "name": "emAlertObjects",
+    "oid": "1.3.6.1.4.1.3375.3.6.1",
+    "class": "objectidentity"
+  },
+  "emAlertConfigObjects": {
+    "name": "emAlertConfigObjects",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.0",
+    "class": "objectidentity"
+  },
+  "emDeviceList": {
+    "name": "emDeviceList",
+    "oid": "1.3.6.1.4.1.3375.3.1.1",
+    "class": "objectidentity"
+  },
+  "deviceNumber": {
+    "name": "deviceNumber",
+    "oid": "1.3.6.1.4.1.3375.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceEntryTable": {
+    "name": "deviceEntryTable",
+    "oid": "1.3.6.1.4.1.3375.3.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deviceEntry": {
+    "name": "deviceEntry",
+    "oid": "1.3.6.1.4.1.3375.3.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "deviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceName": {
+    "name": "deviceName",
+    "oid": "1.3.6.1.4.1.3375.3.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceAddressType": {
+    "name": "deviceAddressType",
+    "oid": "1.3.6.1.4.1.3375.3.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceAddress": {
+    "name": "deviceAddress",
+    "oid": "1.3.6.1.4.1.3375.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupNumber": {
+    "name": "groupNumber",
+    "oid": "1.3.6.1.4.1.3375.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupEntryTable": {
+    "name": "groupEntryTable",
+    "oid": "1.3.6.1.4.1.3375.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "groupEntry": {
+    "name": "groupEntry",
+    "oid": "1.3.6.1.4.1.3375.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "groupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "groupName": {
+    "name": "groupName",
+    "oid": "1.3.6.1.4.1.3375.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupDescription": {
+    "name": "groupDescription",
+    "oid": "1.3.6.1.4.1.3375.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imageNumber": {
+    "name": "imageNumber",
+    "oid": "1.3.6.1.4.1.3375.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imageEntryTable": {
+    "name": "imageEntryTable",
+    "oid": "1.3.6.1.4.1.3375.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imageEntry": {
+    "name": "imageEntry",
+    "oid": "1.3.6.1.4.1.3375.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "imageVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imageVersion": {
+    "name": "imageVersion",
+    "oid": "1.3.6.1.4.1.3375.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imageDescription": {
+    "name": "imageDescription",
+    "oid": "1.3.6.1.4.1.3375.3.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "archiveNumber": {
+    "name": "archiveNumber",
+    "oid": "1.3.6.1.4.1.3375.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "archiveEntryTable": {
+    "name": "archiveEntryTable",
+    "oid": "1.3.6.1.4.1.3375.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "archiveEntry": {
+    "name": "archiveEntry",
+    "oid": "1.3.6.1.4.1.3375.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "archiveSourceDevice",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "archiveSourceDevice": {
+    "name": "archiveSourceDevice",
+    "oid": "1.3.6.1.4.1.3375.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "archiveProduct": {
+    "name": "archiveProduct",
+    "oid": "1.3.6.1.4.1.3375.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "archiveVersion": {
+    "name": "archiveVersion",
+    "oid": "1.3.6.1.4.1.3375.3.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "archiveTimeStamp": {
+    "name": "archiveTimeStamp",
+    "oid": "1.3.6.1.4.1.3375.3.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "archiveFilename": {
+    "name": "archiveFilename",
+    "oid": "1.3.6.1.4.1.3375.3.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "archiveDescription": {
+    "name": "archiveDescription",
+    "oid": "1.3.6.1.4.1.3375.3.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "emMaxConcurrentUpdates": {
+    "name": "emMaxConcurrentUpdates",
+    "oid": "1.3.6.1.4.1.3375.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "emRefreshInterval": {
+    "name": "emRefreshInterval",
+    "oid": "1.3.6.1.4.1.3375.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "emVersion": {
+    "name": "emVersion",
+    "oid": "1.3.6.1.4.1.3375.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "emAlertObjMsg": {
+    "name": "emAlertObjMsg",
+    "oid": "1.3.6.1.4.1.3375.3.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "emDeviceUnreachable": {
+    "name": "emDeviceUnreachable",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emSoftwareInstallComplete": {
+    "name": "emSoftwareInstallComplete",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emSoftwareInstallFailed": {
+    "name": "emSoftwareInstallFailed",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDeviceClockSkew": {
+    "name": "emDeviceClockSkew",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDiskUsage": {
+    "name": "emDiskUsage",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emMemoryUsage": {
+    "name": "emMemoryUsage",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emHotfixInstallComplete": {
+    "name": "emHotfixInstallComplete",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emHotfixInstallFailed": {
+    "name": "emHotfixInstallFailed",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emCpuUsage": {
+    "name": "emCpuUsage",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emCertificateExpiration": {
+    "name": "emCertificateExpiration",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emScheduledArchiveFailed": {
+    "name": "emScheduledArchiveFailed",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDeviceActiveMode": {
+    "name": "emDeviceActiveMode",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDeviceStandbyMode": {
+    "name": "emDeviceStandbyMode",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDeviceConfigSync": {
+    "name": "emDeviceConfigSync",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emRaidDriveFailureDetected": {
+    "name": "emRaidDriveFailureDetected",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emRaidDriveRebuildComplete": {
+    "name": "emRaidDriveRebuildComplete",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emHaSyncFailed": {
+    "name": "emHaSyncFailed",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emASMSigInstallComplete": {
+    "name": "emASMSigInstallComplete",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emASMSigInstallFailed": {
+    "name": "emASMSigInstallFailed",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emASMSigUpdateAvailable": {
+    "name": "emASMSigUpdateAvailable",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emASMSigUpdateFailed": {
+    "name": "emASMSigUpdateFailed",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emPerformanceStorageDays": {
+    "name": "emPerformanceStorageDays",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emPerformanceStorageCap": {
+    "name": "emPerformanceStorageCap",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emPerformanceThreshold": {
+    "name": "emPerformanceThreshold",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emSchedBackupFailed": {
+    "name": "emSchedBackupFailed",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emStatsCollectionRateCap": {
+    "name": "emStatsCollectionRateCap",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDeviceOfflineMode": {
+    "name": "emDeviceOfflineMode",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDeviceForcedOfflineMode": {
+    "name": "emDeviceForcedOfflineMode",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emServiceContractExpiry": {
+    "name": "emServiceContractExpiry",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emStatsDBConnectivityLost": {
+    "name": "emStatsDBConnectivityLost",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emGatherServiceContractFailure": {
+    "name": "emGatherServiceContractFailure",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDeviceImpaired": {
+    "name": "emDeviceImpaired",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emStatsDBConnectivityRestored": {
+    "name": "emStatsDBConnectivityRestored",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "emDeviceConfigSettingChanged": {
+    "name": "emDeviceConfigSettingChanged",
+    "oid": "1.3.6.1.4.1.3375.3.6.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-EM-MIB",
+        "object": "emAlertObjMsg"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-EM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F5-EM-MIB"
+  }
+}

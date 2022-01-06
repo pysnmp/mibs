@@ -1,0 +1,1706 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IEEE-802DOT17-RPR-MIB": [
+      "rprTopoImageInetAddress",
+      "rprTopoImageEntry",
+      "rprTopoImageMacAddress"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "hh3cRpr": {
+    "name": "hh3cRpr",
+    "oid": "1.3.6.1.4.1.25506.2.60",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-16 10:00",
+        "description": "First published version."
+      }
+    ]
+  },
+  "Hh3cRprRingletID": {
+    "name": "Hh3cRprRingletID",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ringlet0": 1,
+          "ringlet1": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cRprServiceClass": {
+    "name": "Hh3cRprServiceClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "classC": 1,
+          "classB": 2,
+          "classA1": 3,
+          "classA0": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cRprObjects": {
+    "name": "hh3cRprObjects",
+    "oid": "1.3.6.1.4.1.25506.2.60.1",
+    "class": "objectidentity"
+  },
+  "hh3cRprMaxmumDefine": {
+    "name": "hh3cRprMaxmumDefine",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cRprMaxmumDefineTable": {
+    "name": "hh3cRprMaxmumDefineTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprMaxmumDefineEntry": {
+    "name": "hh3cRprMaxmumDefineEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprMaxMumIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprMaxMumIfIndex": {
+    "name": "hh3cRprMaxMumIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprMaxStationNumDefine": {
+    "name": "hh3cRprMaxStationNumDefine",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprMaxReservedRateDefine": {
+    "name": "hh3cRprMaxReservedRateDefine",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprTopoImage": {
+    "name": "hh3cRprTopoImage",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cRprTopoImageXTable": {
+    "name": "hh3cRprTopoImageXTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprTopoImageXEntry": {
+    "name": "hh3cRprTopoImageXEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hh3cRprTopoImageXEntry",
+      "module": "HH3C-RPR-MIB",
+      "object": "rprTopoImageEntry"
+    },
+    "status": "current"
+  },
+  "hh3cRprTopoImageXWestEdgeStatus": {
+    "name": "hh3cRprTopoImageXWestEdgeStatus",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprTopoImageXEastEdgeStatus": {
+    "name": "hh3cRprTopoImageXEastEdgeStatus",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprTopoImageXStationName": {
+    "name": "hh3cRprTopoImageXStationName",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRprSpanCounters": {
+    "name": "hh3cRprSpanCounters",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cRprSrcMacCountTable": {
+    "name": "hh3cRprSrcMacCountTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprSrcMacCountEntry": {
+    "name": "hh3cRprSrcMacCountEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprSrcMacCountIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprSrcMacCountBySrcAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprSrcMacCountIfIndex": {
+    "name": "hh3cRprSrcMacCountIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprSrcMacCountBySrcAddress": {
+    "name": "hh3cRprSrcMacCountBySrcAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprSrcMacCountReceivedFrames": {
+    "name": "hh3cRprSrcMacCountReceivedFrames",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprSrcMacCountReceivedOctets": {
+    "name": "hh3cRprSrcMacCountReceivedOctets",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprDestMacCountTable": {
+    "name": "hh3cRprDestMacCountTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprDestMacCountEntry": {
+    "name": "hh3cRprDestMacCountEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprDestMacCountIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprDestMacCountByDestAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprDestMacCountIfIndex": {
+    "name": "hh3cRprDestMacCountIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprDestMacCountByDestAddress": {
+    "name": "hh3cRprDestMacCountByDestAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprDestMacCountReceivedFrames": {
+    "name": "hh3cRprDestMacCountReceivedFrames",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprDestMacCountReceivedOctets": {
+    "name": "hh3cRprDestMacCountReceivedOctets",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprPktDropCountTable": {
+    "name": "hh3cRprPktDropCountTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprPktDropCountEntry": {
+    "name": "hh3cRprPktDropCountEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprPktDropCntIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprPktDropCntRingletID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprPktDropCntIfIndex": {
+    "name": "hh3cRprPktDropCntIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprPktDropCntRingletID": {
+    "name": "hh3cRprPktDropCntRingletID",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprDownFlowClassAPktDrops": {
+    "name": "hh3cRprDownFlowClassAPktDrops",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprUpFlowClassAPktDrops": {
+    "name": "hh3cRprUpFlowClassAPktDrops",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprDownFlowClassBPktDrops": {
+    "name": "hh3cRprDownFlowClassBPktDrops",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprUpFlowClassBPktDrops": {
+    "name": "hh3cRprUpFlowClassBPktDrops",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprDownFlowClassCPktDrops": {
+    "name": "hh3cRprDownFlowClassCPktDrops",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprUpFlowClassCPktDrops": {
+    "name": "hh3cRprUpFlowClassCPktDrops",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprRS": {
+    "name": "hh3cRprRS",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cRprStaticRSTable": {
+    "name": "hh3cRprStaticRSTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprStaticRSEntry": {
+    "name": "hh3cRprStaticRSEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprStaticRSIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprStaticRSMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprStaticRSIfIndex": {
+    "name": "hh3cRprStaticRSIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprStaticRSMacAddress": {
+    "name": "hh3cRprStaticRSMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprStaticRSRingletID": {
+    "name": "hh3cRprStaticRSRingletID",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRprStaticRSTtl": {
+    "name": "hh3cRprStaticRSTtl",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprStaticRSValid": {
+    "name": "hh3cRprStaticRSValid",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprStaticRSRowStatus": {
+    "name": "hh3cRprStaticRSRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRprIpv4DynamicRSTable": {
+    "name": "hh3cRprIpv4DynamicRSTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv4DynamicRSEntry": {
+    "name": "hh3cRprIpv4DynamicRSEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprIpv4DynamicRSIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprIpv4DynamicRSMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprIpv4DynamicRSIfIndex": {
+    "name": "hh3cRprIpv4DynamicRSIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv4DynamicRSMacAddress": {
+    "name": "hh3cRprIpv4DynamicRSMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv4DynamicRSRingletID": {
+    "name": "hh3cRprIpv4DynamicRSRingletID",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprIpv4DynamicRSTtl": {
+    "name": "hh3cRprIpv4DynamicRSTtl",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprIpv6DynamicRSTable": {
+    "name": "hh3cRprIpv6DynamicRSTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv6DynamicRSEntry": {
+    "name": "hh3cRprIpv6DynamicRSEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprIpv6DynamicRSIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprIpv6DynamicRSMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprIpv6DynamicRSIfIndex": {
+    "name": "hh3cRprIpv6DynamicRSIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv6DynamicRSMacAddress": {
+    "name": "hh3cRprIpv6DynamicRSMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv6DynamicRSRingletID": {
+    "name": "hh3cRprIpv6DynamicRSRingletID",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprIpv6DynamicRSTtl": {
+    "name": "hh3cRprIpv6DynamicRSTtl",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprIpv4OverallRSTable": {
+    "name": "hh3cRprIpv4OverallRSTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv4OverallRSEntry": {
+    "name": "hh3cRprIpv4OverallRSEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprIpv4OverallRSIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprIpv4OverallRSMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprIpv4OverallRSIfIndex": {
+    "name": "hh3cRprIpv4OverallRSIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv4OverallRSMacAddress": {
+    "name": "hh3cRprIpv4OverallRSMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprIpv4OverallRSType": {
+    "name": "hh3cRprIpv4OverallRSType",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprIpv4OverallRSRingletID": {
+    "name": "hh3cRprIpv4OverallRSRingletID",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprIpv4OverallRSTtl": {
+    "name": "hh3cRprIpv4OverallRSTtl",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprVrrpRSTable": {
+    "name": "hh3cRprVrrpRSTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprVrrpRSEntry": {
+    "name": "hh3cRprVrrpRSEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprVrrpRSIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprVrrpRSVirtualMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprVrrpRSIfIndex": {
+    "name": "hh3cRprVrrpRSIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprVrrpRSVirtualMacAddress": {
+    "name": "hh3cRprVrrpRSVirtualMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprVrrpRSMacAddress": {
+    "name": "hh3cRprVrrpRSMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprVrrpRSRingletID": {
+    "name": "hh3cRprVrrpRSRingletID",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprVrrpRSTtl": {
+    "name": "hh3cRprVrrpRSTtl",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprDefaultRingIDTable": {
+    "name": "hh3cRprDefaultRingIDTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprDefaultRingIDEntry": {
+    "name": "hh3cRprDefaultRingIDEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprDefaultRingIDIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprDefaultRingIDIfIndex": {
+    "name": "hh3cRprDefaultRingIDIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprDefaultConfigRingletID": {
+    "name": "hh3cRprDefaultConfigRingletID",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRprDefaultActiveRingID": {
+    "name": "hh3cRprDefaultActiveRingID",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprDefect": {
+    "name": "hh3cRprDefect",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.5",
+    "class": "objectidentity"
+  },
+  "hh3cRprDefectReportTable": {
+    "name": "hh3cRprDefectReportTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprDefectReportEntry": {
+    "name": "hh3cRprDefectReportEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprDefectIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprDefectIfIndex": {
+    "name": "hh3cRprDefectIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprDefectCurrentStatus": {
+    "name": "hh3cRprDefectCurrentStatus",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "topologyOpenRing": 0,
+        "topoInstability": 1,
+        "topoInconsistent": 2,
+        "dulpMacAddress": 3,
+        "dulpIPAddress": 4,
+        "lrttDefect": 5,
+        "protCfgDefect": 6,
+        "jumboCfgDefect": 7,
+        "excessReservedRateDefect": 8,
+        "excessMaxStationNum": 9,
+        "miscabling": 10,
+        "backPressure": 11
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprPriorityMap": {
+    "name": "hh3cRprPriorityMap",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.6",
+    "class": "objectidentity"
+  },
+  "hh3cRprPriority2ClassMapTable": {
+    "name": "hh3cRprPriority2ClassMapTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprPriority2ClassMapEntry": {
+    "name": "hh3cRprPriority2ClassMapEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprPriority2ClassMapIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprPriority2ClassMapType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprPriorityValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprPriority2ClassMapIfIndex": {
+    "name": "hh3cRprPriority2ClassMapIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprPriority2ClassMapType": {
+    "name": "hh3cRprPriority2ClassMapType",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tag": 1,
+          "mpls": 2,
+          "ip": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprPriorityValue": {
+    "name": "hh3cRprPriorityValue",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pri0": 1,
+          "pri1": 2,
+          "pri2": 3,
+          "pri3": 4,
+          "pri4": 5,
+          "pri5": 6,
+          "pri6": 7,
+          "pri7": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprPriority2ClassMap": {
+    "name": "hh3cRprPriority2ClassMap",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprServiceClass",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRprRateLimitConfig": {
+    "name": "hh3cRprRateLimitConfig",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.7",
+    "class": "objectidentity"
+  },
+  "hh3cRprRateLimitConfigTable": {
+    "name": "hh3cRprRateLimitConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprRateLimitConfigEntry": {
+    "name": "hh3cRprRateLimitConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprRateLimitConfigIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprRateLimitConfigRingletId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprRateLimitConfigServiceClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprRateLimitConfigIfIndex": {
+    "name": "hh3cRprRateLimitConfigIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprRateLimitConfigRingletId": {
+    "name": "hh3cRprRateLimitConfigRingletId",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprRateLimitConfigServiceClass": {
+    "name": "hh3cRprRateLimitConfigServiceClass",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprServiceClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprRateLimitConfigValue": {
+    "name": "hh3cRprRateLimitConfigValue",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cRprMacAddrLearn": {
+    "name": "hh3cRprMacAddrLearn",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8",
+    "class": "objectidentity"
+  },
+  "hh3cRprMacLearnCfgTable": {
+    "name": "hh3cRprMacLearnCfgTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprMacLearnCfgEntry": {
+    "name": "hh3cRprMacLearnCfgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprMacLearnIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprMacLearnRprMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprMacLearnIfIndex": {
+    "name": "hh3cRprMacLearnIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprMacLearnRprMac": {
+    "name": "hh3cRprMacLearnRprMac",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprMacLearnType": {
+    "name": "hh3cRprMacLearnType",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRprMacLearnDestMac": {
+    "name": "hh3cRprMacLearnDestMac",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRprMacLearnVlanId": {
+    "name": "hh3cRprMacLearnVlanId",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRprMacLearnRinglet": {
+    "name": "hh3cRprMacLearnRinglet",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRprMacLearnTtl": {
+    "name": "hh3cRprMacLearnTtl",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprMacLearnIsValid": {
+    "name": "hh3cRprMacLearnIsValid",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cRprMacLearnRowStatus": {
+    "name": "hh3cRprMacLearnRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cRprTrapVar": {
+    "name": "hh3cRprTrapVar",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.9",
+    "class": "objectidentity"
+  },
+  "hh3cRprTrapVarTable": {
+    "name": "hh3cRprTrapVarTable",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cRprTrapVarEntry": {
+    "name": "hh3cRprTrapVarEntry",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprTrapIfIndex": {
+    "name": "hh3cRprTrapIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cRprTrapRinglet": {
+    "name": "hh3cRprTrapRinglet",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cRprRingletID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cRprTrapTopoMacAddress": {
+    "name": "hh3cRprTrapTopoMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cRprTrapIpAddress": {
+    "name": "hh3cRprTrapIpAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cRprTrap": {
+    "name": "hh3cRprTrap",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10",
+    "class": "objectidentity"
+  },
+  "hh3cRprTopologyOpenRing": {
+    "name": "hh3cRprTopologyOpenRing",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapRinglet"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprTopologyCloseRing": {
+    "name": "hh3cRprTopologyCloseRing",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapRinglet"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprTopologyInconsistent": {
+    "name": "hh3cRprTopologyInconsistent",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprTopologyInstability": {
+    "name": "hh3cRprTopologyInstability",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprDuplicateMacAddress": {
+    "name": "hh3cRprDuplicateMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapTopoMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprDulplicateIPAddress": {
+    "name": "hh3cRprDulplicateIPAddress",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprIncompleteLRTT": {
+    "name": "hh3cRprIncompleteLRTT",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprProtecConfigInconsistent": {
+    "name": "hh3cRprProtecConfigInconsistent",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprJumboConfigInconsistent": {
+    "name": "hh3cRprJumboConfigInconsistent",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprExceedMaxReservRate": {
+    "name": "hh3cRprExceedMaxReservRate",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapRinglet"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprExceedMaxStationNum": {
+    "name": "hh3cRprExceedMaxStationNum",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprMiscabling": {
+    "name": "hh3cRprMiscabling",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapRinglet"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprBackPressure": {
+    "name": "hh3cRprBackPressure",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapRinglet"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprPriority2ClassMap"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRprBackPressureOver": {
+    "name": "hh3cRprBackPressureOver",
+    "oid": "1.3.6.1.4.1.25506.2.60.1.10.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapIfIndex"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprTrapRinglet"
+      },
+      {
+        "module": "HH3C-RPR-MIB",
+        "object": "hh3cRprPriority2ClassMap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-RPR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-RPR-MIB"
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappNetflowMIB": {
+    "name": "ciscoLwappNetflowMIB",
+    "oid": "1.3.6.1.4.1.9.9.99996",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-06-12 00:00",
+        "description": "Initial version of this MIB module. "
+      }
+    ]
+  },
+  "ciscoLwappNetflowMIBNotifs": {
+    "name": "ciscoLwappNetflowMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.99996.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNetflowMIBObjects": {
+    "name": "ciscoLwappNetflowMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.99996.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNetflowMIBConform": {
+    "name": "ciscoLwappNetflowMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.99996.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNetflowTableObjects": {
+    "name": "ciscoLwappNetflowTableObjects",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1",
+    "class": "objectidentity"
+  },
+  "cLNetflowMonitorTable": {
+    "name": "cLNetflowMonitorTable",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNetflowMonitorEntry": {
+    "name": "cLNetflowMonitorEntry",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowMonitorName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLNetflowMonitorName": {
+    "name": "cLNetflowMonitorName",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNetflowMonitorRecordName": {
+    "name": "cLNetflowMonitorRecordName",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNetflowMonitorRowStatus": {
+    "name": "cLNetflowMonitorRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNetflowExporterTable": {
+    "name": "cLNetflowExporterTable",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNetflowExporterEntry": {
+    "name": "cLNetflowExporterEntry",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowExporterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLNetflowExporterName": {
+    "name": "cLNetflowExporterName",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNetflowExporterIPAddressType": {
+    "name": "cLNetflowExporterIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNetflowExporterIPAddress": {
+    "name": "cLNetflowExporterIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNetflowExporterPortNumber": {
+    "name": "cLNetflowExporterPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNetflowExporterRowStatus": {
+    "name": "cLNetflowExporterRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLNetflowMonitorMappingTable": {
+    "name": "cLNetflowMonitorMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNetflowMonitorMappingEntry": {
+    "name": "cLNetflowMonitorMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowMonitorName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowMonitorMappingExporterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLNetflowMonitorMappingExporterName": {
+    "name": "cLNetflowMonitorMappingExporterName",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLNetflowMonitorMappingRowStatus": {
+    "name": "cLNetflowMonitorMappingRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.99996.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLwappNetflowMIBCompliances": {
+    "name": "ciscoLwappNetflowMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.99996.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNetflowMIBGroups": {
+    "name": "ciscoLwappNetflowMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.99996.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappNetflowMIBCompliance": {
+    "name": "ciscoLwappNetflowMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.99996.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLNetflowConfigGroup",
+        "module": "CISCO-LWAPP-NETFLOW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cLNetflowConfigGroup": {
+    "name": "cLNetflowConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.99996.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowMonitorRecordName"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowMonitorRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowExporterName"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowExporterIPAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowExporterIPAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowExporterPortNumber"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowExporterRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowMonitorMappingExporterName"
+      },
+      {
+        "module": "CISCO-LWAPP-NETFLOW-MIB",
+        "object": "cLNetflowMonitorMappingRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-NETFLOW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-NETFLOW-MIB"
+  }
+}

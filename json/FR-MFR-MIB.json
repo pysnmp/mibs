@@ -1,0 +1,1034 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "transmission",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr"
+    ]
+  },
+  "mfrMib": {
+    "name": "mfrMib",
+    "oid": "1.3.6.1.2.1.10.47",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-11-30 00:00",
+        "description": "Published as RFC 3020."
+      }
+    ]
+  },
+  "MfrBundleLinkState": {
+    "name": "MfrBundleLinkState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mfrBundleLinkStateAddSent": 1,
+          "mfrBundleLinkStateAddRx": 2,
+          "mfrBundleLinkStateAddAckRx": 3,
+          "mfrBundleLinkStateUp": 4,
+          "mfrBundleLinkStateIdlePending": 5,
+          "mfrBundleLinkStateIdle": 6,
+          "mfrBundleLinkStateDown": 7,
+          "mfrBundleLinkStateDownIdle": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mfrMibScalarObjects": {
+    "name": "mfrMibScalarObjects",
+    "oid": "1.3.6.1.2.1.10.47.1",
+    "class": "objectidentity"
+  },
+  "mfrMibBundleObjects": {
+    "name": "mfrMibBundleObjects",
+    "oid": "1.3.6.1.2.1.10.47.2",
+    "class": "objectidentity"
+  },
+  "mfrMibBundleLinkObjects": {
+    "name": "mfrMibBundleLinkObjects",
+    "oid": "1.3.6.1.2.1.10.47.3",
+    "class": "objectidentity"
+  },
+  "mfrMibTraps": {
+    "name": "mfrMibTraps",
+    "oid": "1.3.6.1.2.1.10.47.4",
+    "class": "objectidentity"
+  },
+  "mfrMibConformance": {
+    "name": "mfrMibConformance",
+    "oid": "1.3.6.1.2.1.10.47.5",
+    "class": "objectidentity"
+  },
+  "mfrMibTrapsPrefix": {
+    "name": "mfrMibTrapsPrefix",
+    "oid": "1.3.6.1.2.1.10.47.4.0",
+    "class": "objectidentity"
+  },
+  "mfrMibGroups": {
+    "name": "mfrMibGroups",
+    "oid": "1.3.6.1.2.1.10.47.5.1",
+    "class": "objectidentity"
+  },
+  "mfrMibCompliances": {
+    "name": "mfrMibCompliances",
+    "oid": "1.3.6.1.2.1.10.47.5.2",
+    "class": "objectidentity"
+  },
+  "mfrBundleMaxNumBundles": {
+    "name": "mfrBundleMaxNumBundles",
+    "oid": "1.3.6.1.2.1.10.47.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleNextIndex": {
+    "name": "mfrBundleNextIndex",
+    "oid": "1.3.6.1.2.1.10.47.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mfrBundleTable": {
+    "name": "mfrBundleTable",
+    "oid": "1.3.6.1.2.1.10.47.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mfrBundleEntry": {
+    "name": "mfrBundleEntry",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mfrBundleIndex": {
+    "name": "mfrBundleIndex",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mfrBundleIfIndex": {
+    "name": "mfrBundleIfIndex",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleRowStatus": {
+    "name": "mfrBundleRowStatus",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleNearEndName": {
+    "name": "mfrBundleNearEndName",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleFragmentation": {
+    "name": "mfrBundleFragmentation",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleMaxFragSize": {
+    "name": "mfrBundleMaxFragSize",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 8184
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "units": "Octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleTimerHello": {
+    "name": "mfrBundleTimerHello",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleTimerAck": {
+    "name": "mfrBundleTimerAck",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleCountMaxRetry": {
+    "name": "mfrBundleCountMaxRetry",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleActivationClass": {
+    "name": "mfrBundleActivationClass",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mfrBundleActivationClassA": 1,
+          "mfrBundleActivationClassB": 2,
+          "mfrBundleActivationClassC": 3,
+          "mfrBundleActivationClassD": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mfrBundleActivationClassA",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleThreshold": {
+    "name": "mfrBundleThreshold",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "units": "Bundle Links",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleMaxDiffDelay": {
+    "name": "mfrBundleMaxDiffDelay",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "units": "Milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleSeqNumSize": {
+    "name": "mfrBundleSeqNumSize",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "seqNumSize12bit": 1,
+          "seqNumSize24bit": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "seqNumSize12bit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleMaxBundleLinks": {
+    "name": "mfrBundleMaxBundleLinks",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bundle Links",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinksConfigured": {
+    "name": "mfrBundleLinksConfigured",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bundle Links",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinksActive": {
+    "name": "mfrBundleLinksActive",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bundle Links",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleBandwidth": {
+    "name": "mfrBundleBandwidth",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Bits/Sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleFarEndName": {
+    "name": "mfrBundleFarEndName",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleResequencingErrors": {
+    "name": "mfrBundleResequencingErrors",
+    "oid": "1.3.6.1.2.1.10.47.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Error Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleIfIndexMappingTable": {
+    "name": "mfrBundleIfIndexMappingTable",
+    "oid": "1.3.6.1.2.1.10.47.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mfrBundleIfIndexMappingEntry": {
+    "name": "mfrBundleIfIndexMappingEntry",
+    "oid": "1.3.6.1.2.1.10.47.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mfrBundleIfIndexMappingIndex": {
+    "name": "mfrBundleIfIndexMappingIndex",
+    "oid": "1.3.6.1.2.1.10.47.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkTable": {
+    "name": "mfrBundleLinkTable",
+    "oid": "1.3.6.1.2.1.10.47.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mfrBundleLinkEntry": {
+    "name": "mfrBundleLinkEntry",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mfrBundleLinkRowStatus": {
+    "name": "mfrBundleLinkRowStatus",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleLinkConfigBundleIndex": {
+    "name": "mfrBundleLinkConfigBundleIndex",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleLinkNearEndName": {
+    "name": "mfrBundleLinkNearEndName",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mfrBundleLinkState": {
+    "name": "mfrBundleLinkState",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MfrBundleLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkFarEndName": {
+    "name": "mfrBundleLinkFarEndName",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkFarEndBundleName": {
+    "name": "mfrBundleLinkFarEndBundleName",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkDelay": {
+    "name": "mfrBundleLinkDelay",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkFramesControlTx": {
+    "name": "mfrBundleLinkFramesControlTx",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkFramesControlRx": {
+    "name": "mfrBundleLinkFramesControlRx",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkFramesControlInvalid": {
+    "name": "mfrBundleLinkFramesControlInvalid",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkTimerExpiredCount": {
+    "name": "mfrBundleLinkTimerExpiredCount",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Timer Expiration Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkLoopbackSuspected": {
+    "name": "mfrBundleLinkLoopbackSuspected",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Loopback Suspected Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkUnexpectedSequence": {
+    "name": "mfrBundleLinkUnexpectedSequence",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrBundleLinkMismatch": {
+    "name": "mfrBundleLinkMismatch",
+    "oid": "1.3.6.1.2.1.10.47.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bundle Name Mismatch Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mfrMibTrapBundleLinkMismatch": {
+    "name": "mfrMibTrapBundleLinkMismatch",
+    "oid": "1.3.6.1.2.1.10.47.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleNearEndName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleFarEndName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkNearEndName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkFarEndName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkFarEndBundleName"
+      }
+    ],
+    "status": "current"
+  },
+  "mfrMibCompliance": {
+    "name": "mfrMibCompliance",
+    "oid": "1.3.6.1.2.1.10.47.5.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mfrMibBundleGroup",
+        "module": "FR-MFR-MIB"
+      },
+      {
+        "object": "mfrMibBundleLinkGroup",
+        "module": "FR-MFR-MIB"
+      },
+      {
+        "object": "mfrMibTrapGroup",
+        "module": "FR-MFR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mfrMibBundleGroup": {
+    "name": "mfrMibBundleGroup",
+    "oid": "1.3.6.1.2.1.10.47.5.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleMaxNumBundles"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleNextIndex"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleIfIndex"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleRowStatus"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleNearEndName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleFragmentation"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleMaxFragSize"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleTimerHello"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleTimerAck"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleCountMaxRetry"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleActivationClass"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleThreshold"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleMaxDiffDelay"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleMaxBundleLinks"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinksConfigured"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinksActive"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleBandwidth"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleSeqNumSize"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleFarEndName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleResequencingErrors"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleIfIndexMappingIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mfrMibBundleLinkGroup": {
+    "name": "mfrMibBundleLinkGroup",
+    "oid": "1.3.6.1.2.1.10.47.5.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkRowStatus"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkConfigBundleIndex"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkNearEndName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkState"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkFarEndName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkFarEndBundleName"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkDelay"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkFramesControlTx"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkFramesControlRx"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkFramesControlInvalid"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkTimerExpiredCount"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkLoopbackSuspected"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkUnexpectedSequence"
+      },
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrBundleLinkMismatch"
+      }
+    ],
+    "status": "current"
+  },
+  "mfrMibTrapGroup": {
+    "name": "mfrMibTrapGroup",
+    "oid": "1.3.6.1.2.1.10.47.5.1.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FR-MFR-MIB",
+        "object": "mfrMibTrapBundleLinkMismatch"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/FR-MFR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FR-MFR-MIB"
+  }
+}

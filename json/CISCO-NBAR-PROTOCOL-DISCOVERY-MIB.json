@@ -1,0 +1,1456 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoNbarProtocolDiscoveryMIB": {
+    "name": "ciscoNbarProtocolDiscoveryMIB",
+    "oid": "1.3.6.1.4.1.9.9.244",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-08-16 00:00",
+        "description": "Added comment that cnpdStatusLastUpdateTime becomes zero when PD disabled. Added comment that during overflow in cnpdAllStatsTable, the 32 bit counter not valid. There is no overflow support for it. One should only use the HC (64 bit) counters to get the stats in cnpdAllStatsTable Default cnpdTopNConfigStatsSelect changed from 'bitRateSum' to 'byteCountSum'. Added better rowStatus descriptions to TopNConfig and ThresholdConfig tables. Added comment to explain what TopNSampleTime really does - i.e only changes sample time for bitrate on an interface. Changed sizes of TopN and Threshold tables according to memory requirements and recommendations from various platforms. Added following objects to cnpdThresholdHistoryTable: cnpdThresholdHistoryValue cnpdThresholdHistoryType cnpdThresholdHistoryProtocol cnpdThresholdHistoryStatsSelect Changed reported objects in Notification Table to reflect changes in cnpdThresholdHistoryTable."
+      },
+      {
+        "revision": "2001-12-28 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "CiscoPdProtocolIndex": {
+    "name": "CiscoPdProtocolIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CiscoPdProtocolName": {
+    "name": "CiscoPdProtocolName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoPdDataType": {
+    "name": "CiscoPdDataType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bitRateIn": 1,
+          "bitRateOut": 2,
+          "bitRateSum": 3,
+          "byteCountIn": 4,
+          "byteCountOut": 5,
+          "byteCountSum": 6,
+          "packetCountIn": 7,
+          "packetCountOut": 8,
+          "packetCountSum": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cnpdMIBNotifications": {
+    "name": "cnpdMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.244.0",
+    "class": "objectidentity"
+  },
+  "cnpdMIBObjects": {
+    "name": "cnpdMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.244.1",
+    "class": "objectidentity"
+  },
+  "cnpdMIBConformance": {
+    "name": "cnpdMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.244.2",
+    "class": "objectidentity"
+  },
+  "cnpdStatus": {
+    "name": "cnpdStatus",
+    "oid": "1.3.6.1.4.1.9.9.244.1.1",
+    "class": "objectidentity"
+  },
+  "cnpdAllStats": {
+    "name": "cnpdAllStats",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2",
+    "class": "objectidentity"
+  },
+  "cnpdTopNConfig": {
+    "name": "cnpdTopNConfig",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3",
+    "class": "objectidentity"
+  },
+  "cnpdTopNStats": {
+    "name": "cnpdTopNStats",
+    "oid": "1.3.6.1.4.1.9.9.244.1.4",
+    "class": "objectidentity"
+  },
+  "cnpdThresholdConfig": {
+    "name": "cnpdThresholdConfig",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5",
+    "class": "objectidentity"
+  },
+  "cnpdThresholdHistory": {
+    "name": "cnpdThresholdHistory",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6",
+    "class": "objectidentity"
+  },
+  "cnpdNotificationsConfig": {
+    "name": "cnpdNotificationsConfig",
+    "oid": "1.3.6.1.4.1.9.9.244.1.7",
+    "class": "objectidentity"
+  },
+  "cnpdSupportedProtocols": {
+    "name": "cnpdSupportedProtocols",
+    "oid": "1.3.6.1.4.1.9.9.244.1.8",
+    "class": "objectidentity"
+  },
+  "cnpdMIBCompliances": {
+    "name": "cnpdMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.244.2.1",
+    "class": "objectidentity"
+  },
+  "cnpdMIBGroups": {
+    "name": "cnpdMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.244.2.2",
+    "class": "objectidentity"
+  },
+  "cnpdSupportedProtocolsTable": {
+    "name": "cnpdSupportedProtocolsTable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdSupportedProtocolsEntry": {
+    "name": "cnpdSupportedProtocolsEntry",
+    "oid": "1.3.6.1.4.1.9.9.244.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdSupportedProtocolsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdSupportedProtocolsIndex": {
+    "name": "cnpdSupportedProtocolsIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdSupportedProtocolsName": {
+    "name": "cnpdSupportedProtocolsName",
+    "oid": "1.3.6.1.4.1.9.9.244.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdStatusTable": {
+    "name": "cnpdStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdStatusEntry": {
+    "name": "cnpdStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.244.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdStatusPdEnable": {
+    "name": "cnpdStatusPdEnable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnpdStatusLastUpdateTime": {
+    "name": "cnpdStatusLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.244.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsTable": {
+    "name": "cnpdAllStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdAllStatsEntry": {
+    "name": "cnpdAllStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsProtocolsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdAllStatsProtocolsIndex": {
+    "name": "cnpdAllStatsProtocolsIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdAllStatsProtocolName": {
+    "name": "cnpdAllStatsProtocolName",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsInPkts": {
+    "name": "cnpdAllStatsInPkts",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsOutPkts": {
+    "name": "cnpdAllStatsOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsInBytes": {
+    "name": "cnpdAllStatsInBytes",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsOutBytes": {
+    "name": "cnpdAllStatsOutBytes",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsHCInPkts": {
+    "name": "cnpdAllStatsHCInPkts",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsHCOutPkts": {
+    "name": "cnpdAllStatsHCOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsHCInBytes": {
+    "name": "cnpdAllStatsHCInBytes",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsHCOutBytes": {
+    "name": "cnpdAllStatsHCOutBytes",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsInBitRate": {
+    "name": "cnpdAllStatsInBitRate",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilo bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdAllStatsOutBitRate": {
+    "name": "cnpdAllStatsOutBitRate",
+    "oid": "1.3.6.1.4.1.9.9.244.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilo bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdTopNConfigTable": {
+    "name": "cnpdTopNConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdTopNConfigEntry": {
+    "name": "cnpdTopNConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdTopNConfigIndex": {
+    "name": "cnpdTopNConfigIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdTopNConfigIfIndex": {
+    "name": "cnpdTopNConfigIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdTopNConfigStatsSelect": {
+    "name": "cnpdTopNConfigStatsSelect",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdDataType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "byteCountSum",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdTopNConfigSampleTime": {
+    "name": "cnpdTopNConfigSampleTime",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdTopNConfigRequestedSize": {
+    "name": "cnpdTopNConfigRequestedSize",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdTopNConfigGrantedSize": {
+    "name": "cnpdTopNConfigGrantedSize",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdTopNConfigTime": {
+    "name": "cnpdTopNConfigTime",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdTopNConfigStatus": {
+    "name": "cnpdTopNConfigStatus",
+    "oid": "1.3.6.1.4.1.9.9.244.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdTopNStatsTable": {
+    "name": "cnpdTopNStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdTopNStatsEntry": {
+    "name": "cnpdTopNStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.244.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdTopNStatsIndex": {
+    "name": "cnpdTopNStatsIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdTopNStatsProtocolName": {
+    "name": "cnpdTopNStatsProtocolName",
+    "oid": "1.3.6.1.4.1.9.9.244.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdTopNStatsRate": {
+    "name": "cnpdTopNStatsRate",
+    "oid": "1.3.6.1.4.1.9.9.244.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdTopNStatsHCRate": {
+    "name": "cnpdTopNStatsHCRate",
+    "oid": "1.3.6.1.4.1.9.9.244.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdThresholdConfigTable": {
+    "name": "cnpdThresholdConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdThresholdConfigEntry": {
+    "name": "cnpdThresholdConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdThresholdConfigIndex": {
+    "name": "cnpdThresholdConfigIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdThresholdConfigIfIndex": {
+    "name": "cnpdThresholdConfigIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigInterval": {
+    "name": "cnpdThresholdConfigInterval",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigSampleType": {
+    "name": "cnpdThresholdConfigSampleType",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "absoluteValue",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigProtocol": {
+    "name": "cnpdThresholdConfigProtocol",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigProtocolAny": {
+    "name": "cnpdThresholdConfigProtocolAny",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigStatsSelect": {
+    "name": "cnpdThresholdConfigStatsSelect",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdDataType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "bitRateSum",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigStartup": {
+    "name": "cnpdThresholdConfigStartup",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rising": 1,
+          "falling": 2,
+          "risingOrFalling": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "risingOrFalling",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigRising": {
+    "name": "cnpdThresholdConfigRising",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigFalling": {
+    "name": "cnpdThresholdConfigFalling",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdConfigStatus": {
+    "name": "cnpdThresholdConfigStatus",
+    "oid": "1.3.6.1.4.1.9.9.244.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnpdThresholdHistoryTable": {
+    "name": "cnpdThresholdHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdThresholdHistoryEntry": {
+    "name": "cnpdThresholdHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdThresholdHistoryIndex": {
+    "name": "cnpdThresholdHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnpdThresholdHistoryConfigIndex": {
+    "name": "cnpdThresholdHistoryConfigIndex",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdThresholdHistoryValue": {
+    "name": "cnpdThresholdHistoryValue",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdThresholdHistoryType": {
+    "name": "cnpdThresholdHistoryType",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingBreach": 1,
+          "fallingBreach": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdThresholdHistoryTime": {
+    "name": "cnpdThresholdHistoryTime",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdThresholdHistoryProtocol": {
+    "name": "cnpdThresholdHistoryProtocol",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdThresholdHistoryStatsSelect": {
+    "name": "cnpdThresholdHistoryStatsSelect",
+    "oid": "1.3.6.1.4.1.9.9.244.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdDataType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnpdNotificationsEnable": {
+    "name": "cnpdNotificationsEnable",
+    "oid": "1.3.6.1.4.1.9.9.244.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnpdThresholdRisingEvent": {
+    "name": "cnpdThresholdRisingEvent",
+    "oid": "1.3.6.1.4.1.9.9.244.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigIfIndex"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigStatsSelect"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryValue"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigRising"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigProtocol"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdThresholdFallingEvent": {
+    "name": "cnpdThresholdFallingEvent",
+    "oid": "1.3.6.1.4.1.9.9.244.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigIfIndex"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigStatsSelect"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryValue"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigFalling"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigProtocol"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdMIBCompliance": {
+    "name": "cnpdMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.244.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cnpdStatsGroup",
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+      },
+      {
+        "object": "cnpdTopNGroup",
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+      },
+      {
+        "object": "cnpdThresholdGroup",
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+      },
+      {
+        "object": "cnpdMIBNotificationsGroup",
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+      },
+      {
+        "object": "cnpdMIBNotificationsConfigGroup",
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+      },
+      {
+        "object": "cnpdSupportedProtocolsGroup",
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdStatsGroup": {
+    "name": "cnpdStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.244.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdStatusPdEnable"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdStatusLastUpdateTime"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsProtocolName"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsInPkts"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsOutPkts"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsInBytes"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsOutBytes"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsHCInPkts"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsHCOutPkts"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsHCInBytes"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsHCOutBytes"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsInBitRate"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdAllStatsOutBitRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdTopNGroup": {
+    "name": "cnpdTopNGroup",
+    "oid": "1.3.6.1.4.1.9.9.244.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigIfIndex"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigStatsSelect"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigRequestedSize"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigSampleTime"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigGrantedSize"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigTime"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNConfigStatus"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNStatsProtocolName"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNStatsRate"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdTopNStatsHCRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdThresholdGroup": {
+    "name": "cnpdThresholdGroup",
+    "oid": "1.3.6.1.4.1.9.9.244.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigIfIndex"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigInterval"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigSampleType"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigProtocol"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigStatsSelect"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigProtocolAny"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigStartup"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigRising"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigFalling"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdConfigStatus"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryConfigIndex"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryValue"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryType"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryTime"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryProtocol"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdHistoryStatsSelect"
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdMIBNotificationsGroup": {
+    "name": "cnpdMIBNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.244.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdRisingEvent"
+      },
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdThresholdFallingEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdMIBNotificationsConfigGroup": {
+    "name": "cnpdMIBNotificationsConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.244.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdNotificationsEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cnpdSupportedProtocolsGroup": {
+    "name": "cnpdSupportedProtocolsGroup",
+    "oid": "1.3.6.1.4.1.9.9.244.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+        "object": "cnpdSupportedProtocolsName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+  }
+}

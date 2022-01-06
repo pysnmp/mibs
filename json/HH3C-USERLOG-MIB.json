@@ -1,0 +1,1065 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cRhw"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cUserLogMIB": {
+    "name": "hh3cUserLogMIB",
+    "oid": "1.3.6.1.4.1.25506.8.18",
+    "class": "moduleidentity"
+  },
+  "hh3cUserlogObjects": {
+    "name": "hh3cUserlogObjects",
+    "oid": "1.3.6.1.4.1.25506.8.18.1",
+    "class": "objectidentity"
+  },
+  "hh3cUserlogNatObjects": {
+    "name": "hh3cUserlogNatObjects",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cUserlogNatVersion": {
+    "name": "hh3cUserlogNatVersion",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogNatSyslog": {
+    "name": "hh3cUserlogNatSyslog",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNatSourceIP": {
+    "name": "hh3cUserlogNatSourceIP",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNatFlowBegin": {
+    "name": "hh3cUserlogNatFlowBegin",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNatActiveTime": {
+    "name": "hh3cUserlogNatActiveTime",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNatSlotCfgInfoTable": {
+    "name": "hh3cUserlogNatSlotCfgInfoTable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserlogNatSlotCfgInfoEntry": {
+    "name": "hh3cUserlogNatSlotCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatCfgSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogNatCfgSlotNumber": {
+    "name": "hh3cUserlogNatCfgSlotNumber",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogNatEnable": {
+    "name": "hh3cUserlogNatEnable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNatAclNumber": {
+    "name": "hh3cUserlogNatAclNumber",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNatHostAddress": {
+    "name": "hh3cUserlogNatHostAddress",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNatUdpPort": {
+    "name": "hh3cUserlogNatUdpPort",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNatSlotRunInfoTable": {
+    "name": "hh3cUserlogNatSlotRunInfoTable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserlogNatSlotRunInfoEntry": {
+    "name": "hh3cUserlogNatSlotRunInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatRunSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogNatRunSlotNumber": {
+    "name": "hh3cUserlogNatRunSlotNumber",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogNatTotalEntries": {
+    "name": "hh3cUserlogNatTotalEntries",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogNatTotalPackets": {
+    "name": "hh3cUserlogNatTotalPackets",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogNatFailedEntries": {
+    "name": "hh3cUserlogNatFailedEntries",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogNatFailedPackets": {
+    "name": "hh3cUserlogNatFailedPackets",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogNatClearRunStat": {
+    "name": "hh3cUserlogNatClearRunStat",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowObjects": {
+    "name": "hh3cUserlogFlowObjects",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cUserlogFlowVersion": {
+    "name": "hh3cUserlogFlowVersion",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogFlowSyslog": {
+    "name": "hh3cUserlogFlowSyslog",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowSourceIP": {
+    "name": "hh3cUserlogFlowSourceIP",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowFlowBegin": {
+    "name": "hh3cUserlogFlowFlowBegin",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowActiveTime": {
+    "name": "hh3cUserlogFlowActiveTime",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowSlotCfgInfoTable": {
+    "name": "hh3cUserlogFlowSlotCfgInfoTable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserlogFlowSlotCfgInfoEntry": {
+    "name": "hh3cUserlogFlowSlotCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowCfgSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogFlowCfgSlotNumber": {
+    "name": "hh3cUserlogFlowCfgSlotNumber",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogFlowEnable": {
+    "name": "hh3cUserlogFlowEnable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowAclNumber": {
+    "name": "hh3cUserlogFlowAclNumber",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowHostAddress": {
+    "name": "hh3cUserlogFlowHostAddress",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowUdpPort": {
+    "name": "hh3cUserlogFlowUdpPort",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogFlowSlotRunInfoTable": {
+    "name": "hh3cUserlogFlowSlotRunInfoTable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserlogFlowSlotRunInfoEntry": {
+    "name": "hh3cUserlogFlowSlotRunInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowRunSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogFlowRunSlotNumber": {
+    "name": "hh3cUserlogFlowRunSlotNumber",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogFlowTotalEntries": {
+    "name": "hh3cUserlogFlowTotalEntries",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogFlowTotalPackets": {
+    "name": "hh3cUserlogFlowTotalPackets",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogFlowFailedEntries": {
+    "name": "hh3cUserlogFlowFailedEntries",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogFlowFailedPackets": {
+    "name": "hh3cUserlogFlowFailedPackets",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogFlowClearRunStat": {
+    "name": "hh3cUserlogFlowClearRunStat",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogAccessObjects": {
+    "name": "hh3cUserlogAccessObjects",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cUserlogAccessVersion": {
+    "name": "hh3cUserlogAccessVersion",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogAccessSyslog": {
+    "name": "hh3cUserlogAccessSyslog",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogAccessSourceIP": {
+    "name": "hh3cUserlogAccessSourceIP",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogAccessSlotCfgInfoTable": {
+    "name": "hh3cUserlogAccessSlotCfgInfoTable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserlogAccessSlotCfgInfoEntry": {
+    "name": "hh3cUserlogAccessSlotCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessCfgSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogAccessCfgSlotNumber": {
+    "name": "hh3cUserlogAccessCfgSlotNumber",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogAccessEnable": {
+    "name": "hh3cUserlogAccessEnable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogAccessHostAddress": {
+    "name": "hh3cUserlogAccessHostAddress",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogAccessUdpPort": {
+    "name": "hh3cUserlogAccessUdpPort",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogAccessSlotRunInfoTable": {
+    "name": "hh3cUserlogAccessSlotRunInfoTable",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserlogAccessSlotRunInfoEntry": {
+    "name": "hh3cUserlogAccessSlotRunInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessRunSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogAccessRunSlotNumber": {
+    "name": "hh3cUserlogAccessRunSlotNumber",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogAccessTotalEntries": {
+    "name": "hh3cUserlogAccessTotalEntries",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogAccessTotalPackets": {
+    "name": "hh3cUserlogAccessTotalPackets",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogAccessFailedEntries": {
+    "name": "hh3cUserlogAccessFailedEntries",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogAccessFailedPackets": {
+    "name": "hh3cUserlogAccessFailedPackets",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserlogAccessClearRunStat": {
+    "name": "hh3cUserlogAccessClearRunStat",
+    "oid": "1.3.6.1.4.1.25506.8.18.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserlogNotifications": {
+    "name": "hh3cUserlogNotifications",
+    "oid": "1.3.6.1.4.1.25506.8.18.2",
+    "class": "objectidentity"
+  },
+  "hh3cUserlogConformance": {
+    "name": "hh3cUserlogConformance",
+    "oid": "1.3.6.1.4.1.25506.8.18.3",
+    "class": "objectidentity"
+  },
+  "hh3cUserlogCompliances": {
+    "name": "hh3cUserlogCompliances",
+    "oid": "1.3.6.1.4.1.25506.8.18.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cUserlogCompliance": {
+    "name": "hh3cUserlogCompliance",
+    "oid": "1.3.6.1.4.1.25506.8.18.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cUserlogMandatoryGroup",
+        "module": "HH3C-USERLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogGroups": {
+    "name": "hh3cUserlogGroups",
+    "oid": "1.3.6.1.4.1.25506.8.18.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cUserlogMandatoryGroup": {
+    "name": "hh3cUserlogMandatoryGroup",
+    "oid": "1.3.6.1.4.1.25506.8.18.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatEnable"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatHostAddress"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatUdpPort"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowEnable"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowHostAddress"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowUdpPort"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessEnable"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessHostAddress"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessUdpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogConfigGroup": {
+    "name": "hh3cUserlogConfigGroup",
+    "oid": "1.3.6.1.4.1.25506.8.18.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatVersion"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatSyslog"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatSourceIP"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatFlowBegin"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatActiveTime"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatCfgSlotNumber"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatEnable"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatAclNumber"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatHostAddress"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatUdpPort"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowVersion"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowSyslog"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowSourceIP"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowFlowBegin"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowActiveTime"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowCfgSlotNumber"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowEnable"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowAclNumber"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowHostAddress"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowUdpPort"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessVersion"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessSyslog"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessSourceIP"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessCfgSlotNumber"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessEnable"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessHostAddress"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessUdpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserlogInfoGroup": {
+    "name": "hh3cUserlogInfoGroup",
+    "oid": "1.3.6.1.4.1.25506.8.18.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatTotalEntries"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatTotalPackets"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatFailedEntries"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogNatFailedPackets"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowTotalEntries"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowTotalPackets"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowFailedEntries"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogFlowFailedPackets"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessTotalEntries"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessTotalPackets"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessFailedEntries"
+      },
+      {
+        "module": "HH3C-USERLOG-MIB",
+        "object": "hh3cUserlogAccessFailedPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-USERLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-USERLOG-MIB"
+  }
+}

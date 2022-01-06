@@ -1,0 +1,1010 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "dasanMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "mib-2",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "BITS"
+    ],
+    "SNMPv2-TC": [
+      "TestAndIncr",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "AutonomousType",
+      "DisplayString"
+    ]
+  },
+  "dasanAccessMib": {
+    "name": "dasanAccessMib",
+    "oid": "1.3.6.1.4.1.6296.9.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-11 21:00",
+        "description": "Initial Version by Jeon."
+      }
+    ]
+  },
+  "dasanAccGatewayMIBObjects": {
+    "name": "dasanAccGatewayMIBObjects",
+    "oid": "1.3.6.1.4.1.6296.9.100.2",
+    "class": "objectidentity"
+  },
+  "dsAccGwyH248": {
+    "name": "dsAccGwyH248",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3",
+    "class": "objectidentity"
+  },
+  "dsAccGwyH248Configuration": {
+    "name": "dsAccGwyH248Configuration",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1",
+    "class": "objectidentity"
+  },
+  "dsAccGwyH248Monitor": {
+    "name": "dsAccGwyH248Monitor",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2",
+    "class": "objectidentity"
+  },
+  "dsAccGwyH248Control": {
+    "name": "dsAccGwyH248Control",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.3",
+    "class": "objectidentity"
+  },
+  "dsAccGwyConfigH248Slot": {
+    "name": "dsAccGwyConfigH248Slot",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.1",
+    "class": "objectidentity"
+  },
+  "dsAccGwyConfigH248Vgw": {
+    "name": "dsAccGwyConfigH248Vgw",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2",
+    "class": "objectidentity"
+  },
+  "dsAccGwyConfigH248Port": {
+    "name": "dsAccGwyConfigH248Port",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.3",
+    "class": "objectidentity"
+  },
+  "dsAccGwyMonitorH248Slot": {
+    "name": "dsAccGwyMonitorH248Slot",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.1",
+    "class": "objectidentity"
+  },
+  "dsAccGwyMonitorH248Vgw": {
+    "name": "dsAccGwyMonitorH248Vgw",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2",
+    "class": "objectidentity"
+  },
+  "dsAccGwyMonitorH248Port": {
+    "name": "dsAccGwyMonitorH248Port",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.3",
+    "class": "objectidentity"
+  },
+  "dsAccGwyControlH248Vgw": {
+    "name": "dsAccGwyControlH248Vgw",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.3.1",
+    "class": "objectidentity"
+  },
+  "MediaGatewayId": {
+    "name": "MediaGatewayId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "dsAccGwyConfigH248VgwTable": {
+    "name": "dsAccGwyConfigH248VgwTable",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsAccGwyConfigH248VgwEntry": {
+    "name": "dsAccGwyConfigH248VgwEntry",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-ACCESS-SLOT-H248-MIB",
+        "object": "dsH248VgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsH248VgwIndex": {
+    "name": "dsH248VgwIndex",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248VgwGatewayID": {
+    "name": "dsH248VgwGatewayID",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248VgwGatewayPhyTerminationStart": {
+    "name": "dsH248VgwGatewayPhyTerminationStart",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayPhyTerminationEnd": {
+    "name": "dsH248VgwGatewayPhyTerminationEnd",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayMediaPortStart": {
+    "name": "dsH248VgwGatewayMediaPortStart",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayMediaPortEnd": {
+    "name": "dsH248VgwGatewayMediaPortEnd",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayAddr": {
+    "name": "dsH248VgwGatewayAddr",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsH248VgwGatewayPort": {
+    "name": "dsH248VgwGatewayPort",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2944,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayEncodingScheme": {
+    "name": "dsH248VgwGatewayEncodingScheme",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "text": 1,
+          "binary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "text",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248VgwGatewayProtocol": {
+    "name": "dsH248VgwGatewayProtocol",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "megacov1": 1,
+          "megacov2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248VgwGatewaySignalingTptProtocol": {
+    "name": "dsH248VgwGatewaySignalingTptProtocol",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "udp": 2,
+          "sctp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerIPAddress1": {
+    "name": "dsH248VgwGatewayControllerIPAddress1",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerIPAddress2": {
+    "name": "dsH248VgwGatewayControllerIPAddress2",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerIPAddress3": {
+    "name": "dsH248VgwGatewayControllerIPAddress3",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerIPAddress4": {
+    "name": "dsH248VgwGatewayControllerIPAddress4",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerIPAddress5": {
+    "name": "dsH248VgwGatewayControllerIPAddress5",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerPort1": {
+    "name": "dsH248VgwGatewayControllerPort1",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerPort2": {
+    "name": "dsH248VgwGatewayControllerPort2",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerPort3": {
+    "name": "dsH248VgwGatewayControllerPort3",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerPort4": {
+    "name": "dsH248VgwGatewayControllerPort4",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwGatewayControllerPort5": {
+    "name": "dsH248VgwGatewayControllerPort5",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwPropertyRootMaxContexts": {
+    "name": "dsH248VgwPropertyRootMaxContexts",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwPropertyRootMaxTerminations": {
+    "name": "dsH248VgwPropertyRootMaxTerminations",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwTopology": {
+    "name": "dsH248VgwTopology",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nouse": 0,
+          "use": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwTimestamp": {
+    "name": "dsH248VgwTimestamp",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nouse": 0,
+          "use": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwNamingPhyTermination": {
+    "name": "dsH248VgwNamingPhyTermination",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwNamingRtpTermination": {
+    "name": "dsH248VgwNamingRtpTermination",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwPkgList": {
+    "name": "dsH248VgwPkgList",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwHeartBeatTime": {
+    "name": "dsH248VgwHeartBeatTime",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwRetransmissionTime": {
+    "name": "dsH248VgwRetransmissionTime",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwMaxRetransmissionCount": {
+    "name": "dsH248VgwMaxRetransmissionCount",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwDigitmap": {
+    "name": "dsH248VgwDigitmap",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwDigitmapLongTime": {
+    "name": "dsH248VgwDigitmapLongTime",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwDigitmapShortTime": {
+    "name": "dsH248VgwDigitmapShortTime",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwDigitmapStartTime": {
+    "name": "dsH248VgwDigitmapStartTime",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwDigitmapZTime": {
+    "name": "dsH248VgwDigitmapZTime",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwStartupType": {
+    "name": "dsH248VgwStartupType",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "expedited": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248VgwConnectionSilencePeriod": {
+    "name": "dsH248VgwConnectionSilencePeriod",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.1.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsAccGwyMonitorH248VgwTable": {
+    "name": "dsAccGwyMonitorH248VgwTable",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsAccGwyMonitorH248VgwEntry": {
+    "name": "dsAccGwyMonitorH248VgwEntry",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-ACCESS-SLOT-H248-MIB",
+        "object": "dsH248MonitorVgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsH248MonitorVgwIndex": {
+    "name": "dsH248MonitorVgwIndex",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayOperStatus": {
+    "name": "dsH248MonitorVgwGatewayOperStatus",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayNumInMessages": {
+    "name": "dsH248MonitorVgwGatewayNumInMessages",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayNumInOctets": {
+    "name": "dsH248MonitorVgwGatewayNumInOctets",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayNumOutMessage": {
+    "name": "dsH248MonitorVgwGatewayNumOutMessage",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayNumOutOctets": {
+    "name": "dsH248MonitorVgwGatewayNumOutOctets",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayNumErrors": {
+    "name": "dsH248MonitorVgwGatewayNumErrors",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayNumTimerRecovery": {
+    "name": "dsH248MonitorVgwGatewayNumTimerRecovery",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayTransportNumLosses": {
+    "name": "dsH248MonitorVgwGatewayTransportNumLosses",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayTransportNumSwitchover": {
+    "name": "dsH248MonitorVgwGatewayTransportNumSwitchover",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayTransportTotalNumAlarms": {
+    "name": "dsH248MonitorVgwGatewayTransportTotalNumAlarms",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayTransportLastEvent": {
+    "name": "dsH248MonitorVgwGatewayTransportLastEvent",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "other": 2,
+          "linkUp": 3,
+          "linkLoss": 4,
+          "persistentError": 5,
+          "linkShutdown": 6,
+          "switchOver": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayTransportLastEventTime": {
+    "name": "dsH248MonitorVgwGatewayTransportLastEventTime",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayLastStatisticsReset": {
+    "name": "dsH248MonitorVgwGatewayLastStatisticsReset",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248MonitorVgwGatewayContexts": {
+    "name": "dsH248MonitorVgwGatewayContexts",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsAccGwyControlH248VgwTable": {
+    "name": "dsAccGwyControlH248VgwTable",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsAccGwyControlH248VgwEntry": {
+    "name": "dsAccGwyControlH248VgwEntry",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DASAN-ACCESS-SLOT-H248-MIB",
+        "object": "dsH248ControlVgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsH248ControlVgwIndex": {
+    "name": "dsH248ControlVgwIndex",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsH248ControlVgwGatewayOperation": {
+    "name": "dsH248ControlVgwGatewayOperation",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2,
+          "restart": 3,
+          "restart-idle": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsH248ControlVgwGatewayResetStatistics": {
+    "name": "dsH248ControlVgwGatewayResetStatistics",
+    "oid": "1.3.6.1.4.1.6296.9.100.2.3.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-ACCESS-SLOT-H248-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DASAN-ACCESS-SLOT-H248-MIB"
+  }
+}

@@ -1,0 +1,1311 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressIPv6"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmtv2"
+    ]
+  },
+  "ubiMulticastMIB": {
+    "name": "ubiMulticastMIB",
+    "oid": "1.3.6.1.4.1.7800.100.21",
+    "class": "moduleidentity"
+  },
+  "ubiMulticastMIBNotificationPrefix": {
+    "name": "ubiMulticastMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.7800.100.21.0",
+    "class": "objectidentity"
+  },
+  "ubiIgmpSnoopingMIBObjects": {
+    "name": "ubiIgmpSnoopingMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.21.1",
+    "class": "objectidentity"
+  },
+  "ubiMvrMIBObjects": {
+    "name": "ubiMvrMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.21.2",
+    "class": "objectidentity"
+  },
+  "ubiIgmpStatsMIBObjects": {
+    "name": "ubiIgmpStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.21.3",
+    "class": "objectidentity"
+  },
+  "ubiMldSnoopingMIBObjects": {
+    "name": "ubiMldSnoopingMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.21.4",
+    "class": "objectidentity"
+  },
+  "ubiIgmpProxyRoutingMIBObjects": {
+    "name": "ubiIgmpProxyRoutingMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.21.5",
+    "class": "objectidentity"
+  },
+  "ubiMulticastMIBConformance": {
+    "name": "ubiMulticastMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.100.21.10",
+    "class": "objectidentity"
+  },
+  "ubiIgmpSnoopVlanNotification": {
+    "name": "ubiIgmpSnoopVlanNotification",
+    "oid": "1.3.6.1.4.1.7800.100.21.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanIndex"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanConfigTable": {
+    "name": "ubiIgmpSnoopVlanConfigTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanConfigEntry": {
+    "name": "ubiIgmpSnoopVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanIndex": {
+    "name": "ubiIgmpSnoopVlanIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanEnabled": {
+    "name": "ubiIgmpSnoopVlanEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanFastLeaveEnabled": {
+    "name": "ubiIgmpSnoopVlanFastLeaveEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanReportSuppressionEnabled": {
+    "name": "ubiIgmpSnoopVlanReportSuppressionEnabled",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanForcedSourceIP": {
+    "name": "ubiIgmpSnoopVlanForcedSourceIP",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanRowStatus": {
+    "name": "ubiIgmpSnoopVlanRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanSnoopingQuerier": {
+    "name": "ubiIgmpSnoopVlanSnoopingQuerier",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanLastMemberQuery": {
+    "name": "ubiIgmpSnoopVlanLastMemberQuery",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpSnoopVlanVlantagCos": {
+    "name": "ubiIgmpSnoopVlanVlantagCos",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpSnoopMrouterTable": {
+    "name": "ubiIgmpSnoopMrouterTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopMrouterEntry": {
+    "name": "ubiIgmpSnoopMrouterEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopMrouterVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopMrouterIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopMrouterVlanIndex": {
+    "name": "ubiIgmpSnoopMrouterVlanIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopMrouterIfIndex": {
+    "name": "ubiIgmpSnoopMrouterIfIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopMrouterSVlanID": {
+    "name": "ubiIgmpSnoopMrouterSVlanID",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpSnoopMrouterRowStatus": {
+    "name": "ubiIgmpSnoopMrouterRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiIgmpSnoopStaticGroupTable": {
+    "name": "ubiIgmpSnoopStaticGroupTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopStaticGroupEntry": {
+    "name": "ubiIgmpSnoopStaticGroupEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopStaticGroupVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopStaticGroupIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopStaticGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopStaticGroupVlanIndex": {
+    "name": "ubiIgmpSnoopStaticGroupVlanIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopStaticGroupIfIndex": {
+    "name": "ubiIgmpSnoopStaticGroupIfIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopStaticGroupAddress": {
+    "name": "ubiIgmpSnoopStaticGroupAddress",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpSnoopStaticGroupRowStatus": {
+    "name": "ubiIgmpSnoopStaticGroupRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiIgmpSnoopPortConfigAclTable": {
+    "name": "ubiIgmpSnoopPortConfigAclTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopPortConfigAclEntry": {
+    "name": "ubiIgmpSnoopPortConfigAclEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopPortConfigAclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopPortConfigAclVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopPortConfigAclIfIndex": {
+    "name": "ubiIgmpSnoopPortConfigAclIfIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopPortConfigAclVlanID": {
+    "name": "ubiIgmpSnoopPortConfigAclVlanID",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopPortConfigAclName": {
+    "name": "ubiIgmpSnoopPortConfigAclName",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpSnoopPortConfigAclRowStatus": {
+    "name": "ubiIgmpSnoopPortConfigAclRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiIgmpSnoopReporterTable": {
+    "name": "ubiIgmpSnoopReporterTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopReporterEntry": {
+    "name": "ubiIgmpSnoopReporterEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopReporterIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopReporterGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopReporterAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopReporterIfIndex": {
+    "name": "ubiIgmpSnoopReporterIfIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopReporterGroupAddress": {
+    "name": "ubiIgmpSnoopReporterGroupAddress",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopReporterAddress": {
+    "name": "ubiIgmpSnoopReporterAddress",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopReporterUptime": {
+    "name": "ubiIgmpSnoopReporterUptime",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpSnoopReporterExpireTime": {
+    "name": "ubiIgmpSnoopReporterExpireTime",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpSnoopCacheTable": {
+    "name": "ubiIgmpSnoopCacheTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopCacheEntry": {
+    "name": "ubiIgmpSnoopCacheEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopCacheVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopCacheAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopCacheVlanIndex": {
+    "name": "ubiIgmpSnoopCacheVlanIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopCacheIfIndex": {
+    "name": "ubiIgmpSnoopCacheIfIndex",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopCacheAddress": {
+    "name": "ubiIgmpSnoopCacheAddress",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopCacheUpTime": {
+    "name": "ubiIgmpSnoopCacheUpTime",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpSnoopCacheExpireTime": {
+    "name": "ubiIgmpSnoopCacheExpireTime",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpSnoopCacheLastReporter": {
+    "name": "ubiIgmpSnoopCacheLastReporter",
+    "oid": "1.3.6.1.4.1.7800.100.21.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMvrGlobalConfigEnable": {
+    "name": "ubiMvrGlobalConfigEnable",
+    "oid": "1.3.6.1.4.1.7800.100.21.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiMvrPortConfigTable": {
+    "name": "ubiMvrPortConfigTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiMvrPortConfigEntry": {
+    "name": "ubiMvrPortConfigEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiMvrPortConfigVlanid",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiMvrPortConfigGroupaddress",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiMvrPortConfigGroupCount",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiMvrPortConfigVlanid": {
+    "name": "ubiMvrPortConfigVlanid",
+    "oid": "1.3.6.1.4.1.7800.100.21.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMvrPortConfigGroupaddress": {
+    "name": "ubiMvrPortConfigGroupaddress",
+    "oid": "1.3.6.1.4.1.7800.100.21.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMvrPortConfigGroupCount": {
+    "name": "ubiMvrPortConfigGroupCount",
+    "oid": "1.3.6.1.4.1.7800.100.21.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiMvrPortConfigRowStatus": {
+    "name": "ubiMvrPortConfigRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.21.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiIgmpClearStatistics": {
+    "name": "ubiIgmpClearStatistics",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsTable": {
+    "name": "ubiIgmpVlanStatsTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsEntry": {
+    "name": "ubiIgmpVlanStatsEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiVlanIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsEntryCount": {
+    "name": "ubiIgmpVlanStatsEntryCount",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsReportTxTotal": {
+    "name": "ubiIgmpVlanStatsReportTxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsReportRxTotal": {
+    "name": "ubiIgmpVlanStatsReportRxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsReportRxSuccess": {
+    "name": "ubiIgmpVlanStatsReportRxSuccess",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsReportRxUnsuccess": {
+    "name": "ubiIgmpVlanStatsReportRxUnsuccess",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsLeaveTxTotal": {
+    "name": "ubiIgmpVlanStatsLeaveTxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsLeaveRxTotal": {
+    "name": "ubiIgmpVlanStatsLeaveRxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsGeneralQueryTxTotal": {
+    "name": "ubiIgmpVlanStatsGeneralQueryTxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsGeneralQueryRxTotal": {
+    "name": "ubiIgmpVlanStatsGeneralQueryRxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsGroupSpecificQueryTxTotal": {
+    "name": "ubiIgmpVlanStatsGroupSpecificQueryTxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsGroupSpecificQueryRxTotal": {
+    "name": "ubiIgmpVlanStatsGroupSpecificQueryRxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpVlanStatsInvalidMessageRxTotal": {
+    "name": "ubiIgmpVlanStatsInvalidMessageRxTotal",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpSnoopMembershipCountTable": {
+    "name": "ubiIgmpSnoopMembershipCountTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiIgmpSnoopMembershipCountEntry": {
+    "name": "ubiIgmpSnoopMembershipCountEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopCacheAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopMembershipCount": {
+    "name": "ubiIgmpSnoopMembershipCount",
+    "oid": "1.3.6.1.4.1.7800.100.21.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiIgmpProxyRoutingIfMRouteCountTable": {
+    "name": "ubiIgmpProxyRoutingIfMRouteCountTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ubiIgmpProxyRoutingIfMRouteCountEntry": {
+    "name": "ubiIgmpProxyRoutingIfMRouteCountEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "IfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ubiIgmpProxyRoutingIfMRouteCountInterface": {
+    "name": "ubiIgmpProxyRoutingIfMRouteCountInterface",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ubiIgmpProxyRoutingOutIfMRouteCount": {
+    "name": "ubiIgmpProxyRoutingOutIfMRouteCount",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ubiIgmpProxyRoutingOutIfMRouteTable": {
+    "name": "ubiIgmpProxyRoutingOutIfMRouteTable",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ubiIgmpProxyRoutingOutIfMRouteEntry": {
+    "name": "ubiIgmpProxyRoutingOutIfMRouteEntry",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpProxyRoutingOutIfMRouteGroup",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpProxyRoutingOutIfMRouteSource",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ubiIgmpProxyRoutingOutIfMRouteInterface": {
+    "name": "ubiIgmpProxyRoutingOutIfMRouteInterface",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ubiIgmpProxyRoutingOutIfMRouteGroup": {
+    "name": "ubiIgmpProxyRoutingOutIfMRouteGroup",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ubiIgmpProxyRoutingOutIfMRouteSource": {
+    "name": "ubiIgmpProxyRoutingOutIfMRouteSource",
+    "oid": "1.3.6.1.4.1.7800.100.21.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ubiMulticastMIBCompliances": {
+    "name": "ubiMulticastMIBCompliances",
+    "oid": "1.3.6.1.4.1.7800.100.21.10.1",
+    "class": "objectidentity"
+  },
+  "ubiMulticastMIBGroups": {
+    "name": "ubiMulticastMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.100.21.10.2",
+    "class": "objectidentity"
+  },
+  "ubiMulticastMIBCompliance": {
+    "name": "ubiMulticastMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.21.10.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiIgmpSnoopConfigGroup",
+        "module": "UBQS-MULTICAST-MIB"
+      },
+      {
+        "object": "ubiIgmpSnoopInfoGroup",
+        "module": "UBQS-MULTICAST-MIB"
+      },
+      {
+        "object": "ubiIgmpSnoopConfigGroup",
+        "module": "UBQS-MULTICAST-MIB"
+      },
+      {
+        "object": "ubiIgmpSnoopInfoGroup",
+        "module": "UBQS-MULTICAST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopConfigGroup": {
+    "name": "ubiIgmpSnoopConfigGroup",
+    "oid": "1.3.6.1.4.1.7800.100.21.10.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanIndex"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanEnabled"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanFastLeaveEnabled"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanReportSuppressionEnabled"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanForcedSourceIP"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopVlanRowStatus"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopMrouterVlanIndex"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopMrouterIfIndex"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopMrouterSVlanID"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopMrouterRowStatus"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopStaticGroupVlanIndex"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopStaticGroupIfIndex"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopStaticGroupIpAddress"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopStaticGroupRowStatus"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopPortConfigAclIfIndex"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopPortConfigAclID"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopPortConfigAclVlanID"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopPortConfigAclRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiIgmpSnoopInfoGroup": {
+    "name": "ubiIgmpSnoopInfoGroup",
+    "oid": "1.3.6.1.4.1.7800.100.21.10.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopReporterIfIndex"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopReporterGroupAddress"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopReporterUptime"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopReporterExpireTime"
+      },
+      {
+        "module": "UBQS-MULTICAST-MIB",
+        "object": "ubiIgmpSnoopReporterLastAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-MULTICAST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "UBQS-MULTICAST-MIB"
+  }
+}

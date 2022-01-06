@@ -1,0 +1,965 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "BITS"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleDebug": {
+    "name": "sleDebug",
+    "oid": "1.3.6.1.4.1.6296.101.99",
+    "class": "moduleidentity"
+  },
+  "OwnerString": {
+    "name": "OwnerString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "sleDebugBase": {
+    "name": "sleDebugBase",
+    "oid": "1.3.6.1.4.1.6296.101.99.1",
+    "class": "objectidentity"
+  },
+  "sleDebugStatus": {
+    "name": "sleDebugStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1",
+    "class": "objectidentity"
+  },
+  "sleDebugDhcpStatus": {
+    "name": "sleDebugDhcpStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugFilter": 0,
+        "debugLease": 1,
+        "debugPacket": 2,
+        "debugServices": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugIgmpStatus": {
+    "name": "sleDebugIgmpStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugDecode": 0,
+        "debugEncode": 1,
+        "debugEvents": 2,
+        "debugFsm": 3,
+        "debugTib": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugIgmpSnoopStatus": {
+    "name": "sleDebugIgmpSnoopStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugTcn": 0
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugNsmStatus": {
+    "name": "sleDebugNsmStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugEvents": 0,
+        "debugKernel": 1,
+        "debugPacketDetail": 2,
+        "debugPacketRecv": 3,
+        "debugPacketSend": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugNsmMcastStatus": {
+    "name": "sleDebugNsmMcastStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugMcastFibMsg": 0,
+        "debugMcastMrt": 1,
+        "debugMcastRegister": 2,
+        "debugMcastStats": 3,
+        "debugMcastVif": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugBgpStatus": {
+    "name": "sleDebugBgpStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugNormal": 0,
+        "debugDampening": 1,
+        "debugEvents": 2,
+        "debugFilters": 3,
+        "debugFsm": 4,
+        "debugKeepalives": 5,
+        "debugNsm": 6,
+        "debugUpdatesIn": 7,
+        "debugUpdatesOut": 8
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugOspfStatus": {
+    "name": "sleDebugOspfStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugEventAbr": 0,
+        "debugEventAsbr": 1,
+        "debugEventLsa": 2,
+        "debugEventNssa": 3,
+        "debugEventOs": 4,
+        "debugEventRouter": 5,
+        "debugEventVlink": 6,
+        "debugIfsmEvent": 7,
+        "debugIfsmStatus": 8,
+        "debugIfsmTimers": 9,
+        "debugLsaFlooding": 10,
+        "debugLsaGenerate": 11,
+        "debugLsaInstall": 12,
+        "debugLsaMaxage": 13,
+        "debugLsaRefrash": 14,
+        "debugNfsmEvents": 15,
+        "debugNfsmStatus": 16,
+        "debugNfsmTimers": 17,
+        "debugNsmInterface": 18,
+        "debugNsmRedistribute": 19,
+        "debugRouteAse": 20,
+        "debugRouteIa": 21,
+        "debugRouteInstall": 22,
+        "debugRouteSpf": 23,
+        "debugPacketDDDetail": 24,
+        "debugPacketDDRecv": 25,
+        "debugPacketDDSend": 26,
+        "debugPacketHelloDetail": 27,
+        "debugPacketHelloRecv": 28,
+        "debugPacketHelloSend": 29,
+        "debugPacketLsAckDetail": 30,
+        "debugPacketLsAckRecv": 31,
+        "debugPacketLsAckSend": 32,
+        "debugPacketLsRequestDetail": 33,
+        "debugPacketLsRequestRecv": 34,
+        "debugPacketLsRequestSend": 35,
+        "debugPacketLsUpdateDetail": 36,
+        "debugPacketLsUpdateRecv": 37,
+        "debugPacketLsUpdateSend": 38
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugPimStatus": {
+    "name": "sleDebugPimStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugEvent": 0,
+        "debugMfc": 1,
+        "debugMib": 2,
+        "debugNexthop": 3,
+        "debugNsm": 4,
+        "debugPacketIn": 5,
+        "debugPacketOut": 6,
+        "debugState": 7,
+        "debugTimerAssertAt": 8,
+        "debugTimerBsr": 9,
+        "debugTimerBsrBst": 10,
+        "debugTimerBsrCrp": 11,
+        "debugTimerHello": 12,
+        "debugTimerHelloHt": 13,
+        "debugTimerHelloNlt": 14,
+        "debugTimerHelloTht": 15,
+        "debugTimerJoinprune": 16,
+        "debugTimerJoinpruneEt": 17,
+        "debugTimerJoinpruneJt": 18,
+        "debugTimerJoinpruneKat": 19,
+        "debugTimerJoinpruneOt": 20,
+        "debugTimerJoinprunePpt": 21,
+        "debugTimerRegister": 22
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugRipStatus": {
+    "name": "sleDebugRipStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugEvents": 0,
+        "debugNsm": 1,
+        "debugPacketDetail": 2,
+        "debugPacketRecv": 3,
+        "debugPacketSend": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugStatusControl": {
+    "name": "sleDebugStatusControl",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2",
+    "class": "objectidentity"
+  },
+  "sleDebugControlRequest": {
+    "name": "sleDebugControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setDhcpDebugStatus": 1,
+          "setIgmpDebugStatus": 2,
+          "setIgmpSnoopDebugStats": 3,
+          "setNsmDebugStatus": 4,
+          "setNsmMcastDebugStatus": 5,
+          "setBgpDebugStatus": 6,
+          "setOspfDebugStatus": 7,
+          "setPimDebugStatus": 8,
+          "setRipDebugStatus": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlStatus": {
+    "name": "sleDebugControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugControlTimer": {
+    "name": "sleDebugControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlTimeStamp": {
+    "name": "sleDebugControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugControlReqResult": {
+    "name": "sleDebugControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugControlDhcpStatus": {
+    "name": "sleDebugControlDhcpStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugFilter": 0,
+        "debugLease": 1,
+        "debugPacket": 2,
+        "debugServices": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlIgmpStatus": {
+    "name": "sleDebugControlIgmpStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugDecode": 0,
+        "debugEncode": 1,
+        "debugEvents": 2,
+        "debugFsm": 3,
+        "debugTib": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlIgmpSnoopStatus": {
+    "name": "sleDebugControlIgmpSnoopStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugTcn": 0
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlNsmStatus": {
+    "name": "sleDebugControlNsmStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugEvents": 0,
+        "debugKernel": 1,
+        "debugPacketDetail": 2,
+        "debugPacketRecv": 3,
+        "debugPacketSend": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlNsmMcastStatus": {
+    "name": "sleDebugControlNsmMcastStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugMcastFibMsg": 0,
+        "debugMcastMrt": 1,
+        "debugMcastRegister": 2,
+        "debugMcastStats": 3,
+        "debugMcastVif": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlBgpStatus": {
+    "name": "sleDebugControlBgpStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugNormal": 0,
+        "debugDampening": 1,
+        "debugEvents": 2,
+        "debugFilters": 3,
+        "debugFsm": 4,
+        "debugKeepalives": 5,
+        "debugNsm": 6,
+        "debugUpdatesIn": 7,
+        "debugUpdatesOut": 8
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlOspfStatus": {
+    "name": "sleDebugControlOspfStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugEventAbr": 0,
+        "debugEventAsbr": 1,
+        "debugEventLsa": 2,
+        "debugEventNssa": 3,
+        "debugEventOs": 4,
+        "debugEventRouter": 5,
+        "debugEventVlink": 6,
+        "debugIfsmEvent": 7,
+        "debugIfsmStatus": 8,
+        "debugIfsmTimers": 9,
+        "debugLsaFlooding": 10,
+        "debugLsaGenerate": 11,
+        "debugLsaInstall": 12,
+        "debugLsaMaxage": 13,
+        "debugLsaRefrash": 14,
+        "debugNfsmEvents": 15,
+        "debugNfsmStatus": 16,
+        "debugNfsmTimers": 17,
+        "debugNsmInterface": 18,
+        "debugNsmRedistribute": 19,
+        "debugRouteAse": 20,
+        "debugRouteIa": 21,
+        "debugRouteInstall": 22,
+        "debugRouteSpf": 23,
+        "debugPacketDDDetail": 24,
+        "debugPacketDDRecv": 25,
+        "debugPacketDDSend": 26,
+        "debugPacketHelloDetail": 27,
+        "debugPacketHelloRecv": 28,
+        "debugPacketHelloSend": 29,
+        "debugPacketLsAckDetail": 30,
+        "debugPacketLsAckRecv": 31,
+        "debugPacketLsAckSend": 32,
+        "debugPacketLsRequestDetail": 33,
+        "debugPacketLsRequestRecv": 34,
+        "debugPacketLsRequestSend": 35,
+        "debugPacketLsUpdateDetail": 36,
+        "debugPacketLsUpdateRecv": 37,
+        "debugPacketLsUpdateSend": 38
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlPimStatus": {
+    "name": "sleDebugControlPimStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugEvent": 0,
+        "debugMfc": 1,
+        "debugMib": 2,
+        "debugNexthop": 3,
+        "debugNsm": 4,
+        "debugPacketIn": 5,
+        "debugPacketOut": 6,
+        "debugState": 7,
+        "debugTimerAssertAt": 8,
+        "debugTimerBsr": 9,
+        "debugTimerBsrBst": 10,
+        "debugTimerBsrCrp": 11,
+        "debugTimerHello": 12,
+        "debugTimerHelloHt": 13,
+        "debugTimerHelloNlt": 14,
+        "debugTimerHelloTht": 15,
+        "debugTimerJoinprune": 16,
+        "debugTimerJoinpruneEt": 17,
+        "debugTimerJoinpruneJt": 18,
+        "debugTimerJoinpruneKat": 19,
+        "debugTimerJoinpruneOt": 20,
+        "debugTimerJoinprunePpt": 21,
+        "debugTimerRegister": 22
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugControlRipStatus": {
+    "name": "sleDebugControlRipStatus",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "debugEvents": 0,
+        "debugNsm": 1,
+        "debugPacketDetail": 2,
+        "debugPacketRecv": 3,
+        "debugPacketSend": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleDebugStatusNotification": {
+    "name": "sleDebugStatusNotification",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3",
+    "class": "objectidentity"
+  },
+  "sleDebugDhcpStatusChanged": {
+    "name": "sleDebugDhcpStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugDhcpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugIgmpStatusChanged": {
+    "name": "sleDebugIgmpStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugIgmpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugIgmpSnoopStatusChanged": {
+    "name": "sleDebugIgmpSnoopStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugIgmpSnoopStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugNsmStatusChanged": {
+    "name": "sleDebugNsmStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugNsmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugNsmMcastStatusChanged": {
+    "name": "sleDebugNsmMcastStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugNsmMcastStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugBgpStatusChanged": {
+    "name": "sleDebugBgpStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugBgpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugOspfStatusChanged": {
+    "name": "sleDebugOspfStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugOspfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugPimStatusChanged": {
+    "name": "sleDebugPimStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugPimStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugRipStatusChanged": {
+    "name": "sleDebugRipStatusChanged",
+    "oid": "1.3.6.1.4.1.6296.101.99.1.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugRipStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugGroup": {
+    "name": "sleDebugGroup",
+    "oid": "1.3.6.1.4.1.6296.101.99.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugDhcpStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugIgmpStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugIgmpSnoopStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugNsmStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugNsmMcastStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugBgpStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugOspfStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugPimStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugRipStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRequest"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimer"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlTimeStamp"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlReqResult"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlDhcpStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlIgmpStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlIgmpSnoopStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlNsmStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlNsmMcastStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlBgpStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlOspfStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlPimStatus"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugControlRipStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugNotificationGroup": {
+    "name": "sleDebugNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.99.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugDhcpStatusChanged"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugIgmpStatusChanged"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugIgmpSnoopStatusChanged"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugNsmStatusChanged"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugNsmMcastStatusChanged"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugBgpStatusChanged"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugOspfStatusChanged"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugPimStatusChanged"
+      },
+      {
+        "module": "SLE-DEBUG-MIB",
+        "object": "sleDebugRipStatusChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-DEBUG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:16 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-DEBUG-MIB"
+  }
+}

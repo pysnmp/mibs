@@ -1,0 +1,1434 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-WAN-3G-MIB": [
+      "C3gServiceCapability"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoWanCellExtMIB": {
+    "name": "ciscoWanCellExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.817",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoWanCellExtMIBNotifs": {
+    "name": "ciscoWanCellExtMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.817.0",
+    "class": "objectidentity"
+  },
+  "ciscoWanCellExtMIBObjects": {
+    "name": "ciscoWanCellExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.817.1",
+    "class": "objectidentity"
+  },
+  "ciscoWanCellExtMIBConform": {
+    "name": "ciscoWanCellExtMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.817.2",
+    "class": "objectidentity"
+  },
+  "ciscoWanCellExtLte": {
+    "name": "ciscoWanCellExtLte",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1",
+    "class": "objectidentity"
+  },
+  "cwceLteRadio": {
+    "name": "cwceLteRadio",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1",
+    "class": "objectidentity"
+  },
+  "cwceLteProfile": {
+    "name": "cwceLteProfile",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2",
+    "class": "objectidentity"
+  },
+  "CiscoWanCellExtProtocolType": {
+    "name": "CiscoWanCellExtProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ipv4": 2,
+          "ppp": 3,
+          "ipv6": 4,
+          "ipv4V6": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoWanCellExtRsrp": {
+    "name": "CiscoWanCellExtRsrp",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CiscoWanCellExtRsrq": {
+    "name": "CiscoWanCellExtRsrq",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "CiscoWanCellExtCqiIndex": {
+    "name": "CiscoWanCellExtCqiIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CiscoWanCellExtSNR": {
+    "name": "CiscoWanCellExtSNR",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "CiscoWanCellExtSINR": {
+    "name": "CiscoWanCellExtSINR",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "cwceLteRadioTable": {
+    "name": "cwceLteRadioTable",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwceLteRadioEntry": {
+    "name": "cwceLteRadioEntry",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLteCurrRsrp": {
+    "name": "cwceLteCurrRsrp",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtRsrp",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteCurrRsrq": {
+    "name": "cwceLteCurrRsrq",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtRsrq",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteCurrSnr": {
+    "name": "cwceLteCurrSnr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtSNR",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteCurrSinr": {
+    "name": "cwceLteCurrSinr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtSINR",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteCurrCqiIndex": {
+    "name": "cwceLteCurrCqiIndex",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtCqiIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteCurrOperatingBand": {
+    "name": "cwceLteCurrOperatingBand",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteNotifRsrp": {
+    "name": "cwceLteNotifRsrp",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtRsrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteNotifRsrq": {
+    "name": "cwceLteNotifRsrq",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtRsrq",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteRsrpOnsetNotifThreshold": {
+    "name": "cwceLteRsrpOnsetNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtRsrp",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwceLteRsrpAbateNotifThreshold": {
+    "name": "cwceLteRsrpAbateNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtRsrp",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwceLteRsrqOnsetNotifThreshold": {
+    "name": "cwceLteRsrqOnsetNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtRsrq",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwceLteRsrqAbateNotifThreshold": {
+    "name": "cwceLteRsrqAbateNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtRsrq",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwceLteRsrpOnsetNotifFlag": {
+    "name": "cwceLteRsrpOnsetNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwceLteRsrpAbateNotifFlag": {
+    "name": "cwceLteRsrpAbateNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwceLteRsrqOnsetNotifFlag": {
+    "name": "cwceLteRsrqOnsetNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwceLteRsrqAbateNotifFlag": {
+    "name": "cwceLteRsrqAbateNotifFlag",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "C3gServiceCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwceLteRadioHistory": {
+    "name": "cwceLteRadioHistory",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "cwceLteRadioHistoryRsrpTable": {
+    "name": "cwceLteRadioHistoryRsrpTable",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrpEntry": {
+    "name": "cwceLteRadioHistoryRsrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrpPerSecond": {
+    "name": "cwceLteRadioHistoryRsrpPerSecond",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrpPerMinute": {
+    "name": "cwceLteRadioHistoryRsrpPerMinute",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrpPerHour": {
+    "name": "cwceLteRadioHistoryRsrpPerHour",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 72,
+            "max": 72
+          }
+        ]
+      }
+    },
+    "units": "-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrqTable": {
+    "name": "cwceLteRadioHistoryRsrqTable",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrqEntry": {
+    "name": "cwceLteRadioHistoryRsrqEntry",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrqPerSecond": {
+    "name": "cwceLteRadioHistoryRsrqPerSecond",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrqPerMinute": {
+    "name": "cwceLteRadioHistoryRsrqPerMinute",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "-dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteRadioHistoryRsrqPerHour": {
+    "name": "cwceLteRadioHistoryRsrqPerHour",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 72,
+            "max": 72
+          }
+        ]
+      }
+    },
+    "units": "-dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteIpv4AddrType": {
+    "name": "cwceLteIpv4AddrType",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteIpv6AddrType": {
+    "name": "cwceLteIpv6AddrType",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteProfileTable": {
+    "name": "cwceLteProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwceLteProfileEntry": {
+    "name": "cwceLteProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLteProfileIndex": {
+    "name": "cwceLteProfileIndex",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwceLteProfileType": {
+    "name": "cwceLteProfileType",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwceLteProfileIPv4Addr": {
+    "name": "cwceLteProfileIPv4Addr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwceLteProfileIPv6Addr": {
+    "name": "cwceLteProfileIPv6Addr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwceLteProfileApn": {
+    "name": "cwceLteProfileApn",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwceLteProfileApnAmbr": {
+    "name": "cwceLteProfileApnAmbr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwceLteProfileStorage": {
+    "name": "cwceLteProfileStorage",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwceLteProfileRowStatus": {
+    "name": "cwceLteProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwceLtePdnTable": {
+    "name": "cwceLtePdnTable",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwceLtePdnEntry": {
+    "name": "cwceLtePdnEntry",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLtePdnProfileUsed": {
+    "name": "cwceLtePdnProfileUsed",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLtePdnConnStatus": {
+    "name": "cwceLtePdnConnStatus",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLtePdnType": {
+    "name": "cwceLtePdnType",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWanCellExtProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLtePdnIpv4Addr": {
+    "name": "cwceLtePdnIpv4Addr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLtePdnIpv6Addr": {
+    "name": "cwceLtePdnIpv6Addr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLtePdnPriDnsIpv4Addr": {
+    "name": "cwceLtePdnPriDnsIpv4Addr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLtePdnSecDnsIpv4Addr": {
+    "name": "cwceLtePdnSecDnsIpv4Addr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLtePdnPriDnsIpv6Addr": {
+    "name": "cwceLtePdnPriDnsIpv6Addr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLtePdnSecDnsIpv6Addr": {
+    "name": "cwceLtePdnSecDnsIpv6Addr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsBearerQosTable": {
+    "name": "cwceLteEpsBearerQosTable",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwceLteEpsBearerQosEntry": {
+    "name": "cwceLteEpsBearerQosEntry",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsBearerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLteEpsBearerId": {
+    "name": "cwceLteEpsBearerId",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwceLteEpsBearerType": {
+    "name": "cwceLteEpsBearerType",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gbr": 1,
+          "nonGbr": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsQCI": {
+    "name": "cwceLteEpsQCI",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsArp": {
+    "name": "cwceLteEpsArp",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsBearerResType": {
+    "name": "cwceLteEpsBearerResType",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "defaultBearer": 1,
+          "dedicatedBearer": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsGbr": {
+    "name": "cwceLteEpsGbr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsMbr": {
+    "name": "cwceLteEpsMbr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsAmbr": {
+    "name": "cwceLteEpsAmbr",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsTotalBytesTx": {
+    "name": "cwceLteEpsTotalBytesTx",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsTotalBytesRx": {
+    "name": "cwceLteEpsTotalBytesRx",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsPacketsTx": {
+    "name": "cwceLteEpsPacketsTx",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteEpsPacketsRx": {
+    "name": "cwceLteEpsPacketsRx",
+    "oid": "1.3.6.1.4.1.9.9.817.1.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwceLteRsrqOnsetNotif": {
+    "name": "cwceLteRsrqOnsetNotif",
+    "oid": "1.3.6.1.4.1.9.9.817.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqOnsetNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteNotifRsrq"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqOnsetNotifThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLteRsrqAbateNotif": {
+    "name": "cwceLteRsrqAbateNotif",
+    "oid": "1.3.6.1.4.1.9.9.817.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqAbateNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteNotifRsrq"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqAbateNotifThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLteRsrpOnsetNotif": {
+    "name": "cwceLteRsrpOnsetNotif",
+    "oid": "1.3.6.1.4.1.9.9.817.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpOnsetNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteNotifRsrp"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpOnsetNotifThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cwceLteRsrpAbateNotif": {
+    "name": "cwceLteRsrpAbateNotif",
+    "oid": "1.3.6.1.4.1.9.9.817.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpAbateNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteNotifRsrp"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpAbateNotifThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanCellExtMIBCompliances": {
+    "name": "ciscoWanCellExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.817.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoWanCellExtMIBGroups": {
+    "name": "ciscoWanCellExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.817.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWanCellExtMIBCompliance": {
+    "name": "ciscoWanCellExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.817.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWanCellExtMIBNotificationGroup",
+        "module": "CISCO-WAN-CELL-EXT-MIB"
+      },
+      {
+        "object": "ciscoWanCellExtMIBLteObjectGroup",
+        "module": "CISCO-WAN-CELL-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanCellExtMIBLteObjectGroup": {
+    "name": "ciscoWanCellExtMIBLteObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.817.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteCurrRsrp"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteCurrRsrq"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteCurrSnr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteCurrSinr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteCurrCqiIndex"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteNotifRsrp"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteNotifRsrq"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpOnsetNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpAbateNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqOnsetNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqAbateNotifThreshold"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpOnsetNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpAbateNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqOnsetNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqAbateNotifFlag"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteCurrOperatingBand"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRadioHistoryRsrpPerSecond"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRadioHistoryRsrpPerMinute"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRadioHistoryRsrpPerHour"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRadioHistoryRsrqPerSecond"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRadioHistoryRsrqPerMinute"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRadioHistoryRsrqPerHour"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteIpv4AddrType"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteIpv6AddrType"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteProfileType"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteProfileIPv4Addr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteProfileIPv6Addr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteProfileApn"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteProfileApnAmbr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteProfileStorage"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteProfileRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnProfileUsed"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnConnStatus"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnType"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnIpv4Addr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnIpv6Addr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnPriDnsIpv4Addr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnSecDnsIpv4Addr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnPriDnsIpv6Addr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLtePdnSecDnsIpv6Addr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsBearerType"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsArp"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsQCI"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsBearerResType"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsGbr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsMbr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsAmbr"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsTotalBytesTx"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsTotalBytesRx"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsPacketsTx"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteEpsPacketsRx"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanCellExtMIBNotificationGroup": {
+    "name": "ciscoWanCellExtMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.817.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqOnsetNotif"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrqAbateNotif"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpOnsetNotif"
+      },
+      {
+        "module": "CISCO-WAN-CELL-EXT-MIB",
+        "object": "cwceLteRsrpAbateNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-CELL-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-CELL-EXT-MIB"
+  }
+}

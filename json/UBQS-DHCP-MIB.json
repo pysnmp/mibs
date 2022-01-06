@@ -1,0 +1,2340 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "PhysAddress",
+      "TimeTicks",
+      "TEXTUAL-CONVENTION"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmtv2"
+    ]
+  },
+  "ubiDhcpMIB": {
+    "name": "ubiDhcpMIB",
+    "oid": "1.3.6.1.4.1.7800.100.6",
+    "class": "moduleidentity"
+  },
+  "ubiDhcpServerMIBObjects": {
+    "name": "ubiDhcpServerMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.6.1",
+    "class": "objectidentity"
+  },
+  "ubiDhcpStatisticsTable": {
+    "name": "ubiDhcpStatisticsTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpStatisticsEntry": {
+    "name": "ubiDhcpStatisticsEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "noIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpCurPktMFMessage": {
+    "name": "ubiDhcpCurPktMFMessage",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktBootReq": {
+    "name": "ubiDhcpCurPktBootReq",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktDiscover": {
+    "name": "ubiDhcpCurPktDiscover",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktReq": {
+    "name": "ubiDhcpCurPktReq",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktDecline": {
+    "name": "ubiDhcpCurPktDecline",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktRelease": {
+    "name": "ubiDhcpCurPktRelease",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktInform": {
+    "name": "ubiDhcpCurPktInform",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktEcho": {
+    "name": "ubiDhcpCurPktEcho",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktReply": {
+    "name": "ubiDhcpCurPktReply",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktOffer": {
+    "name": "ubiDhcpCurPktOffer",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktAck": {
+    "name": "ubiDhcpCurPktAck",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpCurPktNak": {
+    "name": "ubiDhcpCurPktNak",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolTable": {
+    "name": "ubiDhcpServerPoolTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolEntry": {
+    "name": "ubiDhcpServerPoolEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerPoolName": {
+    "name": "ubiDhcpServerPoolName",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSubnet": {
+    "name": "ubiDhcpServerPoolSubnet",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSubnetMask": {
+    "name": "ubiDhcpServerPoolSubnetMask",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSubnetFreeAddress": {
+    "name": "ubiDhcpServerPoolSubnetFreeAddress",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSubnetTotalAddress": {
+    "name": "ubiDhcpServerPoolSubnetTotalAddress",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSubnetInUse": {
+    "name": "ubiDhcpServerPoolSubnetInUse",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSubnetGroup": {
+    "name": "ubiDhcpServerPoolSubnetGroup",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolType": {
+    "name": "ubiDhcpServerPoolType",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "network": 1,
+          "host": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolDomainName": {
+    "name": "ubiDhcpServerPoolDomainName",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolLeaseTimeMode": {
+    "name": "ubiDhcpServerPoolLeaseTimeMode",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "infinite": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolLeaseTimeDays": {
+    "name": "ubiDhcpServerPoolLeaseTimeDays",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolLeaseTimeHours": {
+    "name": "ubiDhcpServerPoolLeaseTimeHours",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolLeaseTimeMinutes": {
+    "name": "ubiDhcpServerPoolLeaseTimeMinutes",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolUsageThreshold": {
+    "name": "ubiDhcpServerPoolUsageThreshold",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerDefaultRouterInfo": {
+    "name": "ubiDhcpServerDefaultRouterInfo",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerRangeTable": {
+    "name": "ubiDhcpServerRangeTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerRangeEntry": {
+    "name": "ubiDhcpServerRangeEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerPoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpRangeStart",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerPoolIndex": {
+    "name": "ubiDhcpServerPoolIndex",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerRangeStart": {
+    "name": "ubiDhcpServerRangeStart",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerRangeEnd": {
+    "name": "ubiDhcpServerRangeEnd",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerNetPoolRangeTable": {
+    "name": "ubiDhcpServerNetPoolRangeTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerNetPoolRangeEntry": {
+    "name": "ubiDhcpServerNetPoolRangeEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerNetPoolRangePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerNetPoolRangeStartIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerNetPoolRangeEndIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerNetPoolRangePoolIndex": {
+    "name": "ubiDhcpServerNetPoolRangePoolIndex",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerNetPoolRangeStartIpAddr": {
+    "name": "ubiDhcpServerNetPoolRangeStartIpAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerNetPoolRangeEndIpAddr": {
+    "name": "ubiDhcpServerNetPoolRangeEndIpAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerNetPoolRangeRowstatus": {
+    "name": "ubiDhcpServerNetPoolRangeRowstatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolRowTable": {
+    "name": "ubiDhcpServerPoolRowTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolRowEntry": {
+    "name": "ubiDhcpServerPoolRowEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerPoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerRangeStart",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerRangeEnd",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerPoolRowStatus": {
+    "name": "ubiDhcpServerPoolRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiDhcpServerFixedAddrTable": {
+    "name": "ubiDhcpServerFixedAddrTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerFixedAddrEntry": {
+    "name": "ubiDhcpServerFixedAddrEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerFixedAddrHostPoolName",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerFixedAddrIp",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerFixedAddrNetmask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerFixedAddrHostPoolName": {
+    "name": "ubiDhcpServerFixedAddrHostPoolName",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerFixedAddrMac": {
+    "name": "ubiDhcpServerFixedAddrMac",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerFixedAddrIp": {
+    "name": "ubiDhcpServerFixedAddrIp",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerFixedAddrNetmask": {
+    "name": "ubiDhcpServerFixedAddrNetmask",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerFixedAddrRowStatus": {
+    "name": "ubiDhcpServerFixedAddrRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiDhcpServerDnsTable": {
+    "name": "ubiDhcpServerDnsTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerDnsEntry": {
+    "name": "ubiDhcpServerDnsEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerDnsPoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerDnsServerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerDnsPoolIndex": {
+    "name": "ubiDhcpServerDnsPoolIndex",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerDnsServerAddr": {
+    "name": "ubiDhcpServerDnsServerAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerDnsRowStatus": {
+    "name": "ubiDhcpServerDnsRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiDhcpServerBindingTable": {
+    "name": "ubiDhcpServerBindingTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerBindingEntry": {
+    "name": "ubiDhcpServerBindingEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerBindingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerBindingIndex": {
+    "name": "ubiDhcpServerBindingIndex",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerBindingIpAddr": {
+    "name": "ubiDhcpServerBindingIpAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerBindingMacAddr": {
+    "name": "ubiDhcpServerBindingMacAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhspServerBindingLeaseExpiration": {
+    "name": "ubiDhspServerBindingLeaseExpiration",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerBindingType": {
+    "name": "ubiDhcpServerBindingType",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSingleRangeTable": {
+    "name": "ubiDhcpServerPoolSingleRangeTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSingleRangeEntry": {
+    "name": "ubiDhcpServerPoolSingleRangeEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerPoolSingleRangePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerPoolSingleRangeIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSingleRangePoolIndex": {
+    "name": "ubiDhcpServerPoolSingleRangePoolIndex",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSingleRangeIpAddr": {
+    "name": "ubiDhcpServerPoolSingleRangeIpAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpServerPoolSingleRangeRowstatus": {
+    "name": "ubiDhcpServerPoolSingleRangeRowstatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiDhcpServerInfoTable": {
+    "name": "ubiDhcpServerInfoTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpServerInfoEntry": {
+    "name": "ubiDhcpServerInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "noIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerAdminStatus": {
+    "name": "ubiDhcpServerAdminStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 0,
+          "unlocked": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpLeaseTimeMode": {
+    "name": "ubiDhcpLeaseTimeMode",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.11",
+    "class": "objectidentity"
+  },
+  "ubiDhcpLeaseTimeModeDays": {
+    "name": "ubiDhcpLeaseTimeModeDays",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpLeaseTimeModeHours": {
+    "name": "ubiDhcpLeaseTimeModeHours",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpLeaseTimeModeMinutes": {
+    "name": "ubiDhcpLeaseTimeModeMinutes",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpLeaseTimeModeStatus": {
+    "name": "ubiDhcpLeaseTimeModeStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLease": 0,
+          "infinite": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpRelayMIBObjects": {
+    "name": "ubiDhcpRelayMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.6.2",
+    "class": "objectidentity"
+  },
+  "ubiDhcpRelayInfoTable": {
+    "name": "ubiDhcpRelayInfoTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpRelayInfoEntry": {
+    "name": "ubiDhcpRelayInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "noIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpRelayAdminStatus": {
+    "name": "ubiDhcpRelayAdminStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 0,
+          "unlocked": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpRelayOption82Status": {
+    "name": "ubiDhcpRelayOption82Status",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpRelayOption82Policy": {
+    "name": "ubiDhcpRelayOption82Policy",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 0,
+          "keep": 1,
+          "replace": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpRelayBindingListDisplayOption": {
+    "name": "ubiDhcpRelayBindingListDisplayOption",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpRelayVerifyMAC": {
+    "name": "ubiDhcpRelayVerifyMAC",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpRelayServerIPTable": {
+    "name": "ubiDhcpRelayServerIPTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpRelayServerIPEntry": {
+    "name": "ubiDhcpRelayServerIPEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpRelayServerIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpRelayServerIP": {
+    "name": "ubiDhcpRelayServerIP",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpRelayServerIPRowStatus": {
+    "name": "ubiDhcpRelayServerIPRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiDhcpRelayStatistics": {
+    "name": "ubiDhcpRelayStatistics",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.3",
+    "class": "objectidentity"
+  },
+  "ubiDhcpRelayCurPktDiscover": {
+    "name": "ubiDhcpRelayCurPktDiscover",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpRelayCurPktReq": {
+    "name": "ubiDhcpRelayCurPktReq",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpRelayCurPktOffer": {
+    "name": "ubiDhcpRelayCurPktOffer",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpRelayCurPktAck": {
+    "name": "ubiDhcpRelayCurPktAck",
+    "oid": "1.3.6.1.4.1.7800.100.6.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopMIBObjects": {
+    "name": "ubiDhcpSnoopMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.6.3",
+    "class": "objectidentity"
+  },
+  "ubiDhcpSnoopInfoTable": {
+    "name": "ubiDhcpSnoopInfoTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpSnoopInfoEntry": {
+    "name": "ubiDhcpSnoopInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "noIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpSnoopAdminStatus": {
+    "name": "ubiDhcpSnoopAdminStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 0,
+          "unlocked": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpSnoopLeaseTimeExtention": {
+    "name": "ubiDhcpSnoopLeaseTimeExtention",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBlockLogClear": {
+    "name": "ubiDhcpSnoopBlockLogClear",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpSnoopOption82Status": {
+    "name": "ubiDhcpSnoopOption82Status",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpSnoopOption82Policy": {
+    "name": "ubiDhcpSnoopOption82Policy",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 0,
+          "keep": 1,
+          "replace": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpSnoopVerifyMAC": {
+    "name": "ubiDhcpSnoopVerifyMAC",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingCount": {
+    "name": "ubiDhcpSnoopBindingCount",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopInvalidCount": {
+    "name": "ubiDhcpSnoopInvalidCount",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopVlanTable": {
+    "name": "ubiDhcpSnoopVlanTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpSnoopVlanEntry": {
+    "name": "ubiDhcpSnoopVlanEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpSnoopVlanIfName": {
+    "name": "ubiDhcpSnoopVlanIfName",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopVlanRowStatus": {
+    "name": "ubiDhcpSnoopVlanRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingTable": {
+    "name": "ubiDhcpSnoopBindingTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingEntry": {
+    "name": "ubiDhcpSnoopBindingEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpSnoopBindingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingIndex": {
+    "name": "ubiDhcpSnoopBindingIndex",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingMacAddr": {
+    "name": "ubiDhcpSnoopBindingMacAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingIpAddr": {
+    "name": "ubiDhcpSnoopBindingIpAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingState": {
+    "name": "ubiDhcpSnoopBindingState",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingVlanName": {
+    "name": "ubiDhcpSnoopBindingVlanName",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingPortName": {
+    "name": "ubiDhcpSnoopBindingPortName",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingUpdate": {
+    "name": "ubiDhcpSnoopBindingUpdate",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "update": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDhcpSnoopBindingLeaseTime": {
+    "name": "ubiDhcpSnoopBindingLeaseTime",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiDhcpSnoopIfTable": {
+    "name": "ubiDhcpSnoopIfTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiDhcpSnoopIfEntry": {
+    "name": "ubiDhcpSnoopIfEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpSnoopIfTrust": {
+    "name": "ubiDhcpSnoopIfTrust",
+    "oid": "1.3.6.1.4.1.7800.100.6.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "trusted": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiDaiMIBObjects": {
+    "name": "ubiDaiMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.6.4",
+    "class": "objectidentity"
+  },
+  "ubiArpInspection": {
+    "name": "ubiArpInspection",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1",
+    "class": "objectidentity"
+  },
+  "ubiArpInspectTable": {
+    "name": "ubiArpInspectTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiArpInspectEntry": {
+    "name": "ubiArpInspectEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiArpInspectRowStatus": {
+    "name": "ubiArpInspectRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiArpInspectValidateTable": {
+    "name": "ubiArpInspectValidateTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiArpInspectValidateEntry": {
+    "name": "ubiArpInspectValidateEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "noIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiArpInspectValidateDestMac": {
+    "name": "ubiArpInspectValidateDestMac",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiArpInspectValidateSrcMac": {
+    "name": "ubiArpInspectValidateSrcMac",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiArpInspectValidateIpAddr": {
+    "name": "ubiArpInspectValidateIpAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiArpInspectValidateArpField": {
+    "name": "ubiArpInspectValidateArpField",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiArpInspectLog": {
+    "name": "ubiArpInspectLog",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3",
+    "class": "objectidentity"
+  },
+  "ubiArpInspectLogInfoTable": {
+    "name": "ubiArpInspectLogInfoTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiArpInspectLogInfoEntry": {
+    "name": "ubiArpInspectLogInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "noIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiArpInspecLogInfoTotalLogBuffer": {
+    "name": "ubiArpInspecLogInfoTotalLogBuffer",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiArpInspecLogInfoLogRate": {
+    "name": "ubiArpInspecLogInfoLogRate",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiArpInspecLogInfoRepeatCount": {
+    "name": "ubiArpInspecLogInfoRepeatCount",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiArpInspecLogInfoLogClear": {
+    "name": "ubiArpInspecLogInfoLogClear",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiArpInspectLogTable": {
+    "name": "ubiArpInspectLogTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiArpInspectLogEntry": {
+    "name": "ubiArpInspectLogEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiArpInspecLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiArpInspecLogIndex": {
+    "name": "ubiArpInspecLogIndex",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiArpInspecLogIfName": {
+    "name": "ubiArpInspecLogIfName",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiArpInspectLogVlanName": {
+    "name": "ubiArpInspectLogVlanName",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiArpInspectLogMacAddr": {
+    "name": "ubiArpInspectLogMacAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiArpInspectLogIpAddr": {
+    "name": "ubiArpInspectLogIpAddr",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiArpInspectLogCount": {
+    "name": "ubiArpInspectLogCount",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiArpInspectAclTable": {
+    "name": "ubiArpInspectAclTable",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiArpInspectAclEntry": {
+    "name": "ubiArpInspectAclEntry",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "uibAclName",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiArpInspectAclRowStatus": {
+    "name": "ubiArpInspectAclRowStatus",
+    "oid": "1.3.6.1.4.1.7800.100.6.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ubiDhcpMIBNotificationPrefix": {
+    "name": "ubiDhcpMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.7800.100.6.0",
+    "class": "objectidentity"
+  },
+  "ubiDhcpMIBNotifications": {
+    "name": "ubiDhcpMIBNotifications",
+    "oid": "1.3.6.1.4.1.7800.100.6.0.0",
+    "class": "objectidentity"
+  },
+  "ubiDhcpServerInUseAddressHighNotification": {
+    "name": "ubiDhcpServerInUseAddressHighNotification",
+    "oid": "1.3.6.1.4.1.7800.100.6.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmIndex"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmId"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmType"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmSeverity"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmPhysicalLoc"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmLogicalLoc"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmCurStatus"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmAuxinfo"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmDateTime"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpServerInUseAddressLowNotification": {
+    "name": "ubiDhcpServerInUseAddressLowNotification",
+    "oid": "1.3.6.1.4.1.7800.100.6.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmIndex"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmId"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmType"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmSeverity"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmPhysicalLoc"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmLogicalLoc"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmCurStatus"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmAuxinfo"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmDateTime"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpMIBConformance": {
+    "name": "ubiDhcpMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.100.6.6",
+    "class": "objectidentity"
+  },
+  "ubiDhcpMIBCompliances": {
+    "name": "ubiDhcpMIBCompliances",
+    "oid": "1.3.6.1.4.1.7800.100.6.6.1",
+    "class": "objectidentity"
+  },
+  "ubiDhcpMIBGroups": {
+    "name": "ubiDhcpMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.100.6.6.2",
+    "class": "objectidentity"
+  },
+  "ubiDhcpMIBCompliance": {
+    "name": "ubiDhcpMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.6.6.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiDhcpMIBGroup",
+        "module": "UBQS-DHCP-MIB"
+      },
+      {
+        "object": "ubiDhcpMIBStatusChangeNotifGroup",
+        "module": "UBQS-DHCP-MIB"
+      },
+      {
+        "object": "ubiDhcpMIBGroup",
+        "module": "UBQS-DHCP-MIB"
+      },
+      {
+        "object": "ubiDhcpMIBStatusChangeNotifGroup",
+        "module": "UBQS-DHCP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpMIBGroup": {
+    "name": "ubiDhcpMIBGroup",
+    "oid": "1.3.6.1.4.1.7800.100.6.6.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpTotalSubnets"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpFreeAddress"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpTotalAddress"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpInUse"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpAutomatic"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpManual"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpLowThreshold"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpHighThreshold"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpFreeAddrValue"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpFreeAddrUnit"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpPoolSubnetName"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpPoolSubnet"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpPoolSubnetMask"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpPoolSubnetFreeAddress"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpPoolSubnetTotalAddress"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpPoolSubnetInUse"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDhcpMIBStatusChangeNotifGroup": {
+    "name": "ubiDhcpMIBStatusChangeNotifGroup",
+    "oid": "1.3.6.1.4.1.7800.100.6.6.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerInUseAddressHighNotification"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiDhcpServerInUseAddressLowNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDaiMIBCompliance": {
+    "name": "ubiDaiMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.6.6.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiDaiMIBGroup",
+        "module": "UBQS-DHCP-MIB"
+      },
+      {
+        "object": "ubiDaiMIBGroup",
+        "module": "UBQS-DHCP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiDaiMIBGroup": {
+    "name": "ubiDaiMIBGroup",
+    "oid": "1.3.6.1.4.1.7800.100.6.6.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiArpInspectRowStatus"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiArpInspectValidateDestMac"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiArpInspectValidateSrcMac"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiArpInspectValidateIpAddr"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiArpInspectValidateArpField"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiArpInspecLoggingTotalLogBuffer"
+      },
+      {
+        "module": "UBQS-DHCP-MIB",
+        "object": "ubiArpInspecLoggingLogNum"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-DHCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "UBQS-DHCP-MIB"
+  }
+}

@@ -1,0 +1,1339 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SIAE-ALARM-MIB": [
+      "AlarmStatus",
+      "AlarmSeverityCode"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "sync": {
+    "name": "sync",
+    "oid": "1.3.6.1.4.1.3373.1103.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-04-02 00:00",
+        "description": "MIB version 01.00.01 Added esmcTable. Changed MAX-ACCESS clause from read-write to read-create in tables with row status. Changed STATUS clause of timingSinkEthPortRole from current to deprecated "
+      },
+      {
+        "revision": "2014-02-17 00:00",
+        "description": "MIB version 01.00.01 Added timingSinkSelectorTable "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of syncMibVersion Removed TimeTicks from IMPORTS list "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "syncMibVersion": {
+    "name": "syncMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.28.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorTable": {
+    "name": "timingGeneratorTable",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "timingGeneratorRecord": {
+    "name": "timingGeneratorRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingGeneratorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "timingGeneratorId": {
+    "name": "timingGeneratorId",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorT4vsT0": {
+    "name": "timingGeneratorT4vsT0",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "t4NotEqualT0": 1,
+          "t4EqualT0": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "t4EqualT0",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorHoldOffTime": {
+    "name": "timingGeneratorHoldOffTime",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorWtrTime": {
+    "name": "timingGeneratorWtrTime",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorSinkLosSet": {
+    "name": "timingGeneratorSinkLosSet",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorSinkLosReset": {
+    "name": "timingGeneratorSinkLosReset",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorT0SquelchAlarm": {
+    "name": "timingGeneratorT0SquelchAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorT4SquelchAlarm": {
+    "name": "timingGeneratorT4SquelchAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorFreeRunningStatus": {
+    "name": "timingGeneratorFreeRunningStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorHoldoverStatus": {
+    "name": "timingGeneratorHoldoverStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorActiveStatus": {
+    "name": "timingGeneratorActiveStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeReportableStatus": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorT0CurrentQuality": {
+    "name": "timingGeneratorT0CurrentQuality",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qUNKN": 0,
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11,
+          "qDNU": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorT4CurrentQuality": {
+    "name": "timingGeneratorT4CurrentQuality",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qUNKN": 0,
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11,
+          "qDNU": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingGeneratorT4MinimumQuality": {
+    "name": "timingGeneratorT4MinimumQuality",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "qSEC",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorT0PreferredSource": {
+    "name": "timingGeneratorT0PreferredSource",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorT4PreferredSource": {
+    "name": "timingGeneratorT4PreferredSource",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorRowStatus": {
+    "name": "timingGeneratorRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.28.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorMaintTable": {
+    "name": "timingGeneratorMaintTable",
+    "oid": "1.3.6.1.4.1.3373.1103.28.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "timingGeneratorMaintRecord": {
+    "name": "timingGeneratorMaintRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.28.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingGeneratorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "timingGeneratorT4Squelch": {
+    "name": "timingGeneratorT4Squelch",
+    "oid": "1.3.6.1.4.1.3373.1103.28.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorStatusControl": {
+    "name": "timingGeneratorStatusControl",
+    "oid": "1.3.6.1.4.1.3373.1103.28.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freerunning": 1,
+          "holdover": 2,
+          "locked": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "locked",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorT0ForcedSource": {
+    "name": "timingGeneratorT0ForcedSource",
+    "oid": "1.3.6.1.4.1.3373.1103.28.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorT4ForcedSource": {
+    "name": "timingGeneratorT4ForcedSource",
+    "oid": "1.3.6.1.4.1.3373.1103.28.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorWtrClearSource": {
+    "name": "timingGeneratorWtrClearSource",
+    "oid": "1.3.6.1.4.1.3373.1103.28.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingSinkTable": {
+    "name": "timingSinkTable",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "timingSinkRecord": {
+    "name": "timingSinkRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingSinkGenId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingSinkId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingSinkType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "timingSinkGenId": {
+    "name": "timingSinkGenId",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkId": {
+    "name": "timingSinkId",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkType": {
+    "name": "timingSinkType",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "t0": 1,
+          "t4": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkIfIndex": {
+    "name": "timingSinkIfIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkSelector": {
+    "name": "timingSinkSelector",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingSinkPriority": {
+    "name": "timingSinkPriority",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p1": 1,
+          "p2": 2,
+          "p3": 3,
+          "p4": 4,
+          "p5": 5,
+          "p6": 6,
+          "p7": 7,
+          "p8": 8,
+          "p9": 9,
+          "p10": 10,
+          "p11": 11,
+          "p12": 12,
+          "p13": 13,
+          "p14": 14,
+          "p15": 15,
+          "disable": 16
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingSinkLabel": {
+    "name": "timingSinkLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkLosAlarm": {
+    "name": "timingSinkLosAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkDriftAlarm": {
+    "name": "timingSinkDriftAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkActiveStatus": {
+    "name": "timingSinkActiveStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeReportableStatus": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkCurrentQuality": {
+    "name": "timingSinkCurrentQuality",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qUNKN": 0,
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11,
+          "qDNU": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkOverwriteTxQuality": {
+    "name": "timingSinkOverwriteTxQuality",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOverwrite": 0,
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11,
+          "qDNU": 15
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOverwrite",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingSinkOverwriteRxQuality": {
+    "name": "timingSinkOverwriteRxQuality",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOverwrite": 0,
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11,
+          "qDNU": 15
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOverwrite",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingSinkSentQuality": {
+    "name": "timingSinkSentQuality",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qUNKN": 0,
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11,
+          "qDNU": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkE1Sabit": {
+    "name": "timingSinkE1Sabit",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingSinkEthPortRole": {
+    "name": "timingSinkEthPortRole",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dynamic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "timingSinkRowStatus": {
+    "name": "timingSinkRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.28.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "timingGeneratorManualSwitch": {
+    "name": "timingGeneratorManualSwitch",
+    "oid": "1.3.6.1.4.1.3373.1103.28.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorForcedSwitch": {
+    "name": "timingGeneratorForcedSwitch",
+    "oid": "1.3.6.1.4.1.3373.1103.28.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorT0SquelchAlarmSeverityCode": {
+    "name": "timingGeneratorT0SquelchAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.28.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorT4SquelchAlarmSeverityCode": {
+    "name": "timingGeneratorT4SquelchAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.28.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorFreeRunningStatusSeverityCode": {
+    "name": "timingGeneratorFreeRunningStatusSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.28.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorHoldoverStatusSeverityCode": {
+    "name": "timingGeneratorHoldoverStatusSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.28.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorActiveStatusSeverityCode": {
+    "name": "timingGeneratorActiveStatusSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.28.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "statusTrapEnable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "statusTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingGeneratorQualityEnable": {
+    "name": "timingGeneratorQualityEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.28.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingSinkLosAlarmSeverityCode": {
+    "name": "timingSinkLosAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.28.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingSinkDriftAlarmSeverityCode": {
+    "name": "timingSinkDriftAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.28.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingSinkActiveStatusSeverityCode": {
+    "name": "timingSinkActiveStatusSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.28.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "statusTrapEnable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "statusTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timingSinkSelectorTable": {
+    "name": "timingSinkSelectorTable",
+    "oid": "1.3.6.1.4.1.3373.1103.28.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "timingSinkSelectorRecord": {
+    "name": "timingSinkSelectorRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.28.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingSinkGenId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingSinkId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingSinkType",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-SYNC-MIB",
+        "object": "timingSinkSelectorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "timingSinkSelectorId": {
+    "name": "timingSinkSelectorId",
+    "oid": "1.3.6.1.4.1.3373.1103.28.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timingSinkSelectorLabel": {
+    "name": "timingSinkSelectorLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.28.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmcTable": {
+    "name": "esmcTable",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esmcRecord": {
+    "name": "esmcRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esmcSsmEnable": {
+    "name": "esmcSsmEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "esmcQlRx": {
+    "name": "esmcQlRx",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qUNKN": 0,
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11,
+          "qDNU": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmcQlTx": {
+    "name": "esmcQlTx",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qUNKN": 0,
+          "qPRC": 2,
+          "qSSUT": 4,
+          "qSSUL": 8,
+          "qSEC": 11,
+          "qDNU": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmcPktsRx": {
+    "name": "esmcPktsRx",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmcPktsTx": {
+    "name": "esmcPktsTx",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmcPktsRxDropped": {
+    "name": "esmcPktsRxDropped",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmcPktsRxErrored": {
+    "name": "esmcPktsRxErrored",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esmc1000BaseTRole": {
+    "name": "esmc1000BaseTRole",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "esmcRowStatus": {
+    "name": "esmcRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.28.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SYNC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-SYNC-MIB"
+  }
+}

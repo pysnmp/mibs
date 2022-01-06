@@ -1,0 +1,1483 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoWanMgMIB": {
+    "name": "ciscoWanMgMIB",
+    "oid": "1.3.6.1.4.1.351.150.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-05-27 00:00",
+        "description": "Added mgEndpointExtTable. "
+      },
+      {
+        "revision": "2004-01-20 00:00",
+        "description": "Update descriptions in MIB."
+      },
+      {
+        "revision": "2002-06-14 00:00",
+        "description": "Imported Unsigned32 from SNMPv2-SMI instead of CISCO-TC."
+      },
+      {
+        "revision": "2001-05-25 00:00",
+        "description": "deprecated following objects: mgcAssociationState, mgcAssociationStateControl, mgcUnassociationPolicy, mgcCommLossUnassociationTimeout. mgcProtocolTable, mgcProtocolEntry and mgcProtocolRowStatus."
+      },
+      {
+        "revision": "2000-07-19 15:00",
+        "description": "Create new table mediaGatewayDomainName. Deprecated mgcDnsResolution in mgcTable. Added mgcDnsResolutionFlag to mgcResolutionTable."
+      },
+      {
+        "revision": "2000-03-27 00:00",
+        "description": "Added DEFVAL clause for mgEndpointCreationPolicy."
+      },
+      {
+        "revision": "1999-11-27 00:00",
+        "description": "Initial Version of the MIB."
+      }
+    ]
+  },
+  "ciscoWanMgMIBObjects": {
+    "name": "ciscoWanMgMIBObjects",
+    "oid": "1.3.6.1.4.1.351.150.10.1",
+    "class": "objectidentity"
+  },
+  "mediaGateway": {
+    "name": "mediaGateway",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1",
+    "class": "objectidentity"
+  },
+  "mediaGatewayController": {
+    "name": "mediaGatewayController",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2",
+    "class": "objectidentity"
+  },
+  "mediaGatewayEndpoint": {
+    "name": "mediaGatewayEndpoint",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3",
+    "class": "objectidentity"
+  },
+  "mediaGatewayLine": {
+    "name": "mediaGatewayLine",
+    "oid": "1.3.6.1.4.1.351.150.10.1.4",
+    "class": "objectidentity"
+  },
+  "mediaGatewayControllerResolution": {
+    "name": "mediaGatewayControllerResolution",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5",
+    "class": "objectidentity"
+  },
+  "mediaGatewayDomainName": {
+    "name": "mediaGatewayDomainName",
+    "oid": "1.3.6.1.4.1.351.150.10.1.6",
+    "class": "objectidentity"
+  },
+  "mgName": {
+    "name": "mgName",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgAdministrativeState": {
+    "name": "mgAdministrativeState",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "commandedOutOfService": 2,
+          "pendingOutOfService": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "commandedOutOfService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgAdministrativeStateControl": {
+    "name": "mgAdministrativeStateControl",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "forcefulOutOfService": 2,
+          "gracefulOutOfService": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forcefulOutOfService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgShutdownGraceTime": {
+    "name": "mgShutdownGraceTime",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgSupportedProtocolTable": {
+    "name": "mgSupportedProtocolTable",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgSupportedProtocolEntry": {
+    "name": "mgSupportedProtocolEntry",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgProtocolNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgProtocolNumber": {
+    "name": "mgProtocolNumber",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgProtocolName": {
+    "name": "mgProtocolName",
+    "oid": "1.3.6.1.4.1.351.150.10.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxConcurrentMgcs": {
+    "name": "maxConcurrentMgcs",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "controllers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgcTable": {
+    "name": "mgcTable",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgcEntry": {
+    "name": "mgcEntry",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgcNumber": {
+    "name": "mgcNumber",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgcName": {
+    "name": "mgcName",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgcDnsResolution": {
+    "name": "mgcDnsResolution",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgcAssociationState": {
+    "name": "mgcAssociationState",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgcUnassociated": 1,
+          "mgcAssociated": 2,
+          "mgcAssociatedCommLoss": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mgcAssociationStateControl": {
+    "name": "mgcAssociationStateControl",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgcUnassociate": 1,
+          "mgcAssociate": 2,
+          "mgcClear": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mgcUnassociate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "mgcUnassociationPolicy": {
+    "name": "mgcUnassociationPolicy",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgcNoAction": 1,
+          "mgcRelease": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mgcNoAction",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "mgcCommLossUnassociationTimeout": {
+    "name": "mgcCommLossUnassociationTimeout",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "mgcRowStatus": {
+    "name": "mgcRowStatus",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgcProtocolTable": {
+    "name": "mgcProtocolTable",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "mgcProtocolEntry": {
+    "name": "mgcProtocolEntry",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgProtocolNumber",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgcProtocolRowStatus": {
+    "name": "mgcProtocolRowStatus",
+    "oid": "1.3.6.1.4.1.351.150.10.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "mgEndpointCreationPolicy": {
+    "name": "mgEndpointCreationPolicy",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "strictDynamic": 2,
+          "static": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "static",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgEndpointTable": {
+    "name": "mgEndpointTable",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgEndpointEntry": {
+    "name": "mgEndpointEntry",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgEndpointNumber": {
+    "name": "mgEndpointNumber",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgEndpointLineNumber": {
+    "name": "mgEndpointLineNumber",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgEndpointName": {
+    "name": "mgEndpointName",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgEndpointSpeed": {
+    "name": "mgEndpointSpeed",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgEndpointState": {
+    "name": "mgEndpointState",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgEndpointActive": 1,
+          "mgEndpointFailed": 2,
+          "mgEndpointDegraded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgEndpointChannelMap": {
+    "name": "mgEndpointChannelMap",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgEndpointRowStatus": {
+    "name": "mgEndpointRowStatus",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lineAssignmentTable": {
+    "name": "lineAssignmentTable",
+    "oid": "1.3.6.1.4.1.351.150.10.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lineAssignmentEntry": {
+    "name": "lineAssignmentEntry",
+    "oid": "1.3.6.1.4.1.351.150.10.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "lineNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lineNumber": {
+    "name": "lineNumber",
+    "oid": "1.3.6.1.4.1.351.150.10.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelAssignment": {
+    "name": "channelAssignment",
+    "oid": "1.3.6.1.4.1.351.150.10.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineName": {
+    "name": "lineName",
+    "oid": "1.3.6.1.4.1.351.150.10.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgcResolutionTable": {
+    "name": "mgcResolutionTable",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgcResolutionEntry": {
+    "name": "mgcResolutionEntry",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgcResolutionIndex": {
+    "name": "mgcResolutionIndex",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgcResolutionName": {
+    "name": "mgcResolutionName",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgcResolutionIpAddress": {
+    "name": "mgcResolutionIpAddress",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgcResolutionCommState": {
+    "name": "mgcResolutionCommState",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "csActive": 1,
+          "csInactive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "csInactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgcResolutionPreference": {
+    "name": "mgcResolutionPreference",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgcResolutionRowStatus": {
+    "name": "mgcResolutionRowStatus",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgcDnsResolutionFlag": {
+    "name": "mgcDnsResolutionFlag",
+    "oid": "1.3.6.1.4.1.351.150.10.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgDomainNameTable": {
+    "name": "mgDomainNameTable",
+    "oid": "1.3.6.1.4.1.351.150.10.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgDomainNameEntry": {
+    "name": "mgDomainNameEntry",
+    "oid": "1.3.6.1.4.1.351.150.10.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgDomainNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgDomainNameIndex": {
+    "name": "mgDomainNameIndex",
+    "oid": "1.3.6.1.4.1.351.150.10.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgDomainName": {
+    "name": "mgDomainName",
+    "oid": "1.3.6.1.4.1.351.150.10.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgDnsResolutionType": {
+    "name": "mgDnsResolutionType",
+    "oid": "1.3.6.1.4.1.351.150.10.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internalOnly": 1,
+          "externalOnly": 2,
+          "internalFirst": 3,
+          "externalFirst": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "internalOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgDomainNameRowStatus": {
+    "name": "mgDomainNameRowStatus",
+    "oid": "1.3.6.1.4.1.351.150.10.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgEndpointExtTable": {
+    "name": "mgEndpointExtTable",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgEndpointExtEntry": {
+    "name": "mgEndpointExtEntry",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mgEndpointExtEntry",
+      "module": "CISCO-WAN-MG-MIB",
+      "object": "mgEndpointEntry"
+    },
+    "status": "current"
+  },
+  "mgEndpointRepetition": {
+    "name": "mgEndpointRepetition",
+    "oid": "1.3.6.1.4.1.351.150.10.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mgMIBConformance": {
+    "name": "mgMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.10.3",
+    "class": "objectidentity"
+  },
+  "mgMIBCompliances": {
+    "name": "mgMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.10.3.1",
+    "class": "objectidentity"
+  },
+  "mgMIBGroups": {
+    "name": "mgMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2",
+    "class": "objectidentity"
+  },
+  "mgMIBCompliance": {
+    "name": "mgMIBCompliance",
+    "oid": "1.3.6.1.4.1.351.150.10.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mediaGatewayGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayControllerGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayEndpointGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayLineGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayControllerResolutionGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgMIBCompliance1": {
+    "name": "mgMIBCompliance1",
+    "oid": "1.3.6.1.4.1.351.150.10.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mediaGatewayGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayControllerGroup1",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayEndpointGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayLineGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayDomainNameGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayControllerResolutionGroup1",
+        "module": "CISCO-WAN-MG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgMIBCompliance2": {
+    "name": "mgMIBCompliance2",
+    "oid": "1.3.6.1.4.1.351.150.10.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mediaGatewayGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayControllerGroup2",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayEndpointGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayLineGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayDomainNameGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayControllerResolutionGroup1",
+        "module": "CISCO-WAN-MG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mgMIBCompliance3": {
+    "name": "mgMIBCompliance3",
+    "oid": "1.3.6.1.4.1.351.150.10.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mediaGatewayGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayControllerGroup2",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayEndpointGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayLineGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayDomainNameGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayControllerResolutionGroup1",
+        "module": "CISCO-WAN-MG-MIB"
+      },
+      {
+        "object": "mediaGatewayEndptRepetitionGroup",
+        "module": "CISCO-WAN-MG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mediaGatewayGroup": {
+    "name": "mediaGatewayGroup",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgAdministrativeState"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgAdministrativeStateControl"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgShutdownGraceTime"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgProtocolName"
+      }
+    ],
+    "status": "current"
+  },
+  "mediaGatewayControllerGroup": {
+    "name": "mediaGatewayControllerGroup",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "maxConcurrentMgcs"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcDnsResolution"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcAssociationState"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcAssociationStateControl"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcUnassociationPolicy"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcCommLossUnassociationTimeout"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcProtocolRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mediaGatewayEndpointGroup": {
+    "name": "mediaGatewayEndpointGroup",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointCreationPolicy"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointLineNumber"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointSpeed"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointState"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointChannelMap"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mediaGatewayLineGroup": {
+    "name": "mediaGatewayLineGroup",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "channelAssignment"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "lineName"
+      }
+    ],
+    "status": "current"
+  },
+  "mediaGatewayControllerResolutionGroup": {
+    "name": "mediaGatewayControllerResolutionGroup",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionIpAddress"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionCommState"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionPreference"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mediaGatewayControllerGroup1": {
+    "name": "mediaGatewayControllerGroup1",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "maxConcurrentMgcs"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcAssociationState"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcAssociationStateControl"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcUnassociationPolicy"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcCommLossUnassociationTimeout"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcProtocolRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mediaGatewayControllerResolutionGroup1": {
+    "name": "mediaGatewayControllerResolutionGroup1",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionIpAddress"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionCommState"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionPreference"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcDnsResolutionFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "mediaGatewayDomainNameGroup": {
+    "name": "mediaGatewayDomainNameGroup",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgDomainName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgDnsResolutionType"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgDomainNameRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mediaGatewayControllerGroup2": {
+    "name": "mediaGatewayControllerGroup2",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "maxConcurrentMgcs"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mediaGatewayEndptRepetitionGroup": {
+    "name": "mediaGatewayEndptRepetitionGroup",
+    "oid": "1.3.6.1.4.1.351.150.10.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointRepetition"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-MG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-MG-MIB"
+  }
+}

@@ -1,0 +1,2965 @@
+{
+  "imports": {
+    "class": "imports",
+    "DIFFSERV-DSCP-TC": [
+      "Dscp",
+      "DscpOrAny"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "INTEGRATED-SERVICES-MIB": [
+      "BurstSize"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "zeroDotZero",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "RowPointer",
+      "StorageType",
+      "AutonomousType"
+    ]
+  },
+  "diffServMib": {
+    "name": "diffServMib",
+    "oid": "1.3.6.1.2.1.97",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-02-07 00:00",
+        "description": "Initial version, published as RFC 3289."
+      }
+    ]
+  },
+  "diffServMIBObjects": {
+    "name": "diffServMIBObjects",
+    "oid": "1.3.6.1.2.1.97.1",
+    "class": "objectidentity"
+  },
+  "diffServMIBConformance": {
+    "name": "diffServMIBConformance",
+    "oid": "1.3.6.1.2.1.97.2",
+    "class": "objectidentity"
+  },
+  "diffServMIBAdmin": {
+    "name": "diffServMIBAdmin",
+    "oid": "1.3.6.1.2.1.97.3",
+    "class": "objectidentity"
+  },
+  "IndexInteger": {
+    "name": "IndexInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "IndexIntegerNextFree": {
+    "name": "IndexIntegerNextFree",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "IfDirection": {
+    "name": "IfDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "diffServDataPath": {
+    "name": "diffServDataPath",
+    "oid": "1.3.6.1.2.1.97.1.1",
+    "class": "objectidentity"
+  },
+  "diffServDataPathTable": {
+    "name": "diffServDataPathTable",
+    "oid": "1.3.6.1.2.1.97.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServDataPathEntry": {
+    "name": "diffServDataPathEntry",
+    "oid": "1.3.6.1.2.1.97.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServDataPathIfDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServDataPathIfDirection": {
+    "name": "diffServDataPathIfDirection",
+    "oid": "1.3.6.1.2.1.97.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServDataPathStart": {
+    "name": "diffServDataPathStart",
+    "oid": "1.3.6.1.2.1.97.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServDataPathStorage": {
+    "name": "diffServDataPathStorage",
+    "oid": "1.3.6.1.2.1.97.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServDataPathStatus": {
+    "name": "diffServDataPathStatus",
+    "oid": "1.3.6.1.2.1.97.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServClassifier": {
+    "name": "diffServClassifier",
+    "oid": "1.3.6.1.2.1.97.1.2",
+    "class": "objectidentity"
+  },
+  "diffServClfrNextFree": {
+    "name": "diffServClfrNextFree",
+    "oid": "1.3.6.1.2.1.97.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServClfrTable": {
+    "name": "diffServClfrTable",
+    "oid": "1.3.6.1.2.1.97.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServClfrEntry": {
+    "name": "diffServClfrEntry",
+    "oid": "1.3.6.1.2.1.97.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServClfrId": {
+    "name": "diffServClfrId",
+    "oid": "1.3.6.1.2.1.97.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServClfrStorage": {
+    "name": "diffServClfrStorage",
+    "oid": "1.3.6.1.2.1.97.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServClfrStatus": {
+    "name": "diffServClfrStatus",
+    "oid": "1.3.6.1.2.1.97.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServClfrElementNextFree": {
+    "name": "diffServClfrElementNextFree",
+    "oid": "1.3.6.1.2.1.97.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServClfrElementTable": {
+    "name": "diffServClfrElementTable",
+    "oid": "1.3.6.1.2.1.97.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServClfrElementEntry": {
+    "name": "diffServClfrElementEntry",
+    "oid": "1.3.6.1.2.1.97.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrId",
+        "implied": 0
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrElementId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServClfrElementId": {
+    "name": "diffServClfrElementId",
+    "oid": "1.3.6.1.2.1.97.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServClfrElementPrecedence": {
+    "name": "diffServClfrElementPrecedence",
+    "oid": "1.3.6.1.2.1.97.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServClfrElementNext": {
+    "name": "diffServClfrElementNext",
+    "oid": "1.3.6.1.2.1.97.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServClfrElementSpecific": {
+    "name": "diffServClfrElementSpecific",
+    "oid": "1.3.6.1.2.1.97.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServClfrElementStorage": {
+    "name": "diffServClfrElementStorage",
+    "oid": "1.3.6.1.2.1.97.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServClfrElementStatus": {
+    "name": "diffServClfrElementStatus",
+    "oid": "1.3.6.1.2.1.97.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrNextFree": {
+    "name": "diffServMultiFieldClfrNextFree",
+    "oid": "1.3.6.1.2.1.97.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrTable": {
+    "name": "diffServMultiFieldClfrTable",
+    "oid": "1.3.6.1.2.1.97.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrEntry": {
+    "name": "diffServMultiFieldClfrEntry",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMultiFieldClfrId": {
+    "name": "diffServMultiFieldClfrId",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrAddrType": {
+    "name": "diffServMultiFieldClfrAddrType",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrDstAddr": {
+    "name": "diffServMultiFieldClfrDstAddr",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrDstPrefixLength": {
+    "name": "diffServMultiFieldClfrDstPrefixLength",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "units": "bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrSrcAddr": {
+    "name": "diffServMultiFieldClfrSrcAddr",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrSrcPrefixLength": {
+    "name": "diffServMultiFieldClfrSrcPrefixLength",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "units": "bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrDscp": {
+    "name": "diffServMultiFieldClfrDscp",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DscpOrAny",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrFlowId": {
+    "name": "diffServMultiFieldClfrFlowId",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrProtocol": {
+    "name": "diffServMultiFieldClfrProtocol",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrDstL4PortMin": {
+    "name": "diffServMultiFieldClfrDstL4PortMin",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrDstL4PortMax": {
+    "name": "diffServMultiFieldClfrDstL4PortMax",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrSrcL4PortMin": {
+    "name": "diffServMultiFieldClfrSrcL4PortMin",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrSrcL4PortMax": {
+    "name": "diffServMultiFieldClfrSrcL4PortMax",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrStorage": {
+    "name": "diffServMultiFieldClfrStorage",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMultiFieldClfrStatus": {
+    "name": "diffServMultiFieldClfrStatus",
+    "oid": "1.3.6.1.2.1.97.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMeter": {
+    "name": "diffServMeter",
+    "oid": "1.3.6.1.2.1.97.1.3",
+    "class": "objectidentity"
+  },
+  "diffServMeterNextFree": {
+    "name": "diffServMeterNextFree",
+    "oid": "1.3.6.1.2.1.97.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServMeterTable": {
+    "name": "diffServMeterTable",
+    "oid": "1.3.6.1.2.1.97.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMeterEntry": {
+    "name": "diffServMeterEntry",
+    "oid": "1.3.6.1.2.1.97.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMeterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMeterId": {
+    "name": "diffServMeterId",
+    "oid": "1.3.6.1.2.1.97.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMeterSucceedNext": {
+    "name": "diffServMeterSucceedNext",
+    "oid": "1.3.6.1.2.1.97.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMeterFailNext": {
+    "name": "diffServMeterFailNext",
+    "oid": "1.3.6.1.2.1.97.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMeterSpecific": {
+    "name": "diffServMeterSpecific",
+    "oid": "1.3.6.1.2.1.97.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMeterStorage": {
+    "name": "diffServMeterStorage",
+    "oid": "1.3.6.1.2.1.97.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMeterStatus": {
+    "name": "diffServMeterStatus",
+    "oid": "1.3.6.1.2.1.97.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServTBParam": {
+    "name": "diffServTBParam",
+    "oid": "1.3.6.1.2.1.97.1.4",
+    "class": "objectidentity"
+  },
+  "diffServTBParamNextFree": {
+    "name": "diffServTBParamNextFree",
+    "oid": "1.3.6.1.2.1.97.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServTBParamTable": {
+    "name": "diffServTBParamTable",
+    "oid": "1.3.6.1.2.1.97.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServTBParamEntry": {
+    "name": "diffServTBParamEntry",
+    "oid": "1.3.6.1.2.1.97.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServTBParamId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServTBParamId": {
+    "name": "diffServTBParamId",
+    "oid": "1.3.6.1.2.1.97.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServTBParamType": {
+    "name": "diffServTBParamType",
+    "oid": "1.3.6.1.2.1.97.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServTBParamRate": {
+    "name": "diffServTBParamRate",
+    "oid": "1.3.6.1.2.1.97.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServTBParamBurstSize": {
+    "name": "diffServTBParamBurstSize",
+    "oid": "1.3.6.1.2.1.97.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServTBParamInterval": {
+    "name": "diffServTBParamInterval",
+    "oid": "1.3.6.1.2.1.97.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServTBParamStorage": {
+    "name": "diffServTBParamStorage",
+    "oid": "1.3.6.1.2.1.97.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServTBParamStatus": {
+    "name": "diffServTBParamStatus",
+    "oid": "1.3.6.1.2.1.97.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServTBMeters": {
+    "name": "diffServTBMeters",
+    "oid": "1.3.6.1.2.1.97.3.1",
+    "class": "objectidentity"
+  },
+  "diffServTBParamSimpleTokenBucket": {
+    "name": "diffServTBParamSimpleTokenBucket",
+    "oid": "1.3.6.1.2.1.97.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServTBParamAvgRate": {
+    "name": "diffServTBParamAvgRate",
+    "oid": "1.3.6.1.2.1.97.3.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServTBParamSrTCMBlind": {
+    "name": "diffServTBParamSrTCMBlind",
+    "oid": "1.3.6.1.2.1.97.3.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServTBParamSrTCMAware": {
+    "name": "diffServTBParamSrTCMAware",
+    "oid": "1.3.6.1.2.1.97.3.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServTBParamTrTCMBlind": {
+    "name": "diffServTBParamTrTCMBlind",
+    "oid": "1.3.6.1.2.1.97.3.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServTBParamTrTCMAware": {
+    "name": "diffServTBParamTrTCMAware",
+    "oid": "1.3.6.1.2.1.97.3.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServTBParamTswTCM": {
+    "name": "diffServTBParamTswTCM",
+    "oid": "1.3.6.1.2.1.97.3.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServAction": {
+    "name": "diffServAction",
+    "oid": "1.3.6.1.2.1.97.1.5",
+    "class": "objectidentity"
+  },
+  "diffServActionNextFree": {
+    "name": "diffServActionNextFree",
+    "oid": "1.3.6.1.2.1.97.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServActionTable": {
+    "name": "diffServActionTable",
+    "oid": "1.3.6.1.2.1.97.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServActionEntry": {
+    "name": "diffServActionEntry",
+    "oid": "1.3.6.1.2.1.97.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServActionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServActionId": {
+    "name": "diffServActionId",
+    "oid": "1.3.6.1.2.1.97.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServActionInterface": {
+    "name": "diffServActionInterface",
+    "oid": "1.3.6.1.2.1.97.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServActionNext": {
+    "name": "diffServActionNext",
+    "oid": "1.3.6.1.2.1.97.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServActionSpecific": {
+    "name": "diffServActionSpecific",
+    "oid": "1.3.6.1.2.1.97.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServActionStorage": {
+    "name": "diffServActionStorage",
+    "oid": "1.3.6.1.2.1.97.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServActionStatus": {
+    "name": "diffServActionStatus",
+    "oid": "1.3.6.1.2.1.97.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServDscpMarkActTable": {
+    "name": "diffServDscpMarkActTable",
+    "oid": "1.3.6.1.2.1.97.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServDscpMarkActEntry": {
+    "name": "diffServDscpMarkActEntry",
+    "oid": "1.3.6.1.2.1.97.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServDscpMarkActDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServDscpMarkActDscp": {
+    "name": "diffServDscpMarkActDscp",
+    "oid": "1.3.6.1.2.1.97.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServCountActNextFree": {
+    "name": "diffServCountActNextFree",
+    "oid": "1.3.6.1.2.1.97.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServCountActTable": {
+    "name": "diffServCountActTable",
+    "oid": "1.3.6.1.2.1.97.1.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServCountActEntry": {
+    "name": "diffServCountActEntry",
+    "oid": "1.3.6.1.2.1.97.1.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServCountActId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServCountActId": {
+    "name": "diffServCountActId",
+    "oid": "1.3.6.1.2.1.97.1.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServCountActOctets": {
+    "name": "diffServCountActOctets",
+    "oid": "1.3.6.1.2.1.97.1.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServCountActPkts": {
+    "name": "diffServCountActPkts",
+    "oid": "1.3.6.1.2.1.97.1.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServCountActStorage": {
+    "name": "diffServCountActStorage",
+    "oid": "1.3.6.1.2.1.97.1.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServCountActStatus": {
+    "name": "diffServCountActStatus",
+    "oid": "1.3.6.1.2.1.97.1.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServAlgDrop": {
+    "name": "diffServAlgDrop",
+    "oid": "1.3.6.1.2.1.97.1.6",
+    "class": "objectidentity"
+  },
+  "diffServAlgDropNextFree": {
+    "name": "diffServAlgDropNextFree",
+    "oid": "1.3.6.1.2.1.97.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServAlgDropTable": {
+    "name": "diffServAlgDropTable",
+    "oid": "1.3.6.1.2.1.97.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServAlgDropEntry": {
+    "name": "diffServAlgDropEntry",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServAlgDropId": {
+    "name": "diffServAlgDropId",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServAlgDropType": {
+    "name": "diffServAlgDropType",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "tailDrop": 2,
+          "headDrop": 3,
+          "randomDrop": 4,
+          "alwaysDrop": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServAlgDropNext": {
+    "name": "diffServAlgDropNext",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServAlgDropQMeasure": {
+    "name": "diffServAlgDropQMeasure",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServAlgDropQThreshold": {
+    "name": "diffServAlgDropQThreshold",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServAlgDropSpecific": {
+    "name": "diffServAlgDropSpecific",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServAlgDropOctets": {
+    "name": "diffServAlgDropOctets",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServAlgDropPkts": {
+    "name": "diffServAlgDropPkts",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServAlgRandomDropOctets": {
+    "name": "diffServAlgRandomDropOctets",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServAlgRandomDropPkts": {
+    "name": "diffServAlgRandomDropPkts",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServAlgDropStorage": {
+    "name": "diffServAlgDropStorage",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServAlgDropStatus": {
+    "name": "diffServAlgDropStatus",
+    "oid": "1.3.6.1.2.1.97.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropNextFree": {
+    "name": "diffServRandomDropNextFree",
+    "oid": "1.3.6.1.2.1.97.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServRandomDropTable": {
+    "name": "diffServRandomDropTable",
+    "oid": "1.3.6.1.2.1.97.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServRandomDropEntry": {
+    "name": "diffServRandomDropEntry",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServRandomDropId": {
+    "name": "diffServRandomDropId",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServRandomDropMinThreshBytes": {
+    "name": "diffServRandomDropMinThreshBytes",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropMinThreshPkts": {
+    "name": "diffServRandomDropMinThreshPkts",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropMaxThreshBytes": {
+    "name": "diffServRandomDropMaxThreshBytes",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropMaxThreshPkts": {
+    "name": "diffServRandomDropMaxThreshPkts",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropProbMax": {
+    "name": "diffServRandomDropProbMax",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropWeight": {
+    "name": "diffServRandomDropWeight",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropSamplingRate": {
+    "name": "diffServRandomDropSamplingRate",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropStorage": {
+    "name": "diffServRandomDropStorage",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServRandomDropStatus": {
+    "name": "diffServRandomDropStatus",
+    "oid": "1.3.6.1.2.1.97.1.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServQueue": {
+    "name": "diffServQueue",
+    "oid": "1.3.6.1.2.1.97.1.7",
+    "class": "objectidentity"
+  },
+  "diffServQNextFree": {
+    "name": "diffServQNextFree",
+    "oid": "1.3.6.1.2.1.97.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServQTable": {
+    "name": "diffServQTable",
+    "oid": "1.3.6.1.2.1.97.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServQEntry": {
+    "name": "diffServQEntry",
+    "oid": "1.3.6.1.2.1.97.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServQId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServQId": {
+    "name": "diffServQId",
+    "oid": "1.3.6.1.2.1.97.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServQNext": {
+    "name": "diffServQNext",
+    "oid": "1.3.6.1.2.1.97.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServQMinRate": {
+    "name": "diffServQMinRate",
+    "oid": "1.3.6.1.2.1.97.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServQMaxRate": {
+    "name": "diffServQMaxRate",
+    "oid": "1.3.6.1.2.1.97.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServQStorage": {
+    "name": "diffServQStorage",
+    "oid": "1.3.6.1.2.1.97.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServQStatus": {
+    "name": "diffServQStatus",
+    "oid": "1.3.6.1.2.1.97.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServScheduler": {
+    "name": "diffServScheduler",
+    "oid": "1.3.6.1.2.1.97.1.8",
+    "class": "objectidentity"
+  },
+  "diffServSchedulerNextFree": {
+    "name": "diffServSchedulerNextFree",
+    "oid": "1.3.6.1.2.1.97.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServSchedulerTable": {
+    "name": "diffServSchedulerTable",
+    "oid": "1.3.6.1.2.1.97.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServSchedulerEntry": {
+    "name": "diffServSchedulerEntry",
+    "oid": "1.3.6.1.2.1.97.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServSchedulerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServSchedulerId": {
+    "name": "diffServSchedulerId",
+    "oid": "1.3.6.1.2.1.97.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServSchedulerNext": {
+    "name": "diffServSchedulerNext",
+    "oid": "1.3.6.1.2.1.97.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServSchedulerMethod": {
+    "name": "diffServSchedulerMethod",
+    "oid": "1.3.6.1.2.1.97.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServSchedulerMinRate": {
+    "name": "diffServSchedulerMinRate",
+    "oid": "1.3.6.1.2.1.97.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServSchedulerMaxRate": {
+    "name": "diffServSchedulerMaxRate",
+    "oid": "1.3.6.1.2.1.97.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServSchedulerStorage": {
+    "name": "diffServSchedulerStorage",
+    "oid": "1.3.6.1.2.1.97.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServSchedulerStatus": {
+    "name": "diffServSchedulerStatus",
+    "oid": "1.3.6.1.2.1.97.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServSchedulers": {
+    "name": "diffServSchedulers",
+    "oid": "1.3.6.1.2.1.97.3.2",
+    "class": "objectidentity"
+  },
+  "diffServSchedulerPriority": {
+    "name": "diffServSchedulerPriority",
+    "oid": "1.3.6.1.2.1.97.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServSchedulerWRR": {
+    "name": "diffServSchedulerWRR",
+    "oid": "1.3.6.1.2.1.97.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServSchedulerWFQ": {
+    "name": "diffServSchedulerWFQ",
+    "oid": "1.3.6.1.2.1.97.3.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "diffServMinRateNextFree": {
+    "name": "diffServMinRateNextFree",
+    "oid": "1.3.6.1.2.1.97.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServMinRateTable": {
+    "name": "diffServMinRateTable",
+    "oid": "1.3.6.1.2.1.97.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMinRateEntry": {
+    "name": "diffServMinRateEntry",
+    "oid": "1.3.6.1.2.1.97.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMinRateId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMinRateId": {
+    "name": "diffServMinRateId",
+    "oid": "1.3.6.1.2.1.97.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMinRatePriority": {
+    "name": "diffServMinRatePriority",
+    "oid": "1.3.6.1.2.1.97.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMinRateAbsolute": {
+    "name": "diffServMinRateAbsolute",
+    "oid": "1.3.6.1.2.1.97.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMinRateRelative": {
+    "name": "diffServMinRateRelative",
+    "oid": "1.3.6.1.2.1.97.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMinRateStorage": {
+    "name": "diffServMinRateStorage",
+    "oid": "1.3.6.1.2.1.97.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMinRateStatus": {
+    "name": "diffServMinRateStatus",
+    "oid": "1.3.6.1.2.1.97.1.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMaxRateNextFree": {
+    "name": "diffServMaxRateNextFree",
+    "oid": "1.3.6.1.2.1.97.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diffServMaxRateTable": {
+    "name": "diffServMaxRateTable",
+    "oid": "1.3.6.1.2.1.97.1.8.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMaxRateEntry": {
+    "name": "diffServMaxRateEntry",
+    "oid": "1.3.6.1.2.1.97.1.8.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMaxRateId",
+        "implied": 0
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMaxRateLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMaxRateId": {
+    "name": "diffServMaxRateId",
+    "oid": "1.3.6.1.2.1.97.1.8.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMaxRateLevel": {
+    "name": "diffServMaxRateLevel",
+    "oid": "1.3.6.1.2.1.97.1.8.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diffServMaxRateAbsolute": {
+    "name": "diffServMaxRateAbsolute",
+    "oid": "1.3.6.1.2.1.97.1.8.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMaxRateRelative": {
+    "name": "diffServMaxRateRelative",
+    "oid": "1.3.6.1.2.1.97.1.8.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMaxRateThreshold": {
+    "name": "diffServMaxRateThreshold",
+    "oid": "1.3.6.1.2.1.97.1.8.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMaxRateStorage": {
+    "name": "diffServMaxRateStorage",
+    "oid": "1.3.6.1.2.1.97.1.8.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMaxRateStatus": {
+    "name": "diffServMaxRateStatus",
+    "oid": "1.3.6.1.2.1.97.1.8.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "diffServMIBCompliances": {
+    "name": "diffServMIBCompliances",
+    "oid": "1.3.6.1.2.1.97.2.1",
+    "class": "objectidentity"
+  },
+  "diffServMIBGroups": {
+    "name": "diffServMIBGroups",
+    "oid": "1.3.6.1.2.1.97.2.2",
+    "class": "objectidentity"
+  },
+  "diffServMIBFullCompliance": {
+    "name": "diffServMIBFullCompliance",
+    "oid": "1.3.6.1.2.1.97.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "diffServMIBDataPathGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBClfrGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBClfrElementGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMultiFieldClfrGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBActionGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBAlgDropGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBQGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBSchedulerGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMaxRateGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMinRateGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBCounterGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMeterGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBTBParamGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBDscpMarkActGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBRandomDropGroup",
+        "module": "DIFFSERV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBReadOnlyCompliance": {
+    "name": "diffServMIBReadOnlyCompliance",
+    "oid": "1.3.6.1.2.1.97.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "diffServMIBDataPathGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBClfrGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBClfrElementGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMultiFieldClfrGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBActionGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBAlgDropGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBQGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBSchedulerGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMaxRateGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMinRateGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBCounterGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMeterGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBTBParamGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBDscpMarkActGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBRandomDropGroup",
+        "module": "DIFFSERV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBDataPathGroup": {
+    "name": "diffServMIBDataPathGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServDataPathStart"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServDataPathStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServDataPathStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBClfrGroup": {
+    "name": "diffServMIBClfrGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBClfrElementGroup": {
+    "name": "diffServMIBClfrElementGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrElementNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrElementPrecedence"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrElementNext"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrElementSpecific"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrElementStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServClfrElementStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBMultiFieldClfrGroup": {
+    "name": "diffServMIBMultiFieldClfrGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrAddrType"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrDstAddr"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrDstPrefixLength"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrFlowId"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrSrcAddr"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrSrcPrefixLength"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrDscp"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrProtocol"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrDstL4PortMin"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrDstL4PortMax"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrSrcL4PortMin"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrSrcL4PortMax"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMultiFieldClfrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBMeterGroup": {
+    "name": "diffServMIBMeterGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMeterNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMeterSucceedNext"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMeterFailNext"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMeterSpecific"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMeterStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMeterStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBTBParamGroup": {
+    "name": "diffServMIBTBParamGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServTBParamNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServTBParamType"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServTBParamRate"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServTBParamBurstSize"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServTBParamInterval"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServTBParamStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServTBParamStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBActionGroup": {
+    "name": "diffServMIBActionGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServActionNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServActionNext"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServActionSpecific"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServActionStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServActionInterface"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServActionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBDscpMarkActGroup": {
+    "name": "diffServMIBDscpMarkActGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServDscpMarkActDscp"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBCounterGroup": {
+    "name": "diffServMIBCounterGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServCountActOctets"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServCountActPkts"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropOctets"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropPkts"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgRandomDropOctets"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgRandomDropPkts"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServCountActStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServCountActStatus"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServCountActNextFree"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBAlgDropGroup": {
+    "name": "diffServMIBAlgDropGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropType"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropNext"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropQMeasure"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropQThreshold"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropSpecific"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServAlgDropStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBRandomDropGroup": {
+    "name": "diffServMIBRandomDropGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropMinThreshBytes"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropMinThreshPkts"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropMaxThreshBytes"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropMaxThreshPkts"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropProbMax"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropWeight"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropSamplingRate"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServRandomDropStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBQGroup": {
+    "name": "diffServMIBQGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServQNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServQNext"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServQMinRate"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServQMaxRate"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServQStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServQStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBSchedulerGroup": {
+    "name": "diffServMIBSchedulerGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServSchedulerNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServSchedulerNext"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServSchedulerMethod"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServSchedulerMinRate"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServSchedulerMaxRate"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServSchedulerStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServSchedulerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBMinRateGroup": {
+    "name": "diffServMIBMinRateGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMinRateNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMinRatePriority"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMinRateAbsolute"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMinRateRelative"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMinRateStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMinRateStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "diffServMIBMaxRateGroup": {
+    "name": "diffServMIBMaxRateGroup",
+    "oid": "1.3.6.1.2.1.97.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMaxRateNextFree"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMaxRateAbsolute"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMaxRateRelative"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMaxRateThreshold"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMaxRateStorage"
+      },
+      {
+        "module": "DIFFSERV-MIB",
+        "object": "diffServMaxRateStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DIFFSERV-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DIFFSERV-MIB"
+  }
+}

@@ -1,0 +1,869 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ascomIpdectMIB": {
+    "name": "ascomIpdectMIB",
+    "oid": "1.3.6.1.4.1.27614.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1917-06-27 00:00",
+        "description": "Ascom IPDect MIB"
+      },
+      {
+        "revision": "1917-02-15 00:00",
+        "description": "Added masterAbnormalCallRelease"
+      },
+      {
+        "revision": "1914-01-17 00:00",
+        "description": "Added dectMasterConnectionTimeout"
+      },
+      {
+        "revision": "1913-10-07 00:00",
+        "description": "Added masterActive, masterInactive"
+      },
+      {
+        "revision": "1913-10-04 00:00",
+        "description": "Added dectCipherTimeout, masterLimitStaticRadiosReached"
+      },
+      {
+        "revision": "1913-05-14 00:00",
+        "description": "Added configPutFailed"
+      },
+      {
+        "revision": "1913-05-07 00:00",
+        "description": "Updated ipDectFaultCode, ipDectAlarmCode"
+      },
+      {
+        "revision": "1913-04-22 00:00",
+        "description": "Updated ipDectFaultCode, ipDectAlarmCode"
+      },
+      {
+        "revision": "1912-09-11 00:00",
+        "description": "Removed underscores from enum values"
+      },
+      {
+        "revision": "1912-08-31 00:00",
+        "description": "Updated ipDectFaultCode, ipDectAlarmCode"
+      },
+      {
+        "revision": "1910-11-23 00:00",
+        "description": "Updated ipDectFaultCode, ipDectAlarmCode"
+      },
+      {
+        "revision": "1910-06-17 00:00",
+        "description": "Updated ipDectFaultCode, ipDectAlarmCode"
+      },
+      {
+        "revision": "1908-09-25 00:00",
+        "description": "Updated ipDectFaultCode, ipDectAlarmCode"
+      },
+      {
+        "revision": "1907-12-01 00:00",
+        "description": "First draft of the Ascom IPDect MIB"
+      },
+      {
+        "revision": "1907-12-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ascom": {
+    "name": "ascom",
+    "oid": "1.3.6.1.4.1.27614",
+    "class": "objectidentity"
+  },
+  "ascomTraps": {
+    "name": "ascomTraps",
+    "oid": "1.3.6.1.4.1.27614.0",
+    "class": "objectidentity"
+  },
+  "ascomMibs": {
+    "name": "ascomMibs",
+    "oid": "1.3.6.1.4.1.27614.1",
+    "class": "objectidentity"
+  },
+  "ascomIpdect": {
+    "name": "ascomIpdect",
+    "oid": "1.3.6.1.4.1.27614.1.1",
+    "class": "objectidentity"
+  },
+  "ipDectAttr": {
+    "name": "ipDectAttr",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "ipDectFaults": {
+    "name": "ipDectFaults",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "ipDectFaultLogEntries": {
+    "name": "ipDectFaultLogEntries",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectAlarmLogEntries": {
+    "name": "ipDectAlarmLogEntries",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectLastErrorCode": {
+    "name": "ipDectLastErrorCode",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultLogTable": {
+    "name": "ipDectFaultLogTable",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipDectFaultLogEntry": {
+    "name": "ipDectFaultLogEntry",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectFaultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectFaultIndex": {
+    "name": "ipDectFaultIndex",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultDate": {
+    "name": "ipDectFaultDate",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultTime": {
+    "name": "ipDectFaultTime",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultActivity": {
+    "name": "ipDectFaultActivity",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 0,
+          "alarmCleared": 1,
+          "alarmTimeout": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultCode": {
+    "name": "ipDectFaultCode",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gwInterfaceDown": 65537,
+          "gwRegDown": 65538,
+          "gwProtocolError": 65539,
+          "usersTheLdapReplicatorIsNotConnected": 196609,
+          "radioCpuResourcesAreNotAvailable": 196865,
+          "masterStandbyActive": 197121,
+          "masterUserRegDown": 197122,
+          "masterEmergencyRegDown": 197123,
+          "masterRadioRegDown": 197124,
+          "masterPrimaryOrRedundantTrunkIsDown": 197125,
+          "masterActive": 197126,
+          "masterInactive": 197127,
+          "masterLimitStaticRadiosReached": 197128,
+          "masterAbnormalCallRelease": 197136,
+          "mobmInboundMobmRegDown": 197377,
+          "mobmOutboundMobmRegDown": 197378,
+          "mobmMasterRegDown": 197379,
+          "mobmStandbyActive": 197380,
+          "cmInboundMobmRegDown": 197633,
+          "rtpNoMediaDataReceived": 327681,
+          "rtpExcessiveLossOfData": 327682,
+          "rtpWrongPayloadTypeReceived": 327683,
+          "rtpStunFailure": 327684,
+          "rtpSrtpAuthFailure": 327689,
+          "rtpSrtcpAuthFailure": 327686,
+          "rtpIceFailure": 327688,
+          "h323UnexpectedMessageReceived": 393217,
+          "h323StatusEnquiry": 393218,
+          "h323SignalingTCPFailed": 393219,
+          "h323SignalingTimeout": 393220,
+          "h323SrtpKeyMismatch": 393221,
+          "h323MediaIncompatible": 393222,
+          "sipNatDiscoverFailure": 458753,
+          "sipOverloadDetected": 458755,
+          "sipCoderSelectionFailure": 458756,
+          "sipMediaConfigFailure": 458757,
+          "sipDnsFailed": 458763,
+          "sipIntMediaNegotiationFailed": 458759,
+          "webmInvalidUrl": 524289,
+          "webmCoderMissingInUrl": 524290,
+          "cmdRestart": 720897,
+          "tlsUnexpectedMessage": 786954,
+          "tlsBadMac": 786964,
+          "tlsDecryptionFailed": 786965,
+          "tlsRecordOverflow": 786966,
+          "tlsDecompressionFailure": 786974,
+          "tlsHandshakeFailure": 786984,
+          "tlsNoCertificate": 786985,
+          "tlsBadCertificate": 786986,
+          "tlsUnsupportedCertificate": 786987,
+          "tlsRevocedCertificate": 786988,
+          "tlsExpiredCertificate": 786989,
+          "tlsUnknownCertificate": 786990,
+          "tlsIllegalParameter": 786991,
+          "tlsUnknownCA": 786992,
+          "tlsAccessDenied": 786993,
+          "tlsDecodeError": 786994,
+          "tlsDecryptionError": 786995,
+          "tlsExportRestriction": 787004,
+          "tlsProtocolVersion": 787014,
+          "tlsInsufficientSecurity": 787015,
+          "tlsInternalError": 787024,
+          "tlsUserCancelled": 787034,
+          "tlsNoRenegotiation": 787044,
+          "kerberosServiceNotFound": 787459,
+          "kerberosServerUnreachable": 787462,
+          "kerberosCrossRealmFailure": 787463,
+          "x509SystemTimeNotSet": 790528,
+          "x509CertificateNearExpiration": 790529,
+          "rfpDisconnected": 917505,
+          "rfpMalfunctioning": 917506,
+          "rfpDisabled": 917507,
+          "rfpSwDlFailed": 917508,
+          "rfpUnsynchronized": 917509,
+          "rfpAlienSyncLost": 917510,
+          "rfpDetectedSysidCollision": 917512,
+          "rfpSyncMasterFailedToResynchronizeToReference": 917513,
+          "rfpRestarted": 917514,
+          "envHighTemperature": 983041,
+          "envHighPowerConsumption": 983042,
+          "envSupplyVoltageLow": 983044,
+          "envSupplyVoltageHigh": 983048,
+          "envFanFailure": 983056,
+          "syncRingBroken": 1048577,
+          "syncRefSignalLost": 1048578,
+          "syncLost": 1048580,
+          "syncUnsynchronizedToReference": 1048584,
+          "ipInterfaceDown": 1114112,
+          "ipInterfaceNotConfigured": 1114113,
+          "ipDhcpServerNotResponding": 1114114,
+          "ipInvalidUdpRtpPortRange": 1114137,
+          "ipInvalidUdpNatPortRange": 1114138,
+          "ipInvalidNatPortRange": 1114139,
+          "ipArpPoisoningDetected": 1114177,
+          "ipOutOfTcpNatPorts": 1114182,
+          "ipOutOfTcpPorts": 1114183,
+          "ipTcpBindError": 1114185,
+          "ipOutOfUdpRtpPorts": 1114192,
+          "ipOutOfUdpPorts": 1114193,
+          "ipUdpBindError": 1114195,
+          "ipNoRouteToDestination": 1114202,
+          "ipNoRouteToDestinationIfDown": 1114203,
+          "ipNoRouteToDestinationIfUnknown": 1114204,
+          "ipNoRouteToDestinationIfNotConfigured": 1114205,
+          "ipNoRouteToDestinationNoGateway": 1114206,
+          "ipNoRouteToDestinationLoop": 1114207,
+          "boxMemoryLow": 1179649,
+          "rfpBusyForSpeech": 1310721,
+          "dectDefEncKeyTimeout": 1310821,
+          "dectCipherTimeout": 1310822,
+          "dectMasterConnectionTimeout": 1310823,
+          "sysBusyForSpeech": 1376257,
+          "provisioningDataCommunicationsError": 1638401,
+          "provisioningDataCommunicationsPutError": 1638402,
+          "uniteCommunicationFailure": 1703937,
+          "cuniteCommunicationFailure": 1704192,
+          "icpConnectionDown": 2097152,
+          "updateScriptGetFailed": 2162689,
+          "bootGetFailed": 2162690,
+          "firmwareGetFailed": 2162691,
+          "configGetFailed": 2162692,
+          "bmcGetFailed": 2162693,
+          "configPutFailed": 2162694
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultSeverity": {
+    "name": "ipDectFaultSeverity",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "indeterminate": 0,
+          "major": 1,
+          "critical": 2,
+          "none": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultSource": {
+    "name": "ipDectFaultSource",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultIp": {
+    "name": "ipDectFaultIp",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectFaultDescription": {
+    "name": "ipDectFaultDescription",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectActiveAlarmsTable": {
+    "name": "ipDectActiveAlarmsTable",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipDectActiveAlarmsEntry": {
+    "name": "ipDectActiveAlarmsEntry",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectActiveAlarmsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectActiveAlarmsIndex": {
+    "name": "ipDectActiveAlarmsIndex",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectAlarmDate": {
+    "name": "ipDectAlarmDate",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectAlarmTime": {
+    "name": "ipDectAlarmTime",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectAlarmCode": {
+    "name": "ipDectAlarmCode",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gwInterfaceDown": 65537,
+          "gwRegDown": 65538,
+          "gwProtocolError": 65539,
+          "usersTheLdapReplicatorIsNotConnected": 196609,
+          "radioCpuResourcesAreNotAvailable": 196865,
+          "masterStandbyActive": 197121,
+          "masterUserRegDown": 197122,
+          "masterEmergencyRegDown": 197123,
+          "masterRadioRegDown": 197124,
+          "masterPrimaryOrRedundantTrunkIsDown": 197125,
+          "masterActive": 197126,
+          "masterInactive": 197127,
+          "masterLimitStaticRadiosReached": 197128,
+          "masterAbnormalCallRelease": 197136,
+          "mobmInboundMobmRegDown": 197377,
+          "mobmOutboundMobmRegDown": 197378,
+          "mobmMasterRegDown": 197379,
+          "mobmStandbyActive": 197380,
+          "cmInboundMobmRegDown": 197633,
+          "rtpNoMediaDataReceived": 327681,
+          "rtpExcessiveLossOfData": 327682,
+          "rtpWrongPayloadTypeReceived": 327683,
+          "rtpStunFailure": 327684,
+          "rtpSrtpAuthFailure": 327689,
+          "rtpSrtcpAuthFailure": 327686,
+          "rtpIceFailure": 327688,
+          "h323UnexpectedMessageReceived": 393217,
+          "h323StatusEnquiry": 393218,
+          "h323SignalingTCPFailed": 393219,
+          "h323SignalingTimeout": 393220,
+          "h323SrtpKeyMismatch": 393221,
+          "h323MediaIncompatible": 393222,
+          "sipNatDiscoverFailure": 458753,
+          "sipOverloadDetected": 458755,
+          "sipCoderSelectionFailure": 458756,
+          "sipMediaConfigFailure": 458757,
+          "sipDnsFailed": 458763,
+          "sipIntMediaNegotiationFailed": 458759,
+          "webmInvalidUrl": 524289,
+          "webmCoderMissingInUrl": 524290,
+          "cmdRestart": 720897,
+          "tlsUnexpectedMessage": 786954,
+          "tlsBadMac": 786964,
+          "tlsDecryptionFailed": 786965,
+          "tlsRecordOverflow": 786966,
+          "tlsDecompressionFailure": 786974,
+          "tlsHandshakeFailure": 786984,
+          "tlsNoCertificate": 786985,
+          "tlsBadCertificate": 786986,
+          "tlsUnsupportedCertificate": 786987,
+          "tlsRevocedCertificate": 786988,
+          "tlsExpiredCertificate": 786989,
+          "tlsUnknownCertificate": 786990,
+          "tlsIllegalParameter": 786991,
+          "tlsUnknownCA": 786992,
+          "tlsAccessDenied": 786993,
+          "tlsDecodeError": 786994,
+          "tlsDecryptionError": 786995,
+          "tlsExportRestriction": 787004,
+          "tlsProtocolVersion": 787014,
+          "tlsInsufficientSecurity": 787015,
+          "tlsInternalError": 787024,
+          "tlsUserCancelled": 787034,
+          "tlsNoRenegotiation": 787044,
+          "kerberosServiceNotFound": 787459,
+          "kerberosServerUnreachable": 787462,
+          "kerberosCrossRealmFailure": 787463,
+          "x509SystemTimeNotSet": 790528,
+          "x509CertificateNearExpiration": 790529,
+          "rfpDisconnected": 917505,
+          "rfpMalfunctioning": 917506,
+          "rfpDisabled": 917507,
+          "rfpSwDlFailed": 917508,
+          "rfpUnsynchronized": 917509,
+          "rfpAlienSyncLost": 917510,
+          "rfpDetectedSysidCollision": 917512,
+          "rfpSyncMasterFailedToResynchronizeToReference": 917513,
+          "rfpRestarted": 917514,
+          "envHighTemperature": 983041,
+          "envHighPowerConsumption": 983042,
+          "envSupplyVoltageLow": 983044,
+          "envSupplyVoltageHigh": 983048,
+          "envFanFailure": 983056,
+          "syncRingBroken": 1048577,
+          "syncRefSignalLost": 1048578,
+          "syncLost": 1048580,
+          "syncUnsynchronizedToReference": 1048584,
+          "ipInterfaceDown": 1114112,
+          "ipInterfaceNotConfigured": 1114113,
+          "ipDhcpServerNotResponding": 1114114,
+          "ipInvalidUdpRtpPortRange": 1114137,
+          "ipInvalidUdpNatPortRange": 1114138,
+          "ipInvalidNatPortRange": 1114139,
+          "ipArpPoisoningDetected": 1114177,
+          "ipOutOfTcpNatPorts": 1114182,
+          "ipOutOfTcpPorts": 1114183,
+          "ipTcpBindError": 1114185,
+          "ipOutOfUdpRtpPorts": 1114192,
+          "ipOutOfUdpPorts": 1114193,
+          "ipUdpBindError": 1114195,
+          "ipNoRouteToDestination": 1114202,
+          "ipNoRouteToDestinationIfDown": 1114203,
+          "ipNoRouteToDestinationIfUnknown": 1114204,
+          "ipNoRouteToDestinationIfNotConfigured": 1114205,
+          "ipNoRouteToDestinationNoGateway": 1114206,
+          "ipNoRouteToDestinationLoop": 1114207,
+          "boxMemoryLow": 1179649,
+          "rfpBusyForSpeech": 1310721,
+          "dectDefEncKeyTimeout": 1310821,
+          "dectCipherTimeout": 1310822,
+          "dectMasterConnectionTimeout": 1310823,
+          "sysBusyForSpeech": 1376257,
+          "provisioningDataCommunicationsError": 1638401,
+          "provisioningDataCommunicationsPutError": 1638402,
+          "uniteCommunicationFailure": 1703937,
+          "cuniteCommunicationFailure": 1704192,
+          "icpConnectionDown": 2097152,
+          "updateScriptGetFailed": 2162689,
+          "bootGetFailed": 2162690,
+          "firmwareGetFailed": 2162691,
+          "configGetFailed": 2162692,
+          "bmcGetFailed": 2162693,
+          "configPutFailed": 2162694
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectAlarmSeverity": {
+    "name": "ipDectAlarmSeverity",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "indeterminate": 0,
+          "major": 1,
+          "critical": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectAlarmSource": {
+    "name": "ipDectAlarmSource",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectAlarmIp": {
+    "name": "ipDectAlarmIp",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDectAlarmDescription": {
+    "name": "ipDectAlarmDescription",
+    "oid": "1.3.6.1.4.1.27614.1.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ascomColdStart": {
+    "name": "ascomColdStart",
+    "oid": "1.3.6.1.4.1.27614.0.0",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ascomWarmStart": {
+    "name": "ascomWarmStart",
+    "oid": "1.3.6.1.4.1.27614.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ascomLinkDown": {
+    "name": "ascomLinkDown",
+    "oid": "1.3.6.1.4.1.27614.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ascomLinkUp": {
+    "name": "ascomLinkUp",
+    "oid": "1.3.6.1.4.1.27614.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ascomAuthenticationFailure": {
+    "name": "ascomAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.27614.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ipDectSetCriticalAlarmTrap": {
+    "name": "ipDectSetCriticalAlarmTrap",
+    "oid": "1.3.6.1.4.1.27614.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectSetMajorAlarmTrap": {
+    "name": "ipDectSetMajorAlarmTrap",
+    "oid": "1.3.6.1.4.1.27614.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectSetMinorAlarmTrap": {
+    "name": "ipDectSetMinorAlarmTrap",
+    "oid": "1.3.6.1.4.1.27614.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectSetIndeterminateAlarmTrap": {
+    "name": "ipDectSetIndeterminateAlarmTrap",
+    "oid": "1.3.6.1.4.1.27614.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectClearAlarmTrap": {
+    "name": "ipDectClearAlarmTrap",
+    "oid": "1.3.6.1.4.1.27614.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectCriticalFaultTrap": {
+    "name": "ipDectCriticalFaultTrap",
+    "oid": "1.3.6.1.4.1.27614.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectMajorFaultTrap": {
+    "name": "ipDectMajorFaultTrap",
+    "oid": "1.3.6.1.4.1.27614.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectMinorFaultTrap": {
+    "name": "ipDectMinorFaultTrap",
+    "oid": "1.3.6.1.4.1.27614.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ipDectIndeterminateFaultTrap": {
+    "name": "ipDectIndeterminateFaultTrap",
+    "oid": "1.3.6.1.4.1.27614.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASCOM-IPDECT-MIB",
+        "object": "ipDectLastErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ascom/ASCOM-IPDECT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ASCOM-IPDECT-MIB"
+  }
+}

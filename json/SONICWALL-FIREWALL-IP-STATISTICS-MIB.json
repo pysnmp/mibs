@@ -1,0 +1,306 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SONICWALL-SMI": [
+      "sonicwallFw"
+    ]
+  },
+  "sonicwallFwStatsModule": {
+    "name": "sonicwallFwStatsModule",
+    "oid": "1.3.6.1.4.1.8741.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-09 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "sonicwallFwStats": {
+    "name": "sonicwallFwStats",
+    "oid": "1.3.6.1.4.1.8741.1.3.1",
+    "class": "objectidentity"
+  },
+  "sonicMaxConnCacheEntries": {
+    "name": "sonicMaxConnCacheEntries",
+    "oid": "1.3.6.1.4.1.8741.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicCurrentConnCacheEntries": {
+    "name": "sonicCurrentConnCacheEntries",
+    "oid": "1.3.6.1.4.1.8741.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicCurrentCPUUtil": {
+    "name": "sonicCurrentCPUUtil",
+    "oid": "1.3.6.1.4.1.8741.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicCurrentRAMUtil": {
+    "name": "sonicCurrentRAMUtil",
+    "oid": "1.3.6.1.4.1.8741.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicwallFwVPNStats": {
+    "name": "sonicwallFwVPNStats",
+    "oid": "1.3.6.1.4.1.8741.1.3.2",
+    "class": "objectidentity"
+  },
+  "sonicwallFwVpnIPSecStats": {
+    "name": "sonicwallFwVpnIPSecStats",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "sonicSAStatTable": {
+    "name": "sonicSAStatTable",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonicSAStatEntry": {
+    "name": "sonicSAStatEntry",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SONICWALL-FIREWALL-IP-STATISTICS-MIB",
+        "object": "sonicIpsecSaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonicIpsecSaIndex": {
+    "name": "sonicIpsecSaIndex",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatPeerGateway": {
+    "name": "sonicSAStatPeerGateway",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatSrcAddrBegin": {
+    "name": "sonicSAStatSrcAddrBegin",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatSrcAddrEnd": {
+    "name": "sonicSAStatSrcAddrEnd",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatDstAddrBegin": {
+    "name": "sonicSAStatDstAddrBegin",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatDstAddrEnd": {
+    "name": "sonicSAStatDstAddrEnd",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatCreateTime": {
+    "name": "sonicSAStatCreateTime",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatEncryptPktCount": {
+    "name": "sonicSAStatEncryptPktCount",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatEncryptByteCount": {
+    "name": "sonicSAStatEncryptByteCount",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatDecryptPktCount": {
+    "name": "sonicSAStatDecryptPktCount",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatDecryptByteCount": {
+    "name": "sonicSAStatDecryptByteCount",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatInFragPktCount": {
+    "name": "sonicSAStatInFragPktCount",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatOutFragPktCount": {
+    "name": "sonicSAStatOutFragPktCount",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonicSAStatUserName": {
+    "name": "sonicSAStatUserName",
+    "oid": "1.3.6.1.4.1.8741.1.3.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sonicwall/SONICWALL-FIREWALL-IP-STATISTICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SONICWALL-FIREWALL-IP-STATISTICS-MIB"
+  }
+}

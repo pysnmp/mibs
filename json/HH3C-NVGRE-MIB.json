@@ -1,0 +1,405 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "RowStatus"
+    ]
+  },
+  "hh3cNvgre": {
+    "name": "hh3cNvgre",
+    "oid": "1.3.6.1.4.1.25506.2.156",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-11 09:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hh3cNvgreObjects": {
+    "name": "hh3cNvgreObjects",
+    "oid": "1.3.6.1.4.1.25506.2.156.1",
+    "class": "objectidentity"
+  },
+  "hh3cNvgreScalarGroup": {
+    "name": "hh3cNvgreScalarGroup",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cNvgreNextNvgreID": {
+    "name": "hh3cNvgreNextNvgreID",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNvgreConfigured": {
+    "name": "hh3cNvgreConfigured",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNvgreTable": {
+    "name": "hh3cNvgreTable",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreEntry": {
+    "name": "hh3cNvgreEntry",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NVGRE-MIB",
+        "object": "hh3cNvgreID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNvgreID": {
+    "name": "hh3cNvgreID",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreVsiIndex": {
+    "name": "hh3cNvgreVsiIndex",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNvgreRemoteMacCount": {
+    "name": "hh3cNvgreRemoteMacCount",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNvgreRowStatus": {
+    "name": "hh3cNvgreRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNvgreTunnelTable": {
+    "name": "hh3cNvgreTunnelTable",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreTunnelEntry": {
+    "name": "hh3cNvgreTunnelEntry",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NVGRE-MIB",
+        "object": "hh3cNvgreID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NVGRE-MIB",
+        "object": "hh3cNvgreTunnelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNvgreTunnelID": {
+    "name": "hh3cNvgreTunnelID",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreTunnelRowStatus": {
+    "name": "hh3cNvgreTunnelRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNvgreTunnelOctets": {
+    "name": "hh3cNvgreTunnelOctets",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNvgreTunnelPackets": {
+    "name": "hh3cNvgreTunnelPackets",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNvgreTunnelBoundTable": {
+    "name": "hh3cNvgreTunnelBoundTable",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreTunnelBoundEntry": {
+    "name": "hh3cNvgreTunnelBoundEntry",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NVGRE-MIB",
+        "object": "hh3cNvgreTunnelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNvgreTunnelBoundNvgreNum": {
+    "name": "hh3cNvgreTunnelBoundNvgreNum",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNvgreMacTable": {
+    "name": "hh3cNvgreMacTable",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreMacEntry": {
+    "name": "hh3cNvgreMacEntry",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NVGRE-MIB",
+        "object": "hh3cNvgreVsiIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NVGRE-MIB",
+        "object": "hh3cNvgreMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNvgreMacAddr": {
+    "name": "hh3cNvgreMacAddr",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreMacTunnelID": {
+    "name": "hh3cNvgreMacTunnelID",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNvgreMacType": {
+    "name": "hh3cNvgreMacType",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "selfLearned": 1,
+          "staticConfigured": 2,
+          "protocolLearned": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cNvgreStaticMacTable": {
+    "name": "hh3cNvgreStaticMacTable",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreStaticMacEntry": {
+    "name": "hh3cNvgreStaticMacEntry",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-NVGRE-MIB",
+        "object": "hh3cNvgreVsiIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-NVGRE-MIB",
+        "object": "hh3cNvgreStaticMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNvgreStaticMacAddr": {
+    "name": "hh3cNvgreStaticMacAddr",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cNvgreStaticMacTunnelID": {
+    "name": "hh3cNvgreStaticMacTunnelID",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cNvgreStaticMacRowStatus": {
+    "name": "hh3cNvgreStaticMacRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.156.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-NVGRE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-NVGRE-MIB"
+  }
+}

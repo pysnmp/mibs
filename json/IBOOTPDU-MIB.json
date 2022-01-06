@@ -1,0 +1,1036 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "Gauge32",
+      "Unsigned32",
+      "enterprises",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "iBoot_PDU_Agent": {
+    "name": "iBoot_PDU_Agent",
+    "oid": "1.3.6.1.4.1.1418.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-10-25 13:23",
+        "description": "New Version"
+      }
+    ]
+  },
+  "TC1": {
+    "name": "TC1",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "dataprobe": {
+    "name": "dataprobe",
+    "oid": "1.3.6.1.4.1.1418",
+    "class": "objectidentity"
+  },
+  "device": {
+    "name": "device",
+    "oid": "1.3.6.1.4.1.1418.6.1",
+    "class": "objectidentity"
+  },
+  "console": {
+    "name": "console",
+    "oid": "1.3.6.1.4.1.1418.6.2",
+    "class": "objectidentity"
+  },
+  "network": {
+    "name": "network",
+    "oid": "1.3.6.1.4.1.1418.6.3",
+    "class": "objectidentity"
+  },
+  "snmp": {
+    "name": "snmp",
+    "oid": "1.3.6.1.4.1.1418.6.4",
+    "class": "objectidentity"
+  },
+  "sensors": {
+    "name": "sensors",
+    "oid": "1.3.6.1.4.1.1418.6.6",
+    "class": "objectidentity"
+  },
+  "notifications": {
+    "name": "notifications",
+    "oid": "1.3.6.1.4.1.1418.6.7",
+    "class": "objectidentity"
+  },
+  "firmwareVersion": {
+    "name": "firmwareVersion",
+    "oid": "1.3.6.1.4.1.1418.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceName": {
+    "name": "deviceName",
+    "oid": "1.3.6.1.4.1.1418.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceFamily": {
+    "name": "deviceFamily",
+    "oid": "1.3.6.1.4.1.1418.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceModelName": {
+    "name": "deviceModelName",
+    "oid": "1.3.6.1.4.1.1418.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceConnector": {
+    "name": "deviceConnector",
+    "oid": "1.3.6.1.4.1.1418.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nema": 0,
+          "iec": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceNumberOfOutlets": {
+    "name": "deviceNumberOfOutlets",
+    "oid": "1.3.6.1.4.1.1418.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceNumberOfLineCords": {
+    "name": "deviceNumberOfLineCords",
+    "oid": "1.3.6.1.4.1.1418.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one": 0,
+          "two": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceMaxCurrent": {
+    "name": "deviceMaxCurrent",
+    "oid": "1.3.6.1.4.1.1418.6.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceTemperatureUnit": {
+    "name": "deviceTemperatureUnit",
+    "oid": "1.3.6.1.4.1.1418.6.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fahrenheit": 0,
+          "celsius": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceTimeZone": {
+    "name": "deviceTimeZone",
+    "oid": "1.3.6.1.4.1.1418.6.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCalibrated": {
+    "name": "deviceCalibrated",
+    "oid": "1.3.6.1.4.1.1418.6.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modemCountryCode": {
+    "name": "modemCountryCode",
+    "oid": "1.3.6.1.4.1.1418.6.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletDelayTime": {
+    "name": "outletDelayTime",
+    "oid": "1.3.6.1.4.1.1418.6.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cloudServiceEnabled": {
+    "name": "cloudServiceEnabled",
+    "oid": "1.3.6.1.4.1.1418.6.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cloudServerAddress": {
+    "name": "cloudServerAddress",
+    "oid": "1.3.6.1.4.1.1418.6.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cloudActivationCode": {
+    "name": "cloudActivationCode",
+    "oid": "1.3.6.1.4.1.1418.6.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cloudUUID": {
+    "name": "cloudUUID",
+    "oid": "1.3.6.1.4.1.1418.6.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setFactoryDefaults": {
+    "name": "setFactoryDefaults",
+    "oid": "1.3.6.1.4.1.1418.6.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rebootSystem": {
+    "name": "rebootSystem",
+    "oid": "1.3.6.1.4.1.1418.6.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rebootRequired": {
+    "name": "rebootRequired",
+    "oid": "1.3.6.1.4.1.1418.6.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialPortEnabled": {
+    "name": "serialPortEnabled",
+    "oid": "1.3.6.1.4.1.1418.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "consoleTimeout": {
+    "name": "consoleTimeout",
+    "oid": "1.3.6.1.4.1.1418.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "telnetEnabled": {
+    "name": "telnetEnabled",
+    "oid": "1.3.6.1.4.1.1418.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "telnetPort": {
+    "name": "telnetPort",
+    "oid": "1.3.6.1.4.1.1418.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sshEnabled": {
+    "name": "sshEnabled",
+    "oid": "1.3.6.1.4.1.1418.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sshPort": {
+    "name": "sshPort",
+    "oid": "1.3.6.1.4.1.1418.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "macAddress": {
+    "name": "macAddress",
+    "oid": "1.3.6.1.4.1.1418.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMode": {
+    "name": "ipMode",
+    "oid": "1.3.6.1.4.1.1418.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 0,
+          "dhcp": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipAddress": {
+    "name": "ipAddress",
+    "oid": "1.3.6.1.4.1.1418.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subnetMask": {
+    "name": "subnetMask",
+    "oid": "1.3.6.1.4.1.1418.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gateway": {
+    "name": "gateway",
+    "oid": "1.3.6.1.4.1.1418.6.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsServer1": {
+    "name": "dnsServer1",
+    "oid": "1.3.6.1.4.1.1418.6.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsServer2": {
+    "name": "dnsServer2",
+    "oid": "1.3.6.1.4.1.1418.6.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sslEnabled": {
+    "name": "sslEnabled",
+    "oid": "1.3.6.1.4.1.1418.6.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sslPort": {
+    "name": "sslPort",
+    "oid": "1.3.6.1.4.1.1418.6.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "webEnabled": {
+    "name": "webEnabled",
+    "oid": "1.3.6.1.4.1.1418.6.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "webPort": {
+    "name": "webPort",
+    "oid": "1.3.6.1.4.1.1418.6.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpEnabled": {
+    "name": "snmpEnabled",
+    "oid": "1.3.6.1.4.1.1418.6.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpReadCommunity": {
+    "name": "snmpReadCommunity",
+    "oid": "1.3.6.1.4.1.1418.6.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpWriteCommunity": {
+    "name": "snmpWriteCommunity",
+    "oid": "1.3.6.1.4.1.1418.6.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpManagerTable": {
+    "name": "snmpManagerTable",
+    "oid": "1.3.6.1.4.1.1418.6.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpManagerEntry": {
+    "name": "snmpManagerEntry",
+    "oid": "1.3.6.1.4.1.1418.6.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBOOTPDU-MIB",
+        "object": "snmpManagerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snmpManagerIndex": {
+    "name": "snmpManagerIndex",
+    "oid": "1.3.6.1.4.1.1418.6.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpManagerAddress": {
+    "name": "snmpManagerAddress",
+    "oid": "1.3.6.1.4.1.1418.6.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpManagerName": {
+    "name": "snmpManagerName",
+    "oid": "1.3.6.1.4.1.1418.6.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrapCommunity": {
+    "name": "snmpTrapCommunity",
+    "oid": "1.3.6.1.4.1.1418.6.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletTable": {
+    "name": "outletTable",
+    "oid": "1.3.6.1.4.1.1418.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletEntry": {
+    "name": "outletEntry",
+    "oid": "1.3.6.1.4.1.1418.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBOOTPDU-MIB",
+        "object": "outletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletIndex": {
+    "name": "outletIndex",
+    "oid": "1.3.6.1.4.1.1418.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletName": {
+    "name": "outletName",
+    "oid": "1.3.6.1.4.1.1418.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletInitialState": {
+    "name": "outletInitialState",
+    "oid": "1.3.6.1.4.1.1418.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "last": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCycleTime": {
+    "name": "outletCycleTime",
+    "oid": "1.3.6.1.4.1.1418.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletControl": {
+    "name": "outletControl",
+    "oid": "1.3.6.1.4.1.1418.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "cycle": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletStatus": {
+    "name": "outletStatus",
+    "oid": "1.3.6.1.4.1.1418.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "cycle": 2,
+          "reboot": 3,
+          "pend-on": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletActualStatus": {
+    "name": "outletActualStatus",
+    "oid": "1.3.6.1.4.1.1418.6.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageLC1": {
+    "name": "voltageLC1",
+    "oid": "1.3.6.1.4.1.1418.6.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentLC1": {
+    "name": "currentLC1",
+    "oid": "1.3.6.1.4.1.1418.6.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageLC2": {
+    "name": "voltageLC2",
+    "oid": "1.3.6.1.4.1.1418.6.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentLC2": {
+    "name": "currentLC2",
+    "oid": "1.3.6.1.4.1.1418.6.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperature1": {
+    "name": "temperature1",
+    "oid": "1.3.6.1.4.1.1418.6.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperature2": {
+    "name": "temperature2",
+    "oid": "1.3.6.1.4.1.1418.6.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletChange": {
+    "name": "outletChange",
+    "oid": "1.3.6.1.4.1.1418.6.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBOOTPDU-MIB",
+        "object": "outletIndex"
+      },
+      {
+        "module": "IBOOTPDU-MIB",
+        "object": "outletName"
+      },
+      {
+        "module": "IBOOTPDU-MIB",
+        "object": "outletStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dataprobe/IBOOTPDU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IBOOTPDU-MIB"
+  }
+}

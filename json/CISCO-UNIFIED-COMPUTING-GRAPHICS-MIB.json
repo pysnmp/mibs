@@ -1,0 +1,700 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsFsmLifecycle",
+      "CucsEquipmentOperability",
+      "CucsEquipmentPresence",
+      "CucsEquipmentSensorThresholdStatus",
+      "CucsEquipmentPowerState"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsGraphicsObjects": {
+    "name": "cucsGraphicsObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73",
+    "class": "moduleidentity"
+  },
+  "cucsGraphicsCardTable": {
+    "name": "cucsGraphicsCardTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsGraphicsCardEntry": {
+    "name": "cucsGraphicsCardEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-GRAPHICS-MIB",
+        "object": "cucsGraphicsCardInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsGraphicsCardInstanceId": {
+    "name": "cucsGraphicsCardInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsGraphicsCardDn": {
+    "name": "cucsGraphicsCardDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardRn": {
+    "name": "cucsGraphicsCardRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardDeviceId": {
+    "name": "cucsGraphicsCardDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardId": {
+    "name": "cucsGraphicsCardId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardIsSupported": {
+    "name": "cucsGraphicsCardIsSupported",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardLc": {
+    "name": "cucsGraphicsCardLc",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmLifecycle",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardModel": {
+    "name": "cucsGraphicsCardModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardOperQualifierReason": {
+    "name": "cucsGraphicsCardOperQualifierReason",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardOperState": {
+    "name": "cucsGraphicsCardOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardOperability": {
+    "name": "cucsGraphicsCardOperability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardPciAddr": {
+    "name": "cucsGraphicsCardPciAddr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardPciSlot": {
+    "name": "cucsGraphicsCardPciSlot",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardPerf": {
+    "name": "cucsGraphicsCardPerf",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardPower": {
+    "name": "cucsGraphicsCardPower",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPowerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardPresence": {
+    "name": "cucsGraphicsCardPresence",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPresence",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardRevision": {
+    "name": "cucsGraphicsCardRevision",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardSerial": {
+    "name": "cucsGraphicsCardSerial",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardSubDeviceId": {
+    "name": "cucsGraphicsCardSubDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardSubVendorId": {
+    "name": "cucsGraphicsCardSubVendorId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardThermal": {
+    "name": "cucsGraphicsCardThermal",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardVendor": {
+    "name": "cucsGraphicsCardVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardVendorId": {
+    "name": "cucsGraphicsCardVendorId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardVoltage": {
+    "name": "cucsGraphicsCardVoltage",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardLocationDn": {
+    "name": "cucsGraphicsCardLocationDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardStepping": {
+    "name": "cucsGraphicsCardStepping",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardExpanderSlot": {
+    "name": "cucsGraphicsCardExpanderSlot",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardFirmwareVersion": {
+    "name": "cucsGraphicsCardFirmwareVersion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsCardPciAddrList": {
+    "name": "cucsGraphicsCardPciAddrList",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerTable": {
+    "name": "cucsGraphicsControllerTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsGraphicsControllerEntry": {
+    "name": "cucsGraphicsControllerEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-GRAPHICS-MIB",
+        "object": "cucsGraphicsControllerInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsGraphicsControllerInstanceId": {
+    "name": "cucsGraphicsControllerInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsGraphicsControllerDn": {
+    "name": "cucsGraphicsControllerDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerRn": {
+    "name": "cucsGraphicsControllerRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerId": {
+    "name": "cucsGraphicsControllerId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerModel": {
+    "name": "cucsGraphicsControllerModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerOperQualifierReason": {
+    "name": "cucsGraphicsControllerOperQualifierReason",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerOperState": {
+    "name": "cucsGraphicsControllerOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerOperability": {
+    "name": "cucsGraphicsControllerOperability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerPciAddr": {
+    "name": "cucsGraphicsControllerPciAddr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerPciSlot": {
+    "name": "cucsGraphicsControllerPciSlot",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerPerf": {
+    "name": "cucsGraphicsControllerPerf",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerPower": {
+    "name": "cucsGraphicsControllerPower",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPowerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerPresence": {
+    "name": "cucsGraphicsControllerPresence",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPresence",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerRevision": {
+    "name": "cucsGraphicsControllerRevision",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerSerial": {
+    "name": "cucsGraphicsControllerSerial",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerThermal": {
+    "name": "cucsGraphicsControllerThermal",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerVendor": {
+    "name": "cucsGraphicsControllerVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerVoltage": {
+    "name": "cucsGraphicsControllerVoltage",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsGraphicsControllerLocationDn": {
+    "name": "cucsGraphicsControllerLocationDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.73.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-GRAPHICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-GRAPHICS-MIB"
+  }
+}

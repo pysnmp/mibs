@@ -1,0 +1,3848 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-WLAN-MIB": [
+      "hwWlan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwWlanSac": {
+    "name": "hwWlanSac",
+    "oid": "1.3.6.1.4.1.2011.6.139.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-24 09:00",
+        "description": "V1.03, Inital version."
+      },
+      {
+        "revision": "2017-02-14 09:00",
+        "description": "V1.02, Inital version."
+      },
+      {
+        "revision": "2015-06-19 09:00",
+        "description": "V1.01, Inital version."
+      },
+      {
+        "revision": "2015-02-12 09:00",
+        "description": "V1.00, Inital version."
+      }
+    ]
+  },
+  "hwSacObjects": {
+    "name": "hwSacObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1",
+    "class": "objectidentity"
+  },
+  "hwSACEnableConfig": {
+    "name": "hwSACEnableConfig",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.1",
+    "class": "objectidentity"
+  },
+  "hwSACEnableOper": {
+    "name": "hwSACEnableOper",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSACEnableRuleLibName": {
+    "name": "hwSACEnableRuleLibName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSACProtocolGroupTable": {
+    "name": "hwSACProtocolGroupTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACProtocolGroupEntry": {
+    "name": "hwSACProtocolGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACProtocolGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACProtocolGroupName": {
+    "name": "hwSACProtocolGroupName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACProtocolGroupRowstatus": {
+    "name": "hwSACProtocolGroupRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACProGroupProTable": {
+    "name": "hwSACProGroupProTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACProGroupProEntry": {
+    "name": "hwSACProGroupProEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACProtocolGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACProtocolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACProtocolName": {
+    "name": "hwSACProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACProGroupProRowstatus": {
+    "name": "hwSACProGroupProRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatTable": {
+    "name": "hwSACVapStatTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapStatEntry": {
+    "name": "hwSACVapStatEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatApName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatRadioId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatSsid",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatProtocolIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACVapStatApName": {
+    "name": "hwSACVapStatApName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapStatRadioId": {
+    "name": "hwSACVapStatRadioId",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapStatSsid": {
+    "name": "hwSACVapStatSsid",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapStatProtocolIndex": {
+    "name": "hwSACVapStatProtocolIndex",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapStatType": {
+    "name": "hwSACVapStatType",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "total": 1,
+          "period": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapStatProtocolName": {
+    "name": "hwSACVapStatProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatProtocolPktUpNum": {
+    "name": "hwSACVapStatProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatProtocolByteUpNum": {
+    "name": "hwSACVapStatProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatProtocolPktDnNum": {
+    "name": "hwSACVapStatProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatProtocolByteDnNum": {
+    "name": "hwSACVapStatProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatClear": {
+    "name": "hwSACVapStatClear",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSACVapStatRowstatus": {
+    "name": "hwSACVapStatRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatTable": {
+    "name": "hwSACUserStatTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACUserStatEntry": {
+    "name": "hwSACUserStatEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatUserMac",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatProtocolIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACUserStatUserMac": {
+    "name": "hwSACUserStatUserMac",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACUserStatProtocolIndex": {
+    "name": "hwSACUserStatProtocolIndex",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACUserStatType": {
+    "name": "hwSACUserStatType",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "total": 1,
+          "period": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACUserStatProtocolName": {
+    "name": "hwSACUserStatProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatProtocolPktUpNum": {
+    "name": "hwSACUserStatProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatProtocolByteUpNum": {
+    "name": "hwSACUserStatProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatProtocolPktDnNum": {
+    "name": "hwSACUserStatProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatProtocolByteDnNum": {
+    "name": "hwSACUserStatProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatClear": {
+    "name": "hwSACUserStatClear",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSACUserStatRowstatus": {
+    "name": "hwSACUserStatRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACAppListTable": {
+    "name": "hwSACAppListTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACAppListEntry": {
+    "name": "hwSACAppListEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACAppListAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACAppListAppIndex": {
+    "name": "hwSACAppListAppIndex",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACAppListAppID": {
+    "name": "hwSACAppListAppID",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACAppListAppName": {
+    "name": "hwSACAppListAppName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACAppListRowstatus": {
+    "name": "hwSACAppListRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfo": {
+    "name": "hwSACInfo",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.7",
+    "class": "objectidentity"
+  },
+  "hwSACInfoSACEnable": {
+    "name": "hwSACInfoSACEnable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoSignatureState": {
+    "name": "hwSACInfoSignatureState",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoSignatureName": {
+    "name": "hwSACInfoSignatureName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoSignatureVersion": {
+    "name": "hwSACInfoSignatureVersion",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoSignatureDate": {
+    "name": "hwSACInfoSignatureDate",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoAppNum": {
+    "name": "hwSACInfoAppNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapTop10StatTable": {
+    "name": "hwSACVapTop10StatTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapTop10StatEntry": {
+    "name": "hwSACVapTop10StatEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapTop10StatApName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapTop10StatRadioId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapTop10StatSsid",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapTop10StatType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACVapTop10StatApName": {
+    "name": "hwSACVapTop10StatApName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapTop10StatRadioId": {
+    "name": "hwSACVapTop10StatRadioId",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapTop10StatSsid": {
+    "name": "hwSACVapTop10StatSsid",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapTop10StatType": {
+    "name": "hwSACVapTop10StatType",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "total": 1,
+          "period": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACVapStatTotalPktUpNum": {
+    "name": "hwSACVapStatTotalPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatTotalByteUpNum": {
+    "name": "hwSACVapStatTotalByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatTotalPktDnNum": {
+    "name": "hwSACVapStatTotalPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStatTotalByteDnNum": {
+    "name": "hwSACVapStatTotalByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat1stProtocolName": {
+    "name": "hwSACVapStat1stProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat1stProtocolPktUpNum": {
+    "name": "hwSACVapStat1stProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat1stProtocolByteUpNum": {
+    "name": "hwSACVapStat1stProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat1stProtocolPktDnNum": {
+    "name": "hwSACVapStat1stProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat1stProtocolByteDnNum": {
+    "name": "hwSACVapStat1stProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat2ndProtocolName": {
+    "name": "hwSACVapStat2ndProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat2ndProtocolPktUpNum": {
+    "name": "hwSACVapStat2ndProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat2ndProtocolByteUpNum": {
+    "name": "hwSACVapStat2ndProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat2ndProtocolPktDnNum": {
+    "name": "hwSACVapStat2ndProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat2ndProtocolByteDnNum": {
+    "name": "hwSACVapStat2ndProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat3rdProtocolName": {
+    "name": "hwSACVapStat3rdProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat3rdProtocolPktUpNum": {
+    "name": "hwSACVapStat3rdProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat3rdProtocolByteUpNum": {
+    "name": "hwSACVapStat3rdProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat3rdProtocolPktDnNum": {
+    "name": "hwSACVapStat3rdProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat3rdProtocolByteDnNum": {
+    "name": "hwSACVapStat3rdProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat4thProtocolName": {
+    "name": "hwSACVapStat4thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat4thProtocolPktUpNum": {
+    "name": "hwSACVapStat4thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat4thProtocolByteUpNum": {
+    "name": "hwSACVapStat4thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat4thProtocolPktDnNum": {
+    "name": "hwSACVapStat4thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat4thProtocolByteDnNum": {
+    "name": "hwSACVapStat4thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat5thProtocolName": {
+    "name": "hwSACVapStat5thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat5thProtocolPktUpNum": {
+    "name": "hwSACVapStat5thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat5thProtocolByteUpNum": {
+    "name": "hwSACVapStat5thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat5thProtocolPktDnNum": {
+    "name": "hwSACVapStat5thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat5thProtocolByteDnNum": {
+    "name": "hwSACVapStat5thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat6thProtocolName": {
+    "name": "hwSACVapStat6thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat6thProtocolPktUpNum": {
+    "name": "hwSACVapStat6thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat6thProtocolByteUpNum": {
+    "name": "hwSACVapStat6thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat6thProtocolPktDnNum": {
+    "name": "hwSACVapStat6thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat6thProtocolByteDnNum": {
+    "name": "hwSACVapStat6thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat7thProtocolName": {
+    "name": "hwSACVapStat7thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat7thProtocolPktUpNum": {
+    "name": "hwSACVapStat7thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat7thProtocolByteUpNum": {
+    "name": "hwSACVapStat7thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat7thProtocolPktDnNum": {
+    "name": "hwSACVapStat7thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat7thProtocolByteDnNum": {
+    "name": "hwSACVapStat7thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat8thProtocolName": {
+    "name": "hwSACVapStat8thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat8thProtocolPktUpNum": {
+    "name": "hwSACVapStat8thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat8thProtocolByteUpNum": {
+    "name": "hwSACVapStat8thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat8thProtocolPktDnNum": {
+    "name": "hwSACVapStat8thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat8thProtocolByteDnNum": {
+    "name": "hwSACVapStat8thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat9thProtocolName": {
+    "name": "hwSACVapStat9thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat9thProtocolPktUpNum": {
+    "name": "hwSACVapStat9thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat9thProtocolByteUpNum": {
+    "name": "hwSACVapStat9thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat9thProtocolPktDnNum": {
+    "name": "hwSACVapStat9thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat9thProtocolByteDnNum": {
+    "name": "hwSACVapStat9thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat10thProtocolName": {
+    "name": "hwSACVapStat10thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat10thProtocolPktUpNum": {
+    "name": "hwSACVapStat10thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat10thProtocolByteUpNum": {
+    "name": "hwSACVapStat10thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat10thProtocolPktDnNum": {
+    "name": "hwSACVapStat10thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapStat10thProtocolByteDnNum": {
+    "name": "hwSACVapStat10thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACVapTop10StatClear": {
+    "name": "hwSACVapTop10StatClear",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSACVapTop10StatRowstatus": {
+    "name": "hwSACVapTop10StatRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.8.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserTop10StatTable": {
+    "name": "hwSACUserTop10StatTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACUserTop10StatEntry": {
+    "name": "hwSACUserTop10StatEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserTop10StatUserMac",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserTop10StatType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACUserTop10StatUserMac": {
+    "name": "hwSACUserTop10StatUserMac",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACUserTop10StatType": {
+    "name": "hwSACUserTop10StatType",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "total": 1,
+          "period": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACUserStatTotalPktUpNum": {
+    "name": "hwSACUserStatTotalPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatTotalByteUpNum": {
+    "name": "hwSACUserStatTotalByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatTotalPktDnNum": {
+    "name": "hwSACUserStatTotalPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStatTotalByteDnNum": {
+    "name": "hwSACUserStatTotalByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat1stProtocolName": {
+    "name": "hwSACUserStat1stProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat1stProtocolPktUpNum": {
+    "name": "hwSACUserStat1stProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat1stProtocolByteUpNum": {
+    "name": "hwSACUserStat1stProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat1stProtocolPktDnNum": {
+    "name": "hwSACUserStat1stProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat1stProtocolByteDnNum": {
+    "name": "hwSACUserStat1stProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat2ndProtocolName": {
+    "name": "hwSACUserStat2ndProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat2ndProtocolPktUpNum": {
+    "name": "hwSACUserStat2ndProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat2ndProtocolByteUpNum": {
+    "name": "hwSACUserStat2ndProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat2ndProtocolPktDnNum": {
+    "name": "hwSACUserStat2ndProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat2ndProtocolByteDnNum": {
+    "name": "hwSACUserStat2ndProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat3rdProtocolName": {
+    "name": "hwSACUserStat3rdProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat3rdProtocolPktUpNum": {
+    "name": "hwSACUserStat3rdProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat3rdProtocolByteUpNum": {
+    "name": "hwSACUserStat3rdProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat3rdProtocolPktDnNum": {
+    "name": "hwSACUserStat3rdProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat3rdProtocolByteDnNum": {
+    "name": "hwSACUserStat3rdProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat4thProtocolName": {
+    "name": "hwSACUserStat4thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat4thProtocolPktUpNum": {
+    "name": "hwSACUserStat4thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat4thProtocolByteUpNum": {
+    "name": "hwSACUserStat4thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat4thProtocolPktDnNum": {
+    "name": "hwSACUserStat4thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat4thProtocolByteDnNum": {
+    "name": "hwSACUserStat4thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat5thProtocolName": {
+    "name": "hwSACUserStat5thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat5thProtocolPktUpNum": {
+    "name": "hwSACUserStat5thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat5thProtocolByteUpNum": {
+    "name": "hwSACUserStat5thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat5thProtocolPktDnNum": {
+    "name": "hwSACUserStat5thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat5thProtocolByteDnNum": {
+    "name": "hwSACUserStat5thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat6thProtocolName": {
+    "name": "hwSACUserStat6thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat6thProtocolPktUpNum": {
+    "name": "hwSACUserStat6thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat6thProtocolByteUpNum": {
+    "name": "hwSACUserStat6thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat6thProtocolPktDnNum": {
+    "name": "hwSACUserStat6thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat6thProtocolByteDnNum": {
+    "name": "hwSACUserStat6thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat7thProtocolName": {
+    "name": "hwSACUserStat7thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat7thProtocolPktUpNum": {
+    "name": "hwSACUserStat7thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat7thProtocolByteUpNum": {
+    "name": "hwSACUserStat7thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat7thProtocolPktDnNum": {
+    "name": "hwSACUserStat7thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat7thProtocolByteDnNum": {
+    "name": "hwSACUserStat7thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat8thProtocolName": {
+    "name": "hwSACUserStat8thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat8thProtocolPktUpNum": {
+    "name": "hwSACUserStat8thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat8thProtocolByteUpNum": {
+    "name": "hwSACUserStat8thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat8thProtocolPktDnNum": {
+    "name": "hwSACUserStat8thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat8thProtocolByteDnNum": {
+    "name": "hwSACUserStat8thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat9thProtocolName": {
+    "name": "hwSACUserStat9thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat9thProtocolPktUpNum": {
+    "name": "hwSACUserStat9thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat9thProtocolByteUpNum": {
+    "name": "hwSACUserStat9thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat9thProtocolPktDnNum": {
+    "name": "hwSACUserStat9thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat9thProtocolByteDnNum": {
+    "name": "hwSACUserStat9thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat10thProtocolName": {
+    "name": "hwSACUserStat10thProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat10thProtocolPktUpNum": {
+    "name": "hwSACUserStat10thProtocolPktUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat10thProtocolByteUpNum": {
+    "name": "hwSACUserStat10thProtocolByteUpNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat10thProtocolPktDnNum": {
+    "name": "hwSACUserStat10thProtocolPktDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserStat10thProtocolByteDnNum": {
+    "name": "hwSACUserStat10thProtocolByteDnNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACUserTop10StatClear": {
+    "name": "hwSACUserTop10StatClear",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSACUserTop10StatRowstatus": {
+    "name": "hwSACUserTop10StatRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.9.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMediaAwareConfig": {
+    "name": "hwMediaAwareConfig",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.10",
+    "class": "objectidentity"
+  },
+  "hwWlanVoiceAware": {
+    "name": "hwWlanVoiceAware",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwWlanVideoAware": {
+    "name": "hwWlanVideoAware",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVoiceAwareProtocolTable": {
+    "name": "hwVoiceAwareProtocolTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVoiceAwareProtocolEntry": {
+    "name": "hwVoiceAwareProtocolEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwVoiceAwareProtocolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoiceAwareProtocolName": {
+    "name": "hwVoiceAwareProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVoiceAwarePortocolEnable": {
+    "name": "hwVoiceAwarePortocolEnable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVoiceAwarePortocolRowStatus": {
+    "name": "hwVoiceAwarePortocolRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVideoAwareProtocolTable": {
+    "name": "hwVideoAwareProtocolTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVideoAwareProtocolEntry": {
+    "name": "hwVideoAwareProtocolEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwVideoAwareProtocolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVideoAwareProtocolName": {
+    "name": "hwVideoAwareProtocolName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVideoAwarePortocolEnable": {
+    "name": "hwVideoAwarePortocolEnable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVideoAwarePortocolRowStatus": {
+    "name": "hwVideoAwarePortocolRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordTable": {
+    "name": "hwLyncRecordTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLyncRecordEntry": {
+    "name": "hwLyncRecordEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwLyncRecordID": {
+    "name": "hwLyncRecordID",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLyncRecordSrcApName": {
+    "name": "hwLyncRecordSrcApName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordSrcMAC": {
+    "name": "hwLyncRecordSrcMAC",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordSrcIP": {
+    "name": "hwLyncRecordSrcIP",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordSrcPort": {
+    "name": "hwLyncRecordSrcPort",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordDstApName": {
+    "name": "hwLyncRecordDstApName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordDstMAC": {
+    "name": "hwLyncRecordDstMAC",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordDstIP": {
+    "name": "hwLyncRecordDstIP",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordDstPort": {
+    "name": "hwLyncRecordDstPort",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordCallID": {
+    "name": "hwLyncRecordCallID",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordStartTime": {
+    "name": "hwLyncRecordStartTime",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordEndTime": {
+    "name": "hwLyncRecordEndTime",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordProtocol": {
+    "name": "hwLyncRecordProtocol",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordPacketUtilization": {
+    "name": "hwLyncRecordPacketUtilization",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordJitterInterArrival": {
+    "name": "hwLyncRecordJitterInterArrival",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordJitterInterArrivalMax": {
+    "name": "hwLyncRecordJitterInterArrivalMax",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordRoundTrip": {
+    "name": "hwLyncRecordRoundTrip",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordRoundTripMax": {
+    "name": "hwLyncRecordRoundTripMax",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordHealerPacketDropRatio": {
+    "name": "hwLyncRecordHealerPacketDropRatio",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordDegradationAvg": {
+    "name": "hwLyncRecordDegradationAvg",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordRatioConcealedSamplesAvg": {
+    "name": "hwLyncRecordRatioConcealedSamplesAvg",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordBurstGapDuration": {
+    "name": "hwLyncRecordBurstGapDuration",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordDegradationMax": {
+    "name": "hwLyncRecordDegradationMax",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordRecvListenMOSMin": {
+    "name": "hwLyncRecordRecvListenMOSMin",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordRecvListenMOS": {
+    "name": "hwLyncRecordRecvListenMOS",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordOverallMinNetworkMOS": {
+    "name": "hwLyncRecordOverallMinNetworkMOS",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordOverallAvgNetworkMOS": {
+    "name": "hwLyncRecordOverallAvgNetworkMOS",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordAppliedBandwidthLimit": {
+    "name": "hwLyncRecordAppliedBandwidthLimit",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLyncRecordRowstatus": {
+    "name": "hwLyncRecordRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.13.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoAPTable": {
+    "name": "hwSACInfoAPTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACInfoAPEntry": {
+    "name": "hwSACInfoAPEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoAPName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACInfoAPName": {
+    "name": "hwSACInfoAPName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACInfoAPSACEnable": {
+    "name": "hwSACInfoAPSACEnable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoAPSignatureState": {
+    "name": "hwSACInfoAPSignatureState",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notloaded": 1,
+          "loading": 2,
+          "loaded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoAPSignatureVersion": {
+    "name": "hwSACInfoAPSignatureVersion",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACInfoAPAppNum": {
+    "name": "hwSACInfoAPAppNum",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACDirectFwdProtocolGroupTable": {
+    "name": "hwSACDirectFwdProtocolGroupTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACDirectFwdProtocolGroupEntry": {
+    "name": "hwSACDirectFwdProtocolGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACDirectFwdProtocolGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACDirectFwdProtocolGroupName": {
+    "name": "hwSACDirectFwdProtocolGroupName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACDirectFwdProtocolGroupRowstatus": {
+    "name": "hwSACDirectFwdProtocolGroupRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACAppListDirectFwdTable": {
+    "name": "hwSACAppListDirectFwdTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACAppListDirectFwdEntry": {
+    "name": "hwSACAppListDirectFwdEntry",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACAppListDirectFwdAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSACAppListDirectFwdAppIndex": {
+    "name": "hwSACAppListDirectFwdAppIndex",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSACAppListDirectFwdAppID": {
+    "name": "hwSACAppListDirectFwdAppID",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACAppListDirectFwdAppName": {
+    "name": "hwSACAppListDirectFwdAppName",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSACAppListDirectFwdRowstatus": {
+    "name": "hwSACAppListDirectFwdRowstatus",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwWlanSacConformance": {
+    "name": "hwWlanSacConformance",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.2",
+    "class": "objectidentity"
+  },
+  "hwWlanSacCompliances": {
+    "name": "hwWlanSacCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.2.1",
+    "class": "objectidentity"
+  },
+  "hwWlanSacCompliance": {
+    "name": "hwWlanSacCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwWlanSACGroup",
+        "module": "HUAWEI-WLAN-SAC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwWlanSacObjectGroups": {
+    "name": "hwWlanSacObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.2.2",
+    "class": "objectidentity"
+  },
+  "hwWlanSACGroup": {
+    "name": "hwWlanSACGroup",
+    "oid": "1.3.6.1.4.1.2011.6.139.20.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACEnableOper"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACEnableRuleLibName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACProtocolGroupRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACProGroupProRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatClear"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatClear"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACAppListAppID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACAppListAppName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACAppListRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoSACEnable"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoSignatureState"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoSignatureName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoSignatureVersion"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoSignatureDate"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoAppNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatTotalPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatTotalByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatTotalPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStatTotalByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat1stProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat1stProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat1stProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat1stProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat1stProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat2ndProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat2ndProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat2ndProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat2ndProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat2ndProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat3rdProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat3rdProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat3rdProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat3rdProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat3rdProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat4thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat4thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat4thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat4thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat4thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat5thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat5thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat5thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat5thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat5thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat6thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat6thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat6thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat6thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat6thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat7thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat7thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat7thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat7thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat7thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat8thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat8thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat8thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat8thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat8thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat9thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat9thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat9thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat9thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat9thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat10thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat10thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat10thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat10thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapStat10thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapTop10StatClear"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACVapTop10StatRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatTotalPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatTotalByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatTotalPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStatTotalByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat1stProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat1stProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat1stProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat1stProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat1stProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat2ndProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat2ndProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat2ndProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat2ndProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat2ndProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat3rdProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat3rdProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat3rdProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat3rdProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat3rdProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat4thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat4thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat4thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat4thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat4thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat5thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat5thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat5thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat5thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat5thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat6thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat6thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat6thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat6thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat6thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat7thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat7thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat7thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat7thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat7thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat8thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat8thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat8thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat8thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat8thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat9thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat9thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat9thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat9thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat9thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat10thProtocolName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat10thProtocolPktUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat10thProtocolByteUpNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat10thProtocolPktDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserStat10thProtocolByteDnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserTop10StatClear"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACUserTop10StatRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwWlanVoiceAware"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwWlanVideoAware"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwVoiceAwarePortocolEnable"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwVoiceAwarePortocolRowStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwVideoAwarePortocolEnable"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwVideoAwarePortocolRowStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordSrcApName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordSrcMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordSrcIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordSrcPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordDstApName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordDstMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordDstIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordDstPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordCallID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordStartTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordEndTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordProtocol"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordPacketUtilization"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordJitterInterArrival"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordJitterInterArrivalMax"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordRoundTrip"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordRoundTripMax"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordHealerPacketDropRatio"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordDegradationAvg"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordRatioConcealedSamplesAvg"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordBurstGapDuration"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordDegradationMax"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordRecvListenMOSMin"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordRecvListenMOS"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordOverallMinNetworkMOS"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordOverallAvgNetworkMOS"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordAppliedBandwidthLimit"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwLyncRecordRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoAPSACEnable"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoAPSignatureState"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoAPSignatureVersion"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACInfoAPAppNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACDirectFwdProtocolGroupRowstatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACAppListDirectFwdAppID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACAppListDirectFwdAppName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SAC-MIB",
+        "object": "hwSACAppListDirectFwdRowstatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-WLAN-SAC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-WLAN-SAC-MIB"
+  }
+}

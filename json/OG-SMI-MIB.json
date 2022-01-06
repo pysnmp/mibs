@@ -1,0 +1,138 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "opengear": {
+    "name": "opengear",
+    "oid": "1.3.6.1.4.1.25049",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-15 00:00",
+        "description": "Add a new OID root for Lighthouse 5 and newer management platform specifics."
+      },
+      {
+        "revision": "2013-11-15 00:00",
+        "description": "Re-structured MIB adding more information pertaining to monitored/managed devices."
+      },
+      {
+        "revision": "2013-08-11 00:00",
+        "description": "Renamed from OPENGEAR-SMI-MIB to OG-SMI-MIB to fix naming discrepancy."
+      },
+      {
+        "revision": "2010-03-22 11:27",
+        "description": "Renamed from OPENGEAR-SMI to OPENGEAR-SMI-MIB and fixed imports."
+      },
+      {
+        "revision": "2005-02-24 01:00",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "ogProducts": {
+    "name": "ogProducts",
+    "oid": "1.3.6.1.4.1.25049.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogLegacyMgmt": {
+    "name": "ogLegacyMgmt",
+    "oid": "1.3.6.1.4.1.25049.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogExperimental": {
+    "name": "ogExperimental",
+    "oid": "1.3.6.1.4.1.25049.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogInternal": {
+    "name": "ogInternal",
+    "oid": "1.3.6.1.4.1.25049.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogReserved1": {
+    "name": "ogReserved1",
+    "oid": "1.3.6.1.4.1.25049.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogReserved2": {
+    "name": "ogReserved2",
+    "oid": "1.3.6.1.4.1.25049.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "otherEnterprises": {
+    "name": "otherEnterprises",
+    "oid": "1.3.6.1.4.1.25049.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogAgentCapability": {
+    "name": "ogAgentCapability",
+    "oid": "1.3.6.1.4.1.25049.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogConfig": {
+    "name": "ogConfig",
+    "oid": "1.3.6.1.4.1.25049.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogMgmt": {
+    "name": "ogMgmt",
+    "oid": "1.3.6.1.4.1.25049.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogModules": {
+    "name": "ogModules",
+    "oid": "1.3.6.1.4.1.25049.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ogSpecific": {
+    "name": "ogSpecific",
+    "oid": "1.3.6.1.4.1.25049.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SMI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OG-SMI-MIB"
+  }
+}

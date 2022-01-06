@@ -1,0 +1,662 @@
+{
+  "imports": {
+    "class": "imports",
+    "Brocade-REG-MIB": [
+      "bcsiModules"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bcsiTMStats": {
+    "name": "bcsiTMStats",
+    "oid": "1.3.6.1.4.1.1588.3.1.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-29 12:00",
+        "description": "Updated ORGANIZATION and CONTACT-INFO with Extreme Networks"
+      },
+      {
+        "revision": "2016-10-21 13:30",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "bcsiTMStatsNotification": {
+    "name": "bcsiTMStatsNotification",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.0",
+    "class": "objectidentity"
+  },
+  "bcsiTMStatsObjects": {
+    "name": "bcsiTMStatsObjects",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1",
+    "class": "objectidentity"
+  },
+  "bcsiTMStatsGlobals": {
+    "name": "bcsiTMStatsGlobals",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.1",
+    "class": "objectidentity"
+  },
+  "bcsiTMStatsInfoGroup": {
+    "name": "bcsiTMStatsInfoGroup",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2",
+    "class": "objectidentity"
+  },
+  "bcsiTMStatsInfoGroupGlobals": {
+    "name": "bcsiTMStatsInfoGroupGlobals",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.1",
+    "class": "objectidentity"
+  },
+  "bcsiTMStatsTable": {
+    "name": "bcsiTMStatsTable",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMStatsEntry": {
+    "name": "bcsiTMStatsEntry",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMStatsSlot",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMStatsTower",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiTMStatsSlot": {
+    "name": "bcsiTMStatsSlot",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMStatsTower": {
+    "name": "bcsiTMStatsTower",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMStatsDescription": {
+    "name": "bcsiTMStatsDescription",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsTotalIngressPkts": {
+    "name": "bcsiTMStatsTotalIngressPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsIngressCPUPkts": {
+    "name": "bcsiTMStatsIngressCPUPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsIngressEnquePkts": {
+    "name": "bcsiTMStatsIngressEnquePkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsIngressDequePkts": {
+    "name": "bcsiTMStatsIngressDequePkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsIngressTotalDiscardPkts": {
+    "name": "bcsiTMStatsIngressTotalDiscardPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsIngressOldestDiscardPkts": {
+    "name": "bcsiTMStatsIngressOldestDiscardPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsIngressResolvedToBeDropped": {
+    "name": "bcsiTMStatsIngressResolvedToBeDropped",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsIngressCRCErrorCount": {
+    "name": "bcsiTMStatsIngressCRCErrorCount",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsEgressREDiscardPkts": {
+    "name": "bcsiTMStatsEgressREDiscardPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsEgressFilterDiscardPkts": {
+    "name": "bcsiTMStatsEgressFilterDiscardPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsEgressDiscardUCPkts": {
+    "name": "bcsiTMStatsEgressDiscardUCPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsEgressDiscardMCPkts": {
+    "name": "bcsiTMStatsEgressDiscardMCPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsEgressUnicastPkts": {
+    "name": "bcsiTMStatsEgressUnicastPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsEgressMulticastPkts": {
+    "name": "bcsiTMStatsEgressMulticastPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMStatsEgressFQPPkts": {
+    "name": "bcsiTMStatsEgressFQPPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQStatsInfoGroup": {
+    "name": "bcsiTMVOQStatsInfoGroup",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3",
+    "class": "objectidentity"
+  },
+  "bcsiTMVOQStatsInfoGroupGlobals": {
+    "name": "bcsiTMVOQStatsInfoGroupGlobals",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.1",
+    "class": "objectidentity"
+  },
+  "bcsiTMVOQCPUGroupStatsTable": {
+    "name": "bcsiTMVOQCPUGroupStatsTable",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsEntry": {
+    "name": "bcsiTMVOQCPUGroupStatsEntry",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMVOQCPUGroupStatsSlot",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMVOQCPUGroupStatsGroup",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMVOQCPUGroupStatsPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsSlot": {
+    "name": "bcsiTMVOQCPUGroupStatsSlot",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsGroup": {
+    "name": "bcsiTMVOQCPUGroupStatsGroup",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsPriority": {
+    "name": "bcsiTMVOQCPUGroupStatsPriority",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsDescription": {
+    "name": "bcsiTMVOQCPUGroupStatsDescription",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsEnQPkts": {
+    "name": "bcsiTMVOQCPUGroupStatsEnQPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsEnQBytes": {
+    "name": "bcsiTMVOQCPUGroupStatsEnQBytes",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsTotalDiscardPkts": {
+    "name": "bcsiTMVOQCPUGroupStatsTotalDiscardPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsTotalDiscardBytes": {
+    "name": "bcsiTMVOQCPUGroupStatsTotalDiscardBytes",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsCurrQDepth": {
+    "name": "bcsiTMVOQCPUGroupStatsCurrQDepth",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQCPUGroupStatsMaxQDepth": {
+    "name": "bcsiTMVOQCPUGroupStatsMaxQDepth",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsTable": {
+    "name": "bcsiTMVOQIngressStatsTable",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsEntry": {
+    "name": "bcsiTMVOQIngressStatsEntry",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMVOQIngressStatsSlot",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMVOQIngressStatsTower",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMVOQIngressStatsEgressPort",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-TMSTATS-MIB",
+        "object": "bcsiTMVOQIngressStatsPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsSlot": {
+    "name": "bcsiTMVOQIngressStatsSlot",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsTower": {
+    "name": "bcsiTMVOQIngressStatsTower",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsEgressPort": {
+    "name": "bcsiTMVOQIngressStatsEgressPort",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsPriority": {
+    "name": "bcsiTMVOQIngressStatsPriority",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsDescription": {
+    "name": "bcsiTMVOQIngressStatsDescription",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsEnQPkts": {
+    "name": "bcsiTMVOQIngressStatsEnQPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsEnQBytes": {
+    "name": "bcsiTMVOQIngressStatsEnQBytes",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsTotalDiscardPkts": {
+    "name": "bcsiTMVOQIngressStatsTotalDiscardPkts",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsTotalDiscardBytes": {
+    "name": "bcsiTMVOQIngressStatsTotalDiscardBytes",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsCurrQDepth": {
+    "name": "bcsiTMVOQIngressStatsCurrQDepth",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiTMVOQIngressStatsMaxQDepth": {
+    "name": "bcsiTMVOQIngressStatsMaxQDepth",
+    "oid": "1.3.6.1.4.1.1588.3.1.15.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-TMSTATS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BROCADE-TMSTATS-MIB"
+  }
+}

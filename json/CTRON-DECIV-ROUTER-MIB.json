@@ -1,0 +1,3037 @@
+{
+  "imports": {
+    "class": "imports",
+    "ROUTER-OIDS": [
+      "nwRtrProtoSuites"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nwDecIVRouter": {
+    "name": "nwDecIVRouter",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3",
+    "class": "objectidentity"
+  },
+  "nwDecIVMibs": {
+    "name": "nwDecIVMibs",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVComponents": {
+    "name": "nwDecIVComponents",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVSystem": {
+    "name": "nwDecIVSystem",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVForwarding": {
+    "name": "nwDecIVForwarding",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVTopology": {
+    "name": "nwDecIVTopology",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4",
+    "class": "objectidentity"
+  },
+  "nwDecIVFib": {
+    "name": "nwDecIVFib",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.5",
+    "class": "objectidentity"
+  },
+  "nwDecIVEndSystems": {
+    "name": "nwDecIVEndSystems",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6",
+    "class": "objectidentity"
+  },
+  "nwDecIVAccessControl": {
+    "name": "nwDecIVAccessControl",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7",
+    "class": "objectidentity"
+  },
+  "nwDecIVFilters": {
+    "name": "nwDecIVFilters",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.8",
+    "class": "objectidentity"
+  },
+  "nwDecIVRedirector": {
+    "name": "nwDecIVRedirector",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.9",
+    "class": "objectidentity"
+  },
+  "nwDecIVEvent": {
+    "name": "nwDecIVEvent",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10",
+    "class": "objectidentity"
+  },
+  "nwDecIVWorkGroup": {
+    "name": "nwDecIVWorkGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.11",
+    "class": "objectidentity"
+  },
+  "nwDecIVSysConfig": {
+    "name": "nwDecIVSysConfig",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVSysAdministration": {
+    "name": "nwDecIVSysAdministration",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVFwdSystem": {
+    "name": "nwDecIVFwdSystem",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVFwdInterfaces": {
+    "name": "nwDecIVFwdInterfaces",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVFwdCounters": {
+    "name": "nwDecIVFwdCounters",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVFwdIfConfig": {
+    "name": "nwDecIVFwdIfConfig",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVFwdIfCounters": {
+    "name": "nwDecIVFwdIfCounters",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVDistanceVector": {
+    "name": "nwDecIVDistanceVector",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVLinkState": {
+    "name": "nwDecIVLinkState",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVProto": {
+    "name": "nwDecIVProto",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVProtoSystem": {
+    "name": "nwDecIVProtoSystem",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVProtoInterface": {
+    "name": "nwDecIVProtoInterface",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVProtoConfig": {
+    "name": "nwDecIVProtoConfig",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVProtoCounters": {
+    "name": "nwDecIVProtoCounters",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVProtoIfConfig": {
+    "name": "nwDecIVProtoIfConfig",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVProtoIfCounters": {
+    "name": "nwDecIVProtoIfCounters",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVHostsSystem": {
+    "name": "nwDecIVHostsSystem",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVHostsInterfaces": {
+    "name": "nwDecIVHostsInterfaces",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVHostsToMedia": {
+    "name": "nwDecIVHostsToMedia",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3",
+    "class": "objectidentity"
+  },
+  "nwDecIVEventLogConfig": {
+    "name": "nwDecIVEventLogConfig",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.1",
+    "class": "objectidentity"
+  },
+  "nwDecIVEventLogFilterTable": {
+    "name": "nwDecIVEventLogFilterTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2",
+    "class": "objectidentity"
+  },
+  "nwDecIVEventLogTable": {
+    "name": "nwDecIVEventLogTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3",
+    "class": "objectidentity"
+  },
+  "DecIVAddress": {
+    "name": "DecIVAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "nwDecIVMibRevText": {
+    "name": "nwDecIVMibRevText",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVSysRouterId": {
+    "name": "nwDecIVSysRouterId",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DecIVAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVNodeType": {
+    "name": "nwDecIVNodeType",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "routing-iv": 2,
+          "area": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "routing-iv",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVMaxNodes": {
+    "name": "nwDecIVMaxNodes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1023,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVMaxBRA": {
+    "name": "nwDecIVMaxBRA",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVMaxBEA": {
+    "name": "nwDecIVMaxBEA",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVMaxHops": {
+    "name": "nwDecIVMaxHops",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVMaxCost": {
+    "name": "nwDecIVMaxCost",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1022,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVMaxVisits": {
+    "name": "nwDecIVMaxVisits",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 63,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVNonBroadcastTimer": {
+    "name": "nwDecIVNonBroadcastTimer",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVBroadcastTimer": {
+    "name": "nwDecIVBroadcastTimer",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVAreas": {
+    "name": "nwDecIVAreas",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 63,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVMaxAreaHops": {
+    "name": "nwDecIVMaxAreaHops",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVMaxAreaCost": {
+    "name": "nwDecIVMaxAreaCost",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1022,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVSysAdminStatus": {
+    "name": "nwDecIVSysAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVSysOperStatus": {
+    "name": "nwDecIVSysOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVSysAdminReset": {
+    "name": "nwDecIVSysAdminReset",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVSysOperationalTime": {
+    "name": "nwDecIVSysOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVSysVersion": {
+    "name": "nwDecIVSysVersion",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrAdminStatus": {
+    "name": "nwDecIVFwdCtrAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrReset": {
+    "name": "nwDecIVFwdCtrReset",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrOperationalTime": {
+    "name": "nwDecIVFwdCtrOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrInPkts": {
+    "name": "nwDecIVFwdCtrInPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrOutPkts": {
+    "name": "nwDecIVFwdCtrOutPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrFwdPkts": {
+    "name": "nwDecIVFwdCtrFwdPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrFilteredPkts": {
+    "name": "nwDecIVFwdCtrFilteredPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrDiscardPkts": {
+    "name": "nwDecIVFwdCtrDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrAddrErrPkts": {
+    "name": "nwDecIVFwdCtrAddrErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrLenErrPkts": {
+    "name": "nwDecIVFwdCtrLenErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrHdrErrPkts": {
+    "name": "nwDecIVFwdCtrHdrErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrInBytes": {
+    "name": "nwDecIVFwdCtrInBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrOutBytes": {
+    "name": "nwDecIVFwdCtrOutBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrFwdBytes": {
+    "name": "nwDecIVFwdCtrFwdBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrFilteredBytes": {
+    "name": "nwDecIVFwdCtrFilteredBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrDiscardBytes": {
+    "name": "nwDecIVFwdCtrDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrHostInPkts": {
+    "name": "nwDecIVFwdCtrHostInPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrHostOutPkts": {
+    "name": "nwDecIVFwdCtrHostOutPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrHostDiscardPkts": {
+    "name": "nwDecIVFwdCtrHostDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrHostInBytes": {
+    "name": "nwDecIVFwdCtrHostInBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrHostOutBytes": {
+    "name": "nwDecIVFwdCtrHostOutBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdCtrHostDiscardBytes": {
+    "name": "nwDecIVFwdCtrHostDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfTable": {
+    "name": "nwDecIVFwdIfTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfEntry": {
+    "name": "nwDecIVFwdIfEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVFwdIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfIndex": {
+    "name": "nwDecIVFwdIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfAdminStatus": {
+    "name": "nwDecIVFwdIfAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfOperStatus": {
+    "name": "nwDecIVFwdIfOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfOperationalTime": {
+    "name": "nwDecIVFwdIfOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfControl": {
+    "name": "nwDecIVFwdIfControl",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "add": 2,
+          "delete": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "add",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfMtu": {
+    "name": "nwDecIVFwdIfMtu",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfForwarding": {
+    "name": "nwDecIVFwdIfForwarding",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfFrameType": {
+    "name": "nwDecIVFwdIfFrameType",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ethernet": 2,
+          "snap": 3,
+          "nativewan": 8,
+          "encapenet": 9,
+          "encapenetsnap": 11,
+          "encaptrsnap": 14,
+          "encapfddisnap": 16,
+          "canonical": 17
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ethernet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfAclIdentifier": {
+    "name": "nwDecIVFwdIfAclIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfAclStatus": {
+    "name": "nwDecIVFwdIfAclStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCacheControl": {
+    "name": "nwDecIVFwdIfCacheControl",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCacheEntries": {
+    "name": "nwDecIVFwdIfCacheEntries",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCacheHits": {
+    "name": "nwDecIVFwdIfCacheHits",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCacheMisses": {
+    "name": "nwDecIVFwdIfCacheMisses",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrTable": {
+    "name": "nwDecIVFwdIfCtrTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrEntry": {
+    "name": "nwDecIVFwdIfCtrEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVFwdIfCtrIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrIfIndex": {
+    "name": "nwDecIVFwdIfCtrIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrAdminStatus": {
+    "name": "nwDecIVFwdIfCtrAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrReset": {
+    "name": "nwDecIVFwdIfCtrReset",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrOperationalTime": {
+    "name": "nwDecIVFwdIfCtrOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrInPkts": {
+    "name": "nwDecIVFwdIfCtrInPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrOutPkts": {
+    "name": "nwDecIVFwdIfCtrOutPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrFwdPkts": {
+    "name": "nwDecIVFwdIfCtrFwdPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrFilteredPkts": {
+    "name": "nwDecIVFwdIfCtrFilteredPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrDiscardPkts": {
+    "name": "nwDecIVFwdIfCtrDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrAddrErrPkts": {
+    "name": "nwDecIVFwdIfCtrAddrErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrLenErrPkts": {
+    "name": "nwDecIVFwdIfCtrLenErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrHdrErrPkts": {
+    "name": "nwDecIVFwdIfCtrHdrErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrInBytes": {
+    "name": "nwDecIVFwdIfCtrInBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrOutBytes": {
+    "name": "nwDecIVFwdIfCtrOutBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrFwdBytes": {
+    "name": "nwDecIVFwdIfCtrFwdBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrFilteredBytes": {
+    "name": "nwDecIVFwdIfCtrFilteredBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrDiscardBytes": {
+    "name": "nwDecIVFwdIfCtrDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrHostInPkts": {
+    "name": "nwDecIVFwdIfCtrHostInPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrHostOutPkts": {
+    "name": "nwDecIVFwdIfCtrHostOutPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrHostDiscardPkts": {
+    "name": "nwDecIVFwdIfCtrHostDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrHostInBytes": {
+    "name": "nwDecIVFwdIfCtrHostInBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrHostOutBytes": {
+    "name": "nwDecIVFwdIfCtrHostOutBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFwdIfCtrHostDiscardBytes": {
+    "name": "nwDecIVFwdIfCtrHostDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.2.2.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoAdminStatus": {
+    "name": "nwDecIVProtoAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoOperStatus": {
+    "name": "nwDecIVProtoOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoAdminReset": {
+    "name": "nwDecIVProtoAdminReset",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoOperationalTime": {
+    "name": "nwDecIVProtoOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoVersion": {
+    "name": "nwDecIVProtoVersion",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoStackSize": {
+    "name": "nwDecIVProtoStackSize",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4096,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoThreadPriority": {
+    "name": "nwDecIVProtoThreadPriority",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 127,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoDatabaseThreshold": {
+    "name": "nwDecIVProtoDatabaseThreshold",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoAgeOut": {
+    "name": "nwDecIVProtoAgeOut",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoHoldDown": {
+    "name": "nwDecIVProtoHoldDown",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrAdminStatus": {
+    "name": "nwDecIVProtoCtrAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrReset": {
+    "name": "nwDecIVProtoCtrReset",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrOperationalTime": {
+    "name": "nwDecIVProtoCtrOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrInPkts": {
+    "name": "nwDecIVProtoCtrInPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrOutPkts": {
+    "name": "nwDecIVProtoCtrOutPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrFilteredPkts": {
+    "name": "nwDecIVProtoCtrFilteredPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrDiscardPkts": {
+    "name": "nwDecIVProtoCtrDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrInBytes": {
+    "name": "nwDecIVProtoCtrInBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrOutBytes": {
+    "name": "nwDecIVProtoCtrOutBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrFilteredBytes": {
+    "name": "nwDecIVProtoCtrFilteredBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoCtrDiscardBytes": {
+    "name": "nwDecIVProtoCtrDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfTable": {
+    "name": "nwDecIVProtoIfTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfEntry": {
+    "name": "nwDecIVProtoIfEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVProtoIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfIndex": {
+    "name": "nwDecIVProtoIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfAdminStatus": {
+    "name": "nwDecIVProtoIfAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfOperStatus": {
+    "name": "nwDecIVProtoIfOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfOperationalTime": {
+    "name": "nwDecIVProtoIfOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfVersion": {
+    "name": "nwDecIVProtoIfVersion",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfAdvertisement": {
+    "name": "nwDecIVProtoIfAdvertisement",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfFloodDelay": {
+    "name": "nwDecIVProtoIfFloodDelay",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfRequestDelay": {
+    "name": "nwDecIVProtoIfRequestDelay",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfPriority": {
+    "name": "nwDecIVProtoIfPriority",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfHelloTimer": {
+    "name": "nwDecIVProtoIfHelloTimer",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfSplitHorizon": {
+    "name": "nwDecIVProtoIfSplitHorizon",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfPoisonReverse": {
+    "name": "nwDecIVProtoIfPoisonReverse",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfSnooping": {
+    "name": "nwDecIVProtoIfSnooping",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfType": {
+    "name": "nwDecIVProtoIfType",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "bma": 2,
+          "nbma": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bma",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfXmitCost": {
+    "name": "nwDecIVProtoIfXmitCost",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfAclIdentifier": {
+    "name": "nwDecIVProtoIfAclIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfAclStatus": {
+    "name": "nwDecIVProtoIfAclStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrTable": {
+    "name": "nwDecIVProtoIfCtrTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrEntry": {
+    "name": "nwDecIVProtoIfCtrEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVProtoIfCtrIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrIfIndex": {
+    "name": "nwDecIVProtoIfCtrIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrAdminStatus": {
+    "name": "nwDecIVProtoIfCtrAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrReset": {
+    "name": "nwDecIVProtoIfCtrReset",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrOperationalTime": {
+    "name": "nwDecIVProtoIfCtrOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrInPkts": {
+    "name": "nwDecIVProtoIfCtrInPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrOutPkts": {
+    "name": "nwDecIVProtoIfCtrOutPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrFilteredPkts": {
+    "name": "nwDecIVProtoIfCtrFilteredPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrDiscardPkts": {
+    "name": "nwDecIVProtoIfCtrDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrInBytes": {
+    "name": "nwDecIVProtoIfCtrInBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrOutBytes": {
+    "name": "nwDecIVProtoIfCtrOutBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrFilteredBytes": {
+    "name": "nwDecIVProtoIfCtrFilteredBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVProtoIfCtrDiscardBytes": {
+    "name": "nwDecIVProtoIfCtrDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.4.1.1.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFibTable": {
+    "name": "nwDecIVFibTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVFibEntry": {
+    "name": "nwDecIVFibEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVFibNodeId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVFibNodeId": {
+    "name": "nwDecIVFibNodeId",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DecIVAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVFibNextHopNodeId": {
+    "name": "nwDecIVFibNextHopNodeId",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DecIVAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFibNextHopIf": {
+    "name": "nwDecIVFibNextHopIf",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVFibRouteType": {
+    "name": "nwDecIVFibRouteType",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "direct": 3,
+          "remote": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "direct",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVAclValidEntries": {
+    "name": "nwDecIVAclValidEntries",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVAclTable": {
+    "name": "nwDecIVAclTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVAclEntry": {
+    "name": "nwDecIVAclEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVAclIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVAclSequence",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVAclIdentifier": {
+    "name": "nwDecIVAclIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVAclSequence": {
+    "name": "nwDecIVAclSequence",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVAclPermission": {
+    "name": "nwDecIVAclPermission",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "permit": 3,
+          "deny": 4,
+          "permit-bidirectional": 5,
+          "deny-bidirectional": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVAclMatches": {
+    "name": "nwDecIVAclMatches",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVAclDestAddress": {
+    "name": "nwDecIVAclDestAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DecIVAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVAclSrcAddress": {
+    "name": "nwDecIVAclSrcAddress",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DecIVAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVHostMapTable": {
+    "name": "nwDecIVHostMapTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVHostMapEntry": {
+    "name": "nwDecIVHostMapEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVHostMapIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVHostMapDecIVAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVHostMapIfIndex": {
+    "name": "nwDecIVHostMapIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVHostMapDecIVAddr": {
+    "name": "nwDecIVHostMapDecIVAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DecIVAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVHostMapType": {
+    "name": "nwDecIVHostMapType",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "dynamic": 3,
+          "static": 4,
+          "inactive": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVHostMapCircuitID": {
+    "name": "nwDecIVHostMapCircuitID",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVHostMapFraming": {
+    "name": "nwDecIVHostMapFraming",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ethernet": 2,
+          "snap": 3,
+          "nativewan": 8,
+          "encapenet": 9,
+          "encapenetsnap": 11,
+          "encaptrsnap": 14,
+          "encapfddisnap": 16,
+          "canonical": 17
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVHostMapPortNumber": {
+    "name": "nwDecIVHostMapPortNumber",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.6.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventAdminStatus": {
+    "name": "nwDecIVEventAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVEventMaxEntries": {
+    "name": "nwDecIVEventMaxEntries",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVEventTraceAll": {
+    "name": "nwDecIVEventTraceAll",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVEventFilterTable": {
+    "name": "nwDecIVEventFilterTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVEventFilterEntry": {
+    "name": "nwDecIVEventFilterEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVEventFltrProtocol",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVEventFltrIfNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVEventFltrProtocol": {
+    "name": "nwDecIVEventFltrProtocol",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventFltrIfNum": {
+    "name": "nwDecIVEventFltrIfNum",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventFltrControl": {
+    "name": "nwDecIVEventFltrControl",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2,
+          "add": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "add",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVEventFltrType": {
+    "name": "nwDecIVEventFltrType",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "misc": 1,
+          "timer": 2,
+          "rcv": 4,
+          "xmit": 8,
+          "event": 16,
+          "diags": 32,
+          "error": 64
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVEventFltrSeverity": {
+    "name": "nwDecIVEventFltrSeverity",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highest": 1,
+          "highmed": 2,
+          "highlow": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "highest",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVEventFltrAction": {
+    "name": "nwDecIVEventFltrAction",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "log": 1,
+          "trap": 2,
+          "log-trap": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "log",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nwDecIVEventTable": {
+    "name": "nwDecIVEventTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwDecIVEventEntry": {
+    "name": "nwDecIVEventEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-DECIV-ROUTER-MIB",
+        "object": "nwDecIVEventNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwDecIVEventNumber": {
+    "name": "nwDecIVEventNumber",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventTime": {
+    "name": "nwDecIVEventTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventType": {
+    "name": "nwDecIVEventType",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "misc": 1,
+          "timer": 2,
+          "rcv": 4,
+          "xmit": 8,
+          "event": 16,
+          "error": 32
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventSeverity": {
+    "name": "nwDecIVEventSeverity",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highest": 1,
+          "highmed": 2,
+          "highlow": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventProtocol": {
+    "name": "nwDecIVEventProtocol",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventIfNum": {
+    "name": "nwDecIVEventIfNum",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwDecIVEventTextString": {
+    "name": "nwDecIVEventTextString",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.3.3.2.10.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-DECIV-ROUTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-DECIV-ROUTER-MIB"
+  }
+}

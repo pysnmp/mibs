@@ -1,0 +1,5181 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnCesMIB": {
+    "name": "tnCesMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.60",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-25 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "tnCesNotifications": {
+    "name": "tnCesNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.60.0",
+    "class": "objectidentity"
+  },
+  "tnCesEventId": {
+    "name": "tnCesEventId",
+    "oid": "1.3.6.1.4.1.868.2.5.60.0.3",
+    "class": "objectidentity"
+  },
+  "tnCesEventIdGeneral": {
+    "name": "tnCesEventIdGeneral",
+    "oid": "1.3.6.1.4.1.868.2.5.60.0.3.0",
+    "class": "objectidentity"
+  },
+  "tnCesObjects": {
+    "name": "tnCesObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1",
+    "class": "objectidentity"
+  },
+  "tnCesConformance": {
+    "name": "tnCesConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.60.2",
+    "class": "objectidentity"
+  },
+  "tnCesCompliances": {
+    "name": "tnCesCompliances",
+    "oid": "1.3.6.1.4.1.868.2.5.60.2.1",
+    "class": "objectidentity"
+  },
+  "tnCesGroups": {
+    "name": "tnCesGroups",
+    "oid": "1.3.6.1.4.1.868.2.5.60.2.2",
+    "class": "objectidentity"
+  },
+  "tnCesProtocol": {
+    "name": "tnCesProtocol",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.1",
+    "class": "objectidentity"
+  },
+  "tnCesProtocolType": {
+    "name": "tnCesProtocolType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipUdpRtp": 0,
+          "ip": 1,
+          "mpls": 2,
+          "ethernet": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesProtocolUnderrunFixed": {
+    "name": "tnCesProtocolUnderrunFixed",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesProtocolUnderrunValue": {
+    "name": "tnCesProtocolUnderrunValue",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesProtocolUDPBasePort": {
+    "name": "tnCesProtocolUDPBasePort",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65472
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesProtocolEnableSSRCChecking": {
+    "name": "tnCesProtocolEnableSSRCChecking",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesClockingAlternate": {
+    "name": "tnCesClockingAlternate",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.2",
+    "class": "objectidentity"
+  },
+  "tnCesClockingAlternateEnable": {
+    "name": "tnCesClockingAlternateEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesClockRecovery": {
+    "name": "tnCesClockRecovery",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.3",
+    "class": "objectidentity"
+  },
+  "tnCesClockRecoveryAlgorithm": {
+    "name": "tnCesClockRecoveryAlgorithm",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adaptive": 1,
+          "adaptiveEnhanced": 2,
+          "adaptiveFrequency": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesClockRecoveryFilter": {
+    "name": "tnCesClockRecoveryFilter",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type1": 1,
+          "type2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesClockRecoveryMaxDeviation": {
+    "name": "tnCesClockRecoveryMaxDeviation",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesEvent": {
+    "name": "tnCesEvent",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.4",
+    "class": "objectidentity"
+  },
+  "tnCesEventThreshold": {
+    "name": "tnCesEventThreshold",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesEventReportingInterval": {
+    "name": "tnCesEventReportingInterval",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesEventThresholdEarly": {
+    "name": "tnCesEventThresholdEarly",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesEventThresholdLate": {
+    "name": "tnCesEventThresholdLate",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesEventThresholdUnderrun": {
+    "name": "tnCesEventThresholdUnderrun",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesEventThresholdDCO": {
+    "name": "tnCesEventThresholdDCO",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesProcessor": {
+    "name": "tnCesProcessor",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5",
+    "class": "objectidentity"
+  },
+  "tnCesProcessorVersion": {
+    "name": "tnCesProcessorVersion",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorProtocolMatch1": {
+    "name": "tnCesProcessorProtocolMatch1",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorProtocolMatch2": {
+    "name": "tnCesProcessorProtocolMatch2",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorProtocolMatch3": {
+    "name": "tnCesProcessorProtocolMatch3",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorProtocolMatch4": {
+    "name": "tnCesProcessorProtocolMatch4",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorProtocolNoMatch": {
+    "name": "tnCesProcessorProtocolNoMatch",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorClassifyFail": {
+    "name": "tnCesProcessorClassifyFail",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorVerifyFail": {
+    "name": "tnCesProcessorVerifyFail",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorIpv4ChecksumFail": {
+    "name": "tnCesProcessorIpv4ChecksumFail",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesProcessorUdpChecksumFail": {
+    "name": "tnCesProcessorUdpChecksumFail",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatus": {
+    "name": "tnCesClockStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.6",
+    "class": "objectidentity"
+  },
+  "tnCesClockStatusLock": {
+    "name": "tnCesClockStatusLock",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clockLockAutomatic": 0,
+          "clockLockNormal": 1,
+          "clockLockHoldover": 2,
+          "clockLockFreerun": 3,
+          "clockLockUnknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatusSlaveMode": {
+    "name": "tnCesClockStatusSlaveMode",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatusSource": {
+    "name": "tnCesClockStatusSource",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesTemperature": {
+    "name": "tnCesTemperature",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.7",
+    "class": "objectidentity"
+  },
+  "tnCesTemperatureBoardWhole": {
+    "name": "tnCesTemperatureBoardWhole",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesTemperatureBoardFrac": {
+    "name": "tnCesTemperatureBoardFrac",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesTemperatureProcessorWhole": {
+    "name": "tnCesTemperatureProcessorWhole",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesTemperatureProcessorFrac": {
+    "name": "tnCesTemperatureProcessorFrac",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesIP": {
+    "name": "tnCesIP",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.8",
+    "class": "objectidentity"
+  },
+  "tnCesIpv4AddrType": {
+    "name": "tnCesIpv4AddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesIpv4Addr": {
+    "name": "tnCesIpv4Addr",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesIpv4PrefixLength": {
+    "name": "tnCesIpv4PrefixLength",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesIpv6AddrType": {
+    "name": "tnCesIpv6AddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesIpv6Addr": {
+    "name": "tnCesIpv6Addr",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesIpv6PrefixLength": {
+    "name": "tnCesIpv6PrefixLength",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesClockPriority": {
+    "name": "tnCesClockPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9",
+    "class": "objectidentity"
+  },
+  "tnCesMiscClockPriorityTable": {
+    "name": "tnCesMiscClockPriorityTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesMiscClockPriorityEntry": {
+    "name": "tnCesMiscClockPriorityEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesMiscClockPriorityItem",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesMiscClockPriorityItem": {
+    "name": "tnCesMiscClockPriorityItem",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesMiscClockPriority": {
+    "name": "tnCesMiscClockPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesPRIClockPriorityTable": {
+    "name": "tnCesPRIClockPriorityTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesPRIClockPriorityEntry": {
+    "name": "tnCesPRIClockPriorityEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesPRIClockPriorityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesPRIClockPriorityIndex": {
+    "name": "tnCesPRIClockPriorityIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesPRIClockPriority": {
+    "name": "tnCesPRIClockPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLClockPriorityTable": {
+    "name": "tnCesLLClockPriorityTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLClockPriorityEntry": {
+    "name": "tnCesLLClockPriorityEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLClockPriorityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesLLClockPriorityIndex": {
+    "name": "tnCesLLClockPriorityIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLClockPriority": {
+    "name": "tnCesLLClockPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesMulticastJoinTable": {
+    "name": "tnCesMulticastJoinTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesMulticastJoinEntry": {
+    "name": "tnCesMulticastJoinEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesMulticastJoinIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesMulticastJoinIndex": {
+    "name": "tnCesMulticastJoinIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesMulticastJoinAction": {
+    "name": "tnCesMulticastJoinAction",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesMulticastJoinAddrType": {
+    "name": "tnCesMulticastJoinAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesMulticastJoinAddr": {
+    "name": "tnCesMulticastJoinAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMTable": {
+    "name": "tnCesTDMTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesTDMEntry": {
+    "name": "tnCesTDMEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesTDMPortNumber": {
+    "name": "tnCesTDMPortNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesTDMPresentation": {
+    "name": "tnCesTDMPresentation",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "te": 0,
+          "nt": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMFraming": {
+    "name": "tnCesTDMFraming",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 0,
+          "fractional": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMMode": {
+    "name": "tnCesTDMMode",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1": 0,
+          "t1": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMTS0Passthrough": {
+    "name": "tnCesTDMTS0Passthrough",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMCRC4": {
+    "name": "tnCesTDMCRC4",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMShutdownCallsOnFail": {
+    "name": "tnCesTDMShutdownCallsOnFail",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMImpedance": {
+    "name": "tnCesTDMImpedance",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "impedance120ohms": 0,
+          "impedance75ohms": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMT1Framing": {
+    "name": "tnCesTDMT1Framing",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "esf": 0,
+          "d4": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMT1LineCode": {
+    "name": "tnCesTDMT1LineCode",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "b8zs": 0,
+          "ami": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMT1LoopCodeType": {
+    "name": "tnCesTDMT1LoopCodeType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fac1": 0,
+          "fac2": 1,
+          "fac3": 2,
+          "user": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMT1LoopCodeRxEnable": {
+    "name": "tnCesTDMT1LoopCodeRxEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMT1LoopCodeUserUp": {
+    "name": "tnCesTDMT1LoopCodeUserUp",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMT1LoopCodeUserDown": {
+    "name": "tnCesTDMT1LoopCodeUserDown",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMT1LoopCodeUserLength": {
+    "name": "tnCesTDMT1LoopCodeUserLength",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMDTE": {
+    "name": "tnCesTDMDTE",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLTable": {
+    "name": "tnCesLLTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLEntry": {
+    "name": "tnCesLLEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesLLNumber": {
+    "name": "tnCesLLNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLname": {
+    "name": "tnCesLLname",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLDirection": {
+    "name": "tnCesLLDirection",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "rx": 1,
+          "tx": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLRemoteIpAddrType": {
+    "name": "tnCesLLRemoteIpAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLRemoteIpAddr": {
+    "name": "tnCesLLRemoteIpAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSecondaryRemoteIpAddrType": {
+    "name": "tnCesLLSecondaryRemoteIpAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSecondaryRemoteIpAddr": {
+    "name": "tnCesLLSecondaryRemoteIpAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLQosType": {
+    "name": "tnCesLLQosType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tos": 0,
+          "diffserv": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLQosTOS": {
+    "name": "tnCesLLQosTOS",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLQosDiffserv": {
+    "name": "tnCesLLQosDiffserv",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLVlanTag": {
+    "name": "tnCesLLVlanTag",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLVlanId": {
+    "name": "tnCesLLVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLVlanPriority": {
+    "name": "tnCesLLVlanPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJitterBufferLength": {
+    "name": "tnCesLLJitterBufferLength",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLFramesPerPacket": {
+    "name": "tnCesLLFramesPerPacket",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLRemoteLinkNumber": {
+    "name": "tnCesLLRemoteLinkNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedTable": {
+    "name": "tnCesLLSchedTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLSchedEntry": {
+    "name": "tnCesLLSchedEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesLLSchedNumber": {
+    "name": "tnCesLLSchedNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLSchedEnable": {
+    "name": "tnCesLLSchedEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeMonHours": {
+    "name": "tnCesLLSchedStartTimeMonHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeMonMins": {
+    "name": "tnCesLLSchedStartTimeMonMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeMonHours": {
+    "name": "tnCesLLSchedStopTimeMonHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeMonMins": {
+    "name": "tnCesLLSchedStopTimeMonMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeTueHours": {
+    "name": "tnCesLLSchedStartTimeTueHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeTueMins": {
+    "name": "tnCesLLSchedStartTimeTueMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeTueHours": {
+    "name": "tnCesLLSchedStopTimeTueHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeTueMins": {
+    "name": "tnCesLLSchedStopTimeTueMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeWedHours": {
+    "name": "tnCesLLSchedStartTimeWedHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeWedMins": {
+    "name": "tnCesLLSchedStartTimeWedMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeWedHours": {
+    "name": "tnCesLLSchedStopTimeWedHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeWedMins": {
+    "name": "tnCesLLSchedStopTimeWedMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeThuHours": {
+    "name": "tnCesLLSchedStartTimeThuHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeThuMins": {
+    "name": "tnCesLLSchedStartTimeThuMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeThuHours": {
+    "name": "tnCesLLSchedStopTimeThuHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeThuMins": {
+    "name": "tnCesLLSchedStopTimeThuMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeFriHours": {
+    "name": "tnCesLLSchedStartTimeFriHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeFriMins": {
+    "name": "tnCesLLSchedStartTimeFriMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeFriHours": {
+    "name": "tnCesLLSchedStopTimeFriHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeFriMins": {
+    "name": "tnCesLLSchedStopTimeFriMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeSatHours": {
+    "name": "tnCesLLSchedStartTimeSatHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeSatMins": {
+    "name": "tnCesLLSchedStartTimeSatMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeSatHours": {
+    "name": "tnCesLLSchedStopTimeSatHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeSatMins": {
+    "name": "tnCesLLSchedStopTimeSatMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeSunHours": {
+    "name": "tnCesLLSchedStartTimeSunHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStartTimeSunMins": {
+    "name": "tnCesLLSchedStartTimeSunMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeSunHours": {
+    "name": "tnCesLLSchedStopTimeSunHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLSchedStopTimeSunMins": {
+    "name": "tnCesLLSchedStopTimeSunMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.13.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJATable": {
+    "name": "tnCesLLJATable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLJAEntry": {
+    "name": "tnCesLLJAEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJANumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesLLJANumber": {
+    "name": "tnCesLLJANumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLJitterAdjustmentMode": {
+    "name": "tnCesLLJitterAdjustmentMode",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "always": 1,
+          "schedule": 2,
+          "once": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJitterAdjustmentAfter": {
+    "name": "tnCesLLJitterAdjustmentAfter",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeMonHours": {
+    "name": "tnCesLLJASchedStartTimeMonHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeMonMins": {
+    "name": "tnCesLLJASchedStartTimeMonMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeMonHours": {
+    "name": "tnCesLLJASchedStopTimeMonHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeMonMins": {
+    "name": "tnCesLLJASchedStopTimeMonMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeTueHours": {
+    "name": "tnCesLLJASchedStartTimeTueHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeTueMins": {
+    "name": "tnCesLLJASchedStartTimeTueMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeTueHours": {
+    "name": "tnCesLLJASchedStopTimeTueHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeTueMins": {
+    "name": "tnCesLLJASchedStopTimeTueMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeWedHours": {
+    "name": "tnCesLLJASchedStartTimeWedHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeWedMins": {
+    "name": "tnCesLLJASchedStartTimeWedMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeWedHours": {
+    "name": "tnCesLLJASchedStopTimeWedHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeWedMins": {
+    "name": "tnCesLLJASchedStopTimeWedMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeThuHours": {
+    "name": "tnCesLLJASchedStartTimeThuHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeThuMins": {
+    "name": "tnCesLLJASchedStartTimeThuMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeThuHours": {
+    "name": "tnCesLLJASchedStopTimeThuHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeThuMins": {
+    "name": "tnCesLLJASchedStopTimeThuMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeFriHours": {
+    "name": "tnCesLLJASchedStartTimeFriHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeFriMins": {
+    "name": "tnCesLLJASchedStartTimeFriMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeFriHours": {
+    "name": "tnCesLLJASchedStopTimeFriHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeFriMins": {
+    "name": "tnCesLLJASchedStopTimeFriMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeSatHours": {
+    "name": "tnCesLLJASchedStartTimeSatHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeSatMins": {
+    "name": "tnCesLLJASchedStartTimeSatMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeSatHours": {
+    "name": "tnCesLLJASchedStopTimeSatHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeSatMins": {
+    "name": "tnCesLLJASchedStopTimeSatMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeSunHours": {
+    "name": "tnCesLLJASchedStartTimeSunHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStartTimeSunMins": {
+    "name": "tnCesLLJASchedStartTimeSunMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeSunHours": {
+    "name": "tnCesLLJASchedStopTimeSunHours",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLJASchedStopTimeSunMins": {
+    "name": "tnCesLLJASchedStopTimeSunMins",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.14.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLChanSelectTable": {
+    "name": "tnCesLLChanSelectTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLChanSelectEntry": {
+    "name": "tnCesLLChanSelectEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLChanSelectLLNumber",
+        "implied": 0
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLChanSelectPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesLLChanSelectLLNumber": {
+    "name": "tnCesLLChanSelectLLNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLChanSelectPortNumber": {
+    "name": "tnCesLLChanSelectPortNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLChanSelectAvailable": {
+    "name": "tnCesLLChanSelectAvailable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLChanSelectUsed": {
+    "name": "tnCesLLChanSelectUsed",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLAlternateTable": {
+    "name": "tnCesLLAlternateTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLAlternateEntry": {
+    "name": "tnCesLLAlternateEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLAlternateLLNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesLLAlternateLLNumber": {
+    "name": "tnCesLLAlternateLLNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLPlesiosynchronous": {
+    "name": "tnCesLLPlesiosynchronous",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLAsymmetric": {
+    "name": "tnCesLLAsymmetric",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLBytesPerPacketRx": {
+    "name": "tnCesLLBytesPerPacketRx",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLBytesPerPacketTx": {
+    "name": "tnCesLLBytesPerPacketTx",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLStatusTable": {
+    "name": "tnCesLLStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLStatusEntry": {
+    "name": "tnCesLLStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesLLStatusNumber": {
+    "name": "tnCesLLStatusNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesLLStatusEnabled": {
+    "name": "tnCesLLStatusEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusActive": {
+    "name": "tnCesLLStatusActive",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusArpResolved": {
+    "name": "tnCesLLStatusArpResolved",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusNumberOfChannels": {
+    "name": "tnCesLLStatusNumberOfChannels",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusRemoteMac": {
+    "name": "tnCesLLStatusRemoteMac",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusRemoteIpAddrType": {
+    "name": "tnCesLLStatusRemoteIpAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusRemoteIpAddr": {
+    "name": "tnCesLLStatusRemoteIpAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusRemoteContextKnown": {
+    "name": "tnCesLLStatusRemoteContextKnown",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusRemoteContextNumber": {
+    "name": "tnCesLLStatusRemoteContextNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusRemotePortKnown": {
+    "name": "tnCesLLStatusRemotePortKnown",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusRemotePort": {
+    "name": "tnCesLLStatusRemotePort",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusQueueLengthValid": {
+    "name": "tnCesLLStatusQueueLengthValid",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusMinQueueLength": {
+    "name": "tnCesLLStatusMinQueueLength",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusMaxQueueLength": {
+    "name": "tnCesLLStatusMaxQueueLength",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusAveQueueLengthWhole": {
+    "name": "tnCesLLStatusAveQueueLengthWhole",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusAveQueueLengthFrac": {
+    "name": "tnCesLLStatusAveQueueLengthFrac",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusEarly": {
+    "name": "tnCesLLStatusEarly",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusLate": {
+    "name": "tnCesLLStatusLate",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusUnderrun": {
+    "name": "tnCesLLStatusUnderrun",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusLastSequence": {
+    "name": "tnCesLLStatusLastSequence",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusPacketsRx": {
+    "name": "tnCesLLStatusPacketsRx",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusPacketsTx": {
+    "name": "tnCesLLStatusPacketsTx",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusSlipsReduceCount": {
+    "name": "tnCesLLStatusSlipsReduceCount",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLStatusSlipsExtendCount": {
+    "name": "tnCesLLStatusSlipsExtendCount",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesLLLocalLoop": {
+    "name": "tnCesLLLocalLoop",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLRemoteLoop": {
+    "name": "tnCesLLRemoteLoop",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLNudge": {
+    "name": "tnCesLLNudge",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesLLResetErrorStats": {
+    "name": "tnCesLLResetErrorStats",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.17.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMStatusTable": {
+    "name": "tnCesTDMStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesTDMStatusEntry": {
+    "name": "tnCesTDMStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMStatusNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesTDMStatusNumber": {
+    "name": "tnCesTDMStatusNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesTDMStatusPhysical": {
+    "name": "tnCesTDMStatusPhysical",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesTDMStatusRxSignalLevel": {
+    "name": "tnCesTDMStatusRxSignalLevel",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesTDMStatusRxError": {
+    "name": "tnCesTDMStatusRxError",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesTDMLocalLoop": {
+    "name": "tnCesTDMLocalLoop",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMRemoteLoop": {
+    "name": "tnCesTDMRemoteLoop",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesTDMBreakCalls": {
+    "name": "tnCesTDMBreakCalls",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesCallStatusTable": {
+    "name": "tnCesCallStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesCallStatusEntry": {
+    "name": "tnCesCallStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesCallStatusNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesCallStatusNumber": {
+    "name": "tnCesCallStatusNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesCallStatusStartTime": {
+    "name": "tnCesCallStatusStartTime",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesCallStatusSource": {
+    "name": "tnCesCallStatusSource",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesCallStatusDestination": {
+    "name": "tnCesCallStatusDestination",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesCallStatusOriginator": {
+    "name": "tnCesCallStatusOriginator",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesCallStatusDestinationNumber": {
+    "name": "tnCesCallStatusDestinationNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesCallStatusSourceNumber": {
+    "name": "tnCesCallStatusSourceNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesCallStatusState": {
+    "name": "tnCesCallStatusState",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatusTable": {
+    "name": "tnCesClockStatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesClockStatusEntry": {
+    "name": "tnCesClockStatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusStreamNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesClockStatusStreamNumber": {
+    "name": "tnCesClockStatusStreamNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesClockStatusStreamStatus": {
+    "name": "tnCesClockStatusStreamStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freerun": 0,
+          "holdover": 1,
+          "acquiring": 2,
+          "acquired": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatusStreamMode": {
+    "name": "tnCesClockStatusStreamMode",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clockRecoveryDisabled": 0,
+          "adaptive": 1,
+          "adaptiveEnhanced": 2,
+          "adaptiveFrequency": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatusStreamDCO": {
+    "name": "tnCesClockStatusStreamDCO",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatusStreamDCOMin": {
+    "name": "tnCesClockStatusStreamDCOMin",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatusStreamDCOMax": {
+    "name": "tnCesClockStatusStreamDCOMax",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesClockStatusStreamDCOAvg": {
+    "name": "tnCesClockStatusStreamDCOAvg",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesDebug": {
+    "name": "tnCesDebug",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21",
+    "class": "objectidentity"
+  },
+  "tnCesDebugTDMTable": {
+    "name": "tnCesDebugTDMTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesDebugTDMEntry": {
+    "name": "tnCesDebugTDMEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesDebugTDMPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesDebugTDMPortNumber": {
+    "name": "tnCesDebugTDMPortNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesDebugTDMPortEnable": {
+    "name": "tnCesDebugTDMPortEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesDebugLLTable": {
+    "name": "tnCesDebugLLTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesDebugLLEntry": {
+    "name": "tnCesDebugLLEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesDebugLLNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesDebugLLNumber": {
+    "name": "tnCesDebugLLNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesDebugLLEnable": {
+    "name": "tnCesDebugLLEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesDebugMiscTable": {
+    "name": "tnCesDebugMiscTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesDebugMiscEntry": {
+    "name": "tnCesDebugMiscEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesDebugMiscItem",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesDebugMiscItem": {
+    "name": "tnCesDebugMiscItem",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "control": 1,
+          "arp": 2,
+          "sip": 3,
+          "logicalLinkControl": 4,
+          "logicalLinkGlobal": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesDebugMiscEnable": {
+    "name": "tnCesDebugMiscEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.21.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesRS530Table": {
+    "name": "tnCesRS530Table",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesRS530Entry": {
+    "name": "tnCesRS530Entry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530PortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesRS530PortNumber": {
+    "name": "tnCesRS530PortNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesRS530Rate": {
+    "name": "tnCesRS530Rate",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesRS530ShutdownCallsOnFail": {
+    "name": "tnCesRS530ShutdownCallsOnFail",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesRS530StatusTable": {
+    "name": "tnCesRS530StatusTable",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesRS530StatusEntry": {
+    "name": "tnCesRS530StatusEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530StatusNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesRS530StatusNumber": {
+    "name": "tnCesRS530StatusNumber",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnCesRS530InterfaceType": {
+    "name": "tnCesRS530InterfaceType",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesRS530StatusDTR": {
+    "name": "tnCesRS530StatusDTR",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesRS530StatusDCD": {
+    "name": "tnCesRS530StatusDCD",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesRS530StatusRTS": {
+    "name": "tnCesRS530StatusRTS",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesRS530StatusCTS": {
+    "name": "tnCesRS530StatusCTS",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesRS530StatusDSR": {
+    "name": "tnCesRS530StatusDSR",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesRS530LocalLoop": {
+    "name": "tnCesRS530LocalLoop",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesRS530RemoteLoop": {
+    "name": "tnCesRS530RemoteLoop",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesRS530BreakCalls": {
+    "name": "tnCesRS530BreakCalls",
+    "oid": "1.3.6.1.4.1.868.2.5.60.1.23.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnCesEventDetails": {
+    "name": "tnCesEventDetails",
+    "oid": "1.3.6.1.4.1.868.2.5.60.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesEventPriority": {
+    "name": "tnCesEventPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.60.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnCesGeneralEvent": {
+    "name": "tnCesGeneralEvent",
+    "oid": "1.3.6.1.4.1.868.2.5.60.0.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventDetails"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesGroup": {
+    "name": "tnCesGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.60.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesMiscClockPriority"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesPRIClockPriority"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLClockPriority"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventThreshold"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventReportingInterval"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventThresholdEarly"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventThresholdLate"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventThresholdUnderrun"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventThresholdDCO"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesMulticastJoinAction"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesMulticastJoinAddrType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesMulticastJoinAddr"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProtocolUnderrunFixed"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProtocolUnderrunValue"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProtocolUDPBasePort"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProtocolType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProtocolEnableSSRCChecking"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockRecoveryAlgorithm"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockRecoveryFilter"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockRecoveryMaxDeviation"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMPresentation"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMFraming"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMMode"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMTS0Passthrough"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMCRC4"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMShutdownCallsOnFail"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMImpedance"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMT1Framing"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMT1LineCode"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMT1LoopCodeType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMT1LoopCodeRxEnable"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMT1LoopCodeUserDown"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMT1LoopCodeUserUp"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMT1LoopCodeUserLength"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMDTE"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLname"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLDirection"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLRemoteIpAddrType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLRemoteIpAddr"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSecondaryRemoteIpAddrType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSecondaryRemoteIpAddr"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLQosType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLQosTOS"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLQosDiffserv"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLVlanTag"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLVlanId"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLVlanPriority"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJitterBufferLength"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLFramesPerPacket"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLRemoteLinkNumber"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedEnable"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeMonHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeMonMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeMonHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeMonMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeTueHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeTueMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeTueHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeTueMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeWedHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeWedMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeWedHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeWedMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeThuHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeThuMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeThuHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeThuMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeFriHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeFriMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeFriHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeFriMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeSatHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeSatMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeSatHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeSatMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeSunHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStartTimeSunMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeSunHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLSchedStopTimeSunMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJitterAdjustmentMode"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJitterAdjustmentAfter"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeMonHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeMonMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeMonHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeMonMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeTueHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeTueMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeTueHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeTueMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeWedHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeWedMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeWedHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeWedMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeThuHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeThuMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeThuHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeThuMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeFriHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeFriMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeFriHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeFriMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeSatHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeSatMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeSatHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeSatMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeSunHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStartTimeSunMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeSunHours"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLJASchedStopTimeSunMins"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLChanSelectAvailable"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLChanSelectUsed"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockingAlternateEnable"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLPlesiosynchronous"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLAsymmetric"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLBytesPerPacketRx"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLBytesPerPacketTx"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusEnabled"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusActive"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusArpResolved"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusNumberOfChannels"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusRemoteMac"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusRemoteIpAddrType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusRemoteIpAddr"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusRemoteContextKnown"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusRemoteContextNumber"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusRemotePortKnown"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusRemotePort"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusQueueLengthValid"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusMinQueueLength"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusMaxQueueLength"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusAveQueueLengthWhole"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusAveQueueLengthFrac"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusEarly"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusLate"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusUnderrun"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusLastSequence"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusPacketsRx"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusPacketsTx"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusSlipsReduceCount"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLStatusSlipsExtendCount"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLLocalLoop"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLRemoteLoop"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLNudge"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesLLResetErrorStats"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMStatusPhysical"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMStatusRxSignalLevel"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMStatusRxError"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMLocalLoop"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMRemoteLoop"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTDMBreakCalls"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorVersion"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorProtocolMatch1"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorProtocolMatch2"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorProtocolMatch3"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorProtocolMatch4"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorProtocolNoMatch"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorClassifyFail"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorVerifyFail"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorIpv4ChecksumFail"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesProcessorUdpChecksumFail"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesCallStatusStartTime"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesCallStatusSource"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesCallStatusDestination"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesCallStatusOriginator"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesCallStatusDestinationNumber"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesCallStatusSourceNumber"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesCallStatusState"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusLock"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusSlaveMode"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusSource"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusStreamStatus"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusStreamMode"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusStreamDCO"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusStreamDCOMin"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusStreamDCOMax"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesClockStatusStreamDCOAvg"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTemperatureBoardWhole"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTemperatureBoardFrac"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTemperatureProcessorWhole"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesTemperatureProcessorFrac"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesDebugTDMPortEnable"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesDebugLLEnable"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesDebugMiscEnable"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventDetails"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesEventPriority"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530Rate"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530ShutdownCallsOnFail"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530InterfaceType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530StatusDTR"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530StatusDCD"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530StatusRTS"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530StatusCTS"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530StatusDSR"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530LocalLoop"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530RemoteLoop"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesRS530BreakCalls"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesIpv4AddrType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesIpv4Addr"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesIpv4PrefixLength"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesIpv6AddrType"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesIpv6Addr"
+      },
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesIpv6PrefixLength"
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesTrapGroup": {
+    "name": "tnCesTrapGroup",
+    "oid": "1.3.6.1.4.1.868.2.5.60.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "TN-CES-MIB",
+        "object": "tnCesGeneralEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "tnCesMIBCompliance": {
+    "name": "tnCesMIBCompliance",
+    "oid": "1.3.6.1.4.1.868.2.5.60.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tnCesGroup",
+        "module": "TN-CES-MIB"
+      },
+      {
+        "object": "tnCesTrapGroup",
+        "module": "TN-CES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-CES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-CES-MIB"
+  }
+}

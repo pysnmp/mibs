@@ -1,0 +1,2964 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-GSCCP-MIB": [
+      "CgsccpGttGlobalTitleInd",
+      "CgsccpGttTransType"
+    ],
+    "CISCO-ITP-GSP-MIB": [
+      "cgspCLLICode",
+      "cgspInstNetwork",
+      "cgspEventSequenceNumber"
+    ],
+    "CISCO-ITP-MLR-MIB": [
+      "CmlrRuleSetName",
+      "CmlrName",
+      "CmlrRuleProtocol",
+      "CmlrAddressDigits",
+      "CmlrAddressType",
+      "CmlrId"
+    ],
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcNumberingPlan",
+      "CItpTcSubSystemNumber",
+      "CItpTcPointCode",
+      "CItpTcNetworkName",
+      "CItpTcGtaLongDisplay",
+      "CItpTcNAI",
+      "CItpTcTableLoadStatus",
+      "CItpTcURL"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoItpDsmrMIB": {
+    "name": "ciscoItpDsmrMIB",
+    "oid": "1.3.6.1.4.1.9.9.1300",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-05-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpDsmrMIBNotifs": {
+    "name": "ciscoItpDsmrMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.1300.0",
+    "class": "objectidentity"
+  },
+  "ciscoItpDsmrMIBObjects": {
+    "name": "ciscoItpDsmrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.1300.1",
+    "class": "objectidentity"
+  },
+  "ciscoItpDsmrMIBConform": {
+    "name": "ciscoItpDsmrMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.1300.2",
+    "class": "objectidentity"
+  },
+  "CdsmrMaximumDigits": {
+    "name": "CdsmrMaximumDigits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CdsmrMinimumDigits": {
+    "name": "CdsmrMinimumDigits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CdsmrResultDestinationType": {
+    "name": "CdsmrResultDestinationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "gt": 2,
+          "smpp": 3,
+          "ucp": 4,
+          "pc": 5,
+          "pcSsn": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CdsmrResultOctet": {
+    "name": "CdsmrResultOctet",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CdsmrResultParameters": {
+    "name": "CdsmrResultParameters",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "network": 0,
+        "octet": 1,
+        "tranType": 2,
+        "gti": 3,
+        "np": 4,
+        "nai": 5,
+        "pc": 6,
+        "ssn": 7,
+        "ruleNumber": 8
+      }
+    },
+    "status": "current"
+  },
+  "CdsmrResultType": {
+    "name": "CdsmrResultType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pc": 1,
+          "pcSsn": 2,
+          "gt": 3,
+          "group": 4,
+          "smpp": 5,
+          "ucp": 6,
+          "block": 7,
+          "ruleNext": 8,
+          "ruleNumber": 9,
+          "deliverMt": 10,
+          "origImsi": 11,
+          "origImsiNext": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cdsmrScalars": {
+    "name": "cdsmrScalars",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.1",
+    "class": "objectidentity"
+  },
+  "cdsmrTableLoadNotifEnabled": {
+    "name": "cdsmrTableLoadNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsmrInstTable": {
+    "name": "cdsmrInstTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrInstTableEntry": {
+    "name": "cdsmrInstTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmrInstLastChanged": {
+    "name": "cdsmrInstLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstLastLoadTime": {
+    "name": "cdsmrInstLastLoadTime",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstLoadStatus": {
+    "name": "cdsmrInstLoadStatus",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTableLoadStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstLastURL": {
+    "name": "cdsmrInstLastURL",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcURL",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstDeliveredSmppCounts": {
+    "name": "cdsmrInstDeliveredSmppCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstDeliveredUcpCounts": {
+    "name": "cdsmrInstDeliveredUcpCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstDeliveredGsmCounts": {
+    "name": "cdsmrInstDeliveredGsmCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstDeferredGsmCounts": {
+    "name": "cdsmrInstDeferredGsmCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstGsmStatusReports": {
+    "name": "cdsmrInstGsmStatusReports",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstUcpNotifications": {
+    "name": "cdsmrInstUcpNotifications",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstSmppDeliveryReceipts": {
+    "name": "cdsmrInstSmppDeliveryReceipts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstRoutingFailures": {
+    "name": "cdsmrInstRoutingFailures",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstResultFailures": {
+    "name": "cdsmrInstResultFailures",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstInternalErrors": {
+    "name": "cdsmrInstInternalErrors",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstParseErrors": {
+    "name": "cdsmrInstParseErrors",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstResourceErrors": {
+    "name": "cdsmrInstResourceErrors",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstProvisioningErrors": {
+    "name": "cdsmrInstProvisioningErrors",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstDestUnreachableErrors": {
+    "name": "cdsmrInstDestUnreachableErrors",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstDestSignalErrors": {
+    "name": "cdsmrInstDestSignalErrors",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstTimeOuts": {
+    "name": "cdsmrInstTimeOuts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstBlockedPackets": {
+    "name": "cdsmrInstBlockedPackets",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstRoutingRequestsRcvdGsm": {
+    "name": "cdsmrInstRoutingRequestsRcvdGsm",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstRoutingRequestsRcvdIs41": {
+    "name": "cdsmrInstRoutingRequestsRcvdIs41",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstRoutingRequestsRcvdUcp": {
+    "name": "cdsmrInstRoutingRequestsRcvdUcp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstRoutingRequestsRcvdSmpp": {
+    "name": "cdsmrInstRoutingRequestsRcvdSmpp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrInstRowStatus": {
+    "name": "cdsmrInstRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupTable": {
+    "name": "cdsmrResultGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrResultGroupTableEntry": {
+    "name": "cdsmrResultGroupTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmrResultGroupName": {
+    "name": "cdsmrResultGroupName",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrResultGroupServerType": {
+    "name": "cdsmrResultGroupServerType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "esme": 1,
+          "smsc": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupCdrConsolidation": {
+    "name": "cdsmrResultGroupCdrConsolidation",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupIdentifier": {
+    "name": "cdsmrResultGroupIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 100,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupQueueLimit": {
+    "name": "cdsmrResultGroupQueueLimit",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupQueueTimeLimit": {
+    "name": "cdsmrResultGroupQueueTimeLimit",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupMatchSmppId": {
+    "name": "cdsmrResultGroupMatchSmppId",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupMatchSmppType": {
+    "name": "cdsmrResultGroupMatchSmppType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupMatchUcpId": {
+    "name": "cdsmrResultGroupMatchUcpId",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGroupRowStatus": {
+    "name": "cdsmrResultGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultIpTable": {
+    "name": "cdsmrResultIpTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrResultIpTableEntry": {
+    "name": "cdsmrResultIpTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultIpNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmrResultIpNumber": {
+    "name": "cdsmrResultIpNumber",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrResultIpRemotePortNumber": {
+    "name": "cdsmrResultIpRemotePortNumber",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultIpRemoteIpAddrType": {
+    "name": "cdsmrResultIpRemoteIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultIpRemoteIpAddress": {
+    "name": "cdsmrResultIpRemoteIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultIpProfileName": {
+    "name": "cdsmrResultIpProfileName",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultIpWeight": {
+    "name": "cdsmrResultIpWeight",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultIpRowStatus": {
+    "name": "cdsmrResultIpRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultTable": {
+    "name": "cdsmrResultTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrResultTableEntry": {
+    "name": "cdsmrResultTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmrResultNumber": {
+    "name": "cdsmrResultNumber",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrResultDestinationType": {
+    "name": "cdsmrResultDestinationType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrResultDestinationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultParameters": {
+    "name": "cdsmrResultParameters",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrResultParameters",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultDestinationName": {
+    "name": "cdsmrResultDestinationName",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultPc": {
+    "name": "cdsmrResultPc",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultSsn": {
+    "name": "cdsmrResultSsn",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGt": {
+    "name": "cdsmrResultGt",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGtaLongDisplay",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultTransType": {
+    "name": "cdsmrResultTransType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgsccpGttTransType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultGti": {
+    "name": "cdsmrResultGti",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgsccpGttGlobalTitleInd",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultNp": {
+    "name": "cdsmrResultNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultNai": {
+    "name": "cdsmrResultNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultWeight": {
+    "name": "cdsmrResultWeight",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultNetwork": {
+    "name": "cdsmrResultNetwork",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrResultCounts": {
+    "name": "cdsmrResultCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "matches",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrResultRowStatus": {
+    "name": "cdsmrResultRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressTable": {
+    "name": "cdsmrAddressTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrAddressTableEntry": {
+    "name": "cdsmrAddressTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressTableName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressDigits",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressExactMatch",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmrAddressTableName": {
+    "name": "cdsmrAddressTableName",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrAddressType": {
+    "name": "cdsmrAddressType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrAddressDigits": {
+    "name": "cdsmrAddressDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrAddressDigits",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrAddressExactMatch": {
+    "name": "cdsmrAddressExactMatch",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrAddressResultParameters": {
+    "name": "cdsmrAddressResultParameters",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrResultParameters",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultNetwork": {
+    "name": "cdsmrAddressResultNetwork",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultType": {
+    "name": "cdsmrAddressResultType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultOctet": {
+    "name": "cdsmrAddressResultOctet",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrResultOctet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultTransType": {
+    "name": "cdsmrAddressResultTransType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgsccpGttTransType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultGti": {
+    "name": "cdsmrAddressResultGti",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgsccpGttGlobalTitleInd",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultNp": {
+    "name": "cdsmrAddressResultNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultNai": {
+    "name": "cdsmrAddressResultNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultPc": {
+    "name": "cdsmrAddressResultPc",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultSsn": {
+    "name": "cdsmrAddressResultSsn",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressResultRuleNumber": {
+    "name": "cdsmrAddressResultRuleNumber",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrAddressMatchCounts": {
+    "name": "cdsmrAddressMatchCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "matches",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrAddressRowStatus": {
+    "name": "cdsmrAddressRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleSetTable": {
+    "name": "cdsmrRuleSetTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrRuleSetTableEntry": {
+    "name": "cdsmrRuleSetTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleSetName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmrRuleSetName": {
+    "name": "cdsmrRuleSetName",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrRuleSetName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrRuleSetProtocol": {
+    "name": "cdsmrRuleSetProtocol",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrRuleProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleSetStartDateAndTime": {
+    "name": "cdsmrRuleSetStartDateAndTime",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleSetEndDateAndTime": {
+    "name": "cdsmrRuleSetEndDateAndTime",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleSetRowStatus": {
+    "name": "cdsmrRuleSetRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleTable": {
+    "name": "cdsmrRuleTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrRuleTableEntry": {
+    "name": "cdsmrRuleTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleSetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmrRuleNumber": {
+    "name": "cdsmrRuleNumber",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrRuleOperationType": {
+    "name": "cdsmrRuleOperationType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "smdPp": 2,
+          "smsMo": 3,
+          "smsMt": 4,
+          "smsSri": 5,
+          "smsReg": 6,
+          "smsNot": 7,
+          "ucpSubmit": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleCdrServiceQueue": {
+    "name": "cdsmrRuleCdrServiceQueue",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "available": 1,
+          "congested": 2,
+          "unavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleInputParameters": {
+    "name": "cdsmrRuleInputParameters",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cdrService": 0,
+        "destPort": 1,
+        "destSmeGta": 2,
+        "destSmeExact": 3,
+        "destSmeNai": 4,
+        "destSmeNp": 5,
+        "destSmeImsi": 6,
+        "destSmeMin": 7,
+        "destSmeMinDigits": 8,
+        "destSmeMaxDigits": 9,
+        "destSmeTable": 10,
+        "destSmeTableLoc": 11,
+        "destSmeTableImsi": 12,
+        "destSmeTableMin": 13,
+        "destSmeTableNai": 14,
+        "destSmeTableNp": 15,
+        "destSmscGta": 16,
+        "destSmscExact": 17,
+        "destSmscNai": 18,
+        "destSmscNp": 19,
+        "destSmscMinDigits": 20,
+        "destSmscMaxDigits": 21,
+        "origImsiGta": 22,
+        "origImsiExact": 23,
+        "origImsiUnknown": 24,
+        "origImsiNai": 25,
+        "origImsiNp": 26,
+        "origImsiMinDigits": 27,
+        "origImsiMaxDigits": 28,
+        "origImsiTable": 29,
+        "origImsiTableLoc": 30,
+        "origSmeGta": 31,
+        "origSmeExact": 32,
+        "origSmeNai": 33,
+        "origSmeNp": 34,
+        "origSmeMinDigits": 35,
+        "origSmeMaxDigits": 36,
+        "origSmeTable": 37,
+        "origSmeTableLoc": 38,
+        "origSmeTableNai": 39,
+        "origSmeTableNp": 40,
+        "origSmscGta": 41,
+        "origSmscExact": 42,
+        "origSmscNai": 43,
+        "origSmscNp": 44,
+        "origSmscMinDigits": 45,
+        "origSmscMaxDigits": 46,
+        "origSmscTable": 47,
+        "origSmscTableLoc": 48,
+        "origSmscTableNai": 49,
+        "origSmscTableNp": 50,
+        "pid": 51,
+        "tid": 52,
+        "default": 53
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestPort": {
+    "name": "cdsmrRuleDestPort",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmeGta": {
+    "name": "cdsmrRuleDestSmeGta",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGtaLongDisplay",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmeNai": {
+    "name": "cdsmrRuleDestSmeNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmeNp": {
+    "name": "cdsmrRuleDestSmeNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmeMinDigits": {
+    "name": "cdsmrRuleDestSmeMinDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMinimumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmeMaxDigits": {
+    "name": "cdsmrRuleDestSmeMaxDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMaximumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmeTable": {
+    "name": "cdsmrRuleDestSmeTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmeTableNai": {
+    "name": "cdsmrRuleDestSmeTableNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmeTableNp": {
+    "name": "cdsmrRuleDestSmeTableNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmscGta": {
+    "name": "cdsmrRuleDestSmscGta",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGtaLongDisplay",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmscNai": {
+    "name": "cdsmrRuleDestSmscNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmscNp": {
+    "name": "cdsmrRuleDestSmscNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmscMinDigits": {
+    "name": "cdsmrRuleDestSmscMinDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMinimumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleDestSmscMaxDigits": {
+    "name": "cdsmrRuleDestSmscMaxDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMaximumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigImsiGta": {
+    "name": "cdsmrRuleOrigImsiGta",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGtaLongDisplay",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigImsiNai": {
+    "name": "cdsmrRuleOrigImsiNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigImsiNp": {
+    "name": "cdsmrRuleOrigImsiNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigImsiMinDigits": {
+    "name": "cdsmrRuleOrigImsiMinDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMinimumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigImsiMaxDigits": {
+    "name": "cdsmrRuleOrigImsiMaxDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMaximumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigImsiTable": {
+    "name": "cdsmrRuleOrigImsiTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmeGta": {
+    "name": "cdsmrRuleOrigSmeGta",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGtaLongDisplay",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmeNai": {
+    "name": "cdsmrRuleOrigSmeNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmeNp": {
+    "name": "cdsmrRuleOrigSmeNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmeMinDigits": {
+    "name": "cdsmrRuleOrigSmeMinDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMinimumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmeMaxDigits": {
+    "name": "cdsmrRuleOrigSmeMaxDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMaximumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmeTable": {
+    "name": "cdsmrRuleOrigSmeTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmeTableNai": {
+    "name": "cdsmrRuleOrigSmeTableNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmeTableNp": {
+    "name": "cdsmrRuleOrigSmeTableNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmscGta": {
+    "name": "cdsmrRuleOrigSmscGta",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGtaLongDisplay",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmscNai": {
+    "name": "cdsmrRuleOrigSmscNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmscNp": {
+    "name": "cdsmrRuleOrigSmscNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmscMinDigits": {
+    "name": "cdsmrRuleOrigSmscMinDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMinimumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmscMaxDigits": {
+    "name": "cdsmrRuleOrigSmscMaxDigits",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrMaximumDigits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmscTable": {
+    "name": "cdsmrRuleOrigSmscTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmscTableNai": {
+    "name": "cdsmrRuleOrigSmscTableNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleOrigSmscTableNp": {
+    "name": "cdsmrRuleOrigSmscTableNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleProtocolId": {
+    "name": "cdsmrRuleProtocolId",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleTeleserviceId": {
+    "name": "cdsmrRuleTeleserviceId",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultParameters": {
+    "name": "cdsmrRuleResultParameters",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrResultParameters",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultNetwork": {
+    "name": "cdsmrRuleResultNetwork",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultType": {
+    "name": "cdsmrRuleResultType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultOctet": {
+    "name": "cdsmrRuleResultOctet",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdsmrResultOctet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultTransType": {
+    "name": "cdsmrRuleResultTransType",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgsccpGttTransType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultGti": {
+    "name": "cdsmrRuleResultGti",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgsccpGttGlobalTitleInd",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultNp": {
+    "name": "cdsmrRuleResultNp",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultNai": {
+    "name": "cdsmrRuleResultNai",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultPc": {
+    "name": "cdsmrRuleResultPc",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultSsn": {
+    "name": "cdsmrRuleResultSsn",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultRuleNumber": {
+    "name": "cdsmrRuleResultRuleNumber",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmlrId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleResultRowStatus": {
+    "name": "cdsmrRuleResultRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.8.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsmrRuleStatsTable": {
+    "name": "cdsmrRuleStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsmrRuleStatsTableEntry": {
+    "name": "cdsmrRuleStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleSetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsmrRuleStatsCheckedCounts": {
+    "name": "cdsmrRuleStatsCheckedCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "checks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrRuleStatsMatchCounts": {
+    "name": "cdsmrRuleStatsMatchCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "matches",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsmrRuleStatsRoutedCounts": {
+    "name": "cdsmrRuleStatsRoutedCounts",
+    "oid": "1.3.6.1.4.1.9.9.1300.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "successes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoItpDsmrTableLoad": {
+    "name": "ciscoItpDsmrTableLoad",
+    "oid": "1.3.6.1.4.1.9.9.1300.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstLoadStatus"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstLastURL"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpDsmrMIBCompliances": {
+    "name": "ciscoItpDsmrMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.1300.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoItpDsmrMIBGroups": {
+    "name": "ciscoItpDsmrMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.1300.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoItpDsmrMIBCompliance": {
+    "name": "ciscoItpDsmrMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.1300.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpDsmrInstanceGroup",
+        "module": "CISCO-ITP-DSMR-MIB"
+      },
+      {
+        "object": "ciscoItpDsmrResultGroup",
+        "module": "CISCO-ITP-DSMR-MIB"
+      },
+      {
+        "object": "ciscoItpDsmrAddressGroup",
+        "module": "CISCO-ITP-DSMR-MIB"
+      },
+      {
+        "object": "ciscoItpDsmrRulesGroup",
+        "module": "CISCO-ITP-DSMR-MIB"
+      },
+      {
+        "object": "ciscoItpDsmrNotificationsGroup",
+        "module": "CISCO-ITP-DSMR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpDsmrInstanceGroup": {
+    "name": "ciscoItpDsmrInstanceGroup",
+    "oid": "1.3.6.1.4.1.9.9.1300.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrTableLoadNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstLastChanged"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstLastLoadTime"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstLoadStatus"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstLastURL"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstDeliveredSmppCounts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstDeliveredUcpCounts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstDeliveredGsmCounts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstDeferredGsmCounts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstGsmStatusReports"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstUcpNotifications"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstSmppDeliveryReceipts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstRoutingFailures"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstResultFailures"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstInternalErrors"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstParseErrors"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstResourceErrors"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstProvisioningErrors"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstDestUnreachableErrors"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstDestSignalErrors"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstTimeOuts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstBlockedPackets"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstRoutingRequestsRcvdGsm"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstRoutingRequestsRcvdIs41"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstRoutingRequestsRcvdUcp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstRoutingRequestsRcvdSmpp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrInstRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpDsmrResultGroup": {
+    "name": "ciscoItpDsmrResultGroup",
+    "oid": "1.3.6.1.4.1.9.9.1300.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupServerType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupCdrConsolidation"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupIdentifier"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupQueueLimit"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupQueueTimeLimit"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupMatchSmppId"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupMatchSmppType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupMatchUcpId"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGroupRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultDestinationType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultParameters"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultDestinationName"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultPc"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultSsn"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGt"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultTransType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultGti"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultWeight"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultCounts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultNetwork"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultIpRemotePortNumber"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultIpRemoteIpAddrType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultIpRemoteIpAddress"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultIpProfileName"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultIpWeight"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrResultIpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpDsmrAddressGroup": {
+    "name": "ciscoItpDsmrAddressGroup",
+    "oid": "1.3.6.1.4.1.9.9.1300.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultParameters"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultNetwork"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultOctet"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultTransType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultGti"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultPc"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultSsn"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressResultRuleNumber"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressMatchCounts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrAddressRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpDsmrRulesGroup": {
+    "name": "ciscoItpDsmrRulesGroup",
+    "oid": "1.3.6.1.4.1.9.9.1300.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleSetProtocol"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleSetStartDateAndTime"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleSetEndDateAndTime"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleSetRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOperationType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleCdrServiceQueue"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleInputParameters"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestPort"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmeGta"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmeNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmeNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmeMinDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmeMaxDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmeTable"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmeTableNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmeTableNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmscGta"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmscNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmscNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmscMinDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleDestSmscMaxDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigImsiGta"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigImsiNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigImsiNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigImsiMinDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigImsiMaxDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigImsiTable"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmeGta"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmeNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmeNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmeMinDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmeMaxDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmeTable"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmeTableNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmeTableNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmscGta"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmscNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmscNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmscMinDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmscMaxDigits"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmscTable"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmscTableNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleOrigSmscTableNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleProtocolId"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleTeleserviceId"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultParameters"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultNetwork"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultOctet"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultTransType"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultGti"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultNp"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultNai"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultPc"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultSsn"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultRuleNumber"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleResultRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleStatsMatchCounts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleStatsCheckedCounts"
+      },
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "cdsmrRuleStatsRoutedCounts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpDsmrNotificationsGroup": {
+    "name": "ciscoItpDsmrNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1300.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-DSMR-MIB",
+        "object": "ciscoItpDsmrTableLoad"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-DSMR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-DSMR-MIB"
+  }
+}

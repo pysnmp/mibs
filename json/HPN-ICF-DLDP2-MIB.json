@@ -1,0 +1,420 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifDescr"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDldp2": {
+    "name": "hpnicfDldp2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-26 15:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "hpnicfDldp2ScalarGroup": {
+    "name": "hpnicfDldp2ScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDldp2GlobalEnable": {
+    "name": "hpnicfDldp2GlobalEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDldp2Interval": {
+    "name": "hpnicfDldp2Interval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDldp2AuthMode": {
+    "name": "hpnicfDldp2AuthMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "simple": 3,
+          "md5": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDldp2AuthPassword": {
+    "name": "hpnicfDldp2AuthPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDldp2UniShutdown": {
+    "name": "hpnicfDldp2UniShutdown",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "auto": 2,
+          "manual": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDldp2TableGroup": {
+    "name": "hpnicfDldp2TableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2",
+    "class": "objectidentity"
+  },
+  "hpnicfDldp2PortConfigTable": {
+    "name": "hpnicfDldp2PortConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDldp2PortConfigEntry": {
+    "name": "hpnicfDldp2PortConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDldp2PortEnable": {
+    "name": "hpnicfDldp2PortEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDldp2PortStatusTable": {
+    "name": "hpnicfDldp2PortStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDldp2PortStatusEntry": {
+    "name": "hpnicfDldp2PortStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDldp2PortOperStatus": {
+    "name": "hpnicfDldp2PortOperStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "initial": 2,
+          "inactive": 3,
+          "unidirectional": 4,
+          "bidirectional": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDldp2PortLinkStatus": {
+    "name": "hpnicfDldp2PortLinkStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "down": 2,
+          "up": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDldp2NeighborTable": {
+    "name": "hpnicfDldp2NeighborTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDldp2NeighborEntry": {
+    "name": "hpnicfDldp2NeighborEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DLDP2-MIB",
+        "object": "hpnicfDldp2NeighborBridgeMac",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DLDP2-MIB",
+        "object": "hpnicfDldp2NeighborPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDldp2NeighborBridgeMac": {
+    "name": "hpnicfDldp2NeighborBridgeMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDldp2NeighborPortIndex": {
+    "name": "hpnicfDldp2NeighborPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDldp2NeighborStatus": {
+    "name": "hpnicfDldp2NeighborStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "unconfirmed": 2,
+          "confirmed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDldp2NeighborAgingTime": {
+    "name": "hpnicfDldp2NeighborAgingTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDldp2TrapBindObjects": {
+    "name": "hpnicfDldp2TrapBindObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.3",
+    "class": "objectidentity"
+  },
+  "hpnicfDldp2Trap": {
+    "name": "hpnicfDldp2Trap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.4",
+    "class": "objectidentity"
+  },
+  "hpnicfDldp2TrapPrefix": {
+    "name": "hpnicfDldp2TrapPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.4.0",
+    "class": "objectidentity"
+  },
+  "hpnicfDldp2TrapUniLink": {
+    "name": "hpnicfDldp2TrapUniLink",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDldp2TrapBidLink": {
+    "name": "hpnicfDldp2TrapBidLink",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.117.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DLDP2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DLDP2-MIB"
+  }
+}

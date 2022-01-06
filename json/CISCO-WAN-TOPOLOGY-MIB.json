@@ -1,0 +1,1578 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "PNNI-MIB": [
+      "PnniNodeId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoWanTopologyMIB": {
+    "name": "ciscoWanTopologyMIB",
+    "oid": "1.3.6.1.4.1.9.9.234",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-07-16 00:00",
+        "description": "Added cwtLinkOutsideLink to cwtLinkInfoTable."
+      },
+      {
+        "revision": "2002-05-20 00:00",
+        "description": "Added cwtLinkInfoTable to this MIB to support Link Persistency. Also added the following notifications: a) cwtLinkInfoAdd, b) cwtLinkInfoDelete and c) cwtLinkModify."
+      },
+      {
+        "revision": "2002-04-22 00:00",
+        "description": "Added cwtFeederInfoTable to this MIB to support Feeder Persistency. Also added the following notifications: a) cwtFeederInfoAdd, b) cwtFeederInfoDelete and c) cwtFeederInfoModify."
+      },
+      {
+        "revision": "2001-12-03 00:00",
+        "description": "Initial version of the MIB."
+      }
+    ]
+  },
+  "ciscoWanTopologyMIBNotifs": {
+    "name": "ciscoWanTopologyMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.234.0",
+    "class": "objectidentity"
+  },
+  "ciscoWanTopologyMIBObjects": {
+    "name": "ciscoWanTopologyMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.234.1",
+    "class": "objectidentity"
+  },
+  "cwtMIBConformance": {
+    "name": "cwtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.234.2",
+    "class": "objectidentity"
+  },
+  "cwtSystemGroup": {
+    "name": "cwtSystemGroup",
+    "oid": "1.3.6.1.4.1.9.9.234.1.1",
+    "class": "objectidentity"
+  },
+  "cwtNodalInfoGroup": {
+    "name": "cwtNodalInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2",
+    "class": "objectidentity"
+  },
+  "cwtFeederInfoGroup": {
+    "name": "cwtFeederInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3",
+    "class": "objectidentity"
+  },
+  "cwtLinkInfoGroup": {
+    "name": "cwtLinkInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4",
+    "class": "objectidentity"
+  },
+  "CwtNodeInfoTableIndex": {
+    "name": "CwtNodeInfoTableIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cwtGatewayAdminStatus": {
+    "name": "cwtGatewayAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.234.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwtGatewayNodeOperStatus": {
+    "name": "cwtGatewayNodeOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.234.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "disabling": 3,
+          "enabling": 4,
+          "enabledAndFull": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtDBLastChange": {
+    "name": "cwtDBLastChange",
+    "oid": "1.3.6.1.4.1.9.9.234.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtNodeInfoTable": {
+    "name": "cwtNodeInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwtNodeInfoEntry": {
+    "name": "cwtNodeInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwtIndex": {
+    "name": "cwtIndex",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwtNodeInfoTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwtGatewayNodeFlag": {
+    "name": "cwtGatewayNodeFlag",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtNodeId": {
+    "name": "cwtNodeId",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtNodeName": {
+    "name": "cwtNodeName",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtPrimIPIfType": {
+    "name": "cwtPrimIPIfType",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtPrimIPIfName": {
+    "name": "cwtPrimIPIfName",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtPrimIPAddrType": {
+    "name": "cwtPrimIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtPrimIP": {
+    "name": "cwtPrimIP",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtSecIPIfType": {
+    "name": "cwtSecIPIfType",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtSecIPIfName": {
+    "name": "cwtSecIPIfName",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtSecIPAddrType": {
+    "name": "cwtSecIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtSecIP": {
+    "name": "cwtSecIP",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtSysObjId": {
+    "name": "cwtSysObjId",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtNodeInfoTimeOutFlag": {
+    "name": "cwtNodeInfoTimeOutFlag",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtRowStatus": {
+    "name": "cwtRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.234.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtFeederInfoTable": {
+    "name": "cwtFeederInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwtFeederInfoEntry": {
+    "name": "cwtFeederInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwtFeederIndex": {
+    "name": "cwtFeederIndex",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwtLocalNodeId": {
+    "name": "cwtLocalNodeId",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtLocalIfIndex": {
+    "name": "cwtLocalIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtLocalIfName": {
+    "name": "cwtLocalIfName",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederShelf": {
+    "name": "cwtFeederShelf",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederSlot": {
+    "name": "cwtFeederSlot",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederPort": {
+    "name": "cwtFeederPort",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederLMIType": {
+    "name": "cwtFeederLMIType",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "feeder": 1,
+          "xLMI": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederType": {
+    "name": "cwtFeederType",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fdrIPX": 1,
+          "fdrBPX": 2,
+          "fdrIpxAF": 3,
+          "fdrBASIS": 4,
+          "fdrUNKNOWN": 5,
+          "fdrUNI": 6,
+          "fdrAPS": 7,
+          "fdrIGX": 8,
+          "fdrIgxAF": 9,
+          "fdrVSI": 10,
+          "fdrPAR": 11,
+          "fdrNON": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederName": {
+    "name": "cwtFeederName",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederLanIPAddrType": {
+    "name": "cwtFeederLanIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederLanIP": {
+    "name": "cwtFeederLanIP",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederAtmIPAddrType": {
+    "name": "cwtFeederAtmIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederAtmIP": {
+    "name": "cwtFeederAtmIP",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederModelNumber": {
+    "name": "cwtFeederModelNumber",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwtFeederRowStatus": {
+    "name": "cwtFeederRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.234.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwtLinkInfoTable": {
+    "name": "cwtLinkInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwtLinkInfoEntry": {
+    "name": "cwtLinkInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwtLinkIndex": {
+    "name": "cwtLinkIndex",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwtLinkLocalNodeId": {
+    "name": "cwtLinkLocalNodeId",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtLinkRemoteNodeId": {
+    "name": "cwtLinkRemoteNodeId",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PnniNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtLinkLocalIfIndex": {
+    "name": "cwtLinkLocalIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtLinkRemoteIfIndex": {
+    "name": "cwtLinkRemoteIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtLinkLocalPhysicalId": {
+    "name": "cwtLinkLocalPhysicalId",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtLinkRemotePhysicalId": {
+    "name": "cwtLinkRemotePhysicalId",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtLinkInfoTimeOutFlag": {
+    "name": "cwtLinkInfoTimeOutFlag",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtLinkOutsideLink": {
+    "name": "cwtLinkOutsideLink",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtLinkRowStatus": {
+    "name": "cwtLinkRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.234.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwtConfigGatewayStatus": {
+    "name": "cwtConfigGatewayStatus",
+    "oid": "1.3.6.1.4.1.9.9.234.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtGatewayAdminStatus"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtDBLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtTopoInfoAdd": {
+    "name": "cwtTopoInfoAdd",
+    "oid": "1.3.6.1.4.1.9.9.234.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtGatewayNodeFlag"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPIfType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPIfName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPIfType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPIfName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSysObjId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeInfoTimeOutFlag"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtDBLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtTopoInfoModify": {
+    "name": "cwtTopoInfoModify",
+    "oid": "1.3.6.1.4.1.9.9.234.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtGatewayNodeFlag"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPIfType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPIfName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPIfType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPIfName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSysObjId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeInfoTimeOutFlag"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtDBLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtTopoInfoDelete": {
+    "name": "cwtTopoInfoDelete",
+    "oid": "1.3.6.1.4.1.9.9.234.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtDBLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtTopoDbFull": {
+    "name": "cwtTopoDbFull",
+    "oid": "1.3.6.1.4.1.9.9.234.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtDBLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtFeederInfoAdd": {
+    "name": "cwtFeederInfoAdd",
+    "oid": "1.3.6.1.4.1.9.9.234.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalIfName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederShelf"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederSlot"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederPort"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLMIType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLanIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLanIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederAtmIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederAtmIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederModelNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtFeederInfoModify": {
+    "name": "cwtFeederInfoModify",
+    "oid": "1.3.6.1.4.1.9.9.234.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLMIType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLanIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLanIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederAtmIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederAtmIP"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtFeederInfoDelete": {
+    "name": "cwtFeederInfoDelete",
+    "oid": "1.3.6.1.4.1.9.9.234.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederName"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtLinkInfoAdd": {
+    "name": "cwtLinkInfoAdd",
+    "oid": "1.3.6.1.4.1.9.9.234.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemoteNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemoteIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalPhysicalId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemotePhysicalId"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtLinkInfoModify": {
+    "name": "cwtLinkInfoModify",
+    "oid": "1.3.6.1.4.1.9.9.234.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemoteNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemoteIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkInfoTimeOutFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtLinkInfoDelete": {
+    "name": "cwtLinkInfoDelete",
+    "oid": "1.3.6.1.4.1.9.9.234.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemoteNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemoteIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtMIBCompliances": {
+    "name": "cwtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.234.2.1",
+    "class": "objectidentity"
+  },
+  "cwtMIBGroups": {
+    "name": "cwtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.234.2.2",
+    "class": "objectidentity"
+  },
+  "cwtMIBCompliance": {
+    "name": "cwtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.234.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwtSystemMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      },
+      {
+        "object": "cwtNodalMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cwtMIBCompliance2": {
+    "name": "cwtMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.234.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwtSystemMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      },
+      {
+        "object": "cwtNodalMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      },
+      {
+        "object": "cwtFeederMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cwtMIBCompliance3": {
+    "name": "cwtMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.234.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwtSystemMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      },
+      {
+        "object": "cwtNodalMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      },
+      {
+        "object": "cwtFeederMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      },
+      {
+        "object": "cwtLinkMIBGroups",
+        "module": "CISCO-WAN-TOPOLOGY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtSystemMIBGroups": {
+    "name": "cwtSystemMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.234.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtGatewayAdminStatus"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtGatewayNodeOperStatus"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtDBLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtNodalMIBGroups": {
+    "name": "cwtNodalMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.234.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtGatewayNodeFlag"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPIfType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPIfName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtPrimIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPIfType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPIfName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSecIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtSysObjId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtNodeInfoTimeOutFlag"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtFeederMIBGroups": {
+    "name": "cwtFeederMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.234.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLocalIfName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederShelf"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederSlot"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederPort"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLMIType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederName"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLanIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederLanIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederAtmIPAddrType"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederAtmIP"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederModelNumber"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtNotificationsGroup": {
+    "name": "cwtNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.234.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtConfigGatewayStatus"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoAdd"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoModify"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoDelete"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoDbFull"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cwtNotificationsGroup2": {
+    "name": "cwtNotificationsGroup2",
+    "oid": "1.3.6.1.4.1.9.9.234.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtConfigGatewayStatus"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoAdd"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoModify"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoDelete"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoDbFull"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederInfoAdd"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederInfoModify"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederInfoDelete"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cwtNotificationsGroup3": {
+    "name": "cwtNotificationsGroup3",
+    "oid": "1.3.6.1.4.1.9.9.234.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtConfigGatewayStatus"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoAdd"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoModify"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoInfoDelete"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtTopoDbFull"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederInfoAdd"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederInfoModify"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtFeederInfoDelete"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkInfoAdd"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkInfoModify"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkInfoDelete"
+      }
+    ],
+    "status": "current"
+  },
+  "cwtLinkMIBGroups": {
+    "name": "cwtLinkMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.234.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemoteNodeId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemoteIfIndex"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkLocalPhysicalId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRemotePhysicalId"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkInfoTimeOutFlag"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkOutsideLink"
+      },
+      {
+        "module": "CISCO-WAN-TOPOLOGY-MIB",
+        "object": "cwtLinkRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-TOPOLOGY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-TOPOLOGY-MIB"
+  }
+}

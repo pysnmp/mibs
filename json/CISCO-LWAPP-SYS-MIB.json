@@ -1,0 +1,2655 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-DOT11-CLIENT-MIB": [
+      "cldcClientMacAddress",
+      "cldcClientAccessVLAN"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappSysMIB": {
+    "name": "ciscoLwappSysMIB",
+    "oid": "1.3.6.1.4.1.9.9.618",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-08-06 00:00",
+        "description": "Added ciscoLwappSysConfigGroupSup1, ciscoLwappSysMldConfigGroup, ciscoLwappSysConfigStatsGroup, ciscoLwappSysAlarmObjectGroup, ciscoLwappSysThresholdGroup, ciscoLwappSysHeartBeatGroup and ciscoLwappSysInfoGroup. Deprecated ciscoLwappSysMIBComplianceRev2 and added ciscoLwappSysMIBComplianceRev3"
+      },
+      {
+        "revision": "2012-06-18 00:00",
+        "description": "Added ciscoLwappSysPortConfigGroup, ciscoLwappSysSecurityConfigGroup, ciscoLwappSysIgmpConfigGroup, ciscoLwappSysSecNotifObjsGroup, ciscoLwappSysNotifsGroup and ciscoLwappSysNotifControlGroup. Deprecated ciscoLwappSysMIBComplianceRev1 and added ciscoLwappSysMIBComplianceRev2"
+      },
+      {
+        "revision": "2010-02-09 00:00",
+        "description": "Updated clsTransferConfigGroup, ciscoLwappSysConfigGroupSup1. Deprecate ciscoLwappSysMIBCompliance. Added clsTransferConfig, clsSysArpProxyEnabled."
+      },
+      {
+        "revision": "2007-03-14 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappSysMIBNotifs": {
+    "name": "ciscoLwappSysMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.618.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappSysMIBObjects": {
+    "name": "ciscoLwappSysMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.618.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappSysMIBConform": {
+    "name": "ciscoLwappSysMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.618.2",
+    "class": "objectidentity"
+  },
+  "clsConfig": {
+    "name": "clsConfig",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1",
+    "class": "objectidentity"
+  },
+  "clsStatus": {
+    "name": "clsStatus",
+    "oid": "1.3.6.1.4.1.9.9.618.1.2",
+    "class": "objectidentity"
+  },
+  "clsImageInfo": {
+    "name": "clsImageInfo",
+    "oid": "1.3.6.1.4.1.9.9.618.1.3",
+    "class": "objectidentity"
+  },
+  "clsCpuInfo": {
+    "name": "clsCpuInfo",
+    "oid": "1.3.6.1.4.1.9.9.618.1.4",
+    "class": "objectidentity"
+  },
+  "clsSecurityGroup": {
+    "name": "clsSecurityGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoLwappSysMIBNotifObjects": {
+    "name": "ciscoLwappSysMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.618.1.6",
+    "class": "objectidentity"
+  },
+  "ciscoLwappSysMIBNotifControlObjects": {
+    "name": "ciscoLwappSysMIBNotifControlObjects",
+    "oid": "1.3.6.1.4.1.9.9.618.1.7",
+    "class": "objectidentity"
+  },
+  "clsSysInfo": {
+    "name": "clsSysInfo",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8",
+    "class": "objectidentity"
+  },
+  "clsDot3BridgeEnabled": {
+    "name": "clsDot3BridgeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsConfigDownload": {
+    "name": "clsConfigDownload",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.2",
+    "class": "objectidentity"
+  },
+  "clsConfigUpload": {
+    "name": "clsConfigUpload",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.3",
+    "class": "objectidentity"
+  },
+  "clsDownloadFileType": {
+    "name": "clsDownloadFileType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "code": 2,
+          "config": 3,
+          "webAuthCert": 4,
+          "webAdminCert": 5,
+          "signatures": 6,
+          "customWebAuth": 7,
+          "vendorDeviceCert": 8,
+          "vendorCaCert": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsDownloadCertificateKey": {
+    "name": "clsDownloadCertificateKey",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsUploadFileType": {
+    "name": "clsUploadFileType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "config": 2,
+          "errorLog": 3,
+          "systemTrace": 4,
+          "trapLog": 5,
+          "crashFile": 6,
+          "signatures": 7,
+          "pac": 8,
+          "radioCoreDump": 9,
+          "invalidConfig": 10,
+          "debugfile": 11,
+          "pktCapture": 12,
+          "watchdogCrash": 13,
+          "panicCrash": 14,
+          "vendorDevCert": 15,
+          "vendorCaCert": 16,
+          "webAdminCert": 17,
+          "webAuthCert": 18
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsUploadPacUsername": {
+    "name": "clsUploadPacUsername",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsUploadPacPassword": {
+    "name": "clsUploadPacPassword",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsUploadPacValidity": {
+    "name": "clsUploadPacValidity",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "days",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferConfigGroup": {
+    "name": "clsTransferConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.4",
+    "class": "objectidentity"
+  },
+  "clsTransferConfigFileEncryption": {
+    "name": "clsTransferConfigFileEncryption",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferConfigFileEncryptionKey": {
+    "name": "clsTransferConfigFileEncryptionKey",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferConfig": {
+    "name": "clsTransferConfig",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8",
+    "class": "objectidentity"
+  },
+  "clsTransferConfigTable": {
+    "name": "clsTransferConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clsTransferConfigEntry": {
+    "name": "clsTransferConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferMode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clsTransferType": {
+    "name": "clsTransferType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "download": 1,
+          "upload": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clsTransferMode": {
+    "name": "clsTransferMode",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "ftp": 2,
+          "sftp": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clsTransferServerAddressType": {
+    "name": "clsTransferServerAddressType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferServerAddress": {
+    "name": "clsTransferServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferPath": {
+    "name": "clsTransferPath",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferFilename": {
+    "name": "clsTransferFilename",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferFtpUsername": {
+    "name": "clsTransferFtpUsername",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferFtpPassword": {
+    "name": "clsTransferFtpPassword",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferFtpPortNum": {
+    "name": "clsTransferFtpPortNum",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 21,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferTftpMaxRetries": {
+    "name": "clsTransferTftpMaxRetries",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferTftpTimeout": {
+    "name": "clsTransferTftpTimeout",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferStart": {
+    "name": "clsTransferStart",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "initiate": 2,
+          "initiatePeer": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTransferStatus": {
+    "name": "clsTransferStatus",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "transferStarting": 2,
+          "errorStarting": 3,
+          "wrongFileType": 4,
+          "updatingConfig": 5,
+          "invalidConfigFile": 6,
+          "writingToFlash": 7,
+          "failureWritingToFlash": 8,
+          "checkingCRC": 9,
+          "failedCRC": 10,
+          "unknownDirection": 11,
+          "transferSuccessful": 12,
+          "transferFailed": 13,
+          "bootBreakOff": 14,
+          "invalidTarFile": 15,
+          "unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsTransferStatusString": {
+    "name": "clsTransferStatusString",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsConfigGeneral": {
+    "name": "clsConfigGeneral",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.5",
+    "class": "objectidentity"
+  },
+  "clsTimeZone": {
+    "name": "clsTimeZone",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsTimeZoneDescription": {
+    "name": "clsTimeZoneDescription",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsMaxClientsTrapThreshold": {
+    "name": "clsMaxClientsTrapThreshold",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsMaxRFIDTagsTrapThreshold": {
+    "name": "clsMaxRFIDTagsTrapThreshold",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSyslogIpConfig": {
+    "name": "clsSyslogIpConfig",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.6",
+    "class": "objectidentity"
+  },
+  "cLSysLogConfigTable": {
+    "name": "cLSysLogConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSysLogConfigEntry": {
+    "name": "cLSysLogConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysLogServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLSysLogServerIndex": {
+    "name": "cLSysLogServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSysLogAddressType": {
+    "name": "cLSysLogAddressType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLSysLogAddress": {
+    "name": "cLSysLogAddress",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLSysLogHostRowStatus": {
+    "name": "cLSysLogHostRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLSysArpUnicastEnabled": {
+    "name": "cLSysArpUnicastEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysBroadcastForwardingEnabled": {
+    "name": "cLSysBroadcastForwardingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysLagModeEnabled": {
+    "name": "cLSysLagModeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsConfigProductBranchVersion": {
+    "name": "clsConfigProductBranchVersion",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsConfigDhcpProxyEnabled": {
+    "name": "clsConfigDhcpProxyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysMulticastIGMP": {
+    "name": "cLSysMulticastIGMP",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.13",
+    "class": "objectidentity"
+  },
+  "cLSysMulticastIGMPSnoopingEnabled": {
+    "name": "cLSysMulticastIGMPSnoopingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysMulticastIGMPSnoopingTimeout": {
+    "name": "cLSysMulticastIGMPSnoopingTimeout",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysMulticastIGMPQueryInterval": {
+    "name": "cLSysMulticastIGMPQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSPortModeConfig": {
+    "name": "cLSPortModeConfig",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.14",
+    "class": "objectidentity"
+  },
+  "clsPortModeConfigTable": {
+    "name": "clsPortModeConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clsPortModeConfigEntry": {
+    "name": "clsPortModeConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsPortDot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clsPortDot1dBasePort": {
+    "name": "clsPortDot1dBasePort",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clsPortModePhysicalMode": {
+    "name": "clsPortModePhysicalMode",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiate": 1,
+          "half10": 2,
+          "full10": 3,
+          "half100": 4,
+          "full100": 5,
+          "full1000sx": 6,
+          "half1000": 7,
+          "full1000": 8,
+          "half10000": 9,
+          "full10000": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsPortModePhysicalStatus": {
+    "name": "clsPortModePhysicalStatus",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "autonegotiate": 2,
+          "half10": 3,
+          "full10": 4,
+          "half100": 5,
+          "full100": 6,
+          "full1000sx": 7,
+          "half1000": 8,
+          "full1000": 9,
+          "half10000": 10,
+          "full10000": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsPortModeSfpType": {
+    "name": "clsPortModeSfpType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsPortUpDownCount": {
+    "name": "clsPortUpDownCount",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsCoreDump": {
+    "name": "clsCoreDump",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.15",
+    "class": "objectidentity"
+  },
+  "clsCoreDumpTransferEnable": {
+    "name": "clsCoreDumpTransferEnable",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsCoreDumpTransferMode": {
+    "name": "clsCoreDumpTransferMode",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ftp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsCoreDumpServerIPAddressType": {
+    "name": "clsCoreDumpServerIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsCoreDumpServerIPAddress": {
+    "name": "clsCoreDumpServerIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsCoreDumpFileName": {
+    "name": "clsCoreDumpFileName",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsCoreDumpUserName": {
+    "name": "clsCoreDumpUserName",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsCoreDumpPassword": {
+    "name": "clsCoreDumpPassword",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.15.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsConfigMulticastEnabled": {
+    "name": "clsConfigMulticastEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysMulticastMLD": {
+    "name": "cLSysMulticastMLD",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.17",
+    "class": "objectidentity"
+  },
+  "cLSysMulticastMLDSnoopingEnabled": {
+    "name": "cLSysMulticastMLDSnoopingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysMulticastMLDSnoopingTimeout": {
+    "name": "cLSysMulticastMLDSnoopingTimeout",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysMulticastMLDQueryInterval": {
+    "name": "cLSysMulticastMLDQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsConfigStats": {
+    "name": "clsConfigStats",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.18",
+    "class": "objectidentity"
+  },
+  "clsSysRealtimeStatsTimer": {
+    "name": "clsSysRealtimeStatsTimer",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysNormalStatsTimer": {
+    "name": "clsSysNormalStatsTimer",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysStatsSamplingInterval": {
+    "name": "clsSysStatsSamplingInterval",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysStatsAverageInterval": {
+    "name": "clsSysStatsAverageInterval",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.18.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsAlarmObjects": {
+    "name": "clsAlarmObjects",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.19",
+    "class": "objectidentity"
+  },
+  "clsAlarmHoldTime": {
+    "name": "clsAlarmHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsAlarmTrapRetransmitInterval": {
+    "name": "clsAlarmTrapRetransmitInterval",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysThresholdConfig": {
+    "name": "clsSysThresholdConfig",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.20",
+    "class": "objectidentity"
+  },
+  "clsSysControllerCpuUsageThreshold": {
+    "name": "clsSysControllerCpuUsageThreshold",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysControllerMemoryUsageThreshold": {
+    "name": "clsSysControllerMemoryUsageThreshold",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysApCpuUsageThreshold": {
+    "name": "clsSysApCpuUsageThreshold",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysApMemoryUsageThreshold": {
+    "name": "clsSysApMemoryUsageThreshold",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsNMHeartBeat": {
+    "name": "clsNMHeartBeat",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.21",
+    "class": "objectidentity"
+  },
+  "clsNMHeartBeatEnable": {
+    "name": "clsNMHeartBeatEnable",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsNMHeartBeatInterval": {
+    "name": "clsNMHeartBeatInterval",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsCrashSystem": {
+    "name": "clsCrashSystem",
+    "oid": "1.3.6.1.4.1.9.9.618.1.1.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSysLagModeInTransition": {
+    "name": "cLSysLagModeInTransition",
+    "oid": "1.3.6.1.4.1.9.9.618.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsEmergencyImageVersion": {
+    "name": "clsEmergencyImageVersion",
+    "oid": "1.3.6.1.4.1.9.9.618.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSecStrongPwdCaseCheck": {
+    "name": "clsSecStrongPwdCaseCheck",
+    "oid": "1.3.6.1.4.1.9.9.618.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSecStrongPwdConsecutiveCheck": {
+    "name": "clsSecStrongPwdConsecutiveCheck",
+    "oid": "1.3.6.1.4.1.9.9.618.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSecStrongPwdDefaultCheck": {
+    "name": "clsSecStrongPwdDefaultCheck",
+    "oid": "1.3.6.1.4.1.9.9.618.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSecStrongPwdAsUserNameCheck": {
+    "name": "clsSecStrongPwdAsUserNameCheck",
+    "oid": "1.3.6.1.4.1.9.9.618.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysFlashSize": {
+    "name": "clsSysFlashSize",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSysMemoryType": {
+    "name": "clsSysMemoryType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSysMaxClients": {
+    "name": "clsSysMaxClients",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSysApConnectCount": {
+    "name": "clsSysApConnectCount",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSysNetId": {
+    "name": "clsSysNetId",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSysCurrentMemoryUsage": {
+    "name": "clsSysCurrentMemoryUsage",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSysAverageMemoryUsage": {
+    "name": "clsSysAverageMemoryUsage",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSysCurrentCpuUsage": {
+    "name": "clsSysCurrentCpuUsage",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSysAverageCpuUsage": {
+    "name": "clsSysAverageCpuUsage",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSysCpuType": {
+    "name": "clsSysCpuType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsMaxRFIDTagsCount": {
+    "name": "clsMaxRFIDTagsCount",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsMaxClientsCount": {
+    "name": "clsMaxClientsCount",
+    "oid": "1.3.6.1.4.1.9.9.618.1.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clsSecStrongPwdCheckTrapEnabled": {
+    "name": "clsSecStrongPwdCheckTrapEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsMaxClientsTrapEnabled": {
+    "name": "clsMaxClientsTrapEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsMaxRFIDTagsTrapEnabled": {
+    "name": "clsMaxRFIDTagsTrapEnabled",
+    "oid": "1.3.6.1.4.1.9.9.618.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clsSecStrongPwdManagementUser": {
+    "name": "clsSecStrongPwdManagementUser",
+    "oid": "1.3.6.1.4.1.9.9.618.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clsSecStrongPwdCheckType": {
+    "name": "clsSecStrongPwdCheckType",
+    "oid": "1.3.6.1.4.1.9.9.618.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "caseCheck": 1,
+          "consecutiveCheck": 2,
+          "defaultCheck": 3,
+          "usernameCheck": 4,
+          "allChecks": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clsSecStrongPwdCheckOption": {
+    "name": "clsSecStrongPwdCheckOption",
+    "oid": "1.3.6.1.4.1.9.9.618.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clsSysAlarmSet": {
+    "name": "clsSysAlarmSet",
+    "oid": "1.3.6.1.4.1.9.9.618.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoLwappSysInvalidXmlConfig": {
+    "name": "ciscoLwappSysInvalidXmlConfig",
+    "oid": "1.3.6.1.4.1.9.9.618.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ciscoLwappNoVlanConfigured": {
+    "name": "ciscoLwappNoVlanConfigured",
+    "oid": "1.3.6.1.4.1.9.9.618.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientAccessVLAN"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappStrongPwdCheck": {
+    "name": "ciscoLwappStrongPwdCheck",
+    "oid": "1.3.6.1.4.1.9.9.618.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdManagementUser"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdCheckType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdCheckOption"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysCpuUsageHigh": {
+    "name": "ciscoLwappSysCpuUsageHigh",
+    "oid": "1.3.6.1.4.1.9.9.618.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysCurrentCpuUsage"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysAlarmSet"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysMemoryUsageHigh": {
+    "name": "ciscoLwappSysMemoryUsageHigh",
+    "oid": "1.3.6.1.4.1.9.9.618.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysCurrentMemoryUsage"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysAlarmSet"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMaxRFIDTagsReached": {
+    "name": "ciscoLwappMaxRFIDTagsReached",
+    "oid": "1.3.6.1.4.1.9.9.618.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxRFIDTagsTrapThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxRFIDTagsCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMaxClientsReached": {
+    "name": "ciscoLwappMaxClientsReached",
+    "oid": "1.3.6.1.4.1.9.9.618.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxClientsTrapThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxClientsCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappNMHeartBeat": {
+    "name": "ciscoLwappNMHeartBeat",
+    "oid": "1.3.6.1.4.1.9.9.618.0.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "clsAllCpuUsage": {
+    "name": "clsAllCpuUsage",
+    "oid": "1.3.6.1.4.1.9.9.618.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLwappSysMIBCompliances": {
+    "name": "ciscoLwappSysMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.618.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappSysMIBGroups": {
+    "name": "ciscoLwappSysMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappSysMIBCompliance": {
+    "name": "ciscoLwappSysMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.618.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappSysConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappSysMIBComplianceRev1": {
+    "name": "ciscoLwappSysMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.618.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappSysConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysConfigFileEncryptionGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysTransferOperationConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappSysMIBComplianceRev2": {
+    "name": "ciscoLwappSysMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.618.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappSysConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysPortConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysSecurityConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysIgmpConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysSecNotifObjsGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysNotifsGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysNotifControlGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysConfigGroupVer1",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysConfigFileEncryptionGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysTransferOperationConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappSysMIBComplianceRev3": {
+    "name": "ciscoLwappSysMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.618.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappSysConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysPortConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysSecurityConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysIgmpConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysSecNotifObjsGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysNotifsGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysNotifControlGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysConfigGroupVer1",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysConfigGroupSup1",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysMldConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysConfigStatsGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysAlarmObjectGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysThresholdGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysHeartBeatGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysInfoGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysConfigFileEncryptionGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      },
+      {
+        "object": "ciscoLwappSysTransferOperationConfigGroup",
+        "module": "CISCO-LWAPP-SYS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysConfigGroup": {
+    "name": "ciscoLwappSysConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsDot3BridgeEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsDownloadFileType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsDownloadCertificateKey"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsUploadFileType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsUploadPacUsername"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsUploadPacPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsUploadPacValidity"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysBroadcastForwardingEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsConfigProductBranchVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsConfigDhcpProxyEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsCrashSystem"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysConfigFileEncryptionGroup": {
+    "name": "ciscoLwappSysConfigFileEncryptionGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferConfigFileEncryptionKey"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysTransferOperationConfigGroup": {
+    "name": "ciscoLwappSysTransferOperationConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferServerAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferServerAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferPath"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferFilename"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferFtpUsername"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferFtpPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferFtpPortNum"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferTftpMaxRetries"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferTftpTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferStart"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferStatusString"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTransferConfigFileEncryption"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysPortConfigGroup": {
+    "name": "ciscoLwappSysPortConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsPortModePhysicalMode"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsPortModePhysicalStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsPortModeSfpType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsPortUpDownCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysSecurityConfigGroup": {
+    "name": "ciscoLwappSysSecurityConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdCaseCheck"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdConsecutiveCheck"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdDefaultCheck"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdAsUserNameCheck"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysIgmpConfigGroup": {
+    "name": "ciscoLwappSysIgmpConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysMulticastIGMPSnoopingEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysMulticastIGMPSnoopingTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysMulticastIGMPQueryInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysSecNotifObjsGroup": {
+    "name": "ciscoLwappSysSecNotifObjsGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdManagementUser"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdCheckType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdCheckOption"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysAlarmSet"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysNotifsGroup": {
+    "name": "ciscoLwappSysNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "ciscoLwappSysInvalidXmlConfig"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "ciscoLwappNoVlanConfigured"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "ciscoLwappStrongPwdCheck"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "ciscoLwappSysCpuUsageHigh"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "ciscoLwappSysMemoryUsageHigh"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "ciscoLwappMaxRFIDTagsReached"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "ciscoLwappMaxClientsReached"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "ciscoLwappNMHeartBeat"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysNotifControlGroup": {
+    "name": "ciscoLwappSysNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSecStrongPwdCheckTrapEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxClientsTrapEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxRFIDTagsTrapEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysConfigGroupVer1": {
+    "name": "ciscoLwappSysConfigGroupVer1",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysBroadcastForwardingEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysLagModeEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsConfigProductBranchVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsConfigDhcpProxyEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsCoreDumpTransferEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsCoreDumpTransferMode"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsCoreDumpServerIPAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsCoreDumpServerIPAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsCoreDumpFileName"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsCoreDumpUserName"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsCoreDumpPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsConfigMulticastEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysLagModeInTransition"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsEmergencyImageVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsAllCpuUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysConfigGroupSup1": {
+    "name": "ciscoLwappSysConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTimeZone"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsTimeZoneDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysLogAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysLogAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysLogHostRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysArpUnicastEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxClientsTrapThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxRFIDTagsTrapThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysMldConfigGroup": {
+    "name": "ciscoLwappSysMldConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysMulticastMLDSnoopingEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysMulticastMLDSnoopingTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "cLSysMulticastMLDQueryInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysConfigStatsGroup": {
+    "name": "ciscoLwappSysConfigStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysRealtimeStatsTimer"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysNormalStatsTimer"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysStatsSamplingInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysStatsAverageInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysAlarmObjectGroup": {
+    "name": "ciscoLwappSysAlarmObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsAlarmHoldTime"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsAlarmTrapRetransmitInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysThresholdGroup": {
+    "name": "ciscoLwappSysThresholdGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysControllerCpuUsageThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysControllerMemoryUsageThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysApCpuUsageThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysApMemoryUsageThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysHeartBeatGroup": {
+    "name": "ciscoLwappSysHeartBeatGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsNMHeartBeatEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsNMHeartBeatInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappSysInfoGroup": {
+    "name": "ciscoLwappSysInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.618.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysFlashSize"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysMemoryType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysMaxClients"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysApConnectCount"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysNetId"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysCurrentMemoryUsage"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysAverageMemoryUsage"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysCurrentCpuUsage"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysAverageCpuUsage"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsSysCpuType"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxRFIDTagsCount"
+      },
+      {
+        "module": "CISCO-LWAPP-SYS-MIB",
+        "object": "clsMaxClientsCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-SYS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-SYS-MIB"
+  }
+}

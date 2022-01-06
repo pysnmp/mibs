@@ -1,0 +1,1841 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoFiberChannelTunnelMIB": {
+    "name": "ciscoFiberChannelTunnelMIB",
+    "oid": "1.3.6.1.4.1.9.9.9999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-08 17:00",
+        "description": "Initial version. Only supports Fiber Channel TCP tunneling."
+      }
+    ]
+  },
+  "ciscoFCTunnelMIBNotifi": {
+    "name": "ciscoFCTunnelMIBNotifi",
+    "oid": "1.3.6.1.4.1.9.9.9999.0",
+    "class": "objectidentity"
+  },
+  "ciscoFCTunnelMIBObjects": {
+    "name": "ciscoFCTunnelMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.9999.1",
+    "class": "objectidentity"
+  },
+  "ciscoFCTunnelMIBConform": {
+    "name": "ciscoFCTunnelMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.9999.2",
+    "class": "objectidentity"
+  },
+  "cftTcpTunnelObjects": {
+    "name": "cftTcpTunnelObjects",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1",
+    "class": "objectidentity"
+  },
+  "cftMaxTcpTunnels": {
+    "name": "cftMaxTcpTunnels",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelTable": {
+    "name": "cftTcpTunnelTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cftTcpTunnelEntry": {
+    "name": "cftTcpTunnelEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftFiberChannelIf",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cftFiberChannelIf": {
+    "name": "cftFiberChannelIf",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cftTcpTunnelName": {
+    "name": "cftTcpTunnelName",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cftTcpTunnelSrcIpType": {
+    "name": "cftTcpTunnelSrcIpType",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelSrcIp": {
+    "name": "cftTcpTunnelSrcIp",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelDestIpType": {
+    "name": "cftTcpTunnelDestIpType",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelDestIp": {
+    "name": "cftTcpTunnelDestIp",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdSrcPort": {
+    "name": "cftTcpTunnelCmdSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdDestPort": {
+    "name": "cftTcpTunnelCmdDestPort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelDataSrcPort": {
+    "name": "cftTcpTunnelDataSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelDataDestPort": {
+    "name": "cftTcpTunnelDataDestPort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdMWS": {
+    "name": "cftTcpTunnelCmdMWS",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ws32kbytes": 1,
+          "ws128kbytes": 2,
+          "ws256kbytes": 3,
+          "ws512kbytes": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ws32kbytes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelDataMWS": {
+    "name": "cftTcpTunnelDataMWS",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ws32kbytes": 1,
+          "ws128kbytes": 2,
+          "ws256kbytes": 3,
+          "ws512kbytes": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ws32kbytes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdKeepAliveTime": {
+    "name": "cftTcpTunnelCmdKeepAliveTime",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3600,
+            "max": 10800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelDataKeepAliveTime": {
+    "name": "cftTcpTunnelDataKeepAliveTime",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3600,
+            "max": 10800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdSelectiveAck": {
+    "name": "cftTcpTunnelCmdSelectiveAck",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelDataSelectiveAck": {
+    "name": "cftTcpTunnelDataSelectiveAck",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdConnectStatus": {
+    "name": "cftTcpTunnelCmdConnectStatus",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "notConnected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelDataConnectStatus": {
+    "name": "cftTcpTunnelDataConnectStatus",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "notConnected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelOperStatus": {
+    "name": "cftTcpTunnelOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelStatus": {
+    "name": "cftTcpTunnelStatus",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cftTcpTunnelStatsTable": {
+    "name": "cftTcpTunnelStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cftTcpTunnelStatsEntry": {
+    "name": "cftTcpTunnelStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftFiberChannelIf",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cftTcpTunnelCmdRxSegmentOctets": {
+    "name": "cftTcpTunnelCmdRxSegmentOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelDataRxSegmentOctets": {
+    "name": "cftTcpTunnelDataRxSegmentOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdRxPrestufOctets": {
+    "name": "cftTcpTunnelCmdRxPrestufOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelDataRxPrestufOctets": {
+    "name": "cftTcpTunnelDataRxPrestufOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdRxPoststufOctets": {
+    "name": "cftTcpTunnelCmdRxPoststufOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelDataRxPoststufOctets": {
+    "name": "cftTcpTunnelDataRxPoststufOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdTxOctets": {
+    "name": "cftTcpTunnelCmdTxOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelDataTxOctets": {
+    "name": "cftTcpTunnelDataTxOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdTxPkts": {
+    "name": "cftTcpTunnelCmdTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelDataTxPkts": {
+    "name": "cftTcpTunnelDataTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelCmdTxDrops": {
+    "name": "cftTcpTunnelCmdTxDrops",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTcpTunnelDataTxDrops": {
+    "name": "cftTcpTunnelDataTxDrops",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTable": {
+    "name": "cftIfTcpTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cftIfTcpEntry": {
+    "name": "cftIfTcpEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cftIfTcpIndex": {
+    "name": "cftIfTcpIndex",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cftIfTcpConnInit": {
+    "name": "cftIfTcpConnInit",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpConnAccepted": {
+    "name": "cftIfTcpConnAccepted",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpConnEstablished": {
+    "name": "cftIfTcpConnEstablished",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpConnDrops": {
+    "name": "cftIfTcpConnDrops",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpConnClosed": {
+    "name": "cftIfTcpConnClosed",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxPkts": {
+    "name": "cftIfTcpTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxDataPkts": {
+    "name": "cftIfTcpTxDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxDataOctets": {
+    "name": "cftIfTcpTxDataOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRetxDataPkts": {
+    "name": "cftIfTcpRetxDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRetxDataOctets": {
+    "name": "cftIfTcpRetxDataOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxPkts": {
+    "name": "cftIfTcpRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxInSequencePkts": {
+    "name": "cftIfTcpRxInSequencePkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxInSequenceOctets": {
+    "name": "cftIfTcpRxInSequenceOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxCcksumErrPkts": {
+    "name": "cftIfTcpRxCcksumErrPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxBadOffsetPkts": {
+    "name": "cftIfTcpRxBadOffsetPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxOutOfOrderPkts": {
+    "name": "cftIfTcpRxOutOfOrderPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxOutOfOrderOctets": {
+    "name": "cftIfTcpRxOutOfOrderOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpExtTable": {
+    "name": "cftIfTcpExtTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cftIfTcpExtEntry": {
+    "name": "cftIfTcpExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cftIfTcpEmbryonicConnDrops": {
+    "name": "cftIfTcpEmbryonicConnDrops",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpSegsTryToGetRTT": {
+    "name": "cftIfTcpSegsTryToGetRTT",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpSegsSucceedToGetRTT": {
+    "name": "cftIfTcpSegsSucceedToGetRTT",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpDelayedAcksSent": {
+    "name": "cftIfTcpDelayedAcksSent",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpConnDroppedRxTimeout": {
+    "name": "cftIfTcpConnDroppedRxTimeout",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRetransmitTimeout": {
+    "name": "cftIfTcpRetransmitTimeout",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpPersistTimeout": {
+    "name": "cftIfTcpPersistTimeout",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpKeepaliveTimeout": {
+    "name": "cftIfTcpKeepaliveTimeout",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpKeepaliveProbesSent": {
+    "name": "cftIfTcpKeepaliveProbesSent",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpConnDroppedInKeepalive": {
+    "name": "cftIfTcpConnDroppedInKeepalive",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpConnDroppedInPersist": {
+    "name": "cftIfTcpConnDroppedInPersist",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpConnDrainedByNoMemory": {
+    "name": "cftIfTcpConnDrainedByNoMemory",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpAckOnlyPkts": {
+    "name": "cftIfTcpAckOnlyPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxWindowProbes": {
+    "name": "cftIfTcpTxWindowProbes",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxURGPkts": {
+    "name": "cftIfTcpTxURGPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxWindowUpdateOnlyPkts": {
+    "name": "cftIfTcpTxWindowUpdateOnlyPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxControlPkts": {
+    "name": "cftIfTcpTxControlPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxDroppedByNoMemory": {
+    "name": "cftIfTcpRxDroppedByNoMemory",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxTooShort": {
+    "name": "cftIfTcpRxTooShort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxDupOnlyPkts": {
+    "name": "cftIfTcpRxDupOnlyPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxDupOnlyOctets": {
+    "name": "cftIfTcpRxDupOnlyOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxDupDataPkts": {
+    "name": "cftIfTcpRxDupDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxDupOctetsInPartDupPkts": {
+    "name": "cftIfTcpRxDupOctetsInPartDupPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxDataAfterWindowPkts": {
+    "name": "cftIfTcpRxDataAfterWindowPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxDataAfterWindowOctets": {
+    "name": "cftIfTcpRxDataAfterWindowOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxPktsAfterConnClose": {
+    "name": "cftIfTcpRxPktsAfterConnClose",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxWindowProbesPkts": {
+    "name": "cftIfTcpRxWindowProbesPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxDupAcks": {
+    "name": "cftIfTcpRxDupAcks",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxAcksForUnsentData": {
+    "name": "cftIfTcpRxAcksForUnsentData",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxAcksPkts": {
+    "name": "cftIfTcpRxAcksPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpOctetAckedByRxAcks": {
+    "name": "cftIfTcpOctetAckedByRxAcks",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRxWindowUpdatePkts": {
+    "name": "cftIfTcpRxWindowUpdatePkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpSegDropByPAWS": {
+    "name": "cftIfTcpSegDropByPAWS",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxSackFackDataPkts": {
+    "name": "cftIfTcpTxSackFackDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpTxSackFackDataOctets": {
+    "name": "cftIfTcpTxSackFackDataOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRetxSackFackDataPkts": {
+    "name": "cftIfTcpRetxSackFackDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRetxSackFackDataOctets": {
+    "name": "cftIfTcpRetxSackFackDataOctets",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpSackFackConnClosed": {
+    "name": "cftIfTcpSackFackConnClosed",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpRetxSackFackTimeouts": {
+    "name": "cftIfTcpRetxSackFackTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpHdrPredictOkForAcks": {
+    "name": "cftIfTcpHdrPredictOkForAcks",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftIfTcpHdrPredictOkForDataPkts": {
+    "name": "cftIfTcpHdrPredictOkForDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cftTunnelMIBCompliances": {
+    "name": "cftTunnelMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.9999.2.1",
+    "class": "objectidentity"
+  },
+  "cftTunnelMIBGroups": {
+    "name": "cftTunnelMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.9999.2.2",
+    "class": "objectidentity"
+  },
+  "cftTunnelMIBComplianceV01": {
+    "name": "cftTunnelMIBComplianceV01",
+    "oid": "1.3.6.1.4.1.9.9.9999.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cftTcpTunnelConfigGroup",
+        "module": "CISCO-FC-TUNNEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cftTcpTunnelConfigGroup": {
+    "name": "cftTcpTunnelConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.9999.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftMaxTcpTunnels"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelSrcIpType"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelSrcIp"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDestIpType"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDestIp"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdSrcPort"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdDestPort"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataSrcPort"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataDestPort"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdMWS"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataMWS"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdKeepAliveTime"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataKeepAliveTime"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdSelectiveAck"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataSelectiveAck"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdConnectStatus"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataConnectStatus"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelOperStatus"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cftTcpTunnelStatGroup": {
+    "name": "cftTcpTunnelStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.9999.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdRxSegmentOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataRxSegmentOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdRxPrestufOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataRxPrestufOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdRxPoststufOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataRxPoststufOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdTxOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataTxOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdTxPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataTxPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelCmdTxDrops"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftTcpTunnelDataTxDrops"
+      }
+    ],
+    "status": "current"
+  },
+  "cftIfTcpGroup": {
+    "name": "cftIfTcpGroup",
+    "oid": "1.3.6.1.4.1.9.9.9999.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnInit"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnAccepted"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnEstablished"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnDrops"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnClosed"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxDataPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxDataOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRetxDataPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRetxDataOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxInSequencePkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxInSequenceOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxCcksumErrPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxBadOffsetPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxOutOfOrderPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxOutOfOrderOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "cftIfTcpExtGroup": {
+    "name": "cftIfTcpExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.9999.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpEmbryonicConnDrops"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpSegsTryToGetRTT"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpSegsSucceedToGetRTT"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpDelayedAcksSent"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnDroppedRxTimeout"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRetransmitTimeout"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpPersistTimeout"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpKeepaliveTimeout"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpKeepaliveProbesSent"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnDroppedInKeepalive"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnDroppedInPersist"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpConnDrainedByNoMemory"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpAckOnlyPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxWindowProbes"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxURGPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxWindowUpdateOnlyPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxControlPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxDroppedByNoMemory"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxTooShort"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxDupOnlyPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxDupOnlyOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxDupDataPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxDupOctetsInPartDupPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxDataAfterWindowPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxDataAfterWindowOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxPktsAfterConnClose"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxWindowProbesPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxDupAcks"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxAcksForUnsentData"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxAcksPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpOctetAckedByRxAcks"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRxWindowUpdatePkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpSegDropByPAWS"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxSackFackDataPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpTxSackFackDataOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRetxSackFackDataPkts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRetxSackFackDataOctets"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpSackFackConnClosed"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpRetxSackFackTimeouts"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpHdrPredictOkForAcks"
+      },
+      {
+        "module": "CISCO-FC-TUNNEL-MIB",
+        "object": "cftIfTcpHdrPredictOkForDataPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-TUNNEL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FC-TUNNEL-MIB"
+  }
+}

@@ -1,0 +1,545 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "transmission",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dot3": {
+    "name": "dot3",
+    "oid": "1.3.6.1.2.1.10.7",
+    "class": "objectidentity"
+  },
+  "dot3Table": {
+    "name": "dot3Table",
+    "oid": "1.3.6.1.2.1.10.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dot3Entry": {
+    "name": "dot3Entry",
+    "oid": "1.3.6.1.2.1.10.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1284-MIB",
+        "object": "dot3Index",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "dot3Index": {
+    "name": "dot3Index",
+    "oid": "1.3.6.1.2.1.10.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3InitializeMac": {
+    "name": "dot3InitializeMac",
+    "oid": "1.3.6.1.2.1.10.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialized": 1,
+          "uninitialized": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot3MacSubLayerStatus": {
+    "name": "dot3MacSubLayerStatus",
+    "oid": "1.3.6.1.2.1.10.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot3MulticastReceiveStatus": {
+    "name": "dot3MulticastReceiveStatus",
+    "oid": "1.3.6.1.2.1.10.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot3TxEnabled": {
+    "name": "dot3TxEnabled",
+    "oid": "1.3.6.1.2.1.10.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot3TestTdrValue": {
+    "name": "dot3TestTdrValue",
+    "oid": "1.3.6.1.2.1.10.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsTable": {
+    "name": "dot3StatsTable",
+    "oid": "1.3.6.1.2.1.10.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dot3StatsEntry": {
+    "name": "dot3StatsEntry",
+    "oid": "1.3.6.1.2.1.10.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1284-MIB",
+        "object": "dot3StatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "dot3StatsIndex": {
+    "name": "dot3StatsIndex",
+    "oid": "1.3.6.1.2.1.10.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsAlignmentErrors": {
+    "name": "dot3StatsAlignmentErrors",
+    "oid": "1.3.6.1.2.1.10.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsFCSErrors": {
+    "name": "dot3StatsFCSErrors",
+    "oid": "1.3.6.1.2.1.10.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsSingleCollisionFrames": {
+    "name": "dot3StatsSingleCollisionFrames",
+    "oid": "1.3.6.1.2.1.10.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsMultipleCollisionFrames": {
+    "name": "dot3StatsMultipleCollisionFrames",
+    "oid": "1.3.6.1.2.1.10.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsSQETestErrors": {
+    "name": "dot3StatsSQETestErrors",
+    "oid": "1.3.6.1.2.1.10.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsDeferredTransmissions": {
+    "name": "dot3StatsDeferredTransmissions",
+    "oid": "1.3.6.1.2.1.10.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsLateCollisions": {
+    "name": "dot3StatsLateCollisions",
+    "oid": "1.3.6.1.2.1.10.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsExcessiveCollisions": {
+    "name": "dot3StatsExcessiveCollisions",
+    "oid": "1.3.6.1.2.1.10.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsInternalMacTransmitErrors": {
+    "name": "dot3StatsInternalMacTransmitErrors",
+    "oid": "1.3.6.1.2.1.10.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsCarrierSenseErrors": {
+    "name": "dot3StatsCarrierSenseErrors",
+    "oid": "1.3.6.1.2.1.10.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsExcessiveDeferrals": {
+    "name": "dot3StatsExcessiveDeferrals",
+    "oid": "1.3.6.1.2.1.10.7.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsFrameTooLongs": {
+    "name": "dot3StatsFrameTooLongs",
+    "oid": "1.3.6.1.2.1.10.7.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsInRangeLengthErrors": {
+    "name": "dot3StatsInRangeLengthErrors",
+    "oid": "1.3.6.1.2.1.10.7.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsOutOfRangeLengthFields": {
+    "name": "dot3StatsOutOfRangeLengthFields",
+    "oid": "1.3.6.1.2.1.10.7.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3StatsInternalMacReceiveErrors": {
+    "name": "dot3StatsInternalMacReceiveErrors",
+    "oid": "1.3.6.1.2.1.10.7.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3CollTable": {
+    "name": "dot3CollTable",
+    "oid": "1.3.6.1.2.1.10.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dot3CollEntry": {
+    "name": "dot3CollEntry",
+    "oid": "1.3.6.1.2.1.10.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1284-MIB",
+        "object": "dot3CollIndex",
+        "implied": 0
+      },
+      {
+        "module": "RFC1284-MIB",
+        "object": "dot3CollCount",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "dot3CollIndex": {
+    "name": "dot3CollIndex",
+    "oid": "1.3.6.1.2.1.10.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3CollCount": {
+    "name": "dot3CollCount",
+    "oid": "1.3.6.1.2.1.10.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3CollFrequencies": {
+    "name": "dot3CollFrequencies",
+    "oid": "1.3.6.1.2.1.10.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot3Errors": {
+    "name": "dot3Errors",
+    "oid": "1.3.6.1.2.1.10.7.7",
+    "class": "objectidentity"
+  },
+  "dot3ErrorInitError": {
+    "name": "dot3ErrorInitError",
+    "oid": "1.3.6.1.2.1.10.7.7.1",
+    "class": "objectidentity"
+  },
+  "dot3ErrorLoopbackError": {
+    "name": "dot3ErrorLoopbackError",
+    "oid": "1.3.6.1.2.1.10.7.7.2",
+    "class": "objectidentity"
+  },
+  "dot3Tests": {
+    "name": "dot3Tests",
+    "oid": "1.3.6.1.2.1.10.7.6",
+    "class": "objectidentity"
+  },
+  "dot3TestTdr": {
+    "name": "dot3TestTdr",
+    "oid": "1.3.6.1.2.1.10.7.6.1",
+    "class": "objectidentity"
+  },
+  "dot3ChipSets": {
+    "name": "dot3ChipSets",
+    "oid": "1.3.6.1.2.1.10.7.8",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetAMD": {
+    "name": "dot3ChipSetAMD",
+    "oid": "1.3.6.1.2.1.10.7.8.1",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetAMD7990": {
+    "name": "dot3ChipSetAMD7990",
+    "oid": "1.3.6.1.2.1.10.7.8.1.1",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetAMD79900": {
+    "name": "dot3ChipSetAMD79900",
+    "oid": "1.3.6.1.2.1.10.7.8.1.2",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetIntel": {
+    "name": "dot3ChipSetIntel",
+    "oid": "1.3.6.1.2.1.10.7.8.2",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetIntel82586": {
+    "name": "dot3ChipSetIntel82586",
+    "oid": "1.3.6.1.2.1.10.7.8.2.1",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetIntel82596": {
+    "name": "dot3ChipSetIntel82596",
+    "oid": "1.3.6.1.2.1.10.7.8.2.2",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetSeeq": {
+    "name": "dot3ChipSetSeeq",
+    "oid": "1.3.6.1.2.1.10.7.8.3",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetSeeq8003": {
+    "name": "dot3ChipSetSeeq8003",
+    "oid": "1.3.6.1.2.1.10.7.8.3.1",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetNational": {
+    "name": "dot3ChipSetNational",
+    "oid": "1.3.6.1.2.1.10.7.8.4",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetNational8390": {
+    "name": "dot3ChipSetNational8390",
+    "oid": "1.3.6.1.2.1.10.7.8.4.1",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetNationalSonic": {
+    "name": "dot3ChipSetNationalSonic",
+    "oid": "1.3.6.1.2.1.10.7.8.4.2",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetFujitsu": {
+    "name": "dot3ChipSetFujitsu",
+    "oid": "1.3.6.1.2.1.10.7.8.5",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetFujitsu86950": {
+    "name": "dot3ChipSetFujitsu86950",
+    "oid": "1.3.6.1.2.1.10.7.8.5.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RFC1284-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RFC1284-MIB"
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "colubrisLicenseMIB": {
+    "name": "colubrisLicenseMIB",
+    "oid": "1.3.6.1.4.1.8744.5.29",
+    "class": "moduleidentity"
+  },
+  "colubrisLicenseMIBObjects": {
+    "name": "colubrisLicenseMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.29.1",
+    "class": "objectidentity"
+  },
+  "coLicenseGroup": {
+    "name": "coLicenseGroup",
+    "oid": "1.3.6.1.4.1.8744.5.29.1.1",
+    "class": "objectidentity"
+  },
+  "coLicenseFeatureTable": {
+    "name": "coLicenseFeatureTable",
+    "oid": "1.3.6.1.4.1.8744.5.29.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coLicenseFeatureEntry": {
+    "name": "coLicenseFeatureEntry",
+    "oid": "1.3.6.1.4.1.8744.5.29.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-LICENSE-MIB",
+        "object": "coLicenseFeatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coLicenseFeatureIndex": {
+    "name": "coLicenseFeatureIndex",
+    "oid": "1.3.6.1.4.1.8744.5.29.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coLicenseFeatureName": {
+    "name": "coLicenseFeatureName",
+    "oid": "1.3.6.1.4.1.8744.5.29.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coLicenseFeatureState": {
+    "name": "coLicenseFeatureState",
+    "oid": "1.3.6.1.4.1.8744.5.29.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coLicenseFeatureEndingDate": {
+    "name": "coLicenseFeatureEndingDate",
+    "oid": "1.3.6.1.4.1.8744.5.29.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coLicenseFeatureRemainingDays": {
+    "name": "coLicenseFeatureRemainingDays",
+    "oid": "1.3.6.1.4.1.8744.5.29.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisLicenseMIBConformance": {
+    "name": "colubrisLicenseMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.29.2",
+    "class": "objectidentity"
+  },
+  "colubrisLicenseMIBCompliances": {
+    "name": "colubrisLicenseMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.29.2.1",
+    "class": "objectidentity"
+  },
+  "colubrisLicenseMIBGroups": {
+    "name": "colubrisLicenseMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.29.2.2",
+    "class": "objectidentity"
+  },
+  "colubrisLicenseMIBCompliance": {
+    "name": "colubrisLicenseMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.29.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisLicenseMIBGroup",
+        "module": "COLUBRIS-LICENSE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisLicenseMIBGroup": {
+    "name": "colubrisLicenseMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.29.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-LICENSE-MIB",
+        "object": "coLicenseFeatureName"
+      },
+      {
+        "module": "COLUBRIS-LICENSE-MIB",
+        "object": "coLicenseFeatureState"
+      },
+      {
+        "module": "COLUBRIS-LICENSE-MIB",
+        "object": "coLicenseFeatureEndingDate"
+      },
+      {
+        "module": "COLUBRIS-LICENSE-MIB",
+        "object": "coLicenseFeatureRemainingDays"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-LICENSE-MIB.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-LICENSE-MIB"
+  }
+}

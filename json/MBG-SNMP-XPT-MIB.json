@@ -1,0 +1,830 @@
+{
+  "imports": {
+    "class": "imports",
+    "MBG-SNMP-ROOT-MIB": [
+      "mbgSnmpRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "mbgXPT": {
+    "name": "mbgXPT",
+    "oid": "1.3.6.1.4.1.5597.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-25 00:00",
+        "description": "Update to new format referencing MBG-SNMP-ROOT-MIB"
+      },
+      {
+        "revision": "2006-01-20 00:00",
+        "description": "Covering LAN-XPT and SCU-XPT modules from Meinberg"
+      }
+    ]
+  },
+  "mbgGPSRefclock1": {
+    "name": "mbgGPSRefclock1",
+    "oid": "1.3.6.1.4.1.5597.10.2",
+    "class": "objectidentity"
+  },
+  "mbgGPSRefclock2": {
+    "name": "mbgGPSRefclock2",
+    "oid": "1.3.6.1.4.1.5597.10.3",
+    "class": "objectidentity"
+  },
+  "mbgSCU": {
+    "name": "mbgSCU",
+    "oid": "1.3.6.1.4.1.5597.10.4",
+    "class": "objectidentity"
+  },
+  "mbgXPTTraps": {
+    "name": "mbgXPTTraps",
+    "oid": "1.3.6.1.4.1.5597.10.5",
+    "class": "objectidentity"
+  },
+  "mbgGPSRefclock1Type": {
+    "name": "mbgGPSRefclock1Type",
+    "oid": "1.3.6.1.4.1.5597.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRefclock1TypeVal": {
+    "name": "mbgGPSRefclock1TypeVal",
+    "oid": "1.3.6.1.4.1.5597.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRefclock1Mode": {
+    "name": "mbgGPSRefclock1Mode",
+    "oid": "1.3.6.1.4.1.5597.10.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRefclock1ModeVal": {
+    "name": "mbgGPSRefclock1ModeVal",
+    "oid": "1.3.6.1.4.1.5597.10.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef1GpsState": {
+    "name": "mbgGPSRef1GpsState",
+    "oid": "1.3.6.1.4.1.5597.10.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef1GpsStateVal": {
+    "name": "mbgGPSRef1GpsStateVal",
+    "oid": "1.3.6.1.4.1.5597.10.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef1GpsPosition": {
+    "name": "mbgGPSRef1GpsPosition",
+    "oid": "1.3.6.1.4.1.5597.10.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef1GpsSatellites": {
+    "name": "mbgGPSRef1GpsSatellites",
+    "oid": "1.3.6.1.4.1.5597.10.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef1GpsSatellitesGood": {
+    "name": "mbgGPSRef1GpsSatellitesGood",
+    "oid": "1.3.6.1.4.1.5597.10.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef1GpsSatellitesInView": {
+    "name": "mbgGPSRef1GpsSatellitesInView",
+    "oid": "1.3.6.1.4.1.5597.10.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRefclock2Type": {
+    "name": "mbgGPSRefclock2Type",
+    "oid": "1.3.6.1.4.1.5597.10.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRefclock2TypeVal": {
+    "name": "mbgGPSRefclock2TypeVal",
+    "oid": "1.3.6.1.4.1.5597.10.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRefclock2Mode": {
+    "name": "mbgGPSRefclock2Mode",
+    "oid": "1.3.6.1.4.1.5597.10.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRefclock2ModeVal": {
+    "name": "mbgGPSRefclock2ModeVal",
+    "oid": "1.3.6.1.4.1.5597.10.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef2GpsState": {
+    "name": "mbgGPSRef2GpsState",
+    "oid": "1.3.6.1.4.1.5597.10.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef2GpsStateVal": {
+    "name": "mbgGPSRef2GpsStateVal",
+    "oid": "1.3.6.1.4.1.5597.10.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef2GpsPosition": {
+    "name": "mbgGPSRef2GpsPosition",
+    "oid": "1.3.6.1.4.1.5597.10.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef2GpsSatellites": {
+    "name": "mbgGPSRef2GpsSatellites",
+    "oid": "1.3.6.1.4.1.5597.10.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef2GpsSatellitesGood": {
+    "name": "mbgGPSRef2GpsSatellitesGood",
+    "oid": "1.3.6.1.4.1.5597.10.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSRef2GpsSatellitesInView": {
+    "name": "mbgGPSRef2GpsSatellitesInView",
+    "oid": "1.3.6.1.4.1.5597.10.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUType": {
+    "name": "mbgSCUType",
+    "oid": "1.3.6.1.4.1.5597.10.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUTypeVal": {
+    "name": "mbgSCUTypeVal",
+    "oid": "1.3.6.1.4.1.5597.10.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUMaster": {
+    "name": "mbgSCUMaster",
+    "oid": "1.3.6.1.4.1.5597.10.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUMasterVal": {
+    "name": "mbgSCUMasterVal",
+    "oid": "1.3.6.1.4.1.5597.10.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUMasterselect": {
+    "name": "mbgSCUMasterselect",
+    "oid": "1.3.6.1.4.1.5597.10.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUMasterselectVal": {
+    "name": "mbgSCUMasterselectVal",
+    "oid": "1.3.6.1.4.1.5597.10.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUTimeSync1": {
+    "name": "mbgSCUTimeSync1",
+    "oid": "1.3.6.1.4.1.5597.10.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUTimeSync2": {
+    "name": "mbgSCUTimeSync2",
+    "oid": "1.3.6.1.4.1.5597.10.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUTimelimitError": {
+    "name": "mbgSCUTimelimitError",
+    "oid": "1.3.6.1.4.1.5597.10.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUDisableOutputs": {
+    "name": "mbgSCUDisableOutputs",
+    "oid": "1.3.6.1.4.1.5597.10.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUSelectedInput": {
+    "name": "mbgSCUSelectedInput",
+    "oid": "1.3.6.1.4.1.5597.10.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUSelectedInputVal": {
+    "name": "mbgSCUSelectedInputVal",
+    "oid": "1.3.6.1.4.1.5597.10.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUACOMode": {
+    "name": "mbgSCUACOMode",
+    "oid": "1.3.6.1.4.1.5597.10.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUPSUStatus": {
+    "name": "mbgSCUPSUStatus",
+    "oid": "1.3.6.1.4.1.5597.10.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUPSU1Status": {
+    "name": "mbgSCUPSU1Status",
+    "oid": "1.3.6.1.4.1.5597.10.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgSCUPSU2Status": {
+    "name": "mbgSCUPSU2Status",
+    "oid": "1.3.6.1.4.1.5597.10.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbgGPSTrapColdBoot": {
+    "name": "mbgGPSTrapColdBoot",
+    "oid": "1.3.6.1.4.1.5597.10.5.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapWarmBoot": {
+    "name": "mbgGPSTrapWarmBoot",
+    "oid": "1.3.6.1.4.1.5597.10.5.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSNavSolved": {
+    "name": "mbgGPSNavSolved",
+    "oid": "1.3.6.1.4.1.5597.10.5.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapReceiverNotResponding": {
+    "name": "mbgGPSTrapReceiverNotResponding",
+    "oid": "1.3.6.1.4.1.5597.10.5.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapReceiverNotSync": {
+    "name": "mbgGPSTrapReceiverNotSync",
+    "oid": "1.3.6.1.4.1.5597.10.5.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapAntennaFaulty": {
+    "name": "mbgGPSTrapAntennaFaulty",
+    "oid": "1.3.6.1.4.1.5597.10.5.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapAntennaReconnect": {
+    "name": "mbgGPSTrapAntennaReconnect",
+    "oid": "1.3.6.1.4.1.5597.10.5.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapLANXPTBoot": {
+    "name": "mbgGPSTrapLANXPTBoot",
+    "oid": "1.3.6.1.4.1.5597.10.5.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapLeapSecondAnnounced": {
+    "name": "mbgGPSTrapLeapSecondAnnounced",
+    "oid": "1.3.6.1.4.1.5597.10.5.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapMasterclockSwitchover": {
+    "name": "mbgGPSTrapMasterclockSwitchover",
+    "oid": "1.3.6.1.4.1.5597.10.5.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapPowerSupplyFailure": {
+    "name": "mbgGPSTrapPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.5597.10.5.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapPowerSupplyOK": {
+    "name": "mbgGPSTrapPowerSupplyOK",
+    "oid": "1.3.6.1.4.1.5597.10.5.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgGPSTrapTestNotification": {
+    "name": "mbgGPSTrapTestNotification",
+    "oid": "1.3.6.1.4.1.5597.10.5.99",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "mbgXPTConformance": {
+    "name": "mbgXPTConformance",
+    "oid": "1.3.6.1.4.1.5597.10.90",
+    "class": "objectidentity"
+  },
+  "mbgXPTCompliances": {
+    "name": "mbgXPTCompliances",
+    "oid": "1.3.6.1.4.1.5597.10.90.1",
+    "class": "objectidentity"
+  },
+  "mbgXPTGroups": {
+    "name": "mbgXPTGroups",
+    "oid": "1.3.6.1.4.1.5597.10.90.2",
+    "class": "objectidentity"
+  },
+  "mbgXPTCompliance": {
+    "name": "mbgXPTCompliance",
+    "oid": "1.3.6.1.4.1.5597.10.90.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mbgXPTObjectsGroup",
+        "module": "MBG-SNMP-XPT-MIB"
+      },
+      {
+        "object": "mbgXPTTrapsGroup",
+        "module": "MBG-SNMP-XPT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mbgXPTObjectsGroup": {
+    "name": "mbgXPTObjectsGroup",
+    "oid": "1.3.6.1.4.1.5597.10.90.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRefclock1Type"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRefclock1TypeVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRefclock1Mode"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRefclock1ModeVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef1GpsState"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef1GpsStateVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef1GpsPosition"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef1GpsSatellites"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef1GpsSatellitesGood"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef1GpsSatellitesInView"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRefclock2Type"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRefclock2TypeVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRefclock2Mode"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRefclock2ModeVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef2GpsState"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef2GpsStateVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef2GpsPosition"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef2GpsSatellites"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef2GpsSatellitesGood"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSRef2GpsSatellitesInView"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUType"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUTypeVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUMaster"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUMasterVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUMasterselect"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUMasterselectVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUTimeSync1"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUTimeSync2"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUTimelimitError"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUDisableOutputs"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUSelectedInput"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUSelectedInputVal"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUACOMode"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUPSUStatus"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUPSU1Status"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgSCUPSU2Status"
+      }
+    ],
+    "status": "current"
+  },
+  "mbgXPTTrapsGroup": {
+    "name": "mbgXPTTrapsGroup",
+    "oid": "1.3.6.1.4.1.5597.10.90.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapColdBoot"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapWarmBoot"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSNavSolved"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapReceiverNotResponding"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapReceiverNotSync"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapAntennaFaulty"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapAntennaReconnect"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapLANXPTBoot"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapLeapSecondAnnounced"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapMasterclockSwitchover"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapPowerSupplyFailure"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapPowerSupplyOK"
+      },
+      {
+        "module": "MBG-SNMP-XPT-MIB",
+        "object": "mbgGPSTrapTestNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-XPT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:45 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MBG-SNMP-XPT-MIB"
+  }
+}

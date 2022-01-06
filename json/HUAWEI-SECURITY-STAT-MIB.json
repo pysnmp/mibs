@@ -1,0 +1,4730 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwSecStatGlobal": {
+    "name": "hwSecStatGlobal",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-10 19:20",
+        "description": "V1.27 modify the hwSecStatTrapSlot and the hwSecStatPerfTrapCpuThreshold."
+      },
+      {
+        "revision": "2017-07-11 19:20",
+        "description": "V1.26 add the SYNTAX of the hwSecStatFastSessOverThreshold and hwSecStatFastSessBelowThreshold node."
+      },
+      {
+        "revision": "2017-06-29 19:20",
+        "description": "V1.24 modify trap node hwSecStatFragStaSessBelowThreshold ."
+      },
+      {
+        "revision": "2017-05-09 19:20",
+        "description": "V1.23 modify the SYNTAX of the hwSecStatPerfMemUsage and hwSecStatPerfTotalMemUsage node."
+      },
+      {
+        "revision": "2017-04-10 19:20",
+        "description": "V1.22 modify trap node."
+      },
+      {
+        "revision": "2017-02-14 19:20",
+        "description": "V1.22 modify trap node."
+      },
+      {
+        "revision": "2016-11-08 23:00",
+        "description": "V1.21 modify trap node."
+      },
+      {
+        "revision": "2016-11-04 23:14",
+        "description": "V1.20 modify trap node."
+      },
+      {
+        "revision": "2016-11-04 23:14",
+        "description": "V1.19 modify trap node name."
+      },
+      {
+        "revision": "2016-10-22 22:41",
+        "description": "V1.18 add forword trap node."
+      },
+      {
+        "revision": "2016-08-23 16:41",
+        "description": "V1.17 add a hwSecStatDeviceLoggedPackets table node."
+      },
+      {
+        "revision": "2016-08-19 14:00",
+        "description": "V1.16 modify the hwSecStatSecPolicyRateTable table node."
+      },
+      {
+        "revision": "2016-03-30 17:30",
+        "description": "V1.15 add a table node."
+      },
+      {
+        "revision": "2016-03-30 17:30",
+        "description": "V1.14, add a table node."
+      },
+      {
+        "revision": "2016-03-17 17:30",
+        "description": "V1.13, add a table node."
+      },
+      {
+        "revision": "2016-01-15 15:00",
+        "description": "V1.12, modify the MAX-ACCESS of the hwSecStatSecHittedVsysName and hwSecStatSecHittedRuleName node ."
+      },
+      {
+        "revision": "2015-12-11 14:00",
+        "description": "V1.11, modify the syntax type of the hwSecStatFragRate node from octet string to Integer32 ."
+      },
+      {
+        "revision": "2010-10-09 09:00",
+        "description": "V1.00, completed the first draft."
+      },
+      {
+        "revision": "2014-08-30 09:00",
+        "description": "V1.01, modifiy the MODULE-IDENTITY."
+      },
+      {
+        "revision": "2014-09-28 09:00",
+        "description": "V1.02, add a table node."
+      },
+      {
+        "revision": "2014-12-16 09:00",
+        "description": "V1.03, add a table node."
+      },
+      {
+        "revision": "2015-02-11 09:00",
+        "description": "V1.04, add a table node."
+      },
+      {
+        "revision": "2015-02-25 09:00",
+        "description": "V1.05, modify the description of the service-quality statistic node ."
+      },
+      {
+        "revision": "2015-03-03 09:00",
+        "description": "V1.06, modify the description of the service-quality statistic node ."
+      },
+      {
+        "revision": "2015-03-03 17:00",
+        "description": "V1.07, modify the MAX-ACCESS of the hwSecStatInterzoneSessTable node ."
+      },
+      {
+        "revision": "2015-05-07 15:00",
+        "description": "V1.08, modify the type of the service-quality node ."
+      },
+      {
+        "revision": "2015-09-15 20:00",
+        "description": "V1.09, modify the node of the hwSecStatPktRateObjects node ."
+      },
+      {
+        "revision": "2015-10-10 16:00",
+        "description": "V1.10, modify the node of the hwSecStatPktRateObjects node ."
+      }
+    ]
+  },
+  "huawei": {
+    "name": "huawei",
+    "oid": "1.3.6.1.4.1.2011",
+    "class": "objectidentity"
+  },
+  "huaweiUtility": {
+    "name": "huaweiUtility",
+    "oid": "1.3.6.1.4.1.2011.6",
+    "class": "objectidentity"
+  },
+  "hwSecurity": {
+    "name": "hwSecurity",
+    "oid": "1.3.6.1.4.1.2011.6.122",
+    "class": "objectidentity"
+  },
+  "hwSecStatMibObjects": {
+    "name": "hwSecStatMibObjects",
+    "oid": "1.3.6.1.4.1.2011.6.122.15",
+    "class": "objectidentity"
+  },
+  "hwSecStatCfgObjects": {
+    "name": "hwSecStatCfgObjects",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1",
+    "class": "objectidentity"
+  },
+  "hwSecStatGlobalStatEnable": {
+    "name": "hwSecStatGlobalStatEnable",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatGlobalPktScale": {
+    "name": "hwSecStatGlobalPktScale",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.2",
+    "class": "objectidentity"
+  },
+  "hwSecStatTcpPktScale": {
+    "name": "hwSecStatTcpPktScale",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatUdpPktScale": {
+    "name": "hwSecStatUdpPktScale",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatIcmpPktScale": {
+    "name": "hwSecStatIcmpPktScale",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatAlteration": {
+    "name": "hwSecStatAlteration",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatCalcTime": {
+    "name": "hwSecStatCalcTime",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 14400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatPktScaleSetDefault": {
+    "name": "hwSecStatPktScaleSetDefault",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatGlobalSessNum": {
+    "name": "hwSecStatGlobalSessNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.3",
+    "class": "objectidentity"
+  },
+  "hwSecStatTcpSessNumMax": {
+    "name": "hwSecStatTcpSessNumMax",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatTcpSessNumMin": {
+    "name": "hwSecStatTcpSessNumMin",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatUdpSessNumMax": {
+    "name": "hwSecStatUdpSessNumMax",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatUdpSessNumMin": {
+    "name": "hwSecStatUdpSessNumMin",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatGlobalSessSetDefault": {
+    "name": "hwSecStatGlobalSessSetDefault",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatMonitorObjects": {
+    "name": "hwSecStatMonitorObjects",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2",
+    "class": "objectidentity"
+  },
+  "hwSecStatMonitorGlobalSessFlow": {
+    "name": "hwSecStatMonitorGlobalSessFlow",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1",
+    "class": "objectidentity"
+  },
+  "hwSecStatMonTotalBootConnNum": {
+    "name": "hwSecStatMonTotalBootConnNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPeakSessSpeed": {
+    "name": "hwSecStatMonPeakSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonCurSessSpeed": {
+    "name": "hwSecStatMonCurSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonTotalSess": {
+    "name": "hwSecStatMonTotalSess",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonHalfConn": {
+    "name": "hwSecStatMonHalfConn",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonTcpSess": {
+    "name": "hwSecStatMonTcpSess",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonUdpSess": {
+    "name": "hwSecStatMonUdpSess",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonIcmpSess": {
+    "name": "hwSecStatMonIcmpSess",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonSvrMapTblNum": {
+    "name": "hwSecStatMonSvrMapTblNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatFragTblNum": {
+    "name": "hwSecStatFragTblNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvIcmpPkts": {
+    "name": "hwSecStatMonRcvIcmpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvIcmpOcts": {
+    "name": "hwSecStatMonRcvIcmpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvTcpPkts": {
+    "name": "hwSecStatMonRcvTcpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvTcpOcts": {
+    "name": "hwSecStatMonRcvTcpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvUdpPkts": {
+    "name": "hwSecStatMonRcvUdpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvUdpOcts": {
+    "name": "hwSecStatMonRcvUdpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvEtcPkts": {
+    "name": "hwSecStatMonRcvEtcPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvEtcOcts": {
+    "name": "hwSecStatMonRcvEtcOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPassIcmpPkts": {
+    "name": "hwSecStatMonPassIcmpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPassIcmpOcts": {
+    "name": "hwSecStatMonPassIcmpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPassTcpPkts": {
+    "name": "hwSecStatMonPassTcpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPassTcpOcts": {
+    "name": "hwSecStatMonPassTcpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPassUdpPkts": {
+    "name": "hwSecStatMonPassUdpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPassUdpOcts": {
+    "name": "hwSecStatMonPassUdpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPassEtcPkts": {
+    "name": "hwSecStatMonPassEtcPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPassEtcOcts": {
+    "name": "hwSecStatMonPassEtcOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonSynPkts": {
+    "name": "hwSecStatMonSynPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonFinPkts": {
+    "name": "hwSecStatMonFinPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonSynAckPkts": {
+    "name": "hwSecStatMonSynAckPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRstPkts": {
+    "name": "hwSecStatMonRstPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvFragPkts": {
+    "name": "hwSecStatMonRcvFragPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvFragOcts": {
+    "name": "hwSecStatMonRcvFragOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonAllPkts": {
+    "name": "hwSecStatMonAllPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonAllOcts": {
+    "name": "hwSecStatMonAllOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatClearGlobalSessFlowInfo": {
+    "name": "hwSecStatClearGlobalSessFlowInfo",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatHisSessNumMax": {
+    "name": "hwSecStatHisSessNumMax",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonitorGlobalAppInfo": {
+    "name": "hwSecStatMonitorGlobalAppInfo",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2",
+    "class": "objectidentity"
+  },
+  "hwSecStatMonFtpSessions": {
+    "name": "hwSecStatMonFtpSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvFtpPkts": {
+    "name": "hwSecStatMonRcvFtpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvFtpOcts": {
+    "name": "hwSecStatMonRcvFtpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonSmtpSessions": {
+    "name": "hwSecStatMonSmtpSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvSmtpPkts": {
+    "name": "hwSecStatMonRcvSmtpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvSmtpOcts": {
+    "name": "hwSecStatMonRcvSmtpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonHttpSessions": {
+    "name": "hwSecStatMonHttpSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvHttpPkts": {
+    "name": "hwSecStatMonRcvHttpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvHttpOcts": {
+    "name": "hwSecStatMonRcvHttpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonH323Sessions": {
+    "name": "hwSecStatMonH323Sessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvH323Pkts": {
+    "name": "hwSecStatMonRcvH323Pkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvH323Octs": {
+    "name": "hwSecStatMonRcvH323Octs",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRtspSessions": {
+    "name": "hwSecStatMonRtspSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvRtspPkts": {
+    "name": "hwSecStatMonRcvRtspPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvRtspOcts": {
+    "name": "hwSecStatMonRcvRtspOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonDnsSessions": {
+    "name": "hwSecStatMonDnsSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvDnsPkts": {
+    "name": "hwSecStatMonRcvDnsPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvDnsOcts": {
+    "name": "hwSecStatMonRcvDnsOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonGtpSessions": {
+    "name": "hwSecStatMonGtpSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvGtpPkts": {
+    "name": "hwSecStatMonRcvGtpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvGtpOcts": {
+    "name": "hwSecStatMonRcvGtpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonHwccSessions": {
+    "name": "hwSecStatMonHwccSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvHwccPkts": {
+    "name": "hwSecStatMonRcvHwccPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvHwccOcts": {
+    "name": "hwSecStatMonRcvHwccOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonIlsSessions": {
+    "name": "hwSecStatMonIlsSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvIlsPkts": {
+    "name": "hwSecStatMonRcvIlsPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvIlsOcts": {
+    "name": "hwSecStatMonRcvIlsOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonMgcpSessions": {
+    "name": "hwSecStatMonMgcpSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvMgcpPkts": {
+    "name": "hwSecStatMonRcvMgcpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvMgcpOcts": {
+    "name": "hwSecStatMonRcvMgcpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonMmsSessions": {
+    "name": "hwSecStatMonMmsSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvMmsPkts": {
+    "name": "hwSecStatMonRcvMmsPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvMmsOcts": {
+    "name": "hwSecStatMonRcvMmsOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonNbtSessions": {
+    "name": "hwSecStatMonNbtSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvNbtPkts": {
+    "name": "hwSecStatMonRcvNbtPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvNbtOcts": {
+    "name": "hwSecStatMonRcvNbtOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonPptpSessions": {
+    "name": "hwSecStatMonPptpSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvPptpPkts": {
+    "name": "hwSecStatMonRcvPptpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvPptpOcts": {
+    "name": "hwSecStatMonRcvPptpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonQQSessions": {
+    "name": "hwSecStatMonQQSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvQQPkts": {
+    "name": "hwSecStatMonRcvQQPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvQQOcts": {
+    "name": "hwSecStatMonRcvQQOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRasSessions": {
+    "name": "hwSecStatMonRasSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvRasPkts": {
+    "name": "hwSecStatMonRcvRasPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvRasOcts": {
+    "name": "hwSecStatMonRcvRasOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRpcSessions": {
+    "name": "hwSecStatMonRpcSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvRpcPkts": {
+    "name": "hwSecStatMonRcvRpcPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvRpcOcts": {
+    "name": "hwSecStatMonRcvRpcOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonSipSessions": {
+    "name": "hwSecStatMonSipSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvSipPkts": {
+    "name": "hwSecStatMonRcvSipPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvSipOcts": {
+    "name": "hwSecStatMonRcvSipOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonSqlnetSessions": {
+    "name": "hwSecStatMonSqlnetSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvSqlnetPkts": {
+    "name": "hwSecStatMonRcvSqlnetPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvSqlnetOcts": {
+    "name": "hwSecStatMonRcvSqlnetOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonStunSessions": {
+    "name": "hwSecStatMonStunSessions",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvStunPkts": {
+    "name": "hwSecStatMonRcvStunPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonRcvStunOcts": {
+    "name": "hwSecStatMonRcvStunOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMonJavaAtckNum": {
+    "name": "hwSecStatMonJavaAtckNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatClearGlobalAppInfo": {
+    "name": "hwSecStatClearGlobalAppInfo",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.2.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatMonitorGlobalDrop": {
+    "name": "hwSecStatMonitorGlobalDrop",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3",
+    "class": "objectidentity"
+  },
+  "hwSecStatNoSessTblPkts": {
+    "name": "hwSecStatNoSessTblPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatNoSessTblOcts": {
+    "name": "hwSecStatNoSessTblOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSeqErrPkts": {
+    "name": "hwSecStatSeqErrPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSeqErrOcts": {
+    "name": "hwSecStatSeqErrOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAclDenyNonIcmpPkts": {
+    "name": "hwSecStatAclDenyNonIcmpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAclDenyNonIcmpOcts": {
+    "name": "hwSecStatAclDenyNonIcmpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAclDenyIcmpPkts": {
+    "name": "hwSecStatAclDenyIcmpPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAclDenyIcmpOcts": {
+    "name": "hwSecStatAclDenyIcmpOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatBlsDenyPkts": {
+    "name": "hwSecStatBlsDenyPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatBlsDenyOcts": {
+    "name": "hwSecStatBlsDenyOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIcmpFloodDropPkts": {
+    "name": "hwSecStatIcmpFloodDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIcmpFloodDropOcts": {
+    "name": "hwSecStatIcmpFloodDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatUdpFloodDropPkts": {
+    "name": "hwSecStatUdpFloodDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatUdpFloodDropOcts": {
+    "name": "hwSecStatUdpFloodDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgDropPkts": {
+    "name": "hwSecStatAlgDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgDropOcts": {
+    "name": "hwSecStatAlgDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPVerErrDropPkts": {
+    "name": "hwSecStatIPVerErrDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIpCrcDropPkts": {
+    "name": "hwSecStatIpCrcDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIpTTLDropPkts": {
+    "name": "hwSecStatIpTTLDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatProtoErrDropPkts": {
+    "name": "hwSecStatProtoErrDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatFragExcessDropPkts": {
+    "name": "hwSecStatFragExcessDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatFragExcessDropOcts": {
+    "name": "hwSecStatFragExcessDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSessFailDropPkts": {
+    "name": "hwSecStatSessFailDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSessFailDropOcts": {
+    "name": "hwSecStatSessFailDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSynFloodDropPkts": {
+    "name": "hwSecStatSynFloodDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSynFloodDropOcts": {
+    "name": "hwSecStatSynFloodDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatTcpFloodDropPkts": {
+    "name": "hwSecStatTcpFloodDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatTcpFloodDropOcts": {
+    "name": "hwSecStatTcpFloodDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatDnsFloodDropPkts": {
+    "name": "hwSecStatDnsFloodDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatDnsFloodDropOcts": {
+    "name": "hwSecStatDnsFloodDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIpSweepDropPkts": {
+    "name": "hwSecStatIpSweepDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIpSweepDropOcts": {
+    "name": "hwSecStatIpSweepDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatPortScanDropPkts": {
+    "name": "hwSecStatPortScanDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatPortScanDropocts": {
+    "name": "hwSecStatPortScanDropocts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatLargeIcmpDropPkts": {
+    "name": "hwSecStatLargeIcmpDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatLargeIcmpDropOcts": {
+    "name": "hwSecStatLargeIcmpDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatOtherProtocolDropPkts": {
+    "name": "hwSecStatOtherProtocolDropPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatOtherProtocolDropOcts": {
+    "name": "hwSecStatOtherProtocolDropOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSecurityPolicyDenyPkts": {
+    "name": "hwSecStatSecurityPolicyDenyPkts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSecurityPolicyDenyOcts": {
+    "name": "hwSecStatSecurityPolicyDenyOcts",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatClearGlobalDropInfo": {
+    "name": "hwSecStatClearGlobalDropInfo",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.2.3.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatConformance": {
+    "name": "hwSecStatConformance",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.3",
+    "class": "objectidentity"
+  },
+  "hwSecStatCompliance": {
+    "name": "hwSecStatCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.3.1",
+    "class": "objectidentity"
+  },
+  "hwSecStatMibGroups": {
+    "name": "hwSecStatMibGroups",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.3.2",
+    "class": "objectidentity"
+  },
+  "hwSecStatGlobalCfgGroup": {
+    "name": "hwSecStatGlobalCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTcpPktScale"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatUdpPktScale"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatIcmpPktScale"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatAlteration"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatCalcTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTcpSessNumMax"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTcpSessNumMin"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatUdpSessNumMax"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatGlobalSessSetDefault"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPktScaleSetDefault"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatUdpSessNumMin"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatGlobalStatEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatGlobalMonitorGroup": {
+    "name": "hwSecStatGlobalMonitorGroup",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonTotalSess"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonHalfConn"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvTcpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvTcpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvUdpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvUdpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvEtcPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvEtcOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPassIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPassIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPassTcpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPassTcpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPassUdpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPassUdpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPassEtcPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPassEtcOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonSynPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonFinPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonSynAckPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRstPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvFragPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvFragOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonFtpSessions"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvFtpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvFtpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonSmtpSessions"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvSmtpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvSmtpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonHttpSessions"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvHttpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvHttpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonH323Sessions"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvH323Pkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvH323Octs"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRtspSessions"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvRtspPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonRcvRtspOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonJavaAtckNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatNoSessTblPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatNoSessTblOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSeqErrPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSeqErrOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatIcmpFloodDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatIcmpFloodDropOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatUdpFloodDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatUdpFloodDropOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatAlgDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatAlgDropOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatIPVerErrDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatIpCrcDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatIpTTLDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonCurSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonPeakSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonTotalBootConnNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatProtoErrDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatAclDenyNonIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatAclDenyNonIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatAclDenyIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatAclDenyIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatBlsDenyPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatClearGlobalDropInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatClearGlobalAppInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatClearGlobalSessFlowInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatBlsDenyOcts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonTcpSess"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonUdpSess"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonIcmpSess"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonSvrMapTblNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFragTblNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonAllPkts"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatMonAllOcts"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatPerfAndPhyTable": {
+    "name": "hwSecStatPerfAndPhyTable",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatPerfAndPhyEntry": {
+    "name": "hwSecStatPerfAndPhyEntry",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatPerfIndex": {
+    "name": "hwSecStatPerfIndex",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatPerfSlot": {
+    "name": "hwSecStatPerfSlot",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatPerfCPU": {
+    "name": "hwSecStatPerfCPU",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSessCount": {
+    "name": "hwSecStatSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSessSpeed": {
+    "name": "hwSecStatSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatUsage": {
+    "name": "hwSecStatUsage",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatTemperature": {
+    "name": "hwSecStatTemperature",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatVoltage": {
+    "name": "hwSecStatVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatPerfCpuUsage": {
+    "name": "hwSecStatPerfCpuUsage",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatPerfMemUsage": {
+    "name": "hwSecStatPerfMemUsage",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatPerfTotalMemUsage": {
+    "name": "hwSecStatPerfTotalMemUsage",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatTraps": {
+    "name": "hwSecStatTraps",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3",
+    "class": "objectidentity"
+  },
+  "hwSecStatObjests": {
+    "name": "hwSecStatObjests",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1",
+    "class": "objectidentity"
+  },
+  "hwSecStatTrapBoardType": {
+    "name": "hwSecStatTrapBoardType",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatTrapSlot": {
+    "name": "hwSecStatTrapSlot",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatTrapCPU": {
+    "name": "hwSecStatTrapCPU",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatPerfTrapVcpu": {
+    "name": "hwSecStatPerfTrapVcpu",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatPerfTrapMemType": {
+    "name": "hwSecStatPerfTrapMemType",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSessTrapCount": {
+    "name": "hwSecStatSessTrapCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSessTrapThreshold": {
+    "name": "hwSecStatSessTrapThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSessRateTrapCount": {
+    "name": "hwSecStatSessRateTrapCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSessRateTrapThreshold": {
+    "name": "hwSecStatSessRateTrapThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatPerfTrapCpuUsage": {
+    "name": "hwSecStatPerfTrapCpuUsage",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatPerfTrapCpuThreshold": {
+    "name": "hwSecStatPerfTrapCpuThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatPerfTrapMemUsage": {
+    "name": "hwSecStatPerfTrapMemUsage",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatPerfTrapMemThreshold": {
+    "name": "hwSecStatPerfTrapMemThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatPerfTrapCpucarThreshold": {
+    "name": "hwSecStatPerfTrapCpucarThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatPerfPerformanceCurSecond": {
+    "name": "hwSecStatPerfPerformanceCurSecond",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSvrMapTableCount": {
+    "name": "hwSecStatSvrMapTableCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSvrMapTableThreshold": {
+    "name": "hwSecStatSvrMapTableThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSvrMap6TableCount": {
+    "name": "hwSecStatSvrMap6TableCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSvrMap6TableThreshold": {
+    "name": "hwSecStatSvrMap6TableThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatBLSItemCount": {
+    "name": "hwSecStatBLSItemCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatBLSItemThreshold": {
+    "name": "hwSecStatBLSItemThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSuddenChangeRatio": {
+    "name": "hwSecStatSuddenChangeRatio",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSuddenChangeRatioThreshold": {
+    "name": "hwSecStatSuddenChangeRatioThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSuddenChangeCurSess": {
+    "name": "hwSecStatSuddenChangeCurSess",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSuddenChangeLastSess": {
+    "name": "hwSecStatSuddenChangeLastSess",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatCreateLimitCpuUsage": {
+    "name": "hwSecStatCreateLimitCpuUsage",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatCreateLimitPassPacketNum": {
+    "name": "hwSecStatCreateLimitPassPacketNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatCreateLimitBlockPacketNum": {
+    "name": "hwSecStatCreateLimitBlockPacketNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatFragSessCount": {
+    "name": "hwSecStatFragSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatFragSessThreshold": {
+    "name": "hwSecStatFragSessThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatFrag6SessCount": {
+    "name": "hwSecStatFrag6SessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatFrag6SessThreshold": {
+    "name": "hwSecStatFrag6SessThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSecStatSessTraps": {
+    "name": "hwSecStatSessTraps",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.2",
+    "class": "objectidentity"
+  },
+  "hwSecStatSessOverThreshold": {
+    "name": "hwSecStatSessOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessTrapCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessTrapThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSessBelowThreshold": {
+    "name": "hwSecStatSessBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessTrapCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessTrapThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSessRateOverThreshold": {
+    "name": "hwSecStatSessRateOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessRateTrapCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessRateTrapThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSessRateBelowThreshold": {
+    "name": "hwSecStatSessRateBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessRateTrapCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessRateTrapThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatFastSessOverThreshold": {
+    "name": "hwSecStatFastSessOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessTrapCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessTrapThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatFastSessBelowThreshold": {
+    "name": "hwSecStatFastSessBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessTrapCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSessTrapThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatPerfTraps": {
+    "name": "hwSecStatPerfTraps",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.3",
+    "class": "objectidentity"
+  },
+  "hwSecStatPerfTrapCpuOverThreshold": {
+    "name": "hwSecStatPerfTrapCpuOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapBoardType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapVcpu"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapCpuUsage"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapCpuThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatPerfTrapCpuBelowThreshold": {
+    "name": "hwSecStatPerfTrapCpuBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapBoardType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapVcpu"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapCpuUsage"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapCpuThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatPerfTrapMemOverThreshold": {
+    "name": "hwSecStatPerfTrapMemOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapBoardType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapMemType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapMemUsage"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapMemThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatPerfTrapMemBelowThreshold": {
+    "name": "hwSecStatPerfTrapMemBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapBoardType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapMemType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapMemUsage"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapMemThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatPerfTrapOverCpuCarThreshold": {
+    "name": "hwSecStatPerfTrapOverCpuCarThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfTrapCpucarThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatPerfPerformanceCurSecond"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatDynamicRourceTraps": {
+    "name": "hwSecStatDynamicRourceTraps",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4",
+    "class": "objectidentity"
+  },
+  "hwSecStatSvrMapTrapOverThreshold": {
+    "name": "hwSecStatSvrMapTrapOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSvrMapTableCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSvrMapTableThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSvrMapTrapBelowThreshold": {
+    "name": "hwSecStatSvrMapTrapBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSvrMapTableCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSvrMapTableThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSvrMap6TrapOverThreshold": {
+    "name": "hwSecStatSvrMap6TrapOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSvrMap6TableCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSvrMap6TableThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSvrMap6TrapBelowThreshold": {
+    "name": "hwSecStatSvrMap6TrapBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSvrMap6TableCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSvrMap6TableThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatBLSTrapOverThreshold": {
+    "name": "hwSecStatBLSTrapOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatBLSItemCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatBLSItemThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatBLSTrapBelowThreshold": {
+    "name": "hwSecStatBLSTrapBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatBLSItemCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatBLSItemThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSuddenChangeTrapOverThreshold": {
+    "name": "hwSecStatSuddenChangeTrapOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSuddenChangeLastSess"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSuddenChangeCurSess"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSuddenChangeRatio"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSuddenChangeRatioThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSessionCreateLimitTrapOverThreshold": {
+    "name": "hwSecStatSessionCreateLimitTrapOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatCreateLimitCpuUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSessionCreateLimitTrapBelowThreshold": {
+    "name": "hwSecStatSessionCreateLimitTrapBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatCreateLimitCpuUsage"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatCreateLimitPassPacketNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatCreateLimitBlockPacketNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatFragSessOverThreshold": {
+    "name": "hwSecStatFragSessOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFragSessCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFragSessThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatFragSessBelowThreshold": {
+    "name": "hwSecStatFragSessBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFragSessCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFragSessThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatFrag6SessOverThreshold": {
+    "name": "hwSecStatFrag6SessOverThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFrag6SessCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFrag6SessThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatFrag6SessBelowThreshold": {
+    "name": "hwSecStatFrag6SessBelowThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.3.4.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapSlot"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatTrapCPU"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFrag6SessCount"
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatFrag6SessThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatAlgObjects": {
+    "name": "hwSecStatAlgObjects",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4",
+    "class": "objectidentity"
+  },
+  "hwSecStatAlgTable": {
+    "name": "hwSecStatAlgTable",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatAlgEntry": {
+    "name": "hwSecStatAlgEntry",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatAlgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatAlgIndex": {
+    "name": "hwSecStatAlgIndex",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatAlgFtpSessCount": {
+    "name": "hwSecStatAlgFtpSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgFtpSessSpeed": {
+    "name": "hwSecStatAlgFtpSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgRtspSessCount": {
+    "name": "hwSecStatAlgRtspSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgRtspSessSpeed": {
+    "name": "hwSecStatAlgRtspSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgDnsSessCount": {
+    "name": "hwSecStatAlgDnsSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgDnsSessSpeed": {
+    "name": "hwSecStatAlgDnsSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgSipSessCount": {
+    "name": "hwSecStatAlgSipSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgSipSessSpeed": {
+    "name": "hwSecStatAlgSipSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgH323SessCount": {
+    "name": "hwSecStatAlgH323SessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgH323SessSpeed": {
+    "name": "hwSecStatAlgH323SessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgPptpSessCount": {
+    "name": "hwSecStatAlgPptpSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgPptpSessSpeed": {
+    "name": "hwSecStatAlgPptpSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgMmsSessCount": {
+    "name": "hwSecStatAlgMmsSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgMmsSessSpeed": {
+    "name": "hwSecStatAlgMmsSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgRshSessCount": {
+    "name": "hwSecStatAlgRshSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgRshSessSpeed": {
+    "name": "hwSecStatAlgRshSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgSqlnetSessCount": {
+    "name": "hwSecStatAlgSqlnetSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgSqlnetSessSpeed": {
+    "name": "hwSecStatAlgSqlnetSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgQqSessCount": {
+    "name": "hwSecStatAlgQqSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgQqSessSpeed": {
+    "name": "hwSecStatAlgQqSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgMsnSessCount": {
+    "name": "hwSecStatAlgMsnSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgMsnSessSpeed": {
+    "name": "hwSecStatAlgMsnSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgIlsSessCount": {
+    "name": "hwSecStatAlgIlsSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgIlsSessSpeed": {
+    "name": "hwSecStatAlgIlsSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgMgcpSessCount": {
+    "name": "hwSecStatAlgMgcpSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgMgcpSessSpeed": {
+    "name": "hwSecStatAlgMgcpSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgSccpSessCount": {
+    "name": "hwSecStatAlgSccpSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgSccpSessSpeed": {
+    "name": "hwSecStatAlgSccpSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgNetbiosSessCount": {
+    "name": "hwSecStatAlgNetbiosSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatAlgNetbiosSessSpeed": {
+    "name": "hwSecStatAlgNetbiosSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatMibCfgObjects": {
+    "name": "hwSecStatMibCfgObjects",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5",
+    "class": "objectidentity"
+  },
+  "hwSecStatServermapTable": {
+    "name": "hwSecStatServermapTable",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatServermapEntry": {
+    "name": "hwSecStatServermapEntry",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatServermapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatServermapIndex": {
+    "name": "hwSecStatServermapIndex",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatServermapSlot": {
+    "name": "hwSecStatServermapSlot",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServermapCpu": {
+    "name": "hwSecStatServermapCpu",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServermapCurNum": {
+    "name": "hwSecStatServermapCurNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServermapMaxNum": {
+    "name": "hwSecStatServermapMaxNum",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityTable": {
+    "name": "hwSecStatServiceQualityTable",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityEntry": {
+    "name": "hwSecStatServiceQualityEntry",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatServiceQualityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatServiceQualityIndex": {
+    "name": "hwSecStatServiceQualityIndex",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityProtocol": {
+    "name": "hwSecStatServiceQualityProtocol",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityTime": {
+    "name": "hwSecStatServiceQualityTime",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityRcvPkt": {
+    "name": "hwSecStatServiceQualityRcvPkt",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityDropPkt": {
+    "name": "hwSecStatServiceQualityDropPkt",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityDropRate": {
+    "name": "hwSecStatServiceQualityDropRate",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityConnectRequset": {
+    "name": "hwSecStatServiceQualityConnectRequset",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityConnectSucc": {
+    "name": "hwSecStatServiceQualityConnectSucc",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualitySuccessRate": {
+    "name": "hwSecStatServiceQualitySuccessRate",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityDropFibMiss": {
+    "name": "hwSecStatServiceQualityDropFibMiss",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityDropArpMiss": {
+    "name": "hwSecStatServiceQualityDropArpMiss",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityDropSessExhaust": {
+    "name": "hwSecStatServiceQualityDropSessExhaust",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityDropPortConflict": {
+    "name": "hwSecStatServiceQualityDropPortConflict",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityDropPortExhaust": {
+    "name": "hwSecStatServiceQualityDropPortExhaust",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatServiceQualityDropAddrExhaust": {
+    "name": "hwSecStatServiceQualityDropAddrExhaust",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatDevice": {
+    "name": "hwSecStatDevice",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.6",
+    "class": "objectidentity"
+  },
+  "hwSecStatStartupTime": {
+    "name": "hwSecStatStartupTime",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatDeviceSessCount": {
+    "name": "hwSecStatDeviceSessCount",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatDeviceSessSpeed": {
+    "name": "hwSecStatDeviceSessSpeed",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatDeviceThroughput": {
+    "name": "hwSecStatDeviceThroughput",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatDeviceThroughput64": {
+    "name": "hwSecStatDeviceThroughput64",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatDeviceLoggedPackets": {
+    "name": "hwSecStatDeviceLoggedPackets",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatFwdFramework": {
+    "name": "hwSecStatFwdFramework",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.7",
+    "class": "objectidentity"
+  },
+  "hwSecStatFragFlow": {
+    "name": "hwSecStatFragFlow",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatFragRate": {
+    "name": "hwSecStatFragRate",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatPktRateObjects": {
+    "name": "hwSecStatPktRateObjects",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8",
+    "class": "objectidentity"
+  },
+  "hwSecStatSecPolicyRateTable": {
+    "name": "hwSecStatSecPolicyRateTable",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatSecPolicyRateEntry": {
+    "name": "hwSecStatSecPolicyRateEntry",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSecHittedVsysName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-SECURITY-STAT-MIB",
+        "object": "hwSecStatSecHittedRuleName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatSecHittedVsysName": {
+    "name": "hwSecStatSecHittedVsysName",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSecHittedRuleName": {
+    "name": "hwSecStatSecHittedRuleName",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSecHittedInPackets": {
+    "name": "hwSecStatSecHittedInPackets",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSecHittedInBytes": {
+    "name": "hwSecStatSecHittedInBytes",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSecHittedOutPackets": {
+    "name": "hwSecStatSecHittedOutPackets",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatSecHittedOutBytes": {
+    "name": "hwSecStatSecHittedOutBytes",
+    "oid": "1.3.6.1.4.1.2011.6.122.15.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SECURITY-STAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-SECURITY-STAT-MIB"
+  }
+}

@@ -1,0 +1,1781 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
+      "timetraModules"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "timetraTCMIBModule": {
+    "name": "timetraTCMIBModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1908-01-01 00:00",
+        "description": "Rev 6.0 01 Jan 2008 00:00 6.0 release of the TIMETRA-TC-MIB."
+      },
+      {
+        "revision": "1907-01-01 00:00",
+        "description": "Rev 5.0 01 Jan 2007 00:00 5.0 release of the TIMETRA-TC-MIB."
+      },
+      {
+        "revision": "1906-03-23 00:00",
+        "description": "Rev 4.0 23 Mar 2006 00:00 4.0 release of the TIMETRA-TC-MIB."
+      },
+      {
+        "revision": "1905-08-31 00:00",
+        "description": "Rev 3.0 31 Aug 2005 00:00 3.0 release of the TIMETRA-TC-MIB."
+      },
+      {
+        "revision": "1905-01-24 00:00",
+        "description": "Rev 2.1 24 Jan 2005 00:00 2.1 release of the TIMETRA-TC-MIB."
+      },
+      {
+        "revision": "1904-01-15 00:00",
+        "description": "Rev 2.0 15 Jan 2004 00:00 2.0 release of the TIMETRA-TC-MIB."
+      },
+      {
+        "revision": "1903-08-15 00:00",
+        "description": "Rev 1.2 15 Aug 2003 00:00 1.2 release of the TIMETRA-TC-MIB."
+      },
+      {
+        "revision": "1903-01-20 00:00",
+        "description": "Rev 1.0 20 Jan 2003 00:00 1.0 Release of the TIMETRA-TC-MIB."
+      },
+      {
+        "revision": "1901-05-29 00:00",
+        "description": "Rev 0.1 14 Aug 2000 00:00 First version of the TIMETRA-TC-MIB."
+      }
+    ]
+  },
+  "InterfaceIndex": {
+    "name": "InterfaceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TmnxPortID": {
+    "name": "TmnxPortID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TmnxEncapVal": {
+    "name": "TmnxEncapVal",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "QTag": {
+    "name": "QTag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "QTagOrZero": {
+    "name": "QTagOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxStrSapId": {
+    "name": "TmnxStrSapId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "IpAddressPrefixLength": {
+    "name": "IpAddressPrefixLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxActionType": {
+    "name": "TmnxActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doAction": 1,
+          "notApplicable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxAdminState": {
+    "name": "TmnxAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "inService": 2,
+          "outOfService": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxOperState": {
+    "name": "TmnxOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inService": 2,
+          "outOfService": 3,
+          "transition": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxStatus": {
+    "name": "TmnxStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxEnabledDisabled": {
+    "name": "TmnxEnabledDisabled",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNamedItem": {
+    "name": "TNamedItem",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TNamedItemOrEmpty": {
+    "name": "TNamedItemOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TItemDescription": {
+    "name": "TItemDescription",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TItemLongDescription": {
+    "name": "TItemLongDescription",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxVRtrID": {
+    "name": "TmnxVRtrID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxVRtrIDOrZero": {
+    "name": "TmnxVRtrIDOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxBgpAutonomousSystem": {
+    "name": "TmnxBgpAutonomousSystem",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxBgpLocalPreference": {
+    "name": "TmnxBgpLocalPreference",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TmnxBgpPreference": {
+    "name": "TmnxBgpPreference",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxCustId": {
+    "name": "TmnxCustId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxServId": {
+    "name": "TmnxServId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ServiceAdminStatus": {
+    "name": "ServiceAdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ServiceOperStatus": {
+    "name": "ServiceOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TPolicyID": {
+    "name": "TPolicyID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TSapIngressPolicyID": {
+    "name": "TSapIngressPolicyID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TSapEgressPolicyID": {
+    "name": "TSapEgressPolicyID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TPolicyStatementNameOrEmpty": {
+    "name": "TPolicyStatementNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxVcType": {
+    "name": "TmnxVcType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frDlciMartini": 1,
+          "atmSdu": 2,
+          "atmCell": 3,
+          "ethernetVlan": 4,
+          "ethernet": 5,
+          "atmVccCell": 9,
+          "atmVpcCell": 10,
+          "ipipe": 11,
+          "satopE1": 17,
+          "satopT1": 18,
+          "satopE3": 19,
+          "satopT3": 20,
+          "cesopsn": 21,
+          "cesopsnCas": 23,
+          "frDlci": 25,
+          "mirrorDest": 4096
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxVcId": {
+    "name": "TmnxVcId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxVcIdOrNone": {
+    "name": "TmnxVcIdOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Dot1PPriority": {
+    "name": "Dot1PPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ServiceAccessPoint": {
+    "name": "ServiceAccessPoint",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TLspExpValue": {
+    "name": "TLspExpValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TIpProtocol": {
+    "name": "TIpProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2,
+            "max": -2
+          },
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TIpOption": {
+    "name": "TIpOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TTcpUdpPort": {
+    "name": "TTcpUdpPort",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TTcpUdpPortOperator": {
+    "name": "TTcpUdpPortOperator",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "eq": 1,
+          "range": 2,
+          "lt": 3,
+          "gt": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TFrameType": {
+    "name": "TFrameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e802dot3": 0,
+          "e802dot2LLC": 1,
+          "e802dot2SNAP": 2,
+          "ethernetII": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TQueueId": {
+    "name": "TQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TIngressQueueId": {
+    "name": "TIngressQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TEgressQueueId": {
+    "name": "TEgressQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TDSCPName": {
+    "name": "TDSCPName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TDSCPNameOrEmpty": {
+    "name": "TDSCPNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TDSCPValue": {
+    "name": "TDSCPValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TDSCPValueOrNone": {
+    "name": "TDSCPValueOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TDSCPFilterActionValue": {
+    "name": "TDSCPFilterActionValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TFCName": {
+    "name": "TFCName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TFCNameOrEmpty": {
+    "name": "TFCNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TFCSet": {
+    "name": "TFCSet",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "be": 0,
+        "l2": 1,
+        "af": 2,
+        "l1": 3,
+        "h2": 4,
+        "ef": 5,
+        "h1": 6,
+        "nc": 7
+      }
+    },
+    "status": "current"
+  },
+  "TFCType": {
+    "name": "TFCType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "be": 0,
+          "l2": 1,
+          "af": 2,
+          "l1": 3,
+          "h2": 4,
+          "ef": 5,
+          "h1": 6,
+          "nc": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxTunnelType": {
+    "name": "TmnxTunnelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdp": 1,
+          "ldp": 2,
+          "rsvp": 3,
+          "gre": 4,
+          "bypass": 5,
+          "invalid": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxTunnelID": {
+    "name": "TmnxTunnelID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TmnxBgpRouteTarget": {
+    "name": "TmnxBgpRouteTarget",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxVPNRouteDistinguisher": {
+    "name": "TmnxVPNRouteDistinguisher",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SdpBindId": {
+    "name": "SdpBindId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxVRtrMplsLspID": {
+    "name": "TmnxVRtrMplsLspID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TPortSchedulerPIR": {
+    "name": "TPortSchedulerPIR",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 40000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TPortSchedulerCIR": {
+    "name": "TPortSchedulerCIR",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 40000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TWeight": {
+    "name": "TWeight",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TCIRRate": {
+    "name": "TCIRRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TPIRRate": {
+    "name": "TPIRRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TSecondaryShaper10GPIRRate": {
+    "name": "TSecondaryShaper10GPIRRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TPIRRateOverride": {
+    "name": "TPIRRateOverride",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2,
+            "max": -2
+          },
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TPIRRateOrZero": {
+    "name": "TPIRRateOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxDHCP6MsgType": {
+    "name": "TmnxDHCP6MsgType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcp6MsgTypeSolicit": 1,
+          "dhcp6MsgTypeAdvertise": 2,
+          "dhcp6MsgTypeRequest": 3,
+          "dhcp6MsgTypeConfirm": 4,
+          "dhcp6MsgTypeRenew": 5,
+          "dhcp6MsgTypeRebind": 6,
+          "dhcp6MsgTypeReply": 7,
+          "dhcp6MsgTypeRelease": 8,
+          "dhcp6MsgTypeDecline": 9,
+          "dhcp6MsgTypeReconfigure": 10,
+          "dhcp6MsgTypeInfoRequest": 11,
+          "dhcp6MsgTypeRelayForw": 12,
+          "dhcp6MsgTypeRelayReply": 13,
+          "dhcp6MsgTypeMaxValue": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxOspfInstance": {
+    "name": "TmnxOspfInstance",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxBGPFamilyType": {
+    "name": "TmnxBGPFamilyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipv4Unicast": 0,
+        "ipv4Multicast": 1,
+        "ipv4UastMcast": 2,
+        "ipv4MplsLabel": 3,
+        "ipv4Vpn": 4,
+        "ipv6Unicast": 5,
+        "ipv6Multicast": 6,
+        "ipv6UcastMcast": 7,
+        "ipv6MplsLabel": 8,
+        "ipv6Vpn": 9
+      }
+    },
+    "status": "current"
+  },
+  "TmnxIgmpGroupFilterMode": {
+    "name": "TmnxIgmpGroupFilterMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxIgmpGroupType": {
+    "name": "TmnxIgmpGroupType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxIgmpVersion": {
+    "name": "TmnxIgmpVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2,
+          "version3": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMldGroupFilterMode": {
+    "name": "TmnxMldGroupFilterMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMldGroupType": {
+    "name": "TmnxMldGroupType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMldVersion": {
+    "name": "TmnxMldVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxManagedRouteStatus": {
+    "name": "TmnxManagedRouteStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "installed": 0,
+          "notYetInstalled": 1,
+          "wrongAntiSpoofType": 2,
+          "outOfMemory": 3,
+          "shadowed": 4,
+          "routeTableFull": 5,
+          "parentInterfaceDown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxAncpString": {
+    "name": "TmnxAncpString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxAncpStringOrZero": {
+    "name": "TmnxAncpStringOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxMulticastAddrFamily": {
+    "name": "TmnxMulticastAddrFamily",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4Multicast": 0,
+          "ipv6Multicast": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxSubIdentString": {
+    "name": "TmnxSubIdentString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxSubIdentStringOrEmpty": {
+    "name": "TmnxSubIdentStringOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxSubProfileString": {
+    "name": "TmnxSubProfileString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxSubProfileStringOrEmpty": {
+    "name": "TmnxSubProfileStringOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxSlaProfileString": {
+    "name": "TmnxSlaProfileString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxSlaProfileStringOrEmpty": {
+    "name": "TmnxSlaProfileStringOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxAppProfileString": {
+    "name": "TmnxAppProfileString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxAppProfileStringOrEmpty": {
+    "name": "TmnxAppProfileStringOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxSubMgtIntDestIdOrEmpty": {
+    "name": "TmnxSubMgtIntDestIdOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxSubMgtIntDestId": {
+    "name": "TmnxSubMgtIntDestId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TmnxDhcpOptionType": {
+    "name": "TmnxDhcpOptionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ascii": 2,
+          "hex": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxDhcpVendorOption": {
+    "name": "TmnxDhcpVendorOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "systemId": 0,
+        "clientMac": 1,
+        "serviceId": 2,
+        "sapId": 3
+      }
+    },
+    "status": "current"
+  },
+  "TmnxPppoeUserNameOrEmpty": {
+    "name": "TmnxPppoeUserNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "TCpmProtPolicyID": {
+    "name": "TCpmProtPolicyID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TMlpppQoSProfileId": {
+    "name": "TMlpppQoSProfileId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-TIMETRA-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-TIMETRA-TC-MIB"
+  }
+}

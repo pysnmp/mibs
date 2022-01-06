@@ -1,0 +1,3689 @@
+{
+  "imports": {
+    "class": "imports",
+    "LIEBERT-GP-REGISTRATION-MIB": [
+      "liebertEnvironmentalModuleReg",
+      "lgpEnvironmental"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "liebertGlobalProductsEnvironmentalModule": {
+    "name": "liebertGlobalProductsEnvironmentalModule",
+    "oid": "1.3.6.1.4.1.476.1.42.1.5.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-17 00:00",
+        "description": "Added support for NXL unit."
+      },
+      {
+        "revision": "2008-07-02 00:00",
+        "description": "SMIv2 changes (INTEGER to Integer32. Corrected spelling errors."
+      },
+      {
+        "revision": "2008-01-10 00:00",
+        "description": "Modified contact email address."
+      },
+      {
+        "revision": "2007-05-29 00:00",
+        "description": "Added support for XDF Unit."
+      },
+      {
+        "revision": "2006-08-15 00:00",
+        "description": "Added support for HP release."
+      },
+      {
+        "revision": "2006-02-22 00:00",
+        "description": "Added support for Liebert DS Unit."
+      }
+    ]
+  },
+  "lgpEnvTemperature": {
+    "name": "lgpEnvTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHumidity": {
+    "name": "lgpEnvHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvState": {
+    "name": "lgpEnvState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvConfig": {
+    "name": "lgpEnvConfig",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvControl": {
+    "name": "lgpEnvControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvStatistics": {
+    "name": "lgpEnvStatistics",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvPoints": {
+    "name": "lgpEnvPoints",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvUnits": {
+    "name": "lgpEnvUnits",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensors": {
+    "name": "lgpEnvRemoteSensors",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvTemperatureWellKnown": {
+    "name": "lgpEnvTemperatureWellKnown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvTemperatureFahrenheit": {
+    "name": "lgpEnvTemperatureFahrenheit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvTemperatureCelsius": {
+    "name": "lgpEnvTemperatureCelsius",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvTemperatureControlMode": {
+    "name": "lgpEnvTemperatureControlMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityWellKnown": {
+    "name": "lgpEnvHumidityWellKnown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHumidityRelative": {
+    "name": "lgpEnvHumidityRelative",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvStateSystem": {
+    "name": "lgpEnvStateSystem",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateCooling": {
+    "name": "lgpEnvStateCooling",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHeating": {
+    "name": "lgpEnvStateHeating",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHumidifying": {
+    "name": "lgpEnvStateHumidifying",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateDehumidifying": {
+    "name": "lgpEnvStateDehumidifying",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateEconoCycle": {
+    "name": "lgpEnvStateEconoCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateFan": {
+    "name": "lgpEnvStateFan",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateGeneralAlarmOutput": {
+    "name": "lgpEnvStateGeneralAlarmOutput",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateCoolingCapacity": {
+    "name": "lgpEnvStateCoolingCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHeatingCapacity": {
+    "name": "lgpEnvStateHeatingCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateAudibleAlarm": {
+    "name": "lgpEnvStateAudibleAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateCoolingUnits": {
+    "name": "lgpEnvStateCoolingUnits",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvStateCoolingUnit1": {
+    "name": "lgpEnvStateCoolingUnit1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateCoolingUnit2": {
+    "name": "lgpEnvStateCoolingUnit2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateCoolingUnit3": {
+    "name": "lgpEnvStateCoolingUnit3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateCoolingUnit4": {
+    "name": "lgpEnvStateCoolingUnit4",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHeatingUnits": {
+    "name": "lgpEnvStateHeatingUnits",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvStateHeatingUnit1": {
+    "name": "lgpEnvStateHeatingUnit1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHeatingUnit2": {
+    "name": "lgpEnvStateHeatingUnit2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHeatingUnit3": {
+    "name": "lgpEnvStateHeatingUnit3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHeatingUnit4": {
+    "name": "lgpEnvStateHeatingUnit4",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateOperatingReason": {
+    "name": "lgpEnvStateOperatingReason",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "localUser": 2,
+          "alarm": 3,
+          "schedule": 4,
+          "remoteUser": 5,
+          "externalDevice": 6,
+          "localDisplay": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateOperatingMode": {
+    "name": "lgpEnvStateOperatingMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateFanCapacity": {
+    "name": "lgpEnvStateFanCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateFreeCoolingCapacity": {
+    "name": "lgpEnvStateFreeCoolingCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateDehumidifyingCapacity": {
+    "name": "lgpEnvStateDehumidifyingCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHumidifyingCapacity": {
+    "name": "lgpEnvStateHumidifyingCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateFreeCooling": {
+    "name": "lgpEnvStateFreeCooling",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "start": 3,
+          "unavailable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateElectricHeater": {
+    "name": "lgpEnvStateElectricHeater",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateHotWater": {
+    "name": "lgpEnvStateHotWater",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStateOperatingEfficiency": {
+    "name": "lgpEnvStateOperatingEfficiency",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvComponentStateTable": {
+    "name": "lgpEnvComponentStateTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.50",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvComponentStateEntry": {
+    "name": "lgpEnvComponentStateEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.50.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvComponentStateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvComponentStateIndex": {
+    "name": "lgpEnvComponentStateIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.50.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvComponentStateDescr": {
+    "name": "lgpEnvComponentStateDescr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.50.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvComponentState": {
+    "name": "lgpEnvComponentState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.50.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvValveTable": {
+    "name": "lgpEnvValveTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.70",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvValveEntry": {
+    "name": "lgpEnvValveEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.70.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvValveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvValveIndex": {
+    "name": "lgpEnvValveIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.70.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvValveDescr": {
+    "name": "lgpEnvValveDescr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.70.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvValveState": {
+    "name": "lgpEnvValveState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.70.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "open": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvValvePositionTenths": {
+    "name": "lgpEnvValvePositionTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.3.70.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".1 percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvConfigReheatLockout": {
+    "name": "lgpEnvConfigReheatLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lockedOut": 1,
+          "notLockedOut": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigHumLockout": {
+    "name": "lgpEnvConfigHumLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lockedOut": 1,
+          "notLockedOut": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigRestartDelay": {
+    "name": "lgpEnvConfigRestartDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigRemoteShutdown": {
+    "name": "lgpEnvConfigRemoteShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigCoolingServiceInterval": {
+    "name": "lgpEnvConfigCoolingServiceInterval",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigHumidifierServiceInterval": {
+    "name": "lgpEnvConfigHumidifierServiceInterval",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigFilterServiceInterval": {
+    "name": "lgpEnvConfigFilterServiceInterval",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSleepModeDeadbandRangeDegC": {
+    "name": "lgpEnvConfigSleepModeDeadbandRangeDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSleepModeDeadbandRangeDegF": {
+    "name": "lgpEnvConfigSleepModeDeadbandRangeDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSupplyTempLowLimitDegF": {
+    "name": "lgpEnvConfigSupplyTempLowLimitDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSupplyTempLowLimitDegC": {
+    "name": "lgpEnvConfigSupplyTempLowLimitDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigTemperatureIntegTime": {
+    "name": "lgpEnvConfigTemperatureIntegTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigLocalTemperatureUnit": {
+    "name": "lgpEnvConfigLocalTemperatureUnit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "degC": 1,
+          "degF": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSleepMode": {
+    "name": "lgpEnvConfigSleepMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigHumidityIntegTime": {
+    "name": "lgpEnvConfigHumidityIntegTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigFreecoolingDeltaDegF": {
+    "name": "lgpEnvConfigFreecoolingDeltaDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigFreecoolingDeltaDegC": {
+    "name": "lgpEnvConfigFreecoolingDeltaDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSupplyTempLowLimit": {
+    "name": "lgpEnvConfigSupplyTempLowLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSensorEventsStandard": {
+    "name": "lgpEnvConfigSensorEventsStandard",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSensorEvents1": {
+    "name": "lgpEnvConfigSensorEvents1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigSleepModeDeadbandRange": {
+    "name": "lgpEnvConfigSleepModeDeadbandRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigAutoConfiguration": {
+    "name": "lgpEnvConfigAutoConfiguration",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigDeltaGlycolType": {
+    "name": "lgpEnvConfigDeltaGlycolType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "contact": 2,
+          "value": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigChillWaterControl": {
+    "name": "lgpEnvConfigChillWaterControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigInfaredFlushRate": {
+    "name": "lgpEnvConfigInfaredFlushRate",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigHumidityControl": {
+    "name": "lgpEnvConfigHumidityControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "relative": 1,
+          "compensated": 2,
+          "predictive": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigCompressorLockout": {
+    "name": "lgpEnvConfigCompressorLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lockedOut": 1,
+          "notLockedOut": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigReheatAndHumidifierLockout": {
+    "name": "lgpEnvConfigReheatAndHumidifierLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lockedOut": 1,
+          "notLockedOut": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvOperationalTimeTable": {
+    "name": "lgpEnvOperationalTimeTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvOperationalTimeEntry": {
+    "name": "lgpEnvOperationalTimeEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvOperationTimeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvOperationTimeIndex": {
+    "name": "lgpEnvOperationTimeIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvOperationTimePoint": {
+    "name": "lgpEnvOperationTimePoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvOperationTimeSubID": {
+    "name": "lgpEnvOperationTimeSubID",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvOperationTimeUnit": {
+    "name": "lgpEnvOperationTimeUnit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvOperationTimeValue": {
+    "name": "lgpEnvOperationTimeValue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.32.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvOperationTimeHighWarning": {
+    "name": "lgpEnvOperationTimeHighWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.32.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigTempControlAlgorithm": {
+    "name": "lgpEnvConfigTempControlAlgorithm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pi": 1,
+          "pid": 2,
+          "intelligent": 3,
+          "proportional": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigFanSpeedMode": {
+    "name": "lgpEnvConfigFanSpeedMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigFanSpeedCapacity": {
+    "name": "lgpEnvConfigFanSpeedCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigBmsResetTimer": {
+    "name": "lgpEnvConfigBmsResetTimer",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigDisableSensorOffsetDegC": {
+    "name": "lgpEnvConfigDisableSensorOffsetDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigDisableSensorOffsetDegF": {
+    "name": "lgpEnvConfigDisableSensorOffsetDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigCabinetSensorAlarms": {
+    "name": "lgpEnvConfigCabinetSensorAlarms",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigAirTemperatureControlSensor": {
+    "name": "lgpEnvConfigAirTemperatureControlSensor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supply": 1,
+          "remote": 2,
+          "return": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigFanSpeedControlSensor": {
+    "name": "lgpEnvConfigFanSpeedControlSensor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supply": 1,
+          "remote": 2,
+          "return": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigMinFanSpeed": {
+    "name": "lgpEnvConfigMinFanSpeed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigMaxFanSpeed": {
+    "name": "lgpEnvConfigMaxFanSpeed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigFanSpeedPropBandDegC": {
+    "name": "lgpEnvConfigFanSpeedPropBandDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvConfigFanSpeedPropBandDegF": {
+    "name": "lgpEnvConfigFanSpeedPropBandDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.4.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvControlShutdownAfterDelay": {
+    "name": "lgpEnvControlShutdownAfterDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvControlStartupAfterDelay": {
+    "name": "lgpEnvControlStartupAfterDelay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvSleepIntervalTimeTable": {
+    "name": "lgpEnvSleepIntervalTimeTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvSleepIntervalTimeEntry": {
+    "name": "lgpEnvSleepIntervalTimeEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvSleepTimeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvSleepTimeIndex": {
+    "name": "lgpEnvSleepTimeIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvSleepTimeSubID": {
+    "name": "lgpEnvSleepTimeSubID",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvSleepTimeStartHour": {
+    "name": "lgpEnvSleepTimeStartHour",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvSleepTimeStartMinute": {
+    "name": "lgpEnvSleepTimeStartMinute",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvSleepTimeStopHour": {
+    "name": "lgpEnvSleepTimeStopHour",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvSleepTimeStopMinute": {
+    "name": "lgpEnvSleepTimeStopMinute",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvSleepDayTable": {
+    "name": "lgpEnvSleepDayTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvSleepDayEntry": {
+    "name": "lgpEnvSleepDayEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvSleepDayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvSleepDayIndex": {
+    "name": "lgpEnvSleepDayIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvSleepDay": {
+    "name": "lgpEnvSleepDay",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saturday": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvSleepAllDayEnabled": {
+    "name": "lgpEnvSleepAllDayEnabled",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvStatisticsComp1RunHr": {
+    "name": "lgpEnvStatisticsComp1RunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsComp2RunHr": {
+    "name": "lgpEnvStatisticsComp2RunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsFanRunHr": {
+    "name": "lgpEnvStatisticsFanRunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsHumRunHr": {
+    "name": "lgpEnvStatisticsHumRunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsReheat1RunHr": {
+    "name": "lgpEnvStatisticsReheat1RunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsReheat2RunHr": {
+    "name": "lgpEnvStatisticsReheat2RunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsReheat3RunHr": {
+    "name": "lgpEnvStatisticsReheat3RunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsCoolingModeHrs": {
+    "name": "lgpEnvStatisticsCoolingModeHrs",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsHeatingModeHrs": {
+    "name": "lgpEnvStatisticsHeatingModeHrs",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsHumidifyModeHrs": {
+    "name": "lgpEnvStatisticsHumidifyModeHrs",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsDehumidifyModeHrs": {
+    "name": "lgpEnvStatisticsDehumidifyModeHrs",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsHotGasRunHr": {
+    "name": "lgpEnvStatisticsHotGasRunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsHotWaterRunHr": {
+    "name": "lgpEnvStatisticsHotWaterRunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsFreeCoolRunHr": {
+    "name": "lgpEnvStatisticsFreeCoolRunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsComp3RunHr": {
+    "name": "lgpEnvStatisticsComp3RunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvStatisticsComp4RunHr": {
+    "name": "lgpEnvStatisticsComp4RunHr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvWellKnownPoints": {
+    "name": "lgpEnvWellKnownPoints",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvFanPoint": {
+    "name": "lgpEnvFanPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvCompressorPoint": {
+    "name": "lgpEnvCompressorPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvElectricHeaterPoint": {
+    "name": "lgpEnvElectricHeaterPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvChilledWaterPoint": {
+    "name": "lgpEnvChilledWaterPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHumidifierPoint": {
+    "name": "lgpEnvHumidifierPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvDehumidifierPoint": {
+    "name": "lgpEnvDehumidifierPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvFreeCoolingPoint": {
+    "name": "lgpEnvFreeCoolingPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHotWaterPoint": {
+    "name": "lgpEnvHotWaterPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHotGasPoint": {
+    "name": "lgpEnvHotGasPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvBatteryCabinetPoint": {
+    "name": "lgpEnvBatteryCabinetPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvPumpPoints": {
+    "name": "lgpEnvPumpPoints",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvPump1Point": {
+    "name": "lgpEnvPump1Point",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.11.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvPump2Point": {
+    "name": "lgpEnvPump2Point",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.11.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvCompressorPoints": {
+    "name": "lgpEnvCompressorPoints",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvCompressor1Point": {
+    "name": "lgpEnvCompressor1Point",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.12.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvCompressor1APoint": {
+    "name": "lgpEnvCompressor1APoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.12.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvCompressor1BPoint": {
+    "name": "lgpEnvCompressor1BPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.12.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvCompressor2Point": {
+    "name": "lgpEnvCompressor2Point",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.12.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvCompressor2APoint": {
+    "name": "lgpEnvCompressor2APoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.12.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvCompressor2BPoint": {
+    "name": "lgpEnvCompressor2BPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.12.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvValvePoints": {
+    "name": "lgpEnvValvePoints",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHotGasValve1Point": {
+    "name": "lgpEnvHotGasValve1Point",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.13.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHotGasValve2Point": {
+    "name": "lgpEnvHotGasValve2Point",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.13.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorStatisticPoints": {
+    "name": "lgpEnvRemoteSensorStatisticPoints",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorMinimumPoint": {
+    "name": "lgpEnvRemoteSensorMinimumPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.14.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorMaximumPoint": {
+    "name": "lgpEnvRemoteSensorMaximumPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.14.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorAveragePoint": {
+    "name": "lgpEnvRemoteSensorAveragePoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.7.1.14.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvWellKnownUnits": {
+    "name": "lgpEnvWellKnownUnits",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHours": {
+    "name": "lgpEnvHours",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.8.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvControlTemperature": {
+    "name": "lgpEnvControlTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvReturnAirTemperature": {
+    "name": "lgpEnvReturnAirTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvSupplyAirTemperature": {
+    "name": "lgpEnvSupplyAirTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpAmbientTemperature": {
+    "name": "lgpAmbientTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpInverterTemperature": {
+    "name": "lgpInverterTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpBatteryTempterature": {
+    "name": "lgpBatteryTempterature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpAcDcConverterTemperature": {
+    "name": "lgpAcDcConverterTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpPfcTemperature": {
+    "name": "lgpPfcTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpTransformerTemperature": {
+    "name": "lgpTransformerTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpLocalTemperature": {
+    "name": "lgpLocalTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpLocal1Temperature": {
+    "name": "lgpLocal1Temperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpLocal2Temperature": {
+    "name": "lgpLocal2Temperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpLocal3Temperature": {
+    "name": "lgpLocal3Temperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpDigitalScrollCompressorTemperature": {
+    "name": "lgpDigitalScrollCompressorTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpDigitalScrollCompressor1Temperature": {
+    "name": "lgpDigitalScrollCompressor1Temperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.11.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpDigitalScrollCompressor2Temperature": {
+    "name": "lgpDigitalScrollCompressor2Temperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.11.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpChillWaterTemperature": {
+    "name": "lgpChillWaterTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCoolantTemperature": {
+    "name": "lgpCoolantTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvEnclosureTemperatureSensors": {
+    "name": "lgpEnvEnclosureTemperatureSensors",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvEnclosureTemperatureSensor1": {
+    "name": "lgpEnvEnclosureTemperatureSensor1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.14.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvEnclosureTemperatureSensor2": {
+    "name": "lgpEnvEnclosureTemperatureSensor2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.14.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvEnclosureTemperatureSensor3": {
+    "name": "lgpEnvEnclosureTemperatureSensor3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.14.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvEnclosureTemperatureSensor4": {
+    "name": "lgpEnvEnclosureTemperatureSensor4",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.14.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvValueAmbientRoomTemperature": {
+    "name": "lgpEnvValueAmbientRoomTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvDewPointTemperature": {
+    "name": "lgpEnvDewPointTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvEnclosureTemperature": {
+    "name": "lgpEnvEnclosureTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvAdjustedTemperature": {
+    "name": "lgpEnvAdjustedTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvExternalSensors": {
+    "name": "lgpEnvExternalSensors",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvExternalAirSensorA": {
+    "name": "lgpEnvExternalAirSensorA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.19.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvExternalAirSensorADewPoint": {
+    "name": "lgpEnvExternalAirSensorADewPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.19.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvExternalAirSensorB": {
+    "name": "lgpEnvExternalAirSensorB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.19.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvExternalAirSensorBDewPoint": {
+    "name": "lgpEnvExternalAirSensorBDewPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.19.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvSupplyFluidTemperature": {
+    "name": "lgpEnvSupplyFluidTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvSupplyRefrigerantTemperature": {
+    "name": "lgpEnvSupplyRefrigerantTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvMinDesiredRoomAirTemperature": {
+    "name": "lgpEnvMinDesiredRoomAirTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvDewPointTemperatures": {
+    "name": "lgpEnvDewPointTemperatures",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvInletDewPointTemperature": {
+    "name": "lgpEnvInletDewPointTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.1.23.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvTemperatureSettingDegF": {
+    "name": "lgpEnvTemperatureSettingDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureToleranceDegF": {
+    "name": "lgpEnvTemperatureToleranceDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureTableDegF": {
+    "name": "lgpEnvTemperatureTableDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDeadbandRangeDegF": {
+    "name": "lgpEnvTemperatureDeadbandRangeDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureEntryDegF": {
+    "name": "lgpEnvTemperatureEntryDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvTemperatureIdDegF",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvTemperatureIdDegF": {
+    "name": "lgpEnvTemperatureIdDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDescrDegF": {
+    "name": "lgpEnvTemperatureDescrDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureMeasurementDegF": {
+    "name": "lgpEnvTemperatureMeasurementDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureHighThresholdDegF": {
+    "name": "lgpEnvTemperatureHighThresholdDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureLowThresholdDegF": {
+    "name": "lgpEnvTemperatureLowThresholdDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureSetPointDegF": {
+    "name": "lgpEnvTemperatureSetPointDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDailyHighDegF": {
+    "name": "lgpEnvTemperatureDailyHighDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDailyLowDegF": {
+    "name": "lgpEnvTemperatureDailyLowDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyHighTimeHourDegF": {
+    "name": "lgpEnvTempDailyHighTimeHourDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyHighTimeMinuteDegF": {
+    "name": "lgpEnvTempDailyHighTimeMinuteDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyHighTimeSecondDegF": {
+    "name": "lgpEnvTempDailyHighTimeSecondDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyLowTimeHourDegF": {
+    "name": "lgpEnvTempDailyLowTimeHourDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyLowTimeMinuteDegF": {
+    "name": "lgpEnvTempDailyLowTimeMinuteDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyLowTimeSecondDegF": {
+    "name": "lgpEnvTempDailyLowTimeSecondDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureMeasurementTenthsDegF": {
+    "name": "lgpEnvTemperatureMeasurementTenthsDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureHighThresholdTenthsDegF": {
+    "name": "lgpEnvTemperatureHighThresholdTenthsDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureLowThresholdTenthsDegF": {
+    "name": "lgpEnvTemperatureLowThresholdTenthsDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureSetPointTenthsDegF": {
+    "name": "lgpEnvTemperatureSetPointTenthsDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDeadBandTenthsDegF": {
+    "name": "lgpEnvTemperatureDeadBandTenthsDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTempHeatingPropBandTenthsDegF": {
+    "name": "lgpEnvTempHeatingPropBandTenthsDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTempCoolingPropBandTenthsDegF": {
+    "name": "lgpEnvTempCoolingPropBandTenthsDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureSettingDegC": {
+    "name": "lgpEnvTemperatureSettingDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureToleranceDegC": {
+    "name": "lgpEnvTemperatureToleranceDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureTableDegC": {
+    "name": "lgpEnvTemperatureTableDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDeadbandRangeDegC": {
+    "name": "lgpEnvTemperatureDeadbandRangeDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureEntryDegC": {
+    "name": "lgpEnvTemperatureEntryDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvTemperatureIdDegC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvTemperatureIdDegC": {
+    "name": "lgpEnvTemperatureIdDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDescrDegC": {
+    "name": "lgpEnvTemperatureDescrDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureMeasurementDegC": {
+    "name": "lgpEnvTemperatureMeasurementDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureHighThresholdDegC": {
+    "name": "lgpEnvTemperatureHighThresholdDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureLowThresholdDegC": {
+    "name": "lgpEnvTemperatureLowThresholdDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureSetPointDegC": {
+    "name": "lgpEnvTemperatureSetPointDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDailyHighDegC": {
+    "name": "lgpEnvTemperatureDailyHighDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDailyLowDegC": {
+    "name": "lgpEnvTemperatureDailyLowDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyHighTimeHourDegC": {
+    "name": "lgpEnvTempDailyHighTimeHourDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyHighTimeMinuteDegC": {
+    "name": "lgpEnvTempDailyHighTimeMinuteDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyHighTimeSecondDegC": {
+    "name": "lgpEnvTempDailyHighTimeSecondDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyLowTimeHourDegC": {
+    "name": "lgpEnvTempDailyLowTimeHourDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyLowTimeMinuteDegC": {
+    "name": "lgpEnvTempDailyLowTimeMinuteDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTempDailyLowTimeSecondDegC": {
+    "name": "lgpEnvTempDailyLowTimeSecondDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureMeasurementTenthsDegC": {
+    "name": "lgpEnvTemperatureMeasurementTenthsDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvTemperatureHighThresholdTenthsDegC": {
+    "name": "lgpEnvTemperatureHighThresholdTenthsDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureLowThresholdTenthsDegC": {
+    "name": "lgpEnvTemperatureLowThresholdTenthsDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureSetPointTenthsDegC": {
+    "name": "lgpEnvTemperatureSetPointTenthsDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTemperatureDeadBandTenthsDegC": {
+    "name": "lgpEnvTemperatureDeadBandTenthsDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTempHeatingPropBandTenthsDegC": {
+    "name": "lgpEnvTempHeatingPropBandTenthsDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvTempCoolingPropBandTenthsDegC": {
+    "name": "lgpEnvTempCoolingPropBandTenthsDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvControlHumidity": {
+    "name": "lgpEnvControlHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvReturnAirHumidity": {
+    "name": "lgpEnvReturnAirHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvSupplyAirHumidity": {
+    "name": "lgpEnvSupplyAirHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvValueAmbientHumidity": {
+    "name": "lgpEnvValueAmbientHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpEnvHumiditySettingRel": {
+    "name": "lgpEnvHumiditySettingRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumidityToleranceRel": {
+    "name": "lgpEnvHumidityToleranceRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumidityTableRel": {
+    "name": "lgpEnvHumidityTableRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvHumidityDeadbandRange": {
+    "name": "lgpEnvHumidityDeadbandRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 percent RH",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumidityEntryRel": {
+    "name": "lgpEnvHumidityEntryRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvHumidityIdRel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvHumidityIdRel": {
+    "name": "lgpEnvHumidityIdRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDescrRel": {
+    "name": "lgpEnvHumidityDescrRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityMeasurementRel": {
+    "name": "lgpEnvHumidityMeasurementRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityHighThresholdRel": {
+    "name": "lgpEnvHumidityHighThresholdRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumidityLowThresholdRel": {
+    "name": "lgpEnvHumidityLowThresholdRel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumiditySetPoint": {
+    "name": "lgpEnvHumiditySetPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumidityDailyHigh": {
+    "name": "lgpEnvHumidityDailyHigh",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDailyLow": {
+    "name": "lgpEnvHumidityDailyLow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDailyHighTimeHour": {
+    "name": "lgpEnvHumidityDailyHighTimeHour",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDailyHighTimeMinute": {
+    "name": "lgpEnvHumidityDailyHighTimeMinute",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDailyHighTimeSecond": {
+    "name": "lgpEnvHumidityDailyHighTimeSecond",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDailyLowTimeHour": {
+    "name": "lgpEnvHumidityDailyLowTimeHour",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDailyLowTimeMinute": {
+    "name": "lgpEnvHumidityDailyLowTimeMinute",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDailyLowTimeSecond": {
+    "name": "lgpEnvHumidityDailyLowTimeSecond",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityDeadBand": {
+    "name": "lgpEnvHumidityDeadBand",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumidifyPropBand": {
+    "name": "lgpEnvHumidifyPropBand",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvDehumidifyPropBand": {
+    "name": "lgpEnvDehumidifyPropBand",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumidityMeasurementRelTenths": {
+    "name": "lgpEnvHumidityMeasurementRelTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 percent Relative Humidity",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvHumidityHighThresholdRelTenths": {
+    "name": "lgpEnvHumidityHighThresholdRelTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvHumidityLowThresholdRelTenths": {
+    "name": "lgpEnvHumidityLowThresholdRelTenths",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": ".1 percent Relative Humidity",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorCalc": {
+    "name": "lgpEnvRemoteSensorCalc",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "average": 1,
+          "maximum": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorTable": {
+    "name": "lgpEnvRemoteSensorTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorEntry": {
+    "name": "lgpEnvRemoteSensorEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-ENVIRONMENTAL-MIB",
+        "object": "lgpEnvRemoteSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorIndex": {
+    "name": "lgpEnvRemoteSensorIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorId": {
+    "name": "lgpEnvRemoteSensorId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorMode": {
+    "name": "lgpEnvRemoteSensorMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "reference": 1,
+          "control": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorUsrLabel": {
+    "name": "lgpEnvRemoteSensorUsrLabel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorTempMeasurementDegF": {
+    "name": "lgpEnvRemoteSensorTempMeasurementDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpEnvRemoteSensorTempMeasurementDegC": {
+    "name": "lgpEnvRemoteSensorTempMeasurementDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.4.9.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-ENV-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LIEBERT-GP-ENVIRONMENTAL-MIB"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "vmware": {
+    "name": "vmware",
+    "oid": "1.3.6.1.4.1.6876",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-08-30 00:00",
+        "description": "Arc vmwPerAppTunnel defined."
+      },
+      {
+        "revision": "2017-10-30 00:00",
+        "description": "Arc vmwNSXsys defined."
+      },
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Arc vmwHCX defined."
+      },
+      {
+        "revision": "2016-11-03 00:00",
+        "description": "Arc vmwNetworkInsight defined."
+      },
+      {
+        "revision": "2016-01-02 20:00",
+        "description": "Arc vmwNsxManager defined."
+      },
+      {
+        "revision": "2010-04-02 00:00",
+        "description": "Arc vmwDocumentation defined."
+      },
+      {
+        "revision": "2007-07-30 00:00",
+        "description": "The initial revision. Prior version was released in SMIv1 format as VMWARE-ROOT-MIB."
+      }
+    ]
+  },
+  "vmwNotifications": {
+    "name": "vmwNotifications",
+    "oid": "1.3.6.1.4.1.6876.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwSystem": {
+    "name": "vmwSystem",
+    "oid": "1.3.6.1.4.1.6876.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwVirtMachines": {
+    "name": "vmwVirtMachines",
+    "oid": "1.3.6.1.4.1.6876.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwResources": {
+    "name": "vmwResources",
+    "oid": "1.3.6.1.4.1.6876.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwProductSpecific": {
+    "name": "vmwProductSpecific",
+    "oid": "1.3.6.1.4.1.6876.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwLdap": {
+    "name": "vmwLdap",
+    "oid": "1.3.6.1.4.1.6876.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwTraps": {
+    "name": "vmwTraps",
+    "oid": "1.3.6.1.4.1.6876.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwSRM": {
+    "name": "vmwSRM",
+    "oid": "1.3.6.1.4.1.6876.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwVCHA": {
+    "name": "vmwVCHA",
+    "oid": "1.3.6.1.4.1.6876.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwVmon": {
+    "name": "vmwVmon",
+    "oid": "1.3.6.1.4.1.6876.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwOID": {
+    "name": "vmwOID",
+    "oid": "1.3.6.1.4.1.6876.60",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "vmwareAgentCapabilities": {
+    "name": "vmwareAgentCapabilities",
+    "oid": "1.3.6.1.4.1.6876.70",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwNsxManager": {
+    "name": "vmwNsxManager",
+    "oid": "1.3.6.1.4.1.6876.90",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwNetworkInsight": {
+    "name": "vmwNetworkInsight",
+    "oid": "1.3.6.1.4.1.6876.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwHCX": {
+    "name": "vmwHCX",
+    "oid": "1.3.6.1.4.1.6876.110",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwNSXsys": {
+    "name": "vmwNSXsys",
+    "oid": "1.3.6.1.4.1.6876.120",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwPerAppTunnel": {
+    "name": "vmwPerAppTunnel",
+    "oid": "1.3.6.1.4.1.6876.130",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwExperimental": {
+    "name": "vmwExperimental",
+    "oid": "1.3.6.1.4.1.6876.700",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwDocumentation": {
+    "name": "vmwDocumentation",
+    "oid": "1.3.6.1.4.1.6876.750",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "vmwObsolete": {
+    "name": "vmwObsolete",
+    "oid": "1.3.6.1.4.1.6876.800",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ROOT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VMWARE-ROOT-MIB"
+  }
+}

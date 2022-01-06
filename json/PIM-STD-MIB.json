@@ -1,0 +1,5322 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-RTPROTO-MIB": [
+      "IANAipRouteProtocol"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetVersion",
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "mib-2",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "StorageType"
+    ]
+  },
+  "pimStdMIB": {
+    "name": "pimStdMIB",
+    "oid": "1.3.6.1.2.1.157",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-11-02 00:00",
+        "description": "Initial version, published as RFC 5060."
+      }
+    ]
+  },
+  "PimMode": {
+    "name": "PimMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ssm": 2,
+          "asm": 3,
+          "bidir": 4,
+          "dm": 5,
+          "other": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PimGroupMappingOriginType": {
+    "name": "PimGroupMappingOriginType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "configRp": 2,
+          "configSsm": 3,
+          "bsr": 4,
+          "autoRP": 5,
+          "embedded": 6,
+          "other": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "pimNotifications": {
+    "name": "pimNotifications",
+    "oid": "1.3.6.1.2.1.157.0",
+    "class": "objectidentity"
+  },
+  "pim": {
+    "name": "pim",
+    "oid": "1.3.6.1.2.1.157.1",
+    "class": "objectidentity"
+  },
+  "pimKeepalivePeriod": {
+    "name": "pimKeepalivePeriod",
+    "oid": "1.3.6.1.2.1.157.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 210,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimRegisterSuppressionTime": {
+    "name": "pimRegisterSuppressionTime",
+    "oid": "1.3.6.1.2.1.157.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimStarGEntries": {
+    "name": "pimStarGEntries",
+    "oid": "1.3.6.1.2.1.157.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIEntries": {
+    "name": "pimStarGIEntries",
+    "oid": "1.3.6.1.2.1.157.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGEntries": {
+    "name": "pimSGEntries",
+    "oid": "1.3.6.1.2.1.157.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIEntries": {
+    "name": "pimSGIEntries",
+    "oid": "1.3.6.1.2.1.157.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptEntries": {
+    "name": "pimSGRptEntries",
+    "oid": "1.3.6.1.2.1.157.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptIEntries": {
+    "name": "pimSGRptIEntries",
+    "oid": "1.3.6.1.2.1.157.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimOutAsserts": {
+    "name": "pimOutAsserts",
+    "oid": "1.3.6.1.2.1.157.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInAsserts": {
+    "name": "pimInAsserts",
+    "oid": "1.3.6.1.2.1.157.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimLastAssertInterface": {
+    "name": "pimLastAssertInterface",
+    "oid": "1.3.6.1.2.1.157.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimLastAssertGroupAddressType": {
+    "name": "pimLastAssertGroupAddressType",
+    "oid": "1.3.6.1.2.1.157.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimLastAssertGroupAddress": {
+    "name": "pimLastAssertGroupAddress",
+    "oid": "1.3.6.1.2.1.157.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimLastAssertSourceAddressType": {
+    "name": "pimLastAssertSourceAddressType",
+    "oid": "1.3.6.1.2.1.157.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimLastAssertSourceAddress": {
+    "name": "pimLastAssertSourceAddress",
+    "oid": "1.3.6.1.2.1.157.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborLossNotificationPeriod": {
+    "name": "pimNeighborLossNotificationPeriod",
+    "oid": "1.3.6.1.2.1.157.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimNeighborLossCount": {
+    "name": "pimNeighborLossCount",
+    "oid": "1.3.6.1.2.1.157.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidRegisterNotificationPeriod": {
+    "name": "pimInvalidRegisterNotificationPeriod",
+    "oid": "1.3.6.1.2.1.157.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimInvalidRegisterMsgsRcvd": {
+    "name": "pimInvalidRegisterMsgsRcvd",
+    "oid": "1.3.6.1.2.1.157.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidRegisterAddressType": {
+    "name": "pimInvalidRegisterAddressType",
+    "oid": "1.3.6.1.2.1.157.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidRegisterOrigin": {
+    "name": "pimInvalidRegisterOrigin",
+    "oid": "1.3.6.1.2.1.157.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidRegisterGroup": {
+    "name": "pimInvalidRegisterGroup",
+    "oid": "1.3.6.1.2.1.157.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidRegisterRp": {
+    "name": "pimInvalidRegisterRp",
+    "oid": "1.3.6.1.2.1.157.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidJoinPruneNotificationPeriod": {
+    "name": "pimInvalidJoinPruneNotificationPeriod",
+    "oid": "1.3.6.1.2.1.157.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimInvalidJoinPruneMsgsRcvd": {
+    "name": "pimInvalidJoinPruneMsgsRcvd",
+    "oid": "1.3.6.1.2.1.157.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidJoinPruneAddressType": {
+    "name": "pimInvalidJoinPruneAddressType",
+    "oid": "1.3.6.1.2.1.157.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidJoinPruneOrigin": {
+    "name": "pimInvalidJoinPruneOrigin",
+    "oid": "1.3.6.1.2.1.157.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidJoinPruneGroup": {
+    "name": "pimInvalidJoinPruneGroup",
+    "oid": "1.3.6.1.2.1.157.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInvalidJoinPruneRp": {
+    "name": "pimInvalidJoinPruneRp",
+    "oid": "1.3.6.1.2.1.157.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimRPMappingNotificationPeriod": {
+    "name": "pimRPMappingNotificationPeriod",
+    "oid": "1.3.6.1.2.1.157.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimRPMappingChangeCount": {
+    "name": "pimRPMappingChangeCount",
+    "oid": "1.3.6.1.2.1.157.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceElectionNotificationPeriod": {
+    "name": "pimInterfaceElectionNotificationPeriod",
+    "oid": "1.3.6.1.2.1.157.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimInterfaceElectionWinCount": {
+    "name": "pimInterfaceElectionWinCount",
+    "oid": "1.3.6.1.2.1.157.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimRefreshInterval": {
+    "name": "pimRefreshInterval",
+    "oid": "1.3.6.1.2.1.157.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimDeviceConfigStorageType": {
+    "name": "pimDeviceConfigStorageType",
+    "oid": "1.3.6.1.2.1.157.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pimInterfaceTable": {
+    "name": "pimInterfaceTable",
+    "oid": "1.3.6.1.2.1.157.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimInterfaceEntry": {
+    "name": "pimInterfaceEntry",
+    "oid": "1.3.6.1.2.1.157.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceIPVersion",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimInterfaceIfIndex": {
+    "name": "pimInterfaceIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimInterfaceIPVersion": {
+    "name": "pimInterfaceIPVersion",
+    "oid": "1.3.6.1.2.1.157.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetVersion",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimInterfaceAddressType": {
+    "name": "pimInterfaceAddressType",
+    "oid": "1.3.6.1.2.1.157.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceAddress": {
+    "name": "pimInterfaceAddress",
+    "oid": "1.3.6.1.2.1.157.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceGenerationIDValue": {
+    "name": "pimInterfaceGenerationIDValue",
+    "oid": "1.3.6.1.2.1.157.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceDR": {
+    "name": "pimInterfaceDR",
+    "oid": "1.3.6.1.2.1.157.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceDRPriority": {
+    "name": "pimInterfaceDRPriority",
+    "oid": "1.3.6.1.2.1.157.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceDRPriorityEnabled": {
+    "name": "pimInterfaceDRPriorityEnabled",
+    "oid": "1.3.6.1.2.1.157.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceHelloInterval": {
+    "name": "pimInterfaceHelloInterval",
+    "oid": "1.3.6.1.2.1.157.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 18000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceTrigHelloInterval": {
+    "name": "pimInterfaceTrigHelloInterval",
+    "oid": "1.3.6.1.2.1.157.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceHelloHoldtime": {
+    "name": "pimInterfaceHelloHoldtime",
+    "oid": "1.3.6.1.2.1.157.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 105,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceJoinPruneInterval": {
+    "name": "pimInterfaceJoinPruneInterval",
+    "oid": "1.3.6.1.2.1.157.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 18000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceJoinPruneHoldtime": {
+    "name": "pimInterfaceJoinPruneHoldtime",
+    "oid": "1.3.6.1.2.1.157.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 210,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceDFElectionRobustness": {
+    "name": "pimInterfaceDFElectionRobustness",
+    "oid": "1.3.6.1.2.1.157.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceLanDelayEnabled": {
+    "name": "pimInterfaceLanDelayEnabled",
+    "oid": "1.3.6.1.2.1.157.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfacePropagationDelay": {
+    "name": "pimInterfacePropagationDelay",
+    "oid": "1.3.6.1.2.1.157.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceOverrideInterval": {
+    "name": "pimInterfaceOverrideInterval",
+    "oid": "1.3.6.1.2.1.157.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceEffectPropagDelay": {
+    "name": "pimInterfaceEffectPropagDelay",
+    "oid": "1.3.6.1.2.1.157.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceEffectOverrideIvl": {
+    "name": "pimInterfaceEffectOverrideIvl",
+    "oid": "1.3.6.1.2.1.157.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceSuppressionEnabled": {
+    "name": "pimInterfaceSuppressionEnabled",
+    "oid": "1.3.6.1.2.1.157.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceBidirCapable": {
+    "name": "pimInterfaceBidirCapable",
+    "oid": "1.3.6.1.2.1.157.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceDomainBorder": {
+    "name": "pimInterfaceDomainBorder",
+    "oid": "1.3.6.1.2.1.157.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceStubInterface": {
+    "name": "pimInterfaceStubInterface",
+    "oid": "1.3.6.1.2.1.157.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfacePruneLimitInterval": {
+    "name": "pimInterfacePruneLimitInterval",
+    "oid": "1.3.6.1.2.1.157.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceGraftRetryInterval": {
+    "name": "pimInterfaceGraftRetryInterval",
+    "oid": "1.3.6.1.2.1.157.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceSRPriorityEnabled": {
+    "name": "pimInterfaceSRPriorityEnabled",
+    "oid": "1.3.6.1.2.1.157.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimInterfaceStatus": {
+    "name": "pimInterfaceStatus",
+    "oid": "1.3.6.1.2.1.157.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimInterfaceStorageType": {
+    "name": "pimInterfaceStorageType",
+    "oid": "1.3.6.1.2.1.157.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimNeighborTable": {
+    "name": "pimNeighborTable",
+    "oid": "1.3.6.1.2.1.157.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimNeighborEntry": {
+    "name": "pimNeighborEntry",
+    "oid": "1.3.6.1.2.1.157.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimNeighborIfIndex": {
+    "name": "pimNeighborIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimNeighborAddressType": {
+    "name": "pimNeighborAddressType",
+    "oid": "1.3.6.1.2.1.157.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimNeighborAddress": {
+    "name": "pimNeighborAddress",
+    "oid": "1.3.6.1.2.1.157.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimNeighborGenerationIDPresent": {
+    "name": "pimNeighborGenerationIDPresent",
+    "oid": "1.3.6.1.2.1.157.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborGenerationIDValue": {
+    "name": "pimNeighborGenerationIDValue",
+    "oid": "1.3.6.1.2.1.157.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborUpTime": {
+    "name": "pimNeighborUpTime",
+    "oid": "1.3.6.1.2.1.157.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborExpiryTime": {
+    "name": "pimNeighborExpiryTime",
+    "oid": "1.3.6.1.2.1.157.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborDRPriorityPresent": {
+    "name": "pimNeighborDRPriorityPresent",
+    "oid": "1.3.6.1.2.1.157.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborDRPriority": {
+    "name": "pimNeighborDRPriority",
+    "oid": "1.3.6.1.2.1.157.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborLanPruneDelayPresent": {
+    "name": "pimNeighborLanPruneDelayPresent",
+    "oid": "1.3.6.1.2.1.157.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborTBit": {
+    "name": "pimNeighborTBit",
+    "oid": "1.3.6.1.2.1.157.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborPropagationDelay": {
+    "name": "pimNeighborPropagationDelay",
+    "oid": "1.3.6.1.2.1.157.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborOverrideInterval": {
+    "name": "pimNeighborOverrideInterval",
+    "oid": "1.3.6.1.2.1.157.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborBidirCapable": {
+    "name": "pimNeighborBidirCapable",
+    "oid": "1.3.6.1.2.1.157.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborSRCapable": {
+    "name": "pimNeighborSRCapable",
+    "oid": "1.3.6.1.2.1.157.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNbrSecAddressTable": {
+    "name": "pimNbrSecAddressTable",
+    "oid": "1.3.6.1.2.1.157.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimNbrSecAddressEntry": {
+    "name": "pimNbrSecAddressEntry",
+    "oid": "1.3.6.1.2.1.157.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNbrSecAddressIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNbrSecAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNbrSecAddressPrimary",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNbrSecAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimNbrSecAddressIfIndex": {
+    "name": "pimNbrSecAddressIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimNbrSecAddressType": {
+    "name": "pimNbrSecAddressType",
+    "oid": "1.3.6.1.2.1.157.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimNbrSecAddressPrimary": {
+    "name": "pimNbrSecAddressPrimary",
+    "oid": "1.3.6.1.2.1.157.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimNbrSecAddress": {
+    "name": "pimNbrSecAddress",
+    "oid": "1.3.6.1.2.1.157.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGTable": {
+    "name": "pimStarGTable",
+    "oid": "1.3.6.1.2.1.157.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStarGEntry": {
+    "name": "pimStarGEntry",
+    "oid": "1.3.6.1.2.1.157.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGGrpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimStarGAddressType": {
+    "name": "pimStarGAddressType",
+    "oid": "1.3.6.1.2.1.157.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStarGGrpAddress": {
+    "name": "pimStarGGrpAddress",
+    "oid": "1.3.6.1.2.1.157.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStarGUpTime": {
+    "name": "pimStarGUpTime",
+    "oid": "1.3.6.1.2.1.157.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGPimMode": {
+    "name": "pimStarGPimMode",
+    "oid": "1.3.6.1.2.1.157.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PimMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPAddressType": {
+    "name": "pimStarGRPAddressType",
+    "oid": "1.3.6.1.2.1.157.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPAddress": {
+    "name": "pimStarGRPAddress",
+    "oid": "1.3.6.1.2.1.157.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGPimModeOrigin": {
+    "name": "pimStarGPimModeOrigin",
+    "oid": "1.3.6.1.2.1.157.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PimGroupMappingOriginType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPIsLocal": {
+    "name": "pimStarGRPIsLocal",
+    "oid": "1.3.6.1.2.1.157.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGUpstreamJoinState": {
+    "name": "pimStarGUpstreamJoinState",
+    "oid": "1.3.6.1.2.1.157.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notJoined": 1,
+          "joined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGUpstreamJoinTimer": {
+    "name": "pimStarGUpstreamJoinTimer",
+    "oid": "1.3.6.1.2.1.157.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGUpstreamNeighborType": {
+    "name": "pimStarGUpstreamNeighborType",
+    "oid": "1.3.6.1.2.1.157.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGUpstreamNeighbor": {
+    "name": "pimStarGUpstreamNeighbor",
+    "oid": "1.3.6.1.2.1.157.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPFIfIndex": {
+    "name": "pimStarGRPFIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPFNextHopType": {
+    "name": "pimStarGRPFNextHopType",
+    "oid": "1.3.6.1.2.1.157.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPFNextHop": {
+    "name": "pimStarGRPFNextHop",
+    "oid": "1.3.6.1.2.1.157.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPFRouteProtocol": {
+    "name": "pimStarGRPFRouteProtocol",
+    "oid": "1.3.6.1.2.1.157.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPFRouteAddress": {
+    "name": "pimStarGRPFRouteAddress",
+    "oid": "1.3.6.1.2.1.157.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPFRoutePrefixLength": {
+    "name": "pimStarGRPFRoutePrefixLength",
+    "oid": "1.3.6.1.2.1.157.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPFRouteMetricPref": {
+    "name": "pimStarGRPFRouteMetricPref",
+    "oid": "1.3.6.1.2.1.157.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGRPFRouteMetric": {
+    "name": "pimStarGRPFRouteMetric",
+    "oid": "1.3.6.1.2.1.157.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGITable": {
+    "name": "pimStarGITable",
+    "oid": "1.3.6.1.2.1.157.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStarGIEntry": {
+    "name": "pimStarGIEntry",
+    "oid": "1.3.6.1.2.1.157.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimStarGIIfIndex": {
+    "name": "pimStarGIIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStarGIUpTime": {
+    "name": "pimStarGIUpTime",
+    "oid": "1.3.6.1.2.1.157.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGILocalMembership": {
+    "name": "pimStarGILocalMembership",
+    "oid": "1.3.6.1.2.1.157.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIJoinPruneState": {
+    "name": "pimStarGIJoinPruneState",
+    "oid": "1.3.6.1.2.1.157.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInfo": 1,
+          "join": 2,
+          "prunePending": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIPrunePendingTimer": {
+    "name": "pimStarGIPrunePendingTimer",
+    "oid": "1.3.6.1.2.1.157.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIJoinExpiryTimer": {
+    "name": "pimStarGIJoinExpiryTimer",
+    "oid": "1.3.6.1.2.1.157.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIAssertState": {
+    "name": "pimStarGIAssertState",
+    "oid": "1.3.6.1.2.1.157.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInfo": 1,
+          "iAmAssertWinner": 2,
+          "iAmAssertLoser": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIAssertTimer": {
+    "name": "pimStarGIAssertTimer",
+    "oid": "1.3.6.1.2.1.157.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIAssertWinnerAddressType": {
+    "name": "pimStarGIAssertWinnerAddressType",
+    "oid": "1.3.6.1.2.1.157.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIAssertWinnerAddress": {
+    "name": "pimStarGIAssertWinnerAddress",
+    "oid": "1.3.6.1.2.1.157.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIAssertWinnerMetricPref": {
+    "name": "pimStarGIAssertWinnerMetricPref",
+    "oid": "1.3.6.1.2.1.157.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStarGIAssertWinnerMetric": {
+    "name": "pimStarGIAssertWinnerMetric",
+    "oid": "1.3.6.1.2.1.157.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGTable": {
+    "name": "pimSGTable",
+    "oid": "1.3.6.1.2.1.157.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGEntry": {
+    "name": "pimSGEntry",
+    "oid": "1.3.6.1.2.1.157.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGSrcAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimSGAddressType": {
+    "name": "pimSGAddressType",
+    "oid": "1.3.6.1.2.1.157.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGGrpAddress": {
+    "name": "pimSGGrpAddress",
+    "oid": "1.3.6.1.2.1.157.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGSrcAddress": {
+    "name": "pimSGSrcAddress",
+    "oid": "1.3.6.1.2.1.157.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGUpTime": {
+    "name": "pimSGUpTime",
+    "oid": "1.3.6.1.2.1.157.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGPimMode": {
+    "name": "pimSGPimMode",
+    "oid": "1.3.6.1.2.1.157.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PimMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGUpstreamJoinState": {
+    "name": "pimSGUpstreamJoinState",
+    "oid": "1.3.6.1.2.1.157.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "notJoined": 1,
+          "joined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGUpstreamJoinTimer": {
+    "name": "pimSGUpstreamJoinTimer",
+    "oid": "1.3.6.1.2.1.157.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGUpstreamNeighbor": {
+    "name": "pimSGUpstreamNeighbor",
+    "oid": "1.3.6.1.2.1.157.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPFIfIndex": {
+    "name": "pimSGRPFIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPFNextHopType": {
+    "name": "pimSGRPFNextHopType",
+    "oid": "1.3.6.1.2.1.157.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPFNextHop": {
+    "name": "pimSGRPFNextHop",
+    "oid": "1.3.6.1.2.1.157.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPFRouteProtocol": {
+    "name": "pimSGRPFRouteProtocol",
+    "oid": "1.3.6.1.2.1.157.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPFRouteAddress": {
+    "name": "pimSGRPFRouteAddress",
+    "oid": "1.3.6.1.2.1.157.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPFRoutePrefixLength": {
+    "name": "pimSGRPFRoutePrefixLength",
+    "oid": "1.3.6.1.2.1.157.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPFRouteMetricPref": {
+    "name": "pimSGRPFRouteMetricPref",
+    "oid": "1.3.6.1.2.1.157.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPFRouteMetric": {
+    "name": "pimSGRPFRouteMetric",
+    "oid": "1.3.6.1.2.1.157.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGSPTBit": {
+    "name": "pimSGSPTBit",
+    "oid": "1.3.6.1.2.1.157.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGKeepaliveTimer": {
+    "name": "pimSGKeepaliveTimer",
+    "oid": "1.3.6.1.2.1.157.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGDRRegisterState": {
+    "name": "pimSGDRRegisterState",
+    "oid": "1.3.6.1.2.1.157.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInfo": 1,
+          "join": 2,
+          "joinPending": 3,
+          "prune": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGDRRegisterStopTimer": {
+    "name": "pimSGDRRegisterStopTimer",
+    "oid": "1.3.6.1.2.1.157.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPRegisterPMBRAddressType": {
+    "name": "pimSGRPRegisterPMBRAddressType",
+    "oid": "1.3.6.1.2.1.157.1.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRPRegisterPMBRAddress": {
+    "name": "pimSGRPRegisterPMBRAddress",
+    "oid": "1.3.6.1.2.1.157.1.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGUpstreamPruneState": {
+    "name": "pimSGUpstreamPruneState",
+    "oid": "1.3.6.1.2.1.157.1.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "forwarding": 1,
+          "ackpending": 2,
+          "pruned": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGUpstreamPruneLimitTimer": {
+    "name": "pimSGUpstreamPruneLimitTimer",
+    "oid": "1.3.6.1.2.1.157.1.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGOriginatorState": {
+    "name": "pimSGOriginatorState",
+    "oid": "1.3.6.1.2.1.157.1.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "notOriginator": 1,
+          "originator": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGSourceActiveTimer": {
+    "name": "pimSGSourceActiveTimer",
+    "oid": "1.3.6.1.2.1.157.1.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGStateRefreshTimer": {
+    "name": "pimSGStateRefreshTimer",
+    "oid": "1.3.6.1.2.1.157.1.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGITable": {
+    "name": "pimSGITable",
+    "oid": "1.3.6.1.2.1.157.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGIEntry": {
+    "name": "pimSGIEntry",
+    "oid": "1.3.6.1.2.1.157.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGSrcAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimSGIIfIndex": {
+    "name": "pimSGIIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGIUpTime": {
+    "name": "pimSGIUpTime",
+    "oid": "1.3.6.1.2.1.157.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGILocalMembership": {
+    "name": "pimSGILocalMembership",
+    "oid": "1.3.6.1.2.1.157.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIJoinPruneState": {
+    "name": "pimSGIJoinPruneState",
+    "oid": "1.3.6.1.2.1.157.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInfo": 1,
+          "join": 2,
+          "prunePending": 3,
+          "pruned": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIPrunePendingTimer": {
+    "name": "pimSGIPrunePendingTimer",
+    "oid": "1.3.6.1.2.1.157.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIJoinExpiryTimer": {
+    "name": "pimSGIJoinExpiryTimer",
+    "oid": "1.3.6.1.2.1.157.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIAssertState": {
+    "name": "pimSGIAssertState",
+    "oid": "1.3.6.1.2.1.157.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInfo": 1,
+          "iAmAssertWinner": 2,
+          "iAmAssertLoser": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIAssertTimer": {
+    "name": "pimSGIAssertTimer",
+    "oid": "1.3.6.1.2.1.157.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIAssertWinnerAddressType": {
+    "name": "pimSGIAssertWinnerAddressType",
+    "oid": "1.3.6.1.2.1.157.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIAssertWinnerAddress": {
+    "name": "pimSGIAssertWinnerAddress",
+    "oid": "1.3.6.1.2.1.157.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIAssertWinnerMetricPref": {
+    "name": "pimSGIAssertWinnerMetricPref",
+    "oid": "1.3.6.1.2.1.157.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGIAssertWinnerMetric": {
+    "name": "pimSGIAssertWinnerMetric",
+    "oid": "1.3.6.1.2.1.157.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptTable": {
+    "name": "pimSGRptTable",
+    "oid": "1.3.6.1.2.1.157.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGRptEntry": {
+    "name": "pimSGRptEntry",
+    "oid": "1.3.6.1.2.1.157.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptSrcAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimSGRptSrcAddress": {
+    "name": "pimSGRptSrcAddress",
+    "oid": "1.3.6.1.2.1.157.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGRptUpTime": {
+    "name": "pimSGRptUpTime",
+    "oid": "1.3.6.1.2.1.157.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptUpstreamPruneState": {
+    "name": "pimSGRptUpstreamPruneState",
+    "oid": "1.3.6.1.2.1.157.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rptNotJoined": 1,
+          "pruned": 2,
+          "notPruned": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptUpstreamOverrideTimer": {
+    "name": "pimSGRptUpstreamOverrideTimer",
+    "oid": "1.3.6.1.2.1.157.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptITable": {
+    "name": "pimSGRptITable",
+    "oid": "1.3.6.1.2.1.157.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGRptIEntry": {
+    "name": "pimSGRptIEntry",
+    "oid": "1.3.6.1.2.1.157.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptSrcAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptIIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimSGRptIIfIndex": {
+    "name": "pimSGRptIIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimSGRptIUpTime": {
+    "name": "pimSGRptIUpTime",
+    "oid": "1.3.6.1.2.1.157.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptILocalMembership": {
+    "name": "pimSGRptILocalMembership",
+    "oid": "1.3.6.1.2.1.157.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptIJoinPruneState": {
+    "name": "pimSGRptIJoinPruneState",
+    "oid": "1.3.6.1.2.1.157.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInfo": 1,
+          "prune": 2,
+          "prunePending": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptIPrunePendingTimer": {
+    "name": "pimSGRptIPrunePendingTimer",
+    "oid": "1.3.6.1.2.1.157.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimSGRptIPruneExpiryTimer": {
+    "name": "pimSGRptIPruneExpiryTimer",
+    "oid": "1.3.6.1.2.1.157.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimBidirDFElectionTable": {
+    "name": "pimBidirDFElectionTable",
+    "oid": "1.3.6.1.2.1.157.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimBidirDFElectionEntry": {
+    "name": "pimBidirDFElectionEntry",
+    "oid": "1.3.6.1.2.1.157.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionRPAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimBidirDFElectionAddressType": {
+    "name": "pimBidirDFElectionAddressType",
+    "oid": "1.3.6.1.2.1.157.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimBidirDFElectionRPAddress": {
+    "name": "pimBidirDFElectionRPAddress",
+    "oid": "1.3.6.1.2.1.157.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimBidirDFElectionIfIndex": {
+    "name": "pimBidirDFElectionIfIndex",
+    "oid": "1.3.6.1.2.1.157.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimBidirDFElectionWinnerAddressType": {
+    "name": "pimBidirDFElectionWinnerAddressType",
+    "oid": "1.3.6.1.2.1.157.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimBidirDFElectionWinnerAddress": {
+    "name": "pimBidirDFElectionWinnerAddress",
+    "oid": "1.3.6.1.2.1.157.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimBidirDFElectionWinnerUpTime": {
+    "name": "pimBidirDFElectionWinnerUpTime",
+    "oid": "1.3.6.1.2.1.157.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimBidirDFElectionWinnerMetricPref": {
+    "name": "pimBidirDFElectionWinnerMetricPref",
+    "oid": "1.3.6.1.2.1.157.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimBidirDFElectionWinnerMetric": {
+    "name": "pimBidirDFElectionWinnerMetric",
+    "oid": "1.3.6.1.2.1.157.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimBidirDFElectionState": {
+    "name": "pimBidirDFElectionState",
+    "oid": "1.3.6.1.2.1.157.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dfOffer": 1,
+          "dfLose": 2,
+          "dfWinner": 3,
+          "dfBackoff": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimBidirDFElectionStateTimer": {
+    "name": "pimBidirDFElectionStateTimer",
+    "oid": "1.3.6.1.2.1.157.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimStaticRPTable": {
+    "name": "pimStaticRPTable",
+    "oid": "1.3.6.1.2.1.157.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStaticRPEntry": {
+    "name": "pimStaticRPEntry",
+    "oid": "1.3.6.1.2.1.157.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPGrpPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimStaticRPAddressType": {
+    "name": "pimStaticRPAddressType",
+    "oid": "1.3.6.1.2.1.157.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStaticRPGrpAddress": {
+    "name": "pimStaticRPGrpAddress",
+    "oid": "1.3.6.1.2.1.157.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStaticRPGrpPrefixLength": {
+    "name": "pimStaticRPGrpPrefixLength",
+    "oid": "1.3.6.1.2.1.157.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimStaticRPRPAddress": {
+    "name": "pimStaticRPRPAddress",
+    "oid": "1.3.6.1.2.1.157.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimStaticRPPimMode": {
+    "name": "pimStaticRPPimMode",
+    "oid": "1.3.6.1.2.1.157.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PimMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "asm",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimStaticRPOverrideDynamic": {
+    "name": "pimStaticRPOverrideDynamic",
+    "oid": "1.3.6.1.2.1.157.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimStaticRPPrecedence": {
+    "name": "pimStaticRPPrecedence",
+    "oid": "1.3.6.1.2.1.157.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimStaticRPRowStatus": {
+    "name": "pimStaticRPRowStatus",
+    "oid": "1.3.6.1.2.1.157.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimStaticRPStorageType": {
+    "name": "pimStaticRPStorageType",
+    "oid": "1.3.6.1.2.1.157.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimAnycastRPSetTable": {
+    "name": "pimAnycastRPSetTable",
+    "oid": "1.3.6.1.2.1.157.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimAnycastRPSetEntry": {
+    "name": "pimAnycastRPSetEntry",
+    "oid": "1.3.6.1.2.1.157.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimAnycastRPSetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimAnycastRPSetAnycastAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimAnycastRPSetRouterAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimAnycastRPSetAddressType": {
+    "name": "pimAnycastRPSetAddressType",
+    "oid": "1.3.6.1.2.1.157.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimAnycastRPSetAnycastAddress": {
+    "name": "pimAnycastRPSetAnycastAddress",
+    "oid": "1.3.6.1.2.1.157.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimAnycastRPSetRouterAddress": {
+    "name": "pimAnycastRPSetRouterAddress",
+    "oid": "1.3.6.1.2.1.157.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimAnycastRPSetLocalRouter": {
+    "name": "pimAnycastRPSetLocalRouter",
+    "oid": "1.3.6.1.2.1.157.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimAnycastRPSetRowStatus": {
+    "name": "pimAnycastRPSetRowStatus",
+    "oid": "1.3.6.1.2.1.157.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimAnycastRPSetStorageType": {
+    "name": "pimAnycastRPSetStorageType",
+    "oid": "1.3.6.1.2.1.157.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pimGroupMappingTable": {
+    "name": "pimGroupMappingTable",
+    "oid": "1.3.6.1.2.1.157.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimGroupMappingEntry": {
+    "name": "pimGroupMappingEntry",
+    "oid": "1.3.6.1.2.1.157.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingOrigin",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingGrpPrefixLength",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingRPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingRPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pimGroupMappingOrigin": {
+    "name": "pimGroupMappingOrigin",
+    "oid": "1.3.6.1.2.1.157.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PimGroupMappingOriginType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimGroupMappingAddressType": {
+    "name": "pimGroupMappingAddressType",
+    "oid": "1.3.6.1.2.1.157.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimGroupMappingGrpAddress": {
+    "name": "pimGroupMappingGrpAddress",
+    "oid": "1.3.6.1.2.1.157.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimGroupMappingGrpPrefixLength": {
+    "name": "pimGroupMappingGrpPrefixLength",
+    "oid": "1.3.6.1.2.1.157.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimGroupMappingRPAddressType": {
+    "name": "pimGroupMappingRPAddressType",
+    "oid": "1.3.6.1.2.1.157.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimGroupMappingRPAddress": {
+    "name": "pimGroupMappingRPAddress",
+    "oid": "1.3.6.1.2.1.157.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pimGroupMappingPimMode": {
+    "name": "pimGroupMappingPimMode",
+    "oid": "1.3.6.1.2.1.157.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PimMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimGroupMappingPrecedence": {
+    "name": "pimGroupMappingPrecedence",
+    "oid": "1.3.6.1.2.1.157.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pimNeighborLoss": {
+    "name": "pimNeighborLoss",
+    "oid": "1.3.6.1.2.1.157.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "pimInvalidRegister": {
+    "name": "pimInvalidRegister",
+    "oid": "1.3.6.1.2.1.157.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingPimMode"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterOrigin"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterGroup"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterRp"
+      }
+    ],
+    "status": "current"
+  },
+  "pimInvalidJoinPrune": {
+    "name": "pimInvalidJoinPrune",
+    "oid": "1.3.6.1.2.1.157.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingPimMode"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneOrigin"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneGroup"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneRp"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "pimRPMappingChange": {
+    "name": "pimRPMappingChange",
+    "oid": "1.3.6.1.2.1.157.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingPimMode"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingPrecedence"
+      }
+    ],
+    "status": "current"
+  },
+  "pimInterfaceElection": {
+    "name": "pimInterfaceElection",
+    "oid": "1.3.6.1.2.1.157.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "pimMIBConformance": {
+    "name": "pimMIBConformance",
+    "oid": "1.3.6.1.2.1.157.2",
+    "class": "objectidentity"
+  },
+  "pimMIBCompliances": {
+    "name": "pimMIBCompliances",
+    "oid": "1.3.6.1.2.1.157.2.1",
+    "class": "objectidentity"
+  },
+  "pimMIBGroups": {
+    "name": "pimMIBGroups",
+    "oid": "1.3.6.1.2.1.157.2.2",
+    "class": "objectidentity"
+  },
+  "pimMIBComplianceAsm": {
+    "name": "pimMIBComplianceAsm",
+    "oid": "1.3.6.1.2.1.157.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pimTopologyGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimSsmGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimRPConfigGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimSmGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNotificationGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimTuningParametersGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimRouterStatisticsGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimAnycastRpGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimStaticRPPrecedenceGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNetMgmtNotificationObjects",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNetMgmtNotificationGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDiagnosticsGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDeviceStorageGroup",
+        "module": "PIM-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pimMIBComplianceBidir": {
+    "name": "pimMIBComplianceBidir",
+    "oid": "1.3.6.1.2.1.157.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pimTopologyGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimRPConfigGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimSmGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimBidirGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNotificationGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimTuningParametersGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimRouterStatisticsGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimAnycastRpGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimStaticRPPrecedenceGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNetMgmtNotificationObjects",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNetMgmtNotificationGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDiagnosticsGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDeviceStorageGroup",
+        "module": "PIM-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pimMIBComplianceSsm": {
+    "name": "pimMIBComplianceSsm",
+    "oid": "1.3.6.1.2.1.157.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pimTopologyGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimSsmGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNotificationGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimTuningParametersGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimRouterStatisticsGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNetMgmtNotificationObjects",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNetMgmtNotificationGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDiagnosticsGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDeviceStorageGroup",
+        "module": "PIM-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pimMIBComplianceDm": {
+    "name": "pimMIBComplianceDm",
+    "oid": "1.3.6.1.2.1.157.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pimTopologyGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimSsmGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimRPConfigGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimSmGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDmGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNotificationGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimTuningParametersGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimRouterStatisticsGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimAnycastRpGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimStaticRPPrecedenceGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNetMgmtNotificationObjects",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimNetMgmtNotificationGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDiagnosticsGroup",
+        "module": "PIM-STD-MIB"
+      },
+      {
+        "object": "pimDeviceStorageGroup",
+        "module": "PIM-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pimTopologyGroup": {
+    "name": "pimTopologyGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceGenerationIDValue"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceDR"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceDRPriorityEnabled"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceHelloHoldtime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceJoinPruneHoldtime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceLanDelayEnabled"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceEffectPropagDelay"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceEffectOverrideIvl"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceSuppressionEnabled"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceBidirCapable"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborGenerationIDPresent"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborGenerationIDValue"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborUpTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborExpiryTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborDRPriorityPresent"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborDRPriority"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborLanPruneDelayPresent"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborTBit"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborPropagationDelay"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborOverrideInterval"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborBidirCapable"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNbrSecAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "pimNotificationGroup": {
+    "name": "pimNotificationGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborLoss"
+      }
+    ],
+    "status": "current"
+  },
+  "pimTuningParametersGroup": {
+    "name": "pimTuningParametersGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimKeepalivePeriod"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimRegisterSuppressionTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceDRPriority"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceHelloInterval"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceTrigHelloInterval"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceJoinPruneInterval"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfacePropagationDelay"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceOverrideInterval"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceDomainBorder"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceStubInterface"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceStatus"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "pimRouterStatisticsGroup": {
+    "name": "pimRouterStatisticsGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGEntries"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIEntries"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGEntries"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIEntries"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptEntries"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptIEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "pimSsmGroup": {
+    "name": "pimSsmGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGUpTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGPimMode"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGUpstreamJoinState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGUpstreamJoinTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGUpstreamNeighbor"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPFIfIndex"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPFNextHopType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPFNextHop"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPFRouteProtocol"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPFRouteAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPFRoutePrefixLength"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPFRouteMetricPref"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPFRouteMetric"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGSPTBit"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGKeepaliveTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGDRRegisterState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGDRRegisterStopTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPRegisterPMBRAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRPRegisterPMBRAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIUpTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGILocalMembership"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIJoinPruneState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIPrunePendingTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIJoinExpiryTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIAssertState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIAssertTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIAssertWinnerAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIAssertWinnerAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIAssertWinnerMetricPref"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGIAssertWinnerMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "pimRPConfigGroup": {
+    "name": "pimRPConfigGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPRPAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPPimMode"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPOverrideDynamic"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPRowStatus"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPStorageType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingPimMode"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimGroupMappingPrecedence"
+      }
+    ],
+    "status": "current"
+  },
+  "pimSmGroup": {
+    "name": "pimSmGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGUpTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGPimMode"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGPimModeOrigin"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPIsLocal"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGUpstreamJoinState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGUpstreamJoinTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGUpstreamNeighborType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGUpstreamNeighbor"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPFIfIndex"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPFNextHopType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPFNextHop"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPFRouteProtocol"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPFRouteAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPFRoutePrefixLength"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPFRouteMetricPref"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGRPFRouteMetric"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIUpTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGILocalMembership"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIJoinPruneState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIPrunePendingTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIJoinExpiryTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIAssertState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIAssertTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIAssertWinnerAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIAssertWinnerAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIAssertWinnerMetricPref"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStarGIAssertWinnerMetric"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptUpTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptUpstreamPruneState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptUpstreamOverrideTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptIUpTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptILocalMembership"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptIJoinPruneState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptIPrunePendingTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGRptIPruneExpiryTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "pimBidirGroup": {
+    "name": "pimBidirGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceDFElectionRobustness"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionWinnerAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionWinnerAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionWinnerUpTime"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionWinnerMetricPref"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionWinnerMetric"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimBidirDFElectionStateTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "pimAnycastRpGroup": {
+    "name": "pimAnycastRpGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimAnycastRPSetLocalRouter"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimAnycastRPSetRowStatus"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimAnycastRPSetStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "pimStaticRPPrecedenceGroup": {
+    "name": "pimStaticRPPrecedenceGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimStaticRPPrecedence"
+      }
+    ],
+    "status": "current"
+  },
+  "pimNetMgmtNotificationObjects": {
+    "name": "pimNetMgmtNotificationObjects",
+    "oid": "1.3.6.1.2.1.157.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterNotificationPeriod"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterMsgsRcvd"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterOrigin"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterGroup"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegisterRp"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneNotificationPeriod"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneMsgsRcvd"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneOrigin"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneGroup"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPruneRp"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimRPMappingNotificationPeriod"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimRPMappingChangeCount"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceElectionNotificationPeriod"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceElectionWinCount"
+      }
+    ],
+    "status": "current"
+  },
+  "pimNetMgmtNotificationGroup": {
+    "name": "pimNetMgmtNotificationGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidRegister"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInvalidJoinPrune"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimRPMappingChange"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceElection"
+      }
+    ],
+    "status": "current"
+  },
+  "pimDiagnosticsGroup": {
+    "name": "pimDiagnosticsGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInAsserts"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimOutAsserts"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimLastAssertInterface"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimLastAssertGroupAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimLastAssertGroupAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimLastAssertSourceAddressType"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimLastAssertSourceAddress"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborLossNotificationPeriod"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborLossCount"
+      }
+    ],
+    "status": "current"
+  },
+  "pimDmGroup": {
+    "name": "pimDmGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimRefreshInterval"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfacePruneLimitInterval"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceGraftRetryInterval"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimInterfaceSRPriorityEnabled"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimNeighborSRCapable"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGUpstreamPruneState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGUpstreamPruneLimitTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGOriginatorState"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGSourceActiveTimer"
+      },
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimSGStateRefreshTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "pimDeviceStorageGroup": {
+    "name": "pimDeviceStorageGroup",
+    "oid": "1.3.6.1.2.1.157.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PIM-STD-MIB",
+        "object": "pimDeviceConfigStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/PIM-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PIM-STD-MIB"
+  }
+}

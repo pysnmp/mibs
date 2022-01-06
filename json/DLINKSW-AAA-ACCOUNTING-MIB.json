@@ -1,0 +1,503 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINKSW-AAA-COMMON-MIB": [
+      "dAaaMIBObjects",
+      "DAaaMethodListName",
+      "DAaaMethodName",
+      "DAaaPrivilegeLevel",
+      "DAaaMethodPriority",
+      "DAaaSessionType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwAaaAccountingMIB": {
+    "name": "dlinkSwAaaAccountingMIB",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-25 00:00",
+        "description": "This is the first version of the MIB file. "
+      }
+    ]
+  },
+  "dAaaAcctMIBNotifications": {
+    "name": "dAaaAcctMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.0",
+    "class": "objectidentity"
+  },
+  "dAaaAcctMIBObjects": {
+    "name": "dAaaAcctMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1",
+    "class": "objectidentity"
+  },
+  "dAaaAcctMIBConformance": {
+    "name": "dAaaAcctMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.2",
+    "class": "objectidentity"
+  },
+  "dAaaAcctGenericCfg": {
+    "name": "dAaaAcctGenericCfg",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "dAaaAcctGeneicAcctMethodTable": {
+    "name": "dAaaAcctGeneicAcctMethodTable",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctGeneicAcctMethodEntry": {
+    "name": "dAaaAcctGeneicAcctMethodEntry",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctGenMethodLstType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctGenMethodLstName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctGenMethodPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAcctGenMethodLstType": {
+    "name": "dAaaAcctGenMethodLstType",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exec": 1,
+          "network": 2,
+          "system": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctGenMethodLstName": {
+    "name": "dAaaAcctGenMethodLstName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodListName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctGenMethodPriority": {
+    "name": "dAaaAcctGenMethodPriority",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodPriority",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctGenMethodName": {
+    "name": "dAaaAcctGenMethodName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAcctGenMethodRowStatus": {
+    "name": "dAaaAcctGenMethodRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcct": {
+    "name": "dAaaAcctCommandsAcct",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "dAaaAcctCommandsAcctMethodTable": {
+    "name": "dAaaAcctCommandsAcctMethodTable",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctMethodEntry": {
+    "name": "dAaaAcctCommandsAcctMethodEntry",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctPrivLevel",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctListName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctPrivLevel": {
+    "name": "dAaaAcctCommandsAcctPrivLevel",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaPrivilegeLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctListName": {
+    "name": "dAaaAcctCommandsAcctListName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodListName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctPriority": {
+    "name": "dAaaAcctCommandsAcctPriority",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodPriority",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctMethodName": {
+    "name": "dAaaAcctCommandsAcctMethodName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctRowStatus": {
+    "name": "dAaaAcctCommandsAcctRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctApplyTable": {
+    "name": "dAaaAcctCommandsAcctApplyTable",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctApplyEntry": {
+    "name": "dAaaAcctCommandsAcctApplyEntry",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctApplySession",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctApplyPrivLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctApplySession": {
+    "name": "dAaaAcctCommandsAcctApplySession",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaSessionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctApplyPrivLevel": {
+    "name": "dAaaAcctCommandsAcctApplyPrivLevel",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaPrivilegeLevel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctApplyListName": {
+    "name": "dAaaAcctCommandsAcctApplyListName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodListName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAcctCommandsAcctApplyRowStatus": {
+    "name": "dAaaAcctCommandsAcctApplyRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAcctExecAcct": {
+    "name": "dAaaAcctExecAcct",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "dAaaAcctExecAcctApplyTable": {
+    "name": "dAaaAcctExecAcctApplyTable",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctExecAcctApplyEntry": {
+    "name": "dAaaAcctExecAcctApplyEntry",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctExecAcctApplySession",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAcctExecAcctApplySession": {
+    "name": "dAaaAcctExecAcctApplySession",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaSessionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAaaAcctExecAcctApplyListName": {
+    "name": "dAaaAcctExecAcctApplyListName",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DAaaMethodListName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAcctExecAcctApplyRowStatus": {
+    "name": "dAaaAcctExecAcctApplyRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAaaAcctMIBCompliances": {
+    "name": "dAaaAcctMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "dAaaAcctMIBCompliance": {
+    "name": "dAaaAcctMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dAaaAcctGenericMethodLstGroup",
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB"
+      },
+      {
+        "object": "dAaaAcctExecApplyGroup",
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB"
+      },
+      {
+        "object": "dAaaAcctAccountingCommandsGroup",
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAcctMIBGroups": {
+    "name": "dAaaAcctMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "dAaaAcctAccountingCommandsGroup": {
+    "name": "dAaaAcctAccountingCommandsGroup",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctMethodName"
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctRowStatus"
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctApplyListName"
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctCommandsAcctApplyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAcctGenericMethodLstGroup": {
+    "name": "dAaaAcctGenericMethodLstGroup",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctGenMethodName"
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctGenMethodRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaAcctExecApplyGroup": {
+    "name": "dAaaAcctExecApplyGroup",
+    "oid": "1.3.6.1.4.1.171.14.150.1.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctExecAcctApplyListName"
+      },
+      {
+        "module": "DLINKSW-AAA-ACCOUNTING-MIB",
+        "object": "dAaaAcctExecAcctApplyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-AAA-ACCOUNTING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-AAA-ACCOUNTING-MIB"
+  }
+}

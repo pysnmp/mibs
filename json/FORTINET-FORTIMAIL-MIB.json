@@ -1,0 +1,1351 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORTINET-CORE-MIB": [
+      "fortinet",
+      "FnIndex",
+      "FnSessionProto",
+      "FnBoolState"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "fnFortiMailMib": {
+    "name": "fnFortiMailMib",
+    "oid": "1.3.6.1.4.1.12356.105",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-06-28 00:00",
+        "description": "MIB module for Fortinet FortiMail devices"
+      },
+      {
+        "revision": "2010-03-23 00:00",
+        "description": "Inherit FORTINET-CORE-MIB, combine FortiMail traps"
+      },
+      {
+        "revision": "2009-10-22 00:00",
+        "description": "MIB module for FortiMail devices."
+      }
+    ]
+  },
+  "FmlIpv6Address": {
+    "name": "FmlIpv6Address",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:",
+    "status": "current"
+  },
+  "FmlOpMode": {
+    "name": "FmlOpMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gateway": 1,
+          "transparent": 2,
+          "server": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FmlSysEventCodeVal": {
+    "name": "FmlSysEventCodeVal",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "systemHalt": 1,
+          "systemReboot": 2,
+          "systemReload": 3,
+          "systemUpgrade": 4,
+          "guiUpgrade": 5,
+          "logdiskFormat": 6,
+          "maildiskFormat": 7,
+          "avDBUpdateSuccess": 8,
+          "avDBUpdateNetworkError": 9,
+          "avDBUpdateFailure": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FmlRAIDCodeVal": {
+    "name": "FmlRAIDCodeVal",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "degradedArray": 1,
+          "sparesMissing": 2,
+          "rebuildStarted": 3,
+          "rebuildFinished": 4,
+          "fail": 5,
+          "failSpare": 6,
+          "spareActive": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FmlHAEventIdVal": {
+    "name": "FmlHAEventIdVal",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "masterUnitSwitch": 1,
+          "slaveUnitSwitch": 2,
+          "unitShutdown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FmlHAModeVal": {
+    "name": "FmlHAModeVal",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "master": 1,
+          "slave": 2,
+          "configMaster": 3,
+          "configSlave": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fmlTraps": {
+    "name": "fmlTraps",
+    "oid": "1.3.6.1.4.1.12356.105.0",
+    "class": "objectidentity"
+  },
+  "fmlSystem": {
+    "name": "fmlSystem",
+    "oid": "1.3.6.1.4.1.12356.105.1",
+    "class": "objectidentity"
+  },
+  "fmlSysOptions": {
+    "name": "fmlSysOptions",
+    "oid": "1.3.6.1.4.1.12356.105.1.101",
+    "class": "objectidentity"
+  },
+  "fmlIp": {
+    "name": "fmlIp",
+    "oid": "1.3.6.1.4.1.12356.105.1.102",
+    "class": "objectidentity"
+  },
+  "fmlMailOptions": {
+    "name": "fmlMailOptions",
+    "oid": "1.3.6.1.4.1.12356.105.1.103",
+    "class": "objectidentity"
+  },
+  "fmlHwSensors": {
+    "name": "fmlHwSensors",
+    "oid": "1.3.6.1.4.1.12356.105.1.110",
+    "class": "objectidentity"
+  },
+  "fmlSysHA": {
+    "name": "fmlSysHA",
+    "oid": "1.3.6.1.4.1.12356.105.1.200",
+    "class": "objectidentity"
+  },
+  "fmlMIBConformance": {
+    "name": "fmlMIBConformance",
+    "oid": "1.3.6.1.4.1.12356.105.600",
+    "class": "objectidentity"
+  },
+  "fmlSysModel": {
+    "name": "fmlSysModel",
+    "oid": "1.3.6.1.4.1.12356.105.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysSerial": {
+    "name": "fmlSysSerial",
+    "oid": "1.3.6.1.4.1.12356.105.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysVersion": {
+    "name": "fmlSysVersion",
+    "oid": "1.3.6.1.4.1.12356.105.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysVersionAv": {
+    "name": "fmlSysVersionAv",
+    "oid": "1.3.6.1.4.1.12356.105.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysOpMode": {
+    "name": "fmlSysOpMode",
+    "oid": "1.3.6.1.4.1.12356.105.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmlOpMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysCpuUsage": {
+    "name": "fmlSysCpuUsage",
+    "oid": "1.3.6.1.4.1.12356.105.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysMemUsage": {
+    "name": "fmlSysMemUsage",
+    "oid": "1.3.6.1.4.1.12356.105.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysLogDiskUsage": {
+    "name": "fmlSysLogDiskUsage",
+    "oid": "1.3.6.1.4.1.12356.105.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysMailDiskUsage": {
+    "name": "fmlSysMailDiskUsage",
+    "oid": "1.3.6.1.4.1.12356.105.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysSesCount": {
+    "name": "fmlSysSesCount",
+    "oid": "1.3.6.1.4.1.12356.105.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysEventCode": {
+    "name": "fmlSysEventCode",
+    "oid": "1.3.6.1.4.1.12356.105.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmlSysEventCodeVal",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmlRAIDCode": {
+    "name": "fmlRAIDCode",
+    "oid": "1.3.6.1.4.1.12356.105.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmlRAIDCodeVal",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmlRAIDDevName": {
+    "name": "fmlRAIDDevName",
+    "oid": "1.3.6.1.4.1.12356.105.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmlHAEventId": {
+    "name": "fmlHAEventId",
+    "oid": "1.3.6.1.4.1.12356.105.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmlHAEventIdVal",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmlHAUnitIp": {
+    "name": "fmlHAUnitIp",
+    "oid": "1.3.6.1.4.1.12356.105.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmlHAEventReason": {
+    "name": "fmlHAEventReason",
+    "oid": "1.3.6.1.4.1.12356.105.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fmlSysLoad": {
+    "name": "fmlSysLoad",
+    "oid": "1.3.6.1.4.1.12356.105.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlRemoteStorageStatus": {
+    "name": "fmlRemoteStorageStatus",
+    "oid": "1.3.6.1.4.1.12356.105.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "fmlSysOptIdleTimeout": {
+    "name": "fmlSysOptIdleTimeout",
+    "oid": "1.3.6.1.4.1.12356.105.1.101.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlSysOptAuthTimeout": {
+    "name": "fmlSysOptAuthTimeout",
+    "oid": "1.3.6.1.4.1.12356.105.1.101.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlIpSessTable": {
+    "name": "fmlIpSessTable",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmlIpSessEntry": {
+    "name": "fmlIpSessEntry",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlIpSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmlIpSessIndex": {
+    "name": "fmlIpSessIndex",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmlIpSessProto": {
+    "name": "fmlIpSessProto",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnSessionProto",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlIpSessFromAddr": {
+    "name": "fmlIpSessFromAddr",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlIpv6SessFromAddr": {
+    "name": "fmlIpv6SessFromAddr",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmlIpv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlIpSessFromPort": {
+    "name": "fmlIpSessFromPort",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlIpSessToAddr": {
+    "name": "fmlIpSessToAddr",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlIpv6SessToAddr": {
+    "name": "fmlIpv6SessToAddr",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmlIpv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlIpSessToPort": {
+    "name": "fmlIpSessToPort",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlIpSessExp": {
+    "name": "fmlIpSessExp",
+    "oid": "1.3.6.1.4.1.12356.105.1.102.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlMailOptionsDeferQueue": {
+    "name": "fmlMailOptionsDeferQueue",
+    "oid": "1.3.6.1.4.1.12356.105.1.103.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "fmlMailQueueStatistics": {
+    "name": "fmlMailQueueStatistics",
+    "oid": "1.3.6.1.4.1.12356.105.1.103.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmlMailQueueEntry": {
+    "name": "fmlMailQueueEntry",
+    "oid": "1.3.6.1.4.1.12356.105.1.103.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlMailQueueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmlMailQueueIndex": {
+    "name": "fmlMailQueueIndex",
+    "oid": "1.3.6.1.4.1.12356.105.1.103.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlMailQueueName": {
+    "name": "fmlMailQueueName",
+    "oid": "1.3.6.1.4.1.12356.105.1.103.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlMailQueueMailCount": {
+    "name": "fmlMailQueueMailCount",
+    "oid": "1.3.6.1.4.1.12356.105.1.103.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlMailQueueMailSize": {
+    "name": "fmlMailQueueMailSize",
+    "oid": "1.3.6.1.4.1.12356.105.1.103.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlHwSensorCount": {
+    "name": "fmlHwSensorCount",
+    "oid": "1.3.6.1.4.1.12356.105.1.110.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlHwSensorTable": {
+    "name": "fmlHwSensorTable",
+    "oid": "1.3.6.1.4.1.12356.105.1.110.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmlHwSensorEntry": {
+    "name": "fmlHwSensorEntry",
+    "oid": "1.3.6.1.4.1.12356.105.1.110.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHwSensorEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmlHwSensorEntIndex": {
+    "name": "fmlHwSensorEntIndex",
+    "oid": "1.3.6.1.4.1.12356.105.1.110.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmlHwSensorEntName": {
+    "name": "fmlHwSensorEntName",
+    "oid": "1.3.6.1.4.1.12356.105.1.110.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlHwSensorEntValue": {
+    "name": "fmlHwSensorEntValue",
+    "oid": "1.3.6.1.4.1.12356.105.1.110.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlHwSensorEntAlarmStatus": {
+    "name": "fmlHwSensorEntAlarmStatus",
+    "oid": "1.3.6.1.4.1.12356.105.1.110.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlHAMode": {
+    "name": "fmlHAMode",
+    "oid": "1.3.6.1.4.1.12356.105.1.200.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmlHAModeVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlHAEffectiveMode": {
+    "name": "fmlHAEffectiveMode",
+    "oid": "1.3.6.1.4.1.12356.105.1.200.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FmlHAModeVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmlTrapCpuHighThreshold": {
+    "name": "fmlTrapCpuHighThreshold",
+    "oid": "1.3.6.1.4.1.12356.105.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmlTrapMemLowThreshold": {
+    "name": "fmlTrapMemLowThreshold",
+    "oid": "1.3.6.1.4.1.12356.105.0.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmlTrapLogDiskHighThreshold": {
+    "name": "fmlTrapLogDiskHighThreshold",
+    "oid": "1.3.6.1.4.1.12356.105.0.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmlTrapMailDiskHighThreshold": {
+    "name": "fmlTrapMailDiskHighThreshold",
+    "oid": "1.3.6.1.4.1.12356.105.0.104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlTrapMailDeferredQueueHighThreshold": {
+    "name": "fmlTrapMailDeferredQueueHighThreshold",
+    "oid": "1.3.6.1.4.1.12356.105.0.105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlTrapAvThresholdEvent": {
+    "name": "fmlTrapAvThresholdEvent",
+    "oid": "1.3.6.1.4.1.12356.105.0.106",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlTrapSpamThresholdEvent": {
+    "name": "fmlTrapSpamThresholdEvent",
+    "oid": "1.3.6.1.4.1.12356.105.0.107",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlTrapPSUFailureEvent": {
+    "name": "fmlTrapPSUFailureEvent",
+    "oid": "1.3.6.1.4.1.12356.105.0.108",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHwSensorEntName"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHwSensorEntValue"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHwSensorEntAlarmStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmlTrapSystemEvent": {
+    "name": "fmlTrapSystemEvent",
+    "oid": "1.3.6.1.4.1.12356.105.0.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysEventCode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlTrapRAIDEvent": {
+    "name": "fmlTrapRAIDEvent",
+    "oid": "1.3.6.1.4.1.12356.105.0.202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlRAIDCode"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlRAIDDevName"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlTrapHAEvent": {
+    "name": "fmlTrapHAEvent",
+    "oid": "1.3.6.1.4.1.12356.105.0.203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHAEventId"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHAUnitIp"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHAEventReason"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlTrapRemoteStorage": {
+    "name": "fmlTrapRemoteStorage",
+    "oid": "1.3.6.1.4.1.12356.105.0.205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlRemoteStorageStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmlTrapIpChange": {
+    "name": "fmlTrapIpChange",
+    "oid": "1.3.6.1.4.1.12356.105.0.301",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmlSystemConformanceGroup": {
+    "name": "fmlSystemConformanceGroup",
+    "oid": "1.3.6.1.4.1.12356.105.600.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysModel"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysVersion"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysVersionAv"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysOpMode"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysCpuUsage"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysMemUsage"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysLogDiskUsage"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysMailDiskUsage"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysSesCount"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysEventCode"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlRAIDCode"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlRAIDDevName"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHAEventId"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHAUnitIp"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHAEventReason"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysLoad"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlSysOptionsConformanceGroup": {
+    "name": "fmlSysOptionsConformanceGroup",
+    "oid": "1.3.6.1.4.1.12356.105.600.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysOptIdleTimeout"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlSysOptAuthTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlIpConformanceGroup": {
+    "name": "fmlIpConformanceGroup",
+    "oid": "1.3.6.1.4.1.12356.105.600.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlIpSessProto"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlIpSessFromAddr"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlIpSessFromPort"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlIpSessToAddr"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlIpSessToPort"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlIpSessExp"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlMailOptionsConformanceGroup": {
+    "name": "fmlMailOptionsConformanceGroup",
+    "oid": "1.3.6.1.4.1.12356.105.600.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlMailQueueName"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlMailQueueMailCount"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlMailQueueMailSize"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlHwSensorsConformanceGroup": {
+    "name": "fmlHwSensorsConformanceGroup",
+    "oid": "1.3.6.1.4.1.12356.105.600.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHwSensorCount"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHwSensorEntName"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHwSensorEntValue"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHwSensorEntAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlHAModeConformanceGroup": {
+    "name": "fmlHAModeConformanceGroup",
+    "oid": "1.3.6.1.4.1.12356.105.600.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHAMode"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlHAEffectiveMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlTrapsComplianceGroup": {
+    "name": "fmlTrapsComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.105.600.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapMailDiskHighThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapMailDeferredQueueHighThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapAvThresholdEvent"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapSpamThresholdEvent"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapSystemEvent"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapRAIDEvent"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapHAEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlObsoleteTrapsComplianceGroup": {
+    "name": "fmlObsoleteTrapsComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.105.600.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapCpuHighThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapMemLowThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapLogDiskHighThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapPSUFailureEvent"
+      },
+      {
+        "module": "FORTINET-FORTIMAIL-MIB",
+        "object": "fmlTrapIpChange"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmlMIBCompliance": {
+    "name": "fmlMIBCompliance",
+    "oid": "1.3.6.1.4.1.12356.105.600.100",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fmlSystemConformanceGroup",
+        "module": "FORTINET-FORTIMAIL-MIB"
+      },
+      {
+        "object": "fmlSysOptionsConformanceGroup",
+        "module": "FORTINET-FORTIMAIL-MIB"
+      },
+      {
+        "object": "fmlIpConformanceGroup",
+        "module": "FORTINET-FORTIMAIL-MIB"
+      },
+      {
+        "object": "fmlMailOptionsConformanceGroup",
+        "module": "FORTINET-FORTIMAIL-MIB"
+      },
+      {
+        "object": "fmlHwSensorsConformanceGroup",
+        "module": "FORTINET-FORTIMAIL-MIB"
+      },
+      {
+        "object": "fmlHAModeConformanceGroup",
+        "module": "FORTINET-FORTIMAIL-MIB"
+      },
+      {
+        "object": "fmlTrapsComplianceGroup",
+        "module": "FORTINET-FORTIMAIL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fmlObsoleteMIBCompliance": {
+    "name": "fmlObsoleteMIBCompliance",
+    "oid": "1.3.6.1.4.1.12356.105.600.101",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fmlObsoleteTrapsComplianceGroup",
+        "module": "FORTINET-FORTIMAIL-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIMAIL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FORTINET-FORTIMAIL-MIB"
+  }
+}

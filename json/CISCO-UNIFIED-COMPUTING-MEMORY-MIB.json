@@ -1,0 +1,3348 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsMemoryBufferUnitEnvStatsThresholded",
+      "CucsMemoryArrayId",
+      "CucsMemoryVisibility",
+      "CucsEquipmentSensorThresholdStatus",
+      "CucsMemoryRuntimeType",
+      "CucsMemoryRuntimeThresholded",
+      "CucsMemoryIssues",
+      "CucsMemoryBufferUnitEnvStatsHistThresholded",
+      "CucsMemoryArrayEnvStatsThresholded",
+      "CucsMemoryBufferUnitId",
+      "CucsMemoryUnitId",
+      "CucsEquipmentPowerState",
+      "CucsMemoryAdminState",
+      "CucsMemoryErrorCorrection",
+      "CucsMemoryUnitOperability",
+      "CucsMemoryFormFactor",
+      "CucsMemoryRuntimeHistThresholded",
+      "CucsMemoryErrorStatsThresholded",
+      "CucsMemoryUnitEnvStatsHistThresholded",
+      "CucsMemoryArrayEnvStatsHistThresholded",
+      "CucsMemoryUnitEnvStatsThresholded",
+      "CucsEquipmentOperability",
+      "CucsEquipmentPresence",
+      "CucsMemoryType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsMemoryObjects": {
+    "name": "cucsMemoryObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30",
+    "class": "moduleidentity"
+  },
+  "cucsMemoryArrayTable": {
+    "name": "cucsMemoryArrayTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryArrayEntry": {
+    "name": "cucsMemoryArrayEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryArrayInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryArrayInstanceId": {
+    "name": "cucsMemoryArrayInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryArrayDn": {
+    "name": "cucsMemoryArrayDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayRn": {
+    "name": "cucsMemoryArrayRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayCpuId": {
+    "name": "cucsMemoryArrayCpuId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayCurrCapacity": {
+    "name": "cucsMemoryArrayCurrCapacity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayErrorCorrection": {
+    "name": "cucsMemoryArrayErrorCorrection",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryErrorCorrection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayId": {
+    "name": "cucsMemoryArrayId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryArrayId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayMaxCapacity": {
+    "name": "cucsMemoryArrayMaxCapacity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayMaxDevices": {
+    "name": "cucsMemoryArrayMaxDevices",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayModel": {
+    "name": "cucsMemoryArrayModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayOperState": {
+    "name": "cucsMemoryArrayOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayOperability": {
+    "name": "cucsMemoryArrayOperability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayPerf": {
+    "name": "cucsMemoryArrayPerf",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayPopulated": {
+    "name": "cucsMemoryArrayPopulated",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayPower": {
+    "name": "cucsMemoryArrayPower",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPowerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayPresence": {
+    "name": "cucsMemoryArrayPresence",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPresence",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayRevision": {
+    "name": "cucsMemoryArrayRevision",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArraySerial": {
+    "name": "cucsMemoryArraySerial",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayThermal": {
+    "name": "cucsMemoryArrayThermal",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayVendor": {
+    "name": "cucsMemoryArrayVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayVoltage": {
+    "name": "cucsMemoryArrayVoltage",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayOperQualifierReason": {
+    "name": "cucsMemoryArrayOperQualifierReason",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayLocationDn": {
+    "name": "cucsMemoryArrayLocationDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsTable": {
+    "name": "cucsMemoryArrayEnvStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsEntry": {
+    "name": "cucsMemoryArrayEnvStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryArrayEnvStatsInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsInstanceId": {
+    "name": "cucsMemoryArrayEnvStatsInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsDn": {
+    "name": "cucsMemoryArrayEnvStatsDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsRn": {
+    "name": "cucsMemoryArrayEnvStatsRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsInputCurrent": {
+    "name": "cucsMemoryArrayEnvStatsInputCurrent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsInputCurrentAvg": {
+    "name": "cucsMemoryArrayEnvStatsInputCurrentAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsInputCurrentMax": {
+    "name": "cucsMemoryArrayEnvStatsInputCurrentMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsInputCurrentMin": {
+    "name": "cucsMemoryArrayEnvStatsInputCurrentMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsIntervals": {
+    "name": "cucsMemoryArrayEnvStatsIntervals",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsSuspect": {
+    "name": "cucsMemoryArrayEnvStatsSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsThresholded": {
+    "name": "cucsMemoryArrayEnvStatsThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryArrayEnvStatsThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsTimeCollected": {
+    "name": "cucsMemoryArrayEnvStatsTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsUpdate": {
+    "name": "cucsMemoryArrayEnvStatsUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistTable": {
+    "name": "cucsMemoryArrayEnvStatsHistTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistEntry": {
+    "name": "cucsMemoryArrayEnvStatsHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryArrayEnvStatsHistInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistInstanceId": {
+    "name": "cucsMemoryArrayEnvStatsHistInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistDn": {
+    "name": "cucsMemoryArrayEnvStatsHistDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistRn": {
+    "name": "cucsMemoryArrayEnvStatsHistRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistId": {
+    "name": "cucsMemoryArrayEnvStatsHistId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistInputCurrent": {
+    "name": "cucsMemoryArrayEnvStatsHistInputCurrent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistInputCurrentAvg": {
+    "name": "cucsMemoryArrayEnvStatsHistInputCurrentAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistInputCurrentMax": {
+    "name": "cucsMemoryArrayEnvStatsHistInputCurrentMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistInputCurrentMin": {
+    "name": "cucsMemoryArrayEnvStatsHistInputCurrentMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistMostRecent": {
+    "name": "cucsMemoryArrayEnvStatsHistMostRecent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistSuspect": {
+    "name": "cucsMemoryArrayEnvStatsHistSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistThresholded": {
+    "name": "cucsMemoryArrayEnvStatsHistThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryArrayEnvStatsHistThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryArrayEnvStatsHistTimeCollected": {
+    "name": "cucsMemoryArrayEnvStatsHistTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitTable": {
+    "name": "cucsMemoryBufferUnitTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEntry": {
+    "name": "cucsMemoryBufferUnitEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryBufferUnitInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitInstanceId": {
+    "name": "cucsMemoryBufferUnitInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitDn": {
+    "name": "cucsMemoryBufferUnitDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitRn": {
+    "name": "cucsMemoryBufferUnitRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitId": {
+    "name": "cucsMemoryBufferUnitId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryBufferUnitId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitModel": {
+    "name": "cucsMemoryBufferUnitModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitOperState": {
+    "name": "cucsMemoryBufferUnitOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitOperability": {
+    "name": "cucsMemoryBufferUnitOperability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitPerf": {
+    "name": "cucsMemoryBufferUnitPerf",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitPower": {
+    "name": "cucsMemoryBufferUnitPower",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPowerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitPresence": {
+    "name": "cucsMemoryBufferUnitPresence",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPresence",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitRevision": {
+    "name": "cucsMemoryBufferUnitRevision",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitSerial": {
+    "name": "cucsMemoryBufferUnitSerial",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitThermal": {
+    "name": "cucsMemoryBufferUnitThermal",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitVendor": {
+    "name": "cucsMemoryBufferUnitVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitVoltage": {
+    "name": "cucsMemoryBufferUnitVoltage",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitOperQualifierReason": {
+    "name": "cucsMemoryBufferUnitOperQualifierReason",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitLocationDn": {
+    "name": "cucsMemoryBufferUnitLocationDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsTable": {
+    "name": "cucsMemoryBufferUnitEnvStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsEntry": {
+    "name": "cucsMemoryBufferUnitEnvStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryBufferUnitEnvStatsInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsInstanceId": {
+    "name": "cucsMemoryBufferUnitEnvStatsInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsDn": {
+    "name": "cucsMemoryBufferUnitEnvStatsDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsRn": {
+    "name": "cucsMemoryBufferUnitEnvStatsRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsIntervals": {
+    "name": "cucsMemoryBufferUnitEnvStatsIntervals",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsSuspect": {
+    "name": "cucsMemoryBufferUnitEnvStatsSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsTemperature": {
+    "name": "cucsMemoryBufferUnitEnvStatsTemperature",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsTemperatureAvg": {
+    "name": "cucsMemoryBufferUnitEnvStatsTemperatureAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsTemperatureMax": {
+    "name": "cucsMemoryBufferUnitEnvStatsTemperatureMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsTemperatureMin": {
+    "name": "cucsMemoryBufferUnitEnvStatsTemperatureMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsThresholded": {
+    "name": "cucsMemoryBufferUnitEnvStatsThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryBufferUnitEnvStatsThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsTimeCollected": {
+    "name": "cucsMemoryBufferUnitEnvStatsTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsUpdate": {
+    "name": "cucsMemoryBufferUnitEnvStatsUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistTable": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistEntry": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryBufferUnitEnvStatsHistInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistInstanceId": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistDn": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistRn": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistId": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistMostRecent": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistMostRecent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistSuspect": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistTemperature": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistTemperature",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistTemperatureAvg": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistTemperatureAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistTemperatureMax": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistTemperatureMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistTemperatureMin": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistTemperatureMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistThresholded": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryBufferUnitEnvStatsHistThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryBufferUnitEnvStatsHistTimeCollected": {
+    "name": "cucsMemoryBufferUnitEnvStatsHistTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsTable": {
+    "name": "cucsMemoryErrorStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEntry": {
+    "name": "cucsMemoryErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryErrorStatsInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsInstanceId": {
+    "name": "cucsMemoryErrorStatsInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsDn": {
+    "name": "cucsMemoryErrorStatsDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsRn": {
+    "name": "cucsMemoryErrorStatsRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors15Min": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors15Min",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors15MinH": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors15MinH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors1Day": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors1Day",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors1DayH": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors1DayH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors1Hour": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors1Hour",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors1HourH": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors1HourH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors1Week": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors1Week",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors1WeekH": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors1WeekH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors15Min": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors15Min",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors15MinH": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors15MinH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors1Day": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors1Day",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors1DayH": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors1DayH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors1Hour": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors1Hour",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors1HourH": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors1HourH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors1Week": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors1Week",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors1WeekH": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors1WeekH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors15Min": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors15Min",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors15MinH": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors15MinH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors1Day": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors1Day",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors1DayH": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors1DayH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors1Hour": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors1Hour",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors1HourH": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors1HourH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors1Week": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors1Week",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors1WeekH": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors1WeekH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsIntervals": {
+    "name": "cucsMemoryErrorStatsIntervals",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors": {
+    "name": "cucsMemoryErrorStatsMismatchErrors",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors15Min": {
+    "name": "cucsMemoryErrorStatsMismatchErrors15Min",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors15MinH": {
+    "name": "cucsMemoryErrorStatsMismatchErrors15MinH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors1Day": {
+    "name": "cucsMemoryErrorStatsMismatchErrors1Day",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors1DayH": {
+    "name": "cucsMemoryErrorStatsMismatchErrors1DayH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors1Hour": {
+    "name": "cucsMemoryErrorStatsMismatchErrors1Hour",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors1HourH": {
+    "name": "cucsMemoryErrorStatsMismatchErrors1HourH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors1Week": {
+    "name": "cucsMemoryErrorStatsMismatchErrors1Week",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors1WeekH": {
+    "name": "cucsMemoryErrorStatsMismatchErrors1WeekH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsSuspect": {
+    "name": "cucsMemoryErrorStatsSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsThresholded": {
+    "name": "cucsMemoryErrorStatsThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryErrorStatsThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsTimeCollected": {
+    "name": "cucsMemoryErrorStatsTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsUpdate": {
+    "name": "cucsMemoryErrorStatsUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors2Weeks": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors2Weeks",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsAddressParityErrors2WeeksH": {
+    "name": "cucsMemoryErrorStatsAddressParityErrors2WeeksH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors2Weeks": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors2Weeks",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccMultibitErrors2WeeksH": {
+    "name": "cucsMemoryErrorStatsEccMultibitErrors2WeeksH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors2Weeks": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors2Weeks",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsEccSinglebitErrors2WeeksH": {
+    "name": "cucsMemoryErrorStatsEccSinglebitErrors2WeeksH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors2Weeks": {
+    "name": "cucsMemoryErrorStatsMismatchErrors2Weeks",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryErrorStatsMismatchErrors2WeeksH": {
+    "name": "cucsMemoryErrorStatsMismatchErrors2WeeksH",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.7.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualTable": {
+    "name": "cucsMemoryQualTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryQualEntry": {
+    "name": "cucsMemoryQualEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryQualInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryQualInstanceId": {
+    "name": "cucsMemoryQualInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryQualDn": {
+    "name": "cucsMemoryQualDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualRn": {
+    "name": "cucsMemoryQualRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualClock": {
+    "name": "cucsMemoryQualClock",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualLatency": {
+    "name": "cucsMemoryQualLatency",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualMaxCap": {
+    "name": "cucsMemoryQualMaxCap",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualMinCap": {
+    "name": "cucsMemoryQualMinCap",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualSpeed": {
+    "name": "cucsMemoryQualSpeed",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualUnits": {
+    "name": "cucsMemoryQualUnits",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryQualWidth": {
+    "name": "cucsMemoryQualWidth",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeTable": {
+    "name": "cucsMemoryRuntimeTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeEntry": {
+    "name": "cucsMemoryRuntimeEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryRuntimeInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryRuntimeInstanceId": {
+    "name": "cucsMemoryRuntimeInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeDn": {
+    "name": "cucsMemoryRuntimeDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeRn": {
+    "name": "cucsMemoryRuntimeRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeAvailable": {
+    "name": "cucsMemoryRuntimeAvailable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeAvailableAvg": {
+    "name": "cucsMemoryRuntimeAvailableAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeAvailableMax": {
+    "name": "cucsMemoryRuntimeAvailableMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeAvailableMin": {
+    "name": "cucsMemoryRuntimeAvailableMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeCached": {
+    "name": "cucsMemoryRuntimeCached",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeCachedAvg": {
+    "name": "cucsMemoryRuntimeCachedAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeCachedMax": {
+    "name": "cucsMemoryRuntimeCachedMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeCachedMin": {
+    "name": "cucsMemoryRuntimeCachedMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeIntervals": {
+    "name": "cucsMemoryRuntimeIntervals",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeSuspect": {
+    "name": "cucsMemoryRuntimeSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeThresholded": {
+    "name": "cucsMemoryRuntimeThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryRuntimeThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeTimeCollected": {
+    "name": "cucsMemoryRuntimeTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeTotal": {
+    "name": "cucsMemoryRuntimeTotal",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeTotalAvg": {
+    "name": "cucsMemoryRuntimeTotalAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeTotalMax": {
+    "name": "cucsMemoryRuntimeTotalMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeTotalMin": {
+    "name": "cucsMemoryRuntimeTotalMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeType": {
+    "name": "cucsMemoryRuntimeType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryRuntimeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeUpdate": {
+    "name": "cucsMemoryRuntimeUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistTable": {
+    "name": "cucsMemoryRuntimeHistTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistEntry": {
+    "name": "cucsMemoryRuntimeHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryRuntimeHistInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistInstanceId": {
+    "name": "cucsMemoryRuntimeHistInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistDn": {
+    "name": "cucsMemoryRuntimeHistDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistRn": {
+    "name": "cucsMemoryRuntimeHistRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistAvailable": {
+    "name": "cucsMemoryRuntimeHistAvailable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistAvailableAvg": {
+    "name": "cucsMemoryRuntimeHistAvailableAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistAvailableMax": {
+    "name": "cucsMemoryRuntimeHistAvailableMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistAvailableMin": {
+    "name": "cucsMemoryRuntimeHistAvailableMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistCached": {
+    "name": "cucsMemoryRuntimeHistCached",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistCachedAvg": {
+    "name": "cucsMemoryRuntimeHistCachedAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistCachedMax": {
+    "name": "cucsMemoryRuntimeHistCachedMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistCachedMin": {
+    "name": "cucsMemoryRuntimeHistCachedMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistId": {
+    "name": "cucsMemoryRuntimeHistId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistMostRecent": {
+    "name": "cucsMemoryRuntimeHistMostRecent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistSuspect": {
+    "name": "cucsMemoryRuntimeHistSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistThresholded": {
+    "name": "cucsMemoryRuntimeHistThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryRuntimeHistThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistTimeCollected": {
+    "name": "cucsMemoryRuntimeHistTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistTotal": {
+    "name": "cucsMemoryRuntimeHistTotal",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistTotalAvg": {
+    "name": "cucsMemoryRuntimeHistTotalAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistTotalMax": {
+    "name": "cucsMemoryRuntimeHistTotalMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryRuntimeHistTotalMin": {
+    "name": "cucsMemoryRuntimeHistTotalMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitTable": {
+    "name": "cucsMemoryUnitTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryUnitEntry": {
+    "name": "cucsMemoryUnitEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryUnitInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryUnitInstanceId": {
+    "name": "cucsMemoryUnitInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryUnitDn": {
+    "name": "cucsMemoryUnitDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitRn": {
+    "name": "cucsMemoryUnitRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitArray": {
+    "name": "cucsMemoryUnitArray",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitBank": {
+    "name": "cucsMemoryUnitBank",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitCapacity": {
+    "name": "cucsMemoryUnitCapacity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitClock": {
+    "name": "cucsMemoryUnitClock",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitFormFactor": {
+    "name": "cucsMemoryUnitFormFactor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryFormFactor",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitId": {
+    "name": "cucsMemoryUnitId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryUnitId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitLatency": {
+    "name": "cucsMemoryUnitLatency",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitLocation": {
+    "name": "cucsMemoryUnitLocation",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitModel": {
+    "name": "cucsMemoryUnitModel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitOperState": {
+    "name": "cucsMemoryUnitOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitOperability": {
+    "name": "cucsMemoryUnitOperability",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryUnitOperability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitPerf": {
+    "name": "cucsMemoryUnitPerf",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitPower": {
+    "name": "cucsMemoryUnitPower",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPowerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitPresence": {
+    "name": "cucsMemoryUnitPresence",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentPresence",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitRevision": {
+    "name": "cucsMemoryUnitRevision",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitSerial": {
+    "name": "cucsMemoryUnitSerial",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitSet": {
+    "name": "cucsMemoryUnitSet",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitSpeed": {
+    "name": "cucsMemoryUnitSpeed",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitThermal": {
+    "name": "cucsMemoryUnitThermal",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitType": {
+    "name": "cucsMemoryUnitType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitVendor": {
+    "name": "cucsMemoryUnitVendor",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitVisibility": {
+    "name": "cucsMemoryUnitVisibility",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryVisibility",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitVoltage": {
+    "name": "cucsMemoryUnitVoltage",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEquipmentSensorThresholdStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitWidth": {
+    "name": "cucsMemoryUnitWidth",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitAdminState": {
+    "name": "cucsMemoryUnitAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitOperQualifier": {
+    "name": "cucsMemoryUnitOperQualifier",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryIssues",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitOperQualifierReason": {
+    "name": "cucsMemoryUnitOperQualifierReason",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitLocationDn": {
+    "name": "cucsMemoryUnitLocationDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.11.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsTable": {
+    "name": "cucsMemoryUnitEnvStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsEntry": {
+    "name": "cucsMemoryUnitEnvStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryUnitEnvStatsInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsInstanceId": {
+    "name": "cucsMemoryUnitEnvStatsInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsDn": {
+    "name": "cucsMemoryUnitEnvStatsDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsRn": {
+    "name": "cucsMemoryUnitEnvStatsRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsIntervals": {
+    "name": "cucsMemoryUnitEnvStatsIntervals",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsSuspect": {
+    "name": "cucsMemoryUnitEnvStatsSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsTemperature": {
+    "name": "cucsMemoryUnitEnvStatsTemperature",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsTemperatureAvg": {
+    "name": "cucsMemoryUnitEnvStatsTemperatureAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsTemperatureMax": {
+    "name": "cucsMemoryUnitEnvStatsTemperatureMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsTemperatureMin": {
+    "name": "cucsMemoryUnitEnvStatsTemperatureMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsThresholded": {
+    "name": "cucsMemoryUnitEnvStatsThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryUnitEnvStatsThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsTimeCollected": {
+    "name": "cucsMemoryUnitEnvStatsTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsUpdate": {
+    "name": "cucsMemoryUnitEnvStatsUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistTable": {
+    "name": "cucsMemoryUnitEnvStatsHistTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistEntry": {
+    "name": "cucsMemoryUnitEnvStatsHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+        "object": "cucsMemoryUnitEnvStatsHistInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistInstanceId": {
+    "name": "cucsMemoryUnitEnvStatsHistInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistDn": {
+    "name": "cucsMemoryUnitEnvStatsHistDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistRn": {
+    "name": "cucsMemoryUnitEnvStatsHistRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistId": {
+    "name": "cucsMemoryUnitEnvStatsHistId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistMostRecent": {
+    "name": "cucsMemoryUnitEnvStatsHistMostRecent",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistSuspect": {
+    "name": "cucsMemoryUnitEnvStatsHistSuspect",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistTemperature": {
+    "name": "cucsMemoryUnitEnvStatsHistTemperature",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistTemperatureAvg": {
+    "name": "cucsMemoryUnitEnvStatsHistTemperatureAvg",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistTemperatureMax": {
+    "name": "cucsMemoryUnitEnvStatsHistTemperatureMax",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistTemperatureMin": {
+    "name": "cucsMemoryUnitEnvStatsHistTemperatureMin",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistThresholded": {
+    "name": "cucsMemoryUnitEnvStatsHistThresholded",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMemoryUnitEnvStatsHistThresholded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsMemoryUnitEnvStatsHistTimeCollected": {
+    "name": "cucsMemoryUnitEnvStatsHistTimeCollected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.30.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB"
+  }
+}

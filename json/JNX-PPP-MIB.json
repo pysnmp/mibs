@@ -1,0 +1,3594 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "IPV6-TC": [
+      "Ipv6AddressIfIdentifier"
+    ],
+    "JUNIPER-SMI": [
+      "jnxPppMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxPppMIB": {
+    "name": "jnxPppMIB",
+    "oid": "1.3.6.1.4.1.2636.3.68.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-19 00:00",
+        "description": "Updated the revision history and LAST-UPDATED field."
+      },
+      {
+        "revision": "2013-06-13 00:00",
+        "description": "Deprecated InterfaceIndex type and added InterfaceIndexOrZero type for jnxPppNextIfIndex, jnxPppMlPppNextLinkIfIndex and jnxPppMlPppNextNetworkIfIndex."
+      },
+      {
+        "revision": "2012-06-08 00:00",
+        "description": "Changes are done to change all Data packet/octet counters from 32 to 64 bit counter. 32 bit counters were too small for data packets/octects and were consumed too early. All old counters are deprecated and new counters are added."
+      },
+      {
+        "revision": "2011-11-29 00:00",
+        "description": "Deprecated Integer32 type jnxPppLinkStatusLocalMagicNumber, jnxPppLinkStatusRemoteMagicNumber and added Unsigned32 type jnxPppLinkStatusLocalMagicNumber1, jnxPppLinkStatusLocalMagicNumber1 under jnxPppLinkStatusTable"
+      },
+      {
+        "revision": "2010-07-22 09:42",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "JnxPppAuthentication": {
+    "name": "JnxPppAuthentication",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pap": 1,
+          "chap": 2,
+          "papChap": 3,
+          "chapPap": 4
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "JnxPppMlPppBundleName": {
+    "name": "JnxPppMlPppBundleName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JnxPppAuthentication2": {
+    "name": "JnxPppAuthentication2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pap": 1,
+          "chap": 2,
+          "eap": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxNibbleConfig": {
+    "name": "JnxNibbleConfig",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "jnxPPPObjects": {
+    "name": "jnxPPPObjects",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1",
+    "class": "objectidentity"
+  },
+  "jnxPppLcp": {
+    "name": "jnxPppLcp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxPppSec": {
+    "name": "jnxPppSec",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxPppIp": {
+    "name": "jnxPppIp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3",
+    "class": "objectidentity"
+  },
+  "jnxPppOsi": {
+    "name": "jnxPppOsi",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4",
+    "class": "objectidentity"
+  },
+  "jnxPppSession": {
+    "name": "jnxPppSession",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5",
+    "class": "objectidentity"
+  },
+  "jnxPppMlPpp": {
+    "name": "jnxPppMlPpp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6",
+    "class": "objectidentity"
+  },
+  "jnxPppSummary": {
+    "name": "jnxPppSummary",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7",
+    "class": "objectidentity"
+  },
+  "jnxPppIpv6": {
+    "name": "jnxPppIpv6",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8",
+    "class": "objectidentity"
+  },
+  "jnxPppGlobalConfig": {
+    "name": "jnxPppGlobalConfig",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.9",
+    "class": "objectidentity"
+  },
+  "jnxPppLinkStatusTable": {
+    "name": "jnxPppLinkStatusTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppLinkStatusEntry": {
+    "name": "jnxPppLinkStatusEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppLinkStatusTerminateReason": {
+    "name": "jnxPppLinkStatusTerminateReason",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "adminDisable": 2,
+          "lowerLayerDown": 3,
+          "noUpperInterface": 4,
+          "authenticationFailure": 5,
+          "peerTerminated": 6,
+          "peerRenegotiated": 7,
+          "maxRetriesExceeded": 8,
+          "negotiationFailure": 9,
+          "keepaliveFailure": 10,
+          "sessionTimeout": 11,
+          "inactivityTimeout": 12,
+          "addressLeaseExpired": 13,
+          "adminLogout": 14,
+          "tunnelFailed": 15,
+          "tunnelDisconnected": 16,
+          "loopback": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusTerminateNegFailOption": {
+    "name": "jnxPppLinkStatusTerminateNegFailOption",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "localMru": 2,
+          "remoteMru": 3,
+          "localMagicNumber": 4,
+          "remoteMagicNumber": 5,
+          "localAuthentication": 6,
+          "localToRemoteProtocolCompression": 7,
+          "localToRemoteACCompression": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusInKeepaliveRequests": {
+    "name": "jnxPppLinkStatusInKeepaliveRequests",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusOutKeepaliveRequests": {
+    "name": "jnxPppLinkStatusOutKeepaliveRequests",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusInKeepaliveReplies": {
+    "name": "jnxPppLinkStatusInKeepaliveReplies",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusOutKeepaliveReplies": {
+    "name": "jnxPppLinkStatusOutKeepaliveReplies",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusKeepaliveFailures": {
+    "name": "jnxPppLinkStatusKeepaliveFailures",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusLocalMagicNumber": {
+    "name": "jnxPppLinkStatusLocalMagicNumber",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxPppLinkStatusRemoteMagicNumber": {
+    "name": "jnxPppLinkStatusRemoteMagicNumber",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxPppLinkStatusLocalAuthentication": {
+    "name": "jnxPppLinkStatusLocalAuthentication",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPppAuthentication2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusTunnelIfIndex": {
+    "name": "jnxPppLinkStatusTunnelIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatuslcpRenegoTerminates": {
+    "name": "jnxPppLinkStatuslcpRenegoTerminates",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusLocalMagicNumber1": {
+    "name": "jnxPppLinkStatusLocalMagicNumber1",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkStatusRemoteMagicNumber1": {
+    "name": "jnxPppLinkStatusRemoteMagicNumber1",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigTable": {
+    "name": "jnxPppLinkConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppLinkConfigEntry": {
+    "name": "jnxPppLinkConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-PPP-MIB",
+        "object": "jnxPppLinkConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppLinkConfigIfIndex": {
+    "name": "jnxPppLinkConfigIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppLinkConfigRowStatus": {
+    "name": "jnxPppLinkConfigRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigLowerIfIndex": {
+    "name": "jnxPppLinkConfigLowerIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigKeepalive": {
+    "name": "jnxPppLinkConfigKeepalive",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigAuthentication": {
+    "name": "jnxPppLinkConfigAuthentication",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPppAuthentication",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxPppLinkConfigMaxAuthenRetries": {
+    "name": "jnxPppLinkConfigMaxAuthenRetries",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigStandardIfIndex": {
+    "name": "jnxPppLinkConfigStandardIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigChapMinChallengeLength": {
+    "name": "jnxPppLinkConfigChapMinChallengeLength",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigChapMaxChallengeLength": {
+    "name": "jnxPppLinkConfigChapMaxChallengeLength",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigPassiveMode": {
+    "name": "jnxPppLinkConfigPassiveMode",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigAuthenticatorLogicalSystem": {
+    "name": "jnxPppLinkConfigAuthenticatorLogicalSystem",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigAuthenticatorRoutingInstance": {
+    "name": "jnxPppLinkConfigAuthenticatorRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigAaaProfile": {
+    "name": "jnxPppLinkConfigAaaProfile",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigAuthentication2": {
+    "name": "jnxPppLinkConfigAuthentication2",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxNibbleConfig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigIgnoreMagicNumberMismatch": {
+    "name": "jnxPppLinkConfigIgnoreMagicNumberMismatch",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppLinkConfigMaxLcpRenegotiation": {
+    "name": "jnxPppLinkConfigMaxLcpRenegotiation",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppNextIfIndex": {
+    "name": "jnxPppNextIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpTable": {
+    "name": "jnxPppIpTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppIpEntry": {
+    "name": "jnxPppIpEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppIpServiceStatus": {
+    "name": "jnxPppIpServiceStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpTerminateReason": {
+    "name": "jnxPppIpTerminateReason",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "noService": 2,
+          "admin": 3,
+          "linkDown": 4,
+          "peerTerminated": 5,
+          "peerRenegotiated": 6,
+          "maxRetriesExceeded": 7,
+          "negotiationFailure": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpTerminateNegFailOption": {
+    "name": "jnxPppIpTerminateNegFailOption",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "localIpAddress": 2,
+          "remoteIpAddress": 3,
+          "remotePrimaryDnsAddress": 4,
+          "remoteSecondaryDnsAddress": 5,
+          "remotePrimaryWinsAddress": 6,
+          "remoteSecondaryWinsAddress": 7,
+          "localIpAddressMask": 8,
+          "remoteIpAddressMask": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpLocalIpAddress": {
+    "name": "jnxPppIpLocalIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpRemoteIpAddress": {
+    "name": "jnxPppIpRemoteIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpRemotePrimaryDnsAddress": {
+    "name": "jnxPppIpRemotePrimaryDnsAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpRemoteSecondaryDnsAddress": {
+    "name": "jnxPppIpRemoteSecondaryDnsAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpRemotePrimaryWinsAddress": {
+    "name": "jnxPppIpRemotePrimaryWinsAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpRemoteSecondaryWinsAddress": {
+    "name": "jnxPppIpRemoteSecondaryWinsAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpNetworkStatusIpcpRenegoTerminates": {
+    "name": "jnxPppIpNetworkStatusIpcpRenegoTerminates",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpConfigTable": {
+    "name": "jnxPppIpConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppIpConfigEntry": {
+    "name": "jnxPppIpConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppIpConfigPeerDnsPriority": {
+    "name": "jnxPppIpConfigPeerDnsPriority",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpConfigPeerWinsPriority": {
+    "name": "jnxPppIpConfigPeerWinsPriority",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpConfigIpcpNetmask": {
+    "name": "jnxPppIpConfigIpcpNetmask",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpConfigInitiateIp": {
+    "name": "jnxPppIpConfigInitiateIp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpConfigMaxIpcpRenegotiation": {
+    "name": "jnxPppIpConfigMaxIpcpRenegotiation",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpConfigPromptIpcpDnsOption": {
+    "name": "jnxPppIpConfigPromptIpcpDnsOption",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpConfigIpcpLockout": {
+    "name": "jnxPppIpConfigIpcpLockout",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppOsiTable": {
+    "name": "jnxPppOsiTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppOsiEntry": {
+    "name": "jnxPppOsiEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppOsiServiceStatus": {
+    "name": "jnxPppOsiServiceStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppOsiOperStatus": {
+    "name": "jnxPppOsiOperStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opened": 1,
+          "notOpened": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppOsiTerminateReason": {
+    "name": "jnxPppOsiTerminateReason",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "noService": 2,
+          "admin": 3,
+          "linkDown": 4,
+          "peerTerminated": 5,
+          "peerRenegotiated": 6,
+          "maxRetriesExceeded": 7,
+          "negotiationFailure": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppOsiTerminateNegFailOption": {
+    "name": "jnxPppOsiTerminateNegFailOption",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "localAlignNpdu": 2,
+          "remoteAlignNpdu": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppOsiLocalAlignNpdu": {
+    "name": "jnxPppOsiLocalAlignNpdu",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "oneModulo4": 1,
+          "twoModulo4": 2,
+          "threeModulo4": 3,
+          "fourModulo4": 4,
+          "even": 254,
+          "odd": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppOsiRemoteAlignNpdu": {
+    "name": "jnxPppOsiRemoteAlignNpdu",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "oneModulo4": 1,
+          "twoModulo4": 2,
+          "threeModulo4": 3,
+          "fourModulo4": 4,
+          "even": 254,
+          "odd": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppOsiConfigTable": {
+    "name": "jnxPppOsiConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppOsiConfigEntry": {
+    "name": "jnxPppOsiConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppOsiConfigAdminStatus": {
+    "name": "jnxPppOsiConfigAdminStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "close": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionTable": {
+    "name": "jnxPppSessionTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppSessionEntry": {
+    "name": "jnxPppSessionEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppSessionGrant": {
+    "name": "jnxPppSessionGrant",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionTerminateReason": {
+    "name": "jnxPppSessionTerminateReason",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "unknown": 1,
+          "userRequest": 2,
+          "keepaliveFailure": 3,
+          "sessionTimeout": 4,
+          "inactivityTimeout": 5,
+          "adminDisable": 6,
+          "lowerLayerDown": 7,
+          "noUpperInterface": 8,
+          "deny": 9,
+          "noHardware": 10,
+          "noResources": 11,
+          "noInterface": 12,
+          "challengeTimeout": 13,
+          "requestTimeout": 14,
+          "authenticatorTimeout": 15,
+          "addressLeaseExpired": 16,
+          "adminLogout": 17,
+          "tunnelFailed": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionStartTime": {
+    "name": "jnxPppSessionStartTime",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionInOctets": {
+    "name": "jnxPppSessionInOctets",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxPppSessionOutOctets": {
+    "name": "jnxPppSessionOutOctets",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxPppSessionInPackets": {
+    "name": "jnxPppSessionInPackets",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxPppSessionOutPackets": {
+    "name": "jnxPppSessionOutPackets",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxPppSessionSessionTimeout": {
+    "name": "jnxPppSessionSessionTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionInactivityTimeout": {
+    "name": "jnxPppSessionInactivityTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionAccountingInterval": {
+    "name": "jnxPppSessionAccountingInterval",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionRemoteIpAddress": {
+    "name": "jnxPppSessionRemoteIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionRemotePrimaryDnsAddress": {
+    "name": "jnxPppSessionRemotePrimaryDnsAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionRemoteSecondaryDnsAddress": {
+    "name": "jnxPppSessionRemoteSecondaryDnsAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionRemotePrimaryWinsAddress": {
+    "name": "jnxPppSessionRemotePrimaryWinsAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionRemoteSecondaryWinsAddress": {
+    "name": "jnxPppSessionRemoteSecondaryWinsAddress",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionRemoteIpv6AddressIfIdentifier": {
+    "name": "jnxPppSessionRemoteIpv6AddressIfIdentifier",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressIfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionInhibitIp": {
+    "name": "jnxPppSessionInhibitIp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionInhibitIpv6": {
+    "name": "jnxPppSessionInhibitIpv6",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionInOctets64": {
+    "name": "jnxPppSessionInOctets64",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionOutOctets64": {
+    "name": "jnxPppSessionOutOctets64",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionInPackets64": {
+    "name": "jnxPppSessionInPackets64",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSessionOutPackets64": {
+    "name": "jnxPppSessionOutPackets64",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppBundleTable": {
+    "name": "jnxPppMlPppBundleTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppBundleEntry": {
+    "name": "jnxPppMlPppBundleEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-PPP-MIB",
+        "object": "jnxPppMlPppBundleName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppMlPppBundleName": {
+    "name": "jnxPppMlPppBundleName",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPppMlPppBundleName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppBundleRowStatus": {
+    "name": "jnxPppMlPppBundleRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppBundleNetworkIfIndex": {
+    "name": "jnxPppMlPppBundleNetworkIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppNextLinkIfIndex": {
+    "name": "jnxPppMlPppNextLinkIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigTable": {
+    "name": "jnxPppMlPppLinkConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigEntry": {
+    "name": "jnxPppMlPppLinkConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-PPP-MIB",
+        "object": "jnxPppMlPppLinkConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigIfIndex": {
+    "name": "jnxPppMlPppLinkConfigIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigLowerIfIndex": {
+    "name": "jnxPppMlPppLinkConfigLowerIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigKeepalive": {
+    "name": "jnxPppMlPppLinkConfigKeepalive",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 64800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigAuthentication": {
+    "name": "jnxPppMlPppLinkConfigAuthentication",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPppAuthentication",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxPppMlPppLinkConfigMaxAuthenRetries": {
+    "name": "jnxPppMlPppLinkConfigMaxAuthenRetries",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigRowStatus": {
+    "name": "jnxPppMlPppLinkConfigRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigAaaProfile": {
+    "name": "jnxPppMlPppLinkConfigAaaProfile",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigChapMinChallengeLength": {
+    "name": "jnxPppMlPppLinkConfigChapMinChallengeLength",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigChapMaxChallengeLength": {
+    "name": "jnxPppMlPppLinkConfigChapMaxChallengeLength",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigPassiveMode": {
+    "name": "jnxPppMlPppLinkConfigPassiveMode",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigAuthenticatorLogicalSystem": {
+    "name": "jnxPppMlPppLinkConfigAuthenticatorLogicalSystem",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigAuthenticatorRoutingInstance": {
+    "name": "jnxPppMlPppLinkConfigAuthenticatorRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigFragmentation": {
+    "name": "jnxPppMlPppLinkConfigFragmentation",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigReassembly": {
+    "name": "jnxPppMlPppLinkConfigReassembly",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigMaxReceiveReconstructedUnit": {
+    "name": "jnxPppMlPppLinkConfigMaxReceiveReconstructedUnit",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 64,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigFragmentSize": {
+    "name": "jnxPppMlPppLinkConfigFragmentSize",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 128,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigHashLinkSelection": {
+    "name": "jnxPppMlPppLinkConfigHashLinkSelection",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigAuthentication2": {
+    "name": "jnxPppMlPppLinkConfigAuthentication2",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxNibbleConfig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigIgnoreMagicNumberMismatch": {
+    "name": "jnxPppMlPppLinkConfigIgnoreMagicNumberMismatch",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigMultilinkMulticlass": {
+    "name": "jnxPppMlPppLinkConfigMultilinkMulticlass",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkConfigMultilinkMaxMultiClasses": {
+    "name": "jnxPppMlPppLinkConfigMultilinkMaxMultiClasses",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppNextNetworkIfIndex": {
+    "name": "jnxPppMlPppNextNetworkIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppNetworkConfigTable": {
+    "name": "jnxPppMlPppNetworkConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppNetworkConfigEntry": {
+    "name": "jnxPppMlPppNetworkConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-PPP-MIB",
+        "object": "jnxPppMlPppNetworkConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppMlPppNetworkConfigIfIndex": {
+    "name": "jnxPppMlPppNetworkConfigIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppNetworkConfigLowerIfIndex": {
+    "name": "jnxPppMlPppNetworkConfigLowerIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppNetworkBundleName": {
+    "name": "jnxPppMlPppNetworkBundleName",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPppMlPppBundleName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppNetworkRowStatus": {
+    "name": "jnxPppMlPppNetworkRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkBindTable": {
+    "name": "jnxPppMlPppLinkBindTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppLinkBindEntry": {
+    "name": "jnxPppMlPppLinkBindEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-PPP-MIB",
+        "object": "jnxPppMlPppBindNetworkIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-PPP-MIB",
+        "object": "jnxPppMlPppBindLinkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppMlPppBindNetworkIfIndex": {
+    "name": "jnxPppMlPppBindNetworkIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppBindLinkIfIndex": {
+    "name": "jnxPppMlPppBindLinkIfIndex",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppMlPppBindRowStatus": {
+    "name": "jnxPppMlPppBindRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppInterfaceCount": {
+    "name": "jnxPppSummaryPppInterfaceCount",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpNCPs": {
+    "name": "jnxPppSummaryPppIpNCPs",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppOsiNCPs": {
+    "name": "jnxPppSummaryPppOsiNCPs",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIfAdminUp": {
+    "name": "jnxPppSummaryPppIfAdminUp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIfAdminDown": {
+    "name": "jnxPppSummaryPppIfAdminDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIfOperUp": {
+    "name": "jnxPppSummaryPppIfOperUp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIfOperDown": {
+    "name": "jnxPppSummaryPppIfOperDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIfOperDormant": {
+    "name": "jnxPppSummaryPppIfOperDormant",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIfNotPresent": {
+    "name": "jnxPppSummaryPppIfNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIfLowerLayerDown": {
+    "name": "jnxPppSummaryPppIfLowerLayerDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpNcpOpened": {
+    "name": "jnxPppSummaryPppIpNcpOpened",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpNcpClosed": {
+    "name": "jnxPppSummaryPppIpNcpClosed",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppOsiNcpOpened": {
+    "name": "jnxPppSummaryPppOsiNcpOpened",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppOsiNcpClosed": {
+    "name": "jnxPppSummaryPppOsiNcpClosed",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIfLastChangeTime": {
+    "name": "jnxPppSummaryPppIfLastChangeTime",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkInterfaceCount": {
+    "name": "jnxPppSummaryPppLinkInterfaceCount",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkIfAdminUp": {
+    "name": "jnxPppSummaryPppLinkIfAdminUp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkIfAdminDown": {
+    "name": "jnxPppSummaryPppLinkIfAdminDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkIfOperUp": {
+    "name": "jnxPppSummaryPppLinkIfOperUp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkIfOperDown": {
+    "name": "jnxPppSummaryPppLinkIfOperDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkIfOperDormant": {
+    "name": "jnxPppSummaryPppLinkIfOperDormant",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkIfNotPresent": {
+    "name": "jnxPppSummaryPppLinkIfNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkIfLowerLayerDown": {
+    "name": "jnxPppSummaryPppLinkIfLowerLayerDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkIfLastChangeTime": {
+    "name": "jnxPppSummaryPppLinkIfLastChangeTime",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkInterfaceCount": {
+    "name": "jnxPppSummaryPppNetworkInterfaceCount",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpNCPs": {
+    "name": "jnxPppSummaryPppNetworkIpNCPs",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkOsiNCPs": {
+    "name": "jnxPppSummaryPppNetworkOsiNCPs",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIfAdminUp": {
+    "name": "jnxPppSummaryPppNetworkIfAdminUp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIfAdminDown": {
+    "name": "jnxPppSummaryPppNetworkIfAdminDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIfOperUp": {
+    "name": "jnxPppSummaryPppNetworkIfOperUp",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIfOperDown": {
+    "name": "jnxPppSummaryPppNetworkIfOperDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIfOperDormant": {
+    "name": "jnxPppSummaryPppNetworkIfOperDormant",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIfNotPresent": {
+    "name": "jnxPppSummaryPppNetworkIfNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIfLowerLayerDown": {
+    "name": "jnxPppSummaryPppNetworkIfLowerLayerDown",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpNcpOpened": {
+    "name": "jnxPppSummaryPppNetworkIpNcpOpened",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpNcpClosed": {
+    "name": "jnxPppSummaryPppNetworkIpNcpClosed",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkOsiNcpOpened": {
+    "name": "jnxPppSummaryPppNetworkOsiNcpOpened",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkOsiNcpClosed": {
+    "name": "jnxPppSummaryPppNetworkOsiNcpClosed",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIfLastChangeTime": {
+    "name": "jnxPppSummaryPppNetworkIfLastChangeTime",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpv6NCPs": {
+    "name": "jnxPppSummaryPppIpv6NCPs",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpv6NcpOpened": {
+    "name": "jnxPppSummaryPppIpv6NcpOpened",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpv6NcpClosed": {
+    "name": "jnxPppSummaryPppIpv6NcpClosed",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpv6NCPs": {
+    "name": "jnxPppSummaryPppNetworkIpv6NCPs",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpv6NcpOpened": {
+    "name": "jnxPppSummaryPppNetworkIpv6NcpOpened",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpv6NcpClosed": {
+    "name": "jnxPppSummaryPppNetworkIpv6NcpClosed",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppStaticInterfaceCount": {
+    "name": "jnxPppSummaryPppStaticInterfaceCount",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppMplsNCPs": {
+    "name": "jnxPppSummaryPppMplsNCPs",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpAdminOpen": {
+    "name": "jnxPppSummaryPppIpAdminOpen",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpAdminClose": {
+    "name": "jnxPppSummaryPppIpAdminClose",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpv6AdminOpen": {
+    "name": "jnxPppSummaryPppIpv6AdminOpen",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpv6AdminClose": {
+    "name": "jnxPppSummaryPppIpv6AdminClose",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppOsiAdminOpen": {
+    "name": "jnxPppSummaryPppOsiAdminOpen",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppOsiAdminClose": {
+    "name": "jnxPppSummaryPppOsiAdminClose",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppMplsAdminOpen": {
+    "name": "jnxPppSummaryPppMplsAdminOpen",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppMplsAdminClose": {
+    "name": "jnxPppSummaryPppMplsAdminClose",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpNcpNotPresent": {
+    "name": "jnxPppSummaryPppIpNcpNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpNcpNoResources": {
+    "name": "jnxPppSummaryPppIpNcpNoResources",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpv6NcpNotPresent": {
+    "name": "jnxPppSummaryPppIpv6NcpNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppIpv6NcpNoResources": {
+    "name": "jnxPppSummaryPppIpv6NcpNoResources",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppOsiNcpNotPresent": {
+    "name": "jnxPppSummaryPppOsiNcpNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppOsiNcpNoResources": {
+    "name": "jnxPppSummaryPppOsiNcpNoResources",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppMplsNcpOpened": {
+    "name": "jnxPppSummaryPppMplsNcpOpened",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppMplsNcpClosed": {
+    "name": "jnxPppSummaryPppMplsNcpClosed",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppMplsNcpNotPresent": {
+    "name": "jnxPppSummaryPppMplsNcpNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppMplsNcpNoResources": {
+    "name": "jnxPppSummaryPppMplsNcpNoResources",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppLinkStaticInterfaceCount": {
+    "name": "jnxPppSummaryPppLinkStaticInterfaceCount",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkStaticInterfaceCount": {
+    "name": "jnxPppSummaryPppNetworkStaticInterfaceCount",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkMplsNCPs": {
+    "name": "jnxPppSummaryPppNetworkMplsNCPs",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpAdminOpen": {
+    "name": "jnxPppSummaryPppNetworkIpAdminOpen",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpAdminClose": {
+    "name": "jnxPppSummaryPppNetworkIpAdminClose",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpv6AdminOpen": {
+    "name": "jnxPppSummaryPppNetworkIpv6AdminOpen",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpv6AdminClose": {
+    "name": "jnxPppSummaryPppNetworkIpv6AdminClose",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkOsiAdminOpen": {
+    "name": "jnxPppSummaryPppNetworkOsiAdminOpen",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkOsiAdminClose": {
+    "name": "jnxPppSummaryPppNetworkOsiAdminClose",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkMplsAdminOpen": {
+    "name": "jnxPppSummaryPppNetworkMplsAdminOpen",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkMplsAdminClose": {
+    "name": "jnxPppSummaryPppNetworkMplsAdminClose",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpNcpNotPresent": {
+    "name": "jnxPppSummaryPppNetworkIpNcpNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpNcpNoResources": {
+    "name": "jnxPppSummaryPppNetworkIpNcpNoResources",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpv6NcpNotPresent": {
+    "name": "jnxPppSummaryPppNetworkIpv6NcpNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkIpv6NcpNoResources": {
+    "name": "jnxPppSummaryPppNetworkIpv6NcpNoResources",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkOsiNcpNotPresent": {
+    "name": "jnxPppSummaryPppNetworkOsiNcpNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkOsiNcpNoResources": {
+    "name": "jnxPppSummaryPppNetworkOsiNcpNoResources",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkMplsNcpOpened": {
+    "name": "jnxPppSummaryPppNetworkMplsNcpOpened",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkMplsNcpClosed": {
+    "name": "jnxPppSummaryPppNetworkMplsNcpClosed",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkMplsNcpNotPresent": {
+    "name": "jnxPppSummaryPppNetworkMplsNcpNotPresent",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.86",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppSummaryPppNetworkMplsNcpNoResources": {
+    "name": "jnxPppSummaryPppNetworkMplsNcpNoResources",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.7.87",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6Table": {
+    "name": "jnxPppIpv6Table",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppIpv6Entry": {
+    "name": "jnxPppIpv6Entry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppIpv6ServiceStatus": {
+    "name": "jnxPppIpv6ServiceStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6OperStatus": {
+    "name": "jnxPppIpv6OperStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opened": 1,
+          "notOpened": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6TerminateReason": {
+    "name": "jnxPppIpv6TerminateReason",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "noService": 2,
+          "admin": 3,
+          "linkDown": 4,
+          "peerTerminated": 5,
+          "peerRenegotiated": 6,
+          "maxRetriesExceeded": 7,
+          "negotiationFailure": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6TerminateNegFailOption": {
+    "name": "jnxPppIpv6TerminateNegFailOption",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "other": 1,
+          "localIpv6AddressIfIdentifier": 2,
+          "remoteIpv6AddressIfIdentifier": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6LocalIpv6AddressIfIdentifier": {
+    "name": "jnxPppIpv6LocalIpv6AddressIfIdentifier",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressIfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6RemoteIpv6AddressIfIdentifier": {
+    "name": "jnxPppIpv6RemoteIpv6AddressIfIdentifier",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressIfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6NetworkStatusIpv6cpRenegoTerminates": {
+    "name": "jnxPppIpv6NetworkStatusIpv6cpRenegoTerminates",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6ConfigTable": {
+    "name": "jnxPppIpv6ConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPppIpv6ConfigEntry": {
+    "name": "jnxPppIpv6ConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPppIpv6ConfigAdminStatus": {
+    "name": "jnxPppIpv6ConfigAdminStatus",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "close": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6ConfigInitiateIpv6": {
+    "name": "jnxPppIpv6ConfigInitiateIpv6",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppIpv6ConfigMaxIpv6cpRenegotiation": {
+    "name": "jnxPppIpv6ConfigMaxIpv6cpRenegotiation",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPppPeerIpAddressOptional": {
+    "name": "jnxPppPeerIpAddressOptional",
+    "oid": "1.3.6.1.4.1.2636.3.68.1.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JNX-PPP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JNX-PPP-MIB"
+  }
+}

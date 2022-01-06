@@ -1,0 +1,719 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApSysMacAddress"
+    ],
+    "CISCO-LWAPP-TC-MIB": [
+      "CLCdpAdvtVersionType"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappCdpMIB": {
+    "name": "ciscoLwappCdpMIB",
+    "oid": "1.3.6.1.4.1.9.9.623",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-11-23 00:00",
+        "description": "Added the variables clcCdpApCacheDuplex and clcCdpApCacheInterfaceSpeed to clcCdpApCacheTable."
+      },
+      {
+        "revision": "2007-03-28 00:00",
+        "description": "This is the initial version of this module."
+      }
+    ]
+  },
+  "ciscoLwappCdpMIBNotifs": {
+    "name": "ciscoLwappCdpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.623.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappCdpMIBObjects": {
+    "name": "ciscoLwappCdpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.623.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappCdpMIBConform": {
+    "name": "ciscoLwappCdpMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.623.2",
+    "class": "objectidentity"
+  },
+  "clcCdpTraffic": {
+    "name": "clcCdpTraffic",
+    "oid": "1.3.6.1.4.1.9.9.623.1.1",
+    "class": "objectidentity"
+  },
+  "clcCdpGlobalConfig": {
+    "name": "clcCdpGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.623.1.2",
+    "class": "objectidentity"
+  },
+  "clcCdpApCacheStatus": {
+    "name": "clcCdpApCacheStatus",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3",
+    "class": "objectidentity"
+  },
+  "clcCdpApCacheConfig": {
+    "name": "clcCdpApCacheConfig",
+    "oid": "1.3.6.1.4.1.9.9.623.1.4",
+    "class": "objectidentity"
+  },
+  "clcCdpInPackets": {
+    "name": "clcCdpInPackets",
+    "oid": "1.3.6.1.4.1.9.9.623.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpOutPackets": {
+    "name": "clcCdpOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.623.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpChecksumErrorPackets": {
+    "name": "clcCdpChecksumErrorPackets",
+    "oid": "1.3.6.1.4.1.9.9.623.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpNoMemoryPackets": {
+    "name": "clcCdpNoMemoryPackets",
+    "oid": "1.3.6.1.4.1.9.9.623.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpInvalidPackets": {
+    "name": "clcCdpInvalidPackets",
+    "oid": "1.3.6.1.4.1.9.9.623.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpAdvtVersion": {
+    "name": "clcCdpAdvtVersion",
+    "oid": "1.3.6.1.4.1.9.9.623.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLCdpAdvtVersionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "cdpv1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcCdpMessageInterval": {
+    "name": "clcCdpMessageInterval",
+    "oid": "1.3.6.1.4.1.9.9.623.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcCdpGlobalEnable": {
+    "name": "clcCdpGlobalEnable",
+    "oid": "1.3.6.1.4.1.9.9.623.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcCdpApTable": {
+    "name": "clcCdpApTable",
+    "oid": "1.3.6.1.4.1.9.9.623.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcCdpApEntry": {
+    "name": "clcCdpApEntry",
+    "oid": "1.3.6.1.4.1.9.9.623.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcCdpApCdpEnable": {
+    "name": "clcCdpApCdpEnable",
+    "oid": "1.3.6.1.4.1.9.9.623.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcCdpApCacheTable": {
+    "name": "clcCdpApCacheTable",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcCdpApCacheEntry": {
+    "name": "clcCdpApCacheEntry",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcCdpApCacheDeviceIndex": {
+    "name": "clcCdpApCacheDeviceIndex",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcCdpApCacheApName": {
+    "name": "clcCdpApCacheApName",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheApAddressType": {
+    "name": "clcCdpApCacheApAddressType",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheApAddress": {
+    "name": "clcCdpApCacheApAddress",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheLocalInterface": {
+    "name": "clcCdpApCacheLocalInterface",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheNeighName": {
+    "name": "clcCdpApCacheNeighName",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheNeighAddressType": {
+    "name": "clcCdpApCacheNeighAddressType",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheNeighAddress": {
+    "name": "clcCdpApCacheNeighAddress",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheNeighInterface": {
+    "name": "clcCdpApCacheNeighInterface",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheNeighVersion": {
+    "name": "clcCdpApCacheNeighVersion",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheAdvtVersion": {
+    "name": "clcCdpApCacheAdvtVersion",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLCdpAdvtVersionType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "cdpv1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcCdpApCachePlatform": {
+    "name": "clcCdpApCachePlatform",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheCapabilities": {
+    "name": "clcCdpApCacheCapabilities",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheHoldtimeLeft": {
+    "name": "clcCdpApCacheHoldtimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheDuplex": {
+    "name": "clcCdpApCacheDuplex",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fullduplex": 2,
+          "halfduplex": 3,
+          "auto": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcCdpApCacheInterfaceSpeed": {
+    "name": "clcCdpApCacheInterfaceSpeed",
+    "oid": "1.3.6.1.4.1.9.9.623.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "tenMbps": 2,
+          "hundredMbps": 3,
+          "thousandMbps": 4,
+          "auto": 5
+        }
+      }
+    },
+    "units": "Mbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLwappCdpMIBCompliances": {
+    "name": "ciscoLwappCdpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.623.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappCdpMIBGroups": {
+    "name": "ciscoLwappCdpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.623.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappCdpMIBCompliance": {
+    "name": "ciscoLwappCdpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.623.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clcCdpRev01ConfigGroup",
+        "module": "CISCO-LWAPP-CDP-MIB"
+      },
+      {
+        "object": "clcCdpRev01StatusGroup",
+        "module": "CISCO-LWAPP-CDP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappCdpMIBComplianceRev1": {
+    "name": "ciscoLwappCdpMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.623.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clcCdpRev01ConfigGroup",
+        "module": "CISCO-LWAPP-CDP-MIB"
+      },
+      {
+        "object": "clcCdpRev01StatusGroup",
+        "module": "CISCO-LWAPP-CDP-MIB"
+      },
+      {
+        "object": "clcCdpRev02StatusGroup",
+        "module": "CISCO-LWAPP-CDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "clcCdpRev01ConfigGroup": {
+    "name": "clcCdpRev01ConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.623.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCdpEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpAdvtVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpMessageInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpGlobalEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcCdpRev01StatusGroup": {
+    "name": "clcCdpRev01StatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.623.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheApName"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheApAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheApAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheLocalInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheNeighName"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheNeighAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheNeighAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheNeighInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheNeighVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheAdvtVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCachePlatform"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheCapabilities"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheHoldtimeLeft"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpInPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpOutPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpChecksumErrorPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpNoMemoryPackets"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpInvalidPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "clcCdpRev02StatusGroup": {
+    "name": "clcCdpRev02StatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.623.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheDuplex"
+      },
+      {
+        "module": "CISCO-LWAPP-CDP-MIB",
+        "object": "clcCdpApCacheInterfaceSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-CDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-CDP-MIB"
+  }
+}

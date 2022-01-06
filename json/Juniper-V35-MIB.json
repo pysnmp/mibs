@@ -1,0 +1,317 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniV35MIB": {
+    "name": "juniV35MIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.59",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-02-08 16:25",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniV35Objects": {
+    "name": "juniV35Objects",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1",
+    "class": "objectidentity"
+  },
+  "juniV35IfTable": {
+    "name": "juniV35IfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniV35IfEntry": {
+    "name": "juniV35IfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-V35-MIB",
+        "object": "juniV35IfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniV35IfIndex": {
+    "name": "juniV35IfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniV35IfType": {
+    "name": "juniV35IfType",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "x21": 0,
+          "v35": 1,
+          "interfaceTypeNoCable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniV35IfMode": {
+    "name": "juniV35IfMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte": 0,
+          "dce": 1,
+          "interfaceModeNoCable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniV35IfClockRate": {
+    "name": "juniV35IfClockRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2048000,
+        "format": "decimal"
+      }
+    },
+    "units": "hertz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniV35IfNrzEncoding": {
+    "name": "juniV35IfNrzEncoding",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "inverted": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniV35IfTxClock": {
+    "name": "juniV35IfTxClock",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "inverted": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniV35IfIgnoreDcd": {
+    "name": "juniV35IfIgnoreDcd",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignoredNone": 0,
+          "dcdIgnored": 1,
+          "linkStateIgnored": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ignoredNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniV35IfLoopback": {
+    "name": "juniV35IfLoopback",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "loopback": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniV35Conformance": {
+    "name": "juniV35Conformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.4",
+    "class": "objectidentity"
+  },
+  "juniV35Compliances": {
+    "name": "juniV35Compliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.4.1",
+    "class": "objectidentity"
+  },
+  "juniV35Groups": {
+    "name": "juniV35Groups",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.4.2",
+    "class": "objectidentity"
+  },
+  "juniV35Compliance": {
+    "name": "juniV35Compliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniV35Group",
+        "module": "Juniper-V35-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniV35Group": {
+    "name": "juniV35Group",
+    "oid": "1.3.6.1.4.1.4874.2.2.59.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-V35-MIB",
+        "object": "juniV35IfType"
+      },
+      {
+        "module": "Juniper-V35-MIB",
+        "object": "juniV35IfMode"
+      },
+      {
+        "module": "Juniper-V35-MIB",
+        "object": "juniV35IfClockRate"
+      },
+      {
+        "module": "Juniper-V35-MIB",
+        "object": "juniV35IfNrzEncoding"
+      },
+      {
+        "module": "Juniper-V35-MIB",
+        "object": "juniV35IfTxClock"
+      },
+      {
+        "module": "Juniper-V35-MIB",
+        "object": "juniV35IfIgnoreDcd"
+      },
+      {
+        "module": "Juniper-V35-MIB",
+        "object": "juniV35IfLoopback"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-V35-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-V35-MIB"
+  }
+}

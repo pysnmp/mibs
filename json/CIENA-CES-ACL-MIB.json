@@ -1,0 +1,697 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesConfig"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesAclMIB": {
+    "name": "cienaCesAclMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.25",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-11-21 00:00",
+        "description": "Created new Extended table for the ACL rules which is indexed by both source and destination IP. Deprecated the cienaCesAclTable. Added new global counter for bad protocol."
+      },
+      {
+        "revision": "2012-05-01 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesAclMIBObjects": {
+    "name": "cienaCesAclMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1",
+    "class": "objectidentity"
+  },
+  "cienaCesAclGlobal": {
+    "name": "cienaCesAclGlobal",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesAclRules": {
+    "name": "cienaCesAclRules",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesAclMIBConformance": {
+    "name": "cienaCesAclMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.3",
+    "class": "objectidentity"
+  },
+  "cienaCesAclMIBCompliances": {
+    "name": "cienaCesAclMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesAclMIBGroups": {
+    "name": "cienaCesAclMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesAclAdminState": {
+    "name": "cienaCesAclAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclCacheHit": {
+    "name": "cienaCesAclCacheHit",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclNoHit": {
+    "name": "cienaCesAclNoHit",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclBadPort": {
+    "name": "cienaCesAclBadPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclBadDscp": {
+    "name": "cienaCesAclBadDscp",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclOperState": {
+    "name": "cienaCesAclOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclInUseEntries": {
+    "name": "cienaCesAclInUseEntries",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclMaxEntries": {
+    "name": "cienaCesAclMaxEntries",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclBadProtocol": {
+    "name": "cienaCesAclBadProtocol",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesAclTable": {
+    "name": "cienaCesAclTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntry": {
+    "name": "cienaCesAclEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesAclEntryInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesAclEntryInetAddr",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesAclEntryInetPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryInetAddrType": {
+    "name": "cienaCesAclEntryInetAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryInetAddr": {
+    "name": "cienaCesAclEntryInetAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryInetPrefixLength": {
+    "name": "cienaCesAclEntryInetPrefixLength",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryHits": {
+    "name": "cienaCesAclEntryHits",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryBadPort": {
+    "name": "cienaCesAclEntryBadPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryDscpMask": {
+    "name": "cienaCesAclEntryDscpMask",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryBadDscp": {
+    "name": "cienaCesAclEntryBadDscp",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryPortBitMask": {
+    "name": "cienaCesAclEntryPortBitMask",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryNotifInetAddrType": {
+    "name": "cienaCesAclEntryNotifInetAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryNotifInetAddr": {
+    "name": "cienaCesAclEntryNotifInetAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesAclEntryNotifInetPrefixLength": {
+    "name": "cienaCesAclEntryNotifInetPrefixLength",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesExtAclTable": {
+    "name": "cienaCesExtAclTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesExtAclEntry": {
+    "name": "cienaCesExtAclEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesExtAclEntrySrcInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesExtAclEntrySrcInetAddr",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesExtAclEntrySrcInetPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesExtAclEntryDstInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesExtAclEntryDstInetAddr",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-ACL-MIB",
+        "object": "cienaCesExtAclEntryDstInetPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesExtAclEntrySrcInetAddrType": {
+    "name": "cienaCesExtAclEntrySrcInetAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesExtAclEntrySrcInetAddr": {
+    "name": "cienaCesExtAclEntrySrcInetAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesExtAclEntrySrcInetPrefixLen": {
+    "name": "cienaCesExtAclEntrySrcInetPrefixLen",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryDstInetAddrType": {
+    "name": "cienaCesExtAclEntryDstInetAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryDstInetAddr": {
+    "name": "cienaCesExtAclEntryDstInetAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryDstInetPrefixLen": {
+    "name": "cienaCesExtAclEntryDstInetPrefixLen",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryNotifSrcInetAddrType": {
+    "name": "cienaCesExtAclEntryNotifSrcInetAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryNotifSrcInetAddr": {
+    "name": "cienaCesExtAclEntryNotifSrcInetAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryNotifSrcInetPrefixLen": {
+    "name": "cienaCesExtAclEntryNotifSrcInetPrefixLen",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryNotifDstInetAddrType": {
+    "name": "cienaCesExtAclEntryNotifDstInetAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryNotifDstInetAddr": {
+    "name": "cienaCesExtAclEntryNotifDstInetAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryNotifDstInetPrefixLen": {
+    "name": "cienaCesExtAclEntryNotifDstInetPrefixLen",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryHits": {
+    "name": "cienaCesExtAclEntryHits",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryBadPort": {
+    "name": "cienaCesExtAclEntryBadPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryDscpMask": {
+    "name": "cienaCesExtAclEntryDscpMask",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryBadDscp": {
+    "name": "cienaCesExtAclEntryBadDscp",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryPortBitMask": {
+    "name": "cienaCesExtAclEntryPortBitMask",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryProtocol": {
+    "name": "cienaCesExtAclEntryProtocol",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "icmp": 0,
+        "tcp": 1,
+        "udp": 2,
+        "all": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAclEntryBadProtocol": {
+    "name": "cienaCesExtAclEntryBadProtocol",
+    "oid": "1.3.6.1.4.1.1271.2.1.25.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-ACL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-ACL-MIB"
+  }
+}

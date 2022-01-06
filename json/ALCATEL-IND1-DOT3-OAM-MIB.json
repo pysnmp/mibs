@@ -1,0 +1,1091 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Dot3Oam"
+    ],
+    "DOT3-OAM-MIB": [
+      "dot3OamLoopbackEntry",
+      "dot3OamEntry",
+      "dot3OamEventLogOui",
+      "dot3OamEventLogType",
+      "dot3OamEventLogWindowHi",
+      "dot3OamEventLogRunningTotal",
+      "dot3OamEventLogEventTotal",
+      "dot3OamEventLogThresholdHi",
+      "dot3OamEventLogThresholdLo",
+      "dot3OamEventLogValue",
+      "dot3OamEventLogLocation",
+      "dot3OamEventLogWindowLo",
+      "dot3OamEventLogTimestamp",
+      "dot3OamStatsEntry"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "alcatelIND1Dot3OamMIB": {
+    "name": "alcatelIND1Dot3OamMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-02-25 00:00",
+        "description": "Ethernet in First Mile (EFM) module for managing IEEE 802.3ah. This 802.3ah (EFM) OAM MIB extends standard 802.3ah. The set of objects defined in this MIB, do not duplicate, nor conflict with any MIB object definitions defined in the RFC 4878 MIB (dot3-oam-mib.mib)."
+      }
+    ]
+  },
+  "alcatelIND1Dot3OamNotifications": {
+    "name": "alcatelIND1Dot3OamNotifications",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1Dot3OamMIBObjects": {
+    "name": "alcatelIND1Dot3OamMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1Dot3OamMIBConformance": {
+    "name": "alcatelIND1Dot3OamMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1Dot3OamMIBGroups": {
+    "name": "alcatelIND1Dot3OamMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1Dot3OamMIBCompliances": {
+    "name": "alcatelIND1Dot3OamMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaDot3OamStatus": {
+    "name": "alaDot3OamStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamGlobalClearStats": {
+    "name": "alaDot3OamGlobalClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamGlobalClearEventLogs": {
+    "name": "alaDot3OamGlobalClearEventLogs",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamGlobalClearVariableTransactions": {
+    "name": "alaDot3OamGlobalClearVariableTransactions",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamMultiplePduCount": {
+    "name": "alaDot3OamMultiplePduCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamPortConfig": {
+    "name": "alaDot3OamPortConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8",
+    "class": "objectidentity"
+  },
+  "alaDot3OamTable": {
+    "name": "alaDot3OamTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamEntry": {
+    "name": "alaDot3OamEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "alaDot3OamEntry",
+      "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+      "object": "dot3OamEntry"
+    },
+    "status": "current"
+  },
+  "alaDot3OamKeepAliveInterval": {
+    "name": "alaDot3OamKeepAliveInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamHelloInterval": {
+    "name": "alaDot3OamHelloInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamNextTransactionId": {
+    "name": "alaDot3OamNextTransactionId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDot3OamPortLoopbackControl": {
+    "name": "alaDot3OamPortLoopbackControl",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9",
+    "class": "objectidentity"
+  },
+  "alaDot3OamLoopbackTable": {
+    "name": "alaDot3OamLoopbackTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamLoopbackEntry": {
+    "name": "alaDot3OamLoopbackEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "alaDot3OamLoopbackEntry",
+      "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+      "object": "dot3OamLoopbackEntry"
+    },
+    "status": "current"
+  },
+  "alaDot3OamPortL1PingFramesConf": {
+    "name": "alaDot3OamPortL1PingFramesConf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamPortL1PingFramesDelay": {
+    "name": "alaDot3OamPortL1PingFramesDelay",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamPortL1PingStatus": {
+    "name": "alaDot3OamPortL1PingStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "start": 1,
+          "running": 2,
+          "operationSuccessful": 3,
+          "operationUnsuccessful": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamPortL1PingFramesSent": {
+    "name": "alaDot3OamPortL1PingFramesSent",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDot3OamPortL1PingFramesReceived": {
+    "name": "alaDot3OamPortL1PingFramesReceived",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDot3OamPortL1PingAverageRoundTripDelay": {
+    "name": "alaDot3OamPortL1PingAverageRoundTripDelay",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDot3OamPortStats": {
+    "name": "alaDot3OamPortStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.10",
+    "class": "objectidentity"
+  },
+  "alaDot3OamStatsTable": {
+    "name": "alaDot3OamStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamStatsEntry": {
+    "name": "alaDot3OamStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "alaDot3OamStatsEntry",
+      "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+      "object": "dot3OamStatsEntry"
+    },
+    "status": "current"
+  },
+  "alaDot3OamPortClearStats": {
+    "name": "alaDot3OamPortClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamPortEventLogs": {
+    "name": "alaDot3OamPortEventLogs",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.11",
+    "class": "objectidentity"
+  },
+  "alaDot3OamEventLogTable": {
+    "name": "alaDot3OamEventLogTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamEventLogEntry": {
+    "name": "alaDot3OamEventLogEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamPortClearEventLogs": {
+    "name": "alaDot3OamPortClearEventLogs",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDot3OamRetrieveRequest": {
+    "name": "alaDot3OamRetrieveRequest",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12",
+    "class": "objectidentity"
+  },
+  "alaDot3OamRetrieveRequestTable": {
+    "name": "alaDot3OamRetrieveRequestTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamRetrieveRequestEntry": {
+    "name": "alaDot3OamRetrieveRequestEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamTransactionId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamVariableRequestBranch",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamVariableRequestLeaf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamTransactionId": {
+    "name": "alaDot3OamTransactionId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamVariableRequestBranch": {
+    "name": "alaDot3OamVariableRequestBranch",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "object": 3,
+          "package": 4,
+          "attribute": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "attribute",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamVariableRequestLeaf": {
+    "name": "alaDot3OamVariableRequestLeaf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamVariableRequestRetrieveStatus": {
+    "name": "alaDot3OamVariableRequestRetrieveStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "failed": 2,
+          "success": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDot3OamVariableRequestRowStatus": {
+    "name": "alaDot3OamVariableRequestRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDot3OamPortClearVariableTransactions": {
+    "name": "alaDot3OamPortClearVariableTransactions",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaDot3OamRetrieveResponse": {
+    "name": "alaDot3OamRetrieveResponse",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13",
+    "class": "objectidentity"
+  },
+  "alaDot3OamRetrieveResponseTable": {
+    "name": "alaDot3OamRetrieveResponseTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamRetrieveResponseEntry": {
+    "name": "alaDot3OamRetrieveResponseEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamTransactionId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamVariableResponseBranch",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamVariableResponseLeaf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamVariableResponseBranch": {
+    "name": "alaDot3OamVariableResponseBranch",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "object": 3,
+          "package": 4,
+          "attribute": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamVariableResponseLeaf": {
+    "name": "alaDot3OamVariableResponseLeaf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDot3OamVariableResponseValue": {
+    "name": "alaDot3OamVariableResponseValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDot3OamThresholdEventClear": {
+    "name": "alaDot3OamThresholdEventClear",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogTimestamp"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogOui"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogType"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogLocation"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogWindowHi"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogWindowLo"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogThresholdHi"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogThresholdLo"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogValue"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogRunningTotal"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogEventTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamNonThresholdEventClear": {
+    "name": "alaDot3OamNonThresholdEventClear",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogTimestamp"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogOui"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogType"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogLocation"
+      },
+      {
+        "module": "DOT3-OAM-MIB",
+        "object": "dot3OamEventLogEventTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1Dot3OamMIBCompliance": {
+    "name": "alcatelIND1Dot3OamMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaDot3OamBaseGroup",
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+      },
+      {
+        "object": "alaDot3OamPortConfigGroup",
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+      },
+      {
+        "object": "alaDot3OamPortLoopbackControlGroup",
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+      },
+      {
+        "object": "alaDot3OamPortStatsGroup",
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+      },
+      {
+        "object": "alaDot3OamPortEventLogsGroup",
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+      },
+      {
+        "object": "alaDot3OamRetrieveRequestGroup",
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+      },
+      {
+        "object": "alaDot3OamRetrieveResponseGroup",
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+      },
+      {
+        "object": "alaDot3OamNotificationGroup",
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamBaseGroup": {
+    "name": "alaDot3OamBaseGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamGlobalClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamGlobalClearEventLogs"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamGlobalClearVariableTransactions"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamMultiplePduCount"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamPortConfigGroup": {
+    "name": "alaDot3OamPortConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamKeepAliveInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamHelloInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamNextTransactionId"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamPortLoopbackControlGroup": {
+    "name": "alaDot3OamPortLoopbackControlGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortL1PingFramesConf"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortL1PingFramesDelay"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortL1PingStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortL1PingFramesSent"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortL1PingFramesReceived"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortL1PingAverageRoundTripDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamPortStatsGroup": {
+    "name": "alaDot3OamPortStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortClearStats"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamPortEventLogsGroup": {
+    "name": "alaDot3OamPortEventLogsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortClearEventLogs"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamRetrieveRequestGroup": {
+    "name": "alaDot3OamRetrieveRequestGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamVariableRequestRetrieveStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamVariableRequestRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamPortClearVariableTransactions"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamRetrieveResponseGroup": {
+    "name": "alaDot3OamRetrieveResponseGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamVariableResponseValue"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDot3OamNotificationGroup": {
+    "name": "alaDot3OamNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamThresholdEventClear"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT3-OAM-MIB",
+        "object": "alaDot3OamNonThresholdEventClear"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-DOT3-OAM-MIB"
+  }
+}

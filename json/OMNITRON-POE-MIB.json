@@ -1,0 +1,561 @@
+{
+  "imports": {
+    "class": "imports",
+    "OMNITRON-TC-MIB": [
+      "OstFloatValue",
+      "OstPortSingleIndex",
+      "omnitron"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "omnitronPoeMib": {
+    "name": "omnitronPoeMib",
+    "oid": "1.3.6.1.4.1.7342.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-19 12:00",
+        "description": "Initial version of v5.2 MIB. "
+      }
+    ]
+  },
+  "ostPoeGlobalCfgTable": {
+    "name": "ostPoeGlobalCfgTable",
+    "oid": "1.3.6.1.4.1.7342.15.1",
+    "class": "objectidentity"
+  },
+  "ostPoeGlobalCfgPwrLimitationEnable": {
+    "name": "ostPoeGlobalCfgPwrLimitationEnable",
+    "oid": "1.3.6.1.4.1.7342.15.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoeGlobalCfgTotalPwr": {
+    "name": "ostPoeGlobalCfgTotalPwr",
+    "oid": "1.3.6.1.4.1.7342.15.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstFloatValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0.0",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostPoePortCfgTable": {
+    "name": "ostPoePortCfgTable",
+    "oid": "1.3.6.1.4.1.7342.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ostPoePortCfgEntry": {
+    "name": "ostPoePortCfgEntry",
+    "oid": "1.3.6.1.4.1.7342.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ostPoePortCfgIndex": {
+    "name": "ostPoePortCfgIndex",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstPortSingleIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ostPoePortPseEnable": {
+    "name": "ostPoePortPseEnable",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pseDisabled": 1,
+          "pseEnabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pseEnabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoePortPse60wMode": {
+    "name": "ostPoePortPse60wMode",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pse60wNotAvail": 0,
+          "pse60wAuto": 1,
+          "pse60wForce": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pse60wAuto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoePortPdMode": {
+    "name": "ostPoePortPdMode",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pdModeNotDetected": 1,
+          "pdModeNotClassified": 2,
+          "pdModeFailure": 3,
+          "pdModeClass0": 4,
+          "pdModeClass1": 5,
+          "pdModeClass2": 6,
+          "pdModeClass3": 7,
+          "pdModeClass4": 8,
+          "pdMode60W": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pdModeNotDetected",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostPoePortPseVoltageSupplied": {
+    "name": "ostPoePortPseVoltageSupplied",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstFloatValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0.0",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostPoePortPseCurrentSupplied": {
+    "name": "ostPoePortPseCurrentSupplied",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstFloatValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0.0",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostPoePortPseStatus": {
+    "name": "ostPoePortPseStatus",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "pdNormal": 2,
+          "pdOverCurrent": 3,
+          "pdBrownOut": 4,
+          "pdInsufficientPower": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoePortHeartbeatEnable": {
+    "name": "ostPoePortHeartbeatEnable",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "heartbeatDisabled": 1,
+          "heartbeatEnabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "heartbeatDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoePortHeartbeatIpAddress": {
+    "name": "ostPoePortHeartbeatIpAddress",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoePortHeartbeatInterval": {
+    "name": "ostPoePortHeartbeatInterval",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoePortHeartbeatErrorDetection": {
+    "name": "ostPoePortHeartbeatErrorDetection",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoePortHeartbeatErrorAction": {
+    "name": "ostPoePortHeartbeatErrorAction",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "errorLostIgnored": 1,
+          "errorRestart": 2,
+          "errorShutdown": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "errorLostIgnored",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoePortHeartbeatNumberRestarts": {
+    "name": "ostPoePortHeartbeatNumberRestarts",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoEPortHeartbeatStatus": {
+    "name": "ostPoEPortHeartbeatStatus",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "heartbeatDisabled": 1,
+          "heartbeatAvailable": 2,
+          "heartbeatErrored": 3,
+          "heartbeatRestart": 4,
+          "heartbeatShutdown": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "heartbeatDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostPoEPortHeartbeatDeferTime": {
+    "name": "ostPoEPortHeartbeatDeferTime",
+    "oid": "1.3.6.1.4.1.7342.15.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostPoeCompliances": {
+    "name": "ostPoeCompliances",
+    "oid": "1.3.6.1.4.1.7342.15.3",
+    "class": "objectidentity"
+  },
+  "ostPoeGroups": {
+    "name": "ostPoeGroups",
+    "oid": "1.3.6.1.4.1.7342.15.4",
+    "class": "objectidentity"
+  },
+  "ostPoeGroup": {
+    "name": "ostPoeGroup",
+    "oid": "1.3.6.1.4.1.7342.15.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoeGlobalCfgPwrLimitationEnable"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoeGlobalCfgTotalPwr"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortPseEnable"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortPse60wMode"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortPdMode"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortPseVoltageSupplied"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortPseCurrentSupplied"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortPseStatus"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortHeartbeatEnable"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortHeartbeatIpAddress"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortHeartbeatInterval"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortHeartbeatErrorDetection"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortHeartbeatErrorAction"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoePortHeartbeatNumberRestarts"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoEPortHeartbeatStatus"
+      },
+      {
+        "module": "OMNITRON-POE-MIB",
+        "object": "ostPoEPortHeartbeatDeferTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ostPoeCompliance": {
+    "name": "ostPoeCompliance",
+    "oid": "1.3.6.1.4.1.7342.15.3.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ostPoeGroup",
+        "module": "OMNITRON-POE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-POE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OMNITRON-POE-MIB"
+  }
+}

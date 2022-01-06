@@ -1,0 +1,3913 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "pegasusMibModule": {
+    "name": "pegasusMibModule",
+    "oid": "1.3.6.1.4.1.6368.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-12-17 00:00",
+        "description": "A new table dslLinkCosTable has been added to the dsl branch to allow the configuration of the Class of Service (COS) attributes. Each row within this table corresponds to a DSL link. Besides, some missing type and variable descriptions have been added."
+      },
+      {
+        "revision": "2004-06-14 00:00",
+        "description": "Line identifiers are have been added for ISDN user ports and V5 links."
+      },
+      {
+        "revision": "2004-04-08 00:00",
+        "description": "Maximum size of dslLinkAddress and trapDestination have been increased."
+      },
+      {
+        "revision": "2003-12-11 00:00",
+        "description": "Improved the description of DslLinkLoopEnum. The variables v5IsdnPortActiveLoop and authRespEnabled are now obsolete. The agent never sends an error message if the request contains a wrong community string."
+      },
+      {
+        "revision": "2003-10-30 00:00",
+        "description": "Corrected the value range of perfSweepCyclePeriod. The new maximum value is 604800 seconds (1 week)."
+      },
+      {
+        "revision": "2003-10-24 00:00",
+        "description": "Declared perfControlEffectiveUpdatePeriod as obsolete. The definition would be now redundant to perfControlUpdatePeriod. The behaviour of v5LccPccV5LinkNumber/v5LccPccTimeslot has been modified. The assignment of a PCC becomes active after both attributes have been set. To erase the PCC, only one of these attributes has to be set to 0. Write access is allowed for RowStatus active now. The comments of attributes and table habe been aapted."
+      },
+      {
+        "revision": "2003-10-02 00:00",
+        "description": "Declared hwAdaptionPolicy as obsolete. The definition of DataPortSpeedEnum and DataPortFlowConrtolEnum has been moved within the MIB file to make possible the compilation without errors using the MG-Soft MIB Compiles. This revision of the MIB is compatible with the preceeding revision."
+      },
+      {
+        "revision": "2003-03-14 00:00",
+        "description": "Deleted all IP base address objects: dslCardIPBaseAddress, dataCardIPBaseAddress, and v5CardIPBaseAddress. The base address of a card can no longer be set through Pegasus Management, but only through the CLI on the card itself. The remaining objects were renumbered to keep the numbering compact, so this revision of the MIB is again NOT COMPATIBLE with preceeding revisions! Changed the type of perfControlIndex and perfDataIndex from INTEGER to Integer32, with range (1..2147483647), which is the set of positive values possible for an Integer32. This change is rather formal (Integer32 is indistinguishable from INTEGER, as SNMPv2-SMI puts it, that is, its serialisation is identical to INTEGER), but it makes certain parsers happy. In fact, the value is always chosen by the client, and the agent gladly takes what it gets - including 0 and negative values."
+      },
+      {
+        "revision": "2003-03-11 00:00",
+        "description": "Deleted all config version objects: dslCardConfigVersion, v5CardConfigVersion, and dataCardConfigVersion. These objects were never really useful for customers, and so have been removed. Objects following them were renumbered, so this revision of the MIB is NOT COMPATIBLE with preceeding revisions! Added new literals at end of DataPortSpeedEnum and DataPortFlowControlEnum to convey that the value of a (read-only) status variable is currently unknown (for example because a sub-device like the Iad cannot be queried because is not connected). Added four new objects to the Iad table, to describe configuration and corresponding status of the Ethernet port on the Iad. This was mandated by the Iad Rev. B, which can control its Ethernet port and also report its status. For the older Iad Rev. B, control and status of the Ethernet port are not available, and the new objects will read with fixed values. The objects are: iadEthPortSpeed, iadEthCurrentPortSpeed, iadEthFlowControl, iadEthCurrentFlowControl."
+      },
+      {
+        "revision": "2002-10-09 00:00",
+        "description": "SignalQuality and Attenuation were prefixed with dslLink in dslInterfaceEntry sequence, changed to dslInterface. Type DslLinkNumber was defined as 1..8, but V5 configurations already hold user port parameters for future DSL cards with 16 DSL links. This caused problems with some clients, so the definition was changed to 1..16. Revamped description of writeCommunity."
+      },
+      {
+        "revision": "2002-09-19 00:00",
+        "description": "The following objects were added or changed: dataPortSpeed New literal autoCrossoverAndPortSpeed(1) was added to type DataPortSpeedEnum. Warning: existing literals have changed their ordinal numbers. Revamped description, added reference. v5CardFlags Four new objects added to table v5CardTable, and v5CardETSIRelease the new type V5CardFlagSet. v5CardE1LineCode v5CardFrameFormat v5LinkAlarmStatus New literal v5LinkAlarmIdFailure(6) was added to type V5LinkAlarmStatusElem (at the end, without changing the ordinal numbers of existing literals). iadAlarmStatus New literal dcContinuity(2) was added to type IadAlarmStatusElem (at the end, without changing the ordinal numbers of existing literals). dslInterfaceSignalQuality Three new objects added to dslInterfaceTable. dslInterfaceAttenuation v5InterfaceAlarmStatus"
+      },
+      {
+        "revision": "2002-08-23 00:00",
+        "description": "Fixed a number of typos and formatting problems. Renamed l2 group to data group. (Input from BBe)."
+      },
+      {
+        "revision": "2002-07-16 00:00",
+        "description": "Changed all type assignments with BITS to textual conventions (BITS is part of the OBJECT-TYPE and TEXTUAL-CONVENTION macros (for SMI v2 only), but not a ASN.1 builtin or DefinedType, and so cannot be used in a type assignment or sequence definition). The types are: AvailabilityStatusElem, DslLinkAlarmElem, DslCardAlarmStatus, IadAlarmStatusElem, DslPerformanceStatusElem, V5LinkAlarmStatusElem, V5IsdnPortAlarmStatusElem, RackAlarmStatusElem, PerfControlStatus. Added import clause for TEXTUAL-CONVENTION. Changed dataCardAvailabilityStatus in DataCardEntry from BITS to AvailabilityStatusElem. Changed spelling bit-names of AvailabilityStatusElem to agree with ASN.1 definitions in X.721. Added description for the AvailabilityStatusElem textual convention (taken from attributes, with updates). In v5CardTable and v5LccTable, changed all read-write access clauses to read-create. Improved list of references in initial comment. Added list of tools tested with this MIB to initial comment. Constrained type Priority to (0..7). Constrained dslLinkNumberOfZBits to (0..1)."
+      },
+      {
+        "revision": "2002-07-03 00:00",
+        "description": "dslLinkAssignedTrunk was TrunkNumber in its Object-Type definition, fixed to TrunkNumberOrZero. For dslCardIPBaseAddress, v5CardIPBaseAddress and dataCardIPBaseAddress: corrected descriptions and examples to have plausible slot-numbers. ipBaseAddress adapted, with general examples."
+      },
+      {
+        "revision": "2002-06-24 00:00",
+        "description": "User manual realignment with syntax errors fixed, raw version."
+      },
+      {
+        "revision": "2002-06-20 00:00",
+        "description": "Changed all ...IPAddressPrefix variable names to ...IPBaseAddress (dslCard, v5Card, dataCard, pegasusSystem. Changed the variable in pegasusSystem from DisplayString to IpAddress, to agree with other variables. Renamed dataCardAlarmStatus to rackAlarmStatus (also renamed the associated BITS type to RackAlarmStatusElem). Moved to pegasusSystem. Renamed dslLinkAssociatedTrunk to dslLinkAssignedTrunk, to realign with PEMClient. Eliminated type DataPortNumber, used TrunkNumber in its place. Also created type TrunkNumberOrZero, to allow reference to 'no trunk'. Renamed ...ProgramVersion to ...FirmwareVersion: dslCard, dslCardM16, iad, v5Card, dataCard. Removed dataPortVLAN (and its type VLanId): is automatically computed as part of the enhanced switching configuration. For future general VLAN switching, it will be configured through standard MIBs. Removed FilterBroadcast and FilterUnknown for both dslLink and dataPort: present in the devices, but not in the PEMClient. It was not clear if these are useful, and according to PSt it was decided to 'hide' them. Removed special(4) from DslLinkLoopEnum - no longer supported."
+      },
+      {
+        "revision": "2002-06-07 00:00",
+        "description": "Removed ProceduralStatus and its enumeration type from all three cards and IAD. Fixed spelling of 'v5LccIsProteced' to 'v5LccIsProtected'. Improved various descriptions."
+      },
+      {
+        "revision": "2002-05-22 00:00",
+        "description": "Changed Gauge32 in perfData to Integer32, removed import for Gauge32. Added description for v5CardRowStatus."
+      },
+      {
+        "revision": "2002-05-10 00:00",
+        "description": "Improved descriptions for dslLink{DataRate,LinkRate,NumberOfBRA} and dslLinkDynamicSlotAllocation. Added 6 remaining objects for SNMP configuration to group pegasusSystem (read/write/trapCommunity, agentPort, authRespEnabled, trapDestination). Improved description of objects in perf group. DslCard, dataCard: removed AdminState, renumbered attributes contiguously. v5Lcc: renumbered objects contiguously, starting at 1. v5Interface: added RowStatus, changed all read-write objects to read-create, renumbered objects contigously, starting at 1. v5Link: added RowStatus, changed all read-write objects to read-create. iad: removed AdminState, renumbered attributes contiguously."
+      },
+      {
+        "revision": "2002-04-25 00:00",
+        "description": "Added group for performance history of V5 links and DSL interfaces. Added description for dslLinkNumberOfBRA, dslLinkDataRate, and dslLinkLineRate."
+      },
+      {
+        "revision": "2002-04-16 00:00",
+        "description": "Changed numbering scheme. { schmidtelecom 1 } is now reserved for a centralized registry, and the pegasusMibModule is { schmidtelecom 2 }. All groups and objects in this and other Pegasus MIBs are below pegasusMibModule."
+      },
+      {
+        "revision": "2002-04-03 00:00",
+        "description": "v5CardTable and V5LccTable (LogCommChan) now have a RowStatus. For v5CardTable, this controls provisioning mode, but it does not yet support creation. For v5LccTable, it controls verification of the v5LccPccV5LinkNumber and and v5LccPccTimeslot columns, which define the Pcc (PhysCommChan) (i.e. the RowStatus supports transactions on these values). Again, creation is not yet supported for v5LccTable. The new object mibRevision holds the revision number of the MIB with which the agent was compiled."
+      },
+      {
+        "revision": "2002-03-19 00:00",
+        "description": "Added missing import of DisplayString. Changed definitions of dslInterface counter values to Counter32 consistently. Added one missing variable to V5IsdnPortEntry sequence."
+      },
+      {
+        "revision": "2002-03-14 00:00",
+        "description": "Initial comments updated and moved to the module description, where they are more useful for typical browsers."
+      },
+      {
+        "revision": "2002-03-01 00:00",
+        "description": "Added PegasusSystem."
+      },
+      {
+        "revision": "2002-02-28 00:00",
+        "description": "Removed dslInterfaceIsRestartEnabled. Renumbered dslInterfaceEntry and dslLinkEntry columns to start with one and form a compact sequence."
+      },
+      {
+        "revision": "2002-02-18 00:00",
+        "description": "Added initial comment with overview and additional hints. Corrected spelling of CommStateEnum literals to comply with SNMPv2 (dashes were replaced by mixed-case spelling). Added VLAN support (DSL link and data card port). Presently only for enhanced mode, transparent and VLAN modes to come. Removed some VLAN related definitions which are not yet used."
+      },
+      {
+        "revision": "2002-02-14 00:00",
+        "description": "Added definitions for data switch and data switch port."
+      },
+      {
+        "revision": "2002-01-25 00:00",
+        "description": "Added object-type definition of v5IsdnPortAlarmStatus. Renumbered remaining objects."
+      },
+      {
+        "revision": "2002-01-23 00:00",
+        "description": "Changed all occurrences of NetworkAddress to IpAddress (imported from SNMPv2-SMI). NetworkAddress was in SNMPv1, but was replaced by IpAddress for SNMPv2. Corrected dataCardVLANMode to SYNTAX TruthValue - it erronously used NetworkAddress. Correct the year on the previous revision clause."
+      },
+      {
+        "revision": "2000-12-21 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "schmidtelecom": {
+    "name": "schmidtelecom",
+    "oid": "1.3.6.1.4.1.6368",
+    "class": "objectidentity"
+  },
+  "dsl": {
+    "name": "dsl",
+    "oid": "1.3.6.1.4.1.6368.2.1",
+    "class": "objectidentity"
+  },
+  "v5": {
+    "name": "v5",
+    "oid": "1.3.6.1.4.1.6368.2.2",
+    "class": "objectidentity"
+  },
+  "data": {
+    "name": "data",
+    "oid": "1.3.6.1.4.1.6368.2.3",
+    "class": "objectidentity"
+  },
+  "pegasusSystem": {
+    "name": "pegasusSystem",
+    "oid": "1.3.6.1.4.1.6368.2.4",
+    "class": "objectidentity"
+  },
+  "perf": {
+    "name": "perf",
+    "oid": "1.3.6.1.4.1.6368.2.7",
+    "class": "objectidentity"
+  },
+  "AdminStateEnum": {
+    "name": "AdminStateEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 1,
+          "unlocked": 2,
+          "shutdown": 3
+        }
+      }
+    }
+  },
+  "OperStateEnum": {
+    "name": "OperStateEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    }
+  },
+  "AvailabilityStatusElem": {
+    "name": "AvailabilityStatusElem",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "inTest": 0,
+        "failed": 1,
+        "powerOff": 2,
+        "offLine": 3,
+        "offDuty": 4,
+        "dependency": 5,
+        "degraded": 6,
+        "notInstalled": 7,
+        "logFull": 8
+      }
+    },
+    "status": "current"
+  },
+  "CommStateEnum": {
+    "name": "CommStateEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "init": 2,
+          "identification": 3,
+          "checkHw": 4,
+          "hwAdaption": 5,
+          "checkHwVers": 6,
+          "wrongProgram": 7,
+          "checkConfig": 8,
+          "downloadConfig": 9,
+          "uploadConfig": 10,
+          "statusSynch": 11,
+          "resetting": 12,
+          "inactive": 13,
+          "active": 14
+        }
+      }
+    }
+  },
+  "DataPortSpeedEnum": {
+    "name": "DataPortSpeedEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoCrossoverAndPortSpeed": 1,
+          "autoNegotiationPortSpeed": 2,
+          "base100TFullDuplex": 3,
+          "base100THalfDuplex": 4,
+          "base10TFullDuplex": 5,
+          "base10THalfDuplex": 6,
+          "unknown": 7
+        }
+      }
+    }
+  },
+  "DataPortFlowControlEnum": {
+    "name": "DataPortFlowControlEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiationFlowControl": 1,
+          "onFlowControl": 2,
+          "offFlowControl": 3,
+          "unknown": 4
+        }
+      }
+    }
+  },
+  "SlotNumber": {
+    "name": "SlotNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    }
+  },
+  "DataCardSlotNumber": {
+    "name": "DataCardSlotNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    }
+  },
+  "V5SlotNumber": {
+    "name": "V5SlotNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 4
+          }
+        ]
+      }
+    }
+  },
+  "DslSlotNumber": {
+    "name": "DslSlotNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 12
+          }
+        ]
+      }
+    }
+  },
+  "DslLinkNumber": {
+    "name": "DslLinkNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    }
+  },
+  "TrunkNumber": {
+    "name": "TrunkNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    }
+  },
+  "TrunkNumberOrZero": {
+    "name": "TrunkNumberOrZero",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    }
+  },
+  "Priority": {
+    "name": "Priority",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    }
+  },
+  "DslLinkLoopEnum": {
+    "name": "DslLinkLoopEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "loop1": 2,
+          "loop2": 3
+        }
+      }
+    }
+  },
+  "DslLinkAlarmElem": {
+    "name": "DslLinkAlarmElem",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "config": 0,
+        "service": 1
+      }
+    },
+    "status": "current"
+  },
+  "DslLinkPSDMaskEnum": {
+    "name": "DslLinkPSDMaskEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symmetric": 1,
+          "asymmetric": 2
+        }
+      }
+    }
+  },
+  "DslCardAlarmStatus": {
+    "name": "DslCardAlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "intercom": 0
+      }
+    },
+    "status": "current"
+  },
+  "dslCardTable": {
+    "name": "dslCardTable",
+    "oid": "1.3.6.1.4.1.6368.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dslCardEntry": {
+    "name": "dslCardEntry",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dslCardSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dslCardSlotNumber": {
+    "name": "dslCardSlotNumber",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DslSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dslCardAvailabilityStatus": {
+    "name": "dslCardAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardHardwareVersion": {
+    "name": "dslCardHardwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardManufacturer": {
+    "name": "dslCardManufacturer",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardName": {
+    "name": "dslCardName",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardOperState": {
+    "name": "dslCardOperState",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardFirmwareVersion": {
+    "name": "dslCardFirmwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardSerialNumber": {
+    "name": "dslCardSerialNumber",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardCommState": {
+    "name": "dslCardCommState",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardAlarmStatus": {
+    "name": "dslCardAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DslCardAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslCardM16FirmwareVersion": {
+    "name": "dslCardM16FirmwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslLinkTable": {
+    "name": "dslLinkTable",
+    "oid": "1.3.6.1.4.1.6368.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dslLinkEntry": {
+    "name": "dslLinkEntry",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dslCardSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dslLinkNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dslLinkNumber": {
+    "name": "dslLinkNumber",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DslLinkNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dslLinkActiveLoop": {
+    "name": "dslLinkActiveLoop",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DslLinkLoopEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkAddress": {
+    "name": "dslLinkAddress",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkAdminState": {
+    "name": "dslLinkAdminState",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkAlarmStatus": {
+    "name": "dslLinkAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DslLinkAlarmElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslLinkAvailabilityStatus": {
+    "name": "dslLinkAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslLinkContact": {
+    "name": "dslLinkContact",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkCustomerId": {
+    "name": "dslLinkCustomerId",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkDynamicSlotAllocation": {
+    "name": "dslLinkDynamicSlotAllocation",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkIsRemotePower": {
+    "name": "dslLinkIsRemotePower",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkLineRate": {
+    "name": "dslLinkLineRate",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkDataRate": {
+    "name": "dslLinkDataRate",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkName": {
+    "name": "dslLinkName",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkNotes": {
+    "name": "dslLinkNotes",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkNumberOfBRA": {
+    "name": "dslLinkNumberOfBRA",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkOperState": {
+    "name": "dslLinkOperState",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslLinkNumberOfZBits": {
+    "name": "dslLinkNumberOfZBits",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkPSDMask": {
+    "name": "dslLinkPSDMask",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DslLinkPSDMaskEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkAssignedTrunk": {
+    "name": "dslLinkAssignedTrunk",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrunkNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkPriority": {
+    "name": "dslLinkPriority",
+    "oid": "1.3.6.1.4.1.6368.2.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Priority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "IadAlarmStatusElem": {
+    "name": "IadAlarmStatusElem",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "powerdown": 0,
+        "lifeline": 1,
+        "dcContinuity": 2
+      }
+    },
+    "status": "current"
+  },
+  "IadISDNPoweringEnum": {
+    "name": "IadISDNPoweringEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "normal": 2,
+          "lifeline": 3,
+          "always": 4
+        }
+      }
+    }
+  },
+  "IadPOTSPoweringEnum": {
+    "name": "IadPOTSPoweringEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "always": 2
+        }
+      }
+    }
+  },
+  "iadTable": {
+    "name": "iadTable",
+    "oid": "1.3.6.1.4.1.6368.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iadEntry": {
+    "name": "iadEntry",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "iadEntry",
+      "module": "PEGASUS-MIB",
+      "object": "dslLinkEntry"
+    },
+    "status": "current"
+  },
+  "iadAvailabilityStatus": {
+    "name": "iadAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadHardwareVersion": {
+    "name": "iadHardwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadManufacturer": {
+    "name": "iadManufacturer",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadName": {
+    "name": "iadName",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadOperState": {
+    "name": "iadOperState",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadFirmwareVersion": {
+    "name": "iadFirmwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadSerialNumber": {
+    "name": "iadSerialNumber",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadAlarmStatus": {
+    "name": "iadAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IadAlarmStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadISDNPowering": {
+    "name": "iadISDNPowering",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IadISDNPoweringEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iadPOTSPowering": {
+    "name": "iadPOTSPowering",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IadPOTSPoweringEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iadEthPortSpeed": {
+    "name": "iadEthPortSpeed",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataPortSpeedEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iadEthCurrentPortSpeed": {
+    "name": "iadEthCurrentPortSpeed",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataPortSpeedEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iadEthFlowControl": {
+    "name": "iadEthFlowControl",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataPortFlowControlEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iadEthCurrentFlowControl": {
+    "name": "iadEthCurrentFlowControl",
+    "oid": "1.3.6.1.4.1.6368.2.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataPortFlowControlEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "DslInterfaceTypeEnum": {
+    "name": "DslInterfaceTypeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ltu": 1,
+          "ntu": 2
+        }
+      }
+    }
+  },
+  "DslPerformanceStatusElem": {
+    "name": "DslPerformanceStatusElem",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "att": 0,
+        "losw": 1
+      }
+    },
+    "status": "current"
+  },
+  "dslInterfaceTable": {
+    "name": "dslInterfaceTable",
+    "oid": "1.3.6.1.4.1.6368.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dslInterfaceEntry": {
+    "name": "dslInterfaceEntry",
+    "oid": "1.3.6.1.4.1.6368.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dslCardSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dslLinkNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dslInterfaceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dslInterfaceType": {
+    "name": "dslInterfaceType",
+    "oid": "1.3.6.1.4.1.6368.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DslInterfaceTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dslInterfaceAvailabilityStatus": {
+    "name": "dslInterfaceAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslInterfaceOperState": {
+    "name": "dslInterfaceOperState",
+    "oid": "1.3.6.1.4.1.6368.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslInterfacePerformanceStatus": {
+    "name": "dslInterfacePerformanceStatus",
+    "oid": "1.3.6.1.4.1.6368.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DslPerformanceStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslInterfacePerfControlIndexOrZero": {
+    "name": "dslInterfacePerfControlIndexOrZero",
+    "oid": "1.3.6.1.4.1.6368.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslInterfaceSignalQuality": {
+    "name": "dslInterfaceSignalQuality",
+    "oid": "1.3.6.1.4.1.6368.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslInterfaceAttenuation": {
+    "name": "dslInterfaceAttenuation",
+    "oid": "1.3.6.1.4.1.6368.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "CosClassifierEnum": {
+    "name": "CosClassifierEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlanPriority": 1,
+          "dscpPriority": 2
+        }
+      }
+    }
+  },
+  "CosClassmap": {
+    "name": "CosClassmap",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "dslLinkCosTable": {
+    "name": "dslLinkCosTable",
+    "oid": "1.3.6.1.4.1.6368.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dslLinkCosEntry": {
+    "name": "dslLinkCosEntry",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dslLinkCosEntry",
+      "module": "PEGASUS-MIB",
+      "object": "dslLinkEntry"
+    },
+    "status": "current"
+  },
+  "dslLinkCosAvailable": {
+    "name": "dslLinkCosAvailable",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dslLinkCosEnabled": {
+    "name": "dslLinkCosEnabled",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkCosClassifier": {
+    "name": "dslLinkCosClassifier",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CosClassifierEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkCosClassmapEF": {
+    "name": "dslLinkCosClassmapEF",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CosClassmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkCosClassmapAF2": {
+    "name": "dslLinkCosClassmapAF2",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CosClassmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkCosClassmapAF1": {
+    "name": "dslLinkCosClassmapAF1",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CosClassmap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkCosRateLimitEF": {
+    "name": "dslLinkCosRateLimitEF",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2312
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkCosRateLimitAF2": {
+    "name": "dslLinkCosRateLimitAF2",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2312
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dslLinkCosRateLimitAF1": {
+    "name": "dslLinkCosRateLimitAF1",
+    "oid": "1.3.6.1.4.1.6368.2.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2312
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "V5ClockModeEnum": {
+    "name": "V5ClockModeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v5ClockMaster": 1,
+          "v5ClockSlave": 2
+        }
+      }
+    }
+  },
+  "V5ClockSourceEnum": {
+    "name": "V5ClockSourceEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v5ClockExternal": 1,
+          "v5ClockLink1": 2,
+          "v5ClockLink2": 3,
+          "v5ClockLink3": 4,
+          "v5ClockLink4": 5,
+          "v5ClockLink5": 6,
+          "v5ClockLink6": 7,
+          "v5ClockLink7": 8,
+          "v5ClockLink8": 9
+        }
+      }
+    }
+  },
+  "V5ProtocolVersionEnum": {
+    "name": "V5ProtocolVersionEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v51": 1,
+          "v52": 2
+        }
+      }
+    }
+  },
+  "V5CardFlagSet": {
+    "name": "V5CardFlagSet",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noFastAlign": 0,
+        "noLinkId": 1,
+        "autoPortUnblock": 2,
+        "retryAutoPortUnblock": 3,
+        "rejectLinkId": 4,
+        "forcePSTNDL": 5,
+        "slowStart": 6,
+        "deallocBlockedPort": 7
+      }
+    },
+    "status": "current"
+  },
+  "v5CardTable": {
+    "name": "v5CardTable",
+    "oid": "1.3.6.1.4.1.6368.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5CardEntry": {
+    "name": "v5CardEntry",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5CardSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "v5CardSlotNumber": {
+    "name": "v5CardSlotNumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5SlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5CardAdminState": {
+    "name": "v5CardAdminState",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardAvailabilityStatus": {
+    "name": "v5CardAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardHardwareVersion": {
+    "name": "v5CardHardwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardManufacturer": {
+    "name": "v5CardManufacturer",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardName": {
+    "name": "v5CardName",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardOperState": {
+    "name": "v5CardOperState",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardFirmwareVersion": {
+    "name": "v5CardFirmwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardSerialNumber": {
+    "name": "v5CardSerialNumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardCommState": {
+    "name": "v5CardCommState",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardIsProvisioning": {
+    "name": "v5CardIsProvisioning",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5CardClockMode": {
+    "name": "v5CardClockMode",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5ClockModeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardClockSource1": {
+    "name": "v5CardClockSource1",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5ClockSourceEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardClockSource2": {
+    "name": "v5CardClockSource2",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5ClockSourceEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardProtocolVersion": {
+    "name": "v5CardProtocolVersion",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5ProtocolVersionEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardRowStatus": {
+    "name": "v5CardRowStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardFlags": {
+    "name": "v5CardFlags",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5CardFlagSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardETSIRelease": {
+    "name": "v5CardETSIRelease",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardE1LineCode": {
+    "name": "v5CardE1LineCode",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hdb3": 1,
+          "ami": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5CardE1FrameFormat": {
+    "name": "v5CardE1FrameFormat",
+    "oid": "1.3.6.1.4.1.6368.2.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc4": 1,
+          "crc4e": 2,
+          "dff": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "V5LinkNumber": {
+    "name": "V5LinkNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "V5LinkNumberOrZero": {
+    "name": "V5LinkNumberOrZero",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "V5InterfaceNumber": {
+    "name": "V5InterfaceNumber",
+    "class": "type",
+    "type": {
+      "type": "V5LinkNumber",
+      "class": "type"
+    }
+  },
+  "V5InterfaceNumberOrZero": {
+    "name": "V5InterfaceNumberOrZero",
+    "class": "type",
+    "type": {
+      "type": "V5LinkNumberOrZero",
+      "class": "type"
+    }
+  },
+  "V5PccCount": {
+    "name": "V5PccCount",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    }
+  },
+  "V5LinkAlarmStatusElem": {
+    "name": "V5LinkAlarmStatusElem",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "v5LinkAlarmLOS": 0,
+        "v5LinkAlarmLFA": 1,
+        "v5LinkAlarmAIS": 2,
+        "v5LinkAlarmBERH": 3,
+        "v5LinkAlarmEXTLOC": 4,
+        "v5LinkAlarmRAI": 5,
+        "v5LinkAlarmIdFailure": 6
+      }
+    },
+    "status": "current"
+  },
+  "V5LinkTypeEnum": {
+    "name": "V5LinkTypeEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "normal": 3
+        }
+      }
+    }
+  },
+  "v5LinkTable": {
+    "name": "v5LinkTable",
+    "oid": "1.3.6.1.4.1.6368.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5LinkEntry": {
+    "name": "v5LinkEntry",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5CardSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5LinkNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "v5LinkNumber": {
+    "name": "v5LinkNumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5LinkNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5LinkAdminState": {
+    "name": "v5LinkAdminState",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LinkAvailabilityStatus": {
+    "name": "v5LinkAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5LinkId": {
+    "name": "v5LinkId",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LinkOperState": {
+    "name": "v5LinkOperState",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5LinkInterface": {
+    "name": "v5LinkInterface",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5InterfaceNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LinkAlarmStatus": {
+    "name": "v5LinkAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5LinkAlarmStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5LinkType": {
+    "name": "v5LinkType",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5LinkTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LinkNumberOfPcc": {
+    "name": "v5LinkNumberOfPcc",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5PccCount",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LinkPerfControlIndexOrZero": {
+    "name": "v5LinkPerfControlIndexOrZero",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LinkRowStatus": {
+    "name": "v5LinkRowStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LinkLineIdentifier": {
+    "name": "v5LinkLineIdentifier",
+    "oid": "1.3.6.1.4.1.6368.2.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "V5InterfaceAlarmSet": {
+    "name": "V5InterfaceAlarmSet",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "idFailure": 0,
+        "provisioningMismatch": 1
+      }
+    },
+    "status": "current"
+  },
+  "v5InterfaceTable": {
+    "name": "v5InterfaceTable",
+    "oid": "1.3.6.1.4.1.6368.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5InterfaceEntry": {
+    "name": "v5InterfaceEntry",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5CardSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5InterfaceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "v5InterfaceNumber": {
+    "name": "v5InterfaceNumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5InterfaceNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5InterfaceAdminState": {
+    "name": "v5InterfaceAdminState",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5InterfaceAvailabilityStatus": {
+    "name": "v5InterfaceAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5InterfaceId": {
+    "name": "v5InterfaceId",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5InterfaceOperState": {
+    "name": "v5InterfaceOperState",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5InterfaceVariantId": {
+    "name": "v5InterfaceVariantId",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5InterfaceRowStatus": {
+    "name": "v5InterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5InterfaceAlarmStatus": {
+    "name": "v5InterfaceAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5InterfaceAlarmSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "V5LccNumber": {
+    "name": "V5LccNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 21
+          }
+        ]
+      }
+    }
+  },
+  "V5LccNumberOrZero": {
+    "name": "V5LccNumberOrZero",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 21
+          }
+        ]
+      }
+    }
+  },
+  "V5PccNumberOrZero": {
+    "name": "V5PccNumberOrZero",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    }
+  },
+  "v5LccTable": {
+    "name": "v5LccTable",
+    "oid": "1.3.6.1.4.1.6368.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5LccEntry": {
+    "name": "v5LccEntry",
+    "oid": "1.3.6.1.4.1.6368.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5CardSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5InterfaceNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5LccNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "v5LccNumber": {
+    "name": "v5LccNumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5LccNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5LccIsProtected": {
+    "name": "v5LccIsProtected",
+    "oid": "1.3.6.1.4.1.6368.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LccId": {
+    "name": "v5LccId",
+    "oid": "1.3.6.1.4.1.6368.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LccOperState": {
+    "name": "v5LccOperState",
+    "oid": "1.3.6.1.4.1.6368.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5LccPccV5LinkNumber": {
+    "name": "v5LccPccV5LinkNumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5LinkNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LccPccTimeslot": {
+    "name": "v5LccPccTimeslot",
+    "oid": "1.3.6.1.4.1.6368.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5PccNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "v5LccRowStatus": {
+    "name": "v5LccRowStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "V5IsdnPortLoopEnum": {
+    "name": "V5IsdnPortLoopEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "loop1": 2,
+          "loop2": 3
+        }
+      }
+    }
+  },
+  "V5IsdnPortBlockingStatusEnum": {
+    "name": "V5IsdnPortBlockingStatusEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "local": 2,
+          "remote": 3,
+          "both": 4
+        }
+      }
+    }
+  },
+  "V5IsdnPortAlarmStatusElem": {
+    "name": "V5IsdnPortAlarmStatusElem",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "l1ActivationFault": 0,
+        "losTref": 1,
+        "losDsig": 2
+      }
+    },
+    "status": "current"
+  },
+  "V5TimeslotNumber": {
+    "name": "V5TimeslotNumber",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          },
+          {
+            "min": 17,
+            "max": 31
+          }
+        ]
+      }
+    }
+  },
+  "V5EnvelopeFuncAddress": {
+    "name": "V5EnvelopeFuncAddress",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8175
+          }
+        ]
+      }
+    }
+  },
+  "v5IsdnPortTable": {
+    "name": "v5IsdnPortTable",
+    "oid": "1.3.6.1.4.1.6368.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5IsdnPortEntry": {
+    "name": "v5IsdnPortEntry",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dslCardSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dslLinkNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "v5IsdnPortBRANumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "v5IsdnPortBRANumber": {
+    "name": "v5IsdnPortBRANumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "v5IsdnPortAdminState": {
+    "name": "v5IsdnPortAdminState",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "v5IsdnPortOperState": {
+    "name": "v5IsdnPortOperState",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5IsdnPortBlockingStatus": {
+    "name": "v5IsdnPortBlockingStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5IsdnPortBlockingStatusEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5IsdnPortBearer1Timeslot": {
+    "name": "v5IsdnPortBearer1Timeslot",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5TimeslotNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "v5IsdnPortBearer2Timeslot": {
+    "name": "v5IsdnPortBearer2Timeslot",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5TimeslotNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "v5IsdnPortEnvelopeFuncAddress": {
+    "name": "v5IsdnPortEnvelopeFuncAddress",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5EnvelopeFuncAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "v5IsdnPortIsActivated": {
+    "name": "v5IsdnPortIsActivated",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5IsdnPortAlarmStatus": {
+    "name": "v5IsdnPortAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5IsdnPortAlarmStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5IsdnPortActiveLoop": {
+    "name": "v5IsdnPortActiveLoop",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5IsdnPortLoopEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "v5IsdnPortV5CardSlotNumber": {
+    "name": "v5IsdnPortV5CardSlotNumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5SlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "v5IsdnPortV5InterfaceNumber": {
+    "name": "v5IsdnPortV5InterfaceNumber",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5InterfaceNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "v5IsdnPortDSignallingCommChan": {
+    "name": "v5IsdnPortDSignallingCommChan",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5LccNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "v5IsdnPortFrameCommChan": {
+    "name": "v5IsdnPortFrameCommChan",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5LccNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "v5IsdnPortPacketCommChan": {
+    "name": "v5IsdnPortPacketCommChan",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "V5LccNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "v5IsdnPortLineIdentifier": {
+    "name": "v5IsdnPortLineIdentifier",
+    "oid": "1.3.6.1.4.1.6368.2.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dataCardTable": {
+    "name": "dataCardTable",
+    "oid": "1.3.6.1.4.1.6368.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataCardEntry": {
+    "name": "dataCardEntry",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dataCardSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataCardSlotNumber": {
+    "name": "dataCardSlotNumber",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataCardSlotNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataCardAvailabilityStatus": {
+    "name": "dataCardAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCardHardwareVersion": {
+    "name": "dataCardHardwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCardManufacturer": {
+    "name": "dataCardManufacturer",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCardName": {
+    "name": "dataCardName",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCardOperState": {
+    "name": "dataCardOperState",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCardFirmwareVersion": {
+    "name": "dataCardFirmwareVersion",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCardSerialNumber": {
+    "name": "dataCardSerialNumber",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCardCommState": {
+    "name": "dataCardCommState",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CommStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataCardVLANMode": {
+    "name": "dataCardVLANMode",
+    "oid": "1.3.6.1.4.1.6368.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dataPortTable": {
+    "name": "dataPortTable",
+    "oid": "1.3.6.1.4.1.6368.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataPortEntry": {
+    "name": "dataPortEntry",
+    "oid": "1.3.6.1.4.1.6368.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dataCardSlotNumber",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "dataPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataPortNumber": {
+    "name": "dataPortNumber",
+    "oid": "1.3.6.1.4.1.6368.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrunkNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataPortAdminState": {
+    "name": "dataPortAdminState",
+    "oid": "1.3.6.1.4.1.6368.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dataPortOperState": {
+    "name": "dataPortOperState",
+    "oid": "1.3.6.1.4.1.6368.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataPortAvailabilityStatus": {
+    "name": "dataPortAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.6368.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AvailabilityStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataPortSpeed": {
+    "name": "dataPortSpeed",
+    "oid": "1.3.6.1.4.1.6368.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataPortSpeedEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dataPortFlowControl": {
+    "name": "dataPortFlowControl",
+    "oid": "1.3.6.1.4.1.6368.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataPortFlowControlEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ConfigPriorityEnum": {
+    "name": "ConfigPriorityEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "server": 1,
+          "device": 2
+        }
+      }
+    }
+  },
+  "HWAdaptionPolicyEnum": {
+    "name": "HWAdaptionPolicyEnum",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "device": 1,
+          "server": 2
+        }
+      }
+    }
+  },
+  "RackAlarmStatusElem": {
+    "name": "RackAlarmStatusElem",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "psu1Failure": 0,
+        "psu2Failure": 1,
+        "fanFailure": 2,
+        "urgentExt": 3,
+        "nonUrgentExt": 4
+      }
+    },
+    "status": "current"
+  },
+  "autoPersistDelay": {
+    "name": "autoPersistDelay",
+    "oid": "1.3.6.1.4.1.6368.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "autoPersistEnabled": {
+    "name": "autoPersistEnabled",
+    "oid": "1.3.6.1.4.1.6368.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configPriority": {
+    "name": "configPriority",
+    "oid": "1.3.6.1.4.1.6368.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigPriorityEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAdaptionPolicy": {
+    "name": "hwAdaptionPolicy",
+    "oid": "1.3.6.1.4.1.6368.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWAdaptionPolicyEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipBaseAddress": {
+    "name": "ipBaseAddress",
+    "oid": "1.3.6.1.4.1.6368.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "javaRuntimeVersion": {
+    "name": "javaRuntimeVersion",
+    "oid": "1.3.6.1.4.1.6368.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "javaVMName": {
+    "name": "javaVMName",
+    "oid": "1.3.6.1.4.1.6368.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "javaVMVersion": {
+    "name": "javaVMVersion",
+    "oid": "1.3.6.1.4.1.6368.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgmtIPAddress": {
+    "name": "mgmtIPAddress",
+    "oid": "1.3.6.1.4.1.6368.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "osArchitecture": {
+    "name": "osArchitecture",
+    "oid": "1.3.6.1.4.1.6368.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "osNameAndVersion": {
+    "name": "osNameAndVersion",
+    "oid": "1.3.6.1.4.1.6368.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pemVersion": {
+    "name": "pemVersion",
+    "oid": "1.3.6.1.4.1.6368.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "startedBy": {
+    "name": "startedBy",
+    "oid": "1.3.6.1.4.1.6368.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNumber": {
+    "name": "systemNumber",
+    "oid": "1.3.6.1.4.1.6368.2.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mibRevision": {
+    "name": "mibRevision",
+    "oid": "1.3.6.1.4.1.6368.2.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "$Workfile: PEGASUS.mib $ $Revision: 48 $ $Date: 12/17/04 1:16p $",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "readCommunity": {
+    "name": "readCommunity",
+    "oid": "1.3.6.1.4.1.6368.2.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "writeCommunity": {
+    "name": "writeCommunity",
+    "oid": "1.3.6.1.4.1.6368.2.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapCommunity": {
+    "name": "trapCommunity",
+    "oid": "1.3.6.1.4.1.6368.2.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapDestination": {
+    "name": "trapDestination",
+    "oid": "1.3.6.1.4.1.6368.2.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPort": {
+    "name": "agentPort",
+    "oid": "1.3.6.1.4.1.6368.2.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "authRespEnabled": {
+    "name": "authRespEnabled",
+    "oid": "1.3.6.1.4.1.6368.2.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rackAlarmStatus": {
+    "name": "rackAlarmStatus",
+    "oid": "1.3.6.1.4.1.6368.2.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RackAlarmStatusElem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "PerfControlStatus": {
+    "name": "PerfControlStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "busy": 0,
+        "offline": 1,
+        "data": 2,
+        "marked": 3
+      }
+    },
+    "status": "current"
+  },
+  "perfSweepCyclePeriod": {
+    "name": "perfSweepCyclePeriod",
+    "oid": "1.3.6.1.4.1.6368.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "perfControlTable": {
+    "name": "perfControlTable",
+    "oid": "1.3.6.1.4.1.6368.2.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "perfControlEntry": {
+    "name": "perfControlEntry",
+    "oid": "1.3.6.1.4.1.6368.2.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "perfControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "perfControlIndex": {
+    "name": "perfControlIndex",
+    "oid": "1.3.6.1.4.1.6368.2.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "perfControlStatus": {
+    "name": "perfControlStatus",
+    "oid": "1.3.6.1.4.1.6368.2.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfControlStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "perfControlLinkDescr": {
+    "name": "perfControlLinkDescr",
+    "oid": "1.3.6.1.4.1.6368.2.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "perfControlUpdatePeriod": {
+    "name": "perfControlUpdatePeriod",
+    "oid": "1.3.6.1.4.1.6368.2.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "perfControlEffectiveUpdatePeriod": {
+    "name": "perfControlEffectiveUpdatePeriod",
+    "oid": "1.3.6.1.4.1.6368.2.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "perfControlRowStatus": {
+    "name": "perfControlRowStatus",
+    "oid": "1.3.6.1.4.1.6368.2.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "PerfHistoryType": {
+    "name": "PerfHistoryType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "history15m": 1,
+          "history24h": 2
+        }
+      }
+    }
+  },
+  "perfDataTable": {
+    "name": "perfDataTable",
+    "oid": "1.3.6.1.4.1.6368.2.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "perfDataEntry": {
+    "name": "perfDataEntry",
+    "oid": "1.3.6.1.4.1.6368.2.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEGASUS-MIB",
+        "object": "perfControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "perfDataKind",
+        "implied": 0
+      },
+      {
+        "module": "PEGASUS-MIB",
+        "object": "perfDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "perfDataKind": {
+    "name": "perfDataKind",
+    "oid": "1.3.6.1.4.1.6368.2.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfHistoryType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "perfDataIndex": {
+    "name": "perfDataIndex",
+    "oid": "1.3.6.1.4.1.6368.2.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "perfDataES": {
+    "name": "perfDataES",
+    "oid": "1.3.6.1.4.1.6368.2.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "perfDataSES": {
+    "name": "perfDataSES",
+    "oid": "1.3.6.1.4.1.6368.2.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "perfDataUAS": {
+    "name": "perfDataUAS",
+    "oid": "1.3.6.1.4.1.6368.2.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "perfDataCV": {
+    "name": "perfDataCV",
+    "oid": "1.3.6.1.4.1.6368.2.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Frames with CRC faults",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "perfDataLOSWS": {
+    "name": "perfDataLOSWS",
+    "oid": "1.3.6.1.4.1.6368.2.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pegasus/PEGASUS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PEGASUS-MIB"
+  }
+}

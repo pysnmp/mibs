@@ -1,0 +1,709 @@
+{
+  "imports": {
+    "class": "imports",
+    "RUCKUS-ROOT-MIB": [
+      "ruckusEvents"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "ruckusUnleashedEventMIB": {
+    "name": "ruckusUnleashedEventMIB",
+    "oid": "1.3.6.1.4.1.25053.2.15",
+    "class": "moduleidentity"
+  },
+  "ruckusUnleashedEventTraps": {
+    "name": "ruckusUnleashedEventTraps",
+    "oid": "1.3.6.1.4.1.25053.2.15.1",
+    "class": "objectidentity"
+  },
+  "ruckusUnleashedEventObjects": {
+    "name": "ruckusUnleashedEventObjects",
+    "oid": "1.3.6.1.4.1.25053.2.15.2",
+    "class": "objectidentity"
+  },
+  "ruckusUnleashedEventTrapSwitchCmd": {
+    "name": "ruckusUnleashedEventTrapSwitchCmd",
+    "oid": "1.3.6.1.4.1.25053.2.15.3",
+    "class": "objectidentity"
+  },
+  "ruckusUnleashedEventAPJoinTrap": {
+    "name": "ruckusUnleashedEventAPJoinTrap",
+    "oid": "1.3.6.1.4.1.25053.2.15.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSerial"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventNEID"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSeverity"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventType"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTime"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventStatus"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTitle"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPLostTrap": {
+    "name": "ruckusUnleashedEventAPLostTrap",
+    "oid": "1.3.6.1.4.1.25053.2.15.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSerial"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventNEID"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSeverity"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventType"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTime"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventStatus"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTitle"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPSystemColdStartTrap": {
+    "name": "ruckusUnleashedEventAPSystemColdStartTrap",
+    "oid": "1.3.6.1.4.1.25053.2.15.1.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSerial"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventNEID"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSeverity"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventType"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTime"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventStatus"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTitle"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventOccurTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPSystemWarmStartTrap": {
+    "name": "ruckusUnleashedEventAPSystemWarmStartTrap",
+    "oid": "1.3.6.1.4.1.25053.2.15.1.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSerial"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventNEID"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSeverity"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventType"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTime"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventStatus"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTitle"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventOccurTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPRadioOn": {
+    "name": "ruckusUnleashedEventAPRadioOn",
+    "oid": "1.3.6.1.4.1.25053.2.15.1.130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSerial"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventNEID"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSeverity"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventType"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTime"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventStatus"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTitle"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventAPRadioIndex"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventOccurTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPRadioOff": {
+    "name": "ruckusUnleashedEventAPRadioOff",
+    "oid": "1.3.6.1.4.1.25053.2.15.1.131",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSerial"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventNEID"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSeverity"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventType"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTime"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventStatus"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTitle"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventAPRadioIndex"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventOccurTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusUnleashedEventMasterAPSwitch": {
+    "name": "ruckusUnleashedEventMasterAPSwitch",
+    "oid": "1.3.6.1.4.1.25053.2.15.1.138",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSerial"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventNEID"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventSeverity"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventType"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTime"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventStatus"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventTitle"
+      },
+      {
+        "module": "RUCKUS-UNLEASHED-EVENT-MIB",
+        "object": "ruckusUnleashedEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusUnleashedEventSerial": {
+    "name": "ruckusUnleashedEventSerial",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventNEID": {
+    "name": "ruckusUnleashedEventNEID",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventSeverity": {
+    "name": "ruckusUnleashedEventSeverity",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventType": {
+    "name": "ruckusUnleashedEventType",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventTime": {
+    "name": "ruckusUnleashedEventTime",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventStatus": {
+    "name": "ruckusUnleashedEventStatus",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raise": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventTitle": {
+    "name": "ruckusUnleashedEventTitle",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventContent": {
+    "name": "ruckusUnleashedEventContent",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventOccurTime": {
+    "name": "ruckusUnleashedEventOccurTime",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPRadioIndex": {
+    "name": "ruckusUnleashedEventAPRadioIndex",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventClientMacAddr": {
+    "name": "ruckusUnleashedEventClientMacAddr",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPMacAddr": {
+    "name": "ruckusUnleashedEventAPMacAddr",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventSSID": {
+    "name": "ruckusUnleashedEventSSID",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventIpAddr": {
+    "name": "ruckusUnleashedEventIpAddr",
+    "oid": "1.3.6.1.4.1.25053.2.15.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPJoinTrapSwitchCmd": {
+    "name": "ruckusUnleashedEventAPJoinTrapSwitchCmd",
+    "oid": "1.3.6.1.4.1.25053.2.15.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPLostTrapSwitchCmd": {
+    "name": "ruckusUnleashedEventAPLostTrapSwitchCmd",
+    "oid": "1.3.6.1.4.1.25053.2.15.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPSystemColdStartTrapSwitchCmd": {
+    "name": "ruckusUnleashedEventAPSystemColdStartTrapSwitchCmd",
+    "oid": "1.3.6.1.4.1.25053.2.15.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPSystemWarmStartTrapSwitchCmd": {
+    "name": "ruckusUnleashedEventAPSystemWarmStartTrapSwitchCmd",
+    "oid": "1.3.6.1.4.1.25053.2.15.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPRadioOnTrapSwitchCmd": {
+    "name": "ruckusUnleashedEventAPRadioOnTrapSwitchCmd",
+    "oid": "1.3.6.1.4.1.25053.2.15.3.130",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusUnleashedEventAPRadioOffTrapSwitchCmd": {
+    "name": "ruckusUnleashedEventAPRadioOffTrapSwitchCmd",
+    "oid": "1.3.6.1.4.1.25053.2.15.3.131",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusUnleashedEventMasterAPSwitchTrapSwitchCmd": {
+    "name": "ruckusUnleashedEventMasterAPSwitchTrapSwitchCmd",
+    "oid": "1.3.6.1.4.1.25053.2.15.3.138",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-UNLEASHED-EVENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUCKUS-UNLEASHED-EVENT-MIB"
+  }
+}

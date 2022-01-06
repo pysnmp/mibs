@@ -1,0 +1,386 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwImpbMIB": {
+    "name": "dlinkSwImpbMIB",
+    "oid": "1.3.6.1.4.1.171.14.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-06 00:00",
+        "description": "Correct groups name: from 'digImpbClearViolationLogGroup' to 'dImpbClearViolationLogGroup' from 'digImpbNotificationsGroup' to 'dImpbNotificationsGroup' from 'digImpbConfigGroup' to 'dImpbConfigGroup' "
+      },
+      {
+        "revision": "2013-10-16 00:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "dImpbNotifications": {
+    "name": "dImpbNotifications",
+    "oid": "1.3.6.1.4.1.171.14.22.0",
+    "class": "objectidentity"
+  },
+  "dImpbObjects": {
+    "name": "dImpbObjects",
+    "oid": "1.3.6.1.4.1.171.14.22.1",
+    "class": "objectidentity"
+  },
+  "dImpbConformance": {
+    "name": "dImpbConformance",
+    "oid": "1.3.6.1.4.1.171.14.22.2",
+    "class": "objectidentity"
+  },
+  "dImpbNotifyInfo": {
+    "name": "dImpbNotifyInfo",
+    "oid": "1.3.6.1.4.1.171.14.22.1.1",
+    "class": "objectidentity"
+  },
+  "dImpbGlobalNotifyEnabled": {
+    "name": "dImpbGlobalNotifyEnabled",
+    "oid": "1.3.6.1.4.1.171.14.22.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dImpbViolationIpAddrType": {
+    "name": "dImpbViolationIpAddrType",
+    "oid": "1.3.6.1.4.1.171.14.22.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dImpbViolationIpAddress": {
+    "name": "dImpbViolationIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.22.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dImpbIfConfigTable": {
+    "name": "dImpbIfConfigTable",
+    "oid": "1.3.6.1.4.1.171.14.22.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dImpbIfConfigEntry": {
+    "name": "dImpbIfConfigEntry",
+    "oid": "1.3.6.1.4.1.171.14.22.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dImpbIfBindMode": {
+    "name": "dImpbIfBindMode",
+    "oid": "1.3.6.1.4.1.171.14.22.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "strict": 2,
+          "loose": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dImpbViolationLogTable": {
+    "name": "dImpbViolationLogTable",
+    "oid": "1.3.6.1.4.1.171.14.22.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dImpbViolationLogEntry": {
+    "name": "dImpbViolationLogEntry",
+    "oid": "1.3.6.1.4.1.171.14.22.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbViolationVlan",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbViolationMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dImpbViolationVlan": {
+    "name": "dImpbViolationVlan",
+    "oid": "1.3.6.1.4.1.171.14.22.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dImpbViolationMacAddress": {
+    "name": "dImpbViolationMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.22.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dImpbViolationAction": {
+    "name": "dImpbViolationAction",
+    "oid": "1.3.6.1.4.1.171.14.22.1.3.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dImpbClearObjects": {
+    "name": "dImpbClearObjects",
+    "oid": "1.3.6.1.4.1.171.14.22.1.4",
+    "class": "objectidentity"
+  },
+  "dImpbClearAllViolation": {
+    "name": "dImpbClearAllViolation",
+    "oid": "1.3.6.1.4.1.171.14.22.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dImpbClearViolationByIf": {
+    "name": "dImpbClearViolationByIf",
+    "oid": "1.3.6.1.4.1.171.14.22.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dImpbViolationTrap": {
+    "name": "dImpbViolationTrap",
+    "oid": "1.3.6.1.4.1.171.14.22.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbViolationIpAddrType"
+      },
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbViolationIpAddress"
+      },
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbViolationMacAddress"
+      },
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbViolationVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "dImpbMIBCompliances": {
+    "name": "dImpbMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.22.2.1",
+    "class": "objectidentity"
+  },
+  "dImpbMIBGroups": {
+    "name": "dImpbMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.22.2.2",
+    "class": "objectidentity"
+  },
+  "dImpbMIBCompliance": {
+    "name": "dImpbMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.22.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dImpbConfigGroup",
+        "module": "DLINKSW-IMPB-MIB"
+      },
+      {
+        "object": "dImpbNotificationsGroup",
+        "module": "DLINKSW-IMPB-MIB"
+      },
+      {
+        "object": "dImpbClearViolationLogGroup",
+        "module": "DLINKSW-IMPB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dImpbConfigGroup": {
+    "name": "dImpbConfigGroup",
+    "oid": "1.3.6.1.4.1.171.14.22.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbIfBindMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dImpbClearViolationLogGroup": {
+    "name": "dImpbClearViolationLogGroup",
+    "oid": "1.3.6.1.4.1.171.14.22.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbViolationAction"
+      },
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbClearAllViolation"
+      },
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbClearViolationByIf"
+      }
+    ],
+    "status": "current"
+  },
+  "dImpbNotificationsGroup": {
+    "name": "dImpbNotificationsGroup",
+    "oid": "1.3.6.1.4.1.171.14.22.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IMPB-MIB",
+        "object": "dImpbViolationTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IMPB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-IMPB-MIB"
+  }
+}

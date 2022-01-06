@@ -1,0 +1,2097 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ccpower": {
+    "name": "ccpower",
+    "oid": "1.3.6.1.4.1.18642",
+    "class": "objectidentity"
+  },
+  "dcSystem": {
+    "name": "dcSystem",
+    "oid": "1.3.6.1.4.1.18642.1",
+    "class": "objectidentity"
+  },
+  "readWriteObjects": {
+    "name": "readWriteObjects",
+    "oid": "1.3.6.1.4.1.18642.1.1",
+    "class": "objectidentity"
+  },
+  "settings": {
+    "name": "settings",
+    "oid": "1.3.6.1.4.1.18642.1.1.1",
+    "class": "objectidentity"
+  },
+  "floatVoltage": {
+    "name": "floatVoltage",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "overloadCurrent": {
+    "name": "overloadCurrent",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "highVoltageAlarm": {
+    "name": "highVoltageAlarm",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lowVoltageAlarm": {
+    "name": "lowVoltageAlarm",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1Voltage": {
+    "name": "disconnect1Voltage",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1Temperature": {
+    "name": "disconnect1Temperature",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedSundayOff": {
+    "name": "disconnect1LoadShedSundayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedMondayOff": {
+    "name": "disconnect1LoadShedMondayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedTuesdayOff": {
+    "name": "disconnect1LoadShedTuesdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedWednesdayOff": {
+    "name": "disconnect1LoadShedWednesdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedThursdayOff": {
+    "name": "disconnect1LoadShedThursdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedFridayOff": {
+    "name": "disconnect1LoadShedFridayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedSaturdayOff": {
+    "name": "disconnect1LoadShedSaturdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2Voltage": {
+    "name": "disconnect2Voltage",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2Temperature": {
+    "name": "disconnect2Temperature",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedSundayOff": {
+    "name": "disconnect2LoadShedSundayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedMondayOff": {
+    "name": "disconnect2LoadShedMondayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedTuesdayOff": {
+    "name": "disconnect2LoadShedTuesdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedWednesdayOff": {
+    "name": "disconnect2LoadShedWednesdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedThursdayOff": {
+    "name": "disconnect2LoadShedThursdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedFridayOff": {
+    "name": "disconnect2LoadShedFridayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedSaturdayOff": {
+    "name": "disconnect2LoadShedSaturdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3Voltage": {
+    "name": "disconnect3Voltage",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3Temperature": {
+    "name": "disconnect3Temperature",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedSundayOff": {
+    "name": "disconnect3LoadShedSundayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedMondayOff": {
+    "name": "disconnect3LoadShedMondayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedTuesdayOff": {
+    "name": "disconnect3LoadShedTuesdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedWednesdayOff": {
+    "name": "disconnect3LoadShedWednesdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedThursdayOff": {
+    "name": "disconnect3LoadShedThursdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedFridayOff": {
+    "name": "disconnect3LoadShedFridayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedSaturdayOff": {
+    "name": "disconnect3LoadShedSaturdayOff",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect1Voltage": {
+    "name": "reconnect1Voltage",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect1LoadShedSundayOn": {
+    "name": "reconnect1LoadShedSundayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect1LoadShedMondayOn": {
+    "name": "reconnect1LoadShedMondayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect1LoadShedTuesdayOn": {
+    "name": "reconnect1LoadShedTuesdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect1LoadShedWednesdayOn": {
+    "name": "reconnect1LoadShedWednesdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect1LoadShedThursdayOn": {
+    "name": "reconnect1LoadShedThursdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect1LoadShedFridayOn": {
+    "name": "reconnect1LoadShedFridayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect1LoadShedSaturdayOn": {
+    "name": "reconnect1LoadShedSaturdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect2Voltage": {
+    "name": "reconnect2Voltage",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect2LoadShedSundayOn": {
+    "name": "reconnect2LoadShedSundayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect2LoadShedMondayOn": {
+    "name": "reconnect2LoadShedMondayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect2LoadShedTuesdayOn": {
+    "name": "reconnect2LoadShedTuesdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect2LoadShedWednesdayOn": {
+    "name": "reconnect2LoadShedWednesdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect2LoadShedThursdayOn": {
+    "name": "reconnect2LoadShedThursdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect2LoadShedFridayOn": {
+    "name": "reconnect2LoadShedFridayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect2LoadShedSaturdayOn": {
+    "name": "reconnect2LoadShedSaturdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect3Voltage": {
+    "name": "reconnect3Voltage",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect3LoadShedSundayOn": {
+    "name": "reconnect3LoadShedSundayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect3LoadShedMondayOn": {
+    "name": "reconnect3LoadShedMondayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect3LoadShedTuesdayOn": {
+    "name": "reconnect3LoadShedTuesdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect3LoadShedWednesdayOn": {
+    "name": "reconnect3LoadShedWednesdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect3LoadShedThursdayOn": {
+    "name": "reconnect3LoadShedThursdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect3LoadShedFridayOn": {
+    "name": "reconnect3LoadShedFridayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reconnect3LoadShedSaturdayOn": {
+    "name": "reconnect3LoadShedSaturdayOn",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "equalizeTime": {
+    "name": "equalizeTime",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "equalizeVoltage": {
+    "name": "equalizeVoltage",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "batteryResistancePercentChange": {
+    "name": "batteryResistancePercentChange",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "batteryResistanceTestInterval": {
+    "name": "batteryResistanceTestInterval",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "loadShedTimeControl": {
+    "name": "loadShedTimeControl",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "batteryFloatCurrent": {
+    "name": "batteryFloatCurrent",
+    "oid": "1.3.6.1.4.1.18642.1.1.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "readOnlyObjects": {
+    "name": "readOnlyObjects",
+    "oid": "1.3.6.1.4.1.18642.1.2",
+    "class": "objectidentity"
+  },
+  "rectifiers": {
+    "name": "rectifiers",
+    "oid": "1.3.6.1.4.1.18642.1.2.1",
+    "class": "objectidentity"
+  },
+  "rectifierFloatVoltage": {
+    "name": "rectifierFloatVoltage",
+    "oid": "1.3.6.1.4.1.18642.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rectifierLoadCurrent": {
+    "name": "rectifierLoadCurrent",
+    "oid": "1.3.6.1.4.1.18642.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteries": {
+    "name": "batteries",
+    "oid": "1.3.6.1.4.1.18642.1.2.2",
+    "class": "objectidentity"
+  },
+  "batteryCurrent": {
+    "name": "batteryCurrent",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryTemperature": {
+    "name": "batteryTemperature",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryResistanceReference": {
+    "name": "batteryResistanceReference",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryResistanceReading": {
+    "name": "batteryResistanceReading",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryResistanceChange": {
+    "name": "batteryResistanceChange",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryCycles1": {
+    "name": "batteryCycles1",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryCycles1to5": {
+    "name": "batteryCycles1to5",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryCycles5to15": {
+    "name": "batteryCycles5to15",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryCycles15": {
+    "name": "batteryCycles15",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryCycles15LastCycleDate": {
+    "name": "batteryCycles15LastCycleDate",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryCycles15LastDuration": {
+    "name": "batteryCycles15LastDuration",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryTestFault": {
+    "name": "batteryTestFault",
+    "oid": "1.3.6.1.4.1.18642.1.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abort1": 1,
+          "abort2": 2,
+          "abort3": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "factorySettings": {
+    "name": "factorySettings",
+    "oid": "1.3.6.1.4.1.18642.1.2.3",
+    "class": "objectidentity"
+  },
+  "floatVoltagePresets": {
+    "name": "floatVoltagePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "highVoltageAlarmPresets": {
+    "name": "highVoltageAlarmPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowVoltageAlarmPresets": {
+    "name": "lowVoltageAlarmPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1VoltagePresets": {
+    "name": "disconnect1VoltagePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1TemperaturePreset": {
+    "name": "disconnect1TemperaturePreset",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedSundayPresets": {
+    "name": "disconnect1LoadShedSundayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedMondayPresets": {
+    "name": "disconnect1LoadShedMondayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedTuesdayPresets": {
+    "name": "disconnect1LoadShedTuesdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedWednesdayPresets": {
+    "name": "disconnect1LoadShedWednesdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedThursdayPresets": {
+    "name": "disconnect1LoadShedThursdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedFridayPresets": {
+    "name": "disconnect1LoadShedFridayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect1LoadShedSaturdayPresets": {
+    "name": "disconnect1LoadShedSaturdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "reconnectVoltage1Presets": {
+    "name": "reconnectVoltage1Presets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2VoltagePresets": {
+    "name": "disconnect2VoltagePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2TemperaturePreset": {
+    "name": "disconnect2TemperaturePreset",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedSundayPresets": {
+    "name": "disconnect2LoadShedSundayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedMondayPresets": {
+    "name": "disconnect2LoadShedMondayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedTuesdayPresets": {
+    "name": "disconnect2LoadShedTuesdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedWednesdayPresets": {
+    "name": "disconnect2LoadShedWednesdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedThursdayPresets": {
+    "name": "disconnect2LoadShedThursdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedFridayPresets": {
+    "name": "disconnect2LoadShedFridayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect2LoadShedSaturdayPresets": {
+    "name": "disconnect2LoadShedSaturdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "reconnect2VoltagePresets": {
+    "name": "reconnect2VoltagePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3VoltagePresets": {
+    "name": "disconnect3VoltagePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3TemperaturePreset": {
+    "name": "disconnect3TemperaturePreset",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedSundayPresets": {
+    "name": "disconnect3LoadShedSundayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedMondayPresets": {
+    "name": "disconnect3LoadShedMondayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedTuesdayPresets": {
+    "name": "disconnect3LoadShedTuesdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedWednesdayPresets": {
+    "name": "disconnect3LoadShedWednesdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedThursdayPresets": {
+    "name": "disconnect3LoadShedThursdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedFridayPresets": {
+    "name": "disconnect3LoadShedFridayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "disconnect3LoadShedSaturdayPresets": {
+    "name": "disconnect3LoadShedSaturdayPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "reconnect3VoltagePresets": {
+    "name": "reconnect3VoltagePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "overloadCurrentPresets": {
+    "name": "overloadCurrentPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "maximumCurrentPreset": {
+    "name": "maximumCurrentPreset",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryFloatCurrentPresets": {
+    "name": "batteryFloatCurrentPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "equalizeTimePresets": {
+    "name": "equalizeTimePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "equalizeVoltagePresets": {
+    "name": "equalizeVoltagePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryResistancePresets": {
+    "name": "batteryResistancePresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryTestIntervalPresets": {
+    "name": "batteryTestIntervalPresets",
+    "oid": "1.3.6.1.4.1.18642.1.2.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmStatus": {
+    "name": "alarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4",
+    "class": "objectidentity"
+  },
+  "highVoltageAlarmStatus": {
+    "name": "highVoltageAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowVoltageAlarmStatus": {
+    "name": "lowVoltageAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "overloadAlarmStatus": {
+    "name": "overloadAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "breakerAlarmStatus": {
+    "name": "breakerAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "acFailureAlarmStatus": {
+    "name": "acFailureAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fanFailureAlarmStatus": {
+    "name": "fanFailureAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rectifierFailureAlarmStatus": {
+    "name": "rectifierFailureAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "majorAlarmStatus": {
+    "name": "majorAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowVoltageDisconnect1TemperatureAlarmStatus": {
+    "name": "lowVoltageDisconnect1TemperatureAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowVoltageDisconnect2TemperatureAlarmStatus": {
+    "name": "lowVoltageDisconnect2TemperatureAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowVoltageDisconnect3TemperatureAlarmStatus": {
+    "name": "lowVoltageDisconnect3TemperatureAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowVoltageDisconnect1VoltageAlarmStatus": {
+    "name": "lowVoltageDisconnect1VoltageAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowVoltageDisconnect2VoltageAlarmStatus": {
+    "name": "lowVoltageDisconnect2VoltageAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lowVoltageDisconnect3VoltageAlarmStatus": {
+    "name": "lowVoltageDisconnect3VoltageAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryResistanceAlarmStatus": {
+    "name": "batteryResistanceAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryCurrentAlarmStatus": {
+    "name": "batteryCurrentAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryTestAbortCondition1AlarmStatus": {
+    "name": "batteryTestAbortCondition1AlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryTestAbortCondition2AlarmStatus": {
+    "name": "batteryTestAbortCondition2AlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryTestAbortCondition3AlarmStatus": {
+    "name": "batteryTestAbortCondition3AlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "batteryDisconnectAlarmStatus": {
+    "name": "batteryDisconnectAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fuseAlarmStatus": {
+    "name": "fuseAlarmStatus",
+    "oid": "1.3.6.1.4.1.18642.1.2.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digitalSensorAlarms": {
+    "name": "digitalSensorAlarms",
+    "oid": "1.3.6.1.4.1.18642.1.2.5",
+    "class": "objectidentity"
+  },
+  "breakerTrap": {
+    "name": "breakerTrap",
+    "oid": "1.3.6.1.4.1.186420.0",
+    "class": "notificationtype"
+  },
+  "fuseTrap": {
+    "name": "fuseTrap",
+    "oid": "1.3.6.1.4.1.186420.1",
+    "class": "notificationtype"
+  },
+  "batteryDisconnectTrap": {
+    "name": "batteryDisconnectTrap",
+    "oid": "1.3.6.1.4.1.186420.2",
+    "class": "notificationtype"
+  },
+  "programmableTrap": {
+    "name": "programmableTrap",
+    "oid": "1.3.6.1.4.1.186420.3",
+    "class": "notificationtype"
+  },
+  "systemAlarms": {
+    "name": "systemAlarms",
+    "oid": "1.3.6.1.4.1.18642.1.2.6",
+    "class": "objectidentity"
+  },
+  "highVoltageTrap": {
+    "name": "highVoltageTrap",
+    "oid": "1.3.6.1.4.1.186420.4",
+    "class": "notificationtype"
+  },
+  "lowVoltageTrap": {
+    "name": "lowVoltageTrap",
+    "oid": "1.3.6.1.4.1.186420.5",
+    "class": "notificationtype"
+  },
+  "loadOverCurrentTrap": {
+    "name": "loadOverCurrentTrap",
+    "oid": "1.3.6.1.4.1.186420.6",
+    "class": "notificationtype"
+  },
+  "batteryFloatCurrentTrap": {
+    "name": "batteryFloatCurrentTrap",
+    "oid": "1.3.6.1.4.1.186420.7",
+    "class": "notificationtype"
+  },
+  "loadDisconnect1VoltageTrap": {
+    "name": "loadDisconnect1VoltageTrap",
+    "oid": "1.3.6.1.4.1.186420.8",
+    "class": "notificationtype"
+  },
+  "loadDisconnect2VoltageTrap": {
+    "name": "loadDisconnect2VoltageTrap",
+    "oid": "1.3.6.1.4.1.186420.9",
+    "class": "notificationtype"
+  },
+  "loadDisconnect3VoltageTrap": {
+    "name": "loadDisconnect3VoltageTrap",
+    "oid": "1.3.6.1.4.1.186420.10",
+    "class": "notificationtype"
+  },
+  "loadDisconnect1TemperatureTrap": {
+    "name": "loadDisconnect1TemperatureTrap",
+    "oid": "1.3.6.1.4.1.186420.11",
+    "class": "notificationtype"
+  },
+  "loadDisconnect2TemperatureTrap": {
+    "name": "loadDisconnect2TemperatureTrap",
+    "oid": "1.3.6.1.4.1.186420.12",
+    "class": "notificationtype"
+  },
+  "loadDisconnect3TemperatureTrap": {
+    "name": "loadDisconnect3TemperatureTrap",
+    "oid": "1.3.6.1.4.1.186420.13",
+    "class": "notificationtype"
+  },
+  "rectifierFailureTrap": {
+    "name": "rectifierFailureTrap",
+    "oid": "1.3.6.1.4.1.186420.14",
+    "class": "notificationtype"
+  },
+  "fanFailureTrap": {
+    "name": "fanFailureTrap",
+    "oid": "1.3.6.1.4.1.186420.15",
+    "class": "notificationtype"
+  },
+  "acFailureTrap": {
+    "name": "acFailureTrap",
+    "oid": "1.3.6.1.4.1.186420.16",
+    "class": "notificationtype"
+  },
+  "majorFailureTrap": {
+    "name": "majorFailureTrap",
+    "oid": "1.3.6.1.4.1.186420.17",
+    "class": "notificationtype"
+  },
+  "batteryResistanceTrap": {
+    "name": "batteryResistanceTrap",
+    "oid": "1.3.6.1.4.1.186420.18",
+    "class": "notificationtype"
+  },
+  "batteryTestAbort1Trap": {
+    "name": "batteryTestAbort1Trap",
+    "oid": "1.3.6.1.4.1.186420.19",
+    "class": "notificationtype"
+  },
+  "batteryTestAbort2Trap": {
+    "name": "batteryTestAbort2Trap",
+    "oid": "1.3.6.1.4.1.186420.20",
+    "class": "notificationtype"
+  },
+  "batteryTestAbort3Trap": {
+    "name": "batteryTestAbort3Trap",
+    "oid": "1.3.6.1.4.1.186420.21",
+    "class": "notificationtype"
+  },
+  "digitalSensorAlarmClears": {
+    "name": "digitalSensorAlarmClears",
+    "oid": "1.3.6.1.4.1.18642.1.2.7",
+    "class": "objectidentity"
+  },
+  "breakerTrapClear": {
+    "name": "breakerTrapClear",
+    "oid": "1.3.6.1.4.1.186420.100",
+    "class": "notificationtype"
+  },
+  "fuseTrapClear": {
+    "name": "fuseTrapClear",
+    "oid": "1.3.6.1.4.1.186420.101",
+    "class": "notificationtype"
+  },
+  "batteryDisconnectTrapClear": {
+    "name": "batteryDisconnectTrapClear",
+    "oid": "1.3.6.1.4.1.186420.102",
+    "class": "notificationtype"
+  },
+  "programmableTrapClear": {
+    "name": "programmableTrapClear",
+    "oid": "1.3.6.1.4.1.186420.103",
+    "class": "notificationtype"
+  },
+  "systemAlarmClears": {
+    "name": "systemAlarmClears",
+    "oid": "1.3.6.1.4.1.18642.1.2.8",
+    "class": "objectidentity"
+  },
+  "highVoltageTrapClear": {
+    "name": "highVoltageTrapClear",
+    "oid": "1.3.6.1.4.1.186420.104",
+    "class": "notificationtype"
+  },
+  "lowVoltageTrapClear": {
+    "name": "lowVoltageTrapClear",
+    "oid": "1.3.6.1.4.1.186420.105",
+    "class": "notificationtype"
+  },
+  "loadOverCurrentTrapClear": {
+    "name": "loadOverCurrentTrapClear",
+    "oid": "1.3.6.1.4.1.186420.106",
+    "class": "notificationtype"
+  },
+  "batteryFloatCurrentTrapClear": {
+    "name": "batteryFloatCurrentTrapClear",
+    "oid": "1.3.6.1.4.1.186420.107",
+    "class": "notificationtype"
+  },
+  "loadDisconnect1VoltageTrapClear": {
+    "name": "loadDisconnect1VoltageTrapClear",
+    "oid": "1.3.6.1.4.1.186420.108",
+    "class": "notificationtype"
+  },
+  "loadDisconnect2VoltageTrapClear": {
+    "name": "loadDisconnect2VoltageTrapClear",
+    "oid": "1.3.6.1.4.1.186420.109",
+    "class": "notificationtype"
+  },
+  "loadDisconnect3VoltageTrapClear": {
+    "name": "loadDisconnect3VoltageTrapClear",
+    "oid": "1.3.6.1.4.1.186420.110",
+    "class": "notificationtype"
+  },
+  "loadDisconnect1TemperatureTrapClear": {
+    "name": "loadDisconnect1TemperatureTrapClear",
+    "oid": "1.3.6.1.4.1.186420.111",
+    "class": "notificationtype"
+  },
+  "loadDisconnect2TemperatureTrapClear": {
+    "name": "loadDisconnect2TemperatureTrapClear",
+    "oid": "1.3.6.1.4.1.186420.112",
+    "class": "notificationtype"
+  },
+  "loadDisconnect3TemperatureTrapClear": {
+    "name": "loadDisconnect3TemperatureTrapClear",
+    "oid": "1.3.6.1.4.1.186420.113",
+    "class": "notificationtype"
+  },
+  "rectifierFailureTrapClear": {
+    "name": "rectifierFailureTrapClear",
+    "oid": "1.3.6.1.4.1.186420.114",
+    "class": "notificationtype"
+  },
+  "fanFailureTrapClear": {
+    "name": "fanFailureTrapClear",
+    "oid": "1.3.6.1.4.1.186420.115",
+    "class": "notificationtype"
+  },
+  "acFailureTrapClear": {
+    "name": "acFailureTrapClear",
+    "oid": "1.3.6.1.4.1.186420.116",
+    "class": "notificationtype"
+  },
+  "majorFailureTrapClear": {
+    "name": "majorFailureTrapClear",
+    "oid": "1.3.6.1.4.1.186420.117",
+    "class": "notificationtype"
+  },
+  "batteryResistanceTrapClear": {
+    "name": "batteryResistanceTrapClear",
+    "oid": "1.3.6.1.4.1.186420.118",
+    "class": "notificationtype"
+  },
+  "batteryTestAbort1TrapClear": {
+    "name": "batteryTestAbort1TrapClear",
+    "oid": "1.3.6.1.4.1.186420.119",
+    "class": "notificationtype"
+  },
+  "batteryTestAbort2TrapClear": {
+    "name": "batteryTestAbort2TrapClear",
+    "oid": "1.3.6.1.4.1.186420.120",
+    "class": "notificationtype"
+  },
+  "batteryTestAbort3TrapClear": {
+    "name": "batteryTestAbort3TrapClear",
+    "oid": "1.3.6.1.4.1.186420.121",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ccpower/CCPOWER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CCPOWER-MIB"
+  }
+}

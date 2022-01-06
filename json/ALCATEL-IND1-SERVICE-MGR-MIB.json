@@ -1,0 +1,6439 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1serviceMgr"
+    ],
+    "ALCATEL-IND1-E-SERVICE-MIB": [
+      "AlaEServiceUNIProfileProtocolTreatment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "MPLS-LDP-MIB": [
+      "MplsLdpIdentifier"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TIMETRA-SAP-MIB": [
+      "sapPortId",
+      "sapEncapValue"
+    ],
+    "TIMETRA-SDP-MIB": [
+      "sdpBindId"
+    ],
+    "TIMETRA-SERV-MIB": [
+      "SdpId",
+      "svcId"
+    ],
+    "TIMETRA-TC-MIB": [
+      "SdpBindId",
+      "TmnxEncapVal",
+      "TmnxPortID",
+      "TmnxVcIdOrNone",
+      "TmnxServId"
+    ],
+    "TIMETRA-VRTR-MIB": [
+      "vRtrID"
+    ]
+  },
+  "alcatelIND1ServiceMgrMIB": {
+    "name": "alcatelIND1ServiceMgrMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1",
+    "class": "moduleidentity"
+  },
+  "AluLocation": {
+    "name": "AluLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sap": 1,
+          "sdp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alcatelIND1ServiceMgrMIBObjects": {
+    "name": "alcatelIND1ServiceMgrMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1ServiceMgrMIBConformance": {
+    "name": "alcatelIND1ServiceMgrMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1ServiceMgrMIBGroups": {
+    "name": "alcatelIND1ServiceMgrMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1ServiceMgrMIBCompliances": {
+    "name": "alcatelIND1ServiceMgrMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaServiceMgr": {
+    "name": "alaServiceMgr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaServiceMgrPortProfileTable": {
+    "name": "alaServiceMgrPortProfileTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfileEntry": {
+    "name": "alaServiceMgrPortProfileEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfileID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaServiceMgrPortProfileID": {
+    "name": "alaServiceMgrPortProfileID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfileStpBpduTreatment": {
+    "name": "alaServiceMgrPortProfileStpBpduTreatment",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaEServiceUNIProfileProtocolTreatment",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tunnel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfile8021xTreatment": {
+    "name": "alaServiceMgrPortProfile8021xTreatment",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaEServiceUNIProfileProtocolTreatment",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfile8021ABTreatment": {
+    "name": "alaServiceMgrPortProfile8021ABTreatment",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaEServiceUNIProfileProtocolTreatment",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfile8023adTreatment": {
+    "name": "alaServiceMgrPortProfile8023adTreatment",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaEServiceUNIProfileProtocolTreatment",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "peer",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfileGvrpTreatment": {
+    "name": "alaServiceMgrPortProfileGvrpTreatment",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaEServiceUNIProfileProtocolTreatment",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tunnel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfileAmapTreatment": {
+    "name": "alaServiceMgrPortProfileAmapTreatment",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaEServiceUNIProfileProtocolTreatment",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfileRowStatus": {
+    "name": "alaServiceMgrPortProfileRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaServiceMgrPortProfileMvrpTreatment": {
+    "name": "alaServiceMgrPortProfileMvrpTreatment",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaEServiceUNIProfileProtocolTreatment",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tunnel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaServiceMgrPortTable": {
+    "name": "alaServiceMgrPortTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaServiceMgrPortEntry": {
+    "name": "alaServiceMgrPortEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaServiceMgrPortID": {
+    "name": "alaServiceMgrPortID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaServiceMgrPortMode": {
+    "name": "alaServiceMgrPortMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "access": 1,
+          "network": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortEncapType": {
+    "name": "alaServiceMgrPortEncapType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "nullEncap": 1,
+          "qEncap": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortPortProfileID": {
+    "name": "alaServiceMgrPortPortProfileID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrPortRowStatus": {
+    "name": "alaServiceMgrPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaSapExtraInfoTable": {
+    "name": "alaSapExtraInfoTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaSapExtraInfoEntry": {
+    "name": "alaSapExtraInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaSapInfoTrusted": {
+    "name": "alaSapInfoTrusted",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaSapInfoPriority": {
+    "name": "alaSapInfoPriority",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaServiceMgrIgmp": {
+    "name": "alaServiceMgrIgmp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaIgmpServiceTable": {
+    "name": "alaIgmpServiceTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceEntry": {
+    "name": "alaIgmpServiceEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceStatus": {
+    "name": "alaIgmpServiceStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceQuerying": {
+    "name": "alaIgmpServiceQuerying",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceSpoofing": {
+    "name": "alaIgmpServiceSpoofing",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceZapping": {
+    "name": "alaIgmpServiceZapping",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceVersion": {
+    "name": "alaIgmpServiceVersion",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceRobustness": {
+    "name": "alaIgmpServiceRobustness",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceQueryInterval": {
+    "name": "alaIgmpServiceQueryInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceQueryResponseInterval": {
+    "name": "alaIgmpServiceQueryResponseInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceLastMemberQueryInterval": {
+    "name": "alaIgmpServiceLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceRouterTimeout": {
+    "name": "alaIgmpServiceRouterTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceTimeout": {
+    "name": "alaIgmpServiceSourceTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceProxying": {
+    "name": "alaIgmpServiceProxying",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceUnsolicitedReportInterval": {
+    "name": "alaIgmpServiceUnsolicitedReportInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceQuerierForwarding": {
+    "name": "alaIgmpServiceQuerierForwarding",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceMaxGroupLimit": {
+    "name": "alaIgmpServiceMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceMaxGroupExceedAction": {
+    "name": "alaIgmpServiceMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapTable": {
+    "name": "alaIgmpMemberServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapEntry": {
+    "name": "alaIgmpMemberServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSapGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSapGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSapSourceAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSapSourceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapGroupAddressType": {
+    "name": "alaIgmpMemberServiceSapGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapGroupAddress": {
+    "name": "alaIgmpMemberServiceSapGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapSourceAddressType": {
+    "name": "alaIgmpMemberServiceSapSourceAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapSourceAddress": {
+    "name": "alaIgmpMemberServiceSapSourceAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapMode": {
+    "name": "alaIgmpMemberServiceSapMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapCount": {
+    "name": "alaIgmpMemberServiceSapCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapTimeout": {
+    "name": "alaIgmpMemberServiceSapTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindTable": {
+    "name": "alaIgmpMemberServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindEntry": {
+    "name": "alaIgmpMemberServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSdpBindGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSdpBindGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSdpBindSourceAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSdpBindSourceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindGroupAddressType": {
+    "name": "alaIgmpMemberServiceSdpBindGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindGroupAddress": {
+    "name": "alaIgmpMemberServiceSdpBindGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindSourceAddressType": {
+    "name": "alaIgmpMemberServiceSdpBindSourceAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindSourceAddress": {
+    "name": "alaIgmpMemberServiceSdpBindSourceAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindMode": {
+    "name": "alaIgmpMemberServiceSdpBindMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindCount": {
+    "name": "alaIgmpMemberServiceSdpBindCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindTimeout": {
+    "name": "alaIgmpMemberServiceSdpBindTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSapTable": {
+    "name": "alaIgmpStaticMemberServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSapEntry": {
+    "name": "alaIgmpStaticMemberServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticMemberServiceSapGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticMemberServiceSapGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSapGroupAddressType": {
+    "name": "alaIgmpStaticMemberServiceSapGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSapGroupAddress": {
+    "name": "alaIgmpStaticMemberServiceSapGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSapRowStatus": {
+    "name": "alaIgmpStaticMemberServiceSapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSdpBindTable": {
+    "name": "alaIgmpStaticMemberServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSdpBindEntry": {
+    "name": "alaIgmpStaticMemberServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticMemberServiceSdpBindGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticMemberServiceSdpBindGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSdpBindGroupAddressType": {
+    "name": "alaIgmpStaticMemberServiceSdpBindGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSdpBindGroupAddress": {
+    "name": "alaIgmpStaticMemberServiceSdpBindGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSdpBindRowStatus": {
+    "name": "alaIgmpStaticMemberServiceSdpBindRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSapTable": {
+    "name": "alaIgmpNeighborServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSapEntry": {
+    "name": "alaIgmpNeighborServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpNeighborServiceSapHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpNeighborServiceSapHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSapHostAddressType": {
+    "name": "alaIgmpNeighborServiceSapHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSapHostAddress": {
+    "name": "alaIgmpNeighborServiceSapHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSapCount": {
+    "name": "alaIgmpNeighborServiceSapCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSapTimeout": {
+    "name": "alaIgmpNeighborServiceSapTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSdpBindTable": {
+    "name": "alaIgmpNeighborServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSdpBindEntry": {
+    "name": "alaIgmpNeighborServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpNeighborServiceSdpBindHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpNeighborServiceSdpBindHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSdpBindHostAddressType": {
+    "name": "alaIgmpNeighborServiceSdpBindHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSdpBindHostAddress": {
+    "name": "alaIgmpNeighborServiceSdpBindHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSdpBindCount": {
+    "name": "alaIgmpNeighborServiceSdpBindCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSdpBindTimeout": {
+    "name": "alaIgmpNeighborServiceSdpBindTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborServiceSapTable": {
+    "name": "alaIgmpStaticNeighborServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborServiceSapEntry": {
+    "name": "alaIgmpStaticNeighborServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborServiceSapRowStatus": {
+    "name": "alaIgmpStaticNeighborServiceSapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborServiceSdpBindTable": {
+    "name": "alaIgmpStaticNeighborServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborServiceSdpBindEntry": {
+    "name": "alaIgmpStaticNeighborServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborServiceSdpBindRowStatus": {
+    "name": "alaIgmpStaticNeighborServiceSdpBindRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSapTable": {
+    "name": "alaIgmpQuerierServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSapEntry": {
+    "name": "alaIgmpQuerierServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpQuerierServiceSapHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpQuerierServiceSapHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSapHostAddressType": {
+    "name": "alaIgmpQuerierServiceSapHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSapHostAddress": {
+    "name": "alaIgmpQuerierServiceSapHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSapCount": {
+    "name": "alaIgmpQuerierServiceSapCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSapTimeout": {
+    "name": "alaIgmpQuerierServiceSapTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSdpBindTable": {
+    "name": "alaIgmpQuerierServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSdpBindEntry": {
+    "name": "alaIgmpQuerierServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpQuerierServiceSdpBindHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpQuerierServiceSdpBindHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSdpBindHostAddressType": {
+    "name": "alaIgmpQuerierServiceSdpBindHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSdpBindHostAddress": {
+    "name": "alaIgmpQuerierServiceSdpBindHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSdpBindCount": {
+    "name": "alaIgmpQuerierServiceSdpBindCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSdpBindTimeout": {
+    "name": "alaIgmpQuerierServiceSdpBindTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierServiceSapTable": {
+    "name": "alaIgmpStaticQuerierServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierServiceSapEntry": {
+    "name": "alaIgmpStaticQuerierServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierServiceSapRowStatus": {
+    "name": "alaIgmpStaticQuerierServiceSapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierServiceSdpBindTable": {
+    "name": "alaIgmpStaticQuerierServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierServiceSdpBindEntry": {
+    "name": "alaIgmpStaticQuerierServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierServiceSdpBindRowStatus": {
+    "name": "alaIgmpStaticQuerierServiceSdpBindRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceTable": {
+    "name": "alaIgmpServiceSourceTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceEntry": {
+    "name": "alaIgmpServiceSourceEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceDestAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceOrigAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceOrigAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSourceGroupAddressType": {
+    "name": "alaIgmpServiceSourceGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceGroupAddress": {
+    "name": "alaIgmpServiceSourceGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceHostAddressType": {
+    "name": "alaIgmpServiceSourceHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceHostAddress": {
+    "name": "alaIgmpServiceSourceHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceDestAddressType": {
+    "name": "alaIgmpServiceSourceDestAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceDestAddress": {
+    "name": "alaIgmpServiceSourceDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceOrigAddressType": {
+    "name": "alaIgmpServiceSourceOrigAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceOrigAddress": {
+    "name": "alaIgmpServiceSourceOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceLocale": {
+    "name": "alaIgmpServiceSourceLocale",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSourcePortId": {
+    "name": "alaIgmpServiceSourcePortId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceEncapValue": {
+    "name": "alaIgmpServiceSourceEncapValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceSdpId": {
+    "name": "alaIgmpServiceSourceSdpId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceVcId": {
+    "name": "alaIgmpServiceSourceVcId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxVcIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSourceType": {
+    "name": "alaIgmpServiceSourceType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardTable": {
+    "name": "alaIgmpServiceSapForwardTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardEntry": {
+    "name": "alaIgmpServiceSapForwardEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardOrigAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardNextSapPortId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardNextSapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardLocale": {
+    "name": "alaIgmpServiceSapForwardLocale",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardPortId": {
+    "name": "alaIgmpServiceSapForwardPortId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardEncapValue": {
+    "name": "alaIgmpServiceSapForwardEncapValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardSdpId": {
+    "name": "alaIgmpServiceSapForwardSdpId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardVcId": {
+    "name": "alaIgmpServiceSapForwardVcId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxVcIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardGroupAddress": {
+    "name": "alaIgmpServiceSapForwardGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardHostAddress": {
+    "name": "alaIgmpServiceSapForwardHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardDestAddress": {
+    "name": "alaIgmpServiceSapForwardDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardOrigAddress": {
+    "name": "alaIgmpServiceSapForwardOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardType": {
+    "name": "alaIgmpServiceSapForwardType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardNextSapPortId": {
+    "name": "alaIgmpServiceSapForwardNextSapPortId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardNextSapEncapValue": {
+    "name": "alaIgmpServiceSapForwardNextSapEncapValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardNextType": {
+    "name": "alaIgmpServiceSapForwardNextType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardTable": {
+    "name": "alaIgmpServiceSdpBindForwardTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardEntry": {
+    "name": "alaIgmpServiceSdpBindForwardEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardOrigAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardNextSdpBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardLocale": {
+    "name": "alaIgmpServiceSdpBindForwardLocale",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardPortId": {
+    "name": "alaIgmpServiceSdpBindForwardPortId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardEncapValue": {
+    "name": "alaIgmpServiceSdpBindForwardEncapValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardSdpId": {
+    "name": "alaIgmpServiceSdpBindForwardSdpId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardVcId": {
+    "name": "alaIgmpServiceSdpBindForwardVcId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxVcIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardGroupAddress": {
+    "name": "alaIgmpServiceSdpBindForwardGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardHostAddress": {
+    "name": "alaIgmpServiceSdpBindForwardHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardDestAddress": {
+    "name": "alaIgmpServiceSdpBindForwardDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardOrigAddress": {
+    "name": "alaIgmpServiceSdpBindForwardOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardType": {
+    "name": "alaIgmpServiceSdpBindForwardType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardNextSdpBindId": {
+    "name": "alaIgmpServiceSdpBindForwardNextSdpBindId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpBindId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardNextType": {
+    "name": "alaIgmpServiceSdpBindForwardNextType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSapTable": {
+    "name": "alaIgmpServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSapEntry": {
+    "name": "alaIgmpServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSapMaxGroupLimit": {
+    "name": "alaIgmpServiceSapMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceSapMaxGroupExceedAction": {
+    "name": "alaIgmpServiceSapMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceSapCurrentGroupCount": {
+    "name": "alaIgmpServiceSapCurrentGroupCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindTable": {
+    "name": "alaIgmpServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindEntry": {
+    "name": "alaIgmpServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindMaxGroupLimit": {
+    "name": "alaIgmpServiceSdpBindMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindMaxGroupExceedAction": {
+    "name": "alaIgmpServiceSdpBindMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindCurrentGroupCount": {
+    "name": "alaIgmpServiceSdpBindCurrentGroupCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.2.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaServiceMgrMld": {
+    "name": "alaServiceMgrMld",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3",
+    "class": "objectidentity"
+  },
+  "alaMldServiceTable": {
+    "name": "alaMldServiceTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceEntry": {
+    "name": "alaMldServiceEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceStatus": {
+    "name": "alaMldServiceStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceQuerying": {
+    "name": "alaMldServiceQuerying",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceSpoofing": {
+    "name": "alaMldServiceSpoofing",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceZapping": {
+    "name": "alaMldServiceZapping",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceVersion": {
+    "name": "alaMldServiceVersion",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceRobustness": {
+    "name": "alaMldServiceRobustness",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceQueryInterval": {
+    "name": "alaMldServiceQueryInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceQueryResponseInterval": {
+    "name": "alaMldServiceQueryResponseInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceLastMemberQueryInterval": {
+    "name": "alaMldServiceLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceRouterTimeout": {
+    "name": "alaMldServiceRouterTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceSourceTimeout": {
+    "name": "alaMldServiceSourceTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceProxying": {
+    "name": "alaMldServiceProxying",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceUnsolicitedReportInterval": {
+    "name": "alaMldServiceUnsolicitedReportInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceQuerierForwarding": {
+    "name": "alaMldServiceQuerierForwarding",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceMaxGroupLimit": {
+    "name": "alaMldServiceMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceMaxGroupExceedAction": {
+    "name": "alaMldServiceMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldMemberServiceSapTable": {
+    "name": "alaMldMemberServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSapEntry": {
+    "name": "alaMldMemberServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSapGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSapGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSapSourceAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSapSourceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldMemberServiceSapGroupAddressType": {
+    "name": "alaMldMemberServiceSapGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSapGroupAddress": {
+    "name": "alaMldMemberServiceSapGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSapSourceAddressType": {
+    "name": "alaMldMemberServiceSapSourceAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSapSourceAddress": {
+    "name": "alaMldMemberServiceSapSourceAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSapMode": {
+    "name": "alaMldMemberServiceSapMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldMemberServiceSapCount": {
+    "name": "alaMldMemberServiceSapCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldMemberServiceSapTimeout": {
+    "name": "alaMldMemberServiceSapTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindTable": {
+    "name": "alaMldMemberServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindEntry": {
+    "name": "alaMldMemberServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSdpBindGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSdpBindGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSdpBindSourceAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSdpBindSourceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindGroupAddressType": {
+    "name": "alaMldMemberServiceSdpBindGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindGroupAddress": {
+    "name": "alaMldMemberServiceSdpBindGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindSourceAddressType": {
+    "name": "alaMldMemberServiceSdpBindSourceAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindSourceAddress": {
+    "name": "alaMldMemberServiceSdpBindSourceAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindMode": {
+    "name": "alaMldMemberServiceSdpBindMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindCount": {
+    "name": "alaMldMemberServiceSdpBindCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindTimeout": {
+    "name": "alaMldMemberServiceSdpBindTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSapTable": {
+    "name": "alaMldStaticMemberServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSapEntry": {
+    "name": "alaMldStaticMemberServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticMemberServiceSapGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticMemberServiceSapGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSapGroupAddressType": {
+    "name": "alaMldStaticMemberServiceSapGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSapGroupAddress": {
+    "name": "alaMldStaticMemberServiceSapGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSapRowStatus": {
+    "name": "alaMldStaticMemberServiceSapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSdpBindTable": {
+    "name": "alaMldStaticMemberServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSdpBindEntry": {
+    "name": "alaMldStaticMemberServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticMemberServiceSapGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticMemberServiceSapGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSdpBindGroupAddressType": {
+    "name": "alaMldStaticMemberServiceSdpBindGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSdpBindGroupAddress": {
+    "name": "alaMldStaticMemberServiceSdpBindGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSdpBindRowStatus": {
+    "name": "alaMldStaticMemberServiceSdpBindRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSapTable": {
+    "name": "alaMldNeighborServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSapEntry": {
+    "name": "alaMldNeighborServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldNeighborServiceSapHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldNeighborServiceSapHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldNeighborServiceSapHostAddressType": {
+    "name": "alaMldNeighborServiceSapHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSapHostAddress": {
+    "name": "alaMldNeighborServiceSapHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSapCount": {
+    "name": "alaMldNeighborServiceSapCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSapTimeout": {
+    "name": "alaMldNeighborServiceSapTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSdpBindTable": {
+    "name": "alaMldNeighborServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSdpBindEntry": {
+    "name": "alaMldNeighborServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldNeighborServiceSdpBindHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldNeighborServiceSdpBindHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldNeighborServiceSdpBindHostAddressType": {
+    "name": "alaMldNeighborServiceSdpBindHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSdpBindHostAddress": {
+    "name": "alaMldNeighborServiceSdpBindHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSdpBindCount": {
+    "name": "alaMldNeighborServiceSdpBindCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldNeighborServiceSdpBindTimeout": {
+    "name": "alaMldNeighborServiceSdpBindTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldStaticNeighborServiceSapTable": {
+    "name": "alaMldStaticNeighborServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticNeighborServiceSapEntry": {
+    "name": "alaMldStaticNeighborServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticNeighborServiceSapRowStatus": {
+    "name": "alaMldStaticNeighborServiceSapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaMldStaticNeighborServiceSdpBindTable": {
+    "name": "alaMldStaticNeighborServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticNeighborServiceSdpBindEntry": {
+    "name": "alaMldStaticNeighborServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticNeighborServiceSdpBindRowStatus": {
+    "name": "alaMldStaticNeighborServiceSdpBindRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSapTable": {
+    "name": "alaMldQuerierServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSapEntry": {
+    "name": "alaMldQuerierServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldQuerierServiceSapHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldQuerierServiceSapHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldQuerierServiceSapHostAddressType": {
+    "name": "alaMldQuerierServiceSapHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSapHostAddress": {
+    "name": "alaMldQuerierServiceSapHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSapCount": {
+    "name": "alaMldQuerierServiceSapCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSapTimeout": {
+    "name": "alaMldQuerierServiceSapTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSdpBindTable": {
+    "name": "alaMldQuerierServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSdpBindEntry": {
+    "name": "alaMldQuerierServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldQuerierServiceSdpBindHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldQuerierServiceSdpBindHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldQuerierServiceSdpBindHostAddressType": {
+    "name": "alaMldQuerierServiceSdpBindHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSdpBindHostAddress": {
+    "name": "alaMldQuerierServiceSdpBindHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSdpBindCount": {
+    "name": "alaMldQuerierServiceSdpBindCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldQuerierServiceSdpBindTimeout": {
+    "name": "alaMldQuerierServiceSdpBindTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldStaticQuerierServiceSapTable": {
+    "name": "alaMldStaticQuerierServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticQuerierServiceSapEntry": {
+    "name": "alaMldStaticQuerierServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticQuerierServiceSapRowStatus": {
+    "name": "alaMldStaticQuerierServiceSapRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaMldStaticQuerierServiceSdpBindTable": {
+    "name": "alaMldStaticQuerierServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldStaticQuerierServiceSdpBindEntry": {
+    "name": "alaMldStaticQuerierServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticQuerierServiceSdpBindRowStatus": {
+    "name": "alaMldStaticQuerierServiceSdpBindRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaMldServiceSourceTable": {
+    "name": "alaMldServiceSourceTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceEntry": {
+    "name": "alaMldServiceSourceEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceHostAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceDestAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceOrigAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceOrigAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSourceGroupAddressType": {
+    "name": "alaMldServiceSourceGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceGroupAddress": {
+    "name": "alaMldServiceSourceGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceHostAddressType": {
+    "name": "alaMldServiceSourceHostAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceHostAddress": {
+    "name": "alaMldServiceSourceHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceDestAddressType": {
+    "name": "alaMldServiceSourceDestAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceDestAddress": {
+    "name": "alaMldServiceSourceDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceOrigAddressType": {
+    "name": "alaMldServiceSourceOrigAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceOrigAddress": {
+    "name": "alaMldServiceSourceOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSourceLocale": {
+    "name": "alaMldServiceSourceLocale",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSourcePortId": {
+    "name": "alaMldServiceSourcePortId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSourceEncapValue": {
+    "name": "alaMldServiceSourceEncapValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSourceSdpId": {
+    "name": "alaMldServiceSourceSdpId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSourceVcId": {
+    "name": "alaMldServiceSourceVcId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxVcIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSourceType": {
+    "name": "alaMldServiceSourceType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardTable": {
+    "name": "alaMldServiceSapForwardTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardEntry": {
+    "name": "alaMldServiceSapForwardEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardOrigAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardNextSapPortId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardNextSapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSapForwardLocale": {
+    "name": "alaMldServiceSapForwardLocale",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardPortId": {
+    "name": "alaMldServiceSapForwardPortId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardEncapValue": {
+    "name": "alaMldServiceSapForwardEncapValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardSdpId": {
+    "name": "alaMldServiceSapForwardSdpId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardVcId": {
+    "name": "alaMldServiceSapForwardVcId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxVcIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardGroupAddress": {
+    "name": "alaMldServiceSapForwardGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardHostAddress": {
+    "name": "alaMldServiceSapForwardHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardDestAddress": {
+    "name": "alaMldServiceSapForwardDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardOrigAddress": {
+    "name": "alaMldServiceSapForwardOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardType": {
+    "name": "alaMldServiceSapForwardType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardNextSapPortId": {
+    "name": "alaMldServiceSapForwardNextSapPortId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardNextSapEncapValue": {
+    "name": "alaMldServiceSapForwardNextSapEncapValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSapForwardNextType": {
+    "name": "alaMldServiceSapForwardNextType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardTable": {
+    "name": "alaMldServiceSdpBindForwardTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardEntry": {
+    "name": "alaMldServiceSdpBindForwardEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardOrigAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardNextSdpBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardLocale": {
+    "name": "alaMldServiceSdpBindForwardLocale",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AluLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardPortId": {
+    "name": "alaMldServiceSdpBindForwardPortId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxPortID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardEncapValue": {
+    "name": "alaMldServiceSdpBindForwardEncapValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEncapVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardSdpId": {
+    "name": "alaMldServiceSdpBindForwardSdpId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardVcId": {
+    "name": "alaMldServiceSdpBindForwardVcId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxVcIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardGroupAddress": {
+    "name": "alaMldServiceSdpBindForwardGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardHostAddress": {
+    "name": "alaMldServiceSdpBindForwardHostAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardDestAddress": {
+    "name": "alaMldServiceSdpBindForwardDestAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardOrigAddress": {
+    "name": "alaMldServiceSdpBindForwardOrigAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardType": {
+    "name": "alaMldServiceSdpBindForwardType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardNextSdpBindId": {
+    "name": "alaMldServiceSdpBindForwardNextSdpBindId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdpBindId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardNextType": {
+    "name": "alaMldServiceSdpBindForwardNextType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcast": 1,
+          "pim": 2,
+          "ipip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSapTable": {
+    "name": "alaMldServiceSapTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSapEntry": {
+    "name": "alaMldServiceSapEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapPortId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SAP-MIB",
+        "object": "sapEncapValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSapMaxGroupLimit": {
+    "name": "alaMldServiceSapMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceSapMaxGroupExceedAction": {
+    "name": "alaMldServiceSapMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceSapCurrentGroupCount": {
+    "name": "alaMldServiceSapCurrentGroupCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindTable": {
+    "name": "alaMldServiceSdpBindTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindEntry": {
+    "name": "alaMldServiceSdpBindEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-SERV-MIB",
+        "object": "svcId",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-SDP-MIB",
+        "object": "sdpBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSdpBindMaxGroupLimit": {
+    "name": "alaMldServiceSdpBindMaxGroupLimit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindMaxGroupExceedAction": {
+    "name": "alaMldServiceSdpBindMaxGroupExceedAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "replace": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMldServiceSdpBindCurrentGroupCount": {
+    "name": "alaMldServiceSdpBindCurrentGroupCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.3.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaExtraLdp": {
+    "name": "alaExtraLdp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4",
+    "class": "objectidentity"
+  },
+  "alaVRtrExtendedLdpGeneralTable": {
+    "name": "alaVRtrExtendedLdpGeneralTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVRtrExtendedLdpGeneralEntry": {
+    "name": "alaVRtrExtendedLdpGeneralEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVRtrLdpGenGracefulRestartSupport": {
+    "name": "alaVRtrLdpGenGracefulRestartSupport",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVRtrLdpGenGRReconnectTime": {
+    "name": "alaVRtrLdpGenGRReconnectTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVRtrLdpGenGRFwdStateHoldTime": {
+    "name": "alaVRtrLdpGenGRFwdStateHoldTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVRtrLdpExtendedSessionTable": {
+    "name": "alaVRtrLdpExtendedSessionTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVRtrLdpExtendedSessionEntry": {
+    "name": "alaVRtrLdpExtendedSessionEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-VRTR-MIB",
+        "object": "vRtrID",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaVRtrLdpPeerLdpId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVRtrLdpPeerLdpId": {
+    "name": "alaVRtrLdpPeerLdpId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVRtrLdpSessRestartInProgress": {
+    "name": "alaVRtrLdpSessRestartInProgress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVRtrLdpSessFtReconTimeAdvertised": {
+    "name": "alaVRtrLdpSessFtReconTimeAdvertised",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVRtrLdpSessFtRecoveryTimeAdvertised": {
+    "name": "alaVRtrLdpSessFtRecoveryTimeAdvertised",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1ServiceMgrMIBCompliance": {
+    "name": "alcatelIND1ServiceMgrMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaServiceMgrPortProfileGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaServiceMgrPortGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaSapExtraInfoGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpServiceGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpMemberServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpMemberServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpStaticMemberServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpStaticMemberServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpNeighborServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpNeighborServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpStaticNeighborServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpStaticNeighborServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpQuerierServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpQuerierServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpStaticQuerierServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpStaticQuerierServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpServiceSourceGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpServiceSapForwardGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpServiceSdpBindForwardGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaIgmpServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldServiceGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldMemberServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldMemberServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldStaticMemberServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldStaticMemberServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldNeighborServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldNeighborServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldStaticNeighborServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldStaticNeighborServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldQuerierServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldQuerierServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldStaticQuerierServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldStaticQuerierServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldServiceSourceGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldServiceSapForwardGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldServiceSdpBindForwardGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldServiceSapGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      },
+      {
+        "object": "alaMldServiceSdpBindGroup",
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaServiceMgrPortProfileGroup": {
+    "name": "alaServiceMgrPortProfileGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfileStpBpduTreatment"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfile8021xTreatment"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfile8021ABTreatment"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfile8023adTreatment"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfileGvrpTreatment"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfileAmapTreatment"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfileRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortProfileMvrpTreatment"
+      }
+    ],
+    "status": "current"
+  },
+  "alaServiceMgrPortGroup": {
+    "name": "alaServiceMgrPortGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortMode"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortEncapType"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortPortProfileID"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaServiceMgrPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaSapExtraInfoGroup": {
+    "name": "alaSapExtraInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaSapInfoTrusted"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaSapInfoPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceGroup": {
+    "name": "alaIgmpServiceGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceQuerying"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSpoofing"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceZapping"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceRobustness"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceQueryInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceQueryResponseInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceLastMemberQueryInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceRouterTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceProxying"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceUnsolicitedReportInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceQuerierForwarding"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceMaxGroupExceedAction"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSapGroup": {
+    "name": "alaIgmpMemberServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSapMode"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSapCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSapTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpMemberServiceSdpBindGroup": {
+    "name": "alaIgmpMemberServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSdpBindMode"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSdpBindCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpMemberServiceSdpBindTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSapGroup": {
+    "name": "alaIgmpStaticMemberServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticMemberServiceSapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticMemberServiceSdpBindGroup": {
+    "name": "alaIgmpStaticMemberServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticMemberServiceSdpBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSapGroup": {
+    "name": "alaIgmpNeighborServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpNeighborServiceSapCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpNeighborServiceSapTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpNeighborServiceSdpBindGroup": {
+    "name": "alaIgmpNeighborServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpNeighborServiceSdpBindCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpNeighborServiceSdpBindTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborServiceSapGroup": {
+    "name": "alaIgmpStaticNeighborServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticNeighborServiceSapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticNeighborServiceSdpBindGroup": {
+    "name": "alaIgmpStaticNeighborServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticNeighborServiceSdpBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSapGroup": {
+    "name": "alaIgmpQuerierServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpQuerierServiceSapCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpQuerierServiceSapTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpQuerierServiceSdpBindGroup": {
+    "name": "alaIgmpQuerierServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpQuerierServiceSdpBindCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpQuerierServiceSdpBindTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierServiceSapGroup": {
+    "name": "alaIgmpStaticQuerierServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticQuerierServiceSapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpStaticQuerierServiceSdpBindGroup": {
+    "name": "alaIgmpStaticQuerierServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpStaticQuerierServiceSdpBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSourceGroup": {
+    "name": "alaIgmpServiceSourceGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceLocale"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourcePortId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceEncapValue"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceSdpId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceVcId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSourceType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSapForwardGroup": {
+    "name": "alaIgmpServiceSapForwardGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardLocale"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardEncapValue"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardSdpId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardVcId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardType"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapForwardNextType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindForwardGroup": {
+    "name": "alaIgmpServiceSdpBindForwardGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardLocale"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardEncapValue"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardSdpId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardVcId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardType"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindForwardNextType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSapGroup": {
+    "name": "alaIgmpServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapMaxGroupExceedAction"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSapCurrentGroupCount"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIgmpServiceSdpBindGroup": {
+    "name": "alaIgmpServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindMaxGroupExceedAction"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaIgmpServiceSdpBindCurrentGroupCount"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceGroup": {
+    "name": "alaMldServiceGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceQuerying"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSpoofing"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceZapping"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceRobustness"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceQueryInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceQueryResponseInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceLastMemberQueryInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceRouterTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceProxying"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceUnsolicitedReportInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceQuerierForwarding"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceMaxGroupExceedAction"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldMemberServiceSapGroup": {
+    "name": "alaMldMemberServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSapMode"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSapCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSapTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldMemberServiceSdpBindGroup": {
+    "name": "alaMldMemberServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSdpBindMode"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSdpBindCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldMemberServiceSdpBindTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSapGroup": {
+    "name": "alaMldStaticMemberServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticMemberServiceSapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticMemberServiceSdpBindGroup": {
+    "name": "alaMldStaticMemberServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticMemberServiceSdpBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldNeighborServiceSapGroup": {
+    "name": "alaMldNeighborServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldNeighborServiceSapCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldNeighborServiceSapTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldNeighborServiceSdpBindGroup": {
+    "name": "alaMldNeighborServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldNeighborServiceSdpBindCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldNeighborServiceSdpBindTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticNeighborServiceSapGroup": {
+    "name": "alaMldStaticNeighborServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticNeighborServiceSapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticNeighborServiceSdpBindGroup": {
+    "name": "alaMldStaticNeighborServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticNeighborServiceSdpBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldQuerierServiceSapGroup": {
+    "name": "alaMldQuerierServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldQuerierServiceSapCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldQuerierServiceSapTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldQuerierServiceSdpBindGroup": {
+    "name": "alaMldQuerierServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldQuerierServiceSdpBindCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldQuerierServiceSdpBindTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticQuerierServiceSapGroup": {
+    "name": "alaMldStaticQuerierServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticQuerierServiceSapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldStaticQuerierServiceSdpBindGroup": {
+    "name": "alaMldStaticQuerierServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldStaticQuerierServiceSdpBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSourceGroup": {
+    "name": "alaMldServiceSourceGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceLocale"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourcePortId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceEncapValue"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceSdpId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceVcId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSourceType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSapForwardGroup": {
+    "name": "alaMldServiceSapForwardGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardLocale"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardEncapValue"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardSdpId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardVcId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardType"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapForwardNextType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSdpBindForwardGroup": {
+    "name": "alaMldServiceSdpBindForwardGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardLocale"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardEncapValue"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardSdpId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardVcId"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardType"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindForwardNextType"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSapGroup": {
+    "name": "alaMldServiceSapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapMaxGroupExceedAction"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSapCurrentGroupCount"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMldServiceSdpBindGroup": {
+    "name": "alaMldServiceSdpBindGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindMaxGroupLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindMaxGroupExceedAction"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaMldServiceSdpBindCurrentGroupCount"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVRtrExtendedLdpGeneralGroup": {
+    "name": "alaVRtrExtendedLdpGeneralGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaVRtrLdpGenGracefulRestartSupport"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaVRtrLdpGenGRReconnectTime"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaVRtrLdpGenGRFwdStateHoldTime"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVRtrLdpExtendedSessionGroup": {
+    "name": "alaVRtrLdpExtendedSessionGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.51.1.2.1.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaVRtrLdpSessRestartInProgress"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaVRtrLdpSessFtReconTimeAdvertised"
+      },
+      {
+        "module": "ALCATEL-IND1-SERVICE-MGR-MIB",
+        "object": "alaVRtrLdpSessFtRecoveryTimeAdvertised"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SERVICE-MGR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:04 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-SERVICE-MGR-MIB"
+  }
+}

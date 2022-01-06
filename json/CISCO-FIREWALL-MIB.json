@@ -1,0 +1,1407 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoFirewallMIB": {
+    "name": "ciscoFirewallMIB",
+    "oid": "1.3.6.1.4.1.9.9.147",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-06 00:00",
+        "description": "Added the copyright statement and updated the imports such that Unsigned32 is imported from SNMPv2-SMI instead of CISCO-TC. Added a new NOTIFICATION-GROUP ciscoFirewallMIBNotificationGroupRev1 to include all the notifications defined in the MIB. Obsoleted the OBJECT-GROUP ciscoFirewallMIBNotificationGroup. Deprecated the MODULE-COMPLIANCE ciscoFirewallMIBCompliance and added a new MODULE-COMPLIANCE ciscoFirewallMIBComplianceRev1."
+      },
+      {
+        "revision": "1999-04-29 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFirewallMIBObjects": {
+    "name": "ciscoFirewallMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.147.1",
+    "class": "objectidentity"
+  },
+  "cfwEvents": {
+    "name": "cfwEvents",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1",
+    "class": "objectidentity"
+  },
+  "cfwBasicEvents": {
+    "name": "cfwBasicEvents",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1",
+    "class": "objectidentity"
+  },
+  "cfwNetEvents": {
+    "name": "cfwNetEvents",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2",
+    "class": "objectidentity"
+  },
+  "cfwSystem": {
+    "name": "cfwSystem",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2",
+    "class": "objectidentity"
+  },
+  "cfwStatus": {
+    "name": "cfwStatus",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.1",
+    "class": "objectidentity"
+  },
+  "cfwStatistics": {
+    "name": "cfwStatistics",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2",
+    "class": "objectidentity"
+  },
+  "ResourceStatistics": {
+    "name": "ResourceStatistics",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highUse": 1,
+          "highLoad": 2,
+          "maximum": 3,
+          "minimum": 4,
+          "low": 5,
+          "high": 6,
+          "average": 7,
+          "free": 8,
+          "inUse": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hardware": {
+    "name": "Hardware",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memory": 1,
+          "disk": 2,
+          "power": 3,
+          "netInterface": 4,
+          "cpu": 5,
+          "primaryUnit": 6,
+          "secondaryUnit": 7,
+          "other": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Services": {
+    "name": "Services",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "otherFWService": 1,
+          "fileXferFtp": 2,
+          "fileXferTftp": 3,
+          "fileXferFtps": 4,
+          "loginTelnet": 5,
+          "loginRlogin": 6,
+          "loginTelnets": 7,
+          "remoteExecSunRPC": 8,
+          "remoteExecMSRPC": 9,
+          "remoteExecRsh": 10,
+          "remoteExecXserver": 11,
+          "webHttp": 12,
+          "webHttps": 13,
+          "mailSmtp": 14,
+          "multimediaStreamworks": 15,
+          "multimediaH323": 16,
+          "multimediaNetShow": 17,
+          "multimediaVDOLive": 18,
+          "multimediaRealAV": 19,
+          "multimediaRTSP": 20,
+          "dbOracle": 21,
+          "dbMSsql": 22,
+          "contInspProgLang": 23,
+          "contInspUrl": 24,
+          "directoryNis": 25,
+          "directoryDns": 26,
+          "directoryNetbiosns": 27,
+          "directoryNetbiosdgm": 28,
+          "directoryNetbiosssn": 29,
+          "directoryWins": 30,
+          "qryWhois": 31,
+          "qryFinger": 32,
+          "qryIdent": 33,
+          "fsNfsStatus": 34,
+          "fsNfs": 35,
+          "fsCifs": 36,
+          "protoIcmp": 37,
+          "protoTcp": 38,
+          "protoUdp": 39,
+          "protoIp": 40,
+          "protoSnmp": 41
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HardwareStatus": {
+    "name": "HardwareStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "up": 2,
+          "down": 3,
+          "error": 4,
+          "overTemp": 5,
+          "busy": 6,
+          "noMedia": 7,
+          "backup": 8,
+          "active": 9,
+          "standby": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SecurityEvent": {
+    "name": "SecurityEvent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "dos": 3,
+          "recon": 4,
+          "pakFwd": 5,
+          "addrSpoof": 6,
+          "svcSpoof": 7,
+          "thirdParty": 8,
+          "complete": 9,
+          "invalPak": 10,
+          "illegCom": 11,
+          "policy": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ContentInspectionEvent": {
+    "name": "ContentInspectionEvent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "okay": 2,
+          "error": 3,
+          "found": 4,
+          "clean": 5,
+          "reject": 6,
+          "saved": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConnectionEvent": {
+    "name": "ConnectionEvent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "accept": 2,
+          "error": 3,
+          "drop": 4,
+          "close": 5,
+          "timeout": 6,
+          "refused": 7,
+          "reset": 8,
+          "noResp": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConnectionStat": {
+    "name": "ConnectionStat",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "totalOpen": 2,
+          "currentOpen": 3,
+          "currentClosing": 4,
+          "currentHalfOpen": 5,
+          "currentInUse": 6,
+          "high": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AccessEvent": {
+    "name": "AccessEvent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "grant": 2,
+          "deny": 3,
+          "denyMult": 4,
+          "error": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AuthenticationEvent": {
+    "name": "AuthenticationEvent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "succ": 2,
+          "error": 3,
+          "fail": 4,
+          "succPriv": 5,
+          "failPriv": 6,
+          "failMult": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "GenericEvent": {
+    "name": "GenericEvent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 1,
+          "okay": 2,
+          "error": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cfwBasicEventsTableLastRow": {
+    "name": "cfwBasicEventsTableLastRow",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicEventsTable": {
+    "name": "cfwBasicEventsTable",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwBasicEventsEntry": {
+    "name": "cfwBasicEventsEntry",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfwBasicEventIndex": {
+    "name": "cfwBasicEventIndex",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwBasicEventTime": {
+    "name": "cfwBasicEventTime",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicSecurityEventType": {
+    "name": "cfwBasicSecurityEventType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecurityEvent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicContentInspEventType": {
+    "name": "cfwBasicContentInspEventType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ContentInspectionEvent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicConnectionEventType": {
+    "name": "cfwBasicConnectionEventType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnectionEvent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicAccessEventType": {
+    "name": "cfwBasicAccessEventType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AccessEvent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicAuthenticationEventType": {
+    "name": "cfwBasicAuthenticationEventType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AuthenticationEvent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicGenericEventType": {
+    "name": "cfwBasicGenericEventType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GenericEvent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicEventDescription": {
+    "name": "cfwBasicEventDescription",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBasicEventDetailsTableRow": {
+    "name": "cfwBasicEventDetailsTableRow",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventsTableLastRow": {
+    "name": "cfwNetEventsTableLastRow",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventsTable": {
+    "name": "cfwNetEventsTable",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwNetEventsEntry": {
+    "name": "cfwNetEventsEntry",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfwNetEventIndex": {
+    "name": "cfwNetEventIndex",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwNetEventInterface": {
+    "name": "cfwNetEventInterface",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventSrcIpAddress": {
+    "name": "cfwNetEventSrcIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventInsideSrcIpAddress": {
+    "name": "cfwNetEventInsideSrcIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventDstIpAddress": {
+    "name": "cfwNetEventDstIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventInsideDstIpAddress": {
+    "name": "cfwNetEventInsideDstIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventSrcIpPort": {
+    "name": "cfwNetEventSrcIpPort",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventInsideSrcIpPort": {
+    "name": "cfwNetEventInsideSrcIpPort",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventDstIpPort": {
+    "name": "cfwNetEventDstIpPort",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventInsideDstIpPort": {
+    "name": "cfwNetEventInsideDstIpPort",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventService": {
+    "name": "cfwNetEventService",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Services",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventServiceInformation": {
+    "name": "cfwNetEventServiceInformation",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventIdentity": {
+    "name": "cfwNetEventIdentity",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwNetEventDescription": {
+    "name": "cfwNetEventDescription",
+    "oid": "1.3.6.1.4.1.9.9.147.1.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwHardwareStatusTable": {
+    "name": "cfwHardwareStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwHardwareStatusEntry": {
+    "name": "cfwHardwareStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwHardwareType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfwHardwareType": {
+    "name": "cfwHardwareType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hardware",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwHardwareInformation": {
+    "name": "cfwHardwareInformation",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwHardwareStatusValue": {
+    "name": "cfwHardwareStatusValue",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HardwareStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwHardwareStatusDetail": {
+    "name": "cfwHardwareStatusDetail",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBufferStatsTable": {
+    "name": "cfwBufferStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwBufferStatsEntry": {
+    "name": "cfwBufferStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBufferStatSize",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBufferStatType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfwBufferStatSize": {
+    "name": "cfwBufferStatSize",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwBufferStatType": {
+    "name": "cfwBufferStatType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResourceStatistics",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwBufferStatInformation": {
+    "name": "cfwBufferStatInformation",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwBufferStatValue": {
+    "name": "cfwBufferStatValue",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwConnectionStatTable": {
+    "name": "cfwConnectionStatTable",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwConnectionStatEntry": {
+    "name": "cfwConnectionStatEntry",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwConnectionStatService",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwConnectionStatType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfwConnectionStatService": {
+    "name": "cfwConnectionStatService",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Services",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwConnectionStatType": {
+    "name": "cfwConnectionStatType",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConnectionStat",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfwConnectionStatDescription": {
+    "name": "cfwConnectionStatDescription",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwConnectionStatCount": {
+    "name": "cfwConnectionStatCount",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfwConnectionStatValue": {
+    "name": "cfwConnectionStatValue",
+    "oid": "1.3.6.1.4.1.9.9.147.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFirewallMIBNotificationPrefix": {
+    "name": "ciscoFirewallMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.147.2",
+    "class": "objectidentity"
+  },
+  "ciscoFirewallMIBNotifications": {
+    "name": "ciscoFirewallMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.147.2.0",
+    "class": "objectidentity"
+  },
+  "cfwSecurityNotification": {
+    "name": "cfwSecurityNotification",
+    "oid": "1.3.6.1.4.1.9.9.147.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventTime"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicSecurityEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDetailsTableRow"
+      }
+    ],
+    "status": "current"
+  },
+  "cfwContentInspectNotification": {
+    "name": "cfwContentInspectNotification",
+    "oid": "1.3.6.1.4.1.9.9.147.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventTime"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicContentInspEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDetailsTableRow"
+      }
+    ],
+    "status": "current"
+  },
+  "cfwConnNotification": {
+    "name": "cfwConnNotification",
+    "oid": "1.3.6.1.4.1.9.9.147.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventTime"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicConnectionEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDetailsTableRow"
+      }
+    ],
+    "status": "current"
+  },
+  "cfwAccessNotification": {
+    "name": "cfwAccessNotification",
+    "oid": "1.3.6.1.4.1.9.9.147.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventTime"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicAccessEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDetailsTableRow"
+      }
+    ],
+    "status": "current"
+  },
+  "cfwAuthNotification": {
+    "name": "cfwAuthNotification",
+    "oid": "1.3.6.1.4.1.9.9.147.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventTime"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicAuthenticationEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDetailsTableRow"
+      }
+    ],
+    "status": "current"
+  },
+  "cfwGenericNotification": {
+    "name": "cfwGenericNotification",
+    "oid": "1.3.6.1.4.1.9.9.147.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventTime"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicGenericEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDetailsTableRow"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFirewallMIBConformance": {
+    "name": "ciscoFirewallMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.147.3",
+    "class": "objectidentity"
+  },
+  "ciscoFirewallMIBCompliances": {
+    "name": "ciscoFirewallMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.147.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoFirewallMIBGroups": {
+    "name": "ciscoFirewallMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.147.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoFirewallMIBCompliance": {
+    "name": "ciscoFirewallMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.147.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFirewallMIBStatisticsGroup",
+        "module": "CISCO-FIREWALL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFirewallMIBComplianceRev1": {
+    "name": "ciscoFirewallMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.147.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFirewallMIBStatisticsGroup",
+        "module": "CISCO-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFirewallMIBEventsGroup",
+        "module": "CISCO-FIREWALL-MIB"
+      },
+      {
+        "object": "ciscoFirewallMIBNotificationGroupRev1",
+        "module": "CISCO-FIREWALL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFirewallMIBEventsGroup": {
+    "name": "ciscoFirewallMIBEventsGroup",
+    "oid": "1.3.6.1.4.1.9.9.147.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventsTableLastRow"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventTime"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicSecurityEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicContentInspEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicConnectionEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicAccessEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicAuthenticationEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicGenericEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDetailsTableRow"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventsTableLastRow"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventInterface"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventSrcIpAddress"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventInsideSrcIpAddress"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventDstIpAddress"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventInsideDstIpAddress"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventSrcIpPort"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventInsideSrcIpPort"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventDstIpPort"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventInsideDstIpPort"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventService"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventServiceInformation"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventIdentity"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwNetEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFirewallMIBStatisticsGroup": {
+    "name": "ciscoFirewallMIBStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.147.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwHardwareInformation"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwHardwareStatusValue"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwHardwareStatusDetail"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBufferStatInformation"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBufferStatValue"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwConnectionStatDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwConnectionStatCount"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwConnectionStatValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFirewallMIBNotificationGroup": {
+    "name": "ciscoFirewallMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.147.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventTime"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicSecurityEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicContentInspEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicConnectionEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicAccessEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicAuthenticationEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicGenericEventType"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDescription"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwBasicEventDetailsTableRow"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoFirewallMIBNotificationGroupRev1": {
+    "name": "ciscoFirewallMIBNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.147.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwSecurityNotification"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwContentInspectNotification"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwConnNotification"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwAccessNotification"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwAuthNotification"
+      },
+      {
+        "module": "CISCO-FIREWALL-MIB",
+        "object": "cfwGenericNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FIREWALL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FIREWALL-MIB"
+  }
+}

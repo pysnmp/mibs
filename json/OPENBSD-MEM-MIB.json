@@ -1,0 +1,120 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifNumber",
+      "ifIndex"
+    ],
+    "OPENBSD-BASE-MIB": [
+      "openBSD"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "memMIBObjects": {
+    "name": "memMIBObjects",
+    "oid": "1.3.6.1.4.1.30155.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-09 00:00",
+        "description": "Correct problems reported by smilint."
+      },
+      {
+        "revision": "2008-12-23 00:00",
+        "description": "Add the OPENBSD-MEM-MIB to snmpd."
+      }
+    ]
+  },
+  "memMIBVersion": {
+    "name": "memMIBVersion",
+    "oid": "1.3.6.1.4.1.30155.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memIfTable": {
+    "name": "memIfTable",
+    "oid": "1.3.6.1.4.1.30155.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "memIfEntry": {
+    "name": "memIfEntry",
+    "oid": "1.3.6.1.4.1.30155.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "memIfName": {
+    "name": "memIfName",
+    "oid": "1.3.6.1.4.1.30155.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memIfLiveLocks": {
+    "name": "memIfLiveLocks",
+    "oid": "1.3.6.1.4.1.30155.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-MEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OPENBSD-MEM-MIB"
+  }
+}

@@ -1,0 +1,5901 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TRAP-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cambium": {
+    "name": "cambium",
+    "oid": "1.3.6.1.4.1.17713",
+    "class": "objectidentity"
+  },
+  "ptp": {
+    "name": "ptp",
+    "oid": "1.3.6.1.4.1.17713.1",
+    "class": "objectidentity"
+  },
+  "ptmp": {
+    "name": "ptmp",
+    "oid": "1.3.6.1.4.1.17713.2",
+    "class": "objectidentity"
+  },
+  "ptp800": {
+    "name": "ptp800",
+    "oid": "1.3.6.1.4.1.17713.8",
+    "class": "objectidentity"
+  },
+  "bridge": {
+    "name": "bridge",
+    "oid": "1.3.6.1.4.1.17713.8.4",
+    "class": "objectidentity"
+  },
+  "configuration": {
+    "name": "configuration",
+    "oid": "1.3.6.1.4.1.17713.8.5",
+    "class": "objectidentity"
+  },
+  "ethernet": {
+    "name": "ethernet",
+    "oid": "1.3.6.1.4.1.17713.8.6",
+    "class": "objectidentity"
+  },
+  "licence": {
+    "name": "licence",
+    "oid": "1.3.6.1.4.1.17713.8.8",
+    "class": "objectidentity"
+  },
+  "management": {
+    "name": "management",
+    "oid": "1.3.6.1.4.1.17713.8.9",
+    "class": "objectidentity"
+  },
+  "phyControl": {
+    "name": "phyControl",
+    "oid": "1.3.6.1.4.1.17713.8.10",
+    "class": "objectidentity"
+  },
+  "phyStatus": {
+    "name": "phyStatus",
+    "oid": "1.3.6.1.4.1.17713.8.12",
+    "class": "objectidentity"
+  },
+  "alarms": {
+    "name": "alarms",
+    "oid": "1.3.6.1.4.1.17713.8.13",
+    "class": "objectidentity"
+  },
+  "smtp": {
+    "name": "smtp",
+    "oid": "1.3.6.1.4.1.17713.8.15",
+    "class": "objectidentity"
+  },
+  "snmpControl": {
+    "name": "snmpControl",
+    "oid": "1.3.6.1.4.1.17713.8.16",
+    "class": "objectidentity"
+  },
+  "sntp": {
+    "name": "sntp",
+    "oid": "1.3.6.1.4.1.17713.8.17",
+    "class": "objectidentity"
+  },
+  "reset": {
+    "name": "reset",
+    "oid": "1.3.6.1.4.1.17713.8.18",
+    "class": "objectidentity"
+  },
+  "versions": {
+    "name": "versions",
+    "oid": "1.3.6.1.4.1.17713.8.19",
+    "class": "objectidentity"
+  },
+  "pubStats": {
+    "name": "pubStats",
+    "oid": "1.3.6.1.4.1.17713.8.20",
+    "class": "objectidentity"
+  },
+  "encryption": {
+    "name": "encryption",
+    "oid": "1.3.6.1.4.1.17713.8.22",
+    "class": "objectidentity"
+  },
+  "rfu": {
+    "name": "rfu",
+    "oid": "1.3.6.1.4.1.17713.8.23",
+    "class": "objectidentity"
+  },
+  "radioLicense": {
+    "name": "radioLicense",
+    "oid": "1.3.6.1.4.1.17713.8.24",
+    "class": "objectidentity"
+  },
+  "protectionConfig": {
+    "name": "protectionConfig",
+    "oid": "1.3.6.1.4.1.17713.8.25",
+    "class": "objectidentity"
+  },
+  "protectionStatus": {
+    "name": "protectionStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26",
+    "class": "objectidentity"
+  },
+  "protectionStats": {
+    "name": "protectionStats",
+    "oid": "1.3.6.1.4.1.17713.8.27",
+    "class": "objectidentity"
+  },
+  "aAAControl": {
+    "name": "aAAControl",
+    "oid": "1.3.6.1.4.1.17713.8.29",
+    "class": "objectidentity"
+  },
+  "syslogControl": {
+    "name": "syslogControl",
+    "oid": "1.3.6.1.4.1.17713.8.28",
+    "class": "objectidentity"
+  },
+  "supplementary": {
+    "name": "supplementary",
+    "oid": "1.3.6.1.4.1.17713.8.96",
+    "class": "objectidentity"
+  },
+  "ptpTraps": {
+    "name": "ptpTraps",
+    "oid": "1.3.6.1.4.1.17713.8.99",
+    "class": "objectidentity"
+  },
+  "ptpTrapPrefix": {
+    "name": "ptpTrapPrefix",
+    "oid": "1.3.6.1.4.1.17713.8.99.0",
+    "class": "objectidentity"
+  },
+  "ethernetPriorityTable": {
+    "name": "ethernetPriorityTable",
+    "oid": "1.3.6.1.4.1.17713.8.6.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ethernetPriorityTableEntry": {
+    "name": "ethernetPriorityTableEntry",
+    "oid": "1.3.6.1.4.1.17713.8.6.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "ethernetPriorityTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "l2CPPriorityTable": {
+    "name": "l2CPPriorityTable",
+    "oid": "1.3.6.1.4.1.17713.8.6.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "l2CPPriorityTableEntry": {
+    "name": "l2CPPriorityTableEntry",
+    "oid": "1.3.6.1.4.1.17713.8.6.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "l2CPPriorityTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "iPDSCPPriorityTable": {
+    "name": "iPDSCPPriorityTable",
+    "oid": "1.3.6.1.4.1.17713.8.6.38",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "iPDSCPPriorityTableEntry": {
+    "name": "iPDSCPPriorityTableEntry",
+    "oid": "1.3.6.1.4.1.17713.8.6.38.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "iPDSCPPriorityTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mPLSTCPriorityTable": {
+    "name": "mPLSTCPriorityTable",
+    "oid": "1.3.6.1.4.1.17713.8.6.40",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mPLSTCPriorityTableEntry": {
+    "name": "mPLSTCPriorityTableEntry",
+    "oid": "1.3.6.1.4.1.17713.8.6.40.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "mPLSTCPriorityTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sNMPTrapTable": {
+    "name": "sNMPTrapTable",
+    "oid": "1.3.6.1.4.1.17713.8.16.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sNMPTrapTableEntry": {
+    "name": "sNMPTrapTableEntry",
+    "oid": "1.3.6.1.4.1.17713.8.16.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "sNMPTrapTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sNTPServerTable": {
+    "name": "sNTPServerTable",
+    "oid": "1.3.6.1.4.1.17713.8.17.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sNTPServerTableEntry": {
+    "name": "sNTPServerTableEntry",
+    "oid": "1.3.6.1.4.1.17713.8.17.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "sNTPServerTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "userTable": {
+    "name": "userTable",
+    "oid": "1.3.6.1.4.1.17713.8.29.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "userTableEntry": {
+    "name": "userTableEntry",
+    "oid": "1.3.6.1.4.1.17713.8.29.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "userTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "localPacketFiltering": {
+    "name": "localPacketFiltering",
+    "oid": "1.3.6.1.4.1.17713.8.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iPv4Address": {
+    "name": "iPv4Address",
+    "oid": "1.3.6.1.4.1.17713.8.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "subnetMask": {
+    "name": "subnetMask",
+    "oid": "1.3.6.1.4.1.17713.8.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "gatewayIPAddress": {
+    "name": "gatewayIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "maximumTransmitPower": {
+    "name": "maximumTransmitPower",
+    "oid": "1.3.6.1.4.1.17713.8.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 370
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "antennaGain": {
+    "name": "antennaGain",
+    "oid": "1.3.6.1.4.1.17713.8.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 610
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rFFeederLoss": {
+    "name": "rFFeederLoss",
+    "oid": "1.3.6.1.4.1.17713.8.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteIPAddress": {
+    "name": "remoteIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteMACAddress": {
+    "name": "remoteMACAddress",
+    "oid": "1.3.6.1.4.1.17713.8.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "enableTransmission": {
+    "name": "enableTransmission",
+    "oid": "1.3.6.1.4.1.17713.8.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "muted": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "aTPCEnable": {
+    "name": "aTPCEnable",
+    "oid": "1.3.6.1.4.1.17713.8.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iFCableLength": {
+    "name": "iFCableLength",
+    "oid": "1.3.6.1.4.1.17713.8.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "linkName": {
+    "name": "linkName",
+    "oid": "1.3.6.1.4.1.17713.8.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "siteName": {
+    "name": "siteName",
+    "oid": "1.3.6.1.4.1.17713.8.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "diverseAntennaGain": {
+    "name": "diverseAntennaGain",
+    "oid": "1.3.6.1.4.1.17713.8.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 610
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "diverseRfFeederLoss": {
+    "name": "diverseRfFeederLoss",
+    "oid": "1.3.6.1.4.1.17713.8.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iPv6Address": {
+    "name": "iPv6Address",
+    "oid": "1.3.6.1.4.1.17713.8.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iPVersion": {
+    "name": "iPVersion",
+    "oid": "1.3.6.1.4.1.17713.8.5.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 0,
+          "ipv6": 1,
+          "dual-ipv4-and-ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iPv6AutoConfiguredLinkLocalAddress": {
+    "name": "iPv6AutoConfiguredLinkLocalAddress",
+    "oid": "1.3.6.1.4.1.17713.8.5.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iPv6PrefixLength": {
+    "name": "iPv6PrefixLength",
+    "oid": "1.3.6.1.4.1.17713.8.5.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iPv6GatewayAddress": {
+    "name": "iPv6GatewayAddress",
+    "oid": "1.3.6.1.4.1.17713.8.5.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "remoteInternetAddressType": {
+    "name": "remoteInternetAddressType",
+    "oid": "1.3.6.1.4.1.17713.8.5.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "unknown-6": 5,
+          "unknown-7": 6,
+          "unknown-8": 7,
+          "unknown-9": 8,
+          "unknown-10": 9,
+          "unknown-11": 10,
+          "unknown-12": 11,
+          "unknown-13": 12,
+          "unknown-14": 13,
+          "unknown-15": 14,
+          "unknown-16": 15,
+          "dns": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteInternetAddress": {
+    "name": "remoteInternetAddress",
+    "oid": "1.3.6.1.4.1.17713.8.5.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortCopperAutoNegotiation": {
+    "name": "dataPortCopperAutoNegotiation",
+    "oid": "1.3.6.1.4.1.17713.8.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dataPortCopperAutoNegAdvertisement": {
+    "name": "dataPortCopperAutoNegAdvertisement",
+    "oid": "1.3.6.1.4.1.17713.8.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "neg-100-mbps-full-duplex": 6,
+        "neg-1000-mbps-full-duplex": 7
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dataPortStatus": {
+    "name": "dataPortStatus",
+    "oid": "1.3.6.1.4.1.17713.8.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "copper-link-up": 1,
+          "fiber-link-up": 2,
+          "fiber-y-inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortSpeedAndDuplex": {
+    "name": "dataPortSpeedAndDuplex",
+    "oid": "1.3.6.1.4.1.17713.8.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed1000mbpsfullduplex": 0,
+          "speed100mbpsfullduplex": 1,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortWirelessDownAlert": {
+    "name": "dataPortWirelessDownAlert",
+    "oid": "1.3.6.1.4.1.17713.8.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "useVLANForManagementInterfaces": {
+    "name": "useVLANForManagementInterfaces",
+    "oid": "1.3.6.1.4.1.17713.8.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-vlan-tagging": 0,
+          "ieee-8021q-tagged-c-tag-type-8100": 1,
+          "ieee-8021ad-tagged-s-tag-or-b-tag-type-88a8": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vLANManagementPriority": {
+    "name": "vLANManagementPriority",
+    "oid": "1.3.6.1.4.1.17713.8.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vLANManagementVIDValidation": {
+    "name": "vLANManagementVIDValidation",
+    "oid": "1.3.6.1.4.1.17713.8.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vLANManagementVID": {
+    "name": "vLANManagementVID",
+    "oid": "1.3.6.1.4.1.17713.8.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ethernetPriorityTableNumber": {
+    "name": "ethernetPriorityTableNumber",
+    "oid": "1.3.6.1.4.1.17713.8.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "managementPortAutoNegotiation": {
+    "name": "managementPortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.17713.8.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "managementPortAutoNegAdvertisement": {
+    "name": "managementPortAutoNegAdvertisement",
+    "oid": "1.3.6.1.4.1.17713.8.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "neg-10-mbps-full-duplex": 6,
+        "neg-100-mbps-full-duplex": 7
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "managementPortStatus": {
+    "name": "managementPortStatus",
+    "oid": "1.3.6.1.4.1.17713.8.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "copper-link-up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "managementPortSpeedAndDuplex": {
+    "name": "managementPortSpeedAndDuplex",
+    "oid": "1.3.6.1.4.1.17713.8.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed100mbpsfullduplex": 1,
+          "speed10mbpsfullduplex": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "managementPortWirelessDownAlert": {
+    "name": "managementPortWirelessDownAlert",
+    "oid": "1.3.6.1.4.1.17713.8.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "managementMode": {
+    "name": "managementMode",
+    "oid": "1.3.6.1.4.1.17713.8.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "out-of-band-local": 0,
+          "out-of-band": 1,
+          "in-band": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "managementCommittedInformationRate": {
+    "name": "managementCommittedInformationRate",
+    "oid": "1.3.6.1.4.1.17713.8.6.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kbps-200": 0,
+          "kbps-300": 1,
+          "kbps-400": 2,
+          "kbps-500": 3,
+          "kbps-600": 4,
+          "kbps-700": 5,
+          "kbps-800": 6,
+          "kbps-900": 7,
+          "kbps-1000": 8,
+          "kbps-1100": 9,
+          "kbps-1200": 10,
+          "kbps-1300": 11,
+          "kbps-1400": 12,
+          "kbps-1500": 13,
+          "kbps-1600": 14,
+          "kbps-1700": 15,
+          "kbps-1800": 16,
+          "kbps-1900": 17,
+          "kbps-2000": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortPauseFrames": {
+    "name": "dataPortPauseFrames",
+    "oid": "1.3.6.1.4.1.17713.8.6.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel": 0,
+          "discard": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transmitCapacityLimit": {
+    "name": "transmitCapacityLimit",
+    "oid": "1.3.6.1.4.1.17713.8.6.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transmitCapacityLimitDetail": {
+    "name": "transmitCapacityLimitDetail",
+    "oid": "1.3.6.1.4.1.17713.8.6.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "limited-due-to-absence-of-license-key": 0,
+          "running-at-the-capacity-limit": 1,
+          "running-at-unlimited-capacity": 2,
+          "restricted-due-to-remote-ethernet-speed": 3,
+          "limited-due-to-development-override": 4,
+          "unlimited-due-to-development-override": 5,
+          "unlimited-capacity-trial-period": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortEthernetMediaTypeToUse": {
+    "name": "dataPortEthernetMediaTypeToUse",
+    "oid": "1.3.6.1.4.1.17713.8.6.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto-with-fiber-preference": 0,
+          "force-copper": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortCopperForcedConfiguration": {
+    "name": "dataPortCopperForcedConfiguration",
+    "oid": "1.3.6.1.4.1.17713.8.6.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "force-100-mbps-full-duplex": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "managementPortForcedConfiguration": {
+    "name": "managementPortForcedConfiguration",
+    "oid": "1.3.6.1.4.1.17713.8.6.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "force-100-mbps-full-duplex": 0,
+          "force-10-mbps-full-duplex": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "l2CPPriorityTableNumber": {
+    "name": "l2CPPriorityTableNumber",
+    "oid": "1.3.6.1.4.1.17713.8.6.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unknownNetworkPriorityQueueMapping": {
+    "name": "unknownNetworkPriorityQueueMapping",
+    "oid": "1.3.6.1.4.1.17713.8.6.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "q0": 0,
+          "q1": 1,
+          "q2": 2,
+          "q3": 3,
+          "q4": 4,
+          "q5": 5,
+          "q6": 6,
+          "q7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dSCPManagementPriority": {
+    "name": "dSCPManagementPriority",
+    "oid": "1.3.6.1.4.1.17713.8.6.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "qOSPriorityScheme": {
+    "name": "qOSPriorityScheme",
+    "oid": "1.3.6.1.4.1.17713.8.6.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 0,
+          "ipmpls": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iPDSCPPriorityTableNumber": {
+    "name": "iPDSCPPriorityTableNumber",
+    "oid": "1.3.6.1.4.1.17713.8.6.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mPLSTCPriorityTableNumber": {
+    "name": "mPLSTCPriorityTableNumber",
+    "oid": "1.3.6.1.4.1.17713.8.6.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ethernetPriorityQueueMapping": {
+    "name": "ethernetPriorityQueueMapping",
+    "oid": "1.3.6.1.4.1.17713.8.6.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "q0": 0,
+          "q1": 1,
+          "q2": 2,
+          "q3": 3,
+          "q4": 4,
+          "q5": 5,
+          "q6": 6,
+          "q7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ethernetPriorityTableIndex": {
+    "name": "ethernetPriorityTableIndex",
+    "oid": "1.3.6.1.4.1.17713.8.6.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p0": 1,
+          "p1": 2,
+          "p2": 3,
+          "p3": 4,
+          "p4": 5,
+          "p5": 6,
+          "p6": 7,
+          "p7": 8,
+          "untagged": 9
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "l2CPPriorityQueueMapping": {
+    "name": "l2CPPriorityQueueMapping",
+    "oid": "1.3.6.1.4.1.17713.8.6.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "q0": 0,
+          "q1": 1,
+          "q2": 2,
+          "q3": 3,
+          "q4": 4,
+          "q5": 5,
+          "q6": 6,
+          "q7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "l2CPPriorityTableIndex": {
+    "name": "l2CPPriorityTableIndex",
+    "oid": "1.3.6.1.4.1.17713.8.6.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridge": 1,
+          "garpmrp": 2,
+          "cfm": 3,
+          "r-aps": 4,
+          "eaps": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "iPDSCPPriorityQueueMapping": {
+    "name": "iPDSCPPriorityQueueMapping",
+    "oid": "1.3.6.1.4.1.17713.8.6.38.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "q0": 0,
+          "q1": 1,
+          "q2": 2,
+          "q3": 3,
+          "q4": 4,
+          "q5": 5,
+          "q6": 6,
+          "q7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "iPDSCPPriorityTableIndex": {
+    "name": "iPDSCPPriorityTableIndex",
+    "oid": "1.3.6.1.4.1.17713.8.6.38.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mPLSTCPriorityQueueMapping": {
+    "name": "mPLSTCPriorityQueueMapping",
+    "oid": "1.3.6.1.4.1.17713.8.6.40.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "q0": 0,
+          "q1": 1,
+          "q2": 2,
+          "q3": 3,
+          "q4": 4,
+          "q5": 5,
+          "q6": 6,
+          "q7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mPLSTCPriorityTableIndex": {
+    "name": "mPLSTCPriorityTableIndex",
+    "oid": "1.3.6.1.4.1.17713.8.6.40.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "productVariant": {
+    "name": "productVariant",
+    "oid": "1.3.6.1.4.1.17713.8.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptp-xx400-full": 0,
+          "ptp-xx400-deprecated-1": 1,
+          "ptp-xx400-deprecated-2": 2,
+          "ptp-xx400-lite": 3,
+          "spare-1": 4,
+          "ptp-xx300": 5,
+          "spare-2": 6,
+          "spare-3": 7,
+          "ptp-xx500-full-deprecated": 8,
+          "ptp-xx500-lite-deprecated": 9,
+          "ptp-xx500": 10,
+          "ptp-xx600-lite": 11,
+          "ptp-xx600-full": 12,
+          "spare-5": 13,
+          "spare-6": 14,
+          "ptp-800": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productName": {
+    "name": "productName",
+    "oid": "1.3.6.1.4.1.17713.8.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ethernetFiberSupport": {
+    "name": "ethernetFiberSupport",
+    "oid": "1.3.6.1.4.1.17713.8.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transmitCapacity": {
+    "name": "transmitCapacity",
+    "oid": "1.3.6.1.4.1.17713.8.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate-10-mbps": 0,
+          "rate-20-mbps": 1,
+          "rate-30-mbps": 2,
+          "rate-40-mbps": 3,
+          "rate-50-mbps": 4,
+          "rate-100-mbps": 5,
+          "rate-150-mbps": 6,
+          "rate-200-mbps": 7,
+          "rate-300-mbps": 8,
+          "rate-unlimited": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "encryptionAlgorithmsAvail": {
+    "name": "encryptionAlgorithmsAvail",
+    "oid": "1.3.6.1.4.1.17713.8.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "aes-rijndael": 1,
+          "aes-256-bit-rijndael": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "securityLevel": {
+    "name": "securityLevel",
+    "oid": "1.3.6.1.4.1.17713.8.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "linkNameMismatch": {
+    "name": "linkNameMismatch",
+    "oid": "1.3.6.1.4.1.17713.8.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "link-name-mismatch": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alignmentMode": {
+    "name": "alignmentMode",
+    "oid": "1.3.6.1.4.1.17713.8.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "aligning": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tFTPServerIPAddress": {
+    "name": "tFTPServerIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tFTPServerPortNumber": {
+    "name": "tFTPServerPortNumber",
+    "oid": "1.3.6.1.4.1.17713.8.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tFTPSoftwareUpgradeFileName": {
+    "name": "tFTPSoftwareUpgradeFileName",
+    "oid": "1.3.6.1.4.1.17713.8.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tFTPStartSoftwareUpgrade": {
+    "name": "tFTPStartSoftwareUpgrade",
+    "oid": "1.3.6.1.4.1.17713.8.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "tFTPSoftwareUpgradeStatus": {
+    "name": "tFTPSoftwareUpgradeStatus",
+    "oid": "1.3.6.1.4.1.17713.8.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "upload-in-progress": 1,
+          "upload-successful-programming-flash": 2,
+          "upgrade-successful-reboot-to-run-the-new-software-image": 3,
+          "upgrade-failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tFTPSoftwareUpgradeStatusText": {
+    "name": "tFTPSoftwareUpgradeStatusText",
+    "oid": "1.3.6.1.4.1.17713.8.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tFTPSoftwareUpgradeStatusAdditionalText": {
+    "name": "tFTPSoftwareUpgradeStatusAdditionalText",
+    "oid": "1.3.6.1.4.1.17713.8.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hTTPAccessEnabled": {
+    "name": "hTTPAccessEnabled",
+    "oid": "1.3.6.1.4.1.17713.8.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telnetAccessEnabled": {
+    "name": "telnetAccessEnabled",
+    "oid": "1.3.6.1.4.1.17713.8.9.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hTTPPortNumber": {
+    "name": "hTTPPortNumber",
+    "oid": "1.3.6.1.4.1.17713.8.9.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hTTPSPortNumber": {
+    "name": "hTTPSPortNumber",
+    "oid": "1.3.6.1.4.1.17713.8.9.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telnetPortNumber": {
+    "name": "telnetPortNumber",
+    "oid": "1.3.6.1.4.1.17713.8.9.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hTTPSAccessEnabled": {
+    "name": "hTTPSAccessEnabled",
+    "oid": "1.3.6.1.4.1.17713.8.9.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tFTPServerInternetAddressType": {
+    "name": "tFTPServerInternetAddressType",
+    "oid": "1.3.6.1.4.1.17713.8.9.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "unknown-6": 5,
+          "unknown-7": 6,
+          "unknown-8": 7,
+          "unknown-9": 8,
+          "unknown-10": 9,
+          "unknown-11": 10,
+          "unknown-12": 11,
+          "unknown-13": 12,
+          "unknown-14": 13,
+          "unknown-15": 14,
+          "unknown-16": 15,
+          "dns": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tFTPServerInternetAddress": {
+    "name": "tFTPServerInternetAddress",
+    "oid": "1.3.6.1.4.1.17713.8.9.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "remoteMaximumTransmitPower": {
+    "name": "remoteMaximumTransmitPower",
+    "oid": "1.3.6.1.4.1.17713.8.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 370
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "minModulation": {
+    "name": "minModulation",
+    "oid": "1.3.6.1.4.1.17713.8.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mod-qpsk": 0,
+          "mod-8psk": 1,
+          "mod-16qam": 2,
+          "mod-32qam": 3,
+          "mod-64qam": 4,
+          "mod-128qam": 5,
+          "mod-256qam": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "minCodeRate": {
+    "name": "minCodeRate",
+    "oid": "1.3.6.1.4.1.17713.8.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "maxModulation": {
+    "name": "maxModulation",
+    "oid": "1.3.6.1.4.1.17713.8.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mod-qpsk": 0,
+          "mod-8psk": 1,
+          "mod-16qam": 2,
+          "mod-32qam": 3,
+          "mod-64qam": 4,
+          "mod-128qam": 5,
+          "mod-256qam": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "maxCodeRate": {
+    "name": "maxCodeRate",
+    "oid": "1.3.6.1.4.1.17713.8.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "receivePower": {
+    "name": "receivePower",
+    "oid": "1.3.6.1.4.1.17713.8.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vectorError": {
+    "name": "vectorError",
+    "oid": "1.3.6.1.4.1.17713.8.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transmitPower": {
+    "name": "transmitPower",
+    "oid": "1.3.6.1.4.1.17713.8.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "linkLoss": {
+    "name": "linkLoss",
+    "oid": "1.3.6.1.4.1.17713.8.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "receiveModulation": {
+    "name": "receiveModulation",
+    "oid": "1.3.6.1.4.1.17713.8.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mod-qpsk": 0,
+          "mod-8psk": 1,
+          "mod-16qam": 2,
+          "mod-32qam": 3,
+          "mod-64qam": 4,
+          "mod-128qam": 5,
+          "mod-256qam": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transmitModulation": {
+    "name": "transmitModulation",
+    "oid": "1.3.6.1.4.1.17713.8.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mod-qpsk": 0,
+          "mod-8psk": 1,
+          "mod-16qam": 2,
+          "mod-32qam": 3,
+          "mod-64qam": 4,
+          "mod-128qam": 5,
+          "mod-256qam": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "receiveCodeRate": {
+    "name": "receiveCodeRate",
+    "oid": "1.3.6.1.4.1.17713.8.12.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transmitCodeRate": {
+    "name": "transmitCodeRate",
+    "oid": "1.3.6.1.4.1.17713.8.12.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "unitOutOfCalibration": {
+    "name": "unitOutOfCalibration",
+    "oid": "1.3.6.1.4.1.17713.8.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "calibrated": 0,
+          "partial-calibration": 1,
+          "invalid-calibration": 2,
+          "bandwidth-variant-unsupported-pas-shutdown": 3,
+          "out-of-calibration-pas-shutdown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "encryptionEnabledMismatch": {
+    "name": "encryptionEnabledMismatch",
+    "oid": "1.3.6.1.4.1.17713.8.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "encryption-enabled-mismatch": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortDisabledWarning": {
+    "name": "dataPortDisabledWarning",
+    "oid": "1.3.6.1.4.1.17713.8.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "disabled-by-snmp-ifadminstatus": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortFiberStatus": {
+    "name": "dataPortFiberStatus",
+    "oid": "1.3.6.1.4.1.17713.8.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "installed-fiber-not-licensed": 1,
+          "no-fiber-link-established-but-los-not-detected": 2,
+          "no-fiber-link-established-and-los-detected": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortConfigurationMismatch": {
+    "name": "dataPortConfigurationMismatch",
+    "oid": "1.3.6.1.4.1.17713.8.13.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "mismatch-detected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "softwareVersionRemoteCompatibility": {
+    "name": "softwareVersionRemoteCompatibility",
+    "oid": "1.3.6.1.4.1.17713.8.13.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "mismatch": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "managementPortDisabledWarning": {
+    "name": "managementPortDisabledWarning",
+    "oid": "1.3.6.1.4.1.17713.8.13.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "disabled-by-snmp-ifadminstatus": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUStatus": {
+    "name": "rFUStatus",
+    "oid": "1.3.6.1.4.1.17713.8.13.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "fault": 1,
+          "unknown-3": 2,
+          "in-reset": 3,
+          "download-in-progress": 4,
+          "incompatible-firmware-version": 5,
+          "incompatible-device": 6,
+          "ifi-card-attached": 7,
+          "no-response": 8,
+          "power-supply-fault": 9,
+          "power-supply-disabled": 10,
+          "switching-memory-banks": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "managementPortConfigurationMismatch": {
+    "name": "managementPortConfigurationMismatch",
+    "oid": "1.3.6.1.4.1.17713.8.13.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-error": 0,
+          "mismatch-detected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "secureModeAlarm": {
+    "name": "secureModeAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.13.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secure-mode-is-active": 0,
+          "secure-mode-is-not-configured": 1,
+          "secure-mode-is-configured-but-not-active": 2,
+          "secure-mode-is-not-supported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUPlatformCompatibility": {
+    "name": "rFUPlatformCompatibility",
+    "oid": "1.3.6.1.4.1.17713.8.13.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "mismatch": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUProtectionCompatibility": {
+    "name": "rFUProtectionCompatibility",
+    "oid": "1.3.6.1.4.1.17713.8.13.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "mismatch": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sMTPEmailAlert": {
+    "name": "sMTPEmailAlert",
+    "oid": "1.3.6.1.4.1.17713.8.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sMTPServerIPAddress": {
+    "name": "sMTPServerIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sMTPServerPortNumber": {
+    "name": "sMTPServerPortNumber",
+    "oid": "1.3.6.1.4.1.17713.8.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sMTPSourceEmailAddress": {
+    "name": "sMTPSourceEmailAddress",
+    "oid": "1.3.6.1.4.1.17713.8.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sMTPDestinationEmailAddress": {
+    "name": "sMTPDestinationEmailAddress",
+    "oid": "1.3.6.1.4.1.17713.8.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sMTPEnabledMessages": {
+    "name": "sMTPEnabledMessages",
+    "oid": "1.3.6.1.4.1.17713.8.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "protection-state": 3,
+        "enabled-diagnostic-alarms": 4,
+        "management-port-up-down": 5,
+        "data-port-up-down": 6,
+        "wireless-link-up-down": 7
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sMTPServerInternetAddressType": {
+    "name": "sMTPServerInternetAddressType",
+    "oid": "1.3.6.1.4.1.17713.8.15.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "unknown-6": 5,
+          "unknown-7": 6,
+          "unknown-8": 7,
+          "unknown-9": 8,
+          "unknown-10": 9,
+          "unknown-11": 10,
+          "unknown-12": 11,
+          "unknown-13": 12,
+          "unknown-14": 13,
+          "unknown-15": 14,
+          "unknown-16": 15,
+          "dns": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sMTPServerInternetAddress": {
+    "name": "sMTPServerInternetAddress",
+    "oid": "1.3.6.1.4.1.17713.8.15.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNMPPortNumber": {
+    "name": "sNMPPortNumber",
+    "oid": "1.3.6.1.4.1.17713.8.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNMPCommunityString": {
+    "name": "sNMPCommunityString",
+    "oid": "1.3.6.1.4.1.17713.8.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNMPTrapVersion": {
+    "name": "sNMPTrapVersion",
+    "oid": "1.3.6.1.4.1.17713.8.16.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 0,
+          "v2c": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNMPEnabledTraps": {
+    "name": "sNMPEnabledTraps",
+    "oid": "1.3.6.1.4.1.17713.8.16.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "protection-state": 1,
+        "authentication-failure": 2,
+        "enabled-diagnostic-alarms": 3,
+        "management-port-up-down": 4,
+        "data-port-up-down": 5,
+        "wireless-link-up-down": 6,
+        "cold-start": 7
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enabledDiagnosticAlarms": {
+    "name": "enabledDiagnosticAlarms",
+    "oid": "1.3.6.1.4.1.17713.8.16.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "data-port-configuration-mismatch": 0,
+        "unknown-7": 1,
+        "wireless-link-status": 2,
+        "sntp-sync": 3,
+        "encryption-enabled-mismatch": 4,
+        "unit-out-of-calibration": 5,
+        "link-name-mismatch": 6,
+        "alignment-mode": 7,
+        "syslog-disabled-warning": 8,
+        "management-port-status": 9,
+        "data-port-status": 10,
+        "rfu-status": 11,
+        "management-port-disabled-warning": 12,
+        "management-port-configuration-mismatch": 13,
+        "data-port-fiber-status": 14,
+        "data-port-disabled-warning": 15,
+        "software-version-mismatch": 18,
+        "syslog-client-disabled-warning": 19,
+        "rfu-power-button-pressed": 20,
+        "secure-mode": 21,
+        "syslog-local-wrapped": 22,
+        "syslog-local-nearly-full": 23
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "enabledDiagnosticProtectionAlarms": {
+    "name": "enabledDiagnosticProtectionAlarms",
+    "oid": "1.3.6.1.4.1.17713.8.16.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "end-wireless-receive-signal-status": 0,
+        "protection-interface-status": 1,
+        "management-port-ethernet-speed-status": 2,
+        "data-port-ethernet-speed-status": 3,
+        "licensed-transmit-capacity-status": 4,
+        "wireless-receive-signal-status": 5,
+        "protection-configuration-status": 6,
+        "protection-availability-status": 7,
+        "rx-diversity-availability-status": 13,
+        "rx-diversity-configuration-status": 14,
+        "rx-diversity-data-port-status": 15
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNMPTrapTableNumber": {
+    "name": "sNMPTrapTableNumber",
+    "oid": "1.3.6.1.4.1.17713.8.16.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sNMPTrapTableIndex": {
+    "name": "sNMPTrapTableIndex",
+    "oid": "1.3.6.1.4.1.17713.8.16.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sNMPTrapIPAddress": {
+    "name": "sNMPTrapIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.16.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNMPTrapPortNumber": {
+    "name": "sNMPTrapPortNumber",
+    "oid": "1.3.6.1.4.1.17713.8.16.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNMPTrapInternetAddressType": {
+    "name": "sNMPTrapInternetAddressType",
+    "oid": "1.3.6.1.4.1.17713.8.16.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "unknown-6": 5,
+          "unknown-7": 6,
+          "unknown-8": 7,
+          "unknown-9": 8,
+          "unknown-10": 9,
+          "unknown-11": 10,
+          "unknown-12": 11,
+          "unknown-13": 12,
+          "unknown-14": 13,
+          "unknown-15": 14,
+          "unknown-16": 15,
+          "dns": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sNMPTrapInternetAddress": {
+    "name": "sNMPTrapInternetAddress",
+    "oid": "1.3.6.1.4.1.17713.8.16.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNMPTrapReceiverEnabled": {
+    "name": "sNMPTrapReceiverEnabled",
+    "oid": "1.3.6.1.4.1.17713.8.16.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sNTPState": {
+    "name": "sNTPState",
+    "oid": "1.3.6.1.4.1.17713.8.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPPollInterval": {
+    "name": "sNTPPollInterval",
+    "oid": "1.3.6.1.4.1.17713.8.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 43200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPSync": {
+    "name": "sNTPSync",
+    "oid": "1.3.6.1.4.1.17713.8.17.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-sync": 0,
+          "in-sync": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sNTPLastSync": {
+    "name": "sNTPLastSync",
+    "oid": "1.3.6.1.4.1.17713.8.17.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemClock": {
+    "name": "systemClock",
+    "oid": "1.3.6.1.4.1.17713.8.17.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "timeZone": {
+    "name": "timeZone",
+    "oid": "1.3.6.1.4.1.17713.8.17.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gmt-minus-1200": 0,
+          "gmt-minus-1130": 1,
+          "gmt-minus-1100": 2,
+          "gmt-minus-1030": 3,
+          "gmt-minus-1000": 4,
+          "gmt-minus-0930": 5,
+          "gmt-minus-0900": 6,
+          "gmt-minus-0830": 7,
+          "gmt-minus-0800": 8,
+          "gmt-minus-0730": 9,
+          "gmt-minus-0700": 10,
+          "gmt-minus-0630": 11,
+          "gmt-minus-0600": 12,
+          "gmt-minus-0530": 13,
+          "gmt-minus-0500": 14,
+          "gmt-minus-0430": 15,
+          "gmt-minus-0400": 16,
+          "gmt-minus-0330": 17,
+          "gmt-minus-0300": 18,
+          "gmt-minus-0230": 19,
+          "gmt-minus-0200": 20,
+          "gmt-minus-0130": 21,
+          "gmt-minus-0100": 22,
+          "gmt-minus-0030": 23,
+          "gmt-zero": 24,
+          "gmt-plus-0030": 25,
+          "gmt-plus-0100": 26,
+          "gmt-plus-0130": 27,
+          "gmt-plus-0200": 28,
+          "gmt-plus-0230": 29,
+          "gmt-plus-0300": 30,
+          "gmt-plus-0330": 31,
+          "gmt-plus-0400": 32,
+          "gmt-plus-0430": 33,
+          "gmt-plus-0500": 34,
+          "gmt-plus-0530": 35,
+          "gmt-plus-0600": 36,
+          "gmt-plus-0630": 37,
+          "gmt-plus-0700": 38,
+          "gmt-plus-0730": 39,
+          "gmt-plus-0800": 40,
+          "gmt-plus-0830": 41,
+          "gmt-plus-0900": 42,
+          "gmt-plus-0930": 43,
+          "gmt-plus-1000": 44,
+          "gmt-plus-1030": 45,
+          "gmt-plus-1100": 46,
+          "gmt-plus-1130": 47,
+          "gmt-plus-1200": 48,
+          "gmt-plus-1230": 49,
+          "gmt-plus-1300": 50
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "daylightSaving": {
+    "name": "daylightSaving",
+    "oid": "1.3.6.1.4.1.17713.8.17.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPPrimaryServer": {
+    "name": "sNTPPrimaryServer",
+    "oid": "1.3.6.1.4.1.17713.8.17.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "server-1": 0,
+          "server-2": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPPrimaryServerDeadTime": {
+    "name": "sNTPPrimaryServerDeadTime",
+    "oid": "1.3.6.1.4.1.17713.8.17.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPServerRetries": {
+    "name": "sNTPServerRetries",
+    "oid": "1.3.6.1.4.1.17713.8.17.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPServerTimeout": {
+    "name": "sNTPServerTimeout",
+    "oid": "1.3.6.1.4.1.17713.8.17.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPServerTableNumber": {
+    "name": "sNTPServerTableNumber",
+    "oid": "1.3.6.1.4.1.17713.8.17.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sNTPServerTableIndex": {
+    "name": "sNTPServerTableIndex",
+    "oid": "1.3.6.1.4.1.17713.8.17.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sNTPServerIPAddress": {
+    "name": "sNTPServerIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.17.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPServerPortNumber": {
+    "name": "sNTPServerPortNumber",
+    "oid": "1.3.6.1.4.1.17713.8.17.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sNTPServerResponse": {
+    "name": "sNTPServerResponse",
+    "oid": "1.3.6.1.4.1.17713.8.17.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sNTPServerInternetAddressType": {
+    "name": "sNTPServerInternetAddressType",
+    "oid": "1.3.6.1.4.1.17713.8.17.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "unknown-6": 5,
+          "unknown-7": 6,
+          "unknown-8": 7,
+          "unknown-9": 8,
+          "unknown-10": 9,
+          "unknown-11": 10,
+          "unknown-12": 11,
+          "unknown-13": 12,
+          "unknown-14": 13,
+          "unknown-15": 14,
+          "unknown-16": 15,
+          "dns": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sNTPServerInternetAddress": {
+    "name": "sNTPServerInternetAddress",
+    "oid": "1.3.6.1.4.1.17713.8.17.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "systemReset": {
+    "name": "systemReset",
+    "oid": "1.3.6.1.4.1.17713.8.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 0,
+          "console-reboot": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "softwareVersion": {
+    "name": "softwareVersion",
+    "oid": "1.3.6.1.4.1.17713.8.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hardwareVersion": {
+    "name": "hardwareVersion",
+    "oid": "1.3.6.1.4.1.17713.8.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "secondarySoftwareVersion": {
+    "name": "secondarySoftwareVersion",
+    "oid": "1.3.6.1.4.1.17713.8.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bootVersion": {
+    "name": "bootVersion",
+    "oid": "1.3.6.1.4.1.17713.8.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "receiveDataRate": {
+    "name": "receiveDataRate",
+    "oid": "1.3.6.1.4.1.17713.8.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transmitDataRate": {
+    "name": "transmitDataRate",
+    "oid": "1.3.6.1.4.1.17713.8.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aggregateDataRate": {
+    "name": "aggregateDataRate",
+    "oid": "1.3.6.1.4.1.17713.8.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wirelessLinkAvailability": {
+    "name": "wirelessLinkAvailability",
+    "oid": "1.3.6.1.4.1.17713.8.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wirelessLinkStatus": {
+    "name": "wirelessLinkStatus",
+    "oid": "1.3.6.1.4.1.17713.8.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 0,
+          "registering": 1,
+          "searching": 2,
+          "acquiring": 3,
+          "radar-cac": 4,
+          "initialising": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "encryptionAlgorithm": {
+    "name": "encryptionAlgorithm",
+    "oid": "1.3.6.1.4.1.17713.8.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "aes-rijndael": 1,
+          "aes-256-bit-rijndael": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFURfBand": {
+    "name": "rFURfBand",
+    "oid": "1.3.6.1.4.1.17713.8.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4000,
+            "max": 70000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxBandAboveRx": {
+    "name": "rFUTxBandAboveRx",
+    "oid": "1.3.6.1.4.1.17713.8.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUFreqSpacing": {
+    "name": "rFUFreqSpacing",
+    "oid": "1.3.6.1.4.1.17713.8.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1560000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxPowerMin": {
+    "name": "rFUTxPowerMin",
+    "oid": "1.3.6.1.4.1.17713.8.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxPowerMax": {
+    "name": "rFUTxPowerMax",
+    "oid": "1.3.6.1.4.1.17713.8.23.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 160,
+            "max": 370
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFURxFreqMin": {
+    "name": "rFURxFreqMin",
+    "oid": "1.3.6.1.4.1.17713.8.23.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5725000,
+            "max": 70000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFURxFreqMax": {
+    "name": "rFURxFreqMax",
+    "oid": "1.3.6.1.4.1.17713.8.23.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5725000,
+            "max": 70000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxFreqMin": {
+    "name": "rFUTxFreqMin",
+    "oid": "1.3.6.1.4.1.17713.8.23.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5725000,
+            "max": 70000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxFreqMax": {
+    "name": "rFUTxFreqMax",
+    "oid": "1.3.6.1.4.1.17713.8.23.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5725000,
+            "max": 70000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUSerial": {
+    "name": "rFUSerial",
+    "oid": "1.3.6.1.4.1.17713.8.23.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUActiveFirmwareBank": {
+    "name": "rFUActiveFirmwareBank",
+    "oid": "1.3.6.1.4.1.17713.8.23.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUVersionBank1": {
+    "name": "rFUVersionBank1",
+    "oid": "1.3.6.1.4.1.17713.8.23.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUVersionBank2": {
+    "name": "rFUVersionBank2",
+    "oid": "1.3.6.1.4.1.17713.8.23.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUType": {
+    "name": "rFUType",
+    "oid": "1.3.6.1.4.1.17713.8.23.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFURxRFSynthLockAlarm": {
+    "name": "rFURxRFSynthLockAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "out-of-lock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxRFSynthLockAlarm": {
+    "name": "rFUTxRFSynthLockAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "out-of-lock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxPowerAlarm": {
+    "name": "rFUTxPowerAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "tx-output-failed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUCommonIFSynthLockAlarm": {
+    "name": "rFUCommonIFSynthLockAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "out-of-lock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUPowerAlarm": {
+    "name": "rFUPowerAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "power-failed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFULockoutAlarm": {
+    "name": "rFULockoutAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "locked-out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUCableAlarm": {
+    "name": "rFUCableAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "if-cable-voltage-out-of-range": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUCableAttenuationAdjustAlarm": {
+    "name": "rFUCableAttenuationAdjustAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "if-cable-attenuator-adjusting": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxPowerDegradedAlarm": {
+    "name": "rFUTxPowerDegradedAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "degraded": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFURpsAlarm": {
+    "name": "rFURpsAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "rps-alarm-active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxMuteStatus": {
+    "name": "rFUTxMuteStatus",
+    "oid": "1.3.6.1.4.1.17713.8.23.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmitting": 0,
+          "muted-by-user": 1,
+          "muted-due-to-configuration-error": 2,
+          "muted-due-to-rfu-fault": 3,
+          "muted-due-to-rfu-configuring": 4,
+          "muted-due-to-rfu-incompatible-with-cmu": 5,
+          "muted-due-to-inactive": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUFanAssemblyAlarm": {
+    "name": "rFUFanAssemblyAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "partial-fan-failure": 1,
+          "total-fan-failure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUHighTemperatureAlarm": {
+    "name": "rFUHighTemperatureAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "high-temperature": 1,
+          "very-high-temperature": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFURFSwitchAlarm": {
+    "name": "rFURFSwitchAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "fault": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFURxIFSynthLockAlarm": {
+    "name": "rFURxIFSynthLockAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "out-of-lock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTxIFSynthLockAlarm": {
+    "name": "rFUTxIFSynthLockAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "out-of-lock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUPowerButtonPressed": {
+    "name": "rFUPowerButtonPressed",
+    "oid": "1.3.6.1.4.1.17713.8.23.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "irfu-power-button-was-pressed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUConnectedPlatform": {
+    "name": "rFUConnectedPlatform",
+    "oid": "1.3.6.1.4.1.17713.8.23.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "odu-a": 1,
+          "odu-b": 2,
+          "irfu-hp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUCommonRFSynthLockAlarm": {
+    "name": "rFUCommonRFSynthLockAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "out-of-lock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUBranchingConfiguration": {
+    "name": "rFUBranchingConfiguration",
+    "oid": "1.3.6.1.4.1.17713.8.23.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfu-1plus0": 0,
+          "rfu-1plus0-mhsb-ready-equal": 1,
+          "rfu-1plus0-mhsb-ready-unequal": 2,
+          "rfu-1plus1-mhsb-equal": 3,
+          "rfu-1plus1-mhsb-unequal": 4,
+          "rfu-1plus1-tx-mhsb--rx-sd": 5,
+          "rfu-2plus0": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rFUTransceiverLocation": {
+    "name": "rFUTransceiverLocation",
+    "oid": "1.3.6.1.4.1.17713.8.23.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "left-trx-a": 0,
+          "right-trx-b": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rFURfSwitchCableAlarm": {
+    "name": "rFURfSwitchCableAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.23.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "fault": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUReceiveBranchingUnitLoss": {
+    "name": "rFUReceiveBranchingUnitLoss",
+    "oid": "1.3.6.1.4.1.17713.8.23.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rFUTransmitBranchingUnitLoss": {
+    "name": "rFUTransmitBranchingUnitLoss",
+    "oid": "1.3.6.1.4.1.17713.8.23.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseIdentifier": {
+    "name": "radioLicenseIdentifier",
+    "oid": "1.3.6.1.4.1.17713.8.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseBand": {
+    "name": "radioLicenseBand",
+    "oid": "1.3.6.1.4.1.17713.8.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "band-lower-6-ghz": 0,
+          "band-7-ghz": 1,
+          "band-8-ghz": 2,
+          "band-11-ghz": 3,
+          "band-13-ghz": 4,
+          "band-15-ghz": 5,
+          "band-18-ghz": 6,
+          "band-23-ghz": 7,
+          "band-26-ghz": 8,
+          "band-32-ghz": 9,
+          "band-38-ghz": 10,
+          "band-upper-6-ghz": 11,
+          "band-28-ghz": 12,
+          "band-42-ghz": 13,
+          "band-unsupported": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseRegion": {
+    "name": "radioLicenseRegion",
+    "oid": "1.3.6.1.4.1.17713.8.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "etsi": 0,
+          "fcc": 1,
+          "canada": 2,
+          "brazil": 3,
+          "ntia": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseTxFreq": {
+    "name": "radioLicenseTxFreq",
+    "oid": "1.3.6.1.4.1.17713.8.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5925000,
+            "max": 70000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseRxFreq": {
+    "name": "radioLicenseRxFreq",
+    "oid": "1.3.6.1.4.1.17713.8.24.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5925000,
+            "max": 70000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseBandwidth": {
+    "name": "radioLicenseBandwidth",
+    "oid": "1.3.6.1.4.1.17713.8.24.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bw-7-mhz": 0,
+          "bw-10-mhz": 1,
+          "bw-1375-mhz": 2,
+          "bw-14-mhz": 3,
+          "bw-20-mhz": 4,
+          "bw-275-mhz": 5,
+          "bw-28-mhz": 6,
+          "bw-30-mhz": 7,
+          "bw-40-mhz": 8,
+          "bw-50-mhz": 9,
+          "bw-55-mhz": 10,
+          "bw-56-mhz": 11,
+          "bw-80-mhz": 12,
+          "bw-25-mhz": 13,
+          "bw-60-mhz": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseMaxEIRP": {
+    "name": "radioLicenseMaxEIRP",
+    "oid": "1.3.6.1.4.1.17713.8.24.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -300,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseModulation": {
+    "name": "radioLicenseModulation",
+    "oid": "1.3.6.1.4.1.17713.8.24.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mod-qpsk": 0,
+          "mod-8psk": 1,
+          "mod-16qam": 2,
+          "mod-32qam": 3,
+          "mod-64qam": 4,
+          "mod-128qam": 5,
+          "mod-256qam": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseCodeRate": {
+    "name": "radioLicenseCodeRate",
+    "oid": "1.3.6.1.4.1.17713.8.24.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseIncompatibleAlarm": {
+    "name": "radioLicenseIncompatibleAlarm",
+    "oid": "1.3.6.1.4.1.17713.8.24.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "radio-license-incompatible-with-rfu": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseMinModulation": {
+    "name": "radioLicenseMinModulation",
+    "oid": "1.3.6.1.4.1.17713.8.24.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mod-qpsk": 0,
+          "mod-8psk": 1,
+          "mod-16qam": 2,
+          "mod-32qam": 3,
+          "mod-64qam": 4,
+          "mod-128qam": 5,
+          "mod-256qam": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseMinCodeRate": {
+    "name": "radioLicenseMinCodeRate",
+    "oid": "1.3.6.1.4.1.17713.8.24.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseMaxModulation": {
+    "name": "radioLicenseMaxModulation",
+    "oid": "1.3.6.1.4.1.17713.8.24.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mod-qpsk": 0,
+          "mod-8psk": 1,
+          "mod-16qam": 2,
+          "mod-32qam": 3,
+          "mod-64qam": 4,
+          "mod-128qam": 5,
+          "mod-256qam": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "radioLicenseMaxCodeRate": {
+    "name": "radioLicenseMaxCodeRate",
+    "oid": "1.3.6.1.4.1.17713.8.24.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "protection": {
+    "name": "protection",
+    "oid": "1.3.6.1.4.1.17713.8.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "hot-standby-1plus1": 1,
+          "hot-standby-1plus1-with-rx-diversity": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "faultProtectionSwitching": {
+    "name": "faultProtectionSwitching",
+    "oid": "1.3.6.1.4.1.17713.8.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "primarySecondaryMode": {
+    "name": "primarySecondaryMode",
+    "oid": "1.3.6.1.4.1.17713.8.25.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 0,
+          "secondary": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "numberOfAntennas": {
+    "name": "numberOfAntennas",
+    "oid": "1.3.6.1.4.1.17713.8.25.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one": 0,
+          "two": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "primaryRecovery": {
+    "name": "primaryRecovery",
+    "oid": "1.3.6.1.4.1.17713.8.25.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "primaryRecoveryPeriod": {
+    "name": "primaryRecoveryPeriod",
+    "oid": "1.3.6.1.4.1.17713.8.25.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2880
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "requestedProtectionState": {
+    "name": "requestedProtectionState",
+    "oid": "1.3.6.1.4.1.17713.8.25.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "antennaReceiveLevelDeltaThreshold": {
+    "name": "antennaReceiveLevelDeltaThreshold",
+    "oid": "1.3.6.1.4.1.17713.8.25.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "antennaReceiveLevelMeasurementWindow": {
+    "name": "antennaReceiveLevelMeasurementWindow",
+    "oid": "1.3.6.1.4.1.17713.8.25.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2880
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fiberY": {
+    "name": "fiberY",
+    "oid": "1.3.6.1.4.1.17713.8.25.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rxDiversityVlanTpid": {
+    "name": "rxDiversityVlanTpid",
+    "oid": "1.3.6.1.4.1.17713.8.25.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee-8021q-tagged-c-tag-type-8100": 0,
+          "ieee-8021ad-tagged-s-tag-or-b-tag-type-88a8": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rxDiversityVid": {
+    "name": "rxDiversityVid",
+    "oid": "1.3.6.1.4.1.17713.8.25.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "protectionAvailabilityStatus": {
+    "name": "protectionAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "not-protected": 1,
+          "not-protecting": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "protectionConfigurationStatus": {
+    "name": "protectionConfigurationStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "configuration-not-protecting": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "protectionState": {
+    "name": "protectionState",
+    "oid": "1.3.6.1.4.1.17713.8.26.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "activeUnit": {
+    "name": "activeUnit",
+    "oid": "1.3.6.1.4.1.17713.8.26.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 0,
+          "secondary": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "protectionSwitchCause": {
+    "name": "protectionSwitchCause",
+    "oid": "1.3.6.1.4.1.17713.8.26.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-previous-protection-switch": 0,
+          "neighbor-cmu-connected-but-not-responding": 1,
+          "rfu-not-responding": 2,
+          "rfu-rx-rf-synth-out-of-lock": 3,
+          "rfu-tx-rf-synth-out-of-lock": 4,
+          "rfu-common-rf-synth-out-of-lock": 5,
+          "rfu-cable-failure": 6,
+          "rfu-cable-attenuator-adjustment-failure": 7,
+          "rfu-tx-power-degraded": 8,
+          "data-port-down": 9,
+          "management-port-down": 10,
+          "wireless-receive-signal-not-detected": 11,
+          "byte-error-ratio-over-threshold": 12,
+          "code-word-error-ratio-over-threshold": 13,
+          "cmu-rebooting": 14,
+          "configuration-not-protecting": 15,
+          "wireless-receive-signal-not-detected-at-remote-end": 16,
+          "byte-error-ratio-over-threshold-at-remote-end": 17,
+          "code-word-error-ratio-over-threshold-at-remote-end": 18,
+          "multiple-receive-failure-at-remote-end": 19,
+          "primary-recovery": 20,
+          "managed-protection-switch": 21,
+          "rfu-rx-if-synth-out-of-lock": 22,
+          "rfu-tx-if-synth-out-of-lock": 23,
+          "rfu-common-if-synth-out-of-lock": 24,
+          "rfu-very-high-temperature": 25
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "endId": {
+    "name": "endId",
+    "oid": "1.3.6.1.4.1.17713.8.26.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "neighborIPAddress": {
+    "name": "neighborIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "neighborMACAddress": {
+    "name": "neighborMACAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wirelessReceiveSignalStatus": {
+    "name": "wirelessReceiveSignalStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "not-detected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "licensedTransmitCapacityStatus": {
+    "name": "licensedTransmitCapacityStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "less-than-neighbor": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dataPortEthernetSpeedStatus": {
+    "name": "dataPortEthernetSpeedStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "less-than-neighbor": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "managementPortEthernetSpeedStatus": {
+    "name": "managementPortEthernetSpeedStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "less-than-neighbor": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "protectionInterfaceStatus": {
+    "name": "protectionInterfaceStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "neighbor-not-responding": 1,
+          "neighbor-not-connected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remotePrimaryIPAddress": {
+    "name": "remotePrimaryIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteSecondaryIPAddress": {
+    "name": "remoteSecondaryIPAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remotePrimaryMACAddress": {
+    "name": "remotePrimaryMACAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteSecondaryMACAddress": {
+    "name": "remoteSecondaryMACAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remotePrimarySecondaryMode": {
+    "name": "remotePrimarySecondaryMode",
+    "oid": "1.3.6.1.4.1.17713.8.26.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 0,
+          "secondary": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transmitterStatus": {
+    "name": "transmitterStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "muted": 0,
+          "transmitting": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "endWirelessReceiveSignalStatus": {
+    "name": "endWirelessReceiveSignalStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "not-detected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rxDiversityDataPortStatus": {
+    "name": "rxDiversityDataPortStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "not-protecting": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rxDiversityAvailabilityStatus": {
+    "name": "rxDiversityAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "not-protected": 1,
+          "not-protecting": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rxDiversityConfigurationStatus": {
+    "name": "rxDiversityConfigurationStatus",
+    "oid": "1.3.6.1.4.1.17713.8.26.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "configuration-not-protecting": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rxDiversityNeighborCompatibility": {
+    "name": "rxDiversityNeighborCompatibility",
+    "oid": "1.3.6.1.4.1.17713.8.26.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "mismatch": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rxDiversityVlanTpidNeighborCompatibility": {
+    "name": "rxDiversityVlanTpidNeighborCompatibility",
+    "oid": "1.3.6.1.4.1.17713.8.26.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "mismatch": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rxDiversityVidNeighborCompatibility": {
+    "name": "rxDiversityVidNeighborCompatibility",
+    "oid": "1.3.6.1.4.1.17713.8.26.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "mismatch": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "neighborInternetAddressType": {
+    "name": "neighborInternetAddressType",
+    "oid": "1.3.6.1.4.1.17713.8.26.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "unknown-6": 5,
+          "unknown-7": 6,
+          "unknown-8": 7,
+          "unknown-9": 8,
+          "unknown-10": 9,
+          "unknown-11": 10,
+          "unknown-12": 11,
+          "unknown-13": 12,
+          "unknown-14": 13,
+          "unknown-15": 14,
+          "unknown-16": 15,
+          "dns": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "neighborInternetAddress": {
+    "name": "neighborInternetAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remotePrimaryInternetAddressType": {
+    "name": "remotePrimaryInternetAddressType",
+    "oid": "1.3.6.1.4.1.17713.8.26.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "unknown-6": 5,
+          "unknown-7": 6,
+          "unknown-8": 7,
+          "unknown-9": 8,
+          "unknown-10": 9,
+          "unknown-11": 10,
+          "unknown-12": 11,
+          "unknown-13": 12,
+          "unknown-14": 13,
+          "unknown-15": 14,
+          "unknown-16": 15,
+          "dns": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remotePrimaryInternetAddress": {
+    "name": "remotePrimaryInternetAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteSecondaryInternetAddressType": {
+    "name": "remoteSecondaryInternetAddressType",
+    "oid": "1.3.6.1.4.1.17713.8.26.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "unknown-6": 5,
+          "unknown-7": 6,
+          "unknown-8": 7,
+          "unknown-9": 8,
+          "unknown-10": 9,
+          "unknown-11": 10,
+          "unknown-12": 11,
+          "unknown-13": 12,
+          "unknown-14": 13,
+          "unknown-15": 14,
+          "unknown-16": 15,
+          "dns": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteSecondaryInternetAddress": {
+    "name": "remoteSecondaryInternetAddress",
+    "oid": "1.3.6.1.4.1.17713.8.26.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "activeAvailableTime": {
+    "name": "activeAvailableTime",
+    "oid": "1.3.6.1.4.1.17713.8.27.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "activeCounterMeasurementPeriod": {
+    "name": "activeCounterMeasurementPeriod",
+    "oid": "1.3.6.1.4.1.17713.8.27.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "activeWirelessLinkAvailability": {
+    "name": "activeWirelessLinkAvailability",
+    "oid": "1.3.6.1.4.1.17713.8.27.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "userTableNumber": {
+    "name": "userTableNumber",
+    "oid": "1.3.6.1.4.1.17713.8.29.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "userTableIndex": {
+    "name": "userTableIndex",
+    "oid": "1.3.6.1.4.1.17713.8.29.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.17713.8.29.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "userRole": {
+    "name": "userRole",
+    "oid": "1.3.6.1.4.1.17713.8.29.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read-only": 0,
+          "system-administrator": 1,
+          "security-officer": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "userEnabled": {
+    "name": "userEnabled",
+    "oid": "1.3.6.1.4.1.17713.8.29.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "userPassword": {
+    "name": "userPassword",
+    "oid": "1.3.6.1.4.1.17713.8.29.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "syslogClient": {
+    "name": "syslogClient",
+    "oid": "1.3.6.1.4.1.17713.8.28.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "syslogState": {
+    "name": "syslogState",
+    "oid": "1.3.6.1.4.1.17713.8.28.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "longitude": {
+    "name": "longitude",
+    "oid": "1.3.6.1.4.1.17713.8.96.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "latitude": {
+    "name": "latitude",
+    "oid": "1.3.6.1.4.1.17713.8.96.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "altitude": {
+    "name": "altitude",
+    "oid": "1.3.6.1.4.1.17713.8.96.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dataPortStatusTrap": {
+    "name": "dataPortStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "dataPortStatus"
+      }
+    ]
+  },
+  "linkNameMismatchTrap": {
+    "name": "linkNameMismatchTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "linkNameMismatch"
+      }
+    ]
+  },
+  "alignmentModeTrap": {
+    "name": "alignmentModeTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "alignmentMode"
+      }
+    ]
+  },
+  "unitOutOfCalibrationTrap": {
+    "name": "unitOutOfCalibrationTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "unitOutOfCalibration"
+      }
+    ]
+  },
+  "encryptionEnabledMismatchTrap": {
+    "name": "encryptionEnabledMismatchTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "encryptionEnabledMismatch"
+      }
+    ]
+  },
+  "dataPortDisabledWarningTrap": {
+    "name": "dataPortDisabledWarningTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "dataPortDisabledWarning"
+      }
+    ]
+  },
+  "dataPortFiberStatusTrap": {
+    "name": "dataPortFiberStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "dataPortFiberStatus"
+      }
+    ]
+  },
+  "dataPortConfigurationMismatchTrap": {
+    "name": "dataPortConfigurationMismatchTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "dataPortConfigurationMismatch"
+      }
+    ]
+  },
+  "softwareVersionRemoteCompatibilityTrap": {
+    "name": "softwareVersionRemoteCompatibilityTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "softwareVersionRemoteCompatibility"
+      }
+    ]
+  },
+  "sNTPSyncTrap": {
+    "name": "sNTPSyncTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "sNTPSync"
+      }
+    ]
+  },
+  "managementPortStatusTrap": {
+    "name": "managementPortStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "managementPortStatus"
+      }
+    ]
+  },
+  "managementPortDisabledWarningTrap": {
+    "name": "managementPortDisabledWarningTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "managementPortDisabledWarning"
+      }
+    ]
+  },
+  "rFUStatusTrap": {
+    "name": "rFUStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "rFUStatus"
+      }
+    ]
+  },
+  "managementPortConfigurationMismatchTrap": {
+    "name": "managementPortConfigurationMismatchTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "managementPortConfigurationMismatch"
+      }
+    ]
+  },
+  "wirelessLinkStatusTrap": {
+    "name": "wirelessLinkStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "wirelessLinkStatus"
+      }
+    ]
+  },
+  "protectionAvailabilityStatusTrap": {
+    "name": "protectionAvailabilityStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "protectionAvailabilityStatus"
+      }
+    ]
+  },
+  "protectionConfigurationStatusTrap": {
+    "name": "protectionConfigurationStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "protectionConfigurationStatus"
+      }
+    ]
+  },
+  "protectionStateTrap": {
+    "name": "protectionStateTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "protectionState"
+      }
+    ]
+  },
+  "wirelessReceiveSignalStatusTrap": {
+    "name": "wirelessReceiveSignalStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "wirelessReceiveSignalStatus"
+      }
+    ]
+  },
+  "licensedTransmitCapacityStatusTrap": {
+    "name": "licensedTransmitCapacityStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "licensedTransmitCapacityStatus"
+      }
+    ]
+  },
+  "dataPortEthernetSpeedStatusTrap": {
+    "name": "dataPortEthernetSpeedStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "dataPortEthernetSpeedStatus"
+      }
+    ]
+  },
+  "managementPortEthernetSpeedStatusTrap": {
+    "name": "managementPortEthernetSpeedStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "managementPortEthernetSpeedStatus"
+      }
+    ]
+  },
+  "protectionInterfaceStatusTrap": {
+    "name": "protectionInterfaceStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "protectionInterfaceStatus"
+      }
+    ]
+  },
+  "syslogStateTrap": {
+    "name": "syslogStateTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "syslogState"
+      }
+    ]
+  },
+  "syslogLocalNearlyFullTrap": {
+    "name": "syslogLocalNearlyFullTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.41",
+    "class": "notificationtype"
+  },
+  "syslogLocalWrappedTrap": {
+    "name": "syslogLocalWrappedTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.42",
+    "class": "notificationtype"
+  },
+  "secureModeAlarmTrap": {
+    "name": "secureModeAlarmTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "secureModeAlarm"
+      }
+    ]
+  },
+  "endWirelessReceiveSignalStatusTrap": {
+    "name": "endWirelessReceiveSignalStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "endWirelessReceiveSignalStatus"
+      }
+    ]
+  },
+  "rxDiversityDataPortStatusTrap": {
+    "name": "rxDiversityDataPortStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "rxDiversityDataPortStatus"
+      }
+    ]
+  },
+  "rxDiversityAvailabilityStatusTrap": {
+    "name": "rxDiversityAvailabilityStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "rxDiversityAvailabilityStatus"
+      }
+    ]
+  },
+  "rxDiversityConfigurationStatusTrap": {
+    "name": "rxDiversityConfigurationStatusTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "rxDiversityConfigurationStatus"
+      }
+    ]
+  },
+  "rFUPowerButtonPressedTrap": {
+    "name": "rFUPowerButtonPressedTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "rFUPowerButtonPressed"
+      }
+    ]
+  },
+  "syslogClientTrap": {
+    "name": "syslogClientTrap",
+    "oid": "1.3.6.1.4.1.17713.8.990.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CAMBIUM-PTP800-MIB",
+        "object": "syslogClient"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/800/CAMBIUM-PTP800-V1-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CAMBIUM-PTP800-MIB"
+  }
+}

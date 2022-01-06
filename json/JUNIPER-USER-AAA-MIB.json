@@ -1,0 +1,1439 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address",
+      "Ipv6AddressPrefix",
+      "Ipv6AddressIfIdentifier"
+    ],
+    "JUNIPER-MIMSTP-MIB": [
+      "EnabledStatus"
+    ],
+    "JUNIPER-SMI": [
+      "jnxUserAAAMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxUserAAAMib": {
+    "name": "jnxUserAAAMib",
+    "oid": "1.3.6.1.4.1.2636.3.51.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-10 00:00",
+        "description": "Adding jnxUserAAADomainStripUsername and jnxUserAAADomainOverridePassword to jnxUserAAADomain"
+      },
+      {
+        "revision": "2013-03-18 00:00",
+        "description": "jnxAccessAuthServerEnabled, corrected description"
+      },
+      {
+        "revision": "2012-12-29 00:00",
+        "description": "jnxUserAAADomainDynamicPorfile object has been deprecated and replaced by jnxUserAAADomainDynamicProfile"
+      },
+      {
+        "revision": "2010-12-08 00:00",
+        "description": "Updates related to adding address pool display"
+      },
+      {
+        "revision": "2010-11-23 00:00",
+        "description": "Updates related to adding address pool traps"
+      },
+      {
+        "revision": "2010-02-09 11:10",
+        "description": "Added jnxUserAAAAssignment, jnxUserAAAGeneral, jnxUserAAADomainDelimiters, jnxUserAAADomainParseDirection, jnxUserAAADomain, jnxUserAAADomainTable, jnxUserAAADomainEntry, jnxUserAAADomainName, jnxUserAAADomainStripDomain, jnxUserAAADomainLogicalSystem, jnxUserAAADomainRoutingInstance, jnxUserAAADomainAddrPoolName, jnxUserAAADomainDynamicPorfile, jnxUserAAADomainTargetLogicalSystem, jnxUserAAADomainTargetRoutingInstance, jnxUserAAADomainTunnelProfile, jnxUserAAADomainTunnelTable, jnxUserAAADomainTunnelEntry, jnxUserAAADomainTunnelName, jnxUserAAADomainTunnelDefId, jnxUserAAADomainTunnelPreference, jnxUserAAADomainTunnelRemoteGwName, jnxUserAAADomainTunnelRemoteGwAddress, jnxUserAAADomainTunnelSourceGwName, jnxUserAAADomainTunnelSourceGwAddress, jnxUserAAADomainTunnelSecret, jnxUserAAADomainTunnelLogicalSystems, jnxUserAAADomainTunnelRoutingInstance, jnxUserAAADomainTunnelMedium, jnxUserAAADomainTunnelType, jnxUserAAADomainTunnelId, jnxUserAAADomainTunnelMaxSessions, jnxUserAAADomainPadnTable, jnxUserAAADomainPadnEntry, jnxUserAAADomainPadnIpAddress, jnxUserAAADomainPadnIpMask, jnxUserAAADomainPadnDistance, jnxUserAAAAccessProfile, jnxUserAAAAccessProfileGeneral, jnxUserAAAAccessProfileTable, jnxUserAAAAccessProfileEntry, jnxUserAAAAccessProfileName, jnxUserAAAAccessProfileAuthenticationOrder, jnxUserAAAAccessProfileAccountingOrder, jnxUserAAAAccessProfileAuthorizationOrder, jnxUserAAAAccessProfileProvisioningOrder, jnxUserAAAAccessProfileAccStopOnFailure, jnxUserAAAAccessProfileAccStopOnDeny, jnxUserAAAAccessProfileImmediateUpdate, jnxUserAAAAccessProfileCoaImmediateUpdate, jnxUserAAAAccessProfileInterval, jnxUserAAAAccessProfileStatType."
+      },
+      {
+        "revision": "2007-08-21 00:00",
+        "description": "Updates related to SecurID authentication"
+      },
+      {
+        "revision": "2007-05-14 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "jnxUserAAANotifications": {
+    "name": "jnxUserAAANotifications",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAObjects": {
+    "name": "jnxUserAAAObjects",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAGlobalStats": {
+    "name": "jnxUserAAAGlobalStats",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAAccessAuthStats": {
+    "name": "jnxUserAAAAccessAuthStats",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxUserAAATrapVars": {
+    "name": "jnxUserAAATrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.3",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAAccessPool": {
+    "name": "jnxUserAAAAccessPool",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAAssignment": {
+    "name": "jnxUserAAAAssignment",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAAccessProfile": {
+    "name": "jnxUserAAAAccessProfile",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6",
+    "class": "objectidentity"
+  },
+  "JnxAuthenticateType": {
+    "name": "JnxAuthenticateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "radius": 1,
+          "local": 2,
+          "ldap": 3,
+          "securid": 4,
+          "jsrc": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxAccountingType": {
+    "name": "JnxAccountingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "radius": 1,
+          "local": 2,
+          "ldap": 3,
+          "securid": 4,
+          "jsrc": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxAuthorizationType": {
+    "name": "JnxAuthorizationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "radius": 1,
+          "local": 2,
+          "ldap": 3,
+          "securid": 4,
+          "jsrc": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxProvisioningType": {
+    "name": "JnxProvisioningType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "radius": 1,
+          "local": 2,
+          "ldap": 3,
+          "securid": 4,
+          "jsrc": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxTotalAuthenticationRequests": {
+    "name": "jnxTotalAuthenticationRequests",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTotalAuthenticationResponses": {
+    "name": "jnxTotalAuthenticationResponses",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAStatTable": {
+    "name": "jnxUserAAAStatTable",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAAStatEntry": {
+    "name": "jnxUserAAAStatEntry",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAStatAuthType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserAAAStatAuthType": {
+    "name": "jnxUserAAAStatAuthType",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxAuthenticateType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAAStatRequestReceived": {
+    "name": "jnxUserAAAStatRequestReceived",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAStatAccessAccepted": {
+    "name": "jnxUserAAAStatAccessAccepted",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAStatAccessRejected": {
+    "name": "jnxUserAAAStatAccessRejected",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAServerName": {
+    "name": "jnxUserAAAServerName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxUserAAAAddressPoolName": {
+    "name": "jnxUserAAAAddressPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxAccessAuthServiceUp": {
+    "name": "jnxAccessAuthServiceUp",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "jnxAccessAuthServiceDown": {
+    "name": "jnxAccessAuthServiceDown",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "jnxAccessAuthServerDisabled": {
+    "name": "jnxAccessAuthServerDisabled",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxAccessAuthServerEnabled": {
+    "name": "jnxAccessAuthServerEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxAccessAuthAddressPoolHighThreshold": {
+    "name": "jnxAccessAuthAddressPoolHighThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAAddressPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxAccessAuthAddressPoolAbateThreshold": {
+    "name": "jnxAccessAuthAddressPoolAbateThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAAddressPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxAccessAuthAddressPoolOutOfAddresses": {
+    "name": "jnxAccessAuthAddressPoolOutOfAddresses",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAAddressPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxAccessAuthAddressPoolOutOfMemory": {
+    "name": "jnxAccessAuthAddressPoolOutOfMemory",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAAddressPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolGeneral": {
+    "name": "jnxUserAAAAccessPoolGeneral",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAAccessPoolTable": {
+    "name": "jnxUserAAAAccessPoolTable",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolEntry": {
+    "name": "jnxUserAAAAccessPoolEntry",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAAccessPoolIdent",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolIdent": {
+    "name": "jnxUserAAAAccessPoolIdent",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolRoutingInstance": {
+    "name": "jnxUserAAAAccessPoolRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolName": {
+    "name": "jnxUserAAAAccessPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolLinkName": {
+    "name": "jnxUserAAAAccessPoolLinkName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolFamilyType": {
+    "name": "jnxUserAAAAccessPoolFamilyType",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolInetNetwork": {
+    "name": "jnxUserAAAAccessPoolInetNetwork",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolInetPrefixLength": {
+    "name": "jnxUserAAAAccessPoolInetPrefixLength",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolOutOfMemory": {
+    "name": "jnxUserAAAAccessPoolOutOfMemory",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolOutOfAddresses": {
+    "name": "jnxUserAAAAccessPoolOutOfAddresses",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolAddressTotal": {
+    "name": "jnxUserAAAAccessPoolAddressTotal",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolAddressesInUse": {
+    "name": "jnxUserAAAAccessPoolAddressesInUse",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolAddressUsage": {
+    "name": "jnxUserAAAAccessPoolAddressUsage",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolAddressUsageHigh": {
+    "name": "jnxUserAAAAccessPoolAddressUsageHigh",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessPoolAddressUsageAbate": {
+    "name": "jnxUserAAAAccessPoolAddressUsageAbate",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.4.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAGeneral": {
+    "name": "jnxUserAAAGeneral",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "jnxUserAAADomainDelimiters": {
+    "name": "jnxUserAAADomainDelimiters",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainParseDirection": {
+    "name": "jnxUserAAADomainParseDirection",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rightToLeft": 1,
+          "leftToRight": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rightToLeft",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomain": {
+    "name": "jnxUserAAADomain",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2",
+    "class": "objectidentity"
+  },
+  "jnxUserAAADomainTable": {
+    "name": "jnxUserAAADomainTable",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAADomainEntry": {
+    "name": "jnxUserAAADomainEntry",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAADomainName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserAAADomainName": {
+    "name": "jnxUserAAADomainName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAADomainStripDomain": {
+    "name": "jnxUserAAADomainStripDomain",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainLogicalSystem": {
+    "name": "jnxUserAAADomainLogicalSystem",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainRoutingInstance": {
+    "name": "jnxUserAAADomainRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainAddrPoolName": {
+    "name": "jnxUserAAADomainAddrPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainDynamicPorfile": {
+    "name": "jnxUserAAADomainDynamicPorfile",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxUserAAADomainTargetLogicalSystem": {
+    "name": "jnxUserAAADomainTargetLogicalSystem",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTargetRoutingInstance": {
+    "name": "jnxUserAAADomainTargetRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelProfile": {
+    "name": "jnxUserAAADomainTunnelProfile",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainDynamicProfile": {
+    "name": "jnxUserAAADomainDynamicProfile",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainStripUsername": {
+    "name": "jnxUserAAADomainStripUsername",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "leftToRight": 1,
+          "rightToLeft": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainOverridePassword": {
+    "name": "jnxUserAAADomainOverridePassword",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelTable": {
+    "name": "jnxUserAAADomainTunnelTable",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelEntry": {
+    "name": "jnxUserAAADomainTunnelEntry",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAADomainTunnelName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAADomainTunnelDefId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelName": {
+    "name": "jnxUserAAADomainTunnelName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelDefId": {
+    "name": "jnxUserAAADomainTunnelDefId",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelPreference": {
+    "name": "jnxUserAAADomainTunnelPreference",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelRemoteGwName": {
+    "name": "jnxUserAAADomainTunnelRemoteGwName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelRemoteGwAddress": {
+    "name": "jnxUserAAADomainTunnelRemoteGwAddress",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelSourceGwName": {
+    "name": "jnxUserAAADomainTunnelSourceGwName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelSourceGwAddress": {
+    "name": "jnxUserAAADomainTunnelSourceGwAddress",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelSecret": {
+    "name": "jnxUserAAADomainTunnelSecret",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelLogicalSystems": {
+    "name": "jnxUserAAADomainTunnelLogicalSystems",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelRoutingInstance": {
+    "name": "jnxUserAAADomainTunnelRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelMedium": {
+    "name": "jnxUserAAADomainTunnelMedium",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnelMediumIPv4": 1,
+          "tunnelMediumUnknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelType": {
+    "name": "jnxUserAAADomainTunnelType",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnelL2tp": 1,
+          "tunnelUnknown": 2,
+          "tunnelL2f": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelId": {
+    "name": "jnxUserAAADomainTunnelId",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainTunnelMaxSessions": {
+    "name": "jnxUserAAADomainTunnelMaxSessions",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAADomainPadnTable": {
+    "name": "jnxUserAAADomainPadnTable",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAADomainPadnEntry": {
+    "name": "jnxUserAAADomainPadnEntry",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAADomainName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAADomainPadnIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAADomainPadnIpMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserAAADomainPadnIpAddress": {
+    "name": "jnxUserAAADomainPadnIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAADomainPadnIpMask": {
+    "name": "jnxUserAAADomainPadnIpMask",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAADomainPadnDistance": {
+    "name": "jnxUserAAADomainPadnDistance",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.5.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileGeneral": {
+    "name": "jnxUserAAAAccessProfileGeneral",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1",
+    "class": "objectidentity"
+  },
+  "jnxUserAAAAccessProfileTable": {
+    "name": "jnxUserAAAAccessProfileTable",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileEntry": {
+    "name": "jnxUserAAAAccessProfileEntry",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USER-AAA-MIB",
+        "object": "jnxUserAAAAccessProfileName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileName": {
+    "name": "jnxUserAAAAccessProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileAuthenticationOrder": {
+    "name": "jnxUserAAAAccessProfileAuthenticationOrder",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileAccountingOrder": {
+    "name": "jnxUserAAAAccessProfileAccountingOrder",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileAuthorizationOrder": {
+    "name": "jnxUserAAAAccessProfileAuthorizationOrder",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileProvisioningOrder": {
+    "name": "jnxUserAAAAccessProfileProvisioningOrder",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileAccStopOnFailure": {
+    "name": "jnxUserAAAAccessProfileAccStopOnFailure",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileAccStopOnDeny": {
+    "name": "jnxUserAAAAccessProfileAccStopOnDeny",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileImmediateUpdate": {
+    "name": "jnxUserAAAAccessProfileImmediateUpdate",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileCoaImmediateUpdate": {
+    "name": "jnxUserAAAAccessProfileCoaImmediateUpdate",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileInterval": {
+    "name": "jnxUserAAAAccessProfileInterval",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserAAAAccessProfileStatType": {
+    "name": "jnxUserAAAAccessProfileStatType",
+    "oid": "1.3.6.1.4.1.2636.3.51.1.1.6.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "time": 0,
+          "volume-time": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-USER-AAA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-USER-AAA-MIB"
+  }
+}

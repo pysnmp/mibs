@@ -1,0 +1,5274 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleVoip": {
+    "name": "sleVoip",
+    "oid": "1.3.6.1.4.1.6296.101.25",
+    "class": "moduleidentity"
+  },
+  "OwnerString": {
+    "name": "OwnerString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    }
+  },
+  "EnableDisableState": {
+    "name": "EnableDisableState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    }
+  },
+  "sleVoipBase": {
+    "name": "sleVoipBase",
+    "oid": "1.3.6.1.4.1.6296.101.25.1",
+    "class": "objectidentity"
+  },
+  "sleVoipBaseInfo": {
+    "name": "sleVoipBaseInfo",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.1",
+    "class": "objectidentity"
+  },
+  "sleVoipInterface": {
+    "name": "sleVoipInterface",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipProtocol": {
+    "name": "sleVoipProtocol",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "sip": 1,
+          "mgcp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipRtcp": {
+    "name": "sleVoipRtcp",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voipRtcpDisable": 0,
+          "voipRtcpEnable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipFaxmode": {
+    "name": "sleVoipFaxmode",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voipFaxmodeT30": 0,
+          "voipFaxmodeT38": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipBaseControl": {
+    "name": "sleVoipBaseControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2",
+    "class": "objectidentity"
+  },
+  "sleVoipBaseControlRequest": {
+    "name": "sleVoipBaseControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setVoipInterface": 1,
+          "setVoipProtocol": 2,
+          "voipRestartStackOnly": 3,
+          "voipRestartAll": 4,
+          "setVoipRtcp": 5,
+          "setVoipFaxmode": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipBaseControlStatus": {
+    "name": "sleVoipBaseControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipBaseControlTimer": {
+    "name": "sleVoipBaseControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipBaseControlTimeStamp": {
+    "name": "sleVoipBaseControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipBaseControlReqResult": {
+    "name": "sleVoipBaseControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipBaseControlInterface": {
+    "name": "sleVoipBaseControlInterface",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipBaseControlProtocol": {
+    "name": "sleVoipBaseControlProtocol",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "sip": 1,
+          "mgcp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipBaseControlRtcp": {
+    "name": "sleVoipBaseControlRtcp",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voipRtcpDisable": 0,
+          "voipRtcpEnable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipBaseControlFaxmode": {
+    "name": "sleVoipBaseControlFaxmode",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voipFaxmodeT30": 0,
+          "voipFaxmodeT38": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipBaseNotification": {
+    "name": "sleVoipBaseNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.3",
+    "class": "objectidentity"
+  },
+  "sleVoipBaseInterfaceChanged": {
+    "name": "sleVoipBaseInterfaceChanged",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipBaseProtocolChanged": {
+    "name": "sleVoipBaseProtocolChanged",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipBaseRestartStackOnly": {
+    "name": "sleVoipBaseRestartStackOnly",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipBaseRestartAll": {
+    "name": "sleVoipBaseRestartAll",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipBaseRtcpChanged": {
+    "name": "sleVoipBaseRtcpChanged",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRtcp"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipBaseFaxmodeChanged": {
+    "name": "sleVoipBaseFaxmodeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.25.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlFaxmode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipVoice": {
+    "name": "sleVoipVoice",
+    "oid": "1.3.6.1.4.1.6296.101.25.2",
+    "class": "objectidentity"
+  },
+  "sleVoipVoiceTable": {
+    "name": "sleVoipVoiceTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipVoiceEntry": {
+    "name": "sleVoipVoiceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipVoiceIndex": {
+    "name": "sleVoipVoiceIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceEncoding": {
+    "name": "sleVoipVoiceEncoding",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 0,
+          "m": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceUserEncoding": {
+    "name": "sleVoipVoiceUserEncoding",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 0,
+          "m": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceComfortNoise": {
+    "name": "sleVoipVoiceComfortNoise",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 0,
+          "off": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceEchoCancel": {
+    "name": "sleVoipVoiceEchoCancel",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoicePacketLoss": {
+    "name": "sleVoipVoicePacketLoss",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceVad": {
+    "name": "sleVoipVoiceVad",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceDSCP": {
+    "name": "sleVoipVoiceDSCP",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceJitter": {
+    "name": "sleVoipVoiceJitter",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceControl": {
+    "name": "sleVoipVoiceControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2",
+    "class": "objectidentity"
+  },
+  "sleVoipVoiceControlRequest": {
+    "name": "sleVoipVoiceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableVoiceVoip": 1,
+          "disableVoiceVoip": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlStatus": {
+    "name": "sleVoipVoiceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceControlTimer": {
+    "name": "sleVoipVoiceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlTimeStamp": {
+    "name": "sleVoipVoiceControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceControlReqResult": {
+    "name": "sleVoipVoiceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipVoiceControlIndex": {
+    "name": "sleVoipVoiceControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlEncoding": {
+    "name": "sleVoipVoiceControlEncoding",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alaw": 0,
+          "mulaw": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlUserEncoding": {
+    "name": "sleVoipVoiceControlUserEncoding",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alaw": 0,
+          "mulaw": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlComfortNoise": {
+    "name": "sleVoipVoiceControlComfortNoise",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 0,
+          "off": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlEchoCancel": {
+    "name": "sleVoipVoiceControlEchoCancel",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlPacketLoss": {
+    "name": "sleVoipVoiceControlPacketLoss",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlVad": {
+    "name": "sleVoipVoiceControlVad",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlDSCP": {
+    "name": "sleVoipVoiceControlDSCP",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipVoiceControlJitter": {
+    "name": "sleVoipVoiceControlJitter",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoiceNotification": {
+    "name": "sleVoiceNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.3",
+    "class": "objectidentity"
+  },
+  "sleVoipVoiceEnabled": {
+    "name": "sleVoipVoiceEnabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlVad"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlDSCP"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlJitter"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlPacketLoss"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlEchoCancel"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlComfortNoise"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlUserEncoding"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlEncoding"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipVoiceDisabled": {
+    "name": "sleVoipVoiceDisabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipSipUser": {
+    "name": "sleVoipSipUser",
+    "oid": "1.3.6.1.4.1.6296.101.25.3",
+    "class": "objectidentity"
+  },
+  "sleVoipSipUserTable": {
+    "name": "sleVoipSipUserTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipSipUserEntry": {
+    "name": "sleVoipSipUserEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipSipUserIndex": {
+    "name": "sleVoipSipUserIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserAgent": {
+    "name": "sleVoipSipUserAgent",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserAOR": {
+    "name": "sleVoipSipUserAOR",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserDisplayName": {
+    "name": "sleVoipSipUserDisplayName",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserUserName": {
+    "name": "sleVoipSipUserUserName",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserPassword": {
+    "name": "sleVoipSipUserPassword",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserControl": {
+    "name": "sleVoipSipUserControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2",
+    "class": "objectidentity"
+  },
+  "sleVoipSipUserControlRequest": {
+    "name": "sleVoipSipUserControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableVoipSipUser": 1,
+          "disableVoipSipUser": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipUserControlStatus": {
+    "name": "sleVoipSipUserControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserControlTimer": {
+    "name": "sleVoipSipUserControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipUserControlTimeStamp": {
+    "name": "sleVoipSipUserControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserControlReqResult": {
+    "name": "sleVoipSipUserControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipUserControlIndex": {
+    "name": "sleVoipSipUserControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipUserControlAgent": {
+    "name": "sleVoipSipUserControlAgent",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipUserControlAOR": {
+    "name": "sleVoipSipUserControlAOR",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipUserControlDisplayName": {
+    "name": "sleVoipSipUserControlDisplayName",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipUserControlUserName": {
+    "name": "sleVoipSipUserControlUserName",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipUserControlPassword": {
+    "name": "sleVoipSipUserControlPassword",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipUserNotification": {
+    "name": "sleVoipSipUserNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.3",
+    "class": "objectidentity"
+  },
+  "sleVoipSipUserEnabled": {
+    "name": "sleVoipSipUserEnabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlAOR"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlDisplayName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlUserName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlPassword"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipSipUserDisabled": {
+    "name": "sleVoipSipUserDisabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipSipAgent": {
+    "name": "sleVoipSipAgent",
+    "oid": "1.3.6.1.4.1.6296.101.25.4",
+    "class": "objectidentity"
+  },
+  "sleVoipSipAgentTable": {
+    "name": "sleVoipSipAgentTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipSipAgentEntry": {
+    "name": "sleVoipSipAgentEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipSipAgentIndex": {
+    "name": "sleVoipSipAgentIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentServer": {
+    "name": "sleVoipSipAgentServer",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentPort": {
+    "name": "sleVoipSipAgentPort",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentTypeOfService": {
+    "name": "sleVoipSipAgentTypeOfService",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentTransport": {
+    "name": "sleVoipSipAgentTransport",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 6,
+          "udp": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentRegistrar": {
+    "name": "sleVoipSipAgentRegistrar",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentPrimary": {
+    "name": "sleVoipSipAgentPrimary",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentSecondary": {
+    "name": "sleVoipSipAgentSecondary",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentProfileName": {
+    "name": "sleVoipSipAgentProfileName",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentExpireTimer": {
+    "name": "sleVoipSipAgentExpireTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 360
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentControl": {
+    "name": "sleVoipSipAgentControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2",
+    "class": "objectidentity"
+  },
+  "sleVoipSipAgentControlRequest": {
+    "name": "sleVoipSipAgentControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableSipAgent": 1,
+          "disableSipAgent": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlStatus": {
+    "name": "sleVoipSipAgentControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlTimer": {
+    "name": "sleVoipSipAgentControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlTimeStamp": {
+    "name": "sleVoipSipAgentControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlReqResult": {
+    "name": "sleVoipSipAgentControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlIndex": {
+    "name": "sleVoipSipAgentControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlServer": {
+    "name": "sleVoipSipAgentControlServer",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlPort": {
+    "name": "sleVoipSipAgentControlPort",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlTypeOfService": {
+    "name": "sleVoipSipAgentControlTypeOfService",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlTransport": {
+    "name": "sleVoipSipAgentControlTransport",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 6,
+          "udp": 17
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlRegistrar": {
+    "name": "sleVoipSipAgentControlRegistrar",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlPrimary": {
+    "name": "sleVoipSipAgentControlPrimary",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlSecondary": {
+    "name": "sleVoipSipAgentControlSecondary",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlProfileName": {
+    "name": "sleVoipSipAgentControlProfileName",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentControlExpireTimer": {
+    "name": "sleVoipSipAgentControlExpireTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 360
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipSipAgentNotification": {
+    "name": "sleVoipSipAgentNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.3",
+    "class": "objectidentity"
+  },
+  "sleVoipSipAgentEnabled": {
+    "name": "sleVoipSipAgentEnabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlServer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlPort"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlTypeOfService"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlTransport"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlRegistrar"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlPrimary"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlSecondary"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlProfileName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlExpireTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipSipAgentDisabled": {
+    "name": "sleVoipSipAgentDisabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.4.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipMgcpEndpoint": {
+    "name": "sleVoipMgcpEndpoint",
+    "oid": "1.3.6.1.4.1.6296.101.25.5",
+    "class": "objectidentity"
+  },
+  "sleVoipMgcpEndpointTable": {
+    "name": "sleVoipMgcpEndpointTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointEntry": {
+    "name": "sleVoipMgcpEndpointEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointIndex": {
+    "name": "sleVoipMgcpEndpointIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointAgent": {
+    "name": "sleVoipMgcpEndpointAgent",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointName": {
+    "name": "sleVoipMgcpEndpointName",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointControl": {
+    "name": "sleVoipMgcpEndpointControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2",
+    "class": "objectidentity"
+  },
+  "sleVoipMgcpEndpointControlRequest": {
+    "name": "sleVoipMgcpEndpointControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableMgcpEndpoint": 1,
+          "disableMgcpEndpoint": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointControlStatus": {
+    "name": "sleVoipMgcpEndpointControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointControlTimer": {
+    "name": "sleVoipMgcpEndpointControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointControlTimeStamp": {
+    "name": "sleVoipMgcpEndpointControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointControlReqResult": {
+    "name": "sleVoipMgcpEndpointControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointControlIndex": {
+    "name": "sleVoipMgcpEndpointControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointControlAgent": {
+    "name": "sleVoipMgcpEndpointControlAgent",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointControlName": {
+    "name": "sleVoipMgcpEndpointControlName",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointNotification": {
+    "name": "sleVoipMgcpEndpointNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.3",
+    "class": "objectidentity"
+  },
+  "sleVoipMgcpEndpointEnabled": {
+    "name": "sleVoipMgcpEndpointEnabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipMgcpEndpointDisabled": {
+    "name": "sleVoipMgcpEndpointDisabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.5.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipMgcpAgent": {
+    "name": "sleVoipMgcpAgent",
+    "oid": "1.3.6.1.4.1.6296.101.25.6",
+    "class": "objectidentity"
+  },
+  "sleVoipMgcpAgentTable": {
+    "name": "sleVoipMgcpAgentTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentEntry": {
+    "name": "sleVoipMgcpAgentEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipMgcpAgentIndex": {
+    "name": "sleVoipMgcpAgentIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpCallAgent": {
+    "name": "sleVoipMgcpCallAgent",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpCallAgentPort": {
+    "name": "sleVoipMgcpCallAgentPort",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentPort": {
+    "name": "sleVoipMgcpAgentPort",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentTOS": {
+    "name": "sleVoipMgcpAgentTOS",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentVendor": {
+    "name": "sleVoipMgcpAgentVendor",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "dssw": 1,
+          "mssw": 2,
+          "g6sw": 3,
+          "cssw": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentDNS": {
+    "name": "sleVoipMgcpAgentDNS",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentProfileName": {
+    "name": "sleVoipMgcpAgentProfileName",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControl": {
+    "name": "sleVoipMgcpAgentControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2",
+    "class": "objectidentity"
+  },
+  "sleVoipMgcpAgentControlRequest": {
+    "name": "sleVoipMgcpAgentControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableVoipMgcpAgent": 1,
+          "disableVoipMgcpAgent": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlStatus": {
+    "name": "sleVoipMgcpAgentControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlTimer": {
+    "name": "sleVoipMgcpAgentControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlTimeStamp": {
+    "name": "sleVoipMgcpAgentControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlReqResult": {
+    "name": "sleVoipMgcpAgentControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlIndex": {
+    "name": "sleVoipMgcpAgentControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlCallAgent": {
+    "name": "sleVoipMgcpAgentControlCallAgent",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlCallAgentPort": {
+    "name": "sleVoipMgcpAgentControlCallAgentPort",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlPort": {
+    "name": "sleVoipMgcpAgentControlPort",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlTOS": {
+    "name": "sleVoipMgcpAgentControlTOS",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlVendor": {
+    "name": "sleVoipMgcpAgentControlVendor",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dssw": 1,
+          "mssw": 2,
+          "g6sw": 3,
+          "cssw": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlDNS": {
+    "name": "sleVoipMgcpAgentControlDNS",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentControlProfileName": {
+    "name": "sleVoipMgcpAgentControlProfileName",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMgcpAgentNotification": {
+    "name": "sleVoipMgcpAgentNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.3",
+    "class": "objectidentity"
+  },
+  "sleVoipMgcpAgentEnabled": {
+    "name": "sleVoipMgcpAgentEnabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlCallAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlPort"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlTOS"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlVendor"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlProfileName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlDNS"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlCallAgentPort"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipMgcpAgentDisabled": {
+    "name": "sleVoipMgcpAgentDisabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.6.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipPots": {
+    "name": "sleVoipPots",
+    "oid": "1.3.6.1.4.1.6296.101.25.7",
+    "class": "objectidentity"
+  },
+  "sleVoipPotsStatusTable": {
+    "name": "sleVoipPotsStatusTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipPotsStatusEntry": {
+    "name": "sleVoipPotsStatusEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipPotsStatusIndex": {
+    "name": "sleVoipPotsStatusIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipPotsStatus": {
+    "name": "sleVoipPotsStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "twoway": 1,
+          "threeway": 2,
+          "fax": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipPotsStatusHookState": {
+    "name": "sleVoipPotsStatusHookState",
+    "oid": "1.3.6.1.4.1.6296.101.25.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 0,
+          "off": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipPotsStatusRegisterState": {
+    "name": "sleVoipPotsStatusRegisterState",
+    "oid": "1.3.6.1.4.1.6296.101.25.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "out": 0,
+          "in": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMediaProfile": {
+    "name": "sleVoipMediaProfile",
+    "oid": "1.3.6.1.4.1.6296.101.25.8",
+    "class": "objectidentity"
+  },
+  "sleVoipMediaProfileTable": {
+    "name": "sleVoipMediaProfileTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipMediaProfileEntry": {
+    "name": "sleVoipMediaProfileEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipMediaProfileIndex": {
+    "name": "sleVoipMediaProfileIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMediaProfileCodecSelection": {
+    "name": "sleVoipMediaProfileCodecSelection",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcmu": 0,
+          "g723": 4,
+          "pcma": 8,
+          "g729": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMediaProfilePacketPeriod": {
+    "name": "sleVoipMediaProfilePacketPeriod",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMediaProfileSilenceSuppression": {
+    "name": "sleVoipMediaProfileSilenceSuppression",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControl": {
+    "name": "sleVoipMediaProfileControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2",
+    "class": "objectidentity"
+  },
+  "sleVoipMediaProfileControlRequest": {
+    "name": "sleVoipMediaProfileControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableVoipMediaProfile": 1,
+          "disableVoipMediaProfile": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControlStatus": {
+    "name": "sleVoipMediaProfileControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControlTimer": {
+    "name": "sleVoipMediaProfileControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControlTimeStamp": {
+    "name": "sleVoipMediaProfileControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControlReqResult": {
+    "name": "sleVoipMediaProfileControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControlIndex": {
+    "name": "sleVoipMediaProfileControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControlCodecSelection": {
+    "name": "sleVoipMediaProfileControlCodecSelection",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcmu": 0,
+          "g723": 4,
+          "pcma": 8,
+          "g729": 18
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControlPacketPeriod": {
+    "name": "sleVoipMediaProfileControlPacketPeriod",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMediaProfileControlSilenceSuppression": {
+    "name": "sleVoipMediaProfileControlSilenceSuppression",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipMediaProfileNotification": {
+    "name": "sleVoipMediaProfileNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.3",
+    "class": "objectidentity"
+  },
+  "sleVoipMediaProfileEnabled": {
+    "name": "sleVoipMediaProfileEnabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlSilenceSuppression"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlCodecSelection"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlPacketPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipMediaProfileDisabled": {
+    "name": "sleVoipMediaProfileDisabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.8.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipRtpProfile": {
+    "name": "sleVoipRtpProfile",
+    "oid": "1.3.6.1.4.1.6296.101.25.9",
+    "class": "objectidentity"
+  },
+  "sleVoipRtpProfileInfo": {
+    "name": "sleVoipRtpProfileInfo",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.1",
+    "class": "objectidentity"
+  },
+  "sleVoipRtpProfilePortMin": {
+    "name": "sleVoipRtpProfilePortMin",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30000,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipRtpProfileDscpMark": {
+    "name": "sleVoipRtpProfileDscpMark",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipRtpProfileOob": {
+    "name": "sleVoipRtpProfileOob",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipRtpProfileDtmfEvent": {
+    "name": "sleVoipRtpProfileDtmfEvent",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControl": {
+    "name": "sleVoipRtpProfileControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2",
+    "class": "objectidentity"
+  },
+  "sleVoipRtpProfileControlRequest": {
+    "name": "sleVoipRtpProfileControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setVoipRtpPortMin": 1,
+          "setVoipRtpDscp": 2,
+          "setVoipRtpOob": 3,
+          "setVoipRtpDtmf": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControlStatus": {
+    "name": "sleVoipRtpProfileControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControlTimer": {
+    "name": "sleVoipRtpProfileControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControlTimeStamp": {
+    "name": "sleVoipRtpProfileControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControlReqResult": {
+    "name": "sleVoipRtpProfileControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControlPortMin": {
+    "name": "sleVoipRtpProfileControlPortMin",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30000,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControlDscpMark": {
+    "name": "sleVoipRtpProfileControlDscpMark",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControlOob": {
+    "name": "sleVoipRtpProfileControlOob",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipRtpProfileControlDtmfEvent": {
+    "name": "sleVoipRtpProfileControlDtmfEvent",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipRtpProfileNotification": {
+    "name": "sleVoipRtpProfileNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.3",
+    "class": "objectidentity"
+  },
+  "sleVoipRtpProfilePortMinChanged": {
+    "name": "sleVoipRtpProfilePortMinChanged",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlPortMin"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipRtpProfileDscpMarkChanged": {
+    "name": "sleVoipRtpProfileDscpMarkChanged",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlDscpMark"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipRtpProfileOobChanged": {
+    "name": "sleVoipRtpProfileOobChanged",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlOob"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipRtpProfileDtmfEventChanged": {
+    "name": "sleVoipRtpProfileDtmfEventChanged",
+    "oid": "1.3.6.1.4.1.6296.101.25.9.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlDtmfEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipTimer": {
+    "name": "sleVoipTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.10",
+    "class": "objectidentity"
+  },
+  "sleVoipTimerTable": {
+    "name": "sleVoipTimerTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipTimerEntry": {
+    "name": "sleVoipTimerEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipTimerIndex": {
+    "name": "sleVoipTimerIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipTimerCriticalTimeout": {
+    "name": "sleVoipTimerCriticalTimeout",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipTimerFirstDigit": {
+    "name": "sleVoipTimerFirstDigit",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10000,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipTimerIntraDigit": {
+    "name": "sleVoipTimerIntraDigit",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipTimerControl": {
+    "name": "sleVoipTimerControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2",
+    "class": "objectidentity"
+  },
+  "sleVoipTimerControlRequest": {
+    "name": "sleVoipTimerControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableVoipTimer": 1,
+          "disableVoipTimer": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipTimerControlStatus": {
+    "name": "sleVoipTimerControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipTimerControlTimer": {
+    "name": "sleVoipTimerControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipTimerControlTimeStamp": {
+    "name": "sleVoipTimerControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipTimerControlReqResult": {
+    "name": "sleVoipTimerControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipTimerControlIndex": {
+    "name": "sleVoipTimerControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipTimerControlCriticalTimeout": {
+    "name": "sleVoipTimerControlCriticalTimeout",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipTimerControlFirstDigit": {
+    "name": "sleVoipTimerControlFirstDigit",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10000,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipTimerControlIntraDigit": {
+    "name": "sleVoipTimerControlIntraDigit",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipTimerNotification": {
+    "name": "sleVoipTimerNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.3",
+    "class": "objectidentity"
+  },
+  "sleVoipTimerEnabled": {
+    "name": "sleVoipTimerEnabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlCriticalTimeout"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlFirstDigit"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlIntraDigit"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipTimerDisabled": {
+    "name": "sleVoipTimerDisabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.10.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipDialPlan": {
+    "name": "sleVoipDialPlan",
+    "oid": "1.3.6.1.4.1.6296.101.25.11",
+    "class": "objectidentity"
+  },
+  "sleVoipDialPlanTable": {
+    "name": "sleVoipDialPlanTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipDialPlanEntry": {
+    "name": "sleVoipDialPlanEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipDialPlanPotStatusIndex": {
+    "name": "sleVoipDialPlanPotStatusIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipDialPlanIndex": {
+    "name": "sleVoipDialPlanIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipDialPlanDigitMap": {
+    "name": "sleVoipDialPlanDigitMap",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipDialPlanControl": {
+    "name": "sleVoipDialPlanControl",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2",
+    "class": "objectidentity"
+  },
+  "sleVoipDialPlanControlRequest": {
+    "name": "sleVoipDialPlanControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableVoipDialPlan": 1,
+          "disableVoipDialPlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipDialPlanControlStatus": {
+    "name": "sleVoipDialPlanControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipDialPlanControlTimer": {
+    "name": "sleVoipDialPlanControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipDialPlanControlTimeStamp": {
+    "name": "sleVoipDialPlanControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipDialPlanControlReqResult": {
+    "name": "sleVoipDialPlanControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipDialPlanControlPotStatusIndex": {
+    "name": "sleVoipDialPlanControlPotStatusIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipDialPlanControlIndex": {
+    "name": "sleVoipDialPlanControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipDialPlanControlDigitMap": {
+    "name": "sleVoipDialPlanControlDigitMap",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleVoipDialPlanNotification": {
+    "name": "sleVoipDialPlanNotification",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.3",
+    "class": "objectidentity"
+  },
+  "sleVoipDialPlanEnabled": {
+    "name": "sleVoipDialPlanEnabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlPotStatusIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlDigitMap"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipDialPlanDisabled": {
+    "name": "sleVoipDialPlanDisabled",
+    "oid": "1.3.6.1.4.1.6296.101.25.11.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipStatistics": {
+    "name": "sleVoipStatistics",
+    "oid": "1.3.6.1.4.1.6296.101.25.12",
+    "class": "objectidentity"
+  },
+  "sleVoipStatisticsTable": {
+    "name": "sleVoipStatisticsTable",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleVoipStatisticsEntry": {
+    "name": "sleVoipStatisticsEntry",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipStatisticsIndex": {
+    "name": "sleVoipStatisticsIndex",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsFormat": {
+    "name": "sleVoipStatisticsFormat",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsCallTimer": {
+    "name": "sleVoipStatisticsCallTimer",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsCurrentPlayoutDelay": {
+    "name": "sleVoipStatisticsCurrentPlayoutDelay",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsMinPlayoutDelay": {
+    "name": "sleVoipStatisticsMinPlayoutDelay",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsMaxPlayoutDelay": {
+    "name": "sleVoipStatisticsMaxPlayoutDelay",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsClockOffset": {
+    "name": "sleVoipStatisticsClockOffset",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsPeakJitter": {
+    "name": "sleVoipStatisticsPeakJitter",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsInterpolativeConcealment": {
+    "name": "sleVoipStatisticsInterpolativeConcealment",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsSilenceConcealment": {
+    "name": "sleVoipStatisticsSilenceConcealment",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsOverflowDiscard": {
+    "name": "sleVoipStatisticsOverflowDiscard",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsEndpointDetectionErrors": {
+    "name": "sleVoipStatisticsEndpointDetectionErrors",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsTxVoicePackets": {
+    "name": "sleVoipStatisticsTxVoicePackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsTxSignalingPackets": {
+    "name": "sleVoipStatisticsTxSignalingPackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsTxComfortNoisePackets": {
+    "name": "sleVoipStatisticsTxComfortNoisePackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsTotalTransmitDuration": {
+    "name": "sleVoipStatisticsTotalTransmitDuration",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsVoiceTransmitDuration": {
+    "name": "sleVoipStatisticsVoiceTransmitDuration",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsRxVoicePackets": {
+    "name": "sleVoipStatisticsRxVoicePackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsRxSignalingPackets": {
+    "name": "sleVoipStatisticsRxSignalingPackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsRxComfortNoisePackets": {
+    "name": "sleVoipStatisticsRxComfortNoisePackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsTotalReceiveDuration": {
+    "name": "sleVoipStatisticsTotalReceiveDuration",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsVoiceReceiveDuration": {
+    "name": "sleVoipStatisticsVoiceReceiveDuration",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsPacketsOutSequence": {
+    "name": "sleVoipStatisticsPacketsOutSequence",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsBadProtocolHeaders": {
+    "name": "sleVoipStatisticsBadProtocolHeaders",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsLatePackets": {
+    "name": "sleVoipStatisticsLatePackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsEarlyPackets": {
+    "name": "sleVoipStatisticsEarlyPackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsRxVoiceOctets": {
+    "name": "sleVoipStatisticsRxVoiceOctets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsLostPackets": {
+    "name": "sleVoipStatisticsLostPackets",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsCurrentTransmitPower": {
+    "name": "sleVoipStatisticsCurrentTransmitPower",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsMeanTransmitPower": {
+    "name": "sleVoipStatisticsMeanTransmitPower",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsCurrentReceivePower": {
+    "name": "sleVoipStatisticsCurrentReceivePower",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsMeanReceivePower": {
+    "name": "sleVoipStatisticsMeanReceivePower",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsBackgroundNoise": {
+    "name": "sleVoipStatisticsBackgroundNoise",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsErlLevel": {
+    "name": "sleVoipStatisticsErlLevel",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsAcomLevel": {
+    "name": "sleVoipStatisticsAcomLevel",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsCurrentTransmitActivity": {
+    "name": "sleVoipStatisticsCurrentTransmitActivity",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipStatisticsCurrentReceiveActivity": {
+    "name": "sleVoipStatisticsCurrentReceiveActivity",
+    "oid": "1.3.6.1.4.1.6296.101.25.12.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleVoipGroup": {
+    "name": "sleVoipGroup",
+    "oid": "1.3.6.1.4.1.6296.101.25.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipProtocol"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceDSCP"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceJitter"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlEncoding"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlUserEncoding"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlComfortNoise"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlEchoCancel"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlPacketLoss"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlVad"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlDSCP"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceControlJitter"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserAOR"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserDisplayName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserUserName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserPassword"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlAOR"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlDisplayName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlUserName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserControlPassword"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentServer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentPort"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentTypeOfService"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentTransport"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentRegistrar"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentPrimary"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentSecondary"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentProfileName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentExpireTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlServer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlPort"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlTypeOfService"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlTransport"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlRegistrar"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlPrimary"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlSecondary"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlProfileName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentControlExpireTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceEncoding"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceUserEncoding"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceComfortNoise"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceEchoCancel"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoicePacketLoss"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceVad"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointControlName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpCallAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentPort"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentTOS"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentVendor"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentDNS"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlCallAgent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlPort"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlTOS"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlVendor"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlDNS"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipPotsStatusIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipInterface"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileCodecSelection"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfilePacketPeriod"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileSilenceSuppression"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlCodecSelection"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlPacketPeriod"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlSilenceSuppression"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfilePortMin"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileDscpMark"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileOob"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileDtmfEvent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlPortMin"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlDscpMark"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlOob"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileControlDtmfEvent"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpCallAgentPort"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlCallAgentPort"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentProfileName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentControlProfileName"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerCriticalTimeout"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerFirstDigit"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerIntraDigit"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlCriticalTimeout"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlFirstDigit"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerControlIntraDigit"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsFormat"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsCallTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsCurrentPlayoutDelay"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsMinPlayoutDelay"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsMaxPlayoutDelay"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsClockOffset"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsPeakJitter"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsInterpolativeConcealment"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsSilenceConcealment"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsOverflowDiscard"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsEndpointDetectionErrors"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsTxVoicePackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsTxSignalingPackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsTxComfortNoisePackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsTotalTransmitDuration"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsVoiceTransmitDuration"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsRxVoicePackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsRxSignalingPackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsRxComfortNoisePackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsTotalReceiveDuration"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsVoiceReceiveDuration"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsPacketsOutSequence"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsBadProtocolHeaders"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsLatePackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsEarlyPackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsRxVoiceOctets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsLostPackets"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsCurrentTransmitPower"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsMeanTransmitPower"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsCurrentReceivePower"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsMeanReceivePower"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsBackgroundNoise"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsErlLevel"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsAcomLevel"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsCurrentTransmitActivity"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipStatisticsCurrentReceiveActivity"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanDigitMap"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlRequest"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlTimer"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlDigitMap"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanPotStatusIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlPotStatusIndex"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipPotsStatusHookState"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipPotsStatusRegisterState"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtcp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipPotsStatus"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlInterface"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlProtocol"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileControlReqResult"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlFaxmode"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipFaxmode"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanControlTimeStamp"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseControlRtcp"
+      }
+    ],
+    "status": "current"
+  },
+  "sleVoipNotificationGroup": {
+    "name": "sleVoipNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.25.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseInterfaceChanged"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseProtocolChanged"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceEnabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipVoiceDisabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserEnabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipUserDisabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentEnabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipSipAgentDisabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointEnabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpEndpointDisabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentEnabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMgcpAgentDisabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileEnabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipMediaProfileDisabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfilePortMinChanged"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileDscpMarkChanged"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileOobChanged"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipRtpProfileDtmfEventChanged"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerEnabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipTimerDisabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanEnabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseRtcpChanged"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseFaxmodeChanged"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipDialPlanDisabled"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseRestartStackOnly"
+      },
+      {
+        "module": "SLE-VOIP-MIB",
+        "object": "sleVoipBaseRestartAll"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-VOIP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-VOIP-MIB"
+  }
+}

@@ -1,0 +1,2261 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cRhw"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowPointer"
+    ]
+  },
+  "hh3cdlsw": {
+    "name": "hh3cdlsw",
+    "oid": "1.3.6.1.4.1.25506.8.37",
+    "class": "moduleidentity"
+  },
+  "MacAddressNC": {
+    "name": "MacAddressNC",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "EndStationLocation": {
+    "name": "EndStationLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "internal": 2,
+          "remote": 3,
+          "local": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DlcType": {
+    "name": "DlcType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "na": 2,
+          "llc": 3,
+          "sdlc": 4,
+          "qllc": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LFSize": {
+    "name": "LFSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lfs516": 516,
+          "lfs1470": 1470,
+          "lfs1500": 1500,
+          "lfs2052": 2052,
+          "lfs4472": 4472,
+          "lfs8144": 8144,
+          "lfs11407": 11407,
+          "lfs11454": 11454,
+          "lfs17800": 17800,
+          "unknown": 65535
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CreateLineFlag": {
+    "name": "CreateLineFlag",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createLine": 1,
+          "deleteLine": 2
+        }
+      }
+    }
+  },
+  "EntryStatus": {
+    "name": "EntryStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "createRequest": 2,
+          "underCreation": 3,
+          "invalid": 4
+        }
+      }
+    }
+  },
+  "hh3cdlswNode": {
+    "name": "hh3cdlswNode",
+    "oid": "1.3.6.1.4.1.25506.8.37.1",
+    "class": "objectidentity"
+  },
+  "hh3cdlswTConn": {
+    "name": "hh3cdlswTConn",
+    "oid": "1.3.6.1.4.1.25506.8.37.2",
+    "class": "objectidentity"
+  },
+  "hh3cdlswBridgeGroup": {
+    "name": "hh3cdlswBridgeGroup",
+    "oid": "1.3.6.1.4.1.25506.8.37.3",
+    "class": "objectidentity"
+  },
+  "hh3cdlswLocDirectory": {
+    "name": "hh3cdlswLocDirectory",
+    "oid": "1.3.6.1.4.1.25506.8.37.4",
+    "class": "objectidentity"
+  },
+  "hh3cdlswCircuit": {
+    "name": "hh3cdlswCircuit",
+    "oid": "1.3.6.1.4.1.25506.8.37.5",
+    "class": "objectidentity"
+  },
+  "hh3cdlswSdlc": {
+    "name": "hh3cdlswSdlc",
+    "oid": "1.3.6.1.4.1.25506.8.37.6",
+    "class": "objectidentity"
+  },
+  "hh3cdlswLlc2": {
+    "name": "hh3cdlswLlc2",
+    "oid": "1.3.6.1.4.1.25506.8.37.7",
+    "class": "objectidentity"
+  },
+  "hh3cdlswNodeVersion": {
+    "name": "hh3cdlswNodeVersion",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswNodeVendorID": {
+    "name": "hh3cdlswNodeVendorID",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswNodeVersionString": {
+    "name": "hh3cdlswNodeVersionString",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswNodeStdPacingSupport": {
+    "name": "hh3cdlswNodeStdPacingSupport",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "adaptiveRcvWindow": 2,
+          "fixedRcvWindow": 3,
+          "unknown": 65535
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswNodeStatus": {
+    "name": "hh3cdlswNodeStatus",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeVirtualSegmentLFSize": {
+    "name": "hh3cdlswNodeVirtualSegmentLFSize",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LFSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "lfs1500",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeLocalAddr": {
+    "name": "hh3cdlswNodeLocalAddr",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodePriority": {
+    "name": "hh3cdlswNodePriority",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeInitWindow": {
+    "name": "hh3cdlswNodeInitWindow",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeKeepAlive": {
+    "name": "hh3cdlswNodeKeepAlive",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeMaxWindow": {
+    "name": "hh3cdlswNodeMaxWindow",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodePermitDynamic": {
+    "name": "hh3cdlswNodePermitDynamic",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit-dynamic": 1,
+          "forbid-dynamic": 2,
+          "unknown": 65535
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forbid-dynamic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeConnTimeout": {
+    "name": "hh3cdlswNodeConnTimeout",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeLocalPendTimeout": {
+    "name": "hh3cdlswNodeLocalPendTimeout",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeRemotePendTimeout": {
+    "name": "hh3cdlswNodeRemotePendTimeout",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswNodeSnaCacheTimeout": {
+    "name": "hh3cdlswNodeSnaCacheTimeout",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerTable": {
+    "name": "hh3cdlswRemotePeerTable",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerEntry": {
+    "name": "hh3cdlswRemotePeerEntry",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswRemotePeerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerAddr": {
+    "name": "hh3cdlswRemotePeerAddr",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerVersion": {
+    "name": "hh3cdlswRemotePeerVersion",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerVendorID": {
+    "name": "hh3cdlswRemotePeerVendorID",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerPaceWindInit": {
+    "name": "hh3cdlswRemotePeerPaceWindInit",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerVersionString": {
+    "name": "hh3cdlswRemotePeerVersionString",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerIsConfig": {
+    "name": "hh3cdlswRemotePeerIsConfig",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerCost": {
+    "name": "hh3cdlswRemotePeerCost",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerKeepAlive": {
+    "name": "hh3cdlswRemotePeerKeepAlive",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerLf": {
+    "name": "hh3cdlswRemotePeerLf",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LFSize",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerTcpQueneMax": {
+    "name": "hh3cdlswRemotePeerTcpQueneMax",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerHaveBackup": {
+    "name": "hh3cdlswRemotePeerHaveBackup",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerIsBackup": {
+    "name": "hh3cdlswRemotePeerIsBackup",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerBackupAddr": {
+    "name": "hh3cdlswRemotePeerBackupAddr",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerLinger": {
+    "name": "hh3cdlswRemotePeerLinger",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerLinkState": {
+    "name": "hh3cdlswRemotePeerLinkState",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connecting": 1,
+          "initCapExchange": 2,
+          "connected": 3,
+          "quiescing": 4,
+          "disconnecting": 5,
+          "disconnected": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerRecvPacks": {
+    "name": "hh3cdlswRemotePeerRecvPacks",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerSendPacks": {
+    "name": "hh3cdlswRemotePeerSendPacks",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerDrops": {
+    "name": "hh3cdlswRemotePeerDrops",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerUptime": {
+    "name": "hh3cdlswRemotePeerUptime",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswRemotePeerEntryStatus": {
+    "name": "hh3cdlswRemotePeerEntryStatus",
+    "oid": "1.3.6.1.4.1.25506.8.37.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswBridgeTable": {
+    "name": "hh3cdlswBridgeTable",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdlswBridgeEntry": {
+    "name": "hh3cdlswBridgeEntry",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswBridgeNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswBridgeNum": {
+    "name": "hh3cdlswBridgeNum",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswBridgeStatus": {
+    "name": "hh3cdlswBridgeStatus",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CreateLineFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswBridgeIfTable": {
+    "name": "hh3cdlswBridgeIfTable",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdlswBridgeIfEntry": {
+    "name": "hh3cdlswBridgeIfEntry",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswBridgeIfBriGru": {
+    "name": "hh3cdlswBridgeIfBriGru",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswBridgeIfName": {
+    "name": "hh3cdlswBridgeIfName",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswBridgeIfStatus": {
+    "name": "hh3cdlswBridgeIfStatus",
+    "oid": "1.3.6.1.4.1.25506.8.37.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLocMacTable": {
+    "name": "hh3cdlswLocMacTable",
+    "oid": "1.3.6.1.4.1.25506.8.37.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdlswLocMacEntry": {
+    "name": "hh3cdlswLocMacEntry",
+    "oid": "1.3.6.1.4.1.25506.8.37.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswLocMacHashIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswLocMacHashIndexSeqNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswLocMacHashIndex": {
+    "name": "hh3cdlswLocMacHashIndex",
+    "oid": "1.3.6.1.4.1.25506.8.37.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswLocMacHashIndexSeqNum": {
+    "name": "hh3cdlswLocMacHashIndexSeqNum",
+    "oid": "1.3.6.1.4.1.25506.8.37.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswLocMacMac": {
+    "name": "hh3cdlswLocMacMac",
+    "oid": "1.3.6.1.4.1.25506.8.37.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswLocMacLocalInterfaceName": {
+    "name": "hh3cdlswLocMacLocalInterfaceName",
+    "oid": "1.3.6.1.4.1.25506.8.37.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitTable": {
+    "name": "hh3cdlswCircuitTable",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdlswCircuitEntry": {
+    "name": "hh3cdlswCircuitEntry",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswCircuitS1CircuitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswCircuitS1CircuitId": {
+    "name": "hh3cdlswCircuitS1CircuitId",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS1Mac": {
+    "name": "hh3cdlswCircuitS1Mac",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS1Sap": {
+    "name": "hh3cdlswCircuitS1Sap",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS2Mac": {
+    "name": "hh3cdlswCircuitS2Mac",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS2Sap": {
+    "name": "hh3cdlswCircuitS2Sap",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS1IfIndex": {
+    "name": "hh3cdlswCircuitS1IfIndex",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS1Ifname": {
+    "name": "hh3cdlswCircuitS1Ifname",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS1DlcType": {
+    "name": "hh3cdlswCircuitS1DlcType",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlcType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS2TAddress": {
+    "name": "hh3cdlswCircuitS2TAddress",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitS2CircuitId": {
+    "name": "hh3cdlswCircuitS2CircuitId",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitOrigin": {
+    "name": "hh3cdlswCircuitOrigin",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s1": 1,
+          "s2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitEntryTime": {
+    "name": "hh3cdlswCircuitEntryTime",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitStateTime": {
+    "name": "hh3cdlswCircuitStateTime",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "hundredths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitState": {
+    "name": "hh3cdlswCircuitState",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "circuitStart": 2,
+          "resolvePending": 3,
+          "circuitPending": 4,
+          "circuitEstablished": 5,
+          "connectPending": 6,
+          "contactPending": 7,
+          "connected": 8,
+          "disconnectPending": 9,
+          "haltPending": 10,
+          "haltPendingNoack": 11,
+          "circuitRestart": 12,
+          "restartPending": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitFCSendGrantedUnits": {
+    "name": "hh3cdlswCircuitFCSendGrantedUnits",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitFCSendCurrentWndw": {
+    "name": "hh3cdlswCircuitFCSendCurrentWndw",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitFCRecvGrantedUnits": {
+    "name": "hh3cdlswCircuitFCRecvGrantedUnits",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswCircuitFCRecvCurrentWndw": {
+    "name": "hh3cdlswCircuitFCRecvCurrentWndw",
+    "oid": "1.3.6.1.4.1.25506.8.37.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortTable": {
+    "name": "hh3cdlswSdlcPortTable",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortEntry": {
+    "name": "hh3cdlswSdlcPortEntry",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortSerialName": {
+    "name": "hh3cdlswSdlcPortSerialName",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortEncap": {
+    "name": "hh3cdlswSdlcPortEncap",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdlc": 1,
+          "ppp": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortRole": {
+    "name": "hh3cdlswSdlcPortRole",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "seconday": 2,
+          "norole": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "norole",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortVmac": {
+    "name": "hh3cdlswSdlcPortVmac",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortHoldq": {
+    "name": "hh3cdlswSdlcPortHoldq",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortK": {
+    "name": "hh3cdlswSdlcPortK",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortModule": {
+    "name": "hh3cdlswSdlcPortModule",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "m8": 8,
+          "m128": 128
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "m8",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortN1": {
+    "name": "hh3cdlswSdlcPortN1",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 17680
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 265,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortN2": {
+    "name": "hh3cdlswSdlcPortN2",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortPollPauseTimer": {
+    "name": "hh3cdlswSdlcPortPollPauseTimer",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortSimultaneousEnable": {
+    "name": "hh3cdlswSdlcPortSimultaneousEnable",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disenable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortT1": {
+    "name": "hh3cdlswSdlcPortT1",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcPortT2": {
+    "name": "hh3cdlswSdlcPortT2",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcLsTable": {
+    "name": "hh3cdlswSdlcLsTable",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdlswSdlcLsEntry": {
+    "name": "hh3cdlswSdlcLsEntry",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswSdlcLsAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswSdlcLsAddress": {
+    "name": "hh3cdlswSdlcLsAddress",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdlswSdlcLsLocalId": {
+    "name": "hh3cdlswSdlcLsLocalId",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcLsRemoteMac": {
+    "name": "hh3cdlswSdlcLsRemoteMac",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddressNC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcLsSsap": {
+    "name": "hh3cdlswSdlcLsSsap",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcLsDsap": {
+    "name": "hh3cdlswSdlcLsDsap",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswSdlcLsStatus": {
+    "name": "hh3cdlswSdlcLsStatus",
+    "oid": "1.3.6.1.4.1.25506.8.37.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLlc2PortTable": {
+    "name": "hh3cdlswLlc2PortTable",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdlswLlc2PortEntry": {
+    "name": "hh3cdlswLlc2PortEntry",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswBridgeIfBriGru",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortAckDelayTime": {
+    "name": "hh3cdlswLLC2PortAckDelayTime",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortAckMax": {
+    "name": "hh3cdlswLLC2PortAckMax",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortLocalWnd": {
+    "name": "hh3cdlswLLC2PortLocalWnd",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortModulus": {
+    "name": "hh3cdlswLLC2PortModulus",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "m8": 8,
+          "m128": 128
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "m128",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortN2": {
+    "name": "hh3cdlswLLC2PortN2",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortT1": {
+    "name": "hh3cdlswLLC2PortT1",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortTbusyTime": {
+    "name": "hh3cdlswLLC2PortTbusyTime",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortTpfTime": {
+    "name": "hh3cdlswLLC2PortTpfTime",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortTrejTime": {
+    "name": "hh3cdlswLLC2PortTrejTime",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswLLC2PortTxqMax": {
+    "name": "hh3cdlswLLC2PortTxqMax",
+    "oid": "1.3.6.1.4.1.25506.8.37.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswTrapControl": {
+    "name": "hh3cdlswTrapControl",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.20",
+    "class": "objectidentity"
+  },
+  "hh3cdlswTrapCntlState": {
+    "name": "hh3cdlswTrapCntlState",
+    "oid": "1.3.6.1.4.1.25506.8.37.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdlswTraps": {
+    "name": "hh3cdlswTraps",
+    "oid": "1.3.6.1.4.1.25506.8.37.8",
+    "class": "objectidentity"
+  },
+  "hh3cdlswTrapsV2": {
+    "name": "hh3cdlswTrapsV2",
+    "oid": "1.3.6.1.4.1.25506.8.37.8.0",
+    "class": "objectidentity"
+  },
+  "hh3cdlswTrapTConnPartnerReject": {
+    "name": "hh3cdlswTrapTConnPartnerReject",
+    "oid": "1.3.6.1.4.1.25506.8.37.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswRemotePeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswTrapTConnChangeState": {
+    "name": "hh3cdlswTrapTConnChangeState",
+    "oid": "1.3.6.1.4.1.25506.8.37.8.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswRemotePeerAddr"
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswRemotePeerLinkState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdlswTrapCircuitChangeState": {
+    "name": "hh3cdlswTrapCircuitChangeState",
+    "oid": "1.3.6.1.4.1.25506.8.37.8.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswCircuitS1CircuitId"
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswCircuitState"
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswCircuitS1Mac"
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswCircuitS1Sap"
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswCircuitS2Mac"
+      },
+      {
+        "module": "HH3C-SNA-DLSW-MIB",
+        "object": "hh3cdlswCircuitS2Sap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SNA-DLSW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-SNA-DLSW-MIB"
+  }
+}

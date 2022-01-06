@@ -1,0 +1,1522 @@
+{
+  "imports": {
+    "class": "imports",
+    "IPV6-TC": [
+      "Ipv6AddressPrefix",
+      "Ipv6AddressIfIdentifier",
+      "Ipv6Address",
+      "Ipv6IfIndex",
+      "Ipv6IfIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer",
+      "TruthValue",
+      "RowPointer",
+      "PhysAddress"
+    ]
+  },
+  "ipv6MIB": {
+    "name": "ipv6MIB",
+    "oid": "1.3.6.1.2.1.55",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-22 00:00",
+        "description": "Obsoleting this MIB module; it has been replaced by the revised IP-MIB (RFC 4293) and IP-FORWARD-MIB (RFC 4292)."
+      },
+      {
+        "revision": "1998-02-05 21:55",
+        "description": "First revision, published as RFC 2465"
+      }
+    ]
+  },
+  "ipv6MIBObjects": {
+    "name": "ipv6MIBObjects",
+    "oid": "1.3.6.1.2.1.55.1",
+    "class": "objectidentity"
+  },
+  "ipv6Forwarding": {
+    "name": "ipv6Forwarding",
+    "oid": "1.3.6.1.2.1.55.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 1,
+          "notForwarding": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipv6DefaultHopLimit": {
+    "name": "ipv6DefaultHopLimit",
+    "oid": "1.3.6.1.2.1.55.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipv6Interfaces": {
+    "name": "ipv6Interfaces",
+    "oid": "1.3.6.1.2.1.55.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfTableLastChange": {
+    "name": "ipv6IfTableLastChange",
+    "oid": "1.3.6.1.2.1.55.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfTable": {
+    "name": "ipv6IfTable",
+    "oid": "1.3.6.1.2.1.55.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6IfEntry": {
+    "name": "ipv6IfEntry",
+    "oid": "1.3.6.1.2.1.55.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ipv6IfIndex": {
+    "name": "ipv6IfIndex",
+    "oid": "1.3.6.1.2.1.55.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6IfDescr": {
+    "name": "ipv6IfDescr",
+    "oid": "1.3.6.1.2.1.55.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipv6IfLowerLayer": {
+    "name": "ipv6IfLowerLayer",
+    "oid": "1.3.6.1.2.1.55.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfEffectiveMtu": {
+    "name": "ipv6IfEffectiveMtu",
+    "oid": "1.3.6.1.2.1.55.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfReasmMaxSize": {
+    "name": "ipv6IfReasmMaxSize",
+    "oid": "1.3.6.1.2.1.55.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfIdentifier": {
+    "name": "ipv6IfIdentifier",
+    "oid": "1.3.6.1.2.1.55.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressIfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipv6IfIdentifierLength": {
+    "name": "ipv6IfIdentifierLength",
+    "oid": "1.3.6.1.2.1.55.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipv6IfPhysicalAddress": {
+    "name": "ipv6IfPhysicalAddress",
+    "oid": "1.3.6.1.2.1.55.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfAdminStatus": {
+    "name": "ipv6IfAdminStatus",
+    "oid": "1.3.6.1.2.1.55.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipv6IfOperStatus": {
+    "name": "ipv6IfOperStatus",
+    "oid": "1.3.6.1.2.1.55.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "noIfIdentifier": 3,
+          "unknown": 4,
+          "notPresent": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfLastChange": {
+    "name": "ipv6IfLastChange",
+    "oid": "1.3.6.1.2.1.55.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsTable": {
+    "name": "ipv6IfStatsTable",
+    "oid": "1.3.6.1.2.1.55.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsEntry": {
+    "name": "ipv6IfStatsEntry",
+    "oid": "1.3.6.1.2.1.55.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ipv6IfStatsEntry",
+      "module": "IPV6-MIB",
+      "object": "ipv6IfEntry"
+    },
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInReceives": {
+    "name": "ipv6IfStatsInReceives",
+    "oid": "1.3.6.1.2.1.55.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInHdrErrors": {
+    "name": "ipv6IfStatsInHdrErrors",
+    "oid": "1.3.6.1.2.1.55.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInTooBigErrors": {
+    "name": "ipv6IfStatsInTooBigErrors",
+    "oid": "1.3.6.1.2.1.55.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInNoRoutes": {
+    "name": "ipv6IfStatsInNoRoutes",
+    "oid": "1.3.6.1.2.1.55.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInAddrErrors": {
+    "name": "ipv6IfStatsInAddrErrors",
+    "oid": "1.3.6.1.2.1.55.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInUnknownProtos": {
+    "name": "ipv6IfStatsInUnknownProtos",
+    "oid": "1.3.6.1.2.1.55.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInTruncatedPkts": {
+    "name": "ipv6IfStatsInTruncatedPkts",
+    "oid": "1.3.6.1.2.1.55.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInDiscards": {
+    "name": "ipv6IfStatsInDiscards",
+    "oid": "1.3.6.1.2.1.55.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInDelivers": {
+    "name": "ipv6IfStatsInDelivers",
+    "oid": "1.3.6.1.2.1.55.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsOutForwDatagrams": {
+    "name": "ipv6IfStatsOutForwDatagrams",
+    "oid": "1.3.6.1.2.1.55.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsOutRequests": {
+    "name": "ipv6IfStatsOutRequests",
+    "oid": "1.3.6.1.2.1.55.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsOutDiscards": {
+    "name": "ipv6IfStatsOutDiscards",
+    "oid": "1.3.6.1.2.1.55.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsOutFragOKs": {
+    "name": "ipv6IfStatsOutFragOKs",
+    "oid": "1.3.6.1.2.1.55.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsOutFragFails": {
+    "name": "ipv6IfStatsOutFragFails",
+    "oid": "1.3.6.1.2.1.55.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsOutFragCreates": {
+    "name": "ipv6IfStatsOutFragCreates",
+    "oid": "1.3.6.1.2.1.55.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsReasmReqds": {
+    "name": "ipv6IfStatsReasmReqds",
+    "oid": "1.3.6.1.2.1.55.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsReasmOKs": {
+    "name": "ipv6IfStatsReasmOKs",
+    "oid": "1.3.6.1.2.1.55.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsReasmFails": {
+    "name": "ipv6IfStatsReasmFails",
+    "oid": "1.3.6.1.2.1.55.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsInMcastPkts": {
+    "name": "ipv6IfStatsInMcastPkts",
+    "oid": "1.3.6.1.2.1.55.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfStatsOutMcastPkts": {
+    "name": "ipv6IfStatsOutMcastPkts",
+    "oid": "1.3.6.1.2.1.55.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6AddrPrefixTable": {
+    "name": "ipv6AddrPrefixTable",
+    "oid": "1.3.6.1.2.1.55.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6AddrPrefixEntry": {
+    "name": "ipv6AddrPrefixEntry",
+    "oid": "1.3.6.1.2.1.55.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrPrefix",
+        "implied": 0
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ipv6AddrPrefix": {
+    "name": "ipv6AddrPrefix",
+    "oid": "1.3.6.1.2.1.55.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6AddrPrefixLength": {
+    "name": "ipv6AddrPrefixLength",
+    "oid": "1.3.6.1.2.1.55.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6AddrPrefixOnLinkFlag": {
+    "name": "ipv6AddrPrefixOnLinkFlag",
+    "oid": "1.3.6.1.2.1.55.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6AddrPrefixAutonomousFlag": {
+    "name": "ipv6AddrPrefixAutonomousFlag",
+    "oid": "1.3.6.1.2.1.55.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6AddrPrefixAdvPreferredLifetime": {
+    "name": "ipv6AddrPrefixAdvPreferredLifetime",
+    "oid": "1.3.6.1.2.1.55.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6AddrPrefixAdvValidLifetime": {
+    "name": "ipv6AddrPrefixAdvValidLifetime",
+    "oid": "1.3.6.1.2.1.55.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6AddrTable": {
+    "name": "ipv6AddrTable",
+    "oid": "1.3.6.1.2.1.55.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6AddrEntry": {
+    "name": "ipv6AddrEntry",
+    "oid": "1.3.6.1.2.1.55.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrAddress",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ipv6AddrAddress": {
+    "name": "ipv6AddrAddress",
+    "oid": "1.3.6.1.2.1.55.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6AddrPfxLength": {
+    "name": "ipv6AddrPfxLength",
+    "oid": "1.3.6.1.2.1.55.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6AddrType": {
+    "name": "ipv6AddrType",
+    "oid": "1.3.6.1.2.1.55.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateless": 1,
+          "stateful": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6AddrAnycastFlag": {
+    "name": "ipv6AddrAnycastFlag",
+    "oid": "1.3.6.1.2.1.55.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6AddrStatus": {
+    "name": "ipv6AddrStatus",
+    "oid": "1.3.6.1.2.1.55.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preferred": 1,
+          "deprecated": 2,
+          "invalid": 3,
+          "inaccessible": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteNumber": {
+    "name": "ipv6RouteNumber",
+    "oid": "1.3.6.1.2.1.55.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6DiscardedRoutes": {
+    "name": "ipv6DiscardedRoutes",
+    "oid": "1.3.6.1.2.1.55.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteTable": {
+    "name": "ipv6RouteTable",
+    "oid": "1.3.6.1.2.1.55.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6RouteEntry": {
+    "name": "ipv6RouteEntry",
+    "oid": "1.3.6.1.2.1.55.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteDest",
+        "implied": 0
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RoutePfxLength",
+        "implied": 0
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ipv6RouteDest": {
+    "name": "ipv6RouteDest",
+    "oid": "1.3.6.1.2.1.55.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6RoutePfxLength": {
+    "name": "ipv6RoutePfxLength",
+    "oid": "1.3.6.1.2.1.55.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6RouteIndex": {
+    "name": "ipv6RouteIndex",
+    "oid": "1.3.6.1.2.1.55.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6RouteIfIndex": {
+    "name": "ipv6RouteIfIndex",
+    "oid": "1.3.6.1.2.1.55.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6IfIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteNextHop": {
+    "name": "ipv6RouteNextHop",
+    "oid": "1.3.6.1.2.1.55.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteType": {
+    "name": "ipv6RouteType",
+    "oid": "1.3.6.1.2.1.55.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "discard": 2,
+          "local": 3,
+          "remote": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteProtocol": {
+    "name": "ipv6RouteProtocol",
+    "oid": "1.3.6.1.2.1.55.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "ndisc": 4,
+          "rip": 5,
+          "ospf": 6,
+          "bgp": 7,
+          "idrp": 8,
+          "igrp": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RoutePolicy": {
+    "name": "ipv6RoutePolicy",
+    "oid": "1.3.6.1.2.1.55.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteAge": {
+    "name": "ipv6RouteAge",
+    "oid": "1.3.6.1.2.1.55.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteNextHopRDI": {
+    "name": "ipv6RouteNextHopRDI",
+    "oid": "1.3.6.1.2.1.55.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteMetric": {
+    "name": "ipv6RouteMetric",
+    "oid": "1.3.6.1.2.1.55.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteWeight": {
+    "name": "ipv6RouteWeight",
+    "oid": "1.3.6.1.2.1.55.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteInfo": {
+    "name": "ipv6RouteInfo",
+    "oid": "1.3.6.1.2.1.55.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6RouteValid": {
+    "name": "ipv6RouteValid",
+    "oid": "1.3.6.1.2.1.55.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipv6NetToMediaTable": {
+    "name": "ipv6NetToMediaTable",
+    "oid": "1.3.6.1.2.1.55.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6NetToMediaEntry": {
+    "name": "ipv6NetToMediaEntry",
+    "oid": "1.3.6.1.2.1.55.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6NetToMediaNetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ipv6NetToMediaNetAddress": {
+    "name": "ipv6NetToMediaNetAddress",
+    "oid": "1.3.6.1.2.1.55.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ipv6NetToMediaPhysAddress": {
+    "name": "ipv6NetToMediaPhysAddress",
+    "oid": "1.3.6.1.2.1.55.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6NetToMediaType": {
+    "name": "ipv6NetToMediaType",
+    "oid": "1.3.6.1.2.1.55.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dynamic": 2,
+          "static": 3,
+          "local": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfNetToMediaState": {
+    "name": "ipv6IfNetToMediaState",
+    "oid": "1.3.6.1.2.1.55.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reachable": 1,
+          "stale": 2,
+          "delay": 3,
+          "probe": 4,
+          "invalid": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6IfNetToMediaLastUpdated": {
+    "name": "ipv6IfNetToMediaLastUpdated",
+    "oid": "1.3.6.1.2.1.55.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ipv6NetToMediaValid": {
+    "name": "ipv6NetToMediaValid",
+    "oid": "1.3.6.1.2.1.55.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "ipv6Notifications": {
+    "name": "ipv6Notifications",
+    "oid": "1.3.6.1.2.1.55.2",
+    "class": "objectidentity"
+  },
+  "ipv6NotificationPrefix": {
+    "name": "ipv6NotificationPrefix",
+    "oid": "1.3.6.1.2.1.55.2.0",
+    "class": "objectidentity"
+  },
+  "ipv6IfStateChange": {
+    "name": "ipv6IfStateChange",
+    "oid": "1.3.6.1.2.1.55.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfDescr"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfOperStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ipv6Conformance": {
+    "name": "ipv6Conformance",
+    "oid": "1.3.6.1.2.1.55.3",
+    "class": "objectidentity"
+  },
+  "ipv6Compliances": {
+    "name": "ipv6Compliances",
+    "oid": "1.3.6.1.2.1.55.3.1",
+    "class": "objectidentity"
+  },
+  "ipv6Groups": {
+    "name": "ipv6Groups",
+    "oid": "1.3.6.1.2.1.55.3.2",
+    "class": "objectidentity"
+  },
+  "ipv6Compliance": {
+    "name": "ipv6Compliance",
+    "oid": "1.3.6.1.2.1.55.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ipv6GeneralGroup",
+        "module": "IPV6-MIB"
+      },
+      {
+        "object": "ipv6NotificationGroup",
+        "module": "IPV6-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ipv6GeneralGroup": {
+    "name": "ipv6GeneralGroup",
+    "oid": "1.3.6.1.2.1.55.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6Forwarding"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6DefaultHopLimit"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6Interfaces"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfTableLastChange"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfDescr"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfLowerLayer"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfEffectiveMtu"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfReasmMaxSize"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIdentifier"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIdentifierLength"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfPhysicalAddress"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfAdminStatus"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfOperStatus"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfLastChange"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInReceives"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInHdrErrors"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInTooBigErrors"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInNoRoutes"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInAddrErrors"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInUnknownProtos"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInTruncatedPkts"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInDiscards"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInDelivers"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsOutForwDatagrams"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsOutRequests"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsOutDiscards"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsOutFragOKs"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsOutFragFails"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsOutFragCreates"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsReasmReqds"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsReasmOKs"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsReasmFails"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsInMcastPkts"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStatsOutMcastPkts"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrPrefixOnLinkFlag"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrPrefixAutonomousFlag"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrPrefixAdvPreferredLifetime"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrPrefixAdvValidLifetime"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrPfxLength"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrType"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrAnycastFlag"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6AddrStatus"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteNumber"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6DiscardedRoutes"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteIfIndex"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteNextHop"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteType"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteProtocol"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RoutePolicy"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteAge"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteNextHopRDI"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteMetric"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteWeight"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteInfo"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6RouteValid"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6NetToMediaPhysAddress"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6NetToMediaType"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfNetToMediaState"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfNetToMediaLastUpdated"
+      },
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6NetToMediaValid"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ipv6NotificationGroup": {
+    "name": "ipv6NotificationGroup",
+    "oid": "1.3.6.1.2.1.55.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfStateChange"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IPV6-MIB"
+  }
+}

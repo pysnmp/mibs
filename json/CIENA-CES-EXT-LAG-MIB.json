@@ -1,0 +1,912 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesExtLagMIB": {
+    "name": "cienaCesExtLagMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-02-13 00:00",
+        "description": "Added Agg's Admin and Oper State MIB Objects to cienaCesExtLagEntry table. The new objects are cienaCesExtAggAdminState and cienaCesExtAggOperState."
+      },
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2016-09-28 00:00",
+        "description": "Added Marker Timeout MIB Objects to cienaCesExtLag table. The new object added is cienaCesExtAggMarkerTimeout."
+      },
+      {
+        "revision": "2016-09-16 00:00",
+        "description": "Added Notification MIB Objects to cienaCesNotifications table. The new object added is cienaCesExtLagMclagStateChange."
+      },
+      {
+        "revision": "2016-09-14 00:00",
+        "description": "Added Minimum Link Agg MIB Objects to cienaCesExtLagEntry table. The new objects are cienaCesExtAggMinimumLinkAggregation and cienaCesExtAggMinimumLinkThreshold."
+      },
+      {
+        "revision": "2016-09-07 00:00",
+        "description": "Added MC-LAG related MIB objects to cienaCesExtLagEntry table. The new objects are cienaCesExtLagProtectionMode, cienaCesExtAggICL, cienaCesExtAggRole, cienaCesExtAggRgNodeId, cienaCesExtAggRgDynamicPriority, cienaCesExtAggRgOperKey, cienaCesExtAggRedundancyState, cienaCesExtAggConnectState, cienaCesExtAggRgMismatchStatus, cienaCesExtAggPeerSystemMac, cienaCesExtAggPeerRgNodeId, cienaCesExtAggPeerRgDynamicPriority, cienaCesExtAggPeerRgOperKey, cienaCesExtAggPeerRgNumAddedPorts, cienaCesExtAggPeerRgNumAvailablePorts, cienaCesExtAggDisconnectRx, cienaCesExtAggDisconnectTx, cienaCesExtAggConfigMismatchRx, cienaCesExtAggKeyMismatchCount, cienaCesExtAggOutOfSequenceRx, cienaCesExtAggPeerUnreachableCount, cienaCesExtAggUnknownRx, cienaCesExtAggTotalRx, cienaCesExtAggTotalTx, cienaCesExtAggTotalDownTime, cienaCesExtAggUpTime, cienaCesExtAggTimeInProtectState, cienaCesExtAggLastTimeProtected, cienaCesExtAggNumberOfSwitchovers, cienaCesExtAggMultiChassis."
+      },
+      {
+        "revision": "2016-08-10 00:00",
+        "description": "Added total number of member ports related MIB Objects to cienaCesExtLagEntry table. The new objects are cienaCesExtAggTotalAddedPorts and cienaCesExtAggTotalProtectionPorts."
+      }
+    ]
+  },
+  "cienaCesExtLagMIBObjects": {
+    "name": "cienaCesExtLagMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesExtLag": {
+    "name": "cienaCesExtLag",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesExtLagMIBConformance": {
+    "name": "cienaCesExtLagMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesExtLagMIBCompliances": {
+    "name": "cienaCesExtLagMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "cienaCesExtLagMIBGroups": {
+    "name": "cienaCesExtLagMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "cienaCesExtLagMIBNotificationPrefix": {
+    "name": "cienaCesExtLagMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.21",
+    "class": "objectidentity"
+  },
+  "cienaCesExtLagMIBNotifications": {
+    "name": "cienaCesExtLagMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.21.0",
+    "class": "objectidentity"
+  },
+  "cienaCesMaxLags": {
+    "name": "cienaCesMaxLags",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesNumLags": {
+    "name": "cienaCesNumLags",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtLagTable": {
+    "name": "cienaCesExtLagTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesExtLagEntry": {
+    "name": "cienaCesExtLagEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-EXT-LAG-MIB",
+        "object": "cienaCesExtAggId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesExtAggId": {
+    "name": "cienaCesExtAggId",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggName": {
+    "name": "cienaCesExtAggName",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggIndex": {
+    "name": "cienaCesExtAggIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggMode": {
+    "name": "cienaCesExtAggMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lacp": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtLagProtectionRevertState": {
+    "name": "cienaCesExtLagProtectionRevertState",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtLagProtectionRevertTimer": {
+    "name": "cienaCesExtLagProtectionRevertTimer",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggTotalAddedPorts": {
+    "name": "cienaCesExtAggTotalAddedPorts",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggTotalProtectionPorts": {
+    "name": "cienaCesExtAggTotalProtectionPorts",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtLagProtectionMode": {
+    "name": "cienaCesExtLagProtectionMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "proprietary": 1,
+          "standard": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggICL": {
+    "name": "cienaCesExtAggICL",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggRole": {
+    "name": "cienaCesExtAggRole",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "backup": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggRgNodeId": {
+    "name": "cienaCesExtAggRgNodeId",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggRgDynamicPriority": {
+    "name": "cienaCesExtAggRgDynamicPriority",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggRgOperKey": {
+    "name": "cienaCesExtAggRgOperKey",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggRedundancyState": {
+    "name": "cienaCesExtAggRedundancyState",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "unavailable": 2,
+          "active": 3,
+          "standby": 4,
+          "standalone": 5,
+          "none": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggConnectState": {
+    "name": "cienaCesExtAggConnectState",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "disconnected": 2,
+          "connected": 3,
+          "mismatch": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggRgMismatchStatus": {
+    "name": "cienaCesExtAggRgMismatchStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "rgpeer": 2,
+          "partner": 3,
+          "version": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggPeerSystemMac": {
+    "name": "cienaCesExtAggPeerSystemMac",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggPeerRgNodeId": {
+    "name": "cienaCesExtAggPeerRgNodeId",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggPeerRgDynamicPriority": {
+    "name": "cienaCesExtAggPeerRgDynamicPriority",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggPeerRgOperKey": {
+    "name": "cienaCesExtAggPeerRgOperKey",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggPeerRgNumAddedPorts": {
+    "name": "cienaCesExtAggPeerRgNumAddedPorts",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggPeerRgNumAvailablePorts": {
+    "name": "cienaCesExtAggPeerRgNumAvailablePorts",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggDisconnectRx": {
+    "name": "cienaCesExtAggDisconnectRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggDisconnectTx": {
+    "name": "cienaCesExtAggDisconnectTx",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggConfigMismatchRx": {
+    "name": "cienaCesExtAggConfigMismatchRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggKeyMismatchCount": {
+    "name": "cienaCesExtAggKeyMismatchCount",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggOutOfSequenceRx": {
+    "name": "cienaCesExtAggOutOfSequenceRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggPeerUnreachableCount": {
+    "name": "cienaCesExtAggPeerUnreachableCount",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggUnknownRx": {
+    "name": "cienaCesExtAggUnknownRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggTotalRx": {
+    "name": "cienaCesExtAggTotalRx",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggTotalTx": {
+    "name": "cienaCesExtAggTotalTx",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggTotalDownTime": {
+    "name": "cienaCesExtAggTotalDownTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggUpTime": {
+    "name": "cienaCesExtAggUpTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggTimeInProtectState": {
+    "name": "cienaCesExtAggTimeInProtectState",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggLastTimeProtected": {
+    "name": "cienaCesExtAggLastTimeProtected",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggNumberOfSwitchovers": {
+    "name": "cienaCesExtAggNumberOfSwitchovers",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggMultiChassis": {
+    "name": "cienaCesExtAggMultiChassis",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggMinimumLinkAggregation": {
+    "name": "cienaCesExtAggMinimumLinkAggregation",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggMinimumLinkThreshold": {
+    "name": "cienaCesExtAggMinimumLinkThreshold",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggAdminState": {
+    "name": "cienaCesExtAggAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggOperState": {
+    "name": "cienaCesExtAggOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLagProtectionTable": {
+    "name": "cienaCesLagProtectionTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesLagProtectionEntry": {
+    "name": "cienaCesLagProtectionEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-EXT-LAG-MIB",
+        "object": "cienaCesExtAggId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-EXT-LAG-MIB",
+        "object": "cienaCesLagProtectionPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesLagProtectionPort": {
+    "name": "cienaCesLagProtectionPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtAggMarkerTimeout": {
+    "name": "cienaCesExtAggMarkerTimeout",
+    "oid": "1.3.6.1.4.1.1271.2.1.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "msec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesExtLagMclagStateChange": {
+    "name": "cienaCesExtLagMclagStateChange",
+    "oid": "1.3.6.1.4.1.1271.2.2.21.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-EXT-LAG-MIB",
+        "object": "cienaCesExtAggIndex"
+      },
+      {
+        "module": "CIENA-CES-EXT-LAG-MIB",
+        "object": "cienaCesExtAggRedundancyState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-EXT-LAG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-EXT-LAG-MIB"
+  }
+}

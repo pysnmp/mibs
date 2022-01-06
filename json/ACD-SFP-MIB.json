@@ -1,0 +1,1603 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACCEDIAN-SMI": [
+      "acdMibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ]
+  },
+  "acdSfp": {
+    "name": "acdSfp",
+    "oid": "1.3.6.1.4.1.22420.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-10 01:00",
+        "description": "Add compliance section."
+      },
+      {
+        "revision": "2008-04-22 01:00",
+        "description": "Add acdSfpInfoIdType, acdSfpInfoExtIdType and acdSfpInfoTransCode support."
+      },
+      {
+        "revision": "2006-08-06 01:00",
+        "description": "Initial version of MIB module ACD-SFP-MIB."
+      }
+    ]
+  },
+  "acdSfpNotifications": {
+    "name": "acdSfpNotifications",
+    "oid": "1.3.6.1.4.1.22420.2.4.5",
+    "class": "objectidentity"
+  },
+  "acdSfpMIBObjects": {
+    "name": "acdSfpMIBObjects",
+    "oid": "1.3.6.1.4.1.22420.2.4.6",
+    "class": "objectidentity"
+  },
+  "acdSfpConformance": {
+    "name": "acdSfpConformance",
+    "oid": "1.3.6.1.4.1.22420.2.4.7",
+    "class": "objectidentity"
+  },
+  "acdSfpInfoTable": {
+    "name": "acdSfpInfoTable",
+    "oid": "1.3.6.1.4.1.22420.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSfpInfoEntry": {
+    "name": "acdSfpInfoEntry",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdSfpInfoID": {
+    "name": "acdSfpInfoID",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSfpInfoConnIdx": {
+    "name": "acdSfpInfoConnIdx",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoConnType": {
+    "name": "acdSfpInfoConnType",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sfpSC": 1,
+          "sfpFC1COPPER": 2,
+          "sfpFC2COPPER": 3,
+          "sfpBNC": 4,
+          "sfpFCCOAX": 5,
+          "sfpFIBERJACK": 6,
+          "sfpLC": 7,
+          "sfpMTRJ": 8,
+          "sfpMU": 9,
+          "sfpSG": 10,
+          "sfpPIGTAIL": 11,
+          "sfpHSSDCII": 32,
+          "sfpCOPPERPIGTAIL": 33
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoVendor": {
+    "name": "acdSfpInfoVendor",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoVendorOui": {
+    "name": "acdSfpInfoVendorOui",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoVendorPn": {
+    "name": "acdSfpInfoVendorPn",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoVendorRev": {
+    "name": "acdSfpInfoVendorRev",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoWavelength": {
+    "name": "acdSfpInfoWavelength",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoSerialNum": {
+    "name": "acdSfpInfoSerialNum",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoYear": {
+    "name": "acdSfpInfoYear",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoMonth": {
+    "name": "acdSfpInfoMonth",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoDay": {
+    "name": "acdSfpInfoDay",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoLot": {
+    "name": "acdSfpInfoLot",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoRev8472": {
+    "name": "acdSfpInfoRev8472",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "rev93": 1,
+          "rev94": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoPresent": {
+    "name": "acdSfpInfoPresent",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoDiag": {
+    "name": "acdSfpInfoDiag",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoInternal": {
+    "name": "acdSfpInfoInternal",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoAlm": {
+    "name": "acdSfpInfoAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoIdType": {
+    "name": "acdSfpInfoIdType",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoExtIdType": {
+    "name": "acdSfpInfoExtIdType",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpInfoTransCode": {
+    "name": "acdSfpInfoTransCode",
+    "oid": "1.3.6.1.4.1.22420.2.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpDiagTable": {
+    "name": "acdSfpDiagTable",
+    "oid": "1.3.6.1.4.1.22420.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSfpDiagEntry": {
+    "name": "acdSfpDiagEntry",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdSfpDiagID": {
+    "name": "acdSfpDiagID",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSfpDiagConnIdx": {
+    "name": "acdSfpDiagConnIdx",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpDiagTemp": {
+    "name": "acdSfpDiagTemp",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpDiagVcc": {
+    "name": "acdSfpDiagVcc",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpDiagLbc": {
+    "name": "acdSfpDiagLbc",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpDiagTxPwr": {
+    "name": "acdSfpDiagTxPwr",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpDiagRxPwr": {
+    "name": "acdSfpDiagRxPwr",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpDiagTxPwrdBm": {
+    "name": "acdSfpDiagTxPwrdBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpDiagRxPwrdBm": {
+    "name": "acdSfpDiagRxPwrdBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTable": {
+    "name": "acdSfpThreshTable",
+    "oid": "1.3.6.1.4.1.22420.2.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSfpThreshEntry": {
+    "name": "acdSfpThreshEntry",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdSfpThreshID": {
+    "name": "acdSfpThreshID",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSfpThreshConnIdx": {
+    "name": "acdSfpThreshConnIdx",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTempHighAlm": {
+    "name": "acdSfpThreshTempHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTempLowAlm": {
+    "name": "acdSfpThreshTempLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTempHighWarn": {
+    "name": "acdSfpThreshTempHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTempLowWarn": {
+    "name": "acdSfpThreshTempLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshVccHighAlm": {
+    "name": "acdSfpThreshVccHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshVccLowAlm": {
+    "name": "acdSfpThreshVccLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshVccHighWarn": {
+    "name": "acdSfpThreshVccHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshVccLowWarn": {
+    "name": "acdSfpThreshVccLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshLbcHighAlm": {
+    "name": "acdSfpThreshLbcHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshLbcLowAlm": {
+    "name": "acdSfpThreshLbcLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshLbcHighWarn": {
+    "name": "acdSfpThreshLbcHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshLbcLowWarn": {
+    "name": "acdSfpThreshLbcLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTxPwrHighAlm": {
+    "name": "acdSfpThreshTxPwrHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTxPwrLowAlm": {
+    "name": "acdSfpThreshTxPwrLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTxPwrHighWarn": {
+    "name": "acdSfpThreshTxPwrHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTxPwrLowWarn": {
+    "name": "acdSfpThreshTxPwrLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshRxPwrHighAlm": {
+    "name": "acdSfpThreshRxPwrHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshRxPwrLowAlm": {
+    "name": "acdSfpThreshRxPwrLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshRxPwrHighWarn": {
+    "name": "acdSfpThreshRxPwrHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshRxPwrLowWarn": {
+    "name": "acdSfpThreshRxPwrLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTxPwrHighAlmdBm": {
+    "name": "acdSfpThreshTxPwrHighAlmdBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTxPwrLowAlmdBm": {
+    "name": "acdSfpThreshTxPwrLowAlmdBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTxPwrHighWarndBm": {
+    "name": "acdSfpThreshTxPwrHighWarndBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshTxPwrLowWarndBm": {
+    "name": "acdSfpThreshTxPwrLowWarndBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshRxPwrHighAlmdBm": {
+    "name": "acdSfpThreshRxPwrHighAlmdBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshRxPwrLowAlmdBm": {
+    "name": "acdSfpThreshRxPwrLowAlmdBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshRxPwrHighWarndBm": {
+    "name": "acdSfpThreshRxPwrHighWarndBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshRxPwrLowWarndBm": {
+    "name": "acdSfpThreshRxPwrLowWarndBm",
+    "oid": "1.3.6.1.4.1.22420.2.4.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTable": {
+    "name": "acdSfpThreshStatusTable",
+    "oid": "1.3.6.1.4.1.22420.2.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSfpThreshStatusEntry": {
+    "name": "acdSfpThreshStatusEntry",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdSfpThreshStatusID": {
+    "name": "acdSfpThreshStatusID",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSfpThreshStatusConnIdx": {
+    "name": "acdSfpThreshStatusConnIdx",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTempHighAlm": {
+    "name": "acdSfpThreshStatusTempHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTempLowAlm": {
+    "name": "acdSfpThreshStatusTempLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTempHighWarn": {
+    "name": "acdSfpThreshStatusTempHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTempLowWarn": {
+    "name": "acdSfpThreshStatusTempLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusVccHighAlm": {
+    "name": "acdSfpThreshStatusVccHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusVccLowAlm": {
+    "name": "acdSfpThreshStatusVccLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusVccHighWarn": {
+    "name": "acdSfpThreshStatusVccHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusVccLowWarn": {
+    "name": "acdSfpThreshStatusVccLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusLbcHighAlm": {
+    "name": "acdSfpThreshStatusLbcHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusLbcLowAlm": {
+    "name": "acdSfpThreshStatusLbcLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusLbcHighWarn": {
+    "name": "acdSfpThreshStatusLbcHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusLbcLowWarn": {
+    "name": "acdSfpThreshStatusLbcLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTxPwrHighAlm": {
+    "name": "acdSfpThreshStatusTxPwrHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTxPwrLowAlm": {
+    "name": "acdSfpThreshStatusTxPwrLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTxPwrHighWarn": {
+    "name": "acdSfpThreshStatusTxPwrHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusTxPwrLowWarn": {
+    "name": "acdSfpThreshStatusTxPwrLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusRxPwrHighAlm": {
+    "name": "acdSfpThreshStatusRxPwrHighAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusRxPwrLowAlm": {
+    "name": "acdSfpThreshStatusRxPwrLowAlm",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusRxPwrHighWarn": {
+    "name": "acdSfpThreshStatusRxPwrHighWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpThreshStatusRxPwrLowWarn": {
+    "name": "acdSfpThreshStatusRxPwrLowWarn",
+    "oid": "1.3.6.1.4.1.22420.2.4.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdSfpCompliances": {
+    "name": "acdSfpCompliances",
+    "oid": "1.3.6.1.4.1.22420.2.4.7.1",
+    "class": "objectidentity"
+  },
+  "acdSfpGroups": {
+    "name": "acdSfpGroups",
+    "oid": "1.3.6.1.4.1.22420.2.4.7.2",
+    "class": "objectidentity"
+  },
+  "acdSfpInfoGroup": {
+    "name": "acdSfpInfoGroup",
+    "oid": "1.3.6.1.4.1.22420.2.4.7.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoConnIdx"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoConnType"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoVendor"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoVendorOui"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoVendorPn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoVendorRev"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoWavelength"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoSerialNum"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoYear"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoMonth"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoDay"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoLot"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoRev8472"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoPresent"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoDiag"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoInternal"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoIdType"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoExtIdType"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpInfoTransCode"
+      }
+    ],
+    "status": "current"
+  },
+  "acdSfpDiagGroup": {
+    "name": "acdSfpDiagGroup",
+    "oid": "1.3.6.1.4.1.22420.2.4.7.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagConnIdx"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagTemp"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagVcc"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagLbc"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagTxPwr"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagRxPwr"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagTxPwrdBm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpDiagRxPwrdBm"
+      }
+    ],
+    "status": "current"
+  },
+  "acdSfpThreshGroup": {
+    "name": "acdSfpThreshGroup",
+    "oid": "1.3.6.1.4.1.22420.2.4.7.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshConnIdx"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTempHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTempLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTempHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTempLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshVccHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshVccLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshVccHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshVccLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshLbcHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshLbcLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshLbcHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshLbcLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTxPwrHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTxPwrLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTxPwrHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTxPwrLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshRxPwrHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshRxPwrLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshRxPwrHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshRxPwrLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTxPwrHighAlmdBm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTxPwrLowAlmdBm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTxPwrHighWarndBm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshTxPwrLowWarndBm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshRxPwrHighAlmdBm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshRxPwrLowAlmdBm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshRxPwrHighWarndBm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshRxPwrLowWarndBm"
+      }
+    ],
+    "status": "current"
+  },
+  "acdSfpThreshStatusGroup": {
+    "name": "acdSfpThreshStatusGroup",
+    "oid": "1.3.6.1.4.1.22420.2.4.7.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusConnIdx"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusTempHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusTempLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusTempHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusTempLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusVccHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusVccLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusVccHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusVccLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusLbcHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusLbcLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusLbcHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusLbcLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusTxPwrHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusTxPwrLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusTxPwrHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusTxPwrLowWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusRxPwrHighAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusRxPwrLowAlm"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusRxPwrHighWarn"
+      },
+      {
+        "module": "ACD-SFP-MIB",
+        "object": "acdSfpThreshStatusRxPwrLowWarn"
+      }
+    ],
+    "status": "current"
+  },
+  "acdSfpCompliance": {
+    "name": "acdSfpCompliance",
+    "oid": "1.3.6.1.4.1.22420.2.4.7.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "acdSfpInfoGroup",
+        "module": "ACD-SFP-MIB"
+      },
+      {
+        "object": "acdSfpDiagGroup",
+        "module": "ACD-SFP-MIB"
+      },
+      {
+        "object": "acdSfpThreshGroup",
+        "module": "ACD-SFP-MIB"
+      },
+      {
+        "object": "acdSfpThreshStatusGroup",
+        "module": "ACD-SFP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-SFP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:03 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ACD-SFP-MIB"
+  }
+}

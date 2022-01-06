@@ -1,0 +1,546 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "sysinfo"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "license": {
+    "name": "license",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-04-29 00:00",
+        "description": "Added more descriptions to the baseLicenseStackId and licenseStackId"
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
+      },
+      {
+        "revision": "2010-08-30 00:00",
+        "description": "Added support for adding or deleting a license to/from all devices in a stack, using a single operation."
+      },
+      {
+        "revision": "2010-06-14 05:09",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2008-11-10 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "baseLicenseTable": {
+    "name": "baseLicenseTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "baseLicenseEntry": {
+    "name": "baseLicenseEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-LICENSE-MIB",
+        "object": "baseLicenseStackId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "baseLicenseStackId": {
+    "name": "baseLicenseStackId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "baseLicenseName": {
+    "name": "baseLicenseName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "baseLicenseQuantity": {
+    "name": "baseLicenseQuantity",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "baseLicenseType": {
+    "name": "baseLicenseType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "baseLicenseIssueDate": {
+    "name": "baseLicenseIssueDate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "baseLicenseExpiryDate": {
+    "name": "baseLicenseExpiryDate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "baseLicenseFeatures": {
+    "name": "baseLicenseFeatures",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseTable": {
+    "name": "licenseTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "licenseEntry": {
+    "name": "licenseEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-LICENSE-MIB",
+        "object": "licenseStackId",
+        "implied": 0
+      },
+      {
+        "module": "AT-LICENSE-MIB",
+        "object": "licenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "licenseStackId": {
+    "name": "licenseStackId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "licenseIndex": {
+    "name": "licenseIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "licenseName": {
+    "name": "licenseName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseCustomer": {
+    "name": "licenseCustomer",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseQuantity": {
+    "name": "licenseQuantity",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseType": {
+    "name": "licenseType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseIssueDate": {
+    "name": "licenseIssueDate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseExpiryDate": {
+    "name": "licenseExpiryDate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseFeatures": {
+    "name": "licenseFeatures",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseRowStatus": {
+    "name": "licenseRowStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "licenseFeatureTable": {
+    "name": "licenseFeatureTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "licenseFeatureEntry": {
+    "name": "licenseFeatureEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-LICENSE-MIB",
+        "object": "licenseFeatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "licenseFeatureIndex": {
+    "name": "licenseFeatureIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "licenseFeatureName": {
+    "name": "licenseFeatureName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseFeatureStkMembers": {
+    "name": "licenseFeatureStkMembers",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseNew": {
+    "name": "licenseNew",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.4",
+    "class": "objectidentity"
+  },
+  "licenseNewStackId": {
+    "name": "licenseNewStackId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "licenseNewName": {
+    "name": "licenseNewName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "licenseNewKey": {
+    "name": "licenseNewKey",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "licenseNewInstall": {
+    "name": "licenseNewInstall",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "licenseNewInstallStatus": {
+    "name": "licenseNewInstallStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "processing": 2,
+          "success": 3,
+          "failure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseStackRemove": {
+    "name": "licenseStackRemove",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.5",
+    "class": "objectidentity"
+  },
+  "licenseStackRemoveName": {
+    "name": "licenseStackRemoveName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "licenseStackRemoveExecute": {
+    "name": "licenseStackRemoveExecute",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "licenseStackRemoveStatus": {
+    "name": "licenseStackRemoveStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.22.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "processing": 2,
+          "success": 3,
+          "failure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-LICENSE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-LICENSE-MIB"
+  }
+}

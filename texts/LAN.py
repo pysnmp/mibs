@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module LAN (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/LAN
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:05:48 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:46:31 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Unsigned32, NotificationType, IpAddress, iso, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, ModuleIdentity, MibIdentifier, enterprises, ObjectIdentity, Integer32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "IpAddress", "iso", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "ModuleIdentity", "MibIdentifier", "enterprises", "ObjectIdentity", "Integer32", "TimeTicks")
-DisplayString, TruthValue, TextualConvention, RowStatus, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention", "RowStatus", "MacAddress")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+TimeTicks, ModuleIdentity, enterprises, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, Counter64, Counter32, NotificationType, ObjectIdentity, Gauge32, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ModuleIdentity", "enterprises", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "Counter64", "Counter32", "NotificationType", "ObjectIdentity", "Gauge32", "IpAddress", "Integer32")
+TextualConvention, MacAddress, RowStatus, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "MacAddress", "RowStatus", "TruthValue", "DisplayString")
 peplink = MibIdentifier((1, 3, 6, 1, 4, 1, 23695))
 productMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200))
 generalMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200, 1))
@@ -36,4 +36,4 @@ if mibBuilder.loadTexts: lanSubnetMask.setDescription('LAN subnet mask.')
 lanSpeed = MibScalar((1, 3, 6, 1, 4, 1, 23695, 200, 1, 3, 1, 1, 3), PortSpeedType()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: lanSpeed.setStatus('current')
 if mibBuilder.loadTexts: lanSpeed.setDescription('LAN speed status (Auto/10baseT-FD/\n\t\t\t\t\t\t10baseT-HD/100baseTx-FD/100baseTx-HD/1000baseTx-FD/\n\t\t\t\t\t\t1000baseTx-HD.')
-mibBuilder.exportSymbols("LAN", PYSNMP_MODULE_ID=lanInfo, lanStatus=lanStatus, lanSpeed=lanSpeed, lanMib=lanMib, peplink=peplink, lanSubnetMask=lanSubnetMask, PortSpeedType=PortSpeedType, lanIp=lanIp, lanInfo=lanInfo, productMib=productMib, generalMib=generalMib)
+mibBuilder.exportSymbols("LAN", lanMib=lanMib, peplink=peplink, PortSpeedType=PortSpeedType, lanStatus=lanStatus, lanSubnetMask=lanSubnetMask, lanInfo=lanInfo, PYSNMP_MODULE_ID=lanInfo, productMib=productMib, lanIp=lanIp, lanSpeed=lanSpeed, generalMib=generalMib)

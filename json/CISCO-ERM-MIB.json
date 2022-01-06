@@ -1,0 +1,2891 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoErmMIB": {
+    "name": "ciscoErmMIB",
+    "oid": "1.3.6.1.4.1.9.9.510",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-11 00:00",
+        "description": "Initial version of Cisco ERM MIB module."
+      }
+    ]
+  },
+  "ciscoErmMIBNotifs": {
+    "name": "ciscoErmMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.510.0",
+    "class": "objectidentity"
+  },
+  "ciscoErmMIBObjects": {
+    "name": "ciscoErmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.510.1",
+    "class": "objectidentity"
+  },
+  "ciscoErmMIBConform": {
+    "name": "ciscoErmMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.510.2",
+    "class": "objectidentity"
+  },
+  "cermScalars": {
+    "name": "cermScalars",
+    "oid": "1.3.6.1.4.1.9.9.510.1.1",
+    "class": "objectidentity"
+  },
+  "cermStats": {
+    "name": "cermStats",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2",
+    "class": "objectidentity"
+  },
+  "cermConfig": {
+    "name": "cermConfig",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3",
+    "class": "objectidentity"
+  },
+  "cermNotifObjects": {
+    "name": "cermNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.510.1.4",
+    "class": "objectidentity"
+  },
+  "cermNotifControlObjects": {
+    "name": "cermNotifControlObjects",
+    "oid": "1.3.6.1.4.1.9.9.510.1.5",
+    "class": "objectidentity"
+  },
+  "CermSubEntityId": {
+    "name": "CermSubEntityId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermUserTypeId": {
+    "name": "CermUserTypeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermUserTypeIdOrZero": {
+    "name": "CermUserTypeIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermUserId": {
+    "name": "CermUserId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermUserIdOrZero": {
+    "name": "CermUserIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermGroupId": {
+    "name": "CermGroupId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermOwnerId": {
+    "name": "CermOwnerId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermOwnerIdOrZero": {
+    "name": "CermOwnerIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermMonitorId": {
+    "name": "CermMonitorId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermUserOrGroup": {
+    "name": "CermUserOrGroup",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "group": 1,
+          "user": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CermResUsagePct": {
+    "name": "CermResUsagePct",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CermThreshold": {
+    "name": "CermThreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermThresholdOrZero": {
+    "name": "CermThresholdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermDampenInterval": {
+    "name": "CermDampenInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2592000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CermThresholdSeverity": {
+    "name": "CermThresholdSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2,
+          "critical": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CermNotificationSeverity": {
+    "name": "CermNotificationSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "minor": 2,
+          "major": 3,
+          "critical": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CermNotificationDirection": {
+    "name": "CermNotificationDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cermScalarsGlobalPolicyName": {
+    "name": "cermScalarsGlobalPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cermResOwnerTable": {
+    "name": "cermResOwnerTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerEntry": {
+    "name": "cermResOwnerEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResOwnerSubEntityId": {
+    "name": "cermResOwnerSubEntityId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermSubEntityId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerId": {
+    "name": "cermResOwnerId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermOwnerId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerName": {
+    "name": "cermResOwnerName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerMeasurementUnit": {
+    "name": "cermResOwnerMeasurementUnit",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerThreshIsConfigurable": {
+    "name": "cermResOwnerThreshIsConfigurable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerResUserCount": {
+    "name": "cermResOwnerResUserCount",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerResGroupCount": {
+    "name": "cermResOwnerResGroupCount",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeTable": {
+    "name": "cermResOwnerSubTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeEntry": {
+    "name": "cermResOwnerSubTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResOwnerSubTypeId": {
+    "name": "cermResOwnerSubTypeId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeName": {
+    "name": "cermResOwnerSubTypeName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeUsagePct": {
+    "name": "cermResOwnerSubTypeUsagePct",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermResUsagePct",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeUsage": {
+    "name": "cermResOwnerSubTypeUsage",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeMaxUsage": {
+    "name": "cermResOwnerSubTypeMaxUsage",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeGlobNotifSeverity": {
+    "name": "cermResOwnerSubTypeGlobNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermNotificationSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeThresholdTable": {
+    "name": "cermResOwnerSubTypeThresholdTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeThresholdEntry": {
+    "name": "cermResOwnerSubTypeThresholdEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeThreshSeverity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResOwnerSubTypeThreshSeverity": {
+    "name": "cermResOwnerSubTypeThreshSeverity",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThresholdSeverity",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeRisingThresh": {
+    "name": "cermResOwnerSubTypeRisingThresh",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeRisingInterval": {
+    "name": "cermResOwnerSubTypeRisingInterval",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermDampenInterval",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeFallingThresh": {
+    "name": "cermResOwnerSubTypeFallingThresh",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerSubTypeFallingInterval": {
+    "name": "cermResOwnerSubTypeFallingInterval",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermDampenInterval",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserTypeTable": {
+    "name": "cermResUserTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserTypeEntry": {
+    "name": "cermResUserTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResUserTypeSubEntityId": {
+    "name": "cermResUserTypeSubEntityId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermSubEntityId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserTypeId": {
+    "name": "cermResUserTypeId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserTypeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserTypeName": {
+    "name": "cermResUserTypeName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserTypeResOwnerCount": {
+    "name": "cermResUserTypeResOwnerCount",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserTypeResUserCount": {
+    "name": "cermResUserTypeResUserCount",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserTypeResGroupCount": {
+    "name": "cermResUserTypeResGroupCount",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserTable": {
+    "name": "cermResUserTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserEntry": {
+    "name": "cermResUserEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResUserId": {
+    "name": "cermResUserId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserName": {
+    "name": "cermResUserName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserPriority": {
+    "name": "cermResUserPriority",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserResGroupId": {
+    "name": "cermResUserResGroupId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermGroupId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResGroupTable": {
+    "name": "cermResGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResGroupEntry": {
+    "name": "cermResGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResGroupId": {
+    "name": "cermResGroupId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermGroupId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResGroupName": {
+    "name": "cermResGroupName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResGroupUserInstanceCount": {
+    "name": "cermResGroupUserInstanceCount",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResGroupResUserTable": {
+    "name": "cermResGroupResUserTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResGroupResUserEntry": {
+    "name": "cermResGroupResUserEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResGroupId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResGroupResUserId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResGroupResUserId": {
+    "name": "cermResGroupResUserId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerResUserOrGroupTable": {
+    "name": "cermResOwnerResUserOrGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerResUserOrGroupEntry": {
+    "name": "cermResOwnerResUserOrGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerResUserTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerResUserOrGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResOwnerResUserTypeId": {
+    "name": "cermResOwnerResUserTypeId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserTypeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerResUserOrGroupId": {
+    "name": "cermResOwnerResUserOrGroupId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserOrGroupFlag": {
+    "name": "cermResUserOrGroupFlag",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserOrGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupUsagePct": {
+    "name": "cermResUserOrGroupUsagePct",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermResUsagePct",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupUsage": {
+    "name": "cermResUserOrGroupUsage",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupMaxUsage": {
+    "name": "cermResUserOrGroupMaxUsage",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupNotifSeverity": {
+    "name": "cermResUserOrGroupNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermNotificationSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupGlobNotifSeverity": {
+    "name": "cermResUserOrGroupGlobNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermNotificationSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResOwnerResUserOrGroupThresholdTable": {
+    "name": "cermResOwnerResUserOrGroupThresholdTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResOwnerResUserOrGroupThresholdEntry": {
+    "name": "cermResOwnerResUserOrGroupThresholdEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerResUserTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerResUserOrGroupId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupThreshIsUserGlob",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupThreshSeverity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResUserOrGroupThreshIsUserGlob": {
+    "name": "cermResUserOrGroupThreshIsUserGlob",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserOrGroupThreshSeverity": {
+    "name": "cermResUserOrGroupThreshSeverity",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThresholdSeverity",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserOrGroupThreshFlag": {
+    "name": "cermResUserOrGroupThreshFlag",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserOrGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupRisingThresh": {
+    "name": "cermResUserOrGroupRisingThresh",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupRisingInterval": {
+    "name": "cermResUserOrGroupRisingInterval",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermDampenInterval",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupFallingThresh": {
+    "name": "cermResUserOrGroupFallingThresh",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserOrGroupFallingInterval": {
+    "name": "cermResUserOrGroupFallingInterval",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermDampenInterval",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResUserTypeResOwnerTable": {
+    "name": "cermResUserTypeResOwnerTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResUserTypeResOwnerEntry": {
+    "name": "cermResUserTypeResOwnerEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeResOwnerId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResUserTypeResOwnerId": {
+    "name": "cermResUserTypeResOwnerId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermOwnerId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResMonitorTable": {
+    "name": "cermResMonitorTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResMonitorEntry": {
+    "name": "cermResMonitorEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResMonitorSubEntityId": {
+    "name": "cermResMonitorSubEntityId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermSubEntityId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResMonitorId": {
+    "name": "cermResMonitorId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermMonitorId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResMonitorName": {
+    "name": "cermResMonitorName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResMonitorResOwnerResUserTable": {
+    "name": "cermResMonitorResOwnerResUserTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResMonitorResOwnerResUserEntry": {
+    "name": "cermResMonitorResOwnerResUserEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorResOwnerId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorResUserTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorResUserId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResMonitorResOwnerId": {
+    "name": "cermResMonitorResOwnerId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermOwnerIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResMonitorResUserTypeId": {
+    "name": "cermResMonitorResUserTypeId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserTypeIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResMonitorResUserId": {
+    "name": "cermResMonitorResUserId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResMonitorResPolicyName": {
+    "name": "cermResMonitorResPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermResMonitorPolicyTable": {
+    "name": "cermResMonitorPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermResMonitorPolicyEntry": {
+    "name": "cermResMonitorPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermResMonitorPolicyName": {
+    "name": "cermResMonitorPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermConfigPolicyTable": {
+    "name": "cermConfigPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermConfigPolicyEntry": {
+    "name": "cermConfigPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermPolicyName": {
+    "name": "cermPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyIsGlobal": {
+    "name": "cermPolicyIsGlobal",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyUserTypeName": {
+    "name": "cermPolicyUserTypeName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyLoggingEnabled": {
+    "name": "cermPolicyLoggingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicySnmpNotifEnabled": {
+    "name": "cermPolicySnmpNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyStorageType": {
+    "name": "cermPolicyStorageType",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyRowStatus": {
+    "name": "cermPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermConfigPolicyResOwnerThreshTable": {
+    "name": "cermConfigPolicyResOwnerThreshTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermConfigPolicyResOwnerThreshEntry": {
+    "name": "cermConfigPolicyResOwnerThreshEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyResOwnerSubEntityId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyResOwnerId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyResOwnerSubTypeId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyIsUserGlobal",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyThresholdSeverity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermPolicyPhysicalIndex": {
+    "name": "cermPolicyPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyResOwnerSubEntityId": {
+    "name": "cermPolicyResOwnerSubEntityId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermSubEntityId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyResOwnerId": {
+    "name": "cermPolicyResOwnerId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermOwnerId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyResOwnerSubTypeId": {
+    "name": "cermPolicyResOwnerSubTypeId",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyIsUserGlobal": {
+    "name": "cermPolicyIsUserGlobal",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyThresholdSeverity": {
+    "name": "cermPolicyThresholdSeverity",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThresholdSeverity",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyRisingThreshold": {
+    "name": "cermPolicyRisingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyRisingInterval": {
+    "name": "cermPolicyRisingInterval",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermDampenInterval",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyFallingThreshold": {
+    "name": "cermPolicyFallingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThresholdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyFallingInterval": {
+    "name": "cermPolicyFallingInterval",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermDampenInterval",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyResOwnerThreshStorageType": {
+    "name": "cermPolicyResOwnerThreshStorageType",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyResOwnerThreshRowStatus": {
+    "name": "cermPolicyResOwnerThreshRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermConfigResGroupTable": {
+    "name": "cermConfigResGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermConfigResGroupEntry": {
+    "name": "cermConfigResGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermConfigResGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermConfigResGroupName": {
+    "name": "cermConfigResGroupName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermConfigResGroupUserTypeName": {
+    "name": "cermConfigResGroupUserTypeName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermConfigResGroupStorageType": {
+    "name": "cermConfigResGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermConfigResGroupRowStatus": {
+    "name": "cermConfigResGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermConfigResGroupUserTable": {
+    "name": "cermConfigResGroupUserTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermConfigResGroupUserEntry": {
+    "name": "cermConfigResGroupUserEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermConfigResGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermConfigResGroupUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermConfigResGroupUserName": {
+    "name": "cermConfigResGroupUserName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermConfigResGroupUserStorageType": {
+    "name": "cermConfigResGroupUserStorageType",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermConfigResGroupUserRowStatus": {
+    "name": "cermConfigResGroupUserRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermConfigPolicyApplyTable": {
+    "name": "cermConfigPolicyApplyTable",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermConfigPolicyApplyEntry": {
+    "name": "cermConfigPolicyApplyEntry",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyApplyUserOrGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyApplyUserOrGroupFlag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cermPolicyApplyUserOrGroupName": {
+    "name": "cermPolicyApplyUserOrGroupName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyApplyUserOrGroupFlag": {
+    "name": "cermPolicyApplyUserOrGroupFlag",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermUserOrGroup",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cermPolicyApplyPolicyName": {
+    "name": "cermPolicyApplyPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyApplyStorageType": {
+    "name": "cermPolicyApplyStorageType",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermPolicyApplyRowStatus": {
+    "name": "cermPolicyApplyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.510.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cermNotifsEnabled": {
+    "name": "cermNotifsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.510.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cermNotifsThresholdSeverity": {
+    "name": "cermNotifsThresholdSeverity",
+    "oid": "1.3.6.1.4.1.9.9.510.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThresholdSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermNotifsThresholdIsUserGlob": {
+    "name": "cermNotifsThresholdIsUserGlob",
+    "oid": "1.3.6.1.4.1.9.9.510.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermNotifsThresholdValue": {
+    "name": "cermNotifsThresholdValue",
+    "oid": "1.3.6.1.4.1.9.9.510.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermNotifsDirection": {
+    "name": "cermNotifsDirection",
+    "oid": "1.3.6.1.4.1.9.9.510.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CermNotificationDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cermNotifsPolicyName": {
+    "name": "cermNotifsPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.510.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoErmGlobalPolicyViolation": {
+    "name": "ciscoErmGlobalPolicyViolation",
+    "oid": "1.3.6.1.4.1.9.9.510.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsThresholdSeverity"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsThresholdValue"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsDirection"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsPolicyName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmLocalPolicyViolation": {
+    "name": "ciscoErmLocalPolicyViolation",
+    "oid": "1.3.6.1.4.1.9.9.510.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupThreshFlag"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsThresholdIsUserGlob"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsThresholdSeverity"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsThresholdValue"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsDirection"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsPolicyName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmMIBCompliances": {
+    "name": "ciscoErmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.510.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoErmMIBGroups": {
+    "name": "ciscoErmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoErmMIBCompliance": {
+    "name": "ciscoErmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.510.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoErmResOwnerGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmResUserTypeGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmResUserGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmResGroupGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmResOwnerResUserOrGroupRelationGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmResMonitorGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmPolicyConfigGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmResGroupConfigGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmNotifObjectsGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmNotifControlObjectsGroup",
+        "module": "CISCO-ERM-MIB"
+      },
+      {
+        "object": "ciscoErmPolicyViolationNotifGroup",
+        "module": "CISCO-ERM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmResOwnerGroup": {
+    "name": "ciscoErmResOwnerGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerMeasurementUnit"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerThreshIsConfigurable"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerResUserCount"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerResGroupCount"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeUsagePct"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeUsage"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeMaxUsage"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeGlobNotifSeverity"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeRisingThresh"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeRisingInterval"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeFallingThresh"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResOwnerSubTypeFallingInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmResUserTypeGroup": {
+    "name": "ciscoErmResUserTypeGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeResOwnerCount"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeResUserCount"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeResGroupCount"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserTypeResOwnerId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmResUserGroup": {
+    "name": "ciscoErmResUserGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserPriority"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserResGroupId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmResGroupGroup": {
+    "name": "ciscoErmResGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResGroupName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResGroupUserInstanceCount"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResGroupResUserId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmResOwnerResUserOrGroupRelationGroup": {
+    "name": "ciscoErmResOwnerResUserOrGroupRelationGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupFlag"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupUsagePct"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupUsage"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupMaxUsage"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupNotifSeverity"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupGlobNotifSeverity"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupThreshFlag"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupRisingThresh"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupRisingInterval"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupFallingThresh"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResUserOrGroupFallingInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmResMonitorGroup": {
+    "name": "ciscoErmResMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorResPolicyName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermResMonitorPolicyName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmPolicyConfigGroup": {
+    "name": "ciscoErmPolicyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermScalarsGlobalPolicyName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyIsGlobal"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyUserTypeName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyLoggingEnabled"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicySnmpNotifEnabled"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyStorageType"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyRowStatus"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyRisingThreshold"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyRisingInterval"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyFallingThreshold"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyFallingInterval"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyResOwnerThreshStorageType"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyResOwnerThreshRowStatus"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyApplyPolicyName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyApplyStorageType"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermPolicyApplyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmResGroupConfigGroup": {
+    "name": "ciscoErmResGroupConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermConfigResGroupUserTypeName"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermConfigResGroupStorageType"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermConfigResGroupRowStatus"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermConfigResGroupUserStorageType"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermConfigResGroupUserRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmNotifControlObjectsGroup": {
+    "name": "ciscoErmNotifControlObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmNotifObjectsGroup": {
+    "name": "ciscoErmNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsThresholdSeverity"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsThresholdIsUserGlob"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsThresholdValue"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsDirection"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "cermNotifsPolicyName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoErmPolicyViolationNotifGroup": {
+    "name": "ciscoErmPolicyViolationNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.510.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "ciscoErmGlobalPolicyViolation"
+      },
+      {
+        "module": "CISCO-ERM-MIB",
+        "object": "ciscoErmLocalPolicyViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ERM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ERM-MIB"
+  }
+}

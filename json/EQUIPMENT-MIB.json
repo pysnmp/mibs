@@ -1,0 +1,2074 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlink-common-mgmt",
+      "AgentNotifyLevel"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "TIMERANGE-MIB": [
+      "swTimeRangeMgmtRangeName"
+    ]
+  },
+  "swEquipmentMIB": {
+    "name": "swEquipmentMIB",
+    "oid": "1.3.6.1.4.1.171.12.11",
+    "class": "moduleidentity"
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "swEquipment": {
+    "name": "swEquipment",
+    "oid": "1.3.6.1.4.1.171.12.11.1",
+    "class": "objectidentity"
+  },
+  "swEquipmentNotify": {
+    "name": "swEquipmentNotify",
+    "oid": "1.3.6.1.4.1.171.12.11.2",
+    "class": "objectidentity"
+  },
+  "swEquipmentCapacity": {
+    "name": "swEquipmentCapacity",
+    "oid": "1.3.6.1.4.1.171.12.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fanCapable": 0,
+        "redundantPowerCapable": 1,
+        "tempteratureDetection": 2,
+        "stackingCapable": 3,
+        "chassisCapable": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFanTrapState": {
+    "name": "swFanTrapState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swPowerTrapState": {
+    "name": "swPowerTrapState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swPowerTable": {
+    "name": "swPowerTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swPowerEntry": {
+    "name": "swPowerEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swPowerUnitIndex": {
+    "name": "swPowerUnitIndex",
+    "oid": "1.3.6.1.4.1.171.12.11.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swPowerID": {
+    "name": "swPowerID",
+    "oid": "1.3.6.1.4.1.171.12.11.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swPowerStatus": {
+    "name": "swPowerStatus",
+    "oid": "1.3.6.1.4.1.171.12.11.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "lowVoltage": 1,
+          "overCurrent": 2,
+          "working": 3,
+          "fail": 4,
+          "connect": 5,
+          "disconnect": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFanTable": {
+    "name": "swFanTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swFanEntry": {
+    "name": "swFanEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swFanUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swFanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swFanUnitIndex": {
+    "name": "swFanUnitIndex",
+    "oid": "1.3.6.1.4.1.171.12.11.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFanID": {
+    "name": "swFanID",
+    "oid": "1.3.6.1.4.1.171.12.11.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFanStatus": {
+    "name": "swFanStatus",
+    "oid": "1.3.6.1.4.1.171.12.11.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "working": 1,
+          "fail": 2,
+          "speed-0": 3,
+          "speed-low": 4,
+          "speed-middle": 5,
+          "speed-high": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFanPostion": {
+    "name": "swFanPostion",
+    "oid": "1.3.6.1.4.1.171.12.11.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "left": 2,
+          "right": 3,
+          "back": 4,
+          "cpu": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFanNumber": {
+    "name": "swFanNumber",
+    "oid": "1.3.6.1.4.1.171.12.11.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFanSpeed": {
+    "name": "swFanSpeed",
+    "oid": "1.3.6.1.4.1.171.12.11.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTemperatureTable": {
+    "name": "swTemperatureTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swTemperatureEntry": {
+    "name": "swTemperatureEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swTemperatureUnitIndex": {
+    "name": "swTemperatureUnitIndex",
+    "oid": "1.3.6.1.4.1.171.12.11.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTemperatureCurrent": {
+    "name": "swTemperatureCurrent",
+    "oid": "1.3.6.1.4.1.171.12.11.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTemperatureHighThresh": {
+    "name": "swTemperatureHighThresh",
+    "oid": "1.3.6.1.4.1.171.12.11.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swTemperatureLowThresh": {
+    "name": "swTemperatureLowThresh",
+    "oid": "1.3.6.1.4.1.171.12.11.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitMgmt": {
+    "name": "swUnitMgmt",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9",
+    "class": "objectidentity"
+  },
+  "swUnitStackingVersion": {
+    "name": "swUnitStackingVersion",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMaxSupportedUnits": {
+    "name": "swUnitMaxSupportedUnits",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitNumOfUnit": {
+    "name": "swUnitNumOfUnit",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtTable": {
+    "name": "swUnitMgmtTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swUnitMgmtEntry": {
+    "name": "swUnitMgmtEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swUnitMgmtId": {
+    "name": "swUnitMgmtId",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtMacAddr": {
+    "name": "swUnitMgmtMacAddr",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtStartPort": {
+    "name": "swUnitMgmtStartPort",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtPortRange": {
+    "name": "swUnitMgmtPortRange",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtFrontPanelLedStatus": {
+    "name": "swUnitMgmtFrontPanelLedStatus",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtCtrlMode": {
+    "name": "swUnitMgmtCtrlMode",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "auto": 2,
+          "stand-alone": 3,
+          "master": 4,
+          "slave": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitMgmtCurrentMode": {
+    "name": "swUnitMgmtCurrentMode",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "auto": 2,
+          "stand-alone": 3,
+          "master": 4,
+          "slave": 5,
+          "backup-master": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtVersion": {
+    "name": "swUnitMgmtVersion",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtModuleName": {
+    "name": "swUnitMgmtModuleName",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtPromVersion": {
+    "name": "swUnitMgmtPromVersion",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtFirmwareVersion": {
+    "name": "swUnitMgmtFirmwareVersion",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtHardwareVersion": {
+    "name": "swUnitMgmtHardwareVersion",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtPriority": {
+    "name": "swUnitMgmtPriority",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitMgmtUserSetState": {
+    "name": "swUnitMgmtUserSetState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "auto": 2,
+          "user": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtExistState": {
+    "name": "swUnitMgmtExistState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exist": 1,
+          "no-exist": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitMgmtBoxId": {
+    "name": "swUnitMgmtBoxId",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "box-1": 1,
+          "box-2": 2,
+          "box-3": 3,
+          "box-4": 4,
+          "box-5": 5,
+          "box-6": 6,
+          "box-7": 7,
+          "box-8": 8,
+          "box-9": 9,
+          "box-10": 10,
+          "box-11": 11,
+          "box-12": 12,
+          "auto": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitMgmtSerialNumber": {
+    "name": "swUnitMgmtSerialNumber",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitTopology": {
+    "name": "swUnitTopology",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stand-alone": 1,
+          "duplex-chain": 2,
+          "duplex-ring": 3,
+          "star": 4,
+          "unstable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swUnitStackMode": {
+    "name": "swUnitStackMode",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitStackForceMasterRole": {
+    "name": "swUnitStackForceMasterRole",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitStackTrapState": {
+    "name": "swUnitStackTrapState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitStackLogState": {
+    "name": "swUnitStackLogState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swExternalAlarmTable": {
+    "name": "swExternalAlarmTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swExternalAlarmEntry": {
+    "name": "swExternalAlarmEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swExternalAlarmChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swExternalAlarmChannel": {
+    "name": "swExternalAlarmChannel",
+    "oid": "1.3.6.1.4.1.171.12.11.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swExternalAlarmMessage": {
+    "name": "swExternalAlarmMessage",
+    "oid": "1.3.6.1.4.1.171.12.11.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swExternalAlarmStatus": {
+    "name": "swExternalAlarmStatus",
+    "oid": "1.3.6.1.4.1.171.12.11.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarming": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEquipmentPowerSaving": {
+    "name": "swEquipmentPowerSaving",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11",
+    "class": "objectidentity"
+  },
+  "swEquipPowerSavingLinkDetectState": {
+    "name": "swEquipPowerSavingLinkDetectState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swEquipPowerSavingLenDetect": {
+    "name": "swEquipPowerSavingLenDetect",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swEquipPowerSavingHiberState": {
+    "name": "swEquipPowerSavingHiberState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swEquipPowerSavingPortLEDState": {
+    "name": "swEquipPowerSavingPortLEDState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swEquipPowerSavingPortState": {
+    "name": "swEquipPowerSavingPortState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swEquipPowerSavingScheduleCtrl": {
+    "name": "swEquipPowerSavingScheduleCtrl",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6",
+    "class": "objectidentity"
+  },
+  "swEquipPowerSavingHibernationTable": {
+    "name": "swEquipPowerSavingHibernationTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swEquipPowerSavingHibernationEntry": {
+    "name": "swEquipPowerSavingHibernationEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMERANGE-MIB",
+        "object": "swTimeRangeMgmtRangeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swEquipPowerSavingHiberRowStatus": {
+    "name": "swEquipPowerSavingHiberRowStatus",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swEquipPowerSavingPortLedTable": {
+    "name": "swEquipPowerSavingPortLedTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swEquipPowerSavingPortLedEntry": {
+    "name": "swEquipPowerSavingPortLedEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMERANGE-MIB",
+        "object": "swTimeRangeMgmtRangeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swEquipPowerSavingPortLedRowStatus": {
+    "name": "swEquipPowerSavingPortLedRowStatus",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.2.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swEquipPowerSavingPortTable": {
+    "name": "swEquipPowerSavingPortTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swEquipPowerSavingPortEntry": {
+    "name": "swEquipPowerSavingPortEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swEquipPowerSavingPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMERANGE-MIB",
+        "object": "swTimeRangeMgmtRangeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swEquipPowerSavingPortIndex": {
+    "name": "swEquipPowerSavingPortIndex",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swEquipPowerSavingPortRowStatus": {
+    "name": "swEquipPowerSavingPortRowStatus",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.6.3.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "swEquipEeeMgmt": {
+    "name": "swEquipEeeMgmt",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.20",
+    "class": "objectidentity"
+  },
+  "swEquipEeeState": {
+    "name": "swEquipEeeState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.11.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swEquipmentTemperatureCtrl": {
+    "name": "swEquipmentTemperatureCtrl",
+    "oid": "1.3.6.1.4.1.171.12.11.1.12",
+    "class": "objectidentity"
+  },
+  "swTemperatureTrapState": {
+    "name": "swTemperatureTrapState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swTemperatureLogState": {
+    "name": "swTemperatureLogState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swEquipmentLEDCtrl": {
+    "name": "swEquipmentLEDCtrl",
+    "oid": "1.3.6.1.4.1.171.12.11.1.13",
+    "class": "objectidentity"
+  },
+  "swEquipmentPortLEDState": {
+    "name": "swEquipmentPortLEDState",
+    "oid": "1.3.6.1.4.1.171.12.11.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swExternalAlarmStackingTable": {
+    "name": "swExternalAlarmStackingTable",
+    "oid": "1.3.6.1.4.1.171.12.11.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swExternalAlarmStackingEntry": {
+    "name": "swExternalAlarmStackingEntry",
+    "oid": "1.3.6.1.4.1.171.12.11.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swExternalAlarmStackingUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swExternalAlarmStackingChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swExternalAlarmStackingUnitIndex": {
+    "name": "swExternalAlarmStackingUnitIndex",
+    "oid": "1.3.6.1.4.1.171.12.11.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swExternalAlarmStackingChannel": {
+    "name": "swExternalAlarmStackingChannel",
+    "oid": "1.3.6.1.4.1.171.12.11.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swExternalAlarmStackingMessage": {
+    "name": "swExternalAlarmStackingMessage",
+    "oid": "1.3.6.1.4.1.171.12.11.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swExternalAlarmStackingStatus": {
+    "name": "swExternalAlarmStackingStatus",
+    "oid": "1.3.6.1.4.1.171.12.11.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarming": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEquipmentNotifyMgmt": {
+    "name": "swEquipmentNotifyMgmt",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1",
+    "class": "objectidentity"
+  },
+  "swEquipmentNotification": {
+    "name": "swEquipmentNotification",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2",
+    "class": "objectidentity"
+  },
+  "swEquipUnitNotification": {
+    "name": "swEquipUnitNotification",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.1",
+    "class": "objectidentity"
+  },
+  "swEquipPowerNotification": {
+    "name": "swEquipPowerNotification",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.2",
+    "class": "objectidentity"
+  },
+  "swEquipFanNotification": {
+    "name": "swEquipFanNotification",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.3",
+    "class": "objectidentity"
+  },
+  "swEquipTemperatureNotification": {
+    "name": "swEquipTemperatureNotification",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.4",
+    "class": "objectidentity"
+  },
+  "swEquipExternalAlarmNotification": {
+    "name": "swEquipExternalAlarmNotification",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.5",
+    "class": "objectidentity"
+  },
+  "swEquipUnitNotifyMgmt": {
+    "name": "swEquipUnitNotifyMgmt",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.1",
+    "class": "objectidentity"
+  },
+  "swEquipPowerNotifyMgmt": {
+    "name": "swEquipPowerNotifyMgmt",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.2",
+    "class": "objectidentity"
+  },
+  "swEquipFanNotifyMgmt": {
+    "name": "swEquipFanNotifyMgmt",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.3",
+    "class": "objectidentity"
+  },
+  "swEquipTemperatureNotifyMgmt": {
+    "name": "swEquipTemperatureNotifyMgmt",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.4",
+    "class": "objectidentity"
+  },
+  "swUnitInsertSeverity": {
+    "name": "swUnitInsertSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitRemoveSeverity": {
+    "name": "swUnitRemoveSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUnitFailureSeverity": {
+    "name": "swUnitFailureSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swPowerStatusChgSeverity": {
+    "name": "swPowerStatusChgSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swPowerFailureSeverity": {
+    "name": "swPowerFailureSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swPowerRecoverSeverity": {
+    "name": "swPowerRecoverSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFanFailureSeverity": {
+    "name": "swFanFailureSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFanRecoverSeverity": {
+    "name": "swFanRecoverSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swHighTemperatureSeverity": {
+    "name": "swHighTemperatureSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swHighTemperatureRecoverSeverity": {
+    "name": "swHighTemperatureRecoverSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swLowTemperatureSeverity": {
+    "name": "swLowTemperatureSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swLowTemperatureRecoverSeverity": {
+    "name": "swLowTemperatureRecoverSeverity",
+    "oid": "1.3.6.1.4.1.171.12.11.2.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentNotifyLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swEquipUnitNotifyPrefix": {
+    "name": "swEquipUnitNotifyPrefix",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.1.0",
+    "class": "objectidentity"
+  },
+  "swUnitInsert": {
+    "name": "swUnitInsert",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtId"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swUnitRemove": {
+    "name": "swUnitRemove",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtId"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swUnitFailure": {
+    "name": "swUnitFailure",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtId"
+      }
+    ],
+    "status": "current"
+  },
+  "swUnitTPChange": {
+    "name": "swUnitTPChange",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swStackTopologyType"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtId"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "swUnitRoleChange": {
+    "name": "swUnitRoleChange",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swStackRoleChangeType"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swUnitMgmtId"
+      }
+    ],
+    "status": "current"
+  },
+  "swEquipPowerNotifyPerfix": {
+    "name": "swEquipPowerNotifyPerfix",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.2.0",
+    "class": "objectidentity"
+  },
+  "swPowerStatusChg": {
+    "name": "swPowerStatusChg",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerID"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "swPowerFailure": {
+    "name": "swPowerFailure",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerID"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "swPowerRecover": {
+    "name": "swPowerRecover",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerID"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "swEquipFanNotifyPrefix": {
+    "name": "swEquipFanNotifyPrefix",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.3.0",
+    "class": "objectidentity"
+  },
+  "swFanFailure": {
+    "name": "swFanFailure",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swFanUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swFanID"
+      }
+    ],
+    "status": "current"
+  },
+  "swFanRecover": {
+    "name": "swFanRecover",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swFanUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swFanID"
+      }
+    ],
+    "status": "current"
+  },
+  "swEquipTemperatureNotifyPrefix": {
+    "name": "swEquipTemperatureNotifyPrefix",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.4.0",
+    "class": "objectidentity"
+  },
+  "swHighTemperature": {
+    "name": "swHighTemperature",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperSensorID"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "swHighTemperatureRecover": {
+    "name": "swHighTemperatureRecover",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperSensorID"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "swLowTemperature": {
+    "name": "swLowTemperature",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperSensorID"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "swLowTemperatureRecover": {
+    "name": "swLowTemperatureRecover",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperSensorID"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swTemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "swEquipExternalAlarmNotifyPrefix": {
+    "name": "swEquipExternalAlarmNotifyPrefix",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.5.0",
+    "class": "objectidentity"
+  },
+  "swExternalAlarm": {
+    "name": "swExternalAlarm",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swExternalAlarmChannel"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swExternalAlarmMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "swExternalAlarmStacking": {
+    "name": "swExternalAlarmStacking",
+    "oid": "1.3.6.1.4.1.171.12.11.2.2.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swExternalAlarmStackingUnitIndex"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swExternalAlarmStackingChannel"
+      },
+      {
+        "module": "EQUIPMENT-MIB",
+        "object": "swExternalAlarmStackingMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "swNotificationBindings": {
+    "name": "swNotificationBindings",
+    "oid": "1.3.6.1.4.1.171.12.11.2.3",
+    "class": "objectidentity"
+  },
+  "swEquipTemperNotifyBindings": {
+    "name": "swEquipTemperNotifyBindings",
+    "oid": "1.3.6.1.4.1.171.12.11.2.3.1",
+    "class": "objectidentity"
+  },
+  "swTemperSensorID": {
+    "name": "swTemperSensorID",
+    "oid": "1.3.6.1.4.1.171.12.11.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "swEquipUnitNotifyBindings": {
+    "name": "swEquipUnitNotifyBindings",
+    "oid": "1.3.6.1.4.1.171.12.11.2.3.2",
+    "class": "objectidentity"
+  },
+  "swStackTopologyType": {
+    "name": "swStackTopologyType",
+    "oid": "1.3.6.1.4.1.171.12.11.2.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chain": 1,
+          "ring": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "swStackRoleChangeType": {
+    "name": "swStackRoleChangeType",
+    "oid": "1.3.6.1.4.1.171.12.11.2.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup-to-master": 1,
+          "slave-to-master": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/EQUIPMENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EQUIPMENT-MIB"
+  }
+}

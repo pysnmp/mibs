@@ -1,0 +1,365 @@
+{
+  "imports": {
+    "class": "imports",
+    "BCN-SMI-MIB": [
+      "bcnServices"
+    ],
+    "BCN-TC-MIB": [
+      "BcnAlarmSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "bcnLicenseMIB": {
+    "name": "bcnLicenseMIB",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-30 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "bcnLicense": {
+    "name": "bcnLicense",
+    "oid": "1.3.6.1.4.1.13315.3.1.6",
+    "class": "objectidentity"
+  },
+  "bcnLicenseObjects": {
+    "name": "bcnLicenseObjects",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2",
+    "class": "objectidentity"
+  },
+  "bcnLicenseNotification": {
+    "name": "bcnLicenseNotification",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.3",
+    "class": "objectidentity"
+  },
+  "bcnLicenseConformance": {
+    "name": "bcnLicenseConformance",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.4",
+    "class": "objectidentity"
+  },
+  "bcnLicenseInformation": {
+    "name": "bcnLicenseInformation",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bcnLicenseTable": {
+    "name": "bcnLicenseTable",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnLicenseEntry": {
+    "name": "bcnLicenseEntry",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcnLicenseTableIndex": {
+    "name": "bcnLicenseTableIndex",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcnLicenseType": {
+    "name": "bcnLicenseType",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleServer": 1,
+          "multiServer": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnLicenseDescription": {
+    "name": "bcnLicenseDescription",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnLicenseInstalled": {
+    "name": "bcnLicenseInstalled",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnLicenseExpiry": {
+    "name": "bcnLicenseExpiry",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnLicenseGracePeriod": {
+    "name": "bcnLicenseGracePeriod",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnLicenseValid": {
+    "name": "bcnLicenseValid",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnLicenseItemsGranted": {
+    "name": "bcnLicenseItemsGranted",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnLicenseItemsUsed": {
+    "name": "bcnLicenseItemsUsed",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcnLicenseNotificationEvents": {
+    "name": "bcnLicenseNotificationEvents",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.3.0",
+    "class": "objectidentity"
+  },
+  "bcnLicenseNotificationData": {
+    "name": "bcnLicenseNotificationData",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.3.1",
+    "class": "objectidentity"
+  },
+  "bcnLicenseAlarmSeverity": {
+    "name": "bcnLicenseAlarmSeverity",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BcnAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bcnLicenseExpiryNotif": {
+    "name": "bcnLicenseExpiryNotif",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseType"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseAlarmSeverity"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseExpiry"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseGracePeriod"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseValid"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnLicenseServiceCompliances": {
+    "name": "bcnLicenseServiceCompliances",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.4.1",
+    "class": "objectidentity"
+  },
+  "bcnLicenseServiceGroups": {
+    "name": "bcnLicenseServiceGroups",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.4.2",
+    "class": "objectidentity"
+  },
+  "bcnLicenseServiceStatusGroup": {
+    "name": "bcnLicenseServiceStatusGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseType"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseDescription"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseInstalled"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseExpiry"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseGracePeriod"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseValid"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseItemsGranted"
+      },
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseItemsUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnLicenseNotificationEventGroup": {
+    "name": "bcnLicenseNotificationEventGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.4.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseExpiryNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnLicenseNotificationDataGroup": {
+    "name": "bcnLicenseNotificationDataGroup",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BCN-LICENSE-MIB",
+        "object": "bcnLicenseAlarmSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "bcnLicenseStatusCompliance": {
+    "name": "bcnLicenseStatusCompliance",
+    "oid": "1.3.6.1.4.1.13315.3.1.6.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bcnLicenseServiceStatusGroup",
+        "module": "BCN-LICENSE-MIB"
+      },
+      {
+        "object": "bcnLicenseNotificationEventGroup",
+        "module": "BCN-LICENSE-MIB"
+      },
+      {
+        "object": "bcnLicenseNotificationDataGroup",
+        "module": "BCN-LICENSE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-LICENSE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BCN-LICENSE-MIB"
+  }
+}

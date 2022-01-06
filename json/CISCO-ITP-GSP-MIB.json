@@ -1,0 +1,5485 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcLinkType",
+      "CItpTcLinksetId",
+      "CItpTcInstanceNumber",
+      "CItpTcNetworkName",
+      "CItpTcPointCode",
+      "CItpTcServiceIndicator",
+      "CItpTcCLLI",
+      "CItpTcLinkSLC",
+      "CItpTcAclId",
+      "CItpTcDisplayPC",
+      "CItpTcPointCodeType",
+      "CItpTcNetworkIndicator",
+      "CItpTcQos",
+      "CItpTcRouteTableName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoGspMIB": {
+    "name": "ciscoGspMIB",
+    "oid": "1.3.6.1.4.1.9.9.336",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-12-31 00:00",
+        "description": "Added the cgspLinkRxCongestionState object into CgspLinkTableEntry and ciscoGspRxCongestionChange notification to notify state of cgspLinkRxCongestionState."
+      },
+      {
+        "revision": "2009-09-12 00:00",
+        "description": "Added the opc value to the cgspInstSccpWrrOption textual convention."
+      },
+      {
+        "revision": "2009-05-25 00:00",
+        "description": "Added the following objects into cgspInstanceTableEntry for GTT weighted loadshare. cgspInstSccpWrrOpcShift, cgspInstSccpWrrOption"
+      },
+      {
+        "revision": "2008-05-07 00:00",
+        "description": "Added the following objects into CgspLinkTableEntry for additional Q752 related reporting. cgspLinkQ752T1E12, cgspLinkQ752T1E12Errors, cgspLinkQ752T2E11, cgspLinkQ752T2E17, cgspLinkQ752T2E19. Added linkRestored(34) and linkTestFailure(35) reason code to the cgspLinkReason object. Added the following textual convention: CgspDisplayInstanceUserPart. Added a new table cgspInstUPUTable with following objects: cgspMtp3SI, cgspInstSIUPUReceived, cgspInstSIUPUTransmitted, cgspInstUserPartDisplay. Added the following objects: cgspNotificationsInfo, cgspUPUNotifWindowTime. Added following new notifications: ciscoGspUPUReceived, ciscoGspUPUTransmitted. Added the following cgspNotificationsInfo objects: cgspUPUIntervalDuration, cgspIntervalUPUs."
+      },
+      {
+        "revision": "2005-10-21 00:00",
+        "description": "Added new set of enums (from timerMtp2T01 to timerMtp2T07) to TC CgspTimerNumbers for MTP2 timers specified in ITU Q.703."
+      },
+      {
+        "revision": "2005-02-24 00:00",
+        "description": "Added new ciscoGspIsolation notification to indicate when MTP3 node becomes isolated."
+      },
+      {
+        "revision": "2003-07-16 00:00",
+        "description": "Additional reason codes to the cgspLinkReason object and updated CgspSS7Variant textual convention to support NTT and TTC Japanese variants. Also, update REFERENCE clauses to indicate support for appropriate ANSI standard."
+      },
+      {
+        "revision": "2003-03-03 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoGspMIBNotifs": {
+    "name": "ciscoGspMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.336.0",
+    "class": "objectidentity"
+  },
+  "ciscoGspMIBObjects": {
+    "name": "ciscoGspMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.336.1",
+    "class": "objectidentity"
+  },
+  "ciscoGspMIBConform": {
+    "name": "ciscoGspMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.336.2",
+    "class": "objectidentity"
+  },
+  "cgspScalars": {
+    "name": "cgspScalars",
+    "oid": "1.3.6.1.4.1.9.9.336.1.1",
+    "class": "objectidentity"
+  },
+  "cgspProfile": {
+    "name": "cgspProfile",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2",
+    "class": "objectidentity"
+  },
+  "cgspInstance": {
+    "name": "cgspInstance",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3",
+    "class": "objectidentity"
+  },
+  "cgspPointCode": {
+    "name": "cgspPointCode",
+    "oid": "1.3.6.1.4.1.9.9.336.1.4",
+    "class": "objectidentity"
+  },
+  "cgspLinkset": {
+    "name": "cgspLinkset",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5",
+    "class": "objectidentity"
+  },
+  "cgspLink": {
+    "name": "cgspLink",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6",
+    "class": "objectidentity"
+  },
+  "cgspNotificationsEnable": {
+    "name": "cgspNotificationsEnable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.7",
+    "class": "objectidentity"
+  },
+  "cgspNotificationsInfo": {
+    "name": "cgspNotificationsInfo",
+    "oid": "1.3.6.1.4.1.9.9.336.1.8",
+    "class": "objectidentity"
+  },
+  "CgspSequenceNumber": {
+    "name": "CgspSequenceNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgspSampleInterval": {
+    "name": "CgspSampleInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgspPercentThreshold": {
+    "name": "CgspPercentThreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgspLinkTestResults": {
+    "name": "CgspLinkTestResults",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noErrors": 0,
+          "undefinedOpc": 1,
+          "incorrectOpc": 2,
+          "undefinedSlc": 3,
+          "incorrectSlc": 4,
+          "incorrectNi": 5,
+          "badPattern": 6,
+          "nonAdjacent": 7,
+          "failed": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgspLinkUtilization": {
+    "name": "CgspLinkUtilization",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgspLinkCapacity": {
+    "name": "CgspLinkCapacity",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 56000,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgspProfileName": {
+    "name": "CgspProfileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgspLinkUtilizationState": {
+    "name": "CgspLinkUtilizationState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unMonitored": 0,
+          "underThreshold": 1,
+          "overThreshold": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgspTimerNumbers": {
+    "name": "CgspTimerNumbers",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timerMtp3T01": 1,
+          "timerMtp3T02": 2,
+          "timerMtp3T03": 3,
+          "timerMtp3T04": 4,
+          "timerMtp3T05": 5,
+          "timerMtp3T06": 6,
+          "timerMtp3T07": 7,
+          "timerMtp3T08": 8,
+          "timerMtp3T09": 9,
+          "timerMtp3T10": 10,
+          "timerMtp3T11": 11,
+          "timerMtp3T12": 12,
+          "timerMtp3T13": 13,
+          "timerMtp3T14": 14,
+          "timerMtp3T15": 15,
+          "timerMtp3T16": 16,
+          "timerMtp3T17": 17,
+          "timerMtp3T18": 18,
+          "timerMtp3T19": 19,
+          "timerMtp3T20": 20,
+          "timerMtp3T21": 21,
+          "timerMtp3T22": 22,
+          "timerMtp3T23": 23,
+          "timerMtp3T24": 24,
+          "timerMtp3T25": 25,
+          "timerMtp3T26": 26,
+          "timerMtp3T27": 27,
+          "timerMtp3T28": 28,
+          "timerMtp3T29": 29,
+          "timerMtp3T30": 30,
+          "timerMtp3T31": 31,
+          "timerMtp3T32": 32,
+          "timerMtp3T33": 33,
+          "timerMtp3T34": 34,
+          "timerLinkTest": 35,
+          "timerLinkMessag1": 36,
+          "timerLinkActRetry": 37,
+          "timerMtp2T01": 38,
+          "timerMtp2T02": 39,
+          "timerMtp2T03": 40,
+          "timerMtp2T04N": 41,
+          "timerMtp2T04E": 42,
+          "timerMtp2T05": 43,
+          "timerMtp2T06": 44,
+          "timerMtp2T07": 45
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgspTimerValue": {
+    "name": "CgspTimerValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CgspSS7Variant": {
+    "name": "CgspSS7Variant",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ansi": 1,
+          "itu": 2,
+          "china": 3,
+          "ntt": 4,
+          "ttc": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgspDisplayInstanceUserPart": {
+    "name": "CgspDisplayInstanceUserPart",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CItpTcSccpWrrOption": {
+    "name": "CItpTcSccpWrrOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sls": 0,
+          "cgpaSls": 1,
+          "opcSls": 2,
+          "opc": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cgspCLLICode": {
+    "name": "cgspCLLICode",
+    "oid": "1.3.6.1.4.1.9.9.336.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcCLLI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspUtilSampleInterval": {
+    "name": "cgspUtilSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.336.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspSampleInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspUtilThreshold": {
+    "name": "cgspUtilThreshold",
+    "oid": "1.3.6.1.4.1.9.9.336.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspPercentThreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspUtilAbateDelta": {
+    "name": "cgspUtilAbateDelta",
+    "oid": "1.3.6.1.4.1.9.9.336.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspPercentThreshold",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspPlanCapacityDefault": {
+    "name": "cgspPlanCapacityDefault",
+    "oid": "1.3.6.1.4.1.9.9.336.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkCapacity",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspEventSequenceNumber": {
+    "name": "cgspEventSequenceNumber",
+    "oid": "1.3.6.1.4.1.9.9.336.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspUPUNotifWindowTime": {
+    "name": "cgspUPUNotifWindowTime",
+    "oid": "1.3.6.1.4.1.9.9.336.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspProfileTable": {
+    "name": "cgspProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspProfileTableEntry": {
+    "name": "cgspProfileTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspProfileName": {
+    "name": "cgspProfileName",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspProfileName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspProfileVariant": {
+    "name": "cgspProfileVariant",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspSS7Variant",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspProfileMtp2BundleTimer": {
+    "name": "cgspProfileMtp2BundleTimer",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspProfileMtp2SendQueueDepth": {
+    "name": "cgspProfileMtp2SendQueueDepth",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 25,
+            "max": 32000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspProfileRowStatus": {
+    "name": "cgspProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspProfileTimerTable": {
+    "name": "cgspProfileTimerTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspProfileTimerTableEntry": {
+    "name": "cgspProfileTimerTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspProfileTimerNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspProfileTimerNumber": {
+    "name": "cgspProfileTimerNumber",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspTimerNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspProfileTimerValue": {
+    "name": "cgspProfileTimerValue",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspTimerValue",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspProfileTimerRowStatus": {
+    "name": "cgspProfileTimerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstanceTable": {
+    "name": "cgspInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspInstanceTableEntry": {
+    "name": "cgspInstanceTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspInstNetwork": {
+    "name": "cgspInstNetwork",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspInstNetworkIndicator": {
+    "name": "cgspInstNetworkIndicator",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkIndicator",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstVariant": {
+    "name": "cgspInstVariant",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspSS7Variant",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstDisplayName": {
+    "name": "cgspInstDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstDescription": {
+    "name": "cgspInstDescription",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstTFR": {
+    "name": "cgspInstTFR",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstCongestionsLevels": {
+    "name": "cgspInstCongestionsLevels",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstFastRestart": {
+    "name": "cgspInstFastRestart",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstDistSccpUnseq": {
+    "name": "cgspInstDistSccpUnseq",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstSummaryRoutingException": {
+    "name": "cgspInstSummaryRoutingException",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstNumber": {
+    "name": "cgspInstNumber",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcInstanceNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspInstRouteTableName": {
+    "name": "cgspInstRouteTableName",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstRowStatus": {
+    "name": "cgspInstRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstSccpWrrOpcShift": {
+    "name": "cgspInstSccpWrrOpcShift",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstSccpWrrOption": {
+    "name": "cgspInstSccpWrrOption",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSccpWrrOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstTimerTable": {
+    "name": "cgspInstTimerTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspInstTimerTableEntry": {
+    "name": "cgspInstTimerTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstTimerNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspInstTimerNumber": {
+    "name": "cgspInstTimerNumber",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspTimerNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspInstTimerValue": {
+    "name": "cgspInstTimerValue",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspTimerValue",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstTimerRowStatus": {
+    "name": "cgspInstTimerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspInstUPUTable": {
+    "name": "cgspInstUPUTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspInstUPUTableEntry": {
+    "name": "cgspInstUPUTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspMtp3SI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspMtp3SI": {
+    "name": "cgspMtp3SI",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcServiceIndicator",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspInstSIUPUReceived": {
+    "name": "cgspInstSIUPUReceived",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspInstSIUPUTransmitted": {
+    "name": "cgspInstSIUPUTransmitted",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspInstUserPartDisplay": {
+    "name": "cgspInstUserPartDisplay",
+    "oid": "1.3.6.1.4.1.9.9.336.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspDisplayInstanceUserPart",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspPointCodeTable": {
+    "name": "cgspPointCodeTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspPointCodeTableEntry": {
+    "name": "cgspPointCodeTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspPointCodeNi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspPointCodeBin",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspPointCodeNi": {
+    "name": "cgspPointCodeNi",
+    "oid": "1.3.6.1.4.1.9.9.336.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkIndicator",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspPointCodeBin": {
+    "name": "cgspPointCodeBin",
+    "oid": "1.3.6.1.4.1.9.9.336.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspPointCodeType": {
+    "name": "cgspPointCodeType",
+    "oid": "1.3.6.1.4.1.9.9.336.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCodeType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspPointCodeDisplay": {
+    "name": "cgspPointCodeDisplay",
+    "oid": "1.3.6.1.4.1.9.9.336.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspPointCodeRowStatus": {
+    "name": "cgspPointCodeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetTable": {
+    "name": "cgspLinksetTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinksetTableEntry": {
+    "name": "cgspLinksetTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspLinksetName": {
+    "name": "cgspLinksetName",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinksetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinksetSourcePointCode": {
+    "name": "cgspLinksetSourcePointCode",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetSourceDisplayPC": {
+    "name": "cgspLinksetSourceDisplayPC",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinksetAdjacentPointCode": {
+    "name": "cgspLinksetAdjacentPointCode",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetAdjacentDisplayPC": {
+    "name": "cgspLinksetAdjacentDisplayPC",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinksetState": {
+    "name": "cgspLinksetState",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "shutdown": 2,
+          "unavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinksetInboundAcl": {
+    "name": "cgspLinksetInboundAcl",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcAclId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetOutboundAcl": {
+    "name": "cgspLinksetOutboundAcl",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcAclId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetAccountingMtp3": {
+    "name": "cgspLinksetAccountingMtp3",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetAccountingGtt": {
+    "name": "cgspLinksetAccountingGtt",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetNumLinks": {
+    "name": "cgspLinksetNumLinks",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinksetDurationInService": {
+    "name": "cgspLinksetDurationInService",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinksetDurationOutService": {
+    "name": "cgspLinksetDurationOutService",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinksetActPriority": {
+    "name": "cgspLinksetActPriority",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetDisplayName": {
+    "name": "cgspLinksetDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetDescription": {
+    "name": "cgspLinksetDescription",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetRotateSlsEnable": {
+    "name": "cgspLinksetRotateSlsEnable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetRotateSlsShift": {
+    "name": "cgspLinksetRotateSlsShift",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetProfileName": {
+    "name": "cgspLinksetProfileName",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetAdjacentInst": {
+    "name": "cgspLinksetAdjacentInst",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinksetRowStatus": {
+    "name": "cgspLinksetRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetTimerTable": {
+    "name": "cgspLinksetTimerTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinksetTimerTableEntry": {
+    "name": "cgspLinksetTimerTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetTimerNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspLinksetTimerNumber": {
+    "name": "cgspLinksetTimerNumber",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspTimerNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinksetTimerValue": {
+    "name": "cgspLinksetTimerValue",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspTimerValue",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinksetTimerRowStatus": {
+    "name": "cgspLinksetTimerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkTable": {
+    "name": "cgspLinkTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinkTableEntry": {
+    "name": "cgspLinkTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkSlc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspLinkSlc": {
+    "name": "cgspLinkSlc",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinkSLC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinkDescription": {
+    "name": "cgspLinkDescription",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkState": {
+    "name": "cgspLinkState",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "failed": 2,
+          "shutdown": 3,
+          "unavailable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkReason": {
+    "name": "cgspLinkReason",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "changeOverInProgress": 1,
+          "mgmtDisconnectRequest": 2,
+          "linkAlignmentLost": 3,
+          "connectionLost": 4,
+          "localDisconnect": 5,
+          "remoteDisconnect": 6,
+          "suermFailure": 7,
+          "t1Timeout": 8,
+          "t2Timeout": 9,
+          "t3Timeout": 10,
+          "t6Timeout": 11,
+          "t7Timeout": 12,
+          "provingFailure": 13,
+          "protocolErrorBsn": 14,
+          "protocolErrorFib": 15,
+          "protocolErrorSin": 16,
+          "protocolErrorLssu": 17,
+          "peerNotReady": 18,
+          "communicationLost": 19,
+          "noListenPosted": 20,
+          "bufferNotAvailable": 21,
+          "cardRemoved": 22,
+          "cardInserted": 23,
+          "falseLinkCongestion": 24,
+          "configDownload": 25,
+          "localInhibit": 26,
+          "localUninhibit": 27,
+          "remoteInhibit": 28,
+          "remoteUninhibit": 29,
+          "localBlocked": 30,
+          "localUnBlocked": 31,
+          "remoteBlocked": 32,
+          "remoteUnblocked": 33,
+          "linkRestored": 34,
+          "linkTestFailure": 35
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkType": {
+    "name": "cgspLinkType",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinkType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkifIndex": {
+    "name": "cgspLinkifIndex",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkSctpAssociation": {
+    "name": "cgspLinkSctpAssociation",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cgspLinkXmitQueueDepth": {
+    "name": "cgspLinkXmitQueueDepth",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkXmitQueueDepthHigh": {
+    "name": "cgspLinkXmitQueueDepthHigh",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkXmitQueueDepthHighRT": {
+    "name": "cgspLinkXmitQueueDepthHighRT",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkCongestionState": {
+    "name": "cgspLinkCongestionState",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkCongestionAbate1": {
+    "name": "cgspLinkCongestionAbate1",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkCongestionAbate2": {
+    "name": "cgspLinkCongestionAbate2",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkCongestionAbate3": {
+    "name": "cgspLinkCongestionAbate3",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkCongestionOnset1": {
+    "name": "cgspLinkCongestionOnset1",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkCongestionOnset2": {
+    "name": "cgspLinkCongestionOnset2",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkCongestionOnset3": {
+    "name": "cgspLinkCongestionOnset3",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkSigLinkTest": {
+    "name": "cgspLinkSigLinkTest",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E1": {
+    "name": "cgspLinkQ752T1E1",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E2": {
+    "name": "cgspLinkQ752T1E2",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E3": {
+    "name": "cgspLinkQ752T1E3",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E5": {
+    "name": "cgspLinkQ752T1E5",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E7": {
+    "name": "cgspLinkQ752T1E7",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E8": {
+    "name": "cgspLinkQ752T1E8",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E9": {
+    "name": "cgspLinkQ752T1E9",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "negative acknowledgements",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E10": {
+    "name": "cgspLinkQ752T1E10",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E11": {
+    "name": "cgspLinkQ752T1E11",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E1": {
+    "name": "cgspLinkQ752T2E1",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E5": {
+    "name": "cgspLinkQ752T2E5",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E6": {
+    "name": "cgspLinkQ752T2E6",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E7": {
+    "name": "cgspLinkQ752T2E7",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E9": {
+    "name": "cgspLinkQ752T2E9",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E10": {
+    "name": "cgspLinkQ752T2E10",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E15": {
+    "name": "cgspLinkQ752T2E15",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E16": {
+    "name": "cgspLinkQ752T2E16",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E18": {
+    "name": "cgspLinkQ752T2E18",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E1": {
+    "name": "cgspLinkQ752T3E1",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E2Bytes": {
+    "name": "cgspLinkQ752T3E2Bytes",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E2Packets": {
+    "name": "cgspLinkQ752T3E2Packets",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E3": {
+    "name": "cgspLinkQ752T3E3",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E4": {
+    "name": "cgspLinkQ752T3E4",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E5": {
+    "name": "cgspLinkQ752T3E5",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E6": {
+    "name": "cgspLinkQ752T3E6",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E7": {
+    "name": "cgspLinkQ752T3E7",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E10L1": {
+    "name": "cgspLinkQ752T3E10L1",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E10L2": {
+    "name": "cgspLinkQ752T3E10L2",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E10L3": {
+    "name": "cgspLinkQ752T3E10L3",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E11L1": {
+    "name": "cgspLinkQ752T3E11L1",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E11L2": {
+    "name": "cgspLinkQ752T3E11L2",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T3E11L3": {
+    "name": "cgspLinkQ752T3E11L3",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkLocalPeerPort": {
+    "name": "cgspLinkLocalPeerPort",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkRemotePeerPort": {
+    "name": "cgspLinkRemotePeerPort",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkQosClass": {
+    "name": "cgspLinkQosClass",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcQos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkDisplayName": {
+    "name": "cgspLinkDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkDroppedPkts": {
+    "name": "cgspLinkDroppedPkts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTransmittedLSSUs": {
+    "name": "cgspLinkTransmittedLSSUs",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LSSU",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkReceivedLSSUs": {
+    "name": "cgspLinkReceivedLSSUs",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LSSU",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkProtocolDetails": {
+    "name": "cgspLinkProtocolDetails",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tcbcBuffering": 0,
+        "tcocBuffering": 1,
+        "tlacAdjacentSpRestarting": 2,
+        "tlacEmergencyCoInProgress": 3,
+        "tlacChangebackInProgress": 4,
+        "tlacChangeoverInProgress": 5,
+        "tlacChangeoverFailed": 6,
+        "tlacInhibitRetry": 7,
+        "tlacManagementRequest": 8,
+        "tlacSpRestarting": 9,
+        "tsrcChangeOverComplete": 10,
+        "tsrcAdjacentSpRestart": 11,
+        "tlacLocalInhibit": 12,
+        "tlacRemoteInhibit": 13,
+        "tlacLocalBlocked": 14,
+        "tlacRemoteBlocked": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkLsacState": {
+    "name": "cgspLinkLsacState",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "inactive": 2,
+          "active": 3,
+          "activatingRestoring": 4,
+          "failed": 5,
+          "actT17wait": 6,
+          "actAnsiWaitDeloaded": 7,
+          "actItuWaitStmReady": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTsrcState": {
+    "name": "cgspLinkTsrcState",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "idle": 2,
+          "wait5": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTcocState": {
+    "name": "cgspLinkTcocState",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "idle": 2,
+          "wait2": 3,
+          "waitForAck": 4,
+          "retrieving": 5,
+          "wait5": 6,
+          "wait7": 7,
+          "wait8": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTcocLocalBSNT": {
+    "name": "cgspLinkTcocLocalBSNT",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTcocRemoteBSNT": {
+    "name": "cgspLinkTcocRemoteBSNT",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTcbcState": {
+    "name": "cgspLinkTcbcState",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "idle": 2,
+          "firstAttempt": 3,
+          "secondAttempt": 4,
+          "timeControlledDiversion": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkReceivedSIBs": {
+    "name": "cgspLinkReceivedSIBs",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTransmittedSIBs": {
+    "name": "cgspLinkTransmittedSIBs",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkMtp2T01Counts": {
+    "name": "cgspLinkMtp2T01Counts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkMtp2T02Counts": {
+    "name": "cgspLinkMtp2T02Counts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkMtp2T03Counts": {
+    "name": "cgspLinkMtp2T03Counts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkMtp2T04Counts": {
+    "name": "cgspLinkMtp2T04Counts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkMtp2T05Counts": {
+    "name": "cgspLinkMtp2T05Counts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkMtp2T06Counts": {
+    "name": "cgspLinkMtp2T06Counts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkMtp2T07Counts": {
+    "name": "cgspLinkMtp2T07Counts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkOMAERMCounts": {
+    "name": "cgspLinkOMAERMCounts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkOMAERMFailCounts": {
+    "name": "cgspLinkOMAERMFailCounts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkOMSURMCounts": {
+    "name": "cgspLinkOMSURMCounts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkOMSURMFailCounts": {
+    "name": "cgspLinkOMSURMFailCounts",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkPlanCapacityRcvd": {
+    "name": "cgspLinkPlanCapacityRcvd",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkCapacity",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkUtilThresholdRcvd": {
+    "name": "cgspLinkUtilThresholdRcvd",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspPercentThreshold",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkUtilizationRcvd": {
+    "name": "cgspLinkUtilizationRcvd",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkUtilStateRcvd": {
+    "name": "cgspLinkUtilStateRcvd",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkUtilizationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkL2BytesRcvd": {
+    "name": "cgspLinkL2BytesRcvd",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkPlanCapacitySent": {
+    "name": "cgspLinkPlanCapacitySent",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkCapacity",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkUtilThresholdSent": {
+    "name": "cgspLinkUtilThresholdSent",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspPercentThreshold",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkUtilizationSent": {
+    "name": "cgspLinkUtilizationSent",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkUtilStateSent": {
+    "name": "cgspLinkUtilStateSent",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkUtilizationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkL2BytesSent": {
+    "name": "cgspLinkL2BytesSent",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTestResult": {
+    "name": "cgspLinkTestResult",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkTestResults",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkRowStatus": {
+    "name": "cgspLinkRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkSctpAssociationId": {
+    "name": "cgspLinkSctpAssociationId",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E12": {
+    "name": "cgspLinkQ752T1E12",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T1E12Errors": {
+    "name": "cgspLinkQ752T1E12Errors",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E11": {
+    "name": "cgspLinkQ752T2E11",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E17": {
+    "name": "cgspLinkQ752T2E17",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkQ752T2E19": {
+    "name": "cgspLinkQ752T2E19",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkRxCongestionState": {
+    "name": "cgspLinkRxCongestionState",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkTimerTable": {
+    "name": "cgspLinkTimerTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinkTimerTableEntry": {
+    "name": "cgspLinkTimerTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkSlc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTimerNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspLinkTimerNumber": {
+    "name": "cgspLinkTimerNumber",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspTimerNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinkTimerValue": {
+    "name": "cgspLinkTimerValue",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspTimerValue",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkTimerRowStatus": {
+    "name": "cgspLinkTimerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkRemoteIpAddrTable": {
+    "name": "cgspLinkRemoteIpAddrTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinkRemoteIpAddrTableEntry": {
+    "name": "cgspLinkRemoteIpAddrTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkSlc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRemoteIpAddrNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspLinkRemoteIpAddrNumber": {
+    "name": "cgspLinkRemoteIpAddrNumber",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinkRemoteIpAddrType": {
+    "name": "cgspLinkRemoteIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkRemoteIpAddress": {
+    "name": "cgspLinkRemoteIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkRemoteIpAddrRowStatus": {
+    "name": "cgspLinkRemoteIpAddrRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cgspLinkUtilTable": {
+    "name": "cgspLinkUtilTable",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinkUtilTableEntry": {
+    "name": "cgspLinkUtilTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkSlc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgspLinkUtilIndex": {
+    "name": "cgspLinkUtilIndex",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgspLinkUtilRcvd": {
+    "name": "cgspLinkUtilRcvd",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkUtilSent": {
+    "name": "cgspLinkUtilSent",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgspLinkUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLinkUtilEndTimestamp": {
+    "name": "cgspLinkUtilEndTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.336.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgspLsStateChangeNotifEnabled": {
+    "name": "cgspLsStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.336.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspLnkStateChangeNotifEnabled": {
+    "name": "cgspLnkStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.336.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspCongestionNotifEnabled": {
+    "name": "cgspCongestionNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.336.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspLinkUtilNotifEnabled": {
+    "name": "cgspLinkUtilNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.336.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspIsolationNotifEnabled": {
+    "name": "cgspIsolationNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.336.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspUPUNotifEnabled": {
+    "name": "cgspUPUNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.336.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgspUPUIntervalDuration": {
+    "name": "cgspUPUIntervalDuration",
+    "oid": "1.3.6.1.4.1.9.9.336.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cgspIntervalUPUs": {
+    "name": "cgspIntervalUPUs",
+    "oid": "1.3.6.1.4.1.9.9.336.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoGspLinksetStateChange": {
+    "name": "ciscoGspLinksetStateChange",
+    "oid": "1.3.6.1.4.1.9.9.336.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkStateChange": {
+    "name": "ciscoGspLinkStateChange",
+    "oid": "1.3.6.1.4.1.9.9.336.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkReason"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTestResult"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspCongestionChange": {
+    "name": "ciscoGspCongestionChange",
+    "oid": "1.3.6.1.4.1.9.9.336.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkRcvdUtilChange": {
+    "name": "ciscoGspLinkRcvdUtilChange",
+    "oid": "1.3.6.1.4.1.9.9.336.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilStateRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilizationRcvd"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkSentUtilChange": {
+    "name": "ciscoGspLinkSentUtilChange",
+    "oid": "1.3.6.1.4.1.9.9.336.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilStateSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilizationSent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspIsolation": {
+    "name": "ciscoGspIsolation",
+    "oid": "1.3.6.1.4.1.9.9.336.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspUPUReceived": {
+    "name": "ciscoGspUPUReceived",
+    "oid": "1.3.6.1.4.1.9.9.336.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstUserPartDisplay"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspUPUIntervalDuration"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspIntervalUPUs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspUPUTransmitted": {
+    "name": "ciscoGspUPUTransmitted",
+    "oid": "1.3.6.1.4.1.9.9.336.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstUserPartDisplay"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspUPUIntervalDuration"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspIntervalUPUs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspRxCongestionChange": {
+    "name": "ciscoGspRxCongestionChange",
+    "oid": "1.3.6.1.4.1.9.9.336.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRxCongestionState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspMIBCompliances": {
+    "name": "ciscoGspMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.336.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoGspMIBGroups": {
+    "name": "ciscoGspMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoGspMIBCompliance": {
+    "name": "ciscoGspMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.336.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGspScalarsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspProfileGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstanceGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspPointCodeGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkRemoteIpGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkUtilGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGspMIBComplianceRev1": {
+    "name": "ciscoGspMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.336.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGspScalarsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspProfileGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstanceGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspPointCodeGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkRemoteIpGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkUtilGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroupRev1",
+        "module": "CISCO-ITP-GSP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGspMIBComplianceRev2": {
+    "name": "ciscoGspMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.336.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGspScalarsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspProfileGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstanceGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspPointCodeGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkRemoteIpGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkUtilGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroupRev1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGspMIBComplianceRev3": {
+    "name": "ciscoGspMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.336.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGspScalarsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspProfileGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstanceGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspPointCodeGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkRemoteIpGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkUtilGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroupRev1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspScalarsGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstUPUGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsInfoGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroupSup2",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroupSup2",
+        "module": "CISCO-ITP-GSP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGspMIBComplianceRev4": {
+    "name": "ciscoGspMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.336.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGspScalarsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspProfileGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstanceGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspPointCodeGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkRemoteIpGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkUtilGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroupRev1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspScalarsGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstUPUGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsInfoGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroupSup2",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroupSup2",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstSccpWrrGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGspMIBComplianceRev5": {
+    "name": "ciscoGspMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.336.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoGspScalarsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspProfileGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstanceGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspPointCodeGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinksetTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkTimerGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkRemoteIpGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkUtilGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroupRev1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspScalarsGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstUPUGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsInfoGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsEnableGroupSup2",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroupSup2",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspInstSccpWrrGroup",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspLinkTableEntryGroupSup1",
+        "module": "CISCO-ITP-GSP-MIB"
+      },
+      {
+        "object": "ciscoGspNotificationsGroupSup3",
+        "module": "CISCO-ITP-GSP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspScalarsGroup": {
+    "name": "ciscoGspScalarsGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspUtilSampleInterval"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspUtilThreshold"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspUtilAbateDelta"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspPlanCapacityDefault"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspEventSequenceNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspProfileGroup": {
+    "name": "ciscoGspProfileGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspProfileVariant"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspProfileMtp2BundleTimer"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspProfileMtp2SendQueueDepth"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspProfileRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspProfileTimerValue"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspProfileTimerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspInstanceGroup": {
+    "name": "ciscoGspInstanceGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNetworkIndicator"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstVariant"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstDescription"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstTFR"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstCongestionsLevels"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstFastRestart"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstDistSccpUnseq"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstSummaryRoutingException"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstNumber"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstRouteTableName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspInstTimerGroup": {
+    "name": "ciscoGspInstTimerGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstTimerValue"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstTimerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspPointCodeGroup": {
+    "name": "ciscoGspPointCodeGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspPointCodeType"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspPointCodeDisplay"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspPointCodeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinksetGroup": {
+    "name": "ciscoGspLinksetGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetSourcePointCode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentPointCode"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetInboundAcl"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetOutboundAcl"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAccountingMtp3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAccountingGtt"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetNumLinks"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetDurationInService"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetDurationOutService"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetActPriority"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetDescription"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetRotateSlsEnable"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetRotateSlsShift"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetProfileName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetAdjacentInst"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinksetTimerGroup": {
+    "name": "ciscoGspLinksetTimerGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetTimerValue"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinksetTimerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkGroup": {
+    "name": "ciscoGspLinkGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDescription"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkReason"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkType"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkifIndex"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkSctpAssociation"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkXmitQueueDepth"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkXmitQueueDepthHigh"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkXmitQueueDepthHighRT"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionAbate1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionAbate2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionAbate3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionOnset1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionOnset2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionOnset3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkSigLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E5"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E7"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E8"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E9"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E10"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E11"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E5"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E6"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E7"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E9"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E10"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E15"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E16"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E18"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E2Packets"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E2Bytes"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E4"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E5"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E6"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E7"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E10L1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E10L2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E10L3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E11L1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E11L2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E11L3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkLocalPeerPort"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRemotePeerPort"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQosClass"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDroppedPkts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTransmittedLSSUs"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkReceivedLSSUs"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkProtocolDetails"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkLsacState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTsrcState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTcocState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTcocLocalBSNT"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTcocRemoteBSNT"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTcbcState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkReceivedSIBs"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTransmittedSIBs"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T01Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T02Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T03Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T04Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T05Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T06Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T07Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkOMAERMCounts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkOMAERMFailCounts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkOMSURMCounts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkOMSURMFailCounts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkPlanCapacityRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilThresholdRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilizationRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilStateRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkL2BytesRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkPlanCapacitySent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilThresholdSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilizationSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilStateSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkL2BytesSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTestResult"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoGspLinkTimerGroup": {
+    "name": "ciscoGspLinkTimerGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTimerValue"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTimerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkRemoteIpGroup": {
+    "name": "ciscoGspLinkRemoteIpGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRemoteIpAddrType"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRemoteIpAddress"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRemoteIpAddrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkUtilGroup": {
+    "name": "ciscoGspLinkUtilGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilEndTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspNotificationsEnableGroup": {
+    "name": "ciscoGspNotificationsEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLsStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLnkStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspCongestionNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspNotificationsGroup": {
+    "name": "ciscoGspNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspLinksetStateChange"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspLinkStateChange"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspCongestionChange"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspLinkRcvdUtilChange"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspLinkSentUtilChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkGroupRev1": {
+    "name": "ciscoGspLinkGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDescription"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkReason"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkType"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkifIndex"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkXmitQueueDepth"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkXmitQueueDepthHigh"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkXmitQueueDepthHighRT"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionAbate1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionAbate2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionAbate3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionOnset1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionOnset2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkCongestionOnset3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkSigLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E5"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E7"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E8"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E9"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E10"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E11"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E5"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E6"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E7"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E9"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E10"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E15"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E16"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E18"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E2Packets"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E2Bytes"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E4"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E5"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E6"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E7"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E10L1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E10L2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E10L3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E11L1"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E11L2"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T3E11L3"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkLocalPeerPort"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRemotePeerPort"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQosClass"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkDroppedPkts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTransmittedLSSUs"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkReceivedLSSUs"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkProtocolDetails"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkLsacState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTsrcState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTcocState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTcocLocalBSNT"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTcocRemoteBSNT"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTcbcState"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkReceivedSIBs"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTransmittedSIBs"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T01Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T02Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T03Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T04Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T05Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T06Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkMtp2T07Counts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkOMAERMCounts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkOMAERMFailCounts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkOMSURMCounts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkOMSURMFailCounts"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkPlanCapacityRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilThresholdRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilizationRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilStateRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkL2BytesRcvd"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkPlanCapacitySent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilThresholdSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilizationSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkUtilStateSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkL2BytesSent"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkTestResult"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkSctpAssociationId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspNotificationsEnableGroupSup1": {
+    "name": "ciscoGspNotificationsEnableGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspIsolationNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspNotificationsGroupSup1": {
+    "name": "ciscoGspNotificationsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspIsolation"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkGroupSup1": {
+    "name": "ciscoGspLinkGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E12"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T1E12Errors"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E11"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E17"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkQ752T2E19"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspScalarsGroupSup1": {
+    "name": "ciscoGspScalarsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspUPUNotifWindowTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspInstUPUGroup": {
+    "name": "ciscoGspInstUPUGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstSIUPUReceived"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstSIUPUTransmitted"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstUserPartDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspNotificationsInfoGroup": {
+    "name": "ciscoGspNotificationsInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspUPUIntervalDuration"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspIntervalUPUs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspNotificationsEnableGroupSup2": {
+    "name": "ciscoGspNotificationsEnableGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspUPUNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspNotificationsGroupSup2": {
+    "name": "ciscoGspNotificationsGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.23",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspUPUReceived"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspUPUTransmitted"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspInstSccpWrrGroup": {
+    "name": "ciscoGspInstSccpWrrGroup",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstSccpWrrOpcShift"
+      },
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspInstSccpWrrOption"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspLinkTableEntryGroupSup1": {
+    "name": "ciscoGspLinkTableEntryGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "cgspLinkRxCongestionState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoGspNotificationsGroupSup3": {
+    "name": "ciscoGspNotificationsGroupSup3",
+    "oid": "1.3.6.1.4.1.9.9.336.2.2.26",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-GSP-MIB",
+        "object": "ciscoGspRxCongestionChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GSP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-GSP-MIB"
+  }
+}

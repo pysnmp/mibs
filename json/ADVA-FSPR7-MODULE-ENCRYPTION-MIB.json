@@ -1,0 +1,2709 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-FSPR7-MIB": [
+      "entityFacilityPortNo",
+      "entityFacilityShelfNo",
+      "entityEqptShelfNo",
+      "entityFacilitySlotNo",
+      "entityFacilityClassName",
+      "entityEqptClassName",
+      "entityEqptExtNo",
+      "entityFacilityExtNo",
+      "entityEqptSlotNo",
+      "entityEqptPortNo"
+    ],
+    "ADVA-FSPR7-TC-MIB": [
+      "FspR7RequestErrorTypeAes",
+      "FspR7SnmpHexString",
+      "FspR7RlsAction",
+      "FspR7RequestErrorType",
+      "FspR7RlsActionCaps",
+      "FspR7Unsigned32Caps"
+    ],
+    "ADVA-MIB": [
+      "fspR7",
+      "EntityIndex",
+      "entityIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "DateAndTime"
+    ]
+  },
+  "moduleEncryptionMIB": {
+    "name": "moduleEncryptionMIB",
+    "oid": "1.3.6.1.4.1.2544.1.11.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-28 00:00",
+        "description": "FSP3000 F7 Release 17.2.2 MIB."
+      },
+      {
+        "revision": "2018-04-17 00:00",
+        "description": "FSP3000 F7 Release 17.2.1 MIB."
+      },
+      {
+        "revision": "2018-03-15 00:00",
+        "description": "FSP3000 F7 Release 17.1.2 MIB."
+      },
+      {
+        "revision": "2017-12-07 00:00",
+        "description": "FSP3000 F7 Release 17.1.1 MIB."
+      },
+      {
+        "revision": "2016-04-01 00:00",
+        "description": "FSP3000 F7 Release 16.1.1 MIB."
+      },
+      {
+        "revision": "2015-12-10 00:00",
+        "description": "FSP3000 F7 Release 15.2.1 MIB."
+      },
+      {
+        "revision": "2013-08-20 00:00",
+        "description": "FSP3000 F7 Release 12.1.1 MIB."
+      },
+      {
+        "revision": "2011-02-16 00:00",
+        "description": "FSP3000 F7 Release 10.3.1 MIB."
+      }
+    ]
+  },
+  "encryptionMIB": {
+    "name": "encryptionMIB",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1",
+    "class": "objectidentity"
+  },
+  "moduleEncryptionObjects": {
+    "name": "moduleEncryptionObjects",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2",
+    "class": "objectidentity"
+  },
+  "portEncryptionObjects": {
+    "name": "portEncryptionObjects",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3",
+    "class": "objectidentity"
+  },
+  "encryptionPerformanceMonitoring": {
+    "name": "encryptionPerformanceMonitoring",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4",
+    "class": "objectidentity"
+  },
+  "encryptionDiagnostics": {
+    "name": "encryptionDiagnostics",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.5",
+    "class": "objectidentity"
+  },
+  "CryptoFspR7CryBoot": {
+    "name": "CryptoFspR7CryBoot",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "rls": 1,
+          "warmStart": 2,
+          "warmStartFwp": 3,
+          "coldStart": 4,
+          "coldStartFwp": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7CryBootCaps": {
+    "name": "CryptoFspR7CryBootCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capRls": 1,
+        "capWarmStart": 2,
+        "capWarmStartFwp": 3,
+        "capColdStart": 4,
+        "capColdStartFwp": 5
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7EnableDisable": {
+    "name": "CryptoFspR7EnableDisable",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7EnableDisableCaps": {
+    "name": "CryptoFspR7EnableDisableCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capEnable": 1,
+        "capDisable": 2
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7EncryptionCommunication": {
+    "name": "CryptoFspR7EncryptionCommunication",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "tcm1": 1,
+          "tcm2": 2,
+          "tcm3": 3,
+          "tcm4": 4,
+          "tcm5": 5,
+          "tcm6": 6,
+          "gcc0": 7,
+          "gcc1": 8,
+          "gcc2": 9,
+          "gcc1gcc2": 10,
+          "res1": 11,
+          "res2": 12,
+          "tcm1tcm2": 13,
+          "tcm2tcm3": 14,
+          "tcm3tcm4": 15,
+          "tcm4tcm5": 16,
+          "tcm5tcm6": 17,
+          "none": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7EncryptionCommunicationCaps": {
+    "name": "CryptoFspR7EncryptionCommunicationCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capTcm1": 1,
+        "capTcm2": 2,
+        "capTcm3": 3,
+        "capTcm4": 4,
+        "capTcm5": 5,
+        "capTcm6": 6,
+        "capGcc0": 7,
+        "capGcc1": 8,
+        "capGcc2": 9,
+        "capGcc1gcc2": 10,
+        "capRes1": 11,
+        "capRes2": 12,
+        "capTcm1tcm2": 13,
+        "capTcm2tcm3": 14,
+        "capTcm3tcm4": 15,
+        "capTcm4tcm5": 16,
+        "capTcm5tcm6": 17,
+        "capNone": 18
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7EncryptionReset": {
+    "name": "CryptoFspR7EncryptionReset",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "rls": 1,
+          "rtf": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7EncryptionResetCaps": {
+    "name": "CryptoFspR7EncryptionResetCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capRls": 1,
+        "capRtf": 2
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7EncryptionSwitch": {
+    "name": "CryptoFspR7EncryptionSwitch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "rls": 1,
+          "oprCryptoOff": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7EncryptionSwitchCaps": {
+    "name": "CryptoFspR7EncryptionSwitchCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capRls": 1,
+        "capOprCryptoOff": 2
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7ForceKeyExchange": {
+    "name": "CryptoFspR7ForceKeyExchange",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "rls": 1,
+          "oprKeyExchg": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7ForceKeyExchangeCaps": {
+    "name": "CryptoFspR7ForceKeyExchangeCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capRls": 1,
+        "capOprKeyExchg": 2
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7KeyExchangeForcedClear": {
+    "name": "CryptoFspR7KeyExchangeForcedClear",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "rls": 1,
+          "reset": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7KeyExchangeForcedClearCaps": {
+    "name": "CryptoFspR7KeyExchangeForcedClearCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capRls": 1,
+        "capReset": 2
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7SelfTestOperation": {
+    "name": "CryptoFspR7SelfTestOperation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "rls": 1,
+          "oprSelfTest": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7SelfTestOperationCaps": {
+    "name": "CryptoFspR7SelfTestOperationCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capRls": 1,
+        "capOprSelfTest": 2
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7SessionKeyLifetime": {
+    "name": "CryptoFspR7SessionKeyLifetime",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "lifetime30min": 1,
+          "lifetime1h": 2,
+          "lifetime2h": 3,
+          "lifetime3h": 4,
+          "lifetime6h": 5,
+          "lifetime12h": 6,
+          "lifetime1d": 7,
+          "lifetime2d": 8,
+          "lifetime3d": 9,
+          "lifetime1w": 10,
+          "lifetime2w": 11,
+          "lifetime3w": 12,
+          "lifetimeMax": 13,
+          "lifetime330min": 14,
+          "lifetime11h": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptoFspR7SessionKeyLifetimeCaps": {
+    "name": "CryptoFspR7SessionKeyLifetimeCaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capUndefined": 0,
+        "capLifetime30min": 1,
+        "capLifetime1h": 2,
+        "capLifetime2h": 3,
+        "capLifetime3h": 4,
+        "capLifetime6h": 5,
+        "capLifetime12h": 6,
+        "capLifetime1d": 7,
+        "capLifetime2d": 8,
+        "capLifetime3d": 9,
+        "capLifetime1w": 10,
+        "capLifetime2w": 11,
+        "capLifetime3w": 12,
+        "capLifetimeMax": 13,
+        "capLifetime330min": 14,
+        "capLifetime11h": 15
+      }
+    },
+    "status": "current"
+  },
+  "cryptoOfficerPassword": {
+    "name": "cryptoOfficerPassword",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoOfficerPasswordError": {
+    "name": "cryptoOfficerPasswordError",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "passwdOk": 1,
+          "passwdInvalid": 2,
+          "passwdRejected": 3,
+          "passwdNotInit": 4,
+          "passwdTooSimple": 5,
+          "passwdValidationAborted": 6,
+          "none": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoOfficerPasswordReqId": {
+    "name": "cryptoOfficerPasswordReqId",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleConfigTable": {
+    "name": "cryptoModuleConfigTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoModuleConfigEntry": {
+    "name": "cryptoModuleConfigEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "cryptoModuleConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoModuleConfigIndex": {
+    "name": "cryptoModuleConfigIndex",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntityIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoModuleConfigCryptoOfficerPassword": {
+    "name": "cryptoModuleConfigCryptoOfficerPassword",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleConfigResetToFactory": {
+    "name": "cryptoModuleConfigResetToFactory",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EncryptionReset",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleConfigFirmwareUpdateState": {
+    "name": "cryptoModuleConfigFirmwareUpdateState",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleConfigFirmwareVersion": {
+    "name": "cryptoModuleConfigFirmwareVersion",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleConfigSelfTestOperation": {
+    "name": "cryptoModuleConfigSelfTestOperation",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7SelfTestOperation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleStatusTable": {
+    "name": "cryptoModuleStatusTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoModuleStatusEntry": {
+    "name": "cryptoModuleStatusEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "cryptoModuleConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoModuleStatusIndex": {
+    "name": "cryptoModuleStatusIndex",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntityIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoModuleStatusFailureLoginCount": {
+    "name": "cryptoModuleStatusFailureLoginCount",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleStatusSuccessfulLoginDateAndTime": {
+    "name": "cryptoModuleStatusSuccessfulLoginDateAndTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleStatusUnsuccessfulLoginDateAndTime": {
+    "name": "cryptoModuleStatusUnsuccessfulLoginDateAndTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleStatusResetToFactoryCapability": {
+    "name": "cryptoModuleStatusResetToFactoryCapability",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleTable": {
+    "name": "cryptoModuleTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoModuleEntry": {
+    "name": "cryptoModuleEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptShelfNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptSlotNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptPortNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptExtNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoModuleCryptoOfficerPassword": {
+    "name": "cryptoModuleCryptoOfficerPassword",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleResetToFactory": {
+    "name": "cryptoModuleResetToFactory",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EncryptionReset",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleFirmwareUpdateState": {
+    "name": "cryptoModuleFirmwareUpdateState",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleFirmwareVersion": {
+    "name": "cryptoModuleFirmwareVersion",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleSelfTestOperation": {
+    "name": "cryptoModuleSelfTestOperation",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7SelfTestOperation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleFailureLoginCount": {
+    "name": "cryptoModuleFailureLoginCount",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleSuccessfulLoginDateAndTime": {
+    "name": "cryptoModuleSuccessfulLoginDateAndTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleUnsuccessfulLoginDateAndTime": {
+    "name": "cryptoModuleUnsuccessfulLoginDateAndTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleFwpHash": {
+    "name": "cryptoModuleFwpHash",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7SnmpHexString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleCryBoot": {
+    "name": "cryptoModuleCryBoot",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7CryBoot",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoModuleStbyFwpHash": {
+    "name": "cryptoModuleStbyFwpHash",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7SnmpHexString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleSelfTestExecute": {
+    "name": "cryptoModuleSelfTestExecute",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleSelfTestResult": {
+    "name": "cryptoModuleSelfTestResult",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.20.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleCapTable": {
+    "name": "cryptoModuleCapTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoModuleCapEntry": {
+    "name": "cryptoModuleCapEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptShelfNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptSlotNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptPortNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptExtNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityEqptClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoModuleCapCryptoOfficerPassword": {
+    "name": "cryptoModuleCapCryptoOfficerPassword",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleCapResetToFactory": {
+    "name": "cryptoModuleCapResetToFactory",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EncryptionResetCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleCapFirmwareUpdateState": {
+    "name": "cryptoModuleCapFirmwareUpdateState",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EnableDisableCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleCapFirmwareVersion": {
+    "name": "cryptoModuleCapFirmwareVersion",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleCapSelfTestOperation": {
+    "name": "cryptoModuleCapSelfTestOperation",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7SelfTestOperationCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoModuleCapCryBoot": {
+    "name": "cryptoModuleCapCryBoot",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.2.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7CryBootCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortConfigTable": {
+    "name": "cryptoPortConfigTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoPortConfigEntry": {
+    "name": "cryptoPortConfigEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "cryptoPortConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoPortConfigIndex": {
+    "name": "cryptoPortConfigIndex",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntityIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoPortConfigAuthKey": {
+    "name": "cryptoPortConfigAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortConfigAuthKeyLifeTime": {
+    "name": "cryptoPortConfigAuthKeyLifeTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7SessionKeyLifetime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortConfigEncryptionOffState": {
+    "name": "cryptoPortConfigEncryptionOffState",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortConfigEncryptionOff": {
+    "name": "cryptoPortConfigEncryptionOff",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EncryptionSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortConfigForceKeyExchange": {
+    "name": "cryptoPortConfigForceKeyExchange",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7ForceKeyExchange",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortConfigKeyExchangeForcedClear": {
+    "name": "cryptoPortConfigKeyExchangeForcedClear",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7KeyExchangeForcedClear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortStatusTable": {
+    "name": "cryptoPortStatusTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoPortStatusEntry": {
+    "name": "cryptoPortStatusEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "cryptoPortStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoPortStatusIndex": {
+    "name": "cryptoPortStatusIndex",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntityIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoPortStatusEncryptionOffTimeRemaining": {
+    "name": "cryptoPortStatusEncryptionOffTimeRemaining",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortStatusFailureKeyExchangeCount": {
+    "name": "cryptoPortStatusFailureKeyExchangeCount",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortStatusSuccessfulKeyExchangeDateAndTime": {
+    "name": "cryptoPortStatusSuccessfulKeyExchangeDateAndTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortStatusUnsuccessfulKeyExchangeDateAndTime": {
+    "name": "cryptoPortStatusUnsuccessfulKeyExchangeDateAndTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortStatusAuthKeyLifeTimeRemaining": {
+    "name": "cryptoPortStatusAuthKeyLifeTimeRemaining",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortStatusEncryptionOffCapability": {
+    "name": "cryptoPortStatusEncryptionOffCapability",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortTable": {
+    "name": "cryptoPortTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoPortEntry": {
+    "name": "cryptoPortEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityShelfNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilitySlotNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityPortNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityExtNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoPortAuthKey": {
+    "name": "cryptoPortAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortAuthKeyLifeTime": {
+    "name": "cryptoPortAuthKeyLifeTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7SessionKeyLifetime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortEncryptionOffState": {
+    "name": "cryptoPortEncryptionOffState",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EnableDisable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortEncryptionOff": {
+    "name": "cryptoPortEncryptionOff",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EncryptionSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortForceKeyExchange": {
+    "name": "cryptoPortForceKeyExchange",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7ForceKeyExchange",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortKeyExchangeForcedClear": {
+    "name": "cryptoPortKeyExchangeForcedClear",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7KeyExchangeForcedClear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortEncryptionOffTimeRemaining": {
+    "name": "cryptoPortEncryptionOffTimeRemaining",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortFailureKeyExchangeCount": {
+    "name": "cryptoPortFailureKeyExchangeCount",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortSuccessfulKeyExchangeDateAndTime": {
+    "name": "cryptoPortSuccessfulKeyExchangeDateAndTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortUnsuccessfulKeyExchangeDateAndTime": {
+    "name": "cryptoPortUnsuccessfulKeyExchangeDateAndTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortAuthKeyLifeTimeRemaining": {
+    "name": "cryptoPortAuthKeyLifeTimeRemaining",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortTagFailureLimit": {
+    "name": "cryptoPortTagFailureLimit",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortTagFailurePeriod": {
+    "name": "cryptoPortTagFailurePeriod",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 28800
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortTagReceiveFailures": {
+    "name": "cryptoPortTagReceiveFailures",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortTagClear": {
+    "name": "cryptoPortTagClear",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7KeyExchangeForcedClear",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortEncryptionChannel": {
+    "name": "cryptoPortEncryptionChannel",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EncryptionCommunication",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortTagFailTimeExpiration": {
+    "name": "cryptoPortTagFailTimeExpiration",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortGenAuthKey": {
+    "name": "cryptoPortGenAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7RlsAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortAcceptFpKeyRx": {
+    "name": "cryptoPortAcceptFpKeyRx",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7RlsAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cryptoPortFpKey": {
+    "name": "cryptoPortFpKey",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7SnmpHexString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortFpKeyRx": {
+    "name": "cryptoPortFpKeyRx",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.20.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7SnmpHexString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapTable": {
+    "name": "cryptoPortCapTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoPortCapEntry": {
+    "name": "cryptoPortCapEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityShelfNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilitySlotNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityPortNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityExtNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoPortCapAuthKey": {
+    "name": "cryptoPortCapAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapAuthKeyLifeTime": {
+    "name": "cryptoPortCapAuthKeyLifeTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7SessionKeyLifetimeCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapEncryptionOffState": {
+    "name": "cryptoPortCapEncryptionOffState",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EnableDisableCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapEncryptionOff": {
+    "name": "cryptoPortCapEncryptionOff",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EncryptionSwitchCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapForceKeyExchange": {
+    "name": "cryptoPortCapForceKeyExchange",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7ForceKeyExchangeCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapKeyExchangeForcedClear": {
+    "name": "cryptoPortCapKeyExchangeForcedClear",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7KeyExchangeForcedClearCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapTagFailureLimit": {
+    "name": "cryptoPortCapTagFailureLimit",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7Unsigned32Caps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapTagFailurePeriod": {
+    "name": "cryptoPortCapTagFailurePeriod",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7Unsigned32Caps",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapTagClear": {
+    "name": "cryptoPortCapTagClear",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7KeyExchangeForcedClearCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapEncryptionChannel": {
+    "name": "cryptoPortCapEncryptionChannel",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptoFspR7EncryptionCommunicationCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapGenAuthKey": {
+    "name": "cryptoPortCapGenAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7RlsActionCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoPortCapAcceptAuthRxKey": {
+    "name": "cryptoPortCapAcceptAuthRxKey",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.3.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7RlsActionCaps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm15minTable": {
+    "name": "intervalEncryptionSublayerPm15minTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm15minEntry": {
+    "name": "intervalEncryptionSublayerPm15minEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-MIB",
+        "object": "entityIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "intervalEncryptionSublayerPm15minNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm15minNumber": {
+    "name": "intervalEncryptionSublayerPm15minNumber",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm15minEncryptionRunSeconds": {
+    "name": "intervalEncryptionSublayerPm15minEncryptionRunSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm15minEncryptionRunErrorSeconds": {
+    "name": "intervalEncryptionSublayerPm15minEncryptionRunErrorSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm15minEncryptionRunDegradeSeconds": {
+    "name": "intervalEncryptionSublayerPm15minEncryptionRunDegradeSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm15minValidFlag": {
+    "name": "intervalEncryptionSublayerPm15minValidFlag",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm15minTimeStamp": {
+    "name": "intervalEncryptionSublayerPm15minTimeStamp",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm1dayTable": {
+    "name": "intervalEncryptionSublayerPm1dayTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm1dayEntry": {
+    "name": "intervalEncryptionSublayerPm1dayEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-MIB",
+        "object": "entityIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "intervalEncryptionSublayerPm1dayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm1dayNumber": {
+    "name": "intervalEncryptionSublayerPm1dayNumber",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm1dayEncryptionRunSeconds": {
+    "name": "intervalEncryptionSublayerPm1dayEncryptionRunSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm1dayEncryptionRunErrorSeconds": {
+    "name": "intervalEncryptionSublayerPm1dayEncryptionRunErrorSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm1dayEncryptionRunDegradeSeconds": {
+    "name": "intervalEncryptionSublayerPm1dayEncryptionRunDegradeSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm1dayValidFlag": {
+    "name": "intervalEncryptionSublayerPm1dayValidFlag",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intervalEncryptionSublayerPm1dayTimeStamp": {
+    "name": "intervalEncryptionSublayerPm1dayTimeStamp",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm15minTable": {
+    "name": "currentEncryptionSublayerPm15minTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm15minEntry": {
+    "name": "currentEncryptionSublayerPm15minEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-MIB",
+        "object": "entityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm15minEncryptionRunSeconds": {
+    "name": "currentEncryptionSublayerPm15minEncryptionRunSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm15minEncryptionRunErrorSeconds": {
+    "name": "currentEncryptionSublayerPm15minEncryptionRunErrorSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm15minEncryptionRunDegradeSeconds": {
+    "name": "currentEncryptionSublayerPm15minEncryptionRunDegradeSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm15minElapsedTime": {
+    "name": "currentEncryptionSublayerPm15minElapsedTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9000
+          },
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm1dayTable": {
+    "name": "currentEncryptionSublayerPm1dayTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm1dayEntry": {
+    "name": "currentEncryptionSublayerPm1dayEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-MIB",
+        "object": "entityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm1dayEncryptionRunSeconds": {
+    "name": "currentEncryptionSublayerPm1dayEncryptionRunSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm1dayEncryptionRunErrorSeconds": {
+    "name": "currentEncryptionSublayerPm1dayEncryptionRunErrorSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm1dayEncryptionRunDegradeSeconds": {
+    "name": "currentEncryptionSublayerPm1dayEncryptionRunDegradeSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentEncryptionSublayerPm1dayElapsedTime": {
+    "name": "currentEncryptionSublayerPm1dayElapsedTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          },
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityCurrent15minTable": {
+    "name": "cryFacilityCurrent15minTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryFacilityCurrent15minEntry": {
+    "name": "cryFacilityCurrent15minEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityShelfNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilitySlotNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityPortNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityExtNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryFacilityCurrent15minEncryptionRunSeconds": {
+    "name": "cryFacilityCurrent15minEncryptionRunSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityCurrent15minEncryptionRunErrorSeconds": {
+    "name": "cryFacilityCurrent15minEncryptionRunErrorSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityCurrent15minEncryptionRunDegradeSeconds": {
+    "name": "cryFacilityCurrent15minEncryptionRunDegradeSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityCurrent15minElapsedTime": {
+    "name": "cryFacilityCurrent15minElapsedTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9000
+          },
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityCurrent1dayTable": {
+    "name": "cryFacilityCurrent1dayTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryFacilityCurrent1dayEntry": {
+    "name": "cryFacilityCurrent1dayEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityShelfNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilitySlotNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityPortNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityExtNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryFacilityCurrent1dayEncryptionRunSeconds": {
+    "name": "cryFacilityCurrent1dayEncryptionRunSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityCurrent1dayEncryptionRunErrorSeconds": {
+    "name": "cryFacilityCurrent1dayEncryptionRunErrorSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityCurrent1dayEncryptionRunDegradeSeconds": {
+    "name": "cryFacilityCurrent1dayEncryptionRunDegradeSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityCurrent1dayElapsedTime": {
+    "name": "cryFacilityCurrent1dayElapsedTime",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          },
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical15minTable": {
+    "name": "cryFacilityHistorical15minTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryFacilityHistorical15minEntry": {
+    "name": "cryFacilityHistorical15minEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityShelfNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilitySlotNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityPortNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityExtNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityClassName",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "cryFacilityHistorical15minNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryFacilityHistorical15minNumber": {
+    "name": "cryFacilityHistorical15minNumber",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryFacilityHistorical15minEncryptionRunSeconds": {
+    "name": "cryFacilityHistorical15minEncryptionRunSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical15minEncryptionRunErrorSeconds": {
+    "name": "cryFacilityHistorical15minEncryptionRunErrorSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical15minEncryptionRunDegradeSeconds": {
+    "name": "cryFacilityHistorical15minEncryptionRunDegradeSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical15minValidFlag": {
+    "name": "cryFacilityHistorical15minValidFlag",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical15minTimeStamp": {
+    "name": "cryFacilityHistorical15minTimeStamp",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical1dayTable": {
+    "name": "cryFacilityHistorical1dayTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryFacilityHistorical1dayEntry": {
+    "name": "cryFacilityHistorical1dayEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityShelfNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilitySlotNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityPortNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityExtNo",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MIB",
+        "object": "entityFacilityClassName",
+        "implied": 0
+      },
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "cryFacilityHistorical1dayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryFacilityHistorical1dayNumber": {
+    "name": "cryFacilityHistorical1dayNumber",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryFacilityHistorical1dayEncryptionRunSeconds": {
+    "name": "cryFacilityHistorical1dayEncryptionRunSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical1dayEncryptionRunErrorSeconds": {
+    "name": "cryFacilityHistorical1dayEncryptionRunErrorSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical1dayEncryptionRunDegradeSeconds": {
+    "name": "cryFacilityHistorical1dayEncryptionRunDegradeSeconds",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical1dayValidFlag": {
+    "name": "cryFacilityHistorical1dayValidFlag",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryFacilityHistorical1dayTimeStamp": {
+    "name": "cryFacilityHistorical1dayTimeStamp",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.4.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoRequestErrorTable": {
+    "name": "cryptoRequestErrorTable",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cryptoRequestErrorEntry": {
+    "name": "cryptoRequestErrorEntry",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+        "object": "cryptoRequestErrorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cryptoRequestErrorId": {
+    "name": "cryptoRequestErrorId",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoRequestErrorType": {
+    "name": "cryptoRequestErrorType",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7RequestErrorType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoRequestErrorAesSpecific": {
+    "name": "cryptoRequestErrorAesSpecific",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspR7RequestErrorTypeAes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cryptoRequestErrorTimeStamp": {
+    "name": "cryptoRequestErrorTimeStamp",
+    "oid": "1.3.6.1.4.1.2544.1.11.5.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB"
+  }
+}

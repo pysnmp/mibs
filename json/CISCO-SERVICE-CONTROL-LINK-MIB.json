@@ -1,0 +1,330 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoServiceControlLinkMIB": {
+    "name": "ciscoServiceControlLinkMIB",
+    "oid": "1.3.6.1.4.1.9.9.631",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSCLinkMIBNotifs": {
+    "name": "ciscoSCLinkMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.631.0",
+    "class": "objectidentity"
+  },
+  "ciscoSCLinkMIBObjects": {
+    "name": "ciscoSCLinkMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.631.1",
+    "class": "objectidentity"
+  },
+  "ciscoSCLinkMIBConform": {
+    "name": "ciscoSCLinkMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.631.2",
+    "class": "objectidentity"
+  },
+  "CsceLinkModeType": {
+    "name": "CsceLinkModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "bypass": 2,
+          "forwarding": 3,
+          "cutoff": 4,
+          "sniffing": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cscLinkNotifsEnabled": {
+    "name": "cscLinkNotifsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.631.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscLinkStatusTable": {
+    "name": "cscLinkStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscLinkStatusEntry": {
+    "name": "cscLinkStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscLinkAdminModeOnActive": {
+    "name": "cscLinkAdminModeOnActive",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsceLinkModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscLinkAdminModeOnFailure": {
+    "name": "cscLinkAdminModeOnFailure",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsceLinkModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscLinkOperMode": {
+    "name": "cscLinkOperMode",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsceLinkModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscLinkAdminReflectionEnable": {
+    "name": "cscLinkAdminReflectionEnable",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reflectionEnabled": 1,
+          "reflectionOnAllPortsEnabled": 2,
+          "reflectionDisabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscLinkSubscriberSidePortIndex": {
+    "name": "cscLinkSubscriberSidePortIndex",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscLinkNetworkSidePortIndex": {
+    "name": "cscLinkNetworkSidePortIndex",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscLinkAdminReflectionState": {
+    "name": "cscLinkAdminReflectionState",
+    "oid": "1.3.6.1.4.1.9.9.631.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLinkReflection": 1,
+          "reflectingFailureToNetwork": 2,
+          "reflectingFailureToSubscriber": 3,
+          "reflectingFailureToBoth": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoServiceControlLinkModeChange": {
+    "name": "ciscoServiceControlLinkModeChange",
+    "oid": "1.3.6.1.4.1.9.9.631.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkOperMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSCLinkMIBCompliances": {
+    "name": "ciscoSCLinkMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.631.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSCLinkMIBObjectGroups": {
+    "name": "ciscoSCLinkMIBObjectGroups",
+    "oid": "1.3.6.1.4.1.9.9.631.2.2",
+    "class": "objectidentity"
+  },
+  "cServiceLinkMIBCompliance": {
+    "name": "cServiceLinkMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.631.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSCLinkMIBObjectGroup",
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB"
+      },
+      {
+        "object": "cSCLinkMIBNotificationGroup",
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB"
+      },
+      {
+        "object": "cSCLinkNotifControlGroup",
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cSCLinkMIBObjectGroup": {
+    "name": "cSCLinkMIBObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.631.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkAdminModeOnActive"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkAdminModeOnFailure"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkOperMode"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkAdminReflectionEnable"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkSubscriberSidePortIndex"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkNetworkSidePortIndex"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkAdminReflectionState"
+      }
+    ],
+    "status": "current"
+  },
+  "cSCLinkMIBNotificationGroup": {
+    "name": "cSCLinkMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.631.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "ciscoServiceControlLinkModeChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cSCLinkNotifControlGroup": {
+    "name": "cSCLinkNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.631.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROL-LINK-MIB",
+        "object": "cscLinkNotifsEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SERVICE-CONTROL-LINK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SERVICE-CONTROL-LINK-MIB"
+  }
+}

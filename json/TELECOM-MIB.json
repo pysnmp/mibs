@@ -1,0 +1,2511 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "NonNegativeInteger": {
+    "name": "NonNegativeInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ppc": {
+    "name": "ppc",
+    "oid": "1.3.6.1.4.1.935",
+    "class": "objectidentity"
+  },
+  "device": {
+    "name": "device",
+    "oid": "1.3.6.1.4.1.935.10",
+    "class": "objectidentity"
+  },
+  "matAgent": {
+    "name": "matAgent",
+    "oid": "1.3.6.1.4.1.935.10.2",
+    "class": "objectidentity"
+  },
+  "matObjects": {
+    "name": "matObjects",
+    "oid": "1.3.6.1.4.1.935.10.2.1",
+    "class": "objectidentity"
+  },
+  "matTraps": {
+    "name": "matTraps",
+    "oid": "1.3.6.1.4.1.935.10.2.2",
+    "class": "objectidentity"
+  },
+  "matController": {
+    "name": "matController",
+    "oid": "1.3.6.1.4.1.935.10.2.1.1",
+    "class": "objectidentity"
+  },
+  "matInverter": {
+    "name": "matInverter",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2",
+    "class": "objectidentity"
+  },
+  "matSts": {
+    "name": "matSts",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3",
+    "class": "objectidentity"
+  },
+  "matDryContact": {
+    "name": "matDryContact",
+    "oid": "1.3.6.1.4.1.935.10.2.1.4",
+    "class": "objectidentity"
+  },
+  "matConfig": {
+    "name": "matConfig",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5",
+    "class": "objectidentity"
+  },
+  "matTrapTargets": {
+    "name": "matTrapTargets",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6",
+    "class": "objectidentity"
+  },
+  "matConSerialNum": {
+    "name": "matConSerialNum",
+    "oid": "1.3.6.1.4.1.935.10.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConName": {
+    "name": "matConName",
+    "oid": "1.3.6.1.4.1.935.10.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConWarningState": {
+    "name": "matConWarningState",
+    "oid": "1.3.6.1.4.1.935.10.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConTemperature": {
+    "name": "matConTemperature",
+    "oid": "1.3.6.1.4.1.935.10.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matAgentSoftwareVerison": {
+    "name": "matAgentSoftwareVerison",
+    "oid": "1.3.6.1.4.1.935.10.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvModuleNum": {
+    "name": "matInvModuleNum",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvTable": {
+    "name": "matInvTable",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "matInvEntry": {
+    "name": "matInvEntry",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "matInvModuleIndex": {
+    "name": "matInvModuleIndex",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "matInvSerialNum": {
+    "name": "matInvSerialNum",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvFirmwareVersion": {
+    "name": "matInvFirmwareVersion",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvHardwareVersion": {
+    "name": "matInvHardwareVersion",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvWarningState": {
+    "name": "matInvWarningState",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvOutputVoltage": {
+    "name": "matInvOutputVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvOutputCurrent": {
+    "name": "matInvOutputCurrent",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvBatteryVoltage": {
+    "name": "matInvBatteryVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvOutputFreq": {
+    "name": "matInvOutputFreq",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvOutputPower": {
+    "name": "matInvOutputPower",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvPowerLimit": {
+    "name": "matInvPowerLimit",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvRunTime": {
+    "name": "matInvRunTime",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvTemperature": {
+    "name": "matInvTemperature",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvLineVoltage": {
+    "name": "matInvLineVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvLineFreq": {
+    "name": "matInvLineFreq",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvMbsPosition": {
+    "name": "matInvMbsPosition",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transfer": 1,
+          "normal": 2,
+          "bypass": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvRunMode": {
+    "name": "matInvRunMode",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerOn": 1,
+          "standby": 2,
+          "bypass": 3,
+          "line": 4,
+          "battery": 5,
+          "fault": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvPriority": {
+    "name": "matInvPriority",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "batteryMode": 1,
+          "lineMode": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConfInvOutputVoltage": {
+    "name": "matConfInvOutputVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConfInvInputVoltage": {
+    "name": "matConfInvInputVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConfInvOutputVoltHighLoss": {
+    "name": "matConfInvOutputVoltHighLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConfInvOutputVoltLowLoss": {
+    "name": "matConfInvOutputVoltLowLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConfInvOutputPower": {
+    "name": "matConfInvOutputPower",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matConfInvOutputFreq": {
+    "name": "matConfInvOutputFreq",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvPhaseType": {
+    "name": "matInvPhaseType",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "threePhase": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matInvOnOffStatus": {
+    "name": "matInvOnOffStatus",
+    "oid": "1.3.6.1.4.1.935.10.2.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matStsModuleNum": {
+    "name": "matStsModuleNum",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsTable": {
+    "name": "matStsTable",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "matStsEntry": {
+    "name": "matStsEntry",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "matStsModuleIndex": {
+    "name": "matStsModuleIndex",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "matStsModuleType": {
+    "name": "matStsModuleType",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsSerialNum": {
+    "name": "matStsSerialNum",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsFirmwareVersion": {
+    "name": "matStsFirmwareVersion",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsHardwareVersion": {
+    "name": "matStsHardwareVersion",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsWarningState": {
+    "name": "matStsWarningState",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsMainInputVoltage": {
+    "name": "matStsMainInputVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsMainInputFreq": {
+    "name": "matStsMainInputFreq",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsInvInputVoltage": {
+    "name": "matStsInvInputVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsInvInputFreq": {
+    "name": "matStsInvInputFreq",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsOutputVoltage": {
+    "name": "matStsOutputVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsOutputCurrent": {
+    "name": "matStsOutputCurrent",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsOutputPower": {
+    "name": "matStsOutputPower",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsOutputFreq": {
+    "name": "matStsOutputFreq",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsRuntime": {
+    "name": "matStsRuntime",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsTemperature": {
+    "name": "matStsTemperature",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsMbsStatus": {
+    "name": "matStsMbsStatus",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalPosition": 1,
+          "issPosition": 2,
+          "ibpPosition": 3,
+          "mssPosition": 4,
+          "mbpPosition": 5,
+          "mbsError": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsStatus": {
+    "name": "matStsStatus",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onLine": 1,
+          "offLine": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsRunningMode": {
+    "name": "matStsRunningMode",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inverter": 1,
+          "mains": 2,
+          "noOutput": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsMainHighLossVoltage": {
+    "name": "matStsMainHighLossVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsMainLowLossVoltage": {
+    "name": "matStsMainLowLossVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsInvHighLossVoltage": {
+    "name": "matStsInvHighLossVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matStsInvLosLossVoltage": {
+    "name": "matStsInvLosLossVoltage",
+    "oid": "1.3.6.1.4.1.935.10.2.1.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matDryContactNum": {
+    "name": "matDryContactNum",
+    "oid": "1.3.6.1.4.1.935.10.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matDryContactTable": {
+    "name": "matDryContactTable",
+    "oid": "1.3.6.1.4.1.935.10.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "matDryContactEntry": {
+    "name": "matDryContactEntry",
+    "oid": "1.3.6.1.4.1.935.10.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matDryContactIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "matDryContactIndex": {
+    "name": "matDryContactIndex",
+    "oid": "1.3.6.1.4.1.935.10.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "matDryContactString": {
+    "name": "matDryContactString",
+    "oid": "1.3.6.1.4.1.935.10.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysOutputFreq": {
+    "name": "matConfInvSysOutputFreq",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysOutputVolt": {
+    "name": "matConfInvSysOutputVolt",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysOutputVoltHighLoss": {
+    "name": "matConfInvSysOutputVoltHighLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysOutputVoltLowLoss": {
+    "name": "matConfInvSysOutputVoltLowLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysInputVolt": {
+    "name": "matConfInvSysInputVolt",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysPowerLimit": {
+    "name": "matConfInvSysPowerLimit",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysLineVoltHighLoss": {
+    "name": "matConfInvSysLineVoltHighLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysLineVoltLowLoss": {
+    "name": "matConfInvSysLineVoltLowLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysPriority": {
+    "name": "matConfInvSysPriority",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "batteryMode": 1,
+          "lineMode": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfInvSysFanSpeed": {
+    "name": "matConfInvSysFanSpeed",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalSpeed": 1,
+          "fullSpeed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfStsAcVoltHighLoss": {
+    "name": "matConfStsAcVoltHighLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfStsAcVoltLowLoss": {
+    "name": "matConfStsAcVoltLowLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfStsIpvVoltHighLoss": {
+    "name": "matConfStsIpvVoltHighLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfStsIpvVoltLowLoss": {
+    "name": "matConfStsIpvVoltLowLoss",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonNegativeInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfStsPriority": {
+    "name": "matConfStsPriority",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onLine": 1,
+          "offLine": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matConfStsFanSpeed": {
+    "name": "matConfStsFanSpeed",
+    "oid": "1.3.6.1.4.1.935.10.2.1.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalSpeed": 1,
+          "fullSpeed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matTrapTargetsNum": {
+    "name": "matTrapTargetsNum",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "matTrapTargetsTable": {
+    "name": "matTrapTargetsTable",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "matTrapTargetsEntry": {
+    "name": "matTrapTargetsEntry",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matTrapTargetsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "matTrapTargetsIndex": {
+    "name": "matTrapTargetsIndex",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "matTrapTargetsAddress": {
+    "name": "matTrapTargetsAddress",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matTrapTargetsCommunity": {
+    "name": "matTrapTargetsCommunity",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matTrapType": {
+    "name": "matTrapType",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "matTrap": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matTrapSeverityLevel": {
+    "name": "matTrapSeverityLevel",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "observe": 1,
+          "major": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matTrapTargetsDesc": {
+    "name": "matTrapTargetsDesc",
+    "oid": "1.3.6.1.4.1.935.10.2.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "matInvFault": {
+    "name": "matInvFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvFault": {
+    "name": "matReturnFromInvFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvOverLoad": {
+    "name": "matInvOverLoad",
+    "oid": "1.3.6.1.4.1.935.10.2.20.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvOverLoad": {
+    "name": "matReturnFromInvOverLoad",
+    "oid": "1.3.6.1.4.1.935.10.2.20.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvFanFault": {
+    "name": "matInvFanFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvFanFault": {
+    "name": "matReturnFromInvFanFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvTempPowerLimit": {
+    "name": "matInvTempPowerLimit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvTempPowerLimit": {
+    "name": "matReturnFromInvTempPowerLimit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvInputAbnormal": {
+    "name": "matInvInputAbnormal",
+    "oid": "1.3.6.1.4.1.935.10.2.20.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvInputAbnormal": {
+    "name": "matReturnFromInvInputAbnormal",
+    "oid": "1.3.6.1.4.1.935.10.2.20.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvLowInputShutdown": {
+    "name": "matInvLowInputShutdown",
+    "oid": "1.3.6.1.4.1.935.10.2.20.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvLowInputShutdown": {
+    "name": "matReturnFromInvLowInputShutdown",
+    "oid": "1.3.6.1.4.1.935.10.2.20.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvNotRespond": {
+    "name": "matInvNotRespond",
+    "oid": "1.3.6.1.4.1.935.10.2.20.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvNotRespond": {
+    "name": "matReturnFromInvNotRespond",
+    "oid": "1.3.6.1.4.1.935.10.2.20.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvBusVoltageOverLimit": {
+    "name": "matInvBusVoltageOverLimit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvBusVoltOverLimit": {
+    "name": "matReturnFromInvBusVoltOverLimit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvBusVoltageUnderLimit": {
+    "name": "matInvBusVoltageUnderLimit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvBusVoltUnderLimit": {
+    "name": "matReturnFromInvBusVoltUnderLimit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvBusSoftFail": {
+    "name": "matInvBusSoftFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvBusSoftFail": {
+    "name": "matReturnFromInvBusSoftFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvOutputShort": {
+    "name": "matInvOutputShort",
+    "oid": "1.3.6.1.4.1.935.10.2.20.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvOutputShort": {
+    "name": "matReturnFromInvOutputShort",
+    "oid": "1.3.6.1.4.1.935.10.2.20.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvOutputVoltLow": {
+    "name": "matInvOutputVoltLow",
+    "oid": "1.3.6.1.4.1.935.10.2.20.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvOutputVoltLow": {
+    "name": "matReturnFromInvOutputVoltLow",
+    "oid": "1.3.6.1.4.1.935.10.2.20.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvOutputVoltHigh": {
+    "name": "matInvOutputVoltHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvOutputVoltHigh": {
+    "name": "matReturnFromInvOutputVoltHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvTemperatureHigh": {
+    "name": "matInvTemperatureHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvTemperatureHigh": {
+    "name": "matReturnFromInvTemperatureHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvNegativePowerProtect": {
+    "name": "matInvNegativePowerProtect",
+    "oid": "1.3.6.1.4.1.935.10.2.20.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvNegativePowerProtect": {
+    "name": "matReturnFromInvNegativePowerProtect",
+    "oid": "1.3.6.1.4.1.935.10.2.20.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvPulseFault": {
+    "name": "matInvPulseFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvPulseFault": {
+    "name": "matReturnFromInvPulseFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.32",
+    "class": "notificationtype"
+  },
+  "matInvEPOShutdown": {
+    "name": "matInvEPOShutdown",
+    "oid": "1.3.6.1.4.1.935.10.2.20.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvEPOShutdown": {
+    "name": "matReturnFromInvEPOShutdown",
+    "oid": "1.3.6.1.4.1.935.10.2.20.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvSoftStartFail": {
+    "name": "matInvSoftStartFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvSoftStartFail": {
+    "name": "matReturnFromInvSoftStartFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvEEPROMFault": {
+    "name": "matInvEEPROMFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvEEPROMFault": {
+    "name": "matReturnFromInvEEPROMFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvBypassSCRShort": {
+    "name": "matInvBypassSCRShort",
+    "oid": "1.3.6.1.4.1.935.10.2.20.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvBypassSCRShort": {
+    "name": "matReturnFromInvBypassSCRShort",
+    "oid": "1.3.6.1.4.1.935.10.2.20.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvMBSPosError": {
+    "name": "matInvMBSPosError",
+    "oid": "1.3.6.1.4.1.935.10.2.20.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvMBSPosError": {
+    "name": "matReturnFromInvMBSPosError",
+    "oid": "1.3.6.1.4.1.935.10.2.20.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvBackfeedRelayOpen": {
+    "name": "matInvBackfeedRelayOpen",
+    "oid": "1.3.6.1.4.1.935.10.2.20.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvBackfeedRelayOpen": {
+    "name": "matReturnFromInvBackfeedRelayOpen",
+    "oid": "1.3.6.1.4.1.935.10.2.20.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvHardwareError": {
+    "name": "matInvHardwareError",
+    "oid": "1.3.6.1.4.1.935.10.2.20.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvHardwareError": {
+    "name": "matReturnFromInvHardwareError",
+    "oid": "1.3.6.1.4.1.935.10.2.20.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvMainUnavailable": {
+    "name": "matInvMainUnavailable",
+    "oid": "1.3.6.1.4.1.935.10.2.20.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvMainUnavailable": {
+    "name": "matReturnFromInvMainUnavailable",
+    "oid": "1.3.6.1.4.1.935.10.2.20.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matInvMaintenaceBypass": {
+    "name": "matInvMaintenaceBypass",
+    "oid": "1.3.6.1.4.1.935.10.2.20.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matReturnFromInvMaintenaceBypass": {
+    "name": "matReturnFromInvMaintenaceBypass",
+    "oid": "1.3.6.1.4.1.935.10.2.20.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matInvSerialNum"
+      }
+    ]
+  },
+  "matStsBypassUnavailable": {
+    "name": "matStsBypassUnavailable",
+    "oid": "1.3.6.1.4.1.935.10.2.20.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsBypassUnavailable": {
+    "name": "matReturnFromStsBypassUnavailable",
+    "oid": "1.3.6.1.4.1.935.10.2.20.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsBackfeedRelayOpen": {
+    "name": "matStsBackfeedRelayOpen",
+    "oid": "1.3.6.1.4.1.935.10.2.20.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsBackfeedRelayOpen": {
+    "name": "matReturnFromStsBackfeedRelayOpen",
+    "oid": "1.3.6.1.4.1.935.10.2.20.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsScr1ShortCurcuit": {
+    "name": "matStsScr1ShortCurcuit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsScr1ShortCurcuit": {
+    "name": "matReturnFromStsScr1ShortCurcuit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsScr2ShortCurcuit": {
+    "name": "matStsScr2ShortCurcuit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsScr2ShortCurcuit": {
+    "name": "matReturnFromStsScr2ShortCurcuit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsFaultMode": {
+    "name": "matStsFaultMode",
+    "oid": "1.3.6.1.4.1.935.10.2.20.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsFaultMode": {
+    "name": "matReturnFromStsFaultMode",
+    "oid": "1.3.6.1.4.1.935.10.2.20.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsFanFault": {
+    "name": "matStsFanFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsFanFault": {
+    "name": "matReturnFromStsFanFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsEEPROMFault": {
+    "name": "matStsEEPROMFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsEEPROMFault": {
+    "name": "matReturnFromStsEEPROMFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsInvFail": {
+    "name": "matStsInvFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsInvFail": {
+    "name": "matReturnFromStsInvFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsMainsFail": {
+    "name": "matStsMainsFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.67",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsMainFail": {
+    "name": "matReturnFromStsMainFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.68",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsOverLoad": {
+    "name": "matStsOverLoad",
+    "oid": "1.3.6.1.4.1.935.10.2.20.69",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsOverLoad": {
+    "name": "matReturnFromStsOverLoad",
+    "oid": "1.3.6.1.4.1.935.10.2.20.70",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsOutputShortCircuit": {
+    "name": "matStsOutputShortCircuit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.71",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsOutputShortCircuit": {
+    "name": "matReturnFromStsOutputShortCircuit",
+    "oid": "1.3.6.1.4.1.935.10.2.20.72",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsInvBypassMode": {
+    "name": "matStsInvBypassMode",
+    "oid": "1.3.6.1.4.1.935.10.2.20.73",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsInvBypassMode": {
+    "name": "matReturnFromStsInvBypassMode",
+    "oid": "1.3.6.1.4.1.935.10.2.20.74",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsTemperatureHigh": {
+    "name": "matStsTemperatureHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.75",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsTemperatureHigh": {
+    "name": "matReturnFromStsTemperatureHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.76",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsMBSPosFault": {
+    "name": "matStsMBSPosFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.77",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsMBSPosFault": {
+    "name": "matReturnFromStsMBSPosFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.78",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsControlPowerFail": {
+    "name": "matStsControlPowerFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.79",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsControlPowerFail": {
+    "name": "matReturnFromStsControlPowerFail",
+    "oid": "1.3.6.1.4.1.935.10.2.20.80",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsNotRespond": {
+    "name": "matStsNotRespond",
+    "oid": "1.3.6.1.4.1.935.10.2.20.81",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsNotRespond": {
+    "name": "matReturnFromStsNotRespond",
+    "oid": "1.3.6.1.4.1.935.10.2.20.82",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsOutputAbnormal": {
+    "name": "matStsOutputAbnormal",
+    "oid": "1.3.6.1.4.1.935.10.2.20.83",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsOutputAbnormal": {
+    "name": "matReturnFromStsOutputAbnormal",
+    "oid": "1.3.6.1.4.1.935.10.2.20.84",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matStsMaintenanceBypass": {
+    "name": "matStsMaintenanceBypass",
+    "oid": "1.3.6.1.4.1.935.10.2.20.85",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matReturnFromStsMaintenanceBypass": {
+    "name": "matReturnFromStsMaintenanceBypass",
+    "oid": "1.3.6.1.4.1.935.10.2.20.86",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matStsSerialNum"
+      }
+    ]
+  },
+  "matConBatteryLow": {
+    "name": "matConBatteryLow",
+    "oid": "1.3.6.1.4.1.935.10.2.20.87",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matReturnFromConBatteryLow": {
+    "name": "matReturnFromConBatteryLow",
+    "oid": "1.3.6.1.4.1.935.10.2.20.88",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matConTemperatureHigh": {
+    "name": "matConTemperatureHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.89",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matReturnFromConTemperatureHigh": {
+    "name": "matReturnFromConTemperatureHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.90",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matConEEPROMFault": {
+    "name": "matConEEPROMFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.91",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matReturnFromConEEPROMFault": {
+    "name": "matReturnFromConEEPROMFault",
+    "oid": "1.3.6.1.4.1.935.10.2.20.92",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matConBatteryVoltHigh": {
+    "name": "matConBatteryVoltHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.93",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matReturnFromConBatteryVoltHigh": {
+    "name": "matReturnFromConBatteryVoltHigh",
+    "oid": "1.3.6.1.4.1.935.10.2.20.94",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matConCanBusOff": {
+    "name": "matConCanBusOff",
+    "oid": "1.3.6.1.4.1.935.10.2.20.95",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matReturnFromConCanBusOff": {
+    "name": "matReturnFromConCanBusOff",
+    "oid": "1.3.6.1.4.1.935.10.2.20.96",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matConCommunicationLost": {
+    "name": "matConCommunicationLost",
+    "oid": "1.3.6.1.4.1.935.10.2.20.97",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "matReturnFromCommunicationLost": {
+    "name": "matReturnFromCommunicationLost",
+    "oid": "1.3.6.1.4.1.935.10.2.20.98",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELECOM-MIB",
+        "object": "matConSerialNum"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/TELECOM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TELECOM-MIB"
+  }
+}

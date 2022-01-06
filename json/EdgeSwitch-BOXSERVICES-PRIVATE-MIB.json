@@ -1,0 +1,841 @@
+{
+  "imports": {
+    "class": "imports",
+    "EdgeSwitch-REF-MIB": [
+      "fastPath"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "fastPathBoxServices": {
+    "name": "fastPathBoxServices",
+    "oid": "1.3.6.1.4.1.4413.1.1.43",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-26 00:00",
+        "description": "Postal address updated."
+      },
+      {
+        "revision": "2008-02-22 00:00",
+        "description": "Ubiquiti branding related changes."
+      }
+    ]
+  },
+  "BoxsTemperatureStatus": {
+    "name": "BoxsTemperatureStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "normal": 1,
+          "warning": 2,
+          "critical": 3,
+          "shutdown": 4,
+          "notpresent": 5,
+          "notoperational": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "boxServicesGroup": {
+    "name": "boxServicesGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1",
+    "class": "objectidentity"
+  },
+  "boxServicesNormalTempRangeMin": {
+    "name": "boxServicesNormalTempRangeMin",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "boxServicesNormalTempRangeMax": {
+    "name": "boxServicesNormalTempRangeMax",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 45,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "boxServicesTemperatureTrapEnable": {
+    "name": "boxServicesTemperatureTrapEnable",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "boxServicesPSMStateTrapEnable": {
+    "name": "boxServicesPSMStateTrapEnable",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "boxServicesFanStateTrapEnable": {
+    "name": "boxServicesFanStateTrapEnable",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "boxServicesThermalShutdownSensor": {
+    "name": "boxServicesThermalShutdownSensor",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "boxServicesThermalShutdownTemperature": {
+    "name": "boxServicesThermalShutdownTemperature",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "boxServicesFansTable": {
+    "name": "boxServicesFansTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "boxServicesFansEntry": {
+    "name": "boxServicesFansEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesFanUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesFansIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "boxServicesFanUnitIndex": {
+    "name": "boxServicesFanUnitIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesFansIndex": {
+    "name": "boxServicesFansIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesFanItemType": {
+    "name": "boxServicesFanItemType",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "removable": 2,
+          "fixedAC": 3,
+          "removableDC": 4,
+          "fixedDC": 5,
+          "removableAC": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesFanItemState": {
+    "name": "boxServicesFanItemState",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notpresent": 1,
+          "operational": 2,
+          "failed": 3,
+          "powering": 4,
+          "nopower": 5,
+          "notpowering": 6,
+          "incompatible": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesFanSpeed": {
+    "name": "boxServicesFanSpeed",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 13,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesFanDutyLevel": {
+    "name": "boxServicesFanDutyLevel",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 13,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesPowSuppliesTable": {
+    "name": "boxServicesPowSuppliesTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "boxServicesPowSuppliesEntry": {
+    "name": "boxServicesPowSuppliesEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesPowerSuppUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesPowSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "boxServicesPowerSuppUnitIndex": {
+    "name": "boxServicesPowerSuppUnitIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesPowSupplyIndex": {
+    "name": "boxServicesPowSupplyIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesPowSupplyItemType": {
+    "name": "boxServicesPowSupplyItemType",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "removable": 2,
+          "fixedAC": 3,
+          "removableDC": 4,
+          "fixedDC": 5,
+          "removableAC": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesPowSupplyItemState": {
+    "name": "boxServicesPowSupplyItemState",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notpresent": 1,
+          "operational": 2,
+          "failed": 3,
+          "powering": 4,
+          "nopower": 5,
+          "notpowering": 6,
+          "incompatible": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesTempSensorsTable": {
+    "name": "boxServicesTempSensorsTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "boxServicesTempSensorsEntry": {
+    "name": "boxServicesTempSensorsEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesTempSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "boxServicesUnitIndex": {
+    "name": "boxServicesUnitIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesTempSensorIndex": {
+    "name": "boxServicesTempSensorIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesTempSensorType": {
+    "name": "boxServicesTempSensorType",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "removable": 2,
+          "fixedAC": 3,
+          "removableDC": 4,
+          "fixedDC": 5,
+          "removableAC": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesTempSensorState": {
+    "name": "boxServicesTempSensorState",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BoxsTemperatureStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "boxServicesTempSensorTemperature": {
+    "name": "boxServicesTempSensorTemperature",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesTempUnitTable": {
+    "name": "boxServicesTempUnitTable",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "boxServicesTempUnitEntry": {
+    "name": "boxServicesTempUnitEntry",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesTempUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "boxServicesTempUnitIndex": {
+    "name": "boxServicesTempUnitIndex",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesTempUnitState": {
+    "name": "boxServicesTempUnitState",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BoxsTemperatureStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesTempUnitTemperature": {
+    "name": "boxServicesTempUnitTemperature",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "boxServicesNotificationsGroup": {
+    "name": "boxServicesNotificationsGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.2",
+    "class": "objectidentity"
+  },
+  "boxsItemStateChangeEvent": {
+    "name": "boxsItemStateChangeEvent",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "insertion": 1,
+          "removal": 2,
+          "becomeoperational": 3,
+          "failure": 4,
+          "losepower": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "boxsTemperatureChangeEvent": {
+    "name": "boxsTemperatureChangeEvent",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abovethreshold": 1,
+          "belowthreshold": 2,
+          "withinnormalrange": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "boxsTemperatureStatusCurrentEvent": {
+    "name": "boxsTemperatureStatusCurrentEvent",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BoxsTemperatureStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "boxsTemperatureStatusPreviousEvent": {
+    "name": "boxsTemperatureStatusPreviousEvent",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BoxsTemperatureStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fastPathBoxServicesTraps": {
+    "name": "fastPathBoxServicesTraps",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.0",
+    "class": "objectidentity"
+  },
+  "boxsFanStateChange": {
+    "name": "boxsFanStateChange",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesFansIndex"
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxsItemStateChangeEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "boxsPowSupplyStateChange": {
+    "name": "boxsPowSupplyStateChange",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesPowSupplyIndex"
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxsItemStateChangeEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "boxsTemperatureChange": {
+    "name": "boxsTemperatureChange",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesTempSensorIndex"
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxsTemperatureChangeEvent"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "boxsThermalShutdown": {
+    "name": "boxsThermalShutdown",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesThermalShutdownSensor"
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesThermalShutdownTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "boxsTemperatureStateChange": {
+    "name": "boxsTemperatureStateChange",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxServicesTempUnitIndex"
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxsTemperatureStatusCurrentEvent"
+      },
+      {
+        "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+        "object": "boxsTemperatureStatusPreviousEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "boxsLocatorLedConfigGroup": {
+    "name": "boxsLocatorLedConfigGroup",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.4",
+    "class": "objectidentity"
+  },
+  "boxsLocatorLedUnit": {
+    "name": "boxsLocatorLedUnit",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "boxsLocatorLedTime": {
+    "name": "boxsLocatorLedTime",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "boxsLocatorLedEnable": {
+    "name": "boxsLocatorLedEnable",
+    "oid": "1.3.6.1.4.1.4413.1.1.43.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:28:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB"
+  }
+}

@@ -1,0 +1,1687 @@
+{
+  "imports": {
+    "class": "imports",
+    "LAN-EMULATION-CLIENT-MIB": [
+      "VciInteger",
+      "LecDataFrameFormat",
+      "atmfLanEmulation",
+      "LecDataFrameSize",
+      "VpiInteger"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "elanMIB": {
+    "name": "elanMIB",
+    "oid": "1.3.6.1.4.1.353.5.3.2",
+    "class": "objectidentity"
+  },
+  "Integer": {
+    "name": "Integer",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "RowStatus": {
+    "name": "RowStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "AutonomousType": {
+    "name": "AutonomousType",
+    "class": "type",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    }
+  },
+  "TIMESTAMP": {
+    "name": "TIMESTAMP",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "AtmLaneAddress": {
+    "name": "AtmLaneAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    }
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "IfIndexOrZero": {
+    "name": "IfIndexOrZero",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "ElanLocalIndex": {
+    "name": "ElanLocalIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "AtmLaneMask": {
+    "name": "AtmLaneMask",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    }
+  },
+  "TlvSelectorIndexType": {
+    "name": "TlvSelectorIndexType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "PolicySelectorIndexType": {
+    "name": "PolicySelectorIndexType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "LecsErrLogIndexType": {
+    "name": "LecsErrLogIndexType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "elanAdminGroup": {
+    "name": "elanAdminGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.2.1",
+    "class": "objectidentity"
+  },
+  "elanConfGroup": {
+    "name": "elanConfGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2",
+    "class": "objectidentity"
+  },
+  "elanLecsGroup": {
+    "name": "elanLecsGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3",
+    "class": "objectidentity"
+  },
+  "elanLecsConfGroup": {
+    "name": "elanLecsConfGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1",
+    "class": "objectidentity"
+  },
+  "elanLecsFaultGroup": {
+    "name": "elanLecsFaultGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2",
+    "class": "objectidentity"
+  },
+  "elanLecsStatGroup": {
+    "name": "elanLecsStatGroup",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3",
+    "class": "objectidentity"
+  },
+  "elanAdminPolicyVal": {
+    "name": "elanAdminPolicyVal",
+    "oid": "1.3.6.1.4.1.353.5.3.2.1.1",
+    "class": "objectidentity"
+  },
+  "byAtmAddr": {
+    "name": "byAtmAddr",
+    "oid": "1.3.6.1.4.1.353.5.3.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "byMacAddr": {
+    "name": "byMacAddr",
+    "oid": "1.3.6.1.4.1.353.5.3.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "byRouteDescriptor": {
+    "name": "byRouteDescriptor",
+    "oid": "1.3.6.1.4.1.353.5.3.2.1.1.3",
+    "class": "objectidentity"
+  },
+  "byLanType": {
+    "name": "byLanType",
+    "oid": "1.3.6.1.4.1.353.5.3.2.1.1.4",
+    "class": "objectidentity"
+  },
+  "byPktSize": {
+    "name": "byPktSize",
+    "oid": "1.3.6.1.4.1.353.5.3.2.1.1.5",
+    "class": "objectidentity"
+  },
+  "byElanName": {
+    "name": "byElanName",
+    "oid": "1.3.6.1.4.1.353.5.3.2.1.1.6",
+    "class": "objectidentity"
+  },
+  "elanConfNextId": {
+    "name": "elanConfNextId",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ElanLocalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "elanConfTable": {
+    "name": "elanConfTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanConfEntry": {
+    "name": "elanConfEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "elanConfIndex": {
+    "name": "elanConfIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ElanLocalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanConfName": {
+    "name": "elanConfName",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanConfTlvIndex": {
+    "name": "elanConfTlvIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TlvSelectorIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanConfLanType": {
+    "name": "elanConfLanType",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LecDataFrameFormat",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unspecified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanConfMaxFrameSize": {
+    "name": "elanConfMaxFrameSize",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LecDataFrameSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unspecified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanConfRowStatus": {
+    "name": "elanConfRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanLesTable": {
+    "name": "elanLesTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLesEntry": {
+    "name": "elanLesEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "elanLesIndex": {
+    "name": "elanLesIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLesAtmAddress": {
+    "name": "elanLesAtmAddress",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanLesRowStatus": {
+    "name": "elanLesRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanPolicyTable": {
+    "name": "elanPolicyTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanPolicyEntry": {
+    "name": "elanPolicyEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanPolicySelectorIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "elanPolicySelectorIndex": {
+    "name": "elanPolicySelectorIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicySelectorIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanPolicyIndex": {
+    "name": "elanPolicyIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanPolicyPriority": {
+    "name": "elanPolicyPriority",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanPolicyType": {
+    "name": "elanPolicyType",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanPolicyRowStatus": {
+    "name": "elanPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanLecAtmAddrTable": {
+    "name": "elanLecAtmAddrTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecAtmAddrEntry": {
+    "name": "elanLecAtmAddrEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLesIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLecAtmAddress",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLecAtmMask",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "elanLecAtmAddress": {
+    "name": "elanLecAtmAddress",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecAtmMask": {
+    "name": "elanLecAtmMask",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecAtmRowStatus": {
+    "name": "elanLecAtmRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanLecMacAddrTable": {
+    "name": "elanLecMacAddrTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecMacAddrEntry": {
+    "name": "elanLecMacAddrEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLesIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLecMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "elanLecMacAddress": {
+    "name": "elanLecMacAddress",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecMacRowStatus": {
+    "name": "elanLecMacRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanLecRdTable": {
+    "name": "elanLecRdTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecRdEntry": {
+    "name": "elanLecRdEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLesIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLecRdSegId",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLecRdBridgeNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "elanLecRdSegId": {
+    "name": "elanLecRdSegId",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecRdBridgeNum": {
+    "name": "elanLecRdBridgeNum",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecRdRowStatus": {
+    "name": "elanLecRdRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanLecPktSizeTable": {
+    "name": "elanLecPktSizeTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecPktSizeEntry": {
+    "name": "elanLecPktSizeEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLesIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLecFrameSize",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "elanLecFrameSize": {
+    "name": "elanLecFrameSize",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LecDataFrameSize",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecPktSizeRowStatus": {
+    "name": "elanLecPktSizeRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elanLecNameTable": {
+    "name": "elanLecNameTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecNameEntry": {
+    "name": "elanLecNameEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLesIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanLecElanName",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "elanLecElanName": {
+    "name": "elanLecElanName",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "elanLecNameRowStatus": {
+    "name": "elanLecNameRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsConfNextId": {
+    "name": "lecsConfNextId",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ElanLocalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsConfTable": {
+    "name": "lecsConfTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsConfEntry": {
+    "name": "lecsConfEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lecsConfIndex": {
+    "name": "lecsConfIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsAtmIfIndex": {
+    "name": "lecsAtmIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsAtmAddrSpec": {
+    "name": "lecsAtmAddrSpec",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "4700790000000000000000000000A03E00000100",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsAtmAddrMask": {
+    "name": "lecsAtmAddrMask",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsAtmAddrActual": {
+    "name": "lecsAtmAddrActual",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsPolicySelIndex": {
+    "name": "lecsPolicySelIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicySelectorIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsLastInitialized": {
+    "name": "lecsLastInitialized",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIMESTAMP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsOperStatus": {
+    "name": "lecsOperStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsAdminStatus": {
+    "name": "lecsAdminStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsRowStatus": {
+    "name": "lecsRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsElanTable": {
+    "name": "lecsElanTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsElanEntry": {
+    "name": "lecsElanEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "elanConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lecsElanRowStatus": {
+    "name": "lecsElanRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsTlvTable": {
+    "name": "lecsTlvTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsTlvEntry": {
+    "name": "lecsTlvEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsTlvSelectorIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsTlvTag",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsTlvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lecsTlvSelectorIndex": {
+    "name": "lecsTlvSelectorIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TlvSelectorIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsTlvTag": {
+    "name": "lecsTlvTag",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsTlvIndex": {
+    "name": "lecsTlvIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsTlvVal": {
+    "name": "lecsTlvVal",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsTlvRowStatus": {
+    "name": "lecsTlvRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsVccTable": {
+    "name": "lecsVccTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsVccEntry": {
+    "name": "lecsVccEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsVccIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsVccVpi",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsVccVci",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lecsVccIfIndex": {
+    "name": "lecsVccIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsVccVpi": {
+    "name": "lecsVccVpi",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsVccVci": {
+    "name": "lecsVccVci",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VciInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsVccRowStatus": {
+    "name": "lecsVccRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsStatsTable": {
+    "name": "lecsStatsTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsStatsEntry": {
+    "name": "lecsStatsEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lecsStatSuccessful": {
+    "name": "lecsStatSuccessful",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatInBadFrames": {
+    "name": "lecsStatInBadFrames",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatInvalidParam": {
+    "name": "lecsStatInvalidParam",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatInsufRes": {
+    "name": "lecsStatInsufRes",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatAccDenied": {
+    "name": "lecsStatAccDenied",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatInvalidReq": {
+    "name": "lecsStatInvalidReq",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatInvalidDest": {
+    "name": "lecsStatInvalidDest",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatInvalidAddr": {
+    "name": "lecsStatInvalidAddr",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatNoConf": {
+    "name": "lecsStatNoConf",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatConfError": {
+    "name": "lecsStatConfError",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsStatInsufInfo": {
+    "name": "lecsStatInsufInfo",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsErrCtlTable": {
+    "name": "lecsErrCtlTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsErrCtlEntry": {
+    "name": "lecsErrCtlEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lecsErrCtlAdminStatus": {
+    "name": "lecsErrCtlAdminStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsErrCtlOperStatus": {
+    "name": "lecsErrCtlOperStatus",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2,
+          "outOfRes": 3,
+          "failed": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsErrCtlClearLog": {
+    "name": "lecsErrCtlClearLog",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsErrCtlMaxEntries": {
+    "name": "lecsErrCtlMaxEntries",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsErrCtlLastEntry": {
+    "name": "lecsErrCtlLastEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LecsErrLogIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lecsErrLogTable": {
+    "name": "lecsErrLogTable",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsErrLogEntry": {
+    "name": "lecsErrLogEntry",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LAN-EMULATION-ELAN-MIB",
+        "object": "lecsErrLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lecsErrLogIndex": {
+    "name": "lecsErrLogIndex",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LecsErrLogIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lecsErrLogAtmAddr": {
+    "name": "lecsErrLogAtmAddr",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsErrLogErrCode": {
+    "name": "lecsErrLogErrCode",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lecsErrLogTime": {
+    "name": "lecsErrLogTime",
+    "oid": "1.3.6.1.4.1.353.5.3.2.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TIMESTAMP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LAN-EMULATION-ELAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LAN-EMULATION-ELAN-MIB"
+  }
+}

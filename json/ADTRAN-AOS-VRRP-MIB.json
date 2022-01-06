@@ -1,0 +1,361 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSConformance",
+      "adGenAOSRouter"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adGenAOSVrrpMib": {
+    "name": "adGenAOSVrrpMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-29 00:00",
+        "description": "Revised text in descriptions."
+      },
+      {
+        "revision": "2014-04-17 00:00",
+        "description": "Created the adGenAosVrrp MIB. Revision R11.3"
+      }
+    ]
+  },
+  "adGenAOSVrrp": {
+    "name": "adGenAOSVrrp",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3",
+    "class": "objectidentity"
+  },
+  "adGenAOSVrrpTrap": {
+    "name": "adGenAOSVrrpTrap",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.0",
+    "class": "objectidentity"
+  },
+  "adGenAOSVrrpTrapCntl": {
+    "name": "adGenAOSVrrpTrapCntl",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSVrrpTable": {
+    "name": "adGenAOSVrrpTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSVrrpEntry": {
+    "name": "adGenAOSVrrpEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpVersion",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpId",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpInetAddrType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSVrrpVersion": {
+    "name": "adGenAOSVrrpVersion",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSVrrpId": {
+    "name": "adGenAOSVrrpId",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSVrrpInetAddrType": {
+    "name": "adGenAOSVrrpInetAddrType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSVrrpInetAddr": {
+    "name": "adGenAOSVrrpInetAddr",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSVrrpOperStatus": {
+    "name": "adGenAOSVrrpOperStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSVrrpPriority": {
+    "name": "adGenAOSVrrpPriority",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSVrrpMasterTrapCntl": {
+    "name": "adGenAOSVrrpMasterTrapCntl",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSVrrpMasterTrap": {
+    "name": "adGenAOSVrrpMasterTrap",
+    "oid": "1.3.6.1.4.1.664.5.53.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSVrrpConformance": {
+    "name": "adGenAOSVrrpConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20",
+    "class": "objectidentity"
+  },
+  "adGenAOSVrrpGroups": {
+    "name": "adGenAOSVrrpGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSVrrpCompliances": {
+    "name": "adGenAOSVrrpCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSVrrpFullCompliance": {
+    "name": "adGenAOSVrrpFullCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenAOSVrrpObjectGroup",
+        "module": "ADTRAN-AOS-VRRP-MIB"
+      },
+      {
+        "object": "adGenAOSVrrpTrapCfgGroup",
+        "module": "ADTRAN-AOS-VRRP-MIB"
+      },
+      {
+        "object": "adGenAOSVrrpTrapGroup",
+        "module": "ADTRAN-AOS-VRRP-MIB"
+      },
+      {
+        "object": "adGenAOSVrrpNotificationGroup",
+        "module": "ADTRAN-AOS-VRRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSVrrpReadOnlyCompliance": {
+    "name": "adGenAOSVrrpReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenAOSVrrpObjectGroup",
+        "module": "ADTRAN-AOS-VRRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSVrrpObjectGroup": {
+    "name": "adGenAOSVrrpObjectGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpInetAddr"
+      },
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSVrrpTrapCfgGroup": {
+    "name": "adGenAOSVrrpTrapCfgGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpMasterTrapCntl"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSVrrpTrapGroup": {
+    "name": "adGenAOSVrrpTrapGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSVrrpNotificationGroup": {
+    "name": "adGenAOSVrrpNotificationGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.20.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-VRRP-MIB",
+        "object": "adGenAOSVrrpMasterTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-VRRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS-VRRP-MIB"
+  }
+}

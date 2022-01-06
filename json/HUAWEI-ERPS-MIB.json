@@ -1,0 +1,1641 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifName"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwErpsMIB": {
+    "name": "hwErpsMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.256",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-10-28 00:00",
+        "description": "fix the errors points of hwErpsNotifications."
+      },
+      {
+        "revision": "2013-08-31 00:00",
+        "description": "fix the errors checked by a tool."
+      },
+      {
+        "revision": "2013-06-28 00:01",
+        "description": "Add new node hwErpsNotifications"
+      }
+    ]
+  },
+  "hwErpsObjects": {
+    "name": "hwErpsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1",
+    "class": "objectidentity"
+  },
+  "hwErpsGlobalResetRapsPktCnt": {
+    "name": "hwErpsGlobalResetRapsPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwErpsRingConfigTable": {
+    "name": "hwErpsRingConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwErpsRingConfigEntry": {
+    "name": "hwErpsRingConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwConfigRingId": {
+    "name": "hwConfigRingId",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwConfigRingRowStatus": {
+    "name": "hwConfigRingRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigDescription": {
+    "name": "hwConfigDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigControlVlanId": {
+    "name": "hwConfigControlVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigProtectedInstanceList": {
+    "name": "hwConfigProtectedInstanceList",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigWtrTimerSettingValue": {
+    "name": "hwConfigWtrTimerSettingValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigGuardTimerSettingValue": {
+    "name": "hwConfigGuardTimerSettingValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigHoldoffTimerSettingValue": {
+    "name": "hwConfigHoldoffTimerSettingValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "deciseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigResetRapsPktCnt": {
+    "name": "hwConfigResetRapsPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigRapsMel": {
+    "name": "hwConfigRapsMel",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigVersion": {
+    "name": "hwConfigVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigRevertiveMode": {
+    "name": "hwConfigRevertiveMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "revertive": 1,
+          "nonRevertive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigRingRole": {
+    "name": "hwConfigRingRole",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "majorRing": 1,
+          "subRing": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigRapsChannelMode": {
+    "name": "hwConfigRapsChannelMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "virtualChannel": 1,
+          "nonVirtualChannel": 2,
+          "unused": 65535
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigTcNotifyErpsRing": {
+    "name": "hwConfigTcNotifyErpsRing",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigTcProtectionInterval": {
+    "name": "hwConfigTcProtectionInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigTcProtectionThreshold": {
+    "name": "hwConfigTcProtectionThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigProtectionSwitch": {
+    "name": "hwConfigProtectionSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "idle": 65535
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwErpsRingStatusTable": {
+    "name": "hwErpsRingStatusTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwErpsRingStatusEntry": {
+    "name": "hwErpsRingStatusEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStatusWtrTimerRunningValue": {
+    "name": "hwStatusWtrTimerRunningValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 720
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStatusGuardTimerRunningValue": {
+    "name": "hwStatusGuardTimerRunningValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStatusHoldoffTimerRunningValue": {
+    "name": "hwStatusHoldoffTimerRunningValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "deciseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStatusMachineState": {
+    "name": "hwStatusMachineState",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "protection": 2,
+          "manualSwitch": 3,
+          "forcedSwitch": 4,
+          "pending": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStatusTopoLastChangeTime": {
+    "name": "hwStatusTopoLastChangeTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStatusWtbTimerRunningValue": {
+    "name": "hwStatusWtbTimerRunningValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 700
+          }
+        ]
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwErpsPortConfigTable": {
+    "name": "hwErpsPortConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwErpsPortConfigEntry": {
+    "name": "hwErpsPortConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId1",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId3",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId4",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwConfigPortType": {
+    "name": "hwConfigPortType",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwConfigPortId1": {
+    "name": "hwConfigPortId1",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwConfigPortId2": {
+    "name": "hwConfigPortId2",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwConfigPortId3": {
+    "name": "hwConfigPortId3",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwConfigPortId4": {
+    "name": "hwConfigPortId4",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwConfigPortRowStatus": {
+    "name": "hwConfigPortRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigPortConfigRole": {
+    "name": "hwConfigPortConfigRole",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwConfigPortProtectionSwitch": {
+    "name": "hwConfigPortProtectionSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forcedSwitch": 1,
+          "manualSwitch": 2,
+          "idle": 65535
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwErpsPortStatusTable": {
+    "name": "hwErpsPortStatusTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwErpsPortStatusEntry": {
+    "name": "hwErpsPortStatusEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId1",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId3",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId4",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortStatusActiveRole": {
+    "name": "hwPortStatusActiveRole",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortStatusSignalStatus": {
+    "name": "hwPortStatusSignalStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "nonFailed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPortStatusFwdStatus": {
+    "name": "hwPortStatusFwdStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discarding": 1,
+          "forwarding": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwErpsPortStatisticsTable": {
+    "name": "hwErpsPortStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwErpsPortStatisticsEntry": {
+    "name": "hwErpsPortStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId1",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId3",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId4",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRxRapsSfPktCnt": {
+    "name": "hwRxRapsSfPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTxRapsSfPktCnt": {
+    "name": "hwTxRapsSfPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRxRapsNrPktCnt": {
+    "name": "hwRxRapsNrPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTxRapsNrPktCnt": {
+    "name": "hwTxRapsNrPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRxRapsNrRbPktCnt": {
+    "name": "hwRxRapsNrRbPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTxRapsNrRbPktCnt": {
+    "name": "hwTxRapsNrRbPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRxRapsFsPktCnt": {
+    "name": "hwRxRapsFsPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTxRapsFsPktCnt": {
+    "name": "hwTxRapsFsPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRxRapsMsPktCnt": {
+    "name": "hwRxRapsMsPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTxRapsMsPktCnt": {
+    "name": "hwTxRapsMsPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRxRapsEventPktCnt": {
+    "name": "hwRxRapsEventPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTxRapsEventPktCnt": {
+    "name": "hwTxRapsEventPktCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwErpsPortTrackTable": {
+    "name": "hwErpsPortTrackTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwErpsPortTrackEntry": {
+    "name": "hwErpsPortTrackEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId1",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId2",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId3",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId4",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsPortTrackProtocolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsPortTrackProtocolType": {
+    "name": "hwErpsPortTrackProtocolType",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cfm": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwErpsPortTrackRowStatus": {
+    "name": "hwErpsPortTrackRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwErpsPortTrackCfmMdName": {
+    "name": "hwErpsPortTrackCfmMdName",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 43
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwErpsPortTrackCfmMaName": {
+    "name": "hwErpsPortTrackCfmMaName",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 43
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwErpsPortTrackCfmMepId": {
+    "name": "hwErpsPortTrackCfmMepId",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwErpsPortTrackCfmRmepId": {
+    "name": "hwErpsPortTrackCfmRmepId",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwErpsNotifications": {
+    "name": "hwErpsNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.4",
+    "class": "objectidentity"
+  },
+  "hwErpsFwStateForwarding": {
+    "name": "hwErpsFwStateForwarding",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsFwStateDiscarding": {
+    "name": "hwErpsFwStateDiscarding",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsGroups": {
+    "name": "hwErpsGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2",
+    "class": "objectidentity"
+  },
+  "hwErpsGlobalInfoGroup": {
+    "name": "hwErpsGlobalInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsGlobalResetRapsPktCnt"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsRingConfigInfoGroup": {
+    "name": "hwErpsRingConfigInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingRowStatus"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigDescription"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigControlVlanId"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigProtectedInstanceList"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigWtrTimerSettingValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigGuardTimerSettingValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigHoldoffTimerSettingValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigResetRapsPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRapsMel"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigVersion"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRevertiveMode"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingRole"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRapsChannelMode"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigTcNotifyErpsRing"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigTcProtectionInterval"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigTcProtectionThreshold"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigProtectionSwitch"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsRingStatusInfoGroup": {
+    "name": "hwErpsRingStatusInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusWtrTimerRunningValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusGuardTimerRunningValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusHoldoffTimerRunningValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusMachineState"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusTopoLastChangeTime"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusWtbTimerRunningValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsPortConfigInfoGroup": {
+    "name": "hwErpsPortConfigInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortRowStatus"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortConfigRole"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortProtectionSwitch"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsPortStatusInfoGroup": {
+    "name": "hwErpsPortStatusInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwPortStatusActiveRole"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwPortStatusSignalStatus"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwPortStatusFwdStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsPortStatisticsInfoGroup": {
+    "name": "hwErpsPortStatisticsInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsSfPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsSfPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsNrPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsNrPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsNrRbPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsNrRbPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsFsPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsFsPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsMsPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsMsPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsEventPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsEventPktCnt"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsPortTrackInfoGroup": {
+    "name": "hwErpsPortTrackInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsPortTrackProtocolType"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsPortTrackRowStatus"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsPortTrackCfmMdName"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsPortTrackCfmMaName"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsPortTrackCfmMepId"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsPortTrackCfmRmepId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsNotificationGroup": {
+    "name": "hwErpsNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsFwStateForwarding"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsFwStateDiscarding"
+      }
+    ],
+    "status": "current"
+  },
+  "hwErpsConformance": {
+    "name": "hwErpsConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.3",
+    "class": "objectidentity"
+  },
+  "hwErpsCompliances": {
+    "name": "hwErpsCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.3.1",
+    "class": "objectidentity"
+  },
+  "hwErpsCompliance": {
+    "name": "hwErpsCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwErpsGlobalInfoGroup",
+        "module": "HUAWEI-ERPS-MIB"
+      },
+      {
+        "object": "hwErpsRingConfigInfoGroup",
+        "module": "HUAWEI-ERPS-MIB"
+      },
+      {
+        "object": "hwErpsRingStatusInfoGroup",
+        "module": "HUAWEI-ERPS-MIB"
+      },
+      {
+        "object": "hwErpsPortConfigInfoGroup",
+        "module": "HUAWEI-ERPS-MIB"
+      },
+      {
+        "object": "hwErpsPortStatusInfoGroup",
+        "module": "HUAWEI-ERPS-MIB"
+      },
+      {
+        "object": "hwErpsPortStatisticsInfoGroup",
+        "module": "HUAWEI-ERPS-MIB"
+      },
+      {
+        "object": "hwErpsNotificationGroup",
+        "module": "HUAWEI-ERPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ERPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-ERPS-MIB"
+  }
+}

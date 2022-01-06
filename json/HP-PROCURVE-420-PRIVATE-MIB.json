@@ -1,0 +1,1516 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "mgmt",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "PhysAddress": {
+    "name": "PhysAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "Guage32": {
+    "name": "Guage32",
+    "class": "type",
+    "type": {
+      "type": "Counter",
+      "class": "type"
+    }
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "TruthValue": {
+    "name": "TruthValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 2,
+          "true": 1
+        }
+      }
+    }
+  },
+  "hP": {
+    "name": "hP",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "wireless": {
+    "name": "wireless",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "enterprise": {
+    "name": "enterprise",
+    "oid": "1.3.6.1.4.1.11.2.3",
+    "class": "objectidentity"
+  },
+  "accessPoint": {
+    "name": "accessPoint",
+    "oid": "1.3.6.1.4.1.11.2.3.7",
+    "class": "objectidentity"
+  },
+  "proCurve": {
+    "name": "proCurve",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11",
+    "class": "objectidentity"
+  },
+  "hPProCuve420": {
+    "name": "hPProCuve420",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37",
+    "class": "objectidentity"
+  },
+  "enterpriseApSys": {
+    "name": "enterpriseApSys",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.1",
+    "class": "objectidentity"
+  },
+  "enterpriseApLineMgnt": {
+    "name": "enterpriseApLineMgnt",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.2",
+    "class": "objectidentity"
+  },
+  "enterpriseApPortMgnt": {
+    "name": "enterpriseApPortMgnt",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3",
+    "class": "objectidentity"
+  },
+  "enterpriseApFileTransferMgt": {
+    "name": "enterpriseApFileTransferMgt",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4",
+    "class": "objectidentity"
+  },
+  "enterpriseApResetMgt": {
+    "name": "enterpriseApResetMgt",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.5",
+    "class": "objectidentity"
+  },
+  "enterpriseApIpMgt": {
+    "name": "enterpriseApIpMgt",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.6",
+    "class": "objectidentity"
+  },
+  "enterpriseAPdot11": {
+    "name": "enterpriseAPdot11",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7",
+    "class": "objectidentity"
+  },
+  "swHardwareVer": {
+    "name": "swHardwareVer",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "swBootRomVer": {
+    "name": "swBootRomVer",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "swOpCodeVer": {
+    "name": "swOpCodeVer",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "swCountryCode": {
+    "name": "swCountryCode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lineTable": {
+    "name": "lineTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lineEntry": {
+    "name": "lineEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "lineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lineIndex": {
+    "name": "lineIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lineDataBits": {
+    "name": "lineDataBits",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lineParity": {
+    "name": "lineParity",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 99,
+          "odd": 1,
+          "even": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lineSpeed": {
+    "name": "lineSpeed",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lineStopBits": {
+    "name": "lineStopBits",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portTable": {
+    "name": "portTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "portEntry": {
+    "name": "portEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "portName": {
+    "name": "portName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portType": {
+    "name": "portType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "hundredBaseTX": 2,
+          "hundredBaseFX": 3,
+          "thousandBaseSX": 4,
+          "thousandBaseLX": 5,
+          "thousandBaseT": 6,
+          "thousandBaseGBIC": 7,
+          "thousandBaseMiniGBIC": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portSpeedDpxCfg": {
+    "name": "portSpeedDpxCfg",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "halfDuplex10": 2,
+          "fullDuplex10": 3,
+          "halfDuplex100": 4,
+          "fullDuplex100": 5,
+          "halfDuplex1000": 6,
+          "fullDuplex1000": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "halfDuplex10",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portFlowCtrlCfg": {
+    "name": "portFlowCtrlCfg",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "backPressure": 3,
+          "dot3xFlowControl": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portCapabilities": {
+    "name": "portCapabilities",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portCap10half": 99,
+          "portCap10full": 1,
+          "portCap100half": 2,
+          "portCap100full": 3,
+          "portCap1000half": 4,
+          "portCap1000full": 5,
+          "reserved6": 6,
+          "reserved7": 7,
+          "reserved8": 8,
+          "reserved9": 9,
+          "reserved10": 10,
+          "reserved11": 11,
+          "reserved12": 12,
+          "reserved13": 13,
+          "portCapSym": 14,
+          "portCapFlowCtrl": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portAutonegotiation": {
+    "name": "portAutonegotiation",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portSpeedDpxStatus": {
+    "name": "portSpeedDpxStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "halfDuplex10": 2,
+          "fullDuplex10": 3,
+          "halfDuplex100": 4,
+          "fullDuplex100": 5,
+          "halfDuplex1000": 6,
+          "fullDuplex1000": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portFlowCtrlStatus": {
+    "name": "portFlowCtrlStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "backPressure": 2,
+          "dot3xFlowControl": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "transferStart": {
+    "name": "transferStart",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "go": 1,
+          "nogo": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "transferType": {
+    "name": "transferType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "tftp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fileType": {
+    "name": "fileType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opcode": 1,
+          "config": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "srcFile": {
+    "name": "srcFile",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "destFile": {
+    "name": "destFile",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "fileServer": {
+    "name": "fileServer",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "password": {
+    "name": "password",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "restartOpCodeFile": {
+    "name": "restartOpCodeFile",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "restartControl": {
+    "name": "restartControl",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "warmBoot": 2,
+          "coldBoot": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "netConfigIPAddress": {
+    "name": "netConfigIPAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "netConfigSubnetMask": {
+    "name": "netConfigSubnetMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "netDefaultGateway": {
+    "name": "netDefaultGateway",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipHttpState": {
+    "name": "ipHttpState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipHttpPort": {
+    "name": "ipHttpPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11StationConfigTable": {
+    "name": "hpdot11StationConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11StationConfigEntry": {
+    "name": "hpdot11StationConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "hpdot11portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpdot11portIndex": {
+    "name": "hpdot11portIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11DesiredSSID": {
+    "name": "hpdot11DesiredSSID",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11BeaconPeriod": {
+    "name": "hpdot11BeaconPeriod",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11DTIMPeriod": {
+    "name": "hpdot11DTIMPeriod",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11OperationalRateSet": {
+    "name": "hpdot11OperationalRateSet",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 108
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationAlgorithm": {
+    "name": "hpdot11AuthenticationAlgorithm",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "openSystem": 1,
+          "sharedKey": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11PrivacyTable": {
+    "name": "hpdot11PrivacyTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11PrivacyEntry": {
+    "name": "hpdot11PrivacyEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "hpdot11PrivacyportIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpdot11PrivacyportIndex": {
+    "name": "hpdot11PrivacyportIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11PrivacyInvoked": {
+    "name": "hpdot11PrivacyInvoked",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11WEPDefaultKeyID": {
+    "name": "hpdot11WEPDefaultKeyID",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11WEPKeyMappingLength": {
+    "name": "hpdot11WEPKeyMappingLength",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11mac": {
+    "name": "hpdot11mac",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.3",
+    "class": "objectidentity"
+  },
+  "hpdot11OperationTable": {
+    "name": "hpdot11OperationTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11OperationEntry": {
+    "name": "hpdot11OperationEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "hpdot11OperationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpdot11OperationIndex": {
+    "name": "hpdot11OperationIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11RTSThreshold": {
+    "name": "hpdot11RTSThreshold",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2347
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11FragmentationThreshold": {
+    "name": "hpdot11FragmentationThreshold",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 256,
+            "max": 2346
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11phy": {
+    "name": "hpdot11phy",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.4",
+    "class": "objectidentity"
+  },
+  "hpdot11PhyOperationTable": {
+    "name": "hpdot11PhyOperationTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11PhyOperationEntry": {
+    "name": "hpdot11PhyOperationEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "hpdot11Index",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpdot11Index": {
+    "name": "hpdot11Index",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11CurrentChannel": {
+    "name": "hpdot11CurrentChannel",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11TurboModeEnabled": {
+    "name": "hpdot11TurboModeEnabled",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 99,
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpdot11PreambleLength": {
+    "name": "hpdot11PreambleLength",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "short": 1,
+          "long": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationEntry": {
+    "name": "hpdot11AuthenticationEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.5",
+    "class": "objectidentity"
+  },
+  "hpdot118021xSupport": {
+    "name": "hpdot118021xSupport",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot118021xRequired": {
+    "name": "hpdot118021xRequired",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationServerTable": {
+    "name": "hpdot11AuthenticationServerTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationServerEntry": {
+    "name": "hpdot11AuthenticationServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "hpdot11serverIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpdot11serverIndex": {
+    "name": "hpdot11serverIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationServer": {
+    "name": "hpdot11AuthenticationServer",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationPort": {
+    "name": "hpdot11AuthenticationPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationKey": {
+    "name": "hpdot11AuthenticationKey",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationRetransmit": {
+    "name": "hpdot11AuthenticationRetransmit",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11AuthenticationTimeout": {
+    "name": "hpdot11AuthenticationTimeout",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11FilterTable": {
+    "name": "hpdot11FilterTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11FilterEntry": {
+    "name": "hpdot11FilterEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "hpdot11FilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpdot11FilterIndex": {
+    "name": "hpdot11FilterIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11FilterAddress": {
+    "name": "hpdot11FilterAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11FilterStatus": {
+    "name": "hpdot11FilterStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowed": 30,
+          "denied": 31
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11smt": {
+    "name": "hpdot11smt",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.8",
+    "class": "objectidentity"
+  },
+  "hpdot11WEPDefaultKeys11g": {
+    "name": "hpdot11WEPDefaultKeys11g",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.8.1",
+    "class": "objectidentity"
+  },
+  "hpdot11WEPDefaultKeys11gTable": {
+    "name": "hpdot11WEPDefaultKeys11gTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11WEPDefaultKeys11gEntry": {
+    "name": "hpdot11WEPDefaultKeys11gEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-PROCURVE-420-PRIVATE-MIB",
+        "object": "dot11WEPDefaultKey11gLength",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpdot11WEPDefaultKey11gLength": {
+    "name": "hpdot11WEPDefaultKey11gLength",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sixtyFour": 64,
+          "oneHundredTwentyEight": 128,
+          "oneHundredFiftyTwo": 152
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "oneHundredTwentyEight",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpdot11WEPDefaultKey11gIndex": {
+    "name": "hpdot11WEPDefaultKey11gIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpdot11WEPDefaultKey11gValue": {
+    "name": "hpdot11WEPDefaultKey11gValue",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.37.7.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-PROCURVE-420-PRIVATE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HP-PROCURVE-420-PRIVATE-MIB"
+  }
+}

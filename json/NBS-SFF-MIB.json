@@ -1,0 +1,1948 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-CMMCENUM-MIB": [
+      "NbsCmmcChannelBand"
+    ],
+    "NBS-MIB": [
+      "NbsTcMHz",
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsSffMib": {
+    "name": "nbsSffMib",
+    "oid": "1.3.6.1.4.1.629.204",
+    "class": "moduleidentity"
+  },
+  "nbsSffObjects": {
+    "name": "nbsSffObjects",
+    "oid": "1.3.6.1.4.1.629.204.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsSffMsaGrp": {
+    "name": "nbsSffMsaGrp",
+    "oid": "1.3.6.1.4.1.629.204.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsSffWdmGrp": {
+    "name": "nbsSffWdmGrp",
+    "oid": "1.3.6.1.4.1.629.204.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsSffDiagnosticsGrp": {
+    "name": "nbsSffDiagnosticsGrp",
+    "oid": "1.3.6.1.4.1.629.204.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsSffMsxGrp": {
+    "name": "nbsSffMsxGrp",
+    "oid": "1.3.6.1.4.1.629.204.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsSffMsaTable": {
+    "name": "nbsSffMsaTable",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSffMsaEntry": {
+    "name": "nbsSffMsaEntry",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-SFF-MIB",
+        "object": "nbsSffMsaPhysicalIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsSffMsaPhysicalIfIndex": {
+    "name": "nbsSffMsaPhysicalIfIndex",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSffMsaIdentifier": {
+    "name": "nbsSffMsaIdentifier",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "gbic": 2,
+          "moduleSolderedToBoard": 3,
+          "sfpTransceiver": 4,
+          "threeHundredPinXBI": 5,
+          "xenpak": 6,
+          "xfp": 7,
+          "xff": 8,
+          "xfpe": 9,
+          "xpak": 10,
+          "x2": 11,
+          "dwdm": 12,
+          "qsfp": 13,
+          "qsfpPlus": 14,
+          "cfp": 15,
+          "cxp": 16,
+          "mrvCxp": 130
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaExtIdentifier": {
+    "name": "nbsSffMsaExtIdentifier",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaOpticalConnector": {
+    "name": "nbsSffMsaOpticalConnector",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaTransceiverCodes": {
+    "name": "nbsSffMsaTransceiverCodes",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaSerialEncoding": {
+    "name": "nbsSffMsaSerialEncoding",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "lineCode8To10": 2,
+          "lineCode4To5": 3,
+          "nrz": 4,
+          "manchester": 5,
+          "sonetScrambled": 6,
+          "unspecified": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaNominalBitRate": {
+    "name": "nbsSffMsaNominalBitRate",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaLinkLengthSmfKm": {
+    "name": "nbsSffMsaLinkLengthSmfKm",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaLinkLengthSmf100m": {
+    "name": "nbsSffMsaLinkLengthSmf100m",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaLinkLengthMmf10m": {
+    "name": "nbsSffMsaLinkLengthMmf10m",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaLinkLength625Mmf10m": {
+    "name": "nbsSffMsaLinkLength625Mmf10m",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaCopperLinkLength": {
+    "name": "nbsSffMsaCopperLinkLength",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaVendorName": {
+    "name": "nbsSffMsaVendorName",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaVendorOUI": {
+    "name": "nbsSffMsaVendorOUI",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaVendorPartNumber": {
+    "name": "nbsSffMsaVendorPartNumber",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaVendorRevision": {
+    "name": "nbsSffMsaVendorRevision",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaBaseChecksumMatch": {
+    "name": "nbsSffMsaBaseChecksumMatch",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaLossOfSignalImplemented": {
+    "name": "nbsSffMsaLossOfSignalImplemented",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaLossOfSignalInverted": {
+    "name": "nbsSffMsaLossOfSignalInverted",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaTxFault": {
+    "name": "nbsSffMsaTxFault",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaTxDisable": {
+    "name": "nbsSffMsaTxDisable",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaRateSelectImplemented": {
+    "name": "nbsSffMsaRateSelectImplemented",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaMaxBitRate": {
+    "name": "nbsSffMsaMaxBitRate",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaMinBitRate": {
+    "name": "nbsSffMsaMinBitRate",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaVendorSerialNumber": {
+    "name": "nbsSffMsaVendorSerialNumber",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaVendorDateCode": {
+    "name": "nbsSffMsaVendorDateCode",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsaExtChecksumMatch": {
+    "name": "nbsSffMsaExtChecksumMatch",
+    "oid": "1.3.6.1.4.1.629.204.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmTable": {
+    "name": "nbsSffWdmTable",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSffWdmEntry": {
+    "name": "nbsSffWdmEntry",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-SFF-MIB",
+        "object": "nbsSffMsaPhysicalIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsSffWdmClassOfPower": {
+    "name": "nbsSffWdmClassOfPower",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "under1W": 1,
+          "oneToOneAndHalfW": 2,
+          "overOneAndHalfW": 3,
+          "reserved": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmClassOfTemperature": {
+    "name": "nbsSffWdmClassOfTemperature",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class0": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmClassOfWdm": {
+    "name": "nbsSffWdmClassOfWdm",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noWdm": 1,
+          "cwdm": 2,
+          "dwdm": 3,
+          "reserved": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmOpticalReach": {
+    "name": "nbsSffWdmOpticalReach",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmMaxCaseTemperature": {
+    "name": "nbsSffWdmMaxCaseTemperature",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmMinCaseTemperature": {
+    "name": "nbsSffWdmMinCaseTemperature",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmMaxSupplyCurrent": {
+    "name": "nbsSffWdmMaxSupplyCurrent",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmNumberOfChannels": {
+    "name": "nbsSffWdmNumberOfChannels",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmChannelSpacing": {
+    "name": "nbsSffWdmChannelSpacing",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notTunable": 1,
+          "ghz50": 2,
+          "ghz100": 3,
+          "ghz200": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmVariableDecisionThreshold": {
+    "name": "nbsSffWdmVariableDecisionThreshold",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "supported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmWavelengthMonitorType": {
+    "name": "nbsSffWdmWavelengthMonitorType",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wavelength": 1,
+          "laserTemperature": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmExtTransmitPowerType": {
+    "name": "nbsSffWdmExtTransmitPowerType",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pwrDefault": 1,
+          "pwrExtended": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmVariableOpticalAttenuator": {
+    "name": "nbsSffWdmVariableOpticalAttenuator",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notImplemented": 1,
+          "implemented": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmPilotToneFunctionality": {
+    "name": "nbsSffWdmPilotToneFunctionality",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pilotToneNone": 1,
+          "pilotToneDetection": 2,
+          "pilotToneInjection": 3,
+          "pilotToneInjectionDetection": 4,
+          "pilotToneEnhanced": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmOptionalInterruptPin": {
+    "name": "nbsSffWdmOptionalInterruptPin",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "supported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmLaserWavelength": {
+    "name": "nbsSffWdmLaserWavelength",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmFrequency": {
+    "name": "nbsSffWdmFrequency",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsTcMHz",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmChannelBand": {
+    "name": "nbsSffWdmChannelBand",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NbsCmmcChannelBand",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffWdmChannelNumber": {
+    "name": "nbsSffWdmChannelNumber",
+    "oid": "1.3.6.1.4.1.629.204.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTable": {
+    "name": "nbsSffDiagsTable",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSffDiagsEntry": {
+    "name": "nbsSffDiagsEntry",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-SFF-MIB",
+        "object": "nbsSffMsaPhysicalIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsSffDiagsRateIdentifier": {
+    "name": "nbsSffDiagsRateIdentifier",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "rate421G": 2,
+          "rate842GRx": 3,
+          "rate842GRxTx": 4,
+          "rate842GTx": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsLinkLengthOm3": {
+    "name": "nbsSffDiagsLinkLengthOm3",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsLaserWavelength": {
+    "name": "nbsSffDiagsLaserWavelength",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsLROutputImplemented": {
+    "name": "nbsSffDiagsLROutputImplemented",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsPowerLevelDeclaration": {
+    "name": "nbsSffDiagsPowerLevelDeclaration",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsCooledTranDeclaration": {
+    "name": "nbsSffDiagsCooledTranDeclaration",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uncooled": 1,
+          "cooled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsAddressChangeRequired": {
+    "name": "nbsSffDiagsAddressChangeRequired",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsPowerMeasurementType": {
+    "name": "nbsSffDiagsPowerMeasurementType",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oma": 1,
+          "averagePower": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsExternallyCalibrated": {
+    "name": "nbsSffDiagsExternallyCalibrated",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsInternallyCalibrated": {
+    "name": "nbsSffDiagsInternallyCalibrated",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsDDMonitoringImplemented": {
+    "name": "nbsSffDiagsDDMonitoringImplemented",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsOptRateSelectControl": {
+    "name": "nbsSffDiagsOptRateSelectControl",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notImplemented": 1,
+          "implemented": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsOptAppSelectControl": {
+    "name": "nbsSffDiagsOptAppSelectControl",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notImplemented": 1,
+          "implemented": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsOptSoftRSControlMon": {
+    "name": "nbsSffDiagsOptSoftRSControlMon",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notImplemented": 1,
+          "implemented": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsOptSoftRxLoSMonitoring": {
+    "name": "nbsSffDiagsOptSoftRxLoSMonitoring",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notImplemented": 1,
+          "implemented": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsOptSoftTxFaultMonitoring": {
+    "name": "nbsSffDiagsOptSoftTxFaultMonitoring",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notImplemented": 1,
+          "implemented": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsOptSoftTxDisable": {
+    "name": "nbsSffDiagsOptSoftTxDisable",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notImplemented": 1,
+          "implemented": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsOptAlarmWarningFlags": {
+    "name": "nbsSffDiagsOptAlarmWarningFlags",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notImplemented": 1,
+          "implemented": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiags8472Compliance": {
+    "name": "nbsSffDiags8472Compliance",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "rev9dot3of8472": 2,
+          "rev9dot5of8472": 3,
+          "rev10dot2of8472": 4,
+          "rev10dot4of8472": 5,
+          "rev11dot0of8472": 6,
+          "rev11dot3of8472": 7,
+          "rev11dot4of8472": 8,
+          "rev12dot0of8472": 9,
+          "unallocated": 256
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTemperature": {
+    "name": "nbsSffDiagsTemperature",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTempLowAlarm": {
+    "name": "nbsSffDiagsTempLowAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTempLowWarn": {
+    "name": "nbsSffDiagsTempLowWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTempHighWarn": {
+    "name": "nbsSffDiagsTempHighWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTempHighAlarm": {
+    "name": "nbsSffDiagsTempHighAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsVoltage": {
+    "name": "nbsSffDiagsVoltage",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsVoltLowAlarm": {
+    "name": "nbsSffDiagsVoltLowAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsVoltLowWarn": {
+    "name": "nbsSffDiagsVoltLowWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsVoltHighWarn": {
+    "name": "nbsSffDiagsVoltHighWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsVoltHighAlarm": {
+    "name": "nbsSffDiagsVoltHighAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsBiasCurrent": {
+    "name": "nbsSffDiagsBiasCurrent",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsBiasLowAlarm": {
+    "name": "nbsSffDiagsBiasLowAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsBiasLowWarn": {
+    "name": "nbsSffDiagsBiasLowWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsBiasHighWarn": {
+    "name": "nbsSffDiagsBiasHighWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsBiasHighAlarm": {
+    "name": "nbsSffDiagsBiasHighAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxPower": {
+    "name": "nbsSffDiagsTxPower",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxPowerLowAlarm": {
+    "name": "nbsSffDiagsTxPowerLowAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxPowerLowWarn": {
+    "name": "nbsSffDiagsTxPowerLowWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxPowerHighWarn": {
+    "name": "nbsSffDiagsTxPowerHighWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxPowerHighAlarm": {
+    "name": "nbsSffDiagsTxPowerHighAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsRxPower": {
+    "name": "nbsSffDiagsRxPower",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsRxPowerLowAlarm": {
+    "name": "nbsSffDiagsRxPowerLowAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsRxPowerLowWarn": {
+    "name": "nbsSffDiagsRxPowerLowWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsRxPowerHighWarn": {
+    "name": "nbsSffDiagsRxPowerHighWarn",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsRxPowerHighAlarm": {
+    "name": "nbsSffDiagsRxPowerHighAlarm",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsDataReadyBarState": {
+    "name": "nbsSffDiagsDataReadyBarState",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsRxLosState": {
+    "name": "nbsSffDiagsRxLosState",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxFaultState": {
+    "name": "nbsSffDiagsTxFaultState",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsSoftRateSelect": {
+    "name": "nbsSffDiagsSoftRateSelect",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsRateSelectState0": {
+    "name": "nbsSffDiagsRateSelectState0",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsRS1State": {
+    "name": "nbsSffDiagsRS1State",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsSoftTxDisableSelect": {
+    "name": "nbsSffDiagsSoftTxDisableSelect",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxDisableState": {
+    "name": "nbsSffDiagsTxDisableState",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsBiasCurrentSlope": {
+    "name": "nbsSffDiagsBiasCurrentSlope",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsBiasCurrentOffset": {
+    "name": "nbsSffDiagsBiasCurrentOffset",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxPowerSlope": {
+    "name": "nbsSffDiagsTxPowerSlope",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTxPowerOffset": {
+    "name": "nbsSffDiagsTxPowerOffset",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTemperatureSlope": {
+    "name": "nbsSffDiagsTemperatureSlope",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsTemperatureOffset": {
+    "name": "nbsSffDiagsTemperatureOffset",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsVoltageSlope": {
+    "name": "nbsSffDiagsVoltageSlope",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsVoltageOffset": {
+    "name": "nbsSffDiagsVoltageOffset",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsPowerLevelSelect": {
+    "name": "nbsSffDiagsPowerLevelSelect",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsPowerLevelOpState": {
+    "name": "nbsSffDiagsPowerLevelOpState",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffDiagsSoftRSSelect": {
+    "name": "nbsSffDiagsSoftRSSelect",
+    "oid": "1.3.6.1.4.1.629.204.1.3.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsxTableSize": {
+    "name": "nbsSffMsxTableSize",
+    "oid": "1.3.6.1.4.1.629.204.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsxTable": {
+    "name": "nbsSffMsxTable",
+    "oid": "1.3.6.1.4.1.629.204.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSffMsxEntry": {
+    "name": "nbsSffMsxEntry",
+    "oid": "1.3.6.1.4.1.629.204.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-SFF-MIB",
+        "object": "nbsSffMsxPhysicalIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsSffMsxPhysicalIfIndex": {
+    "name": "nbsSffMsxPhysicalIfIndex",
+    "oid": "1.3.6.1.4.1.629.204.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSffMsxHasSgmiiPhy": {
+    "name": "nbsSffMsxHasSgmiiPhy",
+    "oid": "1.3.6.1.4.1.629.204.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "no": 2,
+          "yes": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SFF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-SFF-MIB"
+  }
+}

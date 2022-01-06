@@ -1,0 +1,4815 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-DEVICE-MIB": [
+      "hwFrameIndex"
+    ],
+    "HUAWEI-ENVIRONMENT-MIB": [
+      "hwDigChannelIndex",
+      "hwEnvEmuIndex",
+      "hwEnvEmuType"
+    ],
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString"
+    ]
+  },
+  "hwPower": {
+    "name": "hwPower",
+    "oid": "1.3.6.1.4.1.2011.6.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-12-28 00:00",
+        "description": "V3.35, modify the leaf of hwRectifierOperState."
+      },
+      {
+        "revision": "2013-11-16 00:00",
+        "description": "V3.34, modify the leaf of hwRectifierOperState."
+      },
+      {
+        "revision": "2012-12-28 00:00",
+        "description": "V3.33, added enumerate etp48150(128) in hwPowerType leaf for smu EMU, added enumerate h801pmu(127) in hwPowerType leaf for H801PMU."
+      },
+      {
+        "revision": "2012-12-14 00:00",
+        "description": "V3.32, add the leaf of hwBatteryLogTestBatteryTemperature, hwBatteryLogTestBatteryCurrent and hwBatteryGroupBomCode for battery smart manage. add enumerate sleep(6) in hwChargeOperStatus leaf. add enumerate supplyRecoverAutotestTerminated(7) in hwBatteryTestResult leaf."
+      },
+      {
+        "revision": "2012-07-24 00:00",
+        "description": "V3.31, add the leaf of hwPowerModuleRestoreTrap and hwPowerModuleMismatchTrap for SMU digital alarm."
+      },
+      {
+        "revision": "2012-06-25 00:00",
+        "description": "V3.30, add enumerate smu(124) in hwPowerType leaf for smu EMU, modified the name of hwBatteryTestPrealarmThreshold to hwBatteryTestAlarmThreshold, modified description of hwBatteryTestDuration,hwBatteryTestTerminateVoltage and hwBatteryTestAlarmThreshold, delete enumerate smu(124), add enumerate etp4830(125) and enumerate etp4890(126) in hwPowerType leaf for smu EMU"
+      },
+      {
+        "revision": "2012-01-09 00:00",
+        "description": "V3.29, add the leafs of hwEmmBatt1TempFaultTrap, hwEmmBatt1TempRestoreTrap, hwEmmEnviHumFaultTrap, hwEmmEnviHumRestoreTrap, hwEmmEnvi1TempFaultTrap, hwEmmEnvi1TempRestoreTrap, hwEmmBattTemFaultTrap, hwEmmBattTemRecoverTrap and hwEmmPowerBatteryOffRecoverTrap"
+      },
+      {
+        "revision": "2011-12-17 00:00",
+        "description": "V3.28, added hwBatteryLogTestEfficiency the objects of hwEmmPowerBattaryTestStopTrap. add the leaf of hwEmmPowerBatteryUnDetectTrap and ch_hwEmmPowerBatteryDetectRecoverTrap for SMU digital alarm."
+      },
+      {
+        "revision": "2011-12-08 00:00",
+        "description": "V3.27, added hwBatteryTestPrealarmThreshold leaf node for getting and setting battery test prealarm threshold. added hwBatteryLogTestEfficiency leaf node for inquiry efficiency setting. "
+      },
+      {
+        "revision": "2011-08-17 00:00",
+        "description": "V3.25, add the leaf of hwEmmPowerBatteryOffTrap for battary power-off."
+      },
+      {
+        "revision": "2011-03-16 00:00",
+        "description": "V3.25, added enumerate discharge(5) in hwChargeOperStatus leaf for discharge. add enumerate LiFeBattery(123) in hwPowerType leaf for LiFeBattery EMU"
+      },
+      {
+        "revision": "2010-12-17 00:00",
+        "description": "V3.24, added Objects hwBatteryLogTestBatteryStatus of hwEmmPowerBattaryTestStopTrap node."
+      },
+      {
+        "revision": "2010-11-10 00:00",
+        "description": "V3.23, added enumerate power3000(122) in hwPowerType leaf for Power3000 EMU. Modified the objects of hwEmmPowerBattloopFaultTrap and hwEmmPowerBattloopRecoverTrap. Added hwEmmDigMainsupplyFaultTrap and hwEmmDigMainsupplyRecoverTrap."
+      },
+      {
+        "revision": "2010-07-18 09:00",
+        "description": "V3.22, added enumerate power3000(122) in hwPowerType leaf for Power3000 EMU. Modified the objects of hwEmmPowerBattloopFaultTrap and hwEmmPowerBattloopRecoverTrap. Added hwEmmDigMainsupplyFaultTrap and hwEmmDigMainsupplyRecoverTrap."
+      },
+      {
+        "revision": "2010-06-12 09:00",
+        "description": "V3.21, modified description of hwBatteryGroupOperStatus node."
+      },
+      {
+        "revision": "2010-04-21 09:00",
+        "description": "V3.20, modified node name to avoid conflict."
+      },
+      {
+        "revision": "2010-04-08 09:00",
+        "description": "V3.19, modified this MIB for clearing simple tester errors and warnings."
+      },
+      {
+        "revision": "2010-03-09 09:00",
+        "description": "V3.18, added hwBatteryInstallTime leaf node for getting the battery installation time"
+      },
+      {
+        "revision": "2010-02-06 09:00",
+        "description": "V3.17,Modified the description."
+      },
+      {
+        "revision": "2010-01-29 09:00",
+        "description": "V3.16,Deleted simple tester MIB compile errors and warnings."
+      },
+      {
+        "revision": "2006-11-10 09:00",
+        "description": "V3.09,Added hwBatteryHardwareState."
+      },
+      {
+        "revision": "2006-10-25 09:00",
+        "description": "V3.08,Added hwBatteryVoltageState."
+      }
+    ]
+  },
+  "MeasuresRange": {
+    "name": "MeasuresRange",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "hwPowerMonObjects": {
+    "name": "hwPowerMonObjects",
+    "oid": "1.3.6.1.4.1.2011.6.2.1",
+    "class": "objectidentity"
+  },
+  "hwPowerSysInfoTable": {
+    "name": "hwPowerSysInfoTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPowerSysInfoEntry": {
+    "name": "hwPowerSysInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPowerIndex": {
+    "name": "hwPowerIndex",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPowerType": {
+    "name": "hwPowerType",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "power4875": 1,
+          "power4810": 2,
+          "power48100": 3,
+          "power4850": 4,
+          "power48240": 5,
+          "power48120": 6,
+          "power48300": 7,
+          "power48240SinglePhase": 8,
+          "universalPower": 9,
+          "power4845": 10,
+          "rpower": 11,
+          "power4805": 15,
+          "power4820": 16,
+          "onps": 17,
+          "power4875l": 18,
+          "psma": 100,
+          "perm-al175nt": 101,
+          "mcs1800": 102,
+          "mcs1800A": 103,
+          "mcs3000": 104,
+          "sm40sm60": 105,
+          "scu": 106,
+          "eltek": 107,
+          "dk04": 108,
+          "dk04C": 109,
+          "dpc": 110,
+          "power4830": 120,
+          "h831pmua": 121,
+          "power3000": 122,
+          "liFeBattery": 123,
+          "etp4830": 125,
+          "etp4890": 126,
+          "h801pmu": 127,
+          "etp48150": 128,
+          "other": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerName": {
+    "name": "hwPowerName",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerState": {
+    "name": "hwPowerState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fault": 2,
+          "protecting": 3,
+          "switched": 4,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPowerRowStatus": {
+    "name": "hwPowerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerControlMode": {
+    "name": "hwPowerControlMode",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manualControl": 1,
+          "autoControl": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerRemoteFrameID": {
+    "name": "hwPowerRemoteFrameID",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerProtect": {
+    "name": "hwPowerProtect",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protect": 1,
+          "undoProtect": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerVersion": {
+    "name": "hwPowerVersion",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPowerSupplyState": {
+    "name": "hwPowerSupplyState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ac": 1,
+          "battery": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACInputTable": {
+    "name": "hwACInputTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwACInputEntry": {
+    "name": "hwACInputEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwACLoopIndex": {
+    "name": "hwACLoopIndex",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACPowerState": {
+    "name": "hwACPowerState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "offline": 2,
+          "exceedVoltage": 3,
+          "belowVoltage": 4,
+          "backup": 5,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACVoltA": {
+    "name": "hwACVoltA",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACCurrentA": {
+    "name": "hwACCurrentA",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACVoltB": {
+    "name": "hwACVoltB",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACCurrentB": {
+    "name": "hwACCurrentB",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACVoltC": {
+    "name": "hwACVoltC",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACCurrentC": {
+    "name": "hwACCurrentC",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACVoltageHigh": {
+    "name": "hwACVoltageHigh",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 280000,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwACVoltageLow": {
+    "name": "hwACVoltageLow",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 180000,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwACRowStatus": {
+    "name": "hwACRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwACVoltageAState": {
+    "name": "hwACVoltageAState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "belowVoltage": 1,
+          "exceedVoltage": 2,
+          "missing-phase": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACVoltageBState": {
+    "name": "hwACVoltageBState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "belowVoltage": 1,
+          "exceedVoltage": 2,
+          "missing-phase": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACVoltageCState": {
+    "name": "hwACVoltageCState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "belowVoltage": 1,
+          "exceedVoltage": 2,
+          "missing-phase": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDCOutTable": {
+    "name": "hwDCOutTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDCOutEntry": {
+    "name": "hwDCOutEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDCVoltageOut": {
+    "name": "hwDCVoltageOut",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDCCurrentOut": {
+    "name": "hwDCCurrentOut",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDCVoltageOutHigh": {
+    "name": "hwDCVoltageOutHigh",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 58000,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDCVoltageOutLow": {
+    "name": "hwDCVoltageOutLow",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 45000,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDCVoltageOutState": {
+    "name": "hwDCVoltageOutState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "exceedVoltage": 2,
+          "belowVoltage": 3,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hwDCCurrentOutHigh": {
+    "name": "hwDCCurrentOutHigh",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDCCurrentOutLow": {
+    "name": "hwDCCurrentOutLow",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDCCurrentOutState": {
+    "name": "hwDCCurrentOutState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "exceedVoltage": 2,
+          "belowVoltage": 3,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hwDCOutRowStatus": {
+    "name": "hwDCOutRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDCOutLoadCurrent": {
+    "name": "hwDCOutLoadCurrent",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDCOutLoadTmpHigh": {
+    "name": "hwDCOutLoadTmpHigh",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 6500,
+        "format": "decimal"
+      }
+    },
+    "units": "0.01 degree",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwDCOutRunState": {
+    "name": "hwDCOutRunState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "battery1ChargeCurOver": 0,
+        "battery2ChargeCurOver": 1,
+        "batteryVoltageOver": 2,
+        "batteryVoltageLack": 3,
+        "loadOff": 4,
+        "batteryOff": 5,
+        "communicationFailure": 6,
+        "dcOutManual": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDCCommunicationState": {
+    "name": "hwDCCommunicationState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "fault": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadinfoTable": {
+    "name": "hwLoadinfoTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLoadinfoEntry": {
+    "name": "hwLoadinfoEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwLoadIndex": {
+    "name": "hwLoadIndex",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadInfoAdminState": {
+    "name": "hwLoadInfoAdminState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadInfoOperStatus": {
+    "name": "hwLoadInfoOperStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "abnormal": 2,
+          "stop": 3,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadCurrent": {
+    "name": "hwLoadCurrent",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadVoltage": {
+    "name": "hwLoadVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadVoltageHigh": {
+    "name": "hwLoadVoltageHigh",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 43500,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadLoadName": {
+    "name": "hwLoadLoadName",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadInfoRowStatus": {
+    "name": "hwLoadInfoRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadFuseState": {
+    "name": "hwLoadFuseState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadHoreIndex": {
+    "name": "hwLoadHoreIndex",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRectifierTable": {
+    "name": "hwRectifierTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRectifierEntry": {
+    "name": "hwRectifierEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwRectifierIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRectifierIndex": {
+    "name": "hwRectifierIndex",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRectifierAdminState": {
+    "name": "hwRectifierAdminState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRectifierOperState": {
+    "name": "hwRectifierOperState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fault": 2,
+          "protect": 3,
+          "communicationFailure": 4,
+          "on": 5,
+          "noConfig": 6,
+          "offline": 7,
+          "close": 8,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRectifierVoltage": {
+    "name": "hwRectifierVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRectifierCurrent": {
+    "name": "hwRectifierCurrent",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRectifierRowStatus": {
+    "name": "hwRectifierRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRectifierCurrentLimit": {
+    "name": "hwRectifierCurrentLimit",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRectifierRunState": {
+    "name": "hwRectifierRunState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rectifierOn": 0,
+        "averageCharge": 1,
+        "output": 2,
+        "isLimit": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRectifierChargeState": {
+    "name": "hwRectifierChargeState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "float": 0,
+          "average": 1,
+          "test": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryGroup": {
+    "name": "hwBatteryGroup",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6",
+    "class": "objectidentity"
+  },
+  "hwBatteryGroupTable": {
+    "name": "hwBatteryGroupTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBatteryGroupEntry": {
+    "name": "hwBatteryGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBatteryGroupCapacity": {
+    "name": "hwBatteryGroupCapacity",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryGroupCapcaityRemain": {
+    "name": "hwBatteryGroupCapcaityRemain",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryGroups": {
+    "name": "hwBatteryGroups",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryGroupVoltageLow": {
+    "name": "hwBatteryGroupVoltageLow",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 43000,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryGroupChargeLimit": {
+    "name": "hwBatteryGroupChargeLimit",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryGroupRowStatus": {
+    "name": "hwBatteryGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryGroupOperStatus": {
+    "name": "hwBatteryGroupOperStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryGroupVoltageHigh": {
+    "name": "hwBatteryGroupVoltageHigh",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 43000,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryGroupTwiceOffVoltage": {
+    "name": "hwBatteryGroupTwiceOffVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 44000,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryGroupProtectVoltage": {
+    "name": "hwBatteryGroupProtectVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 43000,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryGroupTmpOffHigh": {
+    "name": "hwBatteryGroupTmpOffHigh",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "0.01 degree",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryInstallTime": {
+    "name": "hwBatteryInstallTime",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryGroupBomCode": {
+    "name": "hwBatteryGroupBomCode",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwChargeTable": {
+    "name": "hwChargeTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwChargeEntry": {
+    "name": "hwChargeEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwChargeAdminStatus": {
+    "name": "hwChargeAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "average": 1,
+          "float": 2,
+          "auto": 3,
+          "invalid": -1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwChargeOperStatus": {
+    "name": "hwChargeOperStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "average": 1,
+          "float": 2,
+          "full": 3,
+          "noCharge": 4,
+          "discharge": 5,
+          "sleep": 6,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAverageChargeVoltage": {
+    "name": "hwAverageChargeVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 56500,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFloatChargeVoltage": {
+    "name": "hwFloatChargeVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 53500,
+        "format": "decimal"
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwChargeControlRowStatus": {
+    "name": "hwChargeControlRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAverageChargeTime": {
+    "name": "hwAverageChargeTime",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "day",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryTmpRedeemingQuotiety": {
+    "name": "hwBatteryTmpRedeemingQuotiety",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryTable": {
+    "name": "hwBatteryTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBatteryEntry": {
+    "name": "hwBatteryEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBatteryIndex": {
+    "name": "hwBatteryIndex",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryCapacity": {
+    "name": "hwBatteryCapacity",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryLoopState": {
+    "name": "hwBatteryLoopState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryVoltage": {
+    "name": "hwBatteryVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryState": {
+    "name": "hwBatteryState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "charge": 1,
+          "discharge": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryCurrent": {
+    "name": "hwBatteryCurrent",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryTemperature": {
+    "name": "hwBatteryTemperature",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degree",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryRowStatus": {
+    "name": "hwBatteryRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryCurrentHigh": {
+    "name": "hwBatteryCurrentHigh",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MeasuresRange",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryFuseState": {
+    "name": "hwBatteryFuseState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryContactState": {
+    "name": "hwBatteryContactState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "invalid": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryRemainCapacity": {
+    "name": "hwBatteryRemainCapacity",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryProtectState": {
+    "name": "hwBatteryProtectState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "overtemperature": 2,
+          "overCurrent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryVoltageState": {
+    "name": "hwBatteryVoltageState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "exceedVoltage": 2,
+          "belowVoltage": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryHardwareState": {
+    "name": "hwBatteryHardwareState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryTestTable": {
+    "name": "hwBatteryTestTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBatteryTestEntry": {
+    "name": "hwBatteryTestEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBatteryTestAdminStatus": {
+    "name": "hwBatteryTestAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "terminate": 2,
+          "enableAutoTest": 3,
+          "disableAutoTest": 4,
+          "timeautoTest": 5,
+          "offautoTest": 6,
+          "timeoffautoTest": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryTestAutoDischargePeriod": {
+    "name": "hwBatteryTestAutoDischargePeriod",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "day",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryTestResult": {
+    "name": "hwBatteryTestResult",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testing": 1,
+          "complete": 2,
+          "alarmTerminated": 3,
+          "hostTerminated": 4,
+          "overtimeTerminated": 5,
+          "normal": 6,
+          "supplyRecoverAutotestTerminated": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hwBatteryTestStartTime": {
+    "name": "hwBatteryTestStartTime",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hwBatteryTestDuration": {
+    "name": "hwBatteryTestDuration",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryTestTerminateVoltage": {
+    "name": "hwBatteryTestTerminateVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryTestTotalDischargeAH": {
+    "name": "hwBatteryTestTotalDischargeAH",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mAH",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hwBatteryTestOperStatus": {
+    "name": "hwBatteryTestOperStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoTestPermit": 1,
+          "autoTestForbid": 2,
+          "timeautoTestPermit": 3,
+          "offautoTestPermit": 4,
+          "timeoffautoTestPermit": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryTestPhase": {
+    "name": "hwBatteryTestPhase",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "charge": 1,
+          "discharge": 2,
+          "record": 3,
+          "finish": 4,
+          "waitingfordischarge": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryTestStartHour": {
+    "name": "hwBatteryTestStartHour",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "bin"
+      }
+    },
+    "units": "hour",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryTestAlarmThreshold": {
+    "name": "hwBatteryTestAlarmThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBatteryLogTestTable": {
+    "name": "hwBatteryLogTestTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBatteryLogTestEntry": {
+    "name": "hwBatteryLogTestEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryLogTestIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBatteryLogTestIndex": {
+    "name": "hwBatteryLogTestIndex",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestStartTime": {
+    "name": "hwBatteryLogTestStartTime",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestDischargeDuration": {
+    "name": "hwBatteryLogTestDischargeDuration",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestTerminateVoltage": {
+    "name": "hwBatteryLogTestTerminateVoltage",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestBatteryStatus": {
+    "name": "hwBatteryLogTestBatteryStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "expectant": 1,
+          "unexpected": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestTotalDischargeAH": {
+    "name": "hwBatteryLogTestTotalDischargeAH",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mAH",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestFinish": {
+    "name": "hwBatteryLogTestFinish",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testing": 1,
+          "completed": 2,
+          "alarmTerminated": 3,
+          "hostTerminated": 4,
+          "overtimeTerminated": 5,
+          "notTest": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestEfficiency": {
+    "name": "hwBatteryLogTestEfficiency",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestBatteryTemperature": {
+    "name": "hwBatteryLogTestBatteryTemperature",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 Degree",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBatteryLogTestBatteryCurrent": {
+    "name": "hwBatteryLogTestBatteryCurrent",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.6.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRemoteProvidePowerInfoTable": {
+    "name": "hwRemoteProvidePowerInfoTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRemoteProvidePowerInfoEntry": {
+    "name": "hwRemoteProvidePowerInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPowerCentralState": {
+    "name": "hwPowerCentralState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "temOver": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPowerCentralDCInPutState": {
+    "name": "hwPowerCentralDCInPutState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "lack": 2,
+          "over": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPowerCentralDCOutputState": {
+    "name": "hwPowerCentralDCOutputState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "volLack": 2,
+          "volOver": 3,
+          "loadOver": 4,
+          "shortCircuit": 5,
+          "noLoad": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPowerCentralDCOutputMode": {
+    "name": "hwPowerCentralDCOutputMode",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highVolMode": 1,
+          "lowVolMode": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPowerRemoteCommState": {
+    "name": "hwPowerRemoteCommState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "revfault": 2,
+          "sendfault": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerRemoteDCInputState": {
+    "name": "hwPowerRemoteDCInputState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "lack": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerRemoteLineCurState": {
+    "name": "hwPowerRemoteLineCurState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "cablejoining": 2,
+          "curLeakage": 3,
+          "curOver": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerRemotePowerState": {
+    "name": "hwPowerRemotePowerState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fault": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerRemoteLineState": {
+    "name": "hwPowerRemoteLineState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "u1state": 0,
+        "u2state": 1,
+        "u3state": 2,
+        "u4state": 3,
+        "a1state": 4,
+        "a2state": 5,
+        "a3state": 6,
+        "a4state": 7
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerCentralLoadState": {
+    "name": "hwPowerCentralLoadState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "overload": 2,
+          "nonload": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPowerMibTrap": {
+    "name": "hwPowerMibTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.2",
+    "class": "objectidentity"
+  },
+  "hwPowerTrapOid": {
+    "name": "hwPowerTrapOid",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.1",
+    "class": "objectidentity"
+  },
+  "hwPowerTrapsDefine": {
+    "name": "hwPowerTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2",
+    "class": "objectidentity"
+  },
+  "hwPowerTraps": {
+    "name": "hwPowerTraps",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0",
+    "class": "objectidentity"
+  },
+  "powerConnFaultAlarm": {
+    "name": "powerConnFaultAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerConnFaultAlarmResume": {
+    "name": "powerConnFaultAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputVoltageAlarm": {
+    "name": "acInputVoltageAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputVoltageAlarmResume": {
+    "name": "acInputVoltageAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputVoltageHighAlarm": {
+    "name": "acInputVoltageHighAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputVoltageHighAlarmResume": {
+    "name": "acInputVoltageHighAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputVoltageLowAlarm": {
+    "name": "acInputVoltageLowAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputVoltageLowAlarmResume": {
+    "name": "acInputVoltageLowAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dcOutputVoltageHighAlarm": {
+    "name": "dcOutputVoltageHighAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dcOutputVoltageHighAlarmResume": {
+    "name": "dcOutputVoltageHighAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dcOutputCurrentHighAlarm": {
+    "name": "dcOutputCurrentHighAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dcOutputCurrentHighAlarmResume": {
+    "name": "dcOutputCurrentHighAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dcOutputVoltageLowAlarm": {
+    "name": "dcOutputVoltageLowAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dcOutputVoltageLowAlarmResume": {
+    "name": "dcOutputVoltageLowAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dcOutputCurrentLowAlarm": {
+    "name": "dcOutputCurrentLowAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dcOutputCurrentLowAlarmResume": {
+    "name": "dcOutputCurrentLowAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "overLoadPowerAbnormalAlarm": {
+    "name": "overLoadPowerAbnormalAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "overLoadPowerAbnormalAlarmResume": {
+    "name": "overLoadPowerAbnormalAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "overBattPowerOffAlarm": {
+    "name": "overBattPowerOffAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "overBattPowerOffAlarmResume": {
+    "name": "overBattPowerOffAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "overLoadPowerOffAlarm": {
+    "name": "overLoadPowerOffAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "overLoadPowerOffAlarmResume": {
+    "name": "overLoadPowerOffAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acMainsSupplyAlarm": {
+    "name": "acMainsSupplyAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acMainsSupplyAlarmResume": {
+    "name": "acMainsSupplyAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryLoopAlarm": {
+    "name": "batteryLoopAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryLoopAlarmResume": {
+    "name": "batteryLoopAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryFuseAlarm": {
+    "name": "batteryFuseAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryFuseAlarmResume": {
+    "name": "batteryFuseAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryContachAlarm": {
+    "name": "batteryContachAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryContachAlarmResume": {
+    "name": "batteryContachAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "userModuleOffAlarm": {
+    "name": "userModuleOffAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "userModuleOffAlarmResume": {
+    "name": "userModuleOffAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "transferModuleOffAlarm": {
+    "name": "transferModuleOffAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "transferModuleOffAlarmResume": {
+    "name": "transferModuleOffAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "userModuleSwitchAlarm": {
+    "name": "userModuleSwitchAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "transferModuleSwitchAlarm": {
+    "name": "transferModuleSwitchAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "loadFuseAlarm": {
+    "name": "loadFuseAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "loadFuseAlarmResume": {
+    "name": "loadFuseAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "chargeCtrlStateAlarm": {
+    "name": "chargeCtrlStateAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "chargeModeAlarm": {
+    "name": "chargeModeAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acCommFailAlarm": {
+    "name": "acCommFailAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acCommFailAlarmResume": {
+    "name": "acCommFailAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryChargeOverAlarm": {
+    "name": "batteryChargeOverAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryChargeOverAlarmResume": {
+    "name": "batteryChargeOverAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryVoltageLackAlarm": {
+    "name": "batteryVoltageLackAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryVoltageLackAlarmResume": {
+    "name": "batteryVoltageLackAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "loadTwiceOffAlarm": {
+    "name": "loadTwiceOffAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "loadTwiceOffAlarmResume": {
+    "name": "loadTwiceOffAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "loadOnceOffAlarm": {
+    "name": "loadOnceOffAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "loadOnceOffAlarmResume": {
+    "name": "loadOnceOffAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputPowerOffAlarm": {
+    "name": "acInputPowerOffAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputPowerOffAlarmResume": {
+    "name": "acInputPowerOffAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "acInputLoopSwtichAlarm": {
+    "name": "acInputLoopSwtichAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryDischargeTestStartAlarm": {
+    "name": "batteryDischargeTestStartAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "batteryDischargeTestStopAlarm": {
+    "name": "batteryDischargeTestStopAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerProtectAlarm": {
+    "name": "powerProtectAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerUndoProtectAlarm": {
+    "name": "powerUndoProtectAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerCentralOutputModeSwtichAlarm": {
+    "name": "powerCentralOutputModeSwtichAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerCentralTempretaureAlarm": {
+    "name": "powerCentralTempretaureAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerCentralInputAlarm": {
+    "name": "powerCentralInputAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerCentralOutputAlarm": {
+    "name": "powerCentralOutputAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerRemoteCommFaultAlarm": {
+    "name": "powerRemoteCommFaultAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerRemoteVoltageAlarm": {
+    "name": "powerRemoteVoltageAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerLineAlarm": {
+    "name": "powerLineAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerRemotePowerAlarm1": {
+    "name": "powerRemotePowerAlarm1",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.67",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerRemotePowerAlarm2": {
+    "name": "powerRemotePowerAlarm2",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.68",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "powerRemotePowerAlarm3": {
+    "name": "powerRemotePowerAlarm3",
+    "oid": "1.3.6.1.4.1.2011.6.2.2.2.0.69",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwACInfomationTable": {
+    "name": "hwACInfomationTable",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwACInfomationEntry": {
+    "name": "hwACInfomationEntry",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwACInfoCommState": {
+    "name": "hwACInfoCommState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "fault": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACInfoThunderState": {
+    "name": "hwACInfoThunderState",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "fault": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACInfoCurrentLoop": {
+    "name": "hwACInfoCurrentLoop",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACInfoMCBTrigger": {
+    "name": "hwACInfoMCBTrigger",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "break-down": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACInfoFrequency": {
+    "name": "hwACInfoFrequency",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "HZ",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwACInfoRowStatus": {
+    "name": "hwACInfoRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.2.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "powerConformance": {
+    "name": "powerConformance",
+    "oid": "1.3.6.1.4.1.2011.6.2.3",
+    "class": "objectidentity"
+  },
+  "powerCompliances": {
+    "name": "powerCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.2.3.1",
+    "class": "objectidentity"
+  },
+  "powerGroups": {
+    "name": "powerGroups",
+    "oid": "1.3.6.1.4.1.2011.6.2.3.2",
+    "class": "objectidentity"
+  },
+  "hwEnvironPowerTraps": {
+    "name": "hwEnvironPowerTraps",
+    "oid": "1.3.6.1.4.1.2011.6.2.4",
+    "class": "objectidentity"
+  },
+  "hwEnvironPowerCommonTraps": {
+    "name": "hwEnvironPowerCommonTraps",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.1",
+    "class": "objectidentity"
+  },
+  "hwEnvironPowerAlarmTraps": {
+    "name": "hwEnvironPowerAlarmTraps",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2",
+    "class": "objectidentity"
+  },
+  "hwEnvironPowerAlarmTrapsPrefix": {
+    "name": "hwEnvironPowerAlarmTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0",
+    "class": "objectidentity"
+  },
+  "hwEmmPowerBattaryTestStartTrap": {
+    "name": "hwEmmPowerBattaryTestStartTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerBattaryTestStopTrap": {
+    "name": "hwEmmPowerBattaryTestStopTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryLogTestBatteryStatus"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryLogTestEfficiency"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerAcvolFaultTrap": {
+    "name": "hwEmmPowerAcvolFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerAcvolRecoverTrap": {
+    "name": "hwEmmPowerAcvolRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwACLoopIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerDcvolFaultTrap": {
+    "name": "hwEmmPowerDcvolFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerDcvolRecoverTrap": {
+    "name": "hwEmmPowerDcvolRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerBattloopFaultTrap": {
+    "name": "hwEmmPowerBattloopFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerBattloopRecoverTrap": {
+    "name": "hwEmmPowerBattloopRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwBatteryIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerLoadfuseFaultTrap": {
+    "name": "hwEmmPowerLoadfuseFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerLoadfuseRecoverTrap": {
+    "name": "hwEmmPowerLoadfuseRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwLoadIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerRectifierFaultTrap": {
+    "name": "hwEmmPowerRectifierFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwRectifierIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerRectifierRecoverTrap": {
+    "name": "hwEmmPowerRectifierRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwRectifierIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigMainsupplyFaultTrap": {
+    "name": "hwEmmDigMainsupplyFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmDigMainsupplyRecoverTrap": {
+    "name": "hwEmmDigMainsupplyRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwDigChannelIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerBatteryOffTrap": {
+    "name": "hwEmmPowerBatteryOffTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmBatt1TempFaultTrap": {
+    "name": "hwEmmBatt1TempFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmBatt1TempRestoreTrap": {
+    "name": "hwEmmBatt1TempRestoreTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEnviHumFaultTrap": {
+    "name": "hwEmmEnviHumFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEnviHumRestoreTrap": {
+    "name": "hwEmmEnviHumRestoreTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEnvi1TempFaultTrap": {
+    "name": "hwEmmEnvi1TempFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmEnvi1TempRestoreTrap": {
+    "name": "hwEmmEnvi1TempRestoreTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmBattTemFaultTrap": {
+    "name": "hwEmmBattTemFaultTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmBattTemRecoverTrap": {
+    "name": "hwEmmBattTemRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerBatteryOffRecoverTrap": {
+    "name": "hwEmmPowerBatteryOffRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerBatteryUnDetectTrap": {
+    "name": "hwEmmPowerBatteryUnDetectTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEmmPowerBatteryDetectRecoverTrap": {
+    "name": "hwEmmPowerBatteryDetectRecoverTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPowerModuleMismatchTrap": {
+    "name": "hwPowerModuleMismatchTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPowerModuleRestoreTrap": {
+    "name": "hwPowerModuleRestoreTrap",
+    "oid": "1.3.6.1.4.1.2011.6.2.4.2.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuIndex"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerIndex"
+      },
+      {
+        "module": "HUAWEI-ENVIRONMENT-MIB",
+        "object": "hwEnvEmuType"
+      },
+      {
+        "module": "HUAWEI-POWER-MIB",
+        "object": "hwPowerType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-POWER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-POWER-MIB"
+  }
+}

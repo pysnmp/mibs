@@ -1,0 +1,1115 @@
+{
+  "imports": {
+    "class": "imports",
+    "DS3-MIB": [
+      "dsx3FarEndIntervalEntry",
+      "dsx3FarEndCurrentEntry",
+      "dsx3FarEndConfigEntry",
+      "dsx3FarEndTotalEntry"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniNextIfIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfTotalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "juniDs3MIB": {
+    "name": "juniDs3MIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-10-12 06:51",
+        "description": "Changed the upper bound value of juniDsx3LineLength from 64000 to 137 meters."
+      },
+      {
+        "revision": "2003-09-30 12:11",
+        "description": "Changed the standard MIB support from the RFC1407-MIB (SMIv1) to the DS3-MIB (SMIv2)."
+      },
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-09-12 16:59",
+        "description": "Added support for far end MDL generator number and port number. Added support for far end MDL carrier."
+      },
+      {
+        "revision": "2002-04-04 14:07",
+        "description": "Added invalid seconds objects to the far end statistics tables and more configuration objects."
+      },
+      {
+        "revision": "2002-02-22 21:21",
+        "description": "Modified the valid range for juniDsx3Ds3Channel"
+      },
+      {
+        "revision": "2001-04-27 19:49",
+        "description": "Added dynamic DS3 interface support."
+      },
+      {
+        "revision": "2001-02-05 00:00",
+        "description": "Added following objects: juniDsx3Ds3DsuMode juniDsx3Ds3BandwidthLimit juniDsx3Ds3DsuScrambleMode"
+      },
+      {
+        "revision": "1999-07-27 00:00",
+        "description": "Added juniDsx3LineType and juniDsx3CellScramblerConfig."
+      },
+      {
+        "revision": "1998-11-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniDs3Objects": {
+    "name": "juniDs3Objects",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1",
+    "class": "objectidentity"
+  },
+  "juniDsx3ConfigTable": {
+    "name": "juniDsx3ConfigTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDsx3ConfigEntry": {
+    "name": "juniDsx3ConfigEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniDsx3LineLength": {
+    "name": "juniDsx3LineLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 137
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3LineType": {
+    "name": "juniDsx3LineType",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "juniDsx3other": 1,
+          "juniDsx3M23": 2,
+          "juniDsx3SYNTRAN": 3,
+          "juniDsx3CbitParity": 4,
+          "juniDsx3ClearChannel": 5,
+          "juniE3G832": 6,
+          "juniE3Framed": 7,
+          "juniE3Plcp": 8,
+          "juniDsx3M23Plcp": 18,
+          "juniDsx3CbitParityPlcp": 20
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3CellScramblerConfig": {
+    "name": "juniDsx3CellScramblerConfig",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "scramblerOn": 1,
+          "scramblerOff": 2,
+          "notSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3Channelization": {
+    "name": "juniDsx3Channelization",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3InterfaceType": {
+    "name": "juniDsx3InterfaceType",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ds3T3": 0,
+          "ds3E3": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3Application": {
+    "name": "juniDsx3Application",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ds3FrameOverDs3": 0,
+          "ds3AtmOverDs3": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3Ds3Channel": {
+    "name": "juniDsx3Ds3Channel",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 28
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3LowerIfIndex": {
+    "name": "juniDsx3LowerIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3RowStatus": {
+    "name": "juniDsx3RowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3Ds3DsuMode": {
+    "name": "juniDsx3Ds3DsuMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ds3DsuModeNone": 0,
+          "ds3DsuLarsCom": 2,
+          "ds3DsuDigitalLink": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ds3DsuModeNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3Ds3BandwidthLimit": {
+    "name": "juniDsx3Ds3BandwidthLimit",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 44210
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3Ds3DsuScrambleMode": {
+    "name": "juniDsx3Ds3DsuScrambleMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ds3DsuScrambleDisabled": 0,
+          "ds3DsuScrambleEnable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ds3DsuScrambleDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlCarrier": {
+    "name": "juniDsx3MdlCarrier",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlTransmit": {
+    "name": "juniDsx3MdlTransmit",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "path": 1,
+          "idlesignal": 2,
+          "pathIdlesignal": 3,
+          "testsignal": 4,
+          "pathTestsignal": 5,
+          "idlesignalTestsignal": 6,
+          "pathIdlesignalTestsignal": 7,
+          "none": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlEic": {
+    "name": "juniDsx3MdlEic",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlLic": {
+    "name": "juniDsx3MdlLic",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlFic": {
+    "name": "juniDsx3MdlFic",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlUnit": {
+    "name": "juniDsx3MdlUnit",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlPfi": {
+    "name": "juniDsx3MdlPfi",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlPort": {
+    "name": "juniDsx3MdlPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDsx3MdlGenerator": {
+    "name": "juniDsx3MdlGenerator",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniDs3NextIfIndex": {
+    "name": "juniDs3NextIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniNextIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDsx3FarEndCurrentTable": {
+    "name": "juniDsx3FarEndCurrentTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDsx3FarEndCurrentEntry": {
+    "name": "juniDsx3FarEndCurrentEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniDsx3FarEndCurrentEntry",
+      "module": "Juniper-DS3-MIB",
+      "object": "dsx3FarEndCurrentEntry"
+    },
+    "status": "current"
+  },
+  "juniDsx3FarEndCurrentInvalidSeconds": {
+    "name": "juniDsx3FarEndCurrentInvalidSeconds",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDsx3FarEndIntervalTable": {
+    "name": "juniDsx3FarEndIntervalTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDsx3FarEndIntervalEntry": {
+    "name": "juniDsx3FarEndIntervalEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniDsx3FarEndIntervalEntry",
+      "module": "Juniper-DS3-MIB",
+      "object": "dsx3FarEndIntervalEntry"
+    },
+    "status": "current"
+  },
+  "juniDsx3FarEndIntervalInvalidSeconds": {
+    "name": "juniDsx3FarEndIntervalInvalidSeconds",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDsx3FarEndTotalTable": {
+    "name": "juniDsx3FarEndTotalTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDsx3FarEndTotalEntry": {
+    "name": "juniDsx3FarEndTotalEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniDsx3FarEndTotalEntry",
+      "module": "Juniper-DS3-MIB",
+      "object": "dsx3FarEndTotalEntry"
+    },
+    "status": "current"
+  },
+  "juniDsx3FarEndTotalInvalidSeconds": {
+    "name": "juniDsx3FarEndTotalInvalidSeconds",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniDsx3FarEndConfigTable": {
+    "name": "juniDsx3FarEndConfigTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniDsx3FarEndConfigEntry": {
+    "name": "juniDsx3FarEndConfigEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniDsx3FarEndConfigEntry",
+      "module": "Juniper-DS3-MIB",
+      "object": "dsx3FarEndConfigEntry"
+    },
+    "status": "current"
+  },
+  "juniDsx3FarEndPortNumber": {
+    "name": "juniDsx3FarEndPortNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDsx3FarEndGeneratorNumber": {
+    "name": "juniDsx3FarEndGeneratorNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDsx3FarEndCarrier": {
+    "name": "juniDsx3FarEndCarrier",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniDs3Conformance": {
+    "name": "juniDs3Conformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4",
+    "class": "objectidentity"
+  },
+  "juniDs3Compliances": {
+    "name": "juniDs3Compliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.1",
+    "class": "objectidentity"
+  },
+  "juniDs3Groups": {
+    "name": "juniDs3Groups",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.2",
+    "class": "objectidentity"
+  },
+  "juniDs3Compliance": {
+    "name": "juniDs3Compliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDs3Group",
+        "module": "Juniper-DS3-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Compliance2": {
+    "name": "juniDs3Compliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDs3Group2",
+        "module": "Juniper-DS3-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Compliance3": {
+    "name": "juniDs3Compliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDs3Group3",
+        "module": "Juniper-DS3-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Compliance4": {
+    "name": "juniDs3Compliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDs3Group4",
+        "module": "Juniper-DS3-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Compliance5": {
+    "name": "juniDs3Compliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDs3Group5",
+        "module": "Juniper-DS3-MIB"
+      },
+      {
+        "object": "juniDs3FarEndGroup",
+        "module": "Juniper-DS3-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Compliance6": {
+    "name": "juniDs3Compliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniDs3Group5",
+        "module": "Juniper-DS3-MIB"
+      },
+      {
+        "object": "juniDs3FarEndGroup2",
+        "module": "Juniper-DS3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDs3Group": {
+    "name": "juniDs3Group",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineLength"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Group2": {
+    "name": "juniDs3Group2",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineLength"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineType"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3CellScramblerConfig"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Group3": {
+    "name": "juniDs3Group3",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineLength"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineType"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3CellScramblerConfig"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3DsuMode"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3BandwidthLimit"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3DsuScrambleMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Group4": {
+    "name": "juniDs3Group4",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineLength"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineType"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3CellScramblerConfig"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Channelization"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3InterfaceType"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Application"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3Channel"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LowerIfIndex"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3RowStatus"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3DsuMode"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3BandwidthLimit"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3DsuScrambleMode"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDs3NextIfIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3Group5": {
+    "name": "juniDs3Group5",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineLength"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LineType"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3CellScramblerConfig"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Channelization"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3InterfaceType"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Application"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3Channel"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3LowerIfIndex"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3RowStatus"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3DsuMode"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3BandwidthLimit"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3Ds3DsuScrambleMode"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlCarrier"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlTransmit"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlEic"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlLic"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlFic"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlUnit"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlPfi"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlPort"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3MdlGenerator"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDs3NextIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniDs3FarEndGroup": {
+    "name": "juniDs3FarEndGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndCurrentInvalidSeconds"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndIntervalInvalidSeconds"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndTotalInvalidSeconds"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniDs3FarEndGroup2": {
+    "name": "juniDs3FarEndGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.4.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndCurrentInvalidSeconds"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndIntervalInvalidSeconds"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndTotalInvalidSeconds"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndPortNumber"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndGeneratorNumber"
+      },
+      {
+        "module": "Juniper-DS3-MIB",
+        "object": "juniDsx3FarEndCarrier"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-DS3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-DS3-MIB"
+  }
+}

@@ -1,0 +1,802 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORTINET-CORE-MIB": [
+      "FnIndex",
+      "fnGenTrapMsg",
+      "fortinet"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "fnFortiAuthenticatorMib": {
+    "name": "fnFortiAuthenticatorMib",
+    "oid": "1.3.6.1.4.1.12356.113",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-06-08 00:00",
+        "description": "Include Radius proxy, high availability data"
+      },
+      {
+        "revision": "2012-11-05 00:00",
+        "description": "Initial version of FORTINET-FORTIAUTHENTICATOR-MIB."
+      }
+    ]
+  },
+  "FacHaState": {
+    "name": "FacHaState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownOrDetermining": 1,
+          "clusterMaster": 2,
+          "clusterSlave": 3,
+          "standaloneMaster": 4,
+          "loadBalancingSlave": 5,
+          "disabled": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "facTraps": {
+    "name": "facTraps",
+    "oid": "1.3.6.1.4.1.12356.113.0",
+    "class": "objectidentity"
+  },
+  "facSystem": {
+    "name": "facSystem",
+    "oid": "1.3.6.1.4.1.12356.113.1",
+    "class": "objectidentity"
+  },
+  "facHa": {
+    "name": "facHa",
+    "oid": "1.3.6.1.4.1.12356.113.1.201",
+    "class": "objectidentity"
+  },
+  "facAuth": {
+    "name": "facAuth",
+    "oid": "1.3.6.1.4.1.12356.113.1.202",
+    "class": "objectidentity"
+  },
+  "facMIBConformance": {
+    "name": "facMIBConformance",
+    "oid": "1.3.6.1.4.1.12356.113.600",
+    "class": "objectidentity"
+  },
+  "facSysModel": {
+    "name": "facSysModel",
+    "oid": "1.3.6.1.4.1.12356.113.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facSysSerial": {
+    "name": "facSysSerial",
+    "oid": "1.3.6.1.4.1.12356.113.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facSysVersion": {
+    "name": "facSysVersion",
+    "oid": "1.3.6.1.4.1.12356.113.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facSysCpuUsage": {
+    "name": "facSysCpuUsage",
+    "oid": "1.3.6.1.4.1.12356.113.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facSysMemUsage": {
+    "name": "facSysMemUsage",
+    "oid": "1.3.6.1.4.1.12356.113.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facSysLogDiskUsage": {
+    "name": "facSysLogDiskUsage",
+    "oid": "1.3.6.1.4.1.12356.113.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facHaCurrentStatus": {
+    "name": "facHaCurrentStatus",
+    "oid": "1.3.6.1.4.1.12356.113.1.201.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FacHaState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facAuthUserCount": {
+    "name": "facAuthUserCount",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facAuthGroupCount": {
+    "name": "facAuthGroupCount",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facFortiTokenCount": {
+    "name": "facFortiTokenCount",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facAuthUsersRemaining": {
+    "name": "facAuthUsersRemaining",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facAuthGroupRemaining": {
+    "name": "facAuthGroupRemaining",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facFortiTokenRemaining": {
+    "name": "facFortiTokenRemaining",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusNasCount": {
+    "name": "facRadiusNasCount",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusNasRemaining": {
+    "name": "facRadiusNasRemaining",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facUserCertificateCount": {
+    "name": "facUserCertificateCount",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusLoginsTotal": {
+    "name": "facRadiusLoginsTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusLogins5Mins": {
+    "name": "facRadiusLogins5Mins",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusFailuresTotal": {
+    "name": "facRadiusFailuresTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusFailures5Mins": {
+    "name": "facRadiusFailures5Mins",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusAccountingTotal": {
+    "name": "facRadiusAccountingTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusAccounting5Mins": {
+    "name": "facRadiusAccounting5Mins",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facLdapLoginsTotal": {
+    "name": "facLdapLoginsTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facLdapLogins5Mins": {
+    "name": "facLdapLogins5Mins",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facLdapFailuresTotal": {
+    "name": "facLdapFailuresTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facLdapFailures5Mins": {
+    "name": "facLdapFailures5Mins",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facAuthEventsTotal": {
+    "name": "facAuthEventsTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facAuthEvents5Mins": {
+    "name": "facAuthEvents5Mins",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facAuthFailuresTotal": {
+    "name": "facAuthFailuresTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facAuthFailures5Mins": {
+    "name": "facAuthFailures5Mins",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusProxyInTotal": {
+    "name": "facRadiusProxyInTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facRadiusProxyOutTotal": {
+    "name": "facRadiusProxyOutTotal",
+    "oid": "1.3.6.1.4.1.12356.113.1.202.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "facTrapAuthUsersThreshold": {
+    "name": "facTrapAuthUsersThreshold",
+    "oid": "1.3.6.1.4.1.12356.113.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthUsersRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "facTrapAuthGroupThreshold": {
+    "name": "facTrapAuthGroupThreshold",
+    "oid": "1.3.6.1.4.1.12356.113.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthGroupRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "facTrapRadiusNasThreshold": {
+    "name": "facTrapRadiusNasThreshold",
+    "oid": "1.3.6.1.4.1.12356.113.0.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusNasRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "facTrapAuthEventsThreshold": {
+    "name": "facTrapAuthEventsThreshold",
+    "oid": "1.3.6.1.4.1.12356.113.0.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthEvents5Mins"
+      }
+    ],
+    "status": "current"
+  },
+  "facTrapAuthFailureThreshold": {
+    "name": "facTrapAuthFailureThreshold",
+    "oid": "1.3.6.1.4.1.12356.113.0.104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthFailures5Mins"
+      }
+    ],
+    "status": "current"
+  },
+  "facTrapUserLockout": {
+    "name": "facTrapUserLockout",
+    "oid": "1.3.6.1.4.1.12356.113.0.105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnGenTrapMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "facTrapHAStatusChange": {
+    "name": "facTrapHAStatusChange",
+    "oid": "1.3.6.1.4.1.12356.113.0.106",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facHaCurrentStatus"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnGenTrapMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "facSystemConformanceGroup": {
+    "name": "facSystemConformanceGroup",
+    "oid": "1.3.6.1.4.1.12356.113.600.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysModel"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysSerial"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysVersion"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysCpuUsage"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysMemUsage"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facSysLogDiskUsage"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthUserCount"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthGroupCount"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facFortiTokenCount"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthUsersRemaining"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthGroupRemaining"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facFortiTokenRemaining"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusNasCount"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusNasRemaining"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facUserCertificateCount"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusLoginsTotal"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusLogins5Mins"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusFailuresTotal"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusFailures5Mins"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusAccountingTotal"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusAccounting5Mins"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facLdapLoginsTotal"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facLdapLogins5Mins"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facLdapFailuresTotal"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facLdapFailures5Mins"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthEventsTotal"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthEvents5Mins"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthFailuresTotal"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facAuthFailures5Mins"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facHaCurrentStatus"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusProxyInTotal"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facRadiusProxyOutTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "facTrapsConformanceGroup": {
+    "name": "facTrapsConformanceGroup",
+    "oid": "1.3.6.1.4.1.12356.113.600.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facTrapAuthUsersThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facTrapAuthGroupThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facTrapRadiusNasThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facTrapAuthEventsThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facTrapAuthFailureThreshold"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facTrapUserLockout"
+      },
+      {
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB",
+        "object": "facTrapHAStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "facMIBCompliance": {
+    "name": "facMIBCompliance",
+    "oid": "1.3.6.1.4.1.12356.113.600.100",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "facSystemConformanceGroup",
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB"
+      },
+      {
+        "object": "facTrapsConformanceGroup",
+        "module": "FORTINET-FORTIAUTHENTICATOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIAUTHENTICATOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FORTINET-FORTIAUTHENTICATOR-MIB"
+  }
+}

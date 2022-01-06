@@ -1,0 +1,5506 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-GTP-MIB": [
+      "cGtpPathAddressType",
+      "cGtpPathAddress",
+      "cGtpPathPort"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "CiscoAlarmSeverity"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressDNS"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "cGgsnMIB": {
+    "name": "cGgsnMIB",
+    "oid": "1.3.6.1.4.1.9.9.240",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-05-04 00:00",
+        "description": "Modified description for cGgsnSentSigMessages and cGgsnReceivedSigMessages."
+      },
+      {
+        "revision": "2012-01-11 00:00",
+        "description": "Modified description for cGgsnSlbVserAddrType."
+      },
+      {
+        "revision": "2011-03-21 00:00",
+        "description": "Added the following objects to cGgsnIpDupProtectTable cGgsnMsExcludeRangeStartIpv6Prefixlen, cGgsnMsExcludeRangeEndIpv6Prefixlen. Added the following objects to cGgsnPlmnIpAddrRangeTable cGgsnPlmnAddrRangeFirstIpv6Prefixlen, cGgsnPlmnAddrRangeLastIpv6Prefixlen. Modified the description of the following objects cGgsnMsExcludeRangeStartIpType, cGgsnMsExcludeRangeEndIpType, cGgsnPlmnAddrRangeIpAddrType, cGgsnIpDupProtectRowStatus and cGgsnPlmnAddrRangeRowStatus. Added a OBJECT-GROUP cGgsnConfigurationsGroupSup1. Deprecated the compliance group cGgsnMIBComplianceRev9 and added a new compliance group cGgsnMIBComplianceRev10."
+      },
+      {
+        "revision": "2011-03-01 00:00",
+        "description": "Modified description for cGgsnSlbVserNextHopAddrType and cGgsnDefaultAggregIpAddrType."
+      },
+      {
+        "revision": "2010-03-23 00:00",
+        "description": "Added the 'release100' enumeration to cGgsnVersion."
+      },
+      {
+        "revision": "2010-02-19 00:00",
+        "description": "Added new table cGgsnGtpEncapsuTable. Added OBJECT-GROUP cGgsnStatusGroupR90. Added MODULE-COMPLIANCE cGgsnMIBComplianceRev9, which deprecates cGgsnMIBComplianceRev8."
+      },
+      {
+        "revision": "2008-11-03 00:00",
+        "description": "Added the 'release90' enumeration to cGgsnVersion."
+      },
+      {
+        "revision": "2008-02-04 00:00",
+        "description": "Deprecated cGgsnCompliance3GppGgsn. Added a Enumerated value to cGgsnVersion."
+      },
+      {
+        "revision": "2006-10-05 00:00",
+        "description": "+ Added cGgsnTotalCreatedIpv6Pdps, cGgsnTotalDeletedIpv6Pdps, cGgsnTotalRejectedIpv6Pdps, cGgsnSentIpv6SigMessages, cGgsnReceivedIpv6SigMessages, cGgsnSentIpv6PDUs, cGgsnReceivedIpv6PDUs, cGgsnSentIpv6PDUOctets, cGgsnReceivedIpv6PDUOctets, to cGgsnStatistics. + Added cGgsnActivatedIpv6Gtpv0Pdp, cGgsnActivatedIpv6Gtpv1Pdp, cGgsnActivatedIpv6Ms to cGgsnStatus. - Deprecated cGgsnCreateReqV1UpdExistPdp. - Deprecated all the objects of cGgsnPdpsRejStatistics. + Added cGgsnVersionNotSupportedMsgs, cGgsnUnkownGtpMsgs, cGgsnTooShortMsgs, cGgsnMandIeMissingMsgs, cGgsnMandIeIncorrectMsgs, cGgsnOptIeInvalidMsgs, cGgsnIeUnknownMsgs, cGgsnIeOutOfOrderMsgs, cGgsnIeUnexpectedMsgs, cGgsnIeDuplicatedMsgs, cGgsnOptIeIncorrectMsgs, cGgsnPdpWithoutTftExistsPdps to cGgsnStatistics. - Deprecated cGgsnPdfTable and all the table objects. - Deprecated cGgsnPdfNotifEnabled, cGgsnPdfServerAddrType,cGgsnPdfServerAddr, cGgsnPdfStateUpNotif, cGgsnPdfStateDownNotif."
+      },
+      {
+        "revision": "2006-03-30 09:00",
+        "description": "- Deprecated cGgsnSlbNotif. + Added cGgsnSlbNotifyCacFailure and cGgsnSlbNotifySessionDeletion to cGgsnConfigurations."
+      },
+      {
+        "revision": "2005-08-24 18:00",
+        "description": "Added cGgsnSlbCacFailures, cGgsnSlbSessionFailures, cGgsnRedundancyStatistics to cGgsnStatistics. + Added cGgsnSlbVserverTable, cGgsnSlbVserverEntry, cGgsnSlbVserAddrType, cGgsnSlbVserAddress to cGgsnConfigurations. + Added cGgsnPrepaidPDPs, cGgsnPostpaidPDPs to cGgsnStatus. + Added cGgsnNotifPdpMsisdn to cGgsnNotifInfo."
+      },
+      {
+        "revision": "2005-01-04 18:00",
+        "description": "Added cGgsnConfigVersion to cGgsnStatus."
+      },
+      {
+        "revision": "2004-11-23 01:00",
+        "description": "- Deprecated cGgsnNotification + Added cGgsnGlobalErrorNotif, cGgsnAccessPointNameNotif, cGgsnPacketDataProtocolNotif. + Added cGgsnNotifAccessPointName, cGgsnNotifPdpImsi, cGgsnGlobalErrorTypes, cGgsnAccessPointErrorTypes, cGgsnPacketDataProtoErrorTypes to cGgsnNotifInfo. - Deprecated cGgsnNotifEnabled + Added cGgsnServiceNotifEnabled, cGgsnMemoryNotifEnabled, cGgsnPdfNotifEnabled, cGgsnGlobalErrorNotifEnabled, cGgsnAccessPointNotifEnabled, cGgsnPdpNotifEnabled to cGgsnNotifMgmt"
+      },
+      {
+        "revision": "2004-02-23 01:00",
+        "description": "+ Added cGgsnInServiceNotif, cGgsnMaintenanceNotif, cGgsnMemThresholdReachedNotif, cGgsnMemThresholdClearedNotif, cGgsnPdfStateUpNotif, cGgsnPdfStateDownNotif to cGgsnNotifications. + Added cGgsnPdfTable, cGgsnPcscfTable, cGgsnMemoryThreshold, cGgsnServiceMode, cGgsnPlmnTable, cGgsnSessionTimeout, cGgsnThruputIntervalOne, cGgsnThruputIntervalTwo, cGgsnCompliance3GppGgsn, cGgsnCreateReqV1UpdExistPdp, cGgsnRadAttrSessTimeout, cGgsnDownlinkVerifyMsDisable to cGgsnConfigurations. + Added cGgsnVersionNotSupportedRejPdps, cGgsnUnkownMessageRejPdps, cGgsnMsgTooShortRejPdps, cGgsnMandIeMissingRejPdps, cGgsnMandIeIncorrectRejPdps, cGgsnOptIeInvalidRejPdps, cGgsnIeUnknownRejPdps, cGgsnIeOutOfOrderRejPdps, cGgsnIeUnexpectedRejPdps, cGgsnIeDuplicatedRejPdps, cGgsnOptIeIncorrectRejPdps, cGgsnPdpWithoutTftExistsRejPdps to cGgsnPdpsRejStatistics. + Added cGgsnSgsnStatTable to cGgsnStatistics. + Added cGgsnHCSentGPDUOctets and deprecated cGgsnSentGPDUOctets. + Added cGgsnHCReceivedGPDUOctets and deprecated cGgsnReceivedGPDUOctets. + Added cGgsnServiceModeStatus to cGgsnStatus. + Added cGgsnPdfServerAddrType, cGgsnPdfServerAddr to cGgsnNotifInfo."
+      },
+      {
+        "revision": "2003-12-31 01:00",
+        "description": "+ Added cGgsnPlmnIpAddrRangeTable to cGgsnConfigurations. + Added cGgsnTftSemanticErrorPdps, cGgsnTftSyntacticErrorPdps, cGgsnPktFilterSemanticErrorPdps, cGgsnPktFilterSyntacticErrorPdps to cGgsnStatistics. + Added cGgsnActiveGtpVersion0Pdps, cGgsnActiveGtpVersion1Pdps, cGgsnGtpEncapInterface to cGgsnStatus."
+      },
+      {
+        "revision": "2001-12-08 15:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cGgsnMIBObjects": {
+    "name": "cGgsnMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.240.1",
+    "class": "objectidentity"
+  },
+  "cGgsnStatistics": {
+    "name": "cGgsnStatistics",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1",
+    "class": "objectidentity"
+  },
+  "cGgsnNotifMgmt": {
+    "name": "cGgsnNotifMgmt",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2",
+    "class": "objectidentity"
+  },
+  "cGgsnConfigurations": {
+    "name": "cGgsnConfigurations",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3",
+    "class": "objectidentity"
+  },
+  "cGgsnStatus": {
+    "name": "cGgsnStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4",
+    "class": "objectidentity"
+  },
+  "cGgsnNotifInfo": {
+    "name": "cGgsnNotifInfo",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5",
+    "class": "objectidentity"
+  },
+  "cGgsnSentSigMessages": {
+    "name": "cGgsnSentSigMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnReceivedSigMessages": {
+    "name": "cGgsnReceivedSigMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnUnexpectedSigMessages": {
+    "name": "cGgsnUnexpectedSigMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSentGPDUs": {
+    "name": "cGgsnSentGPDUs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnReceivedGPDUs": {
+    "name": "cGgsnReceivedGPDUs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSentGPDUOctets": {
+    "name": "cGgsnSentGPDUOctets",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnReceivedGPDUOctets": {
+    "name": "cGgsnReceivedGPDUOctets",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnUnexpectedGPDUs": {
+    "name": "cGgsnUnexpectedGPDUs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActivationRejectedPdps": {
+    "name": "cGgsnActivationRejectedPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnOutOfResourcePdps": {
+    "name": "cGgsnOutOfResourcePdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnParserErrorMessages": {
+    "name": "cGgsnParserErrorMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTotalCreatedPdps": {
+    "name": "cGgsnTotalCreatedPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTotalDeletedPdps": {
+    "name": "cGgsnTotalDeletedPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTotalNetworkInitPdps": {
+    "name": "cGgsnTotalNetworkInitPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTotalPppPdpsCreated": {
+    "name": "cGgsnTotalPppPdpsCreated",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTotalPppPdpsDeleted": {
+    "name": "cGgsnTotalPppPdpsDeleted",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnOutOfResourcePppRegenPdps": {
+    "name": "cGgsnOutOfResourcePppRegenPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnDroppedPppRegenPdps": {
+    "name": "cGgsnDroppedPppRegenPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTftSemanticErrorPdps": {
+    "name": "cGgsnTftSemanticErrorPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTftSyntacticErrorPdps": {
+    "name": "cGgsnTftSyntacticErrorPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPktFilterSemanticErrorPdps": {
+    "name": "cGgsnPktFilterSemanticErrorPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPktFilterSyntacticErrorPdps": {
+    "name": "cGgsnPktFilterSyntacticErrorPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHCSentGPDUOctets": {
+    "name": "cGgsnHCSentGPDUOctets",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHCReceivedGPDUOctets": {
+    "name": "cGgsnHCReceivedGPDUOctets",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPdpsRejStatistics": {
+    "name": "cGgsnPdpsRejStatistics",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25",
+    "class": "objectidentity"
+  },
+  "cGgsnVersionNotSupportedRejPdps": {
+    "name": "cGgsnVersionNotSupportedRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnUnkownMessageRejPdps": {
+    "name": "cGgsnUnkownMessageRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnMsgTooShortRejPdps": {
+    "name": "cGgsnMsgTooShortRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnMandIeMissingRejPdps": {
+    "name": "cGgsnMandIeMissingRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnMandIeIncorrectRejPdps": {
+    "name": "cGgsnMandIeIncorrectRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnOptIeInvalidRejPdps": {
+    "name": "cGgsnOptIeInvalidRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnIeUnknownRejPdps": {
+    "name": "cGgsnIeUnknownRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnIeOutOfOrderRejPdps": {
+    "name": "cGgsnIeOutOfOrderRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnIeUnexpectedRejPdps": {
+    "name": "cGgsnIeUnexpectedRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnIeDuplicatedRejPdps": {
+    "name": "cGgsnIeDuplicatedRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnOptIeIncorrectRejPdps": {
+    "name": "cGgsnOptIeIncorrectRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnPdpWithoutTftExistsRejPdps": {
+    "name": "cGgsnPdpWithoutTftExistsRejPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.25.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSgsnStatTable": {
+    "name": "cGgsnSgsnStatTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSgsnStatEntry": {
+    "name": "cGgsnSgsnStatEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GTP-MIB",
+        "object": "cGtpPathAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GTP-MIB",
+        "object": "cGtpPathAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GTP-MIB",
+        "object": "cGtpPathPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnThruPutInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSgsnThruPutInterval": {
+    "name": "cGgsnSgsnThruPutInterval",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSgsnThruPutLastCollected": {
+    "name": "cGgsnSgsnThruPutLastCollected",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSgsnUpStreamPktCnt": {
+    "name": "cGgsnSgsnUpStreamPktCnt",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSgsnUpStreamByteCnt": {
+    "name": "cGgsnSgsnUpStreamByteCnt",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSgsnDownStreamPktCnt": {
+    "name": "cGgsnSgsnDownStreamPktCnt",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.26.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSgsnDownStreamByteCnt": {
+    "name": "cGgsnSgsnDownStreamByteCnt",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.26.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnRedundancyStatistics": {
+    "name": "cGgsnRedundancyStatistics",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27",
+    "class": "objectidentity"
+  },
+  "cGgsnTotalMessages": {
+    "name": "cGgsnTotalMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnContextSetupMessages": {
+    "name": "cGgsnContextSetupMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnContextModifyMessages": {
+    "name": "cGgsnContextModifyMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnContextRemoveMessages": {
+    "name": "cGgsnContextRemoveMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPathSetupMessages": {
+    "name": "cGgsnPathSetupMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPathModifyMessages": {
+    "name": "cGgsnPathModifyMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPathRemoveMessages": {
+    "name": "cGgsnPathRemoveMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnCGFReadyMessages": {
+    "name": "cGgsnCGFReadyMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnCGFModifyMessages": {
+    "name": "cGgsnCGFModifyMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnCGFRemoveMessages": {
+    "name": "cGgsnCGFRemoveMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnInternalStateMsgs": {
+    "name": "cGgsnInternalStateMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.27.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSlbCacFailures": {
+    "name": "cGgsnSlbCacFailures",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSlbSessionFailures": {
+    "name": "cGgsnSlbSessionFailures",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTotalCreatedIpv6Pdps": {
+    "name": "cGgsnTotalCreatedIpv6Pdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTotalDeletedIpv6Pdps": {
+    "name": "cGgsnTotalDeletedIpv6Pdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTotalRejectedIpv6Pdps": {
+    "name": "cGgsnTotalRejectedIpv6Pdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSentIpv6SigMessages": {
+    "name": "cGgsnSentIpv6SigMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnReceivedIpv6SigMessages": {
+    "name": "cGgsnReceivedIpv6SigMessages",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSentIpv6PDUs": {
+    "name": "cGgsnSentIpv6PDUs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnReceivedIpv6PDUs": {
+    "name": "cGgsnReceivedIpv6PDUs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSentIpv6PDUOctets": {
+    "name": "cGgsnSentIpv6PDUOctets",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnReceivedIpv6PDUOctets": {
+    "name": "cGgsnReceivedIpv6PDUOctets",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnVersionNotSupportedMsgs": {
+    "name": "cGgsnVersionNotSupportedMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnUnkownGtpMsgs": {
+    "name": "cGgsnUnkownGtpMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnTooShortMsgs": {
+    "name": "cGgsnTooShortMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnMandIeMissingMsgs": {
+    "name": "cGgsnMandIeMissingMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnMandIeIncorrectMsgs": {
+    "name": "cGgsnMandIeIncorrectMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnOptIeInvalidMsgs": {
+    "name": "cGgsnOptIeInvalidMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnIeUnknownMsgs": {
+    "name": "cGgsnIeUnknownMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnIeOutOfOrderMsgs": {
+    "name": "cGgsnIeOutOfOrderMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnIeUnexpectedMsgs": {
+    "name": "cGgsnIeUnexpectedMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnIeDuplicatedMsgs": {
+    "name": "cGgsnIeDuplicatedMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnOptIeIncorrectMsgs": {
+    "name": "cGgsnOptIeIncorrectMsgs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPdpWithoutTftExistsPdps": {
+    "name": "cGgsnPdpWithoutTftExistsPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnNotifEnabled": {
+    "name": "cGgsnNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cGgsnNotifLeastSeverLevel": {
+    "name": "cGgsnNotifLeastSeverLevel",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "info",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnGeneratedNotifs": {
+    "name": "cGgsnGeneratedNotifs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnIgnoredAlarms": {
+    "name": "cGgsnIgnoredAlarms",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHistNotifMaxLength": {
+    "name": "cGgsnHistNotifMaxLength",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "entries",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnHistNotifLatestIndex": {
+    "name": "cGgsnHistNotifLatestIndex",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHistNotifTable": {
+    "name": "cGgsnHistNotifTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnHistNotifEntry": {
+    "name": "cGgsnHistNotifEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnHistNotifIndex": {
+    "name": "cGgsnHistNotifIndex",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnHistNotifType": {
+    "name": "cGgsnHistNotifType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ggsnServiceUp": 1,
+          "ggsnServiceDown": 2,
+          "mapSgsnUp": 3,
+          "mapSgsnDown": 4,
+          "noResource": 5,
+          "noRADIUS": 6,
+          "noDHCPServer": 7,
+          "ipAllocationFail": 8,
+          "authenticationFail": 9,
+          "apnUnreachable": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHistNotifSeverity": {
+    "name": "cGgsnHistNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHistNotifTimestamp": {
+    "name": "cGgsnHistNotifTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHistNotifGgsnIpAddrType": {
+    "name": "cGgsnHistNotifGgsnIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHistNotifGgsnIpAddr": {
+    "name": "cGgsnHistNotifGgsnIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnHistNotifInfo": {
+    "name": "cGgsnHistNotifInfo",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnServiceNotifEnabled": {
+    "name": "cGgsnServiceNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnMemoryNotifEnabled": {
+    "name": "cGgsnMemoryNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnPdfNotifEnabled": {
+    "name": "cGgsnPdfNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cGgsnGlobalErrorNotifEnabled": {
+    "name": "cGgsnGlobalErrorNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnAccessPointNotifEnabled": {
+    "name": "cGgsnAccessPointNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnPdpNotifEnabled": {
+    "name": "cGgsnPdpNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.240.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnDefaultIpAllocationMethod": {
+    "name": "cGgsnDefaultIpAllocationMethod",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "dhcp": 2,
+          "radius": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnIdlePdpPurgeTimer": {
+    "name": "cGgsnIdlePdpPurgeTimer",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 72,
+        "format": "decimal"
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnIpDupProtectTable": {
+    "name": "cGgsnIpDupProtectTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnIpDupProtectEntry": {
+    "name": "cGgsnIpDupProtectEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMsExcludeRangeStartIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMsExcludeRangeStartIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMsExcludeRangeEndIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMsExcludeRangeEndIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnMsExcludeRangeStartIpType": {
+    "name": "cGgsnMsExcludeRangeStartIpType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnMsExcludeRangeStartIp": {
+    "name": "cGgsnMsExcludeRangeStartIp",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnMsExcludeRangeEndIpType": {
+    "name": "cGgsnMsExcludeRangeEndIpType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnMsExcludeRangeEndIp": {
+    "name": "cGgsnMsExcludeRangeEndIp",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnIpDupProtectRowStatus": {
+    "name": "cGgsnIpDupProtectRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnMsExcludeRangeStartIpv6Prefixlen": {
+    "name": "cGgsnMsExcludeRangeStartIpv6Prefixlen",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnMsExcludeRangeEndIpv6Prefixlen": {
+    "name": "cGgsnMsExcludeRangeEndIpv6Prefixlen",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnDefaultAggregTable": {
+    "name": "cGgsnDefaultAggregTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnDefaultAggregEntry": {
+    "name": "cGgsnDefaultAggregEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAggregIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAggregIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAggregIpMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnDefaultAggregIpAddrType": {
+    "name": "cGgsnDefaultAggregIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnDefaultAggregIpAddr": {
+    "name": "cGgsnDefaultAggregIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnDefaultAggregIpMask": {
+    "name": "cGgsnDefaultAggregIpMask",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoInetAddressMask",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnDefaultAggregRowStatus": {
+    "name": "cGgsnDefaultAggregRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnDefaultAaaAuthServerGroup": {
+    "name": "cGgsnDefaultAaaAuthServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnDefaultAaaAccServerGroup": {
+    "name": "cGgsnDefaultAaaAccServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnPppVirtualTemplate": {
+    "name": "cGgsnPppVirtualTemplate",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnPppRegenVirtualTemplate": {
+    "name": "cGgsnPppRegenVirtualTemplate",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnPlmnIpAddrRangeTable": {
+    "name": "cGgsnPlmnIpAddrRangeTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPlmnIpAddrRangeEntry": {
+    "name": "cGgsnPlmnIpAddrRangeEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeFirstIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeLastIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnPlmnAddrRangeIpAddrType": {
+    "name": "cGgsnPlmnAddrRangeIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPlmnAddrRangeFirstIp": {
+    "name": "cGgsnPlmnAddrRangeFirstIp",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPlmnAddrRangeLastIp": {
+    "name": "cGgsnPlmnAddrRangeLastIp",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPlmnAddrRangeRowStatus": {
+    "name": "cGgsnPlmnAddrRangeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnPlmnAddrRangeUsage": {
+    "name": "cGgsnPlmnAddrRangeUsage",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "security": 1,
+          "sgsn": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "security",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnPlmnAddrRangeFirstIpv6Prefixlen": {
+    "name": "cGgsnPlmnAddrRangeFirstIpv6Prefixlen",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnPlmnAddrRangeLastIpv6Prefixlen": {
+    "name": "cGgsnPlmnAddrRangeLastIpv6Prefixlen",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnImsConfigurations": {
+    "name": "cGgsnImsConfigurations",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10",
+    "class": "objectidentity"
+  },
+  "cGgsnPdfTable": {
+    "name": "cGgsnPdfTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cGgsnPdfEntry": {
+    "name": "cGgsnPdfEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfDomainName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnPdfGroupName": {
+    "name": "cGgsnPdfGroupName",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cGgsnPdfDomainName": {
+    "name": "cGgsnPdfDomainName",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cGgsnPdfIpAddressType": {
+    "name": "cGgsnPdfIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cGgsnPdfIpAddress": {
+    "name": "cGgsnPdfIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cGgsnPdfRowStatus": {
+    "name": "cGgsnPdfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cGgsnPdfReconnectTimeOut": {
+    "name": "cGgsnPdfReconnectTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cGgsnPdfReconnectRetries": {
+    "name": "cGgsnPdfReconnectRetries",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cGgsnPdfReconExpPdpDelete": {
+    "name": "cGgsnPdfReconExpPdpDelete",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cGgsnPdfReqRetryTimeOut": {
+    "name": "cGgsnPdfReqRetryTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cGgsnPdfReqRetries": {
+    "name": "cGgsnPdfReqRetries",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cGgsnPcscfTable": {
+    "name": "cGgsnPcscfTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPcscfEntry": {
+    "name": "cGgsnPcscfEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPcscfGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPcscfIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPcscfIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnPcscfGroupName": {
+    "name": "cGgsnPcscfGroupName",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPcscfIpAddressType": {
+    "name": "cGgsnPcscfIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPcscfIpAddress": {
+    "name": "cGgsnPcscfIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPcscfRowStatus": {
+    "name": "cGgsnPcscfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnMemoryThreshold": {
+    "name": "cGgsnMemoryThreshold",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "units": "98304Bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnServiceMode": {
+    "name": "cGgsnServiceMode",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "maintenance": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnPlmnTable": {
+    "name": "cGgsnPlmnTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPlmnEntry": {
+    "name": "cGgsnPlmnEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnMcc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnMnc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnPlmnMcc": {
+    "name": "cGgsnPlmnMcc",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPlmnMnc": {
+    "name": "cGgsnPlmnMnc",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnPlmnRowStatus": {
+    "name": "cGgsnPlmnRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnPlmnScope": {
+    "name": "cGgsnPlmnScope",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "home": 1,
+          "trusted": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "home",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSessionTimeout": {
+    "name": "cGgsnSessionTimeout",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 4294967
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnThruputIntervalOne": {
+    "name": "cGgsnThruputIntervalOne",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnThruputIntervalTwo": {
+    "name": "cGgsnThruputIntervalTwo",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnCompliance3GppGgsn": {
+    "name": "cGgsnCompliance3GppGgsn",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "release40": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cGgsnCreateReqV1UpdExistPdp": {
+    "name": "cGgsnCreateReqV1UpdExistPdp",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cGgsnRadAttrSessTimeout": {
+    "name": "cGgsnRadAttrSessTimeout",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnDownlinkVerifyMsDisable": {
+    "name": "cGgsnDownlinkVerifyMsDisable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnSlbMode": {
+    "name": "cGgsnSlbMode",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "directed": 1,
+          "dispatched": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnSlbNotif": {
+    "name": "cGgsnSlbNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cacFailure": 1,
+          "sessionDeletion": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cGgsnSlbVserverTable": {
+    "name": "cGgsnSlbVserverTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSlbVserverEntry": {
+    "name": "cGgsnSlbVserverEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSlbVserAddrType": {
+    "name": "cGgsnSlbVserAddrType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSlbVserAddress": {
+    "name": "cGgsnSlbVserAddress",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSlbVserNextHopAddrType": {
+    "name": "cGgsnSlbVserNextHopAddrType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSlbVserNextHopAddress": {
+    "name": "cGgsnSlbVserNextHopAddress",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSlbVserVrfName": {
+    "name": "cGgsnSlbVserVrfName",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSlbVserRowStatus": {
+    "name": "cGgsnSlbVserRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSlbNotifyCacFailure": {
+    "name": "cGgsnSlbNotifyCacFailure",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnSlbNotifySessionDeletion": {
+    "name": "cGgsnSlbNotifySessionDeletion",
+    "oid": "1.3.6.1.4.1.9.9.240.1.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnVersion": {
+    "name": "cGgsnVersion",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "release14": 1,
+          "release30": 2,
+          "release40": 3,
+          "release31": 4,
+          "release50": 5,
+          "release60": 6,
+          "release70": 7,
+          "release80": 8,
+          "release90": 9,
+          "release100": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActiveNetworkInitPdps": {
+    "name": "cGgsnActiveNetworkInitPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActivePppPdps": {
+    "name": "cGgsnActivePppPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActivePppRegenPdps": {
+    "name": "cGgsnActivePppRegenPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPendingPppRegenPdps": {
+    "name": "cGgsnPendingPppRegenPdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActiveGtpVersion0Pdps": {
+    "name": "cGgsnActiveGtpVersion0Pdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActiveGtpVersion1Pdps": {
+    "name": "cGgsnActiveGtpVersion1Pdps",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnGtpEncapInterface": {
+    "name": "cGgsnGtpEncapInterface",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnServiceModeStatus": {
+    "name": "cGgsnServiceModeStatus",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "maintenance": 2,
+          "outOfServiceInProgress": 3,
+          "outOfService": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnConfigVersion": {
+    "name": "cGgsnConfigVersion",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPrepaidPDPs": {
+    "name": "cGgsnPrepaidPDPs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPostpaidPDPs": {
+    "name": "cGgsnPostpaidPDPs",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActivatedIpv6Gtpv0Pdp": {
+    "name": "cGgsnActivatedIpv6Gtpv0Pdp",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "PDPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActivatedIpv6Gtpv1Pdp": {
+    "name": "cGgsnActivatedIpv6Gtpv1Pdp",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "PDPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnActivatedIpv6Ms": {
+    "name": "cGgsnActivatedIpv6Ms",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "PDPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnGtpEncapsuTable": {
+    "name": "cGgsnGtpEncapsuTable",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnGtpEncapsuEntry": {
+    "name": "cGgsnGtpEncapsuEntry",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnGtpEncapsuInterface": {
+    "name": "cGgsnGtpEncapsuInterface",
+    "oid": "1.3.6.1.4.1.9.9.240.1.4.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnPdfServerAddrType": {
+    "name": "cGgsnPdfServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cGgsnPdfServerAddr": {
+    "name": "cGgsnPdfServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cGgsnNotifAccessPointName": {
+    "name": "cGgsnNotifAccessPointName",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnNotifPdpImsi": {
+    "name": "cGgsnNotifPdpImsi",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnGlobalErrorTypes": {
+    "name": "cGgsnGlobalErrorTypes",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ggsnServiceUp": 1,
+          "ggsnServiceDown": 2,
+          "mapSgsnUp": 3,
+          "mapSgsnDown": 4,
+          "noDHCPServer": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnAccessPointErrorTypes": {
+    "name": "cGgsnAccessPointErrorTypes",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRadius": 1,
+          "ipAllocationFail": 2,
+          "apnUnreachable": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnPacketDataProtoErrorTypes": {
+    "name": "cGgsnPacketDataProtoErrorTypes",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noResource": 1,
+          "authenticationFail": 2,
+          "ccrInitFail": 3,
+          "quotaPushFail": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnNotifPdpMsisdn": {
+    "name": "cGgsnNotifPdpMsisdn",
+    "oid": "1.3.6.1.4.1.9.9.240.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnNotifPrefix": {
+    "name": "cGgsnNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.9.240.2",
+    "class": "objectidentity"
+  },
+  "cGgsnNotifications": {
+    "name": "cGgsnNotifications",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0",
+    "class": "objectidentity"
+  },
+  "cGgsnNotification": {
+    "name": "cGgsnNotification",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifSeverity"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifTimestamp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddr"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifInfo"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnInServiceNotif": {
+    "name": "cGgsnInServiceNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cGgsnMaintenanceNotif": {
+    "name": "cGgsnMaintenanceNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cGgsnMemThresholdReachedNotif": {
+    "name": "cGgsnMemThresholdReachedNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cGgsnMemThresholdClearedNotif": {
+    "name": "cGgsnMemThresholdClearedNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cGgsnPdfStateUpNotif": {
+    "name": "cGgsnPdfStateUpNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfServerAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfServerAddr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnPdfStateDownNotif": {
+    "name": "cGgsnPdfStateDownNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfServerAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfServerAddr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnGlobalErrorNotif": {
+    "name": "cGgsnGlobalErrorNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGlobalErrorTypes"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifSeverity"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifTimestamp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddr"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnAccessPointNameNotif": {
+    "name": "cGgsnAccessPointNameNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnAccessPointErrorTypes"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifSeverity"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifTimestamp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddr"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifInfo"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifAccessPointName"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnPacketDataProtocolNotif": {
+    "name": "cGgsnPacketDataProtocolNotif",
+    "oid": "1.3.6.1.4.1.9.9.240.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPacketDataProtoErrorTypes"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifSeverity"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifTimestamp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddr"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifInfo"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpImsi"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpMsisdn"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifAccessPointName"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnMIBConformances": {
+    "name": "cGgsnMIBConformances",
+    "oid": "1.3.6.1.4.1.9.9.240.3",
+    "class": "objectidentity"
+  },
+  "cGgsnMIBCompliances": {
+    "name": "cGgsnMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1",
+    "class": "objectidentity"
+  },
+  "cGgsnMIBGroups": {
+    "name": "cGgsnMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2",
+    "class": "objectidentity"
+  },
+  "cGgsnMIBCompliance": {
+    "name": "cGgsnMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cGgsnMIBComplianceRev1": {
+    "name": "cGgsnMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev2": {
+    "name": "cGgsnMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroup",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev3": {
+    "name": "cGgsnMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev4": {
+    "name": "cGgsnMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupConfigVer",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev5": {
+    "name": "cGgsnMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupConfigVer",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatisticsGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev6": {
+    "name": "cGgsnMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupConfigVer",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatisticsGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupR60Rev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev7": {
+    "name": "cGgsnMIBComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev3",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev3",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupConfigVer",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatisticsGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupR60Rev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR70",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev8": {
+    "name": "cGgsnMIBComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev4",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev3",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupConfigVer",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatisticsGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupR60Rev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR70",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev9": {
+    "name": "cGgsnMIBComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev4",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev3",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupConfigVer",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatisticsGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupR60Rev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR70",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR90",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnMIBComplianceRev10": {
+    "name": "cGgsnMIBComplianceRev10",
+    "oid": "1.3.6.1.4.1.9.9.240.3.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnStatisticsGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifMgmtGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupRev4",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifGroupRev3",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupRev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupRev2",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupConfigVer",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatisticsGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnNotifInfoGroupR60",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupR60Rev1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR70",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnStatusGroupR90",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnConfigurationsGroupSup1",
+        "module": "CISCO-GGSN-MIB"
+      },
+      {
+        "object": "cGgsnUmtsGroup",
+        "module": "CISCO-GGSN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnStatisticsGroup": {
+    "name": "cGgsnStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnUnexpectedSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentGPDUOctets"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedGPDUOctets"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnUnexpectedGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivationRejectedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOutOfResourcePdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnParserErrorMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalCreatedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalDeletedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalNetworkInitPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalPppPdpsCreated"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalPppPdpsDeleted"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOutOfResourcePppRegenPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDroppedPppRegenPdps"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnNotifMgmtGroup": {
+    "name": "cGgsnNotifMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifLeastSeverLevel"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGeneratedNotifs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIgnoredAlarms"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifMaxLength"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifLatestIndex"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifSeverity"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifTimestamp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddr"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifInfo"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnConfigurationsGroup": {
+    "name": "cGgsnConfigurationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultIpAllocationMethod"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIdlePdpPurgeTimer"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIpDupProtectRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAggregRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAuthServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAccServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppRegenVirtualTemplate"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnNotifGroup": {
+    "name": "cGgsnNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnStatusGroup": {
+    "name": "cGgsnStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnVersion"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActiveNetworkInitPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivePppPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivePppRegenPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPendingPppRegenPdps"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnConfigurationsGroupRev1": {
+    "name": "cGgsnConfigurationsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultIpAllocationMethod"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIdlePdpPurgeTimer"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIpDupProtectRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAggregRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAuthServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAccServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppRegenVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnUmtsGroup": {
+    "name": "cGgsnUmtsGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTftSemanticErrorPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTftSyntacticErrorPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPktFilterSemanticErrorPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPktFilterSyntacticErrorPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeUsage"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActiveGtpVersion0Pdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActiveGtpVersion1Pdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGtpEncapInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnStatisticsGroupRev1": {
+    "name": "cGgsnStatisticsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnUnexpectedSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnUnexpectedGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivationRejectedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOutOfResourcePdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnParserErrorMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalCreatedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalDeletedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalNetworkInitPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalPppPdpsCreated"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalPppPdpsDeleted"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOutOfResourcePppRegenPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDroppedPppRegenPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHCSentGPDUOctets"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHCReceivedGPDUOctets"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnVersionNotSupportedRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnUnkownMessageRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMsgTooShortRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMandIeMissingRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMandIeIncorrectRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOptIeInvalidRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIeUnknownRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIeOutOfOrderRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIeUnexpectedRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIeDuplicatedRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOptIeIncorrectRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdpWithoutTftExistsRejPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnThruPutLastCollected"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnUpStreamPktCnt"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnUpStreamByteCnt"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnDownStreamPktCnt"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnDownStreamByteCnt"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnNotifGroupRev1": {
+    "name": "cGgsnNotifGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotification"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnInServiceNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMaintenanceNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemThresholdReachedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemThresholdClearedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfStateUpNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfStateDownNotif"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnConfigurationsGroupRev2": {
+    "name": "cGgsnConfigurationsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultIpAllocationMethod"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIdlePdpPurgeTimer"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIpDupProtectRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAggregRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAuthServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAccServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppRegenVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfReconnectTimeOut"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfReconnectRetries"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfReconExpPdpDelete"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfReqRetryTimeOut"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfReqRetries"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPcscfRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemoryThreshold"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnServiceMode"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnScope"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSessionTimeout"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnThruputIntervalOne"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnThruputIntervalTwo"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnCompliance3GppGgsn"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnCreateReqV1UpdExistPdp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnRadAttrSessTimeout"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDownlinkVerifyMsDisable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnStatusGroupRev1": {
+    "name": "cGgsnStatusGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnVersion"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActiveNetworkInitPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivePppPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivePppRegenPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPendingPppRegenPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnServiceModeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnNotifInfoGroup": {
+    "name": "cGgsnNotifInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfServerAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfServerAddr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnNotifGroupRev2": {
+    "name": "cGgsnNotifGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnInServiceNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMaintenanceNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemThresholdReachedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemThresholdClearedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfStateUpNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfStateDownNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGlobalErrorNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnAccessPointNameNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPacketDataProtocolNotif"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnNotifInfoGroupRev1": {
+    "name": "cGgsnNotifInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfServerAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfServerAddr"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifAccessPointName"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpImsi"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGlobalErrorTypes"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnAccessPointErrorTypes"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPacketDataProtoErrorTypes"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnNotifMgmtGroupRev1": {
+    "name": "cGgsnNotifMgmtGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifLeastSeverLevel"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGeneratedNotifs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIgnoredAlarms"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifMaxLength"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifLatestIndex"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifSeverity"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifTimestamp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddr"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifInfo"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnServiceNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemoryNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdfNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGlobalErrorNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnAccessPointNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdpNotifEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnStatusGroupConfigVer": {
+    "name": "cGgsnStatusGroupConfigVer",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnConfigVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnConfigurationsGroupR60": {
+    "name": "cGgsnConfigurationsGroupR60",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbMode"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserNextHopAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserNextHopAddress"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserVrfName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnStatisticsGroupR60": {
+    "name": "cGgsnStatisticsGroupR60",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnContextSetupMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnContextModifyMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnContextRemoveMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPathSetupMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPathModifyMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPathRemoveMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnCGFReadyMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnCGFModifyMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnCGFRemoveMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnInternalStateMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbCacFailures"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbSessionFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnStatusGroupR60": {
+    "name": "cGgsnStatusGroupR60",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPrepaidPDPs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPostpaidPDPs"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnNotifInfoGroupR60": {
+    "name": "cGgsnNotifInfoGroupR60",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpMsisdn"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnConfigurationsGroupR60Rev1": {
+    "name": "cGgsnConfigurationsGroupR60Rev1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbMode"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserNextHopAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserNextHopAddress"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbVserVrfName"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbNotifyCacFailure"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSlbNotifySessionDeletion"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnStatisticsGroupRev2": {
+    "name": "cGgsnStatisticsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnUnexpectedSigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnUnexpectedGPDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivationRejectedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOutOfResourcePdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnParserErrorMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalCreatedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalDeletedPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalNetworkInitPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalPppPdpsCreated"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalPppPdpsDeleted"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOutOfResourcePppRegenPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDroppedPppRegenPdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHCSentGPDUOctets"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHCReceivedGPDUOctets"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnThruPutLastCollected"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnUpStreamPktCnt"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnUpStreamByteCnt"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnDownStreamPktCnt"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSgsnDownStreamByteCnt"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalCreatedIpv6Pdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalDeletedIpv6Pdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTotalRejectedIpv6Pdps"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentIpv6SigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedIpv6SigMessages"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentIpv6PDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedIpv6PDUs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSentIpv6PDUOctets"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnReceivedIpv6PDUOctets"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnVersionNotSupportedMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnUnkownGtpMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnTooShortMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMandIeMissingMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMandIeIncorrectMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOptIeInvalidMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIeUnknownMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIeOutOfOrderMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIeUnexpectedMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIeDuplicatedMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnOptIeIncorrectMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdpWithoutTftExistsPdps"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnStatusGroupR70": {
+    "name": "cGgsnStatusGroupR70",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivatedIpv6Gtpv0Pdp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivatedIpv6Gtpv1Pdp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnActivatedIpv6Ms"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnConfigurationsGroupRev3": {
+    "name": "cGgsnConfigurationsGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultIpAllocationMethod"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIdlePdpPurgeTimer"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIpDupProtectRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAggregRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAuthServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAccServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppRegenVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPcscfRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemoryThreshold"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnServiceMode"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnScope"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSessionTimeout"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnThruputIntervalOne"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnThruputIntervalTwo"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnCompliance3GppGgsn"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnRadAttrSessTimeout"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDownlinkVerifyMsDisable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnNotifMgmtGroupRev2": {
+    "name": "cGgsnNotifMgmtGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifLeastSeverLevel"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGeneratedNotifs"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIgnoredAlarms"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifMaxLength"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifLatestIndex"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifSeverity"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifTimestamp"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifGgsnIpAddr"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnHistNotifInfo"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnServiceNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemoryNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGlobalErrorNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnAccessPointNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPdpNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnNotifGroupRev3": {
+    "name": "cGgsnNotifGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.26",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnInServiceNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMaintenanceNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemThresholdReachedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemThresholdClearedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGlobalErrorNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnAccessPointNameNotif"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPacketDataProtocolNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnNotifInfoGroupRev2": {
+    "name": "cGgsnNotifInfoGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifAccessPointName"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpImsi"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGlobalErrorTypes"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnAccessPointErrorTypes"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPacketDataProtoErrorTypes"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnConfigurationsGroupRev4": {
+    "name": "cGgsnConfigurationsGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultIpAllocationMethod"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIdlePdpPurgeTimer"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnIpDupProtectRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAggregRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAuthServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDefaultAaaAccServerGroup"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPppRegenVirtualTemplate"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPcscfRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMemoryThreshold"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnServiceMode"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnScope"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnSessionTimeout"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnThruputIntervalOne"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnThruputIntervalTwo"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnRadAttrSessTimeout"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnDownlinkVerifyMsDisable"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnStatusGroupR90": {
+    "name": "cGgsnStatusGroupR90",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnGtpEncapsuInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnConfigurationsGroupSup1": {
+    "name": "cGgsnConfigurationsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.240.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMsExcludeRangeStartIpv6Prefixlen"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnMsExcludeRangeEndIpv6Prefixlen"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeFirstIpv6Prefixlen"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnPlmnAddrRangeLastIpv6Prefixlen"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GGSN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-GGSN-MIB"
+  }
+}

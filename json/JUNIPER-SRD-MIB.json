@@ -1,0 +1,622 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressIPv4"
+    ],
+    "JUNIPER-SMI": [
+      "jnxSRDMibRoot"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysContact",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxSRDMIB": {
+    "name": "jnxSRDMIB",
+    "oid": "1.3.6.1.4.1.2636.3.82.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-11-20 20:22",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "jnxSRDNotification": {
+    "name": "jnxSRDNotification",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1",
+    "class": "objectidentity"
+  },
+  "jnxSRDRedundancyGroup": {
+    "name": "jnxSRDRedundancyGroup",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2",
+    "class": "objectidentity"
+  },
+  "jnxSRDRedundancyGroupTable": {
+    "name": "jnxSRDRedundancyGroupTable",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSRDRedundancyGroupEntry": {
+    "name": "jnxSRDRedundancyGroupEntry",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDRedundancyGroupID",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDRedundancySetID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSRDRedundancyGroupID": {
+    "name": "jnxSRDRedundancyGroupID",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetID": {
+    "name": "jnxSRDRedundancySetID",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancyGroupTotalPeer": {
+    "name": "jnxSRDRedundancyGroupTotalPeer",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancyGroupConnStatus": {
+    "name": "jnxSRDRedundancyGroupConnStatus",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySRDIccpConnStatus": {
+    "name": "jnxSRDRedundancySRDIccpConnStatus",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySRDRemoteIPAddressType": {
+    "name": "jnxSRDRedundancySRDRemoteIPAddressType",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySRDRemoteIPAddress": {
+    "name": "jnxSRDRedundancySRDRemoteIPAddress",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetState": {
+    "name": "jnxSRDRedundancySetState",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetPeerState": {
+    "name": "jnxSRDRedundancySetPeerState",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetHealthStatus": {
+    "name": "jnxSRDRedundancySetHealthStatus",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetLinkDownEventReceived": {
+    "name": "jnxSRDRedundancySetLinkDownEventReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetLinkDownEventDropped": {
+    "name": "jnxSRDRedundancySetLinkDownEventDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetRpdRestartEventReceived": {
+    "name": "jnxSRDRedundancySetRpdRestartEventReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetRpdRestartEventDropped": {
+    "name": "jnxSRDRedundancySetRpdRestartEventDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetRouteUpdateErrorEventReceived": {
+    "name": "jnxSRDRedundancySetRouteUpdateErrorEventReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetRouteUpdateErrorEventDropped": {
+    "name": "jnxSRDRedundancySetRouteUpdateErrorEventDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetAcquireMasterManualReceived": {
+    "name": "jnxSRDRedundancySetAcquireMasterManualReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetAcquireMasterManualDropped": {
+    "name": "jnxSRDRedundancySetAcquireMasterManualDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetAcquireMasterAutoReceived": {
+    "name": "jnxSRDRedundancySetAcquireMasterAutoReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetAcquireMasterAutoDropped": {
+    "name": "jnxSRDRedundancySetAcquireMasterAutoDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetReleaseMasterManualReceived": {
+    "name": "jnxSRDRedundancySetReleaseMasterManualReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetReleaseMasterManualDropped": {
+    "name": "jnxSRDRedundancySetReleaseMasterManualDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetReleaseMasterAutoReceived": {
+    "name": "jnxSRDRedundancySetReleaseMasterAutoReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetReleaseMasterAutoDropped": {
+    "name": "jnxSRDRedundancySetReleaseMasterAutoDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetPeerAcquireMasterReceived": {
+    "name": "jnxSRDRedundancySetPeerAcquireMasterReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetPeerAcquireMasterDropped": {
+    "name": "jnxSRDRedundancySetPeerAcquireMasterDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetPeerReleaseMasterReceived": {
+    "name": "jnxSRDRedundancySetPeerReleaseMasterReceived",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRedundancySetPeerReleaseMasterDropped": {
+    "name": "jnxSRDRedundancySetPeerReleaseMasterDropped",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDNotificationType": {
+    "name": "jnxSRDNotificationType",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.0",
+    "class": "objectidentity"
+  },
+  "jnxSRDNotificationObj": {
+    "name": "jnxSRDNotificationObj",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxSRDTrapRedundancySetID": {
+    "name": "jnxSRDTrapRedundancySetID",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDTrapRedundancySetOldState": {
+    "name": "jnxSRDTrapRedundancySetOldState",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDTrapRedundancySetEvent": {
+    "name": "jnxSRDTrapRedundancySetEvent",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDTrapRedundancySetNewState": {
+    "name": "jnxSRDTrapRedundancySetNewState",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDTrapNotificationMessage": {
+    "name": "jnxSRDTrapNotificationMessage",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDTrapRedundancyPeerIPAddressType": {
+    "name": "jnxSRDTrapRedundancyPeerIPAddressType",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDTrapRedundancyPeerIPAddress": {
+    "name": "jnxSRDTrapRedundancyPeerIPAddress",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDTrapRedundancyActionErrorCode": {
+    "name": "jnxSRDTrapRedundancyActionErrorCode",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSRDRdeundancySetStateTransition": {
+    "name": "jnxSRDRdeundancySetStateTransition",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDTrapRedundancyPeerIPAddressType"
+      },
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDTrapRedundancyPeerIPAddress"
+      },
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDTrapRedundancySetID"
+      },
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDTrapRedundancySetOldState"
+      },
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDTrapRedundancySetEvent"
+      },
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDTrapRedundancySetNewState"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSRDRdeundancySetActionError": {
+    "name": "jnxSRDRdeundancySetActionError",
+    "oid": "1.3.6.1.4.1.2636.3.82.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDTrapRedundancyActionErrorCode"
+      },
+      {
+        "module": "JUNIPER-SRD-MIB",
+        "object": "jnxSRDTrapNotificationMessage"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysContact"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-SRD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-SRD-MIB"
+  }
+}

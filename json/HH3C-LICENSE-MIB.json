@@ -1,0 +1,1189 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "PhysicalIndexOrZero",
+      "PhysicalIndex"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "hh3cLicense": {
+    "name": "hh3cLicense",
+    "oid": "1.3.6.1.4.1.25506.2.145",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-01-13 10:00",
+        "description": "Add preLicense to hh3cLicenseFeatureState."
+      },
+      {
+        "revision": "2020-07-27 10:00",
+        "description": "Add Add hh3cLicenseLowerUsageThreshold, hh3cLicenseUpperUsageThreshold and hh3cLicenseCurrentUsageRate to hh3cLicenseNotificationBindings Add notification objects: hh3cLicenseBelowUsageThreshold and hh3cLicenseOverUsageThreshold."
+      },
+      {
+        "revision": "2019-11-12 10:00",
+        "description": "Add serverLicense to hh3cLicenseFeatureState."
+      },
+      {
+        "revision": "2019-01-14 10:00",
+        "description": "Add hh3cLicenseServerIp and hh3cLicenseServerPort to Hh3cLicenseDevInfoEntry. Add notification objects: hh3cLicenseReconnectWithServer and hh3cLicenseDisconnectWithServer."
+      },
+      {
+        "revision": "2013-09-18 10:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "hh3cLicenseScalarObjects": {
+    "name": "hh3cLicenseScalarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.145.1",
+    "class": "objectidentity"
+  },
+  "hh3cLicenseTables": {
+    "name": "hh3cLicenseTables",
+    "oid": "1.3.6.1.4.1.25506.2.145.2",
+    "class": "objectidentity"
+  },
+  "hh3cLicenseNotifications": {
+    "name": "hh3cLicenseNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.145.3",
+    "class": "objectidentity"
+  },
+  "hh3cLicenseNotifyEnable": {
+    "name": "hh3cLicenseNotifyEnable",
+    "oid": "1.3.6.1.4.1.25506.2.145.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLicenseOpEntryMaxNum": {
+    "name": "hh3cLicenseOpEntryMaxNum",
+    "oid": "1.3.6.1.4.1.25506.2.145.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLicenseNextFreeOpIndex": {
+    "name": "hh3cLicenseNextFreeOpIndex",
+    "oid": "1.3.6.1.4.1.25506.2.145.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseDevInfoTable": {
+    "name": "hh3cLicenseDevInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLicenseDevInfoEntry": {
+    "name": "hh3cLicenseDevInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicensePhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicensePhysicalIndex": {
+    "name": "hh3cLicensePhysicalIndex",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLicenseSN": {
+    "name": "hh3cLicenseSN",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseDeviceIDType": {
+    "name": "hh3cLicenseDeviceIDType",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "keyString": 2,
+          "file": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseDeviceID": {
+    "name": "hh3cLicenseDeviceID",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseHardwareInfo": {
+    "name": "hh3cLicenseHardwareInfo",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseMaxNum": {
+    "name": "hh3cLicenseMaxNum",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseUsedNum": {
+    "name": "hh3cLicenseUsedNum",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseRecyclableNum": {
+    "name": "hh3cLicenseRecyclableNum",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseInstallType": {
+    "name": "hh3cLicenseInstallType",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "installInChassis": 2,
+          "installInSlot": 3,
+          "installInCPU": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseFileStoragePath": {
+    "name": "hh3cLicenseFileStoragePath",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseServerIp": {
+    "name": "hh3cLicenseServerIp",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseServerPort": {
+    "name": "hh3cLicenseServerPort",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseGeneralTable": {
+    "name": "hh3cLicenseGeneralTable",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLicenseGeneralEntry": {
+    "name": "hh3cLicenseGeneralEntry",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicensePhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseIndex": {
+    "name": "hh3cLicenseIndex",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLicenseFeature": {
+    "name": "hh3cLicenseFeature",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseProductDescr": {
+    "name": "hh3cLicenseProductDescr",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseFileDescr": {
+    "name": "hh3cLicenseFileDescr",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseState": {
+    "name": "hh3cLicenseState",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "inuse": 2,
+          "usable": 3,
+          "expired": 4,
+          "uninstalled": 5,
+          "unusable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseActivationFile": {
+    "name": "hh3cLicenseActivationFile",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseActivationKey": {
+    "name": "hh3cLicenseActivationKey",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseLicenseKey": {
+    "name": "hh3cLicenseLicenseKey",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseUninstActivationFile": {
+    "name": "hh3cLicenseUninstActivationFile",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseUninstActivationKey": {
+    "name": "hh3cLicenseUninstActivationKey",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseType": {
+    "name": "hh3cLicenseType",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "permanent": 2,
+          "daysRestricted": 3,
+          "trialDaysRestricted": 4,
+          "dateRestricted": 5,
+          "trialDateRestricted": 6,
+          "countRestricted": 7,
+          "trialCountRestricted": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseInstalledTime": {
+    "name": "hh3cLicenseInstalledTime",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseUninstalledTime": {
+    "name": "hh3cLicenseUninstalledTime",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseDaysLeft": {
+    "name": "hh3cLicenseDaysLeft",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseValidityStart": {
+    "name": "hh3cLicenseValidityStart",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseValidityEnd": {
+    "name": "hh3cLicenseValidityEnd",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseExpiredDays": {
+    "name": "hh3cLicenseExpiredDays",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseCount": {
+    "name": "hh3cLicenseCount",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseFeatureTable": {
+    "name": "hh3cLicenseFeatureTable",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLicenseFeatureEntry": {
+    "name": "hh3cLicenseFeatureEntry",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicensePhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseFeatureName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseFeatureName": {
+    "name": "hh3cLicenseFeatureName",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseFeatureState": {
+    "name": "hh3cLicenseFeatureState",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLicensed": 1,
+          "trialLicense": 2,
+          "formalLicense": 3,
+          "serverLicense": 4,
+          "preLicense": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseOpTable": {
+    "name": "hh3cLicenseOpTable",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLicenseOpEntry": {
+    "name": "hh3cLicenseOpEntry",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseOpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseOpIndex": {
+    "name": "hh3cLicenseOpIndex",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLicenseOpPhysicalIndex": {
+    "name": "hh3cLicenseOpPhysicalIndex",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cLicenseOpType": {
+    "name": "hh3cLicenseOpType",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compress": 1,
+          "delete": 2,
+          "installActivationFile": 3,
+          "installActivationKey": 4,
+          "installLicenseKey": 5,
+          "uninstallActivationFile": 6,
+          "uninstallActivationKey": 7,
+          "uninstallLicenseKey": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cLicenseOpString": {
+    "name": "hh3cLicenseOpString",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cLicenseOpNotifyEnable": {
+    "name": "hh3cLicenseOpNotifyEnable",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cLicenseOpRowStatus": {
+    "name": "hh3cLicenseOpRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cLicenseOpState": {
+    "name": "hh3cLicenseOpState",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccessful": 2,
+          "opFailed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseOpFailedReason": {
+    "name": "hh3cLicenseOpFailedReason",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseOpEndTime": {
+    "name": "hh3cLicenseOpEndTime",
+    "oid": "1.3.6.1.4.1.25506.2.145.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLicenseNotificationPrefix": {
+    "name": "hh3cLicenseNotificationPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cLicenseOpCompletion": {
+    "name": "hh3cLicenseOpCompletion",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseOpIndex"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseOpPhysicalIndex"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseOpType"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseOpString"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseOpState"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseOpFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseActivationFileLost": {
+    "name": "hh3cLicenseActivationFileLost",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicensePhysicalIndex"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseActivationFile"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseActivationFileRestored": {
+    "name": "hh3cLicenseActivationFileRestored",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicensePhysicalIndex"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseActivationFile"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseExpired": {
+    "name": "hh3cLicenseExpired",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseFeatureName"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseFeatureState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseExpireWarning": {
+    "name": "hh3cLicenseExpireWarning",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseFeatureName"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseFeatureState"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseBindValidityPeriodRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseReconnectWithServer": {
+    "name": "hh3cLicenseReconnectWithServer",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicensePhysicalIndex"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseServerIp"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseDisconnectWithServer": {
+    "name": "hh3cLicenseDisconnectWithServer",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicensePhysicalIndex"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseServerIp"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseBelowUsageThreshold": {
+    "name": "hh3cLicenseBelowUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseFeatureName"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseLowerUsageThreshold"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseUpperUsageThreshold"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseCurrentUsageRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseOverUsageThreshold": {
+    "name": "hh3cLicenseOverUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseFeatureName"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseLowerUsageThreshold"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseUpperUsageThreshold"
+      },
+      {
+        "module": "HH3C-LICENSE-MIB",
+        "object": "hh3cLicenseCurrentUsageRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLicenseNotificationBindings": {
+    "name": "hh3cLicenseNotificationBindings",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cLicenseBindValidityPeriodRemaining": {
+    "name": "hh3cLicenseBindValidityPeriodRemaining",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "days",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLicenseLowerUsageThreshold": {
+    "name": "hh3cLicenseLowerUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLicenseUpperUsageThreshold": {
+    "name": "hh3cLicenseUpperUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLicenseCurrentUsageRate": {
+    "name": "hh3cLicenseCurrentUsageRate",
+    "oid": "1.3.6.1.4.1.25506.2.145.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-LICENSE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-LICENSE-MIB"
+  }
+}

@@ -1,0 +1,2502 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "PRVT-CR-LDP-MIB": [
+      "mpls"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "prvtRsvp": {
+    "name": "prvtRsvp",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-04-14 00:00",
+        "description": "Added range constraints to prvtRsvpProductLocalRepairDelay, prvtRsvpProductRefreshInterval, prvtRsvpProductNotifyRRInterval, prvtRsvpProductNotifyRRLimit, prvtRsvpProductInitPathRRInterval, prvtRsvpProductInitPathRRLimit."
+      },
+      {
+        "revision": "2006-06-02 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvtRsvpObjects": {
+    "name": "prvtRsvpObjects",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1",
+    "class": "objectidentity"
+  },
+  "PrvtRsvpAdminStatus": {
+    "name": "PrvtRsvpAdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRsvpOperStatus": {
+    "name": "PrvtRsvpOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "goingUp": 3,
+          "goingDown": 4,
+          "actFailed": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRsvpIndex": {
+    "name": "PrvtRsvpIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PrvtRsvpDiagReqIndex": {
+    "name": "PrvtRsvpDiagReqIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PrvtRsvpDiagNodeIndexType": {
+    "name": "PrvtRsvpDiagNodeIndexType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PrvtRsvpDiagNodeTypeVal": {
+    "name": "PrvtRsvpDiagNodeTypeVal",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "missing": 1,
+          "ingress": 2,
+          "transit": 3,
+          "egress": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtRsvpProductTable": {
+    "name": "prvtRsvpProductTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpProductEntry": {
+    "name": "prvtRsvpProductEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRsvpProductIndex": {
+    "name": "prvtRsvpProductIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpProductASNumber": {
+    "name": "prvtRsvpProductASNumber",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductSenderTTL": {
+    "name": "prvtRsvpProductSenderTTL",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductMinTimerPeriod": {
+    "name": "prvtRsvpProductMinTimerPeriod",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductAPIIfIndex": {
+    "name": "prvtRsvpProductAPIIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductAPIAddress": {
+    "name": "prvtRsvpProductAPIAddress",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "E0000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductAPIRefreshInterval": {
+    "name": "prvtRsvpProductAPIRefreshInterval",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductLocalRepairDelay": {
+    "name": "prvtRsvpProductLocalRepairDelay",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1000,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductRefreshInterval": {
+    "name": "prvtRsvpProductRefreshInterval",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductRefreshMultiple": {
+    "name": "prvtRsvpProductRefreshMultiple",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductRfrshSlewDenom": {
+    "name": "prvtRsvpProductRfrshSlewDenom",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductRfrshSlewNumerator": {
+    "name": "prvtRsvpProductRfrshSlewNumerator",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductBlockadeMultiple": {
+    "name": "prvtRsvpProductBlockadeMultiple",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductSocketBufPoolSize": {
+    "name": "prvtRsvpProductSocketBufPoolSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductSwitchBufPoolSize": {
+    "name": "prvtRsvpProductSwitchBufPoolSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductTeMibBufPoolSize": {
+    "name": "prvtRsvpProductTeMibBufPoolSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductRoutingBufPoolSize": {
+    "name": "prvtRsvpProductRoutingBufPoolSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductLSPSetupPriority": {
+    "name": "prvtRsvpProductLSPSetupPriority",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductLSPHoldingPriority": {
+    "name": "prvtRsvpProductLSPHoldingPriority",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductAdminStatus": {
+    "name": "prvtRsvpProductAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductOperStatus": {
+    "name": "prvtRsvpProductOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpProductRowStatus": {
+    "name": "prvtRsvpProductRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductLsrIndex": {
+    "name": "prvtRsvpProductLsrIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductTeMibIndex": {
+    "name": "prvtRsvpProductTeMibIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductMultiStackSupport": {
+    "name": "prvtRsvpProductMultiStackSupport",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductUseHopByHop": {
+    "name": "prvtRsvpProductUseHopByHop",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductUseNotify": {
+    "name": "prvtRsvpProductUseNotify",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductNotifyRRDecay": {
+    "name": "prvtRsvpProductNotifyRRDecay",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductNotifyRRInterval": {
+    "name": "prvtRsvpProductNotifyRRInterval",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductNotifyRRLimit": {
+    "name": "prvtRsvpProductNotifyRRLimit",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductAllowIPEncap": {
+    "name": "prvtRsvpProductAllowIPEncap",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductProtocolExtensions": {
+    "name": "prvtRsvpProductProtocolExtensions",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bypassFastReroute": 0,
+        "detourFastReroute": 1,
+        "noResAffOnInIf": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductPSRFlags": {
+    "name": "prvtRsvpProductPSRFlags",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pathErrPSRSet": 0,
+        "pathErrPSRNotSet": 1,
+        "ldbCommonRcvd": 2,
+        "ldbPreempted": 3,
+        "routingError": 4,
+        "invalidPathMsg": 5,
+        "sessionExpired": 6,
+        "unableToRepairRoute": 7,
+        "unableToRepairIf": 8,
+        "reachedRetryLimit": 9,
+        "unableToRefresh": 10,
+        "resvErrTurnaround": 11,
+        "incomingIfDown": 12,
+        "outgoingIfDown": 13
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductInitPathRRDecay": {
+    "name": "prvtRsvpProductInitPathRRDecay",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductInitPathRRInterval": {
+    "name": "prvtRsvpProductInitPathRRInterval",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductInitPathRRLimit": {
+    "name": "prvtRsvpProductInitPathRRLimit",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductEnableUni": {
+    "name": "prvtRsvpProductEnableUni",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductRestartCapable": {
+    "name": "prvtRsvpProductRestartCapable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductRestartTime": {
+    "name": "prvtRsvpProductRestartTime",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductRecoveryTime": {
+    "name": "prvtRsvpProductRecoveryTime",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductMinPeerRestart": {
+    "name": "prvtRsvpProductMinPeerRestart",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductGracefulDelTimeout": {
+    "name": "prvtRsvpProductGracefulDelTimeout",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductEgressDelBehavior": {
+    "name": "prvtRsvpProductEgressDelBehavior",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delWithPathErr": 1,
+          "delWithResvD": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "delWithPathErr",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductEnabUniConnSplicing": {
+    "name": "prvtRsvpProductEnabUniConnSplicing",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductFastRerouteCaps": {
+    "name": "prvtRsvpProductFastRerouteCaps",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fastReroutePLR": 0,
+        "fastRerouteMP": 1,
+        "fastRerouteDetourRestart": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductFastRroutBkpRtryInt": {
+    "name": "prvtRsvpProductFastRroutBkpRtryInt",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductErrorActionFlags": {
+    "name": "prvtRsvpProductErrorActionFlags",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "eafTearStateOnLSIErr": 0
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductEnableNni": {
+    "name": "prvtRsvpProductEnableNni",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "disabling": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductBehaviorFlags": {
+    "name": "prvtRsvpProductBehaviorFlags",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "enableTTLMatch": 0
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductLabelSetStyle": {
+    "name": "prvtRsvpProductLabelSetStyle",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "excludeLabelHeader": 1,
+          "includeLabelHeader": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "excludeLabelHeader",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductLabelSetOperStatus": {
+    "name": "prvtRsvpProductLabelSetOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "excludeLabelHeader": 1,
+          "includeLabelHeader": 2,
+          "goingToExclude": 3,
+          "goingToInclude": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpProductLabelSetTrapEnable": {
+    "name": "prvtRsvpProductLabelSetTrapEnable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductLabelSetChngAct": {
+    "name": "prvtRsvpProductLabelSetChngAct",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductExtPrtAdminStatus": {
+    "name": "prvtRsvpProductExtPrtAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductUniIncSonetProfile": {
+    "name": "prvtRsvpProductUniIncSonetProfile",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductFrrFacAdminStatus": {
+    "name": "prvtRsvpProductFrrFacAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpProductFrrFacOperStatus": {
+    "name": "prvtRsvpProductFrrFacOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpProductIpv6AdminStatus": {
+    "name": "prvtRsvpProductIpv6AdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtRsvpProductIpv6OperStatus": {
+    "name": "prvtRsvpProductIpv6OperStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpProductAPIIpv6Address": {
+    "name": "prvtRsvpProductAPIIpv6Address",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRsvpDiagnosticTable": {
+    "name": "prvtRsvpDiagnosticTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpDiagnosticEntry": {
+    "name": "prvtRsvpDiagnosticEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagProductIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagRequestIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRsvpDiagProductIndex": {
+    "name": "prvtRsvpDiagProductIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpDiagRequestIndex": {
+    "name": "prvtRsvpDiagRequestIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpDiagReqIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpDiagReqsInProgress": {
+    "name": "prvtRsvpDiagReqsInProgress",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagSessionEndPoint": {
+    "name": "prvtRsvpDiagSessionEndPoint",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagSessionTunnelId": {
+    "name": "prvtRsvpDiagSessionTunnelId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagSessionExtTunnelId": {
+    "name": "prvtRsvpDiagSessionExtTunnelId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagLastHop": {
+    "name": "prvtRsvpDiagLastHop",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagSender": {
+    "name": "prvtRsvpDiagSender",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagMaxHops": {
+    "name": "prvtRsvpDiagMaxHops",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagHopByHopReply": {
+    "name": "prvtRsvpDiagHopByHopReply",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeTable": {
+    "name": "prvtRsvpDiagNodeTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeEntry": {
+    "name": "prvtRsvpDiagNodeEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeProductIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeRequestIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeProductIndex": {
+    "name": "prvtRsvpDiagNodeProductIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeRequestIndex": {
+    "name": "prvtRsvpDiagNodeRequestIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpDiagReqIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeIndex": {
+    "name": "prvtRsvpDiagNodeIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpDiagNodeIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeType": {
+    "name": "prvtRsvpDiagNodeType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRsvpDiagNodeTypeVal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeDreqArrivalTime": {
+    "name": "prvtRsvpDiagNodeDreqArrivalTime",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeIncomingIfAddr": {
+    "name": "prvtRsvpDiagNodeIncomingIfAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeOutgoingIfAddr": {
+    "name": "prvtRsvpDiagNodeOutgoingIfAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodePrevHopAddr": {
+    "name": "prvtRsvpDiagNodePrevHopAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeDTTL": {
+    "name": "prvtRsvpDiagNodeDTTL",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeMFlag": {
+    "name": "prvtRsvpDiagNodeMFlag",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeRErr": {
+    "name": "prvtRsvpDiagNodeRErr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeKValue": {
+    "name": "prvtRsvpDiagNodeKValue",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeTimerValue": {
+    "name": "prvtRsvpDiagNodeTimerValue",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagRsvpHopAddr": {
+    "name": "prvtRsvpDiagRsvpHopAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagRsvpHopLIH": {
+    "name": "prvtRsvpDiagRsvpHopLIH",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagSenderTpltAddress": {
+    "name": "prvtRsvpDiagSenderTpltAddress",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagSenderTpltLSPId": {
+    "name": "prvtRsvpDiagSenderTpltLSPId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecCLBktRate": {
+    "name": "prvtRsvpDiagFlowSpecCLBktRate",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecCLBktDep": {
+    "name": "prvtRsvpDiagFlowSpecCLBktDep",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecCLPkDataRate": {
+    "name": "prvtRsvpDiagFlowSpecCLPkDataRate",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecCLMinPolUnit": {
+    "name": "prvtRsvpDiagFlowSpecCLMinPolUnit",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecCLMaxPktSize": {
+    "name": "prvtRsvpDiagFlowSpecCLMaxPktSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecGQBktRate": {
+    "name": "prvtRsvpDiagFlowSpecGQBktRate",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecGQBktDep": {
+    "name": "prvtRsvpDiagFlowSpecGQBktDep",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecGQPkDataRate": {
+    "name": "prvtRsvpDiagFlowSpecGQPkDataRate",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecGQMinPolUnit": {
+    "name": "prvtRsvpDiagFlowSpecGQMinPolUnit",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecGQMaxPktSize": {
+    "name": "prvtRsvpDiagFlowSpecGQMaxPktSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecGQRate": {
+    "name": "prvtRsvpDiagFlowSpecGQRate",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecGQSlack": {
+    "name": "prvtRsvpDiagFlowSpecGQSlack",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecCoSCoS": {
+    "name": "prvtRsvpDiagFlowSpecCoSCoS",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFlowSpecCoSMTU": {
+    "name": "prvtRsvpDiagFlowSpecCoSMTU",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFilterSpecAddress": {
+    "name": "prvtRsvpDiagFilterSpecAddress",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagFilterSpecLSPId": {
+    "name": "prvtRsvpDiagFilterSpecLSPId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagConfirmRcvAddr": {
+    "name": "prvtRsvpDiagConfirmRcvAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpDiagStyle": {
+    "name": "prvtRsvpDiagStyle",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.1.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRsvpConformance": {
+    "name": "prvtRsvpConformance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.2",
+    "class": "objectidentity"
+  },
+  "prvtRsvpCompliances": {
+    "name": "prvtRsvpCompliances",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.2.1",
+    "class": "objectidentity"
+  },
+  "prvtRsvpGroups": {
+    "name": "prvtRsvpGroups",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.2.2",
+    "class": "objectidentity"
+  },
+  "prvtRsvpCompliance": {
+    "name": "prvtRsvpCompliance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtRsvpProductGroup",
+        "module": "PRVT-RSVP-MIB"
+      },
+      {
+        "object": "prvtRsvpDiagGroup",
+        "module": "PRVT-RSVP-MIB"
+      },
+      {
+        "object": "prvtRsvpDiagNodeGroup",
+        "module": "PRVT-RSVP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRsvpProductGroup": {
+    "name": "prvtRsvpProductGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductASNumber"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductSenderTTL"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductMinTimerPeriod"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductAPIIfIndex"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductAPIAddress"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductAPIRefreshInterval"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductLocalRepairDelay"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRefreshInterval"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRefreshMultiple"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRfrshSlewDenom"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRfrshSlewNumerator"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductBlockadeMultiple"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductSocketBufPoolSize"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductSwitchBufPoolSize"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductTeMibBufPoolSize"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRoutingBufPoolSize"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductLSPSetupPriority"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductLSPHoldingPriority"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductAdminStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductOperStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRowStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductLsrIndex"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductTeMibIndex"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductMultiStackSupport"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductUseHopByHop"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductUseNotify"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductNotifyRRDecay"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductNotifyRRInterval"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductNotifyRRLimit"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductAllowIPEncap"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductProtocolExtensions"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductPSRFlags"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductInitPathRRDecay"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductInitPathRRInterval"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductInitPathRRLimit"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductEnableUni"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRestartCapable"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRestartTime"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductRecoveryTime"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductMinPeerRestart"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductGracefulDelTimeout"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductEgressDelBehavior"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductEnabUniConnSplicing"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductFastRerouteCaps"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductFastRroutBkpRtryInt"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductErrorActionFlags"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductEnableNni"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductBehaviorFlags"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductLabelSetStyle"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductLabelSetOperStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductLabelSetTrapEnable"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductLabelSetChngAct"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductExtPrtAdminStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductUniIncSonetProfile"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductFrrFacAdminStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductFrrFacOperStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductIpv6AdminStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductIpv6OperStatus"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpProductAPIIpv6Address"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRsvpDiagGroup": {
+    "name": "prvtRsvpDiagGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagReqsInProgress"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagSessionEndPoint"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagSessionTunnelId"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagSessionExtTunnelId"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagLastHop"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagSender"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagMaxHops"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagHopByHopReply"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRsvpDiagNodeGroup": {
+    "name": "prvtRsvpDiagNodeGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.7.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeType"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeDreqArrivalTime"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeIncomingIfAddr"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeOutgoingIfAddr"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodePrevHopAddr"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeDTTL"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeMFlag"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeRErr"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeKValue"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagNodeTimerValue"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagRsvpHopAddr"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagRsvpHopLIH"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagSenderTpltLSPId"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagSenderTpltAddress"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecCLBktRate"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecCLBktDep"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecCLPkDataRate"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecCLMinPolUnit"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecCLMaxPktSize"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecGQBktRate"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecGQBktDep"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecGQPkDataRate"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecGQMinPolUnit"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecGQMaxPktSize"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecGQRate"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecGQSlack"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecCoSCoS"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFlowSpecCoSMTU"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFilterSpecAddress"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagFilterSpecLSPId"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagConfirmRcvAddr"
+      },
+      {
+        "module": "PRVT-RSVP-MIB",
+        "object": "prvtRsvpDiagStyle"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-RSVP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-RSVP-MIB"
+  }
+}

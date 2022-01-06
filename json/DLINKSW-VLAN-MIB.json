@@ -1,0 +1,732 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dBasePort"
+    ],
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "DLINKSW-TC-MIB": [
+      "Dlink2kVlanList"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1vProtocolPortGroupId",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwVlanMIB": {
+    "name": "dlinkSwVlanMIB",
+    "oid": "1.3.6.1.4.1.171.14.21",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-18 00:00",
+        "description": "This is the first version of the MIB file."
+      }
+    ]
+  },
+  "dVlanMIBNotifications": {
+    "name": "dVlanMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.21.0",
+    "class": "objectidentity"
+  },
+  "dVlanMIBObjects": {
+    "name": "dVlanMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.21.1",
+    "class": "objectidentity"
+  },
+  "dVlanMIBConformance": {
+    "name": "dVlanMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.21.2",
+    "class": "objectidentity"
+  },
+  "dVlanStaticMacVlanTable": {
+    "name": "dVlanStaticMacVlanTable",
+    "oid": "1.3.6.1.4.1.171.14.21.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanStaticMacVlanEntry": {
+    "name": "dVlanStaticMacVlanEntry",
+    "oid": "1.3.6.1.4.1.171.14.21.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanStaticMacVlanAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanStaticMacVlanAddress": {
+    "name": "dVlanStaticMacVlanAddress",
+    "oid": "1.3.6.1.4.1.171.14.21.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanStaticMacVlanId": {
+    "name": "dVlanStaticMacVlanId",
+    "oid": "1.3.6.1.4.1.171.14.21.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dVlanStaticMacVlanPriority": {
+    "name": "dVlanStaticMacVlanPriority",
+    "oid": "1.3.6.1.4.1.171.14.21.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dVlanStaticMacVlanRowStatus": {
+    "name": "dVlanStaticMacVlanRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.21.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dVlanCurrentMacVlanTable": {
+    "name": "dVlanCurrentMacVlanTable",
+    "oid": "1.3.6.1.4.1.171.14.21.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanCurrentMacVlanEntry": {
+    "name": "dVlanCurrentMacVlanEntry",
+    "oid": "1.3.6.1.4.1.171.14.21.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanCurrentMacVlanAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanCurrentMacVlanStatus",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanCurrentMacVlanAddress": {
+    "name": "dVlanCurrentMacVlanAddress",
+    "oid": "1.3.6.1.4.1.171.14.21.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanCurrentMacVlanStatus": {
+    "name": "dVlanCurrentMacVlanStatus",
+    "oid": "1.3.6.1.4.1.171.14.21.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanCurrentMacVlanId": {
+    "name": "dVlanCurrentMacVlanId",
+    "oid": "1.3.6.1.4.1.171.14.21.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVlanCurrentMacVlanPriority": {
+    "name": "dVlanCurrentMacVlanPriority",
+    "oid": "1.3.6.1.4.1.171.14.21.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVlanSubnetVlanTable": {
+    "name": "dVlanSubnetVlanTable",
+    "oid": "1.3.6.1.4.1.171.14.21.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanSubnetVlanEntry": {
+    "name": "dVlanSubnetVlanEntry",
+    "oid": "1.3.6.1.4.1.171.14.21.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanSubnetVlanType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanSubnetVlanNetPrefix",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanSubnetVlanNetPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanSubnetVlanType": {
+    "name": "dVlanSubnetVlanType",
+    "oid": "1.3.6.1.4.1.171.14.21.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanSubnetVlanNetPrefix": {
+    "name": "dVlanSubnetVlanNetPrefix",
+    "oid": "1.3.6.1.4.1.171.14.21.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanSubnetVlanNetPrefixLen": {
+    "name": "dVlanSubnetVlanNetPrefixLen",
+    "oid": "1.3.6.1.4.1.171.14.21.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanSubnetVlanId": {
+    "name": "dVlanSubnetVlanId",
+    "oid": "1.3.6.1.4.1.171.14.21.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dVlanSubnetVlanPriority": {
+    "name": "dVlanSubnetVlanPriority",
+    "oid": "1.3.6.1.4.1.171.14.21.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dVlanSubnetVlanRowStatus": {
+    "name": "dVlanSubnetVlanRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.21.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dVlanPortIfCtrlTable": {
+    "name": "dVlanPortIfCtrlTable",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanPortIfCtrlEntry": {
+    "name": "dVlanPortIfCtrlEntry",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanPortIfMode": {
+    "name": "dVlanPortIfMode",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "access": 1,
+          "hybrid": 2,
+          "trunk": 3,
+          "dot1qTunnel": 4,
+          "privateVlanHost": 5,
+          "privateVlanPromiscuous": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanPortIfTrunkNativeVlanTagged": {
+    "name": "dVlanPortIfTrunkNativeVlanTagged",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanPortIfAcceptableFrameTypes": {
+    "name": "dVlanPortIfAcceptableFrameTypes",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admitAll": 1,
+          "admitUntaggedAndPriority": 2,
+          "admitTagged": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanPortIfVlanPrecedence": {
+    "name": "dVlanPortIfVlanPrecedence",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macVlan": 1,
+          "subnetVlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanPortIfTagAllowVlanLstFirst2K": {
+    "name": "dVlanPortIfTagAllowVlanLstFirst2K",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanPortIfTagAllowVlanLstSecond2K": {
+    "name": "dVlanPortIfTagAllowVlanLstSecond2K",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanPortIfUntagAllowVlanLstFirst2K": {
+    "name": "dVlanPortIfUntagAllowVlanLstFirst2K",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanPortIfUntagAllowVlanLstSecond2K": {
+    "name": "dVlanPortIfUntagAllowVlanLstSecond2K",
+    "oid": "1.3.6.1.4.1.171.14.21.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanProtocolVlanIfCtrlTable": {
+    "name": "dVlanProtocolVlanIfCtrlTable",
+    "oid": "1.3.6.1.4.1.171.14.21.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVlanProtocolVlanIfCtrlEntry": {
+    "name": "dVlanProtocolVlanIfCtrlEntry",
+    "oid": "1.3.6.1.4.1.171.14.21.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1vProtocolPortGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanProtocolVlanPriority": {
+    "name": "dVlanProtocolVlanPriority",
+    "oid": "1.3.6.1.4.1.171.14.21.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanAsymVlanStateEnabled": {
+    "name": "dVlanAsymVlanStateEnabled",
+    "oid": "1.3.6.1.4.1.171.14.21.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVlanCompliances": {
+    "name": "dVlanCompliances",
+    "oid": "1.3.6.1.4.1.171.14.21.2.1",
+    "class": "objectidentity"
+  },
+  "dVlanCompliance": {
+    "name": "dVlanCompliance",
+    "oid": "1.3.6.1.4.1.171.14.21.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dVlanIfCfgGroup",
+        "module": "DLINKSW-VLAN-MIB"
+      },
+      {
+        "object": "dVlanStaticMacVlanCfgGroup",
+        "module": "DLINKSW-VLAN-MIB"
+      },
+      {
+        "object": "dVlanCurrentMacVlanCfgGroup",
+        "module": "DLINKSW-VLAN-MIB"
+      },
+      {
+        "object": "dVlanSubnetVlanCfgGroup",
+        "module": "DLINKSW-VLAN-MIB"
+      },
+      {
+        "object": "dVlanProtocolVlanCfgGroup",
+        "module": "DLINKSW-VLAN-MIB"
+      },
+      {
+        "object": "dVlanAsymmetricVlanCfgGroup",
+        "module": "DLINKSW-VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanGroups": {
+    "name": "dVlanGroups",
+    "oid": "1.3.6.1.4.1.171.14.21.2.2",
+    "class": "objectidentity"
+  },
+  "dVlanIfCfgGroup": {
+    "name": "dVlanIfCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.21.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanPortIfMode"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanPortIfTrunkNativeVlanTagged"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanPortIfVlanPrecedence"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanPortIfAcceptableFrameTypes"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanPortIfTagAllowVlanLstFirst2K"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanPortIfTagAllowVlanLstSecond2K"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanPortIfUntagAllowVlanLstFirst2K"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanPortIfUntagAllowVlanLstSecond2K"
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanStaticMacVlanCfgGroup": {
+    "name": "dVlanStaticMacVlanCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.21.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanStaticMacVlanId"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanStaticMacVlanPriority"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanStaticMacVlanRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanCurrentMacVlanCfgGroup": {
+    "name": "dVlanCurrentMacVlanCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.21.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanCurrentMacVlanId"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanCurrentMacVlanPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanSubnetVlanCfgGroup": {
+    "name": "dVlanSubnetVlanCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.21.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanSubnetVlanId"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanSubnetVlanPriority"
+      },
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanSubnetVlanRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanProtocolVlanCfgGroup": {
+    "name": "dVlanProtocolVlanCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.21.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanProtocolVlanPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "dVlanAsymmetricVlanCfgGroup": {
+    "name": "dVlanAsymmetricVlanCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.21.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VLAN-MIB",
+        "object": "dVlanAsymVlanStateEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-VLAN-MIB"
+  }
+}

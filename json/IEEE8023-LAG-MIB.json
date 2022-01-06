@@ -1,0 +1,1349 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "lagMIB": {
+    "name": "lagMIB",
+    "oid": "1.2.840.10006.300.43",
+    "class": "moduleidentity"
+  },
+  "lagMIBObjects": {
+    "name": "lagMIBObjects",
+    "oid": "1.2.840.10006.300.43.1",
+    "class": "objectidentity"
+  },
+  "LacpKey": {
+    "name": "LacpKey",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "LacpState": {
+    "name": "LacpState",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "lacpActivity": 0,
+        "lacpTimeout": 1,
+        "aggregation": 2,
+        "synchronization": 3,
+        "collecting": 4,
+        "distributing": 5,
+        "defaulted": 6,
+        "expired": 7
+      }
+    },
+    "status": "current"
+  },
+  "ChurnState": {
+    "name": "ChurnState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noChurn": 1,
+          "churn": 2,
+          "churnMonitor": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dot3adAgg": {
+    "name": "dot3adAgg",
+    "oid": "1.2.840.10006.300.43.1.1",
+    "class": "objectidentity"
+  },
+  "dot3adAggPort": {
+    "name": "dot3adAggPort",
+    "oid": "1.2.840.10006.300.43.1.2",
+    "class": "objectidentity"
+  },
+  "dot3adTablesLastChanged": {
+    "name": "dot3adTablesLastChanged",
+    "oid": "1.2.840.10006.300.43.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggTable": {
+    "name": "dot3adAggTable",
+    "oid": "1.2.840.10006.300.43.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggEntry": {
+    "name": "dot3adAggEntry",
+    "oid": "1.2.840.10006.300.43.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggIndex": {
+    "name": "dot3adAggIndex",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggMACAddress": {
+    "name": "dot3adAggMACAddress",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggActorSystemPriority": {
+    "name": "dot3adAggActorSystemPriority",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggActorSystemID": {
+    "name": "dot3adAggActorSystemID",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggAggregateOrIndividual": {
+    "name": "dot3adAggAggregateOrIndividual",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggActorAdminKey": {
+    "name": "dot3adAggActorAdminKey",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggActorOperKey": {
+    "name": "dot3adAggActorOperKey",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPartnerSystemID": {
+    "name": "dot3adAggPartnerSystemID",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPartnerSystemPriority": {
+    "name": "dot3adAggPartnerSystemPriority",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPartnerOperKey": {
+    "name": "dot3adAggPartnerOperKey",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggCollectorMaxDelay": {
+    "name": "dot3adAggCollectorMaxDelay",
+    "oid": "1.2.840.10006.300.43.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortListTable": {
+    "name": "dot3adAggPortListTable",
+    "oid": "1.2.840.10006.300.43.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggPortListEntry": {
+    "name": "dot3adAggPortListEntry",
+    "oid": "1.2.840.10006.300.43.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortListPorts": {
+    "name": "dot3adAggPortListPorts",
+    "oid": "1.2.840.10006.300.43.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortTable": {
+    "name": "dot3adAggPortTable",
+    "oid": "1.2.840.10006.300.43.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggPortEntry": {
+    "name": "dot3adAggPortEntry",
+    "oid": "1.2.840.10006.300.43.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortIndex": {
+    "name": "dot3adAggPortIndex",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggPortActorSystemPriority": {
+    "name": "dot3adAggPortActorSystemPriority",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortActorSystemID": {
+    "name": "dot3adAggPortActorSystemID",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortActorAdminKey": {
+    "name": "dot3adAggPortActorAdminKey",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortActorOperKey": {
+    "name": "dot3adAggPortActorOperKey",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerAdminSystemPriority": {
+    "name": "dot3adAggPortPartnerAdminSystemPriority",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerOperSystemPriority": {
+    "name": "dot3adAggPortPartnerOperSystemPriority",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerAdminSystemID": {
+    "name": "dot3adAggPortPartnerAdminSystemID",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerOperSystemID": {
+    "name": "dot3adAggPortPartnerOperSystemID",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerAdminKey": {
+    "name": "dot3adAggPortPartnerAdminKey",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerOperKey": {
+    "name": "dot3adAggPortPartnerOperKey",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortSelectedAggID": {
+    "name": "dot3adAggPortSelectedAggID",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortAttachedAggID": {
+    "name": "dot3adAggPortAttachedAggID",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortActorPort": {
+    "name": "dot3adAggPortActorPort",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortActorPortPriority": {
+    "name": "dot3adAggPortActorPortPriority",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerAdminPort": {
+    "name": "dot3adAggPortPartnerAdminPort",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerOperPort": {
+    "name": "dot3adAggPortPartnerOperPort",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerAdminPortPriority": {
+    "name": "dot3adAggPortPartnerAdminPortPriority",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerOperPortPriority": {
+    "name": "dot3adAggPortPartnerOperPortPriority",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortActorAdminState": {
+    "name": "dot3adAggPortActorAdminState",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortActorOperState": {
+    "name": "dot3adAggPortActorOperState",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerAdminState": {
+    "name": "dot3adAggPortPartnerAdminState",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerOperState": {
+    "name": "dot3adAggPortPartnerOperState",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortAggregateOrIndividual": {
+    "name": "dot3adAggPortAggregateOrIndividual",
+    "oid": "1.2.840.10006.300.43.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortStatsTable": {
+    "name": "dot3adAggPortStatsTable",
+    "oid": "1.2.840.10006.300.43.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggPortStatsEntry": {
+    "name": "dot3adAggPortStatsEntry",
+    "oid": "1.2.840.10006.300.43.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortStatsLACPDUsRx": {
+    "name": "dot3adAggPortStatsLACPDUsRx",
+    "oid": "1.2.840.10006.300.43.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortStatsMarkerPDUsRx": {
+    "name": "dot3adAggPortStatsMarkerPDUsRx",
+    "oid": "1.2.840.10006.300.43.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortStatsMarkerResponsePDUsRx": {
+    "name": "dot3adAggPortStatsMarkerResponsePDUsRx",
+    "oid": "1.2.840.10006.300.43.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortStatsUnknownRx": {
+    "name": "dot3adAggPortStatsUnknownRx",
+    "oid": "1.2.840.10006.300.43.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortStatsIllegalRx": {
+    "name": "dot3adAggPortStatsIllegalRx",
+    "oid": "1.2.840.10006.300.43.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortStatsLACPDUsTx": {
+    "name": "dot3adAggPortStatsLACPDUsTx",
+    "oid": "1.2.840.10006.300.43.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortStatsMarkerPDUsTx": {
+    "name": "dot3adAggPortStatsMarkerPDUsTx",
+    "oid": "1.2.840.10006.300.43.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortStatsMarkerResponsePDUsTx": {
+    "name": "dot3adAggPortStatsMarkerResponsePDUsTx",
+    "oid": "1.2.840.10006.300.43.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugTable": {
+    "name": "dot3adAggPortDebugTable",
+    "oid": "1.2.840.10006.300.43.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggPortDebugEntry": {
+    "name": "dot3adAggPortDebugEntry",
+    "oid": "1.2.840.10006.300.43.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortDebugRxState": {
+    "name": "dot3adAggPortDebugRxState",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "currentRx": 1,
+          "expired": 2,
+          "defaulted": 3,
+          "initialize": 4,
+          "lacpDisabled": 5,
+          "portDisabled": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugLastRxTime": {
+    "name": "dot3adAggPortDebugLastRxTime",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugMuxState": {
+    "name": "dot3adAggPortDebugMuxState",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detached": 1,
+          "waiting": 2,
+          "attached": 3,
+          "collecting": 4,
+          "distributing": 5,
+          "collectingDistributing": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugMuxReason": {
+    "name": "dot3adAggPortDebugMuxReason",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugActorChurnState": {
+    "name": "dot3adAggPortDebugActorChurnState",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChurnState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugPartnerChurnState": {
+    "name": "dot3adAggPortDebugPartnerChurnState",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChurnState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugActorChurnCount": {
+    "name": "dot3adAggPortDebugActorChurnCount",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugPartnerChurnCount": {
+    "name": "dot3adAggPortDebugPartnerChurnCount",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugActorSyncTransitionCount": {
+    "name": "dot3adAggPortDebugActorSyncTransitionCount",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugPartnerSyncTransitionCount": {
+    "name": "dot3adAggPortDebugPartnerSyncTransitionCount",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugActorChangeCount": {
+    "name": "dot3adAggPortDebugActorChangeCount",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortDebugPartnerChangeCount": {
+    "name": "dot3adAggPortDebugPartnerChangeCount",
+    "oid": "1.2.840.10006.300.43.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggConformance": {
+    "name": "dot3adAggConformance",
+    "oid": "1.2.840.10006.300.43.2",
+    "class": "objectidentity"
+  },
+  "dot3adAggGroups": {
+    "name": "dot3adAggGroups",
+    "oid": "1.2.840.10006.300.43.2.1",
+    "class": "objectidentity"
+  },
+  "dot3adAggCompliances": {
+    "name": "dot3adAggCompliances",
+    "oid": "1.2.840.10006.300.43.2.2",
+    "class": "objectidentity"
+  },
+  "dot3adAggGroup": {
+    "name": "dot3adAggGroup",
+    "oid": "1.2.840.10006.300.43.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggActorSystemID"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggActorSystemPriority"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggAggregateOrIndividual"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggActorAdminKey"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggMACAddress"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggActorOperKey"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPartnerSystemID"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPartnerSystemPriority"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPartnerOperKey"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggCollectorMaxDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortListGroup": {
+    "name": "dot3adAggPortListGroup",
+    "oid": "1.2.840.10006.300.43.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortListPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortGroup": {
+    "name": "dot3adAggPortGroup",
+    "oid": "1.2.840.10006.300.43.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorSystemPriority"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorSystemID"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorAdminKey"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorOperKey"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerAdminSystemPriority"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerOperSystemPriority"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerAdminSystemID"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerOperSystemID"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerAdminKey"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerOperKey"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortSelectedAggID"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortAttachedAggID"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorPort"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorPortPriority"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerAdminPort"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerOperPort"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerAdminPortPriority"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerOperPortPriority"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorAdminState"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortActorOperState"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerAdminState"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortPartnerOperState"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortAggregateOrIndividual"
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortStatsGroup": {
+    "name": "dot3adAggPortStatsGroup",
+    "oid": "1.2.840.10006.300.43.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortStatsLACPDUsRx"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortStatsMarkerPDUsRx"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortStatsMarkerResponsePDUsRx"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortStatsUnknownRx"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortStatsIllegalRx"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortStatsLACPDUsTx"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortStatsMarkerPDUsTx"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortStatsMarkerResponsePDUsTx"
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortDebugGroup": {
+    "name": "dot3adAggPortDebugGroup",
+    "oid": "1.2.840.10006.300.43.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugRxState"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugLastRxTime"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugMuxState"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugMuxReason"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugActorChurnState"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugPartnerChurnState"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugActorChurnCount"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugPartnerChurnCount"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugActorSyncTransitionCount"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugPartnerSyncTransitionCount"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugActorChangeCount"
+      },
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adAggPortDebugPartnerChangeCount"
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adTablesLastChangedGroup": {
+    "name": "dot3adTablesLastChangedGroup",
+    "oid": "1.2.840.10006.300.43.2.1.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-LAG-MIB",
+        "object": "dot3adTablesLastChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggCompliance": {
+    "name": "dot3adAggCompliance",
+    "oid": "1.2.840.10006.300.43.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dot3adAggGroup",
+        "module": "IEEE8023-LAG-MIB"
+      },
+      {
+        "object": "dot3adAggPortGroup",
+        "module": "IEEE8023-LAG-MIB"
+      },
+      {
+        "object": "dot3adTablesLastChangedGroup",
+        "module": "IEEE8023-LAG-MIB"
+      },
+      {
+        "object": "dot3adAggPortListGroup",
+        "module": "IEEE8023-LAG-MIB"
+      },
+      {
+        "object": "dot3adAggPortStatsGroup",
+        "module": "IEEE8023-LAG-MIB"
+      },
+      {
+        "object": "dot3adAggPortDebugGroup",
+        "module": "IEEE8023-LAG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8023-LAG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8023-LAG-MIB"
+  }
+}

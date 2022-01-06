@@ -1,0 +1,333 @@
+{
+  "imports": {
+    "class": "imports",
+    "LIEBERT-GP-REGISTRATION-MIB": [
+      "liebertSrcModuleReg",
+      "lgpSrc"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "liebertGlobalProductsSrcModule": {
+    "name": "liebertGlobalProductsSrcModule",
+    "oid": "1.3.6.1.4.1.476.1.42.1.12.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-11-10 00:00",
+        "description": "Added unknown(2147483647) for invalid SRC device readings"
+      },
+      {
+        "revision": "2017-10-16 00:00",
+        "description": "Added Temperature High/Low Threshold"
+      },
+      {
+        "revision": "2017-08-18 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "lgpSrcTable": {
+    "name": "lgpSrcTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpSrcEntry": {
+    "name": "lgpSrcEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-SRC-MIB",
+        "object": "lgpSrcDevId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpSrcDevId": {
+    "name": "lgpSrcDevId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSrcDevAddress": {
+    "name": "lgpSrcDevAddress",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSrcDevState": {
+    "name": "lgpSrcDevState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "standbyOffline": 2,
+          "unavailableOffline": 3,
+          "absent": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSrcDevTemperatureDegF": {
+    "name": "lgpSrcDevTemperatureDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2147483647
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSrcDevTemperatureSetpointDegF": {
+    "name": "lgpSrcDevTemperatureSetpointDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2147483647
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSrcDevTemperatureDegC": {
+    "name": "lgpSrcDevTemperatureDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2147483647
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSrcDevTemperatureSetpointDegC": {
+    "name": "lgpSrcDevTemperatureSetpointDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2147483647
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSrcDevFanSpeed": {
+    "name": "lgpSrcDevFanSpeed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "middle": 2,
+          "high": 3,
+          "auto": 4,
+          "unknown": 2147483647
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSrcDevPowerStatus": {
+    "name": "lgpSrcDevPowerStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "unknown": 2147483647
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSrcDevOperatingMode": {
+    "name": "lgpSrcDevOperatingMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cooling": 0,
+          "dehumidify": 1,
+          "fan": 2,
+          "ai": 3,
+          "heating": 4,
+          "unknown": 2147483647
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSrcDevTemperatureHighThresholdDegF": {
+    "name": "lgpSrcDevTemperatureHighThresholdDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2147483647
+        }
+      }
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSrcDevTemperatureLowThresholdDegF": {
+    "name": "lgpSrcDevTemperatureLowThresholdDegF",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2147483647
+        }
+      }
+    },
+    "units": "degrees Fahrenheit",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSrcDevTemperatureHighThresholdDegC": {
+    "name": "lgpSrcDevTemperatureHighThresholdDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2147483647
+        }
+      }
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSrcDevTemperatureLowThresholdDegC": {
+    "name": "lgpSrcDevTemperatureLowThresholdDegC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2147483647
+        }
+      }
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-SRC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LIEBERT-GP-SRC-MIB"
+  }
+}

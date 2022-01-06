@@ -1,0 +1,1592 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoH225MIB": {
+    "name": "ciscoH225MIB",
+    "oid": "1.3.6.1.4.1.9.9.397",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-24 00:00",
+        "description": "Added Disconnection Cause Codes to the MIB as separate table."
+      },
+      {
+        "revision": "2004-03-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "h225MIBObjects": {
+    "name": "h225MIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.397.1",
+    "class": "objectidentity"
+  },
+  "h225CallSignal": {
+    "name": "h225CallSignal",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1",
+    "class": "objectidentity"
+  },
+  "h225Ras": {
+    "name": "h225Ras",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2",
+    "class": "objectidentity"
+  },
+  "h225MIBConformance": {
+    "name": "h225MIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.397.1.3",
+    "class": "objectidentity"
+  },
+  "h225DisconnectCauseCode": {
+    "name": "h225DisconnectCauseCode",
+    "oid": "1.3.6.1.4.1.9.9.397.1.4",
+    "class": "objectidentity"
+  },
+  "CauseCodeType": {
+    "name": "CauseCodeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unallocatedNumber": 1,
+          "noRouteToSpecifiedTransitNetwork": 2,
+          "noRouteToDestination": 3,
+          "sendSpecialInformationTone": 4,
+          "misdialledTrunkPrefix": 5,
+          "channelUnacceptable": 6,
+          "callAwardedAndDelivered": 7,
+          "preemption": 8,
+          "preemptionCircuitReserved": 9,
+          "glare": 15,
+          "normalCallClearing": 16,
+          "userBusy": 17,
+          "noUserResponding": 18,
+          "noAnswerFromUser": 19,
+          "subscriberAbsent": 20,
+          "callRejected": 21,
+          "numberChanged": 22,
+          "redirectionToNewDestination": 23,
+          "exchangeRoutingError": 25,
+          "nonSelectedUserClearing": 26,
+          "destinationOutOfOrder": 27,
+          "invalidNumberORAddressIncomplete": 28,
+          "facilityRejected": 29,
+          "responseToSTATUSENQUIRY": 30,
+          "normalUnspecified": 31,
+          "nocircuitORchannelAvailable": 34,
+          "requestedVPCIorVCINotAvailable": 35,
+          "vpciORvciAssignmentFailure": 36,
+          "cellRateNotAvailable": 37,
+          "networkOutOfOrder": 38,
+          "permanentFrameModeOutOfService": 39,
+          "permanentFrameModeOperational": 40,
+          "temporaryFailure": 41,
+          "switchingEquipmentCongestion": 42,
+          "accessInformationDiscarded": 43,
+          "noRequestedCircuitORchannel": 44,
+          "noVPCIorVCIAvailable": 45,
+          "precedenceCallBlocked": 46,
+          "resourceUnavailableUnspecified": 47,
+          "qualityOfServiceNotAvailable": 49,
+          "requestedFacilityNotSubscribed": 50,
+          "outgoingCallsBarredWithinCUG": 53,
+          "incomingCallsBarredWithinCUG": 55,
+          "bearerCapabilityNotAuthorized": 57,
+          "bearerCapabilityNotAvailable": 58,
+          "inconsistencyInOutgoingInfo": 62,
+          "noServiceOROption": 63,
+          "bearerCapabilityNotImplemented": 65,
+          "channelTypeNotImplemented": 66,
+          "requestedFacilityNotImplemented": 69,
+          "onlyRestrictedDigitalInfoBC": 70,
+          "serviceOROptionNotImplemented": 79,
+          "invalidCallReferenceValue": 81,
+          "identifiedChannelDoesNotExist": 82,
+          "callExistsButCallIdentityDoesNot": 83,
+          "callIdentityInUse": 84,
+          "noCallSuspended": 85,
+          "requestedCallIdentityCleared": 86,
+          "userNotMemberOfCUG": 87,
+          "incompatibleDestination": 88,
+          "nonExistentCUG": 90,
+          "invalidTransitNetworkSelection": 91,
+          "allParametersNotSupported": 93,
+          "invalidMessageUnspecified": 95,
+          "mandatoryInfoElementMissing": 96,
+          "messageTypeNotImplemented": 97,
+          "messageInCompatible": 98,
+          "infoElementORNotImplemented": 99,
+          "invalidInfoElementContents": 100,
+          "messageInCompatibleCallState": 101,
+          "recoveryOnTimerExpiry": 102,
+          "nonImplementedParamPassedon": 103,
+          "unrecognizedParamMSGDiscarded": 110,
+          "protocolErrorUnspecified": 111,
+          "noVoiceResource": 126,
+          "interworkingUnspecified": 127,
+          "nextNodeUnreachable": 128,
+          "htspmOutOfService": 129,
+          "dtlTransitNotNodeId": 160,
+          "noDSPChannel": 170,
+          "codecIncompatible": 171,
+          "dspError": 172,
+          "glaringSwitchPRI": 180,
+          "sipUndefinedMapped": 250,
+          "sipUndefinedUnmapped": 251,
+          "unknownCauseCodeType": 256
+        }
+      }
+    },
+    "status": "current"
+  },
+  "h225CallSignalStats": {
+    "name": "h225CallSignalStats",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1",
+    "class": "objectidentity"
+  },
+  "h225CallSignalStatsSetupIns": {
+    "name": "h225CallSignalStatsSetupIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsSetupOuts": {
+    "name": "h225CallSignalStatsSetupOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsSetupFails": {
+    "name": "h225CallSignalStatsSetupFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsSetupConfIns": {
+    "name": "h225CallSignalStatsSetupConfIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsSetupConfOuts": {
+    "name": "h225CallSignalStatsSetupConfOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsSetupConFails": {
+    "name": "h225CallSignalStatsSetupConFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsAlertingIns": {
+    "name": "h225CallSignalStatsAlertingIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsAlertingOuts": {
+    "name": "h225CallSignalStatsAlertingOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsAlertingFails": {
+    "name": "h225CallSignalStatsAlertingFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsProgIns": {
+    "name": "h225CallSignalStatsProgIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsProgOuts": {
+    "name": "h225CallSignalStatsProgOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsProgFails": {
+    "name": "h225CallSignalStatsProgFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsCallProcsIns": {
+    "name": "h225CallSignalStatsCallProcsIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsCallProcsOuts": {
+    "name": "h225CallSignalStatsCallProcsOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsCallProcFails": {
+    "name": "h225CallSignalStatsCallProcFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsNotifyIns": {
+    "name": "h225CallSignalStatsNotifyIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsNotifyOuts": {
+    "name": "h225CallSignalStatsNotifyOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsNotifyFails": {
+    "name": "h225CallSignalStatsNotifyFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsInfoIns": {
+    "name": "h225CallSignalStatsInfoIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsInfoOuts": {
+    "name": "h225CallSignalStatsInfoOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsInfoFails": {
+    "name": "h225CallSignalStatsInfoFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsUserInfoIns": {
+    "name": "h225CallSignalStatsUserInfoIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsUserInfoOuts": {
+    "name": "h225CallSignalStatsUserInfoOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsUserInfoFails": {
+    "name": "h225CallSignalStatsUserInfoFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsFacilityIns": {
+    "name": "h225CallSignalStatsFacilityIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsFacilityOuts": {
+    "name": "h225CallSignalStatsFacilityOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsFacilityFails": {
+    "name": "h225CallSignalStatsFacilityFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsReleaseIns": {
+    "name": "h225CallSignalStatsReleaseIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsReleaseOuts": {
+    "name": "h225CallSignalStatsReleaseOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsReleaseFails": {
+    "name": "h225CallSignalStatsReleaseFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsRejectIns": {
+    "name": "h225CallSignalStatsRejectIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsRejectOuts": {
+    "name": "h225CallSignalStatsRejectOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsRejectFails": {
+    "name": "h225CallSignalStatsRejectFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsPassthroIns": {
+    "name": "h225CallSignalStatsPassthroIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsPassthroOuts": {
+    "name": "h225CallSignalStatsPassthroOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225CallSignalStatsPassthroFails": {
+    "name": "h225CallSignalStatsPassthroFails",
+    "oid": "1.3.6.1.4.1.9.9.397.1.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStats": {
+    "name": "h225RasStats",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1",
+    "class": "objectidentity"
+  },
+  "h225RasStatsGkDiscoveryReqIns": {
+    "name": "h225RasStatsGkDiscoveryReqIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsGkDiscoveryReqOuts": {
+    "name": "h225RasStatsGkDiscoveryReqOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsGkDiscoveryConfIns": {
+    "name": "h225RasStatsGkDiscoveryConfIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsGkDiscoveryConfOuts": {
+    "name": "h225RasStatsGkDiscoveryConfOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsGkDiscoveryRejectIns": {
+    "name": "h225RasStatsGkDiscoveryRejectIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsGkDiscoveryRejOuts": {
+    "name": "h225RasStatsGkDiscoveryRejOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsRegistrationReqIns": {
+    "name": "h225RasStatsRegistrationReqIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsRegistrationReqOuts": {
+    "name": "h225RasStatsRegistrationReqOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsRegistrationConfIns": {
+    "name": "h225RasStatsRegistrationConfIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsRegistrationConfOuts": {
+    "name": "h225RasStatsRegistrationConfOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsRegistrationRejIns": {
+    "name": "h225RasStatsRegistrationRejIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsRegistrationRejOuts": {
+    "name": "h225RasStatsRegistrationRejOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsAdmissionReqIns": {
+    "name": "h225RasStatsAdmissionReqIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsAdmissionReqOuts": {
+    "name": "h225RasStatsAdmissionReqOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsAdmissionConfirmIns": {
+    "name": "h225RasStatsAdmissionConfirmIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsAdmissionConfirmOuts": {
+    "name": "h225RasStatsAdmissionConfirmOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsAdmissionRejectIns": {
+    "name": "h225RasStatsAdmissionRejectIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsAdmissionRejectOuts": {
+    "name": "h225RasStatsAdmissionRejectOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsBandwidthReqIns": {
+    "name": "h225RasStatsBandwidthReqIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsBandwidthReqOuts": {
+    "name": "h225RasStatsBandwidthReqOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsBandwidthConfirmIns": {
+    "name": "h225RasStatsBandwidthConfirmIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsBandwidthConfirmOuts": {
+    "name": "h225RasStatsBandwidthConfirmOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsBandwidthRejectIns": {
+    "name": "h225RasStatsBandwidthRejectIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsBandwidthRejectOuts": {
+    "name": "h225RasStatsBandwidthRejectOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsDisengageReqIns": {
+    "name": "h225RasStatsDisengageReqIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsDisengageReqOuts": {
+    "name": "h225RasStatsDisengageReqOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsDisengageConfirmIns": {
+    "name": "h225RasStatsDisengageConfirmIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsDisengageConfirmOuts": {
+    "name": "h225RasStatsDisengageConfirmOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsDisengageRejectIns": {
+    "name": "h225RasStatsDisengageRejectIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsDisengageRejectOuts": {
+    "name": "h225RasStatsDisengageRejectOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsUnregisterReqIns": {
+    "name": "h225RasStatsUnregisterReqIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsUnregisterReqOuts": {
+    "name": "h225RasStatsUnregisterReqOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsUnregisterConfirmIns": {
+    "name": "h225RasStatsUnregisterConfirmIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsUnregisterConfOuts": {
+    "name": "h225RasStatsUnregisterConfOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsUnregisterRejectIns": {
+    "name": "h225RasStatsUnregisterRejectIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsUnregisterRejectOuts": {
+    "name": "h225RasStatsUnregisterRejectOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsResourceAvailIndIns": {
+    "name": "h225RasStatsResourceAvailIndIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsResourceAvailIndOuts": {
+    "name": "h225RasStatsResourceAvailIndOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsResourceAvailConfIns": {
+    "name": "h225RasStatsResourceAvailConfIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsResourceAvailConOuts": {
+    "name": "h225RasStatsResourceAvailConOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsRequestInProgIns": {
+    "name": "h225RasStatsRequestInProgIns",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225RasStatsRequestInProgOuts": {
+    "name": "h225RasStatsRequestInProgOuts",
+    "oid": "1.3.6.1.4.1.9.9.397.1.2.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225DisconnectCauseCodeTable": {
+    "name": "h225DisconnectCauseCodeTable",
+    "oid": "1.3.6.1.4.1.9.9.397.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "h225DisconnectCauseCodeEntry": {
+    "name": "h225DisconnectCauseCodeEntry",
+    "oid": "1.3.6.1.4.1.9.9.397.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CauseCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "h225CauseCode": {
+    "name": "h225CauseCode",
+    "oid": "1.3.6.1.4.1.9.9.397.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CauseCodeType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "h225CauseCodeDescription": {
+    "name": "h225CauseCodeDescription",
+    "oid": "1.3.6.1.4.1.9.9.397.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225FromOtherPeerDisconnects": {
+    "name": "h225FromOtherPeerDisconnects",
+    "oid": "1.3.6.1.4.1.9.9.397.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225FromH323PeerDisconnects": {
+    "name": "h225FromH323PeerDisconnects",
+    "oid": "1.3.6.1.4.1.9.9.397.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "h225MIBCompliances": {
+    "name": "h225MIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.397.1.3.1",
+    "class": "objectidentity"
+  },
+  "h225MIBGroups": {
+    "name": "h225MIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.397.1.3.2",
+    "class": "objectidentity"
+  },
+  "h225MIBCompliance": {
+    "name": "h225MIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.397.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "h225CallSignalStatsGroup",
+        "module": "CISCO-H225-MIB"
+      },
+      {
+        "object": "h225RasStatsGroup",
+        "module": "CISCO-H225-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "h225MIBComplianceRev1": {
+    "name": "h225MIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.397.1.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "h225CallSignalStatsGroup",
+        "module": "CISCO-H225-MIB"
+      },
+      {
+        "object": "h225RasStatsGroup",
+        "module": "CISCO-H225-MIB"
+      },
+      {
+        "object": "h225DisconnectCauseCodeGroup",
+        "module": "CISCO-H225-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "h225CallSignalStatsGroup": {
+    "name": "h225CallSignalStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.397.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsSetupIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsSetupOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsSetupFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsSetupConfIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsSetupConfOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsSetupConFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsAlertingIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsAlertingOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsAlertingFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsProgIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsProgOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsProgFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsCallProcsIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsCallProcsOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsCallProcFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsNotifyIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsNotifyOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsNotifyFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsInfoIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsInfoOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsInfoFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsUserInfoIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsUserInfoOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsUserInfoFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsFacilityIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsFacilityOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsFacilityFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsReleaseIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsReleaseOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsReleaseFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsRejectIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsRejectOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsRejectFails"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsPassthroIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsPassthroOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CallSignalStatsPassthroFails"
+      }
+    ],
+    "status": "current"
+  },
+  "h225RasStatsGroup": {
+    "name": "h225RasStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.397.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsGkDiscoveryReqIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsGkDiscoveryReqOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsGkDiscoveryConfIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsGkDiscoveryConfOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsGkDiscoveryRejectIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsGkDiscoveryRejOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsRegistrationReqIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsRegistrationReqOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsRegistrationConfIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsRegistrationConfOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsRegistrationRejIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsRegistrationRejOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsAdmissionReqIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsAdmissionReqOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsAdmissionConfirmIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsAdmissionConfirmOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsAdmissionRejectIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsAdmissionRejectOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsBandwidthReqIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsBandwidthReqOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsBandwidthConfirmIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsBandwidthConfirmOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsBandwidthRejectIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsBandwidthRejectOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsDisengageReqIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsDisengageReqOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsDisengageConfirmIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsDisengageConfirmOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsDisengageRejectIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsDisengageRejectOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsUnregisterReqIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsUnregisterReqOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsUnregisterConfirmIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsUnregisterConfOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsUnregisterRejectIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsUnregisterRejectOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsResourceAvailIndIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsResourceAvailIndOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsResourceAvailConfIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsResourceAvailConOuts"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsRequestInProgIns"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225RasStatsRequestInProgOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "h225DisconnectCauseCodeGroup": {
+    "name": "h225DisconnectCauseCodeGroup",
+    "oid": "1.3.6.1.4.1.9.9.397.1.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225CauseCodeDescription"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225FromOtherPeerDisconnects"
+      },
+      {
+        "module": "CISCO-H225-MIB",
+        "object": "h225FromH323PeerDisconnects"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-H225-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-H225-MIB"
+  }
+}

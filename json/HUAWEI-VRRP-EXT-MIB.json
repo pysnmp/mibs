@@ -1,0 +1,2160 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex",
+      "ifName"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VRRP-MIB": [
+      "vrrpOperMasterIpAddr",
+      "vrrpOperState",
+      "vrrpOperPrimaryIpAddr",
+      "VrId"
+    ]
+  },
+  "hwVrrpExt": {
+    "name": "hwVrrpExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.127",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 00:00",
+        "description": "Change the hwVrrpExtStateChangeReasonString Description."
+      },
+      {
+        "revision": "2015-09-10 00:00",
+        "description": "Add the hwVrrpExtTrapExpectStateChange trap and hwVrrpExtTrapExpectStateResume trap."
+      },
+      {
+        "revision": "2015-07-02 00:00",
+        "description": "Add the table of fast-vrrp."
+      },
+      {
+        "revision": "2013-08-31 00:00",
+        "description": "Fix the errors checked by a tool."
+      }
+    ]
+  },
+  "hwVrrpExtGlobal": {
+    "name": "hwVrrpExtGlobal",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1",
+    "class": "objectidentity"
+  },
+  "hwVrrpExtFreeArpInterval": {
+    "name": "hwVrrpExtFreeArpInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVrrpExtVIPPingCtr": {
+    "name": "hwVrrpExtVIPPingCtr",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVrrpExtSsTimer": {
+    "name": "hwVrrpExtSsTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVrrpExtLearnAdvIntervalFlag": {
+    "name": "hwVrrpExtLearnAdvIntervalFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVrrpExtProtocolVersion": {
+    "name": "hwVrrpExtProtocolVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2": 2,
+          "v3": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVrrpExtSendV3AdverPktMode": {
+    "name": "hwVrrpExtSendV3AdverPktMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2only": 1,
+          "v3only": 2,
+          "v2v3both": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVrrpExtStateChangeReasonString": {
+    "name": "hwVrrpExtStateChangeReasonString",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vrrpExtOperations": {
+    "name": "vrrpExtOperations",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2",
+    "class": "objectidentity"
+  },
+  "hwVrrpTrackInterTable": {
+    "name": "hwVrrpTrackInterTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackInterEntry": {
+    "name": "hwVrrpTrackInterEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterVRID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterStandByIfnet",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterIfnet",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTrackInterVRID": {
+    "name": "hwVrrpTrackInterVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackInterStandByIfnet": {
+    "name": "hwVrrpTrackInterStandByIfnet",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackInterIfnet": {
+    "name": "hwVrrpTrackInterIfnet",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackInterPriReduce": {
+    "name": "hwVrrpTrackInterPriReduce",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackInterOperRowStatus": {
+    "name": "hwVrrpTrackInterOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackInterPriIncrease": {
+    "name": "hwVrrpTrackInterPriIncrease",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdTable": {
+    "name": "hwVrrpTrackBfdTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdEntry": {
+    "name": "hwVrrpTrackBfdEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterVRID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterStandByIfnet",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTrackBfdId": {
+    "name": "hwVrrpTrackBfdId",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdPriReduce": {
+    "name": "hwVrrpTrackBfdPriReduce",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdOperRowStatus": {
+    "name": "hwVrrpTrackBfdOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdPriIncrease": {
+    "name": "hwVrrpTrackBfdPriIncrease",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdType": {
+    "name": "hwVrrpTrackBfdType",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link": 1,
+          "peer": 2,
+          "normal": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdName": {
+    "name": "hwVrrpTrackBfdName",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAdminVrrpCfgTable": {
+    "name": "hwAdminVrrpCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAdminVrrpCfgEntry": {
+    "name": "hwAdminVrrpCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgVRID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAdminVrrpCfgIfIndex": {
+    "name": "hwAdminVrrpCfgIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAdminVrrpCfgVRID": {
+    "name": "hwAdminVrrpCfgVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAdminVrrpCfgOperRowStatus": {
+    "name": "hwAdminVrrpCfgOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAdminVrrpCfgIgnoreIfDownMode": {
+    "name": "hwAdminVrrpCfgIgnoreIfDownMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberTable": {
+    "name": "hwAdminVrrpMemberTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberEntry": {
+    "name": "hwAdminVrrpMemberEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgVRID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberVRID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAdminVrrpMemberIfIndex": {
+    "name": "hwAdminVrrpMemberIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberVRID": {
+    "name": "hwAdminVrrpMemberVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberDiscardPkts": {
+    "name": "hwAdminVrrpMemberDiscardPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberOperRowStatus": {
+    "name": "hwAdminVrrpMemberOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberFlowdownMode": {
+    "name": "hwAdminVrrpMemberFlowdownMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpStatResetTable": {
+    "name": "hwVrrpStatResetTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpStatResetEntry": {
+    "name": "hwVrrpStatResetEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatResetIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatResetVRID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpStatResetIfIndex": {
+    "name": "hwVrrpStatResetIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpStatResetVRID": {
+    "name": "hwVrrpStatResetVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpStatResetFlag": {
+    "name": "hwVrrpStatResetFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAdminVrrpTrackIfTable": {
+    "name": "hwAdminVrrpTrackIfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAdminVrrpTrackIfEntry": {
+    "name": "hwAdminVrrpTrackIfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpTrackIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAdminVrrpTrackIfIndex": {
+    "name": "hwAdminVrrpTrackIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAdminVrrpIfIndex": {
+    "name": "hwAdminVrrpIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAdminVrrpVrid": {
+    "name": "hwAdminVrrpVrid",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAdminVrrpTrackIfRowStatus": {
+    "name": "hwAdminVrrpTrackIfRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmTable": {
+    "name": "hwVrrpTrackEfmTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmEntry": {
+    "name": "hwVrrpTrackEfmEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmVRID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTrackEfmIfIndex": {
+    "name": "hwVrrpTrackEfmIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmIfName": {
+    "name": "hwVrrpTrackEfmIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmVRID": {
+    "name": "hwVrrpTrackEfmVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmIndex": {
+    "name": "hwVrrpTrackEfmIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmName": {
+    "name": "hwVrrpTrackEfmName",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmOperRowStatus": {
+    "name": "hwVrrpTrackEfmOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTriggerRouteTable": {
+    "name": "hwVrrpTriggerRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTriggerRouteEntry": {
+    "name": "hwVrrpTriggerRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTriggerRouteIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTriggerRouteIfIndex": {
+    "name": "hwVrrpTriggerRouteIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTriggerRouteMode": {
+    "name": "hwVrrpTriggerRouteMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTriggerRouteOperRowStatus": {
+    "name": "hwVrrpTriggerRouteOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpCfgTable": {
+    "name": "hwVrrpCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpCfgEntry": {
+    "name": "hwVrrpCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgVrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpCfgIfIndex": {
+    "name": "hwVrrpCfgIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpCfgVrId": {
+    "name": "hwVrrpCfgVrId",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpCfgLinkBfdDownNumber": {
+    "name": "hwVrrpCfgLinkBfdDownNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpCfgMsecAdvInterval": {
+    "name": "hwVrrpCfgMsecAdvInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpExpectState": {
+    "name": "hwVrrpExpectState",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVrrpCfgFastResumeFlag": {
+    "name": "hwVrrpCfgFastResumeFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpCfgOperRowStatus": {
+    "name": "hwVrrpCfgOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpStatExtTable": {
+    "name": "hwVrrpStatExtTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpStatExtEntry": {
+    "name": "hwVrrpStatExtEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtVRID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpStatExtIfIndex": {
+    "name": "hwVrrpStatExtIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpStatExtVRID": {
+    "name": "hwVrrpStatExtVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpStatExtBecomeBackup": {
+    "name": "hwVrrpStatExtBecomeBackup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVrrpStatExtBecomeInit": {
+    "name": "hwVrrpStatExtBecomeInit",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVrrpStatExtCreateTime": {
+    "name": "hwVrrpStatExtCreateTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVrrpStatExtLastChangeTime": {
+    "name": "hwVrrpStatExtLastChangeTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVrrpExtNotifications": {
+    "name": "hwVrrpExtNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.30",
+    "class": "objectidentity"
+  },
+  "hwVrrpExtTrapMasterDown": {
+    "name": "hwVrrpExtTrapMasterDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.30.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VRRP-MIB",
+        "object": "vrrpOperMasterIpAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "VRRP-MIB",
+        "object": "vrrpOperState"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtStateChangeReasonString"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpExtTrapNonMaster": {
+    "name": "hwVrrpExtTrapNonMaster",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.30.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VRRP-MIB",
+        "object": "vrrpOperPrimaryIpAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "VRRP-MIB",
+        "object": "vrrpOperState"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtStateChangeReasonString"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpExtTrapExpectStateChange": {
+    "name": "hwVrrpExtTrapExpectStateChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.30.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExpectState"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtStateChangeReasonString"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpExtTrapExpectStateResume": {
+    "name": "hwVrrpExtTrapExpectStateResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.30.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExpectState"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtStateChangeReasonString"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpExtConformance": {
+    "name": "vrrpExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3",
+    "class": "objectidentity"
+  },
+  "hwvrrpExtCompliances": {
+    "name": "hwvrrpExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1",
+    "class": "objectidentity"
+  },
+  "hwvrrpExtGroups": {
+    "name": "hwvrrpExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1",
+    "class": "objectidentity"
+  },
+  "hwvrrpExtCompliance": {
+    "name": "hwvrrpExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwvrrpExtGlobalGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwvrrpExtTrackInterGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwvrrpExtTrackBFDGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwAdminVrrpCfgGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwAdminVrrpMemberGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwVrrpStatResetGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwAdminVrrpTrackIfGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwVrrpTrackEfmGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwVrrpTriggerRouteGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwVrrpCfgGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      },
+      {
+        "object": "hwVrrpStatExtGroup",
+        "module": "HUAWEI-VRRP-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwvrrpExtGlobalGroup": {
+    "name": "hwvrrpExtGlobalGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtFreeArpInterval"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtVIPPingCtr"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtSsTimer"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtLearnAdvIntervalFlag"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtStateChangeReasonString"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtSendV3AdverPktMode"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtProtocolVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "hwvrrpExtTrackInterGroup": {
+    "name": "hwvrrpExtTrackInterGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterPriReduce"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterPriIncrease"
+      }
+    ],
+    "status": "current"
+  },
+  "hwvrrpExtTrackBFDGroup": {
+    "name": "hwvrrpExtTrackBFDGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdPriReduce"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdPriIncrease"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAdminVrrpCfgGroup": {
+    "name": "hwAdminVrrpCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgOperRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAdminVrrpMemberGroup": {
+    "name": "hwAdminVrrpMemberGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberDiscardPkts"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberFlowdownMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpStatResetGroup": {
+    "name": "hwVrrpStatResetGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatResetFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAdminVrrpTrackIfGroup": {
+    "name": "hwAdminVrrpTrackIfGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpIfIndex"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpVrid"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpTrackIfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTrackEfmGroup": {
+    "name": "hwVrrpTrackEfmGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmIfName"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmName"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmOperRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTriggerRouteGroup": {
+    "name": "hwVrrpTriggerRouteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTriggerRouteMode"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTriggerRouteOperRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpCfgGroup": {
+    "name": "hwVrrpCfgGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgLinkBfdDownNumber"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgMsecAdvInterval"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgFastResumeFlag"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgOperRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpStatExtGroup": {
+    "name": "hwVrrpStatExtGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtBecomeBackup"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtBecomeInit"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtBecomeInit"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtCreateTime"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtLastChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpExtNotificationGroup": {
+    "name": "hwVrrpExtNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtTrapMasterDown"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtTrapNonMaster"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtTrapExpectStateChange"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtTrapExpectStateResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstanceTable": {
+    "name": "hwVrrpTrackIpsecInstanceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstanceEntry": {
+    "name": "hwVrrpTrackIpsecInstanceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackIpsecInstanceVRID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackIpsecInstanceStandByIfnet",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackIpsecInstanceID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstanceVRID": {
+    "name": "hwVrrpTrackIpsecInstanceVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstanceStandByIfnet": {
+    "name": "hwVrrpTrackIpsecInstanceStandByIfnet",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstanceID": {
+    "name": "hwVrrpTrackIpsecInstanceID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstancePriReduce": {
+    "name": "hwVrrpTrackIpsecInstancePriReduce",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstanceOperRowStatus": {
+    "name": "hwVrrpTrackIpsecInstanceOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackNQATable": {
+    "name": "hwVrrpTrackNQATable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackNQAEntry": {
+    "name": "hwVrrpTrackNQAEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackNQAVRID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackNQAStandbyIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackNQAAdminName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackNQATestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTrackNQAVRID": {
+    "name": "hwVrrpTrackNQAVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackNQAStandbyIfIndex": {
+    "name": "hwVrrpTrackNQAStandbyIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackNQAAdminName": {
+    "name": "hwVrrpTrackNQAAdminName",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackNQATestName": {
+    "name": "hwVrrpTrackNQATestName",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackNQAPriReduce": {
+    "name": "hwVrrpTrackNQAPriReduce",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackNQAOperRowStatus": {
+    "name": "hwVrrpTrackNQAOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackRouteTable": {
+    "name": "hwVrrpTrackRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackRouteEntry": {
+    "name": "hwVrrpTrackRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRouteIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRouteVRID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRoutePrefix",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRouteVrf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpTrackRouteVRID": {
+    "name": "hwVrrpTrackRouteVRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackRouteIndex": {
+    "name": "hwVrrpTrackRouteIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackRoutePrefix": {
+    "name": "hwVrrpTrackRoutePrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackRouteMask": {
+    "name": "hwVrrpTrackRouteMask",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackRouteVrf": {
+    "name": "hwVrrpTrackRouteVrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpTrackRoutePriReduce": {
+    "name": "hwVrrpTrackRoutePriReduce",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpTrackRouteOperRowStatus": {
+    "name": "hwVrrpTrackRouteOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwVrrpFastTable": {
+    "name": "hwVrrpFastTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpFastEntry": {
+    "name": "hwVrrpFastEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpFastVrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVrrpFastVrId": {
+    "name": "hwVrrpFastVrId",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVrrpFastState": {
+    "name": "hwVrrpFastState",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VRRP-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-VRRP-EXT-MIB"
+  }
+}

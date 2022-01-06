@@ -1,0 +1,1231 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "experimental",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dvmrpMIB": {
+    "name": "dvmrpMIB",
+    "oid": "1.3.6.1.3.62",
+    "class": "moduleidentity"
+  },
+  "dvmrpMIBObjects": {
+    "name": "dvmrpMIBObjects",
+    "oid": "1.3.6.1.3.62.1",
+    "class": "objectidentity"
+  },
+  "dvmrp": {
+    "name": "dvmrp",
+    "oid": "1.3.6.1.3.62.1.1",
+    "class": "objectidentity"
+  },
+  "dvmrpVersionString": {
+    "name": "dvmrpVersionString",
+    "oid": "1.3.6.1.3.62.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpGenerationId": {
+    "name": "dvmrpGenerationId",
+    "oid": "1.3.6.1.3.62.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNumRoutes": {
+    "name": "dvmrpNumRoutes",
+    "oid": "1.3.6.1.3.62.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpReachableRoutes": {
+    "name": "dvmrpReachableRoutes",
+    "oid": "1.3.6.1.3.62.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpInterfaceTable": {
+    "name": "dvmrpInterfaceTable",
+    "oid": "1.3.6.1.3.62.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpInterfaceEntry": {
+    "name": "dvmrpInterfaceEntry",
+    "oid": "1.3.6.1.3.62.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpInterfaceIfIndex": {
+    "name": "dvmrpInterfaceIfIndex",
+    "oid": "1.3.6.1.3.62.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpInterfaceType": {
+    "name": "dvmrpInterfaceType",
+    "oid": "1.3.6.1.3.62.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel": 1,
+          "srcrt": 2,
+          "querier": 3,
+          "subnet": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tunnel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceOperState": {
+    "name": "dvmrpInterfaceOperState",
+    "oid": "1.3.6.1.3.62.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceLocalAddress": {
+    "name": "dvmrpInterfaceLocalAddress",
+    "oid": "1.3.6.1.3.62.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dvmrpInterfaceRemoteAddress": {
+    "name": "dvmrpInterfaceRemoteAddress",
+    "oid": "1.3.6.1.3.62.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceRemoteSubnetMask": {
+    "name": "dvmrpInterfaceRemoteSubnetMask",
+    "oid": "1.3.6.1.3.62.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceMetric": {
+    "name": "dvmrpInterfaceMetric",
+    "oid": "1.3.6.1.3.62.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dvmrpInterfaceRateLimit": {
+    "name": "dvmrpInterfaceRateLimit",
+    "oid": "1.3.6.1.3.62.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceInPkts": {
+    "name": "dvmrpInterfaceInPkts",
+    "oid": "1.3.6.1.3.62.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceOutPkts": {
+    "name": "dvmrpInterfaceOutPkts",
+    "oid": "1.3.6.1.3.62.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceInOctets": {
+    "name": "dvmrpInterfaceInOctets",
+    "oid": "1.3.6.1.3.62.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceOutOctets": {
+    "name": "dvmrpInterfaceOutOctets",
+    "oid": "1.3.6.1.3.62.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dvmrpInterfaceStatus": {
+    "name": "dvmrpInterfaceStatus",
+    "oid": "1.3.6.1.3.62.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dvmrpInterfaceRcvBadPkts": {
+    "name": "dvmrpInterfaceRcvBadPkts",
+    "oid": "1.3.6.1.3.62.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpInterfaceRcvBadRoutes": {
+    "name": "dvmrpInterfaceRcvBadRoutes",
+    "oid": "1.3.6.1.3.62.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpInterfaceSentRoutes": {
+    "name": "dvmrpInterfaceSentRoutes",
+    "oid": "1.3.6.1.3.62.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpInterfaceMasterKey": {
+    "name": "dvmrpInterfaceMasterKey",
+    "oid": "1.3.6.1.3.62.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dvmrpInterfaceMasterKeyVersion": {
+    "name": "dvmrpInterfaceMasterKeyVersion",
+    "oid": "1.3.6.1.3.62.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dvmrpNeighborTable": {
+    "name": "dvmrpNeighborTable",
+    "oid": "1.3.6.1.3.62.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpNeighborEntry": {
+    "name": "dvmrpNeighborEntry",
+    "oid": "1.3.6.1.3.62.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpNeighborIfIndex": {
+    "name": "dvmrpNeighborIfIndex",
+    "oid": "1.3.6.1.3.62.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborAddress": {
+    "name": "dvmrpNeighborAddress",
+    "oid": "1.3.6.1.3.62.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborUpTime": {
+    "name": "dvmrpNeighborUpTime",
+    "oid": "1.3.6.1.3.62.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborExpiryTime": {
+    "name": "dvmrpNeighborExpiryTime",
+    "oid": "1.3.6.1.3.62.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborGenerationId": {
+    "name": "dvmrpNeighborGenerationId",
+    "oid": "1.3.6.1.3.62.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborMajorVersion": {
+    "name": "dvmrpNeighborMajorVersion",
+    "oid": "1.3.6.1.3.62.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborMinorVersion": {
+    "name": "dvmrpNeighborMinorVersion",
+    "oid": "1.3.6.1.3.62.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborCapabilities": {
+    "name": "dvmrpNeighborCapabilities",
+    "oid": "1.3.6.1.3.62.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "leaf": 0,
+        "prune": 1,
+        "generationID": 2,
+        "mtrace": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborRcvRoutes": {
+    "name": "dvmrpNeighborRcvRoutes",
+    "oid": "1.3.6.1.3.62.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborRcvBadPkts": {
+    "name": "dvmrpNeighborRcvBadPkts",
+    "oid": "1.3.6.1.3.62.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborRcvBadRoutes": {
+    "name": "dvmrpNeighborRcvBadRoutes",
+    "oid": "1.3.6.1.3.62.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpNeighborState": {
+    "name": "dvmrpNeighborState",
+    "oid": "1.3.6.1.3.62.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneway": 1,
+          "active": 2,
+          "ignoring": 3,
+          "down": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpRouteTable": {
+    "name": "dvmrpRouteTable",
+    "oid": "1.3.6.1.3.62.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpRouteEntry": {
+    "name": "dvmrpRouteEntry",
+    "oid": "1.3.6.1.3.62.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteSource",
+        "implied": 0
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteSourceMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpRouteSource": {
+    "name": "dvmrpRouteSource",
+    "oid": "1.3.6.1.3.62.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpRouteSourceMask": {
+    "name": "dvmrpRouteSourceMask",
+    "oid": "1.3.6.1.3.62.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpRouteUpstreamNeighbor": {
+    "name": "dvmrpRouteUpstreamNeighbor",
+    "oid": "1.3.6.1.3.62.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpRouteIfIndex": {
+    "name": "dvmrpRouteIfIndex",
+    "oid": "1.3.6.1.3.62.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpRouteMetric": {
+    "name": "dvmrpRouteMetric",
+    "oid": "1.3.6.1.3.62.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpRouteExpiryTime": {
+    "name": "dvmrpRouteExpiryTime",
+    "oid": "1.3.6.1.3.62.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpRouteUpTime": {
+    "name": "dvmrpRouteUpTime",
+    "oid": "1.3.6.1.3.62.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpRouteNextHopTable": {
+    "name": "dvmrpRouteNextHopTable",
+    "oid": "1.3.6.1.3.62.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpRouteNextHopEntry": {
+    "name": "dvmrpRouteNextHopEntry",
+    "oid": "1.3.6.1.3.62.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteNextHopSource",
+        "implied": 0
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteNextHopSourceMask",
+        "implied": 0
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteNextHopIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpRouteNextHopSource": {
+    "name": "dvmrpRouteNextHopSource",
+    "oid": "1.3.6.1.3.62.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpRouteNextHopSourceMask": {
+    "name": "dvmrpRouteNextHopSourceMask",
+    "oid": "1.3.6.1.3.62.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpRouteNextHopIfIndex": {
+    "name": "dvmrpRouteNextHopIfIndex",
+    "oid": "1.3.6.1.3.62.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvmrpRouteNextHopType": {
+    "name": "dvmrpRouteNextHopType",
+    "oid": "1.3.6.1.3.62.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leaf": 1,
+          "branch": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvmrpAltNetTable": {
+    "name": "dvmrpAltNetTable",
+    "oid": "1.3.6.1.3.62.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dvmrpAltNetEntry": {
+    "name": "dvmrpAltNetEntry",
+    "oid": "1.3.6.1.3.62.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpAltNetIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpAltNetAddress",
+        "implied": 0
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpAltNetMask",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dvmrpAltNetIfIndex": {
+    "name": "dvmrpAltNetIfIndex",
+    "oid": "1.3.6.1.3.62.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dvmrpAltNetAddress": {
+    "name": "dvmrpAltNetAddress",
+    "oid": "1.3.6.1.3.62.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dvmrpAltNetMask": {
+    "name": "dvmrpAltNetMask",
+    "oid": "1.3.6.1.3.62.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dvmrpAltNetStatus": {
+    "name": "dvmrpAltNetStatus",
+    "oid": "1.3.6.1.3.62.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "dvmrpTraps": {
+    "name": "dvmrpTraps",
+    "oid": "1.3.6.1.3.62.1.1.11",
+    "class": "objectidentity"
+  },
+  "dvmrpNeighborLoss": {
+    "name": "dvmrpNeighborLoss",
+    "oid": "1.3.6.1.3.62.1.1.11.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceLocalAddress"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborIfIndex"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborAddress"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborState"
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpNeighborNotPruning": {
+    "name": "dvmrpNeighborNotPruning",
+    "oid": "1.3.6.1.3.62.1.1.11.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceLocalAddress"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborIfIndex"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpMIBConformance": {
+    "name": "dvmrpMIBConformance",
+    "oid": "1.3.6.1.3.62.2",
+    "class": "objectidentity"
+  },
+  "dvmrpMIBCompliances": {
+    "name": "dvmrpMIBCompliances",
+    "oid": "1.3.6.1.3.62.2.1",
+    "class": "objectidentity"
+  },
+  "dvmrpMIBGroups": {
+    "name": "dvmrpMIBGroups",
+    "oid": "1.3.6.1.3.62.2.2",
+    "class": "objectidentity"
+  },
+  "dvmrpMIBCompliance": {
+    "name": "dvmrpMIBCompliance",
+    "oid": "1.3.6.1.3.62.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dvmrpGeneralGroup",
+        "module": "DVMRP-MIB"
+      },
+      {
+        "object": "dvmrpInterfaceGroup",
+        "module": "DVMRP-MIB"
+      },
+      {
+        "object": "dvmrpNeighborGroup",
+        "module": "DVMRP-MIB"
+      },
+      {
+        "object": "dvmrpRoutingGroup",
+        "module": "DVMRP-MIB"
+      },
+      {
+        "object": "dvmrpSecurityGroup",
+        "module": "DVMRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpMIBGroup": {
+    "name": "dvmrpMIBGroup",
+    "oid": "1.3.6.1.3.62.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpVersionString"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpGenerationId"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNumRoutes"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpReachableRoutes"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceType"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceOperState"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceLocalAddress"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceRemoteAddress"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceRemoteSubnetMask"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceMetric"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceRateLimit"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceInPkts"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceOutPkts"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceInOctets"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceOutOctets"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceStatus"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborUpTime"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborExpiryTime"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborGenerationId"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborMajorVersion"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborMinorVersion"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborCapabilities"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteUpstreamNeighbor"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteIfIndex"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteMetric"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteExpiryTime"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteNextHopType"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpAltNetStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dvmrpGeneralGroup": {
+    "name": "dvmrpGeneralGroup",
+    "oid": "1.3.6.1.3.62.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpVersionString"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpGenerationId"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNumRoutes"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpReachableRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpInterfaceGroup": {
+    "name": "dvmrpInterfaceGroup",
+    "oid": "1.3.6.1.3.62.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceLocalAddress"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceMetric"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceStatus"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceRcvBadPkts"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceRcvBadRoutes"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceSentRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpNeighborGroup": {
+    "name": "dvmrpNeighborGroup",
+    "oid": "1.3.6.1.3.62.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborUpTime"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborExpiryTime"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborGenerationId"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborMajorVersion"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborMinorVersion"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborCapabilities"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborRcvRoutes"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborRcvBadPkts"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborRcvBadRoutes"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpNeighborState"
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpRoutingGroup": {
+    "name": "dvmrpRoutingGroup",
+    "oid": "1.3.6.1.3.62.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteUpstreamNeighbor"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteIfIndex"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteMetric"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteExpiryTime"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteUpTime"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpRouteNextHopType"
+      }
+    ],
+    "status": "current"
+  },
+  "dvmrpSecurityGroup": {
+    "name": "dvmrpSecurityGroup",
+    "oid": "1.3.6.1.3.62.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceMasterKey"
+      },
+      {
+        "module": "DVMRP-MIB",
+        "object": "dvmrpInterfaceMasterKeyVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DVMRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DVMRP-MIB"
+  }
+}

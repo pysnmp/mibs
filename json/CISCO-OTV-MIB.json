@@ -1,0 +1,2205 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Cisco2KVlanList"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoOtvMIB": {
+    "name": "ciscoOtvMIB",
+    "oid": "1.3.6.1.4.1.9.9.810",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoOtvMIBNotifs": {
+    "name": "ciscoOtvMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.810.0",
+    "class": "objectidentity"
+  },
+  "ciscoOtvMIBObjects": {
+    "name": "ciscoOtvMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.810.1",
+    "class": "objectidentity"
+  },
+  "ciscoOtvMIBConform": {
+    "name": "ciscoOtvMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.810.2",
+    "class": "objectidentity"
+  },
+  "cotvGlobalObjects": {
+    "name": "cotvGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.810.1.1",
+    "class": "objectidentity"
+  },
+  "cotvOverlayObjects": {
+    "name": "cotvOverlayObjects",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2",
+    "class": "objectidentity"
+  },
+  "cotvAdjacencyObjects": {
+    "name": "cotvAdjacencyObjects",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3",
+    "class": "objectidentity"
+  },
+  "cotvArpNdObjects": {
+    "name": "cotvArpNdObjects",
+    "oid": "1.3.6.1.4.1.9.9.810.1.4",
+    "class": "objectidentity"
+  },
+  "cotvRouteObjects": {
+    "name": "cotvRouteObjects",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5",
+    "class": "objectidentity"
+  },
+  "cotvSiteObjects": {
+    "name": "cotvSiteObjects",
+    "oid": "1.3.6.1.4.1.9.9.810.1.1.1",
+    "class": "objectidentity"
+  },
+  "cotvGlobalStatsObjects": {
+    "name": "cotvGlobalStatsObjects",
+    "oid": "1.3.6.1.4.1.9.9.810.1.1.2",
+    "class": "objectidentity"
+  },
+  "cotvSiteIdAdmin": {
+    "name": "cotvSiteIdAdmin",
+    "oid": "1.3.6.1.4.1.9.9.810.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cotvSiteIdOper": {
+    "name": "cotvSiteIdOper",
+    "oid": "1.3.6.1.4.1.9.9.810.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvSiteVlan": {
+    "name": "cotvSiteVlan",
+    "oid": "1.3.6.1.4.1.9.9.810.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cotvSiteVlanState": {
+    "name": "cotvSiteVlanState",
+    "oid": "1.3.6.1.4.1.9.9.810.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvOverlayTable": {
+    "name": "cotvOverlayTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvOverlayEntry": {
+    "name": "cotvOverlayEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvOverlayNumber": {
+    "name": "cotvOverlayNumber",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvOverlayVpnName": {
+    "name": "cotvOverlayVpnName",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvOverlayVpnState": {
+    "name": "cotvOverlayVpnState",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvOverlayVpnDownReason": {
+    "name": "cotvOverlayVpnDownReason",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "configChange": 1,
+          "missingControlGroup": 2,
+          "missingDataGroupRange": 3,
+          "missingJoinOrSourceInterface": 4,
+          "missingVpnName": 5,
+          "missingJoinInterfaceAddr": 6,
+          "joinInterfaceDown": 7,
+          "adminDown": 8,
+          "deleteHoldDown": 9,
+          "reinit": 10,
+          "missingSiteId": 11,
+          "siteIdMismatch": 12,
+          "missingSourceInterfaceAddr": 13,
+          "sourceInterfaceDown": 14,
+          "changingSiteId": 15,
+          "changingControlGroup": 16,
+          "missingDeviceId": 17,
+          "changingDeviceId": 18,
+          "cleanupInProgress": 19
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvOverlayVlansExtendedFirst2k": {
+    "name": "cotvOverlayVlansExtendedFirst2k",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cisco2KVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayVlansExtendedSecond2k": {
+    "name": "cotvOverlayVlansExtendedSecond2k",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cisco2KVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayControlGroupAddrType": {
+    "name": "cotvOverlayControlGroupAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayControlGroupAddr": {
+    "name": "cotvOverlayControlGroupAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayBroadcastGroupAddrType": {
+    "name": "cotvOverlayBroadcastGroupAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayBroadcastGroupAddr": {
+    "name": "cotvOverlayBroadcastGroupAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayJoinInterface": {
+    "name": "cotvOverlayJoinInterface",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlaySourceInterface": {
+    "name": "cotvOverlaySourceInterface",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayAedCapable": {
+    "name": "cotvOverlayAedCapable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvOverlayAedIncapableReason": {
+    "name": "cotvOverlayAedIncapableReason",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "overlayDown": 1,
+          "siteIdNotConfigured": 2,
+          "siteIdMismatch": 3,
+          "versionMismatch": 4,
+          "siteVlanDown": 5,
+          "noExtendedVlanUp": 6,
+          "noOverlayAdjacencyUp": 7,
+          "lspdbSyncIncomplete": 8,
+          "overlayDownInProgress": 9,
+          "isisControlGroupSyncPending": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvOverlayAdjServerTransportType": {
+    "name": "cotvOverlayAdjServerTransportType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multicastAndUnicast": 1,
+          "unicastOnly": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "multicastAndUnicast",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayAdjServerEnable": {
+    "name": "cotvOverlayAdjServerEnable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayPrimaryAdjServerAddrType": {
+    "name": "cotvOverlayPrimaryAdjServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayPrimaryAdjServerAddr": {
+    "name": "cotvOverlayPrimaryAdjServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlaySecondaryAdjServerAddrType": {
+    "name": "cotvOverlaySecondaryAdjServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlaySecondaryAdjServerAddr": {
+    "name": "cotvOverlaySecondaryAdjServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlaySuppressArpND": {
+    "name": "cotvOverlaySuppressArpND",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayStorageType": {
+    "name": "cotvOverlayStorageType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvOverlayRowStatus": {
+    "name": "cotvOverlayRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvVlansTable": {
+    "name": "cotvVlansTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvVlansEntry": {
+    "name": "cotvVlansEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvVlanId": {
+    "name": "cotvVlanId",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvVlanState": {
+    "name": "cotvVlanState",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvVlanInactiveReason": {
+    "name": "cotvVlanInactiveReason",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "nonAed": 2,
+          "vlanDisabled": 3,
+          "overlayDown": 4,
+          "deleteHoldDown": 5,
+          "hwDown": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvVlanAedAddrType": {
+    "name": "cotvVlanAedAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvVlanAedAddr": {
+    "name": "cotvVlanAedAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvVlanEdgeDevIsAed": {
+    "name": "cotvVlanEdgeDevIsAed",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvDataGroupConfigTable": {
+    "name": "cotvDataGroupConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupConfigEntry": {
+    "name": "cotvDataGroupConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupMcastRangeAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupMcastRangeAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupMcastRangePrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvDataGroupMcastRangeAddrType": {
+    "name": "cotvDataGroupMcastRangeAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupMcastRangeAddr": {
+    "name": "cotvDataGroupMcastRangeAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupMcastRangePrefixLength": {
+    "name": "cotvDataGroupMcastRangePrefixLength",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupStorageType": {
+    "name": "cotvDataGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvDataGroupRowStatus": {
+    "name": "cotvDataGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cotvDataGroupInfoTable": {
+    "name": "cotvDataGroupInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupInfoEntry": {
+    "name": "cotvDataGroupInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupActiveSrcLocation",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupActiveGroupAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupActiveGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupActiveSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupActiveSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupDeliveryGroupAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupDeliveryGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupDeliverySrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupDeliverySrcAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvDataGroupActiveSrcLocation": {
+    "name": "cotvDataGroupActiveSrcLocation",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupVlanId": {
+    "name": "cotvDataGroupVlanId",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupActiveGroupAddrType": {
+    "name": "cotvDataGroupActiveGroupAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupActiveGroupAddr": {
+    "name": "cotvDataGroupActiveGroupAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupActiveSrcAddrType": {
+    "name": "cotvDataGroupActiveSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupActiveSrcAddr": {
+    "name": "cotvDataGroupActiveSrcAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupDeliveryGroupAddrType": {
+    "name": "cotvDataGroupDeliveryGroupAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupDeliveryGroupAddr": {
+    "name": "cotvDataGroupDeliveryGroupAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupDeliverySrcAddrType": {
+    "name": "cotvDataGroupDeliverySrcAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupDeliverySrcAddr": {
+    "name": "cotvDataGroupDeliverySrcAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvDataGroupJoinInterface": {
+    "name": "cotvDataGroupJoinInterface",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvDataGroupLocalActiveSrcState": {
+    "name": "cotvDataGroupLocalActiveSrcState",
+    "oid": "1.3.6.1.4.1.9.9.810.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "local": 2,
+          "remote": 3,
+          "orphan": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvAdjacencyDatabaseTable": {
+    "name": "cotvAdjacencyDatabaseTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvAdjacencyDatabaseEntry": {
+    "name": "cotvAdjacencyDatabaseEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvAdjacentDevAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvAdjacentDevAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvAdjacentDevAddrType": {
+    "name": "cotvAdjacentDevAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvAdjacentDevAddr": {
+    "name": "cotvAdjacentDevAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvAdjacentDevSystemID": {
+    "name": "cotvAdjacentDevSystemID",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvAdjacentDevName": {
+    "name": "cotvAdjacentDevName",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvAdjacentDevState": {
+    "name": "cotvAdjacentDevState",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvAdjacentDevUpTime": {
+    "name": "cotvAdjacentDevUpTime",
+    "oid": "1.3.6.1.4.1.9.9.810.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvArpNdCacheTable": {
+    "name": "cotvArpNdCacheTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvArpNdCacheEntry": {
+    "name": "cotvArpNdCacheEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvArpNdCacheL3AddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvArpNdCacheL3Addr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvArpNdCacheL3AddrType": {
+    "name": "cotvArpNdCacheL3AddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvArpNdCacheL3Addr": {
+    "name": "cotvArpNdCacheL3Addr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvArpNdCacheMacAddr": {
+    "name": "cotvArpNdCacheMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvArpNdCacheAge": {
+    "name": "cotvArpNdCacheAge",
+    "oid": "1.3.6.1.4.1.9.9.810.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvArpNdCacheTimeToExpire": {
+    "name": "cotvArpNdCacheTimeToExpire",
+    "oid": "1.3.6.1.4.1.9.9.810.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvRouteTable": {
+    "name": "cotvRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvRouteEntry": {
+    "name": "cotvRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvRouteVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvRouteMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvRouteVlanId": {
+    "name": "cotvRouteVlanId",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvRouteMacAddr": {
+    "name": "cotvRouteMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvRouteMetric": {
+    "name": "cotvRouteMetric",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvRouteUpTime": {
+    "name": "cotvRouteUpTime",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvRouteOwner": {
+    "name": "cotvRouteOwner",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvRouteNextHopIf": {
+    "name": "cotvRouteNextHopIf",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvRouteNextHopAddrType": {
+    "name": "cotvRouteNextHopAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvRouteNextHopAddr": {
+    "name": "cotvRouteNextHopAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvMcastRouteTable": {
+    "name": "cotvMcastRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteEntry": {
+    "name": "cotvMcastRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteActiveSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteActiveSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteActiveGroupAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteActiveGroupAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvMcastRouteVlanId": {
+    "name": "cotvMcastRouteVlanId",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteActiveSrcAddrType": {
+    "name": "cotvMcastRouteActiveSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteActiveSrcAddr": {
+    "name": "cotvMcastRouteActiveSrcAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteActiveGroupAddrType": {
+    "name": "cotvMcastRouteActiveGroupAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteActiveGroupAddr": {
+    "name": "cotvMcastRouteActiveGroupAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteOwners": {
+    "name": "cotvMcastRouteOwners",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvMcastRouteMetric": {
+    "name": "cotvMcastRouteMetric",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvMcastRouteUpTime": {
+    "name": "cotvMcastRouteUpTime",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoTable": {
+    "name": "cotvMcastRouteInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoEntry": {
+    "name": "cotvMcastRouteInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoActiveSrcAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoActiveSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoActiveGroupAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoActiveGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoIf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cotvMcastRouteInfoVlanId": {
+    "name": "cotvMcastRouteInfoVlanId",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoActiveSrcAddrType": {
+    "name": "cotvMcastRouteInfoActiveSrcAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoActiveSrcAddr": {
+    "name": "cotvMcastRouteInfoActiveSrcAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoActiveGroupAddrType": {
+    "name": "cotvMcastRouteInfoActiveGroupAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoActiveGroupAddr": {
+    "name": "cotvMcastRouteInfoActiveGroupAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoIf": {
+    "name": "cotvMcastRouteInfoIf",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoHostAddrType": {
+    "name": "cotvMcastRouteInfoHostAddrType",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoHostAddr": {
+    "name": "cotvMcastRouteInfoHostAddr",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoProtocolOwners": {
+    "name": "cotvMcastRouteInfoProtocolOwners",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoMetric": {
+    "name": "cotvMcastRouteInfoMetric",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cotvMcastRouteInfoUpTime": {
+    "name": "cotvMcastRouteInfoUpTime",
+    "oid": "1.3.6.1.4.1.9.9.810.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoOtvMIBCompliances": {
+    "name": "ciscoOtvMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.810.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoOtvMIBGroups": {
+    "name": "ciscoOtvMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoOtvMIBCompliance": {
+    "name": "ciscoOtvMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.810.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoOtvSiteGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvOverlayGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvVlanGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvDataGroupConfigGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvDataGroupInfoGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvAdjacencyGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvArpNdCacheGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvRouteGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvMcastRouteGroup",
+        "module": "CISCO-OTV-MIB"
+      },
+      {
+        "object": "ciscoOtvMcastRouteInfoGroup",
+        "module": "CISCO-OTV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvSiteGroup": {
+    "name": "ciscoOtvSiteGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvSiteIdAdmin"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvSiteIdOper"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvSiteVlan"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvSiteVlanState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvOverlayGroup": {
+    "name": "ciscoOtvOverlayGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayVpnName"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayVpnState"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayVpnDownReason"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayVlansExtendedFirst2k"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayVlansExtendedSecond2k"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayControlGroupAddrType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayControlGroupAddr"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayBroadcastGroupAddrType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayBroadcastGroupAddr"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayJoinInterface"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlaySourceInterface"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayAedCapable"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayAedIncapableReason"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayAdjServerTransportType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayAdjServerEnable"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayPrimaryAdjServerAddrType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayPrimaryAdjServerAddr"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlaySecondaryAdjServerAddrType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlaySecondaryAdjServerAddr"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlaySuppressArpND"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayStorageType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvOverlayRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvVlanGroup": {
+    "name": "ciscoOtvVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvVlanState"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvVlanInactiveReason"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvVlanAedAddrType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvVlanAedAddr"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvVlanEdgeDevIsAed"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvDataGroupConfigGroup": {
+    "name": "ciscoOtvDataGroupConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupStorageType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvDataGroupInfoGroup": {
+    "name": "ciscoOtvDataGroupInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupJoinInterface"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvDataGroupLocalActiveSrcState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvAdjacencyGroup": {
+    "name": "ciscoOtvAdjacencyGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvAdjacentDevSystemID"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvAdjacentDevName"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvAdjacentDevState"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvAdjacentDevUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvArpNdCacheGroup": {
+    "name": "ciscoOtvArpNdCacheGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvArpNdCacheMacAddr"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvArpNdCacheAge"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvArpNdCacheTimeToExpire"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvRouteGroup": {
+    "name": "ciscoOtvRouteGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvRouteMetric"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvRouteUpTime"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvRouteOwner"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvRouteNextHopIf"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvRouteNextHopAddrType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvRouteNextHopAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvMcastRouteGroup": {
+    "name": "ciscoOtvMcastRouteGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteOwners"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteMetric"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtvMcastRouteInfoGroup": {
+    "name": "ciscoOtvMcastRouteInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.810.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoHostAddrType"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoHostAddr"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoProtocolOwners"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoMetric"
+      },
+      {
+        "module": "CISCO-OTV-MIB",
+        "object": "cotvMcastRouteInfoUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OTV-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-OTV-MIB"
+  }
+}

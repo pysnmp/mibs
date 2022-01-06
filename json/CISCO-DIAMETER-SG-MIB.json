@@ -1,0 +1,307 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoDiameterSGMIB": {
+    "name": "ciscoDiameterSGMIB",
+    "oid": "1.3.6.1.4.1.9.10.132",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDiameterSGMIBNotifs": {
+    "name": "ciscoDiameterSGMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.10.132.0",
+    "class": "objectidentity"
+  },
+  "ciscoDiameterSGMIBObjects": {
+    "name": "ciscoDiameterSGMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.132.1",
+    "class": "objectidentity"
+  },
+  "ciscoDiameterSGMIBConform": {
+    "name": "ciscoDiameterSGMIBConform",
+    "oid": "1.3.6.1.4.1.9.10.132.2",
+    "class": "objectidentity"
+  },
+  "cdsgHostCfgs": {
+    "name": "cdsgHostCfgs",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1",
+    "class": "objectidentity"
+  },
+  "cdsgServerGroupTable": {
+    "name": "cdsgServerGroupTable",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsgServerGroupEntry": {
+    "name": "cdsgServerGroupEntry",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsgServerGroupIndex": {
+    "name": "cdsgServerGroupIndex",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsgServerGroupName": {
+    "name": "cdsgServerGroupName",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsgServerGroupStorageType": {
+    "name": "cdsgServerGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsgServerGroupRowStatus": {
+    "name": "cdsgServerGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsgServerTable": {
+    "name": "cdsgServerTable",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsgServerEntry": {
+    "name": "cdsgServerEntry",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsgServerIndex": {
+    "name": "cdsgServerIndex",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsgServerName": {
+    "name": "cdsgServerName",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsgServerStorageType": {
+    "name": "cdsgServerStorageType",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsgServerRowStatus": {
+    "name": "cdsgServerRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.132.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoDiameterSGMIBCompliances": {
+    "name": "ciscoDiameterSGMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.132.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDiameterSGMIBGroups": {
+    "name": "ciscoDiameterSGMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.132.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDiameterSGMIBCompliance": {
+    "name": "ciscoDiameterSGMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.132.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDiameterSGHostCfgGroup",
+        "module": "CISCO-DIAMETER-SG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDiameterSGHostCfgGroup": {
+    "name": "ciscoDiameterSGHostCfgGroup",
+    "oid": "1.3.6.1.4.1.9.10.132.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerGroupName"
+      },
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerGroupRowStatus"
+      },
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerGroupStorageType"
+      },
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerName"
+      },
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerRowStatus"
+      },
+      {
+        "module": "CISCO-DIAMETER-SG-MIB",
+        "object": "cdsgServerStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DIAMETER-SG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DIAMETER-SG-MIB"
+  }
+}

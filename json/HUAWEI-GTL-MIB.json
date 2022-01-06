@@ -1,0 +1,1742 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwGtl": {
+    "name": "hwGtl",
+    "oid": "1.3.6.1.4.1.2011.5.25.142",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-07-17 14:41",
+        "description": "V2.28, Add the hwGtlCloudNearDeadline"
+      },
+      {
+        "revision": "2020-07-03 14:41",
+        "description": "V2.27, Add the hwGtlItemExpire,hwGtlItemNearExpire"
+      },
+      {
+        "revision": "2019-07-22 10:00",
+        "description": "V2.26, Modify the description of hwGtlItemTable"
+      },
+      {
+        "revision": "2019-07-17 17:00",
+        "description": "V2.25, Add the hwGtlSnsExpire,hwGtlSnsNearExpire,hwGtlSnsEndDate"
+      },
+      {
+        "revision": "2018-10-08 17:00",
+        "description": "V2.24, Add vb for hwGtlFeatureFunInactive,hwGtlFeatureFunInactiveCleared"
+      },
+      {
+        "revision": "2018-09-15 18:00",
+        "description": "V2.23, Add the hwGtlLicenseStateChange,hwGtlLicensePreviousState,hwGtlLicenseState"
+      },
+      {
+        "revision": "2018-05-23 11:36",
+        "description": "V2.22, Add the hwGtlFeatureFunInactive,hwGtlFeatureFunInactiveCleared"
+      },
+      {
+        "revision": "2018-03-24 16:06",
+        "description": "V2.21, Add the hwGtlStackItemEntry"
+      },
+      {
+        "revision": "2018-01-31 16:26",
+        "description": "V2.20, Add the hwGtlTrialResFeatureEnable,hwGtlTrialResFeatureDisable"
+      },
+      {
+        "revision": "2018-01-08 16:43",
+        "description": "V2.19,Restore deleted hwGtlItemIndex."
+      },
+      {
+        "revision": "2017-12-19 16:43",
+        "description": "V2.18,Add hwGtlItemTrialRemainTime, hwGtlTrialFeatureNearExpire, hwGtlTrialFeatureNearExpireCleared, hwGtlTrialFeatureExpire, and hwGtlTrialFeatureExpireCleared."
+      },
+      {
+        "revision": "2017-11-27 16:43",
+        "description": "V2.17, Modify para of alarm hwGtlResourceUsedUp, hwGtlResourceLack"
+      },
+      {
+        "revision": "2017-10-11 16:43",
+        "description": "V2.16, Modify description of hwGtlItemTable "
+      },
+      {
+        "revision": "2017-08-17 16:43",
+        "description": "V2.15, Modify description of hwGtlChassisID "
+      },
+      {
+        "revision": "2017-08-14 17:00",
+        "description": "V2.14, Modify INDEX of hwGtlItemEntry, Delete hwGtlItemIndex, Add hwGtlItemState, hwGtlItemExpireDay "
+      },
+      {
+        "revision": "2016-07-27 10:37",
+        "description": "V2.13, Modify description of hwGtlFunctionInactive, hwGtlFunctionInactiveCleared, hwGtlResourceLack, hwGtlResourceLackCleared "
+      },
+      {
+        "revision": "2016-06-28 20:20",
+        "description": "V2.12, Add hwGtlAbnormal, hwGtlAbnormalCleared, hwGtlAbnormalReason "
+      },
+      {
+        "revision": "2016-05-19 11:18",
+        "description": "V2.11, Add hwGtlFunctionInactive, hwGtlFunctionInactiveCleared, hwGtlResourceLack, hwGtlResourceLackCleared "
+      },
+      {
+        "revision": "2015-12-31 15:01",
+        "description": "V2.10, Add hwGtlInitial, hwGtlInitialCleared, hwGtlBoardID "
+      },
+      {
+        "revision": "2015-08-10 17:14",
+        "description": "V2.09, Add hwGtlItemInactive, hwGtlItemInactiveCleared "
+      },
+      {
+        "revision": "2015-07-20 11:48",
+        "description": "V2.08, Add hwGtlEsnMismatchCleared"
+      },
+      {
+        "revision": "2015-07-14 15:38",
+        "description": "V2.07, Add hwGtlEsnMismatch"
+      },
+      {
+        "revision": "2015-06-04 15:38",
+        "description": "V2.06, Add hwGtlResourceOverload, hwGtlResourceOverloadCleared"
+      },
+      {
+        "revision": "2014-12-04 15:38",
+        "description": "V2.05, Add the hwGtlTrialFeatureNearDeadline, hwGtlTrialFeatureNearDeadlineCleared"
+      },
+      {
+        "revision": "2014-03-05 14:28",
+        "description": "V2.04, Add the hwGtlTrialFeatureEnable,hwGtlTrialFeatureDisable"
+      },
+      {
+        "revision": "2013-08-19 10:42",
+        "description": "V2.03, Add the hwGtlEmergencyStart,hwGtlEmergencyStop"
+      },
+      {
+        "revision": "2013-08-06 11:34",
+        "description": "V2.02, Add the hwGtlLicenseNotCommeral"
+      },
+      {
+        "revision": "2013-07-17 16:14",
+        "description": "V2.01, Add the hwGtlResourceUsedUpCleared "
+      }
+    ]
+  },
+  "hwGtlMibObjects": {
+    "name": "hwGtlMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1",
+    "class": "objectidentity"
+  },
+  "hwGtlDefaultValueReason": {
+    "name": "hwGtlDefaultValueReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlResourceItem": {
+    "name": "hwGtlResourceItem",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlFeatureName": {
+    "name": "hwGtlFeatureName",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlRemainTime": {
+    "name": "hwGtlRemainTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlVerifyCode": {
+    "name": "hwGtlVerifyCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlActive": {
+    "name": "hwGtlActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwGtlShowActLCSName": {
+    "name": "hwGtlShowActLCSName",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlItemTable": {
+    "name": "hwGtlItemTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGtlItemEntry": {
+    "name": "hwGtlItemEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlItemIndex": {
+    "name": "hwGtlItemIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGtlItemName": {
+    "name": "hwGtlItemName",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlItemControlValue": {
+    "name": "hwGtlItemControlValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlItemUsedValue": {
+    "name": "hwGtlItemUsedValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlItemDescription": {
+    "name": "hwGtlItemDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlItemState": {
+    "name": "hwGtlItemState",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlItemExpireDay": {
+    "name": "hwGtlItemExpireDay",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlItemTrialRemainTime": {
+    "name": "hwGtlItemTrialRemainTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlItemTrialResRemainTime": {
+    "name": "hwGtlItemTrialResRemainTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlChassisID": {
+    "name": "hwGtlChassisID",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlBoardID": {
+    "name": "hwGtlBoardID",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlAbnormalReason": {
+    "name": "hwGtlAbnormalReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startLibrary": 10,
+          "requestRespond": 11,
+          "processMessage": 12,
+          "sendRequest": 13,
+          "processRequest": 14,
+          "licenseAbnormal": 15
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlStackItemTable": {
+    "name": "hwGtlStackItemTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGtlStackItemEntry": {
+    "name": "hwGtlStackItemEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackChassisId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackBoardId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackItemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlStackChassisId": {
+    "name": "hwGtlStackChassisId",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGtlStackBoardId": {
+    "name": "hwGtlStackBoardId",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGtlStackItemIndex": {
+    "name": "hwGtlStackItemIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGtlStackItemName": {
+    "name": "hwGtlStackItemName",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlStackItemControlValue": {
+    "name": "hwGtlStackItemControlValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlStackItemUsedValue": {
+    "name": "hwGtlStackItemUsedValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlStackItemDescription": {
+    "name": "hwGtlStackItemDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlStackItemState": {
+    "name": "hwGtlStackItemState",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlStackItemExpireDay": {
+    "name": "hwGtlStackItemExpireDay",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGtlLicensePreviousState": {
+    "name": "hwGtlLicensePreviousState",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlLicenseState": {
+    "name": "hwGtlLicenseState",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlSnsEndDate": {
+    "name": "hwGtlSnsEndDate",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGtlNotifications": {
+    "name": "hwGtlNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2",
+    "class": "objectidentity"
+  },
+  "hwGtlDefaultValue": {
+    "name": "hwGtlDefaultValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlDefaultValueReason"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlResourceUsedUp": {
+    "name": "hwGtlResourceUsedUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlNearDeadline": {
+    "name": "hwGtlNearDeadline",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlLicenseVerifyFailed": {
+    "name": "hwGtlLicenseVerifyFailed",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlVerifyCode"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlExpired": {
+    "name": "hwGtlExpired",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwGtlItemMismatch": {
+    "name": "hwGtlItemMismatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlDefaultValueCleared": {
+    "name": "hwGtlDefaultValueCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlDefaultValueReason"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlNearDeadlineCleared": {
+    "name": "hwGtlNearDeadlineCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlItemMismatchCleared": {
+    "name": "hwGtlItemMismatchCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlResourceUsedUpCleared": {
+    "name": "hwGtlResourceUsedUpCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlLicenseNotCommeral": {
+    "name": "hwGtlLicenseNotCommeral",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwGtlEmergencyStart": {
+    "name": "hwGtlEmergencyStart",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwGtlEmergencyStop": {
+    "name": "hwGtlEmergencyStop",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwGtlTrialFeatureEnable": {
+    "name": "hwGtlTrialFeatureEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialFeatureDisable": {
+    "name": "hwGtlTrialFeatureDisable",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialFeatureNearDeadline": {
+    "name": "hwGtlTrialFeatureNearDeadline",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialFeatureNearDeadlineCleared": {
+    "name": "hwGtlTrialFeatureNearDeadlineCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlResourceOverload": {
+    "name": "hwGtlResourceOverload",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlResourceOverloadCleared": {
+    "name": "hwGtlResourceOverloadCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlEsnMismatch": {
+    "name": "hwGtlEsnMismatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlEsnMismatchCleared": {
+    "name": "hwGtlEsnMismatchCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlItemInactive": {
+    "name": "hwGtlItemInactive",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlItemInactiveCleared": {
+    "name": "hwGtlItemInactiveCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlInitial": {
+    "name": "hwGtlInitial",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlBoardID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlInitialCleared": {
+    "name": "hwGtlInitialCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlBoardID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlFunctionInactive": {
+    "name": "hwGtlFunctionInactive",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlFunctionInactiveCleared": {
+    "name": "hwGtlFunctionInactiveCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlResourceLack": {
+    "name": "hwGtlResourceLack",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemControlValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemUsedValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlResourceLackCleared": {
+    "name": "hwGtlResourceLackCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemControlValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemUsedValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlAbnormal": {
+    "name": "hwGtlAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlBoardID"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlAbnormalReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlAbnormalCleared": {
+    "name": "hwGtlAbnormalCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlBoardID"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlAbnormalReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialFeatureNearExpire": {
+    "name": "hwGtlTrialFeatureNearExpire",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemTrialRemainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialFeatureNearExpireCleared": {
+    "name": "hwGtlTrialFeatureNearExpireCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemTrialRemainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialFeatureExpire": {
+    "name": "hwGtlTrialFeatureExpire",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialFeatureExpireCleared": {
+    "name": "hwGtlTrialFeatureExpireCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialResFeatureEnable": {
+    "name": "hwGtlTrialResFeatureEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemTrialResRemainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlTrialResFeatureDisable": {
+    "name": "hwGtlTrialResFeatureDisable",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.37",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwGtlFeatureFunInactive": {
+    "name": "hwGtlFeatureFunInactive",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlFeatureFunInactiveCleared": {
+    "name": "hwGtlFeatureFunInactiveCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlLicenseStateChange": {
+    "name": "hwGtlLicenseStateChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlLicensePreviousState"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlLicenseState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlSnsNearExpire": {
+    "name": "hwGtlSnsNearExpire",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlSnsEndDate"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlSnsNearExpireCleared": {
+    "name": "hwGtlSnsNearExpireCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlSnsEndDate"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlSnsExpire": {
+    "name": "hwGtlSnsExpire",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlSnsExpireCleared": {
+    "name": "hwGtlSnsExpireCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlItemNearExpire": {
+    "name": "hwGtlItemNearExpire",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlItemNearExpireResume": {
+    "name": "hwGtlItemNearExpireResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlItemExpire": {
+    "name": "hwGtlItemExpire",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlItemExpireResume": {
+    "name": "hwGtlItemExpireResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlCloudNearDeadline": {
+    "name": "hwGtlCloudNearDeadline",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlCloudNearDeadlineCleared": {
+    "name": "hwGtlCloudNearDeadlineCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlConformance": {
+    "name": "hwGtlConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3",
+    "class": "objectidentity"
+  },
+  "hwGtlCompliances": {
+    "name": "hwGtlCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.1",
+    "class": "objectidentity"
+  },
+  "hwGtlCompliance": {
+    "name": "hwGtlCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwGtlObjectGroup",
+        "module": "HUAWEI-GTL-MIB"
+      },
+      {
+        "object": "hwGtlNotificationGroup",
+        "module": "HUAWEI-GTL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlGroups": {
+    "name": "hwGtlGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.2",
+    "class": "objectidentity"
+  },
+  "hwGtlObjectGroup": {
+    "name": "hwGtlObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlDefaultValueReason"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlVerifyCode"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlActive"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlShowActLCSName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemControlValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemUsedValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemState"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemExpireDay"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemTrialRemainTime"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemTrialResRemainTime"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlBoardID"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlAbnormalReason"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackItemControlValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackItemUsedValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackItemDescription"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackItemState"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlStackItemExpireDay"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlLicensePreviousState"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlLicenseState"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlSnsEndDate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGtlNotificationGroup": {
+    "name": "hwGtlNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlDefaultValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceUsedUp"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlNearDeadline"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlLicenseVerifyFailed"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlExpired"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemMismatch"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlDefaultValueCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlNearDeadlineCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemMismatchCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceUsedUpCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlLicenseNotCommeral"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlEmergencyStart"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlEmergencyStop"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlTrialFeatureEnable"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlTrialFeatureDisable"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlTrialFeatureNearDeadline"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlTrialFeatureNearDeadlineCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceOverload"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceOverloadCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlEsnMismatch"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlEsnMismatchCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemInactive"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemInactiveCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlInitial"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlInitialCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFunctionInactive"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFunctionInactiveCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceLack"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceLackCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlAbnormal"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlAbnormalCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlTrialResFeatureEnable"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlTrialResFeatureDisable"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureFunInactive"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureFunInactiveCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlLicenseStateChange"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlSnsNearExpire"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlSnsNearExpireCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlSnsExpire"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlSnsExpireCleared"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemNearExpire"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemNearExpireResume"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemExpire"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemExpireResume"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlCloudNearDeadline"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlCloudNearDeadlineCleared"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-GTL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-GTL-MIB"
+  }
+}

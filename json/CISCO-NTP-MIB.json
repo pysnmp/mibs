@@ -1,0 +1,1611 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoNtpMIB": {
+    "name": "ciscoNtpMIB",
+    "oid": "1.3.6.1.4.1.9.9.168",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-31 00:00",
+        "description": "Added ciscoNtpSysExtGroup and ciscoNtpSrvNotifGroup groups to support monitoring of NTP server status. ciscoNtpMIBComplianceRev3 is deprecated and replaced by ciscoNtpMIBComplianceRev4."
+      },
+      {
+        "revision": "2004-07-23 00:00",
+        "description": "Added cntpPeersPeerName and cntpPeersPeerType objects to cntpPeerVarTable."
+      },
+      {
+        "revision": "2003-07-29 00:00",
+        "description": "Added cntpPeersPrefPeer object to cntpPeersVarTable."
+      },
+      {
+        "revision": "2003-07-07 00:00",
+        "description": "ciscoNtpPeersGroup is deprecated by ciscoNtpPeersGroupRev1. ciscoNtpMIBCompliance is deprecated by ciscoNtpMIBComplianceRev1."
+      },
+      {
+        "revision": "2002-02-20 00:00",
+        "description": "cntpPeersUpdateTime is deprecated by cntpPeersUpdateTimeRev1."
+      },
+      {
+        "revision": "2000-06-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoNtpMIBNotifs": {
+    "name": "ciscoNtpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.168.0",
+    "class": "objectidentity"
+  },
+  "ciscoNtpMIBObjects": {
+    "name": "ciscoNtpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.168.1",
+    "class": "objectidentity"
+  },
+  "ciscoNtpMIBConformance": {
+    "name": "ciscoNtpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.168.2",
+    "class": "objectidentity"
+  },
+  "cntpSystem": {
+    "name": "cntpSystem",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1",
+    "class": "objectidentity"
+  },
+  "cntpPeers": {
+    "name": "cntpPeers",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2",
+    "class": "objectidentity"
+  },
+  "cntpFilter": {
+    "name": "cntpFilter",
+    "oid": "1.3.6.1.4.1.9.9.168.1.3",
+    "class": "objectidentity"
+  },
+  "NTPTimeStamp": {
+    "name": "NTPTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NTPLeapIndicator": {
+    "name": "NTPLeapIndicator",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noWarning": 0,
+          "addSecond": 1,
+          "subtractSecond": 2,
+          "alarm": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NTPSignedTimeValue": {
+    "name": "NTPSignedTimeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NTPUnsignedTimeValue": {
+    "name": "NTPUnsignedTimeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NTPStratum": {
+    "name": "NTPStratum",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NTPRefId": {
+    "name": "NTPRefId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NTPPollInterval": {
+    "name": "NTPPollInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "NTPAssocIdentifier": {
+    "name": "NTPAssocIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cntpSysLeap": {
+    "name": "cntpSysLeap",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPLeapIndicator",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cntpSysStratum": {
+    "name": "cntpSysStratum",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cntpSysPrecision": {
+    "name": "cntpSysPrecision",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpSysRootDelay": {
+    "name": "cntpSysRootDelay",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpSysRootDispersion": {
+    "name": "cntpSysRootDispersion",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPUnsignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpSysRefId": {
+    "name": "cntpSysRefId",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPRefId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpSysRefTime": {
+    "name": "cntpSysRefTime",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpSysPoll": {
+    "name": "cntpSysPoll",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPPollInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpSysPeer": {
+    "name": "cntpSysPeer",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPAssocIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpSysClock": {
+    "name": "cntpSysClock",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpSysSrvStatus": {
+    "name": "cntpSysSrvStatus",
+    "oid": "1.3.6.1.4.1.9.9.168.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notRunning": 2,
+          "notSynchronized": 3,
+          "syncToLocal": 4,
+          "syncToRefclock": 5,
+          "syncToRemoteServer": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersVarTable": {
+    "name": "cntpPeersVarTable",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cntpPeersVarEntry": {
+    "name": "cntpPeersVarEntry",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cntpPeersAssocId": {
+    "name": "cntpPeersAssocId",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPAssocIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cntpPeersConfigured": {
+    "name": "cntpPeersConfigured",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersPeerAddress": {
+    "name": "cntpPeersPeerAddress",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cntpPeersPeerPort": {
+    "name": "cntpPeersPeerPort",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersHostAddress": {
+    "name": "cntpPeersHostAddress",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cntpPeersHostPort": {
+    "name": "cntpPeersHostPort",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersLeap": {
+    "name": "cntpPeersLeap",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPLeapIndicator",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersMode": {
+    "name": "cntpPeersMode",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 0,
+          "symmetricActive": 1,
+          "symmetricPassive": 2,
+          "client": 3,
+          "server": 4,
+          "broadcast": 5,
+          "reservedControl": 6,
+          "reservedPrivate": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cntpPeersStratum": {
+    "name": "cntpPeersStratum",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersPeerPoll": {
+    "name": "cntpPeersPeerPoll",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPPollInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersHostPoll": {
+    "name": "cntpPeersHostPoll",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPPollInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersPrecision": {
+    "name": "cntpPeersPrecision",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersRootDelay": {
+    "name": "cntpPeersRootDelay",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersRootDispersion": {
+    "name": "cntpPeersRootDispersion",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPUnsignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersRefId": {
+    "name": "cntpPeersRefId",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPRefId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersRefTime": {
+    "name": "cntpPeersRefTime",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersOrgTime": {
+    "name": "cntpPeersOrgTime",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersReceiveTime": {
+    "name": "cntpPeersReceiveTime",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersTransmitTime": {
+    "name": "cntpPeersTransmitTime",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersUpdateTime": {
+    "name": "cntpPeersUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cntpPeersReach": {
+    "name": "cntpPeersReach",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersTimer": {
+    "name": "cntpPeersTimer",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersOffset": {
+    "name": "cntpPeersOffset",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersDelay": {
+    "name": "cntpPeersDelay",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersDispersion": {
+    "name": "cntpPeersDispersion",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPUnsignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersFilterValidEntries": {
+    "name": "cntpPeersFilterValidEntries",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersEntryStatus": {
+    "name": "cntpPeersEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cntpPeersUpdateTimeRev1": {
+    "name": "cntpPeersUpdateTimeRev1",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpPeersPrefPeer": {
+    "name": "cntpPeersPrefPeer",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cntpPeersPeerType": {
+    "name": "cntpPeersPeerType",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cntpPeersPeerName": {
+    "name": "cntpPeersPeerName",
+    "oid": "1.3.6.1.4.1.9.9.168.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cntpFilterRegisterTable": {
+    "name": "cntpFilterRegisterTable",
+    "oid": "1.3.6.1.4.1.9.9.168.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cntpFilterRegisterEntry": {
+    "name": "cntpFilterRegisterEntry",
+    "oid": "1.3.6.1.4.1.9.9.168.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersAssocId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cntpFilterIndex": {
+    "name": "cntpFilterIndex",
+    "oid": "1.3.6.1.4.1.9.9.168.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cntpFilterPeersOffset": {
+    "name": "cntpFilterPeersOffset",
+    "oid": "1.3.6.1.4.1.9.9.168.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpFilterPeersDelay": {
+    "name": "cntpFilterPeersDelay",
+    "oid": "1.3.6.1.4.1.9.9.168.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cntpFilterPeersDispersion": {
+    "name": "cntpFilterPeersDispersion",
+    "oid": "1.3.6.1.4.1.9.9.168.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPUnsignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoNtpSrvStatusChange": {
+    "name": "ciscoNtpSrvStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.168.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysSrvStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpHighPriorityConnFailure": {
+    "name": "ciscoNtpHighPriorityConnFailure",
+    "oid": "1.3.6.1.4.1.9.9.168.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpHighPriorityConnRestore": {
+    "name": "ciscoNtpHighPriorityConnRestore",
+    "oid": "1.3.6.1.4.1.9.9.168.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpGeneralConnFailure": {
+    "name": "ciscoNtpGeneralConnFailure",
+    "oid": "1.3.6.1.4.1.9.9.168.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ciscoNtpGeneralConnRestore": {
+    "name": "ciscoNtpGeneralConnRestore",
+    "oid": "1.3.6.1.4.1.9.9.168.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpMIBCompliances": {
+    "name": "ciscoNtpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.168.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoNtpMIBGroups": {
+    "name": "ciscoNtpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoNtpMIBCompliance": {
+    "name": "ciscoNtpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.168.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNtpSysGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpPeersGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpFilterGroup",
+        "module": "CISCO-NTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNtpMIBComplianceRev1": {
+    "name": "ciscoNtpMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.168.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNtpSysGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpPeersGroupRev1",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpFilterGroup",
+        "module": "CISCO-NTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNtpMIBComplianceRev2": {
+    "name": "ciscoNtpMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.168.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNtpSysGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpPeersGroupRev1",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpFilterGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpPeerExtGroup",
+        "module": "CISCO-NTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNtpMIBComplianceRev3": {
+    "name": "ciscoNtpMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.168.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNtpSysGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpPeersGroupRev2",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpFilterGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpPeerExtGroup",
+        "module": "CISCO-NTP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNtpMIBComplianceRev4": {
+    "name": "ciscoNtpMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.168.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNtpSysGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpPeersGroupRev2",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpFilterGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpPeerExtGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpSysExtGroup",
+        "module": "CISCO-NTP-MIB"
+      },
+      {
+        "object": "ciscoNtpSrvNotifGroup",
+        "module": "CISCO-NTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpSysGroup": {
+    "name": "ciscoNtpSysGroup",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysLeap"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysStratum"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysPrecision"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysRootDelay"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysRootDispersion"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysRefId"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysRefTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysPoll"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysPeer"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysClock"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpPeersGroup": {
+    "name": "ciscoNtpPeersGroup",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersConfigured"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerAddress"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerPort"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostAddress"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostPort"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersLeap"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersMode"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersStratum"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerPoll"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostPoll"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPrecision"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRootDelay"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRootDispersion"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRefId"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRefTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersOrgTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersReceiveTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersTransmitTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersUpdateTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersReach"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersTimer"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersOffset"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersDelay"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersDispersion"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersFilterValidEntries"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersEntryStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNtpFilterGroup": {
+    "name": "ciscoNtpFilterGroup",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpFilterPeersOffset"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpFilterPeersDelay"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpFilterPeersDispersion"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpPeersGroupRev1": {
+    "name": "ciscoNtpPeersGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersConfigured"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerAddress"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerPort"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostAddress"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostPort"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersLeap"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersMode"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersStratum"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerPoll"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostPoll"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPrecision"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRootDelay"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRootDispersion"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRefId"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRefTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersOrgTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersReceiveTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersTransmitTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersUpdateTimeRev1"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersReach"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersTimer"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersOffset"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersDelay"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersDispersion"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersFilterValidEntries"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersEntryStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNtpPeerExtGroup": {
+    "name": "ciscoNtpPeerExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPrefPeer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpPeersGroupRev2": {
+    "name": "ciscoNtpPeersGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersConfigured"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerAddress"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerPort"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostAddress"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostPort"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersLeap"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersMode"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersStratum"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerPoll"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersHostPoll"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPrecision"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRootDelay"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRootDispersion"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRefId"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersRefTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersOrgTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersReceiveTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersTransmitTime"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersUpdateTimeRev1"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersReach"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersTimer"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersOffset"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersDelay"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersDispersion"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersFilterValidEntries"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersEntryStatus"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerName"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpPeersPeerType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpSysExtGroup": {
+    "name": "ciscoNtpSysExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "cntpSysSrvStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNtpSrvNotifGroup": {
+    "name": "ciscoNtpSrvNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.168.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "ciscoNtpSrvStatusChange"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "ciscoNtpHighPriorityConnFailure"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "ciscoNtpHighPriorityConnRestore"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "ciscoNtpGeneralConnFailure"
+      },
+      {
+        "module": "CISCO-NTP-MIB",
+        "object": "ciscoNtpGeneralConnRestore"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-NTP-MIB"
+  }
+}

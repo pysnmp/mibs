@@ -1,0 +1,105 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "equipTypeMib": {
+    "name": "equipTypeMib",
+    "oid": "1.3.6.1.4.1.3373.1103.501",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-04-23 00:00",
+        "description": "Added equipTypeEasyCellGateway (78). "
+      },
+      {
+        "revision": "2014-10-29 00:00",
+        "description": "Added equipTypeALFOplus2 (77). "
+      },
+      {
+        "revision": "2014-06-23 00:00",
+        "description": "Fixed IMPORTS clause. "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version "
+      }
+    ]
+  },
+  "equipTypeList": {
+    "name": "equipTypeList",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5",
+    "class": "objectidentity"
+  },
+  "equipTypeUnknown": {
+    "name": "equipTypeUnknown",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeALFO80HD": {
+    "name": "equipTypeALFO80HD",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeALFO80HDsm": {
+    "name": "equipTypeALFO80HDsm",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeAGS20": {
+    "name": "equipTypeAGS20",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.76",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeALFOplus2": {
+    "name": "equipTypeALFOplus2",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.77",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "equipTypeEasyCellGateway": {
+    "name": "equipTypeEasyCellGateway",
+    "oid": "1.3.6.1.4.1.3373.1103.1.5.78",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-EQUIPTYPE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-EQUIPTYPE-MIB"
+  }
+}

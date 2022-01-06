@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BENU-VLAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-VLAN-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:17:09 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:19:27 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 benuWAG, = mibBuilder.importSymbols("BENU-WAG-MIB", "benuWAG")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
 snmpTraps, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpTraps")
-Integer32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Unsigned32, MibIdentifier, Counter32, Bits, Gauge32, TimeTicks, ModuleIdentity, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Unsigned32", "MibIdentifier", "Counter32", "Bits", "Gauge32", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectIdentity, MibIdentifier, Counter64, Integer32, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, IpAddress, Gauge32, NotificationType, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibIdentifier", "Counter64", "Integer32", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "IpAddress", "Gauge32", "NotificationType", "iso", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 bVLANMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8))
 bVLANMIB.setRevisions(('2015-05-07 00:00', '2015-04-14 00:00', '2015-01-06 00:00', '2014-11-17 00:00', '2014-08-04 00:00', '2014-06-24 00:00', '2014-05-31 00:00',))
 
@@ -136,4 +136,4 @@ if mibBuilder.loadTexts: bVlanCreate.setDescription('A bVlanCreate trap signifie
 bVlanDelete = NotificationType((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8, 0, 4)).setObjects(("BENU-VLAN-MIB", "bVlanPortId"), ("BENU-VLAN-MIB", "bVlanId"))
 if mibBuilder.loadTexts: bVlanDelete.setStatus('current')
 if mibBuilder.loadTexts: bVlanDelete.setDescription('A bVlanDelete trap signifies that the SNMP entity, acting in\n            an agent role, has detected that VLAN is deleted with \n            bVlanIndex')
-mibBuilder.exportSymbols("BENU-VLAN-MIB", bVlanPortIndex=bVlanPortIndex, bVlanTable=bVlanTable, bWagVlanTable=bWagVlanTable, bVlanTotal=bVlanTotal, bVlanPerPortIndex=bVlanPerPortIndex, bWagVlanStatsTable=bWagVlanStatsTable, bWagVlanTotalBytesRcvd=bWagVlanTotalBytesRcvd, bVlanEncapName=bVlanEncapName, bVlanDelete=bVlanDelete, PYSNMP_MODULE_ID=bVLANMIB, bWagVlanPortIndex=bWagVlanPortIndex, bVlanMTU=bVlanMTU, bWagVlanIndex=bWagVlanIndex, bVlanPortTable=bVlanPortTable, bVlanName=bVlanName, bVLANNotifObjects=bVLANNotifObjects, bWagVlanStatsEntry=bWagVlanStatsEntry, bWagVlanStatsPortIndex=bWagVlanStatsPortIndex, bVlanCreate=bVlanCreate, bWagVlanEntry=bWagVlanEntry, bWagVlanStatsIndex=bWagVlanStatsIndex, bWagVlanTotalBytesSent=bWagVlanTotalBytesSent, bWagVlanTotalPktsRcvd=bWagVlanTotalPktsRcvd, bVlanIndex=bVlanIndex, bVlanCurrentNumber=bVlanCurrentNumber, bVLANMIBObjects=bVLANMIBObjects, bVlanAdminStatus=bVlanAdminStatus, bVLANNotifVariables=bVLANNotifVariables, bVlanActive=bVlanActive, bVlanPortEntry=bVlanPortEntry, bVlanId=bVlanId, bVLANMIB=bVLANMIB, bWagVlanTotalPktsSent=bWagVlanTotalPktsSent, bVlanOperStatus=bVlanOperStatus, bVlanAssocSub=bVlanAssocSub, bVlanEncapEnable=bVlanEncapEnable, bVlanPortId=bVlanPortId, bVlanEntry=bVlanEntry, bWagVlanSubscriberCount=bWagVlanSubscriberCount, bVlanEncapDisable=bVlanEncapDisable)
+mibBuilder.exportSymbols("BENU-VLAN-MIB", bVlanAssocSub=bVlanAssocSub, bVlanPortTable=bVlanPortTable, bWagVlanTotalPktsSent=bWagVlanTotalPktsSent, bVlanPortEntry=bVlanPortEntry, PYSNMP_MODULE_ID=bVLANMIB, bWagVlanTotalBytesSent=bWagVlanTotalBytesSent, bVlanDelete=bVlanDelete, bVlanEncapDisable=bVlanEncapDisable, bWagVlanEntry=bWagVlanEntry, bVlanCurrentNumber=bVlanCurrentNumber, bVlanName=bVlanName, bVLANNotifObjects=bVLANNotifObjects, bVlanEntry=bVlanEntry, bWagVlanStatsPortIndex=bWagVlanStatsPortIndex, bWagVlanTotalPktsRcvd=bWagVlanTotalPktsRcvd, bVlanEncapEnable=bVlanEncapEnable, bWagVlanTotalBytesRcvd=bWagVlanTotalBytesRcvd, bVlanCreate=bVlanCreate, bVlanMTU=bVlanMTU, bWagVlanPortIndex=bWagVlanPortIndex, bWagVlanTable=bWagVlanTable, bVlanTable=bVlanTable, bWagVlanSubscriberCount=bWagVlanSubscriberCount, bWagVlanStatsTable=bWagVlanStatsTable, bVlanPortId=bVlanPortId, bVlanId=bVlanId, bVlanPortIndex=bVlanPortIndex, bVLANMIB=bVLANMIB, bVlanActive=bVlanActive, bWagVlanStatsIndex=bWagVlanStatsIndex, bVlanEncapName=bVlanEncapName, bVLANMIBObjects=bVLANMIBObjects, bVlanIndex=bVlanIndex, bVlanOperStatus=bVlanOperStatus, bWagVlanStatsEntry=bWagVlanStatsEntry, bVLANNotifVariables=bVLANNotifVariables, bWagVlanIndex=bWagVlanIndex, bVlanPerPortIndex=bVlanPerPortIndex, bVlanTotal=bVlanTotal, bVlanAdminStatus=bVlanAdminStatus)

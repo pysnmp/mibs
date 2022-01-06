@@ -1,0 +1,847 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoSmeMIB": {
+    "name": "ciscoSmeMIB",
+    "oid": "1.3.6.1.4.1.9.9.632",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-28 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "ciscoSmeMIBNotifs": {
+    "name": "ciscoSmeMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.632.0",
+    "class": "objectidentity"
+  },
+  "ciscoSmeMIBObjects": {
+    "name": "ciscoSmeMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.632.1",
+    "class": "objectidentity"
+  },
+  "ciscoSmeMIBConform": {
+    "name": "ciscoSmeMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.632.2",
+    "class": "objectidentity"
+  },
+  "cSmeConfig": {
+    "name": "cSmeConfig",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1",
+    "class": "objectidentity"
+  },
+  "CiscoSmeInterfaceStatus": {
+    "name": "CiscoSmeInterfaceStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "initializing": 2,
+          "offline": 3,
+          "online": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoSmeClusterStatus": {
+    "name": "CiscoSmeClusterStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inactive": 2,
+          "degraded": 3,
+          "recovery": 4,
+          "active": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoSmeClusterIndex": {
+    "name": "CiscoSmeClusterIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cSmeClusterTable": {
+    "name": "cSmeClusterTable",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeClusterEntry": {
+    "name": "cSmeClusterEntry",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSmeClusterId": {
+    "name": "cSmeClusterId",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSmeClusterIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeClusterName": {
+    "name": "cSmeClusterName",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeClusterState": {
+    "name": "cSmeClusterState",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSmeClusterStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeClusterMasterInetAddrType": {
+    "name": "cSmeClusterMasterInetAddrType",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeClusterMasterInetAddr": {
+    "name": "cSmeClusterMasterInetAddr",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeClusterStorageType": {
+    "name": "cSmeClusterStorageType",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeClusterRowStatus": {
+    "name": "cSmeClusterRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeClusterMembersTable": {
+    "name": "cSmeClusterMembersTable",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeClusterMembersEntry": {
+    "name": "cSmeClusterMembersEntry",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeMemberInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeMemberInetAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSmeMemberInetAddrType": {
+    "name": "cSmeMemberInetAddrType",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeMemberInetAddr": {
+    "name": "cSmeMemberInetAddr",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeFabric": {
+    "name": "cSmeFabric",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeIsMemberLocal": {
+    "name": "cSmeIsMemberLocal",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeMemberIsMaster": {
+    "name": "cSmeMemberIsMaster",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeClusterMemberStorageType": {
+    "name": "cSmeClusterMemberStorageType",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeClusterMemberRowStatus": {
+    "name": "cSmeClusterMemberRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeClusterMemberIfTable": {
+    "name": "cSmeClusterMemberIfTable",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeClusterMemberIfEntry": {
+    "name": "cSmeClusterMemberIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeMemberInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeMemberInetAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSmeClusterInterfaceIndex": {
+    "name": "cSmeClusterInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeClusterInterfaceState": {
+    "name": "cSmeClusterInterfaceState",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSmeInterfaceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeInterfaceTable": {
+    "name": "cSmeInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeInterfaceEntry": {
+    "name": "cSmeInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSmeInterfaceIndex": {
+    "name": "cSmeInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeInterfaceState": {
+    "name": "cSmeInterfaceState",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSmeInterfaceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeInterfaceClusterId": {
+    "name": "cSmeInterfaceClusterId",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSmeClusterIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeInterfaceStorageType": {
+    "name": "cSmeInterfaceStorageType",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeInterfaceRowStatus": {
+    "name": "cSmeInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeHostPortTable": {
+    "name": "cSmeHostPortTable",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeHostPortEntry": {
+    "name": "cSmeHostPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeHostPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSmeHostPortName": {
+    "name": "cSmeHostPortName",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSmeHostPortClusterId": {
+    "name": "cSmeHostPortClusterId",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSmeClusterIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeHostPortStorageType": {
+    "name": "cSmeHostPortStorageType",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeHostPortRowStatus": {
+    "name": "cSmeHostPortRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSmeConfigTableLastChanged": {
+    "name": "cSmeConfigTableLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeHostPortTableLastChanged": {
+    "name": "cSmeHostPortTableLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSmeNotifyEnable": {
+    "name": "cSmeNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.632.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoSmeInterfaceCreate": {
+    "name": "ciscoSmeInterfaceCreate",
+    "oid": "1.3.6.1.4.1.9.9.632.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmeInterfaceDelete": {
+    "name": "ciscoSmeInterfaceDelete",
+    "oid": "1.3.6.1.4.1.9.9.632.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmeClusterNewMaster": {
+    "name": "ciscoSmeClusterNewMaster",
+    "oid": "1.3.6.1.4.1.9.9.632.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterName"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterMasterInetAddrType"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterMasterInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmeMIBCompliances": {
+    "name": "ciscoSmeMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.632.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSmeMIBGroups": {
+    "name": "ciscoSmeMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.632.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSmeMIBCompliance": {
+    "name": "ciscoSmeMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.632.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSmeConfigGroup",
+        "module": "CISCO-SME-MIB"
+      },
+      {
+        "object": "ciscoSmeNotifControlGroup",
+        "module": "CISCO-SME-MIB"
+      },
+      {
+        "object": "ciscoSmeNotifsGroup",
+        "module": "CISCO-SME-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmeConfigGroup": {
+    "name": "ciscoSmeConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.632.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterState"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterMasterInetAddrType"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterMasterInetAddr"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeIsMemberLocal"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterInterfaceState"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeInterfaceState"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeInterfaceClusterId"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeHostPortClusterId"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeConfigTableLastChanged"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeHostPortTableLastChanged"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeFabric"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterName"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeInterfaceRowStatus"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterRowStatus"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeMemberIsMaster"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterMemberRowStatus"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterStorageType"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeClusterMemberStorageType"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeInterfaceStorageType"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeHostPortStorageType"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeHostPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmeNotifControlGroup": {
+    "name": "ciscoSmeNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.632.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "cSmeNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSmeNotifsGroup": {
+    "name": "ciscoSmeNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.632.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "ciscoSmeInterfaceCreate"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "ciscoSmeInterfaceDelete"
+      },
+      {
+        "module": "CISCO-SME-MIB",
+        "object": "ciscoSmeClusterNewMaster"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SME-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SME-MIB"
+  }
+}

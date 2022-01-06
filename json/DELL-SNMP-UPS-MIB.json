@@ -1,0 +1,1536 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "dell": {
+    "name": "dell",
+    "oid": "1.3.6.1.4.1.674",
+    "class": "objectidentity"
+  },
+  "upsdell": {
+    "name": "upsdell",
+    "oid": "1.3.6.1.4.1.674.10902",
+    "class": "objectidentity"
+  },
+  "hardware": {
+    "name": "hardware",
+    "oid": "1.3.6.1.4.1.674.10902.2",
+    "class": "objectidentity"
+  },
+  "productID": {
+    "name": "productID",
+    "oid": "1.3.6.1.4.1.674.10902.2.100",
+    "class": "objectidentity"
+  },
+  "productStatus": {
+    "name": "productStatus",
+    "oid": "1.3.6.1.4.1.674.10902.2.110",
+    "class": "objectidentity"
+  },
+  "physical": {
+    "name": "physical",
+    "oid": "1.3.6.1.4.1.674.10902.2.120",
+    "class": "objectidentity"
+  },
+  "logical": {
+    "name": "logical",
+    "oid": "1.3.6.1.4.1.674.10902.2.130",
+    "class": "objectidentity"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.674.10902.2.140",
+    "class": "objectidentity"
+  },
+  "physicalIdent": {
+    "name": "physicalIdent",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.1",
+    "class": "objectidentity"
+  },
+  "physicalOutput": {
+    "name": "physicalOutput",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2",
+    "class": "objectidentity"
+  },
+  "physicalRectifier": {
+    "name": "physicalRectifier",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.3",
+    "class": "objectidentity"
+  },
+  "physicalUPS": {
+    "name": "physicalUPS",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.4",
+    "class": "objectidentity"
+  },
+  "physicalBattery": {
+    "name": "physicalBattery",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.5",
+    "class": "objectidentity"
+  },
+  "physicalLoadSegment": {
+    "name": "physicalLoadSegment",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.6",
+    "class": "objectidentity"
+  },
+  "physicalEnvironment": {
+    "name": "physicalEnvironment",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7",
+    "class": "objectidentity"
+  },
+  "productIDDisplayName": {
+    "name": "productIDDisplayName",
+    "oid": "1.3.6.1.4.1.674.10902.2.100.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productIDDescription": {
+    "name": "productIDDescription",
+    "oid": "1.3.6.1.4.1.674.10902.2.100.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productIDVendor": {
+    "name": "productIDVendor",
+    "oid": "1.3.6.1.4.1.674.10902.2.100.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productIDVersion": {
+    "name": "productIDVersion",
+    "oid": "1.3.6.1.4.1.674.10902.2.100.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productIDBuildNumber": {
+    "name": "productIDBuildNumber",
+    "oid": "1.3.6.1.4.1.674.10902.2.100.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productIDURL": {
+    "name": "productIDURL",
+    "oid": "1.3.6.1.4.1.674.10902.2.100.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productIDDeviceNetworkName": {
+    "name": "productIDDeviceNetworkName",
+    "oid": "1.3.6.1.4.1.674.10902.2.100.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productStatusGlobalStatus": {
+    "name": "productStatusGlobalStatus",
+    "oid": "1.3.6.1.4.1.674.10902.2.110.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "ok": 3,
+          "non-critical": 4,
+          "critical": 5,
+          "non-recoverable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productStatusLastGlobalStatus": {
+    "name": "productStatusLastGlobalStatus",
+    "oid": "1.3.6.1.4.1.674.10902.2.110.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productStatusTimeStamp": {
+    "name": "productStatusTimeStamp",
+    "oid": "1.3.6.1.4.1.674.10902.2.110.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productStatusGetTimeOut": {
+    "name": "productStatusGetTimeOut",
+    "oid": "1.3.6.1.4.1.674.10902.2.110.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "productStatusRefreshRate": {
+    "name": "productStatusRefreshRate",
+    "oid": "1.3.6.1.4.1.674.10902.2.110.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "productStatusGeneratingTrapFlag": {
+    "name": "productStatusGeneratingTrapFlag",
+    "oid": "1.3.6.1.4.1.674.10902.2.110.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "physicalIdentFamilyName": {
+    "name": "physicalIdentFamilyName",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalIdentSerialNumber": {
+    "name": "physicalIdentSerialNumber",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalIdentConverterType": {
+    "name": "physicalIdentConverterType",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lineInteractive": 1,
+          "onLine": 2,
+          "onLineUnitaryParallel": 3,
+          "onLineParallelWithNS": 4,
+          "onLineHotStandbyRedundancy": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalIdentReferenceNumber": {
+    "name": "physicalIdentReferenceNumber",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputInstantHeadroom": {
+    "name": "physicalOutputInstantHeadroom",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputPeakHeadroom": {
+    "name": "physicalOutputPeakHeadroom",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputPeakHeadroomTimestamp": {
+    "name": "physicalOutputPeakHeadroomTimestamp",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputPeakConsumption": {
+    "name": "physicalOutputPeakConsumption",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputPeakConsumptionTimestamp": {
+    "name": "physicalOutputPeakConsumptionTimestamp",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputPresentConsumption": {
+    "name": "physicalOutputPresentConsumption",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputCumulativeConsumption": {
+    "name": "physicalOutputCumulativeConsumption",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputCumulativeConsumptionTimestamp": {
+    "name": "physicalOutputCumulativeConsumptionTimestamp",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalOutputVA": {
+    "name": "physicalOutputVA",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalRectifierPosVoltage": {
+    "name": "physicalRectifierPosVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalRectifierNegVoltage": {
+    "name": "physicalRectifierNegVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalUPSDateTime": {
+    "name": "physicalUPSDateTime",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalUPSAlarmsStatus": {
+    "name": "physicalUPSAlarmsStatus",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalUPSRuntimeToShutdown": {
+    "name": "physicalUPSRuntimeToShutdown",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalUPSOutpoutSwitchable": {
+    "name": "physicalUPSOutpoutSwitchable",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchable": 1,
+          "notSwitchable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalBatteryABMStatus": {
+    "name": "physicalBatteryABMStatus",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abmCharging": 1,
+          "abmDischarging": 2,
+          "abmFloating": 3,
+          "abmResting": 4,
+          "abmOff": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalBatteryTestStatus": {
+    "name": "physicalBatteryTestStatus",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "donePassed": 1,
+          "doneWarning": 2,
+          "doneError": 3,
+          "aborted": 4,
+          "inProgress": 5,
+          "noTestIniated": 6,
+          "testScheduled": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalBatterySecondsRemaining": {
+    "name": "physicalBatterySecondsRemaining",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalLoadSegment1ShutdownAfterDelay": {
+    "name": "physicalLoadSegment1ShutdownAfterDelay",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalLoadSegment1StartupAfterDelay": {
+    "name": "physicalLoadSegment1StartupAfterDelay",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalLoadSegment2ShutdownAfterDelay": {
+    "name": "physicalLoadSegment2ShutdownAfterDelay",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalLoadSegment2StartupAfterDelay": {
+    "name": "physicalLoadSegment2StartupAfterDelay",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalLoadSegment1RuntimeToShutdown": {
+    "name": "physicalLoadSegment1RuntimeToShutdown",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalLoadSegment2RuntimeToShutdown": {
+    "name": "physicalLoadSegment2RuntimeToShutdown",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentSensorPresent": {
+    "name": "physicalEnvironmentSensorPresent",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentSensorName": {
+    "name": "physicalEnvironmentSensorName",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValues": {
+    "name": "physicalEnvironmentValues",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3",
+    "class": "objectidentity"
+  },
+  "physicalEnvironmentValuesTemperatureUnit": {
+    "name": "physicalEnvironmentValuesTemperatureUnit",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 1,
+          "fahrenheit": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValuesTemperature": {
+    "name": "physicalEnvironmentValuesTemperature",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValuesHumidity": {
+    "name": "physicalEnvironmentValuesHumidity",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValuesTemperatureLow": {
+    "name": "physicalEnvironmentValuesTemperatureLow",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValuesTemperatureHigh": {
+    "name": "physicalEnvironmentValuesTemperatureHigh",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValuesTemperatureHysteresis": {
+    "name": "physicalEnvironmentValuesTemperatureHysteresis",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValueshHumidityLow": {
+    "name": "physicalEnvironmentValueshHumidityLow",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValuesHumidityHigh": {
+    "name": "physicalEnvironmentValuesHumidityHigh",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentValuesHumidityHysteresis": {
+    "name": "physicalEnvironmentValuesHumidityHysteresis",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentInputTable": {
+    "name": "physicalEnvironmentInputTable",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentInputEntry": {
+    "name": "physicalEnvironmentInputEntry",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-SNMP-UPS-MIB",
+        "object": "physicalEnvironmentInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "physicalEnvironmentInputIndex": {
+    "name": "physicalEnvironmentInputIndex",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentInputName": {
+    "name": "physicalEnvironmentInputName",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 27
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentInputState": {
+    "name": "physicalEnvironmentInputState",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opened": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentInputOpenedState": {
+    "name": "physicalEnvironmentInputOpenedState",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalEnvironmentInputClosedState": {
+    "name": "physicalEnvironmentInputClosedState",
+    "oid": "1.3.6.1.4.1.674.10902.2.120.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapInverterOverVoltage": {
+    "name": "trapInverterOverVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.1",
+    "class": "notificationtype"
+  },
+  "trapInverterOverVoltageOk": {
+    "name": "trapInverterOverVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.2",
+    "class": "notificationtype"
+  },
+  "trapInverterUnderVoltage": {
+    "name": "trapInverterUnderVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.3",
+    "class": "notificationtype"
+  },
+  "trapInverterUnderVoltageOk": {
+    "name": "trapInverterUnderVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.4",
+    "class": "notificationtype"
+  },
+  "trapBypassFrequencyOutOfRange": {
+    "name": "trapBypassFrequencyOutOfRange",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.5",
+    "class": "notificationtype"
+  },
+  "trapBypassFrequencyOutOfRangeOk": {
+    "name": "trapBypassFrequencyOutOfRangeOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.6",
+    "class": "notificationtype"
+  },
+  "trapOnBuck": {
+    "name": "trapOnBuck",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.7",
+    "class": "notificationtype"
+  },
+  "trapReturnFromBuck": {
+    "name": "trapReturnFromBuck",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.8",
+    "class": "notificationtype"
+  },
+  "trapOnBoost": {
+    "name": "trapOnBoost",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.9",
+    "class": "notificationtype"
+  },
+  "trapReturnFromBoost": {
+    "name": "trapReturnFromBoost",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.10",
+    "class": "notificationtype"
+  },
+  "trapInputOverVoltage": {
+    "name": "trapInputOverVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.11",
+    "class": "notificationtype"
+  },
+  "trapInputOverVoltageOk": {
+    "name": "trapInputOverVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.12",
+    "class": "notificationtype"
+  },
+  "trapInputUnderVoltage": {
+    "name": "trapInputUnderVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.13",
+    "class": "notificationtype"
+  },
+  "trapInputUnderVoltageOk": {
+    "name": "trapInputUnderVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.14",
+    "class": "notificationtype"
+  },
+  "trapInputFrequencyOutOfRange": {
+    "name": "trapInputFrequencyOutOfRange",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.15",
+    "class": "notificationtype"
+  },
+  "trapInputFrequencyOutOfRangeOk": {
+    "name": "trapInputFrequencyOutOfRangeOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.16",
+    "class": "notificationtype"
+  },
+  "trapRemoteEmergencyPowerOff": {
+    "name": "trapRemoteEmergencyPowerOff",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.17",
+    "class": "notificationtype"
+  },
+  "trapReturnFromEmergencyPowerOff": {
+    "name": "trapReturnFromEmergencyPowerOff",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.18",
+    "class": "notificationtype"
+  },
+  "trapLevel1Overload": {
+    "name": "trapLevel1Overload",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.19",
+    "class": "notificationtype"
+  },
+  "trapLevel1OverloadOk": {
+    "name": "trapLevel1OverloadOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.20",
+    "class": "notificationtype"
+  },
+  "trapLevel2Overload": {
+    "name": "trapLevel2Overload",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.21",
+    "class": "notificationtype"
+  },
+  "trapLevel2OverloadOk": {
+    "name": "trapLevel2OverloadOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.22",
+    "class": "notificationtype"
+  },
+  "trapLevel3Overload": {
+    "name": "trapLevel3Overload",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.23",
+    "class": "notificationtype"
+  },
+  "trapLevel3OverloadOk": {
+    "name": "trapLevel3OverloadOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.24",
+    "class": "notificationtype"
+  },
+  "trapPosDCLinkOverVoltage": {
+    "name": "trapPosDCLinkOverVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.25",
+    "class": "notificationtype"
+  },
+  "trapPosDCLinkOverVoltageOk": {
+    "name": "trapPosDCLinkOverVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.26",
+    "class": "notificationtype"
+  },
+  "trapPosDCLinkUnderVoltage": {
+    "name": "trapPosDCLinkUnderVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.27",
+    "class": "notificationtype"
+  },
+  "trapPosDCLinkUnderVoltageOk": {
+    "name": "trapPosDCLinkUnderVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.28",
+    "class": "notificationtype"
+  },
+  "trapNegDCLinkOverVoltage": {
+    "name": "trapNegDCLinkOverVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.29",
+    "class": "notificationtype"
+  },
+  "trapNegDCLinkOverVoltageOk": {
+    "name": "trapNegDCLinkOverVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.30",
+    "class": "notificationtype"
+  },
+  "trapNegDCLinkUnderVoltage": {
+    "name": "trapNegDCLinkUnderVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.31",
+    "class": "notificationtype"
+  },
+  "trapNegDCLinkUnderVoltageOk": {
+    "name": "trapNegDCLinkUnderVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.32",
+    "class": "notificationtype"
+  },
+  "trapRectifierFault": {
+    "name": "trapRectifierFault",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.33",
+    "class": "notificationtype"
+  },
+  "trapRectifierOk": {
+    "name": "trapRectifierOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.34",
+    "class": "notificationtype"
+  },
+  "trapInverterFault": {
+    "name": "trapInverterFault",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.35",
+    "class": "notificationtype"
+  },
+  "trapInverterOk": {
+    "name": "trapInverterOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.36",
+    "class": "notificationtype"
+  },
+  "trapChargerFailure": {
+    "name": "trapChargerFailure",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.37",
+    "class": "notificationtype"
+  },
+  "trapChargerOk": {
+    "name": "trapChargerOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.38",
+    "class": "notificationtype"
+  },
+  "trapEepromFailure": {
+    "name": "trapEepromFailure",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.39",
+    "class": "notificationtype"
+  },
+  "trapEepromOk": {
+    "name": "trapEepromOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.40",
+    "class": "notificationtype"
+  },
+  "trapShutdownImminent": {
+    "name": "trapShutdownImminent",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.41",
+    "class": "notificationtype"
+  },
+  "trapShutdownImminentOver": {
+    "name": "trapShutdownImminentOver",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.42",
+    "class": "notificationtype"
+  },
+  "trapBatteryLow": {
+    "name": "trapBatteryLow",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.43",
+    "class": "notificationtype"
+  },
+  "trapBatteryOk": {
+    "name": "trapBatteryOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.44",
+    "class": "notificationtype"
+  },
+  "trapOutputShortCircuit": {
+    "name": "trapOutputShortCircuit",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.45",
+    "class": "notificationtype"
+  },
+  "trapOutputReturnFromShortCircuit": {
+    "name": "trapOutputReturnFromShortCircuit",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.46",
+    "class": "notificationtype"
+  },
+  "trapUtilityNotPresent": {
+    "name": "trapUtilityNotPresent",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.47",
+    "class": "notificationtype"
+  },
+  "trapUtilityPresent": {
+    "name": "trapUtilityPresent",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.48",
+    "class": "notificationtype"
+  },
+  "trapBatteryOverVoltage": {
+    "name": "trapBatteryOverVoltage",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.49",
+    "class": "notificationtype"
+  },
+  "trapBatteryOverVoltageOk": {
+    "name": "trapBatteryOverVoltageOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.50",
+    "class": "notificationtype"
+  },
+  "trapHeatsinkOvertemperature": {
+    "name": "trapHeatsinkOvertemperature",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.51",
+    "class": "notificationtype"
+  },
+  "trapHeatsinkOvertemperatureOk": {
+    "name": "trapHeatsinkOvertemperatureOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.52",
+    "class": "notificationtype"
+  },
+  "trapBypassNotAvailable": {
+    "name": "trapBypassNotAvailable",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.53",
+    "class": "notificationtype"
+  },
+  "trapBypassNotAvailableOk": {
+    "name": "trapBypassNotAvailableOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.54",
+    "class": "notificationtype"
+  },
+  "trapOnManualBypass": {
+    "name": "trapOnManualBypass",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.55",
+    "class": "notificationtype"
+  },
+  "trapUPSOnBattery": {
+    "name": "trapUPSOnBattery",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.57",
+    "class": "notificationtype"
+  },
+  "trapUPSReturnFromBattery": {
+    "name": "trapUPSReturnFromBattery",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.58",
+    "class": "notificationtype"
+  },
+  "trapUPSOnBypass": {
+    "name": "trapUPSOnBypass",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.59",
+    "class": "notificationtype"
+  },
+  "trapUPSReturnFromBypass": {
+    "name": "trapUPSReturnFromBypass",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.60",
+    "class": "notificationtype"
+  },
+  "trapBatteryTestInProgress": {
+    "name": "trapBatteryTestInProgress",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.61",
+    "class": "notificationtype"
+  },
+  "trapBatteryTestDone": {
+    "name": "trapBatteryTestDone",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-SNMP-UPS-MIB",
+        "object": "physicalBatteryTestStatus"
+      }
+    ]
+  },
+  "trapBatteryNeedReplacement": {
+    "name": "trapBatteryNeedReplacement",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.63",
+    "class": "notificationtype"
+  },
+  "trapBatteryReplacementDone": {
+    "name": "trapBatteryReplacementDone",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.64",
+    "class": "notificationtype"
+  },
+  "trapFanFailure": {
+    "name": "trapFanFailure",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.65",
+    "class": "notificationtype"
+  },
+  "trapFanOk": {
+    "name": "trapFanOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.66",
+    "class": "notificationtype"
+  },
+  "trapSiteWiringFault": {
+    "name": "trapSiteWiringFault",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.67",
+    "class": "notificationtype"
+  },
+  "trapSiteWiringOk": {
+    "name": "trapSiteWiringOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.68",
+    "class": "notificationtype"
+  },
+  "trapBatteryDisconnected": {
+    "name": "trapBatteryDisconnected",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.69",
+    "class": "notificationtype"
+  },
+  "trapBatteryConnected": {
+    "name": "trapBatteryConnected",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.70",
+    "class": "notificationtype"
+  },
+  "trapUPSOff": {
+    "name": "trapUPSOff",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.71",
+    "class": "notificationtype"
+  },
+  "trapUPSOn": {
+    "name": "trapUPSOn",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.72",
+    "class": "notificationtype"
+  },
+  "trapDCLinkImbalance": {
+    "name": "trapDCLinkImbalance",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.73",
+    "class": "notificationtype"
+  },
+  "trapDCLinkImbalanceOk": {
+    "name": "trapDCLinkImbalanceOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.74",
+    "class": "notificationtype"
+  },
+  "trapABMOn": {
+    "name": "trapABMOn",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.79",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-SNMP-UPS-MIB",
+        "object": "physicalBatteryABMStatus"
+      }
+    ]
+  },
+  "trapABMOff": {
+    "name": "trapABMOff",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.80",
+    "class": "notificationtype"
+  },
+  "trapLoadSegment1Off": {
+    "name": "trapLoadSegment1Off",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.81",
+    "class": "notificationtype"
+  },
+  "trapLoadSegment1On": {
+    "name": "trapLoadSegment1On",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.82",
+    "class": "notificationtype"
+  },
+  "trapLoadSegment2Off": {
+    "name": "trapLoadSegment2Off",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.83",
+    "class": "notificationtype"
+  },
+  "trapLoadSegment2On": {
+    "name": "trapLoadSegment2On",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.84",
+    "class": "notificationtype"
+  },
+  "trapInHighEfficiencyMode": {
+    "name": "trapInHighEfficiencyMode",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.85",
+    "class": "notificationtype"
+  },
+  "trapReturnFromHighEfficiencyMode": {
+    "name": "trapReturnFromHighEfficiencyMode",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.86",
+    "class": "notificationtype"
+  },
+  "trapRectifierOverload": {
+    "name": "trapRectifierOverload",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.87",
+    "class": "notificationtype"
+  },
+  "trapRectifierOverloadOk": {
+    "name": "trapRectifierOverloadOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.88",
+    "class": "notificationtype"
+  },
+  "trapInverterOverload": {
+    "name": "trapInverterOverload",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.89",
+    "class": "notificationtype"
+  },
+  "trapInverterOverloadOk": {
+    "name": "trapInverterOverloadOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.90",
+    "class": "notificationtype"
+  },
+  "trapBypassVoltageOutOfRange": {
+    "name": "trapBypassVoltageOutOfRange",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.91",
+    "class": "notificationtype"
+  },
+  "trapBypassVoltageOutOfRangeOk": {
+    "name": "trapBypassVoltageOutOfRangeOk",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.92",
+    "class": "notificationtype"
+  },
+  "trapServiceBattery": {
+    "name": "trapServiceBattery",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.93",
+    "class": "notificationtype"
+  },
+  "trapToBypassCommand": {
+    "name": "trapToBypassCommand",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.94",
+    "class": "notificationtype"
+  },
+  "trapFromBypassCommand": {
+    "name": "trapFromBypassCommand",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.95",
+    "class": "notificationtype"
+  },
+  "trapCommunicationLost": {
+    "name": "trapCommunicationLost",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.96",
+    "class": "notificationtype"
+  },
+  "trapCommunicationRestored": {
+    "name": "trapCommunicationRestored",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.97",
+    "class": "notificationtype"
+  },
+  "trapEnvironComFailure": {
+    "name": "trapEnvironComFailure",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.98",
+    "class": "notificationtype"
+  },
+  "trapEnvironComOK": {
+    "name": "trapEnvironComOK",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.99",
+    "class": "notificationtype"
+  },
+  "trapEnvironTemperatureLow": {
+    "name": "trapEnvironTemperatureLow",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.100",
+    "class": "notificationtype"
+  },
+  "trapEnvironTemperatureHigh": {
+    "name": "trapEnvironTemperatureHigh",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.102",
+    "class": "notificationtype"
+  },
+  "trapEnvironTemperatureOK": {
+    "name": "trapEnvironTemperatureOK",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.103",
+    "class": "notificationtype"
+  },
+  "trapEnvironHumidityLow": {
+    "name": "trapEnvironHumidityLow",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.104",
+    "class": "notificationtype"
+  },
+  "trapEnvironHumidityHigh": {
+    "name": "trapEnvironHumidityHigh",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.106",
+    "class": "notificationtype"
+  },
+  "trapEnvironHumidityOK": {
+    "name": "trapEnvironHumidityOK",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.107",
+    "class": "notificationtype"
+  },
+  "trapEnvironInput1Closed": {
+    "name": "trapEnvironInput1Closed",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.108",
+    "class": "notificationtype"
+  },
+  "trapEnvironInput1Open": {
+    "name": "trapEnvironInput1Open",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.109",
+    "class": "notificationtype"
+  },
+  "trapEnvironInput2Closed": {
+    "name": "trapEnvironInput2Closed",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.110",
+    "class": "notificationtype"
+  },
+  "trapEnvironInput2Open": {
+    "name": "trapEnvironInput2Open",
+    "oid": "1.3.6.1.4.1.674.10902.2.1400.111",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-SNMP-UPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-SNMP-UPS-MIB"
+  }
+}

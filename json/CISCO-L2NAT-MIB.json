@@ -1,0 +1,1345 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoL2natMIB": {
+    "name": "ciscoL2natMIB",
+    "oid": "1.3.6.1.4.1.9.9.806",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "ciscoL2natMIBObjects": {
+    "name": "ciscoL2natMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.806.1",
+    "class": "objectidentity"
+  },
+  "cl2natTotalInstances": {
+    "name": "cl2natTotalInstances",
+    "oid": "1.3.6.1.4.1.9.9.806.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natTotalMatched": {
+    "name": "cl2natTotalMatched",
+    "oid": "1.3.6.1.4.1.9.9.806.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natTotalUnmatched": {
+    "name": "cl2natTotalUnmatched",
+    "oid": "1.3.6.1.4.1.9.9.806.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natTotalFixups": {
+    "name": "cl2natTotalFixups",
+    "oid": "1.3.6.1.4.1.9.9.806.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natTotalTranslationEntryConfigured": {
+    "name": "cl2natTotalTranslationEntryConfigured",
+    "oid": "1.3.6.1.4.1.9.9.806.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natTotalPacketTranslated": {
+    "name": "cl2natTotalPacketTranslated",
+    "oid": "1.3.6.1.4.1.9.9.806.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natInstConfigInstanceTable": {
+    "name": "cl2natInstConfigInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.806.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInstConfigInstanceEntry": {
+    "name": "cl2natInstConfigInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.806.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstConfigInstanceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natInstConfigInstanceName": {
+    "name": "cl2natInstConfigInstanceName",
+    "oid": "1.3.6.1.4.1.9.9.806.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInstConfigPermitIn": {
+    "name": "cl2natInstConfigPermitIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unmatched": 0,
+        "igmp": 1,
+        "multicast": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInstConfigPermitOut": {
+    "name": "cl2natInstConfigPermitOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unmatched": 0,
+        "igmp": 1,
+        "multicast": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInstConfigFixup": {
+    "name": "cl2natInstConfigFixup",
+    "oid": "1.3.6.1.4.1.9.9.806.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "arp": 0,
+        "icmp": 1,
+        "profinet": 2,
+        "cip": 3,
+        "snmp": 4
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "arp": 0,
+          "icmp": 1,
+          "profinet": 2,
+          "cip": 3
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInstConfigStorageType": {
+    "name": "cl2natInstConfigStorageType",
+    "oid": "1.3.6.1.4.1.9.9.806.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natInstConfigInstanceRowStatus": {
+    "name": "cl2natInstConfigInstanceRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.806.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInstIpInstanceIpTable": {
+    "name": "cl2natInstIpInstanceIpTable",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInstIpInstanceIpEntry": {
+    "name": "cl2natInstIpInstanceIpEntry",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstConfigInstanceName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpFromIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpFromIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpAddressType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natInstIpDirection": {
+    "name": "cl2natInstIpDirection",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inside": 1,
+          "outside": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInstIpAddressType": {
+    "name": "cl2natInstIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "range": 2,
+          "network": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInstIpFromIpAddressType": {
+    "name": "cl2natInstIpFromIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInstIpFromIpAddress": {
+    "name": "cl2natInstIpFromIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInstIpToIpAddressType": {
+    "name": "cl2natInstIpToIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInstIpToIpAddress": {
+    "name": "cl2natInstIpToIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInstIpAddressMask": {
+    "name": "cl2natInstIpAddressMask",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoInetAddressMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInstIpRange": {
+    "name": "cl2natInstIpRange",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInstStorageIpStorageType": {
+    "name": "cl2natInstStorageIpStorageType",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natInstIpRowStatus": {
+    "name": "cl2natInstIpRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.806.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInterfaceConfigTable": {
+    "name": "cl2natInterfaceConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.806.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInterfaceConfigEntry": {
+    "name": "cl2natInterfaceConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.806.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natInterfaceConfigIfIndex": {
+    "name": "cl2natInterfaceConfigIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.806.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInterfaceConfigVlanIndex": {
+    "name": "cl2natInterfaceConfigVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.806.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInterfaceConfigInstanceName": {
+    "name": "cl2natInterfaceConfigInstanceName",
+    "oid": "1.3.6.1.4.1.9.9.806.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natInterfaceConfigStorageType": {
+    "name": "cl2natInterfaceConfigStorageType",
+    "oid": "1.3.6.1.4.1.9.9.806.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natInterfaceConfigRowStatus": {
+    "name": "cl2natInterfaceConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.806.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cl2natInterfaceStatisticsTable": {
+    "name": "cl2natInterfaceStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInterfaceStatisticsEntry": {
+    "name": "cl2natInterfaceStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natFixupArpIn": {
+    "name": "cl2natFixupArpIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupIcmpIn": {
+    "name": "cl2natFixupIcmpIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupCipIn": {
+    "name": "cl2natFixupCipIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupProfinetIn": {
+    "name": "cl2natFixupProfinetIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupFtpIn": {
+    "name": "cl2natFixupFtpIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupSnmpIn": {
+    "name": "cl2natFixupSnmpIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupSipIn": {
+    "name": "cl2natFixupSipIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupSccpIn": {
+    "name": "cl2natFixupSccpIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natUnmatchedIn": {
+    "name": "cl2natUnmatchedIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natTranslatedUnicastIn": {
+    "name": "cl2natTranslatedUnicastIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natDroppedUnicastIn": {
+    "name": "cl2natDroppedUnicastIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natDroppedMulticastIn": {
+    "name": "cl2natDroppedMulticastIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natPassThruUnicastIn": {
+    "name": "cl2natPassThruUnicastIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natPassThruMulticastIn": {
+    "name": "cl2natPassThruMulticastIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natPassThruIgmpIn": {
+    "name": "cl2natPassThruIgmpIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natDroppedIgmpIn": {
+    "name": "cl2natDroppedIgmpIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupArpOut": {
+    "name": "cl2natFixupArpOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupIcmpOut": {
+    "name": "cl2natFixupIcmpOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupCipOut": {
+    "name": "cl2natFixupCipOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupProfinetOut": {
+    "name": "cl2natFixupProfinetOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupFtpOut": {
+    "name": "cl2natFixupFtpOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupSnmpOut": {
+    "name": "cl2natFixupSnmpOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupSipOut": {
+    "name": "cl2natFixupSipOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natFixupSccpOut": {
+    "name": "cl2natFixupSccpOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natUnmatchedOut": {
+    "name": "cl2natUnmatchedOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natDroppedUnicastOut": {
+    "name": "cl2natDroppedUnicastOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natTranslatedUnicastOut": {
+    "name": "cl2natTranslatedUnicastOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natPassThruUnicastOut": {
+    "name": "cl2natPassThruUnicastOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natDroppedMulticastOut": {
+    "name": "cl2natDroppedMulticastOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natPassThruMulticastOut": {
+    "name": "cl2natPassThruMulticastOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natDroppedIgmpOut": {
+    "name": "cl2natDroppedIgmpOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natPassThruIgmpOut": {
+    "name": "cl2natPassThruIgmpOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.10.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natInterfaceIpStatisticsTable": {
+    "name": "cl2natInterfaceIpStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.806.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cl2natInterfaceIpStatisticsEntry": {
+    "name": "cl2natInterfaceIpStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.806.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpFromIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpFromIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natTranslatesIn": {
+    "name": "cl2natTranslatesIn",
+    "oid": "1.3.6.1.4.1.9.9.806.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cl2natTranslatesOut": {
+    "name": "cl2natTranslatesOut",
+    "oid": "1.3.6.1.4.1.9.9.806.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoL2natMIBConformance": {
+    "name": "ciscoL2natMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.806.3",
+    "class": "objectidentity"
+  },
+  "ciscoL2natMIBCompliances": {
+    "name": "ciscoL2natMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.806.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoL2natMIBGroups": {
+    "name": "ciscoL2natMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.806.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoL2natMIBCompliance": {
+    "name": "ciscoL2natMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.806.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cl2natGlobalStatisticsGroup",
+        "module": "CISCO-L2NAT-MIB"
+      },
+      {
+        "object": "cl2natInstanceConfigGroup",
+        "module": "CISCO-L2NAT-MIB"
+      },
+      {
+        "object": "cl2natInstanceStatisticsGroup",
+        "module": "CISCO-L2NAT-MIB"
+      },
+      {
+        "object": "cl2natInstanceTranslationStatisticsGroup",
+        "module": "CISCO-L2NAT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natGlobalStatisticsGroup": {
+    "name": "cl2natGlobalStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.806.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTotalInstances"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTotalMatched"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTotalUnmatched"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTotalFixups"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTotalTranslationEntryConfigured"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTotalPacketTranslated"
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natInstanceConfigGroup": {
+    "name": "cl2natInstanceConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.806.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstConfigPermitIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstConfigPermitOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstConfigFixup"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpRange"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpToIpAddress"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpToIpAddressType"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstConfigInstanceRowStatus"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigRowStatus"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpAddressMask"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigInstanceName"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstIpRowStatus"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstConfigStorageType"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInstStorageIpStorageType"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natInterfaceConfigStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natInstanceStatisticsGroup": {
+    "name": "cl2natInstanceStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.806.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natUnmatchedIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natDroppedUnicastIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTranslatedUnicastIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupArpIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupIcmpIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupCipIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupProfinetIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupFtpIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupSnmpIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupSipIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupSccpIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natUnmatchedOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natDroppedUnicastOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTranslatedUnicastOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupArpOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupIcmpOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupCipOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupProfinetOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupFtpOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupSnmpOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupSipOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natFixupSccpOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natPassThruUnicastIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natPassThruUnicastOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natDroppedMulticastIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natDroppedMulticastOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natPassThruMulticastIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natPassThruMulticastOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natDroppedIgmpIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natDroppedIgmpOut"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natPassThruIgmpIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natPassThruIgmpOut"
+      }
+    ],
+    "status": "current"
+  },
+  "cl2natInstanceTranslationStatisticsGroup": {
+    "name": "cl2natInstanceTranslationStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.806.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTranslatesIn"
+      },
+      {
+        "module": "CISCO-L2NAT-MIB",
+        "object": "cl2natTranslatesOut"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-L2NAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-L2NAT-MIB"
+  }
+}

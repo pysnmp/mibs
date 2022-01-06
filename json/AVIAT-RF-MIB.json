@@ -1,0 +1,863 @@
+{
+  "imports": {
+    "class": "imports",
+    "AVIAT-TEXTCONVENTION-MIB": [
+      "AviatPowerLevel",
+      "AviatModulationType",
+      "AviatDecibel",
+      "AviatRfuSideBandType"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "STXN-GLOBALREGISTER-MIB": [
+      "aviatModules"
+    ]
+  },
+  "aviatRfModule": {
+    "name": "aviatRfModule",
+    "oid": "1.3.6.1.4.1.2509.9.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-05 14:30",
+        "description": "Added Tx power limit capability."
+      },
+      {
+        "revision": "2015-07-29 08:45",
+        "description": "Added side band and Tx Rx spacing capability indications."
+      },
+      {
+        "revision": "2015-02-10 09:48",
+        "description": "Added external RF switch indication."
+      },
+      {
+        "revision": "2015-01-27 02:46",
+        "description": "Added 5.8GHz/ L6GHz selection support."
+      },
+      {
+        "revision": "2014-11-07 02:47",
+        "description": "Added Semiconductor Technology."
+      },
+      {
+        "revision": "2014-01-21 01:57",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "aviatRfConformance": {
+    "name": "aviatRfConformance",
+    "oid": "1.3.6.1.4.1.2509.9.5.1",
+    "class": "objectidentity"
+  },
+  "aviatRfGroups": {
+    "name": "aviatRfGroups",
+    "oid": "1.3.6.1.4.1.2509.9.5.1.1",
+    "class": "objectidentity"
+  },
+  "aviatRfCompliance": {
+    "name": "aviatRfCompliance",
+    "oid": "1.3.6.1.4.1.2509.9.5.1.2",
+    "class": "objectidentity"
+  },
+  "aviatRfMIBObjects": {
+    "name": "aviatRfMIBObjects",
+    "oid": "1.3.6.1.4.1.2509.9.5.2",
+    "class": "objectidentity"
+  },
+  "aviatRfConfigTable": {
+    "name": "aviatRfConfigTable",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRfConfigEntry": {
+    "name": "aviatRfConfigEntry",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRfFreqTx": {
+    "name": "aviatRfFreqTx",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfFreqRx": {
+    "name": "aviatRfFreqRx",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfPowerSet": {
+    "name": "aviatRfPowerSet",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "units": "0.1 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfTxMute": {
+    "name": "aviatRfTxMute",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfHighGain": {
+    "name": "aviatRfHighGain",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfBandSelection": {
+    "name": "aviatRfBandSelection",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upper5g8": 1,
+          "lower6g": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfATPCTable": {
+    "name": "aviatRfATPCTable",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRfATPCEntry": {
+    "name": "aviatRfATPCEntry",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRfATPCEnabled": {
+    "name": "aviatRfATPCEnabled",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfATPCTargetFadeMargin": {
+    "name": "aviatRfATPCTargetFadeMargin",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatDecibel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfATPCMaximumPower": {
+    "name": "aviatRfATPCMaximumPower",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfATPCMinimumPower": {
+    "name": "aviatRfATPCMinimumPower",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatPowerLevel",
+      "class": "type"
+    },
+    "units": "0.1 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfATPCFCCCompliant": {
+    "name": "aviatRfATPCFCCCompliant",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aviatRfuCapabilityTable": {
+    "name": "aviatRfuCapabilityTable",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRfuCapabilityEntry": {
+    "name": "aviatRfuCapabilityEntry",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRfuTxFreqMax": {
+    "name": "aviatRfuTxFreqMax",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxFreqMin": {
+    "name": "aviatRfuTxFreqMin",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuRxFreqMax": {
+    "name": "aviatRfuRxFreqMax",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuRxFreqMin": {
+    "name": "aviatRfuRxFreqMin",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuFreqStepMin": {
+    "name": "aviatRfuFreqStepMin",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuBandwidthMax": {
+    "name": "aviatRfuBandwidthMax",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxRxSpacingMax": {
+    "name": "aviatRfuTxRxSpacingMax",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxRxSpacingMin": {
+    "name": "aviatRfuTxRxSpacingMin",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxPowerMax": {
+    "name": "aviatRfuTxPowerMax",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxPowerMin": {
+    "name": "aviatRfuTxPowerMin",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuPowerStep": {
+    "name": "aviatRfuPowerStep",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuNoiseFigure": {
+    "name": "aviatRfuNoiseFigure",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuModulationMax": {
+    "name": "aviatRfuModulationMax",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatModulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxRxSpacingPreset": {
+    "name": "aviatRfuTxRxSpacingPreset",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxSideBand": {
+    "name": "aviatRfuTxSideBand",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AviatRfuSideBandType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxPowerLimit": {
+    "name": "aviatRfuTxPowerLimit",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuTxSpacingTable": {
+    "name": "aviatRfuTxSpacingTable",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRfuTxSpacingEntry": {
+    "name": "aviatRfuTxSpacingEntry",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxSpacingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRfuTxSpacingIndex": {
+    "name": "aviatRfuTxSpacingIndex",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRfuTxSpacingFreq": {
+    "name": "aviatRfuTxSpacingFreq",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuDetailsTable": {
+    "name": "aviatRfuDetailsTable",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aviatRfuDetailsEntry": {
+    "name": "aviatRfuDetailsEntry",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRfuType": {
+    "name": "aviatRfuType",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuFreqBand": {
+    "name": "aviatRfuFreqBand",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuPowerAmp": {
+    "name": "aviatRfuPowerAmp",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuSemiconductorTech": {
+    "name": "aviatRfuSemiconductorTech",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gaas": 0,
+          "gan": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuUnlicensed5G8Cap": {
+    "name": "aviatRfuUnlicensed5G8Cap",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfuExternalCoaxPresent": {
+    "name": "aviatRfuExternalCoaxPresent",
+    "oid": "1.3.6.1.4.1.2509.9.5.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aviatRfObjectGroup": {
+    "name": "aviatRfObjectGroup",
+    "oid": "1.3.6.1.4.1.2509.9.5.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfFreqTx"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfFreqRx"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfPowerSet"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfTxMute"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfHighGain"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfBandSelection"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfATPCEnabled"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfATPCTargetFadeMargin"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfATPCMaximumPower"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfATPCMinimumPower"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfATPCFCCCompliant"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxFreqMax"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxFreqMin"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuRxFreqMax"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuRxFreqMin"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuFreqStepMin"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuBandwidthMax"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxRxSpacingMax"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxRxSpacingMin"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxPowerMax"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxPowerMin"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuPowerStep"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuNoiseFigure"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuModulationMax"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxRxSpacingPreset"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxSideBand"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxPowerLimit"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuTxSpacingFreq"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuType"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuFreqBand"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuPowerAmp"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuSemiconductorTech"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuUnlicensed5G8Cap"
+      },
+      {
+        "module": "AVIAT-RF-MIB",
+        "object": "aviatRfuExternalCoaxPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "aviatRfComplV1": {
+    "name": "aviatRfComplV1",
+    "oid": "1.3.6.1.4.1.2509.9.5.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aviatRfObjectGroup",
+        "module": "AVIAT-RF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-RF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:56 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AVIAT-RF-MIB"
+  }
+}

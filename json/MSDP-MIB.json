@@ -1,0 +1,1422 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "experimental",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "msdpMIB": {
+    "name": "msdpMIB",
+    "oid": "1.3.6.1.3.92",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-01 00:00",
+        "description": "Initial version, published as RFC 4624."
+      }
+    ]
+  },
+  "msdpMIBobjects": {
+    "name": "msdpMIBobjects",
+    "oid": "1.3.6.1.3.92.1",
+    "class": "objectidentity"
+  },
+  "msdp": {
+    "name": "msdp",
+    "oid": "1.3.6.1.3.92.1.1",
+    "class": "objectidentity"
+  },
+  "msdpEnabled": {
+    "name": "msdpEnabled",
+    "oid": "1.3.6.1.3.92.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msdpCacheLifetime": {
+    "name": "msdpCacheLifetime",
+    "oid": "1.3.6.1.3.92.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msdpNumSACacheEntries": {
+    "name": "msdpNumSACacheEntries",
+    "oid": "1.3.6.1.3.92.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpRPAddress": {
+    "name": "msdpRPAddress",
+    "oid": "1.3.6.1.3.92.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msdpRequestsTable": {
+    "name": "msdpRequestsTable",
+    "oid": "1.3.6.1.3.92.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "msdpRequestsEntry": {
+    "name": "msdpRequestsEntry",
+    "oid": "1.3.6.1.3.92.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpRequestsGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpRequestsGroupMask",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "msdpRequestsGroupAddress": {
+    "name": "msdpRequestsGroupAddress",
+    "oid": "1.3.6.1.3.92.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "msdpRequestsGroupMask": {
+    "name": "msdpRequestsGroupMask",
+    "oid": "1.3.6.1.3.92.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "msdpRequestsPeer": {
+    "name": "msdpRequestsPeer",
+    "oid": "1.3.6.1.3.92.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "msdpRequestsStatus": {
+    "name": "msdpRequestsStatus",
+    "oid": "1.3.6.1.3.92.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "msdpPeerTable": {
+    "name": "msdpPeerTable",
+    "oid": "1.3.6.1.3.92.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpPeerEntry": {
+    "name": "msdpPeerEntry",
+    "oid": "1.3.6.1.3.92.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerRemoteAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "msdpPeerRemoteAddress": {
+    "name": "msdpPeerRemoteAddress",
+    "oid": "1.3.6.1.3.92.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpPeerState": {
+    "name": "msdpPeerState",
+    "oid": "1.3.6.1.3.92.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "listen": 2,
+          "connecting": 3,
+          "established": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerRPFFailures": {
+    "name": "msdpPeerRPFFailures",
+    "oid": "1.3.6.1.3.92.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerInSAs": {
+    "name": "msdpPeerInSAs",
+    "oid": "1.3.6.1.3.92.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerOutSAs": {
+    "name": "msdpPeerOutSAs",
+    "oid": "1.3.6.1.3.92.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerInSARequests": {
+    "name": "msdpPeerInSARequests",
+    "oid": "1.3.6.1.3.92.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerOutSARequests": {
+    "name": "msdpPeerOutSARequests",
+    "oid": "1.3.6.1.3.92.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerInSAResponses": {
+    "name": "msdpPeerInSAResponses",
+    "oid": "1.3.6.1.3.92.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "msdpPeerOutSAResponses": {
+    "name": "msdpPeerOutSAResponses",
+    "oid": "1.3.6.1.3.92.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "msdpPeerInControlMessages": {
+    "name": "msdpPeerInControlMessages",
+    "oid": "1.3.6.1.3.92.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerOutControlMessages": {
+    "name": "msdpPeerOutControlMessages",
+    "oid": "1.3.6.1.3.92.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerInDataPackets": {
+    "name": "msdpPeerInDataPackets",
+    "oid": "1.3.6.1.3.92.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerOutDataPackets": {
+    "name": "msdpPeerOutDataPackets",
+    "oid": "1.3.6.1.3.92.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerFsmEstablishedTransitions": {
+    "name": "msdpPeerFsmEstablishedTransitions",
+    "oid": "1.3.6.1.3.92.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerFsmEstablishedTime": {
+    "name": "msdpPeerFsmEstablishedTime",
+    "oid": "1.3.6.1.3.92.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerInMessageTime": {
+    "name": "msdpPeerInMessageTime",
+    "oid": "1.3.6.1.3.92.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerLocalAddress": {
+    "name": "msdpPeerLocalAddress",
+    "oid": "1.3.6.1.3.92.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "msdpPeerConnectRetryInterval": {
+    "name": "msdpPeerConnectRetryInterval",
+    "oid": "1.3.6.1.3.92.1.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "msdpPeerHoldTimeConfigured": {
+    "name": "msdpPeerHoldTimeConfigured",
+    "oid": "1.3.6.1.3.92.1.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "msdpPeerKeepAliveConfigured": {
+    "name": "msdpPeerKeepAliveConfigured",
+    "oid": "1.3.6.1.3.92.1.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "msdpPeerDataTtl": {
+    "name": "msdpPeerDataTtl",
+    "oid": "1.3.6.1.3.92.1.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "msdpPeerProcessRequestsFrom": {
+    "name": "msdpPeerProcessRequestsFrom",
+    "oid": "1.3.6.1.3.92.1.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "msdpPeerStatus": {
+    "name": "msdpPeerStatus",
+    "oid": "1.3.6.1.3.92.1.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "msdpPeerRemotePort": {
+    "name": "msdpPeerRemotePort",
+    "oid": "1.3.6.1.3.92.1.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 639,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerLocalPort": {
+    "name": "msdpPeerLocalPort",
+    "oid": "1.3.6.1.3.92.1.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 639,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerEncapsulationType": {
+    "name": "msdpPeerEncapsulationType",
+    "oid": "1.3.6.1.3.92.1.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "tcp": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "msdpPeerConnectionAttempts": {
+    "name": "msdpPeerConnectionAttempts",
+    "oid": "1.3.6.1.3.92.1.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpPeerInNotifications": {
+    "name": "msdpPeerInNotifications",
+    "oid": "1.3.6.1.3.92.1.1.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "msdpPeerOutNotifications": {
+    "name": "msdpPeerOutNotifications",
+    "oid": "1.3.6.1.3.92.1.1.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "msdpPeerLastError": {
+    "name": "msdpPeerLastError",
+    "oid": "1.3.6.1.3.92.1.1.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "msdpPeerDiscontinuityTime": {
+    "name": "msdpPeerDiscontinuityTime",
+    "oid": "1.3.6.1.3.92.1.1.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpSACacheTable": {
+    "name": "msdpSACacheTable",
+    "oid": "1.3.6.1.3.92.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpSACacheEntry": {
+    "name": "msdpSACacheEntry",
+    "oid": "1.3.6.1.3.92.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheSourceAddr",
+        "implied": 0
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheOriginRP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "msdpSACacheGroupAddr": {
+    "name": "msdpSACacheGroupAddr",
+    "oid": "1.3.6.1.3.92.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpSACacheSourceAddr": {
+    "name": "msdpSACacheSourceAddr",
+    "oid": "1.3.6.1.3.92.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpSACacheOriginRP": {
+    "name": "msdpSACacheOriginRP",
+    "oid": "1.3.6.1.3.92.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpSACachePeerLearnedFrom": {
+    "name": "msdpSACachePeerLearnedFrom",
+    "oid": "1.3.6.1.3.92.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpSACacheRPFPeer": {
+    "name": "msdpSACacheRPFPeer",
+    "oid": "1.3.6.1.3.92.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpSACacheInSAs": {
+    "name": "msdpSACacheInSAs",
+    "oid": "1.3.6.1.3.92.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpSACacheInDataPackets": {
+    "name": "msdpSACacheInDataPackets",
+    "oid": "1.3.6.1.3.92.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpSACacheUpTime": {
+    "name": "msdpSACacheUpTime",
+    "oid": "1.3.6.1.3.92.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpSACacheExpiryTime": {
+    "name": "msdpSACacheExpiryTime",
+    "oid": "1.3.6.1.3.92.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msdpSACacheStatus": {
+    "name": "msdpSACacheStatus",
+    "oid": "1.3.6.1.3.92.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msdpMeshGroupTable": {
+    "name": "msdpMeshGroupTable",
+    "oid": "1.3.6.1.3.92.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpMeshGroupEntry": {
+    "name": "msdpMeshGroupEntry",
+    "oid": "1.3.6.1.3.92.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpMeshGroupName",
+        "implied": 0
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpMeshGroupPeerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMeshGroupName": {
+    "name": "msdpMeshGroupName",
+    "oid": "1.3.6.1.3.92.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpMeshGroupPeerAddress": {
+    "name": "msdpMeshGroupPeerAddress",
+    "oid": "1.3.6.1.3.92.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "msdpMeshGroupStatus": {
+    "name": "msdpMeshGroupStatus",
+    "oid": "1.3.6.1.3.92.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "msdpTraps": {
+    "name": "msdpTraps",
+    "oid": "1.3.6.1.3.92.1.1.0",
+    "class": "objectidentity"
+  },
+  "msdpEstablished": {
+    "name": "msdpEstablished",
+    "oid": "1.3.6.1.3.92.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerFsmEstablishedTransitions"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpBackwardTransition": {
+    "name": "msdpBackwardTransition",
+    "oid": "1.3.6.1.3.92.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBConformance": {
+    "name": "msdpMIBConformance",
+    "oid": "1.3.6.1.3.92.1.1.8",
+    "class": "objectidentity"
+  },
+  "msdpMIBCompliances": {
+    "name": "msdpMIBCompliances",
+    "oid": "1.3.6.1.3.92.1.1.8.1",
+    "class": "objectidentity"
+  },
+  "msdpMIBGroups": {
+    "name": "msdpMIBGroups",
+    "oid": "1.3.6.1.3.92.1.1.8.2",
+    "class": "objectidentity"
+  },
+  "msdpMIBCompliance": {
+    "name": "msdpMIBCompliance",
+    "oid": "1.3.6.1.3.92.1.1.8.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "msdpMIBGlobalsGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBPeerGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBNotificationGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBEncapsulationGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBSACacheGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBRequestsGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBRPGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBMeshGroupGroup",
+        "module": "MSDP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "msdpMIBFullCompliance": {
+    "name": "msdpMIBFullCompliance",
+    "oid": "1.3.6.1.3.92.1.1.8.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "msdpMIBGlobalsGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBPeerGroup2",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBSACacheGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBEncapsulationGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBRPGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBMeshGroupGroup",
+        "module": "MSDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBReadOnlyCompliance": {
+    "name": "msdpMIBReadOnlyCompliance",
+    "oid": "1.3.6.1.3.92.1.1.8.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "msdpMIBGlobalsGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBPeerGroup2",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBSACacheGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBEncapsulationGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBRPGroup",
+        "module": "MSDP-MIB"
+      },
+      {
+        "object": "msdpMIBMeshGroupGroup",
+        "module": "MSDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBGlobalsGroup": {
+    "name": "msdpMIBGlobalsGroup",
+    "oid": "1.3.6.1.3.92.1.1.8.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBPeerGroup": {
+    "name": "msdpMIBPeerGroup",
+    "oid": "1.3.6.1.3.92.1.1.8.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerRPFFailures"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerState"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInSAs"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutSAs"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInSARequests"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutSARequests"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInSAResponses"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutSAResponses"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInNotifications"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutNotifications"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInControlMessages"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutControlMessages"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerFsmEstablishedTransitions"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerFsmEstablishedTime"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerLocalAddress"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerRemotePort"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerLocalPort"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerConnectRetryInterval"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerHoldTimeConfigured"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerKeepAliveConfigured"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInMessageTime"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerProcessRequestsFrom"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerConnectionAttempts"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerLastError"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerStatus"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerDiscontinuityTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "msdpMIBEncapsulationGroup": {
+    "name": "msdpMIBEncapsulationGroup",
+    "oid": "1.3.6.1.3.92.1.1.8.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInDataPackets"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutDataPackets"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerDataTtl"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerEncapsulationType"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBSACacheGroup": {
+    "name": "msdpMIBSACacheGroup",
+    "oid": "1.3.6.1.3.92.1.1.8.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpCacheLifetime"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpNumSACacheEntries"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACachePeerLearnedFrom"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheRPFPeer"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheInSAs"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheInDataPackets"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheUpTime"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheExpiryTime"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpSACacheStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBNotificationGroup": {
+    "name": "msdpMIBNotificationGroup",
+    "oid": "1.3.6.1.3.92.1.1.8.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpEstablished"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpBackwardTransition"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBRequestsGroup": {
+    "name": "msdpMIBRequestsGroup",
+    "oid": "1.3.6.1.3.92.1.1.8.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpRequestsPeer"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpRequestsStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "msdpMIBRPGroup": {
+    "name": "msdpMIBRPGroup",
+    "oid": "1.3.6.1.3.92.1.1.8.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpRPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBMeshGroupGroup": {
+    "name": "msdpMIBMeshGroupGroup",
+    "oid": "1.3.6.1.3.92.1.1.8.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpMeshGroupStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "msdpMIBPeerGroup2": {
+    "name": "msdpMIBPeerGroup2",
+    "oid": "1.3.6.1.3.92.1.1.8.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerRPFFailures"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerState"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInSAs"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutSAs"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInSARequests"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutSARequests"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInControlMessages"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerOutControlMessages"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerFsmEstablishedTransitions"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerFsmEstablishedTime"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerLocalAddress"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerRemotePort"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerLocalPort"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerConnectRetryInterval"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerHoldTimeConfigured"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerKeepAliveConfigured"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerInMessageTime"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerConnectionAttempts"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerStatus"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MSDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MSDP-MIB"
+  }
+}

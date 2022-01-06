@@ -1,0 +1,5487 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-GENERIC-MIB": [
+      "functionModuleType",
+      "moduleTrapAlarmSeverity",
+      "moduleSlotNumber"
+    ],
+    "BASIS-MIB": [
+      "basis"
+    ],
+    "BASIS-SHELF-MIB": [
+      "shelfNodeName",
+      "shelfNum"
+    ],
+    "CISCO-VISM-ATM-TRUNK-MIB": [
+      "vismAal2CidFailReason",
+      "vismAal2CidNum",
+      "vismAal2CidState",
+      "vismAal2CidAdminState",
+      "vismAal2CidLcn"
+    ],
+    "CISCO-VISM-CAC-MIB": [
+      "networkCacConfigState",
+      "vismChanNum"
+    ],
+    "CISCO-VISM-CAS-MIB": [
+      "vismCasFileName",
+      "vismCasVariantState",
+      "vismCasVariantName"
+    ],
+    "CISCO-VISM-CONN-MIB": [
+      "vismChanReroute",
+      "vismChanRowStatus",
+      "vismCnfChanNum",
+      "vismChanPortNum",
+      "vismChanStatusBitMap",
+      "vismChanLockingState",
+      "vismChanActivityState"
+    ],
+    "CISCO-VISM-DSX0-MIB": [
+      "vismFreeDs0Count"
+    ],
+    "CISCO-VISM-HDLC-MIB": [
+      "vismHdlcChanNum"
+    ],
+    "CISCO-VISM-MODULE-MIB": [
+      "vismFreeDs0Threshold",
+      "vismAal2SubcellMuxing",
+      "vismIpAddress",
+      "vismCPUUtilization",
+      "vismCPUUtilizationThreshold",
+      "vismFeatureBitMap",
+      "vismMemoryUtilization",
+      "vismTrapStrIndex1",
+      "vismMemoryUtilizationThreshold",
+      "vismConfigChangeTypeBitMap",
+      "vismTrapIntIndex1",
+      "vismAppliedTemplate",
+      "vismMode",
+      "vismTrapIntIndex2"
+    ],
+    "CISCO-VISM-PORT-MIB": [
+      "vismPortType",
+      "vismPortDs0ConfigBitMap",
+      "vismPortState",
+      "vismPortNum"
+    ],
+    "CISCO-VISM-SESSION-MIB": [
+      "vismRudpSessionState",
+      "vismSessionSetNum",
+      "vismSessionSetState",
+      "vismSessionGrpState",
+      "vismRudpSessionNum",
+      "vismSessionGrpNum"
+    ],
+    "CISCO-VOICE-CAS-MODULE-MIB": [
+      "cvcmCasTemplateName"
+    ],
+    "CISCO-WAN-ANNOUNCEMENT-MIB": [
+      "cwAnnFileName",
+      "cwAnnFileCodec",
+      "cwAnnFileStatus"
+    ],
+    "CISCO-WAN-LAPD-TRUNK-MIB": [
+      "vismLapdIndex",
+      "vismLapdDlcSapi",
+      "vismLapdDlcLinkState",
+      "vismLapdTrunkState",
+      "vismLapdDlcTei",
+      "vismLapdDlcIndex"
+    ],
+    "CISCO-WAN-MG-MIB": [
+      "mgcAssociationState",
+      "mgcResolutionCommState",
+      "mgDnsResolutionType",
+      "mgAdministrativeState",
+      "mgEndpointLineNumber",
+      "mgEndpointChannelMap",
+      "mgcResolutionName",
+      "mgDomainName",
+      "mgcName",
+      "mgEndpointState",
+      "mgcResolutionIpAddress"
+    ],
+    "CISCO-WAN-MGC-REDUN-MIB": [
+      "mgcRedundancyGrpActState"
+    ],
+    "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB": [
+      "persistentXgcpEventName"
+    ],
+    "CISCO-WAN-RTP-CONN-MIB": [
+      "vismRtpFailReason",
+      "vismRtpLcn",
+      "vismRtpConnAlarmState"
+    ],
+    "CISCO-WAN-SRCP-MIB": [
+      "srcpPeerGrpTimeSinceHeartbeat",
+      "srcpPeerTimeSinceHeartbeat"
+    ],
+    "CISCO-WAN-VISM-TONE-PLAN-MIB": [
+      "tonePlanFileName",
+      "tonePlanRegionName",
+      "vismEventCode",
+      "tonePlanVersionNumber",
+      "vismFrequency1",
+      "vismFrequency2"
+    ],
+    "GENERICOBJECT-MIB": [
+      "genericLineNum",
+      "genericTimeStamp",
+      "genericLineType"
+    ],
+    "INT-SERV-MIB": [
+      "intSrvFlowStatus"
+    ],
+    "RSVP-MIB": [
+      "rsvpResvStatus",
+      "rsvpSenderStatus",
+      "rsvpResvFwdStatus",
+      "rsvpSessionDestAddr"
+    ],
+    "RTM-MIB": [
+      "lastSequenceNumber"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "trapVismIpAddressChanged": {
+    "name": "trapVismIpAddressChanged",
+    "oid": "1.3.6.1.4.1.351.1100.50700",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismIpAddress"
+      }
+    ]
+  },
+  "trapVismChanActive": {
+    "name": "trapVismChanActive",
+    "oid": "1.3.6.1.4.1.351.1100.50709",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      }
+    ]
+  },
+  "trapVismChanDeleted": {
+    "name": "trapVismChanDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50710",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      }
+    ]
+  },
+  "trapVismPortAdded": {
+    "name": "trapVismPortAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50711",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineType"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortNum"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortDs0ConfigBitMap"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortType"
+      }
+    ]
+  },
+  "trapVismPortActive": {
+    "name": "trapVismPortActive",
+    "oid": "1.3.6.1.4.1.351.1100.50712",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineType"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortNum"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortDs0ConfigBitMap"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortType"
+      }
+    ]
+  },
+  "trapVismPortFailed": {
+    "name": "trapVismPortFailed",
+    "oid": "1.3.6.1.4.1.351.1100.50713",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineType"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortNum"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortDs0ConfigBitMap"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortType"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortState"
+      }
+    ]
+  },
+  "trapProtectedChanActive": {
+    "name": "trapProtectedChanActive",
+    "oid": "1.3.6.1.4.1.351.1100.50714",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanActivityState"
+      }
+    ]
+  },
+  "trapProtectedChanStandby": {
+    "name": "trapProtectedChanStandby",
+    "oid": "1.3.6.1.4.1.351.1100.50715",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanActivityState"
+      }
+    ]
+  },
+  "trapProtectedChanFailed": {
+    "name": "trapProtectedChanFailed",
+    "oid": "1.3.6.1.4.1.351.1100.50716",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanActivityState"
+      }
+    ]
+  },
+  "trapProtectedChanLocked": {
+    "name": "trapProtectedChanLocked",
+    "oid": "1.3.6.1.4.1.351.1100.50717",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanLockingState"
+      }
+    ]
+  },
+  "trapProtectedChanUnlocked": {
+    "name": "trapProtectedChanUnlocked",
+    "oid": "1.3.6.1.4.1.351.1100.50718",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanLockingState"
+      }
+    ]
+  },
+  "trapVismCasVariantAdded": {
+    "name": "trapVismCasVariantAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50739",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-CAS-MIB",
+        "object": "vismCasVariantName"
+      },
+      {
+        "module": "CISCO-VISM-CAS-MIB",
+        "object": "vismCasFileName"
+      },
+      {
+        "module": "CISCO-VISM-CAS-MIB",
+        "object": "vismCasVariantState"
+      }
+    ]
+  },
+  "trapVismCasVariantDeleted": {
+    "name": "trapVismCasVariantDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50740",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-CAS-MIB",
+        "object": "vismCasVariantName"
+      }
+    ]
+  },
+  "trapVismCasVariantConfigured": {
+    "name": "trapVismCasVariantConfigured",
+    "oid": "1.3.6.1.4.1.351.1100.50741",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-CAS-MIB",
+        "object": "vismCasVariantName"
+      }
+    ]
+  },
+  "trapVismCasVariantNotConfigured": {
+    "name": "trapVismCasVariantNotConfigured",
+    "oid": "1.3.6.1.4.1.351.1100.50742",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-CAS-MIB",
+        "object": "vismCasVariantName"
+      }
+    ]
+  },
+  "trapVismScalarChange": {
+    "name": "trapVismScalarChange",
+    "oid": "1.3.6.1.4.1.351.1100.50745",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismConfigChangeTypeBitMap"
+      }
+    ]
+  },
+  "trapVismTableChange": {
+    "name": "trapVismTableChange",
+    "oid": "1.3.6.1.4.1.351.1100.50746",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismConfigChangeTypeBitMap"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapStrIndex1"
+      }
+    ]
+  },
+  "trapVismCodecTemplateChanged": {
+    "name": "trapVismCodecTemplateChanged",
+    "oid": "1.3.6.1.4.1.351.1100.50743",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAppliedTemplate"
+      }
+    ]
+  },
+  "trapVismModeChanged": {
+    "name": "trapVismModeChanged",
+    "oid": "1.3.6.1.4.1.351.1100.50744",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMode"
+      }
+    ]
+  },
+  "trapVismAal2CidAdded": {
+    "name": "trapVismAal2CidAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50747",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidNum"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidLcn"
+      }
+    ]
+  },
+  "trapVismAal2CidDeleted": {
+    "name": "trapVismAal2CidDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50748",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidNum"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidLcn"
+      }
+    ]
+  },
+  "trapVismHdlcChanAdded": {
+    "name": "trapVismHdlcChanAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50752",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-HDLC-MIB",
+        "object": "vismHdlcChanNum"
+      }
+    ]
+  },
+  "trapVismHdlcChanDeleted": {
+    "name": "trapVismHdlcChanDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50753",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-HDLC-MIB",
+        "object": "vismHdlcChanNum"
+      }
+    ]
+  },
+  "trapVismPortDeleted": {
+    "name": "trapVismPortDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50754",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineType"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortNum"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortDs0ConfigBitMap"
+      },
+      {
+        "module": "CISCO-VISM-PORT-MIB",
+        "object": "vismPortType"
+      }
+    ]
+  },
+  "trapVismChanAdded": {
+    "name": "trapVismChanAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50755",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      }
+    ]
+  },
+  "trapVismChanFailed": {
+    "name": "trapVismChanFailed",
+    "oid": "1.3.6.1.4.1.351.1100.50756",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanPortNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanStatusBitMap"
+      }
+    ]
+  },
+  "trapVismConDown": {
+    "name": "trapVismConDown",
+    "oid": "1.3.6.1.4.1.351.1100.50757",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanRowStatus"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanStatusBitMap"
+      }
+    ]
+  },
+  "trapVismConUp": {
+    "name": "trapVismConUp",
+    "oid": "1.3.6.1.4.1.351.1100.50758",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanRowStatus"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanStatusBitMap"
+      }
+    ]
+  },
+  "trapVismChanReroute": {
+    "name": "trapVismChanReroute",
+    "oid": "1.3.6.1.4.1.351.1100.50759",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericLineNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismCnfChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CONN-MIB",
+        "object": "vismChanReroute"
+      }
+    ]
+  },
+  "trapVismAal2Muxing": {
+    "name": "trapVismAal2Muxing",
+    "oid": "1.3.6.1.4.1.351.1100.50760",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAal2SubcellMuxing"
+      }
+    ]
+  },
+  "trapVismCidState": {
+    "name": "trapVismCidState",
+    "oid": "1.3.6.1.4.1.351.1100.50785",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidNum"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidLcn"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidState"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidFailReason"
+      }
+    ]
+  },
+  "trapNetworkCacConfigState": {
+    "name": "trapNetworkCacConfigState",
+    "oid": "1.3.6.1.4.1.351.1100.50788",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-CAC-MIB",
+        "object": "vismChanNum"
+      },
+      {
+        "module": "CISCO-VISM-CAC-MIB",
+        "object": "networkCacConfigState"
+      }
+    ]
+  },
+  "trapVismFeatureChanged": {
+    "name": "trapVismFeatureChanged",
+    "oid": "1.3.6.1.4.1.351.1100.50790",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFeatureBitMap"
+      }
+    ]
+  },
+  "trapAvailFreeDs0Low": {
+    "name": "trapAvailFreeDs0Low",
+    "oid": "1.3.6.1.4.1.351.1100.50680",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFreeDs0Threshold"
+      },
+      {
+        "module": "CISCO-VISM-DSX0-MIB",
+        "object": "vismFreeDs0Count"
+      }
+    ]
+  },
+  "trapCpuUtilExceeded": {
+    "name": "trapCpuUtilExceeded",
+    "oid": "1.3.6.1.4.1.351.1100.50681",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCPUUtilizationThreshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCPUUtilization"
+      }
+    ]
+  },
+  "trapMemoryUtilExceeded": {
+    "name": "trapMemoryUtilExceeded",
+    "oid": "1.3.6.1.4.1.351.1100.50682",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMemoryUtilizationThreshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMemoryUtilization"
+      }
+    ]
+  },
+  "mgAdministrativeStateLocked": {
+    "name": "mgAdministrativeStateLocked",
+    "oid": "1.3.6.1.4.1.351.1100.50719",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgAdministrativeState"
+      }
+    ]
+  },
+  "mgAdministrativeStateUnlocked": {
+    "name": "mgAdministrativeStateUnlocked",
+    "oid": "1.3.6.1.4.1.351.1100.50720",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgAdministrativeState"
+      }
+    ]
+  },
+  "mgAdministrativeStateShuttingDown": {
+    "name": "mgAdministrativeStateShuttingDown",
+    "oid": "1.3.6.1.4.1.351.1100.50721",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgAdministrativeState"
+      }
+    ]
+  },
+  "mgcAssociated": {
+    "name": "mgcAssociated",
+    "oid": "1.3.6.1.4.1.351.1100.50722",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcAssociationState"
+      }
+    ]
+  },
+  "mgcUnassociated": {
+    "name": "mgcUnassociated",
+    "oid": "1.3.6.1.4.1.351.1100.50723",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcAssociationState"
+      }
+    ]
+  },
+  "mgcAssociatedCommLoss": {
+    "name": "mgcAssociatedCommLoss",
+    "oid": "1.3.6.1.4.1.351.1100.50724",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcAssociationState"
+      }
+    ]
+  },
+  "mgcCommStateActive": {
+    "name": "mgcCommStateActive",
+    "oid": "1.3.6.1.4.1.351.1100.50725",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionIpAddress"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionCommState"
+      }
+    ]
+  },
+  "mgcCommStateInactive": {
+    "name": "mgcCommStateInactive",
+    "oid": "1.3.6.1.4.1.351.1100.50726",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionIpAddress"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionCommState"
+      }
+    ]
+  },
+  "mgEndpointCreated": {
+    "name": "mgEndpointCreated",
+    "oid": "1.3.6.1.4.1.351.1100.50727",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointLineNumber"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointChannelMap"
+      }
+    ]
+  },
+  "mgEndpointDeleted": {
+    "name": "mgEndpointDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50728",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointLineNumber"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointChannelMap"
+      }
+    ]
+  },
+  "mgEndpointActive": {
+    "name": "mgEndpointActive",
+    "oid": "1.3.6.1.4.1.351.1100.50729",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointLineNumber"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointChannelMap"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointState"
+      }
+    ]
+  },
+  "mgEndpointFailed": {
+    "name": "mgEndpointFailed",
+    "oid": "1.3.6.1.4.1.351.1100.50730",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointLineNumber"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointChannelMap"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointState"
+      }
+    ]
+  },
+  "mgcAdded": {
+    "name": "mgcAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50731",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcName"
+      }
+    ]
+  },
+  "mgcDeleted": {
+    "name": "mgcDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50732",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcName"
+      }
+    ]
+  },
+  "mgcProtocolAdded": {
+    "name": "mgcProtocolAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50733",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      }
+    ]
+  },
+  "mgcProtocolDeleted": {
+    "name": "mgcProtocolDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50734",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      }
+    ]
+  },
+  "mgcResolutionAdded": {
+    "name": "mgcResolutionAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50735",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionIpAddress"
+      }
+    ]
+  },
+  "mgcResolutionDeleted": {
+    "name": "mgcResolutionDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50736",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgcResolutionIpAddress"
+      }
+    ]
+  },
+  "peerHeartbeatLost": {
+    "name": "peerHeartbeatLost",
+    "oid": "1.3.6.1.4.1.351.1100.50737",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-SRCP-MIB",
+        "object": "srcpPeerTimeSinceHeartbeat"
+      }
+    ]
+  },
+  "peerHeartbeatDetected": {
+    "name": "peerHeartbeatDetected",
+    "oid": "1.3.6.1.4.1.351.1100.50738",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-SRCP-MIB",
+        "object": "srcpPeerTimeSinceHeartbeat"
+      }
+    ]
+  },
+  "trapLapdAdded": {
+    "name": "trapLapdAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50761",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdIndex"
+      }
+    ]
+  },
+  "trapLapdDeleted": {
+    "name": "trapLapdDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50762",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdIndex"
+      }
+    ]
+  },
+  "trapSessionSetAdded": {
+    "name": "trapSessionSetAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50763",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetNum"
+      }
+    ]
+  },
+  "trapSessionSetDeleted": {
+    "name": "trapSessionSetDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50764",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetNum"
+      }
+    ]
+  },
+  "trapSessionGrpAdded": {
+    "name": "trapSessionGrpAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50765",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionGrpNum"
+      }
+    ]
+  },
+  "trapSessionGrpDeleted": {
+    "name": "trapSessionGrpDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50766",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionGrpNum"
+      }
+    ]
+  },
+  "trapRudpSessionAdded": {
+    "name": "trapRudpSessionAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50767",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionNum"
+      }
+    ]
+  },
+  "trapRudpSessionDeleted": {
+    "name": "trapRudpSessionDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50768",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionNum"
+      }
+    ]
+  },
+  "trapRudpSessionOos": {
+    "name": "trapRudpSessionOos",
+    "oid": "1.3.6.1.4.1.351.1100.50769",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionState"
+      }
+    ]
+  },
+  "trapRudpSessionIs": {
+    "name": "trapRudpSessionIs",
+    "oid": "1.3.6.1.4.1.351.1100.50770",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionState"
+      }
+    ]
+  },
+  "trapRudpSessionPrimaryIs": {
+    "name": "trapRudpSessionPrimaryIs",
+    "oid": "1.3.6.1.4.1.351.1100.50771",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionState"
+      }
+    ]
+  },
+  "trapRudpSessionActive": {
+    "name": "trapRudpSessionActive",
+    "oid": "1.3.6.1.4.1.351.1100.50772",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismRudpSessionState"
+      }
+    ]
+  },
+  "trapSessionGrpOos": {
+    "name": "trapSessionGrpOos",
+    "oid": "1.3.6.1.4.1.351.1100.50773",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionGrpNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionGrpState"
+      }
+    ]
+  },
+  "trapSessionGrpIs": {
+    "name": "trapSessionGrpIs",
+    "oid": "1.3.6.1.4.1.351.1100.50774",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionGrpNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionGrpState"
+      }
+    ]
+  },
+  "trapSessionSetOos": {
+    "name": "trapSessionSetOos",
+    "oid": "1.3.6.1.4.1.351.1100.50775",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetState"
+      }
+    ]
+  },
+  "trapSessionSetActiveIs": {
+    "name": "trapSessionSetActiveIs",
+    "oid": "1.3.6.1.4.1.351.1100.50776",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetState"
+      }
+    ]
+  },
+  "trapSessionSetStandbyIs": {
+    "name": "trapSessionSetStandbyIs",
+    "oid": "1.3.6.1.4.1.351.1100.50777",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetState"
+      }
+    ]
+  },
+  "trapSessionSetFullIs": {
+    "name": "trapSessionSetFullIs",
+    "oid": "1.3.6.1.4.1.351.1100.50778",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetNum"
+      },
+      {
+        "module": "CISCO-VISM-SESSION-MIB",
+        "object": "vismSessionSetState"
+      }
+    ]
+  },
+  "trapLapdDlcAdded": {
+    "name": "trapLapdDlcAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50779",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcIndex"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcSapi"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcTei"
+      }
+    ]
+  },
+  "trapLapdDlcDeleted": {
+    "name": "trapLapdDlcDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50780",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcIndex"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcSapi"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcTei"
+      }
+    ]
+  },
+  "trapLapdDlcUp": {
+    "name": "trapLapdDlcUp",
+    "oid": "1.3.6.1.4.1.351.1100.50781",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcIndex"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcSapi"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcTei"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcLinkState"
+      }
+    ]
+  },
+  "trapLapdDlcDown": {
+    "name": "trapLapdDlcDown",
+    "oid": "1.3.6.1.4.1.351.1100.50782",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcIndex"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcSapi"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcTei"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdDlcLinkState"
+      }
+    ]
+  },
+  "persistentXgcpEventCreated": {
+    "name": "persistentXgcpEventCreated",
+    "oid": "1.3.6.1.4.1.351.1100.50786",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB",
+        "object": "persistentXgcpEventName"
+      }
+    ]
+  },
+  "persistentXgcpEventDeleted": {
+    "name": "persistentXgcpEventDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50787",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB",
+        "object": "persistentXgcpEventName"
+      }
+    ]
+  },
+  "mgDomainNameAdded": {
+    "name": "mgDomainNameAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50791",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgDomainName"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgDnsResolutionType"
+      }
+    ]
+  },
+  "mgDomainNameDeleted": {
+    "name": "mgDomainNameDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50789",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "vismTonePlanAdded": {
+    "name": "vismTonePlanAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50798",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanRegionName"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanVersionNumber"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanFileName"
+      }
+    ]
+  },
+  "vismTonePlanDeleted": {
+    "name": "vismTonePlanDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50799",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanRegionName"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanVersionNumber"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanFileName"
+      }
+    ]
+  },
+  "vismRtpConnAdded": {
+    "name": "vismRtpConnAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50650",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-RTP-CONN-MIB",
+        "object": "vismRtpLcn"
+      }
+    ]
+  },
+  "vismRtpConnDeleted": {
+    "name": "vismRtpConnDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50651",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-RTP-CONN-MIB",
+        "object": "vismRtpLcn"
+      }
+    ]
+  },
+  "vismRtpConnStateChg": {
+    "name": "vismRtpConnStateChg",
+    "oid": "1.3.6.1.4.1.351.1100.50652",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-RTP-CONN-MIB",
+        "object": "vismRtpConnAlarmState"
+      },
+      {
+        "module": "CISCO-WAN-RTP-CONN-MIB",
+        "object": "vismRtpLcn"
+      },
+      {
+        "module": "CISCO-WAN-RTP-CONN-MIB",
+        "object": "vismRtpFailReason"
+      }
+    ]
+  },
+  "vismLapdTrStateIs": {
+    "name": "vismLapdTrStateIs",
+    "oid": "1.3.6.1.4.1.351.1100.50653",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdTrunkState"
+      }
+    ]
+  },
+  "vismLapdTrStateOos": {
+    "name": "vismLapdTrStateOos",
+    "oid": "1.3.6.1.4.1.351.1100.50654",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-LAPD-TRUNK-MIB",
+        "object": "vismLapdTrunkState"
+      }
+    ]
+  },
+  "vismLapdTrunkAdded": {
+    "name": "vismLapdTrunkAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50655",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "vismLapdTrunkDeleted": {
+    "name": "vismLapdTrunkDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50656",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "mgcRedundancyGrpAdded": {
+    "name": "mgcRedundancyGrpAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50657",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      }
+    ]
+  },
+  "mgcRedundancyGrpDeleted": {
+    "name": "mgcRedundancyGrpDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50658",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      }
+    ]
+  },
+  "mgcRedundancyGrpCommOk": {
+    "name": "mgcRedundancyGrpCommOk",
+    "oid": "1.3.6.1.4.1.351.1100.50659",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "mgcRedundancyGrpCommLoss": {
+    "name": "mgcRedundancyGrpCommLoss",
+    "oid": "1.3.6.1.4.1.351.1100.50660",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "mgcActiveInGrp": {
+    "name": "mgcActiveInGrp",
+    "oid": "1.3.6.1.4.1.351.1100.50665",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      },
+      {
+        "module": "CISCO-WAN-MGC-REDUN-MIB",
+        "object": "mgcRedundancyGrpActState"
+      }
+    ]
+  },
+  "mgcInactiveInGrp": {
+    "name": "mgcInactiveInGrp",
+    "oid": "1.3.6.1.4.1.351.1100.50666",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      },
+      {
+        "module": "CISCO-WAN-MGC-REDUN-MIB",
+        "object": "mgcRedundancyGrpActState"
+      }
+    ]
+  },
+  "mgcRedundancyGrpProtocolAdded": {
+    "name": "mgcRedundancyGrpProtocolAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50661",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      }
+    ]
+  },
+  "mgcRedundancyGrpProtocolDeleted": {
+    "name": "mgcRedundancyGrpProtocolDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50662",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      }
+    ]
+  },
+  "peerGrpHeartbeatLost": {
+    "name": "peerGrpHeartbeatLost",
+    "oid": "1.3.6.1.4.1.351.1100.50663",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-SRCP-MIB",
+        "object": "srcpPeerGrpTimeSinceHeartbeat"
+      }
+    ]
+  },
+  "peerGrpHeartbeatDetected": {
+    "name": "peerGrpHeartbeatDetected",
+    "oid": "1.3.6.1.4.1.351.1100.50664",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-SRCP-MIB",
+        "object": "srcpPeerGrpTimeSinceHeartbeat"
+      }
+    ]
+  },
+  "mgcRedundancyGrpParamEntryAdded": {
+    "name": "mgcRedundancyGrpParamEntryAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50668",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "mgcRedundancyGrpParamEntryDeleted": {
+    "name": "mgcRedundancyGrpParamEntryDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50669",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "srcpPeerGrpParamEntryAdded": {
+    "name": "srcpPeerGrpParamEntryAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50670",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "srcpPeerGrpParamEntryDeleted": {
+    "name": "srcpPeerGrpParamEntryDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50671",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "cwAnnFileAddStarted": {
+    "name": "cwAnnFileAddStarted",
+    "oid": "1.3.6.1.4.1.351.1100.50674",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileName"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileCodec"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileStatus"
+      }
+    ]
+  },
+  "cwAnnFileLoadComplete": {
+    "name": "cwAnnFileLoadComplete",
+    "oid": "1.3.6.1.4.1.351.1100.50675",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileName"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileCodec"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileStatus"
+      }
+    ]
+  },
+  "cwAnnFileLoadFailed": {
+    "name": "cwAnnFileLoadFailed",
+    "oid": "1.3.6.1.4.1.351.1100.50676",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileName"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileCodec"
+      },
+      {
+        "module": "CISCO-WAN-ANNOUNCEMENT-MIB",
+        "object": "cwAnnFileStatus"
+      }
+    ]
+  },
+  "cwAnnFileDeleted": {
+    "name": "cwAnnFileDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50677",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      }
+    ]
+  },
+  "newFlow": {
+    "name": "newFlow",
+    "oid": "1.3.6.1.4.1.351.1100.50672",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "INT-SERV-MIB",
+        "object": "intSrvFlowStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionDestAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderStatus"
+      }
+    ]
+  },
+  "lostFlow": {
+    "name": "lostFlow",
+    "oid": "1.3.6.1.4.1.351.1100.50673",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "INT-SERV-MIB",
+        "object": "intSrvFlowStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSessionDestAddr"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvFwdStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpResvStatus"
+      },
+      {
+        "module": "RSVP-MIB",
+        "object": "rsvpSenderStatus"
+      }
+    ]
+  },
+  "dspRASEndpointFailed": {
+    "name": "dspRASEndpointFailed",
+    "oid": "1.3.6.1.4.1.351.1100.50678",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointLineNumber"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointChannelMap"
+      }
+    ]
+  },
+  "dspRASEndpointActive": {
+    "name": "dspRASEndpointActive",
+    "oid": "1.3.6.1.4.1.351.1100.50679",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointLineNumber"
+      },
+      {
+        "module": "CISCO-WAN-MG-MIB",
+        "object": "mgEndpointChannelMap"
+      }
+    ]
+  },
+  "vismConfigToneDetectAdded": {
+    "name": "vismConfigToneDetectAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50683",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismEventCode"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFrequency1"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFrequency2"
+      }
+    ]
+  },
+  "vismConfigToneDetectDeleted": {
+    "name": "vismConfigToneDetectDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50684",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismEventCode"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFrequency1"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFrequency2"
+      }
+    ]
+  },
+  "trapCidAdministrativeStateChange": {
+    "name": "trapCidAdministrativeStateChange",
+    "oid": "1.3.6.1.4.1.351.1100.50784",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidAdminState"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidNum"
+      },
+      {
+        "module": "CISCO-VISM-ATM-TRUNK-MIB",
+        "object": "vismAal2CidLcn"
+      }
+    ]
+  },
+  "vismCasTransTblAdded": {
+    "name": "vismCasTransTblAdded",
+    "oid": "1.3.6.1.4.1.351.1100.50685",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasTemplateName"
+      }
+    ]
+  },
+  "vismCasTranTblDeleted": {
+    "name": "vismCasTranTblDeleted",
+    "oid": "1.3.6.1.4.1.351.1100.50686",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RTM-MIB",
+        "object": "lastSequenceNumber"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNodeName"
+      },
+      {
+        "module": "BASIS-SHELF-MIB",
+        "object": "shelfNum"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleSlotNumber"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "moduleTrapAlarmSeverity"
+      },
+      {
+        "module": "BASIS-GENERIC-MIB",
+        "object": "functionModuleType"
+      },
+      {
+        "module": "GENERICOBJECT-MIB",
+        "object": "genericTimeStamp"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      },
+      {
+        "module": "CISCO-VOICE-CAS-MODULE-MIB",
+        "object": "cvcmCasTemplateName"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VISM-TRAPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VISM-TRAPS-MIB"
+  }
+}

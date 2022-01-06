@@ -1,0 +1,1136 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "sysinfo"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "MacAddress"
+    ]
+  },
+  "vcstack": {
+    "name": "vcstack",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-05-11 00:00",
+        "description": "Added new field expansionModule to vcstackActiveStkHardware and deprecated fields xemStk(1), stackXG(4) and x6EMXS2(5). Added the missing field stackQS(6) as it is supported on x930."
+      },
+      {
+        "revision": "2014-12-24 00:00",
+        "description": "Allow value range (0-12) for object vcstackBayid"
+      },
+      {
+        "revision": "2014-07-04 00:00",
+        "description": "Added a new value for object vcstackStatus"
+      },
+      {
+        "revision": "2014-05-26 00:00",
+        "description": "Updated vcstackStkPortxNeighbourId descriptions for VCS+."
+      },
+      {
+        "revision": "2014-04-24 00:00",
+        "description": "Deprecated vcstackStkPort1Status, vcstackStkPort1NeighbourId, vcstackStkPort2Status, vcstackStkPort2NeighbourId"
+      },
+      {
+        "revision": "2014-04-15 00:00",
+        "description": "Added vcstackPortTable table"
+      },
+      {
+        "revision": "2014-04-09 00:00",
+        "description": "Updated vcstackVirtualMacAddr description with small change in behaviour"
+      },
+      {
+        "revision": "2011-11-03 00:00",
+        "description": "Add x6EM/XS2 hardware type"
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
+      },
+      {
+        "revision": "2010-09-03 00:00",
+        "description": "Added disabled master monitoring object and a new resiliency-link status"
+      },
+      {
+        "revision": "2010-06-15 00:15",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2010-05-24 01:19",
+        "description": "OID of vcstackTraps was reverted to 6 but deprecated. Added vcstackNotifications"
+      },
+      {
+        "revision": "2010-01-15 00:39",
+        "description": "Changed the OID value of vcstackTraps from 6 to 0 to meet RFC 3584 3.1"
+      },
+      {
+        "revision": "2009-11-05 00:00",
+        "description": "Obsoleted fallback-config, added new status object"
+      },
+      {
+        "revision": "2009-06-08 00:00",
+        "description": "Added stack master object and corrected allowable ranges for learned neighbour stack ID's."
+      },
+      {
+        "revision": "2009-01-20 00:00",
+        "description": "Added Virtual MAC address objects."
+      },
+      {
+        "revision": "2008-03-19 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "vcstackNotifications": {
+    "name": "vcstackNotifications",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0",
+    "class": "objectidentity"
+  },
+  "vcstackRoleChangeNotify": {
+    "name": "vcstackRoleChangeNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackRole"
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackMemberJoinNotify": {
+    "name": "vcstackMemberJoinNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackNbrMemberIdNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackMemberLeaveNotify": {
+    "name": "vcstackMemberLeaveNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackNbrMemberIdNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackResiliencyLinkHealthCheckReceivingNotify": {
+    "name": "vcstackResiliencyLinkHealthCheckReceivingNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackResiliencyLinkInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackResiliencyLinkHealthCheckTimeOutNotify": {
+    "name": "vcstackResiliencyLinkHealthCheckTimeOutNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackResiliencyLinkInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackStkPortLinkUpNotify": {
+    "name": "vcstackStkPortLinkUpNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackStkPortNameNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackStkPortLinkDownNotify": {
+    "name": "vcstackStkPortLinkDownNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackStkPortNameNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackNbrMemberIdNotify": {
+    "name": "vcstackNbrMemberIdNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vcstackStkPortNameNotify": {
+    "name": "vcstackStkPortNameNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.0.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vcstackStatus": {
+    "name": "vcstackStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOperation": 1,
+          "operatingInFailoverState": 2,
+          "standaloneUnit": 3,
+          "ringTopologyBroken": 4,
+          "vcsDisabled": 5,
+          "allStkPortsNotUp": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackOperationalStatus": {
+    "name": "vcstackOperationalStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackMgmtVlanId": {
+    "name": "vcstackMgmtVlanId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackMgmtVlanSubnetAddr": {
+    "name": "vcstackMgmtVlanSubnetAddr",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackTable": {
+    "name": "vcstackTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcstackEntry": {
+    "name": "vcstackEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackId": {
+    "name": "vcstackId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackPendingId": {
+    "name": "vcstackPendingId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackMacAddr": {
+    "name": "vcstackMacAddr",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackPriority": {
+    "name": "vcstackPriority",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackRole": {
+    "name": "vcstackRole",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leaving": 1,
+          "discovering": 2,
+          "synchronizing": 3,
+          "backupMember": 4,
+          "pendingMaster": 5,
+          "disabledMaster": 6,
+          "fallbackMaster": 7,
+          "activeMaster": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackLastRoleChange": {
+    "name": "vcstackLastRoleChange",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackHostname": {
+    "name": "vcstackHostname",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackProductType": {
+    "name": "vcstackProductType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackSWVersionAutoSync": {
+    "name": "vcstackSWVersionAutoSync",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackFallbackConfigStatus": {
+    "name": "vcstackFallbackConfigStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fileExists": 1,
+          "fileNotFound": 2,
+          "notConfigured": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vcstackFallbackConfigFilename": {
+    "name": "vcstackFallbackConfigFilename",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vcstackResiliencyLinkStatus": {
+    "name": "vcstackResiliencyLinkStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "successful": 2,
+          "failed": 3,
+          "notConfigured": 4,
+          "stopped": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackResiliencyLinkInterfaceName": {
+    "name": "vcstackResiliencyLinkInterfaceName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackActiveStkHardware": {
+    "name": "vcstackActiveStkHardware",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "xemStk": 1,
+          "builtinStackingPorts": 2,
+          "none": 3,
+          "stackXG": 4,
+          "x6EMXS2": 5,
+          "stackQS": 6,
+          "expansionModule": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackStkPort1Status": {
+    "name": "vcstackStkPort1Status",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "neighbourIncompatible": 2,
+          "discoveringNeighbour": 3,
+          "learntNeighbour": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vcstackStkPort1NeighbourId": {
+    "name": "vcstackStkPort1NeighbourId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vcstackStkPort2Status": {
+    "name": "vcstackStkPort2Status",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "neighbourIncompatible": 2,
+          "discoveringNeighbour": 3,
+          "learntNeighbour": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vcstackStkPort2NeighbourId": {
+    "name": "vcstackStkPort2NeighbourId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vcstackNumMembersJoined": {
+    "name": "vcstackNumMembersJoined",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackNumMembersLeft": {
+    "name": "vcstackNumMembersLeft",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackNumIdConflict": {
+    "name": "vcstackNumIdConflict",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackNumMasterConflict": {
+    "name": "vcstackNumMasterConflict",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackNumMasterFailover": {
+    "name": "vcstackNumMasterFailover",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackNumStkPort1NbrIncompatible": {
+    "name": "vcstackNumStkPort1NbrIncompatible",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackNumStkPort2NbrIncompatible": {
+    "name": "vcstackNumStkPort2NbrIncompatible",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackReadinessStatus": {
+    "name": "vcstackReadinessStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "syncing": 2,
+          "ready": 3,
+          "syncError": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackTraps": {
+    "name": "vcstackTraps",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6",
+    "class": "objectidentity"
+  },
+  "vcstackRoleChange": {
+    "name": "vcstackRoleChange",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackRole"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vcstackMemberJoin": {
+    "name": "vcstackMemberJoin",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackNbrMemberId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vcstackMemberLeave": {
+    "name": "vcstackMemberLeave",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackNbrMemberId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vcstackResiliencyLinkHealthCheckReceiving": {
+    "name": "vcstackResiliencyLinkHealthCheckReceiving",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackResiliencyLinkInterfaceName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vcstackResiliencyLinkHealthCheckTimeOut": {
+    "name": "vcstackResiliencyLinkHealthCheckTimeOut",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackResiliencyLinkInterfaceName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vcstackStkPortLinkUp": {
+    "name": "vcstackStkPortLinkUp",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackStkPortName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vcstackStkPortLinkDown": {
+    "name": "vcstackStkPortLinkDown",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackId"
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackStkPortName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "vcstackNbrMemberId": {
+    "name": "vcstackNbrMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vcstackStkPortName": {
+    "name": "vcstackStkPortName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "vcstackVirtualMacAddressStatus": {
+    "name": "vcstackVirtualMacAddressStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackVirtualChassisId": {
+    "name": "vcstackVirtualChassisId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackVirtualMacAddr": {
+    "name": "vcstackVirtualMacAddr",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackMasterId": {
+    "name": "vcstackMasterId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackDisabledMasterMonitoringStatus": {
+    "name": "vcstackDisabledMasterMonitoringStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackPortTable": {
+    "name": "vcstackPortTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcstackPortEntry": {
+    "name": "vcstackPortEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackBayId",
+        "implied": 0
+      },
+      {
+        "module": "AT-VCSTACK-MIB",
+        "object": "vcstackPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcstackMemberId": {
+    "name": "vcstackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackBayId": {
+    "name": "vcstackBayId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackPort": {
+    "name": "vcstackPort",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackPortString": {
+    "name": "vcstackPortString",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackPortStatus": {
+    "name": "vcstackPortStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "neighbourIncompatible": 2,
+          "discoveringNeighbour": 3,
+          "learntNeighbour": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcstackPortNeighbourName": {
+    "name": "vcstackPortNeighbourName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.13.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-VCSTACK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-VCSTACK-MIB"
+  }
+}

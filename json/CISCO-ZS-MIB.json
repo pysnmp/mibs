@@ -1,0 +1,5870 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-NS-MIB": [
+      "FcGs3RejectReasonCode"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "DomainIdOrZero",
+      "FcNameId",
+      "VsanIndex",
+      "FcAddressId"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoZsMIB": {
+    "name": "ciscoZsMIB",
+    "oid": "1.3.6.1.4.1.9.9.294",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-10 00:00",
+        "description": "Added new enum 'ipAddrv6' to ZoneMemberType TC. Added description to the object zoneMemberID corresponding to this enum. Added zoneSetZoneListTable and zoneSetEnforcedZoneListTable to increase the number of zones that can be associated with a zoneset to 8192 from 2048. Changed the upper limit of zoneIndex and zoneMemberParentIndex objects to 8192 from 2048. Added zoneCompactTable and zoneCompactNotify. Added new enum 'deviceAlias' to ZoneMemberType TC. Deprecated zoneCopyActiveToFullOnVsan object. Added new objects zoneCopyActToFullSpinLock, zoneCopyActToFullMode and zoneCopyActToFullVsan. Enhanced zoneMergeFailure notification to include information regarding the details of merge failure."
+      },
+      {
+        "revision": "2005-04-07 00:00",
+        "description": "Added zoneDbHardZoningEnabled to zoneDbTable. Added zoneSetClone, zoneClone and zoneAliasClone objects. Added zoneActivateNotify notification. Added zoneSwitchWwn object to be used in zoneActivateNotify notification."
+      },
+      {
+        "revision": "2004-09-01 00:00",
+        "description": "Added objects zoneQos, zoneQosPriority, zoneBroadcast and zoneAttribObjIndex to zoneTable. Added objects zoneEnforcedZoneQos, zoneEnforcedZoneQosPriority and zoneEnforcedZoneBroadcast to zoneEnforcedZoneTable. Added zoneDefaultZoneQos, zoneDefaultZoneQosPriority and zoneDefaultZoneBroadcast to zoneDefaultZoneTable. Changed DESCRIPTION of zoneSetName and zoneAliasName objects to indicate that they support renaming."
+      },
+      {
+        "revision": "2004-01-27 00:00",
+        "description": "Added zoneZoneSetDistributeVsan, zoneZoneSetDistributeResult and zoneZoneSetDistributeFailReason objects for supporting full zoneset distribution."
+      },
+      {
+        "revision": "2003-12-12 00:00",
+        "description": "Added new notification zoneUnsuppMemInIntOpModeNotify and corresponding notification control object zoneUnsuppMemInIntOpNotifyEnable. Added object zoneVsanId to be used in the above notification."
+      },
+      {
+        "revision": "2003-08-25 00:00",
+        "description": "Added zoneCopyTable. Added 2 new member types to ZoneMemberType TC - domainIntf and ipAddr."
+      },
+      {
+        "revision": "2003-08-01 00:00",
+        "description": "Added zoneLunStatsTable and zoneRoZoneStatsTable. Changed the max size of zoneMemberID and zoneEnforcedMemberID to 255 from 256. Added zoneDefaultZoneReadOnly object to zoneDefaultZoneTable. Modified the DESCRIPTION of zoneName object in zoneTable so that it can be renamed. Added zoneAliasLastChange object to zoneAliasTable. Deprecated zoneEnforcedZoneAliasTable. Added 2 new member types (domainPort and intf) to ZoneMemberType TC."
+      },
+      {
+        "revision": "2003-03-26 00:00",
+        "description": "Added TC FcChangeProtoFailCause and objects zoneSetFailCause and zoneSetFailDomId to the zoneSetActivateTable. Added objects zoneDbEnforcedEqualsLocal and zoneDbClearDb to new table zoneDbTable. Added zoneReadOnly object to zoneTable and zoneEnforcedZoneReadOnly object to zoneEnforcedZoneTable."
+      },
+      {
+        "revision": "2003-01-17 00:00",
+        "description": "Added symNodeName, a new enumeration to the ZoneMemberType TC."
+      },
+      {
+        "revision": "2002-11-08 00:00",
+        "description": "Added zoneCopyActiveToFullOnVsan object."
+      },
+      {
+        "revision": "2002-10-28 00:00",
+        "description": "Added zoneSetPropagationTable."
+      },
+      {
+        "revision": "2002-10-03 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoZoningMIBObjects": {
+    "name": "ciscoZoningMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.294.1",
+    "class": "objectidentity"
+  },
+  "zoneServerMIBConformance": {
+    "name": "zoneServerMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.294.2",
+    "class": "objectidentity"
+  },
+  "zoneConfiguration": {
+    "name": "zoneConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1",
+    "class": "objectidentity"
+  },
+  "zoneStats": {
+    "name": "zoneStats",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2",
+    "class": "objectidentity"
+  },
+  "zoneInformation": {
+    "name": "zoneInformation",
+    "oid": "1.3.6.1.4.1.9.9.294.1.3",
+    "class": "objectidentity"
+  },
+  "zoneNotification": {
+    "name": "zoneNotification",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4",
+    "class": "objectidentity"
+  },
+  "zoneNotifications": {
+    "name": "zoneNotifications",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4.0",
+    "class": "objectidentity"
+  },
+  "ZoneMemberType": {
+    "name": "ZoneMemberType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wwn": 1,
+          "domainPort": 2,
+          "fcAddr": 3,
+          "fwwn": 4,
+          "symNodeName": 5,
+          "intf": 6,
+          "domainIntf": 7,
+          "ipAddr": 8,
+          "ipAddrv6": 9,
+          "deviceAlias": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcZoneServerRejReasonExpl": {
+    "name": "FcZoneServerRejReasonExpl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAdditionalExplanation": 1,
+          "zonesNotSupported": 2,
+          "zoneSetNameUnknown": 3,
+          "noZoneSetActive": 4,
+          "zoneNameUnknown": 5,
+          "zoneStateUnknown": 6,
+          "incorrectPayloadLen": 7,
+          "tooLargeZoneSet": 8,
+          "deactivateZoneSetFailed": 9,
+          "reqNotSupported": 10,
+          "capabilityNotSupported": 11,
+          "zoneMemberIDTypeNotSupp": 12,
+          "invalidZoneSetDefinition": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcList": {
+    "name": "FcList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcChangeProtoFailCause": {
+    "name": "FcChangeProtoFailCause",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rcvdSfcBusy": 2,
+          "rcvdUfcBusy": 3,
+          "acaRetryExceed": 4,
+          "sfcRetryExceed": 5,
+          "ufcRetryExceed": 6,
+          "unsuppCmd": 7,
+          "notAuth": 8,
+          "fabricChange": 9,
+          "updateNotStaged": 10,
+          "invalidZsetFormat": 11,
+          "systemErr": 12,
+          "vsanNotPresent": 13,
+          "vsanInactive": 14,
+          "zsetNotPresent": 15,
+          "dbUpdateInProgress": 16,
+          "zsetNotActive": 17,
+          "hwOperFailed": 18,
+          "fc2SeqSizeExceed": 19,
+          "fc2SendFailed": 20,
+          "zsetUnchangedAndActive": 21,
+          "fabricUnstable": 22,
+          "nonInteropMember": 23,
+          "lcUpgradeInProgress": 24
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ZoneCopyProtocol": {
+    "name": "ZoneCopyProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "ftp": 2,
+          "sftp": 3,
+          "scp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ZoneFileType": {
+    "name": "ZoneFileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "networkFile": 1,
+          "localFile": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ZoneQosPriorityLevel": {
+    "name": "ZoneQosPriorityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "low": 2,
+          "medium": 3,
+          "high": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ZoneMergeFailCause": {
+    "name": "ZoneMergeFailCause",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "zoningModeMismatch": 2,
+          "qosNotEnabled": 3,
+          "qosConflict": 4,
+          "bcastNotEnabled": 5,
+          "mergeCtrlMismatch": 6,
+          "defZoneMismatch": 7,
+          "qosAttrMissing": 8,
+          "bcastAttrMissing": 9,
+          "rdonlyAttrMissing": 10,
+          "memberMismatch": 11,
+          "invPayloadFormat": 12,
+          "sizeExceeded": 13,
+          "unlicensedMember": 14,
+          "nonInteropZoneset": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "zoneDefaultZoneTable": {
+    "name": "zoneDefaultZoneTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneDefaultZoneEntry": {
+    "name": "zoneDefaultZoneEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneDefaultZoneBehaviour": {
+    "name": "zoneDefaultZoneBehaviour",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneDefaultZoneReadOnly": {
+    "name": "zoneDefaultZoneReadOnly",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneDefaultZoneQos": {
+    "name": "zoneDefaultZoneQos",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneDefaultZoneQosPriority": {
+    "name": "zoneDefaultZoneQosPriority",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneQosPriorityLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneDefaultZoneBroadcast": {
+    "name": "zoneDefaultZoneBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneSetPropagationTable": {
+    "name": "zoneSetPropagationTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneSetPropagationEntry": {
+    "name": "zoneSetPropagationEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneSetPropagationMode": {
+    "name": "zoneSetPropagationMode",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullZoneSet": 1,
+          "activeZoneSet": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "activeZoneSet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneSetNumber": {
+    "name": "zoneSetNumber",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetTable": {
+    "name": "zoneSetTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneSetEntry": {
+    "name": "zoneSetEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneSetIndex": {
+    "name": "zoneSetIndex",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneSetName": {
+    "name": "zoneSetName",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetZoneList": {
+    "name": "zoneSetZoneList",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetLastChange": {
+    "name": "zoneSetLastChange",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetRowStatus": {
+    "name": "zoneSetRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetClone": {
+    "name": "zoneSetClone",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetActivateTable": {
+    "name": "zoneSetActivateTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneSetActivateEntry": {
+    "name": "zoneSetActivateEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneSetActivate": {
+    "name": "zoneSetActivate",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetActivateResult": {
+    "name": "zoneSetActivateResult",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activateSuccess": 1,
+          "activateFailure": 2,
+          "deactivateSuccess": 3,
+          "deactivateFailure": 4,
+          "inProgress": 5,
+          "newEntry": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetDeActivate": {
+    "name": "zoneSetDeActivate",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deactivate": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetActivateRowStatus": {
+    "name": "zoneSetActivateRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetFailCause": {
+    "name": "zoneSetFailCause",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcChangeProtoFailCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetFailDomId": {
+    "name": "zoneSetFailDomId",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneNumber": {
+    "name": "zoneNumber",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneTable": {
+    "name": "zoneTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneEntry": {
+    "name": "zoneEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneIndex": {
+    "name": "zoneIndex",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneName": {
+    "name": "zoneName",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneMemberList": {
+    "name": "zoneMemberList",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneAliasList": {
+    "name": "zoneAliasList",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneLastChange": {
+    "name": "zoneLastChange",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneRowStatus": {
+    "name": "zoneRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneReadOnly": {
+    "name": "zoneReadOnly",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneQos": {
+    "name": "zoneQos",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneQosPriority": {
+    "name": "zoneQosPriority",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneQosPriorityLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneBroadcast": {
+    "name": "zoneBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneClone": {
+    "name": "zoneClone",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneAliasNumber": {
+    "name": "zoneAliasNumber",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneAliasTable": {
+    "name": "zoneAliasTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneAliasEntry": {
+    "name": "zoneAliasEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneAliasIndex": {
+    "name": "zoneAliasIndex",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneAliasName": {
+    "name": "zoneAliasName",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneAliasMemberList": {
+    "name": "zoneAliasMemberList",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneAliasRowStatus": {
+    "name": "zoneAliasRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneAliasLastChange": {
+    "name": "zoneAliasLastChange",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneAliasClone": {
+    "name": "zoneAliasClone",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneMemberNumber": {
+    "name": "zoneMemberNumber",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777216
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneMemberTable": {
+    "name": "zoneMemberTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneMemberEntry": {
+    "name": "zoneMemberEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberParentIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneMemberTypeIndex": {
+    "name": "zoneMemberTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zone": 1,
+          "alias": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneMemberParentIndex": {
+    "name": "zoneMemberParentIndex",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneMemberIndex": {
+    "name": "zoneMemberIndex",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneMemberFormat": {
+    "name": "zoneMemberFormat",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneMemberType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneMemberID": {
+    "name": "zoneMemberID",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneMemberLunID": {
+    "name": "zoneMemberLunID",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneMemberRowStatus": {
+    "name": "zoneMemberRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneEnforcedZoneSetNumber": {
+    "name": "zoneEnforcedZoneSetNumber",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneSetTable": {
+    "name": "zoneEnforcedZoneSetTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneEnforcedZoneSetEntry": {
+    "name": "zoneEnforcedZoneSetEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneEnforcedZoneSetName": {
+    "name": "zoneEnforcedZoneSetName",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneSetZoneList": {
+    "name": "zoneEnforcedZoneSetZoneList",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneSetActivateTime": {
+    "name": "zoneEnforcedZoneSetActivateTime",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneNumber": {
+    "name": "zoneEnforcedZoneNumber",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneTable": {
+    "name": "zoneEnforcedZoneTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneEnforcedZoneEntry": {
+    "name": "zoneEnforcedZoneEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneEnforcedZoneName": {
+    "name": "zoneEnforcedZoneName",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneMemberList": {
+    "name": "zoneEnforcedZoneMemberList",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneAliasList": {
+    "name": "zoneEnforcedZoneAliasList",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneActivateTime": {
+    "name": "zoneEnforcedZoneActivateTime",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneReadOnly": {
+    "name": "zoneEnforcedZoneReadOnly",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneQos": {
+    "name": "zoneEnforcedZoneQos",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneQosPriority": {
+    "name": "zoneEnforcedZoneQosPriority",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneQosPriorityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneBroadcast": {
+    "name": "zoneEnforcedZoneBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneAliasNumber": {
+    "name": "zoneEnforcedZoneAliasNumber",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8488608
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "zoneEnforcedZoneAliasTable": {
+    "name": "zoneEnforcedZoneAliasTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "zoneEnforcedZoneAliasEntry": {
+    "name": "zoneEnforcedZoneAliasEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneEnforcedZoneAliasName": {
+    "name": "zoneEnforcedZoneAliasName",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "zoneEnforcedZoneAliasMemberList": {
+    "name": "zoneEnforcedZoneAliasMemberList",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "zoneEnforcedZoneMemberNumber": {
+    "name": "zoneEnforcedZoneMemberNumber",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777216
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneMemberTable": {
+    "name": "zoneEnforcedZoneMemberTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneEnforcedZoneMemberEntry": {
+    "name": "zoneEnforcedZoneMemberEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberParentIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneEnforcedZoneMemberFormat": {
+    "name": "zoneEnforcedZoneMemberFormat",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneMemberType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneMemberID": {
+    "name": "zoneEnforcedZoneMemberID",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneMemberLunID": {
+    "name": "zoneEnforcedZoneMemberLunID",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneMergeFailRecoverSpinLock": {
+    "name": "zoneMergeFailRecoverSpinLock",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneMergeFailRecoverInterface": {
+    "name": "zoneMergeFailRecoverInterface",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneMergeFailRecoverVsan": {
+    "name": "zoneMergeFailRecoverVsan",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneMergeFailRecoverOper": {
+    "name": "zoneMergeFailRecoverOper",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "import": 1,
+          "export": 2,
+          "noop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneMergeFailRecoverResult": {
+    "name": "zoneMergeFailRecoverResult",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "inProgress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneCopyActiveToFullOnVsan": {
+    "name": "zoneCopyActiveToFullOnVsan",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "zoneTotalGS3Rejects": {
+    "name": "zoneTotalGS3Rejects",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneStatsTable": {
+    "name": "zoneStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneStatsEntry": {
+    "name": "zoneStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneTxMergeReqs": {
+    "name": "zoneTxMergeReqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneRxMergeAccepts": {
+    "name": "zoneRxMergeAccepts",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneRxMergeReqs": {
+    "name": "zoneRxMergeReqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneTxMergeAccepts": {
+    "name": "zoneTxMergeAccepts",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneTxChangeReqs": {
+    "name": "zoneTxChangeReqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneRxChangeAccepts": {
+    "name": "zoneRxChangeAccepts",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneRxChangeReqs": {
+    "name": "zoneRxChangeReqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneTxChangeAccepts": {
+    "name": "zoneTxChangeAccepts",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneRxGS3Reqs": {
+    "name": "zoneRxGS3Reqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneTxGS3Rejects": {
+    "name": "zoneTxGS3Rejects",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneLunStatsTable": {
+    "name": "zoneLunStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneLunStatsEntry": {
+    "name": "zoneLunStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunSrcFcId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunDstFcId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneLunSrcFcId": {
+    "name": "zoneLunSrcFcId",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneLunDstFcId": {
+    "name": "zoneLunDstFcId",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneLunNum": {
+    "name": "zoneLunNum",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneLunRxInqReqs": {
+    "name": "zoneLunRxInqReqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneLunRxRepLunReqs": {
+    "name": "zoneLunRxRepLunReqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneLunRxSenseReqs": {
+    "name": "zoneLunRxSenseReqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneLunRxOtherCmds": {
+    "name": "zoneLunRxOtherCmds",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneLunTxInqDataNoLus": {
+    "name": "zoneLunTxInqDataNoLus",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneLunTxIllegalReqs": {
+    "name": "zoneLunTxIllegalReqs",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneRoZoneStatsTable": {
+    "name": "zoneRoZoneStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneRoZoneStatsEntry": {
+    "name": "zoneRoZoneStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRoZoneSrcFcId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRoZoneDstFcId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRoZoneLunNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneRoZoneSrcFcId": {
+    "name": "zoneRoZoneSrcFcId",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneRoZoneDstFcId": {
+    "name": "zoneRoZoneDstFcId",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneRoZoneLunNum": {
+    "name": "zoneRoZoneLunNum",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneRoZoneTxDataProts": {
+    "name": "zoneRoZoneTxDataProts",
+    "oid": "1.3.6.1.4.1.9.9.294.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneServiceRejReasonCode": {
+    "name": "zoneServiceRejReasonCode",
+    "oid": "1.3.6.1.4.1.9.9.294.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcGs3RejectReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneServiceRejReasonCodeExp": {
+    "name": "zoneServiceRejReasonCodeExp",
+    "oid": "1.3.6.1.4.1.9.9.294.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcZoneServerRejReasonExpl",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneMergeFailureVSANNum": {
+    "name": "zoneMergeFailureVSANNum",
+    "oid": "1.3.6.1.4.1.9.9.294.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneMergeSuccessVSANNum": {
+    "name": "zoneMergeSuccessVSANNum",
+    "oid": "1.3.6.1.4.1.9.9.294.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneMergeFailureObject": {
+    "name": "zoneMergeFailureObject",
+    "oid": "1.3.6.1.4.1.9.9.294.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "zoneMergeFailureReason": {
+    "name": "zoneMergeFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.294.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneMergeFailCause",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "zoneServiceReqRejNotifyEnable": {
+    "name": "zoneServiceReqRejNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneMergeFailureNotifyEnable": {
+    "name": "zoneMergeFailureNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneMergeSuccessNotifyEnable": {
+    "name": "zoneMergeSuccessNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneDefZoneBehvrChngNotifyEnable": {
+    "name": "zoneDefZoneBehvrChngNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneDbTable": {
+    "name": "zoneDbTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneDbEntry": {
+    "name": "zoneDbEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneDbClearDb": {
+    "name": "zoneDbClearDb",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneDbEnforcedEqualsLocal": {
+    "name": "zoneDbEnforcedEqualsLocal",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneDbHardZoningEnabled": {
+    "name": "zoneDbHardZoningEnabled",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneCopyTable": {
+    "name": "zoneCopyTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneCopyEntry": {
+    "name": "zoneCopyEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneCopyProto": {
+    "name": "zoneCopyProto",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneCopyProtocol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tftp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneCopyDestFileType": {
+    "name": "zoneCopyDestFileType",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneFileType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "localFile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneCopyServerAddrType": {
+    "name": "zoneCopyServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneCopyServerAddr": {
+    "name": "zoneCopyServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneCopyDestFileName": {
+    "name": "zoneCopyDestFileName",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneCopyUserName": {
+    "name": "zoneCopyUserName",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneCopyUserPassword": {
+    "name": "zoneCopyUserPassword",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneCopyStartCopy": {
+    "name": "zoneCopyStartCopy",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copy": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneCopyState": {
+    "name": "zoneCopyState",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "timeout": 2,
+          "badFileName": 3,
+          "inProgress": 4,
+          "badUserNamePasswd": 5,
+          "incompleteConfig": 6,
+          "unknown": 7,
+          "sysErr": 8,
+          "anotherCopyInProgress": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneCopyRowStatus": {
+    "name": "zoneCopyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.31.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneUnsuppMemInIntOpNotifyEnable": {
+    "name": "zoneUnsuppMemInIntOpNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneVsanId": {
+    "name": "zoneVsanId",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "zoneZoneSetDistributeVsan": {
+    "name": "zoneZoneSetDistributeVsan",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneZoneSetDistributeResult": {
+    "name": "zoneZoneSetDistributeResult",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "inProgress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneZoneSetDistributeFailReason": {
+    "name": "zoneZoneSetDistributeFailReason",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcChangeProtoFailCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSwitchWwn": {
+    "name": "zoneSwitchWwn",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "zoneSetZoneListTable": {
+    "name": "zoneSetZoneListTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneSetZoneListEntry": {
+    "name": "zoneSetZoneListEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "zoneSetZoneListEntry",
+      "module": "CISCO-ZS-MIB",
+      "object": "zoneSetEntry"
+    },
+    "status": "current"
+  },
+  "zoneSetZoneListBmap4k": {
+    "name": "zoneSetZoneListBmap4k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetZoneListBmap6k": {
+    "name": "zoneSetZoneListBmap6k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetZoneListBmap8k": {
+    "name": "zoneSetZoneListBmap8k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetEnforcedZoneListTable": {
+    "name": "zoneSetEnforcedZoneListTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneSetEnforcedZoneListEntry": {
+    "name": "zoneSetEnforcedZoneListEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "zoneSetEnforcedZoneListEntry",
+      "module": "CISCO-ZS-MIB",
+      "object": "zoneEnforcedZoneSetEntry"
+    },
+    "status": "current"
+  },
+  "zoneSetEnforcedZoneListBmap4k": {
+    "name": "zoneSetEnforcedZoneListBmap4k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetEnforcedZoneListBmap6k": {
+    "name": "zoneSetEnforcedZoneListBmap6k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetEnforcedZoneListBmap8k": {
+    "name": "zoneSetEnforcedZoneListBmap8k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneCompactTable": {
+    "name": "zoneCompactTable",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.40",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zoneCompactEntry": {
+    "name": "zoneCompactEntry",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.40.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zoneCompactFirst2k": {
+    "name": "zoneCompactFirst2k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.40.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compact": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneCompactVsan": {
+    "name": "zoneCompactVsan",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "zoneCopyActToFullSpinLock": {
+    "name": "zoneCopyActToFullSpinLock",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneCopyActToFullMode": {
+    "name": "zoneCopyActToFullMode",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "includeAutoZones": 1,
+          "excludeAutoZones": 2,
+          "noop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneCopyActToFullVsan": {
+    "name": "zoneCopyActToFullVsan",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "zoneServiceReqRejNotify": {
+    "name": "zoneServiceReqRejNotify",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceRejReasonCode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceRejReasonCodeExp"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneMergeFailureNotify": {
+    "name": "zoneMergeFailureNotify",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureVSANNum"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureObject"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneMergeSuccessNotify": {
+    "name": "zoneMergeSuccessNotify",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeSuccessVSANNum"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneDefZoneBehaviourChngNotify": {
+    "name": "zoneDefZoneBehaviourChngNotify",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneUnsuppMemInIntOpModeNotify": {
+    "name": "zoneUnsuppMemInIntOpModeNotify",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneVsanId"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneActivateNotify": {
+    "name": "zoneActivateNotify",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSwitchWwn"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneCompactNotify": {
+    "name": "zoneCompactNotify",
+    "oid": "1.3.6.1.4.1.9.9.294.1.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCompactVsan"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneServerMIBCompliances": {
+    "name": "zoneServerMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1",
+    "class": "objectidentity"
+  },
+  "zoneServerMIBGroups": {
+    "name": "zoneServerMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2",
+    "class": "objectidentity"
+  },
+  "zoneServerMIBCompliance": {
+    "name": "zoneServerMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBCompliance1": {
+    "name": "zoneServerMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBComplianceRev2": {
+    "name": "zoneServerMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup2",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneLunStatsGroup",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBComplianceRev3": {
+    "name": "zoneServerMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup3",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneLunStatsGroup",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBComplianceRev4": {
+    "name": "zoneServerMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup3",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneLunStatsGroup",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBComplianceRev5": {
+    "name": "zoneServerMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup4",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneLunStatsGroup",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBComplianceRev6": {
+    "name": "zoneServerMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup5",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneLunStatsGroup",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBComplianceRev7": {
+    "name": "zoneServerMIBComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup6",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup2",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1Sup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneLunStatsGroup",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBComplianceRev8": {
+    "name": "zoneServerMIBComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup7",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup2",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1Sup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneConfigGroupSup2",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneLunStatsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneConfigGroupSup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1Sup2",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup2Sup1",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneConfigurationGroup": {
+    "name": "zoneConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetPropagationMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetDeActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverInterface"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverOper"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActiveToFullOnVsan"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneStatisticsGroup": {
+    "name": "zoneStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneTotalGS3Rejects"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneTxMergeReqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRxMergeAccepts"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRxMergeReqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneTxMergeAccepts"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneTxChangeReqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRxChangeAccepts"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRxChangeReqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneTxChangeAccepts"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRxGS3Reqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneTxGS3Rejects"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneNotificationControlGroup": {
+    "name": "zoneNotificationControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceReqRejNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeSuccessNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefZoneBehvrChngNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceRejReasonCode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceRejReasonCodeExp"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureVSANNum"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeSuccessVSANNum"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneNotificationGroup": {
+    "name": "zoneNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceReqRejNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeSuccessNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefZoneBehaviourChngNotify"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneConfigurationGroup1": {
+    "name": "zoneConfigurationGroup1",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetPropagationMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetDeActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailCause"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailDomId"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverInterface"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverOper"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActiveToFullOnVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbClearDb"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbEnforcedEqualsLocal"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneConfigurationGroup2": {
+    "name": "zoneConfigurationGroup2",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetPropagationMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetDeActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailCause"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailDomId"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverInterface"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverOper"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActiveToFullOnVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbClearDb"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbEnforcedEqualsLocal"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneLunStatsGroup": {
+    "name": "zoneLunStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunRxInqReqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunRxRepLunReqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunRxSenseReqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunRxOtherCmds"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunTxInqDataNoLus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLunTxIllegalReqs"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRoZoneTxDataProts"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneConfigurationGroup3": {
+    "name": "zoneConfigurationGroup3",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetPropagationMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetDeActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailCause"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailDomId"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverInterface"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverOper"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActiveToFullOnVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbClearDb"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbEnforcedEqualsLocal"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyProto"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddrType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddr"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserPassword"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyStartCopy"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyState"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneNotificationControlGroup1": {
+    "name": "zoneNotificationControlGroup1",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceReqRejNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeSuccessNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefZoneBehvrChngNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneUnsuppMemInIntOpNotifyEnable"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceRejReasonCode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceRejReasonCodeExp"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureVSANNum"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeSuccessVSANNum"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneVsanId"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneNotificationGroup1": {
+    "name": "zoneNotificationGroup1",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceReqRejNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeSuccessNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefZoneBehaviourChngNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneUnsuppMemInIntOpModeNotify"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneConfigurationGroup4": {
+    "name": "zoneConfigurationGroup4",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetPropagationMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetDeActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailCause"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailDomId"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverInterface"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverOper"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActiveToFullOnVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbClearDb"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbEnforcedEqualsLocal"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyProto"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddrType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddr"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserPassword"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyStartCopy"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyState"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeFailReason"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneConfigurationGroup5": {
+    "name": "zoneConfigurationGroup5",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetPropagationMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetDeActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailCause"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailDomId"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverInterface"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverOper"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActiveToFullOnVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbClearDb"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbEnforcedEqualsLocal"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyProto"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddrType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddr"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserPassword"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyStartCopy"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyState"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeFailReason"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneConfigurationGroup6": {
+    "name": "zoneConfigurationGroup6",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetPropagationMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetClone"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetDeActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailCause"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailDomId"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneClone"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasClone"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverInterface"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverOper"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActiveToFullOnVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbClearDb"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbEnforcedEqualsLocal"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbHardZoningEnabled"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyProto"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddrType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddr"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserPassword"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyStartCopy"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyState"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeFailReason"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneNotificationGroup2": {
+    "name": "zoneNotificationGroup2",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneServiceReqRejNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeSuccessNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefZoneBehaviourChngNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneUnsuppMemInIntOpModeNotify"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneActivateNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneNotificationControlGroup1Sup1": {
+    "name": "zoneNotificationControlGroup1Sup1",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSwitchWwn"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneConfigGroupSup1": {
+    "name": "zoneConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap4k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap6k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap8k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap4k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap6k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap8k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCompactFirst2k"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneNotificationControlGroup1Sup2": {
+    "name": "zoneNotificationControlGroup1Sup2",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCompactVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureObject"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneNotificationGroup2Sup1": {
+    "name": "zoneNotificationGroup2Sup1",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.18",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCompactNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneConfigGroupSup2": {
+    "name": "zoneConfigGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActToFullSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActToFullMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyActToFullVsan"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneConfigurationGroup7": {
+    "name": "zoneConfigurationGroup7",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetPropagationMode"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBehaviour"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDefaultZoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetClone"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetDeActivate"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetActivateRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailCause"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetFailDomId"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneClone"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasLastChange"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneAliasClone"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetZoneList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSetActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneAliasList"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneActivateTime"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneReadOnly"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneQos"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneQosPriority"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneBroadcast"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberNumber"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberFormat"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverSpinLock"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverInterface"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverOper"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMergeFailRecoverResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbClearDb"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbEnforcedEqualsLocal"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneDbHardZoningEnabled"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyProto"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddrType"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyServerAddr"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyDestFileName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserName"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyUserPassword"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyStartCopy"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyState"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCopyRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeVsan"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeResult"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneZoneSetDistributeFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ZS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ZS-MIB"
+  }
+}

@@ -1,0 +1,745 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-PSM-MIB": [
+      "CpsmActivateResult",
+      "CpsmDbActivate",
+      "CpsmDiffDb",
+      "CpsmDiffReason"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId",
+      "VsanIndex",
+      "FcNameIdOrZero"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDpvmMIB": {
+    "name": "ciscoDpvmMIB",
+    "oid": "1.3.6.1.4.1.9.9.421",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-22 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoDpvmMIBNotifs": {
+    "name": "ciscoDpvmMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.421.0",
+    "class": "objectidentity"
+  },
+  "ciscoDpvmMIBObjects": {
+    "name": "ciscoDpvmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.421.1",
+    "class": "objectidentity"
+  },
+  "ciscoDpvmMIBConform": {
+    "name": "ciscoDpvmMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.421.2",
+    "class": "objectidentity"
+  },
+  "cdpvmConfiguration": {
+    "name": "cdpvmConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1",
+    "class": "objectidentity"
+  },
+  "CdpvmDevType": {
+    "name": "CdpvmDevType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pwwn": 1,
+          "nwwn": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cdpvmNextAvailIndex": {
+    "name": "cdpvmNextAvailIndex",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmTable": {
+    "name": "cdpvmTable",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpvmEntry": {
+    "name": "cdpvmEntry",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdpvmIndex": {
+    "name": "cdpvmIndex",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpvmLoginDevType": {
+    "name": "cdpvmLoginDevType",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdpvmDevType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "pwwn",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdpvmLoginDev": {
+    "name": "cdpvmLoginDev",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdpvmLoginDevVsan": {
+    "name": "cdpvmLoginDevVsan",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdpvmRowStatus": {
+    "name": "cdpvmRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdpvmActivate": {
+    "name": "cdpvmActivate",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDbActivate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpvmActivateResult": {
+    "name": "cdpvmActivateResult",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmActivateResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmAutoLearn": {
+    "name": "cdpvmAutoLearn",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpvmCopyEnfToConfig": {
+    "name": "cdpvmCopyEnfToConfig",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copy": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpvmEnfTable": {
+    "name": "cdpvmEnfTable",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpvmEnfEntry": {
+    "name": "cdpvmEnfEntry",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmEnfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdpvmEnfIndex": {
+    "name": "cdpvmEnfIndex",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpvmEnfLoginDevType": {
+    "name": "cdpvmEnfLoginDevType",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdpvmDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmEnfLoginDev": {
+    "name": "cdpvmEnfLoginDev",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmEnfLoginDevVsan": {
+    "name": "cdpvmEnfLoginDevVsan",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmEnfIsLearnt": {
+    "name": "cdpvmEnfIsLearnt",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmDynPortsTable": {
+    "name": "cdpvmDynPortsTable",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpvmDynPortsEntry": {
+    "name": "cdpvmDynPortsEntry",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdpvmDynPortVsan": {
+    "name": "cdpvmDynPortVsan",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmDynPortDevPwwn": {
+    "name": "cdpvmDynPortDevPwwn",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmDynPortDevNwwn": {
+    "name": "cdpvmDynPortDevNwwn",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmDiffConfig": {
+    "name": "cdpvmDiffConfig",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDiffDb",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpvmDiffTable": {
+    "name": "cdpvmDiffTable",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpvmDiffEntry": {
+    "name": "cdpvmDiffEntry",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDiffIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdpvmDiffIndex": {
+    "name": "cdpvmDiffIndex",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpvmDiffReason": {
+    "name": "cdpvmDiffReason",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsmDiffReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmDiffLoginDevType": {
+    "name": "cdpvmDiffLoginDevType",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdpvmDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmDiffLoginDev": {
+    "name": "cdpvmDiffLoginDev",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmDiffLoginDevVsan": {
+    "name": "cdpvmDiffLoginDevVsan",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpvmClearAutoLearn": {
+    "name": "cdpvmClearAutoLearn",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "clearOnWwn": 2,
+          "noop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpvmClearAutoLearnWwn": {
+    "name": "cdpvmClearAutoLearnWwn",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpvmActivationState": {
+    "name": "cdpvmActivationState",
+    "oid": "1.3.6.1.4.1.9.9.421.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDpvmMIBCompliances": {
+    "name": "ciscoDpvmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.421.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDpvmMIBGroups": {
+    "name": "ciscoDpvmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.421.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDpvmMIBCompliance": {
+    "name": "ciscoDpvmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.421.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDpvmConfigGroup",
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB"
+      },
+      {
+        "object": "ciscoDpvmEnforcedGroup",
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB"
+      },
+      {
+        "object": "ciscoDpvmAutoLearnGroup",
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB"
+      },
+      {
+        "object": "ciscoDpvmDiffGroup",
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDpvmConfigGroup": {
+    "name": "ciscoDpvmConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.421.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmNextAvailIndex"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmLoginDevType"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmLoginDev"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmLoginDevVsan"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmRowStatus"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmActivate"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmActivateResult"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmCopyEnfToConfig"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDynPortVsan"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDynPortDevPwwn"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDynPortDevNwwn"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmActivationState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDpvmEnforcedGroup": {
+    "name": "ciscoDpvmEnforcedGroup",
+    "oid": "1.3.6.1.4.1.9.9.421.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmEnfLoginDevType"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmEnfLoginDev"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmEnfLoginDevVsan"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmEnfIsLearnt"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDpvmAutoLearnGroup": {
+    "name": "ciscoDpvmAutoLearnGroup",
+    "oid": "1.3.6.1.4.1.9.9.421.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmAutoLearn"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmClearAutoLearn"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmClearAutoLearnWwn"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDpvmDiffGroup": {
+    "name": "ciscoDpvmDiffGroup",
+    "oid": "1.3.6.1.4.1.9.9.421.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDiffConfig"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDiffReason"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDiffLoginDevType"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDiffLoginDev"
+      },
+      {
+        "module": "CISCO-DYNAMIC-PORT-VSAN-MIB",
+        "object": "cdpvmDiffLoginDevVsan"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-PORT-VSAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DYNAMIC-PORT-VSAN-MIB"
+  }
+}

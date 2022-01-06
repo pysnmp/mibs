@@ -1,0 +1,6274 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTEON-ROOT-MIB": [
+      "switch"
+    ],
+    "ALTEON-TIGON-SWITCH-MIB": [
+      "operCmds",
+      "information",
+      "stats"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "iprouting": {
+    "name": "iprouting",
+    "oid": "1.3.6.1.4.1.1872.2.1.3",
+    "class": "objectidentity"
+  },
+  "vrrp": {
+    "name": "vrrp",
+    "oid": "1.3.6.1.4.1.1872.2.1.15",
+    "class": "objectidentity"
+  },
+  "ripStats": {
+    "name": "ripStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.1",
+    "class": "objectidentity"
+  },
+  "arpStats": {
+    "name": "arpStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.3",
+    "class": "objectidentity"
+  },
+  "routeStats": {
+    "name": "routeStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.4",
+    "class": "objectidentity"
+  },
+  "dnsStats": {
+    "name": "dnsStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.5",
+    "class": "objectidentity"
+  },
+  "vrrpStats": {
+    "name": "vrrpStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.9",
+    "class": "objectidentity"
+  },
+  "ospfStats": {
+    "name": "ospfStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22",
+    "class": "objectidentity"
+  },
+  "ip_info": {
+    "name": "ip_info",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3",
+    "class": "objectidentity"
+  },
+  "vrrp_info": {
+    "name": "vrrp_info",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.4",
+    "class": "objectidentity"
+  },
+  "ospfinfo": {
+    "name": "ospfinfo",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5",
+    "class": "objectidentity"
+  },
+  "vrrpOper": {
+    "name": "vrrpOper",
+    "oid": "1.3.6.1.4.1.1872.2.1.14.5",
+    "class": "objectidentity"
+  },
+  "ipInterfaceTableMax": {
+    "name": "ipInterfaceTableMax",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfTable": {
+    "name": "ipCurCfgIntfTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfEntry": {
+    "name": "ipCurCfgIntfEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipCurCfgIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfIndex": {
+    "name": "ipCurCfgIntfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfAddr": {
+    "name": "ipCurCfgIntfAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfMask": {
+    "name": "ipCurCfgIntfMask",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfBroadcast": {
+    "name": "ipCurCfgIntfBroadcast",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfVlan": {
+    "name": "ipCurCfgIntfVlan",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfState": {
+    "name": "ipCurCfgIntfState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgIntfBootpRelay": {
+    "name": "ipCurCfgIntfBootpRelay",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfTable": {
+    "name": "ipNewCfgIntfTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfEntry": {
+    "name": "ipNewCfgIntfEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipNewCfgIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfIndex": {
+    "name": "ipNewCfgIntfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfAddr": {
+    "name": "ipNewCfgIntfAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfMask": {
+    "name": "ipNewCfgIntfMask",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfBroadcast": {
+    "name": "ipNewCfgIntfBroadcast",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfVlan": {
+    "name": "ipNewCfgIntfVlan",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfState": {
+    "name": "ipNewCfgIntfState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfDelete": {
+    "name": "ipNewCfgIntfDelete",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgIntfBootpRelay": {
+    "name": "ipNewCfgIntfBootpRelay",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipGatewayTableMax": {
+    "name": "ipGatewayTableMax",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwTable": {
+    "name": "ipCurCfgGwTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwEntry": {
+    "name": "ipCurCfgGwEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipCurCfgGwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipCurCfgGwIndex": {
+    "name": "ipCurCfgGwIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwAddr": {
+    "name": "ipCurCfgGwAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwInterval": {
+    "name": "ipCurCfgGwInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwRetry": {
+    "name": "ipCurCfgGwRetry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwState": {
+    "name": "ipCurCfgGwState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwArp": {
+    "name": "ipCurCfgGwArp",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwTable": {
+    "name": "ipNewCfgGwTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwVlan": {
+    "name": "ipCurCfgGwVlan",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwEntry": {
+    "name": "ipNewCfgGwEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipNewCfgGwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipNewCfgGwIndex": {
+    "name": "ipNewCfgGwIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwAddr": {
+    "name": "ipNewCfgGwAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwInterval": {
+    "name": "ipNewCfgGwInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwRetry": {
+    "name": "ipNewCfgGwRetry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwState": {
+    "name": "ipNewCfgGwState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwDelete": {
+    "name": "ipNewCfgGwDelete",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwArp": {
+    "name": "ipNewCfgGwArp",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwVlan": {
+    "name": "ipNewCfgGwVlan",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipCurCfgStaticRouteTable": {
+    "name": "ipCurCfgStaticRouteTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipCurCfgStaticRouteEntry": {
+    "name": "ipCurCfgStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipCurCfgStaticRouteIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipCurCfgStaticRouteIndx": {
+    "name": "ipCurCfgStaticRouteIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgStaticRouteDestIp": {
+    "name": "ipCurCfgStaticRouteDestIp",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgStaticRouteMask": {
+    "name": "ipCurCfgStaticRouteMask",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgStaticRouteGateway": {
+    "name": "ipCurCfgStaticRouteGateway",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipCurCfgStaticRouteInterface": {
+    "name": "ipCurCfgStaticRouteInterface",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgStaticRouteTable": {
+    "name": "ipNewCfgStaticRouteTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipNewCfgStaticRouteEntry": {
+    "name": "ipNewCfgStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipNewCfgStaticRouteIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipNewCfgStaticRouteIndx": {
+    "name": "ipNewCfgStaticRouteIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgStaticRouteDestIp": {
+    "name": "ipNewCfgStaticRouteDestIp",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgStaticRouteMask": {
+    "name": "ipNewCfgStaticRouteMask",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgStaticRouteGateway": {
+    "name": "ipNewCfgStaticRouteGateway",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgStaticRouteAction": {
+    "name": "ipNewCfgStaticRouteAction",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNewCfgStaticRouteInterface": {
+    "name": "ipNewCfgStaticRouteInterface",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipForward": {
+    "name": "ipForward",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9",
+    "class": "objectidentity"
+  },
+  "ripConfig": {
+    "name": "ripConfig",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1",
+    "class": "objectidentity"
+  },
+  "ripCurCfgSupply": {
+    "name": "ripCurCfgSupply",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripNewCfgSupply": {
+    "name": "ripNewCfgSupply",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ripCurCfgListen": {
+    "name": "ripCurCfgListen",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripNewCfgListen": {
+    "name": "ripNewCfgListen",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ripCurCfgDefListen": {
+    "name": "ripCurCfgDefListen",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripNewCfgDefListen": {
+    "name": "ripNewCfgDefListen",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ripCurCfgStaticSupply": {
+    "name": "ripCurCfgStaticSupply",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripNewCfgStaticSupply": {
+    "name": "ripNewCfgStaticSupply",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ripCurCfgUpdatePeriod": {
+    "name": "ripCurCfgUpdatePeriod",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripNewCfgUpdatePeriod": {
+    "name": "ripNewCfgUpdatePeriod",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ripCurCfgState": {
+    "name": "ripCurCfgState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripNewCfgState": {
+    "name": "ripNewCfgState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ripCurCfgPoisonReverse": {
+    "name": "ripCurCfgPoisonReverse",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripNewCfgPoisonReverse": {
+    "name": "ripNewCfgPoisonReverse",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ripCurCfgVip": {
+    "name": "ripCurCfgVip",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripNewCfgVip": {
+    "name": "ripNewCfgVip",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgPortTable": {
+    "name": "ipFwdCurCfgPortTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgPortEntry": {
+    "name": "ipFwdCurCfgPortEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipFwdCurCfgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgPortIndex": {
+    "name": "ipFwdCurCfgPortIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgPortState": {
+    "name": "ipFwdCurCfgPortState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgPortTable": {
+    "name": "ipFwdNewCfgPortTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgPortEntry": {
+    "name": "ipFwdNewCfgPortEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipFwdNewCfgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgPortIndex": {
+    "name": "ipFwdNewCfgPortIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgPortState": {
+    "name": "ipFwdNewCfgPortState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgLocalTable": {
+    "name": "ipFwdCurCfgLocalTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgLocalEntry": {
+    "name": "ipFwdCurCfgLocalEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipFwdCurCfgLocalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgLocalIndex": {
+    "name": "ipFwdCurCfgLocalIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgLocalSubnet": {
+    "name": "ipFwdCurCfgLocalSubnet",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgLocalMask": {
+    "name": "ipFwdCurCfgLocalMask",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgLocalTable": {
+    "name": "ipFwdNewCfgLocalTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgLocalEntry": {
+    "name": "ipFwdNewCfgLocalEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipFwdNewCfgLocalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgLocalIndex": {
+    "name": "ipFwdNewCfgLocalIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgLocalSubnet": {
+    "name": "ipFwdNewCfgLocalSubnet",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgLocalMask": {
+    "name": "ipFwdNewCfgLocalMask",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgLocalDelete": {
+    "name": "ipFwdNewCfgLocalDelete",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgState": {
+    "name": "ipFwdCurCfgState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgState": {
+    "name": "ipFwdNewCfgState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipFwdCurCfgDirectedBcast": {
+    "name": "ipFwdCurCfgDirectedBcast",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdNewCfgDirectedBcast": {
+    "name": "ipFwdNewCfgDirectedBcast",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipFwdPortTableMaxSize": {
+    "name": "ipFwdPortTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipFwdLocalTableMaxSize": {
+    "name": "ipFwdLocalTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.9.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpCurCfgReARPPeriod": {
+    "name": "arpCurCfgReARPPeriod",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpNewCfgReARPPeriod": {
+    "name": "arpNewCfgReARPPeriod",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipCurCfgGwMetric": {
+    "name": "ipCurCfgGwMetric",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "roundrobin": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgGwMetric": {
+    "name": "ipNewCfgGwMetric",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "roundrobin": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipCurCfgBootpAddr": {
+    "name": "ipCurCfgBootpAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgBootpAddr": {
+    "name": "ipNewCfgBootpAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipCurCfgBootpAddr2": {
+    "name": "ipCurCfgBootpAddr2",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgBootpAddr2": {
+    "name": "ipNewCfgBootpAddr2",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipCurCfgBootpState": {
+    "name": "ipCurCfgBootpState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipNewCfgBootpState": {
+    "name": "ipNewCfgBootpState",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipStaticRouteTableMaxSize": {
+    "name": "ipStaticRouteTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpGeneral": {
+    "name": "vrrpGeneral",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1",
+    "class": "objectidentity"
+  },
+  "vrrpCurCfgGenState": {
+    "name": "vrrpCurCfgGenState",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenState": {
+    "name": "vrrpNewCfgGenState",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgGenTckVirtRtrInc": {
+    "name": "vrrpCurCfgGenTckVirtRtrInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenTckVirtRtrInc": {
+    "name": "vrrpNewCfgGenTckVirtRtrInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgGenTckIpIntfInc": {
+    "name": "vrrpCurCfgGenTckIpIntfInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenTckIpIntfInc": {
+    "name": "vrrpNewCfgGenTckIpIntfInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgGenTckVlanPortInc": {
+    "name": "vrrpCurCfgGenTckVlanPortInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenTckVlanPortInc": {
+    "name": "vrrpNewCfgGenTckVlanPortInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgGenTckL4PortInc": {
+    "name": "vrrpCurCfgGenTckL4PortInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenTckL4PortInc": {
+    "name": "vrrpNewCfgGenTckL4PortInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgGenTckRServerInc": {
+    "name": "vrrpCurCfgGenTckRServerInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenTckRServerInc": {
+    "name": "vrrpNewCfgGenTckRServerInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgGenTckHsrpInc": {
+    "name": "vrrpCurCfgGenTckHsrpInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenTckHsrpInc": {
+    "name": "vrrpNewCfgGenTckHsrpInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgGenHotstandby": {
+    "name": "vrrpCurCfgGenHotstandby",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenHotstandby": {
+    "name": "vrrpNewCfgGenHotstandby",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgGenTckHsrvInc": {
+    "name": "vrrpCurCfgGenTckHsrvInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgGenTckHsrvInc": {
+    "name": "vrrpNewCfgGenTckHsrvInc",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTable": {
+    "name": "vrrpCurCfgVirtRtrTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTableEntry": {
+    "name": "vrrpCurCfgVirtRtrTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "vrrpCurCfgVirtRtrIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrIndx": {
+    "name": "vrrpCurCfgVirtRtrIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrID": {
+    "name": "vrrpCurCfgVirtRtrID",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrAddr": {
+    "name": "vrrpCurCfgVirtRtrAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrIfIndex": {
+    "name": "vrrpCurCfgVirtRtrIfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrInterval": {
+    "name": "vrrpCurCfgVirtRtrInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrPriority": {
+    "name": "vrrpCurCfgVirtRtrPriority",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrPreempt": {
+    "name": "vrrpCurCfgVirtRtrPreempt",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrState": {
+    "name": "vrrpCurCfgVirtRtrState",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrSharing": {
+    "name": "vrrpCurCfgVirtRtrSharing",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTckVirtRtr": {
+    "name": "vrrpCurCfgVirtRtrTckVirtRtr",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTckIpIntf": {
+    "name": "vrrpCurCfgVirtRtrTckIpIntf",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTckVlanPort": {
+    "name": "vrrpCurCfgVirtRtrTckVlanPort",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTckL4Port": {
+    "name": "vrrpCurCfgVirtRtrTckL4Port",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTckRServer": {
+    "name": "vrrpCurCfgVirtRtrTckRServer",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTckHsrp": {
+    "name": "vrrpCurCfgVirtRtrTckHsrp",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrTckHsrv": {
+    "name": "vrrpCurCfgVirtRtrTckHsrv",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTable": {
+    "name": "vrrpNewCfgVirtRtrTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTableEntry": {
+    "name": "vrrpNewCfgVirtRtrTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "vrrpNewCfgVirtRtrIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrIndx": {
+    "name": "vrrpNewCfgVirtRtrIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrID": {
+    "name": "vrrpNewCfgVirtRtrID",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrAddr": {
+    "name": "vrrpNewCfgVirtRtrAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrIfIndex": {
+    "name": "vrrpNewCfgVirtRtrIfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrInterval": {
+    "name": "vrrpNewCfgVirtRtrInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrPriority": {
+    "name": "vrrpNewCfgVirtRtrPriority",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrPreempt": {
+    "name": "vrrpNewCfgVirtRtrPreempt",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrState": {
+    "name": "vrrpNewCfgVirtRtrState",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrDelete": {
+    "name": "vrrpNewCfgVirtRtrDelete",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrSharing": {
+    "name": "vrrpNewCfgVirtRtrSharing",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTckVirtRtr": {
+    "name": "vrrpNewCfgVirtRtrTckVirtRtr",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTckIpIntf": {
+    "name": "vrrpNewCfgVirtRtrTckIpIntf",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTckVlanPort": {
+    "name": "vrrpNewCfgVirtRtrTckVlanPort",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTckL4Port": {
+    "name": "vrrpNewCfgVirtRtrTckL4Port",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTckRServer": {
+    "name": "vrrpNewCfgVirtRtrTckRServer",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTckHsrp": {
+    "name": "vrrpNewCfgVirtRtrTckHsrp",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrTckHsrv": {
+    "name": "vrrpNewCfgVirtRtrTckHsrv",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgIfTable": {
+    "name": "vrrpCurCfgIfTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgIfTableEntry": {
+    "name": "vrrpCurCfgIfTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "vrrpCurCfgIfIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vrrpCurCfgIfIndx": {
+    "name": "vrrpCurCfgIfIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgIfAuthType": {
+    "name": "vrrpCurCfgIfAuthType",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "simple-text-password": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgIfPasswd": {
+    "name": "vrrpCurCfgIfPasswd",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgIfTable": {
+    "name": "vrrpNewCfgIfTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgIfTableEntry": {
+    "name": "vrrpNewCfgIfTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "vrrpNewCfgIfIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vrrpNewCfgIfIndx": {
+    "name": "vrrpNewCfgIfIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgIfAuthType": {
+    "name": "vrrpNewCfgIfAuthType",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "simple-text-password": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgIfPasswd": {
+    "name": "vrrpNewCfgIfPasswd",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgIfDelete": {
+    "name": "vrrpNewCfgIfDelete",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTable": {
+    "name": "vrrpCurCfgVirtRtrGrpTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTableEntry": {
+    "name": "vrrpCurCfgVirtRtrGrpTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "vrrpCurCfgVirtRtrGrpIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpIndx": {
+    "name": "vrrpCurCfgVirtRtrGrpIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpID": {
+    "name": "vrrpCurCfgVirtRtrGrpID",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpIfIndex": {
+    "name": "vrrpCurCfgVirtRtrGrpIfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpInterval": {
+    "name": "vrrpCurCfgVirtRtrGrpInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpPriority": {
+    "name": "vrrpCurCfgVirtRtrGrpPriority",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpPreempt": {
+    "name": "vrrpCurCfgVirtRtrGrpPreempt",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpState": {
+    "name": "vrrpCurCfgVirtRtrGrpState",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpSharing": {
+    "name": "vrrpCurCfgVirtRtrGrpSharing",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTckVirtRtr": {
+    "name": "vrrpCurCfgVirtRtrGrpTckVirtRtr",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTckIpIntf": {
+    "name": "vrrpCurCfgVirtRtrGrpTckIpIntf",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTckVlanPort": {
+    "name": "vrrpCurCfgVirtRtrGrpTckVlanPort",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTckL4Port": {
+    "name": "vrrpCurCfgVirtRtrGrpTckL4Port",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTckRServer": {
+    "name": "vrrpCurCfgVirtRtrGrpTckRServer",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTckHsrp": {
+    "name": "vrrpCurCfgVirtRtrGrpTckHsrp",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpCurCfgVirtRtrGrpTckHsrv": {
+    "name": "vrrpCurCfgVirtRtrGrpTckHsrv",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTable": {
+    "name": "vrrpNewCfgVirtRtrGrpTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTableEntry": {
+    "name": "vrrpNewCfgVirtRtrGrpTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "vrrpNewCfgVirtRtrGrpIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpIndx": {
+    "name": "vrrpNewCfgVirtRtrGrpIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpID": {
+    "name": "vrrpNewCfgVirtRtrGrpID",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpIfIndex": {
+    "name": "vrrpNewCfgVirtRtrGrpIfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpInterval": {
+    "name": "vrrpNewCfgVirtRtrGrpInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpPriority": {
+    "name": "vrrpNewCfgVirtRtrGrpPriority",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpPreempt": {
+    "name": "vrrpNewCfgVirtRtrGrpPreempt",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpState": {
+    "name": "vrrpNewCfgVirtRtrGrpState",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpDelete": {
+    "name": "vrrpNewCfgVirtRtrGrpDelete",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpSharing": {
+    "name": "vrrpNewCfgVirtRtrGrpSharing",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTckVirtRtr": {
+    "name": "vrrpNewCfgVirtRtrGrpTckVirtRtr",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTckIpIntf": {
+    "name": "vrrpNewCfgVirtRtrGrpTckIpIntf",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTckVlanPort": {
+    "name": "vrrpNewCfgVirtRtrGrpTckVlanPort",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTckL4Port": {
+    "name": "vrrpNewCfgVirtRtrGrpTckL4Port",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTckRServer": {
+    "name": "vrrpNewCfgVirtRtrGrpTckRServer",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTckHsrp": {
+    "name": "vrrpNewCfgVirtRtrGrpTckHsrp",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpNewCfgVirtRtrGrpTckHsrv": {
+    "name": "vrrpNewCfgVirtRtrGrpTckHsrv",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpVirtRtrTableMaxSize": {
+    "name": "vrrpVirtRtrTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpIfTableMaxSize": {
+    "name": "vrrpIfTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpVirtRtrGrpTableMaxSize": {
+    "name": "vrrpVirtRtrGrpTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.15.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripStatInPkts": {
+    "name": "ripStatInPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripStatOutPkts": {
+    "name": "ripStatOutPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripStatInErrorPkts": {
+    "name": "ripStatInErrorPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ripStatRoutesAgedOut": {
+    "name": "ripStatRoutesAgedOut",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpStatEntries": {
+    "name": "arpStatEntries",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpStatHighWater": {
+    "name": "arpStatHighWater",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpStatMaxEntries": {
+    "name": "arpStatMaxEntries",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routeStatEntries": {
+    "name": "routeStatEntries",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routeStatHighWater": {
+    "name": "routeStatHighWater",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routeStatMaxEntries": {
+    "name": "routeStatMaxEntries",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dnsStatInGoodDnsRequests": {
+    "name": "dnsStatInGoodDnsRequests",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dnsStatInBadDnsRequests": {
+    "name": "dnsStatInBadDnsRequests",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpStatInAdvers": {
+    "name": "vrrpStatInAdvers",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpStatOutAdvers": {
+    "name": "vrrpStatOutAdvers",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpStatOutBadAdvers": {
+    "name": "vrrpStatOutBadAdvers",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipRouteInfoTable": {
+    "name": "ipRouteInfoTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ipRouteInfoEntry": {
+    "name": "ipRouteInfoEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ipRouteInfoIndx",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ipRouteInfoIndx": {
+    "name": "ipRouteInfoIndx",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipRouteInfoDestIp": {
+    "name": "ipRouteInfoDestIp",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipRouteInfoMask": {
+    "name": "ipRouteInfoMask",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipRouteInfoGateway": {
+    "name": "ipRouteInfoGateway",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipRouteInfoTag": {
+    "name": "ipRouteInfoTag",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "icmp": 2,
+          "static": 3,
+          "snmp": 4,
+          "addr": 5,
+          "rip": 6,
+          "broadcast": 7,
+          "martian": 8,
+          "multicast": 9,
+          "vip": 10,
+          "bgp": 11,
+          "none": 12,
+          "ospf": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipRouteInfoType": {
+    "name": "ipRouteInfoType",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "indirect": 1,
+          "direct": 2,
+          "local": 3,
+          "broadcast": 4,
+          "martian": 5,
+          "multicast": 6,
+          "other": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ipRouteInfoInterface": {
+    "name": "ipRouteInfoInterface",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCfg": {
+    "name": "ospfCfg",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21",
+    "class": "objectidentity"
+  },
+  "ospfGeneral": {
+    "name": "ospfGeneral",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1",
+    "class": "objectidentity"
+  },
+  "ospfCurCfgDefaultRouteMetric": {
+    "name": "ospfCurCfgDefaultRouteMetric",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNewCfgDefaultRouteMetric": {
+    "name": "ospfNewCfgDefaultRouteMetric",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ospfCurCfgDefaultRouteMetricType": {
+    "name": "ospfCurCfgDefaultRouteMetricType",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "type1": 2,
+          "type2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNewCfgDefaultRouteMetricType": {
+    "name": "ospfNewCfgDefaultRouteMetricType",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "type1": 2,
+          "type2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ospfIntfTableMaxSize": {
+    "name": "ospfIntfTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaTableMaxSize": {
+    "name": "ospfAreaTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfRangeTableMaxSize": {
+    "name": "ospfRangeTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfVirtIntfTableMaxSize": {
+    "name": "ospfVirtIntfTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfHostTableMaxSize": {
+    "name": "ospfHostTableMaxSize",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCurCfgAreaTable": {
+    "name": "ospfCurCfgAreaTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfCurCfgAreaEntry": {
+    "name": "ospfCurCfgAreaEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfCurCfgAreaIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfCurCfgAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfCurCfgAreaIndex": {
+    "name": "ospfCurCfgAreaIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCurCfgAreaId": {
+    "name": "ospfCurCfgAreaId",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCurCfgAreaSpfInterval": {
+    "name": "ospfCurCfgAreaSpfInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCurCfgAreaAuthType": {
+    "name": "ospfCurCfgAreaAuthType",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "password": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNewCfgAreaTable": {
+    "name": "ospfNewCfgAreaTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfNewCfgAreaEntry": {
+    "name": "ospfNewCfgAreaEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfNewCfgAreaIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfNewCfgAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfNewCfgAreaIndex": {
+    "name": "ospfNewCfgAreaIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNewCfgAreaId": {
+    "name": "ospfNewCfgAreaId",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNewCfgAreaSpfInterval": {
+    "name": "ospfNewCfgAreaSpfInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ospfNewCfgAreaAuthType": {
+    "name": "ospfNewCfgAreaAuthType",
+    "oid": "1.3.6.1.4.1.1872.2.1.3.21.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "password": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ospfGeneralStats": {
+    "name": "ospfGeneralStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1",
+    "class": "objectidentity"
+  },
+  "ospfCumRxTxStats": {
+    "name": "ospfCumRxTxStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1",
+    "class": "objectidentity"
+  },
+  "ospfCumNbrChangeStats": {
+    "name": "ospfCumNbrChangeStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2",
+    "class": "objectidentity"
+  },
+  "ospfCumIntfChangeStats": {
+    "name": "ospfCumIntfChangeStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.3",
+    "class": "objectidentity"
+  },
+  "ospfTimersKickOffStats": {
+    "name": "ospfTimersKickOffStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.4",
+    "class": "objectidentity"
+  },
+  "ospfArea": {
+    "name": "ospfArea",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2",
+    "class": "objectidentity"
+  },
+  "ospfAreaRxTxStats": {
+    "name": "ospfAreaRxTxStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfAreaRxTxStatsEntry": {
+    "name": "ospfAreaRxTxStatsEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfAreaRxTxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfAreaRxTxIndex": {
+    "name": "ospfAreaRxTxIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaRxPkts": {
+    "name": "ospfAreaRxPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaTxPkts": {
+    "name": "ospfAreaTxPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaRxHello": {
+    "name": "ospfAreaRxHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaTxHello": {
+    "name": "ospfAreaTxHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaRxDatabase": {
+    "name": "ospfAreaRxDatabase",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaTxDatabase": {
+    "name": "ospfAreaTxDatabase",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaRxlsReqs": {
+    "name": "ospfAreaRxlsReqs",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaTxlsReqs": {
+    "name": "ospfAreaTxlsReqs",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaRxlsAcks": {
+    "name": "ospfAreaRxlsAcks",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaTxlsAcks": {
+    "name": "ospfAreaTxlsAcks",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaRxlsUpdates": {
+    "name": "ospfAreaRxlsUpdates",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaTxlsUpdates": {
+    "name": "ospfAreaTxlsUpdates",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrChangeStats": {
+    "name": "ospfAreaNbrChangeStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrChangeStatsEntry": {
+    "name": "ospfAreaNbrChangeStatsEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfAreaNbrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfAreaNbrIndex": {
+    "name": "ospfAreaNbrIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrhello": {
+    "name": "ospfAreaNbrhello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrStart": {
+    "name": "ospfAreaNbrStart",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrAdjointOk": {
+    "name": "ospfAreaNbrAdjointOk",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrNegotiationDone": {
+    "name": "ospfAreaNbrNegotiationDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrExchangeDone": {
+    "name": "ospfAreaNbrExchangeDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrBadRequests": {
+    "name": "ospfAreaNbrBadRequests",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrBadSequence": {
+    "name": "ospfAreaNbrBadSequence",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrLoadingDone": {
+    "name": "ospfAreaNbrLoadingDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrN1way": {
+    "name": "ospfAreaNbrN1way",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrRstAd": {
+    "name": "ospfAreaNbrRstAd",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaNbrDown": {
+    "name": "ospfAreaNbrDown",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaChangeStats": {
+    "name": "ospfAreaChangeStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfAreaChangeStatsEntry": {
+    "name": "ospfAreaChangeStatsEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfAreaIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfAreaIntfIndex": {
+    "name": "ospfAreaIntfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaIntfHello": {
+    "name": "ospfAreaIntfHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaIntfDown": {
+    "name": "ospfAreaIntfDown",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaIntfLoop": {
+    "name": "ospfAreaIntfLoop",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaIntfUnloop": {
+    "name": "ospfAreaIntfUnloop",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaIntfWaitTimer": {
+    "name": "ospfAreaIntfWaitTimer",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaIntfBackup": {
+    "name": "ospfAreaIntfBackup",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaIntfNbrChange": {
+    "name": "ospfAreaIntfNbrChange",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfInterface": {
+    "name": "ospfInterface",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3",
+    "class": "objectidentity"
+  },
+  "ospfIntfRxTxStats": {
+    "name": "ospfIntfRxTxStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfIntfRxTxStatsEntry": {
+    "name": "ospfIntfRxTxStatsEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfIntfRxTxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfIntfRxTxIndex": {
+    "name": "ospfIntfRxTxIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfRxPkts": {
+    "name": "ospfIntfRxPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfTxPkts": {
+    "name": "ospfIntfTxPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfRxHello": {
+    "name": "ospfIntfRxHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfTxHello": {
+    "name": "ospfIntfTxHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfRxDatabase": {
+    "name": "ospfIntfRxDatabase",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfTxDatabase": {
+    "name": "ospfIntfTxDatabase",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfRxlsReqs": {
+    "name": "ospfIntfRxlsReqs",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfTxlsReqs": {
+    "name": "ospfIntfTxlsReqs",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfRxlsAcks": {
+    "name": "ospfIntfRxlsAcks",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfTxlsAcks": {
+    "name": "ospfIntfTxlsAcks",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfRxlsUpdates": {
+    "name": "ospfIntfRxlsUpdates",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfTxlsUpdates": {
+    "name": "ospfIntfTxlsUpdates",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrChangeStats": {
+    "name": "ospfIntfNbrChangeStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrChangeStatsEntry": {
+    "name": "ospfIntfNbrChangeStatsEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfIntfNbrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfIntfNbrIndex": {
+    "name": "ospfIntfNbrIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrhello": {
+    "name": "ospfIntfNbrhello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrStart": {
+    "name": "ospfIntfNbrStart",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrAdjointOk": {
+    "name": "ospfIntfNbrAdjointOk",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrNegotiationDone": {
+    "name": "ospfIntfNbrNegotiationDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrExchangeDone": {
+    "name": "ospfIntfNbrExchangeDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrBadRequests": {
+    "name": "ospfIntfNbrBadRequests",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrBadSequence": {
+    "name": "ospfIntfNbrBadSequence",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrLoadingDone": {
+    "name": "ospfIntfNbrLoadingDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrN1way": {
+    "name": "ospfIntfNbrN1way",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrRstAd": {
+    "name": "ospfIntfNbrRstAd",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrDown": {
+    "name": "ospfIntfNbrDown",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfChangeStats": {
+    "name": "ospfIntfChangeStats",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfIntfChangeStatsEntry": {
+    "name": "ospfIntfChangeStatsEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfIntfIndex": {
+    "name": "ospfIntfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfHello": {
+    "name": "ospfIntfHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfDown": {
+    "name": "ospfIntfDown",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfLoop": {
+    "name": "ospfIntfLoop",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfUnloop": {
+    "name": "ospfIntfUnloop",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfWaitTimer": {
+    "name": "ospfIntfWaitTimer",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfBackup": {
+    "name": "ospfIntfBackup",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfNbrChange": {
+    "name": "ospfIntfNbrChange",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumRxPkts": {
+    "name": "ospfCumRxPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumTxPkts": {
+    "name": "ospfCumTxPkts",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumRxHello": {
+    "name": "ospfCumRxHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumTxHello": {
+    "name": "ospfCumTxHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumRxDatabase": {
+    "name": "ospfCumRxDatabase",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumTxDatabase": {
+    "name": "ospfCumTxDatabase",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumRxlsReqs": {
+    "name": "ospfCumRxlsReqs",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumTxlsReqs": {
+    "name": "ospfCumTxlsReqs",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumRxlsAcks": {
+    "name": "ospfCumRxlsAcks",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumTxlsAcks": {
+    "name": "ospfCumTxlsAcks",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumRxlsUpdates": {
+    "name": "ospfCumRxlsUpdates",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumTxlsUpdates": {
+    "name": "ospfCumTxlsUpdates",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrhello": {
+    "name": "ospfCumNbrhello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrStart": {
+    "name": "ospfCumNbrStart",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrAdjointOk": {
+    "name": "ospfCumNbrAdjointOk",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrNegotiationDone": {
+    "name": "ospfCumNbrNegotiationDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrExchangeDone": {
+    "name": "ospfCumNbrExchangeDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrBadRequests": {
+    "name": "ospfCumNbrBadRequests",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrBadSequence": {
+    "name": "ospfCumNbrBadSequence",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrLoadingDone": {
+    "name": "ospfCumNbrLoadingDone",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrN1way": {
+    "name": "ospfCumNbrN1way",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrRstAd": {
+    "name": "ospfCumNbrRstAd",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumNbrDown": {
+    "name": "ospfCumNbrDown",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumIntfHello": {
+    "name": "ospfCumIntfHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumIntfDown": {
+    "name": "ospfCumIntfDown",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumIntfLoop": {
+    "name": "ospfCumIntfLoop",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumIntfUnloop": {
+    "name": "ospfCumIntfUnloop",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumIntfWaitTimer": {
+    "name": "ospfCumIntfWaitTimer",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumIntfBackup": {
+    "name": "ospfCumIntfBackup",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfCumIntfNbrChange": {
+    "name": "ospfCumIntfNbrChange",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTmrsKckOffHello": {
+    "name": "ospfTmrsKckOffHello",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTmrsKckOffRetransmit": {
+    "name": "ospfTmrsKckOffRetransmit",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTmrsKckOffLsaLock": {
+    "name": "ospfTmrsKckOffLsaLock",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTmrsKckOffLsaAck": {
+    "name": "ospfTmrsKckOffLsaAck",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTmrsKckOffDbage": {
+    "name": "ospfTmrsKckOffDbage",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTmrsKckOffSummary": {
+    "name": "ospfTmrsKckOffSummary",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTmrsKckOffAseExport": {
+    "name": "ospfTmrsKckOffAseExport",
+    "oid": "1.3.6.1.4.1.1872.2.1.8.22.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfGeneralInfo": {
+    "name": "ospfGeneralInfo",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1",
+    "class": "objectidentity"
+  },
+  "ospfStartTime": {
+    "name": "ospfStartTime",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfProcessUptime": {
+    "name": "ospfProcessUptime",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfLsTypesSupported": {
+    "name": "ospfLsTypesSupported",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfCountForRouter": {
+    "name": "ospfIntfCountForRouter",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfVlinkCountForRouter": {
+    "name": "ospfVlinkCountForRouter",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTotalNeighbours": {
+    "name": "ospfTotalNeighbours",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNbrInInitState": {
+    "name": "ospfNbrInInitState",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNbrInExchState": {
+    "name": "ospfNbrInExchState",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNbrInFullState": {
+    "name": "ospfNbrInFullState",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTotalAreas": {
+    "name": "ospfTotalAreas",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTotalTransitAreas": {
+    "name": "ospfTotalTransitAreas",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTotalNssaAreas": {
+    "name": "ospfTotalNssaAreas",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaInfoTable": {
+    "name": "ospfAreaInfoTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfAreaInfoEntry": {
+    "name": "ospfAreaInfoEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfAreaInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfAreaInfoIndex": {
+    "name": "ospfAreaInfoIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfTotalNumberOfInterfaces": {
+    "name": "ospfTotalNumberOfInterfaces",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNumberOfInterfacesUp": {
+    "name": "ospfNumberOfInterfacesUp",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfNumberOfLsdbEntries": {
+    "name": "ospfNumberOfLsdbEntries",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfAreaInfoId": {
+    "name": "ospfAreaInfoId",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIntfInfoTable": {
+    "name": "ospfIntfInfoTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfIntfInfoEntry": {
+    "name": "ospfIntfInfoEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "ospfIfInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ospfIfInfoIndex": {
+    "name": "ospfIfInfoIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIfDesignatedRouterIP": {
+    "name": "ospfIfDesignatedRouterIP",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIfBackupDesignatedRouterIP": {
+    "name": "ospfIfBackupDesignatedRouterIP",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIfWaitInterval": {
+    "name": "ospfIfWaitInterval",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIfTotalNeighbours": {
+    "name": "ospfIfTotalNeighbours",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfIfInfoIpAddress": {
+    "name": "ospfIfInfoIpAddress",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ospfRouterLSAInfoTable": {
+    "name": "ospfRouterLSAInfoTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ospfRouterLSAInfoEntry": {
+    "name": "ospfRouterLSAInfoEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "routerLSAAreaIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "routerLSALinkIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "routerLSAId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "routerLSAAreaIndex": {
+    "name": "routerLSAAreaIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routerLSALinkIndex": {
+    "name": "routerLSALinkIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routerLSAId": {
+    "name": "routerLSAId",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routerLSALinkID": {
+    "name": "routerLSALinkID",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routerLSALinkData": {
+    "name": "routerLSALinkData",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routerLSALinkIfIndex": {
+    "name": "routerLSALinkIfIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routerLSANoOfTOSMetrics": {
+    "name": "routerLSANoOfTOSMetrics",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "routerLSANoOfTOSZeroMetrics": {
+    "name": "routerLSANoOfTOSZeroMetrics",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpInfoTable": {
+    "name": "arpInfoTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "arpInfoEntry": {
+    "name": "arpInfoEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "arpInfoDestIp",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "arpInfoDestIp": {
+    "name": "arpInfoDestIp",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpInfoMacAddr": {
+    "name": "arpInfoMacAddr",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpInfoVLAN": {
+    "name": "arpInfoVLAN",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpInfoSrcPort": {
+    "name": "arpInfoSrcPort",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpInfoRefPorts": {
+    "name": "arpInfoRefPorts",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "arpInfoFlag": {
+    "name": "arpInfoFlag",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unresolved": 2,
+          "permanent": 3,
+          "indirect": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpInfoVirtRtrTable": {
+    "name": "vrrpInfoVirtRtrTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vrrpInfoVirtRtrTableEntry": {
+    "name": "vrrpInfoVirtRtrTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "vrrpInfoVirtRtrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vrrpInfoVirtRtrIndex": {
+    "name": "vrrpInfoVirtRtrIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpInfoVirtRtrState": {
+    "name": "vrrpInfoVirtRtrState",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "master": 2,
+          "backup": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpInfoVirtRtrOwnership": {
+    "name": "vrrpInfoVirtRtrOwnership",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "owner": 1,
+          "renter": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpInfoVirtRtrServer": {
+    "name": "vrrpInfoVirtRtrServer",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpInfoVirtRtrProxy": {
+    "name": "vrrpInfoVirtRtrProxy",
+    "oid": "1.3.6.1.4.1.1872.2.1.9.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpOperVirtRtrTable": {
+    "name": "vrrpOperVirtRtrTable",
+    "oid": "1.3.6.1.4.1.1872.2.1.14.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vrrpOperVirtRtrEntry": {
+    "name": "vrrpOperVirtRtrEntry",
+    "oid": "1.3.6.1.4.1.1872.2.1.14.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-TS-NETWORK-MIB",
+        "object": "vrrpOperVirtRtrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vrrpOperVirtRtrIndex": {
+    "name": "vrrpOperVirtRtrIndex",
+    "oid": "1.3.6.1.4.1.1872.2.1.14.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vrrpOperVirtRtrBackup": {
+    "name": "vrrpOperVirtRtrBackup",
+    "oid": "1.3.6.1.4.1.1872.2.1.14.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "backup": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "vrrpOperVirtRtrGroupBackup": {
+    "name": "vrrpOperVirtRtrGroupBackup",
+    "oid": "1.3.6.1.4.1.1872.2.1.14.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "backup": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alteonos/ALTEON-TS-NETWORK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALTEON-TS-NETWORK-MIB"
+  }
+}

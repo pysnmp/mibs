@@ -1,0 +1,718 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cStack": {
+    "name": "hh3cStack",
+    "oid": "1.3.6.1.4.1.25506.2.91",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-03-25 09:43",
+        "description": "Added notification node hh3cStackPhysicalIntfRxTimeout."
+      },
+      {
+        "revision": "2014-11-20 08:50",
+        "description": "Added hh3cStackPortConfigActivate in hh3cStackGlobalConfig. hh3cStackLinkDelayInterval was changed to in the range of 0 to 2147483647 ms."
+      },
+      {
+        "revision": "2014-08-11 06:41",
+        "description": "Added hh3cStackDomainId."
+      },
+      {
+        "revision": "2013-10-23 00:00",
+        "description": "Added notification nodes because MAD group work status changed: hh3cStackMadBfdChangeNormal hh3cStackMadBfdChangeFailure hh3cStackMadLacpChangeNormal hh3cStackMadLacpChangeFailure"
+      },
+      {
+        "revision": "2013-08-16 00:00",
+        "description": "Added node hh3cStackPortForwardingPath to hh3cStackPortInfoTable."
+      },
+      {
+        "revision": "2012-02-24 00:00",
+        "description": "Changed the range of link delay to 0 to 30000 ms."
+      },
+      {
+        "revision": "2008-04-30 16:50",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cStackGlobalConfig": {
+    "name": "hh3cStackGlobalConfig",
+    "oid": "1.3.6.1.4.1.25506.2.91.1",
+    "class": "objectidentity"
+  },
+  "hh3cStackMaxMember": {
+    "name": "hh3cStackMaxMember",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackMemberNum": {
+    "name": "hh3cStackMemberNum",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackMaxConfigPriority": {
+    "name": "hh3cStackMaxConfigPriority",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackAutoUpdate": {
+    "name": "hh3cStackAutoUpdate",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStackMacPersistence": {
+    "name": "hh3cStackMacPersistence",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPersist": 1,
+          "persistForSixMin": 2,
+          "persistForever": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStackLinkDelayInterval": {
+    "name": "hh3cStackLinkDelayInterval",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStackTopology": {
+    "name": "hh3cStackTopology",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chainConn": 1,
+          "ringConn": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackDomainId": {
+    "name": "hh3cStackDomainId",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStackPortConfigActivate": {
+    "name": "hh3cStackPortConfigActivate",
+    "oid": "1.3.6.1.4.1.25506.2.91.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "set": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStackDeviceConfigTable": {
+    "name": "hh3cStackDeviceConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.91.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cStackDeviceConfigEntry": {
+    "name": "hh3cStackDeviceConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.91.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackMemberID": {
+    "name": "hh3cStackMemberID",
+    "oid": "1.3.6.1.4.1.25506.2.91.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackConfigMemberID": {
+    "name": "hh3cStackConfigMemberID",
+    "oid": "1.3.6.1.4.1.25506.2.91.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStackPriority": {
+    "name": "hh3cStackPriority",
+    "oid": "1.3.6.1.4.1.25506.2.91.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStackPortNum": {
+    "name": "hh3cStackPortNum",
+    "oid": "1.3.6.1.4.1.25506.2.91.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackPortMaxNum": {
+    "name": "hh3cStackPortMaxNum",
+    "oid": "1.3.6.1.4.1.25506.2.91.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackBoardConfigTable": {
+    "name": "hh3cStackBoardConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.91.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cStackBoardConfigEntry": {
+    "name": "hh3cStackBoardConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.91.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackBoardRole": {
+    "name": "hh3cStackBoardRole",
+    "oid": "1.3.6.1.4.1.25506.2.91.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2,
+          "loading": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackBoardBelongtoMember": {
+    "name": "hh3cStackBoardBelongtoMember",
+    "oid": "1.3.6.1.4.1.25506.2.91.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackPortInfoTable": {
+    "name": "hh3cStackPortInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.91.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cStackPortInfoEntry": {
+    "name": "hh3cStackPortInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.91.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackMemberID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackPortIndex": {
+    "name": "hh3cStackPortIndex",
+    "oid": "1.3.6.1.4.1.25506.2.91.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cStackPortEnable": {
+    "name": "hh3cStackPortEnable",
+    "oid": "1.3.6.1.4.1.25506.2.91.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackPortStatus": {
+    "name": "hh3cStackPortStatus",
+    "oid": "1.3.6.1.4.1.25506.2.91.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "silent": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackNeighbor": {
+    "name": "hh3cStackNeighbor",
+    "oid": "1.3.6.1.4.1.25506.2.91.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackPortForwardingPath": {
+    "name": "hh3cStackPortForwardingPath",
+    "oid": "1.3.6.1.4.1.25506.2.91.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cStackPhyPortInfoTable": {
+    "name": "hh3cStackPhyPortInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.91.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cStackPhyPortInfoEntry": {
+    "name": "hh3cStackPhyPortInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.91.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackBelongtoPort": {
+    "name": "hh3cStackBelongtoPort",
+    "oid": "1.3.6.1.4.1.25506.2.91.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStackTrap": {
+    "name": "hh3cStackTrap",
+    "oid": "1.3.6.1.4.1.25506.2.91.6",
+    "class": "objectidentity"
+  },
+  "hh3cStackTrapOjbects": {
+    "name": "hh3cStackTrapOjbects",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0",
+    "class": "objectidentity"
+  },
+  "hh3cStackPortLinkStatusChange": {
+    "name": "hh3cStackPortLinkStatusChange",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackMemberID"
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPortIndex"
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPortStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackTopologyChange": {
+    "name": "hh3cStackTopologyChange",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackTopology"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackMadBfdChangeNormal": {
+    "name": "hh3cStackMadBfdChangeNormal",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackMadBfdChangeFailure": {
+    "name": "hh3cStackMadBfdChangeFailure",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackMadLacpChangeNormal": {
+    "name": "hh3cStackMadLacpChangeNormal",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackMadLacpChangeFailure": {
+    "name": "hh3cStackMadLacpChangeFailure",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackPhysicalIntfLinkUp": {
+    "name": "hh3cStackPhysicalIntfLinkUp",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackMemberID"
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPortIndex"
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPhysicalIntfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackPhysicalIntfLinkDown": {
+    "name": "hh3cStackPhysicalIntfLinkDown",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackMemberID"
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPortIndex"
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPhysicalIntfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackPhysicalIntfRxTimeout": {
+    "name": "hh3cStackPhysicalIntfRxTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackMemberID"
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPortIndex"
+      },
+      {
+        "module": "HH3C-STACK-MIB",
+        "object": "hh3cStackPhysicalIntfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cStackTrapObjectDefinitions": {
+    "name": "hh3cStackTrapObjectDefinitions",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.1",
+    "class": "objectidentity"
+  },
+  "hh3cStackPhysicalIntfName": {
+    "name": "hh3cStackPhysicalIntfName",
+    "oid": "1.3.6.1.4.1.25506.2.91.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-STACK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-STACK-MIB"
+  }
+}

@@ -1,0 +1,409 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "juniRadiusDisconnectMIB": {
+    "name": "juniRadiusDisconnectMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.67",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-09 13:57",
+        "description": "Obsoleted the MIB."
+      },
+      {
+        "revision": "2003-01-13 20:50",
+        "description": "Initial version of this MIB module, derived from IETF Internet Drafts of RADIUS Disconnect."
+      }
+    ]
+  },
+  "juniRadiusDisconnectObjects": {
+    "name": "juniRadiusDisconnectObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1",
+    "class": "objectidentity"
+  },
+  "juniRadiusDisconnect": {
+    "name": "juniRadiusDisconnect",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1",
+    "class": "objectidentity"
+  },
+  "juniRadiusDisconnectInvalidClientAddresses": {
+    "name": "juniRadiusDisconnectInvalidClientAddresses",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectClientTable": {
+    "name": "juniRadiusDisconnectClientTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectClientEntry": {
+    "name": "juniRadiusDisconnectClientEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectClientAddress",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectClientAddress": {
+    "name": "juniRadiusDisconnectClientAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectClientPortNumber": {
+    "name": "juniRadiusDisconnectClientPortNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectRequests": {
+    "name": "juniRadiusDisconnectRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectAccepts": {
+    "name": "juniRadiusDisconnectAccepts",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectRejects": {
+    "name": "juniRadiusDisconnectRejects",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectNoSecret": {
+    "name": "juniRadiusDisconnectNoSecret",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectNoSessionIds": {
+    "name": "juniRadiusDisconnectNoSessionIds",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectBadAuthenticators": {
+    "name": "juniRadiusDisconnectBadAuthenticators",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectUnknownTypes": {
+    "name": "juniRadiusDisconnectUnknownTypes",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectPacketsDropped": {
+    "name": "juniRadiusDisconnectPacketsDropped",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectCfgClientTable": {
+    "name": "juniRadiusDisconnectCfgClientTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectCfgClientEntry": {
+    "name": "juniRadiusDisconnectCfgClientEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectCfgClientAddress",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectCfgClientAddress": {
+    "name": "juniRadiusDisconnectCfgClientAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectCfgClientPortNumber": {
+    "name": "juniRadiusDisconnectCfgClientPortNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1700,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectCfgKey": {
+    "name": "juniRadiusDisconnectCfgKey",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectCfgRowStatus": {
+    "name": "juniRadiusDisconnectCfgRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectMIBConformance": {
+    "name": "juniRadiusDisconnectMIBConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.2",
+    "class": "objectidentity"
+  },
+  "juniRadiusDisconnectMIBCompliances": {
+    "name": "juniRadiusDisconnectMIBCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.2.1",
+    "class": "objectidentity"
+  },
+  "juniRadiusDisconnectMIBGroups": {
+    "name": "juniRadiusDisconnectMIBGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.2.2",
+    "class": "objectidentity"
+  },
+  "juniRadiusAuthDisconnectCompliance": {
+    "name": "juniRadiusAuthDisconnectCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniRadiusDisconnectGroup",
+        "module": "Juniper-RADIUS-Disconnect-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniRadiusDisconnectGroup": {
+    "name": "juniRadiusDisconnectGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.67.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectInvalidClientAddresses"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectClientPortNumber"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectRequests"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectAccepts"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectRejects"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectNoSecret"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectNoSessionIds"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectBadAuthenticators"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectUnknownTypes"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectPacketsDropped"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectCfgClientPortNumber"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectCfgKey"
+      },
+      {
+        "module": "Juniper-RADIUS-Disconnect-MIB",
+        "object": "juniRadiusDisconnectCfgRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-RADIUS-Disconnect-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-RADIUS-Disconnect-MIB"
+  }
+}

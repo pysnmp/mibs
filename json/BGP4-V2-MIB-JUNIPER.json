@@ -1,0 +1,4516 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength",
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
+    ],
+    "JUNIPER-EXPERIMENT-MIB": [
+      "jnxBgpM2Experiment"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "StorageType",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxBgpM2": {
+    "name": "jnxBgpM2",
+    "oid": "1.3.6.1.4.1.2636.5.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-12-17 00:00",
+        "description": "This change redefines the value returned for the -- *** JNX *** variable jnxBgpM2PrefixesInPrefixesRejected so that -- *** JNX *** it conforms to the definition. -- *** JNX *** It also adds a new counter in the same sequence to -- *** JNX *** return the number of active prefixes received from -- *** JNX *** the peer: jnxBgpM2PrefixInPrefixesActive"
+      },
+      {
+        "revision": "2003-09-09 15:08",
+        "description": "This is a proprietary implementation of the -- *** JNX *** draft-ietf-idr-bgp4-mibv2-03.txt MIB as written by -- *** JNX *** the IETF Inter-Domain Routing Working Group. -- *** JNX *** This Juniper experimental MIB will be retired when a -- *** JNX *** valid oid branch is assigned."
+      },
+      {
+        "revision": "2002-11-04 00:00",
+        "description": "draft-ietf-idr-bgp4-mibv2-03.txt version written by -- *** JNX *** the IETF Inter-Domain Routing Working Group."
+      }
+    ]
+  },
+  "JnxBgpM2Identifier": {
+    "name": "JnxBgpM2Identifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.",
+    "status": "current"
+  },
+  "JnxBgpM2Safi": {
+    "name": "JnxBgpM2Safi",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "JnxBgpM2Community": {
+    "name": "JnxBgpM2Community",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "2d:",
+    "status": "current"
+  },
+  "JnxBgpM2ExtendedCommunity": {
+    "name": "JnxBgpM2ExtendedCommunity",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "jnxBgpM2BaseScalars": {
+    "name": "jnxBgpM2BaseScalars",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2BaseNotifications": {
+    "name": "jnxBgpM2BaseNotifications",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.0",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2Established": {
+    "name": "jnxBgpM2Established",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorReceived"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2BackwardTransition": {
+    "name": "jnxBgpM2BackwardTransition",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorReceived"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorReceivedText"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2Version": {
+    "name": "jnxBgpM2Version",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2VersionTable": {
+    "name": "jnxBgpM2VersionTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2VersionEntry": {
+    "name": "jnxBgpM2VersionEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2VersionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2VersionIndex": {
+    "name": "jnxBgpM2VersionIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2VersionSupported": {
+    "name": "jnxBgpM2VersionSupported",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2SupportedAuthentication": {
+    "name": "jnxBgpM2SupportedAuthentication",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2SupportedAuthTable": {
+    "name": "jnxBgpM2SupportedAuthTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2SupportedAuthEntry": {
+    "name": "jnxBgpM2SupportedAuthEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2SupportedAuthCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2SupportedAuthCode": {
+    "name": "jnxBgpM2SupportedAuthCode",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2SupportedAuthValue": {
+    "name": "jnxBgpM2SupportedAuthValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2SupportedCapabilities": {
+    "name": "jnxBgpM2SupportedCapabilities",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CapabilitySupportAvailable": {
+    "name": "jnxBgpM2CapabilitySupportAvailable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2SupportedCapabilitiesTable": {
+    "name": "jnxBgpM2SupportedCapabilitiesTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2SupportedCapabilitiesEntry": {
+    "name": "jnxBgpM2SupportedCapabilitiesEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2SupportedCapabilityCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2SupportedCapabilityCode": {
+    "name": "jnxBgpM2SupportedCapabilityCode",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2SupportedCapability": {
+    "name": "jnxBgpM2SupportedCapability",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsSize": {
+    "name": "jnxBgpM2AsSize",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoOctet": 1,
+          "fourOctet": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2LocalAs": {
+    "name": "jnxBgpM2LocalAs",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2LocalIdentifier": {
+    "name": "jnxBgpM2LocalIdentifier",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2BaseScalarExtensions": {
+    "name": "jnxBgpM2BaseScalarExtensions",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2BaseScalarNonCapExts": {
+    "name": "jnxBgpM2BaseScalarNonCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2BaseScalarCapExts": {
+    "name": "jnxBgpM2BaseScalarCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2BaseScalarRouteReflectExts": {
+    "name": "jnxBgpM2BaseScalarRouteReflectExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7.1.2796",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2RouteReflector": {
+    "name": "jnxBgpM2RouteReflector",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7.1.2796.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2ClusterId": {
+    "name": "jnxBgpM2ClusterId",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7.1.2796.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2BaseScalarASConfedExts": {
+    "name": "jnxBgpM2BaseScalarASConfedExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7.1.3065",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2ConfederationRouter": {
+    "name": "jnxBgpM2ConfederationRouter",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7.1.3065.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2ConfederationId": {
+    "name": "jnxBgpM2ConfederationId",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.7.1.3065.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2BaseScalarConfiguration": {
+    "name": "jnxBgpM2BaseScalarConfiguration",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgBaseScalarStorageType": {
+    "name": "jnxBgpM2CfgBaseScalarStorageType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxBgpM2CfgLocalAs": {
+    "name": "jnxBgpM2CfgLocalAs",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxBgpM2CfgLocalIdentifier": {
+    "name": "jnxBgpM2CfgLocalIdentifier",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxBgpM2CfgBaseScalarExtensions": {
+    "name": "jnxBgpM2CfgBaseScalarExtensions",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgBaseScalarNonCapExts": {
+    "name": "jnxBgpM2CfgBaseScalarNonCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgBaseScalarCapExts": {
+    "name": "jnxBgpM2CfgBaseScalarCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgBaseScalarReflectorExts": {
+    "name": "jnxBgpM2CfgBaseScalarReflectorExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4.1.2796",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgRouteReflector": {
+    "name": "jnxBgpM2CfgRouteReflector",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4.1.2796.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxBgpM2CfgClusterId": {
+    "name": "jnxBgpM2CfgClusterId",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4.1.2796.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxBgpM2CfgBaseScalarASConfedExts": {
+    "name": "jnxBgpM2CfgBaseScalarASConfedExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4.1.3065",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgConfederationRouter": {
+    "name": "jnxBgpM2CfgConfederationRouter",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4.1.3065.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxBgpM2CfgConfederationId": {
+    "name": "jnxBgpM2CfgConfederationId",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.1.8.4.1.3065.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxBgpM2Peer": {
+    "name": "jnxBgpM2Peer",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerData": {
+    "name": "jnxBgpM2PeerData",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerTable": {
+    "name": "jnxBgpM2PeerTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerEntry": {
+    "name": "jnxBgpM2PeerEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRoutingInstance",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAddrType",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAddr",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAddrType",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PeerIdentifier": {
+    "name": "jnxBgpM2PeerIdentifier",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerState": {
+    "name": "jnxBgpM2PeerState",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerStatus": {
+    "name": "jnxBgpM2PeerStatus",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halted": 1,
+          "running": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerConfiguredVersion": {
+    "name": "jnxBgpM2PeerConfiguredVersion",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerNegotiatedVersion": {
+    "name": "jnxBgpM2PeerNegotiatedVersion",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLocalAddrType": {
+    "name": "jnxBgpM2PeerLocalAddrType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLocalAddr": {
+    "name": "jnxBgpM2PeerLocalAddr",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLocalPort": {
+    "name": "jnxBgpM2PeerLocalPort",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLocalAs": {
+    "name": "jnxBgpM2PeerLocalAs",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerRemoteAddrType": {
+    "name": "jnxBgpM2PeerRemoteAddrType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerRemoteAddr": {
+    "name": "jnxBgpM2PeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerRemotePort": {
+    "name": "jnxBgpM2PeerRemotePort",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerRemoteAs": {
+    "name": "jnxBgpM2PeerRemoteAs",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerIndex": {
+    "name": "jnxBgpM2PeerIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerRoutingInstance": {
+    "name": "jnxBgpM2PeerRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerErrors": {
+    "name": "jnxBgpM2PeerErrors",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerErrorsTable": {
+    "name": "jnxBgpM2PeerErrorsTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerErrorsEntry": {
+    "name": "jnxBgpM2PeerErrorsEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2PeerErrorsEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2PeerLastErrorReceived": {
+    "name": "jnxBgpM2PeerLastErrorReceived",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLastErrorSent": {
+    "name": "jnxBgpM2PeerLastErrorSent",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLastErrorReceivedTime": {
+    "name": "jnxBgpM2PeerLastErrorReceivedTime",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLastErrorSentTime": {
+    "name": "jnxBgpM2PeerLastErrorSentTime",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLastErrorReceivedText": {
+    "name": "jnxBgpM2PeerLastErrorReceivedText",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLastErrorSentText": {
+    "name": "jnxBgpM2PeerLastErrorSentText",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLastErrorReceivedData": {
+    "name": "jnxBgpM2PeerLastErrorReceivedData",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4075
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerLastErrorSentData": {
+    "name": "jnxBgpM2PeerLastErrorSentData",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4075
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthentication": {
+    "name": "jnxBgpM2PeerAuthentication",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerAuthTable": {
+    "name": "jnxBgpM2PeerAuthTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthEntry": {
+    "name": "jnxBgpM2PeerAuthEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2PeerAuthEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthSent": {
+    "name": "jnxBgpM2PeerAuthSent",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthSentCode": {
+    "name": "jnxBgpM2PeerAuthSentCode",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthSentValue": {
+    "name": "jnxBgpM2PeerAuthSentValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthRcvd": {
+    "name": "jnxBgpM2PeerAuthRcvd",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthRcvdCode": {
+    "name": "jnxBgpM2PeerAuthRcvdCode",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthRcvdValue": {
+    "name": "jnxBgpM2PeerAuthRcvdValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerTimers": {
+    "name": "jnxBgpM2PeerTimers",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerEventTimesTable": {
+    "name": "jnxBgpM2PeerEventTimesTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerEventTimesEntry": {
+    "name": "jnxBgpM2PeerEventTimesEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2PeerEventTimesEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2PeerFsmEstablishedTime": {
+    "name": "jnxBgpM2PeerFsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerInUpdatesElapsedTime": {
+    "name": "jnxBgpM2PeerInUpdatesElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerConfiguredTimersTable": {
+    "name": "jnxBgpM2PeerConfiguredTimersTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerConfiguredTimersEntry": {
+    "name": "jnxBgpM2PeerConfiguredTimersEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2PeerConfiguredTimersEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2PeerConnectRetryInterval": {
+    "name": "jnxBgpM2PeerConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerHoldTimeConfigured": {
+    "name": "jnxBgpM2PeerHoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerKeepAliveConfigured": {
+    "name": "jnxBgpM2PeerKeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerMinASOrigInterval": {
+    "name": "jnxBgpM2PeerMinASOrigInterval",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerMinRouteAdverInterval": {
+    "name": "jnxBgpM2PeerMinRouteAdverInterval",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerNegotiatedTimersTable": {
+    "name": "jnxBgpM2PeerNegotiatedTimersTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerNegotiatedTimersEntry": {
+    "name": "jnxBgpM2PeerNegotiatedTimersEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2PeerNegotiatedTimersEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2PeerHoldTime": {
+    "name": "jnxBgpM2PeerHoldTime",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerKeepAlive": {
+    "name": "jnxBgpM2PeerKeepAlive",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapabilities": {
+    "name": "jnxBgpM2PeerCapabilities",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerCapsAnnouncedTable": {
+    "name": "jnxBgpM2PeerCapsAnnouncedTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapsAnnouncedEntry": {
+    "name": "jnxBgpM2PeerCapsAnnouncedEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapAnnouncedCode",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapAnnouncedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapAnnouncedCode": {
+    "name": "jnxBgpM2PeerCapAnnouncedCode",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapAnnouncedIndex": {
+    "name": "jnxBgpM2PeerCapAnnouncedIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapAnnouncedValue": {
+    "name": "jnxBgpM2PeerCapAnnouncedValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapsReceivedTable": {
+    "name": "jnxBgpM2PeerCapsReceivedTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapsReceivedEntry": {
+    "name": "jnxBgpM2PeerCapsReceivedEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapReceivedCode",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapReceivedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapReceivedCode": {
+    "name": "jnxBgpM2PeerCapReceivedCode",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapReceivedIndex": {
+    "name": "jnxBgpM2PeerCapReceivedIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCapReceivedValue": {
+    "name": "jnxBgpM2PeerCapReceivedValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCounters": {
+    "name": "jnxBgpM2PeerCounters",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerCountersTable": {
+    "name": "jnxBgpM2PeerCountersTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerCountersEntry": {
+    "name": "jnxBgpM2PeerCountersEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2PeerCountersEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2PeerInUpdates": {
+    "name": "jnxBgpM2PeerInUpdates",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerOutUpdates": {
+    "name": "jnxBgpM2PeerOutUpdates",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerInTotalMessages": {
+    "name": "jnxBgpM2PeerInTotalMessages",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerOutTotalMessages": {
+    "name": "jnxBgpM2PeerOutTotalMessages",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerFsmEstablishedTrans": {
+    "name": "jnxBgpM2PeerFsmEstablishedTrans",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PrefixCountersTable": {
+    "name": "jnxBgpM2PrefixCountersTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PrefixCountersEntry": {
+    "name": "jnxBgpM2PrefixCountersEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PrefixCountersAfi",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PrefixCountersSafi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PrefixCountersAfi": {
+    "name": "jnxBgpM2PrefixCountersAfi",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PrefixCountersSafi": {
+    "name": "jnxBgpM2PrefixCountersSafi",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Safi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PrefixInPrefixes": {
+    "name": "jnxBgpM2PrefixInPrefixes",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PrefixInPrefixesAccepted": {
+    "name": "jnxBgpM2PrefixInPrefixesAccepted",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PrefixInPrefixesRejected": {
+    "name": "jnxBgpM2PrefixInPrefixesRejected",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PrefixOutPrefixes": {
+    "name": "jnxBgpM2PrefixOutPrefixes",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PrefixInPrefixesActive": {
+    "name": "jnxBgpM2PrefixInPrefixesActive",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerExtensions": {
+    "name": "jnxBgpM2PeerExtensions",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerNonCapExts": {
+    "name": "jnxBgpM2PeerNonCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerCapExts": {
+    "name": "jnxBgpM2PeerCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerRouteReflectionExts": {
+    "name": "jnxBgpM2PeerRouteReflectionExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1.2796",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerReflectorClientTable": {
+    "name": "jnxBgpM2PeerReflectorClientTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1.2796.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerReflectorClientEntry": {
+    "name": "jnxBgpM2PeerReflectorClientEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1.2796.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2PeerReflectorClientEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2PeerReflectorClient": {
+    "name": "jnxBgpM2PeerReflectorClient",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1.2796.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonClient": 0,
+          "client": 1,
+          "meshedClient": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerASConfederationExts": {
+    "name": "jnxBgpM2PeerASConfederationExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1.3065",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PeerConfedMemberTable": {
+    "name": "jnxBgpM2PeerConfedMemberTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1.3065.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PeerConfedMemberEntry": {
+    "name": "jnxBgpM2PeerConfedMemberEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1.3065.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2PeerConfedMemberEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2PeerConfedMember": {
+    "name": "jnxBgpM2PeerConfedMember",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.7.1.3065.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PeerConfiguration": {
+    "name": "jnxBgpM2PeerConfiguration",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgPeerAdminStatusTable": {
+    "name": "jnxBgpM2CfgPeerAdminStatusTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerAdminStatusEntry": {
+    "name": "jnxBgpM2CfgPeerAdminStatusEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerAdminStatus": {
+    "name": "jnxBgpM2CfgPeerAdminStatus",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerNextIndex": {
+    "name": "jnxBgpM2CfgPeerNextIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerTable": {
+    "name": "jnxBgpM2CfgPeerTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerEntry": {
+    "name": "jnxBgpM2CfgPeerEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerConfiguredVersion": {
+    "name": "jnxBgpM2CfgPeerConfiguredVersion",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgAllowVersionNegotiation": {
+    "name": "jnxBgpM2CfgAllowVersionNegotiation",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerLocalAddrType": {
+    "name": "jnxBgpM2CfgPeerLocalAddrType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerLocalAddr": {
+    "name": "jnxBgpM2CfgPeerLocalAddr",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerLocalAs": {
+    "name": "jnxBgpM2CfgPeerLocalAs",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerRemoteAddrType": {
+    "name": "jnxBgpM2CfgPeerRemoteAddrType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerRemoteAddr": {
+    "name": "jnxBgpM2CfgPeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerRemotePort": {
+    "name": "jnxBgpM2CfgPeerRemotePort",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerRemoteAs": {
+    "name": "jnxBgpM2CfgPeerRemoteAs",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerEntryStorageType": {
+    "name": "jnxBgpM2CfgPeerEntryStorageType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerError": {
+    "name": "jnxBgpM2CfgPeerError",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "notActivated": 1,
+          "errDuplicatePeeringSession": 2,
+          "activated": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerBgpPeerEntry": {
+    "name": "jnxBgpM2CfgPeerBgpPeerEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerRowEntryStatus": {
+    "name": "jnxBgpM2CfgPeerRowEntryStatus",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerIndex": {
+    "name": "jnxBgpM2CfgPeerIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerStatus": {
+    "name": "jnxBgpM2CfgPeerStatus",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halted": 1,
+          "running": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerRoutingInstance": {
+    "name": "jnxBgpM2CfgPeerRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerAuthTable": {
+    "name": "jnxBgpM2CfgPeerAuthTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerAuthEntry": {
+    "name": "jnxBgpM2CfgPeerAuthEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2CfgPeerAuthEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2CfgPeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerAuthEnabled": {
+    "name": "jnxBgpM2CfgPeerAuthEnabled",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerAuthCode": {
+    "name": "jnxBgpM2CfgPeerAuthCode",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerAuthValue": {
+    "name": "jnxBgpM2CfgPeerAuthValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerTimersTable": {
+    "name": "jnxBgpM2CfgPeerTimersTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerTimersEntry": {
+    "name": "jnxBgpM2CfgPeerTimersEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2CfgPeerTimersEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2CfgPeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerConnectRetryInterval": {
+    "name": "jnxBgpM2CfgPeerConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerHoldTimeConfigured": {
+    "name": "jnxBgpM2CfgPeerHoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerKeepAliveConfigured": {
+    "name": "jnxBgpM2CfgPeerKeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerMinASOrigInterval": {
+    "name": "jnxBgpM2CfgPeerMinASOrigInterval",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerMinRouteAdverInter": {
+    "name": "jnxBgpM2CfgPeerMinRouteAdverInter",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerExtensions": {
+    "name": "jnxBgpM2CfgPeerExtensions",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgPeerNonCapExts": {
+    "name": "jnxBgpM2CfgPeerNonCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgPeerCapExts": {
+    "name": "jnxBgpM2CfgPeerCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgPeerRouteReflectionExts": {
+    "name": "jnxBgpM2CfgPeerRouteReflectionExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1.2796",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgPeerReflectorClientTable": {
+    "name": "jnxBgpM2CfgPeerReflectorClientTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1.2796.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerReflectorClientEntry": {
+    "name": "jnxBgpM2CfgPeerReflectorClientEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1.2796.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2CfgPeerReflectorClientEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2CfgPeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerReflectorClient": {
+    "name": "jnxBgpM2CfgPeerReflectorClient",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1.2796.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonClient": 0,
+          "client": 1,
+          "meshedClient": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerASConfederationExts": {
+    "name": "jnxBgpM2CfgPeerASConfederationExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1.3065",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2CfgPeerConfedMemberTable": {
+    "name": "jnxBgpM2CfgPeerConfedMemberTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1.3065.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerConfedMemberEntry": {
+    "name": "jnxBgpM2CfgPeerConfedMemberEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1.3065.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2CfgPeerConfedMemberEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2CfgPeerEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2CfgPeerConfedMember": {
+    "name": "jnxBgpM2CfgPeerConfedMember",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.2.8.6.1.3065.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxBgpM2Rib": {
+    "name": "jnxBgpM2Rib",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2NlriTable": {
+    "name": "jnxBgpM2NlriTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2NlriEntry": {
+    "name": "jnxBgpM2NlriEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriAfi",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriSafi",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriPrefix",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2NlriIndex": {
+    "name": "jnxBgpM2NlriIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2NlriAfi": {
+    "name": "jnxBgpM2NlriAfi",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2NlriSafi": {
+    "name": "jnxBgpM2NlriSafi",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Safi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2NlriPrefix": {
+    "name": "jnxBgpM2NlriPrefix",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2NlriPrefixLen": {
+    "name": "jnxBgpM2NlriPrefixLen",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2NlriBest": {
+    "name": "jnxBgpM2NlriBest",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2NlriCalcLocalPref": {
+    "name": "jnxBgpM2NlriCalcLocalPref",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrIndex": {
+    "name": "jnxBgpM2PathAttrIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2NlriOpaqueType": {
+    "name": "jnxBgpM2NlriOpaqueType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "bgpMplsLabelStack": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2NlriOpaquePointer": {
+    "name": "jnxBgpM2NlriOpaquePointer",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AdjRibsOutTable": {
+    "name": "jnxBgpM2AdjRibsOutTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2AdjRibsOutEntry": {
+    "name": "jnxBgpM2AdjRibsOutEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriAfi",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriSafi",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriPrefix",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AdjRibsOutIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2AdjRibsOutIndex": {
+    "name": "jnxBgpM2AdjRibsOutIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AdjRibsOutRoute": {
+    "name": "jnxBgpM2AdjRibsOutRoute",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrCount": {
+    "name": "jnxBgpM2PathAttrCount",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrTable": {
+    "name": "jnxBgpM2PathAttrTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrEntry": {
+    "name": "jnxBgpM2PathAttrEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrOrigin": {
+    "name": "jnxBgpM2PathAttrOrigin",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrNextHopAddrType": {
+    "name": "jnxBgpM2PathAttrNextHopAddrType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrNextHop": {
+    "name": "jnxBgpM2PathAttrNextHop",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrMedPresent": {
+    "name": "jnxBgpM2PathAttrMedPresent",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrMed": {
+    "name": "jnxBgpM2PathAttrMed",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrLocalPrefPresent": {
+    "name": "jnxBgpM2PathAttrLocalPrefPresent",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrLocalPref": {
+    "name": "jnxBgpM2PathAttrLocalPref",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrAtomicAggregate": {
+    "name": "jnxBgpM2PathAttrAtomicAggregate",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atomicAggregatePresent": 1,
+          "atomicAggregateMissing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrAggregatorAS": {
+    "name": "jnxBgpM2PathAttrAggregatorAS",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrAggregatorAddr": {
+    "name": "jnxBgpM2PathAttrAggregatorAddr",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPathCalcLength": {
+    "name": "jnxBgpM2AsPathCalcLength",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPathString": {
+    "name": "jnxBgpM2AsPathString",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPathIndex": {
+    "name": "jnxBgpM2AsPathIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPath4byteTable": {
+    "name": "jnxBgpM2AsPath4byteTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2AsPath4byteEntry": {
+    "name": "jnxBgpM2AsPath4byteEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxBgpM2AsPath4byteEntry",
+      "module": "BGP4-V2-MIB-JUNIPER",
+      "object": "jnxBgpM2PathAttrEntry"
+    },
+    "status": "current"
+  },
+  "jnxBgpM2AsPath4bytePathPresent": {
+    "name": "jnxBgpM2AsPath4bytePathPresent",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPath4byteAggregatorAS": {
+    "name": "jnxBgpM2AsPath4byteAggregatorAS",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPath4byteCalcLength": {
+    "name": "jnxBgpM2AsPath4byteCalcLength",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPath4byteString": {
+    "name": "jnxBgpM2AsPath4byteString",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPath4byteIndex": {
+    "name": "jnxBgpM2AsPath4byteIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPathTable": {
+    "name": "jnxBgpM2AsPathTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2AsPathEntry": {
+    "name": "jnxBgpM2AsPathEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathSegmentIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathElementIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathElementValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2AsPathSegmentIndex": {
+    "name": "jnxBgpM2AsPathSegmentIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPathElementIndex": {
+    "name": "jnxBgpM2AsPathElementIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPathType": {
+    "name": "jnxBgpM2AsPathType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asSet": 1,
+          "asSequence": 2,
+          "confedSequence": 3,
+          "confedSet": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2AsPathElementValue": {
+    "name": "jnxBgpM2AsPathElementValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrUnknownTable": {
+    "name": "jnxBgpM2PathAttrUnknownTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrUnknownEntry": {
+    "name": "jnxBgpM2PathAttrUnknownEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrUnknownIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrUnknownIndex": {
+    "name": "jnxBgpM2PathAttrUnknownIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrUnknownType": {
+    "name": "jnxBgpM2PathAttrUnknownType",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrUnknownValue": {
+    "name": "jnxBgpM2PathAttrUnknownValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4070
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrExtensions": {
+    "name": "jnxBgpM2PathAttrExtensions",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PathAttrNonCapExts": {
+    "name": "jnxBgpM2PathAttrNonCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PathAttrCapExts": {
+    "name": "jnxBgpM2PathAttrCapExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PathAttrRouteReflectionExts": {
+    "name": "jnxBgpM2PathAttrRouteReflectionExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2796",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PathAttrOriginatorIdTable": {
+    "name": "jnxBgpM2PathAttrOriginatorIdTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2796.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrOriginatorIdEntry": {
+    "name": "jnxBgpM2PathAttrOriginatorIdEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2796.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrOriginatorId": {
+    "name": "jnxBgpM2PathAttrOriginatorId",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2796.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrClusterTable": {
+    "name": "jnxBgpM2PathAttrClusterTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2796.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrClusterEntry": {
+    "name": "jnxBgpM2PathAttrClusterEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2796.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrClusterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrClusterIndex": {
+    "name": "jnxBgpM2PathAttrClusterIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2796.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrClusterValue": {
+    "name": "jnxBgpM2PathAttrClusterValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2796.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Identifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrCommunityExts": {
+    "name": "jnxBgpM2PathAttrCommunityExts",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.1997",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2PathAttrCommTable": {
+    "name": "jnxBgpM2PathAttrCommTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.1997.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrCommEntry": {
+    "name": "jnxBgpM2PathAttrCommEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.1997.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrCommIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrCommIndex": {
+    "name": "jnxBgpM2PathAttrCommIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.1997.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrCommValue": {
+    "name": "jnxBgpM2PathAttrCommValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.1997.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2Community",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrExtCommTable": {
+    "name": "jnxBgpM2PathAttrExtCommTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.65001",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrExtCommEntry": {
+    "name": "jnxBgpM2PathAttrExtCommEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.65001.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex",
+        "implied": 0
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrExtCommIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrExtCommIndex": {
+    "name": "jnxBgpM2PathAttrExtCommIndex",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.65001.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2PathAttrExtCommValue": {
+    "name": "jnxBgpM2PathAttrExtCommValue",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.65001.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxBgpM2ExtendedCommunity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2LinkLocalNextHopTable": {
+    "name": "jnxBgpM2LinkLocalNextHopTable",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2545",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxBgpM2LinkLocalNextHopEntry": {
+    "name": "jnxBgpM2LinkLocalNextHopEntry",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2545.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2LinkLocalNextHopPresent": {
+    "name": "jnxBgpM2LinkLocalNextHopPresent",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2545.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2LinkLocalNextHop": {
+    "name": "jnxBgpM2LinkLocalNextHop",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.3.8.1.2545.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBgpM2Conformance": {
+    "name": "jnxBgpM2Conformance",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2MIBCompliances": {
+    "name": "jnxBgpM2MIBCompliances",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2MIBGroups": {
+    "name": "jnxBgpM2MIBGroups",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "jnxBgpM2MIBCompliance": {
+    "name": "jnxBgpM2MIBCompliance",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "jnxBgpM2TimersGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2CountersGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2CapabilitiesGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2AsPathGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2As4byteGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2BaseGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2ErrorsGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2PeerGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2PathAttributesGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2MIBNotificationsGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2AuthenticationGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2CommunitiesGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2ExtCommunitiesGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2RouteReflectionGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2AsConfederationGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2PeerConfigurationGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2PeerAuthConfigurationGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2PeerRouteReflectorCfgGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2PeerAsConfederationCfgGroup",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      },
+      {
+        "object": "jnxBgpM2Rfc2545Group",
+        "module": "BGP4-V2-MIB-JUNIPER"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2AuthenticationGroup": {
+    "name": "jnxBgpM2AuthenticationGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2SupportedAuthCode"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2SupportedAuthValue"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerAuthSent"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerAuthSentCode"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerAuthSentValue"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerAuthRcvd"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerAuthRcvdCode"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerAuthRcvdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2CommunitiesGroup": {
+    "name": "jnxBgpM2CommunitiesGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrCommIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrCommValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2ExtCommunitiesGroup": {
+    "name": "jnxBgpM2ExtCommunitiesGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrExtCommIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrExtCommValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2RouteReflectionGroup": {
+    "name": "jnxBgpM2RouteReflectionGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2RouteReflector"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2ClusterId"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerReflectorClient"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrOriginatorId"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrClusterIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrClusterValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2AsConfederationGroup": {
+    "name": "jnxBgpM2AsConfederationGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2ConfederationRouter"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2ConfederationId"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerConfedMember"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2TimersGroup": {
+    "name": "jnxBgpM2TimersGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerFsmEstablishedTime"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerInUpdatesElapsedTime"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerConnectRetryInterval"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerHoldTimeConfigured"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerKeepAliveConfigured"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerMinASOrigInterval"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerMinRouteAdverInterval"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerHoldTime"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerKeepAlive"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2CountersGroup": {
+    "name": "jnxBgpM2CountersGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerInUpdates"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerOutUpdates"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerInTotalMessages"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerOutTotalMessages"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerFsmEstablishedTrans"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PrefixCountersAfi"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PrefixCountersSafi"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PrefixInPrefixes"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PrefixInPrefixesAccepted"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PrefixInPrefixesRejected"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PrefixOutPrefixes"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2CapabilitiesGroup": {
+    "name": "jnxBgpM2CapabilitiesGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CapabilitySupportAvailable"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2SupportedCapabilityCode"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2SupportedCapability"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapAnnouncedCode"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapAnnouncedIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapAnnouncedValue"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapReceivedCode"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapReceivedIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerCapReceivedValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2AsPathGroup": {
+    "name": "jnxBgpM2AsPathGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathSegmentIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathElementIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathElementValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2As4byteGroup": {
+    "name": "jnxBgpM2As4byteGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsSize"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPath4bytePathPresent"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPath4byteAggregatorAS"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPath4byteCalcLength"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPath4byteString"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPath4byteIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2BaseGroup": {
+    "name": "jnxBgpM2BaseGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2LocalAs"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2LocalIdentifier"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2VersionIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2VersionSupported"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2ErrorsGroup": {
+    "name": "jnxBgpM2ErrorsGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorReceived"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorReceivedData"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorReceivedTime"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorReceivedText"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorSent"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorSentData"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorSentTime"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLastErrorSentText"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PeerGroup": {
+    "name": "jnxBgpM2PeerGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerIdentifier"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerState"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerStatus"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerConfiguredVersion"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerNegotiatedVersion"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalPort"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerLocalAs"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemotePort"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRemoteAs"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerRoutingInstance"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PeerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PathAttributesGroup": {
+    "name": "jnxBgpM2PathAttributesGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrCount"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathCalcLength"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathElementValue"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathString"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AsPathType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriAfi"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriBest"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriPrefix"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriPrefixLen"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriSafi"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriOpaqueType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriOpaquePointer"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2NlriCalcLocalPref"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AdjRibsOutIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2AdjRibsOutRoute"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrAggregatorAS"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrAggregatorAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrAtomicAggregate"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrLocalPref"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrLocalPrefPresent"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrMed"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrMedPresent"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrNextHop"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrNextHopAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrOrigin"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrUnknownIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrUnknownType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2PathAttrUnknownValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PeerConfigurationGroup": {
+    "name": "jnxBgpM2PeerConfigurationGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgBaseScalarStorageType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgLocalAs"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgLocalIdentifier"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerAdminStatus"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerNextIndex"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerConfiguredVersion"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgAllowVersionNegotiation"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerLocalAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerLocalAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerLocalAs"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerRemoteAddrType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerRemoteAddr"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerRemotePort"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerRemoteAs"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerEntryStorageType"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerError"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerBgpPeerEntry"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerRowEntryStatus"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerStatus"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerConnectRetryInterval"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerHoldTimeConfigured"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerKeepAliveConfigured"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerMinASOrigInterval"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerMinRouteAdverInter"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PeerAuthConfigurationGroup": {
+    "name": "jnxBgpM2PeerAuthConfigurationGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerAuthEnabled"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerAuthCode"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerAuthValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PeerRouteReflectorCfgGroup": {
+    "name": "jnxBgpM2PeerRouteReflectorCfgGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgRouteReflector"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgClusterId"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerReflectorClient"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2PeerAsConfederationCfgGroup": {
+    "name": "jnxBgpM2PeerAsConfederationCfgGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgConfederationRouter"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgConfederationId"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2CfgPeerConfedMember"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2MIBNotificationsGroup": {
+    "name": "jnxBgpM2MIBNotificationsGroup",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2Established"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2BackwardTransition"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBgpM2Rfc2545Group": {
+    "name": "jnxBgpM2Rfc2545Group",
+    "oid": "1.3.6.1.4.1.2636.5.1.1.4.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2LinkLocalNextHopPresent"
+      },
+      {
+        "module": "BGP4-V2-MIB-JUNIPER",
+        "object": "jnxBgpM2LinkLocalNextHop"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/BGP4-V2-MIB-JUNIPER",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BGP4-V2-MIB-JUNIPER"
+  }
+}

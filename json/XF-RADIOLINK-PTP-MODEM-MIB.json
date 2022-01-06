@@ -1,0 +1,1127 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "XF-RADIOLINK-PTP-TERMINAL-MIB": [
+      "xfTermRowIndex"
+    ],
+    "XF-TOP-MIB": [
+      "xfRadioLink"
+    ]
+  },
+  "xfRadioLinkPtpModemMIB": {
+    "name": "xfRadioLinkPtpModemMIB",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-06-24 00:00",
+        "description": " Rev PK2 * pdhToTdmAndSDHToSFPHAndSDHToPtP added to xfMMUInterfaceCapability * Adjusted values in xfMMUBerAlarmThresholdCapability "
+      },
+      {
+        "revision": "2012-05-29 00:00",
+        "description": " Rev PK1 Added xfMMUBerAlarmThresholdCapability for MMU3A "
+      },
+      {
+        "revision": "2011-05-23 00:00",
+        "description": " Rev Y Official R-State for TN 4.4 FP "
+      },
+      {
+        "revision": "2011-04-06 00:00",
+        "description": " Rev PY3 Changes for Mini Link LH 1.0. Added fftStaticLH(6), fftAdmodLH(7), fftXpicLH(8) and fftXpicAdmodLH(9)to xfTermFrameFormatType "
+      },
+      {
+        "revision": "2011-02-01 00:00",
+        "description": " Rev PY2 New value for xfMMUChannelModulation: qam1024(11) "
+      },
+      {
+        "revision": "2010-12-13 00:00",
+        "description": " Rev PY1 Added new enum value supportsAtpcFallbackTimer to MMUAtpcCapability "
+      },
+      {
+        "revision": "2010-01-19 00:00",
+        "description": " Rev X Official R-State for TN 4.3 "
+      },
+      {
+        "revision": "2009-11-30 00:00",
+        "description": " Rev PX4 Updated MMUAlarmStatus with tree alarms. New alarms: syncOverRLNotSupported rauPowerSupplyChanged congestionControlNotSupported "
+      },
+      {
+        "revision": "2009-11-26 00:00",
+        "description": " Rev PX3 Change type of xfMMURAUSupplyVoltage from Integer32 to INTEGER. Values: other(1) p55V(2) m48V(3) p24V(4) "
+      },
+      {
+        "revision": "2009-11-18 00:00",
+        "description": " Rev PX2 Added supportsAtpcFallback in MMUAtpcCapability. "
+      },
+      {
+        "revision": "2009-09-18 00:00",
+        "description": " Rev PX Added xfMMURAUSupplyVoltage in xfModemTable. "
+      },
+      {
+        "revision": "2009-06-26 00:00",
+        "description": " Rev V Update revision histry. The Revision U is lost due to human errors. "
+      },
+      {
+        "revision": "2009-06-24 00:00",
+        "description": " Rev V Official Rev for TN 4.2 "
+      },
+      {
+        "revision": "2009-04-20 00:00",
+        "description": " Rev T Official Rev for TN 4.1 FP. "
+      },
+      {
+        "revision": "2009-04-14 00:00",
+        "description": " Rev PT9 Changes for TN 4.2 Added channelspacing chsp3500kHz(10). "
+      },
+      {
+        "revision": "2009-03-04 00:00",
+        "description": " Rev PT8 Changed name on MMUFrameFormatType->fftAdaptive to fftAdmod "
+      },
+      {
+        "revision": "2008-10-02 00:00",
+        "description": " Rev PT7 Changed object in xfModemCapabilityTable: from xfMMUDCHNCapacity to xfMMUDCNCapacity. Fixed double index issue in xfRLPtpTerminalXTable "
+      },
+      {
+        "revision": "2008-09-16 00:00",
+        "description": " Rev PT6 Changes for TN 4.1, Added new vaules in MMUFrameFormatType. "
+      },
+      {
+        "revision": "2008-08-15 00:00",
+        "description": " Rev PT5 Changes for TN 4.1, Fixed wrong values in xfTermFrameFormatRev for xfModemCapabilityTable "
+      },
+      {
+        "revision": "2008-06-25 00:00",
+        "description": " Rev PT4 Changes for TN 4.1, Changes in table: xfModemCapabilityTable "
+      },
+      {
+        "revision": "2008-06-24 00:00",
+        "description": " Rev PT3 Changes for TN 4.1, Changes in table: xfModemCapabilityTable (xfMMUChannelModulation) "
+      },
+      {
+        "revision": "2008-06-18 00:00",
+        "description": " Rev PT2 Changes for TN 4.1, Changes in table: xfModemCapabilityTable "
+      },
+      {
+        "revision": "2008-06-04 00:00",
+        "description": " Rev PT1 Changes for TN 4.1 New table: xfModemCapabilityTable "
+      },
+      {
+        "revision": "2008-06-03 00:00",
+        "description": " Rev S Ordinary revision. No other changes. "
+      },
+      {
+        "revision": "2008-04-09 00:00",
+        "description": " Rev PS7 Changes for TN4.0: incompatibleUnitMMU renamed to runningConfigNotAccepted in MMUAlarmStatus "
+      },
+      {
+        "revision": "2008-03-03 00:00",
+        "description": " Rev PS6 Changes for TN4.0: MMUCapCapability extended with two new values: sixtynineDS1 and eightyDS1 xfModemTable extended with one new MO: xfMMUInterfaceCapability "
+      },
+      {
+        "revision": "2008-02-26 00:00",
+        "description": " Rev T Added defaultConfigNotAccepted in MMUAlarmStatus. "
+      },
+      {
+        "revision": "2007-11-12 00:00",
+        "description": " Rev S Error correction: incompatibleUnitMMU -> incompatibleUnitMMU0 incompatibleUnitMMU1 incompatibleUnitMMU2 "
+      },
+      {
+        "revision": "2007-10-24 00:00",
+        "description": " Rev N. Ordinary revision, for TN 3.3 - according to 1/155 19-CRH 109 625/1 Uae Rev V. Added incompatibleUnitMMU in MMUAlarmStatus. "
+      },
+      {
+        "revision": "2007-08-14 00:00",
+        "description": " Rev PN2. New value for MMUCapCapability: oneStm1OneJ1 "
+      },
+      {
+        "revision": "2007-07-03 00:00",
+        "description": " Rev PN1. New values for MMUCapCapability: stm1DS1(15), stm150MHz(16), twentytwoE1(17), thirtyfiveE1(18), fortysixE1(19), seventyfiveE1(20) "
+      },
+      {
+        "revision": "2007-06-04 00:00",
+        "description": " Rev M Changes according to 1/15519-CRH109625/1 Uae Rev U - xfMMUChannelCompanionSlot: Changed comment regarding access limitation at far end. - xfRAUIFLoopEnable: Changed comment regarding access limitation at far end. "
+      },
+      {
+        "revision": "2007-01-17 00:00",
+        "description": " Rev L Changes according to 1/15519-CRH109625/1 Uae Rev S - xfRAUIFAlarms: ifLosL2R --> notused - xfLINERSAlarms : removed laserFailure and laserDegraded added sfpLos - "
+      },
+      {
+        "revision": "2006-11-14 00:00",
+        "description": " Rev K: Changes according to 1/15519-CRH109625/1 Uae Rev N - interMMUChannelFailure added in MMUAlarmStatus - wstClockLossR2L replaced by lofR2L in xfRAUIFAlarms - xfRADIORSTable moved to XF-RADIOLINK-PTP-TERMINAL-MIB - xfRADIORSPerformanceTable moved to XF-RADIOLINK-PTP-TERMINAL-MIB "
+      },
+      {
+        "revision": "2006-09-19 13:25",
+        "description": " Rev J: Changes according to 1/15519-CRH109625/1 Uae Rev M, plus errata - xfModemTable and xfRAUIFTable updated - New tables: xfRADIORSTable, xfRADIORSPerformanceTable and xfLINERSTable "
+      },
+      {
+        "revision": "2006-03-20 00:00",
+        "description": " Rev. H. - Changes according to 1/15519-CRH109625/1 Uae Rev K - Addition of Enum values for MMUModCapability and MMUCapCapability to support ANSI. "
+      },
+      {
+        "revision": "2006-02-24 00:00",
+        "description": " Rev. G. - Access restrictions explained in the description field for each MO. - Default value declarations in the description fields also includes the numerical value. "
+      },
+      {
+        "revision": "2006-01-31 00:00",
+        "description": " Rev. F. - xfMMUSlotPosition (integer, read-only) added in xfModemTable "
+      },
+      {
+        "revision": "2005-03-02 00:00",
+        "description": " Rev. E. - Changes according to 1/15519-CRH109625/1 Uae Rev E and corrections: - Correction: Alarm bits for dmodClock restored in MO xfRAUIFAlarms (xfRAUIFTable). - Alarm bits for unknown removed in MO xfRAUIFAlarms (xfRAUIFTable). - Status for MO xfMMUModIndexNotValid in xfModemTable set obsolete. - farEndRxLoop changed to rxLoop, in xfRAUIFStatus "
+      },
+      {
+        "revision": "2004-12-13 00:00",
+        "description": " Rev. D - Changes according to 1/15519-CRH109625/1 Uae Rev D - MO xfRAUIFCapacity removed from xfRAUIFTable - MO xfRAUIFFarEndRxLoop renamed to xfRAUIFRxLoop in xfRAUIFTable - Alarm bits for dmodClock removed in MO xfRAUIFAlarms (xfRAUIFTable) - Alarm bits for aisReceived and Unknown added in MO xfRAUIFAlarms (xfRAUIFTable) -DEFVAL removed. Default values declared in corresponding description fields. "
+      },
+      {
+        "revision": "2004-07-02 00:00",
+        "description": " Rev. C - All config alarms are removed - xfRAUIFConnectionLoop changed to xfRAUIFFarEndRxLoop "
+      },
+      {
+        "revision": "2004-06-16 00:00",
+        "description": " Rev. B - All config alarms are defined - Alarms are updated with new names - "
+      },
+      {
+        "revision": "2004-05-25 00:00",
+        "description": " Rev. PB2 - Some minor changes "
+      },
+      {
+        "revision": "2004-04-26 00:00",
+        "description": " Rev. PB1 Capacity and loop handling MO's are added. Alarms are defined. "
+      },
+      {
+        "revision": "2004-01-20 00:00",
+        "description": " Rev. A Other is added to integer enumerations. "
+      },
+      {
+        "revision": "2003-12-17 00:00",
+        "description": " Rev. PA1 Initial revision "
+      }
+    ]
+  },
+  "MMUAlarmStatus": {
+    "name": "MMUAlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rcc0": 0,
+        "rcc1": 1,
+        "rcc2": 2,
+        "icc0": 3,
+        "icc1": 4,
+        "icc2": 5,
+        "atpcCapabilityAlarmFarEnd0": 6,
+        "atpcCapabilityAlarmFarEnd1": 7,
+        "atpcCapabilityAlarmFarEnd2": 8,
+        "hcc0": 9,
+        "hcc1": 10,
+        "hcc2": 11,
+        "xpicCable0": 12,
+        "xpicCable1": 13,
+        "xpicCable2": 14,
+        "xpicLos0": 15,
+        "xpicLos1": 16,
+        "xpicLos2": 17,
+        "interMMUChannelFailure0": 18,
+        "interMMUChannelFailure1": 19,
+        "interMMUChannelFailure2": 20,
+        "runningConfigNotAccepted0": 21,
+        "runningConfigNotAccepted1": 22,
+        "runningConfigNotAccepted2": 23,
+        "defaultConfigNotAccepted0": 24,
+        "defaultConfigNotAccepted1": 25,
+        "defaultConfigNotAccepted2": 26,
+        "syncOverRLNotSupported0": 27,
+        "syncOverRLNotSupported1": 28,
+        "syncOverRLNotSupported2": 29,
+        "rauPowerSupplyChanged0": 30,
+        "rauPowerSupplyChanged1": 31,
+        "rauPowerSupplyChanged2": 32,
+        "congestionControlNotSupported0": 33,
+        "congestionControlNotSupported1": 34,
+        "congestionControlNotSupported2": 35
+      }
+    },
+    "status": "current"
+  },
+  "MMUModIndexStatus": {
+    "name": "MMUModIndexStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "modIndexValid": 2,
+          "modIndexNotValid": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MMUAtpcCapability": {
+    "name": "MMUAtpcCapability",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noAtpcSupport": 2,
+          "doesNotExist": 3,
+          "atpcCapabilityUnknown": 4,
+          "supportsAtpc": 5,
+          "supportsAtpcFallback": 6,
+          "supportsAtpcFallbackTimer": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MMUModCapability": {
+    "name": "MMUModCapability",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cqpsk": 0,
+        "qam16": 1,
+        "qam128": 2,
+        "qam32": 3,
+        "qam64": 4
+      }
+    },
+    "status": "current"
+  },
+  "MMUCapCapability": {
+    "name": "MMUCapCapability",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "oneE1": 0,
+        "twoE1": 1,
+        "fourE1": 2,
+        "oneE2": 3,
+        "twoE2": 4,
+        "oneE3oneE1": 5,
+        "twoE3": 6,
+        "fourE3": 7,
+        "fourDS1": 8,
+        "eightDS1": 9,
+        "sixteenDS1": 10,
+        "seventeenDS1": 11,
+        "stm0": 12,
+        "stm1": 13,
+        "thirtytwoDS1": 14,
+        "stm1DS1": 15,
+        "stm150MHz": 16,
+        "twentytwoE1": 17,
+        "thirtyfiveE1": 18,
+        "fortysixE1": 19,
+        "seventyfiveE1": 20,
+        "oneStm1OneJ1": 21,
+        "sixtynineDS1": 22,
+        "eightyDS1": 23
+      }
+    },
+    "status": "current"
+  },
+  "MMUChannelSpacingCapability": {
+    "name": "MMUChannelSpacingCapability",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chspUnknown": 0,
+          "chsp7MHz": 1,
+          "chsp14MHz": 2,
+          "chsp20MHz": 3,
+          "chsp28MHz": 4,
+          "chsp30MHz": 5,
+          "chsp40MHz": 6,
+          "chsp50MHz": 7,
+          "chsp56MHz": 8,
+          "chsp10MHz": 9,
+          "chsp3500kHz": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MMUFrameFormatType": {
+    "name": "MMUFrameFormatType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fftUnknown": 0,
+          "fftStatic": 1,
+          "fftAdMod": 2,
+          "fftXpic": 3,
+          "fftXpicAdmod": 4,
+          "fftLegacy": 5,
+          "fftStaticLH": 6,
+          "fftAdmodLH": 7,
+          "fftXpicLH": 8,
+          "fftXpicAdmodLH": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ModemModulation": {
+    "name": "ModemModulation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "cqpsk": 2,
+          "qam16": 3,
+          "qam128": 4,
+          "qam32": 5,
+          "qam64": 6,
+          "qam4": 7,
+          "qam8": 8,
+          "qam256": 9,
+          "qam512": 10,
+          "qam1024": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "xfRadioLinkPtpModemObjects": {
+    "name": "xfRadioLinkPtpModemObjects",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1",
+    "class": "objectidentity"
+  },
+  "xfRadioLinkPtpModemConformance": {
+    "name": "xfRadioLinkPtpModemConformance",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.2",
+    "class": "objectidentity"
+  },
+  "xfModemTable": {
+    "name": "xfModemTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfModemEntry": {
+    "name": "xfModemEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfMMUAlarmStatus": {
+    "name": "xfMMUAlarmStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MMUAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUModIndexNotValid": {
+    "name": "xfMMUModIndexNotValid",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MMUModIndexStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "xfMMUAtpcCapability": {
+    "name": "xfMMUAtpcCapability",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MMUAtpcCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUModCapability": {
+    "name": "xfMMUModCapability",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MMUModCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUCapacityCapability": {
+    "name": "xfMMUCapacityCapability",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MMUCapCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUProtectionPath": {
+    "name": "xfMMUProtectionPath",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mmuRa1": 2,
+          "mmuRa2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUSlotPosition": {
+    "name": "xfMMUSlotPosition",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUChannelModeCapability": {
+    "name": "xfMMUChannelModeCapability",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ccdp": 0,
+        "accp": 1,
+        "acap": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUChannelCompanionSlot": {
+    "name": "xfMMUChannelCompanionSlot",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfMMUChannelCompanionIndex": {
+    "name": "xfMMUChannelCompanionIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUInterfaceCapability": {
+    "name": "xfMMUInterfaceCapability",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pdhToTdmHier": 0,
+        "pdhToTdmFlat": 1,
+        "pdhToTdmFlatAndBitpipeToPtp": 2,
+        "pdhToTdmAndSDHToSFP": 3,
+        "pdhToTdmAndSDHToPtp": 4,
+        "pdhToTdmAndSDHToSFPHAndSDHToPtP": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMURAUSupplyVoltage": {
+    "name": "xfMMURAUSupplyVoltage",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "p55V": 2,
+          "m48V": 3,
+          "p24V": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRAUIFTable": {
+    "name": "xfRAUIFTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRAUIFEntry": {
+    "name": "xfRAUIFEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfRAUIFLoopEnable": {
+    "name": "xfRAUIFLoopEnable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRAUIFRxLoop": {
+    "name": "xfRAUIFRxLoop",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRAUIFAlarms": {
+    "name": "xfRAUIFAlarms",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dmodClock0": 0,
+        "dmodClock1": 1,
+        "dmodClock2": 2,
+        "los0": 3,
+        "los1": 4,
+        "los2": 5,
+        "rxIfInput0": 6,
+        "rxIfInput1": 7,
+        "rxIfInput2": 8,
+        "txIfInput0": 9,
+        "txIfInput1": 10,
+        "txIfInput2": 11,
+        "radioFrame0": 12,
+        "radioFrame1": 13,
+        "radioFrame2": 14,
+        "ber0": 15,
+        "ber1": 16,
+        "ber2": 17,
+        "radioId0": 18,
+        "radioId1": 19,
+        "radioId2": 20,
+        "modIndex0": 21,
+        "modIndex1": 22,
+        "modIndex2": 23,
+        "aisReceived0": 24,
+        "aisReceived1": 25,
+        "aisReceived2": 26,
+        "carrierRecoveryLoss0": 27,
+        "carrierRecoveryLoss1": 28,
+        "carrierRecoveryLoss2": 29,
+        "wstLosL2R0": 30,
+        "wstLosL2R1": 31,
+        "wstLosL2R2": 32,
+        "wstLosR2L0": 33,
+        "wstLosR2L1": 34,
+        "wstLosR2L2": 35,
+        "lofR2L0": 36,
+        "lofR2L1": 37,
+        "lofR2L2": 38,
+        "notused0": 39,
+        "notused1": 40,
+        "notused2": 41,
+        "ifLosR2L0": 42,
+        "ifLosR2L1": 43,
+        "ifLosR2L2": 44,
+        "earlyWarning0": 45,
+        "earlyWarning1": 46,
+        "earlyWarning2": 47,
+        "lber0": 48,
+        "lber1": 49,
+        "lber2": 50,
+        "hber0": 51,
+        "hber1": 52,
+        "hber2": 53
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRAUIFStatus": {
+    "name": "xfRAUIFStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rxLoop0": 0,
+        "rxLoop1": 1,
+        "rxLoop2": 2,
+        "ifLoop0": 3,
+        "ifLoop1": 4,
+        "ifLoop2": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfLINERSTable": {
+    "name": "xfLINERSTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfLINERSEntry": {
+    "name": "xfLINERSEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfLINERSAlarms": {
+    "name": "xfLINERSAlarms",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "timLineSide0": 0,
+        "timLineSide1": 1,
+        "timLineSide2": 2,
+        "lofL2R0": 3,
+        "lofL2R1": 4,
+        "lofL2R2": 5,
+        "losL2R0": 6,
+        "losL2R1": 7,
+        "losL2R2": 8,
+        "sfpLos0": 9,
+        "sfpLos1": 10,
+        "sfpLos2": 11
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfModemCapabilityTable": {
+    "name": "xfModemCapabilityTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfModemCapabilityEntry": {
+    "name": "xfModemCapabilityEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-TERMINAL-MIB",
+        "object": "xfTermRowIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfMMUChannelSpacing": {
+    "name": "xfMMUChannelSpacing",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MMUChannelSpacingCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUChannelModulation": {
+    "name": "xfMMUChannelModulation",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModemModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUMaxTribCapacity": {
+    "name": "xfMMUMaxTribCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUDCNCapacity": {
+    "name": "xfMMUDCNCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUMaxCapacity": {
+    "name": "xfMMUMaxCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUFrameFormatType": {
+    "name": "xfMMUFrameFormatType",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MMUFrameFormatType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUFrameFormatRev": {
+    "name": "xfMMUFrameFormatRev",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ffOther": 1,
+          "ffVersion0": 2,
+          "ffVersion1": 3,
+          "ffVersion2": 4,
+          "ffVersion3": 5,
+          "ffVersion4": 6,
+          "ffVersion5": 7,
+          "ffVersion6": 8,
+          "ffVersion7": 9,
+          "ffVersion8": 10,
+          "ffVersion9": 11,
+          "ffVersion10": 12,
+          "ffVersion11": 13,
+          "ffVersion12": 14,
+          "ffVersion13": 15,
+          "ffVersion14": 16,
+          "ffVersion15": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMMUBerAlarmThresholdCapability": {
+    "name": "xfMMUBerAlarmThresholdCapability",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "berThrCap1e3": 0,
+        "berThrCap1e4": 1,
+        "berThrCap1e5": 2,
+        "berThrCap1e6": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRadioLinkPtpModemCompliances": {
+    "name": "xfRadioLinkPtpModemCompliances",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.2.1",
+    "class": "objectidentity"
+  },
+  "xfRadioLinkPtpModemGroups": {
+    "name": "xfRadioLinkPtpModemGroups",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.2.2",
+    "class": "objectidentity"
+  },
+  "xfRadioLinkPtpModemFullCompliance": {
+    "name": "xfRadioLinkPtpModemFullCompliance",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "xfRadioLinkPtpModemCompleteGroup",
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "xfRadioLinkPtpModemCompleteGroup": {
+    "name": "xfRadioLinkPtpModemCompleteGroup",
+    "oid": "1.3.6.1.4.1.193.81.3.4.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUAlarmStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUModIndexNotValid"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUAtpcCapability"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUModCapability"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUCapacityCapability"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUProtectionPath"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUSlotPosition"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUChannelModeCapability"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUChannelCompanionSlot"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUChannelCompanionIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUInterfaceCapability"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfRAUIFLoopEnable"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfRAUIFRxLoop"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfRAUIFAlarms"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfRAUIFStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfLINERSAlarms"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUChannelSpacing"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUChannelModulation"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUMaxTribCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUDCNCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUMaxCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUFrameFormatType"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMUFrameFormatRev"
+      },
+      {
+        "module": "XF-RADIOLINK-PTP-MODEM-MIB",
+        "object": "xfMMURAUSupplyVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/XF-RADIOLINK-PTP-MODEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:31 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "XF-RADIOLINK-PTP-MODEM-MIB"
+  }
+}

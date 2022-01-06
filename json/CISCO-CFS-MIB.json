@@ -1,0 +1,1840 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCFSMIB": {
+    "name": "ciscoCFSMIB",
+    "oid": "1.3.6.1.4.1.9.9.433",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-13 00:00",
+        "description": "Added cfsFeatureOpExtLastActionTime object to cfsFeatureOpExtTable Added cfsFeatureOpExtGroupRev1 Added ciscoCFSMIBComplianceRev3 "
+      },
+      {
+        "revision": "2005-11-30 00:00",
+        "description": "Added the following: - cfsDistCtrlTable table - cfsFeatureOpAttribs object to cfsFeatureOpTable "
+      },
+      {
+        "revision": "2005-04-27 00:00",
+        "description": "Added an enumeration value of 'partialSuccess' to the 'CiscoCFSFeatureActionResult' TC. "
+      },
+      {
+        "revision": "2004-12-24 00:00",
+        "description": "Added the cfsDistCtrl object to control the CFS distribution capability. "
+      },
+      {
+        "revision": "2004-12-03 00:00",
+        "description": "Added the following tables: - cfsMergeMembersTable - cfsPeersTable - cfsFeaturePeersTable - cfsFeatureOpExtTable Added the following scalar objects: - cfsStartPeersDiscovery - cfsPeersDiscoveryResult - cfsPeersDiscoveryFailureReason Added additional enumerations for: - cfsMergeStatusValue Added notification: - ciscoCFSDiscoveryCompleteNotif "
+      },
+      {
+        "revision": "2004-09-15 00:00",
+        "description": "Initial version of this MIB. "
+      }
+    ]
+  },
+  "ciscoCFSMIBNotifs": {
+    "name": "ciscoCFSMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.433.0",
+    "class": "objectidentity"
+  },
+  "ciscoCFSMIBObjects": {
+    "name": "ciscoCFSMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.433.1",
+    "class": "objectidentity"
+  },
+  "ciscoCFSMIBConformance": {
+    "name": "ciscoCFSMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.433.2",
+    "class": "objectidentity"
+  },
+  "cfsFeature": {
+    "name": "cfsFeature",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1",
+    "class": "objectidentity"
+  },
+  "cfsNotifObjects": {
+    "name": "cfsNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.433.1.2",
+    "class": "objectidentity"
+  },
+  "cfsDiscoveryObjects": {
+    "name": "cfsDiscoveryObjects",
+    "oid": "1.3.6.1.4.1.9.9.433.1.3",
+    "class": "objectidentity"
+  },
+  "cfsDistCtrlObjects": {
+    "name": "cfsDistCtrlObjects",
+    "oid": "1.3.6.1.4.1.9.9.433.1.4",
+    "class": "objectidentity"
+  },
+  "CiscoCFSAction": {
+    "name": "CiscoCFSAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "enable": 2,
+          "disable": 3,
+          "commit": 4,
+          "abort": 5,
+          "clear": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoCFSFeatureStatus": {
+    "name": "CiscoCFSFeatureStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoCFSFeatureActionResult": {
+    "name": "CiscoCFSFeatureActionResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "success": 2,
+          "failed": 3,
+          "inProgress": 4,
+          "partialSuccess": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoCFSScopeType": {
+    "name": "CiscoCFSScopeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "vsanID": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoCFSScopeValue": {
+    "name": "CiscoCFSScopeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cfsFeatureOpTable": {
+    "name": "cfsFeatureOpTable",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeatureOpEntry": {
+    "name": "cfsFeatureOpEntry",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureOpName": {
+    "name": "cfsFeatureOpName",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeatureOpAction": {
+    "name": "cfsFeatureOpAction",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfsFeatureOpScopeType": {
+    "name": "cfsFeatureOpScopeType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfsFeatureOpScopeVal": {
+    "name": "cfsFeatureOpScopeVal",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeValue",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfsFeatureOpLastAction": {
+    "name": "cfsFeatureOpLastAction",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpLastScopeType": {
+    "name": "cfsFeatureOpLastScopeType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpLastScopeVal": {
+    "name": "cfsFeatureOpLastScopeVal",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeValue",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpLastActionResult": {
+    "name": "cfsFeatureOpLastActionResult",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSFeatureActionResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpLastFailureReason": {
+    "name": "cfsFeatureOpLastFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpShowCfgOption": {
+    "name": "cfsFeatureOpShowCfgOption",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "runningConfig": 1,
+          "pendingConfig": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "runningConfig",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cfsFeatureOpStatus": {
+    "name": "cfsFeatureOpStatus",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSFeatureStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpAttribs": {
+    "name": "cfsFeatureOpAttribs",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fcFabric": 0,
+        "ipNetwork": 1,
+        "vsanScope": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsPendingConfOwnerTable": {
+    "name": "cfsPendingConfOwnerTable",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsPendingConfOwnerEntry": {
+    "name": "cfsPendingConfOwnerEntry",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPendingConfOwnerScopeType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPendingConfOwnerScopeVal",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfsPendingConfOwnerScopeType": {
+    "name": "cfsPendingConfOwnerScopeType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsPendingConfOwnerScopeVal": {
+    "name": "cfsPendingConfOwnerScopeVal",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeValue",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsPendingConfOwnerAddrType": {
+    "name": "cfsPendingConfOwnerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsPendingConfOwnerAddr": {
+    "name": "cfsPendingConfOwnerAddr",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsPendingConfOwnerIDType": {
+    "name": "cfsPendingConfOwnerIDType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "snmpCommunityName": 1,
+        "snmpv3SecurityName": 2,
+        "cliLoginName": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsPendingConfOwnerID": {
+    "name": "cfsPendingConfOwnerID",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsMergeStatusTable": {
+    "name": "cfsMergeStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsMergeStatusEntry": {
+    "name": "cfsMergeStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeStatusScopeType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeStatusScopeVal",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfsMergeStatusScopeType": {
+    "name": "cfsMergeStatusScopeType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsMergeStatusScopeVal": {
+    "name": "cfsMergeStatusScopeVal",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeValue",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsMergeStatusValue": {
+    "name": "cfsMergeStatusValue",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "inProgress": 2,
+          "failure": 3,
+          "waiting": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsMergeMembersTable": {
+    "name": "cfsMergeMembersTable",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsMergeMembersEntry": {
+    "name": "cfsMergeMembersEntry",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeStatusScopeType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeStatusScopeVal",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeMemberAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeMemberAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfsMergeMemberAddrType": {
+    "name": "cfsMergeMemberAddrType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsMergeMemberAddr": {
+    "name": "cfsMergeMemberAddr",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsMergeMemberFabricType": {
+    "name": "cfsMergeMemberFabricType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsMergeMemberRole": {
+    "name": "cfsMergeMemberRole",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "master": 2,
+          "peer": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsStartPeersDiscovery": {
+    "name": "cfsStartPeersDiscovery",
+    "oid": "1.3.6.1.4.1.9.9.433.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startDiscovery": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfsPeersDiscoveryResult": {
+    "name": "cfsPeersDiscoveryResult",
+    "oid": "1.3.6.1.4.1.9.9.433.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "inProgress": 2,
+          "successful": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsPeersDiscoveryFailureReason": {
+    "name": "cfsPeersDiscoveryFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.433.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsPeersTable": {
+    "name": "cfsPeersTable",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsPeersEntry": {
+    "name": "cfsPeersEntry",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPeerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfsPeerAddrType": {
+    "name": "cfsPeerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsPeerAddr": {
+    "name": "cfsPeerAddr",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeaturePeersTable": {
+    "name": "cfsFeaturePeersTable",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeaturePeersEntry": {
+    "name": "cfsFeaturePeersEntry",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeaturePeersScopeType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeaturePeersScopeVal",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeaturePeersAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeaturePeersAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeaturePeersScopeType": {
+    "name": "cfsFeaturePeersScopeType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeaturePeersScopeVal": {
+    "name": "cfsFeaturePeersScopeVal",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeValue",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeaturePeersAddrType": {
+    "name": "cfsFeaturePeersAddrType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeaturePeersAddr": {
+    "name": "cfsFeaturePeersAddr",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpExtTable": {
+    "name": "cfsFeatureOpExtTable",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeatureOpExtEntry": {
+    "name": "cfsFeatureOpExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtScopeType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtScopeVal",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureOpExtScopeType": {
+    "name": "cfsFeatureOpExtScopeType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeatureOpExtScopeVal": {
+    "name": "cfsFeatureOpExtScopeVal",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeValue",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsFeatureOpExtLastAction": {
+    "name": "cfsFeatureOpExtLastAction",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpExtLastActionResult": {
+    "name": "cfsFeatureOpExtLastActionResult",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSFeatureActionResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpExtLastFailureReason": {
+    "name": "cfsFeatureOpExtLastFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsFeatureOpExtShowCfgOption": {
+    "name": "cfsFeatureOpExtShowCfgOption",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "runningConfig": 1,
+          "pendingConfig": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "runningConfig",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfsFeatureOpExtLastActionTime": {
+    "name": "cfsFeatureOpExtLastActionTime",
+    "oid": "1.3.6.1.4.1.9.9.433.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfsDistCtrl": {
+    "name": "cfsDistCtrl",
+    "oid": "1.3.6.1.4.1.9.9.433.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfsDistCtrlTable": {
+    "name": "cfsDistCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.433.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsDistCtrlEntry": {
+    "name": "cfsDistCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.433.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsDistCtrlAddrType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfsDistCtrlAddrType": {
+    "name": "cfsDistCtrlAddrType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfsDistCtrlAddr": {
+    "name": "cfsDistCtrlAddr",
+    "oid": "1.3.6.1.4.1.9.9.433.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfsDistCtrlAction": {
+    "name": "cfsDistCtrlAction",
+    "oid": "1.3.6.1.4.1.9.9.433.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfsMergeFailFeatureName": {
+    "name": "cfsMergeFailFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.433.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cfsMergeFailScopeType": {
+    "name": "cfsMergeFailScopeType",
+    "oid": "1.3.6.1.4.1.9.9.433.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cfsMergeFailScopeVal": {
+    "name": "cfsMergeFailScopeVal",
+    "oid": "1.3.6.1.4.1.9.9.433.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCFSScopeValue",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cfsMergeFailReasonDescription": {
+    "name": "cfsMergeFailReasonDescription",
+    "oid": "1.3.6.1.4.1.9.9.433.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoCFSFeatureActionNotif": {
+    "name": "ciscoCFSFeatureActionNotif",
+    "oid": "1.3.6.1.4.1.9.9.433.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastActionResult"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCFSMergeFailNotif": {
+    "name": "ciscoCFSMergeFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.433.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeFailFeatureName"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeFailScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeFailScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeFailReasonDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCFSDiscoveryCompleteNotif": {
+    "name": "ciscoCFSDiscoveryCompleteNotif",
+    "oid": "1.3.6.1.4.1.9.9.433.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPeersDiscoveryResult"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPeersDiscoveryFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCFSMIBCompliances": {
+    "name": "ciscoCFSMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.433.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCFSMIBGroups": {
+    "name": "ciscoCFSMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCFSMIBCompliance": {
+    "name": "ciscoCFSMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.433.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfsFeatureOpGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsPendingConfOwnerGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureActionNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureNotifObjectsGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsMergeFailNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCFSMIBComplianceRev1": {
+    "name": "ciscoCFSMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.433.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfsFeatureOpGroupRev1",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsPendingConfOwnerGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureActionNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsMembersGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsPeerDiscoveryNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureOpExtGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureNotifObjectsGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsMergeFailNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsDistCtrlGroup",
+        "module": "CISCO-CFS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCFSMIBComplianceRev2": {
+    "name": "ciscoCFSMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.433.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfsFeatureOpGroupRev2",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsPendingConfOwnerGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureActionNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsMembersGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsPeerDiscoveryNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureOpExtGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureNotifObjectsGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsMergeFailNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsDistCtrlGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsDistCtrlInetGroup",
+        "module": "CISCO-CFS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCFSMIBComplianceRev3": {
+    "name": "ciscoCFSMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.433.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfsFeatureOpGroupRev2",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsPendingConfOwnerGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureActionNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsMembersGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsPeerDiscoveryNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureOpExtGroupRev1",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsFeatureNotifObjectsGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsMergeFailNotifGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsDistCtrlGroup",
+        "module": "CISCO-CFS-MIB"
+      },
+      {
+        "object": "cfsDistCtrlInetGroup",
+        "module": "CISCO-CFS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureOpGroup": {
+    "name": "cfsFeatureOpGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastActionResult"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastFailureReason"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpShowCfgOption"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpStatus"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeStatusValue"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cfsPendingConfOwnerGroup": {
+    "name": "cfsPendingConfOwnerGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPendingConfOwnerAddrType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPendingConfOwnerAddr"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPendingConfOwnerIDType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPendingConfOwnerID"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureNotifObjectsGroup": {
+    "name": "cfsFeatureNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeFailFeatureName"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeFailScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeFailScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeFailReasonDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureActionNotifGroup": {
+    "name": "cfsFeatureActionNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "ciscoCFSFeatureActionNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsMergeFailNotifGroup": {
+    "name": "cfsMergeFailNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "ciscoCFSMergeFailNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsMembersGroup": {
+    "name": "cfsMembersGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeMemberFabricType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeMemberRole"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsStartPeersDiscovery"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPeersDiscoveryResult"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPeersDiscoveryFailureReason"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsPeerAddr"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeaturePeersAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureOpExtGroup": {
+    "name": "cfsFeatureOpExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtLastAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtLastActionResult"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtLastFailureReason"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtShowCfgOption"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cfsPeerDiscoveryNotifGroup": {
+    "name": "cfsPeerDiscoveryNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "ciscoCFSDiscoveryCompleteNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureOpGroupRev1": {
+    "name": "cfsFeatureOpGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastActionResult"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastFailureReason"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpStatus"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeStatusValue"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cfsDistCtrlGroup": {
+    "name": "cfsDistCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsDistCtrl"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsDistCtrlInetGroup": {
+    "name": "cfsDistCtrlInetGroup",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsDistCtrlAddr"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsDistCtrlAction"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureOpGroupRev2": {
+    "name": "cfsFeatureOpGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastScopeType"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastScopeVal"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastActionResult"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpLastFailureReason"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpStatus"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsMergeStatusValue"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpAttribs"
+      }
+    ],
+    "status": "current"
+  },
+  "cfsFeatureOpExtGroupRev1": {
+    "name": "cfsFeatureOpExtGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.433.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtLastAction"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtLastActionTime"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtLastActionResult"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtLastFailureReason"
+      },
+      {
+        "module": "CISCO-CFS-MIB",
+        "object": "cfsFeatureOpExtShowCfgOption"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CFS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CFS-MIB"
+  }
+}

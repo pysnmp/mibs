@@ -1,0 +1,3807 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-NAC-TC-MIB": [
+      "CnnEouPostureTokenString",
+      "CnnEouPostureToken"
+    ],
+    "CISCO-POLICY-GROUP-MIB": [
+      "CpgPolicyNameOrEmpty"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoURLString"
+    ],
+    "CISCO-VTP-MIB": [
+      "VlanIndex"
+    ],
+    "IEEE8021-PAE-MIB": [
+      "PaeControlledPortStatus",
+      "dot1xAuthConfigEntry",
+      "dot1xAuthPaeState",
+      "dot1xPaePortNumber",
+      "dot1xPaePortEntry"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoPaeMIB": {
+    "name": "ciscoPaeMIB",
+    "oid": "1.3.6.1.4.1.9.9.220",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-12-10 00:00",
+        "description": "Added cpaeSuppPortProfileGroup, and cpaeSuppHostInfoGroup."
+      },
+      {
+        "revision": "2008-07-07 00:00",
+        "description": "Added TEXTUAL-CONVENTION CpaeAuthState. Added enumerated value other(4) to cpaePortMode. Added cpaeHostSessionIdGroup, cpaeGuestVlanNotifEnableGroup, cpaeGuestVlanNotifGroup, cpaeAuthFailVlanNotifEnableGrp, cpaeAuthFailVlanNotifGroup, cpaeHostAuthInfoGroup, cpaePortCapabilitiesConfigGroup, cpaeDot1xSuppToGuestVlanGroup. Deprecated cpaePortAuthFailVlanGroup, replaced by cpaePortAuthFailVlanConfigGroup and cpaePortAuthFailUserInfoGroup. Deprecated cpaeCompliance8, replaced by cpaeCompliance9."
+      },
+      {
+        "revision": "2008-04-09 00:00",
+        "description": "Added cpaeMabAuditInfoGroup, cpaeHostUrlRedirectGroup, cpaeMabPortIpDevTrackConfGroup, cpaePortIpDevTrackConfGroup, cpaeWebAuthIpDevTrackingGroup, cpaeWebAuthUnAuthTimeoutGroup, cpaeGlobalAuthFailVlanGroup, cpaeGlobalSecViolationGroup, cpaeCriticalEapolConfigGroup. Deprecated cpaeMacAuthBypassGroup and replace it by cpaeMacAuthBypassPortEnableGroup, and cpaeMacAuthBypassGroup4; Deprecated cpaeAuthConfigGroup and replace it by cpaeAuthIabConfigGroup, cpaeAuthConfigGroup3 and cpaeAuthConfigGroup4. Modified cpaeMacAuthBypassPortAuthState to add 'ipAwaiting' and 'policyConfig' enum values."
+      },
+      {
+        "revision": "2007-04-25 00:00",
+        "description": "Added cpaeMacAuthBypassGroup3, and cpaeHostPostureTokenGroup."
+      },
+      {
+        "revision": "2007-04-16 00:00",
+        "description": "Add cpaeHostInfoGroup3."
+      },
+      {
+        "revision": "2007-01-27 00:00",
+        "description": "Added 'aaaFail' state to cpaeMacAuthBypassPortAuthState and cpaeWebAuthHostState. Added cpaePortAuthFailVlanGroup2, cpaeWebAuthAaaFailGroup, cpaeMacAuthBypassGroup2, cpaePortEapolTestGroup, cpaeHostInfoGroup2, cpaeAuthConfigGroup2, cpaeCriticalRecoveryDelayGroup, cpaeMacAuthBypassCriticalGroup, and cpaeWebAuthCriticalGroup. Obsoleted cpaeHostInfoPostureToken object."
+      },
+      {
+        "revision": "2005-09-22 00:00",
+        "description": "Added cpaeGuestVlanGroup3, cpaePortAuthFailVlanGroup, cpaePortOperVlanGroup, cpaeNoGuestVlanNotifEnableGrp, cpaeNoAuthFailVlanNotifEnableGrp, cpaeNoGuestVlanNotifGroup, cpaeNoAuthFailVlanNotifGroup, cpaeMacAuthBypassGroup, cpaeWebAuthGroup, cpaeAuthConfigGroup and cpaeHostInfoGroup. Deprecated cpaeInGuestVlan, cpaeGuestVlanGroup2."
+      },
+      {
+        "revision": "2004-04-23 00:00",
+        "description": "Modified the DESCRIPTION clauses of cpaeGuestVlanNumber and cpaeGuestVlanId."
+      },
+      {
+        "revision": "2004-04-01 00:00",
+        "description": "Added cpaeUserGroupGroup and cpaeRadiusConfigGroup."
+      },
+      {
+        "revision": "2003-04-08 00:00",
+        "description": "Added cpaeGuestVlanGroup2 and cpaeShutdownTimeoutGroup. Deprecated cpaeGuestVlanGroup."
+      },
+      {
+        "revision": "2002-10-16 00:00",
+        "description": "Added cpaePortEntryGroup and cpaeGuestVlanGroup. Deprecated cpaeMultipleHostGroup."
+      },
+      {
+        "revision": "2001-05-24 10:16",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cpaeMIBNotification": {
+    "name": "cpaeMIBNotification",
+    "oid": "1.3.6.1.4.1.9.9.220.0",
+    "class": "objectidentity"
+  },
+  "cpaeMIBObject": {
+    "name": "cpaeMIBObject",
+    "oid": "1.3.6.1.4.1.9.9.220.1",
+    "class": "objectidentity"
+  },
+  "cpaeMIBConformance": {
+    "name": "cpaeMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.220.2",
+    "class": "objectidentity"
+  },
+  "ReAuthPeriodSource": {
+    "name": "ReAuthPeriodSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "server": 2,
+          "auto": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpaeAuthState": {
+    "name": "CpaeAuthState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "initialize": 2,
+          "disconnected": 3,
+          "connecting": 4,
+          "authenticating": 5,
+          "authenticated": 6,
+          "aborting": 7,
+          "held": 8,
+          "forceAuth": 9,
+          "forceUnauth": 10,
+          "guestVlan": 11,
+          "authFailVlan": 12,
+          "criticalAuth": 13,
+          "ipAwaiting": 14,
+          "policyConfig": 15,
+          "authFinished": 16,
+          "restart": 17,
+          "authFallback": 18,
+          "authCResult": 19,
+          "authZSuccess": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cpaePortTable": {
+    "name": "cpaePortTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaePortEntry": {
+    "name": "cpaePortEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpaePortEntry",
+      "module": "CISCO-PAE-MIB",
+      "object": "dot1xPaePortEntry"
+    },
+    "status": "current"
+  },
+  "cpaeMultipleHost": {
+    "name": "cpaeMultipleHost",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cpaePortMode": {
+    "name": "cpaePortMode",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleHost": 1,
+          "multiHost": 2,
+          "multiAuth": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeGuestVlanNumber": {
+    "name": "cpaeGuestVlanNumber",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeInGuestVlan": {
+    "name": "cpaeInGuestVlan",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpaeShutdownTimeoutEnabled": {
+    "name": "cpaeShutdownTimeoutEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaePortAuthFailVlan": {
+    "name": "cpaePortAuthFailVlan",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaePortOperVlan": {
+    "name": "cpaePortOperVlan",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaePortOperVlanType": {
+    "name": "cpaePortOperVlanType",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "guest": 3,
+          "authFail": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeAuthFailVlanMaxAttempts": {
+    "name": "cpaeAuthFailVlanMaxAttempts",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaePortCapabilitiesEnabled": {
+    "name": "cpaePortCapabilitiesEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "authenticator": 0,
+        "supplicant": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeGuestVlanId": {
+    "name": "cpaeGuestVlanId",
+    "oid": "1.3.6.1.4.1.9.9.220.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cpaeShutdownTimeout": {
+    "name": "cpaeShutdownTimeout",
+    "oid": "1.3.6.1.4.1.9.9.220.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeRadiusAccountingEnabled": {
+    "name": "cpaeRadiusAccountingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeUserGroupTable": {
+    "name": "cpaeUserGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeUserGroupEntry": {
+    "name": "cpaeUserGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeUserGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeUserGroupUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeUserGroupName": {
+    "name": "cpaeUserGroupName",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeUserGroupUserIndex": {
+    "name": "cpaeUserGroupUserIndex",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeUserGroupUserName": {
+    "name": "cpaeUserGroupUserName",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeUserGroupUserAddrType": {
+    "name": "cpaeUserGroupUserAddrType",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeUserGroupUserAddr": {
+    "name": "cpaeUserGroupUserAddr",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeUserGroupUserInterface": {
+    "name": "cpaeUserGroupUserInterface",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeUserGroupUserVlan": {
+    "name": "cpaeUserGroupUserVlan",
+    "oid": "1.3.6.1.4.1.9.9.220.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeAuthFailUserTable": {
+    "name": "cpaeAuthFailUserTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeAuthFailUserEntry": {
+    "name": "cpaeAuthFailUserEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthFailUserName": {
+    "name": "cpaeAuthFailUserName",
+    "oid": "1.3.6.1.4.1.9.9.220.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeNotificationControl": {
+    "name": "cpaeNotificationControl",
+    "oid": "1.3.6.1.4.1.9.9.220.1.7",
+    "class": "objectidentity"
+  },
+  "cpaeNoGuestVlanNotifEnable": {
+    "name": "cpaeNoGuestVlanNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeNoAuthFailVlanNotifEnable": {
+    "name": "cpaeNoAuthFailVlanNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeGuestVlanNotifEnable": {
+    "name": "cpaeGuestVlanNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeAuthFailVlanNotifEnable": {
+    "name": "cpaeAuthFailVlanNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypass": {
+    "name": "cpaeMacAuthBypass",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8",
+    "class": "objectidentity"
+  },
+  "cpaeMacAuthBypassReAuthTimeout": {
+    "name": "cpaeMacAuthBypassReAuthTimeout",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassReAuthEnabled": {
+    "name": "cpaeMacAuthBypassReAuthEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassViolation": {
+    "name": "cpaeMacAuthBypassViolation",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restrict": 1,
+          "shutdown": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassShutdownTimeout": {
+    "name": "cpaeMacAuthBypassShutdownTimeout",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassAuthFailTimeout": {
+    "name": "cpaeMacAuthBypassAuthFailTimeout",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortTable": {
+    "name": "cpaeMacAuthBypassPortTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortEntry": {
+    "name": "cpaeMacAuthBypassPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortEnabled": {
+    "name": "cpaeMacAuthBypassPortEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortInitialize": {
+    "name": "cpaeMacAuthBypassPortInitialize",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortReAuth": {
+    "name": "cpaeMacAuthBypassPortReAuth",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortMacAddress": {
+    "name": "cpaeMacAuthBypassPortMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortAuthState": {
+    "name": "cpaeMacAuthBypassPortAuthState",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "waiting": 2,
+          "authenticating": 3,
+          "authenticated": 4,
+          "fail": 5,
+          "finished": 6,
+          "aaaFail": 7,
+          "ipAwaiting": 8,
+          "policyConfig": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortTermAction": {
+    "name": "cpaeMacAuthBypassPortTermAction",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "init": 2,
+          "reauth": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassSessionTimeLeft": {
+    "name": "cpaeMacAuthBypassSessionTimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortAuthMethod": {
+    "name": "cpaeMacAuthBypassPortAuthMethod",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 1,
+          "eap": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortSessionId": {
+    "name": "cpaeMacAuthBypassPortSessionId",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortUrlRedirect": {
+    "name": "cpaeMacAuthBypassPortUrlRedirect",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortPostureTok": {
+    "name": "cpaeMacAuthBypassPortPostureTok",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CnnEouPostureTokenString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeMacAuthBypassAcctEnable": {
+    "name": "cpaeMacAuthBypassAcctEnable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMabCriticalRecoveryDelay": {
+    "name": "cpaeMabCriticalRecoveryDelay",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milli-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeMabPortIpDevTrackConfTable": {
+    "name": "cpaeMabPortIpDevTrackConfTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeMabPortIpDevTrackConfEntry": {
+    "name": "cpaeMabPortIpDevTrackConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMabPortIpDevTrackEnabled": {
+    "name": "cpaeMabPortIpDevTrackEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.8.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuth": {
+    "name": "cpaeWebAuth",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9",
+    "class": "objectidentity"
+  },
+  "cpaeWebAuthEnabled": {
+    "name": "cpaeWebAuthEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthSessionPeriod": {
+    "name": "cpaeWebAuthSessionPeriod",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthLoginPage": {
+    "name": "cpaeWebAuthLoginPage",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthLoginFailedPage": {
+    "name": "cpaeWebAuthLoginFailedPage",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthQuietPeriod": {
+    "name": "cpaeWebAuthQuietPeriod",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthMaxRetries": {
+    "name": "cpaeWebAuthMaxRetries",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthPortTable": {
+    "name": "cpaeWebAuthPortTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeWebAuthPortEntry": {
+    "name": "cpaeWebAuthPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeWebAuthPortEnabled": {
+    "name": "cpaeWebAuthPortEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthPortInitialize": {
+    "name": "cpaeWebAuthPortInitialize",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthPortAaaFailPolicy": {
+    "name": "cpaeWebAuthPortAaaFailPolicy",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpgPolicyNameOrEmpty",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthPortIpDevTrackEnabled": {
+    "name": "cpaeWebAuthPortIpDevTrackEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthHostTable": {
+    "name": "cpaeWebAuthHostTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeWebAuthHostEntry": {
+    "name": "cpaeWebAuthHostEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthHostAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeWebAuthHostAddrType": {
+    "name": "cpaeWebAuthHostAddrType",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeWebAuthHostAddress": {
+    "name": "cpaeWebAuthHostAddress",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeWebAuthAaaSessionPeriod": {
+    "name": "cpaeWebAuthAaaSessionPeriod",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeWebAuthHostSessionTimeLeft": {
+    "name": "cpaeWebAuthHostSessionTimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeWebAuthHostState": {
+    "name": "cpaeWebAuthHostState",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "connecting": 2,
+          "authenticating": 3,
+          "authenticated": 4,
+          "authFailed": 5,
+          "parseError": 6,
+          "sessionTimeout": 7,
+          "blackListed": 8,
+          "aaaFail": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeWebAuthHostInitialize": {
+    "name": "cpaeWebAuthHostInitialize",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthCriticalRecoveryDelay": {
+    "name": "cpaeWebAuthCriticalRecoveryDelay",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milli-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeWebAuthUnAuthStateTimeout": {
+    "name": "cpaeWebAuthUnAuthStateTimeout",
+    "oid": "1.3.6.1.4.1.9.9.220.1.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeAuthConfigTable": {
+    "name": "cpaeAuthConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeAuthConfigEntry": {
+    "name": "cpaeAuthConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpaeAuthConfigEntry",
+      "module": "CISCO-PAE-MIB",
+      "object": "dot1xAuthConfigEntry"
+    },
+    "status": "current"
+  },
+  "cpaeAuthReAuthPeriodSrcAdmin": {
+    "name": "cpaeAuthReAuthPeriodSrcAdmin",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReAuthPeriodSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeAuthReAuthPeriodSrcOper": {
+    "name": "cpaeAuthReAuthPeriodSrcOper",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReAuthPeriodSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeAuthReAuthPeriodOper": {
+    "name": "cpaeAuthReAuthPeriodOper",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeAuthTimeToNextReAuth": {
+    "name": "cpaeAuthTimeToNextReAuth",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeAuthReAuthAction": {
+    "name": "cpaeAuthReAuthAction",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "terminate": 1,
+          "reAuth": 2,
+          "noReAuth": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeAuthReAuthMax": {
+    "name": "cpaeAuthReAuthMax",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeAuthIabEnabled": {
+    "name": "cpaeAuthIabEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeAuthPaeState": {
+    "name": "cpaeAuthPaeState",
+    "oid": "1.3.6.1.4.1.9.9.220.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpaeAuthState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostInfoTable": {
+    "name": "cpaeHostInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeHostInfoEntry": {
+    "name": "cpaeHostInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostInfoHostIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeHostInfoHostIndex": {
+    "name": "cpaeHostInfoHostIndex",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeHostInfoMacAddress": {
+    "name": "cpaeHostInfoMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostInfoPostureToken": {
+    "name": "cpaeHostInfoPostureToken",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CnnEouPostureToken",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cpaeHostInfoUserName": {
+    "name": "cpaeHostInfoUserName",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostInfoAddrType": {
+    "name": "cpaeHostInfoAddrType",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostInfoAddr": {
+    "name": "cpaeHostInfoAddr",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostPostureTokenStr": {
+    "name": "cpaeHostPostureTokenStr",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CnnEouPostureTokenString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostUrlRedirection": {
+    "name": "cpaeHostUrlRedirection",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostAuthPaeState": {
+    "name": "cpaeHostAuthPaeState",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpaeAuthState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostBackendState": {
+    "name": "cpaeHostBackendState",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "response": 2,
+          "success": 3,
+          "fail": 4,
+          "timeout": 5,
+          "idle": 6,
+          "initialize": 7,
+          "ignore": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeHostSessionId": {
+    "name": "cpaeHostSessionId",
+    "oid": "1.3.6.1.4.1.9.9.220.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaePortEapolTestLimits": {
+    "name": "cpaePortEapolTestLimits",
+    "oid": "1.3.6.1.4.1.9.9.220.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaePortEapolTestTable": {
+    "name": "cpaePortEapolTestTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaePortEapolTestEntry": {
+    "name": "cpaePortEapolTestEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortEapolTestResult": {
+    "name": "cpaePortEapolTestResult",
+    "oid": "1.3.6.1.4.1.9.9.220.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "notCapable": 2,
+          "capable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaePortEapolTestStatus": {
+    "name": "cpaePortEapolTestStatus",
+    "oid": "1.3.6.1.4.1.9.9.220.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpaeCriticalConfig": {
+    "name": "cpaeCriticalConfig",
+    "oid": "1.3.6.1.4.1.9.9.220.1.14",
+    "class": "objectidentity"
+  },
+  "cpaeCriticalEapolEnabled": {
+    "name": "cpaeCriticalEapolEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeCriticalRecoveryDelay": {
+    "name": "cpaeCriticalRecoveryDelay",
+    "oid": "1.3.6.1.4.1.9.9.220.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milli-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaePortIpDevTrackConfigTable": {
+    "name": "cpaePortIpDevTrackConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaePortIpDevTrackConfigEntry": {
+    "name": "cpaePortIpDevTrackConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortIpDevTrackEnabled": {
+    "name": "cpaePortIpDevTrackEnabled",
+    "oid": "1.3.6.1.4.1.9.9.220.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeGlobalAuthFailMaxAttempts": {
+    "name": "cpaeGlobalAuthFailMaxAttempts",
+    "oid": "1.3.6.1.4.1.9.9.220.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeGlobalSecViolationAction": {
+    "name": "cpaeGlobalSecViolationAction",
+    "oid": "1.3.6.1.4.1.9.9.220.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restrict": 1,
+          "shutdown": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeDot1xSuppToGuestVlanAllowed": {
+    "name": "cpaeDot1xSuppToGuestVlanAllowed",
+    "oid": "1.3.6.1.4.1.9.9.220.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeSupplicantObjects": {
+    "name": "cpaeSupplicantObjects",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19",
+    "class": "objectidentity"
+  },
+  "cpaeSuppPortTable": {
+    "name": "cpaeSuppPortTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeSuppPortEntry": {
+    "name": "cpaeSuppPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeSuppPortCredentialProfileName": {
+    "name": "cpaeSuppPortCredentialProfileName",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeSuppPortEapProfileName": {
+    "name": "cpaeSuppPortEapProfileName",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpaeSuppHostInfoTable": {
+    "name": "cpaeSuppHostInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeSuppHostInfoEntry": {
+    "name": "cpaeSuppHostInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeSuppHostInfoSuppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeSuppHostInfoSuppIndex": {
+    "name": "cpaeSuppHostInfoSuppIndex",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpaeSuppHostAuthMacAddress": {
+    "name": "cpaeSuppHostAuthMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeSuppHostPaeState": {
+    "name": "cpaeSuppHostPaeState",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "logoff": 2,
+          "connecting": 3,
+          "authenticating": 4,
+          "authenticated": 5,
+          "acquired": 6,
+          "held": 7,
+          "restart": 8,
+          "sForceAuth": 9,
+          "sForceUnauth": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeSuppHostBackendState": {
+    "name": "cpaeSuppHostBackendState",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "idle": 2,
+          "request": 3,
+          "response": 4,
+          "receive": 5,
+          "fail": 6,
+          "success": 7,
+          "timeout": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeSuppHostStatus": {
+    "name": "cpaeSuppHostStatus",
+    "oid": "1.3.6.1.4.1.9.9.220.1.19.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PaeControlledPortStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpaeNoGuestVlanNotif": {
+    "name": "cpaeNoGuestVlanNotif",
+    "oid": "1.3.6.1.4.1.9.9.220.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthPaeState"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeNoAuthFailVlanNotif": {
+    "name": "cpaeNoAuthFailVlanNotif",
+    "oid": "1.3.6.1.4.1.9.9.220.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthPaeState"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeGuestVlanNotif": {
+    "name": "cpaeGuestVlanNotif",
+    "oid": "1.3.6.1.4.1.9.9.220.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeGuestVlanNumber"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthPaeState"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthFailVlanNotif": {
+    "name": "cpaeAuthFailVlanNotif",
+    "oid": "1.3.6.1.4.1.9.9.220.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortAuthFailVlan"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthPaeState"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMIBCompliances": {
+    "name": "cpaeMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1",
+    "class": "objectidentity"
+  },
+  "cpaeMIBGroups": {
+    "name": "cpaeMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2",
+    "class": "objectidentity"
+  },
+  "cpaeCompliance": {
+    "name": "cpaeCompliance",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaeMultipleHostGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeCompliance2": {
+    "name": "cpaeCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeCompliance3": {
+    "name": "cpaeCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeShutdownTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeCompliance4": {
+    "name": "cpaeCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeShutdownTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeRadiusConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeUserGroupGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeCompliance5": {
+    "name": "cpaeCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeShutdownTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeRadiusConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeUserGroupGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortOperVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpaeCompliance6": {
+    "name": "cpaeCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeShutdownTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeRadiusConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeUserGroupGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortOperVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthAaaFailGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortEapolTestGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeCriticalRecoveryDelayGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeCompliance7": {
+    "name": "cpaeCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeShutdownTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeRadiusConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeUserGroupGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortOperVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthAaaFailGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortEapolTestGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeCriticalRecoveryDelayGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostPostureTokenGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeCompliance8": {
+    "name": "cpaeCompliance8",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeShutdownTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeRadiusConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeUserGroupGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortOperVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthAaaFailGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortEapolTestGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeCriticalRecoveryDelayGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostPostureTokenGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMabAuditInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMabPortIpDevTrackConfGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortIpDevTrackConfGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostUrlRedirectGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthIpDevTrackingGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthUnAuthTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGlobalAuthFailVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGlobalSecViolationGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeCriticalEapolConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassPortEnableGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup4",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthIabConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup4",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeCompliance9": {
+    "name": "cpaeCompliance9",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeShutdownTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeRadiusConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeUserGroupGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortOperVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthAaaFailGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortEapolTestGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeCriticalRecoveryDelayGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostPostureTokenGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMabAuditInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMabPortIpDevTrackConfGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortIpDevTrackConfGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostUrlRedirectGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthIpDevTrackingGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthUnAuthTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGlobalAuthFailVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGlobalSecViolationGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeCriticalEapolConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassPortEnableGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup4",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthIabConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup4",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostSessionIdGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostAuthInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortCapabilitiesConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeDot1xSuppToGuestVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanNotifEnableGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthFailVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthFailVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailUserInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeCompliance10": {
+    "name": "cpaeCompliance10",
+    "oid": "1.3.6.1.4.1.9.9.220.2.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpaePortEntryGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeShutdownTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeRadiusConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeUserGroupGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortOperVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoGuestVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeNoAuthFailVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthAaaFailGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostInfoGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortEapolTestGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup2",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeCriticalRecoveryDelayGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthCriticalGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostPostureTokenGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMabAuditInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMabPortIpDevTrackConfGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortIpDevTrackConfGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostUrlRedirectGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthIpDevTrackingGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeWebAuthUnAuthTimeoutGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGlobalAuthFailVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGlobalSecViolationGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeCriticalEapolConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassPortEnableGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeMacAuthBypassGroup4",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthIabConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup3",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthConfigGroup4",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostSessionIdGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeHostAuthInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortCapabilitiesConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeDot1xSuppToGuestVlanGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanNotifEnableGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeGuestVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthFailVlanNotifEnableGrp",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeAuthFailVlanNotifGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailVlanConfigGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaePortAuthFailUserInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeSuppPortProfileGroup",
+        "module": "CISCO-PAE-MIB"
+      },
+      {
+        "object": "cpaeSuppHostInfoGroup",
+        "module": "CISCO-PAE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMultipleHostGroup": {
+    "name": "cpaeMultipleHostGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMultipleHost"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaePortEntryGroup": {
+    "name": "cpaePortEntryGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeGuestVlanGroup": {
+    "name": "cpaeGuestVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeGuestVlanId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeGuestVlanGroup2": {
+    "name": "cpaeGuestVlanGroup2",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeGuestVlanNumber"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeInGuestVlan"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeShutdownTimeoutGroup": {
+    "name": "cpaeShutdownTimeoutGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeShutdownTimeout"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeShutdownTimeoutEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeRadiusConfigGroup": {
+    "name": "cpaeRadiusConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeRadiusAccountingEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeUserGroupGroup": {
+    "name": "cpaeUserGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeUserGroupUserName"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeUserGroupUserAddrType"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeUserGroupUserAddr"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeUserGroupUserInterface"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeUserGroupUserVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeGuestVlanGroup3": {
+    "name": "cpaeGuestVlanGroup3",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeGuestVlanNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortOperVlanGroup": {
+    "name": "cpaePortOperVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortOperVlan"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortOperVlanType"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortAuthFailVlanGroup": {
+    "name": "cpaePortAuthFailVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortAuthFailVlan"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthFailUserName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeNoGuestVlanNotifEnableGrp": {
+    "name": "cpaeNoGuestVlanNotifEnableGrp",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeNoGuestVlanNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeNoAuthFailVlanNotifEnableGrp": {
+    "name": "cpaeNoAuthFailVlanNotifEnableGrp",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeNoAuthFailVlanNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeNoGuestVlanNotifGroup": {
+    "name": "cpaeNoGuestVlanNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeNoGuestVlanNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeNoAuthFailVlanNotifGroup": {
+    "name": "cpaeNoAuthFailVlanNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeNoAuthFailVlanNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMacAuthBypassGroup": {
+    "name": "cpaeMacAuthBypassGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassReAuthTimeout"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassReAuthEnabled"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassViolation"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassShutdownTimeout"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassAuthFailTimeout"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortEnabled"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortInitialize"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortReAuth"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortMacAddress"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortAuthState"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassAcctEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeWebAuthGroup": {
+    "name": "cpaeWebAuthGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthEnabled"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthSessionPeriod"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthLoginPage"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthLoginFailedPage"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthQuietPeriod"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthMaxRetries"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthPortEnabled"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthPortInitialize"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthAaaSessionPeriod"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthHostSessionTimeLeft"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthHostState"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthHostInitialize"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthConfigGroup": {
+    "name": "cpaeAuthConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthPeriodSrcAdmin"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthPeriodSrcOper"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthPeriodOper"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthTimeToNextReAuth"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthAction"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthMax"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthIabEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpaeHostInfoGroup": {
+    "name": "cpaeHostInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostInfoMacAddress"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostInfoPostureToken"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpaeWebAuthAaaFailGroup": {
+    "name": "cpaeWebAuthAaaFailGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthPortAaaFailPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMacAuthBypassGroup2": {
+    "name": "cpaeMacAuthBypassGroup2",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortTermAction"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassSessionTimeLeft"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortEapolTestGroup": {
+    "name": "cpaePortEapolTestGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortEapolTestLimits"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortEapolTestResult"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortEapolTestStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeHostInfoGroup2": {
+    "name": "cpaeHostInfoGroup2",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostInfoMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMacAuthBypassGroup3": {
+    "name": "cpaeMacAuthBypassGroup3",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortAuthMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortAuthFailVlanGroup2": {
+    "name": "cpaePortAuthFailVlanGroup2",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthFailVlanMaxAttempts"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthConfigGroup2": {
+    "name": "cpaeAuthConfigGroup2",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthPaeState"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeCriticalRecoveryDelayGroup": {
+    "name": "cpaeCriticalRecoveryDelayGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeCriticalRecoveryDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthConfigGroup3": {
+    "name": "cpaeAuthConfigGroup3",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthPeriodSrcAdmin"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthPeriodSrcOper"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthPeriodOper"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthTimeToNextReAuth"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthAction"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthConfigGroup4": {
+    "name": "cpaeAuthConfigGroup4",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthReAuthMax"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthIabConfigGroup": {
+    "name": "cpaeAuthIabConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthIabEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeGlobalAuthFailVlanGroup": {
+    "name": "cpaeGlobalAuthFailVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeGlobalAuthFailMaxAttempts"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMacAuthBypassCriticalGroup": {
+    "name": "cpaeMacAuthBypassCriticalGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMabCriticalRecoveryDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeWebAuthCriticalGroup": {
+    "name": "cpaeWebAuthCriticalGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthCriticalRecoveryDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeCriticalEapolConfigGroup": {
+    "name": "cpaeCriticalEapolConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeCriticalEapolEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeHostPostureTokenGroup": {
+    "name": "cpaeHostPostureTokenGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostPostureTokenStr"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMabAuditInfoGroup": {
+    "name": "cpaeMabAuditInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortSessionId"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortUrlRedirect"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortPostureTok"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMabPortIpDevTrackConfGroup": {
+    "name": "cpaeMabPortIpDevTrackConfGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMabPortIpDevTrackEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortIpDevTrackConfGroup": {
+    "name": "cpaePortIpDevTrackConfGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortIpDevTrackEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeHostUrlRedirectGroup": {
+    "name": "cpaeHostUrlRedirectGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostUrlRedirection"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeWebAuthIpDevTrackingGroup": {
+    "name": "cpaeWebAuthIpDevTrackingGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthPortIpDevTrackEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeWebAuthUnAuthTimeoutGroup": {
+    "name": "cpaeWebAuthUnAuthTimeoutGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeWebAuthUnAuthStateTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeHostInfoGroup3": {
+    "name": "cpaeHostInfoGroup3",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostInfoUserName"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostInfoAddrType"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostInfoAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeGlobalSecViolationGroup": {
+    "name": "cpaeGlobalSecViolationGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeGlobalSecViolationAction"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMacAuthBypassPortEnableGroup": {
+    "name": "cpaeMacAuthBypassPortEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.43",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeMacAuthBypassGroup4": {
+    "name": "cpaeMacAuthBypassGroup4",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.44",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassReAuthEnabled"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassReAuthTimeout"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassViolation"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassShutdownTimeout"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassAuthFailTimeout"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortInitialize"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortReAuth"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortMacAddress"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassPortAuthState"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeMacAuthBypassAcctEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeHostSessionIdGroup": {
+    "name": "cpaeHostSessionIdGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.45",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostSessionId"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeHostAuthInfoGroup": {
+    "name": "cpaeHostAuthInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.46",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostAuthPaeState"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeHostBackendState"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortCapabilitiesConfigGroup": {
+    "name": "cpaePortCapabilitiesConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.47",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortCapabilitiesEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeDot1xSuppToGuestVlanGroup": {
+    "name": "cpaeDot1xSuppToGuestVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.48",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeDot1xSuppToGuestVlanAllowed"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeGuestVlanNotifEnableGroup": {
+    "name": "cpaeGuestVlanNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.49",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeGuestVlanNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeGuestVlanNotifGroup": {
+    "name": "cpaeGuestVlanNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.50",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeGuestVlanNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthFailVlanNotifEnableGrp": {
+    "name": "cpaeAuthFailVlanNotifEnableGrp",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.51",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthFailVlanNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeAuthFailVlanNotifGroup": {
+    "name": "cpaeAuthFailVlanNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.52",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthFailVlanNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortAuthFailVlanConfigGroup": {
+    "name": "cpaePortAuthFailVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.53",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaePortAuthFailVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaePortAuthFailUserInfoGroup": {
+    "name": "cpaePortAuthFailUserInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.54",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeAuthFailUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeSuppPortProfileGroup": {
+    "name": "cpaeSuppPortProfileGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.55",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeSuppPortCredentialProfileName"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeSuppPortEapProfileName"
+      }
+    ],
+    "status": "current"
+  },
+  "cpaeSuppHostInfoGroup": {
+    "name": "cpaeSuppHostInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.220.2.2.56",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeSuppHostAuthMacAddress"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeSuppHostPaeState"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeSuppHostBackendState"
+      },
+      {
+        "module": "CISCO-PAE-MIB",
+        "object": "cpaeSuppHostStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PAE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PAE-MIB"
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBasePortEntry"
+    ],
+    "IEEE8021-PBB-MIB": [
+      "ieee8021PbbBackboneEdgeBridgeObjects"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortNumberOrZero"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "systemGroup"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ieee8021MirpMib": {
+    "name": "ieee8021MirpMib",
+    "oid": "1.3.111.2.802.1.1.23",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-28 00:00",
+        "description": "Published as part of IEEE Std 802.1Q-2018. Cross references updated and corrected."
+      },
+      {
+        "revision": "2014-12-15 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2014 revision. Cross references updated and corrected. Objects renamed and attached to the proper MIB arc. NOTE THAT the original MIB version incorrectly attached new objects to the CN MIB arc. The old objects and object names SHOULD NOT be used. The old names/objects concerned are: ieee8021MirpMIBObjects ieee8021MirpConformance ieee8021MirpPortTable ieee8021MirpCompliances ieee8021MirpGroups"
+      },
+      {
+        "revision": "2011-04-05 00:00",
+        "description": "Included in IEEE Std 802.1Qbe-2011 Copyright (C) IEEE Std 802.1."
+      }
+    ]
+  },
+  "ieee8021MirpV2MIBObjects": {
+    "name": "ieee8021MirpV2MIBObjects",
+    "oid": "1.3.111.2.802.1.1.23.1",
+    "class": "objectidentity"
+  },
+  "ieee8021MirpV2Conformance": {
+    "name": "ieee8021MirpV2Conformance",
+    "oid": "1.3.111.2.802.1.1.23.2",
+    "class": "objectidentity"
+  },
+  "ieee8021MirpV2PortTable": {
+    "name": "ieee8021MirpV2PortTable",
+    "oid": "1.3.111.2.802.1.1.23.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021MirpV2PortEntry": {
+    "name": "ieee8021MirpV2PortEntry",
+    "oid": "1.3.111.2.802.1.1.23.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ieee8021MirpV2PortEntry",
+      "module": "IEEE8021-MIRP-MIB",
+      "object": "ieee8021BridgeBasePortEntry"
+    },
+    "status": "current"
+  },
+  "ieee8021MirpV2PortEnabledStatus": {
+    "name": "ieee8021MirpV2PortEnabledStatus",
+    "oid": "1.3.111.2.802.1.1.23.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbMirpEnableStatus": {
+    "name": "ieee8021PbbMirpEnableStatus",
+    "oid": "1.3.111.2.802.1.1.9.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbbMirpBvid": {
+    "name": "ieee8021PbbMirpBvid",
+    "oid": "1.3.111.2.802.1.1.9.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbbMirpDestSelector": {
+    "name": "ieee8021PbbMirpDestSelector",
+    "oid": "1.3.111.2.802.1.1.9.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbpMirpGroup": 1,
+          "cbpMirpVlan": 2,
+          "cbpMirpTable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "cbpMirpGroup",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbbMirpPnpEnable": {
+    "name": "ieee8021PbbMirpPnpEnable",
+    "oid": "1.3.111.2.802.1.1.9.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PbbMirpPnpPortNumber": {
+    "name": "ieee8021PbbMirpPnpPortNumber",
+    "oid": "1.3.111.2.802.1.1.9.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021MirpV2Compliances": {
+    "name": "ieee8021MirpV2Compliances",
+    "oid": "1.3.111.2.802.1.1.23.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021MirpV2Groups": {
+    "name": "ieee8021MirpV2Groups",
+    "oid": "1.3.111.2.802.1.1.23.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021MirpV2ReqdGroup": {
+    "name": "ieee8021MirpV2ReqdGroup",
+    "oid": "1.3.111.2.802.1.1.23.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-MIRP-MIB",
+        "object": "ieee8021MirpV2PortEnabledStatus"
+      },
+      {
+        "module": "IEEE8021-MIRP-MIB",
+        "object": "ieee8021PbbMirpEnableStatus"
+      },
+      {
+        "module": "IEEE8021-MIRP-MIB",
+        "object": "ieee8021PbbMirpBvid"
+      },
+      {
+        "module": "IEEE8021-MIRP-MIB",
+        "object": "ieee8021PbbMirpDestSelector"
+      },
+      {
+        "module": "IEEE8021-MIRP-MIB",
+        "object": "ieee8021PbbMirpPnpEnable"
+      },
+      {
+        "module": "IEEE8021-MIRP-MIB",
+        "object": "ieee8021PbbMirpPnpPortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021MirpV2BridgeCompliance": {
+    "name": "ieee8021MirpV2BridgeCompliance",
+    "oid": "1.3.111.2.802.1.1.23.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "systemGroup",
+        "module": "SNMPv2-MIB"
+      },
+      {
+        "object": "ieee8021MirpV2ReqdGroup",
+        "module": "IEEE8021-MIRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-MIRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-MIRP-MIB"
+  }
+}

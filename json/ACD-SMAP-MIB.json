@@ -1,0 +1,595 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACCEDIAN-SMI": [
+      "acdMibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "acdSmap": {
+    "name": "acdSmap",
+    "oid": "1.3.6.1.4.1.22420.2.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-10-01 01:00",
+        "description": "Definition revision."
+      },
+      {
+        "revision": "2008-06-15 01:00",
+        "description": "Initial version of MIB module ACD-SMAP-MIB."
+      }
+    ]
+  },
+  "acdSmapNotifications": {
+    "name": "acdSmapNotifications",
+    "oid": "1.3.6.1.4.1.22420.2.8.0",
+    "class": "objectidentity"
+  },
+  "acdSmapMIBObjects": {
+    "name": "acdSmapMIBObjects",
+    "oid": "1.3.6.1.4.1.22420.2.8.1",
+    "class": "objectidentity"
+  },
+  "acdSmapConformance": {
+    "name": "acdSmapConformance",
+    "oid": "1.3.6.1.4.1.22420.2.8.2",
+    "class": "objectidentity"
+  },
+  "acdSmapConfig": {
+    "name": "acdSmapConfig",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1",
+    "class": "objectidentity"
+  },
+  "acdSmapCoSProfTable": {
+    "name": "acdSmapCoSProfTable",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSmapCoSProfEntry": {
+    "name": "acdSmapCoSProfEntry",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdSmapCoSProfID": {
+    "name": "acdSmapCoSProfID",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSmapCoSProfRowStatus": {
+    "name": "acdSmapCoSProfRowStatus",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdSmapCoSProfName": {
+    "name": "acdSmapCoSProfName",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdSmapCoSProfType": {
+    "name": "acdSmapCoSProfType",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcp": 1,
+          "dscp": 2,
+          "pre": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdSmapCoSProfDecodeDropBit": {
+    "name": "acdSmapCoSProfDecodeDropBit",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdSmapCoSProfEncodeDropBit": {
+    "name": "acdSmapCoSProfEncodeDropBit",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdSmapCoSProfCodePointTable": {
+    "name": "acdSmapCoSProfCodePointTable",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSmapCoSProfCodePointEntry": {
+    "name": "acdSmapCoSProfCodePointEntry",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfCodePointID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdSmapCoSProfCodePointID": {
+    "name": "acdSmapCoSProfCodePointID",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSmapCoSProfCodePointPreMarkingColor": {
+    "name": "acdSmapCoSProfCodePointPreMarkingColor",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "green",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdSmapCoSProfCodePointGreenOut": {
+    "name": "acdSmapCoSProfCodePointGreenOut",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdSmapCoSProfCodePointYellowOut": {
+    "name": "acdSmapCoSProfCodePointYellowOut",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdSmapRegSetTable": {
+    "name": "acdSmapRegSetTable",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSmapRegSetEntry": {
+    "name": "acdSmapRegSetEntry",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapRegSetID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdSmapRegSetID": {
+    "name": "acdSmapRegSetID",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSmapRegSetRowStatus": {
+    "name": "acdSmapRegSetRowStatus",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdSmapRegSetName": {
+    "name": "acdSmapRegSetName",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdSmapRegSetType": {
+    "name": "acdSmapRegSetType",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcp": 1,
+          "dscp": 2,
+          "pre": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "acdSmapRegSetCodePointTable": {
+    "name": "acdSmapRegSetCodePointTable",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSmapRegSetCodePointEntry": {
+    "name": "acdSmapRegSetCodePointEntry",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapRegSetID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapRegSetCodePointID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdSmapRegSetCodePointID": {
+    "name": "acdSmapRegSetCodePointID",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdSmapRegSetCodePointRegulatorID": {
+    "name": "acdSmapRegSetCodePointRegulatorID",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdSmapRegSetCodePointRegulatorEnable": {
+    "name": "acdSmapRegSetCodePointRegulatorEnable",
+    "oid": "1.3.6.1.4.1.22420.2.8.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdSmapCompliances": {
+    "name": "acdSmapCompliances",
+    "oid": "1.3.6.1.4.1.22420.2.8.2.1",
+    "class": "objectidentity"
+  },
+  "acdSmapGroups": {
+    "name": "acdSmapGroups",
+    "oid": "1.3.6.1.4.1.22420.2.8.2.2",
+    "class": "objectidentity"
+  },
+  "acdSmapCoSProfGroup": {
+    "name": "acdSmapCoSProfGroup",
+    "oid": "1.3.6.1.4.1.22420.2.8.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfRowStatus"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfName"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfType"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfDecodeDropBit"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfEncodeDropBit"
+      }
+    ],
+    "status": "current"
+  },
+  "acdSmapCoSProfCodePointGroup": {
+    "name": "acdSmapCoSProfCodePointGroup",
+    "oid": "1.3.6.1.4.1.22420.2.8.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfCodePointPreMarkingColor"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfCodePointGreenOut"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapCoSProfCodePointYellowOut"
+      }
+    ],
+    "status": "current"
+  },
+  "acdSmapRegSetGroup": {
+    "name": "acdSmapRegSetGroup",
+    "oid": "1.3.6.1.4.1.22420.2.8.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapRegSetRowStatus"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapRegSetName"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapRegSetType"
+      }
+    ],
+    "status": "current"
+  },
+  "acdSmapRegSetCodePointGroup": {
+    "name": "acdSmapRegSetCodePointGroup",
+    "oid": "1.3.6.1.4.1.22420.2.8.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapRegSetCodePointRegulatorID"
+      },
+      {
+        "module": "ACD-SMAP-MIB",
+        "object": "acdSmapRegSetCodePointRegulatorEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "acdSmapCompliance": {
+    "name": "acdSmapCompliance",
+    "oid": "1.3.6.1.4.1.22420.2.8.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "acdSmapCoSProfGroup",
+        "module": "ACD-SMAP-MIB"
+      },
+      {
+        "object": "acdSmapCoSProfCodePointGroup",
+        "module": "ACD-SMAP-MIB"
+      },
+      {
+        "object": "acdSmapRegSetGroup",
+        "module": "ACD-SMAP-MIB"
+      },
+      {
+        "object": "acdSmapRegSetCodePointGroup",
+        "module": "ACD-SMAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-SMAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:03 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ACD-SMAP-MIB"
+  }
+}

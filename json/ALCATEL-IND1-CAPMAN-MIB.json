@@ -1,0 +1,1464 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1CapMan"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "alcatelIND1CapManMIB": {
+    "name": "alcatelIND1CapManMIB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-11-23 00:00",
+        "description": "Capability Manager is used to set system wide limitation."
+      }
+    ]
+  },
+  "alcatelIND1CapManMIBObjects": {
+    "name": "alcatelIND1CapManMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaCapabilityMibNotifications": {
+    "name": "alaCapabilityMibNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.0",
+    "class": "objectidentity"
+  },
+  "alaCapabilityManager": {
+    "name": "alaCapabilityManager",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaCapManConformance": {
+    "name": "alaCapManConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaCapManVrfTable": {
+    "name": "alaCapManVrfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapManVrfEntry": {
+    "name": "alaCapManVrfEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityVrfContext",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityVrfCapability",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alaCapabilityVrfContext": {
+    "name": "alaCapabilityVrfContext",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 1,
+          "primary": 2,
+          "subsidiary": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapabilityVrfCapability": {
+    "name": "alaCapabilityVrfCapability",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4Routes": 1,
+          "ipv6Routes": 2,
+          "ipv4Interfaces": 3,
+          "ipv6Interfaces": 4,
+          "mcastInterfaces": 5,
+          "pimRPS": 6,
+          "bgpPeers": 7,
+          "bgpRoutes": 8,
+          "ripRoutes": 9,
+          "routingProtocols": 10,
+          "maxOSPF": 11
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapabilityVrfLimit": {
+    "name": "alaCapabilityVrfLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 524288
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaCapManTcamTable": {
+    "name": "alaCapManTcamTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapManTcamEntry": {
+    "name": "alaCapManTcamEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityTcamContext",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityTcamCapability",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alaCapabilityTcamContext": {
+    "name": "alaCapabilityTcamContext",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapabilityTcamCapability": {
+    "name": "alaCapabilityTcamCapability",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapabilityTcamMode": {
+    "name": "alaCapabilityTcamMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaCapManMirrorTable": {
+    "name": "alaCapManMirrorTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapManMirrorEntry": {
+    "name": "alaCapManMirrorEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityMirrorContext",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityMirrorCapability",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alaCapabilityMirrorContext": {
+    "name": "alaCapabilityMirrorContext",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapabilityMirrorCapability": {
+    "name": "alaCapabilityMirrorCapability",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "maxMonitorSess": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapabilityMirrorLimit": {
+    "name": "alaCapabilityMirrorLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaCapManSourceLearningTable": {
+    "name": "alaCapManSourceLearningTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapManSourceLearningEntry": {
+    "name": "alaCapManSourceLearningEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilitySourceLearningContext",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilitySourceLearningCapability",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alaCapabilitySourceLearningContext": {
+    "name": "alaCapabilitySourceLearningContext",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapabilitySourceLearningCapability": {
+    "name": "alaCapabilitySourceLearningCapability",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaCapabilitySourceLearningMode": {
+    "name": "alaCapabilitySourceLearningMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "centralized": 1,
+          "distributed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaCapManHashControlCommands": {
+    "name": "alaCapManHashControlCommands",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaCapManHashMode": {
+    "name": "alaCapManHashMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "brief": 1,
+          "extended": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "extended",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapManUdpTcpPortMode": {
+    "name": "alaCapManUdpTcpPortMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapManNonUCHashControl": {
+    "name": "alaCapManNonUCHashControl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapManSwLicensingConfig": {
+    "name": "alaCapManSwLicensingConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "alaCapManSwLicensingAction": {
+    "name": "alaCapManSwLicensingAction",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "applyFile": 1,
+          "applyKey": 2,
+          "deactivate": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapManSwLicensingActionArg": {
+    "name": "alaCapManSwLicensingActionArg",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapManVcSwLicensingAction": {
+    "name": "alaCapManVcSwLicensingAction",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "applyFile": 1,
+          "applyAfn": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapManVcSwLicensingActionArg": {
+    "name": "alaCapManVcSwLicensingActionArg",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapManVcSwLicensingAfnInfo": {
+    "name": "alaCapManVcSwLicensingAfnInfo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapManVcSwLicensingAfnStatus": {
+    "name": "alaCapManVcSwLicensingAfnStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProgress": 2,
+          "successful": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaCapManSwLicensingInfoTable": {
+    "name": "alaCapManSwLicensingInfoTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaCapManSwLicensingInfoEntry": {
+    "name": "alaCapManSwLicensingInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaLicenseId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaLicenseId": {
+    "name": "alaLicenseId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaLicensedApplication": {
+    "name": "alaLicensedApplication",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLicenseType": {
+    "name": "alaLicenseType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "demo": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLicenseTimeRemaining": {
+    "name": "alaLicenseTimeRemaining",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaCapManVcSwLicensingInfoTable": {
+    "name": "alaCapManVcSwLicensingInfoTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "alaCapManVcSwLicensingInfoEntry": {
+    "name": "alaCapManVcSwLicensingInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaVcLicensedSerialNum",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaVcLicensedMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "alaVcLicensedSerialNum": {
+    "name": "alaVcLicensedSerialNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 25,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "alaVcLicensedMacAddress": {
+    "name": "alaVcLicensedMacAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "alaVcLicenseType": {
+    "name": "alaVcLicenseType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "demo": 1,
+          "permanent": 2,
+          "timebased": 3,
+          "ov-generated": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "alaVcLicenseVcSlot": {
+    "name": "alaVcLicenseVcSlot",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "alaVcLicenseBitMap": {
+    "name": "alaVcLicenseBitMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "alaVcLicenseTimeRemain": {
+    "name": "alaVcLicenseTimeRemain",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "alaVcLicenseUpgradeStatus": {
+    "name": "alaVcLicenseUpgradeStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upgraded": 1,
+          "expired": 2,
+          "revoked": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "alaVcLicenseExpirationDate": {
+    "name": "alaVcLicenseExpirationDate",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "alaCapManMibVcSwLicensingInfoTable": {
+    "name": "alaCapManMibVcSwLicensingInfoTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaCapManMibVcSwLicensingInfoEntry": {
+    "name": "alaCapManMibVcSwLicensingInfoEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicensedSerialNum",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicensedMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicenseFeatureId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaMibVcLicensedSerialNum": {
+    "name": "alaMibVcLicensedSerialNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 25,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMibVcLicensedMacAddress": {
+    "name": "alaMibVcLicensedMacAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaMibVcLicenseFeatureId": {
+    "name": "alaMibVcLicenseFeatureId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advanced": 1,
+          "datacenter": 2,
+          "xniu16": 3,
+          "afn": 4,
+          "poe": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMibVcLicenseType": {
+    "name": "alaMibVcLicenseType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "demo": 1,
+          "permanent": 2,
+          "timebased": 3,
+          "ov-generated": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMibVcLicenseVcSlot": {
+    "name": "alaMibVcLicenseVcSlot",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMibVcLicenseTimeRemain": {
+    "name": "alaMibVcLicenseTimeRemain",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMibVcLicenseUpgradeStatus": {
+    "name": "alaMibVcLicenseUpgradeStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upgraded": 1,
+          "expired": 2,
+          "revoked": 3,
+          "not-applicable": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaMibVcLicenseExpirationDate": {
+    "name": "alaMibVcLicenseExpirationDate",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaCapabilityIpmcMaxLimits": {
+    "name": "alaCapabilityIpmcMaxLimits",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.8",
+    "class": "objectidentity"
+  },
+  "alaCapabilityIpmcMaxAdminLimit": {
+    "name": "alaCapabilityIpmcMaxAdminLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaCapabilityIpmcMaxOperLimit": {
+    "name": "alaCapabilityIpmcMaxOperLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaCapManFeatureControlCommands": {
+    "name": "alaCapManFeatureControlCommands",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.9",
+    "class": "objectidentity"
+  },
+  "alaCapManDcbCfgMode": {
+    "name": "alaCapManDcbCfgMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaCapManDcbOprMode": {
+    "name": "alaCapManDcbOprMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaLicenseManagerDemoDayAlert": {
+    "name": "alaLicenseManagerDemoDayAlert",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaLicenseTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManGroups": {
+    "name": "alaCapManGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "alaCapManCompliances": {
+    "name": "alaCapManCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaCapManVrfTableGroup": {
+    "name": "alaCapManVrfTableGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityVrfLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManTcamTableGroup": {
+    "name": "alaCapManTcamTableGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityTcamMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManMirrorTableGroup": {
+    "name": "alaCapManMirrorTableGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityMirrorLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManSourceLearningTableGroup": {
+    "name": "alaCapManSourceLearningTableGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilitySourceLearningMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManHashControlGroup": {
+    "name": "alaCapManHashControlGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManHashMode"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManUdpTcpPortMode"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManNonUCHashControl"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManSwLicensingGroup": {
+    "name": "alaCapManSwLicensingGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManSwLicensingAction"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManSwLicensingActionArg"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManVcSwLicensingAction"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManVcSwLicensingActionArg"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManVcSwLicensingAfnInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManVcSwLicensingAfnStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManSwLicensingInfoGroup": {
+    "name": "alaCapManSwLicensingInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaLicensedApplication"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaLicenseType"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaLicenseTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapabilityIpmcMaxLimitsGroup": {
+    "name": "alaCapabilityIpmcMaxLimitsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityIpmcMaxAdminLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapabilityIpmcMaxOperLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManDcbCfgModeGroup": {
+    "name": "alaCapManDcbCfgModeGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManDcbCfgMode"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaCapManDcbOprMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVcLicenseCfgGroup": {
+    "name": "alaVcLicenseCfgGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaVcLicenseBitMap"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaVcLicenseTimeRemain"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaVcLicenseType"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaVcLicenseVcSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaVcLicenseUpgradeStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaVcLicenseExpirationDate"
+      }
+    ],
+    "status": "current"
+  },
+  "alaMibVcLicenseCfgGroup": {
+    "name": "alaMibVcLicenseCfgGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicenseFeatureId"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicenseType"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicenseVcSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicenseTimeRemain"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicenseUpgradeStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaMibVcLicenseExpirationDate"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManTrapGroup": {
+    "name": "alaCapManTrapGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.1.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CAPMAN-MIB",
+        "object": "alaLicenseManagerDemoDayAlert"
+      }
+    ],
+    "status": "current"
+  },
+  "alaCapManCompliance": {
+    "name": "alaCapManCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.60.1.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaCapManVrfTableGroup",
+        "module": "ALCATEL-IND1-CAPMAN-MIB"
+      },
+      {
+        "object": "alaCapManTcamTableGroup",
+        "module": "ALCATEL-IND1-CAPMAN-MIB"
+      },
+      {
+        "object": "alaCapManMirrorTableGroup",
+        "module": "ALCATEL-IND1-CAPMAN-MIB"
+      },
+      {
+        "object": "alaCapManSourceLearningTableGroup",
+        "module": "ALCATEL-IND1-CAPMAN-MIB"
+      },
+      {
+        "object": "alaCapManHashControlGroup",
+        "module": "ALCATEL-IND1-CAPMAN-MIB"
+      },
+      {
+        "object": "alaCapManSwLicensingGroup",
+        "module": "ALCATEL-IND1-CAPMAN-MIB"
+      },
+      {
+        "object": "alaCapManSwLicensingInfoGroup",
+        "module": "ALCATEL-IND1-CAPMAN-MIB"
+      },
+      {
+        "object": "alaCapabilityIpmcMaxLimitsGroup",
+        "module": "ALCATEL-IND1-CAPMAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-CAPMAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-CAPMAN-MIB"
+  }
+}

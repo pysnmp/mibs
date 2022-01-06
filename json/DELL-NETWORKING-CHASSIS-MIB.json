@@ -1,0 +1,4682 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "DELL-NETWORKING-TC": [
+      "DellNetMfgDate",
+      "DellNetProcessorModuleType",
+      "DellNetSwDate",
+      "DellNetDeviceType",
+      "DellNetPEOperStatus",
+      "DellNetCardOperStatus",
+      "DellNetHundredthdB",
+      "DellNetIfType",
+      "DellNetSystemCardType",
+      "DellNetChassisType"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dellNetChassisMib": {
+    "name": "dellNetChassisMib",
+    "oid": "1.3.6.1.4.1.6027.3.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-08-05 12:00",
+        "description": "First draft revision of Dell Networking OS chassis mib."
+      }
+    ]
+  },
+  "dellNetSysObject": {
+    "name": "dellNetSysObject",
+    "oid": "1.3.6.1.4.1.6027.3.26.1",
+    "class": "objectidentity"
+  },
+  "dellNetSysParameter": {
+    "name": "dellNetSysParameter",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.1",
+    "class": "objectidentity"
+  },
+  "dellNetChassisObject": {
+    "name": "dellNetChassisObject",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2",
+    "class": "objectidentity"
+  },
+  "dellNetStackObject": {
+    "name": "dellNetStackObject",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3",
+    "class": "objectidentity"
+  },
+  "dellNetSystemComponent": {
+    "name": "dellNetSystemComponent",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4",
+    "class": "objectidentity"
+  },
+  "dellNetSysAlarmObjects": {
+    "name": "dellNetSysAlarmObjects",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5",
+    "class": "objectidentity"
+  },
+  "dellNetDeviceType": {
+    "name": "dellNetDeviceType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetNumChassis": {
+    "name": "dellNetNumChassis",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetMaxNumChassis": {
+    "name": "dellNetMaxNumChassis",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisTable": {
+    "name": "dellNetChassisTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetChassisEntry": {
+    "name": "dellNetChassisEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetChassisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetChassisIndex": {
+    "name": "dellNetChassisIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisType": {
+    "name": "dellNetChassisType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetChassisType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisMacAddr": {
+    "name": "dellNetChassisMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisSerialNumber": {
+    "name": "dellNetChassisSerialNumber",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisPartNum": {
+    "name": "dellNetChassisPartNum",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisProductRev": {
+    "name": "dellNetChassisProductRev",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisVendorId": {
+    "name": "dellNetChassisVendorId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisMfgDate": {
+    "name": "dellNetChassisMfgDate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetMfgDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisCountryCode": {
+    "name": "dellNetChassisCountryCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisPPIDRev": {
+    "name": "dellNetChassisPPIDRev",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisServiceTag": {
+    "name": "dellNetChassisServiceTag",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisExpServiceCode": {
+    "name": "dellNetChassisExpServiceCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisNumSlots": {
+    "name": "dellNetChassisNumSlots",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisNumLineCardSlots": {
+    "name": "dellNetChassisNumLineCardSlots",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisNumFanTrays": {
+    "name": "dellNetChassisNumFanTrays",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetChassisNumPowerSupplies": {
+    "name": "dellNetChassisNumPowerSupplies",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardTable": {
+    "name": "dellNetCardTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetCardEntry": {
+    "name": "dellNetCardEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetCardIndex": {
+    "name": "dellNetCardIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetCardType": {
+    "name": "dellNetCardType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetSystemCardType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardDescription": {
+    "name": "dellNetCardDescription",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardChassisIndex": {
+    "name": "dellNetCardChassisIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetCardStatus": {
+    "name": "dellNetCardStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetCardOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardTemp": {
+    "name": "dellNetCardTemp",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardVendorId": {
+    "name": "dellNetCardVendorId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardMfgDate": {
+    "name": "dellNetCardMfgDate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetMfgDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardPartNum": {
+    "name": "dellNetCardPartNum",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardProductRev": {
+    "name": "dellNetCardProductRev",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardProductOrder": {
+    "name": "dellNetCardProductOrder",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardCountryCode": {
+    "name": "dellNetCardCountryCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardPiecePartID": {
+    "name": "dellNetCardPiecePartID",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardPPIDRevision": {
+    "name": "dellNetCardPPIDRevision",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardServiceTag": {
+    "name": "dellNetCardServiceTag",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardExpServiceCode": {
+    "name": "dellNetCardExpServiceCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCardNumOfPorts": {
+    "name": "dellNetCardNumOfPorts",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetNumStackUnits": {
+    "name": "dellNetNumStackUnits",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetMaxStackableUnits": {
+    "name": "dellNetMaxStackableUnits",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitIndexNext": {
+    "name": "dellNetStackUnitIndexNext",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitTable": {
+    "name": "dellNetStackUnitTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetStackUnitEntry": {
+    "name": "dellNetStackUnitEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetStackUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetStackUnitIndex": {
+    "name": "dellNetStackUnitIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetStackUnitNumber": {
+    "name": "dellNetStackUnitNumber",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitMgmtStatus": {
+    "name": "dellNetStackUnitMgmtStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgmtUnit": 1,
+          "standbyUnit": 2,
+          "stackUnit": 3,
+          "unassigned": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitHwMgmtPreference": {
+    "name": "dellNetStackUnitHwMgmtPreference",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "unsassigned": 1,
+          "assigned": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitAdmMgmtPreference": {
+    "name": "dellNetStackUnitAdmMgmtPreference",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitModelId": {
+    "name": "dellNetStackUnitModelId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetChassisType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitStatus": {
+    "name": "dellNetStackUnitStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "unsupported": 2,
+          "codeMismatch": 3,
+          "configMismatch": 4,
+          "unitDown": 5,
+          "notPresent": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitDescription": {
+    "name": "dellNetStackUnitDescription",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitCodeVersion": {
+    "name": "dellNetStackUnitCodeVersion",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitSerialNumber": {
+    "name": "dellNetStackUnitSerialNumber",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitUpTime": {
+    "name": "dellNetStackUnitUpTime",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitTemp": {
+    "name": "dellNetStackUnitTemp",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitVendorId": {
+    "name": "dellNetStackUnitVendorId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitMfgDate": {
+    "name": "dellNetStackUnitMfgDate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetMfgDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitMacAddress": {
+    "name": "dellNetStackUnitMacAddress",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitPartNum": {
+    "name": "dellNetStackUnitPartNum",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitProductRev": {
+    "name": "dellNetStackUnitProductRev",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitProductOrder": {
+    "name": "dellNetStackUnitProductOrder",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitCountryCode": {
+    "name": "dellNetStackUnitCountryCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitPiecePartID": {
+    "name": "dellNetStackUnitPiecePartID",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitPPIDRevision": {
+    "name": "dellNetStackUnitPPIDRevision",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitServiceTag": {
+    "name": "dellNetStackUnitServiceTag",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitExpServiceCode": {
+    "name": "dellNetStackUnitExpServiceCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitNumOfPorts": {
+    "name": "dellNetStackUnitNumOfPorts",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitNumFanTrays": {
+    "name": "dellNetStackUnitNumFanTrays",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitNumPowerSupplies": {
+    "name": "dellNetStackUnitNumPowerSupplies",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackUnitNumPluggableModules": {
+    "name": "dellNetStackUnitNumPluggableModules",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortTable": {
+    "name": "dellNetStackPortTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetStackPortEntry": {
+    "name": "dellNetStackPortEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetStackUnitNumber",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetStackPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetStackPortIndex": {
+    "name": "dellNetStackPortIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortConfiguredMode": {
+    "name": "dellNetStackPortConfiguredMode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stack": 1,
+          "ethernet": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortRunningMode": {
+    "name": "dellNetStackPortRunningMode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stack": 1,
+          "ethernet": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortLinkStatus": {
+    "name": "dellNetStackPortLinkStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortLinkSpeed": {
+    "name": "dellNetStackPortLinkSpeed",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortRxDataRate": {
+    "name": "dellNetStackPortRxDataRate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortRxErrorRate": {
+    "name": "dellNetStackPortRxErrorRate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortRxTotalErrors": {
+    "name": "dellNetStackPortRxTotalErrors",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortTxDataRate": {
+    "name": "dellNetStackPortTxDataRate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortTxErrorRate": {
+    "name": "dellNetStackPortTxErrorRate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetStackPortTxTotalErrors": {
+    "name": "dellNetStackPortTxTotalErrors",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEBindingTable": {
+    "name": "dellNetPEBindingTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPEBindingEntry": {
+    "name": "dellNetPEBindingEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPEBindCascadePortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetPEBindCascadePortIfIndex": {
+    "name": "dellNetPEBindCascadePortIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPEBindPEIndex": {
+    "name": "dellNetPEBindPEIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPETable": {
+    "name": "dellNetPETable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPEEntry": {
+    "name": "dellNetPEEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPEIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetPEIndex": {
+    "name": "dellNetPEIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPEPEID": {
+    "name": "dellNetPEPEID",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEUnitID": {
+    "name": "dellNetPEUnitID",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEType": {
+    "name": "dellNetPEType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetChassisType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEDescription": {
+    "name": "dellNetPEDescription",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEStatus": {
+    "name": "dellNetPEStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetPEOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPETemp": {
+    "name": "dellNetPETemp",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEVendorId": {
+    "name": "dellNetPEVendorId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEMfgDate": {
+    "name": "dellNetPEMfgDate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetMfgDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEPartNum": {
+    "name": "dellNetPEPartNum",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEProductRev": {
+    "name": "dellNetPEProductRev",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEProductOrder": {
+    "name": "dellNetPEProductOrder",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPECountryCode": {
+    "name": "dellNetPECountryCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEPiecePartID": {
+    "name": "dellNetPEPiecePartID",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEPPIDRevision": {
+    "name": "dellNetPEPPIDRevision",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEServiceTag": {
+    "name": "dellNetPEServiceTag",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPEExpServiceCode": {
+    "name": "dellNetPEExpServiceCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPENumOfPorts": {
+    "name": "dellNetPENumOfPorts",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPENumFanTrays": {
+    "name": "dellNetPENumFanTrays",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPENumPowerSupplies": {
+    "name": "dellNetPENumPowerSupplies",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPENumPluggableModules": {
+    "name": "dellNetPENumPluggableModules",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetProcessorTable": {
+    "name": "dellNetProcessorTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetProcessorEntry": {
+    "name": "dellNetProcessorEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetProcessorDeviceType": {
+    "name": "dellNetProcessorDeviceType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetProcessorDeviceIndex": {
+    "name": "dellNetProcessorDeviceIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetProcessorIndex": {
+    "name": "dellNetProcessorIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetProcessorModule": {
+    "name": "dellNetProcessorModule",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetProcessorModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetProcessorUpTime": {
+    "name": "dellNetProcessorUpTime",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetProcessorMemSize": {
+    "name": "dellNetProcessorMemSize",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCpuUtilTable": {
+    "name": "dellNetCpuUtilTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetCpuUtilEntry": {
+    "name": "dellNetCpuUtilEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetCpuUtil5Sec": {
+    "name": "dellNetCpuUtil5Sec",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCpuUtil1Min": {
+    "name": "dellNetCpuUtil1Min",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCpuUtil5Min": {
+    "name": "dellNetCpuUtil5Min",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCpuUtilMemUsage": {
+    "name": "dellNetCpuUtilMemUsage",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetCpuFlashUsageUtil": {
+    "name": "dellNetCpuFlashUsageUtil",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSwModuleTable": {
+    "name": "dellNetSwModuleTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetSwModuleEntry": {
+    "name": "dellNetSwModuleEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSwModuleRuntimeImgVersion": {
+    "name": "dellNetSwModuleRuntimeImgVersion",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSwModuleRuntimeImgDate": {
+    "name": "dellNetSwModuleRuntimeImgDate",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetSwDate",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSwModuleBootFlashImgVersion": {
+    "name": "dellNetSwModuleBootFlashImgVersion",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSwModuleBootSelectorImgVersion": {
+    "name": "dellNetSwModuleBootSelectorImgVersion",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSwModuleNextRebootImage": {
+    "name": "dellNetSwModuleNextRebootImage",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "partitionA": 1,
+          "partitionB": 2,
+          "networkBoot": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSwModuleCurrentBootImage": {
+    "name": "dellNetSwModuleCurrentBootImage",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "partitionA": 1,
+          "partitionB": 2,
+          "networkBoot": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSwModuleInPartitionAImgVers": {
+    "name": "dellNetSwModuleInPartitionAImgVers",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSwModuleInPartitionBImgVers": {
+    "name": "dellNetSwModuleInPartitionBImgVers",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPowerSupplyTable": {
+    "name": "dellNetPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPowerSupplyEntry": {
+    "name": "dellNetPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetPowerDeviceType": {
+    "name": "dellNetPowerDeviceType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPowerDeviceIndex": {
+    "name": "dellNetPowerDeviceIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPowerSupplyIndex": {
+    "name": "dellNetPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPowerSupplyOperStatus": {
+    "name": "dellNetPowerSupplyOperStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "absent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPowerSupplyType": {
+    "name": "dellNetPowerSupplyType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ac": 2,
+          "dc": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPowerSupplyPiecePartID": {
+    "name": "dellNetPowerSupplyPiecePartID",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPowerSupplyPPIDRevision": {
+    "name": "dellNetPowerSupplyPPIDRevision",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPowerSupplyServiceTag": {
+    "name": "dellNetPowerSupplyServiceTag",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPowerSupplyExpressServiceCode": {
+    "name": "dellNetPowerSupplyExpressServiceCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPowerSupplyUsage": {
+    "name": "dellNetPowerSupplyUsage",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFanTrayTable": {
+    "name": "dellNetFanTrayTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFanTrayEntry": {
+    "name": "dellNetFanTrayEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetFanDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetFanDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetFanTrayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFanDeviceType": {
+    "name": "dellNetFanDeviceType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFanDeviceIndex": {
+    "name": "dellNetFanDeviceIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFanTrayIndex": {
+    "name": "dellNetFanTrayIndex",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFanTrayOperStatus": {
+    "name": "dellNetFanTrayOperStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "absent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFanTrayPiecePartID": {
+    "name": "dellNetFanTrayPiecePartID",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFanTrayPPIDRevision": {
+    "name": "dellNetFanTrayPPIDRevision",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFanTrayServiceTag": {
+    "name": "dellNetFanTrayServiceTag",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFanTrayExpressServiceCode": {
+    "name": "dellNetFanTrayExpressServiceCode",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysSwCoresTable": {
+    "name": "dellNetSysSwCoresTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetSysCoresEntry": {
+    "name": "dellNetSysCoresEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetStackUnitNumber",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysCoresInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysCoresInstance": {
+    "name": "dellNetSysCoresInstance",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysCoresFileName": {
+    "name": "dellNetSysCoresFileName",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysCoresTimeCreated": {
+    "name": "dellNetSysCoresTimeCreated",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetSwDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysCoresStackUnitNumber": {
+    "name": "dellNetSysCoresStackUnitNumber",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysCoresProcess": {
+    "name": "dellNetSysCoresProcess",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysIfTable": {
+    "name": "dellNetSysIfTable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetSysIfEntry": {
+    "name": "dellNetSysIfEntry",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysIfType": {
+    "name": "dellNetSysIfType",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetIfType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysIfName": {
+    "name": "dellNetSysIfName",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysIfAdminStatus": {
+    "name": "dellNetSysIfAdminStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysIfOperStatus": {
+    "name": "dellNetSysIfOperStatus",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "portDown": 2,
+          "portProblem": 3,
+          "cardProblem": 4,
+          "cardDown": 5,
+          "notPresent": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysIfXfpRecvPower": {
+    "name": "dellNetSysIfXfpRecvPower",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetHundredthdB",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysIfXfpRecvTemp": {
+    "name": "dellNetSysIfXfpRecvTemp",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysIfXfpTxPower": {
+    "name": "dellNetSysIfXfpTxPower",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.4.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetHundredthdB",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetSysAlarmMibNotifications": {
+    "name": "dellNetSysAlarmMibNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1",
+    "class": "objectidentity"
+  },
+  "dellNetSysAlarmVariable": {
+    "name": "dellNetSysAlarmVariable",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2",
+    "class": "objectidentity"
+  },
+  "dellNetSysAlarmVarInteger": {
+    "name": "dellNetSysAlarmVarInteger",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetSysAlarmVarString": {
+    "name": "dellNetSysAlarmVarString",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetSysAlarmVarSlot": {
+    "name": "dellNetSysAlarmVarSlot",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetSysAlarmVarPort": {
+    "name": "dellNetSysAlarmVarPort",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetSysAlarmVarChassisId": {
+    "name": "dellNetSysAlarmVarChassisId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetsysAlarmVarFanTrayId": {
+    "name": "dellNetsysAlarmVarFanTrayId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetsysAlarmVarPsuId": {
+    "name": "dellNetsysAlarmVarPsuId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetsysAlarmVarFanId": {
+    "name": "dellNetsysAlarmVarFanId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetSysAlarmVarPeId": {
+    "name": "dellNetSysAlarmVarPeId",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetSysAlarmCardDown": {
+    "name": "dellNetSysAlarmCardDown",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmCardUp": {
+    "name": "dellNetSysAlarmCardUp",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmCardOffline": {
+    "name": "dellNetSysAlarmCardOffline",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmCardMismatch": {
+    "name": "dellNetSysAlarmCardMismatch",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmRpmUp": {
+    "name": "dellNetSysAlarmRpmUp",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmRpmDown": {
+    "name": "dellNetSysAlarmRpmDown",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmPowersupplyDown": {
+    "name": "dellNetSysAlarmPowersupplyDown",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMinorTemperatureHigh": {
+    "name": "dellNetSysAlarmMinorTemperatureHigh",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMajorTemperatureHigh": {
+    "name": "dellNetSysAlarmMajorTemperatureHigh",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmFanTrayDown": {
+    "name": "dellNetSysAlarmFanTrayDown",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarFanTrayId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmPowersupplyClear": {
+    "name": "dellNetSysAlarmPowersupplyClear",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarPsuId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMinorTemperatureClear": {
+    "name": "dellNetSysAlarmMinorTemperatureClear",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMajorTemperatureClear": {
+    "name": "dellNetSysAlarmMajorTemperatureClear",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmFanTrayClear": {
+    "name": "dellNetSysAlarmFanTrayClear",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarFanTrayId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMinorFanBadClear": {
+    "name": "dellNetSysAlarmMinorFanBadClear",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarFanTrayId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarFanId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMajorPS": {
+    "name": "dellNetSysAlarmMajorPS",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarPsuId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMajorPSClr": {
+    "name": "dellNetSysAlarmMajorPSClr",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarPsuId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMinorPS": {
+    "name": "dellNetSysAlarmMinorPS",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarPsuId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMinorPSClr": {
+    "name": "dellNetSysAlarmMinorPSClr",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarPsuId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMinorFanBad": {
+    "name": "dellNetSysAlarmMinorFanBad",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarFanTrayId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarFanId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmRpmPrimary": {
+    "name": "dellNetSysAlarmRpmPrimary",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysSnmpIpAclDeny": {
+    "name": "dellNetSysSnmpIpAclDeny",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmCardVersionMismatch": {
+    "name": "dellNetSysAlarmCardVersionMismatch",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmUnsupportedOptic": {
+    "name": "dellNetSysAlarmUnsupportedOptic",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmFanTrayOrPsuDown": {
+    "name": "dellNetSysAlarmFanTrayOrPsuDown",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarFanTrayId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarPsuId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmFanTrayOrPsuClear": {
+    "name": "dellNetSysAlarmFanTrayOrPsuClear",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarFanTrayId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetsysAlarmVarPsuId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmPEUp": {
+    "name": "dellNetSysAlarmPEUp",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmPEDown": {
+    "name": "dellNetSysAlarmPEDown",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmPEUnitUp": {
+    "name": "dellNetSysAlarmPEUnitUp",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmPEUnitDown": {
+    "name": "dellNetSysAlarmPEUnitDown",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmExdCpuThreshold": {
+    "name": "dellNetSysAlarmExdCpuThreshold",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmClrCpuThreshold": {
+    "name": "dellNetSysAlarmClrCpuThreshold",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmExdMemThreshold": {
+    "name": "dellNetSysAlarmExdMemThreshold",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmClrMemThreshold": {
+    "name": "dellNetSysAlarmClrMemThreshold",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmTaskSuspend": {
+    "name": "dellNetSysAlarmTaskSuspend",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmTaskTerm": {
+    "name": "dellNetSysAlarmTaskTerm",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmMacStationMove": {
+    "name": "dellNetSysAlarmMacStationMove",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSysAlarmCardReset": {
+    "name": "dellNetSysAlarmCardReset",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetSysAlarmCardRemove": {
+    "name": "dellNetSysAlarmCardRemove",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetSysAlarmCardProblem": {
+    "name": "dellNetSysAlarmCardProblem",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetSysAlarmCutoff": {
+    "name": "dellNetSysAlarmCutoff",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetSysAlarmSRAMParityErrorDetect": {
+    "name": "dellNetSysAlarmSRAMParityErrorDetect",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetSysAlarmAcDcMixedPowerSupplyDetect": {
+    "name": "dellNetSysAlarmAcDcMixedPowerSupplyDetect",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetSysAlarmVrrpGoMaster": {
+    "name": "dellNetSysAlarmVrrpGoMaster",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetSysAlarmVrrpGiveupMaster": {
+    "name": "dellNetSysAlarmVrrpGiveupMaster",
+    "oid": "1.3.6.1.4.1.6027.3.26.1.5.1.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarInteger"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarString"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarChassisId"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarSlot"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPort"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVarPeId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetChassisMibConformance": {
+    "name": "dellNetChassisMibConformance",
+    "oid": "1.3.6.1.4.1.6027.3.26.2",
+    "class": "objectidentity"
+  },
+  "dellNetChassisMibCompliances": {
+    "name": "dellNetChassisMibCompliances",
+    "oid": "1.3.6.1.4.1.6027.3.26.2.1",
+    "class": "objectidentity"
+  },
+  "dellNetChassisMibGroups": {
+    "name": "dellNetChassisMibGroups",
+    "oid": "1.3.6.1.4.1.6027.3.26.2.2",
+    "class": "objectidentity"
+  },
+  "dellNetChassisMibCompliance": {
+    "name": "dellNetChassisMibCompliance",
+    "oid": "1.3.6.1.4.1.6027.3.26.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dellNetComponentGroup",
+        "module": "DELL-NETWORKING-CHASSIS-MIB"
+      },
+      {
+        "object": "dellNetSystemGroup",
+        "module": "DELL-NETWORKING-CHASSIS-MIB"
+      },
+      {
+        "object": "dellNetChassisNotificationGroup",
+        "module": "DELL-NETWORKING-CHASSIS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetComponentGroup": {
+    "name": "dellNetComponentGroup",
+    "oid": "1.3.6.1.4.1.6027.3.26.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetDeviceType"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSystemGroup": {
+    "name": "dellNetSystemGroup",
+    "oid": "1.3.6.1.4.1.6027.3.26.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorModule"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorUpTime"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetProcessorMemSize"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetCpuUtil5Sec"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetCpuUtil1Min"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetCpuUtil5Min"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetCpuUtilMemUsage"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSwModuleRuntimeImgVersion"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSwModuleRuntimeImgDate"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSwModuleBootFlashImgVersion"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSwModuleBootSelectorImgVersion"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSwModuleNextRebootImage"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSwModuleCurrentBootImage"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSwModuleInPartitionAImgVers"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSwModuleInPartitionBImgVers"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerSupplyOperStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerSupplyType"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerSupplyPiecePartID"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerSupplyPPIDRevision"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerSupplyServiceTag"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerSupplyExpressServiceCode"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetPowerSupplyUsage"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetFanTrayOperStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetFanTrayPiecePartID"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetFanTrayPPIDRevision"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetFanTrayServiceTag"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetFanTrayExpressServiceCode"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetChassisNotificationGroup": {
+    "name": "dellNetChassisNotificationGroup",
+    "oid": "1.3.6.1.4.1.6027.3.26.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCardDown"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCardUp"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCardOffline"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCardMismatch"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmRpmUp"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmRpmDown"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmPowersupplyDown"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMinorTemperatureHigh"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMajorTemperatureHigh"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmFanTrayDown"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmPowersupplyClear"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMinorTemperatureClear"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMajorTemperatureClear"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmFanTrayClear"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMinorFanBadClear"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMajorPS"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMajorPSClr"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMinorPS"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMinorPSClr"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMinorFanBad"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmRpmPrimary"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysSnmpIpAclDeny"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCardVersionMismatch"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmUnsupportedOptic"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmPEUnitUp"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmPEUnitDown"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmPEUp"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmPEDown"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmExdCpuThreshold"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmClrCpuThreshold"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmExdMemThreshold"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmClrMemThreshold"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmTaskSuspend"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmTaskTerm"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmMacStationMove"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCardReset"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCardRemove"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCardProblem"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmCutoff"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmSRAMParityErrorDetect"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmAcDcMixedPowerSupplyDetect"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVrrpGoMaster"
+      },
+      {
+        "module": "DELL-NETWORKING-CHASSIS-MIB",
+        "object": "dellNetSysAlarmVrrpGiveupMaster"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-CHASSIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-NETWORKING-CHASSIS-MIB"
+  }
+}

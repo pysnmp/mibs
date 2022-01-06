@@ -1,0 +1,480 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoFtpClientMIB": {
+    "name": "ciscoFtpClientMIB",
+    "oid": "1.3.6.1.4.1.9.9.80",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-31 00:00",
+        "description": "Updated the imports such that Unsigned32 is imported from SNMPv2-SMI instead of CISCO-TC."
+      },
+      {
+        "revision": "1997-10-09 17:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ciscoFtpClientMIBObjects": {
+    "name": "ciscoFtpClientMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.80.1",
+    "class": "objectidentity"
+  },
+  "cfcRequest": {
+    "name": "cfcRequest",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1",
+    "class": "objectidentity"
+  },
+  "cfcRequestMaximum": {
+    "name": "cfcRequestMaximum",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfcRequests": {
+    "name": "cfcRequests",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcRequestsHigh": {
+    "name": "cfcRequestsHigh",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcRequestsBumped": {
+    "name": "cfcRequestsBumped",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcRequestTable": {
+    "name": "cfcRequestTable",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcRequestEntry": {
+    "name": "cfcRequestEntry",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcRequestIndex": {
+    "name": "cfcRequestIndex",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcRequestOperation": {
+    "name": "cfcRequestOperation",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "putBinary": 1,
+          "putASCII": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "putBinary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfcRequestLocalFile": {
+    "name": "cfcRequestLocalFile",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfcRequestRemoteFile": {
+    "name": "cfcRequestRemoteFile",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfcRequestServer": {
+    "name": "cfcRequestServer",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfcRequestUser": {
+    "name": "cfcRequestUser",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfcRequestPassword": {
+    "name": "cfcRequestPassword",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfcRequestResult": {
+    "name": "cfcRequestResult",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "success": 2,
+          "aborted": 3,
+          "fileOpenFailLocal": 4,
+          "fileOpenFailRemote": 5,
+          "badDomainName": 6,
+          "unreachableIpAddress": 7,
+          "linkFailed": 8,
+          "fileReadFailed": 9,
+          "fileWriteFailed": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcRequestCompletionTime": {
+    "name": "cfcRequestCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcRequestStop": {
+    "name": "cfcRequestStop",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "stop": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cfcRequestOperationState": {
+    "name": "cfcRequestOperationState",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "stopping": 2,
+          "stopped": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcRequestEntryStatus": {
+    "name": "cfcRequestEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.80.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFtpClientMIBConformance": {
+    "name": "ciscoFtpClientMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.80.3",
+    "class": "objectidentity"
+  },
+  "ciscoFtpClientMIBCompliances": {
+    "name": "ciscoFtpClientMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.80.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoFtpClientMIBGroups": {
+    "name": "ciscoFtpClientMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.80.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoFtpClientMIBCompliance": {
+    "name": "ciscoFtpClientMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.80.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFtpClientRequestGroup",
+        "module": "CISCO-FTP-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFtpClientRequestGroup": {
+    "name": "ciscoFtpClientRequestGroup",
+    "oid": "1.3.6.1.4.1.9.9.80.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestMaximum"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequests"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestsHigh"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestsBumped"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestOperation"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestLocalFile"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestRemoteFile"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestServer"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestUser"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestPassword"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestResult"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestCompletionTime"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestStop"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestOperationState"
+      },
+      {
+        "module": "CISCO-FTP-CLIENT-MIB",
+        "object": "cfcRequestEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FTP-CLIENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FTP-CLIENT-MIB"
+  }
+}

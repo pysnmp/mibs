@@ -1,0 +1,3526 @@
+{
+  "imports": {
+    "class": "imports",
+    "HC-PerfHist-TC-MIB": [
+      "HCPerfValidIntervals",
+      "HCPerfCurrentCount",
+      "HCPerfIntervalThreshold",
+      "HCPerfTimeElapsed",
+      "HCPerfInvalidIntervals",
+      "HCPerfIntervalCount"
+    ],
+    "HCNUM-TC": [
+      "ZeroBasedCounter64"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "transmission",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "vdslMIB": {
+    "name": "vdslMIB",
+    "oid": "1.3.6.1.2.1.10.97",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-19 00:00",
+        "description": "Initial version, published as RFC 3728."
+      }
+    ]
+  },
+  "vdslLineMib": {
+    "name": "vdslLineMib",
+    "oid": "1.3.6.1.2.1.10.97.1",
+    "class": "objectidentity"
+  },
+  "vdslMibObjects": {
+    "name": "vdslMibObjects",
+    "oid": "1.3.6.1.2.1.10.97.1.1",
+    "class": "objectidentity"
+  },
+  "VdslLineCodingType": {
+    "name": "VdslLineCodingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mcm": 2,
+          "scm": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VdslLineEntity": {
+    "name": "VdslLineEntity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vtuc": 1,
+          "vtur": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "vdslLineTable": {
+    "name": "vdslLineTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslLineEntry": {
+    "name": "vdslLineEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslLineCoding": {
+    "name": "vdslLineCoding",
+    "oid": "1.3.6.1.2.1.10.97.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VdslLineCodingType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslLineType": {
+    "name": "vdslLineType",
+    "oid": "1.3.6.1.2.1.10.97.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noChannel": 1,
+          "fastOnly": 2,
+          "interleavedOnly": 3,
+          "fastOrInterleaved": 4,
+          "fastAndInterleaved": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslLineConfProfile": {
+    "name": "vdslLineConfProfile",
+    "oid": "1.3.6.1.2.1.10.97.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vdslLineAlarmConfProfile": {
+    "name": "vdslLineAlarmConfProfile",
+    "oid": "1.3.6.1.2.1.10.97.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vdslPhysTable": {
+    "name": "vdslPhysTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslPhysEntry": {
+    "name": "vdslPhysEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPhysSide": {
+    "name": "vdslPhysSide",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VdslLineEntity",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslPhysInvSerialNumber": {
+    "name": "vdslPhysInvSerialNumber",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPhysInvVendorID": {
+    "name": "vdslPhysInvVendorID",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPhysInvVersionNumber": {
+    "name": "vdslPhysInvVersionNumber",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPhysCurrSnrMgn": {
+    "name": "vdslPhysCurrSnrMgn",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -127,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPhysCurrAtn": {
+    "name": "vdslPhysCurrAtn",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPhysCurrStatus": {
+    "name": "vdslPhysCurrStatus",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "lossOfFraming": 1,
+        "lossOfSignal": 2,
+        "lossOfPower": 3,
+        "lossOfSignalQuality": 4,
+        "lossOfLink": 5,
+        "dataInitFailure": 6,
+        "configInitFailure": 7,
+        "protocolInitFailure": 8,
+        "noPeerVtuPresent": 9
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPhysCurrOutputPwr": {
+    "name": "vdslPhysCurrOutputPwr",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "units": "0.1dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPhysCurrAttainableRate": {
+    "name": "vdslPhysCurrAttainableRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPhysCurrLineRate": {
+    "name": "vdslPhysCurrLineRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanTable": {
+    "name": "vdslChanTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslChanEntry": {
+    "name": "vdslChanEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslChanInterleaveDelay": {
+    "name": "vdslChanInterleaveDelay",
+    "oid": "1.3.6.1.2.1.10.97.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCrcBlockLength": {
+    "name": "vdslChanCrcBlockLength",
+    "oid": "1.3.6.1.2.1.10.97.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurrTxRate": {
+    "name": "vdslChanCurrTxRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurrTxSlowBurstProtect": {
+    "name": "vdslChanCurrTxSlowBurstProtect",
+    "oid": "1.3.6.1.2.1.10.97.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1275
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurrTxFastFec": {
+    "name": "vdslChanCurrTxFastFec",
+    "oid": "1.3.6.1.2.1.10.97.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataTable": {
+    "name": "vdslPerfDataTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslPerfDataEntry": {
+    "name": "vdslPerfDataEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerfDataValidIntervals": {
+    "name": "vdslPerfDataValidIntervals",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataInvalidIntervals": {
+    "name": "vdslPerfDataInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataLofs": {
+    "name": "vdslPerfDataLofs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataLoss": {
+    "name": "vdslPerfDataLoss",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataLprs": {
+    "name": "vdslPerfDataLprs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataLols": {
+    "name": "vdslPerfDataLols",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataESs": {
+    "name": "vdslPerfDataESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataSESs": {
+    "name": "vdslPerfDataSESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataUASs": {
+    "name": "vdslPerfDataUASs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataInits": {
+    "name": "vdslPerfDataInits",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinTimeElapsed": {
+    "name": "vdslPerfDataCurr15MinTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinLofs": {
+    "name": "vdslPerfDataCurr15MinLofs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinLoss": {
+    "name": "vdslPerfDataCurr15MinLoss",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinLprs": {
+    "name": "vdslPerfDataCurr15MinLprs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinLols": {
+    "name": "vdslPerfDataCurr15MinLols",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinESs": {
+    "name": "vdslPerfDataCurr15MinESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinSESs": {
+    "name": "vdslPerfDataCurr15MinSESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinUASs": {
+    "name": "vdslPerfDataCurr15MinUASs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr15MinInits": {
+    "name": "vdslPerfDataCurr15MinInits",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfData1DayValidIntervals": {
+    "name": "vdslPerfData1DayValidIntervals",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfData1DayInvalidIntervals": {
+    "name": "vdslPerfData1DayInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DayTimeElapsed": {
+    "name": "vdslPerfDataCurr1DayTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DayLofs": {
+    "name": "vdslPerfDataCurr1DayLofs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DayLoss": {
+    "name": "vdslPerfDataCurr1DayLoss",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DayLprs": {
+    "name": "vdslPerfDataCurr1DayLprs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DayLols": {
+    "name": "vdslPerfDataCurr1DayLols",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DayESs": {
+    "name": "vdslPerfDataCurr1DayESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DaySESs": {
+    "name": "vdslPerfDataCurr1DaySESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DayUASs": {
+    "name": "vdslPerfDataCurr1DayUASs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfDataCurr1DayInits": {
+    "name": "vdslPerfDataCurr1DayInits",
+    "oid": "1.3.6.1.2.1.10.97.1.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfIntervalTable": {
+    "name": "vdslPerfIntervalTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslPerfIntervalEntry": {
+    "name": "vdslPerfIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerfIntervalNumber": {
+    "name": "vdslPerfIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslPerfIntervalLofs": {
+    "name": "vdslPerfIntervalLofs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfIntervalLoss": {
+    "name": "vdslPerfIntervalLoss",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfIntervalLprs": {
+    "name": "vdslPerfIntervalLprs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfIntervalLols": {
+    "name": "vdslPerfIntervalLols",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfIntervalESs": {
+    "name": "vdslPerfIntervalESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfIntervalSESs": {
+    "name": "vdslPerfIntervalSESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfIntervalUASs": {
+    "name": "vdslPerfIntervalUASs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerfIntervalInits": {
+    "name": "vdslPerfIntervalInits",
+    "oid": "1.3.6.1.2.1.10.97.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalTable": {
+    "name": "vdslPerf1DayIntervalTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalEntry": {
+    "name": "vdslPerf1DayIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalNumber": {
+    "name": "vdslPerf1DayIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalMoniSecs": {
+    "name": "vdslPerf1DayIntervalMoniSecs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalLofs": {
+    "name": "vdslPerf1DayIntervalLofs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalLoss": {
+    "name": "vdslPerf1DayIntervalLoss",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalLprs": {
+    "name": "vdslPerf1DayIntervalLprs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalLols": {
+    "name": "vdslPerf1DayIntervalLols",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalESs": {
+    "name": "vdslPerf1DayIntervalESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalSESs": {
+    "name": "vdslPerf1DayIntervalSESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalUASs": {
+    "name": "vdslPerf1DayIntervalUASs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslPerf1DayIntervalInits": {
+    "name": "vdslPerf1DayIntervalInits",
+    "oid": "1.3.6.1.2.1.10.97.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanPerfDataTable": {
+    "name": "vdslChanPerfDataTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslChanPerfDataEntry": {
+    "name": "vdslChanPerfDataEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslChanValidIntervals": {
+    "name": "vdslChanValidIntervals",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanInvalidIntervals": {
+    "name": "vdslChanInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanFixedOctets": {
+    "name": "vdslChanFixedOctets",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanBadBlks": {
+    "name": "vdslChanBadBlks",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurr15MinTimeElapsed": {
+    "name": "vdslChanCurr15MinTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurr15MinFixedOctets": {
+    "name": "vdslChanCurr15MinFixedOctets",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurr15MinBadBlks": {
+    "name": "vdslChanCurr15MinBadBlks",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChan1DayValidIntervals": {
+    "name": "vdslChan1DayValidIntervals",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChan1DayInvalidIntervals": {
+    "name": "vdslChan1DayInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurr1DayTimeElapsed": {
+    "name": "vdslChanCurr1DayTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurr1DayFixedOctets": {
+    "name": "vdslChanCurr1DayFixedOctets",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanCurr1DayBadBlks": {
+    "name": "vdslChanCurr1DayBadBlks",
+    "oid": "1.3.6.1.2.1.10.97.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanIntervalTable": {
+    "name": "vdslChanIntervalTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslChanIntervalEntry": {
+    "name": "vdslChanIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslChanIntervalNumber": {
+    "name": "vdslChanIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.97.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslChanIntervalFixedOctets": {
+    "name": "vdslChanIntervalFixedOctets",
+    "oid": "1.3.6.1.2.1.10.97.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChanIntervalBadBlks": {
+    "name": "vdslChanIntervalBadBlks",
+    "oid": "1.3.6.1.2.1.10.97.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChan1DayIntervalTable": {
+    "name": "vdslChan1DayIntervalTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslChan1DayIntervalEntry": {
+    "name": "vdslChan1DayIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysSide",
+        "implied": 0
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChan1DayIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslChan1DayIntervalNumber": {
+    "name": "vdslChan1DayIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.97.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslChan1DayIntervalMoniSecs": {
+    "name": "vdslChan1DayIntervalMoniSecs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChan1DayIntervalFixedOctets": {
+    "name": "vdslChan1DayIntervalFixedOctets",
+    "oid": "1.3.6.1.2.1.10.97.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslChan1DayIntervalBadBlks": {
+    "name": "vdslChan1DayIntervalBadBlks",
+    "oid": "1.3.6.1.2.1.10.97.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vdslLineConfProfileTable": {
+    "name": "vdslLineConfProfileTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslLineConfProfileEntry": {
+    "name": "vdslLineConfProfileEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslLineConfProfileName": {
+    "name": "vdslLineConfProfileName",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslLineConfDownRateMode": {
+    "name": "vdslLineConfDownRateMode",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "adaptAtInit": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "adaptAtInit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpRateMode": {
+    "name": "vdslLineConfUpRateMode",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "adaptAtInit": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "adaptAtInit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownMaxPwr": {
+    "name": "vdslLineConfDownMaxPwr",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 58
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpMaxPwr": {
+    "name": "vdslLineConfUpMaxPwr",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 58
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownMaxSnrMgn": {
+    "name": "vdslLineConfDownMaxSnrMgn",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownMinSnrMgn": {
+    "name": "vdslLineConfDownMinSnrMgn",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownTargetSnrMgn": {
+    "name": "vdslLineConfDownTargetSnrMgn",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpMaxSnrMgn": {
+    "name": "vdslLineConfUpMaxSnrMgn",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpMinSnrMgn": {
+    "name": "vdslLineConfUpMinSnrMgn",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpTargetSnrMgn": {
+    "name": "vdslLineConfUpTargetSnrMgn",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "0.25dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownFastMaxDataRate": {
+    "name": "vdslLineConfDownFastMaxDataRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownFastMinDataRate": {
+    "name": "vdslLineConfDownFastMinDataRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownSlowMaxDataRate": {
+    "name": "vdslLineConfDownSlowMaxDataRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownSlowMinDataRate": {
+    "name": "vdslLineConfDownSlowMinDataRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpFastMaxDataRate": {
+    "name": "vdslLineConfUpFastMaxDataRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpFastMinDataRate": {
+    "name": "vdslLineConfUpFastMinDataRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpSlowMaxDataRate": {
+    "name": "vdslLineConfUpSlowMaxDataRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpSlowMinDataRate": {
+    "name": "vdslLineConfUpSlowMinDataRate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownRateRatio": {
+    "name": "vdslLineConfDownRateRatio",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpRateRatio": {
+    "name": "vdslLineConfUpRateRatio",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownMaxInterDelay": {
+    "name": "vdslLineConfDownMaxInterDelay",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpMaxInterDelay": {
+    "name": "vdslLineConfUpMaxInterDelay",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownPboControl": {
+    "name": "vdslLineConfDownPboControl",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto": 2,
+          "manual": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpPboControl": {
+    "name": "vdslLineConfUpPboControl",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto": 2,
+          "manual": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownPboLevel": {
+    "name": "vdslLineConfDownPboLevel",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "units": "0.25dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpPboLevel": {
+    "name": "vdslLineConfUpPboLevel",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "units": "0.25dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDeploymentScenario": {
+    "name": "vdslLineConfDeploymentScenario",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fttCab": 1,
+          "fttEx": 2,
+          "other": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fttCab",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfAdslPresence": {
+    "name": "vdslLineConfAdslPresence",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "adslOverPots": 2,
+          "adslOverISDN": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfApplicableStandard": {
+    "name": "vdslLineConfApplicableStandard",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ansi": 1,
+          "etsi": 2,
+          "itu": 3,
+          "other": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ansi",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfBandPlan": {
+    "name": "vdslLineConfBandPlan",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bandPlan997": 1,
+          "bandPlan998": 2,
+          "bandPlanFx": 3,
+          "other": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bandPlan997",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfBandPlanFx": {
+    "name": "vdslLineConfBandPlanFx",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3750,
+            "max": 12000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3750,
+        "format": "decimal"
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfBandOptUsage": {
+    "name": "vdslLineConfBandOptUsage",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 1,
+          "upstream": 2,
+          "downstream": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unused",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpPsdTemplate": {
+    "name": "vdslLineConfUpPsdTemplate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "templateMask1": 1,
+          "templateMask2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "templateMask1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownPsdTemplate": {
+    "name": "vdslLineConfDownPsdTemplate",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "templateMask1": 1,
+          "templateMask2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "templateMask1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfHamBandMask": {
+    "name": "vdslLineConfHamBandMask",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "customNotch1": 0,
+        "customNotch2": 1,
+        "amateurBand30m": 2,
+        "amateurBand40m": 3,
+        "amateurBand80m": 4,
+        "amateurBand160m": 5
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfCustomNotch1Start": {
+    "name": "vdslLineConfCustomNotch1Start",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfCustomNotch1Stop": {
+    "name": "vdslLineConfCustomNotch1Stop",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfCustomNotch2Start": {
+    "name": "vdslLineConfCustomNotch2Start",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfCustomNotch2Stop": {
+    "name": "vdslLineConfCustomNotch2Stop",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownTargetSlowBurst": {
+    "name": "vdslLineConfDownTargetSlowBurst",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1275
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpTargetSlowBurst": {
+    "name": "vdslLineConfUpTargetSlowBurst",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1275
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfDownMaxFastFec": {
+    "name": "vdslLineConfDownMaxFastFec",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfUpMaxFastFec": {
+    "name": "vdslLineConfUpMaxFastFec",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfLineType": {
+    "name": "vdslLineConfLineType",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noChannel": 1,
+          "fastOnly": 2,
+          "interleavedOnly": 3,
+          "fastOrInterleaved": 4,
+          "fastAndInterleaved": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noChannel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineConfProfRowStatus": {
+    "name": "vdslLineConfProfRowStatus",
+    "oid": "1.3.6.1.2.1.10.97.1.1.11.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfProfileTable": {
+    "name": "vdslLineAlarmConfProfileTable",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslLineAlarmConfProfileEntry": {
+    "name": "vdslLineAlarmConfProfileEntry",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vdslLineAlarmConfProfileName": {
+    "name": "vdslLineAlarmConfProfileName",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vdslLineAlarmConfThresh15MinLofs": {
+    "name": "vdslLineAlarmConfThresh15MinLofs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfThresh15MinLoss": {
+    "name": "vdslLineAlarmConfThresh15MinLoss",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfThresh15MinLprs": {
+    "name": "vdslLineAlarmConfThresh15MinLprs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfThresh15MinLols": {
+    "name": "vdslLineAlarmConfThresh15MinLols",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfThresh15MinESs": {
+    "name": "vdslLineAlarmConfThresh15MinESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfThresh15MinSESs": {
+    "name": "vdslLineAlarmConfThresh15MinSESs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfThresh15MinUASs": {
+    "name": "vdslLineAlarmConfThresh15MinUASs",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfInitFailure": {
+    "name": "vdslLineAlarmConfInitFailure",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslLineAlarmConfProfRowStatus": {
+    "name": "vdslLineAlarmConfProfRowStatus",
+    "oid": "1.3.6.1.2.1.10.97.1.1.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vdslNotifications": {
+    "name": "vdslNotifications",
+    "oid": "1.3.6.1.2.1.10.97.1.0",
+    "class": "objectidentity"
+  },
+  "vdslPerfLofsThreshNotification": {
+    "name": "vdslPerfLofsThreshNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinLofs"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerfLossThreshNotification": {
+    "name": "vdslPerfLossThreshNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinLoss"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerfLprsThreshNotification": {
+    "name": "vdslPerfLprsThreshNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinLprs"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerfLolsThreshNotification": {
+    "name": "vdslPerfLolsThreshNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinLols"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerfESsThreshNotification": {
+    "name": "vdslPerfESsThreshNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinESs"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerfSESsThreshNotification": {
+    "name": "vdslPerfSESsThreshNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinSESs"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslPerfUASsThreshNotification": {
+    "name": "vdslPerfUASsThreshNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslDownMaxSnrMgnNotification": {
+    "name": "vdslDownMaxSnrMgnNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrSnrMgn"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslDownMinSnrMgnNotification": {
+    "name": "vdslDownMinSnrMgnNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrSnrMgn"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslUpMaxSnrMgnNotification": {
+    "name": "vdslUpMaxSnrMgnNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrSnrMgn"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslUpMinSnrMgnNotification": {
+    "name": "vdslUpMinSnrMgnNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrSnrMgn"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslInitFailureNotification": {
+    "name": "vdslInitFailureNotification",
+    "oid": "1.3.6.1.2.1.10.97.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslConformance": {
+    "name": "vdslConformance",
+    "oid": "1.3.6.1.2.1.10.97.1.3",
+    "class": "objectidentity"
+  },
+  "vdslGroups": {
+    "name": "vdslGroups",
+    "oid": "1.3.6.1.2.1.10.97.1.3.1",
+    "class": "objectidentity"
+  },
+  "vdslCompliances": {
+    "name": "vdslCompliances",
+    "oid": "1.3.6.1.2.1.10.97.1.3.2",
+    "class": "objectidentity"
+  },
+  "vdslLineMibCompliance": {
+    "name": "vdslLineMibCompliance",
+    "oid": "1.3.6.1.2.1.10.97.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vdslGroup",
+        "module": "VDSL-LINE-MIB"
+      },
+      {
+        "object": "vdslNotificationGroup",
+        "module": "VDSL-LINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslGroup": {
+    "name": "vdslGroup",
+    "oid": "1.3.6.1.2.1.10.97.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineCoding"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineType"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfProfile"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfProfile"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysInvSerialNumber"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysInvVendorID"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysInvVersionNumber"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrSnrMgn"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrAtn"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrStatus"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrOutputPwr"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrAttainableRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPhysCurrLineRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanInterleaveDelay"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCrcBlockLength"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurrTxRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurrTxSlowBurstProtect"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurrTxFastFec"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataValidIntervals"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataInvalidIntervals"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataLofs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataLoss"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataLprs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataLols"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataSESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataUASs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataInits"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinTimeElapsed"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinLofs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinLoss"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinLprs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinLols"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinSESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinUASs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr15MinInits"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfData1DayValidIntervals"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfData1DayInvalidIntervals"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DayTimeElapsed"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DayLofs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DayLoss"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DayLprs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DayLols"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DayESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DaySESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DayUASs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfDataCurr1DayInits"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalLofs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalLoss"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalLprs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalLols"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalSESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalUASs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfIntervalInits"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalMoniSecs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalLofs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalLoss"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalLprs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalLols"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalSESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalUASs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerf1DayIntervalInits"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanValidIntervals"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanInvalidIntervals"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanFixedOctets"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanBadBlks"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurr15MinTimeElapsed"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurr15MinFixedOctets"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurr15MinBadBlks"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChan1DayValidIntervals"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChan1DayInvalidIntervals"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurr1DayTimeElapsed"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurr1DayFixedOctets"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanCurr1DayBadBlks"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanIntervalFixedOctets"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChanIntervalBadBlks"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChan1DayIntervalMoniSecs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChan1DayIntervalFixedOctets"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslChan1DayIntervalBadBlks"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownRateMode"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpRateMode"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownMaxPwr"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpMaxPwr"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownMaxSnrMgn"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownMinSnrMgn"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownTargetSnrMgn"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpMaxSnrMgn"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpMinSnrMgn"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpTargetSnrMgn"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownFastMaxDataRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownFastMinDataRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownSlowMaxDataRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownSlowMinDataRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpFastMaxDataRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpFastMinDataRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpSlowMaxDataRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpSlowMinDataRate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownRateRatio"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpRateRatio"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownMaxInterDelay"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpMaxInterDelay"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownPboControl"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpPboControl"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownPboLevel"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpPboLevel"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDeploymentScenario"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfAdslPresence"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfApplicableStandard"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfBandPlan"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfBandPlanFx"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfBandOptUsage"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpPsdTemplate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownPsdTemplate"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfHamBandMask"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfCustomNotch1Start"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfCustomNotch1Stop"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfCustomNotch2Start"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfCustomNotch2Stop"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownTargetSlowBurst"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpTargetSlowBurst"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfDownMaxFastFec"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfUpMaxFastFec"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfLineType"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineConfProfRowStatus"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfThresh15MinLofs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfThresh15MinLoss"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfThresh15MinLprs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfThresh15MinLols"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfThresh15MinESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfThresh15MinSESs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfThresh15MinUASs"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfInitFailure"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslLineAlarmConfProfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vdslNotificationGroup": {
+    "name": "vdslNotificationGroup",
+    "oid": "1.3.6.1.2.1.10.97.1.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfLofsThreshNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfLossThreshNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfLprsThreshNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfLolsThreshNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfESsThreshNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfSESsThreshNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslPerfUASsThreshNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslDownMaxSnrMgnNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslDownMinSnrMgnNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslUpMaxSnrMgnNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslUpMinSnrMgnNotification"
+      },
+      {
+        "module": "VDSL-LINE-MIB",
+        "object": "vdslInitFailureNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/VDSL-LINE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VDSL-LINE-MIB"
+  }
+}

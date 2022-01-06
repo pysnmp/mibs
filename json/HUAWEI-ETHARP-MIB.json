@@ -1,0 +1,3533 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "PhysAddress",
+      "MacAddress"
+    ]
+  },
+  "hwEthernetARPMIB": {
+    "name": "hwEthernetARPMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.123",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-07-27 00:00",
+        "description": "MODIFY hwFwdArpAlarmResume"
+      },
+      {
+        "revision": "2017-05-19 15:20",
+        "description": "MODIFY hwEthernetARPLimitExceed"
+      },
+      {
+        "revision": "2017-05-18 15:20",
+        "description": "MODIFY hwEthernetARPLimitExceed"
+      },
+      {
+        "revision": "2017-05-08 15:20",
+        "description": "MODIFY hwEthernetARPLimitExceed,hwEthernetARPLimitExceedResume"
+      },
+      {
+        "revision": "2016-07-01 10:00",
+        "description": "Add hwArpNumberStatisticsTable at 2016-07-01."
+      },
+      {
+        "revision": "2015-12-10 20:57",
+        "description": "Delete default value of hwArpEntryExpireFakeTime and hwArpEntryExpireDetectMode at 2015-12-10."
+      },
+      {
+        "revision": "2015-12-10 10:44",
+        "description": "Add ARP host conflict at 2015-12-10 "
+      },
+      {
+        "revision": "2014-04-23 10:44",
+        "description": "Add ARP remote backup fail trap at 2014-04-23."
+      },
+      {
+        "revision": "2013-09-07 00:00",
+        "description": "Fix the errors checked by a tool."
+      },
+      {
+        "revision": "2006-06-10 00:00",
+        "description": "The initial revision of this MIB module."
+      },
+      {
+        "revision": "2016-11-17 20:50",
+        "description": "ADD hwEthernetARPGateWayDuplicateAlarm, hwEthernetARPGateWayDuplicateAlarmResume"
+      },
+      {
+        "revision": "2016-11-18 16:26",
+        "description": "ADD hwFwdArpAlarmOccur, hwFwdArpAlarmResume"
+      },
+      {
+        "revision": "2016-11-21 16:48",
+        "description": "MODIFY hwEthernetARPGateWayDuplicateAlarm, hwEthernetARPGateWayDuplicateAlarmResume"
+      },
+      {
+        "revision": "2016-11-30 19:19",
+        "description": "MODIFY hwEthernetARPGateWayDuplicateAlarmResume"
+      }
+    ]
+  },
+  "hwEthernetARPObjects": {
+    "name": "hwEthernetARPObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPAntiAttackLog": {
+    "name": "hwEthernetARPAntiAttackLog",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrict": {
+    "name": "hwEthernetARPLearningStrict",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitTable": {
+    "name": "hwEthernetARPSpeedLimitTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitEntry": {
+    "name": "hwEthernetARPSpeedLimitEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitSlot",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitIPType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLimitSlot": {
+    "name": "hwEthernetARPLimitSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPLimitType": {
+    "name": "hwEthernetARPLimitType",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arp": 1,
+          "arpmiss": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPLimitIPType": {
+    "name": "hwEthernetARPLimitIPType",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sourceip": 4,
+          "destinationip": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPLimitSpeedValue": {
+    "name": "hwEthernetARPLimitSpeedValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitIfIndex": {
+    "name": "hwEthernetARPSpeedLimitIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitConfigured": {
+    "name": "hwEthernetARPSpeedLimitConfigured",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitCurrent": {
+    "name": "hwEthernetARPSpeedLimitCurrent",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitType": {
+    "name": "hwEthernetARPSpeedLimitType",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitSrcIPAddr": {
+    "name": "hwEthernetARPSpeedLimitSrcIPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitDstIPAddr": {
+    "name": "hwEthernetARPSpeedLimitDstIPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitVPNinstance": {
+    "name": "hwEthernetARPSpeedLimitVPNinstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPStaticsTable": {
+    "name": "hwEthernetARPStaticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPStaticsEntry": {
+    "name": "hwEthernetARPStaticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPStaticsSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPStaticsSlot": {
+    "name": "hwEthernetARPStaticsSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPStaticsLearnTotal": {
+    "name": "hwEthernetARPStaticsLearnTotal",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPDropForLimit": {
+    "name": "hwEthernetARPDropForLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPDropForARPSuppress": {
+    "name": "hwEthernetARPDropForARPSuppress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPDropForARPMissSuppress": {
+    "name": "hwEthernetARPDropForARPMissSuppress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPDropForOther": {
+    "name": "hwEthernetARPDropForOther",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPMissDropForOther": {
+    "name": "hwEthernetARPMissDropForOther",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPRcvNum": {
+    "name": "hwEthernetARPRcvNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPMissRcvNum": {
+    "name": "hwEthernetARPMissRcvNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPStaticsOperation": {
+    "name": "hwEthernetARPStaticsOperation",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEthernetARPDropForARPProxySuppress": {
+    "name": "hwEthernetARPDropForARPProxySuppress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthARPShowWithInterAndVidTable": {
+    "name": "hwEthARPShowWithInterAndVidTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthARPShowWithInterAndVidEntry": {
+    "name": "hwEthARPShowWithInterAndVidEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPShowIfindex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPShowVid",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthARPShowIfindex": {
+    "name": "hwEthARPShowIfindex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthARPShowVid": {
+    "name": "hwEthARPShowVid",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthARPIpAddr": {
+    "name": "hwEthARPIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthARPMacAddr": {
+    "name": "hwEthARPMacAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthARPLimitTable": {
+    "name": "hwEthARPLimitTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthARPLimitEntry": {
+    "name": "hwEthARPLimitEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPLimitCfgIfindex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPVLANFirst",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPVLANLast",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthARPLimitCfgIfindex": {
+    "name": "hwEthARPLimitCfgIfindex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthARPVLANFirst": {
+    "name": "hwEthARPVLANFirst",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthARPVLANLast": {
+    "name": "hwEthARPVLANLast",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthARPLimitNum": {
+    "name": "hwEthARPLimitNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEthARPLimitRowStatus": {
+    "name": "hwEthARPLimitRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictInterfaceTable": {
+    "name": "hwEthernetARPLearningStrictInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictInterfaceEntry": {
+    "name": "hwEthernetARPLearningStrictInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrictIfindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictIfindex": {
+    "name": "hwEthernetARPLearningStrictIfindex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictState": {
+    "name": "hwEthernetARPLearningStrictState",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceEnable": 1,
+          "forceDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictRowStatus": {
+    "name": "hwEthernetARPLearningStrictRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpLinkInterfaceTable": {
+    "name": "hwArpLinkInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpLinkInterfaceEntry": {
+    "name": "hwArpLinkInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpLinkIfIndex": {
+    "name": "hwArpLinkIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpLinkPeerIp": {
+    "name": "hwArpLinkPeerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpLinkDetectTime": {
+    "name": "hwArpLinkDetectTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 200,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpLinkDetectTimes": {
+    "name": "hwArpLinkDetectTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpLinkDetectMode": {
+    "name": "hwArpLinkDetectMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loose": 1,
+          "strict": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "strict",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpLinkStatus": {
+    "name": "hwArpLinkStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpLinkRowStatus": {
+    "name": "hwArpLinkRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpEntryExpireControlTable": {
+    "name": "hwArpEntryExpireControlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpEntryExpireControlEntry": {
+    "name": "hwArpEntryExpireControlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpEntryExpireIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpEntryExpireIfIndex": {
+    "name": "hwArpEntryExpireIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpEntryExpireDetectMode": {
+    "name": "hwArpEntryExpireDetectMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "unicast": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwArpEntryExpireFakeTime": {
+    "name": "hwArpEntryExpireFakeTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 36000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwArpDynTable": {
+    "name": "hwArpDynTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpDynEntry": {
+    "name": "hwArpDynEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynIpAdd",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynVrf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpDynIfIndex": {
+    "name": "hwArpDynIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpDynIpAdd": {
+    "name": "hwArpDynIpAdd",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpDynVrf": {
+    "name": "hwArpDynVrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpDynMacAdd": {
+    "name": "hwArpDynMacAdd",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpDynVlanId": {
+    "name": "hwArpDynVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpDynCeVlanId": {
+    "name": "hwArpDynCeVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpDynOutIfIndex": {
+    "name": "hwArpDynOutIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpDynExpireTime": {
+    "name": "hwArpDynExpireTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpCfgTable": {
+    "name": "hwArpCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpCfgEntry": {
+    "name": "hwArpCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgIpAdd",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgVrf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpCfgIpAdd": {
+    "name": "hwArpCfgIpAdd",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpCfgMacAdd": {
+    "name": "hwArpCfgMacAdd",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpCfgVrf": {
+    "name": "hwArpCfgVrf",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpCfgVlanId": {
+    "name": "hwArpCfgVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpCfgCeVlanId": {
+    "name": "hwArpCfgCeVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpCfgOutIfIndex": {
+    "name": "hwArpCfgOutIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpCfgRowstatus": {
+    "name": "hwArpCfgRowstatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEthernetARPAntiAttackStatus": {
+    "name": "hwEthernetARPAntiAttackStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "fixMac": 1,
+          "fixAll": 2,
+          "sendAck": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPAntiGateWayConflict": {
+    "name": "hwEthernetARPAntiGateWayConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEthernetARPLogAndTrapTimer": {
+    "name": "hwEthernetARPLogAndTrapTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEthernetARPAntiAttackObjects": {
+    "name": "hwEthernetARPAntiAttackObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPAntiAttackIpAddress": {
+    "name": "hwEthernetARPAntiAttackIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPAntiAttackMacAddress": {
+    "name": "hwEthernetARPAntiAttackMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPAntiAttackVlanId": {
+    "name": "hwEthernetARPAntiAttackVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPAntiAttackIfName": {
+    "name": "hwEthernetARPAntiAttackIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpEntryGatewayConflictTable": {
+    "name": "hwArpEntryGatewayConflictTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpEntryGatewayConflictEntry": {
+    "name": "hwArpEntryGatewayConflictEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPAntiGatewayConflictIndex": {
+    "name": "hwEthernetARPAntiGatewayConflictIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPAntiGatewayConflictIpAddress": {
+    "name": "hwEthernetARPAntiGatewayConflictIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPAntiGatewayConflictMacAddress": {
+    "name": "hwEthernetARPAntiGatewayConflictMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPAntiGatewayConflictVlanId": {
+    "name": "hwEthernetARPAntiGatewayConflictVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPAntiGatewayConflictIfName": {
+    "name": "hwEthernetARPAntiGatewayConflictIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpSecValidateTable": {
+    "name": "hwArpSecValidateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpSecValidateEntry": {
+    "name": "hwArpSecValidateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpSecValidateIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpSecValidateIfIndex": {
+    "name": "hwArpSecValidateIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpSecValidateSmac": {
+    "name": "hwArpSecValidateSmac",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpSecValidateDmac": {
+    "name": "hwArpSecValidateDmac",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwArpSecValidateRowStatus": {
+    "name": "hwArpSecValidateRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwARPGratuitousSendTable": {
+    "name": "hwARPGratuitousSendTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwARPGratuitousSendEntry": {
+    "name": "hwARPGratuitousSendEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwARPGratuitousSendIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwARPGratuitousSendIfIndex": {
+    "name": "hwARPGratuitousSendIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwARPGratuitousSendEnable": {
+    "name": "hwARPGratuitousSendEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwARPArpGratuitousSendInterval": {
+    "name": "hwARPArpGratuitousSendInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPThresholdObjects": {
+    "name": "hwEthernetARPThresholdObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.26",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPThresholdValue": {
+    "name": "hwEthernetARPThresholdValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPThresholdDynamicNumber": {
+    "name": "hwEthernetARPThresholdDynamicNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.26.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPThresholdStaticNumber": {
+    "name": "hwEthernetARPThresholdStaticNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.26.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPConflictDetect": {
+    "name": "hwEthernetARPConflictDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwETHARPIPConflictObjects": {
+    "name": "hwETHARPIPConflictObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPIPConflictIPAddress": {
+    "name": "hwEthernetARPIPConflictIPAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictLocalInterfaceName": {
+    "name": "hwEthernetARPIPConflictLocalInterfaceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictLocalMAC": {
+    "name": "hwEthernetARPIPConflictLocalMAC",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictLocalVLAN": {
+    "name": "hwEthernetARPIPConflictLocalVLAN",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictLocalCEVLAN": {
+    "name": "hwEthernetARPIPConflictLocalCEVLAN",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictReceiveInterfaceName": {
+    "name": "hwEthernetARPIPConflictReceiveInterfaceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictReceiveMAC": {
+    "name": "hwEthernetARPIPConflictReceiveMAC",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictReceiveVLAN": {
+    "name": "hwEthernetARPIPConflictReceiveVLAN",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictReceiveCEVLAN": {
+    "name": "hwEthernetARPIPConflictReceiveCEVLAN",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictType": {
+    "name": "hwEthernetARPIPConflictType",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPReceiveDstIPAddr": {
+    "name": "hwEthernetARPReceiveDstIPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPReceiveDstMAC": {
+    "name": "hwEthernetARPReceiveDstMAC",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopTable": {
+    "name": "hwEthernetARPLearnStopTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopEntry": {
+    "name": "hwEthernetARPLearnStopEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopSlot": {
+    "name": "hwEthernetARPLearnStopSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopThreshold": {
+    "name": "hwEthernetARPLearnStopThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpStatisticsTable": {
+    "name": "hwArpStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpStatisticsEntry": {
+    "name": "hwArpStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsSlot",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpStatisticsSlot": {
+    "name": "hwArpStatisticsSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpStatisticsType": {
+    "name": "hwArpStatisticsType",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phy": 1,
+          "ve": 2,
+          "ethTrunk": 3,
+          "vlanif": 4,
+          "phyQinq": 5,
+          "ethTrunkQinq": 6,
+          "veQinq": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpStatisticsLearnedCount": {
+    "name": "hwArpStatisticsLearnedCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpStatisticsAvailableCount": {
+    "name": "hwArpStatisticsAvailableCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPRemoteBackupFailObjects": {
+    "name": "hwEthernetARPRemoteBackupFailObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.31",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPRemoteBackupFailMainIfName": {
+    "name": "hwEthernetARPRemoteBackupFailMainIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.31.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPHostInfoTable": {
+    "name": "hwEthernetARPHostInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPHostInfoEntry": {
+    "name": "hwEthernetARPHostInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPHostIPAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGatewayVNIID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPHostIPAddress": {
+    "name": "hwEthernetARPHostIPAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPGatewayVNIID": {
+    "name": "hwEthernetARPGatewayVNIID",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPHostMAC": {
+    "name": "hwEthernetARPHostMAC",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPGatewayVtepIP": {
+    "name": "hwEthernetARPGatewayVtepIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwArpNumberStatisticsTable": {
+    "name": "hwArpNumberStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpNumberStatisticsEntry": {
+    "name": "hwArpNumberStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpNumberStatisticsSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpNumberStatisticsSlot": {
+    "name": "hwArpNumberStatisticsSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwArpNumberStatic": {
+    "name": "hwArpNumberStatic",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwArpNumberDynamic": {
+    "name": "hwArpNumberDynamic",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.33.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPGateWayDuplicateInfoTable": {
+    "name": "hwEthernetARPGateWayDuplicateInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPGateWayDuplicateInfoEntry": {
+    "name": "hwEthernetARPGateWayDuplicateInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayIfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayPortName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPGateWayIfName": {
+    "name": "hwEthernetARPGateWayIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPGateWayPortName": {
+    "name": "hwEthernetARPGateWayPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPGateWayIP": {
+    "name": "hwEthernetARPGateWayIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.34.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFwdArpSlotName": {
+    "name": "hwFwdArpSlotName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFwdArpPortName": {
+    "name": "hwFwdArpPortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEthernetARPLimitExceedInfoTable": {
+    "name": "hwEthernetARPLimitExceedInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.37",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEthernetARPLimitExceedInfoEntry": {
+    "name": "hwEthernetARPLimitExceedInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.37.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedInterface",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedLimitNumber",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedLearnedNumber",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedRecoverReason",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLimitExceedInterface": {
+    "name": "hwEthernetARPLimitExceedInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.37.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPLimitExceedLimitNumber": {
+    "name": "hwEthernetARPLimitExceedLimitNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.37.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPLimitExceedLearnedNumber": {
+    "name": "hwEthernetARPLimitExceedLearnedNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.37.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPLimitExceedRecoverReason": {
+    "name": "hwEthernetARPLimitExceedRecoverReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.37.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEthernetARPNotifications": {
+    "name": "hwEthernetARPNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPSpeedLimitAlarm": {
+    "name": "hwEthernetARPSpeedLimitAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitIfIndex"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitConfigured"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitCurrent"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitType"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitSrcIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitDstIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitVPNinstance"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPAntiAttackAlarm": {
+    "name": "hwEthernetARPAntiAttackAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackIpAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackMacAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPAntiGatewayConflictAlarm": {
+    "name": "hwEthernetARPAntiGatewayConflictAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIpAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictMacAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPThresholdExceedAlarm": {
+    "name": "hwEthernetARPThresholdExceedAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdDynamicNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdStaticNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPThresholdResumeAlarm": {
+    "name": "hwEthernetARPThresholdResumeAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdDynamicNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdStaticNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictEvent": {
+    "name": "hwEthernetARPIPConflictEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictIPAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPMACIPConflict": {
+    "name": "hwEthernetARPMACIPConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictIPAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPReceiveDstMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPReceiveDstIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPMACIPConflictResolved": {
+    "name": "hwEthernetARPMACIPConflictResolved",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopAlarm": {
+    "name": "hwEthernetARPLearnStopAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopSlot"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLearnResumeAlarm": {
+    "name": "hwEthernetARPLearnResumeAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopSlot"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPRemoteBackupFailAlarm": {
+    "name": "hwEthernetARPRemoteBackupFailAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailMainIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPRemoteBackupFailResumeAlarm": {
+    "name": "hwEthernetARPRemoteBackupFailResumeAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailMainIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPHostIPConflict": {
+    "name": "hwEthernetARPHostIPConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPHostMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGatewayVtepIP"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPHostMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGatewayVtepIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPHostIPConflictResume": {
+    "name": "hwEthernetARPHostIPConflictResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPHostMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGatewayVtepIP"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPHostMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGatewayVtepIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPGateWayDuplicateAlarm": {
+    "name": "hwEthernetARPGateWayDuplicateAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayIfName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayPortName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPGateWayDuplicateAlarmResume": {
+    "name": "hwEthernetARPGateWayDuplicateAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayIfName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayPortName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFwdArpAlarmOccur": {
+    "name": "hwFwdArpAlarmOccur",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwFwdArpSlotName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwFwdArpPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFwdArpAlarmResume": {
+    "name": "hwFwdArpAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwFwdArpSlotName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwFwdArpPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLimitExceed": {
+    "name": "hwEthernetARPLimitExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedInterface"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedLimitNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedLearnedNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLimitExceedResume": {
+    "name": "hwEthernetARPLimitExceedResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedInterface"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedLimitNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedLearnedNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedRecoverReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPConformance": {
+    "name": "hwEthernetARPConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPGroups": {
+    "name": "hwEthernetARPGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPCompliances": {
+    "name": "hwEthernetARPCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.2",
+    "class": "objectidentity"
+  },
+  "hwFwdArpTrapCompliances": {
+    "name": "hwFwdArpTrapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.3",
+    "class": "objectidentity"
+  },
+  "hwEthernetARPStaticsGroup": {
+    "name": "hwEthernetARPStaticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPStaticsLearnTotal"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForLimit"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForARPSuppress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForARPMissSuppress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForOther"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPMissDropForOther"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRcvNum"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPMissRcvNum"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPStaticsOperation"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForARPProxySuppress"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitGroup": {
+    "name": "hwEthernetARPSpeedLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitSpeedValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthARPShowWithInterAndVidGroup": {
+    "name": "hwEthARPShowWithInterAndVidGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthARPLimitGroup": {
+    "name": "hwEthARPLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPLimitNum"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPLimitRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPBaseGroup": {
+    "name": "hwEthernetARPBaseGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackLog"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrict"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitIfIndex"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitConfigured"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitCurrent"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitType"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitSrcIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitDstIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitVPNinstance"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpSecValidateSmac"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpSecValidateDmac"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpSecValidateRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPNotificationsGroup": {
+    "name": "hwEthernetARPNotificationsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdExceedAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdResumeAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictEvent"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPMACIPConflict"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPMACIPConflictResolved"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnResumeAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailResumeAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPHostIPConflict"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPHostIPConflictResume"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayDuplicateAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPGateWayDuplicateAlarmResume"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceed"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitExceedResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictInterfaceGroup": {
+    "name": "hwEthernetARPLearningStrictInterfaceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrictState"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrictRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpLinkInferaceGroup": {
+    "name": "hwArpLinkInferaceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkPeerIp"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkDetectTime"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkDetectTimes"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkDetectMode"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkStatus"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpEntryExpireControlGroup": {
+    "name": "hwArpEntryExpireControlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpEntryExpireDetectMode"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpEntryExpireFakeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpAntiAttackGroup": {
+    "name": "hwArpAntiAttackGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackStatus"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGateWayConflict"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLogAndTrapTimer"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackIpAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackMacAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackIfName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIpAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictMacAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIfName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynMacAdd"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynCeVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynExpireTime"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgCeVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgRowstatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPThresholdGroup": {
+    "name": "hwEthernetARPThresholdGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdDynamicNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdStaticNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwETHARPIPConflictGroup": {
+    "name": "hwETHARPIPConflictGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictIPAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictType"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPReceiveDstIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPReceiveDstMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPConflictDetect"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopGroup": {
+    "name": "hwEthernetARPLearnStopGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopSlot"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwArpStatisticsGroup": {
+    "name": "hwArpStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsLearnedCount"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsAvailableCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPRemoteBackupFaidGroup": {
+    "name": "hwEthernetARPRemoteBackupFaidGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailMainIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFwdArpObjectGroup": {
+    "name": "hwFwdArpObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwFwdArpSlotName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwFwdArpPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFwdArpTrapGroup": {
+    "name": "hwFwdArpTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.17",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwFwdArpAlarmOccur"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwFwdArpAlarmResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEthernetARPCompliance": {
+    "name": "hwEthernetARPCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwEthernetARPBaseGroup",
+        "module": "HUAWEI-ETHARP-MIB"
+      },
+      {
+        "object": "hwEthernetARPLearningStrictInterfaceGroup",
+        "module": "HUAWEI-ETHARP-MIB"
+      },
+      {
+        "object": "hwArpEntryExpireControlGroup",
+        "module": "HUAWEI-ETHARP-MIB"
+      },
+      {
+        "object": "hwArpAntiAttackGroup",
+        "module": "HUAWEI-ETHARP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFwdArpTrapCompliance": {
+    "name": "hwFwdArpTrapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.3.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwFwdArpObjectGroup",
+        "module": "HUAWEI-ETHARP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ETHARP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-ETHARP-MIB"
+  }
+}

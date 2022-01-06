@@ -1,0 +1,1310 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesNotificationsControlModule"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesNotificationsControlMIB": {
+    "name": "cienaCesNotificationsControlMIB",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2016-10-27 00:00",
+        "description": "Added cienaCesCommandFileCompletedTrapState and cienaCesCommandFileFailedTrapState."
+      },
+      {
+        "revision": "2016-10-07 00:00",
+        "description": "Added cienaCesXcvrUncertifiedTrapState at cienaCesNotificationsControl 73."
+      },
+      {
+        "revision": "2016-03-06 00:00",
+        "description": "Added cienaCesDataplanePortShapingSubscriptionTrapState at cienaCesNotificationsControl 72."
+      },
+      {
+        "revision": "2015-05-06 00:00",
+        "description": "Added cienaCesAlarmCutoffTrapState at cienaCesNotificationsControl 71."
+      },
+      {
+        "revision": "2015-01-07 00:00",
+        "description": "Added cienaCesSyncModuleSlotTrapState at cienaCesNotificationsControl 70."
+      },
+      {
+        "revision": "2014-12-10 00:00",
+        "description": "Added cienaCesSyncInputProtectionUnitTrapState at cienaCesNotificationsControl 68. Added cienaCesSyncInputProtectionGroupTrapState at cienaCesNotificationsControl 69."
+      },
+      {
+        "revision": "2014-02-25 00:00",
+        "description": "Added cienaCesChassisUsbFlashEnableChangeTrapState at cienaCesNotificationsControl 66. Added cienaCesChassisAirFilterTrapState at cienaCesNotificationsControl 67."
+      },
+      {
+        "revision": "2013-12-18 00:00",
+        "description": "Added cienaCesIOMStateChangeTrapState at cienaCesNotificationsControl 61. Added cienaCesIOMBuzzerEnableChangeTrapState at cienaCesNotificationsControl 62. Added cienaCesIOMBuzzerStateChangeTrapState at cienaCesNotificationsControl 63. Added cienaCesIOMAlarmOutputStateChangeTrapState at cienaCesNotificationsControl 64. Added cienaCesIOMAlarmInputStateChangeTrapState at cienaCesNotificationsControl 65."
+      },
+      {
+        "revision": "2013-11-05 00:00",
+        "description": "Added cienaCesCfmDelayVariationFaultTrapState."
+      },
+      {
+        "revision": "2013-10-28 00:00",
+        "description": "Added cienaCesCfmSyntheticLossNearFaultTrapState and cienaCesCfmSyntheticLossFarFaultTrapState for controlling synthetic loss traps"
+      },
+      {
+        "revision": "2011-03-22 00:00",
+        "description": "Initial creation. This module defines the object identifiers to control the notification state for each of the notification or set of notifications defined for CES."
+      }
+    ]
+  },
+  "cienaCesNotificationsControl": {
+    "name": "cienaCesNotificationsControl",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesPortEnhancedLinkTrapState": {
+    "name": "cienaCesPortEnhancedLinkTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortStdLinkTrapState": {
+    "name": "cienaCesPortStdLinkTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortAllTrapState": {
+    "name": "cienaCesPortAllTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesModuleAllModulesTrapState": {
+    "name": "cienaCesModuleAllModulesTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesModuleAllModulesHealthTrapState": {
+    "name": "cienaCesModuleAllModulesHealthTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesModuleSensorTrapState": {
+    "name": "cienaCesModuleSensorTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesModuleHATrapState": {
+    "name": "cienaCesModuleHATrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesModuleProtectionModeTrapState": {
+    "name": "cienaCesModuleProtectionModeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesModulePOSTErrorTrapState": {
+    "name": "cienaCesModulePOSTErrorTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesModuleSwitchFabricDisruptedTrapState": {
+    "name": "cienaCesModuleSwitchFabricDisruptedTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesChassisAllPowerSupplyTrapState": {
+    "name": "cienaCesChassisAllPowerSupplyTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesChassisAllFanTrapState": {
+    "name": "cienaCesChassisAllFanTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesChassisAllFanTrayTrapState": {
+    "name": "cienaCesChassisAllFanTrayTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesChassisAllFanTempTrapState": {
+    "name": "cienaCesChassisAllFanTempTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesChassisHealthTrapState": {
+    "name": "cienaCesChassisHealthTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRapsAlarmTrapState": {
+    "name": "cienaCesRapsAlarmTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesMplsTrapState": {
+    "name": "cienaCesMplsTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCfmFaultTrapState": {
+    "name": "cienaCesCfmFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCfmDelayFaultTrapState": {
+    "name": "cienaCesCfmDelayFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCfmJitterFaultTrapState": {
+    "name": "cienaCesCfmJitterFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCfmFrameLossNearFaultTrapState": {
+    "name": "cienaCesCfmFrameLossNearFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCfmFrameLossFarFaultTrapState": {
+    "name": "cienaCesCfmFrameLossFarFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCfmSyntheticLossNearFaultTrapState": {
+    "name": "cienaCesCfmSyntheticLossNearFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCfmSyntheticLossFarFaultTrapState": {
+    "name": "cienaCesCfmSyntheticLossFarFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPbtFaultTrapState": {
+    "name": "cienaCesPbtFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesBfdTrapState": {
+    "name": "cienaCesBfdTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesIPMgmtInterfaceAddrChangeTrapState": {
+    "name": "cienaCesIPMgmtInterfaceAddrChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesIPMgmtInterfaceGatewayAddrChangeTrapState": {
+    "name": "cienaCesIPMgmtInterfaceGatewayAddrChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDataplaneUcastTrapState": {
+    "name": "cienaCesDataplaneUcastTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDataplaneBcastTrapState": {
+    "name": "cienaCesDataplaneBcastTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDataplaneMcastTrapState": {
+    "name": "cienaCesDataplaneMcastTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrLinkStateChangeTrapState": {
+    "name": "cienaCesPortXcvrLinkStateChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrErrorTrapState": {
+    "name": "cienaCesPortXcvrErrorTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrTempChangeTrapState": {
+    "name": "cienaCesPortXcvrTempChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrVoltageChangeTrapState": {
+    "name": "cienaCesPortXcvrVoltageChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrBiasChangeTrapState": {
+    "name": "cienaCesPortXcvrBiasChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrTxPowerChangeTrapState": {
+    "name": "cienaCesPortXcvrTxPowerChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrRxPowerChangeTrapState": {
+    "name": "cienaCesPortXcvrRxPowerChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrSpeedInfoTrapState": {
+    "name": "cienaCesPortXcvrSpeedInfoTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRstpPortBackupTrapState": {
+    "name": "cienaCesRstpPortBackupTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRstpPortPvstBPduReceivedTrapState": {
+    "name": "cienaCesRstpPortPvstBPduReceivedTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRstpPortSelfLoopTrapState": {
+    "name": "cienaCesRstpPortSelfLoopTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRstpPortOperEdgeTrapState": {
+    "name": "cienaCesRstpPortOperEdgeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRstpPortFlapTrapState": {
+    "name": "cienaCesRstpPortFlapTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesRstpBridgeRootPortLostTrapState": {
+    "name": "cienaCesRstpBridgeRootPortLostTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesFeatureLicenseStatusTrapState": {
+    "name": "cienaCesFeatureLicenseStatusTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesFeatureLicenseInstallErrorTrapState": {
+    "name": "cienaCesFeatureLicenseInstallErrorTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesFileTransferCompletionTrapState": {
+    "name": "cienaCesFileTransferCompletionTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesSwXgradeCompletionTrapState": {
+    "name": "cienaCesSwXgradeCompletionTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesSystemConfigImproperCmdTrapState": {
+    "name": "cienaCesSystemConfigImproperCmdTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesOamLinkEventTrapState": {
+    "name": "cienaCesOamLinkEventTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCfmDelayVariationFaultTrapState": {
+    "name": "cienaCesCfmDelayVariationFaultTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesIOMStateChangeTrapState": {
+    "name": "cienaCesIOMStateChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesIOMBuzzerEnableChangeTrapState": {
+    "name": "cienaCesIOMBuzzerEnableChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesIOMBuzzerStateChangeTrapState": {
+    "name": "cienaCesIOMBuzzerStateChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesIOMAlarmOutputStateChangeTrapState": {
+    "name": "cienaCesIOMAlarmOutputStateChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesIOMAlarmInputStateChangeTrapState": {
+    "name": "cienaCesIOMAlarmInputStateChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesChassisUsbFlashEnableChangeTrapState": {
+    "name": "cienaCesChassisUsbFlashEnableChangeTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesChassisAirFilterTrapState": {
+    "name": "cienaCesChassisAirFilterTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesSyncInputProtectionUnitTrapState": {
+    "name": "cienaCesSyncInputProtectionUnitTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesSyncInputProtectionGroupTrapState": {
+    "name": "cienaCesSyncInputProtectionGroupTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesSyncModuleSlotTrapState": {
+    "name": "cienaCesSyncModuleSlotTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesChassisAlarmCutoffTrapState": {
+    "name": "cienaCesChassisAlarmCutoffTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesDataplanePortShapingSubscriptionTrapState": {
+    "name": "cienaCesDataplanePortShapingSubscriptionTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesPortXcvrUncertifiedTrapState": {
+    "name": "cienaCesPortXcvrUncertifiedTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCommandFileCompletedTrapState": {
+    "name": "cienaCesCommandFileCompletedTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesCommandFileFailedTrapState": {
+    "name": "cienaCesCommandFileFailedTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.2.1.1.1.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-NOTIFICATIONS-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-NOTIFICATIONS-CONTROL"
+  }
+}

@@ -1,0 +1,1071 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString"
+    ]
+  },
+  "hwEnergyMngt": {
+    "name": "hwEnergyMngt",
+    "oid": "1.3.6.1.4.1.2011.6.157",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-21 00:00",
+        "description": "V2.05. Modify the description of hwBoardName and hwBoardType ."
+      },
+      {
+        "revision": "2015-11-11 00:00",
+        "description": "V2.04. Add enum of hwEnergySavingMode:optimal."
+      },
+      {
+        "revision": "2015-05-30 00:00",
+        "description": "V2.03. Add enum of hwEnergySavingMode:optimal. This is a draft version."
+      },
+      {
+        "revision": "2014-01-23 00:00",
+        "description": "V2.02. Add hwEnergyDevId, hwEnergyDevChangeToSleep. This is a draft version."
+      },
+      {
+        "revision": "2011-07-01 00:00",
+        "description": "V0.114. Add hwPoEType, hwPSEPower. Modify FTPC table. This is a draft version."
+      },
+      {
+        "revision": "2011-03-14 15:30",
+        "description": "V0.113, add hwEnergyFtpcIpv4TransMode and hwEnergyFtpcTransMode. This is a draft version."
+      },
+      {
+        "revision": "2011-03-14 00:00",
+        "description": "V0.112, modify hwEnergyFtpcTransFileIpv4Table and hwEnergyFtpcTransFileTable. This is a draft version."
+      },
+      {
+        "revision": "2011-03-10 00:00",
+        "description": "V0.111, add hwEnergyFtpcObjects, including hwEnergyFtpcTransFileIpv4Table and hwEnergyFtpcTransFileTable. This is a draft version."
+      },
+      {
+        "revision": "2011-02-10 00:00",
+        "description": "V0.11, add hwEnergySavingDescReqMode."
+      },
+      {
+        "revision": "2010-08-06 00:00",
+        "description": "V0.10, modify hwBoardIndex."
+      },
+      {
+        "revision": "2010-08-05 00:00",
+        "description": "V0.09, modify hwBoardType."
+      },
+      {
+        "revision": "2010-08-03 00:00",
+        "description": "V0.08, modify watt to milliwatt. Modify enumeration of hwEnergySavingMode. Add boardType and boardDescription."
+      },
+      {
+        "revision": "2010-07-12 00:00",
+        "description": "V0.08, modify hwPowerStatPeriod."
+      },
+      {
+        "revision": "2010-07-07 00:00",
+        "description": "V0.06, modify hwPowerStatPeriod."
+      },
+      {
+        "revision": "2010-06-29 00:00",
+        "description": "V0.05, modify hwEnergySavingMethodEnable value list. Delete hwEnergySavingParameterTable first index 'hwEnergySavingMethodIndex'"
+      },
+      {
+        "revision": "2010-06-23 00:00",
+        "description": "V0.05, modify hwEnergySavingCapabilityMngtEntry, modify hwEnergySavingMethodTable"
+      },
+      {
+        "revision": "2010-06-18 00:00",
+        "description": "V0.04, modify hwEnergySavingCapabilityMngtEntry"
+      },
+      {
+        "revision": "2010-06-17 00:00",
+        "description": "V0.03, modify description for all MIB table"
+      },
+      {
+        "revision": "2010-06-08 00:00",
+        "description": "V0.02, add hwEnergySavingMethodEntry, add hwEnergySavingCapabilityMngt"
+      },
+      {
+        "revision": "2010-05-24 00:00",
+        "description": "V0.01 mib initial"
+      }
+    ]
+  },
+  "hwSysPowerMgnt": {
+    "name": "hwSysPowerMgnt",
+    "oid": "1.3.6.1.4.1.2011.6.157.1",
+    "class": "objectidentity"
+  },
+  "hwPowerConsumption": {
+    "name": "hwPowerConsumption",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPowerStatPeriod": {
+    "name": "hwPowerStatPeriod",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMinutes": 1,
+          "thirtyMinutes": 2,
+          "oneHour": 3,
+          "oneDay": 4,
+          "oneWeek": 5,
+          "oneMonth": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "oneHour",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAveragePower": {
+    "name": "hwAveragePower",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRatedPower": {
+    "name": "hwRatedPower",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwThresholdOfPower": {
+    "name": "hwThresholdOfPower",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCurrentPower": {
+    "name": "hwCurrentPower",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoEType": {
+    "name": "hwPoEType",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pse": 1,
+          "pd": 2,
+          "noPoe": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPSEPower": {
+    "name": "hwPSEPower",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBoardPowerMngt": {
+    "name": "hwBoardPowerMngt",
+    "oid": "1.3.6.1.4.1.2011.6.157.2",
+    "class": "objectidentity"
+  },
+  "hwBoardPowerMngtTable": {
+    "name": "hwBoardPowerMngtTable",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBoardPowerMngtEntry": {
+    "name": "hwBoardPowerMngtEntry",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwBoardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBoardIndex": {
+    "name": "hwBoardIndex",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBoardType": {
+    "name": "hwBoardType",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBoardName": {
+    "name": "hwBoardName",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBoardCurrentPower": {
+    "name": "hwBoardCurrentPower",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBoardRatedPower": {
+    "name": "hwBoardRatedPower",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBoardThresholdOfPower": {
+    "name": "hwBoardThresholdOfPower",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnergySavingMngt": {
+    "name": "hwEnergySavingMngt",
+    "oid": "1.3.6.1.4.1.2011.6.157.3",
+    "class": "objectidentity"
+  },
+  "hwEnergySavingMode": {
+    "name": "hwEnergySavingMode",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "userDefined": 1,
+          "standard": 2,
+          "basic": 3,
+          "deep": 4,
+          "optimal": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnergySavingMethodTable": {
+    "name": "hwEnergySavingMethodTable",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEnergySavingMethodEntry": {
+    "name": "hwEnergySavingMethodEntry",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingMethodIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnergySavingMethodIndex": {
+    "name": "hwEnergySavingMethodIndex",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnergySavingMethodEnable": {
+    "name": "hwEnergySavingMethodEnable",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnergySavingParameterTable": {
+    "name": "hwEnergySavingParameterTable",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEnergySavingParameterEntry": {
+    "name": "hwEnergySavingParameterEntry",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingMethodIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingParameterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnergySavingParameterIndex": {
+    "name": "hwEnergySavingParameterIndex",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnergySavingParameterValue": {
+    "name": "hwEnergySavingParameterValue",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnergySavingCapabilityMngtTable": {
+    "name": "hwEnergySavingCapabilityMngtTable",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEnergySavingCapabilityMngtEntry": {
+    "name": "hwEnergySavingCapabilityMngtEntry",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingCapabilityDescIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnergySavingCapabilityDescIndex": {
+    "name": "hwEnergySavingCapabilityDescIndex",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnergySavingCapabilityDescLanguage": {
+    "name": "hwEnergySavingCapabilityDescLanguage",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnergySavingCapabilityDesc": {
+    "name": "hwEnergySavingCapabilityDesc",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnergySavingDescReqMode": {
+    "name": "hwEnergySavingDescReqMode",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmp": 1,
+          "ftp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnergyFtpcObjects": {
+    "name": "hwEnergyFtpcObjects",
+    "oid": "1.3.6.1.4.1.2011.6.157.4",
+    "class": "objectidentity"
+  },
+  "hwEnergyFtpcTransFileTable": {
+    "name": "hwEnergyFtpcTransFileTable",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEnergyFtpcTransFileEntry": {
+    "name": "hwEnergyFtpcTransFileEntry",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcSetName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnergyFtpcSetName": {
+    "name": "hwEnergyFtpcSetName",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEnergyFtpcSrcAddrType": {
+    "name": "hwEnergyFtpcSrcAddrType",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcSrcAddr": {
+    "name": "hwEnergyFtpcSrcAddr",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcVpnName": {
+    "name": "hwEnergyFtpcVpnName",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcHostAddrType": {
+    "name": "hwEnergyFtpcHostAddrType",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcHostAddr": {
+    "name": "hwEnergyFtpcHostAddr",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcServerPort": {
+    "name": "hwEnergyFtpcServerPort",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 21,
+            "max": 21
+          },
+          {
+            "min": 1025,
+            "max": 55535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcUserName": {
+    "name": "hwEnergyFtpcUserName",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 85
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcPassword": {
+    "name": "hwEnergyFtpcPassword",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcDirectory": {
+    "name": "hwEnergyFtpcDirectory",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcSrcIfName": {
+    "name": "hwEnergyFtpcSrcIfName",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcTransCfgRowStatus": {
+    "name": "hwEnergyFtpcTransCfgRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEnergyFtpcAction": {
+    "name": "hwEnergyFtpcAction",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "put": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnergyFtpcTransMode": {
+    "name": "hwEnergyFtpcTransMode",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2,
+          "tftp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEnergyFtpOperStatus": {
+    "name": "hwEnergyFtpOperStatus",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccess": 2,
+          "opInvalid": 3,
+          "opInvalidProtocol": 4,
+          "opInvalidSourceName": 5,
+          "opInvalidDestName": 6,
+          "opInvalidServerAddress": 7,
+          "opDeviceBusy": 8,
+          "opDeviceError": 9,
+          "opFileOpenError": 10,
+          "opFileTransferError": 11,
+          "opFileChecksumError": 12,
+          "opAuthFail": 13,
+          "opUnknownFailure": 14,
+          "opAbort": 15,
+          "opInvalidSourceAddress": 16,
+          "opInvalidSourceInterface": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEnergyTrapObjects": {
+    "name": "hwEnergyTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.6.157.10",
+    "class": "objectidentity"
+  },
+  "hwEnergyDevId": {
+    "name": "hwEnergyDevId",
+    "oid": "1.3.6.1.4.1.2011.6.157.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEnergyNotification": {
+    "name": "hwEnergyNotification",
+    "oid": "1.3.6.1.4.1.2011.6.157.11",
+    "class": "objectidentity"
+  },
+  "hwEnergyDevChangeToSleep": {
+    "name": "hwEnergyDevChangeToSleep",
+    "oid": "1.3.6.1.4.1.2011.6.157.11.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyDevId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnergyConformance": {
+    "name": "hwEnergyConformance",
+    "oid": "1.3.6.1.4.1.2011.6.157.6",
+    "class": "objectidentity"
+  },
+  "hwEnergyCompliances": {
+    "name": "hwEnergyCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.1",
+    "class": "objectidentity"
+  },
+  "hwEnergyCompliance": {
+    "name": "hwEnergyCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwEnergyFtpcGroup",
+        "module": "HUAWEI-ENERGYMNGT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnergyGroups": {
+    "name": "hwEnergyGroups",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2",
+    "class": "objectidentity"
+  },
+  "hwEnergyFtpcGroup": {
+    "name": "hwEnergyFtpcGroup",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcSrcAddrType"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcSrcAddr"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcVpnName"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcHostAddrType"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcHostAddr"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcServerPort"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcUserName"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcPassword"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcDirectory"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcSrcIfName"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcTransCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSysPowerMgntGroup": {
+    "name": "hwSysPowerMgntGroup",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwThresholdOfPower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwPowerConsumption"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwPowerStatPeriod"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwAveragePower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwRatedPower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwCurrentPower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwPSEPower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwPoEType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnergySavingMngtGroup": {
+    "name": "hwEnergySavingMngtGroup",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingMode"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingMethodIndex"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingParameterIndex"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingCapabilityDescIndex"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingDescReqMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEnergyNotificationGroup": {
+    "name": "hwEnergyNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyDevChangeToSleep"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ENERGYMNGT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-ENERGYMNGT-MIB"
+  }
+}

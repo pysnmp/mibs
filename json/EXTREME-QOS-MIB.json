@@ -1,0 +1,674 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeAgent"
+    ],
+    "EXTREME-VLAN-MIB": [
+      "extremeVlanIfIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeQos": {
+    "name": "extremeQos",
+    "oid": "1.3.6.1.4.1.1916.1.3",
+    "class": "moduleidentity"
+  },
+  "extremeQosCommon": {
+    "name": "extremeQosCommon",
+    "oid": "1.3.6.1.4.1.1916.1.3.1",
+    "class": "objectidentity"
+  },
+  "extremeUnitPaceMode": {
+    "name": "extremeUnitPaceMode",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "normalEthernet": 2,
+          "lowLatency": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "extremeQosMode": {
+    "name": "extremeQosMode",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "extremeQosUnconfigure": {
+    "name": "extremeQosUnconfigure",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "extremeQosProfileTable": {
+    "name": "extremeQosProfileTable",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeQosProfileEntry": {
+    "name": "extremeQosProfileEntry",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-QOS-MIB",
+        "object": "extremeQosProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeQosProfileIndex": {
+    "name": "extremeQosProfileIndex",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeQosProfileName": {
+    "name": "extremeQosProfileName",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeQosProfileMinBw": {
+    "name": "extremeQosProfileMinBw",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeQosProfileMaxBw": {
+    "name": "extremeQosProfileMaxBw",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeQosProfilePriority": {
+    "name": "extremeQosProfilePriority",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "lowHi": 2,
+          "normal": 3,
+          "normalHi": 4,
+          "medium": 5,
+          "mediumHi": 6,
+          "high": 7,
+          "highHi": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeQosProfileRowStatus": {
+    "name": "extremeQosProfileRowStatus",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeQosByVlanMappingTable": {
+    "name": "extremeQosByVlanMappingTable",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeQosByVlanMappingEntry": {
+    "name": "extremeQosByVlanMappingEntry",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-VLAN-MIB",
+        "object": "extremeVlanIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeQosByVlanMappingQosProfileIndex": {
+    "name": "extremeQosByVlanMappingQosProfileIndex",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremePerPortQosTable": {
+    "name": "extremePerPortQosTable",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremePerPortQosEntry": {
+    "name": "extremePerPortQosEntry",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-QOS-MIB",
+        "object": "extremePerPortQosIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremePerPortQosIndex": {
+    "name": "extremePerPortQosIndex",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremePerPortQosMinBw": {
+    "name": "extremePerPortQosMinBw",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremePerPortQosMaxBw": {
+    "name": "extremePerPortQosMaxBw",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremePerPortQosPriority": {
+    "name": "extremePerPortQosPriority",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "lowHi": 2,
+          "normal": 3,
+          "normalHi": 4,
+          "medium": 5,
+          "mediumHi": 6,
+          "high": 7,
+          "highHi": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremePerPortQosRowStatus": {
+    "name": "extremePerPortQosRowStatus",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "extremeQosIngressPriorityTable": {
+    "name": "extremeQosIngressPriorityTable",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeQosIngressPriorityEntry": {
+    "name": "extremeQosIngressPriorityEntry",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-QOS-MIB",
+        "object": "extremeQosIngressPriorityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeQosIngressPriorityIndex": {
+    "name": "extremeQosIngressPriorityIndex",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeQosIngressPriorityName": {
+    "name": "extremeQosIngressPriorityName",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeQosIngressPriorityValue": {
+    "name": "extremeQosIngressPriorityValue",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosProfileTable": {
+    "name": "extremeIQosProfileTable",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeIQosProfileEntry": {
+    "name": "extremeIQosProfileEntry",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-QOS-MIB",
+        "object": "extremeIQosProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeIQosProfileIndex": {
+    "name": "extremeIQosProfileIndex",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosProfileName": {
+    "name": "extremeIQosProfileName",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosProfileMinBwType": {
+    "name": "extremeIQosProfileMinBwType",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "percentage": 1,
+          "kbps": 2,
+          "mbps": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosProfileMinBw": {
+    "name": "extremeIQosProfileMinBw",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosProfileMaxBwType": {
+    "name": "extremeIQosProfileMaxBwType",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "percentage": 1,
+          "kbps": 2,
+          "mbps": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosProfileMaxBw": {
+    "name": "extremeIQosProfileMaxBw",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosProfileRED": {
+    "name": "extremeIQosProfileRED",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosProfileMaxBuf": {
+    "name": "extremeIQosProfileMaxBuf",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeIQosByVlanMappingTable": {
+    "name": "extremeIQosByVlanMappingTable",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeIQosByVlanMappingEntry": {
+    "name": "extremeIQosByVlanMappingEntry",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-VLAN-MIB",
+        "object": "extremeVlanIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeIQosByVlanMappingIQosProfileIndex": {
+    "name": "extremeIQosByVlanMappingIQosProfileIndex",
+    "oid": "1.3.6.1.4.1.1916.1.3.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EXTREME-QOS-MIB"
+  }
+}

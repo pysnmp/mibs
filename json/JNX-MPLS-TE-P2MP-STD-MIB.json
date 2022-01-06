@@ -1,0 +1,1126 @@
+{
+  "imports": {
+    "class": "imports",
+    "DIFFSERV-MIB": [
+      "IndexIntegerNextFree",
+      "IndexInteger"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "JUNIPER-EXPERIMENT-MIB": [
+      "jnxP2mpExperiment"
+    ],
+    "MPLS-LSR-STD-MIB": [
+      "MplsIndexType"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsPathIndexOrZero",
+      "mplsStdMIB"
+    ],
+    "MPLS-TE-STD-MIB": [
+      "mplsTunnelIndex",
+      "mplsTunnelInstance",
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelIngressLSRId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxMplsTeP2mpStdMIB": {
+    "name": "jnxMplsTeP2mpStdMIB",
+    "oid": "1.3.6.1.4.1.2636.5.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-04-17 00:00",
+        "description": "Initial version issued as part of RFC XXXX."
+      }
+    ]
+  },
+  "jnxMplsTeP2mpNotifications": {
+    "name": "jnxMplsTeP2mpNotifications",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.0",
+    "class": "objectidentity"
+  },
+  "jnxMplsTeP2mpScalars": {
+    "name": "jnxMplsTeP2mpScalars",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.1",
+    "class": "objectidentity"
+  },
+  "jnxMplsTeP2mpObjects": {
+    "name": "jnxMplsTeP2mpObjects",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2",
+    "class": "objectidentity"
+  },
+  "jnxMplsTeP2mpConformance": {
+    "name": "jnxMplsTeP2mpConformance",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.3",
+    "class": "objectidentity"
+  },
+  "jnxMplsTeP2mpTunnelConfigured": {
+    "name": "jnxMplsTeP2mpTunnelConfigured",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelActive": {
+    "name": "jnxMplsTeP2mpTunnelActive",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelTotalMaxHops": {
+    "name": "jnxMplsTeP2mpTunnelTotalMaxHops",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelTable": {
+    "name": "jnxMplsTeP2mpTunnelTable",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelEntry": {
+    "name": "jnxMplsTeP2mpTunnelEntry",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelP2mpIntegrity": {
+    "name": "jnxMplsTeP2mpTunnelP2mpIntegrity",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchRole": {
+    "name": "jnxMplsTeP2mpTunnelBranchRole",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notBranch": 1,
+          "branch": 2,
+          "bud": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notBranch",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelP2mpXcIndex": {
+    "name": "jnxMplsTeP2mpTunnelP2mpXcIndex",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelRowStatus": {
+    "name": "jnxMplsTeP2mpTunnelRowStatus",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelStorageType": {
+    "name": "jnxMplsTeP2mpTunnelStorageType",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelSubGroupIDNext": {
+    "name": "jnxMplsTeP2mpTunnelSubGroupIDNext",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexIntegerNextFree",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestTable": {
+    "name": "jnxMplsTeP2mpTunnelDestTable",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestEntry": {
+    "name": "jnxMplsTeP2mpTunnelDestEntry",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestSrcSubGroupOriginType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestSrcSubGroupOrigin",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestSrcSubGroupID",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestSubGroupOriginType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestSubGroupOrigin",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestSubGroupID",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestDestinationType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestDestination",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestSrcSubGroupOriginType": {
+    "name": "jnxMplsTeP2mpTunnelDestSrcSubGroupOriginType",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestSrcSubGroupOrigin": {
+    "name": "jnxMplsTeP2mpTunnelDestSrcSubGroupOrigin",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestSrcSubGroupID": {
+    "name": "jnxMplsTeP2mpTunnelDestSrcSubGroupID",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestSubGroupOriginType": {
+    "name": "jnxMplsTeP2mpTunnelDestSubGroupOriginType",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestSubGroupOrigin": {
+    "name": "jnxMplsTeP2mpTunnelDestSubGroupOrigin",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestSubGroupID": {
+    "name": "jnxMplsTeP2mpTunnelDestSubGroupID",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestDestinationType": {
+    "name": "jnxMplsTeP2mpTunnelDestDestinationType",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestDestination": {
+    "name": "jnxMplsTeP2mpTunnelDestDestination",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestBranchOutSegment": {
+    "name": "jnxMplsTeP2mpTunnelDestBranchOutSegment",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestHopTableIndex": {
+    "name": "jnxMplsTeP2mpTunnelDestHopTableIndex",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestPathInUse": {
+    "name": "jnxMplsTeP2mpTunnelDestPathInUse",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestCHopTableIndex": {
+    "name": "jnxMplsTeP2mpTunnelDestCHopTableIndex",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestARHopTableIndex": {
+    "name": "jnxMplsTeP2mpTunnelDestARHopTableIndex",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestTotalUpTime": {
+    "name": "jnxMplsTeP2mpTunnelDestTotalUpTime",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestInstanceUpTime": {
+    "name": "jnxMplsTeP2mpTunnelDestInstanceUpTime",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestPathChanges": {
+    "name": "jnxMplsTeP2mpTunnelDestPathChanges",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestLastPathChange": {
+    "name": "jnxMplsTeP2mpTunnelDestLastPathChange",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestCreationTime": {
+    "name": "jnxMplsTeP2mpTunnelDestCreationTime",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestStateTransitions": {
+    "name": "jnxMplsTeP2mpTunnelDestStateTransitions",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestDiscontinuityTime": {
+    "name": "jnxMplsTeP2mpTunnelDestDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestAdminStatus": {
+    "name": "jnxMplsTeP2mpTunnelDestAdminStatus",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestOperStatus": {
+    "name": "jnxMplsTeP2mpTunnelDestOperStatus",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "lowerLayerDown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestRowStatus": {
+    "name": "jnxMplsTeP2mpTunnelDestRowStatus",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestStorageType": {
+    "name": "jnxMplsTeP2mpTunnelDestStorageType",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchPerfTable": {
+    "name": "jnxMplsTeP2mpTunnelBranchPerfTable",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchPerfEntry": {
+    "name": "jnxMplsTeP2mpTunnelBranchPerfEntry",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelBranchPerfBranch",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchPerfBranch": {
+    "name": "jnxMplsTeP2mpTunnelBranchPerfBranch",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchPerfPackets": {
+    "name": "jnxMplsTeP2mpTunnelBranchPerfPackets",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchPerfHCPackets": {
+    "name": "jnxMplsTeP2mpTunnelBranchPerfHCPackets",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchPerfErrors": {
+    "name": "jnxMplsTeP2mpTunnelBranchPerfErrors",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchPerfBytes": {
+    "name": "jnxMplsTeP2mpTunnelBranchPerfBytes",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchPerfHCBytes": {
+    "name": "jnxMplsTeP2mpTunnelBranchPerfHCBytes",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelBranchDiscontinuityTime": {
+    "name": "jnxMplsTeP2mpTunnelBranchDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelNotificationEnable": {
+    "name": "jnxMplsTeP2mpTunnelNotificationEnable",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestUp": {
+    "name": "jnxMplsTeP2mpTunnelDestUp",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestAdminStatus"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpTunnelDestDown": {
+    "name": "jnxMplsTeP2mpTunnelDestDown",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestAdminStatus"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpGroups": {
+    "name": "jnxMplsTeP2mpGroups",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.3.1",
+    "class": "objectidentity"
+  },
+  "jnxMplsTeP2mpCompliances": {
+    "name": "jnxMplsTeP2mpCompliances",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.3.2",
+    "class": "objectidentity"
+  },
+  "jnxMplsTeP2mpModuleFullCompliance": {
+    "name": "jnxMplsTeP2mpModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "jnxMplsTeP2mpGeneralGroup",
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "jnxMplsTeP2mpNotifGroup",
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "jnxMplsTeP2mpScalarGroup",
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpModuleReadOnlyCompliance": {
+    "name": "jnxMplsTeP2mpModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "jnxMplsTeP2mpGeneralGroup",
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "jnxMplsTeP2mpScalarGroup",
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB"
+      },
+      {
+        "object": "jnxMplsTeP2mpNotifGroup",
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpGeneralGroup": {
+    "name": "jnxMplsTeP2mpGeneralGroup",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelConfigured"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelActive"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelTotalMaxHops"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelP2mpIntegrity"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelBranchRole"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelP2mpXcIndex"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelRowStatus"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelStorageType"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelSubGroupIDNext"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestBranchOutSegment"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestHopTableIndex"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestPathInUse"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestCHopTableIndex"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestARHopTableIndex"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestTotalUpTime"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestInstanceUpTime"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestPathChanges"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestLastPathChange"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestCreationTime"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestStateTransitions"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestDiscontinuityTime"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestAdminStatus"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestOperStatus"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestRowStatus"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestStorageType"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelBranchPerfPackets"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelBranchPerfHCPackets"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelBranchPerfErrors"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelBranchPerfBytes"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelBranchPerfHCBytes"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelBranchDiscontinuityTime"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpNotifGroup": {
+    "name": "jnxMplsTeP2mpNotifGroup",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestUp"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelDestDown"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMplsTeP2mpScalarGroup": {
+    "name": "jnxMplsTeP2mpScalarGroup",
+    "oid": "1.3.6.1.4.1.2636.5.7.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelConfigured"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelActive"
+      },
+      {
+        "module": "JNX-MPLS-TE-P2MP-STD-MIB",
+        "object": "jnxMplsTeP2mpTunnelTotalMaxHops"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JNX-MPLS-TE-P2MP-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JNX-MPLS-TE-P2MP-STD-MIB"
+  }
+}

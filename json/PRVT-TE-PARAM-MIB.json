@@ -1,0 +1,819 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "PRVT-CR-LDP-MIB": [
+      "mpls"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "prvtTeParamMib": {
+    "name": "prvtTeParamMib",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-12-11 00:00",
+        "description": "changed prvtTeParamAdminGroupName length to 32"
+      },
+      {
+        "revision": "2007-10-25 00:00",
+        "description": "changed ospfOpaqueEngSupport description"
+      },
+      {
+        "revision": "2007-08-10 00:00",
+        "description": "changed object descriptions"
+      },
+      {
+        "revision": "2007-06-08 00:00",
+        "description": "initial version"
+      }
+    ]
+  },
+  "prvtTeParamMibNotifications": {
+    "name": "prvtTeParamMibNotifications",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.0",
+    "class": "objectidentity"
+  },
+  "prvtTeParamMibObjects": {
+    "name": "prvtTeParamMibObjects",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1",
+    "class": "objectidentity"
+  },
+  "prvtTeParamMibConformance": {
+    "name": "prvtTeParamMibConformance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.2",
+    "class": "objectidentity"
+  },
+  "TeLinkBandwidth": {
+    "name": "TeLinkBandwidth",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "prvtTeParamTable": {
+    "name": "prvtTeParamTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtTeParamEntry": {
+    "name": "prvtTeParamEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtTeParamAdminGroupTable": {
+    "name": "prvtTeParamAdminGroupTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtTeParamAdminGroupEntry": {
+    "name": "prvtTeParamAdminGroupEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TE-PARAM-MIB",
+        "object": "prvtTeParamAdminGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ospfOpaqueEngSupport": {
+    "name": "ospfOpaqueEngSupport",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfTeRouterId": {
+    "name": "ospfTeRouterId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ospfTrafficEngSupport": {
+    "name": "ospfTrafficEngSupport",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamLinkAddressType": {
+    "name": "prvtTeParamLinkAddressType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamMetric": {
+    "name": "prvtTeParamMetric",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamLinkType": {
+    "name": "prvtTeParamLinkType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multiAccess": 1,
+          "pointToPoint": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamPhysicalBandwidth": {
+    "name": "prvtTeParamPhysicalBandwidth",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaximumReservableBandwidth": {
+    "name": "prvtTeParamMaximumReservableBandwidth",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaxReservableBandwidthPrio0": {
+    "name": "prvtTeParamMaxReservableBandwidthPrio0",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaxReservableBandwidthPrio1": {
+    "name": "prvtTeParamMaxReservableBandwidthPrio1",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaxReservableBandwidthPrio2": {
+    "name": "prvtTeParamMaxReservableBandwidthPrio2",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaxReservableBandwidthPrio3": {
+    "name": "prvtTeParamMaxReservableBandwidthPrio3",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaxReservableBandwidthPrio4": {
+    "name": "prvtTeParamMaxReservableBandwidthPrio4",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaxReservableBandwidthPrio5": {
+    "name": "prvtTeParamMaxReservableBandwidthPrio5",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaxReservableBandwidthPrio6": {
+    "name": "prvtTeParamMaxReservableBandwidthPrio6",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamMaxReservableBandwidthPrio7": {
+    "name": "prvtTeParamMaxReservableBandwidthPrio7",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamReservedBandwidthPrio0": {
+    "name": "prvtTeParamReservedBandwidthPrio0",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamReservedBandwidthPrio1": {
+    "name": "prvtTeParamReservedBandwidthPrio1",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamReservedBandwidthPrio2": {
+    "name": "prvtTeParamReservedBandwidthPrio2",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamReservedBandwidthPrio3": {
+    "name": "prvtTeParamReservedBandwidthPrio3",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamReservedBandwidthPrio4": {
+    "name": "prvtTeParamReservedBandwidthPrio4",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamReservedBandwidthPrio5": {
+    "name": "prvtTeParamReservedBandwidthPrio5",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamReservedBandwidthPrio6": {
+    "name": "prvtTeParamReservedBandwidthPrio6",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamReservedBandwidthPrio7": {
+    "name": "prvtTeParamReservedBandwidthPrio7",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamUnreservedBandwidthPrio0": {
+    "name": "prvtTeParamUnreservedBandwidthPrio0",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamUnreservedBandwidthPrio1": {
+    "name": "prvtTeParamUnreservedBandwidthPrio1",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamUnreservedBandwidthPrio2": {
+    "name": "prvtTeParamUnreservedBandwidthPrio2",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamUnreservedBandwidthPrio3": {
+    "name": "prvtTeParamUnreservedBandwidthPrio3",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamUnreservedBandwidthPrio4": {
+    "name": "prvtTeParamUnreservedBandwidthPrio4",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamUnreservedBandwidthPrio5": {
+    "name": "prvtTeParamUnreservedBandwidthPrio5",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamUnreservedBandwidthPrio6": {
+    "name": "prvtTeParamUnreservedBandwidthPrio6",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamUnreservedBandwidthPrio7": {
+    "name": "prvtTeParamUnreservedBandwidthPrio7",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeLinkBandwidth",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamResourceClass": {
+    "name": "prvtTeParamResourceClass",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtTeParamAdminGroupId": {
+    "name": "prvtTeParamAdminGroupId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtTeParamAdminGroupName": {
+    "name": "prvtTeParamAdminGroupName",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtCspfStatisticsTable": {
+    "name": "prvtCspfStatisticsTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtCspfStatisticsEntry": {
+    "name": "prvtCspfStatisticsEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TE-PARAM-MIB",
+        "object": "prvtCspfEntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtCspfEntIndex": {
+    "name": "prvtCspfEntIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtCspfStatNumRtQueries": {
+    "name": "prvtCspfStatNumRtQueries",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumRtsClcd": {
+    "name": "prvtCspfStatNumRtsClcd",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumRtsInCache": {
+    "name": "prvtCspfStatNumRtsInCache",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumUpdatesRcvd": {
+    "name": "prvtCspfStatNumUpdatesRcvd",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumEntriesDeleted": {
+    "name": "prvtCspfStatNumEntriesDeleted",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumLinkEntries": {
+    "name": "prvtCspfStatNumLinkEntries",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumNetworkEntries": {
+    "name": "prvtCspfStatNumNetworkEntries",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumReturnedCaches": {
+    "name": "prvtCspfStatNumReturnedCaches",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumBkupQueries": {
+    "name": "prvtCspfStatNumBkupQueries",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumBkupPathsFound": {
+    "name": "prvtCspfStatNumBkupPathsFound",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumRouteUpdates": {
+    "name": "prvtCspfStatNumRouteUpdates",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtCspfStatNumDiscardedRoutes": {
+    "name": "prvtCspfStatNumDiscardedRoutes",
+    "oid": "1.3.6.1.4.1.738.1.6.5.9.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-TE-PARAM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-TE-PARAM-MIB"
+  }
+}

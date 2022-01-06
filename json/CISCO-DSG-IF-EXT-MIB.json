@@ -1,0 +1,214 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "DSG-IF-MIB": [
+      "dsgIfClassifierEntry",
+      "dsgIfDownstreamEntry"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressDNS"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDsgIfExtMIB": {
+    "name": "ciscoDsgIfExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.777",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-08-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDsgIfExtMIBNotifs": {
+    "name": "ciscoDsgIfExtMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.777.0",
+    "class": "objectidentity"
+  },
+  "ciscoDsgIfExtMIBObjects": {
+    "name": "ciscoDsgIfExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.777.1",
+    "class": "objectidentity"
+  },
+  "ciscoDsgIfExtMIBConform": {
+    "name": "ciscoDsgIfExtMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.777.2",
+    "class": "objectidentity"
+  },
+  "cdsgIfExtClassifierTable": {
+    "name": "cdsgIfExtClassifierTable",
+    "oid": "1.3.6.1.4.1.9.9.777.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsgIfExtClassifierEntry": {
+    "name": "cdsgIfExtClassifierEntry",
+    "oid": "1.3.6.1.4.1.9.9.777.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdsgIfExtClassifierEntry",
+      "module": "CISCO-DSG-IF-EXT-MIB",
+      "object": "dsgIfClassifierEntry"
+    },
+    "status": "current"
+  },
+  "cdsgIfExtClassSrcHostName": {
+    "name": "cdsgIfExtClassSrcHostName",
+    "oid": "1.3.6.1.4.1.9.9.777.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsgIfExtClassDestHostName": {
+    "name": "cdsgIfExtClassDestHostName",
+    "oid": "1.3.6.1.4.1.9.9.777.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsgIfExtDownstreamTable": {
+    "name": "cdsgIfExtDownstreamTable",
+    "oid": "1.3.6.1.4.1.9.9.777.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsgIfExtDownstreamEntry": {
+    "name": "cdsgIfExtDownstreamEntry",
+    "oid": "1.3.6.1.4.1.9.9.777.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdsgIfExtDownstreamEntry",
+      "module": "CISCO-DSG-IF-EXT-MIB",
+      "object": "dsgIfDownstreamEntry"
+    },
+    "status": "current"
+  },
+  "cdsgIfExtDownDsgDisable": {
+    "name": "cdsgIfExtDownDsgDisable",
+    "oid": "1.3.6.1.4.1.9.9.777.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDsgIfExtMIBCompliances": {
+    "name": "ciscoDsgIfExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.777.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDsgIfExtMIBGroups": {
+    "name": "ciscoDsgIfExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.777.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDsgIfExtMIBCompliance": {
+    "name": "ciscoDsgIfExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.777.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdsgIfExtHostGroup",
+        "module": "CISCO-DSG-IF-EXT-MIB"
+      },
+      {
+        "object": "cdsgIfExtDownControlGroup",
+        "module": "CISCO-DSG-IF-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsgIfExtHostGroup": {
+    "name": "cdsgIfExtHostGroup",
+    "oid": "1.3.6.1.4.1.9.9.777.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSG-IF-EXT-MIB",
+        "object": "cdsgIfExtClassSrcHostName"
+      },
+      {
+        "module": "CISCO-DSG-IF-EXT-MIB",
+        "object": "cdsgIfExtClassDestHostName"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsgIfExtDownControlGroup": {
+    "name": "cdsgIfExtDownControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.777.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSG-IF-EXT-MIB",
+        "object": "cdsgIfExtDownDsgDisable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DSG-IF-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DSG-IF-EXT-MIB"
+  }
+}

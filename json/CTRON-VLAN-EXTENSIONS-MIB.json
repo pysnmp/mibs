@@ -1,0 +1,805 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctVlanExt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctVlanBridgeConfig": {
+    "name": "ctVlanBridgeConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1",
+    "class": "objectidentity"
+  },
+  "ctVlanVersionNumber": {
+    "name": "ctVlanVersionNumber",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanSupportedOperationalMode": {
+    "name": "ctVlanSupportedOperationalMode",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "configurable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "static",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ctVlanCurrentOperationalMode": {
+    "name": "ctVlanCurrentOperationalMode",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ctVlanResetDefaults": {
+    "name": "ctVlanResetDefaults",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "current": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanDefaultVIDStickyEgress": {
+    "name": "ctVlanDefaultVIDStickyEgress",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanSupportedPortTable": {
+    "name": "ctVlanSupportedPortTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctVlanSupportedPortEntry": {
+    "name": "ctVlanSupportedPortEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanSupportedSlotNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctVlanSupportedSlotNum": {
+    "name": "ctVlanSupportedSlotNum",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanSupportedPortNum": {
+    "name": "ctVlanSupportedPortNum",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanLearningMode": {
+    "name": "ctVlanLearningMode",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ivl": 1,
+          "svl": 2,
+          "svlivl": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "svl",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanTriggerPortConfig": {
+    "name": "ctVlanTriggerPortConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.2",
+    "class": "objectidentity"
+  },
+  "ctVlanTriggerPortSetTable": {
+    "name": "ctVlanTriggerPortSetTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctVlanTriggerPortEntry": {
+    "name": "ctVlanTriggerPortEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanTriggerSlotNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctVlanTriggerSlotNum": {
+    "name": "ctVlanTriggerSlotNum",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanTriggerStatus": {
+    "name": "ctVlanTriggerStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanPortConfig": {
+    "name": "ctVlanPortConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3",
+    "class": "objectidentity"
+  },
+  "ctVlanPortConfigTable": {
+    "name": "ctVlanPortConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctVlanPortConfigEntry": {
+    "name": "ctVlanPortConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanPortSlotNum",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctVlanPortSlotNum": {
+    "name": "ctVlanPortSlotNum",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanPortNum": {
+    "name": "ctVlanPortNum",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanPortVID": {
+    "name": "ctVlanPortVID",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanPortDiscardFrame": {
+    "name": "ctVlanPortDiscardFrame",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDiscard": 1,
+          "discardUntagged": 2,
+          "discardTagged": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noDiscard",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanPortOperationalMode": {
+    "name": "ctVlanPortOperationalMode",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1QTrunk": 1,
+          "hybrid": 2,
+          "dot1dTrunk": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "hybrid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanPortIngressFiltering": {
+    "name": "ctVlanPortIngressFiltering",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanConfig": {
+    "name": "ctVlanConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4",
+    "class": "objectidentity"
+  },
+  "ctVlanNumActiveEntries": {
+    "name": "ctVlanNumActiveEntries",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanNumConfiguredEntries": {
+    "name": "ctVlanNumConfiguredEntries",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanMaxNumEntries": {
+    "name": "ctVlanMaxNumEntries",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanConfigTable": {
+    "name": "ctVlanConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctVlanConfigEntry": {
+    "name": "ctVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanVID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctVlanVID": {
+    "name": "ctVlanVID",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanName": {
+    "name": "ctVlanName",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanStatus": {
+    "name": "ctVlanStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanEstablish": {
+    "name": "ctVlanEstablish",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanIdToFidMapping": {
+    "name": "ctVlanIdToFidMapping",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanType": {
+    "name": "ctVlanType",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "static": 2,
+          "dynamicGvrp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanEgressPortsTable": {
+    "name": "ctVlanEgressPortsTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctVlanEgressPortEntry": {
+    "name": "ctVlanEgressPortEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanEgressPortSlotNum",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanEgressVID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctVlanEgressPortSlotNum": {
+    "name": "ctVlanEgressPortSlotNum",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanEgressVID": {
+    "name": "ctVlanEgressVID",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanEgressList": {
+    "name": "ctVlanEgressList",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanEgressUntaggedList": {
+    "name": "ctVlanEgressUntaggedList",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanProtocolAssign": {
+    "name": "ctVlanProtocolAssign",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.5",
+    "class": "objectidentity"
+  },
+  "ctVlanProtocolStatus": {
+    "name": "ctVlanProtocolStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctMaxNumVlanProtoEntries": {
+    "name": "ctMaxNumVlanProtoEntries",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanProtoAssignTable": {
+    "name": "ctVlanProtoAssignTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctVlanProtoAssignEntry": {
+    "name": "ctVlanProtoAssignEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanVID",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-VLAN-EXTENSIONS-MIB",
+        "object": "ctVlanProtoEtherType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctVlanProtoEtherType": {
+    "name": "ctVlanProtoEtherType",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctVlanProtoEstablish": {
+    "name": "ctVlanProtoEstablish",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctVlanProtoPortList": {
+    "name": "ctVlanProtoPortList",
+    "oid": "1.3.6.1.4.1.52.4.1.2.16.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-VLAN-EXTENSIONS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-VLAN-EXTENSIONS-MIB"
+  }
+}

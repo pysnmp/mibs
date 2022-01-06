@@ -1,0 +1,1339 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnPtpMIB": {
+    "name": "tnPtpMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.123",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-11-11 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnPtp": {
+    "name": "tnPtp",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1",
+    "class": "objectidentity"
+  },
+  "tnPtpClkModesTable": {
+    "name": "tnPtpClkModesTable",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpClkModesEntry": {
+    "name": "tnPtpClkModesEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnPtpInState": {
+    "name": "tnPtpInState",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpOutState": {
+    "name": "tnPtpOutState",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpInFreq": {
+    "name": "tnPtpInFreq",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onePps": 0,
+          "f8kHz": 1,
+          "f64kHz": 2,
+          "f1544kHz": 3,
+          "f2048kHz": 4,
+          "f10000kHz": 5,
+          "f19440kHz": 6,
+          "f25Mhz": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpOutFreq": {
+    "name": "tnPtpOutFreq",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpImpedance": {
+    "name": "tnPtpImpedance",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "imp50": 1,
+          "imp75": 2,
+          "hi-Z": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpActualInFreq": {
+    "name": "tnPtpActualInFreq",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpActualOutFreq": {
+    "name": "tnPtpActualOutFreq",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpCreateClkConfTable": {
+    "name": "tnPtpCreateClkConfTable",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpCreateClkConfEntry": {
+    "name": "tnPtpCreateClkConfEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-PTP-MIB",
+        "object": "tnPtpCreateClkConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnPtpCreateClkConfIndex": {
+    "name": "tnPtpCreateClkConfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpDeviceType": {
+    "name": "tnPtpDeviceType",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "ordBound": 1,
+          "p2pTransp": 2,
+          "e2eTransp": 3,
+          "masterOnly": 4,
+          "slaveOnly": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpTwoStepFlag": {
+    "name": "tnPtpTwoStepFlag",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpClockId": {
+    "name": "tnPtpClockId",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpOneWay": {
+    "name": "tnPtpOneWay",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpProtocol": {
+    "name": "tnPtpProtocol",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 0,
+          "ipv4multi": 1,
+          "ipv4uni": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpVLANTag": {
+    "name": "tnPtpVLANTag",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpVID": {
+    "name": "tnPtpVID",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpPCP": {
+    "name": "tnPtpPCP",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpClkConfRowStatus": {
+    "name": "tnPtpClkConfRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpClkConf0Table": {
+    "name": "tnPtpClkConf0Table",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpClkConf0Entry": {
+    "name": "tnPtpClkConf0Entry",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-PTP-MIB",
+        "object": "tnPtpClkConf0Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnPtpClkConf0Index": {
+    "name": "tnPtpClkConf0Index",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpDefaultDom": {
+    "name": "tnPtpDefaultDom",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpDefaultClockQuality": {
+    "name": "tnPtpDefaultClockQuality",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpDefaultPri1": {
+    "name": "tnPtpDefaultPri1",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpDefaultPri2": {
+    "name": "tnPtpDefaultPri2",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpTime": {
+    "name": "tnPtpTime",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpAdjustMethod": {
+    "name": "tnPtpAdjustMethod",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "vcxo": 2,
+          "software": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpSynce": {
+    "name": "tnPtpSynce",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNothing": 1,
+          "sync": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpClkConfTable": {
+    "name": "tnPtpClkConfTable",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpClkConfEntry": {
+    "name": "tnPtpClkConfEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-PTP-MIB",
+        "object": "tnPtpClkConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnPtpClkConfIndex": {
+    "name": "tnPtpClkConfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpStpRm": {
+    "name": "tnPtpStpRm",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpOffset": {
+    "name": "tnPtpOffset",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpPathDelay": {
+    "name": "tnPtpPathDelay",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpDelayFilter": {
+    "name": "tnPtpDelayFilter",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpFilterPeriod": {
+    "name": "tnPtpFilterPeriod",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpFilterDist": {
+    "name": "tnPtpFilterDist",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpParentPortId": {
+    "name": "tnPtpParentPortId",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpParentPort": {
+    "name": "tnPtpParentPort",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpParentPStat": {
+    "name": "tnPtpParentPStat",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpParentVar": {
+    "name": "tnPtpParentVar",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpParentChgRate": {
+    "name": "tnPtpParentChgRate",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpParentGMId": {
+    "name": "tnPtpParentGMId",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpParentGMQual": {
+    "name": "tnPtpParentGMQual",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpParentPri1": {
+    "name": "tnPtpParentPri1",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpParentPri2": {
+    "name": "tnPtpParentPri2",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPtpClkConf2Table": {
+    "name": "tnPtpClkConf2Table",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpClkConf2Entry": {
+    "name": "tnPtpClkConf2Entry",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-PTP-MIB",
+        "object": "tnPtpClkConfIndex2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnPtpClkConfIndex2": {
+    "name": "tnPtpClkConfIndex2",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpUtcOffset": {
+    "name": "tnPtpUtcOffset",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpValid": {
+    "name": "tnPtpValid",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpLeap59": {
+    "name": "tnPtpLeap59",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpLeap61": {
+    "name": "tnPtpLeap61",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpTimeTrac": {
+    "name": "tnPtpTimeTrac",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpFreqTrac": {
+    "name": "tnPtpFreqTrac",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpTimeScale": {
+    "name": "tnPtpTimeScale",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpTimeSource": {
+    "name": "tnPtpTimeSource",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpDisplay": {
+    "name": "tnPtpDisplay",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpPEnable": {
+    "name": "tnPtpPEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpIEnable": {
+    "name": "tnPtpIEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpDEnable": {
+    "name": "tnPtpDEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpPConstant": {
+    "name": "tnPtpPConstant",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpIConstant": {
+    "name": "tnPtpIConstant",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpDConstant": {
+    "name": "tnPtpDConstant",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpServoDelayFilter": {
+    "name": "tnPtpServoDelayFilter",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpUnicastSlaveTable": {
+    "name": "tnPtpUnicastSlaveTable",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpUnicastSlaveEntry": {
+    "name": "tnPtpUnicastSlaveEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-PTP-MIB",
+        "object": "tnPtpUnicastInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-PTP-MIB",
+        "object": "tnPtpUnicastSlaveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnPtpUnicastInstIndex": {
+    "name": "tnPtpUnicastInstIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpUnicastSlaveIndex": {
+    "name": "tnPtpUnicastSlaveIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpUnicastDuration": {
+    "name": "tnPtpUnicastDuration",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpIPAddress": {
+    "name": "tnPtpIPAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpGrant": {
+    "name": "tnPtpGrant",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpCommState": {
+    "name": "tnPtpCommState",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "init": 2,
+          "conn": 3,
+          "sell": 4,
+          "sync": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPtpPortConfTable": {
+    "name": "tnPtpPortConfTable",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpPortConfEntry": {
+    "name": "tnPtpPortConfEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-PTP-MIB",
+        "object": "tnPtpPortConfInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-PTP-MIB",
+        "object": "tnPtpPortConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnPtpPortConfInstIndex": {
+    "name": "tnPtpPortConfInstIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpPortConfIndex": {
+    "name": "tnPtpPortConfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpStat": {
+    "name": "tnPtpStat",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpMDR": {
+    "name": "tnPtpMDR",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpMeanPath": {
+    "name": "tnPtpMeanPath",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpAnv": {
+    "name": "tnPtpAnv",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpATO": {
+    "name": "tnPtpATO",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpSyv": {
+    "name": "tnPtpSyv",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpSyncIntErr": {
+    "name": "tnPtpSyncIntErr",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpDim": {
+    "name": "tnPtpDim",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e2e": 1,
+          "p2p": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpMPR": {
+    "name": "tnPtpMPR",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpDelayAsym": {
+    "name": "tnPtpDelayAsym",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpIngerssLat": {
+    "name": "tnPtpIngerssLat",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpEgressLat": {
+    "name": "tnPtpEgressLat",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnPtpVersion": {
+    "name": "tnPtpVersion",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPtpPortConfRowStatus": {
+    "name": "tnPtpPortConfRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.123.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-PTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-PTP-MIB"
+  }
+}

@@ -1,0 +1,2316 @@
+{
+  "imports": {
+    "class": "imports",
+    "HC-PerfHist-TC-MIB": [
+      "HCPerfValidIntervals",
+      "HCPerfTimeElapsed",
+      "HCPerfCurrentCount",
+      "HCPerfIntervalCount"
+    ],
+    "IANA-PWE3-MIB": [
+      "IANAPwCapabilities",
+      "IANAPwTypeTC",
+      "IANAPwPsnTypeTC"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "PW-TC-STD-MIB": [
+      "PwStatus",
+      "PwOperStatusTC",
+      "PwFragStatus",
+      "PwIDType",
+      "PwIndexOrZeroType",
+      "PwGenIdType",
+      "PwGroupID",
+      "PwFragSize",
+      "PwAttachmentIdentifierType",
+      "PwCwStatusTC",
+      "PwIndexType"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "transmission",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
+    ]
+  },
+  "pwStdMIB": {
+    "name": "pwStdMIB",
+    "oid": "1.3.6.1.2.1.10.246",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-11 00:00",
+        "description": "Initial version published as part of RFC 5601."
+      }
+    ]
+  },
+  "pwNotifications": {
+    "name": "pwNotifications",
+    "oid": "1.3.6.1.2.1.10.246.0",
+    "class": "objectidentity"
+  },
+  "pwObjects": {
+    "name": "pwObjects",
+    "oid": "1.3.6.1.2.1.10.246.1",
+    "class": "objectidentity"
+  },
+  "pwConformance": {
+    "name": "pwConformance",
+    "oid": "1.3.6.1.2.1.10.246.2",
+    "class": "objectidentity"
+  },
+  "pwIndexNext": {
+    "name": "pwIndexNext",
+    "oid": "1.3.6.1.2.1.10.246.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwTable": {
+    "name": "pwTable",
+    "oid": "1.3.6.1.2.1.10.246.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwEntry": {
+    "name": "pwEntry",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pwIndex": {
+    "name": "pwIndex",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwType": {
+    "name": "pwType",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwOwner": {
+    "name": "pwOwner",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "pwIdFecSignaling": 2,
+          "genFecSignaling": 3,
+          "l2tpControlProtocol": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwPsnType": {
+    "name": "pwPsnType",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwPsnTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwSetUpPriority": {
+    "name": "pwSetUpPriority",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwHoldingPriority": {
+    "name": "pwHoldingPriority",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwPeerAddrType": {
+    "name": "pwPeerAddrType",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwPeerAddr": {
+    "name": "pwPeerAddr",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwAttachedPwIndex": {
+    "name": "pwAttachedPwIndex",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwIndexOrZeroType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwIfIndex": {
+    "name": "pwIfIndex",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwID": {
+    "name": "pwID",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwIDType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwLocalGroupID": {
+    "name": "pwLocalGroupID",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwGroupID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwGroupAttachmentID": {
+    "name": "pwGroupAttachmentID",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwAttachmentIdentifierType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwLocalAttachmentID": {
+    "name": "pwLocalAttachmentID",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwAttachmentIdentifierType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwRemoteAttachmentID": {
+    "name": "pwRemoteAttachmentID",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwAttachmentIdentifierType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwCwPreference": {
+    "name": "pwCwPreference",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwLocalIfMtu": {
+    "name": "pwLocalIfMtu",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwLocalIfString": {
+    "name": "pwLocalIfString",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwLocalCapabAdvert": {
+    "name": "pwLocalCapabAdvert",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwCapabilities",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwRemoteGroupID": {
+    "name": "pwRemoteGroupID",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwGroupID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwCwStatus": {
+    "name": "pwCwStatus",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwCwStatusTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwRemoteIfMtu": {
+    "name": "pwRemoteIfMtu",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwRemoteIfString": {
+    "name": "pwRemoteIfString",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwRemoteCapabilities": {
+    "name": "pwRemoteCapabilities",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwCapabilities",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwFragmentCfgSize": {
+    "name": "pwFragmentCfgSize",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwFragSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwRmtFragCapability": {
+    "name": "pwRmtFragCapability",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwFragStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwFcsRetentionCfg": {
+    "name": "pwFcsRetentionCfg",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fcsRetentionDisable": 1,
+          "fcsRetentionEnable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fcsRetentionDisable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwFcsRetentionStatus": {
+    "name": "pwFcsRetentionStatus",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "remoteIndicationUnknown": 0,
+        "remoteRequestFcsRetention": 1,
+        "fcsRetentionEnabled": 2,
+        "fcsRetentionDisabled": 3,
+        "localFcsRetentionCfgErr": 4,
+        "fcsRetentionFcsSizeMismatch": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwOutboundLabel": {
+    "name": "pwOutboundLabel",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwInboundLabel": {
+    "name": "pwInboundLabel",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwName": {
+    "name": "pwName",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwDescr": {
+    "name": "pwDescr",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwCreateTime": {
+    "name": "pwCreateTime",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwUpTime": {
+    "name": "pwUpTime",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwLastChange": {
+    "name": "pwLastChange",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwAdminStatus": {
+    "name": "pwAdminStatus",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwOperStatus": {
+    "name": "pwOperStatus",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwOperStatusTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwLocalStatus": {
+    "name": "pwLocalStatus",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwRemoteStatusCapable": {
+    "name": "pwRemoteStatusCapable",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "notYetKnown": 2,
+          "remoteCapable": 3,
+          "remoteNotCapable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwRemoteStatus": {
+    "name": "pwRemoteStatus",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwTimeElapsed": {
+    "name": "pwTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwValidIntervals": {
+    "name": "pwValidIntervals",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwRowStatus": {
+    "name": "pwRowStatus",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwStorageType": {
+    "name": "pwStorageType",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwOamEnable": {
+    "name": "pwOamEnable",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwGenAGIType": {
+    "name": "pwGenAGIType",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwGenIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwGenLocalAIIType": {
+    "name": "pwGenLocalAIIType",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwGenIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwGenRemoteAIIType": {
+    "name": "pwGenRemoteAIIType",
+    "oid": "1.3.6.1.2.1.10.246.1.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwGenIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pwPerfCurrentTable": {
+    "name": "pwPerfCurrentTable",
+    "oid": "1.3.6.1.2.1.10.246.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPerfCurrentEntry": {
+    "name": "pwPerfCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pwPerfCurrentInHCPackets": {
+    "name": "pwPerfCurrentInHCPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfCurrentInHCBytes": {
+    "name": "pwPerfCurrentInHCBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfCurrentOutHCPackets": {
+    "name": "pwPerfCurrentOutHCPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfCurrentOutHCBytes": {
+    "name": "pwPerfCurrentOutHCBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfCurrentInPackets": {
+    "name": "pwPerfCurrentInPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfCurrentInBytes": {
+    "name": "pwPerfCurrentInBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfCurrentOutPackets": {
+    "name": "pwPerfCurrentOutPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfCurrentOutBytes": {
+    "name": "pwPerfCurrentOutBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalTable": {
+    "name": "pwPerfIntervalTable",
+    "oid": "1.3.6.1.2.1.10.246.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPerfIntervalEntry": {
+    "name": "pwPerfIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndex",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pwPerfIntervalNumber": {
+    "name": "pwPerfIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPerfIntervalValidData": {
+    "name": "pwPerfIntervalValidData",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalTimeElapsed": {
+    "name": "pwPerfIntervalTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalInHCPackets": {
+    "name": "pwPerfIntervalInHCPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalInHCBytes": {
+    "name": "pwPerfIntervalInHCBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalOutHCPackets": {
+    "name": "pwPerfIntervalOutHCPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalOutHCBytes": {
+    "name": "pwPerfIntervalOutHCBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalInPackets": {
+    "name": "pwPerfIntervalInPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalInBytes": {
+    "name": "pwPerfIntervalInBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalOutPackets": {
+    "name": "pwPerfIntervalOutPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfIntervalOutBytes": {
+    "name": "pwPerfIntervalOutBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerf1DayIntervalTable": {
+    "name": "pwPerf1DayIntervalTable",
+    "oid": "1.3.6.1.2.1.10.246.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPerf1DayIntervalEntry": {
+    "name": "pwPerf1DayIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.246.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndex",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerf1DayIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pwPerf1DayIntervalNumber": {
+    "name": "pwPerf1DayIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.246.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPerf1DayIntervalValidData": {
+    "name": "pwPerf1DayIntervalValidData",
+    "oid": "1.3.6.1.2.1.10.246.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerf1DayIntervalTimeElapsed": {
+    "name": "pwPerf1DayIntervalTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.246.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerf1DayIntervalInHCPackets": {
+    "name": "pwPerf1DayIntervalInHCPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerf1DayIntervalInHCBytes": {
+    "name": "pwPerf1DayIntervalInHCBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerf1DayIntervalOutHCPackets": {
+    "name": "pwPerf1DayIntervalOutHCPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerf1DayIntervalOutHCBytes": {
+    "name": "pwPerf1DayIntervalOutHCBytes",
+    "oid": "1.3.6.1.2.1.10.246.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPerfTotalErrorPackets": {
+    "name": "pwPerfTotalErrorPackets",
+    "oid": "1.3.6.1.2.1.10.246.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwIndexMappingTable": {
+    "name": "pwIndexMappingTable",
+    "oid": "1.3.6.1.2.1.10.246.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwIndexMappingEntry": {
+    "name": "pwIndexMappingEntry",
+    "oid": "1.3.6.1.2.1.10.246.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndexMappingPwType",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndexMappingPwID",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndexMappingPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndexMappingPeerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pwIndexMappingPwType": {
+    "name": "pwIndexMappingPwType",
+    "oid": "1.3.6.1.2.1.10.246.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwIndexMappingPwID": {
+    "name": "pwIndexMappingPwID",
+    "oid": "1.3.6.1.2.1.10.246.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwIndexMappingPeerAddrType": {
+    "name": "pwIndexMappingPeerAddrType",
+    "oid": "1.3.6.1.2.1.10.246.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwIndexMappingPeerAddr": {
+    "name": "pwIndexMappingPeerAddr",
+    "oid": "1.3.6.1.2.1.10.246.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwIndexMappingPwIndex": {
+    "name": "pwIndexMappingPwIndex",
+    "oid": "1.3.6.1.2.1.10.246.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwPeerMappingTable": {
+    "name": "pwPeerMappingTable",
+    "oid": "1.3.6.1.2.1.10.246.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPeerMappingEntry": {
+    "name": "pwPeerMappingEntry",
+    "oid": "1.3.6.1.2.1.10.246.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerMappingPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerMappingPeerAddr",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerMappingPwType",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerMappingPwID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pwPeerMappingPeerAddrType": {
+    "name": "pwPeerMappingPeerAddrType",
+    "oid": "1.3.6.1.2.1.10.246.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPeerMappingPeerAddr": {
+    "name": "pwPeerMappingPeerAddr",
+    "oid": "1.3.6.1.2.1.10.246.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPeerMappingPwType": {
+    "name": "pwPeerMappingPwType",
+    "oid": "1.3.6.1.2.1.10.246.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPeerMappingPwID": {
+    "name": "pwPeerMappingPwID",
+    "oid": "1.3.6.1.2.1.10.246.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwPeerMappingPwIndex": {
+    "name": "pwPeerMappingPwIndex",
+    "oid": "1.3.6.1.2.1.10.246.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwUpDownNotifEnable": {
+    "name": "pwUpDownNotifEnable",
+    "oid": "1.3.6.1.2.1.10.246.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pwDeletedNotifEnable": {
+    "name": "pwDeletedNotifEnable",
+    "oid": "1.3.6.1.2.1.10.246.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pwNotifRate": {
+    "name": "pwNotifRate",
+    "oid": "1.3.6.1.2.1.10.246.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pwGenFecIndexMappingTable": {
+    "name": "pwGenFecIndexMappingTable",
+    "oid": "1.3.6.1.2.1.10.246.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwGenFecIndexMappingEntry": {
+    "name": "pwGenFecIndexMappingEntry",
+    "oid": "1.3.6.1.2.1.10.246.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenFecIndexMappingAGIType",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenFecIndexMappingAGI",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenFecIndexMappingLocalAIIType",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenFecIndexMappingLocalAII",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenFecIndexMappingRemoteAIIType",
+        "implied": 0
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenFecIndexMappingRemoteAII",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pwGenFecIndexMappingAGIType": {
+    "name": "pwGenFecIndexMappingAGIType",
+    "oid": "1.3.6.1.2.1.10.246.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwGenIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwGenFecIndexMappingAGI": {
+    "name": "pwGenFecIndexMappingAGI",
+    "oid": "1.3.6.1.2.1.10.246.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwAttachmentIdentifierType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwGenFecIndexMappingLocalAIIType": {
+    "name": "pwGenFecIndexMappingLocalAIIType",
+    "oid": "1.3.6.1.2.1.10.246.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwGenIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwGenFecIndexMappingLocalAII": {
+    "name": "pwGenFecIndexMappingLocalAII",
+    "oid": "1.3.6.1.2.1.10.246.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwAttachmentIdentifierType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwGenFecIndexMappingRemoteAIIType": {
+    "name": "pwGenFecIndexMappingRemoteAIIType",
+    "oid": "1.3.6.1.2.1.10.246.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwGenIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwGenFecIndexMappingRemoteAII": {
+    "name": "pwGenFecIndexMappingRemoteAII",
+    "oid": "1.3.6.1.2.1.10.246.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwAttachmentIdentifierType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pwGenFecIndexMappingPwIndex": {
+    "name": "pwGenFecIndexMappingPwIndex",
+    "oid": "1.3.6.1.2.1.10.246.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PwIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pwDown": {
+    "name": "pwDown",
+    "oid": "1.3.6.1.2.1.10.246.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwOperStatus"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pwUp": {
+    "name": "pwUp",
+    "oid": "1.3.6.1.2.1.10.246.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwOperStatus"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pwDeleted": {
+    "name": "pwDeleted",
+    "oid": "1.3.6.1.2.1.10.246.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwType"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwID"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerAddrType"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "pwGroups": {
+    "name": "pwGroups",
+    "oid": "1.3.6.1.2.1.10.246.2.1",
+    "class": "objectidentity"
+  },
+  "pwCompliances": {
+    "name": "pwCompliances",
+    "oid": "1.3.6.1.2.1.10.246.2.2",
+    "class": "objectidentity"
+  },
+  "pwModuleFullCompliance": {
+    "name": "pwModuleFullCompliance",
+    "oid": "1.3.6.1.2.1.10.246.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pwBasicGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPerformanceGeneralGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwNotificationGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPwIdGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwGeneralizedFecGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwFcsGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwFragGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPwStatusGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwGetNextGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPriorityGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwAttachmentGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPeformance1DayIntervalGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPerformanceIntervalGeneralGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPeformanceIntervalGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwHCPeformanceIntervalGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwMappingTablesGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwSignalingGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwNotificationControlGroup",
+        "module": "PW-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pwModuleReadOnlyCompliance": {
+    "name": "pwModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.2.1.10.246.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pwBasicGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwNotificationGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPwIdGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwGeneralizedFecGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwFcsGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwFragGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPwStatusGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwGetNextGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPriorityGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwAttachmentGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPeformance1DayIntervalGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPerformanceIntervalGeneralGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwPeformanceIntervalGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwHCPeformanceIntervalGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwMappingTablesGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwSignalingGroup",
+        "module": "PW-STD-MIB"
+      },
+      {
+        "object": "pwNotificationControlGroup",
+        "module": "PW-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pwBasicGroup": {
+    "name": "pwBasicGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwType"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwOwner"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPsnType"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIfIndex"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwCwPreference"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwLocalIfMtu"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwOutboundLabel"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwInboundLabel"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwName"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwDescr"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwCreateTime"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwUpTime"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwLastChange"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwAdminStatus"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwOperStatus"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwLocalStatus"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRowStatus"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwStorageType"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwOamEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "pwPwIdGroup": {
+    "name": "pwPwIdGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwID"
+      }
+    ],
+    "status": "current"
+  },
+  "pwGeneralizedFecGroup": {
+    "name": "pwGeneralizedFecGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGroupAttachmentID"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwLocalAttachmentID"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRemoteAttachmentID"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenAGIType"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenLocalAIIType"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenRemoteAIIType"
+      }
+    ],
+    "status": "current"
+  },
+  "pwFcsGroup": {
+    "name": "pwFcsGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwFcsRetentionCfg"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwFcsRetentionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pwFragGroup": {
+    "name": "pwFragGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwFragmentCfgSize"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRmtFragCapability"
+      }
+    ],
+    "status": "current"
+  },
+  "pwPwStatusGroup": {
+    "name": "pwPwStatusGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRemoteCapabilities"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRemoteStatusCapable"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRemoteStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "pwGetNextGroup": {
+    "name": "pwGetNextGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndexNext"
+      }
+    ],
+    "status": "current"
+  },
+  "pwPriorityGroup": {
+    "name": "pwPriorityGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwSetUpPriority"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwHoldingPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "pwAttachmentGroup": {
+    "name": "pwAttachmentGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwAttachedPwIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "pwPerformanceGeneralGroup": {
+    "name": "pwPerformanceGeneralGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfTotalErrorPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "pwPeformance1DayIntervalGroup": {
+    "name": "pwPeformance1DayIntervalGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerf1DayIntervalValidData"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerf1DayIntervalTimeElapsed"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerf1DayIntervalInHCPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerf1DayIntervalInHCBytes"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerf1DayIntervalOutHCPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerf1DayIntervalOutHCBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "pwPerformanceIntervalGeneralGroup": {
+    "name": "pwPerformanceIntervalGeneralGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwTimeElapsed"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwValidIntervals"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalValidData"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalTimeElapsed"
+      }
+    ],
+    "status": "current"
+  },
+  "pwPeformanceIntervalGroup": {
+    "name": "pwPeformanceIntervalGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfCurrentInPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfCurrentInBytes"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfCurrentOutPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfCurrentOutBytes"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalInPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalInBytes"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalOutPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalOutBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "pwHCPeformanceIntervalGroup": {
+    "name": "pwHCPeformanceIntervalGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfCurrentInHCPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfCurrentInHCBytes"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfCurrentOutHCPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfCurrentOutHCBytes"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalInHCPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalInHCBytes"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalOutHCPackets"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPerfIntervalOutHCBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "pwMappingTablesGroup": {
+    "name": "pwMappingTablesGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwIndexMappingPwIndex"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerMappingPwIndex"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwGenFecIndexMappingPwIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "pwNotificationControlGroup": {
+    "name": "pwNotificationControlGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwUpDownNotifEnable"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwDeletedNotifEnable"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwNotifRate"
+      }
+    ],
+    "status": "current"
+  },
+  "pwNotificationGroup": {
+    "name": "pwNotificationGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.17",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwUp"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwDown"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "pwSignalingGroup": {
+    "name": "pwSignalingGroup",
+    "oid": "1.3.6.1.2.1.10.246.2.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerAddrType"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwPeerAddr"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwLocalGroupID"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwLocalIfString"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwLocalCapabAdvert"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRemoteGroupID"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwCwStatus"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRemoteIfMtu"
+      },
+      {
+        "module": "PW-STD-MIB",
+        "object": "pwRemoteIfString"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/PW-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PW-STD-MIB"
+  }
+}

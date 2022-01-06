@@ -1,0 +1,2230 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "OperationalState",
+      "MepDestinationType",
+      "SecondaryState",
+      "CmPmBinAction",
+      "VlanPriority",
+      "AdminState",
+      "VlanId"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "neIndex",
+      "networkElementEntry",
+      "shelfIndex"
+    ],
+    "CM-FACILITY-MIB": [
+      "PolicerColorMode"
+    ],
+    "CM-SA-MIB": [
+      "EsaProbePktIntervalType"
+    ],
+    "IEEE8021-CFM-MIB": [
+      "dot1agCfmMepEntry",
+      "Dot1agCfmMepIdOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "VariablePointer"
+    ]
+  },
+  "cmServiceActivationMIB": {
+    "name": "cmServiceActivationMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-04-05 00:00",
+        "description": "Notes from release 201704050000Z a) add aborted enumeration to SatStatus Notes from release 201612020000Z a) added satStreamDestMepEnabled to satStreamTable Notes from release 201309120000Z "
+      }
+    ]
+  },
+  "cmServActivationObjects": {
+    "name": "cmServActivationObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1",
+    "class": "objectidentity"
+  },
+  "cmServActivationNotifications": {
+    "name": "cmServActivationNotifications",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.2",
+    "class": "objectidentity"
+  },
+  "cmServActivationConformance": {
+    "name": "cmServActivationConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.3",
+    "class": "objectidentity"
+  },
+  "ServiceActivationTestMode": {
+    "name": "ServiceActivationTestMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneWay": 1,
+          "twoWay": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SatProceduresType": {
+    "name": "SatProceduresType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "configTestCir": 2,
+          "configTestEir": 3,
+          "configTestCbs": 4,
+          "configTestEbs": 5,
+          "configTestPolicing": 6,
+          "performanceTest": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SatProceduresList": {
+    "name": "SatProceduresList",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "configTestCir": 1,
+        "configTestEir": 2,
+        "configTestCbs": 3,
+        "configTestEbs": 4,
+        "configTestPolicing": 5,
+        "performance": 6
+      }
+    },
+    "status": "current"
+  },
+  "SatStatus": {
+    "name": "SatStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 1,
+          "notStarted": 2,
+          "inProgress": 3,
+          "failed": 4,
+          "aborted": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SatDirection": {
+    "name": "SatDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 1,
+          "backward": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SatFramePayloadType": {
+    "name": "SatFramePayloadType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prbs31": 1,
+          "custom": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SatTestAction": {
+    "name": "SatTestAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SatResult": {
+    "name": "SatResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pass": 2,
+          "fail": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "satControlTable": {
+    "name": "satControlTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satControlEntry": {
+    "name": "satControlEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "satControlIndex": {
+    "name": "satControlIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satControlName": {
+    "name": "satControlName",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satControlTestMode": {
+    "name": "satControlTestMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceActivationTestMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satControlTestProcedures": {
+    "name": "satControlTestProcedures",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatProceduresList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satControlConfigTestDuration": {
+    "name": "satControlConfigTestDuration",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satControlConfigCIRTestStepNum": {
+    "name": "satControlConfigCIRTestStepNum",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satControlConfigCIRTestStepDuration": {
+    "name": "satControlConfigCIRTestStepDuration",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satControlPerfTestDuration": {
+    "name": "satControlPerfTestDuration",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satControlStatus": {
+    "name": "satControlStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satControlAction": {
+    "name": "satControlAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatTestAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satControlStorageType": {
+    "name": "satControlStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "satControlRowStatus": {
+    "name": "satControlRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "satControlFailCause": {
+    "name": "satControlFailCause",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satControlTestStartTime": {
+    "name": "satControlTestStartTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satControlFlpduTagOverride": {
+    "name": "satControlFlpduTagOverride",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamTable": {
+    "name": "satStreamTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satStreamEntry": {
+    "name": "satStreamEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "satStreamIndex": {
+    "name": "satStreamIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satStreamName": {
+    "name": "satStreamName",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamTestPort": {
+    "name": "satStreamTestPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamTestDirection": {
+    "name": "satStreamTestDirection",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamDestMacAddress": {
+    "name": "satStreamDestMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamFramePayloadType": {
+    "name": "satStreamFramePayloadType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatFramePayloadType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamCustomFramePayload": {
+    "name": "satStreamCustomFramePayload",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamFrameSizeList": {
+    "name": "satStreamFrameSizeList",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamSacProfileId": {
+    "name": "satStreamSacProfileId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamSrcMepId": {
+    "name": "satStreamSrcMepId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamDestMepType": {
+    "name": "satStreamDestMepType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MepDestinationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamDestMepId": {
+    "name": "satStreamDestMepId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamDestMepMacAddr": {
+    "name": "satStreamDestMepMacAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamDmmPacketSize": {
+    "name": "satStreamDmmPacketSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamDmmPacketInterval": {
+    "name": "satStreamDmmPacketInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EsaProbePktIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamOverallResult": {
+    "name": "satStreamOverallResult",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satStreamAction": {
+    "name": "satStreamAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatTestAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamStatus": {
+    "name": "satStreamStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satStreamCurrentTestProcedure": {
+    "name": "satStreamCurrentTestProcedure",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatProceduresType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satStreamCurrentConfigCirTestStep": {
+    "name": "satStreamCurrentConfigCirTestStep",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satStreamInner1VlanId": {
+    "name": "satStreamInner1VlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamInner1VlanPri": {
+    "name": "satStreamInner1VlanPri",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamInner1VlanEnabled": {
+    "name": "satStreamInner1VlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamInner1ValnEtherType": {
+    "name": "satStreamInner1ValnEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamInner2VlanId": {
+    "name": "satStreamInner2VlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamInner2VlanPri": {
+    "name": "satStreamInner2VlanPri",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamInner2VlanEnabled": {
+    "name": "satStreamInner2VlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamInner2VlanEtherType": {
+    "name": "satStreamInner2VlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamOuterVlanId": {
+    "name": "satStreamOuterVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamOuterVlanPri": {
+    "name": "satStreamOuterVlanPri",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamOuterVlanEnabled": {
+    "name": "satStreamOuterVlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamOuterVlanEtherType": {
+    "name": "satStreamOuterVlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamDeiEnabled": {
+    "name": "satStreamDeiEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamGreenPcp": {
+    "name": "satStreamGreenPcp",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamYellowPcp": {
+    "name": "satStreamYellowPcp",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamColorMode": {
+    "name": "satStreamColorMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicerColorMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamCirLo": {
+    "name": "satStreamCirLo",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamCirHi": {
+    "name": "satStreamCirHi",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamEirLo": {
+    "name": "satStreamEirLo",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamEirHi": {
+    "name": "satStreamEirHi",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamCbs": {
+    "name": "satStreamCbs",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamEbs": {
+    "name": "satStreamEbs",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamStorageType": {
+    "name": "satStreamStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "satStreamRowStatus": {
+    "name": "satStreamRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "satStreamDmmPktPriority": {
+    "name": "satStreamDmmPktPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamMFactor": {
+    "name": "satStreamMFactor",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamDestMepEnabled": {
+    "name": "satStreamDestMepEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satStreamLlActivateEnabled": {
+    "name": "satStreamLlActivateEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satResultStatsTable": {
+    "name": "satResultStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satResultStatsEntry": {
+    "name": "satResultStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsTestType",
+        "implied": 0
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsStepNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "satResultStatsTestType": {
+    "name": "satResultStatsTestType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatProceduresType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satResultStatsStepNumber": {
+    "name": "satResultStatsStepNumber",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satResultStatsSessionId": {
+    "name": "satResultStatsSessionId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsStartTime": {
+    "name": "satResultStatsStartTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsEndTime": {
+    "name": "satResultStatsEndTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsStatus": {
+    "name": "satResultStatsStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsResult": {
+    "name": "satResultStatsResult",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsMinIRGMeasured": {
+    "name": "satResultStatsMinIRGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsAvgIRGMeasured": {
+    "name": "satResultStatsAvgIRGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsMaxIRGMeasured": {
+    "name": "satResultStatsMaxIRGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsMinIRYMeasured": {
+    "name": "satResultStatsMinIRYMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsAvgIRYMeasured": {
+    "name": "satResultStatsAvgIRYMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsMaxIRYMeasured": {
+    "name": "satResultStatsMaxIRYMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsFlrGMeasured": {
+    "name": "satResultStatsFlrGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsFlrYMeasured": {
+    "name": "satResultStatsFlrYMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsFlrGCounts": {
+    "name": "satResultStatsFlrGCounts",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsFlrYCounts": {
+    "name": "satResultStatsFlrYCounts",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsMinFTDGMeasured": {
+    "name": "satResultStatsMinFTDGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsAvgFTDGMeasured": {
+    "name": "satResultStatsAvgFTDGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsMaxFTDGMeasured": {
+    "name": "satResultStatsMaxFTDGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsIMinFDVGMeasured": {
+    "name": "satResultStatsIMinFDVGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsIAvgFDVGMeasured": {
+    "name": "satResultStatsIAvgFDVGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsIMaxFDVGMeasured": {
+    "name": "satResultStatsIMaxFDVGMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsISyncErrorsNum": {
+    "name": "satResultStatsISyncErrorsNum",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsIfNegFLG": {
+    "name": "satResultStatsIfNegFLG",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsIfNegFLY": {
+    "name": "satResultStatsIfNegFLY",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsAvgIRT": {
+    "name": "satResultStatsAvgIRT",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsFlrTMeasured": {
+    "name": "satResultStatsFlrTMeasured",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsFlTCounts": {
+    "name": "satResultStatsFlTCounts",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResultStatsIfNegFLT": {
+    "name": "satResultStatsIfNegFLT",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satSacProfileTable": {
+    "name": "satSacProfileTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satSacProfileEntry": {
+    "name": "satSacProfileEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satSacProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "satSacProfileIndex": {
+    "name": "satSacProfileIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satSacProfileAlias": {
+    "name": "satSacProfileAlias",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satSacProfileFLR": {
+    "name": "satSacProfileFLR",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satSacProfileFTD": {
+    "name": "satSacProfileFTD",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satSacProfileFDV": {
+    "name": "satSacProfileFDV",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satSacProfileStorageType": {
+    "name": "satSacProfileStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "satSacProfileRowStatus": {
+    "name": "satSacProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "satResponderSessionTable": {
+    "name": "satResponderSessionTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satResponderSessionEntry": {
+    "name": "satResponderSessionEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResponderSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "satResponderSessionIndex": {
+    "name": "satResponderSessionIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satResponderSessionId": {
+    "name": "satResponderSessionId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResponderSessionControlMepMacAddr": {
+    "name": "satResponderSessionControlMepMacAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResponderSessionMepId": {
+    "name": "satResponderSessionMepId",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "satResponderSessionStorageType": {
+    "name": "satResponderSessionStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "satResponderSessionRowStatus": {
+    "name": "satResponderSessionRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "networkElementSatParamsTable": {
+    "name": "networkElementSatParamsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "networkElementSatParamsEntry": {
+    "name": "networkElementSatParamsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "networkElementSatParamsEntry",
+      "module": "CM-SAT-MIB",
+      "object": "networkElementEntry"
+    },
+    "status": "current"
+  },
+  "neSatParamsEtherType": {
+    "name": "neSatParamsEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "satCfmMepExtTable": {
+    "name": "satCfmMepExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "satCfmMepExtEntry": {
+    "name": "satCfmMepExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "satCfmMepExtEntry",
+      "module": "CM-SAT-MIB",
+      "object": "dot1agCfmMepEntry"
+    },
+    "status": "current"
+  },
+  "satCfmMepSatResponderEnabled": {
+    "name": "satCfmMepSatResponderEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmServActivationCompliances": {
+    "name": "cmServActivationCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.3.1",
+    "class": "objectidentity"
+  },
+  "cmServActivationGroups": {
+    "name": "cmServActivationGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.3.2",
+    "class": "objectidentity"
+  },
+  "cmServActivationCompliance": {
+    "name": "cmServActivationCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmSatGroup",
+        "module": "CM-SAT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSatGroup": {
+    "name": "cmSatGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.28.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlIndex"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlName"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlTestMode"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlTestProcedures"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlConfigTestDuration"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlConfigCIRTestStepNum"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlConfigCIRTestStepDuration"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlPerfTestDuration"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlStatus"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlAction"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlFailCause"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlTestStartTime"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlFlpduTagOverride"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamIndex"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamName"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamTestPort"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamTestDirection"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDestMacAddress"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamFramePayloadType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamCustomFramePayload"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamFrameSizeList"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamSacProfileId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamSrcMepId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDestMepType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDestMepId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDestMepMacAddr"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDmmPacketSize"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDmmPacketInterval"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamOverallResult"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamAction"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamStatus"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamCurrentTestProcedure"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamCurrentConfigCirTestStep"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamInner1VlanId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamInner1VlanPri"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamInner1VlanEnabled"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamInner1ValnEtherType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamInner2VlanId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamInner2VlanPri"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamInner2VlanEnabled"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamInner2VlanEtherType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamOuterVlanId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamOuterVlanPri"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamOuterVlanEnabled"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamOuterVlanEtherType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDeiEnabled"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamGreenPcp"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamYellowPcp"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamColorMode"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamCirLo"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamCirHi"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamEirLo"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamEirHi"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamCbs"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamEbs"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamStorageType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamRowStatus"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlStorageType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satControlRowStatus"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDmmPktPriority"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamMFactor"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamDestMepEnabled"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satStreamLlActivateEnabled"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsSessionId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsTestType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsStepNumber"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsStartTime"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsEndTime"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsStatus"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsResult"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsMinIRGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsAvgIRGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsMaxIRGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsMinIRYMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsAvgIRYMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsMaxIRYMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsFlrGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsFlrYMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsFlrGCounts"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsFlrYCounts"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsMinFTDGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsAvgFTDGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsMaxFTDGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsIMinFDVGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsIAvgFDVGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsIMaxFDVGMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsISyncErrorsNum"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsIfNegFLG"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsIfNegFLY"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsAvgIRT"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsFlrTMeasured"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsFlTCounts"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResultStatsIfNegFLT"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satSacProfileIndex"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satSacProfileAlias"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satSacProfileFLR"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satSacProfileFTD"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satSacProfileFDV"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satSacProfileStorageType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satSacProfileRowStatus"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResponderSessionIndex"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResponderSessionId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResponderSessionControlMepMacAddr"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResponderSessionMepId"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResponderSessionStorageType"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satResponderSessionRowStatus"
+      },
+      {
+        "module": "CM-SAT-MIB",
+        "object": "satCfmMepSatResponderEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CM-SAT-MIB"
+  }
+}

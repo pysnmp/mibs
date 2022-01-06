@@ -1,0 +1,1471 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIPsecMIB": {
+    "name": "ciscoIPsecMIB",
+    "oid": "1.3.6.1.4.1.9.10.62",
+    "class": "moduleidentity"
+  },
+  "CIPsecLifetime": {
+    "name": "CIPsecLifetime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 120,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecLifesize": {
+    "name": "CIPsecLifesize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2560,
+            "max": 536870912
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CIPsecNumCryptoMaps": {
+    "name": "CIPsecNumCryptoMaps",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CryptomapType": {
+    "name": "CryptomapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cryptomapTypeNONE": 0,
+          "cryptomapTypeMANUAL": 1,
+          "cryptomapTypeISAKMP": 2,
+          "cryptomapTypeCET": 3,
+          "cryptomapTypeDYNAMIC": 4,
+          "cryptomapTypeDYNAMICDISCOVERY": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CryptomapSetBindStatus": {
+    "name": "CryptomapSetBindStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "attached": 1,
+          "detached": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IPSIpAddress": {
+    "name": "IPSIpAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IkeHashAlgo": {
+    "name": "IkeHashAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "md5": 2,
+          "sha": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IkeAuthMethod": {
+    "name": "IkeAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "preSharedKey": 2,
+          "rsaSig": 3,
+          "rsaEncrypt": 4,
+          "revPublicKey": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IkeIdentityType": {
+    "name": "IkeIdentityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isakmpIdTypeUNKNOWN": 0,
+          "isakmpIdTypeADDRESS": 1,
+          "isakmpIdTypeHOSTNAME": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DiffHellmanGrp": {
+    "name": "DiffHellmanGrp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "dhGroup1": 2,
+          "dhGroup2": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EncryptAlgo": {
+    "name": "EncryptAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "des": 2,
+          "des3": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TrapStatus": {
+    "name": "TrapStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoIPsecMIBObjects": {
+    "name": "ciscoIPsecMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.62.1",
+    "class": "objectidentity"
+  },
+  "ciscoIPsecMIBNotificationPrefix": {
+    "name": "ciscoIPsecMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.62.2",
+    "class": "objectidentity"
+  },
+  "ciscoIPsecMIBConformance": {
+    "name": "ciscoIPsecMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.62.3",
+    "class": "objectidentity"
+  },
+  "cipsIsakmpGroup": {
+    "name": "cipsIsakmpGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1",
+    "class": "objectidentity"
+  },
+  "cipsIPsecGroup": {
+    "name": "cipsIPsecGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2",
+    "class": "objectidentity"
+  },
+  "cipsIPsecGlobals": {
+    "name": "cipsIPsecGlobals",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.1",
+    "class": "objectidentity"
+  },
+  "cipsIPsecStatistics": {
+    "name": "cipsIPsecStatistics",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.2",
+    "class": "objectidentity"
+  },
+  "cipsCryptomapGroup": {
+    "name": "cipsCryptomapGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3",
+    "class": "objectidentity"
+  },
+  "cipsSysCapacityGroup": {
+    "name": "cipsSysCapacityGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.1.3",
+    "class": "objectidentity"
+  },
+  "cipsTrapCntlGroup": {
+    "name": "cipsTrapCntlGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.1.4",
+    "class": "objectidentity"
+  },
+  "cipsIsakmpEnabled": {
+    "name": "cipsIsakmpEnabled",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsIsakmpIdentity": {
+    "name": "cipsIsakmpIdentity",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeIdentityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsIsakmpKeepaliveInterval": {
+    "name": "cipsIsakmpKeepaliveInterval",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsNumIsakmpPolicies": {
+    "name": "cipsNumIsakmpPolicies",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsIsakmpPolicyTable": {
+    "name": "cipsIsakmpPolicyTable",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsIsakmpPolicyEntry": {
+    "name": "cipsIsakmpPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsIsakmpPolPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipsIsakmpPolPriority": {
+    "name": "cipsIsakmpPolPriority",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsIsakmpPolEncr": {
+    "name": "cipsIsakmpPolEncr",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsIsakmpPolHash": {
+    "name": "cipsIsakmpPolHash",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeHashAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsIsakmpPolAuth": {
+    "name": "cipsIsakmpPolAuth",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IkeAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsIsakmpPolGroup": {
+    "name": "cipsIsakmpPolGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsIsakmpPolLifetime": {
+    "name": "cipsIsakmpPolLifetime",
+    "oid": "1.3.6.1.4.1.9.10.62.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsSALifetime": {
+    "name": "cipsSALifetime",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecLifetime",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsSALifesize": {
+    "name": "cipsSALifesize",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecLifesize",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsNumStaticCryptomapSets": {
+    "name": "cipsNumStaticCryptomapSets",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecNumCryptoMaps",
+      "class": "type"
+    },
+    "units": "Integral Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsNumCETCryptomapSets": {
+    "name": "cipsNumCETCryptomapSets",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecNumCryptoMaps",
+      "class": "type"
+    },
+    "units": "Integral Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsNumDynamicCryptomapSets": {
+    "name": "cipsNumDynamicCryptomapSets",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecNumCryptoMaps",
+      "class": "type"
+    },
+    "units": "Integral Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsNumTEDCryptomapSets": {
+    "name": "cipsNumTEDCryptomapSets",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIPsecNumCryptoMaps",
+      "class": "type"
+    },
+    "units": "Integral Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsNumTEDProbesReceived": {
+    "name": "cipsNumTEDProbesReceived",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsNumTEDProbesSent": {
+    "name": "cipsNumTEDProbesSent",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsNumTEDFailures": {
+    "name": "cipsNumTEDFailures",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Integral Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsMaxSAs": {
+    "name": "cipsMaxSAs",
+    "oid": "1.3.6.1.4.1.9.10.62.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "Integral Units",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cips3DesCapable": {
+    "name": "cips3DesCapable",
+    "oid": "1.3.6.1.4.1.9.10.62.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetTable": {
+    "name": "cipsStaticCryptomapSetTable",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetEntry": {
+    "name": "cipsStaticCryptomapSetEntry",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetName": {
+    "name": "cipsStaticCryptomapSetName",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetSize": {
+    "name": "cipsStaticCryptomapSetSize",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetNumIsakmp": {
+    "name": "cipsStaticCryptomapSetNumIsakmp",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetNumManual": {
+    "name": "cipsStaticCryptomapSetNumManual",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetNumCET": {
+    "name": "cipsStaticCryptomapSetNumCET",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetNumDynamic": {
+    "name": "cipsStaticCryptomapSetNumDynamic",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetNumDisc": {
+    "name": "cipsStaticCryptomapSetNumDisc",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapSetNumSAs": {
+    "name": "cipsStaticCryptomapSetNumSAs",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsDynamicCryptomapSetTable": {
+    "name": "cipsDynamicCryptomapSetTable",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsDynamicCryptomapSetEntry": {
+    "name": "cipsDynamicCryptomapSetEntry",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsDynamicCryptomapSetName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipsDynamicCryptomapSetName": {
+    "name": "cipsDynamicCryptomapSetName",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsDynamicCryptomapSetSize": {
+    "name": "cipsDynamicCryptomapSetSize",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsDynamicCryptomapSetNumAssoc": {
+    "name": "cipsDynamicCryptomapSetNumAssoc",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapTable": {
+    "name": "cipsStaticCryptomapTable",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsStaticCryptomapEntry": {
+    "name": "cipsStaticCryptomapEntry",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipsStaticCryptomapPriority": {
+    "name": "cipsStaticCryptomapPriority",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsStaticCryptomapType": {
+    "name": "cipsStaticCryptomapType",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptomapType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapDescr": {
+    "name": "cipsStaticCryptomapDescr",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapPeer": {
+    "name": "cipsStaticCryptomapPeer",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IPSIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapNumPeers": {
+    "name": "cipsStaticCryptomapNumPeers",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapPfs": {
+    "name": "cipsStaticCryptomapPfs",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiffHellmanGrp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapLifetime": {
+    "name": "cipsStaticCryptomapLifetime",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 120,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapLifesize": {
+    "name": "cipsStaticCryptomapLifesize",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2560,
+            "max": 536870912
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsStaticCryptomapLevelHost": {
+    "name": "cipsStaticCryptomapLevelHost",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsCryptomapSetIfTable": {
+    "name": "cipsCryptomapSetIfTable",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipsCryptomapSetIfEntry": {
+    "name": "cipsCryptomapSetIfEntry",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipsCryptomapSetIfVirtual": {
+    "name": "cipsCryptomapSetIfVirtual",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipsCryptomapSetIfStatus": {
+    "name": "cipsCryptomapSetIfStatus",
+    "oid": "1.3.6.1.4.1.9.10.62.1.2.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CryptomapSetBindStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipsCntlIsakmpPolicyAdded": {
+    "name": "cipsCntlIsakmpPolicyAdded",
+    "oid": "1.3.6.1.4.1.9.10.62.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipsCntlIsakmpPolicyDeleted": {
+    "name": "cipsCntlIsakmpPolicyDeleted",
+    "oid": "1.3.6.1.4.1.9.10.62.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipsCntlCryptomapAdded": {
+    "name": "cipsCntlCryptomapAdded",
+    "oid": "1.3.6.1.4.1.9.10.62.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipsCntlCryptomapDeleted": {
+    "name": "cipsCntlCryptomapDeleted",
+    "oid": "1.3.6.1.4.1.9.10.62.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipsCntlCryptomapSetAttached": {
+    "name": "cipsCntlCryptomapSetAttached",
+    "oid": "1.3.6.1.4.1.9.10.62.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipsCntlCryptomapSetDetached": {
+    "name": "cipsCntlCryptomapSetDetached",
+    "oid": "1.3.6.1.4.1.9.10.62.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipsCntlTooManySAs": {
+    "name": "cipsCntlTooManySAs",
+    "oid": "1.3.6.1.4.1.9.10.62.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipsMIBNotifications": {
+    "name": "cipsMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.62.2.0",
+    "class": "objectidentity"
+  },
+  "cipsIsakmpPolicyAdded": {
+    "name": "cipsIsakmpPolicyAdded",
+    "oid": "1.3.6.1.4.1.9.10.62.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsNumIsakmpPolicies"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsIsakmpPolicyDeleted": {
+    "name": "cipsIsakmpPolicyDeleted",
+    "oid": "1.3.6.1.4.1.9.10.62.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsNumIsakmpPolicies"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsCryptomapAdded": {
+    "name": "cipsCryptomapAdded",
+    "oid": "1.3.6.1.4.1.9.10.62.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapType"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsCryptomapDeleted": {
+    "name": "cipsCryptomapDeleted",
+    "oid": "1.3.6.1.4.1.9.10.62.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsCryptomapSetAttached": {
+    "name": "cipsCryptomapSetAttached",
+    "oid": "1.3.6.1.4.1.9.10.62.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetSize"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetNumIsakmp"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetNumDynamic"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsCryptomapSetDetached": {
+    "name": "cipsCryptomapSetDetached",
+    "oid": "1.3.6.1.4.1.9.10.62.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsTooManySAs": {
+    "name": "cipsTooManySAs",
+    "oid": "1.3.6.1.4.1.9.10.62.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsMaxSAs"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsMIBConformances": {
+    "name": "cipsMIBConformances",
+    "oid": "1.3.6.1.4.1.9.10.62.3.1",
+    "class": "objectidentity"
+  },
+  "cipsMIBGroups": {
+    "name": "cipsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.62.3.2",
+    "class": "objectidentity"
+  },
+  "cipsMIBCompliance": {
+    "name": "cipsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.62.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cipsMIBConfIsakmpGroup",
+        "module": "CISCO-IPSEC-MIB"
+      },
+      {
+        "object": "cipsMIBConfIPSecGlobalsGroup",
+        "module": "CISCO-IPSEC-MIB"
+      },
+      {
+        "object": "cipsMIBConfCapacityGroup",
+        "module": "CISCO-IPSEC-MIB"
+      },
+      {
+        "object": "cipsMIBStaticCryptomapGroup",
+        "module": "CISCO-IPSEC-MIB"
+      },
+      {
+        "object": "cipsMIBMandatoryNotifCntlGroup",
+        "module": "CISCO-IPSEC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsMIBConfIsakmpGroup": {
+    "name": "cipsMIBConfIsakmpGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsIsakmpEnabled"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsIsakmpIdentity"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsIsakmpKeepaliveInterval"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsNumIsakmpPolicies"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsMIBConfIPSecGlobalsGroup": {
+    "name": "cipsMIBConfIPSecGlobalsGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsSALifetime"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsSALifesize"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsMIBConfCapacityGroup": {
+    "name": "cipsMIBConfCapacityGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsMaxSAs"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cips3DesCapable"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsMIBStaticCryptomapGroup": {
+    "name": "cipsMIBStaticCryptomapGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetSize"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetNumIsakmp"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetNumCET"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetNumSAs"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsMIBManualCryptomapGroup": {
+    "name": "cipsMIBManualCryptomapGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetNumManual"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsMIBDynamicCryptomapGroup": {
+    "name": "cipsMIBDynamicCryptomapGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsNumTEDProbesReceived"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsNumTEDProbesSent"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsNumTEDFailures"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetNumDynamic"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsStaticCryptomapSetNumDisc"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsNumTEDCryptomapSets"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsDynamicCryptomapSetSize"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsDynamicCryptomapSetNumAssoc"
+      }
+    ],
+    "status": "current"
+  },
+  "cipsMIBMandatoryNotifCntlGroup": {
+    "name": "cipsMIBMandatoryNotifCntlGroup",
+    "oid": "1.3.6.1.4.1.9.10.62.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsCntlIsakmpPolicyAdded"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsCntlIsakmpPolicyDeleted"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsCntlCryptomapAdded"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsCntlCryptomapDeleted"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsCntlCryptomapSetAttached"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsCntlCryptomapSetDetached"
+      },
+      {
+        "module": "CISCO-IPSEC-MIB",
+        "object": "cipsCntlTooManySAs"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSEC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IPSEC-MIB"
+  }
+}

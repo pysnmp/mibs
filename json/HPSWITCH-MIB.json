@@ -1,0 +1,732 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "MacAddr": {
+    "name": "MacAddr",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nm": {
+    "name": "nm",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "icf": {
+    "name": "icf",
+    "oid": "1.3.6.1.4.1.11.2.14",
+    "class": "objectidentity"
+  },
+  "icfEswitch": {
+    "name": "icfEswitch",
+    "oid": "1.3.6.1.4.1.11.2.14.6",
+    "class": "objectidentity"
+  },
+  "hpEs": {
+    "name": "hpEs",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1",
+    "class": "objectidentity"
+  },
+  "hpEsMain": {
+    "name": "hpEsMain",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1",
+    "class": "objectidentity"
+  },
+  "hpEsConfig": {
+    "name": "hpEsConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpEsFwVer": {
+    "name": "hpEsFwVer",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsHwVer": {
+    "name": "hpEsHwVer",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsIpAddr": {
+    "name": "hpEsIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsNetMask": {
+    "name": "hpEsNetMask",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsDefaultGateway": {
+    "name": "hpEsDefaultGateway",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrMaxEnt": {
+    "name": "hpEsTrapRcvrMaxEnt",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrCurEnt": {
+    "name": "hpEsTrapRcvrCurEnt",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrNext": {
+    "name": "hpEsTrapRcvrNext",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 655535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrTable": {
+    "name": "hpEsTrapRcvrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrEntry": {
+    "name": "hpEsTrapRcvrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPSWITCH-MIB",
+        "object": "hpEsTrapRcvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrIndex": {
+    "name": "hpEsTrapRcvrIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrStatus": {
+    "name": "hpEsTrapRcvrStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "invalid": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrIpAddress": {
+    "name": "hpEsTrapRcvrIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsTrapRcvrComm": {
+    "name": "hpEsTrapRcvrComm",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsSys": {
+    "name": "hpEsSys",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpEsNumPorts": {
+    "name": "hpEsNumPorts",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsNumStations": {
+    "name": "hpEsNumStations",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsMostStations": {
+    "name": "hpEsMostStations",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsMaxStations": {
+    "name": "hpEsMaxStations",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsReset": {
+    "name": "hpEsReset",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "running": 2,
+          "softReset": 3,
+          "hardReset": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsNumResets": {
+    "name": "hpEsNumResets",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsAddrAgingTime": {
+    "name": "hpEsAddrAgingTime",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsSysStaTable": {
+    "name": "hpEsSysStaTable",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpEsSysStaEntry": {
+    "name": "hpEsSysStaEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPSWITCH-MIB",
+        "object": "hpEsSysStaMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpEsSysStaMacAddr": {
+    "name": "hpEsSysStaMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsSysStaPort": {
+    "name": "hpEsSysStaPort",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsSysStaTraffic": {
+    "name": "hpEsSysStaTraffic",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsTop": {
+    "name": "hpEsTop",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.2",
+    "class": "objectidentity"
+  },
+  "hpEsPort": {
+    "name": "hpEsPort",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3",
+    "class": "objectidentity"
+  },
+  "hpEsPortTable": {
+    "name": "hpEsPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpEsPortEntry": {
+    "name": "hpEsPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPSWITCH-MIB",
+        "object": "hpEsPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpEsPortIndex": {
+    "name": "hpEsPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortOprStatus": {
+    "name": "hpEsPortOprStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsPortExtConn": {
+    "name": "hpEsPortExtConn",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "aui": 2,
+          "rj45": 3,
+          "noExternal": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortDuplex": {
+    "name": "hpEsPortDuplex",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortRcvLocalFrames": {
+    "name": "hpEsPortRcvLocalFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortForwardedFrames": {
+    "name": "hpEsPortForwardedFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortMostStations": {
+    "name": "hpEsPortMostStations",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortMaxStations": {
+    "name": "hpEsPortMaxStations",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortSWHandledFrames": {
+    "name": "hpEsPortSWHandledFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortLocalStations": {
+    "name": "hpEsPortLocalStations",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortRemoteStations": {
+    "name": "hpEsPortRemoteStations",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortUnknownStaFrames": {
+    "name": "hpEsPortUnknownStaFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortResetStats": {
+    "name": "hpEsPortResetStats",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "running": 2,
+          "reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsPortResetTimer": {
+    "name": "hpEsPortResetTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortResetAddrs": {
+    "name": "hpEsPortResetAddrs",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "running": 2,
+          "reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpEsPortRcvBcasts": {
+    "name": "hpEsPortRcvBcasts",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpEsPortSwitchedFrames": {
+    "name": "hpEsPortSwitchedFrames",
+    "oid": "1.3.6.1.4.1.11.2.14.6.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPSWITCH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPSWITCH-MIB"
+  }
+}

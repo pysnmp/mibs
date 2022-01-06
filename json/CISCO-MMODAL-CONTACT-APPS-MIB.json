@@ -1,0 +1,5348 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoURLString"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressDNS"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoMmodalContactAppsMIB": {
+    "name": "ciscoMmodalContactAppsMIB",
+    "oid": "1.3.6.1.4.1.9.9.664",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CmmcaIndex": {
+    "name": "CmmcaIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CmmcaServiceType": {
+    "name": "CmmcaServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cm": 1,
+          "rm": 2,
+          "wa": 3,
+          "mpa": 4,
+          "bre": 5,
+          "icmgw": 6,
+          "rda": 7,
+          "ra": 8,
+          "rs": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmmcaServiceStatus": {
+    "name": "CmmcaServiceStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "starting": 2,
+          "inService": 3,
+          "inServiceWarning": 4,
+          "inServiceCritical": 5,
+          "partialService": 6,
+          "outOfService": 7,
+          "stopping": 8,
+          "stopped": 9,
+          "unknown": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmmcaNextNodeStatus": {
+    "name": "CmmcaNextNodeStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "unavailable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmmcaConditionStatus": {
+    "name": "CmmcaConditionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conditionWarn": 1,
+          "conditionCritical": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmmcaSystemConditionStatus": {
+    "name": "CmmcaSystemConditionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "statusNormal": 1,
+          "statusWarning": 2,
+          "statusCritical": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmmcaSeverityLevel": {
+    "name": "CmmcaSeverityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 1,
+          "alert": 2,
+          "critical": 3,
+          "error": 4,
+          "warning": 5,
+          "notice": 6,
+          "informational": 7,
+          "debug": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoMmodalContactAppsMIBNotifs": {
+    "name": "ciscoMmodalContactAppsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.664.0",
+    "class": "objectidentity"
+  },
+  "ciscoMmodalContactAppsMIBObjects": {
+    "name": "ciscoMmodalContactAppsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.664.1",
+    "class": "objectidentity"
+  },
+  "ciscoMmodalContactAppsMIBConform": {
+    "name": "ciscoMmodalContactAppsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.664.2",
+    "class": "objectidentity"
+  },
+  "cmmcaGeneralInfo": {
+    "name": "cmmcaGeneralInfo",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1",
+    "class": "objectidentity"
+  },
+  "cmmcaLicenseInfo": {
+    "name": "cmmcaLicenseInfo",
+    "oid": "1.3.6.1.4.1.9.9.664.1.2",
+    "class": "objectidentity"
+  },
+  "cmmcaThreadPool": {
+    "name": "cmmcaThreadPool",
+    "oid": "1.3.6.1.4.1.9.9.664.1.3",
+    "class": "objectidentity"
+  },
+  "cmmcaRuntimeInfo": {
+    "name": "cmmcaRuntimeInfo",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4",
+    "class": "objectidentity"
+  },
+  "cmmcaServices": {
+    "name": "cmmcaServices",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5",
+    "class": "objectidentity"
+  },
+  "cmmcaServiceInfo": {
+    "name": "cmmcaServiceInfo",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6",
+    "class": "objectidentity"
+  },
+  "cmmcaNotificationInfo": {
+    "name": "cmmcaNotificationInfo",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7",
+    "class": "objectidentity"
+  },
+  "cmmcaEventMessageId": {
+    "name": "cmmcaEventMessageId",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmmcaEventHostName": {
+    "name": "cmmcaEventHostName",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmmcaEventAppName": {
+    "name": "cmmcaEventAppName",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmmcaEventMessageName": {
+    "name": "cmmcaEventMessageName",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmmcaEventState": {
+    "name": "cmmcaEventState",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raise": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmmcaEventSeverity": {
+    "name": "cmmcaEventSeverity",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaSeverityLevel",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmmcaEventTimestamp": {
+    "name": "cmmcaEventTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmmcaEventText": {
+    "name": "cmmcaEventText",
+    "oid": "1.3.6.1.4.1.9.9.664.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cmmcaRmTable": {
+    "name": "cmmcaRmTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaRmEntry": {
+    "name": "cmmcaRmEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRmRtAgentsLoggedIn": {
+    "name": "cmmcaRmRtAgentsLoggedIn",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmRtAgentsOnCalls": {
+    "name": "cmmcaRmRtAgentsOnCalls",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmRtAgentsReserved": {
+    "name": "cmmcaRmRtAgentsReserved",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmRtAgentsWrapUp": {
+    "name": "cmmcaRmRtAgentsWrapUp",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmRtAgentsReady": {
+    "name": "cmmcaRmRtAgentsReady",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmRtAgentsNoQueue": {
+    "name": "cmmcaRmRtAgentsNoQueue",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmAggNumOffersAccept": {
+    "name": "cmmcaRmAggNumOffersAccept",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "offers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmIntNumOffersAccept": {
+    "name": "cmmcaRmIntNumOffersAccept",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "offers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmAggNumOffersReject": {
+    "name": "cmmcaRmAggNumOffersReject",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "offers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmIntNumOffersReject": {
+    "name": "cmmcaRmIntNumOffersReject",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "offers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmAggNumOffersTimedOut": {
+    "name": "cmmcaRmAggNumOffersTimedOut",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "offers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRmIntNumOffersTimedOut": {
+    "name": "cmmcaRmIntNumOffersTimedOut",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "offers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmTable": {
+    "name": "cmmcaCmTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaCmEntry": {
+    "name": "cmmcaCmEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaCmRtNumActiveCalls": {
+    "name": "cmmcaCmRtNumActiveCalls",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmRtNumCallTrying": {
+    "name": "cmmcaCmRtNumCallTrying",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmRtNumCallRingBack": {
+    "name": "cmmcaCmRtNumCallRingBack",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmRtNumCallConnecting": {
+    "name": "cmmcaCmRtNumCallConnecting",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmRtNumCallConnected": {
+    "name": "cmmcaCmRtNumCallConnected",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmRtNumCallInitial": {
+    "name": "cmmcaCmRtNumCallInitial",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggNumCallArrivals": {
+    "name": "cmmcaCmAggNumCallArrivals",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmIntNumCallArrivals": {
+    "name": "cmmcaCmIntNumCallArrivals",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmRtNumCallRejecting": {
+    "name": "cmmcaCmRtNumCallRejecting",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmRtNumCallTransferring": {
+    "name": "cmmcaCmRtNumCallTransferring",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmRtNumCallTerminating": {
+    "name": "cmmcaCmRtNumCallTerminating",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggAvgCallDurationTime": {
+    "name": "cmmcaCmAggAvgCallDurationTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmIntAvgCallDurationTime": {
+    "name": "cmmcaCmIntAvgCallDurationTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggMaxCallDurationTime": {
+    "name": "cmmcaCmAggMaxCallDurationTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmIntMaxCallDurationTime": {
+    "name": "cmmcaCmIntMaxCallDurationTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggMaxCallDurationTimeDt": {
+    "name": "cmmcaCmAggMaxCallDurationTimeDt",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmIntMaxCallDurationTimeDt": {
+    "name": "cmmcaCmIntMaxCallDurationTimeDt",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggAvgCallInQueueTime": {
+    "name": "cmmcaCmAggAvgCallInQueueTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmIntAvgCallInQueueTime": {
+    "name": "cmmcaCmIntAvgCallInQueueTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggMaxCallInQueueTime": {
+    "name": "cmmcaCmAggMaxCallInQueueTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmIntMaxCallInQueueTime": {
+    "name": "cmmcaCmIntMaxCallInQueueTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggMaxCallInQueueTimeDt": {
+    "name": "cmmcaCmAggMaxCallInQueueTimeDt",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmIntMaxCallInQueueTimeDt": {
+    "name": "cmmcaCmIntMaxCallInQueueTimeDt",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggAvgCallArrivalRate": {
+    "name": "cmmcaCmAggAvgCallArrivalRate",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggMaxCallArrivalRate": {
+    "name": "cmmcaCmAggMaxCallArrivalRate",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "calls per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmAggMaxCallArrivalRateDt": {
+    "name": "cmmcaCmAggMaxCallArrivalRateDt",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaCmIntAvgCallArrivalRate": {
+    "name": "cmmcaCmIntAvgCallArrivalRate",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaTable": {
+    "name": "cmmcaRdaTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaRdaEntry": {
+    "name": "cmmcaRdaEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRdaAggNumMsgProc": {
+    "name": "cmmcaRdaAggNumMsgProc",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaIntNumMsgProc": {
+    "name": "cmmcaRdaIntNumMsgProc",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaAggNumSuccessPresenceNotifications": {
+    "name": "cmmcaRdaAggNumSuccessPresenceNotifications",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaIntNumSuccessPresenceNotifications": {
+    "name": "cmmcaRdaIntNumSuccessPresenceNotifications",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaRtNumActiveClients": {
+    "name": "cmmcaRdaRtNumActiveClients",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "clients",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaRtNumOutStandingOfferTasks": {
+    "name": "cmmcaRdaRtNumOutStandingOfferTasks",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "tasks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaAggNumUnSuccessPresenceNotifications": {
+    "name": "cmmcaRdaAggNumUnSuccessPresenceNotifications",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaIntNumUnSuccessPresenceNotifications": {
+    "name": "cmmcaRdaIntNumUnSuccessPresenceNotifications",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRdaRtNumInactiveClients": {
+    "name": "cmmcaRdaRtNumInactiveClients",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "clients",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreTable": {
+    "name": "cmmcaBreTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaBreEntry": {
+    "name": "cmmcaBreEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaBreAggLoadedScripts": {
+    "name": "cmmcaBreAggLoadedScripts",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "scripts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggDistinctScripts": {
+    "name": "cmmcaBreAggDistinctScripts",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "scripts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreRtActiveScripts": {
+    "name": "cmmcaBreRtActiveScripts",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "scripts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreRtCurrentInstances": {
+    "name": "cmmcaBreRtCurrentInstances",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggMaxConcurrentInstances": {
+    "name": "cmmcaBreAggMaxConcurrentInstances",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntMaxConcurrentInstances": {
+    "name": "cmmcaBreIntMaxConcurrentInstances",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggMaxConcurrentInstancesDt": {
+    "name": "cmmcaBreAggMaxConcurrentInstancesDt",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntMaxConcurrentInstancesDt": {
+    "name": "cmmcaBreIntMaxConcurrentInstancesDt",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggAvgConcurrentInstances": {
+    "name": "cmmcaBreAggAvgConcurrentInstances",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntAvgConcurrentInstances": {
+    "name": "cmmcaBreIntAvgConcurrentInstances",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalInstanceInitiations": {
+    "name": "cmmcaBreAggTotalInstanceInitiations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "initiations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalInstanceInitiations": {
+    "name": "cmmcaBreIntTotalInstanceInitiations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "initiations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalContactInstanceInitiations": {
+    "name": "cmmcaBreAggTotalContactInstanceInitiations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "initiations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalContactInstanceInitiations": {
+    "name": "cmmcaBreIntTotalContactInstanceInitiations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "initiations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalResourceInstanceInitiations": {
+    "name": "cmmcaBreAggTotalResourceInstanceInitiations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "initiations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalResourceInstanceInitiations": {
+    "name": "cmmcaBreIntTotalResourceInstanceInitiations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "initiations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalInstanceTerminations": {
+    "name": "cmmcaBreAggTotalInstanceTerminations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "terminations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalInstanceTerminations": {
+    "name": "cmmcaBreIntTotalInstanceTerminations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "terminations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalContactInstanceTerminations": {
+    "name": "cmmcaBreAggTotalContactInstanceTerminations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "terminations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalContactInstanceTerminations": {
+    "name": "cmmcaBreIntTotalContactInstanceTerminations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "terminations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalResourceInstanceTerminations": {
+    "name": "cmmcaBreAggTotalResourceInstanceTerminations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "terminations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalResourceInstanceTerminations": {
+    "name": "cmmcaBreIntTotalResourceInstanceTerminations",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "terminations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalAbnormalEndings": {
+    "name": "cmmcaBreAggTotalAbnormalEndings",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "endings",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalAbnormalEndings": {
+    "name": "cmmcaBreIntTotalAbnormalEndings",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "endings",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalAbnormalContactEndings": {
+    "name": "cmmcaBreAggTotalAbnormalContactEndings",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "endings",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalAbnormalContactEndings": {
+    "name": "cmmcaBreIntTotalAbnormalContactEndings",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "endings",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreAggTotalAbnormalResourceEndings": {
+    "name": "cmmcaBreAggTotalAbnormalResourceEndings",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "endings",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaBreIntTotalAbnormalResourceEndings": {
+    "name": "cmmcaBreIntTotalAbnormalResourceEndings",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "endings",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaTable": {
+    "name": "cmmcaWaTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaWaEntry": {
+    "name": "cmmcaWaEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaWaRtAssignmentQueCount": {
+    "name": "cmmcaWaRtAssignmentQueCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "none",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtAttributeDefCount": {
+    "name": "cmmcaWaRtAttributeDefCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "none",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtSelectionStrategyCount": {
+    "name": "cmmcaWaRtSelectionStrategyCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "none",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtSkillCount": {
+    "name": "cmmcaWaRtSkillCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "none",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggTotalConfigErrors": {
+    "name": "cmmcaWaAggTotalConfigErrors",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "none",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggCancelResourceRequestReceived": {
+    "name": "cmmcaWaAggCancelResourceRequestReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggResourceRequestReceived": {
+    "name": "cmmcaWaAggResourceRequestReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggResourceResponseSent": {
+    "name": "cmmcaWaAggResourceResponseSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggCancelWorkRequestReceived": {
+    "name": "cmmcaWaAggCancelWorkRequestReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggOfferTaskAcceptedSent": {
+    "name": "cmmcaWaAggOfferTaskAcceptedSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggOfferTaskCancelledSent": {
+    "name": "cmmcaWaAggOfferTaskCancelledSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggOfferTaskResponseReceived": {
+    "name": "cmmcaWaAggOfferTaskResponseReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggOfferTaskSent": {
+    "name": "cmmcaWaAggOfferTaskSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggResyncResourceResponseAckSent": {
+    "name": "cmmcaWaAggResyncResourceResponseAckSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggResyncResourceResponseReceived": {
+    "name": "cmmcaWaAggResyncResourceResponseReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggResyncResourceSent": {
+    "name": "cmmcaWaAggResyncResourceSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggWorkRequestReceived": {
+    "name": "cmmcaWaAggWorkRequestReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggQueueEventSent": {
+    "name": "cmmcaWaAggQueueEventSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggWorkRequestCanceledSent": {
+    "name": "cmmcaWaAggWorkRequestCanceledSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggWRIFailureResponseSent": {
+    "name": "cmmcaWaAggWRIFailureResponseSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggRRIFailureResponseSent": {
+    "name": "cmmcaWaAggRRIFailureResponseSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggResourceResponseCanceledSent": {
+    "name": "cmmcaWaAggResourceResponseCanceledSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggCancelQueueEventSent": {
+    "name": "cmmcaWaAggCancelQueueEventSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaAggMessageSentError": {
+    "name": "cmmcaWaAggMessageSentError",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtResourceCriteriaCount": {
+    "name": "cmmcaWaRtResourceCriteriaCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "criteria",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtSelectionStrategyAttrCount": {
+    "name": "cmmcaWaRtSelectionStrategyAttrCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "attributes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtAttributeCriteriaCount": {
+    "name": "cmmcaWaRtAttributeCriteriaCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "criteria",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtResourceCount": {
+    "name": "cmmcaWaRtResourceCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "resources",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtAttributeValueCount": {
+    "name": "cmmcaWaRtAttributeValueCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "values",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtSkillCompetencyCount": {
+    "name": "cmmcaWaRtSkillCompetencyCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "competencies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtResourceMemberCount": {
+    "name": "cmmcaWaRtResourceMemberCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "members",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtTotalResourceCount": {
+    "name": "cmmcaWaRtTotalResourceCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "resources",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtTotalContactCount": {
+    "name": "cmmcaWaRtTotalContactCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "contacts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtTotalResourceManagerCount": {
+    "name": "cmmcaWaRtTotalResourceManagerCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "services",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaWaRtTotalContactManagerCount": {
+    "name": "cmmcaWaRtTotalContactManagerCount",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "services",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaTable": {
+    "name": "cmmcaMpaTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaMpaEntry": {
+    "name": "cmmcaMpaEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaMpaAggNewCalls": {
+    "name": "cmmcaMpaAggNewCalls",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggConnectsRcv": {
+    "name": "cmmcaMpaAggConnectsRcv",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connects",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggAvgLatency": {
+    "name": "cmmcaMpaAggAvgLatency",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggFailedInvites": {
+    "name": "cmmcaMpaAggFailedInvites",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "invitations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggFailedReinvites": {
+    "name": "cmmcaMpaAggFailedReinvites",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "invitations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggTotalCalls": {
+    "name": "cmmcaMpaAggTotalCalls",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtIncomingCalls": {
+    "name": "cmmcaMpaRtIncomingCalls",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtOutgoingCalls": {
+    "name": "cmmcaMpaRtOutgoingCalls",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtActiveClientSessions": {
+    "name": "cmmcaMpaRtActiveClientSessions",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggTotalClientsRegistered": {
+    "name": "cmmcaMpaAggTotalClientsRegistered",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggInstantMessagesSent": {
+    "name": "cmmcaMpaAggInstantMessagesSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggInstantMessagesReceived": {
+    "name": "cmmcaMpaAggInstantMessagesReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggPresenceUpdatesReceived": {
+    "name": "cmmcaMpaAggPresenceUpdatesReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "updates",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggPresenceUpdatesBytesRcv": {
+    "name": "cmmcaMpaAggPresenceUpdatesBytesRcv",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtActiveRegisteredSipAddresses": {
+    "name": "cmmcaMpaRtActiveRegisteredSipAddresses",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtActiveSipControlAddresses": {
+    "name": "cmmcaMpaRtActiveSipControlAddresses",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtActiveIMAddresses": {
+    "name": "cmmcaMpaRtActiveIMAddresses",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtActiveMonitoredPresenceAddresses": {
+    "name": "cmmcaMpaRtActiveMonitoredPresenceAddresses",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggTotalRegisteredSipAddresses": {
+    "name": "cmmcaMpaAggTotalRegisteredSipAddresses",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggTotalSipControlAddressesRegistered": {
+    "name": "cmmcaMpaAggTotalSipControlAddressesRegistered",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggTotalIMAddressesRegistered": {
+    "name": "cmmcaMpaAggTotalIMAddressesRegistered",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaAggTotalMonitoredPresenceAddressesRegistered": {
+    "name": "cmmcaMpaAggTotalMonitoredPresenceAddressesRegistered",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtActiveInteractions": {
+    "name": "cmmcaMpaRtActiveInteractions",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "interactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtActivePublishAddresses": {
+    "name": "cmmcaMpaRtActivePublishAddresses",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMpaRtTotalPublishAddressesRegistered": {
+    "name": "cmmcaMpaRtTotalPublishAddressesRegistered",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaTable": {
+    "name": "cmmcaRaTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaRaEntry": {
+    "name": "cmmcaRaEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRaAggMsgReceived": {
+    "name": "cmmcaRaAggMsgReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggMsgSent": {
+    "name": "cmmcaRaAggMsgSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggContactDetailMesgReceived": {
+    "name": "cmmcaRaAggContactDetailMesgReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggContactDetailMesgDispatched": {
+    "name": "cmmcaRaAggContactDetailMesgDispatched",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggContactDetailAttribMsgDispatched": {
+    "name": "cmmcaRaAggContactDetailAttribMsgDispatched",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggContactSegDetailMsgReceived": {
+    "name": "cmmcaRaAggContactSegDetailMsgReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggContactSegDetailMesgDispatched": {
+    "name": "cmmcaRaAggContactSegDetailMesgDispatched",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggContactSegMediaDetailMsgDispatched": {
+    "name": "cmmcaRaAggContactSegMediaDetailMsgDispatched",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggResourceTaskDetailMsgReceived": {
+    "name": "cmmcaRaAggResourceTaskDetailMsgReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggResourceTaskDetailMsgDispatched": {
+    "name": "cmmcaRaAggResourceTaskDetailMsgDispatched",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggTaskStateChangeMsgReceived": {
+    "name": "cmmcaRaAggTaskStateChangeMsgReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggResourceStateChngMesgReceived": {
+    "name": "cmmcaRaAggResourceStateChngMesgReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggResourceStateChngMsgDispatched": {
+    "name": "cmmcaRaAggResourceStateChngMsgDispatched",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggVersionResponseRecieved": {
+    "name": "cmmcaRaAggVersionResponseRecieved",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggVersionRequestDispatched": {
+    "name": "cmmcaRaAggVersionRequestDispatched",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRaAggNodeSyncDispatched": {
+    "name": "cmmcaRaAggNodeSyncDispatched",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsTable": {
+    "name": "cmmcaRsTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaRsEntry": {
+    "name": "cmmcaRsEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRsAggTotalContactDetailRecords": {
+    "name": "cmmcaRsAggTotalContactDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsAggTotalContactDetailAttributeRecords": {
+    "name": "cmmcaRsAggTotalContactDetailAttributeRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsAggTotalContactSegmentDetailRecords": {
+    "name": "cmmcaRsAggTotalContactSegmentDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsAggTotalResourceTaskDetailRecords": {
+    "name": "cmmcaRsAggTotalResourceTaskDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsAggTotalResourceEventDetailRecords": {
+    "name": "cmmcaRsAggTotalResourceEventDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsAggTotalAssignmentQueDetailRecords": {
+    "name": "cmmcaRsAggTotalAssignmentQueDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsAggTotalAssignmentQueAttribRecords": {
+    "name": "cmmcaRsAggTotalAssignmentQueAttribRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsAggTotalContactSegmentMediaDetailRecords": {
+    "name": "cmmcaRsAggTotalContactSegmentMediaDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsAggTotalDBWrites": {
+    "name": "cmmcaRsAggTotalDBWrites",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "writes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntContactDetailRecords": {
+    "name": "cmmcaRsIntContactDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntContactDetailAttribRecords": {
+    "name": "cmmcaRsIntContactDetailAttribRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntContactSegmentDetailRecords": {
+    "name": "cmmcaRsIntContactSegmentDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntResourceTaskDetailRecords": {
+    "name": "cmmcaRsIntResourceTaskDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntResourceEventDetailRecords": {
+    "name": "cmmcaRsIntResourceEventDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntAssignmentQueDetailRecords": {
+    "name": "cmmcaRsIntAssignmentQueDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntAssignmentQueAttribRecords": {
+    "name": "cmmcaRsIntAssignmentQueAttribRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntContactSegmentMediaDetailRecords": {
+    "name": "cmmcaRsIntContactSegmentMediaDetailRecords",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "records",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsIntDBWrites": {
+    "name": "cmmcaRsIntDBWrites",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "writes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsRtDBStatus": {
+    "name": "cmmcaRsRtDBStatus",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsRtNumberActiveDBUserSessions": {
+    "name": "cmmcaRsRtNumberActiveDBUserSessions",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsDBSizeAllocated": {
+    "name": "cmmcaRsDBSizeAllocated",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsRtDBSpaceUsed": {
+    "name": "cmmcaRsRtDBSpaceUsed",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsRtDBSpaceFree": {
+    "name": "cmmcaRsRtDBSpaceFree",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsRtDBPercentUsed": {
+    "name": "cmmcaRsRtDBPercentUsed",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsRtDBPercentFree": {
+    "name": "cmmcaRsRtDBPercentFree",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRsRtTransactionLogSize": {
+    "name": "cmmcaRsRtTransactionLogSize",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwTable": {
+    "name": "cmmcaIcmgwTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaIcmgwEntry": {
+    "name": "cmmcaIcmgwEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaIcmgwAggSocketConnects": {
+    "name": "cmmcaIcmgwAggSocketConnects",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sockets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwAggSocketDisconnects": {
+    "name": "cmmcaIcmgwAggSocketDisconnects",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sockets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwAggACMIBytesSent": {
+    "name": "cmmcaIcmgwAggACMIBytesSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwAggACMIBytesRcvd": {
+    "name": "cmmcaIcmgwAggACMIBytesRcvd",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwAggACMIMsgsSent": {
+    "name": "cmmcaIcmgwAggACMIMsgsSent",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwAggACMIMsgsRcvd": {
+    "name": "cmmcaIcmgwAggACMIMsgsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtACMIOutQueueDepth": {
+    "name": "cmmcaIcmgwRtACMIOutQueueDepth",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtACMIOutQueueWait": {
+    "name": "cmmcaIcmgwRtACMIOutQueueWait",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtAgentsMonitored": {
+    "name": "cmmcaIcmgwRtAgentsMonitored",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtAqsMonitored": {
+    "name": "cmmcaIcmgwRtAqsMonitored",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "queues",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtRoutesMonitored": {
+    "name": "cmmcaIcmgwRtRoutesMonitored",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "routes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtPendingQueryAgentStateDlgs": {
+    "name": "cmmcaIcmgwRtPendingQueryAgentStateDlgs",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "dialogues",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtPendingGetContactDetailDlgs": {
+    "name": "cmmcaIcmgwRtPendingGetContactDetailDlgs",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "dialogues",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwAggQueryAgentStateTimeouts": {
+    "name": "cmmcaIcmgwAggQueryAgentStateTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "timeouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwAggGetContactDetailTimeouts": {
+    "name": "cmmcaIcmgwAggGetContactDetailTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "timeouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtQueryAgentStateDelay": {
+    "name": "cmmcaIcmgwRtQueryAgentStateDelay",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtGetContactDetailDelay": {
+    "name": "cmmcaIcmgwRtGetContactDetailDelay",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaIcmgwRtPendingCallTermEvents": {
+    "name": "cmmcaIcmgwRtPendingCallTermEvents",
+    "oid": "1.3.6.1.4.1.9.9.664.1.6.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaServiceTable": {
+    "name": "cmmcaServiceTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaServiceEntry": {
+    "name": "cmmcaServiceEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaServiceIndex": {
+    "name": "cmmcaServiceIndex",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaServiceType": {
+    "name": "cmmcaServiceType",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaServiceName": {
+    "name": "cmmcaServiceName",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaServiceStatus": {
+    "name": "cmmcaServiceStatus",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaServiceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaServiceIntPeriod": {
+    "name": "cmmcaServiceIntPeriod",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtRoutingDomain": {
+    "name": "cmmcaRtRoutingDomain",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtLogLevel": {
+    "name": "cmmcaRtLogLevel",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaSeverityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtTraceMask": {
+    "name": "cmmcaRtTraceMask",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtMessageThroughput": {
+    "name": "cmmcaRtMessageThroughput",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtUptime": {
+    "name": "cmmcaRtUptime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtMsgReceived": {
+    "name": "cmmcaRtMsgReceived",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMaxThreadsAvailable": {
+    "name": "cmmcaMaxThreadsAvailable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtThreadsInUse": {
+    "name": "cmmcaRtThreadsInUse",
+    "oid": "1.3.6.1.4.1.9.9.664.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaEnvRtMaxMemUsed": {
+    "name": "cmmcaEnvRtMaxMemUsed",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaEnvRtCurrMemUsed": {
+    "name": "cmmcaEnvRtCurrMemUsed",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaEnvRtMaxMemAvail": {
+    "name": "cmmcaEnvRtMaxMemAvail",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaEnvRtCurrMemAvail": {
+    "name": "cmmcaEnvRtCurrMemAvail",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaEnvRtCurrThreadsInUse": {
+    "name": "cmmcaEnvRtCurrThreadsInUse",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaEnvMaxThreadsUsed": {
+    "name": "cmmcaEnvMaxThreadsUsed",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaEnvRtUpTime": {
+    "name": "cmmcaEnvRtUpTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtMsgQMemPercentUsage": {
+    "name": "cmmcaRtMsgQMemPercentUsage",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMaxMsgQMemAvail": {
+    "name": "cmmcaMaxMsgQMemAvail",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtCongested": {
+    "name": "cmmcaRtCongested",
+    "oid": "1.3.6.1.4.1.9.9.664.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTPoolRtIdleThreads": {
+    "name": "cmmcaTPoolRtIdleThreads",
+    "oid": "1.3.6.1.4.1.9.9.664.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTPoolRtRunningThreads": {
+    "name": "cmmcaTPoolRtRunningThreads",
+    "oid": "1.3.6.1.4.1.9.9.664.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTPoolRtCoreThreads": {
+    "name": "cmmcaTPoolRtCoreThreads",
+    "oid": "1.3.6.1.4.1.9.9.664.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTPoolRtMaxThreadsAvail": {
+    "name": "cmmcaTPoolRtMaxThreadsAvail",
+    "oid": "1.3.6.1.4.1.9.9.664.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTPoolRtMaxThreadsUsed": {
+    "name": "cmmcaTPoolRtMaxThreadsUsed",
+    "oid": "1.3.6.1.4.1.9.9.664.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaRtLicensesAvailable": {
+    "name": "cmmcaRtLicensesAvailable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTotalLicensesConfigured": {
+    "name": "cmmcaTotalLicensesConfigured",
+    "oid": "1.3.6.1.4.1.9.9.664.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaServerName": {
+    "name": "cmmcaServerName",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaDescription": {
+    "name": "cmmcaDescription",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaVersion": {
+    "name": "cmmcaVersion",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaStartTime": {
+    "name": "cmmcaStartTime",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTimeZoneName": {
+    "name": "cmmcaTimeZoneName",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTimeZoneOffsetHours": {
+    "name": "cmmcaTimeZoneOffsetHours",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaTimeZoneOffsetMinutes": {
+    "name": "cmmcaTimeZoneOffsetMinutes",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -59,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaOpsConsoleURL": {
+    "name": "cmmcaOpsConsoleURL",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaLocalDeviceType": {
+    "name": "cmmcaLocalDeviceType",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "runtime": 1,
+          "reporting": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaEnableNotifications": {
+    "name": "cmmcaEnableNotifications",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmmcaSystemConditionStatus": {
+    "name": "cmmcaSystemConditionStatus",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaSystemConditionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaSystemStatus": {
+    "name": "cmmcaSystemStatus",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaServiceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaClusterInfoTable": {
+    "name": "cmmcaClusterInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaClusterInfoEntry": {
+    "name": "cmmcaClusterInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaDeviceIndex": {
+    "name": "cmmcaDeviceIndex",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaDeviceName": {
+    "name": "cmmcaDeviceName",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaDeviceDescription": {
+    "name": "cmmcaDeviceDescription",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaDeviceType": {
+    "name": "cmmcaDeviceType",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "runtime": 1,
+          "reporting": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaDeviceStatus": {
+    "name": "cmmcaDeviceStatus",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "local": 2,
+          "remoteup": 3,
+          "remotedown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaDeviceInetAddressType": {
+    "name": "cmmcaDeviceInetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaDeviceInetAddress": {
+    "name": "cmmcaDeviceInetAddress",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaClusterId": {
+    "name": "cmmcaClusterId",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaNextNodeTable": {
+    "name": "cmmcaNextNodeTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaNextNodeEntry": {
+    "name": "cmmcaNextNodeEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaNextNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaNextNodeIndex": {
+    "name": "cmmcaNextNodeIndex",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaNextNodeName": {
+    "name": "cmmcaNextNodeName",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaNextNodeType": {
+    "name": "cmmcaNextNodeType",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaNextNodeIpAddrType": {
+    "name": "cmmcaNextNodeIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaNextNodeIpAddr": {
+    "name": "cmmcaNextNodeIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaNextNodeStatus": {
+    "name": "cmmcaNextNodeStatus",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaNextNodeStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaSystemConditionTable": {
+    "name": "cmmcaSystemConditionTable",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaSystemConditionEntry": {
+    "name": "cmmcaSystemConditionEntry",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaSystemConditionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaSystemConditionIndex": {
+    "name": "cmmcaSystemConditionIndex",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmmcaSystemConditionId": {
+    "name": "cmmcaSystemConditionId",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaSystemConditionSeverity": {
+    "name": "cmmcaSystemConditionSeverity",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmmcaConditionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaSystemConditionDescription": {
+    "name": "cmmcaSystemConditionDescription",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaSystemConditionTimeStamp": {
+    "name": "cmmcaSystemConditionTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaSystemConditionMessage": {
+    "name": "cmmcaSystemConditionMessage",
+    "oid": "1.3.6.1.4.1.9.9.664.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmmcaMIBEvent": {
+    "name": "cmmcaMIBEvent",
+    "oid": "1.3.6.1.4.1.9.9.664.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventMessageId"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventHostName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventAppName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventMessageName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventState"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventSeverity"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventTimestamp"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventText"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMmodalContactAppsMIBCompliances": {
+    "name": "ciscoMmodalContactAppsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.664.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoMmodalContactAppsMIBGroups": {
+    "name": "ciscoMmodalContactAppsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoMmodalContactAppsMIBComplianceRev": {
+    "name": "ciscoMmodalContactAppsMIBComplianceRev",
+    "oid": "1.3.6.1.4.1.9.9.664.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmmcaGeneralInfoGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaLicenseInfoGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaThreadPoolGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaRuntimeInfoGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaServiceGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaRmGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaCmGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaRdaGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaBreGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaWaGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaMpaGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaRaGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaRsGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaNotificationInfoGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      },
+      {
+        "object": "cmmcaEventsGroup",
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaGeneralInfoGroup": {
+    "name": "cmmcaGeneralInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServerName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaDescription"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaVersion"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaStartTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTimeZoneName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTimeZoneOffsetHours"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTimeZoneOffsetMinutes"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaOpsConsoleURL"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaLocalDeviceType"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEnableNotifications"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaDeviceName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaDeviceDescription"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaDeviceType"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaDeviceStatus"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaDeviceInetAddressType"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaDeviceInetAddress"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaClusterId"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaNextNodeName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaNextNodeType"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaNextNodeIpAddr"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaNextNodeIpAddrType"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaNextNodeStatus"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaSystemConditionStatus"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaSystemStatus"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaSystemConditionId"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaSystemConditionSeverity"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaSystemConditionDescription"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaSystemConditionTimeStamp"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaSystemConditionMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaLicenseInfoGroup": {
+    "name": "cmmcaLicenseInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtLicensesAvailable"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTotalLicensesConfigured"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaThreadPoolGroup": {
+    "name": "cmmcaThreadPoolGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTPoolRtIdleThreads"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTPoolRtRunningThreads"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTPoolRtCoreThreads"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTPoolRtMaxThreadsAvail"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaTPoolRtMaxThreadsUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRuntimeInfoGroup": {
+    "name": "cmmcaRuntimeInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEnvRtMaxMemUsed"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEnvRtCurrMemUsed"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEnvRtMaxMemAvail"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEnvRtCurrMemAvail"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEnvRtCurrThreadsInUse"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEnvMaxThreadsUsed"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEnvRtUpTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtMsgQMemPercentUsage"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMaxMsgQMemAvail"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtCongested"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaServiceGroup": {
+    "name": "cmmcaServiceGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceType"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceStatus"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaServiceIntPeriod"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtRoutingDomain"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtLogLevel"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtTraceMask"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtMessageThroughput"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtUptime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtMsgReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMaxThreadsAvailable"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRtThreadsInUse"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRmGroup": {
+    "name": "cmmcaRmGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmRtAgentsLoggedIn"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmRtAgentsOnCalls"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmRtAgentsReserved"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmRtAgentsWrapUp"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmRtAgentsReady"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmRtAgentsNoQueue"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmAggNumOffersAccept"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmIntNumOffersAccept"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmAggNumOffersReject"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmIntNumOffersReject"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmAggNumOffersTimedOut"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRmIntNumOffersTimedOut"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaCmGroup": {
+    "name": "cmmcaCmGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumActiveCalls"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumCallTrying"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumCallRingBack"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumCallConnecting"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumCallConnected"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggNumCallArrivals"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmIntNumCallArrivals"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumCallRejecting"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumCallTransferring"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumCallTerminating"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggAvgCallDurationTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmIntAvgCallDurationTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggMaxCallDurationTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmIntMaxCallDurationTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggMaxCallDurationTimeDt"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmIntMaxCallDurationTimeDt"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggAvgCallInQueueTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmIntAvgCallInQueueTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggMaxCallInQueueTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmIntMaxCallInQueueTime"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggMaxCallInQueueTimeDt"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmIntMaxCallInQueueTimeDt"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggAvgCallArrivalRate"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggMaxCallArrivalRate"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmAggMaxCallArrivalRateDt"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmRtNumCallInitial"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaCmIntAvgCallArrivalRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRdaGroup": {
+    "name": "cmmcaRdaGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaAggNumMsgProc"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaIntNumMsgProc"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaAggNumSuccessPresenceNotifications"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaIntNumSuccessPresenceNotifications"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaRtNumActiveClients"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaRtNumOutStandingOfferTasks"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaAggNumUnSuccessPresenceNotifications"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaIntNumUnSuccessPresenceNotifications"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRdaRtNumInactiveClients"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaBreGroup": {
+    "name": "cmmcaBreGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggLoadedScripts"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggDistinctScripts"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreRtActiveScripts"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreRtCurrentInstances"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggMaxConcurrentInstances"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntMaxConcurrentInstances"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggMaxConcurrentInstancesDt"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntMaxConcurrentInstancesDt"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggAvgConcurrentInstances"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntAvgConcurrentInstances"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalInstanceInitiations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalInstanceInitiations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalContactInstanceInitiations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalContactInstanceInitiations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalResourceInstanceInitiations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalResourceInstanceInitiations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalInstanceTerminations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalInstanceTerminations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalContactInstanceTerminations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalContactInstanceTerminations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalResourceInstanceTerminations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalResourceInstanceTerminations"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalAbnormalEndings"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalAbnormalEndings"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalAbnormalContactEndings"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalAbnormalContactEndings"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreAggTotalAbnormalResourceEndings"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaBreIntTotalAbnormalResourceEndings"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaWaGroup": {
+    "name": "cmmcaWaGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtAssignmentQueCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtAttributeDefCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtSelectionStrategyCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtSkillCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggTotalConfigErrors"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggCancelResourceRequestReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggResourceRequestReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggResourceResponseSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggCancelWorkRequestReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggOfferTaskAcceptedSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggOfferTaskCancelledSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggOfferTaskResponseReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggOfferTaskSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggResyncResourceResponseAckSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggResyncResourceResponseReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggResyncResourceSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggWorkRequestReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggQueueEventSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggWorkRequestCanceledSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggWRIFailureResponseSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggRRIFailureResponseSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggResourceResponseCanceledSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggCancelQueueEventSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaAggMessageSentError"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtResourceCriteriaCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtSelectionStrategyAttrCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtAttributeCriteriaCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtResourceCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtAttributeValueCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtSkillCompetencyCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtResourceMemberCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtTotalResourceCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtTotalContactCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtTotalResourceManagerCount"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaWaRtTotalContactManagerCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaMpaGroup": {
+    "name": "cmmcaMpaGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggNewCalls"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggConnectsRcv"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggAvgLatency"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggFailedInvites"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggFailedReinvites"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggTotalCalls"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtIncomingCalls"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtOutgoingCalls"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtActiveClientSessions"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggTotalClientsRegistered"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggInstantMessagesSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggInstantMessagesReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggPresenceUpdatesReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggPresenceUpdatesBytesRcv"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtActiveRegisteredSipAddresses"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtActiveSipControlAddresses"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtActiveIMAddresses"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtActiveMonitoredPresenceAddresses"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggTotalRegisteredSipAddresses"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggTotalSipControlAddressesRegistered"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggTotalIMAddressesRegistered"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaAggTotalMonitoredPresenceAddressesRegistered"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtActiveInteractions"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtActivePublishAddresses"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMpaRtTotalPublishAddressesRegistered"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRaGroup": {
+    "name": "cmmcaRaGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggMsgReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggMsgSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggContactDetailMesgReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggContactDetailMesgDispatched"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggContactDetailAttribMsgDispatched"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggContactSegDetailMsgReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggContactSegDetailMesgDispatched"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggContactSegMediaDetailMsgDispatched"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggResourceTaskDetailMsgReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggResourceTaskDetailMsgDispatched"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggTaskStateChangeMsgReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggResourceStateChngMesgReceived"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggResourceStateChngMsgDispatched"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggVersionResponseRecieved"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggVersionRequestDispatched"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRaAggNodeSyncDispatched"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaRsGroup": {
+    "name": "cmmcaRsGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalContactDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalContactDetailAttributeRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalContactSegmentDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalResourceTaskDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalResourceEventDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalAssignmentQueDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalAssignmentQueAttribRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalContactSegmentMediaDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsAggTotalDBWrites"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntContactDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntContactDetailAttribRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntContactSegmentDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntResourceTaskDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntResourceEventDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntAssignmentQueDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntAssignmentQueAttribRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntContactSegmentMediaDetailRecords"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsIntDBWrites"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsRtDBStatus"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsRtNumberActiveDBUserSessions"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsDBSizeAllocated"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsRtDBSpaceUsed"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsRtDBSpaceFree"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsRtDBPercentUsed"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsRtDBPercentFree"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaRsRtTransactionLogSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaIcmgwGroup": {
+    "name": "cmmcaIcmgwGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwAggSocketConnects"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwAggSocketDisconnects"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwAggACMIBytesSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwAggACMIBytesRcvd"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwAggACMIMsgsSent"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwAggACMIMsgsRcvd"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtACMIOutQueueDepth"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtACMIOutQueueWait"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtAgentsMonitored"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtAqsMonitored"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtRoutesMonitored"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtPendingQueryAgentStateDlgs"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtPendingGetContactDetailDlgs"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwAggQueryAgentStateTimeouts"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwAggGetContactDetailTimeouts"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtQueryAgentStateDelay"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtGetContactDetailDelay"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaIcmgwRtPendingCallTermEvents"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaNotificationInfoGroup": {
+    "name": "cmmcaNotificationInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventMessageId"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventHostName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventAppName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventMessageName"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventState"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventSeverity"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventTimestamp"
+      },
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaEventText"
+      }
+    ],
+    "status": "current"
+  },
+  "cmmcaEventsGroup": {
+    "name": "cmmcaEventsGroup",
+    "oid": "1.3.6.1.4.1.9.9.664.2.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-MMODAL-CONTACT-APPS-MIB",
+        "object": "cmmcaMIBEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MMODAL-CONTACT-APPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MMODAL-CONTACT-APPS-MIB"
+  }
+}

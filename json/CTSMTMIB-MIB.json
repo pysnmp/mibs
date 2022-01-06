@@ -1,0 +1,728 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctsmtmib"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ctsmtmibRingTable": {
+    "name": "ctsmtmibRingTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingEntry": {
+    "name": "ctsmtmibRingEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibRingSmtIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibRingMacIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibRingNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibRingMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctsmtmibRingSmtIndex": {
+    "name": "ctsmtmibRingSmtIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingMacIndex": {
+    "name": "ctsmtmibRingMacIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingNodeIndex": {
+    "name": "ctsmtmibRingNodeIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingMacAddr": {
+    "name": "ctsmtmibRingMacAddr",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingUpStreamAddr": {
+    "name": "ctsmtmibRingUpStreamAddr",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingNodeClass": {
+    "name": "ctsmtmibRingNodeClass",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "station": 1,
+          "concentrator": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingMacCount": {
+    "name": "ctsmtmibRingMacCount",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingNonMasterCount": {
+    "name": "ctsmtmibRingNonMasterCount",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingMasterCount": {
+    "name": "ctsmtmibRingMasterCount",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingTopology": {
+    "name": "ctsmtmibRingTopology",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibRingDuplicate": {
+    "name": "ctsmtmibRingDuplicate",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacTable": {
+    "name": "ctsmtmibMacTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacEntry": {
+    "name": "ctsmtmibMacEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibMacSmtIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibMacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctsmtmibMacSmtIndex": {
+    "name": "ctsmtmibMacSmtIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacIndex": {
+    "name": "ctsmtmibMacIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacNifTxCts": {
+    "name": "ctsmtmibMacNifTxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacNifRxCts": {
+    "name": "ctsmtmibMacNifRxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacSifTxCts": {
+    "name": "ctsmtmibMacSifTxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacSifRxCts": {
+    "name": "ctsmtmibMacSifRxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacEcfTxCts": {
+    "name": "ctsmtmibMacEcfTxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacEcfRxCts": {
+    "name": "ctsmtmibMacEcfRxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacPmfTxCts": {
+    "name": "ctsmtmibMacPmfTxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacPmfRxCts": {
+    "name": "ctsmtmibMacPmfRxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacRdfTxCts": {
+    "name": "ctsmtmibMacRdfTxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacRdfRxCts": {
+    "name": "ctsmtmibMacRdfRxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacRingOpCts": {
+    "name": "ctsmtmibMacRingOpCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacTxCts": {
+    "name": "ctsmtmibMacTxCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacRingMapUpdateCts": {
+    "name": "ctsmtmibMacRingMapUpdateCts",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibMacAutoNegotiation": {
+    "name": "ctsmtmibMacAutoNegotiation",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentNumber": {
+    "name": "ctsmtmibAttachmentNumber",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentTable": {
+    "name": "ctsmtmibAttachmentTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentEntry": {
+    "name": "ctsmtmibAttachmentEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibAttachmentSMTIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibAttachmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentSMTIndex": {
+    "name": "ctsmtmibAttachmentSMTIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentIndex": {
+    "name": "ctsmtmibAttachmentIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentClass": {
+    "name": "ctsmtmibAttachmentClass",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single-attachment": 1,
+          "dual-attachment": 2,
+          "concentrator": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentOpticalBypassPresent": {
+    "name": "ctsmtmibAttachmentOpticalBypassPresent",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentIMaxExpiration": {
+    "name": "ctsmtmibAttachmentIMaxExpiration",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentInsertedStatus": {
+    "name": "ctsmtmibAttachmentInsertedStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "unimplemented": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibAttachmentInsertPolicy": {
+    "name": "ctsmtmibAttachmentInsertPolicy",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "unimplemented": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctsmtmibSMTTable": {
+    "name": "ctsmtmibSMTTable",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctsmtmibSMTEntry": {
+    "name": "ctsmtmibSMTEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTSMTMIB-MIB",
+        "object": "ctsmtmibSmtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctsmtmibSMTDualHomeStatus": {
+    "name": "ctsmtmibSMTDualHomeStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDualHomed": 1,
+          "linkAorB": 2,
+          "linkAandB": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctsmtmibSMTDualHomeWrpLEDStatus": {
+    "name": "ctsmtmibSMTDualHomeWrpLEDStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctsmtmibSmtIndex": {
+    "name": "ctsmtmibSmtIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTSMTMIB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTSMTMIB-MIB"
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwTelnetMIB": {
+    "name": "dlinkSwTelnetMIB",
+    "oid": "1.3.6.1.4.1.171.14.40",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-22 00:00",
+        "description": "First release of this MIB."
+      }
+    ]
+  },
+  "dTelnetNotifications": {
+    "name": "dTelnetNotifications",
+    "oid": "1.3.6.1.4.1.171.14.40.0",
+    "class": "objectidentity"
+  },
+  "dTelnetObjects": {
+    "name": "dTelnetObjects",
+    "oid": "1.3.6.1.4.1.171.14.40.1",
+    "class": "objectidentity"
+  },
+  "dTelnetConformance": {
+    "name": "dTelnetConformance",
+    "oid": "1.3.6.1.4.1.171.14.40.2",
+    "class": "objectidentity"
+  },
+  "dTelnetServerEnabled": {
+    "name": "dTelnetServerEnabled",
+    "oid": "1.3.6.1.4.1.171.14.40.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTelnetServerTcpPort": {
+    "name": "dTelnetServerTcpPort",
+    "oid": "1.3.6.1.4.1.171.14.40.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 23,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTelnetSourceInterfaceIndex": {
+    "name": "dTelnetSourceInterfaceIndex",
+    "oid": "1.3.6.1.4.1.171.14.40.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dTelnetSessionTable": {
+    "name": "dTelnetSessionTable",
+    "oid": "1.3.6.1.4.1.171.14.40.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTelnetSessionEntry": {
+    "name": "dTelnetSessionEntry",
+    "oid": "1.3.6.1.4.1.171.14.40.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetSessionID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dTelnetSessionID": {
+    "name": "dTelnetSessionID",
+    "oid": "1.3.6.1.4.1.171.14.40.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dTelnetSessionUserName": {
+    "name": "dTelnetSessionUserName",
+    "oid": "1.3.6.1.4.1.171.14.40.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTelnetSessionUserPrivilegeLvl": {
+    "name": "dTelnetSessionUserPrivilegeLvl",
+    "oid": "1.3.6.1.4.1.171.14.40.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTelnetSessionLoginDuration": {
+    "name": "dTelnetSessionLoginDuration",
+    "oid": "1.3.6.1.4.1.171.14.40.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTelnetSessionHostAddrType": {
+    "name": "dTelnetSessionHostAddrType",
+    "oid": "1.3.6.1.4.1.171.14.40.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTelnetSessionHostAddr": {
+    "name": "dTelnetSessionHostAddr",
+    "oid": "1.3.6.1.4.1.171.14.40.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dTelnetCompliances": {
+    "name": "dTelnetCompliances",
+    "oid": "1.3.6.1.4.1.171.14.40.2.1",
+    "class": "objectidentity"
+  },
+  "dTelnetGroups": {
+    "name": "dTelnetGroups",
+    "oid": "1.3.6.1.4.1.171.14.40.2.2",
+    "class": "objectidentity"
+  },
+  "dTelnetCompliance": {
+    "name": "dTelnetCompliance",
+    "oid": "1.3.6.1.4.1.171.14.40.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dTelnetConfigGroup",
+        "module": "DLINKSW-TELNET-MIB"
+      },
+      {
+        "object": "dTelnetSessionInfoGroup",
+        "module": "DLINKSW-TELNET-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dTelnetConfigGroup": {
+    "name": "dTelnetConfigGroup",
+    "oid": "1.3.6.1.4.1.171.14.40.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetServerEnabled"
+      },
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetServerTcpPort"
+      },
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetSourceInterfaceIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dTelnetSessionInfoGroup": {
+    "name": "dTelnetSessionInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.40.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetSessionUserName"
+      },
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetSessionUserPrivilegeLvl"
+      },
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetSessionLoginDuration"
+      },
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetSessionHostAddrType"
+      },
+      {
+        "module": "DLINKSW-TELNET-MIB",
+        "object": "dTelnetSessionHostAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-TELNET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-TELNET-MIB"
+  }
+}

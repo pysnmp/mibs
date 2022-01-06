@@ -1,0 +1,1220 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctUPS"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "upsSystem": {
+    "name": "upsSystem",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.1",
+    "class": "objectidentity"
+  },
+  "upsId": {
+    "name": "upsId",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2",
+    "class": "objectidentity"
+  },
+  "upsBattery": {
+    "name": "upsBattery",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3",
+    "class": "objectidentity"
+  },
+  "upsInput": {
+    "name": "upsInput",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4",
+    "class": "objectidentity"
+  },
+  "upsOutput": {
+    "name": "upsOutput",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.5",
+    "class": "objectidentity"
+  },
+  "upsStatus": {
+    "name": "upsStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.6",
+    "class": "objectidentity"
+  },
+  "upsConfig": {
+    "name": "upsConfig",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.7",
+    "class": "objectidentity"
+  },
+  "upsExtMeas": {
+    "name": "upsExtMeas",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8",
+    "class": "objectidentity"
+  },
+  "upsAddlFuncs": {
+    "name": "upsAddlFuncs",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9",
+    "class": "objectidentity"
+  },
+  "upsNumUPSs": {
+    "name": "upsNumUPSs",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsIdTable": {
+    "name": "upsIdTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsIdEntry": {
+    "name": "upsIdEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS2-MIB",
+        "object": "upsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsIndex": {
+    "name": "upsIndex",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsName": {
+    "name": "upsName",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsModelType": {
+    "name": "upsModelType",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "smartUps250": 1,
+          "smartUps400": 2,
+          "smartUps600": 3,
+          "smartUps900": 4,
+          "smartUps1250": 5,
+          "smartUps2000": 6,
+          "matrixUps3000": 7,
+          "matrixUps5000": 8,
+          "other": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsFwVersion": {
+    "name": "upsFwVersion",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsSerialNumber": {
+    "name": "upsSerialNumber",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsManufDate": {
+    "name": "upsManufDate",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsBatteryTable": {
+    "name": "upsBatteryTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsBatteryEntry": {
+    "name": "upsBatteryEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS2-MIB",
+        "object": "upsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsBatteryCapacity": {
+    "name": "upsBatteryCapacity",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsBatteryVoltage": {
+    "name": "upsBatteryVoltage",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsBatteryTest": {
+    "name": "upsBatteryTest",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initiateTest": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsBatteryTestResult": {
+    "name": "upsBatteryTestResult",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "batteryOK": 1,
+          "batteryBad": 2,
+          "noRecentTest": 3,
+          "invalidTestDueToOverload": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsRunTimeCalibration": {
+    "name": "upsRunTimeCalibration",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "performTest": 1,
+          "abortTest": 2,
+          "testInProgress": 3,
+          "testNotInProgress": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsEstimatedRunTimeRemaining": {
+    "name": "upsEstimatedRunTimeRemaining",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsTransferCause": {
+    "name": "upsTransferCause",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTransfer": 1,
+          "selfTest": 2,
+          "inputLineSpike": 3,
+          "inputLowVoltage": 4,
+          "inputHighVoltage": 5,
+          "inputLineFrequencyBad": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsBatteryTestTime": {
+    "name": "upsBatteryTestTime",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoWeeks": 1,
+          "oneWeek": 2,
+          "startupOnly": 3,
+          "off": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "twoWeeks",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsLowBatteryWarning": {
+    "name": "upsLowBatteryWarning",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoMinutes": 1,
+          "fiveMinutes": 2,
+          "sevenMinutes": 3,
+          "tenMinutes": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "twoMinutes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsInputTable": {
+    "name": "upsInputTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsInputEntry": {
+    "name": "upsInputEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS2-MIB",
+        "object": "upsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsInputUtilityVoltage": {
+    "name": "upsInputUtilityVoltage",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vac100": 1,
+          "vac120": 2,
+          "vac208": 3,
+          "vac220": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsInputVoltage": {
+    "name": "upsInputVoltage",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsInputFailureSensitivity": {
+    "name": "upsInputFailureSensitivity",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "medium": 2,
+          "low": 3,
+          "auto": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "high",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsInputMaxVoltage": {
+    "name": "upsInputMaxVoltage",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsInputMinVoltage": {
+    "name": "upsInputMinVoltage",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsInputFrequency": {
+    "name": "upsInputFrequency",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsOutputTable": {
+    "name": "upsOutputTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsOutputEntry": {
+    "name": "upsOutputEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS2-MIB",
+        "object": "upsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsOutputVoltage": {
+    "name": "upsOutputVoltage",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsOutputUtilityVoltage": {
+    "name": "upsOutputUtilityVoltage",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vac225": 1,
+          "vac230": 2,
+          "vac240": 3,
+          "vac220": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "vac225",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsOutputPower": {
+    "name": "upsOutputPower",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsStatusTable": {
+    "name": "upsStatusTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsStatusEntry": {
+    "name": "upsStatusEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS2-MIB",
+        "object": "upsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsStatusOperational": {
+    "name": "upsStatusOperational",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsStatusFault": {
+    "name": "upsStatusFault",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsStatusTemp": {
+    "name": "upsStatusTemp",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsConfigTable": {
+    "name": "upsConfigTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsConfigEntry": {
+    "name": "upsConfigEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS2-MIB",
+        "object": "upsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsConfigAlarm": {
+    "name": "upsConfigAlarm",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uponUtilityFailure": 1,
+          "thirtySecondsAfterUtilityFailure": 2,
+          "lowBatteryOnly": 3,
+          "noAudibleAlarm": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "uponUtilityFailure",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsConfigRestoreDefaults": {
+    "name": "upsConfigRestoreDefaults",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restoreDefaults": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasTable": {
+    "name": "upsExtMeasTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsExtMeasEntry": {
+    "name": "upsExtMeasEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS2-MIB",
+        "object": "upsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsExtMeasFwVersion": {
+    "name": "upsExtMeasFwVersion",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsExtMeasTemp": {
+    "name": "upsExtMeasTemp",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsExtMeasHumidity": {
+    "name": "upsExtMeasHumidity",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsExtMeasAlarmStatus": {
+    "name": "upsExtMeasAlarmStatus",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsExtMeasMaxTemp": {
+    "name": "upsExtMeasMaxTemp",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ninetyDegreesF": 1,
+          "oneHundredFifteenDegreesF": 2,
+          "oneHundredThirtyDegreesF": 3,
+          "oneHundredSeventyFiveDegreesF": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ninetyDegreesF",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasMinTemp": {
+    "name": "upsExtMeasMinTemp",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fortyDegreesF": 1,
+          "fiftyDegreesF": 2,
+          "fiftyEightDegreesF": 3,
+          "sixtyFiveDegreesF": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fortyDegreesF",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasMaxHumidity": {
+    "name": "upsExtMeasMaxHumidity",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "seventyPercent": 1,
+          "eightyPercent": 2,
+          "eightyFivePercent": 3,
+          "ninetyPercent": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "seventyPercent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasMinHumidity": {
+    "name": "upsExtMeasMinHumidity",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenPercent": 1,
+          "twentyPercent": 2,
+          "thirtyPercent": 3,
+          "fortyPercent": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tenPercent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasContact1AlarmControl": {
+    "name": "upsExtMeasContact1AlarmControl",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasContact2AlarmControl": {
+    "name": "upsExtMeasContact2AlarmControl",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasContact3AlarmControl": {
+    "name": "upsExtMeasContact3AlarmControl",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasContact4AlarmControl": {
+    "name": "upsExtMeasContact4AlarmControl",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasMaxTempAlarmControl": {
+    "name": "upsExtMeasMaxTempAlarmControl",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasMinTempAlarmControl": {
+    "name": "upsExtMeasMinTempAlarmControl",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasMaxHumidityAlarmControl": {
+    "name": "upsExtMeasMaxHumidityAlarmControl",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsExtMeasMinHumidityAlarmControl": {
+    "name": "upsExtMeasMinHumidityAlarmControl",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.8.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsTable": {
+    "name": "upsAddlFuncsTable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsEntry": {
+    "name": "upsAddlFuncsEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UPS2-MIB",
+        "object": "upsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "upsAddlFuncsNumBatteryPacks": {
+    "name": "upsAddlFuncsNumBatteryPacks",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsNumBadBatteryPacks": {
+    "name": "upsAddlFuncsNumBadBatteryPacks",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsOutputCurrent": {
+    "name": "upsAddlFuncsOutputCurrent",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsOutputApparentPower": {
+    "name": "upsAddlFuncsOutputApparentPower",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsStatusOperational": {
+    "name": "upsAddlFuncsStatusOperational",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsStatusFault": {
+    "name": "upsAddlFuncsStatusFault",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsConfigPassword": {
+    "name": "upsAddlFuncsConfigPassword",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsConfigDisable": {
+    "name": "upsAddlFuncsConfigDisable",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disableUps": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "upsAddlFuncsConfigBypass": {
+    "name": "upsAddlFuncsConfigBypass",
+    "oid": "1.3.6.1.4.1.52.4.1.1.10.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bypassMode": 1,
+          "exitBypassMode": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/UPS2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "UPS2-MIB"
+  }
+}

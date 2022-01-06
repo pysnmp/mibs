@@ -1,0 +1,2684 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSsgMIB": {
+    "name": "ciscoSsgMIB",
+    "oid": "1.3.6.1.4.1.9.9.260",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-22 00:00",
+        "description": "Imported Unsigned32 from SNMPv2-SMI instead of CISCO-TC."
+      },
+      {
+        "revision": "2003-10-17 00:00",
+        "description": "Added new objects for Transparent Auto-Logon feature."
+      },
+      {
+        "revision": "2002-03-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSsgMIBObjects": {
+    "name": "ciscoSsgMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.260.1",
+    "class": "objectidentity"
+  },
+  "cssgCfgObjects": {
+    "name": "cssgCfgObjects",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1",
+    "class": "objectidentity"
+  },
+  "cssgStatsObjects": {
+    "name": "cssgStatsObjects",
+    "oid": "1.3.6.1.4.1.9.9.260.1.2",
+    "class": "objectidentity"
+  },
+  "cssgService": {
+    "name": "cssgService",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3",
+    "class": "objectidentity"
+  },
+  "cssgExcludedAPN": {
+    "name": "cssgExcludedAPN",
+    "oid": "1.3.6.1.4.1.9.9.260.1.4",
+    "class": "objectidentity"
+  },
+  "cssgExcludedDomain": {
+    "name": "cssgExcludedDomain",
+    "oid": "1.3.6.1.4.1.9.9.260.1.5",
+    "class": "objectidentity"
+  },
+  "cssgTcpRedirect": {
+    "name": "cssgTcpRedirect",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6",
+    "class": "objectidentity"
+  },
+  "cssgServiceIfBinds": {
+    "name": "cssgServiceIfBinds",
+    "oid": "1.3.6.1.4.1.9.9.260.1.7",
+    "class": "objectidentity"
+  },
+  "cssgRadiusClients": {
+    "name": "cssgRadiusClients",
+    "oid": "1.3.6.1.4.1.9.9.260.1.8",
+    "class": "objectidentity"
+  },
+  "cssgPortMap": {
+    "name": "cssgPortMap",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9",
+    "class": "objectidentity"
+  },
+  "cssgTal": {
+    "name": "cssgTal",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10",
+    "class": "objectidentity"
+  },
+  "cssgCfgSsgEnabled": {
+    "name": "cssgCfgSsgEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgAutoDomainMode": {
+    "name": "cssgCfgAutoDomainMode",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "basic": 2,
+          "extended": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgLocalForwardingEnabled": {
+    "name": "cssgCfgLocalForwardingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgAutoLogOffMode": {
+    "name": "cssgCfgAutoLogOffMode",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "icmp": 2,
+          "arp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgRadiusProxyEnabled": {
+    "name": "cssgCfgRadiusProxyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgTcpRedirectEnabled": {
+    "name": "cssgCfgTcpRedirectEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgAutoDomainNatEnabled": {
+    "name": "cssgCfgAutoDomainNatEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgPortBundleHostKeyEnabled": {
+    "name": "cssgCfgPortBundleHostKeyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgTransPassThroughEnabled": {
+    "name": "cssgCfgTransPassThroughEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgAutoLogOffInterval": {
+    "name": "cssgCfgAutoLogOffInterval",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgAutoLogOffIcmpRetries": {
+    "name": "cssgCfgAutoLogOffIcmpRetries",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgMaxServicesPerUser": {
+    "name": "cssgCfgMaxServicesPerUser",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgAccountingEnabled": {
+    "name": "cssgCfgAccountingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgDefaultNetworkType": {
+    "name": "cssgCfgDefaultNetworkType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgDefaultNetwork": {
+    "name": "cssgCfgDefaultNetwork",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgRadiusAuthenPort": {
+    "name": "cssgCfgRadiusAuthenPort",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgRadiusAccountingPort": {
+    "name": "cssgCfgRadiusAccountingPort",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgRadiusFwdAcctPktsEnabled": {
+    "name": "cssgCfgRadiusFwdAcctPktsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgAccountingInterval": {
+    "name": "cssgCfgAccountingInterval",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgTCPRedirGrpForUnAuthUsers": {
+    "name": "cssgCfgTCPRedirGrpForUnAuthUsers",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgTCPRedirGrpForUnAuthServ": {
+    "name": "cssgCfgTCPRedirGrpForUnAuthServ",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgTcpRedirGrpForSMTP": {
+    "name": "cssgCfgTcpRedirGrpForSMTP",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgTcpRedirGrpForInitialCapt": {
+    "name": "cssgCfgTcpRedirGrpForInitialCapt",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgTcpRedirGrpForAdvCapt": {
+    "name": "cssgCfgTcpRedirGrpForAdvCapt",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgRadiusClntRbtNotifEnabled": {
+    "name": "cssgCfgRadiusClntRbtNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgAAAServerDownNotifEnabled": {
+    "name": "cssgCfgAAAServerDownNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgCfgTalEnabled": {
+    "name": "cssgCfgTalEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgStatsLoginAttempts": {
+    "name": "cssgStatsLoginAttempts",
+    "oid": "1.3.6.1.4.1.9.9.260.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgStatsLoginsSuccessful": {
+    "name": "cssgStatsLoginsSuccessful",
+    "oid": "1.3.6.1.4.1.9.9.260.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgStatsActiveSessions": {
+    "name": "cssgStatsActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.260.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgStatsActiveHosts": {
+    "name": "cssgStatsActiveHosts",
+    "oid": "1.3.6.1.4.1.9.9.260.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgStatsActiveServices": {
+    "name": "cssgStatsActiveServices",
+    "oid": "1.3.6.1.4.1.9.9.260.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgStatsPODs": {
+    "name": "cssgStatsPODs",
+    "oid": "1.3.6.1.4.1.9.9.260.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceTable": {
+    "name": "cssgServiceTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgServiceEntry": {
+    "name": "cssgServiceEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgServiceName": {
+    "name": "cssgServiceName",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgServiceMode": {
+    "name": "cssgServiceMode",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "concurrent": 2,
+          "sequential": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "concurrent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceType": {
+    "name": "cssgServiceType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "passthrough": 2,
+          "tunnel": 3,
+          "proxy": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceIdleTimeout": {
+    "name": "cssgServiceIdleTimeout",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceSessionTimeout": {
+    "name": "cssgServiceSessionTimeout",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceActiveSessions": {
+    "name": "cssgServiceActiveSessions",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceDNSPrimaryIpType": {
+    "name": "cssgServiceDNSPrimaryIpType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceDNSPrimary": {
+    "name": "cssgServiceDNSPrimary",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceDNSSecondaryIpType": {
+    "name": "cssgServiceDNSSecondaryIpType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceDNSSecondary": {
+    "name": "cssgServiceDNSSecondary",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceUpstreamQOSEnabled": {
+    "name": "cssgServiceUpstreamQOSEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceDownStreamQOSEnabled": {
+    "name": "cssgServiceDownStreamQOSEnabled",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceOpenGarden": {
+    "name": "cssgServiceOpenGarden",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServicePrepaid": {
+    "name": "cssgServicePrepaid",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgServiceRouteTable": {
+    "name": "cssgServiceRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgServiceRouteEntry": {
+    "name": "cssgServiceRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceRouteType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceRouteAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceRouteMaskType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceRouteMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgServiceRouteType": {
+    "name": "cssgServiceRouteType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgServiceRouteAddr": {
+    "name": "cssgServiceRouteAddr",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgServiceRouteMaskType": {
+    "name": "cssgServiceRouteMaskType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgServiceRouteMask": {
+    "name": "cssgServiceRouteMask",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgServiceRoutePermission": {
+    "name": "cssgServiceRoutePermission",
+    "oid": "1.3.6.1.4.1.9.9.260.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgExcludedAPNTable": {
+    "name": "cssgExcludedAPNTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgExcludedAPNEntry": {
+    "name": "cssgExcludedAPNEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgExcludedAPNName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgExcludedAPNName": {
+    "name": "cssgExcludedAPNName",
+    "oid": "1.3.6.1.4.1.9.9.260.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgExcludedAPNRowStatus": {
+    "name": "cssgExcludedAPNRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.260.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgExcludedDomainTable": {
+    "name": "cssgExcludedDomainTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgExcludedDomainEntry": {
+    "name": "cssgExcludedDomainEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgExcludedDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgExcludedDomainName": {
+    "name": "cssgExcludedDomainName",
+    "oid": "1.3.6.1.4.1.9.9.260.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgExcludedDomainRowStatus": {
+    "name": "cssgExcludedDomainRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.260.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgServiceIfBindTable": {
+    "name": "cssgServiceIfBindTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgServiceIfBindEntry": {
+    "name": "cssgServiceIfBindEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgServiceIfIndex": {
+    "name": "cssgServiceIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.260.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgServiceIfRowStatus": {
+    "name": "cssgServiceIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.260.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgTcpRedirectGrpTable": {
+    "name": "cssgTcpRedirectGrpTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTcpRedirectGrpEntry": {
+    "name": "cssgTcpRedirectGrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirectGrpName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirectGrpServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirectGrpServerAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirectGrpServerPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgTcpRedirectGrpName": {
+    "name": "cssgTcpRedirectGrpName",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTcpRedirectGrpServerAddrType": {
+    "name": "cssgTcpRedirectGrpServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTcpRedirectGrpServerAddr": {
+    "name": "cssgTcpRedirectGrpServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTcpRedirectGrpServerPort": {
+    "name": "cssgTcpRedirectGrpServerPort",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTcpRedirectGrpRowStatus": {
+    "name": "cssgTcpRedirectGrpRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgNetworkGrpTable": {
+    "name": "cssgNetworkGrpTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgNetworkGrpEntry": {
+    "name": "cssgNetworkGrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgNetworkGrpName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgNetworkGrpNetIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgNetworkGrpNetIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgNetworkGrpNetMaskType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgNetworkGrpNetMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgNetworkGrpName": {
+    "name": "cssgNetworkGrpName",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgNetworkGrpNetIpType": {
+    "name": "cssgNetworkGrpNetIpType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgNetworkGrpNetIpAddr": {
+    "name": "cssgNetworkGrpNetIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgNetworkGrpNetMaskType": {
+    "name": "cssgNetworkGrpNetMaskType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgNetworkGrpNetMask": {
+    "name": "cssgNetworkGrpNetMask",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgNetworkGrpNetRowStatus": {
+    "name": "cssgNetworkGrpNetRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgPortGrpTable": {
+    "name": "cssgPortGrpTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgPortGrpEntry": {
+    "name": "cssgPortGrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortGrpName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortGrpPortNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgPortGrpName": {
+    "name": "cssgPortGrpName",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgPortGrpPortNo": {
+    "name": "cssgPortGrpPortNo",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgPortGrpPortRowStatus": {
+    "name": "cssgPortGrpPortRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgTcpRedirNetworkGrpMapTable": {
+    "name": "cssgTcpRedirNetworkGrpMapTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTcpRedirNetworkGrpMapEntry": {
+    "name": "cssgTcpRedirNetworkGrpMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirectGrpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgTcpRedirNetworkMapGrpName": {
+    "name": "cssgTcpRedirNetworkMapGrpName",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgTcpRedirNetworkGrpMapRowStat": {
+    "name": "cssgTcpRedirNetworkGrpMapRowStat",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgTcpRedirPortGrpMapTable": {
+    "name": "cssgTcpRedirPortGrpMapTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTcpRedirPortGrpMapEntry": {
+    "name": "cssgTcpRedirPortGrpMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirectGrpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgTcpRedirPortMapGrpName": {
+    "name": "cssgTcpRedirPortMapGrpName",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgTcpRedirPortGrpMapRowStat": {
+    "name": "cssgTcpRedirPortGrpMapRowStat",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgTcpRedirPortNoMapTable": {
+    "name": "cssgTcpRedirPortNoMapTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTcpRedirPortNoMapEntry": {
+    "name": "cssgTcpRedirPortNoMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirectGrpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgTcpRedirPortNo": {
+    "name": "cssgTcpRedirPortNo",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgTcpRedirPortNoMapRowStat": {
+    "name": "cssgTcpRedirPortNoMapRowStat",
+    "oid": "1.3.6.1.4.1.9.9.260.1.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgRadiusClientTable": {
+    "name": "cssgRadiusClientTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgRadiusClientEntry": {
+    "name": "cssgRadiusClientEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgRadiusClientAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgRadiusClientAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgRadiusClientAddrType": {
+    "name": "cssgRadiusClientAddrType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgRadiusClientAddr": {
+    "name": "cssgRadiusClientAddr",
+    "oid": "1.3.6.1.4.1.9.9.260.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgRadiusClientRowStatus": {
+    "name": "cssgRadiusClientRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.260.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgPortMapLength": {
+    "name": "cssgPortMapLength",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgPortMapTable": {
+    "name": "cssgPortMapTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgPortMapEntry": {
+    "name": "cssgPortMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortMapSourceIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortMapSourceIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgPortMapSourceIpType": {
+    "name": "cssgPortMapSourceIpType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgPortMapSourceIp": {
+    "name": "cssgPortMapSourceIp",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgPortMapPortRangeFrom": {
+    "name": "cssgPortMapPortRangeFrom",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgPortMapPortRangeTo": {
+    "name": "cssgPortMapPortRangeTo",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgPortMapRowStatus": {
+    "name": "cssgPortMapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.260.1.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cssgTalWaitingForAuthUsers": {
+    "name": "cssgTalWaitingForAuthUsers",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalUnidentifiedUsers": {
+    "name": "cssgTalUnidentifiedUsers",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalSuspectUsers": {
+    "name": "cssgTalSuspectUsers",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalPassthroughUsers": {
+    "name": "cssgTalPassthroughUsers",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalMaxAuthRate": {
+    "name": "cssgTalMaxAuthRate",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalMaxAuthRateTimestamp": {
+    "name": "cssgTalMaxAuthRateTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalMinAuthRate": {
+    "name": "cssgTalMinAuthRate",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalMinAuthRateTimestamp": {
+    "name": "cssgTalMinAuthRateTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalCurrentAuthRate": {
+    "name": "cssgTalCurrentAuthRate",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalCurrentAuthRateTimestamp": {
+    "name": "cssgTalCurrentAuthRateTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cssgTalResetAuthRates": {
+    "name": "cssgTalResetAuthRates",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgTalMaxPendingAuthReqs": {
+    "name": "cssgTalMaxPendingAuthReqs",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgTalMaxAuthReqsRate": {
+    "name": "cssgTalMaxAuthReqsRate",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgTalDropPakDuringAuthorization": {
+    "name": "cssgTalDropPakDuringAuthorization",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgTalUnidentifiedUserAllowTraff": {
+    "name": "cssgTalUnidentifiedUserAllowTraff",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgTalMaxSuspectUsers": {
+    "name": "cssgTalMaxSuspectUsers",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgTalSuspectUserTimeout": {
+    "name": "cssgTalSuspectUserTimeout",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgTalUnidentifiedUserTimeout": {
+    "name": "cssgTalUnidentifiedUserTimeout",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cssgTalUserInfoTable": {
+    "name": "cssgTalUserInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTalUserInfoEntry": {
+    "name": "cssgTalUserInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalUserIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalUserIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cssgTalUserIPAddressType": {
+    "name": "cssgTalUserIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTalUserIPAddress": {
+    "name": "cssgTalUserIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cssgTalUserState": {
+    "name": "cssgTalUserState",
+    "oid": "1.3.6.1.4.1.9.9.260.1.10.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "authorizing": 2,
+          "unidentified": 3,
+          "suspect": 4,
+          "passthrough": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSsgMIBNotifications": {
+    "name": "ciscoSsgMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.260.0",
+    "class": "objectidentity"
+  },
+  "ciscoSsgRadiusClientReboot": {
+    "name": "ciscoSsgRadiusClientReboot",
+    "oid": "1.3.6.1.4.1.9.9.260.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ciscoSsgRadiusAAAServerDown": {
+    "name": "ciscoSsgRadiusAAAServerDown",
+    "oid": "1.3.6.1.4.1.9.9.260.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ciscoSsgMIBConformance": {
+    "name": "ciscoSsgMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.260.3",
+    "class": "objectidentity"
+  },
+  "ciscoSsgMIBCompliances": {
+    "name": "ciscoSsgMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.260.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSsgMIBGroups": {
+    "name": "ciscoSsgMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSsgMIBCompliance": {
+    "name": "ciscoSsgMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.260.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSsgCfgGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgStatsGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgServicesGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgExclusionsGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgTcpRedirectGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgServiceInterfaceGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgRadiusClientsGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgPortMapGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgNotificationGroup",
+        "module": "CISCO-SSG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSsgMIBComplianceRev1": {
+    "name": "ciscoSsgMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.260.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSsgCfgGroupRev1",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgStatsGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgServicesGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgExclusionsGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgTcpRedirectGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgServiceInterfaceGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgRadiusClientsGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgPortMapGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgNotificationGroup",
+        "module": "CISCO-SSG-MIB"
+      },
+      {
+        "object": "ciscoSsgTalUserInfoGroup",
+        "module": "CISCO-SSG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgCfgGroup": {
+    "name": "ciscoSsgCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgSsgEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoDomainMode"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgLocalForwardingEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoLogOffMode"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusProxyEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTcpRedirectEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoDomainNatEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgPortBundleHostKeyEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTransPassThroughEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoLogOffInterval"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoLogOffIcmpRetries"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgMaxServicesPerUser"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAccountingEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgDefaultNetworkType"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgDefaultNetwork"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusAuthenPort"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusAccountingPort"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusFwdAcctPktsEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAccountingInterval"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTCPRedirGrpForUnAuthUsers"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTCPRedirGrpForUnAuthServ"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTcpRedirGrpForSMTP"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTcpRedirGrpForInitialCapt"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTcpRedirGrpForAdvCapt"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusClntRbtNotifEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAAAServerDownNotifEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSsgStatsGroup": {
+    "name": "ciscoSsgStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgStatsLoginAttempts"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgStatsLoginsSuccessful"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgStatsActiveSessions"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgStatsActiveHosts"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgStatsActiveServices"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgStatsPODs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgServicesGroup": {
+    "name": "ciscoSsgServicesGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceMode"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceType"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceIdleTimeout"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceSessionTimeout"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceActiveSessions"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceDNSPrimaryIpType"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceDNSPrimary"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceDNSSecondaryIpType"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceDNSSecondary"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceUpstreamQOSEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceDownStreamQOSEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceOpenGarden"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServicePrepaid"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceRoutePermission"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgExclusionsGroup": {
+    "name": "ciscoSsgExclusionsGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgExcludedAPNRowStatus"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgExcludedDomainRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgTcpRedirectGroup": {
+    "name": "ciscoSsgTcpRedirectGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirectGrpRowStatus"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgNetworkGrpNetRowStatus"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortGrpPortRowStatus"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirNetworkMapGrpName"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirNetworkGrpMapRowStat"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirPortMapGrpName"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirPortGrpMapRowStat"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirPortNo"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTcpRedirPortNoMapRowStat"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgServiceInterfaceGroup": {
+    "name": "ciscoSsgServiceInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceIfIndex"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgServiceIfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgRadiusClientsGroup": {
+    "name": "ciscoSsgRadiusClientsGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgRadiusClientRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgPortMapGroup": {
+    "name": "ciscoSsgPortMapGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortMapLength"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortMapPortRangeFrom"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortMapPortRangeTo"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgPortMapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgNotificationGroup": {
+    "name": "ciscoSsgNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "ciscoSsgRadiusClientReboot"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "ciscoSsgRadiusAAAServerDown"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgCfgGroupRev1": {
+    "name": "ciscoSsgCfgGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgSsgEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoDomainMode"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgLocalForwardingEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoLogOffMode"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusProxyEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTcpRedirectEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoDomainNatEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgPortBundleHostKeyEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTransPassThroughEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoLogOffInterval"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAutoLogOffIcmpRetries"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgMaxServicesPerUser"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAccountingEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgDefaultNetworkType"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgDefaultNetwork"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusAuthenPort"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusAccountingPort"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusFwdAcctPktsEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAccountingInterval"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTCPRedirGrpForUnAuthUsers"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTCPRedirGrpForUnAuthServ"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTcpRedirGrpForSMTP"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTcpRedirGrpForInitialCapt"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTcpRedirGrpForAdvCapt"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgRadiusClntRbtNotifEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgAAAServerDownNotifEnabled"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgCfgTalEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSsgTalUserInfoGroup": {
+    "name": "ciscoSsgTalUserInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.260.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalWaitingForAuthUsers"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalUnidentifiedUsers"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalSuspectUsers"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalPassthroughUsers"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalMaxAuthRate"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalMaxAuthRateTimestamp"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalMinAuthRate"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalMinAuthRateTimestamp"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalCurrentAuthRate"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalCurrentAuthRateTimestamp"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalResetAuthRates"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalMaxPendingAuthReqs"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalMaxAuthReqsRate"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalDropPakDuringAuthorization"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalUnidentifiedUserAllowTraff"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalMaxSuspectUsers"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalSuspectUserTimeout"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalUnidentifiedUserTimeout"
+      },
+      {
+        "module": "CISCO-SSG-MIB",
+        "object": "cssgTalUserState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SSG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SSG-MIB"
+  }
+}

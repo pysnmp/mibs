@@ -1,0 +1,955 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoVrfName",
+      "Layer2Cos"
+    ],
+    "DIFFSERV-DSCP-TC": [
+      "Dscp"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoNetflowLiteMIB": {
+    "name": "ciscoNetflowLiteMIB",
+    "oid": "1.3.6.1.4.1.9.9.776",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-09-14 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoNetflowLiteMIBNotifs": {
+    "name": "ciscoNetflowLiteMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.776.0",
+    "class": "objectidentity"
+  },
+  "ciscoNetflowLiteMIBObjects": {
+    "name": "ciscoNetflowLiteMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.776.1",
+    "class": "objectidentity"
+  },
+  "ciscoNetflowLiteMIBConform": {
+    "name": "ciscoNetflowLiteMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.776.2",
+    "class": "objectidentity"
+  },
+  "cnlExporter": {
+    "name": "cnlExporter",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1",
+    "class": "objectidentity"
+  },
+  "cnlSampler": {
+    "name": "cnlSampler",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2",
+    "class": "objectidentity"
+  },
+  "cnlMonitor": {
+    "name": "cnlMonitor",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3",
+    "class": "objectidentity"
+  },
+  "cnlMaxExporterAllowed": {
+    "name": "cnlMaxExporterAllowed",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlExporterTable": {
+    "name": "cnlExporterTable",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnlExporterEntry": {
+    "name": "cnlExporterEntry",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExporterName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cnlExporterName": {
+    "name": "cnlExporterName",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnlExportAddrType": {
+    "name": "cnlExportAddrType",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportDestinationAddr": {
+    "name": "cnlExportDestinationAddr",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportDestinationUdpPort": {
+    "name": "cnlExportDestinationUdpPort",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportDestinationUdpLoadShare": {
+    "name": "cnlExportDestinationUdpLoadShare",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportSourceAddr": {
+    "name": "cnlExportSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportSourceUdpPort": {
+    "name": "cnlExportSourceUdpPort",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportVrf": {
+    "name": "cnlExportVrf",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportTtl": {
+    "name": "cnlExportTtl",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 254,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportCos": {
+    "name": "cnlExportCos",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Layer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportDscp": {
+    "name": "cnlExportDscp",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportTemplateTimeout": {
+    "name": "cnlExportTemplateTimeout",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportSamplerTableTimeout": {
+    "name": "cnlExportSamplerTableTimeout",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportInterfaceTableTimeout": {
+    "name": "cnlExportInterfaceTableTimeout",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExportProtocol": {
+    "name": "cnlExportProtocol",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipFix": 1,
+          "netflowV9": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "netflowV9",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlPacketExported": {
+    "name": "cnlPacketExported",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlExporterStorageType": {
+    "name": "cnlExporterStorageType",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlExporterRowStatus": {
+    "name": "cnlExporterRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.776.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlMaxSamplerAllowed": {
+    "name": "cnlMaxSamplerAllowed",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlSamplerTable": {
+    "name": "cnlSamplerTable",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnlSamplerEntry": {
+    "name": "cnlSamplerEntry",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlSamplerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cnlSamplerName": {
+    "name": "cnlSamplerName",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnlSamplerPacketRate": {
+    "name": "cnlSamplerPacketRate",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlSamplerPacketSectionSize": {
+    "name": "cnlSamplerPacketSectionSize",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlSamplerPacketOffset": {
+    "name": "cnlSamplerPacketOffset",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlSamplerStorageType": {
+    "name": "cnlSamplerStorageType",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlSamplerRowStatus": {
+    "name": "cnlSamplerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.776.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlIfMonitorTable": {
+    "name": "cnlIfMonitorTable",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnlIfMonitorEntry": {
+    "name": "cnlIfMonitorEntry",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfMonitorSessionName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cnlIfMonitorSessionName": {
+    "name": "cnlIfMonitorSessionName",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnlIfMonitorActiveStatus": {
+    "name": "cnlIfMonitorActiveStatus",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlIfSamplerName": {
+    "name": "cnlIfSamplerName",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlIfExporterName": {
+    "name": "cnlIfExporterName",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlIfAveragePacketSize": {
+    "name": "cnlIfAveragePacketSize",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlIfAveragePacketSizeObserved": {
+    "name": "cnlIfAveragePacketSizeObserved",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlIfAveragePacketSizeUsed": {
+    "name": "cnlIfAveragePacketSizeUsed",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlIfMonitorPktsObserved": {
+    "name": "cnlIfMonitorPktsObserved",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlIfMonitorPktsExported": {
+    "name": "cnlIfMonitorPktsExported",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlIfMonitorPktsDropped": {
+    "name": "cnlIfMonitorPktsDropped",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnlIfMonitorStorageType": {
+    "name": "cnlIfMonitorStorageType",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnlIfMonitorRowStatus": {
+    "name": "cnlIfMonitorRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.776.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoNetflowLiteMIBCompliances": {
+    "name": "ciscoNetflowLiteMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.776.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoNetflowLiteMIBGroups": {
+    "name": "ciscoNetflowLiteMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.776.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoNetflowLiteMIBCompliance": {
+    "name": "ciscoNetflowLiteMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.776.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cnlExporterInfoGroup",
+        "module": "CISCO-NETFLOW-LITE-MIB"
+      },
+      {
+        "object": "cnlSamplerInfoGroup",
+        "module": "CISCO-NETFLOW-LITE-MIB"
+      },
+      {
+        "object": "cnlIfMonitorInfoGroup",
+        "module": "CISCO-NETFLOW-LITE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cnlExporterInfoGroup": {
+    "name": "cnlExporterInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.776.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlMaxExporterAllowed"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportAddrType"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportDestinationAddr"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportDestinationUdpPort"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportDestinationUdpLoadShare"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportSourceAddr"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportSourceUdpPort"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportVrf"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportTtl"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportCos"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportDscp"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportTemplateTimeout"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportSamplerTableTimeout"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportInterfaceTableTimeout"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExportProtocol"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlPacketExported"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExporterStorageType"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlExporterRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cnlSamplerInfoGroup": {
+    "name": "cnlSamplerInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.776.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlMaxSamplerAllowed"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlSamplerPacketRate"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlSamplerPacketSectionSize"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlSamplerPacketOffset"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlSamplerStorageType"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlSamplerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cnlIfMonitorInfoGroup": {
+    "name": "cnlIfMonitorInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.776.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfMonitorActiveStatus"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfSamplerName"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfExporterName"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfAveragePacketSize"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfAveragePacketSizeObserved"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfAveragePacketSizeUsed"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfMonitorPktsObserved"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfMonitorPktsExported"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfMonitorPktsDropped"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfMonitorStorageType"
+      },
+      {
+        "module": "CISCO-NETFLOW-LITE-MIB",
+        "object": "cnlIfMonitorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NETFLOW-LITE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-NETFLOW-LITE-MIB"
+  }
+}

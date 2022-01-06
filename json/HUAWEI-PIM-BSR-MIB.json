@@ -1,0 +1,322 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetZoneIndex",
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "mib-2",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwMcast": {
+    "name": "hwMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.149",
+    "class": "objectidentity"
+  },
+  "hwPimBsrMib": {
+    "name": "hwPimBsrMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-16 00:00",
+        "description": "The initial revision of this Mib module."
+      }
+    ]
+  },
+  "hwPimBsrObjects": {
+    "name": "hwPimBsrObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1",
+    "class": "objectidentity"
+  },
+  "hwPimBsrConformance": {
+    "name": "hwPimBsrConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2",
+    "class": "objectidentity"
+  },
+  "hwPimBsrCompliances": {
+    "name": "hwPimBsrCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2.1",
+    "class": "objectidentity"
+  },
+  "hwPimBsrGroups": {
+    "name": "hwPimBsrGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2.2",
+    "class": "objectidentity"
+  },
+  "hwPimBsrElectedBsrRpSetTable": {
+    "name": "hwPimBsrElectedBsrRpSetTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrRpSetEntry": {
+    "name": "hwPimBsrElectedBsrRpSetEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrGrpMappingAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrGrpMappingGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrGrpMappingGrpPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrGrpMappingRPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrGrpMappingAddrType": {
+    "name": "hwPimBsrElectedBsrGrpMappingAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrGrpMappingGrpAddr": {
+    "name": "hwPimBsrElectedBsrGrpMappingGrpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrGrpMappingGrpPrefixLen": {
+    "name": "hwPimBsrElectedBsrGrpMappingGrpPrefixLen",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrGrpMappingRPAddr": {
+    "name": "hwPimBsrElectedBsrGrpMappingRPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrRpSetPriority": {
+    "name": "hwPimBsrElectedBsrRpSetPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrRpSetHoldtime": {
+    "name": "hwPimBsrElectedBsrRpSetHoldtime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrRpSetExpiryTime": {
+    "name": "hwPimBsrElectedBsrRpSetExpiryTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrRpSetGrpBidir": {
+    "name": "hwPimBsrElectedBsrRpSetGrpBidir",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPimBsrCompliance": {
+    "name": "hwPimBsrCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwPimBsrObjectGroup",
+        "module": "HUAWEI-PIM-BSR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPimBsrObjectGroup": {
+    "name": "hwPimBsrObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrRpSetPriority"
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrRpSetHoldtime"
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrRpSetExpiryTime"
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrRpSetGrpBidir"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PIM-BSR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-PIM-BSR-MIB"
+  }
+}

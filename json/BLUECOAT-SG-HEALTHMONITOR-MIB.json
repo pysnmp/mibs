@@ -1,0 +1,240 @@
+{
+  "imports": {
+    "class": "imports",
+    "BLUECOAT-MIB": [
+      "blueCoatMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "bluecoatSGHealthMonMIB": {
+    "name": "bluecoatSGHealthMonMIB",
+    "oid": "1.3.6.1.4.1.3417.2.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-06-10 03:00",
+        "description": "1. Introduced individual traps for states. 2. The overall health monitoring state is made pollable. 3. Renamed 'bluecoatSgHealthMonitor' prefix as 'deviceHealthMon'. 4. Added comformance and compliance statements."
+      },
+      {
+        "revision": "2007-11-05 03:00",
+        "description": "Initial revision of this MIB."
+      }
+    ]
+  },
+  "deviceHealthMonMIBObjects": {
+    "name": "deviceHealthMonMIBObjects",
+    "oid": "1.3.6.1.4.1.3417.2.12.1",
+    "class": "objectidentity"
+  },
+  "deviceHealthMonMIBNotification": {
+    "name": "deviceHealthMonMIBNotification",
+    "oid": "1.3.6.1.4.1.3417.2.12.2",
+    "class": "objectidentity"
+  },
+  "deviceHealthMonMIBNotifPrefix": {
+    "name": "deviceHealthMonMIBNotifPrefix",
+    "oid": "1.3.6.1.4.1.3417.2.12.2.0",
+    "class": "objectidentity"
+  },
+  "deviceHealthMonMIBConformance": {
+    "name": "deviceHealthMonMIBConformance",
+    "oid": "1.3.6.1.4.1.3417.2.12.3",
+    "class": "objectidentity"
+  },
+  "HealthMonMessageString": {
+    "name": "HealthMonMessageString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "deviceHealthMonValues": {
+    "name": "deviceHealthMonValues",
+    "oid": "1.3.6.1.4.1.3417.2.12.1.1",
+    "class": "objectidentity"
+  },
+  "deviceHealthMonMessage": {
+    "name": "deviceHealthMonMessage",
+    "oid": "1.3.6.1.4.1.3417.2.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HealthMonMessageString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "HealthMonStatus": {
+    "name": "HealthMonStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "warning": 2,
+          "critical": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "deviceHealthMonStatus": {
+    "name": "deviceHealthMonStatus",
+    "oid": "1.3.6.1.4.1.3417.2.12.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HealthMonStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceHealthMonOkTrap": {
+    "name": "deviceHealthMonOkTrap",
+    "oid": "1.3.6.1.4.1.3417.2.12.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB",
+        "object": "deviceHealthMonMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHealthMonWarningTrap": {
+    "name": "deviceHealthMonWarningTrap",
+    "oid": "1.3.6.1.4.1.3417.2.12.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB",
+        "object": "deviceHealthMonMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHealthMonCriticalTrap": {
+    "name": "deviceHealthMonCriticalTrap",
+    "oid": "1.3.6.1.4.1.3417.2.12.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB",
+        "object": "deviceHealthMonMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHealthMonMIBCompliances": {
+    "name": "deviceHealthMonMIBCompliances",
+    "oid": "1.3.6.1.4.1.3417.2.12.3.1",
+    "class": "objectidentity"
+  },
+  "deviceHealthMonMIBGroups": {
+    "name": "deviceHealthMonMIBGroups",
+    "oid": "1.3.6.1.4.1.3417.2.12.3.2",
+    "class": "objectidentity"
+  },
+  "deviceHealthMonMIBNotifGroups": {
+    "name": "deviceHealthMonMIBNotifGroups",
+    "oid": "1.3.6.1.4.1.3417.2.12.3.3",
+    "class": "objectidentity"
+  },
+  "deviceHealthMonMIBCompliance": {
+    "name": "deviceHealthMonMIBCompliance",
+    "oid": "1.3.6.1.4.1.3417.2.12.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "deviceHealthMonMIBGroup",
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHealthMonMIBGroup": {
+    "name": "deviceHealthMonMIBGroup",
+    "oid": "1.3.6.1.4.1.3417.2.12.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB",
+        "object": "deviceHealthMonStatus"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB",
+        "object": "deviceHealthMonMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceHealthMonMIBNotifGroup": {
+    "name": "deviceHealthMonMIBNotifGroup",
+    "oid": "1.3.6.1.4.1.3417.2.12.3.3.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB",
+        "object": "deviceHealthMonOkTrap"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB",
+        "object": "deviceHealthMonWarningTrap"
+      },
+      {
+        "module": "BLUECOAT-SG-HEALTHMONITOR-MIB",
+        "object": "deviceHealthMonCriticalTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-HEALTHMONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:45 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BLUECOAT-SG-HEALTHMONITOR-MIB"
+  }
+}

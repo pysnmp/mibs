@@ -1,0 +1,1065 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwUserLogMIB": {
+    "name": "hwUserLogMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.18",
+    "class": "moduleidentity"
+  },
+  "hwUserlogObjects": {
+    "name": "hwUserlogObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1",
+    "class": "objectidentity"
+  },
+  "hwUserlogNatObjects": {
+    "name": "hwUserlogNatObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1",
+    "class": "objectidentity"
+  },
+  "hwUserlogNatVersion": {
+    "name": "hwUserlogNatVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogNatSyslog": {
+    "name": "hwUserlogNatSyslog",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNatSourceIP": {
+    "name": "hwUserlogNatSourceIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNatFlowBegin": {
+    "name": "hwUserlogNatFlowBegin",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNatActiveTime": {
+    "name": "hwUserlogNatActiveTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNatSlotCfgInfoTable": {
+    "name": "hwUserlogNatSlotCfgInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwUserlogNatSlotCfgInfoEntry": {
+    "name": "hwUserlogNatSlotCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatCfgSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogNatCfgSlotNumber": {
+    "name": "hwUserlogNatCfgSlotNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogNatEnable": {
+    "name": "hwUserlogNatEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNatAclNumber": {
+    "name": "hwUserlogNatAclNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNatHostAddress": {
+    "name": "hwUserlogNatHostAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNatUdpPort": {
+    "name": "hwUserlogNatUdpPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNatSlotRunInfoTable": {
+    "name": "hwUserlogNatSlotRunInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwUserlogNatSlotRunInfoEntry": {
+    "name": "hwUserlogNatSlotRunInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatRunSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogNatRunSlotNumber": {
+    "name": "hwUserlogNatRunSlotNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogNatTotalEntries": {
+    "name": "hwUserlogNatTotalEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogNatTotalPackets": {
+    "name": "hwUserlogNatTotalPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogNatFailedEntries": {
+    "name": "hwUserlogNatFailedEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogNatFailedPackets": {
+    "name": "hwUserlogNatFailedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogNatClearRunStat": {
+    "name": "hwUserlogNatClearRunStat",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowObjects": {
+    "name": "hwUserlogFlowObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2",
+    "class": "objectidentity"
+  },
+  "hwUserlogFlowVersion": {
+    "name": "hwUserlogFlowVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogFlowSyslog": {
+    "name": "hwUserlogFlowSyslog",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowSourceIP": {
+    "name": "hwUserlogFlowSourceIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowFlowBegin": {
+    "name": "hwUserlogFlowFlowBegin",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowActiveTime": {
+    "name": "hwUserlogFlowActiveTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowSlotCfgInfoTable": {
+    "name": "hwUserlogFlowSlotCfgInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwUserlogFlowSlotCfgInfoEntry": {
+    "name": "hwUserlogFlowSlotCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowCfgSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogFlowCfgSlotNumber": {
+    "name": "hwUserlogFlowCfgSlotNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogFlowEnable": {
+    "name": "hwUserlogFlowEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowAclNumber": {
+    "name": "hwUserlogFlowAclNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowHostAddress": {
+    "name": "hwUserlogFlowHostAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowUdpPort": {
+    "name": "hwUserlogFlowUdpPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogFlowSlotRunInfoTable": {
+    "name": "hwUserlogFlowSlotRunInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwUserlogFlowSlotRunInfoEntry": {
+    "name": "hwUserlogFlowSlotRunInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowRunSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogFlowRunSlotNumber": {
+    "name": "hwUserlogFlowRunSlotNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogFlowTotalEntries": {
+    "name": "hwUserlogFlowTotalEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogFlowTotalPackets": {
+    "name": "hwUserlogFlowTotalPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogFlowFailedEntries": {
+    "name": "hwUserlogFlowFailedEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogFlowFailedPackets": {
+    "name": "hwUserlogFlowFailedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogFlowClearRunStat": {
+    "name": "hwUserlogFlowClearRunStat",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogAccessObjects": {
+    "name": "hwUserlogAccessObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3",
+    "class": "objectidentity"
+  },
+  "hwUserlogAccessVersion": {
+    "name": "hwUserlogAccessVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogAccessSyslog": {
+    "name": "hwUserlogAccessSyslog",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogAccessSourceIP": {
+    "name": "hwUserlogAccessSourceIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogAccessSlotCfgInfoTable": {
+    "name": "hwUserlogAccessSlotCfgInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwUserlogAccessSlotCfgInfoEntry": {
+    "name": "hwUserlogAccessSlotCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessCfgSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogAccessCfgSlotNumber": {
+    "name": "hwUserlogAccessCfgSlotNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogAccessEnable": {
+    "name": "hwUserlogAccessEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogAccessHostAddress": {
+    "name": "hwUserlogAccessHostAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogAccessUdpPort": {
+    "name": "hwUserlogAccessUdpPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogAccessSlotRunInfoTable": {
+    "name": "hwUserlogAccessSlotRunInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwUserlogAccessSlotRunInfoEntry": {
+    "name": "hwUserlogAccessSlotRunInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessRunSlotNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogAccessRunSlotNumber": {
+    "name": "hwUserlogAccessRunSlotNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogAccessTotalEntries": {
+    "name": "hwUserlogAccessTotalEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogAccessTotalPackets": {
+    "name": "hwUserlogAccessTotalPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogAccessFailedEntries": {
+    "name": "hwUserlogAccessFailedEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogAccessFailedPackets": {
+    "name": "hwUserlogAccessFailedPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwUserlogAccessClearRunStat": {
+    "name": "hwUserlogAccessClearRunStat",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwUserlogNotifications": {
+    "name": "hwUserlogNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.2",
+    "class": "objectidentity"
+  },
+  "hwUserlogConformance": {
+    "name": "hwUserlogConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3",
+    "class": "objectidentity"
+  },
+  "hwUserlogCompliances": {
+    "name": "hwUserlogCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.1",
+    "class": "objectidentity"
+  },
+  "hwUserlogCompliance": {
+    "name": "hwUserlogCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwUserlogMandatoryGroup",
+        "module": "HUAWEI-USERLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogGroups": {
+    "name": "hwUserlogGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.2",
+    "class": "objectidentity"
+  },
+  "hwUserlogMandatoryGroup": {
+    "name": "hwUserlogMandatoryGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatUdpPort"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowUdpPort"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessUdpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogConfigGroup": {
+    "name": "hwUserlogConfigGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatVersion"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatSyslog"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatSourceIP"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatFlowBegin"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatActiveTime"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatCfgSlotNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatAclNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatUdpPort"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowVersion"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowSyslog"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowSourceIP"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowFlowBegin"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowActiveTime"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowCfgSlotNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowAclNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowUdpPort"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessVersion"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessSyslog"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessSourceIP"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessCfgSlotNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessUdpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserlogInfoGroup": {
+    "name": "hwUserlogInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatTotalEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatTotalPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatFailedEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatFailedPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowTotalEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowTotalPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowFailedEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowFailedPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessTotalEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessTotalPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessFailedEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessFailedPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-USERLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-USERLOG-MIB"
+  }
+}

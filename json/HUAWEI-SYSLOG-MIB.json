@@ -1,0 +1,487 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "syslogMIBObjects": {
+    "name": "syslogMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.6.35",
+    "class": "moduleidentity"
+  },
+  "syslogEnableAdminStatus": {
+    "name": "syslogEnableAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.6.35.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syslogServerTable": {
+    "name": "syslogServerTable",
+    "oid": "1.3.6.1.4.1.2011.6.35.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogServerEntry": {
+    "name": "syslogServerEntry",
+    "oid": "1.3.6.1.4.1.2011.6.35.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogServerIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syslogServerIpAddress": {
+    "name": "syslogServerIpAddress",
+    "oid": "1.3.6.1.4.1.2011.6.35.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syslogPolicyGroupNameSelect": {
+    "name": "syslogPolicyGroupNameSelect",
+    "oid": "1.3.6.1.4.1.2011.6.35.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syslogServerRowStatus": {
+    "name": "syslogServerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.35.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogPolicyGroupTable": {
+    "name": "syslogPolicyGroupTable",
+    "oid": "1.3.6.1.4.1.2011.6.35.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogPolicyGroupEntry": {
+    "name": "syslogPolicyGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.6.35.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syslogPolicyGroupName": {
+    "name": "syslogPolicyGroupName",
+    "oid": "1.3.6.1.4.1.2011.6.35.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogPolicyGroupRowStatus": {
+    "name": "syslogPolicyGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.35.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogPolicyConfigTable": {
+    "name": "syslogPolicyConfigTable",
+    "oid": "1.3.6.1.4.1.2011.6.35.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogPolicyConfigEntry": {
+    "name": "syslogPolicyConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syslogPolicyConfigIndex": {
+    "name": "syslogPolicyConfigIndex",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogPolicyDescr": {
+    "name": "syslogPolicyDescr",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogUserType": {
+    "name": "syslogUserType",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "portal": 1,
+          "ppp": 2,
+          "l2static": 3,
+          "l2dynamic": 4,
+          "l3": 5,
+          "l2tp": 6,
+          "telnet": 7,
+          "dot1x": 101,
+          "wlan": 102,
+          "others": 200
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syslogPolicyBoard": {
+    "name": "syslogPolicyBoard",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "first": 1,
+        "second": 2,
+        "third": 3,
+        "fouth": 4,
+        "fifth": 5,
+        "sixth": 6,
+        "seventh": 7,
+        "eighth": 8,
+        "ninth": 9,
+        "tenth": 10,
+        "eleventh": 11,
+        "twelfth": 12,
+        "thirteenth": 13,
+        "fourteenth": 14,
+        "fifteenth": 15,
+        "sixteenth": 16,
+        "seventennth": 17,
+        "eighteenth": 18
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogPolicyIsp": {
+    "name": "syslogPolicyIsp",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogPolicyType": {
+    "name": "syslogPolicyType",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "userOperSyslog": 2,
+          "callSyslog": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogGroupChoice": {
+    "name": "syslogGroupChoice",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syslogPolicyRowStatus": {
+    "name": "syslogPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSyslogConformance": {
+    "name": "hwSyslogConformance",
+    "oid": "1.3.6.1.4.1.2011.6.35.100",
+    "class": "objectidentity"
+  },
+  "hwSyslogCompliances": {
+    "name": "hwSyslogCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.1",
+    "class": "objectidentity"
+  },
+  "hwSyslogCompliance": {
+    "name": "hwSyslogCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwSyslogAdminStatusObjectGroup",
+        "module": "HUAWEI-SYSLOG-MIB"
+      },
+      {
+        "object": "hwSyslogServerObjectGroup",
+        "module": "HUAWEI-SYSLOG-MIB"
+      },
+      {
+        "object": "hwSyslogPolicyGroupObjectGroup",
+        "module": "HUAWEI-SYSLOG-MIB"
+      },
+      {
+        "object": "hwSyslogPolicyConfigObjectGroup",
+        "module": "HUAWEI-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSyslogObjectGroups": {
+    "name": "hwSyslogObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2",
+    "class": "objectidentity"
+  },
+  "hwSyslogAdminStatusObjectGroup": {
+    "name": "hwSyslogAdminStatusObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogEnableAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSyslogServerObjectGroup": {
+    "name": "hwSyslogServerObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogServerIpAddress"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyGroupNameSelect"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogServerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSyslogPolicyGroupObjectGroup": {
+    "name": "hwSyslogPolicyGroupObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyGroupName"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSyslogPolicyConfigObjectGroup": {
+    "name": "hwSyslogPolicyConfigObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyDescr"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogUserType"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyBoard"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyIsp"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyType"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogGroupChoice"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SYSLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-SYSLOG-MIB"
+  }
+}

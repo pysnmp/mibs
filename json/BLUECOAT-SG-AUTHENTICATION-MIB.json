@@ -1,0 +1,774 @@
+{
+  "imports": {
+    "class": "imports",
+    "BLUECOAT-MIB": [
+      "blueCoatMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "Counter64",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "bluecoatSGAuthentication": {
+    "name": "bluecoatSGAuthentication",
+    "oid": "1.3.6.1.4.1.3417.2.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-08-06 03:00",
+        "description": "Initial revision of this MIB."
+      }
+    ]
+  },
+  "ToggleState": {
+    "name": "ToggleState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    }
+  },
+  "schannelStats": {
+    "name": "schannelStats",
+    "oid": "1.3.6.1.4.1.3417.2.15.2",
+    "class": "objectidentity"
+  },
+  "lsaDomainControllerStats": {
+    "name": "lsaDomainControllerStats",
+    "oid": "1.3.6.1.4.1.3417.2.15.3",
+    "class": "objectidentity"
+  },
+  "schannelServerStats": {
+    "name": "schannelServerStats",
+    "oid": "1.3.6.1.4.1.3417.2.15.4",
+    "class": "objectidentity"
+  },
+  "authNotifications": {
+    "name": "authNotifications",
+    "oid": "1.3.6.1.4.1.3417.2.15.5",
+    "class": "objectidentity"
+  },
+  "authNotificationsPrefix": {
+    "name": "authNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.3417.2.15.5.0",
+    "class": "objectidentity"
+  },
+  "schannelStatsTable": {
+    "name": "schannelStatsTable",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "schannelStatsEntry": {
+    "name": "schannelStatsEntry",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLUECOAT-SG-AUTHENTICATION-MIB",
+        "object": "schannelStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "schannelStatsIndex": {
+    "name": "schannelStatsIndex",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "domainName": {
+    "name": "domainName",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "domainStatus": {
+    "name": "domainStatus",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timeouts": {
+    "name": "timeouts",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transactions": {
+    "name": "transactions",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentWaiters": {
+    "name": "currentWaiters",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxWaiters": {
+    "name": "maxWaiters",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "resets": {
+    "name": "resets",
+    "oid": "1.3.6.1.4.1.3417.2.15.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lsaDomainControllerStatsTable": {
+    "name": "lsaDomainControllerStatsTable",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lsaDomainControllerStatsEntry": {
+    "name": "lsaDomainControllerStatsEntry",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLUECOAT-SG-AUTHENTICATION-MIB",
+        "object": "lsaDomainControllerStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lsaDomainControllerStatsIndex": {
+    "name": "lsaDomainControllerStatsIndex",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "domainControllerName": {
+    "name": "domainControllerName",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "address": {
+    "name": "address",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "siteName": {
+    "name": "siteName",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "avgLDAPPingTime": {
+    "name": "avgLDAPPingTime",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lastLDAPPingTime": {
+    "name": "lastLDAPPingTime",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flags": {
+    "name": "flags",
+    "oid": "1.3.6.1.4.1.3417.2.15.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schannelServerStatsTable": {
+    "name": "schannelServerStatsTable",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "schannelServerStatsEntry": {
+    "name": "schannelServerStatsEntry",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLUECOAT-SG-AUTHENTICATION-MIB",
+        "object": "schannelServerStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "schannelServerStatsIndex": {
+    "name": "schannelServerStatsIndex",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serverName": {
+    "name": "serverName",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "connectionsInUse": {
+    "name": "connectionsInUse",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "availableConnections": {
+    "name": "availableConnections",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "averageTransactions": {
+    "name": "averageTransactions",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "authsByDomainLast1Minute": {
+    "name": "authsByDomainLast1Minute",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "authsByDomainLast3Minutes": {
+    "name": "authsByDomainLast3Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "authsByDomainLast5Minutes": {
+    "name": "authsByDomainLast5Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "authsByDomainLast15Minutes": {
+    "name": "authsByDomainLast15Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "authsByDomainLast60Minutes": {
+    "name": "authsByDomainLast60Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "failedAuthsByDomainLast1Minute": {
+    "name": "failedAuthsByDomainLast1Minute",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "failedAuthsByDomainLast3Minutes": {
+    "name": "failedAuthsByDomainLast3Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "failedAuthsByDomainLast5Minutes": {
+    "name": "failedAuthsByDomainLast5Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "failedAuthsByDomainLast15Minutes": {
+    "name": "failedAuthsByDomainLast15Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "failedAuthsByDomainLast60Minutes": {
+    "name": "failedAuthsByDomainLast60Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "avgLatencyPerDomainLast1Minute": {
+    "name": "avgLatencyPerDomainLast1Minute",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "avgLatencyPerDomainLast3Minutes": {
+    "name": "avgLatencyPerDomainLast3Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "avgLatencyPerDomainLast5Minutes": {
+    "name": "avgLatencyPerDomainLast5Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "avgLatencyPerDomainLast15Minutes": {
+    "name": "avgLatencyPerDomainLast15Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "avgLatencyPerDomainLast60Minutes": {
+    "name": "avgLatencyPerDomainLast60Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxLatencyPerDomainLast1Minute": {
+    "name": "maxLatencyPerDomainLast1Minute",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxLatencyPerDomainLast3Minutes": {
+    "name": "maxLatencyPerDomainLast3Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxLatencyPerDomainLast5Minutes": {
+    "name": "maxLatencyPerDomainLast5Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxLatencyPerDomainLast15Minutes": {
+    "name": "maxLatencyPerDomainLast15Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxLatencyPerDomainLast60Minutes": {
+    "name": "maxLatencyPerDomainLast60Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "minLatencyPerDomainLast1Minute": {
+    "name": "minLatencyPerDomainLast1Minute",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "minLatencyPerDomainLast3Minutes": {
+    "name": "minLatencyPerDomainLast3Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "minLatencyPerDomainLast5Minutes": {
+    "name": "minLatencyPerDomainLast5Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "minLatencyPerDomainLast15Minutes": {
+    "name": "minLatencyPerDomainLast15Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "minLatencyPerDomainLast60Minutes": {
+    "name": "minLatencyPerDomainLast60Minutes",
+    "oid": "1.3.6.1.4.1.3417.2.15.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schannelLatencyTrap": {
+    "name": "schannelLatencyTrap",
+    "oid": "1.3.6.1.4.1.3417.2.15.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-AUTHENTICATION-MIB",
+        "object": "domainName"
+      },
+      {
+        "module": "BLUECOAT-SG-AUTHENTICATION-MIB",
+        "object": "latencyType"
+      },
+      {
+        "module": "BLUECOAT-SG-AUTHENTICATION-MIB",
+        "object": "latencyValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-AUTHENTICATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:45 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BLUECOAT-SG-AUTHENTICATION-MIB"
+  }
+}

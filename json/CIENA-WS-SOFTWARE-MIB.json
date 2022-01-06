@@ -1,0 +1,1421 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsConfig"
+    ],
+    "CIENA-WS-TYPEDEFS-MIB": [
+      "StringMaxl64",
+      "StringMaxl256",
+      "StringMaxl128",
+      "StringMaxl32"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsSoftwareMIB": {
+    "name": "cienaWsSoftwareMIB",
+    "oid": "1.3.6.1.4.1.1271.3.4.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-07-18 00:00",
+        "description": "Waveserver Release 1.5 Removed 'Read only attribute' from 'index' description. Removed 'config true' from all entries. Obsolete: 'ws-software-reset-last-command-file' rpc. Obsolete: 'ws-software-reset-last-config-file' rpc."
+      },
+      {
+        "revision": "2017-03-02 00:00",
+        "description": "Waveserver R1.4 revision. - Added coldrestartrequired enum to the upgrade-op-state. - Added force option to ws-software-install and ws-software-activate RPCs. - Added RPC ws-software-clear-cold-restart-required-alarm. - Aligned MIB files to respect YANG read/write status."
+      },
+      {
+        "revision": "2016-11-03 00:00",
+        "description": "Waveserver Rel 1.3 revised. 'ws-software/installed' has been restructred. The change is made to support when number of installed items exceeds five."
+      },
+      {
+        "revision": "2016-06-14 00:00",
+        "description": "Waveserver Rel 1.2 revised. Major restructuring of this YANG module."
+      },
+      {
+        "revision": "2015-09-29 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "SoftwareOpState": {
+    "name": "SoftwareOpState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "upgradeinprogress": 2,
+          "restartinprogress": 3,
+          "subsystemfailed": 4,
+          "systemloaderror": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SoftwareRtncode": {
+    "name": "SoftwareRtncode",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "UpgradeOpState": {
+    "name": "UpgradeOpState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "idle": 1,
+          "downloadinprogress": 2,
+          "downloadcomplete": 3,
+          "downloadfailed": 4,
+          "installationinprogress": 5,
+          "installationcomplete": 6,
+          "installationfailed": 7,
+          "activationinprogress": 8,
+          "activationcomplete": 9,
+          "activationfailed": 10,
+          "commitinprogress": 11,
+          "commitcomplete": 12,
+          "commitfailed": 13,
+          "cancelinprogress": 14,
+          "cancelcomplete": 15,
+          "cancelfailed": 16,
+          "manualcommit": 17,
+          "manualcancel": 18,
+          "coldrestartrequired": 19
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cwsSoftwareStatusTable": {
+    "name": "cwsSoftwareStatusTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareStatusEntry": {
+    "name": "cwsSoftwareStatusEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareStatusTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareStatusTableSnmpKey": {
+    "name": "cwsSoftwareStatusTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareStatusSoftwareOperationalState": {
+    "name": "cwsSoftwareStatusSoftwareOperationalState",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoftwareOpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareStatusUpgradeOperationalState": {
+    "name": "cwsSoftwareStatusUpgradeOperationalState",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpgradeOpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareStatusCommittedVersion": {
+    "name": "cwsSoftwareStatusCommittedVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareStatusActiveVersion": {
+    "name": "cwsSoftwareStatusActiveVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareStatusUpgradeToVersion": {
+    "name": "cwsSoftwareStatusUpgradeToVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareStatusLastOperation": {
+    "name": "cwsSoftwareStatusLastOperation",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl128",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportTable": {
+    "name": "cwsSoftwareCheckStatusReportTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportEntry": {
+    "name": "cwsSoftwareCheckStatusReportEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportTableSnmpKey": {
+    "name": "cwsSoftwareCheckStatusReportTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportActiveReleaseVersion": {
+    "name": "cwsSoftwareCheckStatusReportActiveReleaseVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportServerReleaseVersion": {
+    "name": "cwsSoftwareCheckStatusReportServerReleaseVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportLocalReleaseVersion": {
+    "name": "cwsSoftwareCheckStatusReportLocalReleaseVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportServerHostname": {
+    "name": "cwsSoftwareCheckStatusReportServerHostname",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportServerPath": {
+    "name": "cwsSoftwareCheckStatusReportServerPath",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl256",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportTimestamp": {
+    "name": "cwsSoftwareCheckStatusReportTimestamp",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl128",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportCheckOperationalState": {
+    "name": "cwsSoftwareCheckStatusReportCheckOperationalState",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoftwareOpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportCheckUpgradeState": {
+    "name": "cwsSoftwareCheckStatusReportCheckUpgradeState",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpgradeOpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportRequiredActivationType": {
+    "name": "cwsSoftwareCheckStatusReportRequiredActivationType",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareCheckStatusReportServiceInterruptionActivation": {
+    "name": "cwsSoftwareCheckStatusReportServiceInterruptionActivation",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerTable": {
+    "name": "cwsSoftwareUpgradeServerTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerEntry": {
+    "name": "cwsSoftwareUpgradeServerEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeServerTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerTableSnmpKey": {
+    "name": "cwsSoftwareUpgradeServerTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerIndex": {
+    "name": "cwsSoftwareUpgradeServerIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerServer": {
+    "name": "cwsSoftwareUpgradeServerServer",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerMode": {
+    "name": "cwsSoftwareUpgradeServerMode",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 0,
+          "ftp": 1,
+          "sftp": 2,
+          "scp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerRemotePath": {
+    "name": "cwsSoftwareUpgradeServerRemotePath",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerLoginId": {
+    "name": "cwsSoftwareUpgradeServerLoginId",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeServerPassword": {
+    "name": "cwsSoftwareUpgradeServerPassword",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeLogListTable": {
+    "name": "cwsSoftwareUpgradeLogListTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeLogListEntry": {
+    "name": "cwsSoftwareUpgradeLogListEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeLogListLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeLogListLogIndex": {
+    "name": "cwsSoftwareUpgradeLogListLogIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeLogListDateAndTime": {
+    "name": "cwsSoftwareUpgradeLogListDateAndTime",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareUpgradeLogListText": {
+    "name": "cwsSoftwareUpgradeLogListText",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl256",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActiveSoftwareTable": {
+    "name": "cwsSoftwareActiveSoftwareTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareActiveSoftwareEntry": {
+    "name": "cwsSoftwareActiveSoftwareEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActiveSoftwareTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareActiveSoftwareTableSnmpKey": {
+    "name": "cwsSoftwareActiveSoftwareTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareActiveSoftwareVersion": {
+    "name": "cwsSoftwareActiveSoftwareVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActiveSoftwareBuildNumber": {
+    "name": "cwsSoftwareActiveSoftwareBuildNumber",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActiveSoftwareBuildDate": {
+    "name": "cwsSoftwareActiveSoftwareBuildDate",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActiveSoftwareCatalogName": {
+    "name": "cwsSoftwareActiveSoftwareCatalogName",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActiveSoftwareNumberOfComponents": {
+    "name": "cwsSoftwareActiveSoftwareNumberOfComponents",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActivecomponentsTable": {
+    "name": "cwsSoftwareActivecomponentsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareActivecomponentsEntry": {
+    "name": "cwsSoftwareActivecomponentsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActivecomponentsComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareActivecomponentsComponentIndex": {
+    "name": "cwsSoftwareActivecomponentsComponentIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareActivecomponentsName": {
+    "name": "cwsSoftwareActivecomponentsName",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActivecomponentsVersion": {
+    "name": "cwsSoftwareActivecomponentsVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActivecomponentsBuildNumber": {
+    "name": "cwsSoftwareActivecomponentsBuildNumber",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareActivecomponentsStatus": {
+    "name": "cwsSoftwareActivecomponentsStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "active": 1,
+          "failed": 2,
+          "pending": 3,
+          "restarting": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareBootPartitionListTable": {
+    "name": "cwsSoftwareBootPartitionListTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareBootPartitionListEntry": {
+    "name": "cwsSoftwareBootPartitionListEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareBootPartitionListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareBootPartitionListIndex": {
+    "name": "cwsSoftwareBootPartitionListIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareBootPartitionListName": {
+    "name": "cwsSoftwareBootPartitionListName",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "kernel0": 1,
+          "bootloader0": 2,
+          "kernel1": 3,
+          "bootloader1": 4,
+          "firmware0": 5,
+          "firmware1": 6,
+          "backupbl": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareBootPartitionListVersion": {
+    "name": "cwsSoftwareBootPartitionListVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareBootPartitionListDate": {
+    "name": "cwsSoftwareBootPartitionListDate",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareBootPartitionListState": {
+    "name": "cwsSoftwareBootPartitionListState",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "active": 1,
+          "standby": 2,
+          "notapplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareBootPartitionListIntegrityCheck": {
+    "name": "cwsSoftwareBootPartitionListIntegrityCheck",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "pass": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareVersionsTable": {
+    "name": "cwsSoftwareVersionsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareVersionsEntry": {
+    "name": "cwsSoftwareVersionsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareVersionsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareVersionsIndex": {
+    "name": "cwsSoftwareVersionsIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareVersionsVersion": {
+    "name": "cwsSoftwareVersionsVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareVersionsBuildNumber": {
+    "name": "cwsSoftwareVersionsBuildNumber",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareVersionsBuildTag": {
+    "name": "cwsSoftwareVersionsBuildTag",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareVersionsBuildDate": {
+    "name": "cwsSoftwareVersionsBuildDate",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareVersionsSize": {
+    "name": "cwsSoftwareVersionsSize",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareVersionsNumberOfComponents": {
+    "name": "cwsSoftwareVersionsNumberOfComponents",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsTable": {
+    "name": "cwsSoftwareInstalledcomponentsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsEntry": {
+    "name": "cwsSoftwareInstalledcomponentsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareVersionsIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareInstalledcomponentsComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsComponentIndex": {
+    "name": "cwsSoftwareInstalledcomponentsComponentIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsName": {
+    "name": "cwsSoftwareInstalledcomponentsName",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsVersion": {
+    "name": "cwsSoftwareInstalledcomponentsVersion",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsBuildNumber": {
+    "name": "cwsSoftwareInstalledcomponentsBuildNumber",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsBuildTag": {
+    "name": "cwsSoftwareInstalledcomponentsBuildTag",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsBuildTimestamp": {
+    "name": "cwsSoftwareInstalledcomponentsBuildTimestamp",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSoftwareInstalledcomponentsBuildSize": {
+    "name": "cwsSoftwareInstalledcomponentsBuildSize",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaWsSoftwareObjects": {
+    "name": "cienaWsSoftwareObjects",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.1",
+    "class": "objectidentity"
+  },
+  "cienaWsSoftwareConformance": {
+    "name": "cienaWsSoftwareConformance",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.2",
+    "class": "objectidentity"
+  },
+  "cienaWsSoftwareGroups": {
+    "name": "cienaWsSoftwareGroups",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.2.1",
+    "class": "objectidentity"
+  },
+  "cienaWsSoftwareGroup": {
+    "name": "cienaWsSoftwareGroup",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareStatusSoftwareOperationalState"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareStatusUpgradeOperationalState"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareStatusCommittedVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareStatusActiveVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareStatusUpgradeToVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareStatusLastOperation"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportActiveReleaseVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportServerReleaseVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportLocalReleaseVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportServerHostname"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportServerPath"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportTimestamp"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportCheckOperationalState"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportCheckUpgradeState"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportRequiredActivationType"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareCheckStatusReportServiceInterruptionActivation"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeServerIndex"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeServerServer"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeServerMode"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeServerRemotePath"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeServerLoginId"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeServerPassword"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeLogListDateAndTime"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareUpgradeLogListText"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActiveSoftwareVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActiveSoftwareBuildNumber"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActiveSoftwareBuildDate"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActiveSoftwareCatalogName"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActiveSoftwareNumberOfComponents"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActivecomponentsName"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActivecomponentsVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActivecomponentsBuildNumber"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareActivecomponentsStatus"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareBootPartitionListName"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareBootPartitionListVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareBootPartitionListDate"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareBootPartitionListState"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareBootPartitionListIntegrityCheck"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareVersionsVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareVersionsBuildNumber"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareVersionsBuildTag"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareVersionsBuildDate"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareVersionsSize"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareVersionsNumberOfComponents"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareInstalledcomponentsName"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareInstalledcomponentsVersion"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareInstalledcomponentsBuildNumber"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareInstalledcomponentsBuildTag"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareInstalledcomponentsBuildTimestamp"
+      },
+      {
+        "module": "CIENA-WS-SOFTWARE-MIB",
+        "object": "cwsSoftwareInstalledcomponentsBuildSize"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaWsSoftwareCompliances": {
+    "name": "cienaWsSoftwareCompliances",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.2.2",
+    "class": "objectidentity"
+  },
+  "cienaWsSoftwareCompliance": {
+    "name": "cienaWsSoftwareCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.4.14.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cienaWsSoftwareGroup",
+        "module": "CIENA-WS-SOFTWARE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-SOFTWARE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-SOFTWARE-MIB"
+  }
+}

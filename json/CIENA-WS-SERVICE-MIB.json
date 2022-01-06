@@ -1,0 +1,583 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsConfig"
+    ],
+    "CIENA-WS-TYPEDEFS-MIB": [
+      "PortId",
+      "ServiceIdx",
+      "DescriptionString",
+      "EnabledDisabledEnum",
+      "ServiceDomainIdx"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsServiceMIB": {
+    "name": "cienaWsServiceMIB",
+    "oid": "1.3.6.1.4.1.1271.3.4.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-07-18 00:00",
+        "description": "Waveserver Release 1.5 Removed 'Read only attribute' from 'protection-state' description. Removed 'Read only attribute' from 'mac-learning' description. Changed 'max-number-of-port' to read-only. Removed 'config true' from all entries. Removed obsolete status from 'link-state-forwarding'."
+      },
+      {
+        "revision": "2017-03-02 00:00",
+        "description": "Waveserver Release 1.4 Aligned MIB files to respect YANG read/write status."
+      },
+      {
+        "revision": "2016-12-12 00:00",
+        "description": "Waveserver Rel 1.3 revised. Added RPCs: ws-service-attach-port, ws-service-detach-port. 'link-state-forwarding' status changed to obsolete. "
+      },
+      {
+        "revision": "2016-06-17 00:00",
+        "description": "Waveserver Rel 1.2 revised. Restructuring of the module."
+      },
+      {
+        "revision": "2015-02-25 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ServiceId": {
+    "name": "ServiceId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ServiceMaxPort": {
+    "name": "ServiceMaxPort",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ServiceNameStr": {
+    "name": "ServiceNameStr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "64a",
+    "status": "current"
+  },
+  "cwsServiceServicesTable": {
+    "name": "cwsServiceServicesTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServiceServicesEntry": {
+    "name": "cwsServiceServicesEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceServicesServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsServiceServicesServiceIndex": {
+    "name": "cwsServiceServicesServiceIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsServiceIdTable": {
+    "name": "cwsServiceIdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServiceIdEntry": {
+    "name": "cwsServiceIdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceServicesServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceIdTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsServiceIdTableSnmpKey": {
+    "name": "cwsServiceIdTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServiceIdServiceId": {
+    "name": "cwsServiceIdServiceId",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsServiceIdName": {
+    "name": "cwsServiceIdName",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceNameStr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsServiceIdDescription": {
+    "name": "cwsServiceIdDescription",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DescriptionString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsServiceStateTable": {
+    "name": "cwsServiceStateTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServiceStateEntry": {
+    "name": "cwsServiceStateEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceServicesServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceStateTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsServiceStateTableSnmpKey": {
+    "name": "cwsServiceStateTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServiceStateAdminState": {
+    "name": "cwsServiceStateAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsServicePropertiesTable": {
+    "name": "cwsServicePropertiesTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServicePropertiesEntry": {
+    "name": "cwsServicePropertiesEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceServicesServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePropertiesTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsServicePropertiesTableSnmpKey": {
+    "name": "cwsServicePropertiesTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServicePropertiesType": {
+    "name": "cwsServicePropertiesType",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "epl": 0,
+          "evpl": 1,
+          "etree": 2,
+          "elan": 3,
+          "eepl": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsServicePropertiesMaxNumberOfPort": {
+    "name": "cwsServicePropertiesMaxNumberOfPort",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceMaxPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsServicePropertiesProtectionState": {
+    "name": "cwsServicePropertiesProtectionState",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protected": 0,
+          "unprotected": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsServicePropertiesLinkStateForwarding": {
+    "name": "cwsServicePropertiesLinkStateForwarding",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsServicePropertiesMacLearning": {
+    "name": "cwsServicePropertiesMacLearning",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsServicePropertiesParentSvcDomainIdxReference": {
+    "name": "cwsServicePropertiesParentSvcDomainIdxReference",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceDomainIdx",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsServicePortMembersReferenceTable": {
+    "name": "cwsServicePortMembersReferenceTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServicePortMembersReferenceEntry": {
+    "name": "cwsServicePortMembersReferenceEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceServicesServiceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePropertiesTableSnmpKey",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePortMembersReferenceTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsServicePortMembersReferenceTableSnmpKey": {
+    "name": "cwsServicePortMembersReferenceTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsServicePortMembersReference": {
+    "name": "cwsServicePortMembersReference",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaWsServiceObjects": {
+    "name": "cienaWsServiceObjects",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.1",
+    "class": "objectidentity"
+  },
+  "cienaWsServiceConformance": {
+    "name": "cienaWsServiceConformance",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.2",
+    "class": "objectidentity"
+  },
+  "cienaWsServiceGroups": {
+    "name": "cienaWsServiceGroups",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "cienaWsServiceGroup": {
+    "name": "cienaWsServiceGroup",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceServicesServiceIndex"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceIdServiceId"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceIdName"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceIdDescription"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServiceStateAdminState"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePropertiesType"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePropertiesMaxNumberOfPort"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePropertiesProtectionState"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePropertiesLinkStateForwarding"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePropertiesMacLearning"
+      },
+      {
+        "module": "CIENA-WS-SERVICE-MIB",
+        "object": "cwsServicePropertiesParentSvcDomainIdxReference"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaWsServiceCompliances": {
+    "name": "cienaWsServiceCompliances",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "cienaWsServiceCompliance": {
+    "name": "cienaWsServiceCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.4.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cienaWsServiceGroup",
+        "module": "CIENA-WS-SERVICE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-SERVICE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-SERVICE-MIB"
+  }
+}

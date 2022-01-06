@@ -1,0 +1,2748 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "transmission",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "fcMgmtMIB": {
+    "name": "fcMgmtMIB",
+    "oid": "1.3.6.1.2.1.10.56",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-26 00:00",
+        "description": "Initial version of the Fibre Channel Mgmt MIB module."
+      }
+    ]
+  },
+  "fcmgmtObjects": {
+    "name": "fcmgmtObjects",
+    "oid": "1.3.6.1.2.1.10.56.1",
+    "class": "objectidentity"
+  },
+  "fcmgmtNotifications": {
+    "name": "fcmgmtNotifications",
+    "oid": "1.3.6.1.2.1.10.56.2",
+    "class": "objectidentity"
+  },
+  "fcmgmtNotifPrefix": {
+    "name": "fcmgmtNotifPrefix",
+    "oid": "1.3.6.1.2.1.10.56.2.0",
+    "class": "objectidentity"
+  },
+  "fcmgmtConformance": {
+    "name": "fcmgmtConformance",
+    "oid": "1.3.6.1.2.1.10.56.3",
+    "class": "objectidentity"
+  },
+  "FcNameIdOrZero": {
+    "name": "FcNameIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcAddressIdOrZero": {
+    "name": "FcAddressIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcDomainIdOrZero": {
+    "name": "FcDomainIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 239
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcPortType": {
+    "name": "FcPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "FcClasses": {
+    "name": "FcClasses",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "classF": 0,
+        "class1": 1,
+        "class2": 2,
+        "class3": 3,
+        "class4": 4,
+        "class5": 5,
+        "class6": 6
+      }
+    },
+    "status": "current"
+  },
+  "FcBbCredit": {
+    "name": "FcBbCredit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcBbCreditModel": {
+    "name": "FcBbCreditModel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regular": 1,
+          "alternate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcDataFieldSize": {
+    "name": "FcDataFieldSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 2112
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcUnitFunctions": {
+    "name": "FcUnitFunctions",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "hub": 1,
+        "switch": 2,
+        "bridge": 3,
+        "gateway": 4,
+        "host": 5,
+        "storageSubsys": 6,
+        "storageAccessDev": 7,
+        "nas": 8,
+        "wdmux": 9,
+        "storageDevice": 10
+      }
+    },
+    "status": "current"
+  },
+  "fcmInstanceTable": {
+    "name": "fcmInstanceTable",
+    "oid": "1.3.6.1.2.1.10.56.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmInstanceEntry": {
+    "name": "fcmInstanceEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcmInstanceIndex": {
+    "name": "fcmInstanceIndex",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmInstanceWwn": {
+    "name": "fcmInstanceWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmInstanceFunctions": {
+    "name": "fcmInstanceFunctions",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcUnitFunctions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmInstancePhysicalIndex": {
+    "name": "fcmInstancePhysicalIndex",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmInstanceSoftwareIndex": {
+    "name": "fcmInstanceSoftwareIndex",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmInstanceStatus": {
+    "name": "fcmInstanceStatus",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "warning": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmInstanceTextName": {
+    "name": "fcmInstanceTextName",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcmInstanceDescr": {
+    "name": "fcmInstanceDescr",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcmInstanceFabricId": {
+    "name": "fcmInstanceFabricId",
+    "oid": "1.3.6.1.2.1.10.56.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmSwitchTable": {
+    "name": "fcmSwitchTable",
+    "oid": "1.3.6.1.2.1.10.56.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmSwitchEntry": {
+    "name": "fcmSwitchEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcmSwitchIndex": {
+    "name": "fcmSwitchIndex",
+    "oid": "1.3.6.1.2.1.10.56.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmSwitchDomainId": {
+    "name": "fcmSwitchDomainId",
+    "oid": "1.3.6.1.2.1.10.56.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcmSwitchPrincipal": {
+    "name": "fcmSwitchPrincipal",
+    "oid": "1.3.6.1.2.1.10.56.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmSwitchWWN": {
+    "name": "fcmSwitchWWN",
+    "oid": "1.3.6.1.2.1.10.56.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortTable": {
+    "name": "fcmPortTable",
+    "oid": "1.3.6.1.2.1.10.56.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmPortEntry": {
+    "name": "fcmPortEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcmPortInstanceIndex": {
+    "name": "fcmPortInstanceIndex",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortWwn": {
+    "name": "fcmPortWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortNodeWwn": {
+    "name": "fcmPortNodeWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortAdminType": {
+    "name": "fcmPortAdminType",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcmPortOperType": {
+    "name": "fcmPortOperType",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortFcCapClass": {
+    "name": "fcmPortFcCapClass",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcClasses",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortFcOperClass": {
+    "name": "fcmPortFcOperClass",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcClasses",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortTransmitterType": {
+    "name": "fcmPortTransmitterType",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "shortwave850nm": 3,
+          "longwave1550nm": 4,
+          "longwave1310nm": 5,
+          "electrical": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortConnectorType": {
+    "name": "fcmPortConnectorType",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "gbic": 3,
+          "embedded": 4,
+          "glm": 5,
+          "gbicSerialId": 6,
+          "gbicNoSerialId": 7,
+          "sfpSerialId": 8,
+          "sfpNoSerialId": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortSerialNumber": {
+    "name": "fcmPortSerialNumber",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortPhysicalNumber": {
+    "name": "fcmPortPhysicalNumber",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortAdminSpeed": {
+    "name": "fcmPortAdminSpeed",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "eighthGbs": 2,
+          "quarterGbs": 3,
+          "halfGbs": 4,
+          "oneGbs": 5,
+          "twoGbs": 6,
+          "fourGbs": 7,
+          "tenGbs": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcmPortCapProtocols": {
+    "name": "fcmPortCapProtocols",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unknown": 0,
+        "loop": 1,
+        "fabric": 2,
+        "scsi": 3,
+        "tcpIp": 4,
+        "vi": 5,
+        "ficon": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortOperProtocols": {
+    "name": "fcmPortOperProtocols",
+    "oid": "1.3.6.1.2.1.10.56.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unknown": 0,
+        "loop": 1,
+        "fabric": 2,
+        "scsi": 3,
+        "tcpIp": 4,
+        "vi": 5,
+        "ficon": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortStatsTable": {
+    "name": "fcmPortStatsTable",
+    "oid": "1.3.6.1.2.1.10.56.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmPortStatsEntry": {
+    "name": "fcmPortStatsEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcmPortStatsEntry",
+      "module": "FC-MGMT-MIB",
+      "object": "fcmPortEntry"
+    },
+    "status": "current"
+  },
+  "fcmPortBBCreditZeros": {
+    "name": "fcmPortBBCreditZeros",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortFullInputBuffers": {
+    "name": "fcmPortFullInputBuffers",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2RxFrames": {
+    "name": "fcmPortClass2RxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2RxOctets": {
+    "name": "fcmPortClass2RxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2TxFrames": {
+    "name": "fcmPortClass2TxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2TxOctets": {
+    "name": "fcmPortClass2TxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2Discards": {
+    "name": "fcmPortClass2Discards",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2RxFbsyFrames": {
+    "name": "fcmPortClass2RxFbsyFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2RxPbsyFrames": {
+    "name": "fcmPortClass2RxPbsyFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2RxFrjtFrames": {
+    "name": "fcmPortClass2RxFrjtFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2RxPrjtFrames": {
+    "name": "fcmPortClass2RxPrjtFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2TxFbsyFrames": {
+    "name": "fcmPortClass2TxFbsyFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2TxPbsyFrames": {
+    "name": "fcmPortClass2TxPbsyFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2TxFrjtFrames": {
+    "name": "fcmPortClass2TxFrjtFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass2TxPrjtFrames": {
+    "name": "fcmPortClass2TxPrjtFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass3RxFrames": {
+    "name": "fcmPortClass3RxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass3RxOctets": {
+    "name": "fcmPortClass3RxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass3TxFrames": {
+    "name": "fcmPortClass3TxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass3TxOctets": {
+    "name": "fcmPortClass3TxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClass3Discards": {
+    "name": "fcmPortClass3Discards",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClassFRxFrames": {
+    "name": "fcmPortClassFRxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClassFRxOctets": {
+    "name": "fcmPortClassFRxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClassFTxFrames": {
+    "name": "fcmPortClassFTxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClassFTxOctets": {
+    "name": "fcmPortClassFTxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortClassFDiscards": {
+    "name": "fcmPortClassFDiscards",
+    "oid": "1.3.6.1.2.1.10.56.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcStatsTable": {
+    "name": "fcmPortLcStatsTable",
+    "oid": "1.3.6.1.2.1.10.56.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmPortLcStatsEntry": {
+    "name": "fcmPortLcStatsEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcmPortLcStatsEntry",
+      "module": "FC-MGMT-MIB",
+      "object": "fcmPortEntry"
+    },
+    "status": "current"
+  },
+  "fcmPortLcBBCreditZeros": {
+    "name": "fcmPortLcBBCreditZeros",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcFullInputBuffers": {
+    "name": "fcmPortLcFullInputBuffers",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2RxFrames": {
+    "name": "fcmPortLcClass2RxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2RxOctets": {
+    "name": "fcmPortLcClass2RxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2TxFrames": {
+    "name": "fcmPortLcClass2TxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2TxOctets": {
+    "name": "fcmPortLcClass2TxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2Discards": {
+    "name": "fcmPortLcClass2Discards",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2RxFbsyFrames": {
+    "name": "fcmPortLcClass2RxFbsyFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2RxPbsyFrames": {
+    "name": "fcmPortLcClass2RxPbsyFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2RxFrjtFrames": {
+    "name": "fcmPortLcClass2RxFrjtFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2RxPrjtFrames": {
+    "name": "fcmPortLcClass2RxPrjtFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2TxFbsyFrames": {
+    "name": "fcmPortLcClass2TxFbsyFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2TxPbsyFrames": {
+    "name": "fcmPortLcClass2TxPbsyFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2TxFrjtFrames": {
+    "name": "fcmPortLcClass2TxFrjtFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass2TxPrjtFrames": {
+    "name": "fcmPortLcClass2TxPrjtFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass3RxFrames": {
+    "name": "fcmPortLcClass3RxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass3RxOctets": {
+    "name": "fcmPortLcClass3RxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass3TxFrames": {
+    "name": "fcmPortLcClass3TxFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass3TxOctets": {
+    "name": "fcmPortLcClass3TxOctets",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLcClass3Discards": {
+    "name": "fcmPortLcClass3Discards",
+    "oid": "1.3.6.1.2.1.10.56.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortErrorsTable": {
+    "name": "fcmPortErrorsTable",
+    "oid": "1.3.6.1.2.1.10.56.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmPortErrorsEntry": {
+    "name": "fcmPortErrorsEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "fcmPortErrorsEntry",
+      "module": "FC-MGMT-MIB",
+      "object": "fcmPortEntry"
+    },
+    "status": "current"
+  },
+  "fcmPortRxLinkResets": {
+    "name": "fcmPortRxLinkResets",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortTxLinkResets": {
+    "name": "fcmPortTxLinkResets",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLinkResets": {
+    "name": "fcmPortLinkResets",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortRxOfflineSequences": {
+    "name": "fcmPortRxOfflineSequences",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortTxOfflineSequences": {
+    "name": "fcmPortTxOfflineSequences",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLinkFailures": {
+    "name": "fcmPortLinkFailures",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLossofSynchs": {
+    "name": "fcmPortLossofSynchs",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortLossofSignals": {
+    "name": "fcmPortLossofSignals",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortPrimSeqProtocolErrors": {
+    "name": "fcmPortPrimSeqProtocolErrors",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortInvalidTxWords": {
+    "name": "fcmPortInvalidTxWords",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortInvalidCRCs": {
+    "name": "fcmPortInvalidCRCs",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortInvalidOrderedSets": {
+    "name": "fcmPortInvalidOrderedSets",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortFrameTooLongs": {
+    "name": "fcmPortFrameTooLongs",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortTruncatedFrames": {
+    "name": "fcmPortTruncatedFrames",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortAddressErrors": {
+    "name": "fcmPortAddressErrors",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortDelimiterErrors": {
+    "name": "fcmPortDelimiterErrors",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortEncodingDisparityErrors": {
+    "name": "fcmPortEncodingDisparityErrors",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmPortOtherErrors": {
+    "name": "fcmPortOtherErrors",
+    "oid": "1.3.6.1.2.1.10.56.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortTable": {
+    "name": "fcmFxPortTable",
+    "oid": "1.3.6.1.2.1.10.56.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmFxPortEntry": {
+    "name": "fcmFxPortEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcmFxPortRatov": {
+    "name": "fcmFxPortRatov",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortEdtov": {
+    "name": "fcmFxPortEdtov",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortRttov": {
+    "name": "fcmFxPortRttov",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortHoldTime": {
+    "name": "fcmFxPortHoldTime",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortCapBbCreditMax": {
+    "name": "fcmFxPortCapBbCreditMax",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortCapBbCreditMin": {
+    "name": "fcmFxPortCapBbCreditMin",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortCapDataFieldSizeMax": {
+    "name": "fcmFxPortCapDataFieldSizeMax",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortCapDataFieldSizeMin": {
+    "name": "fcmFxPortCapDataFieldSizeMin",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortCapClass2SeqDeliv": {
+    "name": "fcmFxPortCapClass2SeqDeliv",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortCapClass3SeqDeliv": {
+    "name": "fcmFxPortCapClass3SeqDeliv",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortCapHoldTimeMax": {
+    "name": "fcmFxPortCapHoldTimeMax",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFxPortCapHoldTimeMin": {
+    "name": "fcmFxPortCapHoldTimeMin",
+    "oid": "1.3.6.1.2.1.10.56.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmISPortTable": {
+    "name": "fcmISPortTable",
+    "oid": "1.3.6.1.2.1.10.56.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmISPortEntry": {
+    "name": "fcmISPortEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcmISPortClassFCredit": {
+    "name": "fcmISPortClassFCredit",
+    "oid": "1.3.6.1.2.1.10.56.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcmISPortClassFDataFieldSize": {
+    "name": "fcmISPortClassFDataFieldSize",
+    "oid": "1.3.6.1.2.1.10.56.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDataFieldSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginTable": {
+    "name": "fcmFLoginTable",
+    "oid": "1.3.6.1.2.1.10.56.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmFLoginEntry": {
+    "name": "fcmFLoginEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginNxPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcmFLoginNxPortIndex": {
+    "name": "fcmFLoginNxPortIndex",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmFLoginPortWwn": {
+    "name": "fcmFLoginPortWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginNodeWwn": {
+    "name": "fcmFLoginNodeWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginBbCreditModel": {
+    "name": "fcmFLoginBbCreditModel",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCreditModel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginBbCredit": {
+    "name": "fcmFLoginBbCredit",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcBbCredit",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginClassesAgreed": {
+    "name": "fcmFLoginClassesAgreed",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcClasses",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginClass2SeqDelivAgreed": {
+    "name": "fcmFLoginClass2SeqDelivAgreed",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginClass2DataFieldSize": {
+    "name": "fcmFLoginClass2DataFieldSize",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginClass3SeqDelivAgreed": {
+    "name": "fcmFLoginClass3SeqDelivAgreed",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmFLoginClass3DataFieldSize": {
+    "name": "fcmFLoginClass3DataFieldSize",
+    "oid": "1.3.6.1.2.1.10.56.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDataFieldSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkTable": {
+    "name": "fcmLinkTable",
+    "oid": "1.3.6.1.2.1.10.56.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmLinkEntry": {
+    "name": "fcmLinkEntry",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcmLinkIndex": {
+    "name": "fcmLinkIndex",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcmLinkEnd1NodeWwn": {
+    "name": "fcmLinkEnd1NodeWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd1PhysPortNumber": {
+    "name": "fcmLinkEnd1PhysPortNumber",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd1PortWwn": {
+    "name": "fcmLinkEnd1PortWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd2NodeWwn": {
+    "name": "fcmLinkEnd2NodeWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd2PhysPortNumber": {
+    "name": "fcmLinkEnd2PhysPortNumber",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd2PortWwn": {
+    "name": "fcmLinkEnd2PortWwn",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd2AgentAddress": {
+    "name": "fcmLinkEnd2AgentAddress",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd2PortType": {
+    "name": "fcmLinkEnd2PortType",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd2UnitType": {
+    "name": "fcmLinkEnd2UnitType",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcUnitFunctions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmLinkEnd2FcAddressId": {
+    "name": "fcmLinkEnd2FcAddressId",
+    "oid": "1.3.6.1.2.1.10.56.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcmgmtCompliances": {
+    "name": "fcmgmtCompliances",
+    "oid": "1.3.6.1.2.1.10.56.3.1",
+    "class": "objectidentity"
+  },
+  "fcmgmtGroups": {
+    "name": "fcmgmtGroups",
+    "oid": "1.3.6.1.2.1.10.56.3.2",
+    "class": "objectidentity"
+  },
+  "fcmgmtCompliance": {
+    "name": "fcmgmtCompliance",
+    "oid": "1.3.6.1.2.1.10.56.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcmInstanceBasicGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmPortBasicGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmPortErrorsGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmPortStatsGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmPortClass23StatsGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmPortClassFStatsGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmPortLcStatsGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmSwitchBasicGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmSwitchPortGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmSwitchLoginGroup",
+        "module": "FC-MGMT-MIB"
+      },
+      {
+        "object": "fcmLinkBasicGroup",
+        "module": "FC-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmInstanceBasicGroup": {
+    "name": "fcmInstanceBasicGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceFunctions"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstancePhysicalIndex"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceSoftwareIndex"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceStatus"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceTextName"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceDescr"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceFabricId"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmSwitchBasicGroup": {
+    "name": "fcmSwitchBasicGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchDomainId"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchPrincipal"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchWWN"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmPortBasicGroup": {
+    "name": "fcmPortBasicGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortInstanceIndex"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortNodeWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortAdminType"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortOperType"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortFcCapClass"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortFcOperClass"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortTransmitterType"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortConnectorType"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortSerialNumber"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortPhysicalNumber"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortAdminSpeed"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortCapProtocols"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortOperProtocols"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmPortStatsGroup": {
+    "name": "fcmPortStatsGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortBBCreditZeros"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortFullInputBuffers"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmPortClass23StatsGroup": {
+    "name": "fcmPortClass23StatsGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2RxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2RxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2TxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2TxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2Discards"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2RxFbsyFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2RxPbsyFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2RxFrjtFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2RxPrjtFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2TxFbsyFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2TxPbsyFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2TxFrjtFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass2TxPrjtFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass3RxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass3RxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass3TxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass3TxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClass3Discards"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmPortClassFStatsGroup": {
+    "name": "fcmPortClassFStatsGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClassFRxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClassFRxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClassFTxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClassFTxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortClassFDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmPortLcStatsGroup": {
+    "name": "fcmPortLcStatsGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcBBCreditZeros"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcFullInputBuffers"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2RxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2RxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2TxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2TxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2Discards"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass3Discards"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass3RxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass3RxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass3TxFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass3TxOctets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2RxFbsyFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2RxPbsyFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2RxFrjtFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2RxPrjtFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2TxFbsyFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2TxPbsyFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2TxFrjtFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLcClass2TxPrjtFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmPortErrorsGroup": {
+    "name": "fcmPortErrorsGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortRxLinkResets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortTxLinkResets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLinkResets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortRxOfflineSequences"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortTxOfflineSequences"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLinkFailures"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLossofSynchs"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortLossofSignals"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortPrimSeqProtocolErrors"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortInvalidTxWords"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortInvalidCRCs"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortInvalidOrderedSets"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortFrameTooLongs"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortTruncatedFrames"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortAddressErrors"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortDelimiterErrors"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortEncodingDisparityErrors"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmPortOtherErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmSwitchPortGroup": {
+    "name": "fcmSwitchPortGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortRatov"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortEdtov"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortRttov"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortHoldTime"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortCapBbCreditMax"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortCapBbCreditMin"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortCapDataFieldSizeMax"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortCapDataFieldSizeMin"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortCapClass2SeqDeliv"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortCapClass3SeqDeliv"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortCapHoldTimeMax"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFxPortCapHoldTimeMin"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmISPortClassFCredit"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmISPortClassFDataFieldSize"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmSwitchLoginGroup": {
+    "name": "fcmSwitchLoginGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginPortWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginNodeWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginBbCreditModel"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginBbCredit"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginClassesAgreed"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginClass2SeqDelivAgreed"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginClass2DataFieldSize"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginClass3SeqDelivAgreed"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmFLoginClass3DataFieldSize"
+      }
+    ],
+    "status": "current"
+  },
+  "fcmLinkBasicGroup": {
+    "name": "fcmLinkBasicGroup",
+    "oid": "1.3.6.1.2.1.10.56.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd1NodeWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd1PhysPortNumber"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd1PortWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd2NodeWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd2PhysPortNumber"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd2PortWwn"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd2AgentAddress"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd2PortType"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd2UnitType"
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmLinkEnd2FcAddressId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/FC-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FC-MGMT-MIB"
+  }
+}

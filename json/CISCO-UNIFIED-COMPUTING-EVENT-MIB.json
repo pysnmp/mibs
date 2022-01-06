@@ -1,0 +1,880 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsConditionActionIndicator",
+      "CucsConditionSeverity",
+      "CucsConditionCause",
+      "CucsConditionCode",
+      "CucsPolicyPolicyOwner",
+      "CucsConditionTag",
+      "CucsEventEpCtrlLevel",
+      "CucsConditionRule",
+      "CucsConditionType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsEventObjects": {
+    "name": "cucsEventObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17",
+    "class": "moduleidentity"
+  },
+  "cucsEventEpCtrlTable": {
+    "name": "cucsEventEpCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventEpCtrlEntry": {
+    "name": "cucsEventEpCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EVENT-MIB",
+        "object": "cucsEventEpCtrlInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsEventEpCtrlInstanceId": {
+    "name": "cucsEventEpCtrlInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventEpCtrlDn": {
+    "name": "cucsEventEpCtrlDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventEpCtrlRn": {
+    "name": "cucsEventEpCtrlRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventEpCtrlLevel": {
+    "name": "cucsEventEpCtrlLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsEventEpCtrlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventEpCtrlRevertTimeout": {
+    "name": "cucsEventEpCtrlRevertTimeout",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventHolderTable": {
+    "name": "cucsEventHolderTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventHolderEntry": {
+    "name": "cucsEventHolderEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EVENT-MIB",
+        "object": "cucsEventHolderInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsEventHolderInstanceId": {
+    "name": "cucsEventHolderInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventHolderDn": {
+    "name": "cucsEventHolderDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventHolderRn": {
+    "name": "cucsEventHolderRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventHolderName": {
+    "name": "cucsEventHolderName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstTable": {
+    "name": "cucsEventInstTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventInstEntry": {
+    "name": "cucsEventInstEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EVENT-MIB",
+        "object": "cucsEventInstInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsEventInstInstanceId": {
+    "name": "cucsEventInstInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventInstDn": {
+    "name": "cucsEventInstDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstRn": {
+    "name": "cucsEventInstRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstCause": {
+    "name": "cucsEventInstCause",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstChangeSet": {
+    "name": "cucsEventInstChangeSet",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstCode": {
+    "name": "cucsEventInstCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstCreated": {
+    "name": "cucsEventInstCreated",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstDescr": {
+    "name": "cucsEventInstDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstId": {
+    "name": "cucsEventInstId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstRule": {
+    "name": "cucsEventInstRule",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRule",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstSeverity": {
+    "name": "cucsEventInstSeverity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstTags": {
+    "name": "cucsEventInstTags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventInstType": {
+    "name": "cucsEventInstType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventLogTable": {
+    "name": "cucsEventLogTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventLogEntry": {
+    "name": "cucsEventLogEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EVENT-MIB",
+        "object": "cucsEventLogInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsEventLogInstanceId": {
+    "name": "cucsEventLogInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventLogDn": {
+    "name": "cucsEventLogDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventLogRn": {
+    "name": "cucsEventLogRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventLogMaxSize": {
+    "name": "cucsEventLogMaxSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventLogPurgeWindow": {
+    "name": "cucsEventLogPurgeWindow",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventLogSize": {
+    "name": "cucsEventLogSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyTable": {
+    "name": "cucsEventPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventPolicyEntry": {
+    "name": "cucsEventPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EVENT-MIB",
+        "object": "cucsEventPolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsEventPolicyInstanceId": {
+    "name": "cucsEventPolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventPolicyDn": {
+    "name": "cucsEventPolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyRn": {
+    "name": "cucsEventPolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyDescr": {
+    "name": "cucsEventPolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyIntId": {
+    "name": "cucsEventPolicyIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyName": {
+    "name": "cucsEventPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyRetentionInterval": {
+    "name": "cucsEventPolicyRetentionInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicySizeLimit": {
+    "name": "cucsEventPolicySizeLimit",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyPolicyLevel": {
+    "name": "cucsEventPolicyPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyPolicyOwner": {
+    "name": "cucsEventPolicyPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventPolicyPinningExpirationInterval": {
+    "name": "cucsEventPolicyPinningExpirationInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordTable": {
+    "name": "cucsEventRecordTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventRecordEntry": {
+    "name": "cucsEventRecordEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-EVENT-MIB",
+        "object": "cucsEventRecordInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsEventRecordInstanceId": {
+    "name": "cucsEventRecordInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsEventRecordDn": {
+    "name": "cucsEventRecordDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordRn": {
+    "name": "cucsEventRecordRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordAffected": {
+    "name": "cucsEventRecordAffected",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordCause": {
+    "name": "cucsEventRecordCause",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordChangeSet": {
+    "name": "cucsEventRecordChangeSet",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordCode": {
+    "name": "cucsEventRecordCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordCreated": {
+    "name": "cucsEventRecordCreated",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordDescr": {
+    "name": "cucsEventRecordDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordId": {
+    "name": "cucsEventRecordId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordInd": {
+    "name": "cucsEventRecordInd",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionActionIndicator",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordSeverity": {
+    "name": "cucsEventRecordSeverity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordTrig": {
+    "name": "cucsEventRecordTrig",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordTxId": {
+    "name": "cucsEventRecordTxId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordUser": {
+    "name": "cucsEventRecordUser",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsEventRecordSessionId": {
+    "name": "cucsEventRecordSessionId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.17.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EVENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-EVENT-MIB"
+  }
+}

@@ -1,0 +1,620 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQLGROUP-MIB": [
+      "UTFString",
+      "eqlGroupId"
+    ],
+    "EQLMEMBER-MIB": [
+      "eqlMemberIndex"
+    ],
+    "EQUALLOGIC-SMI": [
+      "equalLogic"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "eqlipaddrModule": {
+    "name": "eqlipaddrModule",
+    "oid": "1.3.6.1.4.1.12740.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-06 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "eqlipAddrTable": {
+    "name": "eqlipAddrTable",
+    "oid": "1.3.6.1.4.1.12740.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "eqlipAddrEntry": {
+    "name": "eqlipAddrEntry",
+    "oid": "1.3.6.1.4.1.12740.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLIPADDR-MIB",
+        "object": "eqlIpAdEntAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlIpAdEntAddr": {
+    "name": "eqlIpAdEntAddr",
+    "oid": "1.3.6.1.4.1.12740.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlIpAdEntIfName": {
+    "name": "eqlIpAdEntIfName",
+    "oid": "1.3.6.1.4.1.12740.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlIpAdEntNetMask": {
+    "name": "eqlIpAdEntNetMask",
+    "oid": "1.3.6.1.4.1.12740.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlIpAdEntIfIndex": {
+    "name": "eqlIpAdEntIfIndex",
+    "oid": "1.3.6.1.4.1.12740.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlIpAdEntRowStatus": {
+    "name": "eqlIpAdEntRowStatus",
+    "oid": "1.3.6.1.4.1.12740.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlifTable": {
+    "name": "eqlifTable",
+    "oid": "1.3.6.1.4.1.12740.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlifEntry": {
+    "name": "eqlifEntry",
+    "oid": "1.3.6.1.4.1.12740.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlifDescr": {
+    "name": "eqlifDescr",
+    "oid": "1.3.6.1.4.1.12740.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlifPortAttr": {
+    "name": "eqlifPortAttr",
+    "oid": "1.3.6.1.4.1.12740.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "attr-pss-only": 1,
+          "attr-initiator-only": 2,
+          "attr-any": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "attr-any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlifAdminStatus": {
+    "name": "eqlifAdminStatus",
+    "oid": "1.3.6.1.4.1.12740.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlifRole": {
+    "name": "eqlifRole",
+    "oid": "1.3.6.1.4.1.12740.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iscsi-only": 0,
+          "mgmt-only": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "iscsi-only",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlWKATable": {
+    "name": "eqlWKATable",
+    "oid": "1.3.6.1.4.1.12740.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlWKAEntry": {
+    "name": "eqlWKAEntry",
+    "oid": "1.3.6.1.4.1.12740.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLIPADDR-MIB",
+        "object": "eqlInetAddrEntAddrType",
+        "implied": 0
+      },
+      {
+        "module": "EQLIPADDR-MIB",
+        "object": "eqlInetAddrEntAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlWKARowStatus": {
+    "name": "eqlWKARowStatus",
+    "oid": "1.3.6.1.4.1.12740.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlWKARole": {
+    "name": "eqlWKARole",
+    "oid": "1.3.6.1.4.1.12740.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "management": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "secondary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlifStatusTable": {
+    "name": "eqlifStatusTable",
+    "oid": "1.3.6.1.4.1.12740.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlifStatusEntry": {
+    "name": "eqlifStatusEntry",
+    "oid": "1.3.6.1.4.1.12740.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlifStatusEntry",
+      "module": "EQLIPADDR-MIB",
+      "object": "eqlifEntry"
+    },
+    "status": "current"
+  },
+  "eqlifStatusMgmtRolePolicy": {
+    "name": "eqlifStatusMgmtRolePolicy",
+    "oid": "1.3.6.1.4.1.12740.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "non-configurable": 0,
+          "configurable": 1,
+          "fixed": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "non-configurable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlifStatusConfigurationFlags": {
+    "name": "eqlifStatusConfigurationFlags",
+    "oid": "1.3.6.1.4.1.12740.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "isDcbCapable": 0,
+        "flag1": 1,
+        "flag2": 2,
+        "flag3": 3,
+        "flag4": 4,
+        "flag5": 5,
+        "flag6": 6,
+        "flag7": 7,
+        "flag8": 8,
+        "flag9": 9,
+        "flag10": 10,
+        "flag11": 11,
+        "flag12": 12,
+        "flag13": 13,
+        "flag14": 14,
+        "flag15": 15,
+        "flag16": 16,
+        "flag17": 17,
+        "flag18": 18,
+        "flag19": 19,
+        "flag20": 20,
+        "flag21": 21,
+        "flag22": 22,
+        "flag23": 23,
+        "flag24": 24,
+        "flag25": 25,
+        "flag26": 26,
+        "flag27": 27,
+        "flag28": 28,
+        "flag29": 29,
+        "flag30": 30,
+        "flag31": 31
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlifOperStatus": {
+    "name": "eqlifOperStatus",
+    "oid": "1.3.6.1.4.1.12740.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "dormant": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlinetAddrTable": {
+    "name": "eqlinetAddrTable",
+    "oid": "1.3.6.1.4.1.12740.9.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlinetAddrEntry": {
+    "name": "eqlinetAddrEntry",
+    "oid": "1.3.6.1.4.1.12740.9.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLIPADDR-MIB",
+        "object": "eqlInetAddrEntAddrType",
+        "implied": 0
+      },
+      {
+        "module": "EQLIPADDR-MIB",
+        "object": "eqlInetAddrEntAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlInetAddrEntAddrType": {
+    "name": "eqlInetAddrEntAddrType",
+    "oid": "1.3.6.1.4.1.12740.9.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlInetAddrEntAddr": {
+    "name": "eqlInetAddrEntAddr",
+    "oid": "1.3.6.1.4.1.12740.9.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlInetAddrEntIfName": {
+    "name": "eqlInetAddrEntIfName",
+    "oid": "1.3.6.1.4.1.12740.9.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlInetAddrEntNetMaskType": {
+    "name": "eqlInetAddrEntNetMaskType",
+    "oid": "1.3.6.1.4.1.12740.9.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlInetAddrEntNetMask": {
+    "name": "eqlInetAddrEntNetMask",
+    "oid": "1.3.6.1.4.1.12740.9.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlInetAddrEntIfIndex": {
+    "name": "eqlInetAddrEntIfIndex",
+    "oid": "1.3.6.1.4.1.12740.9.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlInetAddrEntFlags": {
+    "name": "eqlInetAddrEntFlags",
+    "oid": "1.3.6.1.4.1.12740.9.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-options": 0,
+          "static": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlInetAddrEntRowStatus": {
+    "name": "eqlInetAddrEntRowStatus",
+    "oid": "1.3.6.1.4.1.12740.9.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLIPADDR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EQLIPADDR-MIB"
+  }
+}

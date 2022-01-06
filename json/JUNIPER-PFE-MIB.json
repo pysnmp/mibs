@@ -1,0 +1,963 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxPfeMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxPfeMib": {
+    "name": "jnxPfeMib",
+    "oid": "1.3.6.1.4.1.2636.3.44.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-11-14 00:00",
+        "description": "Added jnxPfeMemoryTrapVars and jnxPfeMemoryNotifications."
+      },
+      {
+        "revision": "2014-03-12 00:00",
+        "description": "Added new Table jnxPfeNotifyGlParAccSec which counts notifications for the packets parsed/processed by access-security."
+      },
+      {
+        "revision": "2011-09-09 00:00",
+        "description": "Added new Table jnxPfeMemoryErrorsTable which gives parity and ecc errors. Added new Trap pfeMemoryErrors"
+      },
+      {
+        "revision": "2010-02-07 00:00",
+        "description": "Added new notification types."
+      },
+      {
+        "revision": "2016-05-31 00:00",
+        "description": "Corrected type in sequence and actual"
+      }
+    ]
+  },
+  "JnxPfeMemoryTypeEnum": {
+    "name": "JnxPfeMemoryTypeEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nh": 1,
+          "fw": 2,
+          "encap": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxPfeNotification": {
+    "name": "jnxPfeNotification",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1",
+    "class": "objectidentity"
+  },
+  "jnxPfeNotifyGlTable": {
+    "name": "jnxPfeNotifyGlTable",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlEntry": {
+    "name": "jnxPfeNotifyGlEntry",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeNotifyGlSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeNotifyGlSlot": {
+    "name": "jnxPfeNotifyGlSlot",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlParsed": {
+    "name": "jnxPfeNotifyGlParsed",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlAged": {
+    "name": "jnxPfeNotifyGlAged",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlCorrupt": {
+    "name": "jnxPfeNotifyGlCorrupt",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlIllegal": {
+    "name": "jnxPfeNotifyGlIllegal",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlSample": {
+    "name": "jnxPfeNotifyGlSample",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlGiants": {
+    "name": "jnxPfeNotifyGlGiants",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlTtlExceeded": {
+    "name": "jnxPfeNotifyGlTtlExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlTtlExcErrors": {
+    "name": "jnxPfeNotifyGlTtlExcErrors",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlSvcOptAsp": {
+    "name": "jnxPfeNotifyGlSvcOptAsp",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlSvcOptRe": {
+    "name": "jnxPfeNotifyGlSvcOptRe",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlPostSvcOptOut": {
+    "name": "jnxPfeNotifyGlPostSvcOptOut",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlOptTtlExp": {
+    "name": "jnxPfeNotifyGlOptTtlExp",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlDiscSample": {
+    "name": "jnxPfeNotifyGlDiscSample",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlRateLimited": {
+    "name": "jnxPfeNotifyGlRateLimited",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlPktGetFails": {
+    "name": "jnxPfeNotifyGlPktGetFails",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlDmaFails": {
+    "name": "jnxPfeNotifyGlDmaFails",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlDmaTotals": {
+    "name": "jnxPfeNotifyGlDmaTotals",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlUnknowns": {
+    "name": "jnxPfeNotifyGlUnknowns",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyGlParAccSec": {
+    "name": "jnxPfeNotifyGlParAccSec",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyTypeTable": {
+    "name": "jnxPfeNotifyTypeTable",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeNotifyTypeEntry": {
+    "name": "jnxPfeNotifyTypeEntry",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeNotifyGlSlot",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeNotifyTypeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeNotifyTypeId": {
+    "name": "jnxPfeNotifyTypeId",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "illegal": 1,
+          "unclassified": 2,
+          "option": 3,
+          "nextHop": 4,
+          "discard": 5,
+          "sample": 6,
+          "redirect": 7,
+          "dontFragment": 8,
+          "cfdf": 9,
+          "poison": 10,
+          "unknown": 11,
+          "specialMemPkt": 12,
+          "autoConfig": 13,
+          "reject": 14
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeNotifyTypeDescr": {
+    "name": "jnxPfeNotifyTypeDescr",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyTypeParsed": {
+    "name": "jnxPfeNotifyTypeParsed",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyTypeInput": {
+    "name": "jnxPfeNotifyTypeInput",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyTypeFailed": {
+    "name": "jnxPfeNotifyTypeFailed",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeNotifyTypeIgnored": {
+    "name": "jnxPfeNotifyTypeIgnored",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeMemoryErrorsTable": {
+    "name": "jnxPfeMemoryErrorsTable",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeMemoryErrorsEntry": {
+    "name": "jnxPfeMemoryErrorsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeFpcSlot",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeFpcSlot": {
+    "name": "jnxPfeFpcSlot",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeSlot": {
+    "name": "jnxPfeSlot",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeParityErrors": {
+    "name": "jnxPfeParityErrors",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeEccErrors": {
+    "name": "jnxPfeEccErrors",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfeMemoryErrorsNotificationPrefix": {
+    "name": "pfeMemoryErrorsNotificationPrefix",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.0",
+    "class": "objectidentity"
+  },
+  "pfeMemoryErrors": {
+    "name": "pfeMemoryErrors",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeParityErrors"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeEccErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeMemory": {
+    "name": "jnxPfeMemory",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2",
+    "class": "objectidentity"
+  },
+  "jnxPfeMemoryUkernTable": {
+    "name": "jnxPfeMemoryUkernTable",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeMemoryUkernEntry": {
+    "name": "jnxPfeMemoryUkernEntry",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeMemoryUkernFreePercent": {
+    "name": "jnxPfeMemoryUkernFreePercent",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeMemoryForwardingTable": {
+    "name": "jnxPfeMemoryForwardingTable",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeMemoryForwardingEntry": {
+    "name": "jnxPfeMemoryForwardingEntry",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryForwardingChipSlot",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeMemoryForwardingChipSlot": {
+    "name": "jnxPfeMemoryForwardingChipSlot",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeMemoryType": {
+    "name": "jnxPfeMemoryType",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxPfeMemoryTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxPfeMemoryForwardingPercentFree": {
+    "name": "jnxPfeMemoryForwardingPercentFree",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPfeMemoryTrapVars": {
+    "name": "jnxPfeMemoryTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxPfeGlSlot": {
+    "name": "jnxPfeGlSlot",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.3.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxPfeInstanceNumber": {
+    "name": "jnxPfeInstanceNumber",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxPfeMemoryThreshold": {
+    "name": "jnxPfeMemoryThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxPfeMemoryNotificationsPrefix": {
+    "name": "jnxPfeMemoryNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4",
+    "class": "objectidentity"
+  },
+  "jnxPfeMemoryNotifications": {
+    "name": "jnxPfeMemoryNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0",
+    "class": "objectidentity"
+  },
+  "jnxPfeHeapMemoryThresholdExceeded": {
+    "name": "jnxPfeHeapMemoryThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeHeapMemoryThresholdAbated": {
+    "name": "jnxPfeHeapMemoryThresholdAbated",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeNextHopMemoryThresholdExceeded": {
+    "name": "jnxPfeNextHopMemoryThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeInstanceNumber"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeNextHopMemoryThresholdAbated": {
+    "name": "jnxPfeNextHopMemoryThresholdAbated",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeInstanceNumber"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeFilterMemoryThresholdExceeded": {
+    "name": "jnxPfeFilterMemoryThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeInstanceNumber"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeFilterMemoryThresholdAbated": {
+    "name": "jnxPfeFilterMemoryThresholdAbated",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeInstanceNumber"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeEncapMemoryThresholdExceeded": {
+    "name": "jnxPfeEncapMemoryThresholdExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeInstanceNumber"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPfeEncapMemoryThresholdAbated": {
+    "name": "jnxPfeEncapMemoryThresholdAbated",
+    "oid": "1.3.6.1.4.1.2636.3.44.1.2.4.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeGlSlot"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeInstanceNumber"
+      },
+      {
+        "module": "JUNIPER-PFE-MIB",
+        "object": "jnxPfeMemoryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-PFE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-PFE-MIB"
+  }
+}

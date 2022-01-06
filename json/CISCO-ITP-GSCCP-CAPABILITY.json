@@ -1,0 +1,122 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoGsccpCapability": {
+    "name": "ciscoGsccpCapability",
+    "oid": "1.3.6.1.4.1.9.7.539",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-17 00:00",
+        "description": "Added ciscoGsccpCapabilityV12R0218IXA and ciscoGsccpCapabilityV12R0411SW capability statements. Corrected all capability statements to indicate that cgsccpGttConPcRowStatus was implemented as read-only rather than cgsccpGttConPcTable."
+      },
+      {
+        "revision": "2005-01-14 00:00",
+        "description": "Added ciscoGsccpCapabilityV12R025000SW1 capability statement. Added ciscoGsccpNotificationsGroupSup1, ciscoGsccpGttErrorsGroup and ciscoGsccpGttPrefGroupSup1 object goups."
+      },
+      {
+        "revision": "2004-10-07 00:00",
+        "description": "Added ciscoGsccpCapabilityV12R023000SW1 capability statement. Replaced ciscoGsccpGttAppGroupRev2 object group with ciscoGsccpGttAppGroupRev3."
+      },
+      {
+        "revision": "2003-12-08 00:00",
+        "description": "Support for cross instance global title translation. Added ciscoGsccpCapabilityV12R022004SW capability statement. Replaced ciscoGsccpGttAppGroup object group with ciscoGsccpGttAppGroupRev2. Replaced ciscoGsccpGttGtaGroup with ciscoGsccpGttGtaGroupRev2."
+      },
+      {
+        "revision": "2003-10-28 00:00",
+        "description": "Changes to allow GTT prefix conversion to be specified per instance. Added ciscoGsccpCapabilityV12R0204MB13 capability statement."
+      },
+      {
+        "revision": "2003-05-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoGsccpCapabilityV12R0204MB10": {
+    "name": "ciscoGsccpCapabilityV12R0204MB10",
+    "oid": "1.3.6.1.4.1.9.7.539.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB10",
+    "status": "current"
+  },
+  "ciscoGsccpCapabilityV12R0204MB13": {
+    "name": "ciscoGsccpCapabilityV12R0204MB13",
+    "oid": "1.3.6.1.4.1.9.7.539.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(4)MB13",
+    "status": "current"
+  },
+  "ciscoGsccpCapabilityV12R022004SW": {
+    "name": "ciscoGsccpCapabilityV12R022004SW",
+    "oid": "1.3.6.1.4.1.9.7.539.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(20.4)SW",
+    "status": "current"
+  },
+  "ciscoGsccpCapabilityV12R023000SW1": {
+    "name": "ciscoGsccpCapabilityV12R023000SW1",
+    "oid": "1.3.6.1.4.1.9.7.539.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(23)SW1",
+    "status": "current"
+  },
+  "ciscoGsccpCapabilityV12R025000SW1": {
+    "name": "ciscoGsccpCapabilityV12R025000SW1",
+    "oid": "1.3.6.1.4.1.9.7.539.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(25)SW1",
+    "status": "current"
+  },
+  "ciscoGsccpCapabilityV12R0218IXA": {
+    "name": "ciscoGsccpCapabilityV12R0218IXA",
+    "oid": "1.3.6.1.4.1.9.7.539.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)IXA",
+    "status": "current"
+  },
+  "ciscoGsccpCapabilityV12R0411SW": {
+    "name": "ciscoGsccpCapabilityV12R0411SW",
+    "oid": "1.3.6.1.4.1.9.7.539.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS IOS 12.4(11)SW",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GSCCP-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-GSCCP-CAPABILITY"
+  }
+}

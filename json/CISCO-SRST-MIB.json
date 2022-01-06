@@ -1,0 +1,2117 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CountryCode",
+      "CvE164Address"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSrstMIB": {
+    "name": "ciscoSrstMIB",
+    "oid": "1.3.6.1.4.1.9.9.441",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-02-27 00:00",
+        "description": "[1] Default value for csrstTransferSystem is changed from 'blind' to 'fullConsult'. [2] Added csrstUserLocaleInfoRev1 which is the revised version for csrstUserLocaleInfo. It can support 5 user locale at the same time. [3] csrstConfGroup is deprecated and revised with csrstConfGroupRev1. [4] ciscoSrstMIBCompliance is deprecated and revised with ciscoSrstMIBComplianceRev1."
+      },
+      {
+        "revision": "2005-06-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSrstMIBNotifications": {
+    "name": "ciscoSrstMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.441.0",
+    "class": "objectidentity"
+  },
+  "ciscoSrstMIBObjects": {
+    "name": "ciscoSrstMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.441.1",
+    "class": "objectidentity"
+  },
+  "ciscoSrstMIBConformance": {
+    "name": "ciscoSrstMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.441.2",
+    "class": "objectidentity"
+  },
+  "SrstOperType": {
+    "name": "SrstOperType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "csrstGlobal": {
+    "name": "csrstGlobal",
+    "oid": "1.3.6.1.4.1.9.9.441.1.1",
+    "class": "objectidentity"
+  },
+  "csrstConf": {
+    "name": "csrstConf",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2",
+    "class": "objectidentity"
+  },
+  "csrstActiveStats": {
+    "name": "csrstActiveStats",
+    "oid": "1.3.6.1.4.1.9.9.441.1.3",
+    "class": "objectidentity"
+  },
+  "csrstSipConf": {
+    "name": "csrstSipConf",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4",
+    "class": "objectidentity"
+  },
+  "csrstEnabled": {
+    "name": "csrstEnabled",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstVersion": {
+    "name": "csrstVersion",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstIPAddressType": {
+    "name": "csrstIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstIPAddress": {
+    "name": "csrstIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstPortNumber": {
+    "name": "csrstPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstMaxConferences": {
+    "name": "csrstMaxConferences",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstMaxEphones": {
+    "name": "csrstMaxEphones",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstMaxDN": {
+    "name": "csrstMaxDN",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipPhoneUnRegThreshold": {
+    "name": "csrstSipPhoneUnRegThreshold",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csrstCallFwdNoAnswer": {
+    "name": "csrstCallFwdNoAnswer",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvE164Address",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstCallFwdNoAnswerTo": {
+    "name": "csrstCallFwdNoAnswerTo",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstCallFwdBusy": {
+    "name": "csrstCallFwdBusy",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvE164Address",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstMohFilename": {
+    "name": "csrstMohFilename",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstMohMulticastAddrType": {
+    "name": "csrstMohMulticastAddrType",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstMohMulticastAddr": {
+    "name": "csrstMohMulticastAddr",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstMohMulticastPort": {
+    "name": "csrstMohMulticastPort",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstVoiceMailNumber": {
+    "name": "csrstVoiceMailNumber",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvE164Address",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSystemMessagePrimary": {
+    "name": "csrstSystemMessagePrimary",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSystemMessageSecondary": {
+    "name": "csrstSystemMessageSecondary",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstScriptName": {
+    "name": "csrstScriptName",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSecondaryDialTone": {
+    "name": "csrstSecondaryDialTone",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvE164Address",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstTransferSystem": {
+    "name": "csrstTransferSystem",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blind": 1,
+          "fullBlind": 2,
+          "fullConsult": 3,
+          "localConsult": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fullConsult",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstUserLocaleInfo": {
+    "name": "csrstUserLocaleInfo",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CountryCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "US",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "csrstDateFormat": {
+    "name": "csrstDateFormat",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mmddyy": 1,
+          "ddmmyy": 2,
+          "yyddmm": 3,
+          "yymmdd": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mmddyy",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstTimeFormat": {
+    "name": "csrstTimeFormat",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twelveHour": 1,
+          "twentyFourHour": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "twelveHour",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstInterdigitTo": {
+    "name": "csrstInterdigitTo",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstBusyTo": {
+    "name": "csrstBusyTo",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAlertTo": {
+    "name": "csrstAlertTo",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstXlateCalledNumber": {
+    "name": "csrstXlateCalledNumber",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstXlateCallingNumber": {
+    "name": "csrstXlateCallingNumber",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAliasTable": {
+    "name": "csrstAliasTable",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstAliasEntry": {
+    "name": "csrstAliasEntry",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrstAliasIndex": {
+    "name": "csrstAliasIndex",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstAliasTag": {
+    "name": "csrstAliasTag",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAliasNumPattern": {
+    "name": "csrstAliasNumPattern",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAliasAltNumber": {
+    "name": "csrstAliasAltNumber",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAliasPreference": {
+    "name": "csrstAliasPreference",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAliasHuntStopEnabled": {
+    "name": "csrstAliasHuntStopEnabled",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAccessCodeTable": {
+    "name": "csrstAccessCodeTable",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstAccessCodeEntry": {
+    "name": "csrstAccessCodeEntry",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAccessCodeType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrstAccessCodeType": {
+    "name": "csrstAccessCodeType",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fxo": 1,
+          "em": 2,
+          "bri": 3,
+          "pri": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAccessCode": {
+    "name": "csrstAccessCode",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstAccessCodeDIDEnabled": {
+    "name": "csrstAccessCodeDIDEnabled",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstLimitDNTable": {
+    "name": "csrstLimitDNTable",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstLimitDNEntry": {
+    "name": "csrstLimitDNEntry",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstLimitDNType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrstLimitDNType": {
+    "name": "csrstLimitDNType",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipPhone7910": 1,
+          "ipPhone7935": 2,
+          "ipPhone7940": 3,
+          "ipPhone7960": 4,
+          "ipPhone7970": 5,
+          "ipPhone7936": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstLimitDN": {
+    "name": "csrstLimitDN",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstNotificationEnabled": {
+    "name": "csrstNotificationEnabled",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csrstUserLocaleInfoRev1": {
+    "name": "csrstUserLocaleInfoRev1",
+    "oid": "1.3.6.1.4.1.9.9.441.1.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 14,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "US/US/US/US/US",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSysNotifSeverity": {
+    "name": "csrstSysNotifSeverity",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "minor": 2,
+          "major": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csrstSysNotifReason": {
+    "name": "csrstSysNotifReason",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csrstState": {
+    "name": "csrstState",
+    "oid": "1.3.6.1.4.1.9.9.441.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SrstOperType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipPhoneCurrentRegistered": {
+    "name": "csrstSipPhoneCurrentRegistered",
+    "oid": "1.3.6.1.4.1.9.9.441.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipCallLegs": {
+    "name": "csrstSipCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.441.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstTotalUpTime": {
+    "name": "csrstTotalUpTime",
+    "oid": "1.3.6.1.4.1.9.9.441.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipRegSrvExpMax": {
+    "name": "csrstSipRegSrvExpMax",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipRegSrvExpMin": {
+    "name": "csrstSipRegSrvExpMin",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipIp2IpGlobalEnabled": {
+    "name": "csrstSipIp2IpGlobalEnabled",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipSend300MultSupport": {
+    "name": "csrstSipSend300MultSupport",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bestMatch": 1,
+          "longestMatch": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "longestMatch",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipVoRegPoolTable": {
+    "name": "csrstSipVoRegPoolTable",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstSipVoRegPoolEntry": {
+    "name": "csrstSipVoRegPoolEntry",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegPoolTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrstSipVoRegPoolTag": {
+    "name": "csrstSipVoRegPoolTag",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstSipNetId": {
+    "name": "csrstSipNetId",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipVoRegPoolIpAddrType": {
+    "name": "csrstSipVoRegPoolIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipNetMask": {
+    "name": "csrstSipNetMask",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipProxySrvIpAddr": {
+    "name": "csrstSipProxySrvIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipProxySrvPref": {
+    "name": "csrstSipProxySrvPref",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipProxySrvMonitor": {
+    "name": "csrstSipProxySrvMonitor",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "icmp": 1,
+          "rtr": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipProxySrvAltIpAddr": {
+    "name": "csrstSipProxySrvAltIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipDefaultPreference": {
+    "name": "csrstSipDefaultPreference",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipVoRegPoolAppl": {
+    "name": "csrstSipVoRegPoolAppl",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipVoRegNumberListTable": {
+    "name": "csrstSipVoRegNumberListTable",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstSipVoRegNumberListEntry": {
+    "name": "csrstSipVoRegNumberListEntry",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegPoolTag",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegNumberListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrstSipVoRegNumberListIndex": {
+    "name": "csrstSipVoRegNumberListIndex",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstSipVoRegNumberListTag": {
+    "name": "csrstSipVoRegNumberListTag",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipVoRegNumberPattern": {
+    "name": "csrstSipVoRegNumberPattern",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvE164Address",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipVoRegNumberPref": {
+    "name": "csrstSipVoRegNumberPref",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipVoRegNumberHuntstopEnabled": {
+    "name": "csrstSipVoRegNumberHuntstopEnabled",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipEndpointTable": {
+    "name": "csrstSipEndpointTable",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstSipEndpointEntry": {
+    "name": "csrstSipEndpointEntry",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipEndpointTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csrstSipEndpointTag": {
+    "name": "csrstSipEndpointTag",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csrstSipVoRegPoolEdptTag": {
+    "name": "csrstSipVoRegPoolEdptTag",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipEndpointIpAddrType": {
+    "name": "csrstSipEndpointIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipEndpointIpAddress": {
+    "name": "csrstSipEndpointIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstSipEndpointDN": {
+    "name": "csrstSipEndpointDN",
+    "oid": "1.3.6.1.4.1.9.9.441.1.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvE164Address",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csrstStateChange": {
+    "name": "csrstStateChange",
+    "oid": "1.3.6.1.4.1.9.9.441.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSysNotifSeverity"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstState"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSysNotifReason"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstFailNotif": {
+    "name": "csrstFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.441.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSysNotifSeverity"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSysNotifReason"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstSipPhoneUnRegThresholdExceed": {
+    "name": "csrstSipPhoneUnRegThresholdExceed",
+    "oid": "1.3.6.1.4.1.9.9.441.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipPhoneUnRegThreshold"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipPhoneCurrentRegistered"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstSipPhoneRegFailed": {
+    "name": "csrstSipPhoneRegFailed",
+    "oid": "1.3.6.1.4.1.9.9.441.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipEndpointIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstConferenceFailed": {
+    "name": "csrstConferenceFailed",
+    "oid": "1.3.6.1.4.1.9.9.441.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMaxConferences"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSrstMIBCompliances": {
+    "name": "ciscoSrstMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.441.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSrstMIBGroups": {
+    "name": "ciscoSrstMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSrstMIBCompliance": {
+    "name": "ciscoSrstMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.441.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csrstConfGroup",
+        "module": "CISCO-SRST-MIB"
+      },
+      {
+        "object": "csrstNotifInfoGroup",
+        "module": "CISCO-SRST-MIB"
+      },
+      {
+        "object": "csrstSipConfGroup",
+        "module": "CISCO-SRST-MIB"
+      },
+      {
+        "object": "csrstActiveStatsGroup",
+        "module": "CISCO-SRST-MIB"
+      },
+      {
+        "object": "csrstMIBNotifsGroup",
+        "module": "CISCO-SRST-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSrstMIBComplianceRev1": {
+    "name": "ciscoSrstMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.441.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csrstNotifInfoGroup",
+        "module": "CISCO-SRST-MIB"
+      },
+      {
+        "object": "csrstSipConfGroup",
+        "module": "CISCO-SRST-MIB"
+      },
+      {
+        "object": "csrstActiveStatsGroup",
+        "module": "CISCO-SRST-MIB"
+      },
+      {
+        "object": "csrstMIBNotifsGroup",
+        "module": "CISCO-SRST-MIB"
+      },
+      {
+        "object": "csrstConfGroupRev1",
+        "module": "CISCO-SRST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstConfGroup": {
+    "name": "csrstConfGroup",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstVersion"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstIPAddressType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstIPAddress"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstPortNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMaxConferences"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMaxEphones"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMaxDN"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipPhoneUnRegThreshold"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstCallFwdNoAnswer"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstCallFwdNoAnswerTo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstCallFwdBusy"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMohFilename"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMohMulticastAddrType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMohMulticastAddr"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMohMulticastPort"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstVoiceMailNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSystemMessagePrimary"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSystemMessageSecondary"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstScriptName"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSecondaryDialTone"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstTransferSystem"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstUserLocaleInfo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstDateFormat"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstTimeFormat"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstInterdigitTo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstBusyTo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAlertTo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstXlateCalledNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstXlateCallingNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasTag"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasNumPattern"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasAltNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasPreference"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasHuntStopEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAccessCodeType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAccessCode"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAccessCodeDIDEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstLimitDNType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstLimitDN"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstNotificationEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "csrstNotifInfoGroup": {
+    "name": "csrstNotifInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSysNotifSeverity"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSysNotifReason"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstActiveStatsGroup": {
+    "name": "csrstActiveStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstState"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipPhoneCurrentRegistered"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipCallLegs"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstTotalUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstSipConfGroup": {
+    "name": "csrstSipConfGroup",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipRegSrvExpMax"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipRegSrvExpMin"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipIp2IpGlobalEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipSend300MultSupport"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipNetId"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegPoolIpAddrType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipNetMask"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipProxySrvIpAddr"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipProxySrvPref"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipProxySrvMonitor"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipProxySrvAltIpAddr"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipDefaultPreference"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegPoolAppl"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegNumberListTag"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegNumberPattern"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegNumberPref"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegNumberHuntstopEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipVoRegPoolEdptTag"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipEndpointIpAddrType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipEndpointIpAddress"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipEndpointDN"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstMIBNotifsGroup": {
+    "name": "csrstMIBNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstStateChange"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstFailNotif"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipPhoneUnRegThresholdExceed"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipPhoneRegFailed"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstConferenceFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "csrstConfGroupRev1": {
+    "name": "csrstConfGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.441.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstVersion"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstIPAddressType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstIPAddress"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstPortNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMaxConferences"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMaxEphones"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMaxDN"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSipPhoneUnRegThreshold"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstCallFwdNoAnswer"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstCallFwdNoAnswerTo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstCallFwdBusy"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMohFilename"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMohMulticastAddrType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMohMulticastAddr"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstMohMulticastPort"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstVoiceMailNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSystemMessagePrimary"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSystemMessageSecondary"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstScriptName"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstSecondaryDialTone"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstTransferSystem"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstDateFormat"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstTimeFormat"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstInterdigitTo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstBusyTo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAlertTo"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstXlateCalledNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstXlateCallingNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasTag"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasNumPattern"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasAltNumber"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasPreference"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAliasHuntStopEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAccessCodeType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAccessCode"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstAccessCodeDIDEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstLimitDNType"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstLimitDN"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstNotificationEnabled"
+      },
+      {
+        "module": "CISCO-SRST-MIB",
+        "object": "csrstUserLocaleInfoRev1"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SRST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SRST-MIB"
+  }
+}

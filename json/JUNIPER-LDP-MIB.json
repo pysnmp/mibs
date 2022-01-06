@@ -1,0 +1,485 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "JUNIPER-MPLS-LDP-MIB": [
+      "jnxMplsLdpSesState"
+    ],
+    "JUNIPER-SMI": [
+      "jnxLdpTraps",
+      "jnxMibs"
+    ],
+    "MPLS-VPN-MIB": [
+      "MplsVpnName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxLdp": {
+    "name": "jnxLdp",
+    "oid": "1.3.6.1.4.1.2636.3.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-08-10 00:00",
+        "description": "Added 'jnxLdpInstanceName' to the jnxLdpLspUp and jnxLdpLspDown trap."
+      },
+      {
+        "revision": "2004-06-23 00:00",
+        "description": "Modified description of jnxLdpSesDownIf and jnxLdpSesDown."
+      },
+      {
+        "revision": "2004-06-22 00:00",
+        "description": "Added 'jnxLdpSesUpIf' to the jnxLdpSesUp trap."
+      },
+      {
+        "revision": "2002-01-10 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "jnxLdpTrapVars": {
+    "name": "jnxLdpTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.14.1",
+    "class": "objectidentity"
+  },
+  "jnxLdpTrapPrefix": {
+    "name": "jnxLdpTrapPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.4.0",
+    "class": "objectidentity"
+  },
+  "jnxLdpLspFec": {
+    "name": "jnxLdpLspFec",
+    "oid": "1.3.6.1.4.1.2636.3.14.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLdpRtrid": {
+    "name": "jnxLdpRtrid",
+    "oid": "1.3.6.1.4.1.2636.3.14.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLdpLspDownReason": {
+    "name": "jnxLdpLspDownReason",
+    "oid": "1.3.6.1.4.1.2636.3.14.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "topologyChanged": 1,
+          "receivedWithdrawl": 2,
+          "neighborDown": 3,
+          "filterChanged": 4,
+          "bfdSessionDown": 5,
+          "unknown": 6,
+          "lspingDown": 7
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLdpSesDownReason": {
+    "name": "jnxLdpSesDownReason",
+    "oid": "1.3.6.1.4.1.2636.3.14.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "holdExpired": 1,
+          "connectionExpired": 2,
+          "allAdjacenciesDown": 3,
+          "badTLV": 4,
+          "badPDU": 5,
+          "connectionError": 6,
+          "connectionReset": 7,
+          "peerSentNotification": 8,
+          "unexpectedEOF": 9,
+          "authenticationChanged": 10,
+          "initError": 11,
+          "gracefulRestartAbort": 12,
+          "cliCommand": 13,
+          "gracefulRestartChanged": 14
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLdpSesDownIf": {
+    "name": "jnxLdpSesDownIf",
+    "oid": "1.3.6.1.4.1.2636.3.14.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLdpLspFecLen": {
+    "name": "jnxLdpLspFecLen",
+    "oid": "1.3.6.1.4.1.2636.3.14.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLdpSesUpIf": {
+    "name": "jnxLdpSesUpIf",
+    "oid": "1.3.6.1.4.1.2636.3.14.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLdpInstanceName": {
+    "name": "jnxLdpInstanceName",
+    "oid": "1.3.6.1.4.1.2636.3.14.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxLdpLspUp": {
+    "name": "jnxLdpLspUp",
+    "oid": "1.3.6.1.4.1.2636.4.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpLspFec"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpRtrid"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpLspFecLen"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLdpLspDown": {
+    "name": "jnxLdpLspDown",
+    "oid": "1.3.6.1.4.1.2636.4.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpLspFec"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpRtrid"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpLspDownReason"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpLspFecLen"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLdpSesUp": {
+    "name": "jnxLdpSesUp",
+    "oid": "1.3.6.1.4.1.2636.4.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MPLS-LDP-MIB",
+        "object": "jnxMplsLdpSesState"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpSesUpIf"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLdpSesDown": {
+    "name": "jnxLdpSesDown",
+    "oid": "1.3.6.1.4.1.2636.4.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MPLS-LDP-MIB",
+        "object": "jnxMplsLdpSesState"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpSesDownReason"
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpSesDownIf"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLdpStatsTable": {
+    "name": "jnxLdpStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLdpStatsEntry": {
+    "name": "jnxLdpStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpInstanceId",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpFecType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpFec",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-LDP-MIB",
+        "object": "jnxLdpFecLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLdpInstanceId": {
+    "name": "jnxLdpInstanceId",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLdpFecType": {
+    "name": "jnxLdpFecType",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLdpFec": {
+    "name": "jnxLdpFec",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLdpFecLength": {
+    "name": "jnxLdpFecLength",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLdpFecStatisticsStatus": {
+    "name": "jnxLdpFecStatisticsStatus",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "disabled": 2,
+          "unavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLdpIngressOctets": {
+    "name": "jnxLdpIngressOctets",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLdpIngressPackets": {
+    "name": "jnxLdpIngressPackets",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLdpTransitOctets": {
+    "name": "jnxLdpTransitOctets",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLdpTransitPackets": {
+    "name": "jnxLdpTransitPackets",
+    "oid": "1.3.6.1.4.1.2636.3.14.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-LDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-LDP-MIB"
+  }
+}

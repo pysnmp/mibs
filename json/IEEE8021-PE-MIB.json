@@ -1,0 +1,699 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-TC-MIB": [
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021BridgePortNumber",
+      "ieee802dot1mibs"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ieee8021BridgePEMib": {
+    "name": "ieee8021BridgePEMib",
+    "oid": "1.3.111.2.802.1.1.25",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-22 00:00",
+        "description": "Initial version published as part of IEEE Std. 802.1BR-2012"
+      }
+    ]
+  },
+  "ieee8021BridgePENotifications": {
+    "name": "ieee8021BridgePENotifications",
+    "oid": "1.3.111.2.802.1.1.25.1",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgePEObjects": {
+    "name": "ieee8021BridgePEObjects",
+    "oid": "1.3.111.2.802.1.1.25.2",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgePEConformance": {
+    "name": "ieee8021BridgePEConformance",
+    "oid": "1.3.111.2.802.1.1.25.3",
+    "class": "objectidentity"
+  },
+  "IEEE802BridgePEEChannelIDTC": {
+    "name": "IEEE802BridgePEEChannelIDTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4194302
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "IEEE802BridgePETrafficClassValueTC": {
+    "name": "IEEE802BridgePETrafficClassValueTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "IEEE802BridgePETrafficSelectionAlgorithmTC": {
+    "name": "IEEE802BridgePETrafficSelectionAlgorithmTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tsaStrictPriority": 0,
+          "tsaCreditBasedShaper": 1,
+          "tsaEnhancedTransmission": 2,
+          "tsaVendorSpecific": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IEEE802BridgePETrafficClassBandwidthValue": {
+    "name": "IEEE802BridgePETrafficClassBandwidthValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortTable": {
+    "name": "ieee8021BridgePEPortTable",
+    "oid": "1.3.111.2.802.1.1.25.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortEntry": {
+    "name": "ieee8021BridgePEPortEntry",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgePEPortComponentId": {
+    "name": "ieee8021BridgePEPortComponentId",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgePEPort": {
+    "name": "ieee8021BridgePEPort",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortType": {
+    "name": "ieee8021BridgePEPortType",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pepCascade": 1,
+          "pepUpstream": 2,
+          "pepExtended": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortUpstreamCSPAddress": {
+    "name": "ieee8021BridgePEPortUpstreamCSPAddress",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortEcid": {
+    "name": "ieee8021BridgePEPortEcid",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE802BridgePEEChannelIDTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortNumber": {
+    "name": "ieee8021BridgePEPortNumber",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePECounterDiscontinuityTime": {
+    "name": "ieee8021BridgePECounterDiscontinuityTime",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortRxrqErrorsBridge": {
+    "name": "ieee8021BridgePEPortRxrqErrorsBridge",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortRxrspErrorsBridge": {
+    "name": "ieee8021BridgePEPortRxrspErrorsBridge",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortRxrqErrorsPE": {
+    "name": "ieee8021BridgePEPortRxrqErrorsPE",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEPortRxrspErrorsPE": {
+    "name": "ieee8021BridgePEPortRxrspErrorsPE",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEPCP": {
+    "name": "ieee8021BridgePEPCP",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEROW": {
+    "name": "ieee8021BridgePEROW",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEDEI": {
+    "name": "ieee8021BridgePEDEI",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePECN": {
+    "name": "ieee8021BridgePECN",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEPFC": {
+    "name": "ieee8021BridgePEPFC",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEExtPortEChannelsSupported": {
+    "name": "ieee8021BridgePEExtPortEChannelsSupported",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "units": "E-channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePERemoteRepEChannelsSupported": {
+    "name": "ieee8021BridgePERemoteRepEChannelsSupported",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3145727
+          }
+        ]
+      }
+    },
+    "units": "E-channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePETCsSupported": {
+    "name": "ieee8021BridgePETCsSupported",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "units": "traffic classes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEUtVLANsSupported": {
+    "name": "ieee8021BridgePEUtVLANsSupported",
+    "oid": "1.3.111.2.802.1.1.25.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "units": "VLANs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePERemoteReplicationTable": {
+    "name": "ieee8021BridgePERemoteReplicationTable",
+    "oid": "1.3.111.2.802.1.1.25.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgePERemoteReplicationEntry": {
+    "name": "ieee8021BridgePERemoteReplicationEntry",
+    "oid": "1.3.111.2.802.1.1.25.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePERREcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgePERREcid": {
+    "name": "ieee8021BridgePERREcid",
+    "oid": "1.3.111.2.802.1.1.25.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE802BridgePEEChannelIDTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgePERRPortMap": {
+    "name": "ieee8021BridgePERRPortMap",
+    "oid": "1.3.111.2.802.1.1.25.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgePEETSTable": {
+    "name": "ieee8021BridgePEETSTable",
+    "oid": "1.3.111.2.802.1.1.25.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgePEETSEntry": {
+    "name": "ieee8021BridgePEETSEntry",
+    "oid": "1.3.111.2.802.1.1.25.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEETSTrafficClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgePEETSTrafficClass": {
+    "name": "ieee8021BridgePEETSTrafficClass",
+    "oid": "1.3.111.2.802.1.1.25.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE802BridgePETrafficClassValueTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgePEETSTrafficSelectionAlgorthm": {
+    "name": "ieee8021BridgePEETSTrafficSelectionAlgorthm",
+    "oid": "1.3.111.2.802.1.1.25.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE802BridgePETrafficSelectionAlgorithmTC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgePEETSBandwidth": {
+    "name": "ieee8021BridgePEETSBandwidth",
+    "oid": "1.3.111.2.802.1.1.25.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE802BridgePETrafficClassBandwidthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgePEGroups": {
+    "name": "ieee8021BridgePEGroups",
+    "oid": "1.3.111.2.802.1.1.25.3.1",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgePECompliances": {
+    "name": "ieee8021BridgePECompliances",
+    "oid": "1.3.111.2.802.1.1.25.3.2",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgePEGroup": {
+    "name": "ieee8021BridgePEGroup",
+    "oid": "1.3.111.2.802.1.1.25.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortUpstreamCSPAddress"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortEcid"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortNumber"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePECounterDiscontinuityTime"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortRxrqErrorsBridge"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortRxrspErrorsBridge"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortRxrqErrorsPE"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPortRxrspErrorsPE"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPCP"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEROW"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEDEI"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePECN"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEPFC"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEExtPortEChannelsSupported"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePERemoteRepEChannelsSupported"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePETCsSupported"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEUtVLANsSupported"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePERRPortMap"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEETSTrafficSelectionAlgorthm"
+      },
+      {
+        "module": "IEEE8021-PE-MIB",
+        "object": "ieee8021BridgePEETSBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgePECompliance": {
+    "name": "ieee8021BridgePECompliance",
+    "oid": "1.3.111.2.802.1.1.25.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021BridgePEGroup",
+        "module": "IEEE8021-PE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-PE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-PE-MIB"
+  }
+}

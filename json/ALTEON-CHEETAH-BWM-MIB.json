@@ -1,0 +1,2372 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTEON-ROOT-MIB": [
+      "aws-switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "bwm": {
+    "name": "bwm",
+    "oid": "1.3.6.1.4.1.1872.2.5.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-01 00:00",
+        "description": "Added revision clause for SMIv2 compliance."
+      }
+    ]
+  },
+  "bwmConfigs": {
+    "name": "bwmConfigs",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1",
+    "class": "objectidentity"
+  },
+  "bwmStats": {
+    "name": "bwmStats",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2",
+    "class": "objectidentity"
+  },
+  "bwmOpers": {
+    "name": "bwmOpers",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.3",
+    "class": "objectidentity"
+  },
+  "bwmGeneralConfig": {
+    "name": "bwmGeneralConfig",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1",
+    "class": "objectidentity"
+  },
+  "bwmPolicyConfig": {
+    "name": "bwmPolicyConfig",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2",
+    "class": "objectidentity"
+  },
+  "bwmContractConfig": {
+    "name": "bwmContractConfig",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3",
+    "class": "objectidentity"
+  },
+  "bwmContTimePolicyConfig": {
+    "name": "bwmContTimePolicyConfig",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4",
+    "class": "objectidentity"
+  },
+  "bwmContractGroupConfig": {
+    "name": "bwmContractGroupConfig",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5",
+    "class": "objectidentity"
+  },
+  "bwmCurCfgGenState": {
+    "name": "bwmCurCfgGenState",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgGenState": {
+    "name": "bwmNewCfgGenState",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwmCurCfgGenEnforcePolicy": {
+    "name": "bwmCurCfgGenEnforcePolicy",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgGenEnforcePolicy": {
+    "name": "bwmNewCfgGenEnforcePolicy",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwmCurCfgGenSmtpUser": {
+    "name": "bwmCurCfgGenSmtpUser",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgGenSmtpUser": {
+    "name": "bwmNewCfgGenSmtpUser",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwmCurCfgGenEmailFrequency": {
+    "name": "bwmCurCfgGenEmailFrequency",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgGenEmailFrequency": {
+    "name": "bwmNewCfgGenEmailFrequency",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwmCurCfgGenIPUserLimit": {
+    "name": "bwmCurCfgGenIPUserLimit",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgGenIPUserLimit": {
+    "name": "bwmNewCfgGenIPUserLimit",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwmCurCfgGenEmail": {
+    "name": "bwmCurCfgGenEmail",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgGenEmail": {
+    "name": "bwmNewCfgGenEmail",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwmCurCfgGenReport": {
+    "name": "bwmCurCfgGenReport",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgGenReport": {
+    "name": "bwmNewCfgGenReport",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwmPolicyTableMaxEnt": {
+    "name": "bwmPolicyTableMaxEnt",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgPolicyTable": {
+    "name": "bwmCurCfgPolicyTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmCurCfgPolicyTableEntry": {
+    "name": "bwmCurCfgPolicyTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmCurCfgPolicyIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmCurCfgPolicyIndx": {
+    "name": "bwmCurCfgPolicyIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgPolicyTosIn": {
+    "name": "bwmCurCfgPolicyTosIn",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgPolicyTosOut": {
+    "name": "bwmCurCfgPolicyTosOut",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgPolicyHard": {
+    "name": "bwmCurCfgPolicyHard",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgPolicySoft": {
+    "name": "bwmCurCfgPolicySoft",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgPolicyResv": {
+    "name": "bwmCurCfgPolicyResv",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgPolicyBuffer": {
+    "name": "bwmCurCfgPolicyBuffer",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8192,
+            "max": 128000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgPolicyUserLimit": {
+    "name": "bwmCurCfgPolicyUserLimit",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyTable": {
+    "name": "bwmNewCfgPolicyTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyTableEntry": {
+    "name": "bwmNewCfgPolicyTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmNewCfgPolicyIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmNewCfgPolicyIndx": {
+    "name": "bwmNewCfgPolicyIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyTosIn": {
+    "name": "bwmNewCfgPolicyTosIn",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyTosOut": {
+    "name": "bwmNewCfgPolicyTosOut",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyHard": {
+    "name": "bwmNewCfgPolicyHard",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgPolicySoft": {
+    "name": "bwmNewCfgPolicySoft",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyResv": {
+    "name": "bwmNewCfgPolicyResv",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyBuffer": {
+    "name": "bwmNewCfgPolicyBuffer",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8192,
+            "max": 128000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyDelete": {
+    "name": "bwmNewCfgPolicyDelete",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgPolicyUserLimit": {
+    "name": "bwmNewCfgPolicyUserLimit",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmContractTableMaxEnt": {
+    "name": "bwmContractTableMaxEnt",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractTable": {
+    "name": "bwmCurCfgContractTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmCurCfgContractTableEntry": {
+    "name": "bwmCurCfgContractTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmCurCfgContractIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmCurCfgContractIndx": {
+    "name": "bwmCurCfgContractIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractName": {
+    "name": "bwmCurCfgContractName",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractState": {
+    "name": "bwmCurCfgContractState",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractPolicy": {
+    "name": "bwmCurCfgContractPolicy",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractPrec": {
+    "name": "bwmCurCfgContractPrec",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractUseTos": {
+    "name": "bwmCurCfgContractUseTos",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractHistory": {
+    "name": "bwmCurCfgContractHistory",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractShaping": {
+    "name": "bwmCurCfgContractShaping",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractResizeTcp": {
+    "name": "bwmCurCfgContractResizeTcp",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractIpLimit": {
+    "name": "bwmCurCfgContractIpLimit",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractIpType": {
+    "name": "bwmCurCfgContractIpType",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sip": 1,
+          "dip": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractMonitorMode": {
+    "name": "bwmCurCfgContractMonitorMode",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractGroup": {
+    "name": "bwmCurCfgContractGroup",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractMaxSess": {
+    "name": "bwmCurCfgContractMaxSess",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContractTable": {
+    "name": "bwmNewCfgContractTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmNewCfgContractTableEntry": {
+    "name": "bwmNewCfgContractTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmNewCfgContractIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmNewCfgContractIndx": {
+    "name": "bwmNewCfgContractIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContractName": {
+    "name": "bwmNewCfgContractName",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractState": {
+    "name": "bwmNewCfgContractState",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractPolicy": {
+    "name": "bwmNewCfgContractPolicy",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractDelete": {
+    "name": "bwmNewCfgContractDelete",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractPrec": {
+    "name": "bwmNewCfgContractPrec",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractUseTos": {
+    "name": "bwmNewCfgContractUseTos",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractHistory": {
+    "name": "bwmNewCfgContractHistory",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractShaping": {
+    "name": "bwmNewCfgContractShaping",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractResizeTcp": {
+    "name": "bwmNewCfgContractResizeTcp",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractIpLimit": {
+    "name": "bwmNewCfgContractIpLimit",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractIpType": {
+    "name": "bwmNewCfgContractIpType",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sip": 1,
+          "dip": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractMonitorMode": {
+    "name": "bwmNewCfgContractMonitorMode",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractGroup": {
+    "name": "bwmNewCfgContractGroup",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContractMaxSess": {
+    "name": "bwmNewCfgContractMaxSess",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmContTimePolicyTableMaxEnt": {
+    "name": "bwmContTimePolicyTableMaxEnt",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyTable": {
+    "name": "bwmCurCfgContTimePolicyTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyTableEntry": {
+    "name": "bwmCurCfgContTimePolicyTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmCurCfgContTimePolicyContIndx",
+        "implied": 0
+      },
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmCurCfgContTimePolicyIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyContIndx": {
+    "name": "bwmCurCfgContTimePolicyContIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyIndx": {
+    "name": "bwmCurCfgContTimePolicyIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyDay": {
+    "name": "bwmCurCfgContTimePolicyDay",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saturday": 7,
+          "weekday": 8,
+          "weekend": 9,
+          "everyday": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyFrom": {
+    "name": "bwmCurCfgContTimePolicyFrom",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyTo": {
+    "name": "bwmCurCfgContTimePolicyTo",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyPol": {
+    "name": "bwmCurCfgContTimePolicyPol",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContTimePolicyState": {
+    "name": "bwmCurCfgContTimePolicyState",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyTable": {
+    "name": "bwmNewCfgContTimePolicyTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyTableEntry": {
+    "name": "bwmNewCfgContTimePolicyTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmNewCfgContTimePolicyContIndx",
+        "implied": 0
+      },
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmNewCfgContTimePolicyIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyContIndx": {
+    "name": "bwmNewCfgContTimePolicyContIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyIndx": {
+    "name": "bwmNewCfgContTimePolicyIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyDay": {
+    "name": "bwmNewCfgContTimePolicyDay",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saturday": 7,
+          "weekday": 8,
+          "weekend": 9,
+          "everyday": 10
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyFrom": {
+    "name": "bwmNewCfgContTimePolicyFrom",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyTo": {
+    "name": "bwmNewCfgContTimePolicyTo",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyPol": {
+    "name": "bwmNewCfgContTimePolicyPol",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyState": {
+    "name": "bwmNewCfgContTimePolicyState",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContTimePolicyDelete": {
+    "name": "bwmNewCfgContTimePolicyDelete",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmContractGroupTableMaxEnt": {
+    "name": "bwmContractGroupTableMaxEnt",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractGroupTable": {
+    "name": "bwmCurCfgContractGroupTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmCurCfgContractGroupTableEntry": {
+    "name": "bwmCurCfgContractGroupTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmCurCfgContractGroupIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmCurCfgContractGroupIndx": {
+    "name": "bwmCurCfgContractGroupIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractGroupContracts": {
+    "name": "bwmCurCfgContractGroupContracts",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmCurCfgContractGroupName": {
+    "name": "bwmCurCfgContractGroupName",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContractGroupTable": {
+    "name": "bwmNewCfgContractGroupTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmNewCfgContractGroupTableEntry": {
+    "name": "bwmNewCfgContractGroupTableEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmNewCfgContractGroupIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmNewCfgContractGroupIndx": {
+    "name": "bwmNewCfgContractGroupIndx",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContractGroupContracts": {
+    "name": "bwmNewCfgContractGroupContracts",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmNewCfgContractGroupAddCont": {
+    "name": "bwmNewCfgContractGroupAddCont",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractGroupRemCont": {
+    "name": "bwmNewCfgContractGroupRemCont",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractGroupDelete": {
+    "name": "bwmNewCfgContractGroupDelete",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmNewCfgContractGroupName": {
+    "name": "bwmNewCfgContractGroupName",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "bwmContractGroupTableMaxCont": {
+    "name": "bwmContractGroupTableMaxCont",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcTable": {
+    "name": "bwmStatTcTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmStatTcEntry": {
+    "name": "bwmStatTcEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmStatTcContractIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmStatTcContractIndex": {
+    "name": "bwmStatTcContractIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcName": {
+    "name": "bwmStatTcName",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcOutoct": {
+    "name": "bwmStatTcOutoct",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcOutdisoct": {
+    "name": "bwmStatTcOutdisoct",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcBufferUsed": {
+    "name": "bwmStatTcBufferUsed",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcBufferMax": {
+    "name": "bwmStatTcBufferMax",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcTotalPackets": {
+    "name": "bwmStatTcTotalPackets",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcSessRejected": {
+    "name": "bwmStatTcSessRejected",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcrTable": {
+    "name": "bwmStatTcrTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmStatTcrEntry": {
+    "name": "bwmStatTcrEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmStatTcrContractIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmStatTcrContractIndex": {
+    "name": "bwmStatTcrContractIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcrName": {
+    "name": "bwmStatTcrName",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcrRate": {
+    "name": "bwmStatTcrRate",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcrOutoct": {
+    "name": "bwmStatTcrOutoct",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcrOutdisoct": {
+    "name": "bwmStatTcrOutdisoct",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcrBufferUsed": {
+    "name": "bwmStatTcrBufferUsed",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcrBufferMax": {
+    "name": "bwmStatTcrBufferMax",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatTcrTotalPackets": {
+    "name": "bwmStatTcrTotalPackets",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcTable": {
+    "name": "bwmStatPortTcTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmStatPortTcEntry": {
+    "name": "bwmStatPortTcEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmStatPortTcPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmStatPortTcContractIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmStatPortTcPortIndex": {
+    "name": "bwmStatPortTcPortIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcContractIndex": {
+    "name": "bwmStatPortTcContractIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcName": {
+    "name": "bwmStatPortTcName",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcOutoct": {
+    "name": "bwmStatPortTcOutoct",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcOutdisoct": {
+    "name": "bwmStatPortTcOutdisoct",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcBufferUsed": {
+    "name": "bwmStatPortTcBufferUsed",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcBufferMax": {
+    "name": "bwmStatPortTcBufferMax",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcTotalPackets": {
+    "name": "bwmStatPortTcTotalPackets",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrTable": {
+    "name": "bwmStatPortTcrTable",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwmStatPortTcrEntry": {
+    "name": "bwmStatPortTcrEntry",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmStatPortTcrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTEON-CHEETAH-BWM-MIB",
+        "object": "bwmStatPortTcrContractIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bwmStatPortTcrPortIndex": {
+    "name": "bwmStatPortTcrPortIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrContractIndex": {
+    "name": "bwmStatPortTcrContractIndex",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrName": {
+    "name": "bwmStatPortTcrName",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrRate": {
+    "name": "bwmStatPortTcrRate",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrOutoct": {
+    "name": "bwmStatPortTcrOutoct",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrOutdisoct": {
+    "name": "bwmStatPortTcrOutdisoct",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrBufferUsed": {
+    "name": "bwmStatPortTcrBufferUsed",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrBufferMax": {
+    "name": "bwmStatPortTcrBufferMax",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatPortTcrTotalPackets": {
+    "name": "bwmStatPortTcrTotalPackets",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwmStatsClear": {
+    "name": "bwmStatsClear",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bwmOperSendSMTP": {
+    "name": "bwmOperSendSMTP",
+    "oid": "1.3.6.1.4.1.1872.2.5.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "send": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alteonos/ALTEON-CHEETAH-BWM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALTEON-CHEETAH-BWM-MIB"
+  }
+}

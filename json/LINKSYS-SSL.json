@@ -1,0 +1,690 @@
+{
+  "imports": {
+    "class": "imports",
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "rlSsl": {
+    "name": "rlSsl",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-21 00:00",
+        "description": "Added this MODULE-IDENTITY clause."
+      }
+    ]
+  },
+  "rlSslCertificateGenerationTable": {
+    "name": "rlSslCertificateGenerationTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationEntry": {
+    "name": "rlSslCertificateGenerationEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslCertificateGenerationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSslCertificateGenerationIndex": {
+    "name": "rlSslCertificateGenerationIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationId": {
+    "name": "rlSslCertificateGenerationId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationCountryName": {
+    "name": "rlSslCertificateGenerationCountryName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationStateOrProvinceName": {
+    "name": "rlSslCertificateGenerationStateOrProvinceName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationLocalityName": {
+    "name": "rlSslCertificateGenerationLocalityName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationOrganizationName": {
+    "name": "rlSslCertificateGenerationOrganizationName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationOrganizationUnitName": {
+    "name": "rlSslCertificateGenerationOrganizationUnitName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationCommonName": {
+    "name": "rlSslCertificateGenerationCommonName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationValidDays": {
+    "name": "rlSslCertificateGenerationValidDays",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationRsaKeyLength": {
+    "name": "rlSslCertificateGenerationRsaKeyLength",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationPassphrase": {
+    "name": "rlSslCertificateGenerationPassphrase",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateGenerationAction": {
+    "name": "rlSslCertificateGenerationAction",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "generateRsaKeyAndSelfSignedCertificate": 1,
+          "generateSelfSignedCertificate": 2,
+          "generatePkcs12": 3,
+          "generateCertificateRequest": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateExportTable": {
+    "name": "rlSslCertificateExportTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSslCertificateExportEntry": {
+    "name": "rlSslCertificateExportEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslCertificateExportId",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslCertificateExportType",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslCertificateExportFragmentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSslCertificateExportId": {
+    "name": "rlSslCertificateExportId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSslCertificateExportType": {
+    "name": "rlSslCertificateExportType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "certificateRequestPemFormat": 1,
+          "certificatePemFormat": 2,
+          "certificateOpenSslFormat": 3,
+          "certificateAndKeyPkcs12": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSslCertificateExportFragmentId": {
+    "name": "rlSslCertificateExportFragmentId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSslCertificateExportFragmentText": {
+    "name": "rlSslCertificateExportFragmentText",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSslCertificateSave": {
+    "name": "rlSslCertificateSave",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateSaveFormat": {
+    "name": "rlSslCertificateSaveFormat",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "x509": 1,
+          "pkcs12": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslImportedPKCS12CertificatePassphrase": {
+    "name": "rlSslImportedPKCS12CertificatePassphrase",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateImportTable": {
+    "name": "rlSslCertificateImportTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSslCertificateImportEntry": {
+    "name": "rlSslCertificateImportEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslCertificateImportId",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslCertificateImportFormat",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslCertificateImportFragmentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSslCertificateImportId": {
+    "name": "rlSslCertificateImportId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateImportFormat": {
+    "name": "rlSslCertificateImportFormat",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "x509": 1,
+          "pkcs12": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateImportFragmentId": {
+    "name": "rlSslCertificateImportFragmentId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateImportFragmentText": {
+    "name": "rlSslCertificateImportFragmentText",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateImportFragmentStatus": {
+    "name": "rlSslCertificateImportFragmentStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslSSLv2Enable": {
+    "name": "rlSslSSLv2Enable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "RlSslPublicKeyAlgorithm": {
+    "name": "RlSslPublicKeyAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsa": 1,
+          "dsa": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlSslImportExportSelfKeyTable": {
+    "name": "rlSslImportExportSelfKeyTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSslImportExportSelfKeyEntry": {
+    "name": "rlSslImportExportSelfKeyEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslImportExportSelfKeyFormat",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslImportExportSelfKeyIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-SSL",
+        "object": "rlSslImportExportSelfKeyFragmentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSslImportExportSelfKeyFormat": {
+    "name": "rlSslImportExportSelfKeyFormat",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uuencoded-format": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSslImportExportSelfKeyIndex": {
+    "name": "rlSslImportExportSelfKeyIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSslImportExportSelfKeyFragmentId": {
+    "name": "rlSslImportExportSelfKeyFragmentId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSslImportExportSelfKeyAlgorithm": {
+    "name": "rlSslImportExportSelfKeyAlgorithm",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSslPublicKeyAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslImportExportSelfKeyFragmentText": {
+    "name": "rlSslImportExportSelfKeyFragmentText",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslCertificateSave2": {
+    "name": "rlSslCertificateSave2",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslisCertificate1Default": {
+    "name": "rlSslisCertificate1Default",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSslisCertificate2Default": {
+    "name": "rlSslisCertificate2Default",
+    "oid": "1.3.6.1.4.1.3955.1000.201.100.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-SSL",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LINKSYS-SSL"
+  }
+}

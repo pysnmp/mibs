@@ -1,0 +1,295 @@
+{
+  "imports": {
+    "class": "imports",
+    "FOUNDRY-CAR-MIB": [
+      "RateLimitType",
+      "RateLimitAction",
+      "PacketSource"
+    ],
+    "FOUNDRY-SN-SWITCH-GROUP-MIB": [
+      "snSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snVLanCAR": {
+    "name": "snVLanCAR",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-02 00:00",
+        "description": "Changed the ORGANIZATION, CONTACT-INFO and DESCRIPTION fields."
+      },
+      {
+        "revision": "2009-09-30 00:00",
+        "description": "convert from SMIv1 to SMIv2"
+      }
+    ]
+  },
+  "snVLanCARs": {
+    "name": "snVLanCARs",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1",
+    "class": "objectidentity"
+  },
+  "snVLanCARTable": {
+    "name": "snVLanCARTable",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snVLanCAREntry": {
+    "name": "snVLanCAREntry",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FOUNDRY-VLAN-CAR-MIB",
+        "object": "snVLanCARVLanId",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-VLAN-CAR-MIB",
+        "object": "snVLanCARDirection",
+        "implied": 0
+      },
+      {
+        "module": "FOUNDRY-VLAN-CAR-MIB",
+        "object": "snVLanCARRowIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snVLanCARVLanId": {
+    "name": "snVLanCARVLanId",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARDirection": {
+    "name": "snVLanCARDirection",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PacketSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARRowIndex": {
+    "name": "snVLanCARRowIndex",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARType": {
+    "name": "snVLanCARType",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RateLimitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARAccIdx": {
+    "name": "snVLanCARAccIdx",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARRate": {
+    "name": "snVLanCARRate",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARLimit": {
+    "name": "snVLanCARLimit",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARExtLimit": {
+    "name": "snVLanCARExtLimit",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARConformAction": {
+    "name": "snVLanCARConformAction",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RateLimitAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARExceedAction": {
+    "name": "snVLanCARExceedAction",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RateLimitAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARStatSwitchedPkts": {
+    "name": "snVLanCARStatSwitchedPkts",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARStatSwitchedBytes": {
+    "name": "snVLanCARStatSwitchedBytes",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARStatFilteredPkts": {
+    "name": "snVLanCARStatFilteredPkts",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARStatFilteredBytes": {
+    "name": "snVLanCARStatFilteredBytes",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snVLanCARStatCurBurst": {
+    "name": "snVLanCARStatCurBurst",
+    "oid": "1.3.6.1.4.1.1991.1.1.3.17.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/FOUNDRY-VLAN-CAR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FOUNDRY-VLAN-CAR-MIB"
+  }
+}

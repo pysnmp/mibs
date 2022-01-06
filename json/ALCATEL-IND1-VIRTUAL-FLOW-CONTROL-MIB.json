@@ -1,0 +1,3595 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Vfc"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
+      "DisplayString"
+    ]
+  },
+  "alcatelIND1VfcMIB": {
+    "name": "alcatelIND1VfcMIB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-15 00:00",
+        "description": "Capability Manager is used to set system wide limitation."
+      }
+    ]
+  },
+  "alcatelIND1VfcMIBObjects": {
+    "name": "alcatelIND1VfcMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VfcMIBConformance": {
+    "name": "alcatelIND1VfcMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VfcMIBGroups": {
+    "name": "alcatelIND1VfcMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1VfcMIBCompliances": {
+    "name": "alcatelIND1VfcMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaVfcConfig": {
+    "name": "alaVfcConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaVfcConformance": {
+    "name": "alaVfcConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.2",
+    "class": "objectidentity"
+  },
+  "VfcEnableState": {
+    "name": "VfcEnableState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VfcBwLimitType": {
+    "name": "VfcBwLimitType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mbits": 1,
+          "percentage": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VfcProfileType": {
+    "name": "VfcProfileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wredProfile": 1,
+          "qsetProfile": 2,
+          "qProfile": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VfcQueueType": {
+    "name": "VfcQueueType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "VfcQsetAction": {
+    "name": "VfcQsetAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "override": 1,
+          "detach": 2,
+          "revert": 3
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "VfcQsapList": {
+    "name": "VfcQsapList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VfcQsapType": {
+    "name": "VfcQsapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "slot": 2,
+          "slotport": 3,
+          "lag": 4,
+          "ipif": 5,
+          "lsp": 6,
+          "sbind": 7,
+          "sap": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VfcSchedulingMethod": {
+    "name": "VfcSchedulingMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strictPriority": 1,
+          "queueSpecified": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VfcWfqMode": {
+    "name": "VfcWfqMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "werr": 1,
+          "wrr": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VfcProfileMode": {
+    "name": "VfcProfileMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonDcb": 1,
+          "dcb": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alaVfcWREDProfileTable": {
+    "name": "alaVfcWREDProfileTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcWREDProfileEntry": {
+    "name": "alaVfcWREDProfileEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcWRPId": {
+    "name": "alaVfcWRPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcWRPAdminState": {
+    "name": "alaVfcWRPAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alaVfcWRPName": {
+    "name": "alaVfcWRPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPGreenMinThreshold": {
+    "name": "alaVfcWRPGreenMinThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPGreenMaxThreshold": {
+    "name": "alaVfcWRPGreenMaxThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPGreenMaxDropProbability": {
+    "name": "alaVfcWRPGreenMaxDropProbability",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPGreenGain": {
+    "name": "alaVfcWRPGreenGain",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPYellowMinThreshold": {
+    "name": "alaVfcWRPYellowMinThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPYellowMaxThreshold": {
+    "name": "alaVfcWRPYellowMaxThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPYellowMaxDropProbability": {
+    "name": "alaVfcWRPYellowMaxDropProbability",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPYellowGain": {
+    "name": "alaVfcWRPYellowGain",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPRedMinThreshold": {
+    "name": "alaVfcWRPRedMinThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPRedMaxThreshold": {
+    "name": "alaVfcWRPRedMaxThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPRedMaxDropProbability": {
+    "name": "alaVfcWRPRedMaxDropProbability",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPRedGain": {
+    "name": "alaVfcWRPRedGain",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPStatsAdmin": {
+    "name": "alaVfcWRPStatsAdmin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcWRPAttachmentCount": {
+    "name": "alaVfcWRPAttachmentCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPMTU": {
+    "name": "alaVfcWRPMTU",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPLastChange": {
+    "name": "alaVfcWRPLastChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcWRPRowStatus": {
+    "name": "alaVfcWRPRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetProfileTable": {
+    "name": "alaVfcQsetProfileTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQsetProfileEntry": {
+    "name": "alaVfcQsetProfileEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQSPId": {
+    "name": "alaVfcQSPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQSPAdminState": {
+    "name": "alaVfcQSPAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQSPName": {
+    "name": "alaVfcQSPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPType": {
+    "name": "alaVfcQSPType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPTemplateId": {
+    "name": "alaVfcQSPTemplateId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPTemplateName": {
+    "name": "alaVfcQSPTemplateName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPBandwidthLimitType": {
+    "name": "alaVfcQSPBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "percentage",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPBandwidthLimitValue": {
+    "name": "alaVfcQSPBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPQueueCount": {
+    "name": "alaVfcQSPQueueCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPWRPId": {
+    "name": "alaVfcQSPWRPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPWRPName": {
+    "name": "alaVfcQSPWRPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPWRPAdminState": {
+    "name": "alaVfcQSPWRPAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alaVfcQSPSchedulingMethod": {
+    "name": "alaVfcQSPSchedulingMethod",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcSchedulingMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "strictPriority",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPStatsAdmin": {
+    "name": "alaVfcQSPStatsAdmin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alaVfcQSPAttachmentCount": {
+    "name": "alaVfcQSPAttachmentCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPLastChange": {
+    "name": "alaVfcQSPLastChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSPRowStatus": {
+    "name": "alaVfcQSPRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetInstanceTable": {
+    "name": "alaVfcQsetInstanceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQsetInstanceEntry": {
+    "name": "alaVfcQsetInstanceEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQsetId": {
+    "name": "alaVfcQsetId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQsetQsapId": {
+    "name": "alaVfcQsetQsapId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetAdminState": {
+    "name": "alaVfcQsetAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsetOperState": {
+    "name": "alaVfcQsetOperState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQsetQSPId": {
+    "name": "alaVfcQsetQSPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVfcQsetQSPName": {
+    "name": "alaVfcQsetQSPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVfcQsetOperBandwidthLimitType": {
+    "name": "alaVfcQsetOperBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "percentage",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetOperBandwidthLimitValue": {
+    "name": "alaVfcQsetOperBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetBandwidthLimitType": {
+    "name": "alaVfcQsetBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "percentage",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQsetBandwidthLimitValue": {
+    "name": "alaVfcQsetBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQsetQueueCount": {
+    "name": "alaVfcQsetQueueCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQsetWRPId": {
+    "name": "alaVfcQsetWRPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQsetWRPName": {
+    "name": "alaVfcQsetWRPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQsetWRPAdminState": {
+    "name": "alaVfcQsetWRPAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVfcQsetWRPOperState": {
+    "name": "alaVfcQsetWRPOperState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetSchedulingMethod": {
+    "name": "alaVfcQsetSchedulingMethod",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcSchedulingMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "strictPriority",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQsetStatsAdmin": {
+    "name": "alaVfcQsetStatsAdmin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVfcQsetStatsOper": {
+    "name": "alaVfcQsetStatsOper",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetLastChange": {
+    "name": "alaVfcQsetLastChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetStatsClear": {
+    "name": "alaVfcQsetStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVfcQsetStatsInterval": {
+    "name": "alaVfcQsetStatsInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVfcQsetMisconfigured": {
+    "name": "alaVfcQsetMisconfigured",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsetMode": {
+    "name": "alaVfcQsetMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcProfileMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQProfileTable": {
+    "name": "alaVfcQProfileTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQProfileEntry": {
+    "name": "alaVfcQProfileEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPQSPId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPQId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQPQSPId": {
+    "name": "alaVfcQPQSPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQPQId": {
+    "name": "alaVfcQPQId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQPAdminState": {
+    "name": "alaVfcQPAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQPWRPId": {
+    "name": "alaVfcQPWRPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPWRPName": {
+    "name": "alaVfcQPWRPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPWRPAdminState": {
+    "name": "alaVfcQPWRPAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQPQSPName": {
+    "name": "alaVfcQPQSPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPTrafficClass": {
+    "name": "alaVfcQPTrafficClass",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPQType": {
+    "name": "alaVfcQPQType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcQueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPCIRBandwidthLimitType": {
+    "name": "alaVfcQPCIRBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPCIRBandwidthLimitValue": {
+    "name": "alaVfcQPCIRBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPPIRBandwidthLimitType": {
+    "name": "alaVfcQPPIRBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPPIRBandwidthLimitValue": {
+    "name": "alaVfcQPPIRBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPStatsAdmin": {
+    "name": "alaVfcQPStatsAdmin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQPCbs": {
+    "name": "alaVfcQPCbs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPMbs": {
+    "name": "alaVfcQPMbs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPLastChange": {
+    "name": "alaVfcQPLastChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPWfqWeight": {
+    "name": "alaVfcQPWfqWeight",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQPWfqMode": {
+    "name": "alaVfcQPWfqMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcWfqMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceTable": {
+    "name": "alaVfcQInstanceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQInstanceEntry": {
+    "name": "alaVfcQInstanceEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceQsiId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceQId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQInstanceQsiId": {
+    "name": "alaVfcQInstanceQsiId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQInstanceQId": {
+    "name": "alaVfcQInstanceQId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQInstanceQsapId": {
+    "name": "alaVfcQInstanceQsapId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceQSPId": {
+    "name": "alaVfcQInstanceQSPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceQSPName": {
+    "name": "alaVfcQInstanceQSPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceAdminState": {
+    "name": "alaVfcQInstanceAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceOperState": {
+    "name": "alaVfcQInstanceOperState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceWRPAdminState": {
+    "name": "alaVfcQInstanceWRPAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVfcQInstanceWRPOperState": {
+    "name": "alaVfcQInstanceWRPOperState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceWRPId": {
+    "name": "alaVfcQInstanceWRPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceWRPName": {
+    "name": "alaVfcQInstanceWRPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceCIRBandwidthLimitType": {
+    "name": "alaVfcQInstanceCIRBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceCIRBandwidthLimitValue": {
+    "name": "alaVfcQInstanceCIRBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstancePIRBandwidthLimitType": {
+    "name": "alaVfcQInstancePIRBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstancePIRBandwidthLimitValue": {
+    "name": "alaVfcQInstancePIRBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceCIROperationalBandwidthLimitType": {
+    "name": "alaVfcQInstanceCIROperationalBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceCIROperationalBandwidthLimitValue": {
+    "name": "alaVfcQInstanceCIROperationalBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstancePIROperationalBandwidthLimitType": {
+    "name": "alaVfcQInstancePIROperationalBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstancePIROperationalBandwidthLimitValue": {
+    "name": "alaVfcQInstancePIROperationalBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceStatsAdmin": {
+    "name": "alaVfcQInstanceStatsAdmin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceStatsOper": {
+    "name": "alaVfcQInstanceStatsOper",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstancePacketsEnqueued": {
+    "name": "alaVfcQInstancePacketsEnqueued",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceBytesEnqueued": {
+    "name": "alaVfcQInstanceBytesEnqueued",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstancePacketsDequeued": {
+    "name": "alaVfcQInstancePacketsDequeued",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstanceBytesDequeued": {
+    "name": "alaVfcQInstanceBytesDequeued",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQInstancePacketsDropped": {
+    "name": "alaVfcQInstancePacketsDropped",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceBytesDropped": {
+    "name": "alaVfcQInstanceBytesDropped",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceGreenPacketsAccepted": {
+    "name": "alaVfcQInstanceGreenPacketsAccepted",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceGreenBytesAccepted": {
+    "name": "alaVfcQInstanceGreenBytesAccepted",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceGreenPacketsDropped": {
+    "name": "alaVfcQInstanceGreenPacketsDropped",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceGreenBytesDropped": {
+    "name": "alaVfcQInstanceGreenBytesDropped",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceYellowPacketsAccepted": {
+    "name": "alaVfcQInstanceYellowPacketsAccepted",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceYellowBytesAccepted": {
+    "name": "alaVfcQInstanceYellowBytesAccepted",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceYellowPacketsDropped": {
+    "name": "alaVfcQInstanceYellowPacketsDropped",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceYellowBytesDropped": {
+    "name": "alaVfcQInstanceYellowBytesDropped",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceRedPacketsAccepted": {
+    "name": "alaVfcQInstanceRedPacketsAccepted",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceRedBytesAccepted": {
+    "name": "alaVfcQInstanceRedBytesAccepted",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceRedPacketsDropped": {
+    "name": "alaVfcQInstanceRedPacketsDropped",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceRedBytesDropped": {
+    "name": "alaVfcQInstanceRedBytesDropped",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceLastChange": {
+    "name": "alaVfcQInstanceLastChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQInstanceStatsClear": {
+    "name": "alaVfcQInstanceStatsClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.5.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsapTable": {
+    "name": "alaVfcQsapTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQsapEntry": {
+    "name": "alaVfcQsapEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQsapId": {
+    "name": "alaVfcQsapId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQsapAdminState": {
+    "name": "alaVfcQsapAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcQsapType": {
+    "name": "alaVfcQsapType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcQsapType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsapValue": {
+    "name": "alaVfcQsapValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsapQSPId": {
+    "name": "alaVfcQsapQSPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsapQSPName": {
+    "name": "alaVfcQsapQSPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsapWRPAdminState": {
+    "name": "alaVfcQsapWRPAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsapStatsAdmin": {
+    "name": "alaVfcQsapStatsAdmin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcEnableState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsapBandwidthLimitType": {
+    "name": "alaVfcQsapBandwidthLimitType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcBwLimitType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "percentage",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsapBandwidthLimitValue": {
+    "name": "alaVfcQsapBandwidthLimitValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsapClearStats": {
+    "name": "alaVfcQsapClearStats",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsapQpId": {
+    "name": "alaVfcQsapQpId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsapAction": {
+    "name": "alaVfcQsapAction",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcQsetAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaVfcQsapLastChange": {
+    "name": "alaVfcQsapLastChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQsapParent": {
+    "name": "alaVfcQsapParent",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcProfileIndexLookupTable": {
+    "name": "alaVfcProfileIndexLookupTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcProfileIndexLookupEntry": {
+    "name": "alaVfcProfileIndexLookupEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcProfileType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcProfileName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcProfileType": {
+    "name": "alaVfcProfileType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcProfileType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcProfileName": {
+    "name": "alaVfcProfileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcProfileId": {
+    "name": "alaVfcProfileId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcProfileQsapLookupTable": {
+    "name": "alaVfcProfileQsapLookupTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcProfileQsapLookupEntry": {
+    "name": "alaVfcProfileQsapLookupEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcProfileQsapLookupType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcProfileQsapLookupId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcProfileQsapLookupValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcProfileQsapLookupType": {
+    "name": "alaVfcProfileQsapLookupType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcProfileType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcProfileQsapLookupId": {
+    "name": "alaVfcProfileQsapLookupId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcProfileQsapLookupValue": {
+    "name": "alaVfcProfileQsapLookupValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcProfileQsapLookupList": {
+    "name": "alaVfcProfileQsapLookupList",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcQsapList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcQSIQsapLookupTable": {
+    "name": "alaVfcQSIQsapLookupTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQSIQsapLookupEntry": {
+    "name": "alaVfcQSIQsapLookupEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSIQsapLookupQsetId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSIQsapLookupValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQSIQsapLookupQsetId": {
+    "name": "alaVfcQSIQsapLookupQsetId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQSIQsapLookupValue": {
+    "name": "alaVfcQSIQsapLookupValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVfcQSIQsapLookupList": {
+    "name": "alaVfcQSIQsapLookupList",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VfcQsapList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVfcStatisticsCollectionInterval": {
+    "name": "alaVfcStatisticsCollectionInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcStatisticsCollectionDuration": {
+    "name": "alaVfcStatisticsCollectionDuration",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alaVfcSystemDefaultQsetQSPId": {
+    "name": "alaVfcSystemDefaultQsetQSPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVfcSystemDefaultQsetQSPName": {
+    "name": "alaVfcSystemDefaultQsetQSPName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1VfcMIBCompliance": {
+    "name": "alcatelIND1VfcMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaVfcWREDProfileGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcQsetProfileGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcQsetInstanceGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcQProfileGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcQInstanceGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcQsapGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcProfileIndexLookupGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcProfileQsapLookupGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcQSIQsapLookupGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      },
+      {
+        "object": "alaVfcStatsGroup",
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcWREDProfileGroup": {
+    "name": "alaVfcWREDProfileGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPGreenMinThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPGreenMaxThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPGreenMaxDropProbability"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPGreenGain"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPYellowMinThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPYellowMaxThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPYellowMaxDropProbability"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPYellowGain"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPRedMinThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPRedMaxThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPRedMaxDropProbability"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPRedGain"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPStatsAdmin"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPAttachmentCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPMTU"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcWRPRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQsetProfileGroup": {
+    "name": "alaVfcQsetProfileGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPTemplateId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPTemplateName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPQueueCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPWRPId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPWRPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPWRPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPSchedulingMethod"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPStatsAdmin"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPAttachmentCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSPRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQsetInstanceGroup": {
+    "name": "alaVfcQsetInstanceGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetQsapId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetQSPId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetQSPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetOperBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetOperBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetQueueCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetWRPId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetWRPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetWRPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetWRPOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetSchedulingMethod"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetStatsAdmin"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetStatsOper"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetStatsInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetMisconfigured"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsetMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQProfileGroup": {
+    "name": "alaVfcQProfileGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPWRPId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPWRPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPWRPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPQSPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPTrafficClass"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPQType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPCIRBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPCIRBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPPIRBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPPIRBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPStatsAdmin"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPCbs"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPMbs"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPWfqWeight"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQPWfqMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQInstanceGroup": {
+    "name": "alaVfcQInstanceGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceQsapId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceQSPId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceQSPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceWRPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceWRPOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceWRPId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceWRPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceCIRBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceCIRBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstancePIRBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstancePIRBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceCIROperationalBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceCIROperationalBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstancePIROperationalBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstancePIROperationalBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceStatsAdmin"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceStatsOper"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstancePacketsEnqueued"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceBytesEnqueued"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstancePacketsDequeued"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceBytesDequeued"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstancePacketsDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceBytesDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceGreenPacketsAccepted"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceGreenBytesAccepted"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceGreenPacketsDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceGreenBytesDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceYellowPacketsAccepted"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceYellowBytesAccepted"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceYellowPacketsDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceYellowBytesDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceRedPacketsAccepted"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceRedBytesAccepted"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceRedPacketsDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceRedBytesDropped"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQInstanceStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQsapGroup": {
+    "name": "alaVfcQsapGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapQSPId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapQSPName"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapWRPAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapStatsAdmin"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapBandwidthLimitType"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapBandwidthLimitValue"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapQpId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapAction"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapLastChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQsapParent"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcProfileIndexLookupGroup": {
+    "name": "alaVfcProfileIndexLookupGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcProfileId"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcProfileQsapLookupGroup": {
+    "name": "alaVfcProfileQsapLookupGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcProfileQsapLookupList"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcQSIQsapLookupGroup": {
+    "name": "alaVfcQSIQsapLookupGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcQSIQsapLookupList"
+      }
+    ],
+    "status": "current"
+  },
+  "alaVfcStatsGroup": {
+    "name": "alaVfcStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcStatisticsCollectionInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcStatisticsCollectionDuration"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alaVfcSystemGroup": {
+    "name": "alaVfcSystemGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.61.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcSystemDefaultQsetQSPId"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+        "object": "alaVfcSystemDefaultQsetQSPName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-VIRTUAL-FLOW-CONTROL-MIB"
+  }
+}

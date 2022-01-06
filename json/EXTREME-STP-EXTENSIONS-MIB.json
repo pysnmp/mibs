@@ -1,0 +1,687 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "Timeout",
+      "BridgeId",
+      "dot1dStpPort"
+    ],
+    "EXTREME-BASE-MIB": [
+      "extremeAgent",
+      "PortList"
+    ],
+    "EXTREME-VLAN-MIB": [
+      "extremeVlanIfIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeStp": {
+    "name": "extremeStp",
+    "oid": "1.3.6.1.4.1.1916.1.17",
+    "class": "moduleidentity"
+  },
+  "extremeStpDomainTable": {
+    "name": "extremeStpDomainTable",
+    "oid": "1.3.6.1.4.1.1916.1.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeStpDomainEntry": {
+    "name": "extremeStpDomainEntry",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-STP-EXTENSIONS-MIB",
+        "object": "extremeStpDomainStpdInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeStpDomainStpdInstance": {
+    "name": "extremeStpDomainStpdInstance",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "extremeStpDomainStpdName": {
+    "name": "extremeStpDomainStpdName",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainStpEnabled": {
+    "name": "extremeStpDomainStpEnabled",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainRstpEnabled": {
+    "name": "extremeStpDomainRstpEnabled",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainStpdTag": {
+    "name": "extremeStpDomainStpdTag",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainNumPorts": {
+    "name": "extremeStpDomainNumPorts",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainBridgeId": {
+    "name": "extremeStpDomainBridgeId",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainBridgePriority": {
+    "name": "extremeStpDomainBridgePriority",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainDesignatedRoot": {
+    "name": "extremeStpDomainDesignatedRoot",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainRootPortIfIndex": {
+    "name": "extremeStpDomainRootPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainRootCost": {
+    "name": "extremeStpDomainRootCost",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainRRFailoverEnabled": {
+    "name": "extremeStpDomainRRFailoverEnabled",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainMaxAge": {
+    "name": "extremeStpDomainMaxAge",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainHelloTime": {
+    "name": "extremeStpDomainHelloTime",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainForwardDelay": {
+    "name": "extremeStpDomainForwardDelay",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainBridgeMaxAge": {
+    "name": "extremeStpDomainBridgeMaxAge",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainBridgeHelloTime": {
+    "name": "extremeStpDomainBridgeHelloTime",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainBridgeForwardDelay": {
+    "name": "extremeStpDomainBridgeForwardDelay",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainHoldTime": {
+    "name": "extremeStpDomainHoldTime",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainTopChanges": {
+    "name": "extremeStpDomainTopChanges",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainTimeSinceTopologyChange": {
+    "name": "extremeStpDomainTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpDomainRowStatus": {
+    "name": "extremeStpDomainRowStatus",
+    "oid": "1.3.6.1.4.1.1916.1.17.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortTable": {
+    "name": "extremeStpPortTable",
+    "oid": "1.3.6.1.4.1.1916.1.17.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeStpPortEntry": {
+    "name": "extremeStpPortEntry",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-STP-EXTENSIONS-MIB",
+        "object": "extremeStpDomainStpdInstance",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-STP-EXTENSIONS-MIB",
+        "object": "extremeStpPortPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeStpPortPortIfIndex": {
+    "name": "extremeStpPortPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeStpPortStpEnabled": {
+    "name": "extremeStpPortStpEnabled",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortPortMode": {
+    "name": "extremeStpPortPortMode",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d": 1,
+          "emistp": 2,
+          "pvstp": 3,
+          "dot1w": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortPortState": {
+    "name": "extremeStpPortPortState",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortPortPriority": {
+    "name": "extremeStpPortPortPriority",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortPortId": {
+    "name": "extremeStpPortPortId",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortPathCost": {
+    "name": "extremeStpPortPathCost",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortDesignatedCost": {
+    "name": "extremeStpPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortDesignatedRoot": {
+    "name": "extremeStpPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortDesignatedBridge": {
+    "name": "extremeStpPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortDesignatedPort": {
+    "name": "extremeStpPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpPortRowStatus": {
+    "name": "extremeStpPortRowStatus",
+    "oid": "1.3.6.1.4.1.1916.1.17.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpVlanPortTable": {
+    "name": "extremeStpVlanPortTable",
+    "oid": "1.3.6.1.4.1.1916.1.17.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeStpVlanPortEntry": {
+    "name": "extremeStpVlanPortEntry",
+    "oid": "1.3.6.1.4.1.1916.1.17.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-VLAN-MIB",
+        "object": "extremeVlanIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-STP-EXTENSIONS-MIB",
+        "object": "extremeStpDomainStpdInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeStpVlanPortPortMask": {
+    "name": "extremeStpVlanPortPortMask",
+    "oid": "1.3.6.1.4.1.1916.1.17.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpVlanPortRowStatus": {
+    "name": "extremeStpVlanPortRowStatus",
+    "oid": "1.3.6.1.4.1.1916.1.17.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStpTraps": {
+    "name": "extremeStpTraps",
+    "oid": "1.3.6.1.4.1.1916.1.17.4",
+    "class": "objectidentity"
+  },
+  "extremeStpTrapsPrefix": {
+    "name": "extremeStpTrapsPrefix",
+    "oid": "1.3.6.1.4.1.1916.1.17.4.0",
+    "class": "objectidentity"
+  },
+  "extremeStpEdgePortBlocked": {
+    "name": "extremeStpEdgePortBlocked",
+    "oid": "1.3.6.1.4.1.1916.1.17.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EXTREME-STP-EXTENSIONS-MIB"
+  }
+}

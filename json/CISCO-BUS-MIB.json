@@ -1,0 +1,682 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "LAN-EMULATION-CLIENT-MIB": [
+      "AtmLaneAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoBusMIB": {
+    "name": "ciscoBusMIB",
+    "oid": "1.3.6.1.4.1.9.9.40",
+    "class": "moduleidentity"
+  },
+  "ciscoBusMIBObjects": {
+    "name": "ciscoBusMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.40.1",
+    "class": "objectidentity"
+  },
+  "CiscoVpiInteger": {
+    "name": "CiscoVpiInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoVciInteger": {
+    "name": "CiscoVciInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "busTable": {
+    "name": "busTable",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "busEntry": {
+    "name": "busEntry",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busElanName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "busElanName": {
+    "name": "busElanName",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "busIndex": {
+    "name": "busIndex",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "busAtmAddrSpec": {
+    "name": "busAtmAddrSpec",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busAtmAddrMask": {
+    "name": "busAtmAddrMask",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busAtmAddrActl": {
+    "name": "busAtmAddrActl",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busIfIndex": {
+    "name": "busIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busSubIfNum": {
+    "name": "busSubIfNum",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busUpTime": {
+    "name": "busUpTime",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busLanType": {
+    "name": "busLanType",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot3": 1,
+          "dot5": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dot3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busMaxFrm": {
+    "name": "busMaxFrm",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot3": 1516,
+          "tr4Mb": 4544,
+          "rfc1626": 9234,
+          "tr16Mb": 18190
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dot3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busMaxFrmAge": {
+    "name": "busMaxFrmAge",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busOutFwdOctets": {
+    "name": "busOutFwdOctets",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busOutFwdUcastFrms": {
+    "name": "busOutFwdUcastFrms",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busOutFwdNUcastFrms": {
+    "name": "busOutFwdNUcastFrms",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busFrmTimeOuts": {
+    "name": "busFrmTimeOuts",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busMultiFwdVpi": {
+    "name": "busMultiFwdVpi",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busMultiFwdVci": {
+    "name": "busMultiFwdVci",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVciInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busOperStatus": {
+    "name": "busOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busAdminStatus": {
+    "name": "busAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busStatus": {
+    "name": "busStatus",
+    "oid": "1.3.6.1.4.1.9.9.40.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "busClientTable": {
+    "name": "busClientTable",
+    "oid": "1.3.6.1.4.1.9.9.40.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "busClientEntry": {
+    "name": "busClientEntry",
+    "oid": "1.3.6.1.4.1.9.9.40.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busElanName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busClientId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "busClientId": {
+    "name": "busClientId",
+    "oid": "1.3.6.1.4.1.9.9.40.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "busClientIfIndex": {
+    "name": "busClientIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.40.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busClientMSendVpi": {
+    "name": "busClientMSendVpi",
+    "oid": "1.3.6.1.4.1.9.9.40.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busClientMSendVci": {
+    "name": "busClientMSendVci",
+    "oid": "1.3.6.1.4.1.9.9.40.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVciInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "busClientAtmAddress": {
+    "name": "busClientAtmAddress",
+    "oid": "1.3.6.1.4.1.9.9.40.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmLaneAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoBusMIBConformance": {
+    "name": "ciscoBusMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.40.2",
+    "class": "objectidentity"
+  },
+  "ciscoBusMIBGroups": {
+    "name": "ciscoBusMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.40.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoBusMIBCompliances": {
+    "name": "ciscoBusMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.40.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoBusGroup": {
+    "name": "ciscoBusGroup",
+    "oid": "1.3.6.1.4.1.9.9.40.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busAtmAddrSpec"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busAtmAddrMask"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busAtmAddrActl"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busIfIndex"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busUpTime"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busLanType"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busMaxFrm"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busMaxFrmAge"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busOutFwdOctets"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busOutFwdUcastFrms"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busOutFwdNUcastFrms"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busFrmTimeOuts"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busMultiFwdVpi"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busMultiFwdVci"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busOperStatus"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busAdminStatus"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBusSubIfGroup": {
+    "name": "ciscoBusSubIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.40.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busSubIfNum"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBusClientGroup": {
+    "name": "ciscoBusClientGroup",
+    "oid": "1.3.6.1.4.1.9.9.40.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busClientIfIndex"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busClientMSendVpi"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busClientMSendVci"
+      },
+      {
+        "module": "CISCO-BUS-MIB",
+        "object": "busClientAtmAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoBusMIBCompliance": {
+    "name": "ciscoBusMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.40.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoBusGroup",
+        "module": "CISCO-BUS-MIB"
+      },
+      {
+        "object": "ciscoBusSubIfGroup",
+        "module": "CISCO-BUS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-BUS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-BUS-MIB"
+  }
+}

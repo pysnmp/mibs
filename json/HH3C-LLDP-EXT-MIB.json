@@ -1,0 +1,548 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "LLDP-MIB": [
+      "LldpManAddrIfSubtype",
+      "lldpRemManAddrSubtype",
+      "LldpPortNumber",
+      "lldpRemManAddr",
+      "lldpRemTimeMark",
+      "lldpRemIndex",
+      "lldpRemLocalPortNum"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3clldp": {
+    "name": "hh3clldp",
+    "oid": "1.3.6.1.4.1.25506.2.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-09-17 00:00",
+        "description": "Add the value of hh3clldpPortConfigCDPComplian."
+      },
+      {
+        "revision": "2019-03-07 00:00",
+        "description": "Add hh3clldpRemManAddrTable."
+      },
+      {
+        "revision": "2015-09-01 00:00",
+        "description": "Update this MIB module."
+      },
+      {
+        "revision": "2009-03-21 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3clldpObjects": {
+    "name": "hh3clldpObjects",
+    "oid": "1.3.6.1.4.1.25506.2.100.1",
+    "class": "objectidentity"
+  },
+  "hh3clldpNotifications": {
+    "name": "hh3clldpNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.100.2",
+    "class": "objectidentity"
+  },
+  "hh3clldpConfiguration": {
+    "name": "hh3clldpConfiguration",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1",
+    "class": "objectidentity"
+  },
+  "hh3clldpRemoteSystemsData": {
+    "name": "hh3clldpRemoteSystemsData",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.2",
+    "class": "objectidentity"
+  },
+  "hh3clldpAdminStatus": {
+    "name": "hh3clldpAdminStatus",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpComplianceCDPStatus": {
+    "name": "hh3clldpComplianceCDPStatus",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpPortConfigTable": {
+    "name": "hh3clldpPortConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3clldpPortConfigEntry": {
+    "name": "hh3clldpPortConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LLDP-EXT-MIB",
+        "object": "hh3clldpPortConfigPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3clldpPortConfigPortNum": {
+    "name": "hh3clldpPortConfigPortNum",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3clldpPortConfigCDPComplianceStatus": {
+    "name": "hh3clldpPortConfigCDPComplianceStatus",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "txAndRx": 1,
+          "disabled": 2,
+          "rx": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpPortConfigValidationAction": {
+    "name": "hh3clldpPortConfigValidationAction",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpPortConfigAgingAction": {
+    "name": "hh3clldpPortConfigAgingAction",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpNbIdentityTable": {
+    "name": "hh3clldpNbIdentityTable",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3clldpNbIdentityEntry": {
+    "name": "hh3clldpNbIdentityEntry",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LLDP-EXT-MIB",
+        "object": "hh3clldpNbIdentityPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3clldpNbIdentityPortNum": {
+    "name": "hh3clldpNbIdentityPortNum",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3clldpNbIdentityChassisIDSubtype": {
+    "name": "hh3clldpNbIdentityChassisIDSubtype",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "chassisComponent": 1,
+          "interfaceAlias": 2,
+          "portComponent": 3,
+          "macAddress": 4,
+          "networkAddress": 5,
+          "interfaceName": 6,
+          "local": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpNbIdentityChassisID": {
+    "name": "hh3clldpNbIdentityChassisID",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpNbIdentityPortIDSubtype": {
+    "name": "hh3clldpNbIdentityPortIDSubtype",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "interfaceAlias": 1,
+          "portComponent": 2,
+          "macAddress": 3,
+          "networkAddress": 4,
+          "interfaceName": 5,
+          "agentCircuitId": 6,
+          "local": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpNbIdentityPortID": {
+    "name": "hh3clldpNbIdentityPortID",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3clldpNbIdentityRowStatus": {
+    "name": "hh3clldpNbIdentityRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3clldpPortStatusTable": {
+    "name": "hh3clldpPortStatusTable",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3clldpPortStatusEntry": {
+    "name": "hh3clldpPortStatusEntry",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-LLDP-EXT-MIB",
+        "object": "hh3clldpPortStatusPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3clldpPortStatusPortNum": {
+    "name": "hh3clldpPortStatusPortNum",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3clldpPortValidationStatus": {
+    "name": "hh3clldpPortValidationStatus",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3clldpPortAgingStatus": {
+    "name": "hh3clldpPortAgingStatus",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3clldpRemManAddrTable": {
+    "name": "hh3clldpRemManAddrTable",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3clldpRemManAddrEntry": {
+    "name": "hh3clldpRemManAddrEntry",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemManAddrSubtype",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemManAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3clldpRemManAddrSubtype": {
+    "name": "hh3clldpRemManAddrSubtype",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3clldpRemManAddr": {
+    "name": "hh3clldpRemManAddr",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3clldpRemManAddrIfSubtype": {
+    "name": "hh3clldpRemManAddrIfSubtype",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpManAddrIfSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3clldpRemManAddrIfId": {
+    "name": "hh3clldpRemManAddrIfId",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3clldpRemManAddrOID": {
+    "name": "hh3clldpRemManAddrOID",
+    "oid": "1.3.6.1.4.1.25506.2.100.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3clldpPortStatusTrap": {
+    "name": "hh3clldpPortStatusTrap",
+    "oid": "1.3.6.1.4.1.25506.2.100.2.0",
+    "class": "objectidentity"
+  },
+  "hh3clldpValidationStatusChange": {
+    "name": "hh3clldpValidationStatusChange",
+    "oid": "1.3.6.1.4.1.25506.2.100.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LLDP-EXT-MIB",
+        "object": "hh3clldpPortStatusPortNum"
+      },
+      {
+        "module": "HH3C-LLDP-EXT-MIB",
+        "object": "hh3clldpPortValidationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3clldpAgingStatusChange": {
+    "name": "hh3clldpAgingStatusChange",
+    "oid": "1.3.6.1.4.1.25506.2.100.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LLDP-EXT-MIB",
+        "object": "hh3clldpPortStatusPortNum"
+      },
+      {
+        "module": "HH3C-LLDP-EXT-MIB",
+        "object": "hh3clldpPortAgingStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-LLDP-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-LLDP-EXT-MIB"
+  }
+}

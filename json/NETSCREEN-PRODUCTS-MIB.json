@@ -1,0 +1,239 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenProducts"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netscreenProductsMibModule": {
+    "name": "netscreenProductsMibModule",
+    "oid": "1.3.6.1.4.1.3224.1.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2004-01-20 00:00",
+        "description": "Add netscreenHardwareSecurity Client"
+      },
+      {
+        "revision": "2000-08-02 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "netscreenGeneric": {
+    "name": "netscreenGeneric",
+    "oid": "1.3.6.1.4.1.3224.1.1",
+    "class": "objectidentity"
+  },
+  "netscreenNs5": {
+    "name": "netscreenNs5",
+    "oid": "1.3.6.1.4.1.3224.1.2",
+    "class": "objectidentity"
+  },
+  "netscreenNs10": {
+    "name": "netscreenNs10",
+    "oid": "1.3.6.1.4.1.3224.1.3",
+    "class": "objectidentity"
+  },
+  "netscreenNs100": {
+    "name": "netscreenNs100",
+    "oid": "1.3.6.1.4.1.3224.1.4",
+    "class": "objectidentity"
+  },
+  "netscreenNs1000": {
+    "name": "netscreenNs1000",
+    "oid": "1.3.6.1.4.1.3224.1.5",
+    "class": "objectidentity"
+  },
+  "netscreenNs500": {
+    "name": "netscreenNs500",
+    "oid": "1.3.6.1.4.1.3224.1.6",
+    "class": "objectidentity"
+  },
+  "netscreenNs50": {
+    "name": "netscreenNs50",
+    "oid": "1.3.6.1.4.1.3224.1.7",
+    "class": "objectidentity"
+  },
+  "netscreenNs25": {
+    "name": "netscreenNs25",
+    "oid": "1.3.6.1.4.1.3224.1.8",
+    "class": "objectidentity"
+  },
+  "netscreenNs204": {
+    "name": "netscreenNs204",
+    "oid": "1.3.6.1.4.1.3224.1.9",
+    "class": "objectidentity"
+  },
+  "netscreenNs208": {
+    "name": "netscreenNs208",
+    "oid": "1.3.6.1.4.1.3224.1.10",
+    "class": "objectidentity"
+  },
+  "netscreenNs5XT": {
+    "name": "netscreenNs5XT",
+    "oid": "1.3.6.1.4.1.3224.1.11",
+    "class": "objectidentity"
+  },
+  "netscreenNs5XP": {
+    "name": "netscreenNs5XP",
+    "oid": "1.3.6.1.4.1.3224.1.12",
+    "class": "objectidentity"
+  },
+  "netscreenNs5000": {
+    "name": "netscreenNs5000",
+    "oid": "1.3.6.1.4.1.3224.1.13",
+    "class": "objectidentity"
+  },
+  "netscreenNs5GT": {
+    "name": "netscreenNs5GT",
+    "oid": "1.3.6.1.4.1.3224.1.14",
+    "class": "objectidentity"
+  },
+  "netscreenHardwareSecurityClient": {
+    "name": "netscreenHardwareSecurityClient",
+    "oid": "1.3.6.1.4.1.3224.1.15",
+    "class": "objectidentity"
+  },
+  "netscreenISG2000": {
+    "name": "netscreenISG2000",
+    "oid": "1.3.6.1.4.1.3224.1.16",
+    "class": "objectidentity"
+  },
+  "netscreen_5GT_ADSL_AnnexA": {
+    "name": "netscreen_5GT_ADSL_AnnexA",
+    "oid": "1.3.6.1.4.1.3224.1.17",
+    "class": "objectidentity"
+  },
+  "netscreen_5GT_ADSL_AnnexB": {
+    "name": "netscreen_5GT_ADSL_AnnexB",
+    "oid": "1.3.6.1.4.1.3224.1.19",
+    "class": "objectidentity"
+  },
+  "netscreen_5GT_WLAN": {
+    "name": "netscreen_5GT_WLAN",
+    "oid": "1.3.6.1.4.1.3224.1.21",
+    "class": "objectidentity"
+  },
+  "netscreen_5GT_ADSL_AnnexA_WLAN": {
+    "name": "netscreen_5GT_ADSL_AnnexA_WLAN",
+    "oid": "1.3.6.1.4.1.3224.1.23",
+    "class": "objectidentity"
+  },
+  "netscreen_5GT_ADSL_AnnexB_WLAN": {
+    "name": "netscreen_5GT_ADSL_AnnexB_WLAN",
+    "oid": "1.3.6.1.4.1.3224.1.25",
+    "class": "objectidentity"
+  },
+  "netscreenISG1000": {
+    "name": "netscreenISG1000",
+    "oid": "1.3.6.1.4.1.3224.1.28",
+    "class": "objectidentity"
+  },
+  "netscreenSSG5": {
+    "name": "netscreenSSG5",
+    "oid": "1.3.6.1.4.1.3224.1.29",
+    "class": "objectidentity"
+  },
+  "netscreenSSG5_ISDN": {
+    "name": "netscreenSSG5_ISDN",
+    "oid": "1.3.6.1.4.1.3224.1.30",
+    "class": "objectidentity"
+  },
+  "netscreenSSG5_v92": {
+    "name": "netscreenSSG5_v92",
+    "oid": "1.3.6.1.4.1.3224.1.31",
+    "class": "objectidentity"
+  },
+  "netscreenSSG5_Serial_WLAN": {
+    "name": "netscreenSSG5_Serial_WLAN",
+    "oid": "1.3.6.1.4.1.3224.1.32",
+    "class": "objectidentity"
+  },
+  "netscreenSSG5_ISDN_WLAN": {
+    "name": "netscreenSSG5_ISDN_WLAN",
+    "oid": "1.3.6.1.4.1.3224.1.33",
+    "class": "objectidentity"
+  },
+  "netscreenSSG5_v92_WLAN": {
+    "name": "netscreenSSG5_v92_WLAN",
+    "oid": "1.3.6.1.4.1.3224.1.34",
+    "class": "objectidentity"
+  },
+  "netscreenSSG20": {
+    "name": "netscreenSSG20",
+    "oid": "1.3.6.1.4.1.3224.1.35",
+    "class": "objectidentity"
+  },
+  "netscreenSSG20_WLAN": {
+    "name": "netscreenSSG20_WLAN",
+    "oid": "1.3.6.1.4.1.3224.1.36",
+    "class": "objectidentity"
+  },
+  "netscreenSSG520": {
+    "name": "netscreenSSG520",
+    "oid": "1.3.6.1.4.1.3224.1.50",
+    "class": "objectidentity"
+  },
+  "netscreenSSG550": {
+    "name": "netscreenSSG550",
+    "oid": "1.3.6.1.4.1.3224.1.51",
+    "class": "objectidentity"
+  },
+  "netscreenSSG140": {
+    "name": "netscreenSSG140",
+    "oid": "1.3.6.1.4.1.3224.1.52",
+    "class": "objectidentity"
+  },
+  "netscreenSSG320": {
+    "name": "netscreenSSG320",
+    "oid": "1.3.6.1.4.1.3224.1.54",
+    "class": "objectidentity"
+  },
+  "netscreenSSG350": {
+    "name": "netscreenSSG350",
+    "oid": "1.3.6.1.4.1.3224.1.55",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-PRODUCTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-PRODUCTS-MIB"
+  }
+}

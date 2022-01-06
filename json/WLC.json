@@ -1,0 +1,1008 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "peplink": {
+    "name": "peplink",
+    "oid": "1.3.6.1.4.1.23695",
+    "class": "objectidentity"
+  },
+  "wlc": {
+    "name": "wlc",
+    "oid": "1.3.6.1.4.1.23695.4",
+    "class": "moduleidentity"
+  },
+  "wlcSystemInfo": {
+    "name": "wlcSystemInfo",
+    "oid": "1.3.6.1.4.1.23695.4.1",
+    "class": "objectidentity"
+  },
+  "wlcSystemBasicInfo": {
+    "name": "wlcSystemBasicInfo",
+    "oid": "1.3.6.1.4.1.23695.4.1.1",
+    "class": "objectidentity"
+  },
+  "wlcApMgmtEnable": {
+    "name": "wlcApMgmtEnable",
+    "oid": "1.3.6.1.4.1.23695.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcRemoteApMgmtEnable": {
+    "name": "wlcRemoteApMgmtEnable",
+    "oid": "1.3.6.1.4.1.23695.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcMaxNumAp": {
+    "name": "wlcMaxNumAp",
+    "oid": "1.3.6.1.4.1.23695.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNumApProfile": {
+    "name": "wlcNumApProfile",
+    "oid": "1.3.6.1.4.1.23695.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNumWlanNetwork": {
+    "name": "wlcNumWlanNetwork",
+    "oid": "1.3.6.1.4.1.23695.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNumApReg": {
+    "name": "wlcNumApReg",
+    "oid": "1.3.6.1.4.1.23695.4.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNumApOnline": {
+    "name": "wlcNumApOnline",
+    "oid": "1.3.6.1.4.1.23695.4.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNumAssocSta": {
+    "name": "wlcNumAssocSta",
+    "oid": "1.3.6.1.4.1.23695.4.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApMgmtInfo": {
+    "name": "wlcApMgmtInfo",
+    "oid": "1.3.6.1.4.1.23695.4.2",
+    "class": "objectidentity"
+  },
+  "wlcApGroupInfoTable": {
+    "name": "wlcApGroupInfoTable",
+    "oid": "1.3.6.1.4.1.23695.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlcApGroupInfoEntry": {
+    "name": "wlcApGroupInfoEntry",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLC",
+        "object": "wlcApGrpId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlcApGrpId": {
+    "name": "wlcApGrpId",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpName": {
+    "name": "wlcApGrpName",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpBand24WlanNetwork": {
+    "name": "wlcApGrpBand24WlanNetwork",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpBand50WlanNetwork": {
+    "name": "wlcApGrpBand50WlanNetwork",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpNumApReg": {
+    "name": "wlcApGrpNumApReg",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpNumApOnline": {
+    "name": "wlcApGrpNumApOnline",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpNumAssocSta": {
+    "name": "wlcApGrpNumAssocSta",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpMgmtVlan": {
+    "name": "wlcApGrpMgmtVlan",
+    "oid": "1.3.6.1.4.1.23695.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGroupStatTable": {
+    "name": "wlcApGroupStatTable",
+    "oid": "1.3.6.1.4.1.23695.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlcApGroupStatEntry": {
+    "name": "wlcApGroupStatEntry",
+    "oid": "1.3.6.1.4.1.23695.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLC",
+        "object": "wlcApGrpId",
+        "implied": 0
+      },
+      {
+        "module": "WLC",
+        "object": "wlcApGrpStatBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlcApGrpStatName": {
+    "name": "wlcApGrpStatName",
+    "oid": "1.3.6.1.4.1.23695.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpStatBand": {
+    "name": "wlcApGrpStatBand",
+    "oid": "1.3.6.1.4.1.23695.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "band24": 1,
+          "band50": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpStatNumTxPkt": {
+    "name": "wlcApGrpStatNumTxPkt",
+    "oid": "1.3.6.1.4.1.23695.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpStatNumTxByte": {
+    "name": "wlcApGrpStatNumTxByte",
+    "oid": "1.3.6.1.4.1.23695.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpStatNumRxPkt": {
+    "name": "wlcApGrpStatNumRxPkt",
+    "oid": "1.3.6.1.4.1.23695.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApGrpStatNumRxByte": {
+    "name": "wlcApGrpStatNumRxByte",
+    "oid": "1.3.6.1.4.1.23695.4.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanNetworkInfoTable": {
+    "name": "wlcWlanNetworkInfoTable",
+    "oid": "1.3.6.1.4.1.23695.4.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlcWlanNetworkInfoEntry": {
+    "name": "wlcWlanNetworkInfoEntry",
+    "oid": "1.3.6.1.4.1.23695.4.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLC",
+        "object": "wlcWlanNetworkId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlcWlanNetworkId": {
+    "name": "wlcWlanNetworkId",
+    "oid": "1.3.6.1.4.1.23695.4.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanEssid": {
+    "name": "wlcWlanEssid",
+    "oid": "1.3.6.1.4.1.23695.4.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanSecMode": {
+    "name": "wlcWlanSecMode",
+    "oid": "1.3.6.1.4.1.23695.4.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "wep": 1,
+          "legacy8021x": 2,
+          "wpaMix": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanNumApOnline": {
+    "name": "wlcWlanNumApOnline",
+    "oid": "1.3.6.1.4.1.23695.4.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanNumAssocSta": {
+    "name": "wlcWlanNumAssocSta",
+    "oid": "1.3.6.1.4.1.23695.4.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanVlanPool": {
+    "name": "wlcWlanVlanPool",
+    "oid": "1.3.6.1.4.1.23695.4.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanNetworkStatTable": {
+    "name": "wlcWlanNetworkStatTable",
+    "oid": "1.3.6.1.4.1.23695.4.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlcWlanNetworkStatEntry": {
+    "name": "wlcWlanNetworkStatEntry",
+    "oid": "1.3.6.1.4.1.23695.4.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLC",
+        "object": "wlcWlanNetworkId",
+        "implied": 0
+      },
+      {
+        "module": "WLC",
+        "object": "wlcWlanStatBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlcWlanStatEssid": {
+    "name": "wlcWlanStatEssid",
+    "oid": "1.3.6.1.4.1.23695.4.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanStatBand": {
+    "name": "wlcWlanStatBand",
+    "oid": "1.3.6.1.4.1.23695.4.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "band24": 1,
+          "band50": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanStatNumTxPkt": {
+    "name": "wlcWlanStatNumTxPkt",
+    "oid": "1.3.6.1.4.1.23695.4.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanStatNumTxByte": {
+    "name": "wlcWlanStatNumTxByte",
+    "oid": "1.3.6.1.4.1.23695.4.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanStatNumRxPkt": {
+    "name": "wlcWlanStatNumRxPkt",
+    "oid": "1.3.6.1.4.1.23695.4.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanStatNumRxByte": {
+    "name": "wlcWlanStatNumRxByte",
+    "oid": "1.3.6.1.4.1.23695.4.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcWlanNeighDeviceInfo": {
+    "name": "wlcWlanNeighDeviceInfo",
+    "oid": "1.3.6.1.4.1.23695.4.3",
+    "class": "objectidentity"
+  },
+  "wlcWlanNeighApTable": {
+    "name": "wlcWlanNeighApTable",
+    "oid": "1.3.6.1.4.1.23695.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlcWlanNeighApEntry": {
+    "name": "wlcWlanNeighApEntry",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLC",
+        "object": "wlcNeighApBssid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlcNeighApBssid": {
+    "name": "wlcNeighApBssid",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNeighApEssid": {
+    "name": "wlcNeighApEssid",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNeighApChannel": {
+    "name": "wlcNeighApChannel",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNeighApEncytMode": {
+    "name": "wlcNeighApEncytMode",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "wep": 1,
+          "wpa": 2,
+          "wpa2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNeighNumApSeen": {
+    "name": "wlcNeighNumApSeen",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNeighNearestAp": {
+    "name": "wlcNeighNearestAp",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNeighNearestApRssi": {
+    "name": "wlcNeighNearestApRssi",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNeighFurthestAp": {
+    "name": "wlcNeighFurthestAp",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcNeighFurthestApRssi": {
+    "name": "wlcNeighFurthestApRssi",
+    "oid": "1.3.6.1.4.1.23695.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfo": {
+    "name": "wlcApInfo",
+    "oid": "1.3.6.1.4.1.23695.4.4",
+    "class": "objectidentity"
+  },
+  "wlcApInfoTable": {
+    "name": "wlcApInfoTable",
+    "oid": "1.3.6.1.4.1.23695.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlcApInfoEntry": {
+    "name": "wlcApInfoEntry",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLC",
+        "object": "wlcApInfoApId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wlcApInfoApId": {
+    "name": "wlcApInfoApId",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfoApSerialNumber": {
+    "name": "wlcApInfoApSerialNumber",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfoApName": {
+    "name": "wlcApInfoApName",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfoApModelName": {
+    "name": "wlcApInfoApModelName",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfoApFirmwareVer": {
+    "name": "wlcApInfoApFirmwareVer",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfoApStatus": {
+    "name": "wlcApInfoApStatus",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 0,
+          "online": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfoApIp": {
+    "name": "wlcApInfoApIp",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfoApGrpID": {
+    "name": "wlcApInfoApGrpID",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlcApInfoApGrpName": {
+    "name": "wlcApInfoApGrpName",
+    "oid": "1.3.6.1.4.1.23695.4.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/WLC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLC"
+  }
+}

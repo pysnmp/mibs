@@ -1,0 +1,827 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Udld"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1UDLDMIB": {
+    "name": "alcatelIND1UDLDMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-02-14 00:00",
+        "description": "The UDLD MIB defines a set of UDLD related management objects for ports that support UniDirectional Link Detection (UDLD) Protocol. UDLD as a protocol provides mechanisms to detect and disable unidirectional links caused for instance by mis-wiring of fiber strands, interface malfunctions, media converters' faults, etc. It operates at Layer 2 in conjunction with IEEE 802.3's existing Layer 1 fault detection mechanisms. This MIB comprises proprietary managed objects as well the objects required for conforming to the protocol."
+      }
+    ]
+  },
+  "alcatelIND1UDLDMIBObjects": {
+    "name": "alcatelIND1UDLDMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1UDLDMIBConformance": {
+    "name": "alcatelIND1UDLDMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1UDLDMIBGroups": {
+    "name": "alcatelIND1UDLDMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1UDLDMIBCompliances": {
+    "name": "alcatelIND1UDLDMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaUdldGlobalStatus": {
+    "name": "alaUdldGlobalStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldGlobalClearStats": {
+    "name": "alaUdldGlobalClearStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldGlobalConfigUdldMode": {
+    "name": "alaUdldGlobalConfigUdldMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "aggressive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldGlobalConfigUdldProbeIntervalTimer": {
+    "name": "alaUdldGlobalConfigUdldProbeIntervalTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 7,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldGlobalConfigUdldDetectionPeriodTimer": {
+    "name": "alaUdldGlobalConfigUdldDetectionPeriodTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "udldPortConfig": {
+    "name": "udldPortConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6",
+    "class": "objectidentity"
+  },
+  "alaUdldPortConfigTable": {
+    "name": "alaUdldPortConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaUdldPortConfigEntry": {
+    "name": "alaUdldPortConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaUdldPortConfigIfIndex": {
+    "name": "alaUdldPortConfigIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaUdldPortConfigUdldStatus": {
+    "name": "alaUdldPortConfigUdldStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldPortConfigUdldMode": {
+    "name": "alaUdldPortConfigUdldMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "aggressive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldPortConfigUdldProbeIntervalTimer": {
+    "name": "alaUdldPortConfigUdldProbeIntervalTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 7,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldPortConfigUdldDetectionPeriodTimer": {
+    "name": "alaUdldPortConfigUdldDetectionPeriodTimer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldPortConfigUdldOperationalStatus": {
+    "name": "alaUdldPortConfigUdldOperationalStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplicable": 0,
+          "shutdown": 1,
+          "undetermined": 2,
+          "bidirectional": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "udldPortStats": {
+    "name": "udldPortStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7",
+    "class": "objectidentity"
+  },
+  "alaUdldPortStatsTable": {
+    "name": "alaUdldPortStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaUdldPortStatsEntry": {
+    "name": "alaUdldPortStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaUdldPortStatsIfIndex": {
+    "name": "alaUdldPortStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaUdldNumUDLDNeighbors": {
+    "name": "alaUdldNumUDLDNeighbors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaUdldPortStatsClear": {
+    "name": "alaUdldPortStatsClear",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaUdldPortNumProbeSent": {
+    "name": "alaUdldPortNumProbeSent",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaUdldPortNumEchoSent": {
+    "name": "alaUdldPortNumEchoSent",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaUdldPortNumInvalidRcvd": {
+    "name": "alaUdldPortNumInvalidRcvd",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaUdldPortNumFlushRcvd": {
+    "name": "alaUdldPortNumFlushRcvd",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "udldPortNeighborStats": {
+    "name": "udldPortNeighborStats",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8",
+    "class": "objectidentity"
+  },
+  "alaUdldPortNeighborStatsTable": {
+    "name": "alaUdldPortNeighborStatsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaUdldPortNeighborStatsEntry": {
+    "name": "alaUdldPortNeighborStatsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortNeighborStatsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldNeighborIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaUdldPortNeighborStatsIfIndex": {
+    "name": "alaUdldPortNeighborStatsIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaUdldNeighborIfIndex": {
+    "name": "alaUdldNeighborIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaUdldNeighborName": {
+    "name": "alaUdldNeighborName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaUdldNumHelloRcvd": {
+    "name": "alaUdldNumHelloRcvd",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaUdldNumEchoRcvd": {
+    "name": "alaUdldNumEchoRcvd",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaUdldPrevState": {
+    "name": "alaUdldPrevState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplicable": 0,
+          "shutdown": 1,
+          "undetermined": 2,
+          "bidirectional": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaUdldCurrentState": {
+    "name": "alaUdldCurrentState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplicable": 0,
+          "shutdown": 1,
+          "undetermined": 2,
+          "bidirectional": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaUdldPortIfIndex": {
+    "name": "alaUdldPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaUdldEvents": {
+    "name": "alaUdldEvents",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.3",
+    "class": "objectidentity"
+  },
+  "udldStateChange": {
+    "name": "udldStateChange",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPrevState"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldCurrentState"
+      }
+    ],
+    "status": "current"
+  },
+  "udldPortBaseGroup": {
+    "name": "udldPortBaseGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldGlobalStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldGlobalClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPrevState"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldCurrentState"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "udldPortConfigGroup": {
+    "name": "udldPortConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortConfigUdldStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortConfigUdldMode"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortConfigUdldProbeIntervalTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortConfigUdldDetectionPeriodTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortConfigUdldOperationalStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "udldPortStatsGroup": {
+    "name": "udldPortStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldNumUDLDNeighbors"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortStatsClear"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortNumProbeSent"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortNumEchoSent"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortNumInvalidRcvd"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldPortNumFlushRcvd"
+      }
+    ],
+    "status": "current"
+  },
+  "udldPortNeighborStatsGroup": {
+    "name": "udldPortNeighborStatsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldNeighborName"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldNumHelloRcvd"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldNumEchoRcvd"
+      }
+    ],
+    "status": "current"
+  },
+  "udldPortTrapGroup": {
+    "name": "udldPortTrapGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "udldStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1UDLDMIBCompliance": {
+    "name": "alcatelIND1UDLDMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "udldPortBaseGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      },
+      {
+        "object": "udldPortConfigGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      },
+      {
+        "object": "udldPortStatsGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      },
+      {
+        "object": "udldPortNeighborStatsGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      },
+      {
+        "object": "udldPortTrapGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-UDLD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-UDLD-MIB"
+  }
+}

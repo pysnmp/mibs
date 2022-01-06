@@ -1,0 +1,1597 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoL2ControlMIB": {
+    "name": "ciscoL2ControlMIB",
+    "oid": "1.3.6.1.4.1.9.9.313",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-03 00:00",
+        "description": "Added ClcMacAddressStatsType and clcMacAddressStatsGroup."
+      },
+      {
+        "revision": "2007-01-10 00:00",
+        "description": "Added 'vlanMacLimitHigh' and 'vlanLimitHighExceededAction' enum values to clcVlanMacLimitGlobalConfig. Added clcMacAddressLimitIntervalGroup,clcMacAddressLimitGroup1, clcVlanMacAddressLimitGroup1,clcVlanMacLimitEnableGroup, clcVlanMacLimitNotifControlGroup, clcVlanMacLimitNotifControlGroup1, clcVlanMacLimitNotifsGroup1,clcIfMacAddressLimitGroup, clcIfMacLimitEnableGroup, clcIfMacLimitNotifControlGroup, clcIfMacLimitNotifsGroup, clcIfVlanMacAddressLimitGroup, clcIfVlanMacLimitEnableGroup,clcIfVlanMacLimitNotifControlGroup, clcIfVlanMacLimitNotifsGroup."
+      },
+      {
+        "revision": "2003-12-01 00:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "ciscoL2ControlMIBNotifs": {
+    "name": "ciscoL2ControlMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.313.0",
+    "class": "objectidentity"
+  },
+  "ciscoL2ControlMIBObjects": {
+    "name": "ciscoL2ControlMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.313.1",
+    "class": "objectidentity"
+  },
+  "ciscoL2ControlMIBConformance": {
+    "name": "ciscoL2ControlMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.313.2",
+    "class": "objectidentity"
+  },
+  "clcMacAddressLimitObjects": {
+    "name": "clcMacAddressLimitObjects",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1",
+    "class": "objectidentity"
+  },
+  "clcUnicastFloodObjects": {
+    "name": "clcUnicastFloodObjects",
+    "oid": "1.3.6.1.4.1.9.9.313.1.2",
+    "class": "objectidentity"
+  },
+  "clcIfMacAddressLimitObjects": {
+    "name": "clcIfMacAddressLimitObjects",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3",
+    "class": "objectidentity"
+  },
+  "clcIfVlanMacAddressLimitObjects": {
+    "name": "clcIfVlanMacAddressLimitObjects",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4",
+    "class": "objectidentity"
+  },
+  "clcMacAddressStatsObjects": {
+    "name": "clcMacAddressStatsObjects",
+    "oid": "1.3.6.1.4.1.9.9.313.1.5",
+    "class": "objectidentity"
+  },
+  "MacLimitExceededAction": {
+    "name": "MacLimitExceededAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "warning": 1,
+          "limit": 2,
+          "limitNoFlood": 3,
+          "shutdown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClcMacAddressStatsType": {
+    "name": "ClcMacAddressStatsType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMac": 1,
+          "dynamicMac": 2,
+          "staticMac": 3,
+          "mcastMac": 4,
+          "pvlanCloneMac": 5,
+          "overlayMac": 6,
+          "secureMac": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "clcMacLimitEnable": {
+    "name": "clcMacLimitEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcMaxMacLimitDefault": {
+    "name": "clcMaxMacLimitDefault",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcMacLimitExceededActionDefault": {
+    "name": "clcMacLimitExceededActionDefault",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcMacLimitExceedNotifOption": {
+    "name": "clcMacLimitExceedNotifOption",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sysLog": 1,
+          "snmpNotif": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcMacLimitNotifEnable": {
+    "name": "clcMacLimitNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcVlanMacLimitTable": {
+    "name": "clcVlanMacLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcVlanMacLimitEntry": {
+    "name": "clcVlanMacLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacLimitIndex": {
+    "name": "clcVlanMacLimitIndex",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcVlanMacLimitGlobalConfig": {
+    "name": "clcVlanMacLimitGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vlanMaxMacLimit": 0,
+        "vlanLimitExceededAction": 1,
+        "vlanMacLimitHigh": 2,
+        "vlanLimitHighExceededAction": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcVlanMaxMacLimit": {
+    "name": "clcVlanMaxMacLimit",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcVlanMacLimitExceededAction": {
+    "name": "clcVlanMacLimitExceededAction",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcVlanMacLimitStatus": {
+    "name": "clcVlanMacLimitStatus",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcVlanMacLimitEnable": {
+    "name": "clcVlanMacLimitEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcVlanMacLimitHigh": {
+    "name": "clcVlanMacLimitHigh",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcVlanMacLimitHighExceedAction": {
+    "name": "clcVlanMacLimitHighExceedAction",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcFdbVlanInfoTable": {
+    "name": "clcFdbVlanInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcFdbVlanInfoEntry": {
+    "name": "clcFdbVlanInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcFdbVlanMacUsage": {
+    "name": "clcFdbVlanMacUsage",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcMacLimitInterval": {
+    "name": "clcMacLimitInterval",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcMacLimitHighDefault": {
+    "name": "clcMacLimitHighDefault",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcMacLimitHighExceedActionDef": {
+    "name": "clcMacLimitHighExceedActionDef",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcMacLimitHighNotifEnable": {
+    "name": "clcMacLimitHighNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcUnicastFloodTable": {
+    "name": "clcUnicastFloodTable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcUnicastFloodEntry": {
+    "name": "clcUnicastFloodEntry",
+    "oid": "1.3.6.1.4.1.9.9.313.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcUnicastFloodAdminEnable": {
+    "name": "clcUnicastFloodAdminEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcUnicastFloodOperEnable": {
+    "name": "clcUnicastFloodOperEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcIfMacLimitTable": {
+    "name": "clcIfMacLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcIfMacLimitEntry": {
+    "name": "clcIfMacLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfMacLimitIfIndex": {
+    "name": "clcIfMacLimitIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcIfMacLimitEnable": {
+    "name": "clcIfMacLimitEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfMacLimitGlobalConfig": {
+    "name": "clcIfMacLimitGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ifMacLimitLow": 0,
+        "ifLimitLowExceededAction": 1,
+        "ifMacLimitHigh": 2,
+        "ifLimitHighExceededAction": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcIfMacLimitLow": {
+    "name": "clcIfMacLimitLow",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfMacLimitLowExceedAction": {
+    "name": "clcIfMacLimitLowExceedAction",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfMacLimitHigh": {
+    "name": "clcIfMacLimitHigh",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfMacLimitHighExceedAction": {
+    "name": "clcIfMacLimitHighExceedAction",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfMacLimitStatus": {
+    "name": "clcIfMacLimitStatus",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcFdbIfInfoTable": {
+    "name": "clcFdbIfInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcFdbIfInfoEntry": {
+    "name": "clcFdbIfInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcFdbIfMacUsage": {
+    "name": "clcFdbIfMacUsage",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcIfMacLimitLowNotifEnable": {
+    "name": "clcIfMacLimitLowNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcIfMacLimitHighNotifEnable": {
+    "name": "clcIfMacLimitHighNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitTable": {
+    "name": "clcIfVlanMacLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitEntry": {
+    "name": "clcIfVlanMacLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfVlanMacLimitIfIndex": {
+    "name": "clcIfVlanMacLimitIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitVlanIndex": {
+    "name": "clcIfVlanMacLimitVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitEnable": {
+    "name": "clcIfVlanMacLimitEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitGlobalConfig": {
+    "name": "clcIfVlanMacLimitGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ifVlanMacLimitLow": 0,
+        "ifVlanLimitLowExceededAction": 1,
+        "ifVlanMacLimitHigh": 2,
+        "ifVlanLimitHighExceededAction": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitLow": {
+    "name": "clcIfVlanMacLimitLow",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitLowExceedAction": {
+    "name": "clcIfVlanMacLimitLowExceedAction",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitHigh": {
+    "name": "clcIfVlanMacLimitHigh",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitHiExceedAction": {
+    "name": "clcIfVlanMacLimitHiExceedAction",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacLimitExceededAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitStatus": {
+    "name": "clcIfVlanMacLimitStatus",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clcFdbIfVlanInfoTable": {
+    "name": "clcFdbIfVlanInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcFdbIfVlanInfoEntry": {
+    "name": "clcFdbIfVlanInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcFdbIfVlanMacUsage": {
+    "name": "clcFdbIfVlanMacUsage",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitLowNotifEnable": {
+    "name": "clcIfVlanMacLimitLowNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcIfVlanMacLimitHighNotifEnable": {
+    "name": "clcIfVlanMacLimitHighNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clcFdbMacAddressStatsTable": {
+    "name": "clcFdbMacAddressStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.313.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcFdbMacAddressStatsEntry": {
+    "name": "clcFdbMacAddressStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.313.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbMacAddressStatsType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clcFdbMacAddressStatsType": {
+    "name": "clcFdbMacAddressStatsType",
+    "oid": "1.3.6.1.4.1.9.9.313.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClcMacAddressStatsType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clcFdbMacAddressStatsNumber": {
+    "name": "clcFdbMacAddressStatsNumber",
+    "oid": "1.3.6.1.4.1.9.9.313.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clcVlanMacLimitNotif": {
+    "name": "clcVlanMacLimitNotif",
+    "oid": "1.3.6.1.4.1.9.9.313.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbVlanMacUsage"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMaxMacLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacLimitHighNotif": {
+    "name": "clcVlanMacLimitHighNotif",
+    "oid": "1.3.6.1.4.1.9.9.313.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbVlanMacUsage"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfMacLimitLowNotif": {
+    "name": "clcIfMacLimitLowNotif",
+    "oid": "1.3.6.1.4.1.9.9.313.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbIfMacUsage"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitLow"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfMacLimitHighNotif": {
+    "name": "clcIfMacLimitHighNotif",
+    "oid": "1.3.6.1.4.1.9.9.313.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbIfMacUsage"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfVlanMacLimitLowNotif": {
+    "name": "clcIfVlanMacLimitLowNotif",
+    "oid": "1.3.6.1.4.1.9.9.313.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbIfVlanMacUsage"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitLow"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfVlanMacLimitHighNotif": {
+    "name": "clcIfVlanMacLimitHighNotif",
+    "oid": "1.3.6.1.4.1.9.9.313.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbIfVlanMacUsage"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL2ControlMIBCompliances": {
+    "name": "ciscoL2ControlMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.313.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoL2ControlMIBGroups": {
+    "name": "ciscoL2ControlMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoL2ControlMIBCompliance": {
+    "name": "ciscoL2ControlMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.313.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clcMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifsGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcUnicastFloodGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL2ControlMIBCompliance2": {
+    "name": "ciscoL2ControlMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.313.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clcMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcMacAddressLimitGroup1",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacAddressLimitGroup1",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifControlGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifControlGroup1",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcUnicastFloodGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcMacAddressLimitIntervalGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifsGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifsGroup1",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitEnableGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfMacLimitEnableGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfMacLimitNotifControlGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfMacLimitNotifsGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfVlanMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfVlanMacLimitEnableGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfVlanMacLimitNotifControlGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfVlanMacLimitNotifsGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL2ControlMIBCompliance3": {
+    "name": "ciscoL2ControlMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.313.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clcMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcMacAddressLimitGroup1",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacAddressLimitGroup1",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifControlGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifControlGroup1",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcUnicastFloodGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcMacAddressLimitIntervalGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifsGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitNotifsGroup1",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcVlanMacLimitEnableGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfMacLimitEnableGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfMacLimitNotifControlGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfMacLimitNotifsGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfVlanMacAddressLimitGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfVlanMacLimitEnableGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfVlanMacLimitNotifControlGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcIfVlanMacLimitNotifsGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      },
+      {
+        "object": "clcMacAddressStatsGroup",
+        "module": "CISCO-L2-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "clcMacAddressLimitGroup": {
+    "name": "clcMacAddressLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMacLimitEnable"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMaxMacLimitDefault"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMacLimitExceededActionDefault"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMacLimitExceedNotifOption"
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacAddressLimitGroup": {
+    "name": "clcVlanMacAddressLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitGlobalConfig"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMaxMacLimit"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitExceededAction"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitStatus"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbVlanMacUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacLimitNotifsGroup": {
+    "name": "clcVlanMacLimitNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "clcUnicastFloodGroup": {
+    "name": "clcUnicastFloodGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcUnicastFloodAdminEnable"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcUnicastFloodOperEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcMacAddressLimitIntervalGroup": {
+    "name": "clcMacAddressLimitIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMacLimitInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "clcMacAddressLimitGroup1": {
+    "name": "clcMacAddressLimitGroup1",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMacLimitHighDefault"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMacLimitHighExceedActionDef"
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacAddressLimitGroup1": {
+    "name": "clcVlanMacAddressLimitGroup1",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitHigh"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitHighExceedAction"
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacLimitEnableGroup": {
+    "name": "clcVlanMacLimitEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacLimitNotifControlGroup": {
+    "name": "clcVlanMacLimitNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMacLimitNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacLimitNotifControlGroup1": {
+    "name": "clcVlanMacLimitNotifControlGroup1",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcMacLimitHighNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcVlanMacLimitNotifsGroup1": {
+    "name": "clcVlanMacLimitNotifsGroup1",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcVlanMacLimitHighNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfMacAddressLimitGroup": {
+    "name": "clcIfMacAddressLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitGlobalConfig"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitLow"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitLowExceedAction"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitHigh"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitHighExceedAction"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitStatus"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbIfMacUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfMacLimitEnableGroup": {
+    "name": "clcIfMacLimitEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfMacLimitNotifControlGroup": {
+    "name": "clcIfMacLimitNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitLowNotifEnable"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitHighNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfMacLimitNotifsGroup": {
+    "name": "clcIfMacLimitNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitLowNotif"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfMacLimitHighNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfVlanMacAddressLimitGroup": {
+    "name": "clcIfVlanMacAddressLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitGlobalConfig"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitLow"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitLowExceedAction"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitHigh"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitHiExceedAction"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitStatus"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbIfVlanMacUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfVlanMacLimitEnableGroup": {
+    "name": "clcIfVlanMacLimitEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfVlanMacLimitNotifControlGroup": {
+    "name": "clcIfVlanMacLimitNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitLowNotifEnable"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitHighNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clcIfVlanMacLimitNotifsGroup": {
+    "name": "clcIfVlanMacLimitNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitLowNotif"
+      },
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcIfVlanMacLimitHighNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "clcMacAddressStatsGroup": {
+    "name": "clcMacAddressStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.313.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L2-CONTROL-MIB",
+        "object": "clcFdbMacAddressStatsNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-L2-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-L2-CONTROL-MIB"
+  }
+}

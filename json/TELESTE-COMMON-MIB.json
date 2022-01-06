@@ -1,0 +1,1706 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TELESTE-ROOT-MIB": [
+      "common",
+      "TPhysAddress",
+      "DateAndTime",
+      "Uint16"
+    ]
+  },
+  "element": {
+    "name": "element",
+    "oid": "1.3.6.1.4.1.3715.99.1",
+    "class": "objectidentity"
+  },
+  "elementInformation": {
+    "name": "elementInformation",
+    "oid": "1.3.6.1.4.1.3715.99.1.1",
+    "class": "objectidentity"
+  },
+  "elementName": {
+    "name": "elementName",
+    "oid": "1.3.6.1.4.1.3715.99.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "elementStructure": {
+    "name": "elementStructure",
+    "oid": "1.3.6.1.4.1.3715.99.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "compact": 2,
+          "modular": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "elementConfigChangeCode": {
+    "name": "elementConfigChangeCode",
+    "oid": "1.3.6.1.4.1.3715.99.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "elementResetCount": {
+    "name": "elementResetCount",
+    "oid": "1.3.6.1.4.1.3715.99.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "elementTotalUpTime": {
+    "name": "elementTotalUpTime",
+    "oid": "1.3.6.1.4.1.3715.99.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "elementLatitude": {
+    "name": "elementLatitude",
+    "oid": "1.3.6.1.4.1.3715.99.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "elementLongitude": {
+    "name": "elementLongitude",
+    "oid": "1.3.6.1.4.1.3715.99.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "elementAltitude": {
+    "name": "elementAltitude",
+    "oid": "1.3.6.1.4.1.3715.99.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "elementStatus": {
+    "name": "elementStatus",
+    "oid": "1.3.6.1.4.1.3715.99.1.2",
+    "class": "objectidentity"
+  },
+  "statusGeneral": {
+    "name": "statusGeneral",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "notification": 2,
+          "warning": 3,
+          "alarm": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "statusBusMaster": {
+    "name": "statusBusMaster",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slaveOnly": 1,
+          "configuredSlave": 2,
+          "currentlySlave": 3,
+          "currentlyMaster": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "statusLmt": {
+    "name": "statusLmt",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLmtInterface": 1,
+          "stateUnknown": 2,
+          "notConnected": 3,
+          "connected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "statusLid": {
+    "name": "statusLid",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLid": 1,
+          "closed": 2,
+          "open": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "statusTemperature": {
+    "name": "statusTemperature",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tempNormal": 1,
+          "tempHIHI": 2,
+          "tempHi": 3,
+          "tempLo": 4,
+          "tempLOLO": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "statusFan": {
+    "name": "statusFan",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fanNormal": 1,
+          "fanFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "statusHardware": {
+    "name": "statusHardware",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hwNormal": 1,
+          "hwFailure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "statusSoftware": {
+    "name": "statusSoftware",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swNormal": 1,
+          "swFailure": 2,
+          "swMissing": 3,
+          "swInitialising": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "statusSettings": {
+    "name": "statusSettings",
+    "oid": "1.3.6.1.4.1.3715.99.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "settingsStable": 1,
+          "settingsChanged": 2,
+          "settingsNotAvailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "elementControl": {
+    "name": "elementControl",
+    "oid": "1.3.6.1.4.1.3715.99.1.3",
+    "class": "objectidentity"
+  },
+  "controlResetElement": {
+    "name": "controlResetElement",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "hardReset": 2,
+          "softReset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "controlBusMasterAdminState": {
+    "name": "controlBusMasterAdminState",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlAlarmDetection": {
+    "name": "controlAlarmDetection",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "restart": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "controlMaxNumberTrapReceivers": {
+    "name": "controlMaxNumberTrapReceivers",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "controlTrapReceiverTable": {
+    "name": "controlTrapReceiverTable",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "controlTrapReceiverEntry": {
+    "name": "controlTrapReceiverEntry",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "receiverEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "receiverEntryId": {
+    "name": "receiverEntryId",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "receiverAddress": {
+    "name": "receiverAddress",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverPort": {
+    "name": "receiverPort",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "receiverCommunity": {
+    "name": "receiverCommunity",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "controlTrapSending": {
+    "name": "controlTrapSending",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlTrapInterval": {
+    "name": "controlTrapInterval",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlTrapLifeTime": {
+    "name": "controlTrapLifeTime",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlAlarmOnDelay": {
+    "name": "controlAlarmOnDelay",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlAlarmOffDelay": {
+    "name": "controlAlarmOffDelay",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlTrapDelay": {
+    "name": "controlTrapDelay",
+    "oid": "1.3.6.1.4.1.3715.99.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "elementProductKey": {
+    "name": "elementProductKey",
+    "oid": "1.3.6.1.4.1.3715.99.1.4",
+    "class": "objectidentity"
+  },
+  "productKeyNumberOfKeys": {
+    "name": "productKeyNumberOfKeys",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "productKeyTable": {
+    "name": "productKeyTable",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "productKeyEntry": {
+    "name": "productKeyEntry",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "productKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "productKeyIndex": {
+    "name": "productKeyIndex",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productKeyValue": {
+    "name": "productKeyValue",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "productKeyMask": {
+    "name": "productKeyMask",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productKeyStatus": {
+    "name": "productKeyStatus",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyInvalid": 1,
+          "keyValid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productKeyCipher": {
+    "name": "productKeyCipher",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipherOther": 1,
+          "cipherBlowFish": 2,
+          "cipherXXTEA": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productKeyNumberOfFeatures": {
+    "name": "productKeyNumberOfFeatures",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productKeyFeatureTable": {
+    "name": "productKeyFeatureTable",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "productKeyFeatureEntry": {
+    "name": "productKeyFeatureEntry",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "productKeyIndex",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "productKeyFeatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "productKeyFeatureIndex": {
+    "name": "productKeyFeatureIndex",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productKeyFeatureName": {
+    "name": "productKeyFeatureName",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productKeyFeatureEnable": {
+    "name": "productKeyFeatureEnable",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "featureDisable": 1,
+          "featureEnable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productKeyFeatureExpirationTime": {
+    "name": "productKeyFeatureExpirationTime",
+    "oid": "1.3.6.1.4.1.3715.99.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "module": {
+    "name": "module",
+    "oid": "1.3.6.1.4.1.3715.99.2",
+    "class": "objectidentity"
+  },
+  "moduleInformation": {
+    "name": "moduleInformation",
+    "oid": "1.3.6.1.4.1.3715.99.2.1",
+    "class": "objectidentity"
+  },
+  "moduleTable": {
+    "name": "moduleTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "moduleEntry": {
+    "name": "moduleEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "moduleId": {
+    "name": "moduleId",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleName": {
+    "name": "moduleName",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "moduleHwType": {
+    "name": "moduleHwType",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleRackNo": {
+    "name": "moduleRackNo",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "moduleSlotNo": {
+    "name": "moduleSlotNo",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "moduleDetailTable": {
+    "name": "moduleDetailTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "moduleDetailEntry": {
+    "name": "moduleDetailEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "moduleMacAddress": {
+    "name": "moduleMacAddress",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TPhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "moduleBusAddress": {
+    "name": "moduleBusAddress",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "moduleAppDate": {
+    "name": "moduleAppDate",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleAppVersion": {
+    "name": "moduleAppVersion",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleBiosDate": {
+    "name": "moduleBiosDate",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleBiosVersion": {
+    "name": "moduleBiosVersion",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleHwSerialNumber": {
+    "name": "moduleHwSerialNumber",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleHwVersion": {
+    "name": "moduleHwVersion",
+    "oid": "1.3.6.1.4.1.3715.99.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "moduleStatus": {
+    "name": "moduleStatus",
+    "oid": "1.3.6.1.4.1.3715.99.2.2",
+    "class": "objectidentity"
+  },
+  "moduleStatusTable": {
+    "name": "moduleStatusTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "moduleStatusEntry": {
+    "name": "moduleStatusEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "statusResetCause": {
+    "name": "statusResetCause",
+    "oid": "1.3.6.1.4.1.3715.99.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "selfReset": 2,
+          "powerReset": 3,
+          "commandedReset": 4,
+          "softdownloadReset": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "statusRunningSwImage": {
+    "name": "statusRunningSwImage",
+    "oid": "1.3.6.1.4.1.3715.99.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "statusInternalTemperature": {
+    "name": "statusInternalTemperature",
+    "oid": "1.3.6.1.4.1.3715.99.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -600,
+            "max": 1300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "statusLidStatus": {
+    "name": "statusLidStatus",
+    "oid": "1.3.6.1.4.1.3715.99.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLid": 1,
+          "closed": 2,
+          "open": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "statusRestartCounter": {
+    "name": "statusRestartCounter",
+    "oid": "1.3.6.1.4.1.3715.99.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "moduleControl": {
+    "name": "moduleControl",
+    "oid": "1.3.6.1.4.1.3715.99.2.3",
+    "class": "objectidentity"
+  },
+  "moduleControlTable": {
+    "name": "moduleControlTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "moduleControlEntry": {
+    "name": "moduleControlEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "controlLedUsage": {
+    "name": "controlLedUsage",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "alwaysOn": 2,
+          "offWhenLidClosed": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlMarkState": {
+    "name": "controlMarkState",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlReset": {
+    "name": "controlReset",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "hardReset": 2,
+          "softReset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlTempLimitHiHi": {
+    "name": "controlTempLimitHiHi",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlTempLimitHi": {
+    "name": "controlTempLimitHi",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlTempLimitLo": {
+    "name": "controlTempLimitLo",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlTempLimitLoLo": {
+    "name": "controlTempLimitLoLo",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlTempDeadBand": {
+    "name": "controlTempDeadBand",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlInternalAppAccess": {
+    "name": "controlInternalAppAccess",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowIntControl": 1,
+          "denyIntControl": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "controlLocalAccess": {
+    "name": "controlLocalAccess",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "moduleSWUpdateTable": {
+    "name": "moduleSWUpdateTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "moduleSWUpdateEntry": {
+    "name": "moduleSWUpdateEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "sWUpdateControl": {
+    "name": "sWUpdateControl",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "updateIdle": 1,
+          "updateRunning": 2,
+          "updateFailed": 3,
+          "updateStart": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "swUpdateURL": {
+    "name": "swUpdateURL",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "sWUpdateFileName": {
+    "name": "sWUpdateFileName",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "sWUpdateStatus": {
+    "name": "sWUpdateStatus",
+    "oid": "1.3.6.1.4.1.3715.99.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "moduleRegistry": {
+    "name": "moduleRegistry",
+    "oid": "1.3.6.1.4.1.3715.99.2.4",
+    "class": "objectidentity"
+  },
+  "moduleSizeOfTable": {
+    "name": "moduleSizeOfTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "moduleSizeOfEntry": {
+    "name": "moduleSizeOfEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "sizeOfRegistry": {
+    "name": "sizeOfRegistry",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sizeOfRepairlog": {
+    "name": "sizeOfRepairlog",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "sizeOfNotebook": {
+    "name": "sizeOfNotebook",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "moduleRegistryTable": {
+    "name": "moduleRegistryTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "moduleRegistryEntry": {
+    "name": "moduleRegistryEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "regIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "regIndex": {
+    "name": "regIndex",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "regName": {
+    "name": "regName",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "regValue": {
+    "name": "regValue",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "moduleRepairLogTable": {
+    "name": "moduleRepairLogTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "moduleRepairLogEntry": {
+    "name": "moduleRepairLogEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "repairIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "repairIndex": {
+    "name": "repairIndex",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "repairDate": {
+    "name": "repairDate",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "repairReasonCode": {
+    "name": "repairReasonCode",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "repairNameCode": {
+    "name": "repairNameCode",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "repairComment": {
+    "name": "repairComment",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "moduleNotebookTable": {
+    "name": "moduleNotebookTable",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "moduleNotebookEntry": {
+    "name": "moduleNotebookEntry",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "moduleId",
+        "implied": 0
+      },
+      {
+        "module": "TELESTE-COMMON-MIB",
+        "object": "notebookLineNumber",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "notebookLineNumber": {
+    "name": "notebookLineNumber",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "notebookLineText": {
+    "name": "notebookLineText",
+    "oid": "1.3.6.1.4.1.3715.99.2.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teleste/TELESTE-COMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TELESTE-COMMON-MIB"
+  }
+}

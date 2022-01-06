@@ -1,0 +1,755 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DMN-DSG-ROOT-MIB": [
+      "ciscoDSGUtilities"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDSGMOIPInput": {
+    "name": "ciscoDSGMOIPInput",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-11-12 18:00",
+        "description": "V01.00.00 2012-11-12 Initial Revision."
+      }
+    ]
+  },
+  "moipInputInfo": {
+    "name": "moipInputInfo",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1",
+    "class": "objectidentity"
+  },
+  "moipInputTable": {
+    "name": "moipInputTable",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2",
+    "class": "objectidentity"
+  },
+  "moipInputFlowIsMulticast": {
+    "name": "moipInputFlowIsMulticast",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputFlowMulticastDstIPV4": {
+    "name": "moipInputFlowMulticastDstIPV4",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputFlowFecMode": {
+    "name": "moipInputFlowFecMode",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "oneD": 2,
+          "twoD": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputFlowSrcFilter": {
+    "name": "moipInputFlowSrcFilter",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "whiteList": 2,
+          "blackList": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputFlowTsUDPPort": {
+    "name": "moipInputFlowTsUDPPort",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputFlowFec1UDPPort": {
+    "name": "moipInputFlowFec1UDPPort",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputFlowFec2UDPPort": {
+    "name": "moipInputFlowFec2UDPPort",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputFlowSrcStrmSel": {
+    "name": "moipInputFlowSrcStrmSel",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swMap": 1,
+          "userCfg": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputDejitterAlgorithm": {
+    "name": "moipInputDejitterAlgorithm",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "vbr": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputDejitterBufLatency": {
+    "name": "moipInputDejitterBufLatency",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputRednMode": {
+    "name": "moipInputRednMode",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bkpPriData1": 1,
+          "bkpPriData2": 2,
+          "manualData1": 3,
+          "manualData2": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputRednDir": {
+    "name": "moipInputRednDir",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "Revertive": 1,
+          "nonRevertive": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputRednDelayDir": {
+    "name": "moipInputRednDelayDir",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputRednDelRev": {
+    "name": "moipInputRednDelRev",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputRednPortInUse": {
+    "name": "moipInputRednPortInUse",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputRednSwReason": {
+    "name": "moipInputRednSwReason",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputRednSwDateTime": {
+    "name": "moipInputRednSwDateTime",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputData1SelIPV4": {
+    "name": "moipInputData1SelIPV4",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputData2SelIPV4": {
+    "name": "moipInputData2SelIPV4",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputSrcSelectTable": {
+    "name": "moipInputSrcSelectTable",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "moipInputSrcSelectEntry": {
+    "name": "moipInputSrcSelectEntry",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DMN-DSG-MOIPINPUT-MIB",
+        "object": "moipInputSrcSelectIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "moipInputSrcSelectIdx": {
+    "name": "moipInputSrcSelectIdx",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcSelectV4IPAddr": {
+    "name": "moipInputSrcSelectV4IPAddr",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcSelectData1Sel": {
+    "name": "moipInputSrcSelectData1Sel",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcSelectData2Sel": {
+    "name": "moipInputSrcSelectData2Sel",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcSelectData1Avail": {
+    "name": "moipInputSrcSelectData1Avail",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcSelectData2Avail": {
+    "name": "moipInputSrcSelectData2Avail",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcSelectData1Enabled": {
+    "name": "moipInputSrcSelectData1Enabled",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcSelectData2Enabled": {
+    "name": "moipInputSrcSelectData2Enabled",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcSelectRowEnabled": {
+    "name": "moipInputSrcSelectRowEnabled",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcFilterTable": {
+    "name": "moipInputSrcFilterTable",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "moipInputSrcFilterEntry": {
+    "name": "moipInputSrcFilterEntry",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DMN-DSG-MOIPINPUT-MIB",
+        "object": "moipInputSrcFilterIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "moipInputSrcFilterIdx": {
+    "name": "moipInputSrcFilterIdx",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputSrcFilterV4IPAddr": {
+    "name": "moipInputSrcFilterV4IPAddr",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputSrcFilterRowStatus": {
+    "name": "moipInputSrcFilterRowStatus",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moipInputFlowTable": {
+    "name": "moipInputFlowTable",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "moipInputFlowEntry": {
+    "name": "moipInputFlowEntry",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DMN-DSG-MOIPINPUT-MIB",
+        "object": "moipInputFlowID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "moipInputFlowID": {
+    "name": "moipInputFlowID",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputFlowTsAct": {
+    "name": "moipInputFlowTsAct",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputFlowFecColStrmAct": {
+    "name": "moipInputFlowFecColStrmAct",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moipInputFlowFecRowStrmAct": {
+    "name": "moipInputFlowFecRowStrmAct",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.41.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DMN-DSG-MOIPINPUT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DMN-DSG-MOIPINPUT-MIB"
+  }
+}

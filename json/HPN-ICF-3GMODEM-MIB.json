@@ -1,0 +1,2082 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicf3GModem": {
+    "name": "hpnicf3GModem",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-04-30 12:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "HpnicfUIMStatusType": {
+    "name": "HpnicfUIMStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 1,
+          "initial": 2,
+          "fault": 3,
+          "unprotected": 4,
+          "protected": 5,
+          "pinLocked": 6,
+          "pukLocked": 7,
+          "selfDestruct": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfSmsEncodeType": {
+    "name": "HpnicfSmsEncodeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "ucs2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicf3GModemObjects": {
+    "name": "hpnicf3GModemObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1",
+    "class": "objectidentity"
+  },
+  "hpnicfWirelessCard": {
+    "name": "hpnicfWirelessCard",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfUIM": {
+    "name": "hpnicfUIM",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicf3GCdma": {
+    "name": "hpnicf3GCdma",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicf3GGsm": {
+    "name": "hpnicf3GGsm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfLte": {
+    "name": "hpnicfLte",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5",
+    "class": "objectidentity"
+  },
+  "hpnicfWirelessCardTable": {
+    "name": "hpnicfWirelessCardTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfWirelessCardEntry": {
+    "name": "hpnicfWirelessCardEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfWirelessCardIndex": {
+    "name": "hpnicfWirelessCardIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardModelName": {
+    "name": "hpnicfWirelessCardModelName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardMfgName": {
+    "name": "hpnicfWirelessCardMfgName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardDescription": {
+    "name": "hpnicfWirelessCardDescription",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardSerialNumber": {
+    "name": "hpnicfWirelessCardSerialNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardCMIIID": {
+    "name": "hpnicfWirelessCardCMIIID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardHardwareVersion": {
+    "name": "hpnicfWirelessCardHardwareVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardFirmwareVersion": {
+    "name": "hpnicfWirelessCardFirmwareVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardPRLVersion": {
+    "name": "hpnicfWirelessCardPRLVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardInterfaceIndex": {
+    "name": "hpnicfWirelessCardInterfaceIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardModemStatus": {
+    "name": "hpnicfWirelessCardModemStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "onLine": 2,
+          "offLine": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardModemMode": {
+    "name": "hpnicfWirelessCardModemMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "tdscdma": 2,
+          "wcdma": 3,
+          "cdma": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfWirelessCardCurNetConn": {
+    "name": "hpnicfWirelessCardCurNetConn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noService": 2,
+          "gsm": 3,
+          "gprs": 4,
+          "edge": 5,
+          "hsdpa": 6,
+          "hsupa": 7,
+          "hsupaAndhsdpa": 8,
+          "hspaPlus": 9,
+          "umts": 10,
+          "dchspaPlus": 11,
+          "lte": 12,
+          "onexrtt": 13,
+          "evdo": 14,
+          "onexrttAndevdo": 15,
+          "tdscdma": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSmsGroup": {
+    "name": "hpnicfSmsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfSmsScalarObjects": {
+    "name": "hpnicfSmsScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfSmsRxNotifSwitch": {
+    "name": "hpnicfSmsRxNotifSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSmsOperationTable": {
+    "name": "hpnicfSmsOperationTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSmsOperationEntry": {
+    "name": "hpnicfSmsOperationEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSmsDestNumber": {
+    "name": "hpnicfSmsDestNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSmsEncode": {
+    "name": "hpnicfSmsEncode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfSmsEncodeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSmsContent": {
+    "name": "hpnicfSmsContent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSmsSendStatus": {
+    "name": "hpnicfSmsSendStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set2Send": 1,
+          "ready2Send": 2,
+          "sending": 3,
+          "sentAlready": 4,
+          "telnumberInvalid": 5,
+          "paramInvalid": 6,
+          "contentTooLong": 7,
+          "codeError": 8,
+          "unknown": 9,
+          "busy": 10,
+          "notPresent": 11,
+          "notSupport": 12,
+          "initializing": 13,
+          "noCenterNum": 14,
+          "noSim": 15,
+          "simNotReady": 16,
+          "sendAtFailed": 17,
+          "sendDisable": 18
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfWirelessCardOnlineTable": {
+    "name": "hpnicfWirelessCardOnlineTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfWirelessCardOnlineEntry": {
+    "name": "hpnicfWirelessCardOnlineEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardOnlineTime",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfWirelessCardOnlineTime": {
+    "name": "hpnicfWirelessCardOnlineTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfWirelessCardOnlineType": {
+    "name": "hpnicfWirelessCardOnlineType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfUIMInfoTable": {
+    "name": "hpnicfUIMInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfUIMInfoEntry": {
+    "name": "hpnicfUIMInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfUIMIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfUIMIndex": {
+    "name": "hpnicfUIMIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfUIMStatus": {
+    "name": "hpnicfUIMStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfUIMStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfUIMImsi": {
+    "name": "hpnicfUIMImsi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfUIMPin": {
+    "name": "hpnicfUIMPin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfUIMVoltage": {
+    "name": "hpnicfUIMVoltage",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milli-volt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfUIMProvider": {
+    "name": "hpnicfUIMProvider",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfUIMSignal": {
+    "name": "hpnicfUIMSignal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          },
+          {
+            "min": 99,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfUIMTryPinPukTimes": {
+    "name": "hpnicfUIMTryPinPukTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfUIMOldPin": {
+    "name": "hpnicfUIMOldPin",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicf3GCdma1xRttTable": {
+    "name": "hpnicf3GCdma1xRttTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicf3GCdma1xRttEntry": {
+    "name": "hpnicf3GCdma1xRttEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicf3GCdma1xRttCurrentRssi": {
+    "name": "hpnicf3GCdma1xRttCurrentRssi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GCdma1xRttRssiMediumThreshold": {
+    "name": "hpnicf3GCdma1xRttRssiMediumThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicf3GCdma1xRttRssiWeakThreshold": {
+    "name": "hpnicf3GCdma1xRttRssiWeakThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicf3GCdma1xRttCurServiceStatus": {
+    "name": "hpnicf3GCdma1xRttCurServiceStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "emergency": 3,
+          "lowPower": 4,
+          "noService": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GCdma1xRttCurRoamingStatus": {
+    "name": "hpnicf3GCdma1xRttCurRoamingStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "roaming": 2,
+          "home": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GCdmaEvDoTable": {
+    "name": "hpnicf3GCdmaEvDoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicf3GCdmaEvDoEntry": {
+    "name": "hpnicf3GCdmaEvDoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicf3GCdmaEvDoCurrentRssi": {
+    "name": "hpnicf3GCdmaEvDoCurrentRssi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GCdmaEvDoRssiMediumThreshold": {
+    "name": "hpnicf3GCdmaEvDoRssiMediumThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicf3GCdmaEvDoRssiWeakThreshold": {
+    "name": "hpnicf3GCdmaEvDoRssiWeakThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicf3GCdmaEvDoCurServiceStatus": {
+    "name": "hpnicf3GCdmaEvDoCurServiceStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "emergency": 3,
+          "lowPower": 4,
+          "noService": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GCdmaEvDoCurRoamingStatus": {
+    "name": "hpnicf3GCdmaEvDoCurRoamingStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "roaming": 2,
+          "home": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmInfoTable": {
+    "name": "hpnicf3GGsmInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicf3GGsmInfoEntry": {
+    "name": "hpnicf3GGsmInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicf3GGsmCurrentRssi": {
+    "name": "hpnicf3GGsmCurrentRssi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmRssiMediumThreshold": {
+    "name": "hpnicf3GGsmRssiMediumThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicf3GGsmRssiWeakThreshold": {
+    "name": "hpnicf3GGsmRssiWeakThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicf3GGsmImsi": {
+    "name": "hpnicf3GGsmImsi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmImei": {
+    "name": "hpnicf3GGsmImei",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmApn": {
+    "name": "hpnicf3GGsmApn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicf3GGsmPacketSessionStatus": {
+    "name": "hpnicf3GGsmPacketSessionStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmNetworkSelectionMode": {
+    "name": "hpnicf3GGsmNetworkSelectionMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "automatic": 2,
+          "manual": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmMobileNetworkName": {
+    "name": "hpnicf3GGsmMobileNetworkName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmLac": {
+    "name": "hpnicf3GGsmLac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmCellId": {
+    "name": "hpnicf3GGsmCellId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmSimStatus": {
+    "name": "hpnicf3GGsmSimStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "notInsert": 3,
+          "networkReject": 4,
+          "blocked": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmCurServiceStatus": {
+    "name": "hpnicf3GGsmCurServiceStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "emergency": 3,
+          "lowPower": 4,
+          "noService": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmCurRoamingStatus": {
+    "name": "hpnicf3GGsmCurRoamingStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "roaming": 2,
+          "home": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmMcc": {
+    "name": "hpnicf3GGsmMcc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicf3GGsmMnc": {
+    "name": "hpnicf3GGsmMnc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLteInfoTable": {
+    "name": "hpnicfLteInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfLteInfoEntry": {
+    "name": "hpnicfLteInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfLteCurrentRsrp": {
+    "name": "hpnicfLteCurrentRsrp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLteCurrentRsrq": {
+    "name": "hpnicfLteCurrentRsrq",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLteCurrentSinr": {
+    "name": "hpnicfLteCurrentSinr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLteTxPower": {
+    "name": "hpnicfLteTxPower",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLteCurrentRssi": {
+    "name": "hpnicfLteCurrentRssi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfLteRssiMediumThreshold": {
+    "name": "hpnicfLteRssiMediumThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfLteRssiWeakThreshold": {
+    "name": "hpnicfLteRssiWeakThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -150,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicf3GModemTrap": {
+    "name": "hpnicf3GModemTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2",
+    "class": "objectidentity"
+  },
+  "hpnicf3GModemTraps": {
+    "name": "hpnicf3GModemTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3",
+    "class": "objectidentity"
+  },
+  "hpnicf3GModemTrapPrefix": {
+    "name": "hpnicf3GModemTrapPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfDevSerialNumber": {
+    "name": "hpnicfDevSerialNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDeviceOUI": {
+    "name": "hpnicfDeviceOUI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfAccessMedia": {
+    "name": "hpnicfAccessMedia",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "air": 2,
+          "cable": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicf3GCurrentService": {
+    "name": "hpnicf3GCurrentService",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "oneXRtt": 2,
+          "evDo": 3,
+          "gsm": 4,
+          "lte": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicf3GCurrentRssiBind": {
+    "name": "hpnicf3GCurrentRssiBind",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": -2147483648
+          },
+          {
+            "min": -150,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicf3GImsiBind": {
+    "name": "hpnicf3GImsiBind",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfSmsSrcNumberBind": {
+    "name": "hpnicfSmsSrcNumberBind",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfSmsTimeBind": {
+    "name": "hpnicfSmsTimeBind",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfSmsEncodeBind": {
+    "name": "hpnicfSmsEncodeBind",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfSmsEncodeType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfSmsContentBind": {
+    "name": "hpnicfSmsContentBind",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfWirelessCardInserted": {
+    "name": "hpnicfWirelessCardInserted",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDeviceOUI"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDevSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfUIMImsi"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfWirelessCardPulledOut": {
+    "name": "hpnicfWirelessCardPulledOut",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDeviceOUI"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDevSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfUIMImsi"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfUIMPinInvalid": {
+    "name": "hpnicfUIMPinInvalid",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDeviceOUI"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDevSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfUIMImsi"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfUIMPinChanged": {
+    "name": "hpnicfUIMPinChanged",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDeviceOUI"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDevSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfUIMImsi"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfUIMOldPin"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfUIMPin"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAccessMediaChanged": {
+    "name": "hpnicfAccessMediaChanged",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDeviceOUI"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDevSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfUIMImsi"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfAccessMedia"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicf3GRssiStrongSignalTrap": {
+    "name": "hpnicf3GRssiStrongSignalTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDeviceOUI"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDevSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GCurrentService"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GCurrentRssiBind"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GImsiBind"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicf3GRssiMediumSignalTrap": {
+    "name": "hpnicf3GRssiMediumSignalTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDeviceOUI"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDevSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GCurrentService"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GCurrentRssiBind"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GImsiBind"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicf3GRssiWeakSignalTrap": {
+    "name": "hpnicf3GRssiWeakSignalTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDeviceOUI"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfDevSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardSerialNumber"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GCurrentService"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GCurrentRssiBind"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicf3GImsiBind"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSmsTxNotification": {
+    "name": "hpnicfSmsTxNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfSmsSendStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSmsRxNotification": {
+    "name": "hpnicfSmsRxNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.98.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfWirelessCardIndex"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfSmsSrcNumberBind"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfSmsTimeBind"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfSmsEncodeBind"
+      },
+      {
+        "module": "HPN-ICF-3GMODEM-MIB",
+        "object": "hpnicfSmsContentBind"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-3GMODEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-3GMODEM-MIB"
+  }
+}

@@ -1,0 +1,6159 @@
+{
+  "imports": {
+    "class": "imports",
+    "OMNITRON-TC-MIB": [
+      "OstVlanId",
+      "omnitron",
+      "OstModeType",
+      "OstPortNumber",
+      "icAgent",
+      "OstPortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeInterval"
+    ]
+  },
+  "omnitronMIB": {
+    "name": "omnitronMIB",
+    "oid": "1.3.6.1.4.1.7342.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-10-21 12:00",
+        "description": "Added modHwRev and modPcbRev "
+      },
+      {
+        "revision": "2015-01-19 12:00",
+        "description": "Initial version of v5.2 MIB. Updated resetmod and modreset to allow reboot from backup "
+      }
+    ]
+  },
+  "prodAgent": {
+    "name": "prodAgent",
+    "oid": "1.3.6.1.4.1.7342.2",
+    "class": "objectidentity"
+  },
+  "omnitronConformance": {
+    "name": "omnitronConformance",
+    "oid": "1.3.6.1.4.1.7342.4",
+    "class": "objectidentity"
+  },
+  "omnitronProducts": {
+    "name": "omnitronProducts",
+    "oid": "1.3.6.1.4.1.7342.5",
+    "class": "objectidentity"
+  },
+  "managementModule": {
+    "name": "managementModule",
+    "oid": "1.3.6.1.4.1.7342.5.1",
+    "class": "objectidentity"
+  },
+  "chassis": {
+    "name": "chassis",
+    "oid": "1.3.6.1.4.1.7342.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "selfSlot": {
+    "name": "selfSlot",
+    "oid": "1.3.6.1.4.1.7342.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisTable": {
+    "name": "chassisTable",
+    "oid": "1.3.6.1.4.1.7342.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chassisEntry": {
+    "name": "chassisEntry",
+    "oid": "1.3.6.1.4.1.7342.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "chassisnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "slotnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chassisnum": {
+    "name": "chassisnum",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slotnum": {
+    "name": "slotnum",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassistype": {
+    "name": "chassistype",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prodtype": {
+    "name": "prodtype",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisname": {
+    "name": "chassisname",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "partnum": {
+    "name": "partnum",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialnum": {
+    "name": "serialnum",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manufdate": {
+    "name": "manufdate",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softrev": {
+    "name": "softrev",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prodrev": {
+    "name": "prodrev",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ledstat": {
+    "name": "ledstat",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "switchstat": {
+    "name": "switchstat",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extended1": {
+    "name": "extended1",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extended2": {
+    "name": "extended2",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extended3": {
+    "name": "extended3",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extended4": {
+    "name": "extended4",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extended5": {
+    "name": "extended5",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extended6": {
+    "name": "extended6",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "resetmod": {
+    "name": "resetmod",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wrswitch": {
+    "name": "wrswitch",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modulename": {
+    "name": "modulename",
+    "oid": "1.3.6.1.4.1.7342.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enhancedchassisTable": {
+    "name": "enhancedchassisTable",
+    "oid": "1.3.6.1.4.1.7342.2.1",
+    "class": "objectidentity"
+  },
+  "moduleCount": {
+    "name": "moduleCount",
+    "oid": "1.3.6.1.4.1.7342.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleTable": {
+    "name": "moduleTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "moduleEntry": {
+    "name": "moduleEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "modchassnum": {
+    "name": "modchassnum",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modslotnum": {
+    "name": "modslotnum",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modchasstype": {
+    "name": "modchasstype",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modprodtype": {
+    "name": "modprodtype",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modsoftrev": {
+    "name": "modsoftrev",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modprodrev": {
+    "name": "modprodrev",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modreset": {
+    "name": "modreset",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modnumports": {
+    "name": "modnumports",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modchassname": {
+    "name": "modchassname",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modpartnum": {
+    "name": "modpartnum",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modserialnum": {
+    "name": "modserialnum",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modmanufdate": {
+    "name": "modmanufdate",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modname": {
+    "name": "modname",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modportvlan": {
+    "name": "modportvlan",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modextfeaturebits": {
+    "name": "modextfeaturebits",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modswbuildnum": {
+    "name": "modswbuildnum",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modenable802dot1qProcessing": {
+    "name": "modenable802dot1qProcessing",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modtagsubstitution": {
+    "name": "modtagsubstitution",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modcommitVLANchanges": {
+    "name": "modcommitVLANchanges",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modvlanTableClear": {
+    "name": "modvlanTableClear",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modcommitNMMCfgChanges": {
+    "name": "modcommitNMMCfgChanges",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modLM80volts": {
+    "name": "modLM80volts",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modLM80currents": {
+    "name": "modLM80currents",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modLM80misc": {
+    "name": "modLM80misc",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modRestoreFactoryDefaults": {
+    "name": "modRestoreFactoryDefaults",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coreStatusOnly": {
+    "name": "coreStatusOnly",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ingressPolicingType": {
+    "name": "ingressPolicingType",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanservicetag": {
+    "name": "vlanservicetag",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "defaultForwardingMap": {
+    "name": "defaultForwardingMap",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modFpgaRev": {
+    "name": "modFpgaRev",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modExpPartNumber": {
+    "name": "modExpPartNumber",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modExpSoftwareRev": {
+    "name": "modExpSoftwareRev",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modExpLedStatus": {
+    "name": "modExpLedStatus",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modHwRev": {
+    "name": "modHwRev",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modPcbRev": {
+    "name": "modPcbRev",
+    "oid": "1.3.6.1.4.1.7342.2.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleMgtCfgTable": {
+    "name": "moduleMgtCfgTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "moduleMgtCfgEntry": {
+    "name": "moduleMgtCfgEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysAdminStatus": {
+    "name": "sysAdminStatus",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysDateTime": {
+    "name": "sysDateTime",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "macAddr": {
+    "name": "macAddr",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipAddr": {
+    "name": "ipAddr",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subnetmask": {
+    "name": "subnetmask",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gateway": {
+    "name": "gateway",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "readCommunity": {
+    "name": "readCommunity",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "writeCommunity": {
+    "name": "writeCommunity",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mychassnum": {
+    "name": "mychassnum",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mmname": {
+    "name": "mmname",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traphost1": {
+    "name": "traphost1",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traphost2": {
+    "name": "traphost2",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traphost3": {
+    "name": "traphost3",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traphost4": {
+    "name": "traphost4",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traphost5": {
+    "name": "traphost5",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traphost6": {
+    "name": "traphost6",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traphost7": {
+    "name": "traphost7",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "traphost8": {
+    "name": "traphost8",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysloc": {
+    "name": "sysloc",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "syscon": {
+    "name": "syscon",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "serialpass": {
+    "name": "serialpass",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "telnetpass": {
+    "name": "telnetpass",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ftppasswrd": {
+    "name": "ftppasswrd",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "keepAliveInterval": {
+    "name": "keepAliveInterval",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanIdOst": {
+    "name": "vlanIdOst",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nmmCfgSerialBaudrate": {
+    "name": "nmmCfgSerialBaudrate",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enabledFunctions": {
+    "name": "enabledFunctions",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enableSNMPFunction": {
+    "name": "enableSNMPFunction",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nmmCfgState": {
+    "name": "nmmCfgState",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nmmSecureMode": {
+    "name": "nmmSecureMode",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nmmSecureConnState": {
+    "name": "nmmSecureConnState",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nmmIpProtocolState": {
+    "name": "nmmIpProtocolState",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nmmIpDisabled": {
+    "name": "nmmIpDisabled",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPri": {
+    "name": "vlanPri",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enableSNMPWrites": {
+    "name": "enableSNMPWrites",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpuVoltageIn": {
+    "name": "cpuVoltageIn",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuVoltageOut": {
+    "name": "cpuVoltageOut",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTemperature": {
+    "name": "cpuTemperature",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nmmSecureSlaveSlot": {
+    "name": "nmmSecureSlaveSlot",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpIpAddr": {
+    "name": "dhcpIpAddr",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpSubnetmask": {
+    "name": "dhcpSubnetmask",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpGateway": {
+    "name": "dhcpGateway",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nmmOAMmgmtMode": {
+    "name": "nmmOAMmgmtMode",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "customertag": {
+    "name": "customertag",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "servicetag": {
+    "name": "servicetag",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnodeControl": {
+    "name": "cnodeControl",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnodeCIR": {
+    "name": "cnodeCIR",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enableSNMPv3Function": {
+    "name": "enableSNMPv3Function",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slaveWrite": {
+    "name": "slaveWrite",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrapType": {
+    "name": "snmpTrapType",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "capsMask": {
+    "name": "capsMask",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slaveTraps": {
+    "name": "slaveTraps",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slaveTrapsForward": {
+    "name": "slaveTrapsForward",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipAddr2": {
+    "name": "ipAddr2",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subnetmask2": {
+    "name": "subnetmask2",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gateway2": {
+    "name": "gateway2",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipaddrEVCassociation": {
+    "name": "ipaddrEVCassociation",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipaddr2EVCassociation": {
+    "name": "ipaddr2EVCassociation",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bootpEnable": {
+    "name": "bootpEnable",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tftpEnable": {
+    "name": "tftpEnable",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tftpServerIpAddress": {
+    "name": "tftpServerIpAddress",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcptftpServerIpAddress": {
+    "name": "dhcptftpServerIpAddress",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tftpFileName": {
+    "name": "tftpFileName",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modeType": {
+    "name": "modeType",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpPortNumber": {
+    "name": "dhcpPortNumber",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpTagVid": {
+    "name": "dhcpTagVid",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapSrcIpSelect": {
+    "name": "trapSrcIpSelect",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "muxGroupDefaults": {
+    "name": "muxGroupDefaults",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portFwdCpu": {
+    "name": "portFwdCpu",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "port1": 1,
+          "port2": 2,
+          "backplaneA": 3,
+          "backplaneB": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "all",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portFwdCpuList": {
+    "name": "portFwdCpuList",
+    "oid": "1.3.6.1.4.1.7342.2.1.3.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstPortList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "all",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "modulePortsTable": {
+    "name": "modulePortsTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "modulePortsEntry": {
+    "name": "modulePortsEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portnum": {
+    "name": "portnum",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OstPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portState": {
+    "name": "portState",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "disabled": 1,
+          "enabled": 2,
+          "unused": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portEgressRate": {
+    "name": "portEgressRate",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portpriority": {
+    "name": "portpriority",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portcanonicalformatIndicator": {
+    "name": "portcanonicalformatIndicator",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portvlanidentifier": {
+    "name": "portvlanidentifier",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portmlistcriteria": {
+    "name": "portmlistcriteria",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portingresssecurity": {
+    "name": "portingresssecurity",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portegresspolicy": {
+    "name": "portegresspolicy",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portIngressRate": {
+    "name": "portIngressRate",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSpeed": {
+    "name": "portSpeed",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portUnidirectionalAhOamEnable": {
+    "name": "portUnidirectionalAhOamEnable",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portIngressRateDropOrPause": {
+    "name": "portIngressRateDropOrPause",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portIngressRateCBS": {
+    "name": "portIngressRateCBS",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 256000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portL2CPmgntProcessing": {
+    "name": "portL2CPmgntProcessing",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portEgressQosPolicy": {
+    "name": "portEgressQosPolicy",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portAccessType": {
+    "name": "portAccessType",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portStatsClear": {
+    "name": "portStatsClear",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portLinkState": {
+    "name": "portLinkState",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDuplex": {
+    "name": "portDuplex",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "halfDuplex": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portMacAddress": {
+    "name": "portMacAddress",
+    "oid": "1.3.6.1.4.1.7342.2.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsTable": {
+    "name": "portStatsTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStatsEntry": {
+    "name": "portStatsEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "txOctets": {
+    "name": "txOctets",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txDropPkts": {
+    "name": "txDropPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txBroadcastPkts": {
+    "name": "txBroadcastPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txMulticastPkts": {
+    "name": "txMulticastPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txUnicastPkts": {
+    "name": "txUnicastPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txGoodPkts": {
+    "name": "txGoodPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txErrorPkts": {
+    "name": "txErrorPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txPausePkts": {
+    "name": "txPausePkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txCollisions": {
+    "name": "txCollisions",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txSingleCollision": {
+    "name": "txSingleCollision",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txMultipleCollision": {
+    "name": "txMultipleCollision",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txDeferedTransmit": {
+    "name": "txDeferedTransmit",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txLateCollision": {
+    "name": "txLateCollision",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txExcessiveCollision": {
+    "name": "txExcessiveCollision",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txDroppedEvents": {
+    "name": "txDroppedEvents",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxOctets": {
+    "name": "rxOctets",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxDropPkts": {
+    "name": "rxDropPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxBroadcastPkts": {
+    "name": "rxBroadcastPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxMulticastPkts": {
+    "name": "rxMulticastPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxUnicastPkts": {
+    "name": "rxUnicastPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxGoodPkts": {
+    "name": "rxGoodPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxTotalPkts": {
+    "name": "rxTotalPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxErrorPkts": {
+    "name": "rxErrorPkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPausePkts": {
+    "name": "rxPausePkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxUndersizePkts": {
+    "name": "rxUndersizePkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxOversizePkts": {
+    "name": "rxOversizePkts",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxFragments": {
+    "name": "rxFragments",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxJabbers": {
+    "name": "rxJabbers",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxAlignmentErrors": {
+    "name": "rxAlignmentErrors",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxFCSErrors": {
+    "name": "rxFCSErrors",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxSymbolErrors": {
+    "name": "rxSymbolErrors",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxCRCAlignErrors": {
+    "name": "rxCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPackets64": {
+    "name": "rxPackets64",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPackets65to127": {
+    "name": "rxPackets65to127",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPackets128to255": {
+    "name": "rxPackets128to255",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPackets256to511": {
+    "name": "rxPackets256to511",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPackets512to1023": {
+    "name": "rxPackets512to1023",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxPackets1024to1518": {
+    "name": "rxPackets1024to1518",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txOctets64": {
+    "name": "txOctets64",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxOctets64": {
+    "name": "rxOctets64",
+    "oid": "1.3.6.1.4.1.7342.2.1.5.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "moduleVLANTable": {
+    "name": "moduleVLANTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "moduleVLANEntry": {
+    "name": "moduleVLANEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "index": {
+    "name": "index",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "validityflag": {
+    "name": "validityflag",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanidentifier": {
+    "name": "vlanidentifier",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port1Membership": {
+    "name": "port1Membership",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port2Membership": {
+    "name": "port2Membership",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port3Membership": {
+    "name": "port3Membership",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port4Membership": {
+    "name": "port4Membership",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port5Membership": {
+    "name": "port5Membership",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "port6Membership": {
+    "name": "port6Membership",
+    "oid": "1.3.6.1.4.1.7342.2.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portAHTable": {
+    "name": "portAHTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portAHEntry": {
+    "name": "portAHEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ahEnabled": {
+    "name": "ahEnabled",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahLpbkMode": {
+    "name": "ahLpbkMode",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahLocalMode": {
+    "name": "ahLocalMode",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahRemoteMode": {
+    "name": "ahRemoteMode",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahLocalMuxState": {
+    "name": "ahLocalMuxState",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahRemoteMuxState": {
+    "name": "ahRemoteMuxState",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahLocalParserState": {
+    "name": "ahLocalParserState",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahRemoteParserState": {
+    "name": "ahRemoteParserState",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahLocalSupportVar": {
+    "name": "ahLocalSupportVar",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahLocalLinkFlags": {
+    "name": "ahLocalLinkFlags",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahLocalLpbkTimeout": {
+    "name": "ahLocalLpbkTimeout",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahRemoteSupportVar": {
+    "name": "ahRemoteSupportVar",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahRemoteLinkFlags": {
+    "name": "ahRemoteLinkFlags",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahRemoteLpbkTimeout": {
+    "name": "ahRemoteLpbkTimeout",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahLocalOUI": {
+    "name": "ahLocalOUI",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahRemoteOUI": {
+    "name": "ahRemoteOUI",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahErroredSymbolPeriodWindow": {
+    "name": "ahErroredSymbolPeriodWindow",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahErroredSymbolPeriodThreshold": {
+    "name": "ahErroredSymbolPeriodThreshold",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahErroredFrameWindow": {
+    "name": "ahErroredFrameWindow",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahErroredFrameThreshold": {
+    "name": "ahErroredFrameThreshold",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahErroredFramePeriodWindow": {
+    "name": "ahErroredFramePeriodWindow",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahErroredFramePeriodThreshold": {
+    "name": "ahErroredFramePeriodThreshold",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahErroredFrameSecondsWindow": {
+    "name": "ahErroredFrameSecondsWindow",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahErroredFrameSecondsThreshold": {
+    "name": "ahErroredFrameSecondsThreshold",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahRemoteLinkPort": {
+    "name": "ahRemoteLinkPort",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahSymbolErrorRunningTotal": {
+    "name": "ahSymbolErrorRunningTotal",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahSymbolErrorEventTotal": {
+    "name": "ahSymbolErrorEventTotal",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahFrameErrorRunningTotal": {
+    "name": "ahFrameErrorRunningTotal",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahFrameErrorEventTotal": {
+    "name": "ahFrameErrorEventTotal",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahFramePeriodRunningTotal": {
+    "name": "ahFramePeriodRunningTotal",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahFramePeriodEventTotal": {
+    "name": "ahFramePeriodEventTotal",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahFrameSecondsSummaryRunningTotal": {
+    "name": "ahFrameSecondsSummaryRunningTotal",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahFrameSecondsSummaryEventTotal": {
+    "name": "ahFrameSecondsSummaryEventTotal",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahClearStatistics": {
+    "name": "ahClearStatistics",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahTransmissionRate": {
+    "name": "ahTransmissionRate",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Frames/sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahCriticalEventMode": {
+    "name": "ahCriticalEventMode",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ahCriticalEventTrapList": {
+    "name": "ahCriticalEventTrapList",
+    "oid": "1.3.6.1.4.1.7342.2.1.7.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSFPTable": {
+    "name": "portSFPTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portSFPEntry": {
+    "name": "portSFPEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portSFPstatus": {
+    "name": "portSFPstatus",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSFPpageA0": {
+    "name": "portSFPpageA0",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSFPpageA2": {
+    "name": "portSFPpageA2",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpBitRate": {
+    "name": "portSfpBitRate",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpVendorName": {
+    "name": "portSfpVendorName",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpVendorPartNumber": {
+    "name": "portSfpVendorPartNumber",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpVendorSerialNumber": {
+    "name": "portSfpVendorSerialNumber",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpDateCode": {
+    "name": "portSfpDateCode",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpTemperature": {
+    "name": "portSfpTemperature",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpVcc": {
+    "name": "portSfpVcc",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpBiasCurrent": {
+    "name": "portSfpBiasCurrent",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpTxPower": {
+    "name": "portSfpTxPower",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSfpRxPower": {
+    "name": "portSfpRxPower",
+    "oid": "1.3.6.1.4.1.7342.2.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userTable": {
+    "name": "userTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "userEntry": {
+    "name": "userEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "userIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "userIndex": {
+    "name": "userIndex",
+    "oid": "1.3.6.1.4.1.7342.2.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpv3UserName": {
+    "name": "snmpv3UserName",
+    "oid": "1.3.6.1.4.1.7342.2.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpv3SecurityLevel": {
+    "name": "snmpv3SecurityLevel",
+    "oid": "1.3.6.1.4.1.7342.2.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpv3AuthPassword": {
+    "name": "snmpv3AuthPassword",
+    "oid": "1.3.6.1.4.1.7342.2.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpv3PrivPassword": {
+    "name": "snmpv3PrivPassword",
+    "oid": "1.3.6.1.4.1.7342.2.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpv3UserType": {
+    "name": "snmpv3UserType",
+    "oid": "1.3.6.1.4.1.7342.2.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ostProtocolStatusTable": {
+    "name": "ostProtocolStatusTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ostProtocolStatusEntry": {
+    "name": "ostProtocolStatusEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "userIndex",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostProtocolStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ostProtocolStatusIndex": {
+    "name": "ostProtocolStatusIndex",
+    "oid": "1.3.6.1.4.1.7342.2.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ostProtocolStatusType": {
+    "name": "ostProtocolStatusType",
+    "oid": "1.3.6.1.4.1.7342.2.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serial": 1,
+          "telnet": 2,
+          "ftp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostProtocolStatusState": {
+    "name": "ostProtocolStatusState",
+    "oid": "1.3.6.1.4.1.7342.2.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "lockedout": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostProtocoManagementPort": {
+    "name": "ostProtocoManagementPort",
+    "oid": "1.3.6.1.4.1.7342.2.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDefined": 1,
+          "mgt1": 2,
+          "mgt2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostProtocolStatusIpAddress": {
+    "name": "ostProtocolStatusIpAddress",
+    "oid": "1.3.6.1.4.1.7342.2.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostProtocolStatusSessionOpenLockTime": {
+    "name": "ostProtocolStatusSessionOpenLockTime",
+    "oid": "1.3.6.1.4.1.7342.2.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalStatusTable": {
+    "name": "ostEnvironmentalStatusTable",
+    "oid": "1.3.6.1.4.1.7342.2.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ostEnvironmentalStatusEntry": {
+    "name": "ostEnvironmentalStatusEntry",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum",
+        "implied": 0
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ostEnvironmentalPs1Status": {
+    "name": "ostEnvironmentalPs1Status",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "notInstalled": 1,
+          "installedNotPowered": 2,
+          "installedPowered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalPs1VoltageIn": {
+    "name": "ostEnvironmentalPs1VoltageIn",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "millivolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalPs1VoltageOut": {
+    "name": "ostEnvironmentalPs1VoltageOut",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "millivolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalPs1CurrentOut": {
+    "name": "ostEnvironmentalPs1CurrentOut",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliamps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalPs2Status": {
+    "name": "ostEnvironmentalPs2Status",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "notInstalled": 1,
+          "installedNotPowered": 2,
+          "installedPowered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalPs2VoltageIn": {
+    "name": "ostEnvironmentalPs2VoltageIn",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "millivolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalPs2VoltageOut": {
+    "name": "ostEnvironmentalPs2VoltageOut",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "millivolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalPs2CurrentOut": {
+    "name": "ostEnvironmentalPs2CurrentOut",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliamps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalTemperature": {
+    "name": "ostEnvironmentalTemperature",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalFan1Status": {
+    "name": "ostEnvironmentalFan1Status",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "notInstalled": 1,
+          "installedNotPowered": 2,
+          "installedPowered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalFan1Speed": {
+    "name": "ostEnvironmentalFan1Speed",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "rpm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalFan2Status": {
+    "name": "ostEnvironmentalFan2Status",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "notInstalled": 1,
+          "installedNotPowered": 2,
+          "installedPowered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalFan2Speed": {
+    "name": "ostEnvironmentalFan2Speed",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "rpm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalFan3Status": {
+    "name": "ostEnvironmentalFan3Status",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "notInstalled": 1,
+          "installedNotPowered": 2,
+          "installedPowered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ostEnvironmentalFan3Speed": {
+    "name": "ostEnvironmentalFan3Speed",
+    "oid": "1.3.6.1.4.1.7342.2.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "rpm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "omnitronCompliances": {
+    "name": "omnitronCompliances",
+    "oid": "1.3.6.1.4.1.7342.4.1",
+    "class": "objectidentity"
+  },
+  "omnitronGroups": {
+    "name": "omnitronGroups",
+    "oid": "1.3.6.1.4.1.7342.4.2",
+    "class": "objectidentity"
+  },
+  "omnitronCompliance": {
+    "name": "omnitronCompliance",
+    "oid": "1.3.6.1.4.1.7342.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "omnitronGroup",
+        "module": "OMNITRON-MIB"
+      },
+      {
+        "object": "omnitronSFPGroup",
+        "module": "OMNITRON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "omnitronGroup": {
+    "name": "omnitronGroup",
+    "oid": "1.3.6.1.4.1.7342.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "chassis"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "selfSlot"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "chassisnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "slotnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "chassistype"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "prodtype"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "chassisname"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "partnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "serialnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "manufdate"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "softrev"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "prodrev"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ledstat"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "switchstat"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "extended1"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "extended2"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "extended3"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "extended4"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "extended5"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "extended6"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "resetmod"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "wrswitch"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modulename"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "moduleCount"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modslotnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchasstype"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modprodtype"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modsoftrev"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modprodrev"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modreset"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modnumports"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modchassname"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modpartnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modserialnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modmanufdate"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modname"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modportvlan"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modextfeaturebits"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modswbuildnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modenable802dot1qProcessing"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modtagsubstitution"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modcommitVLANchanges"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modvlanTableClear"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modcommitNMMCfgChanges"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modLM80volts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modLM80currents"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modLM80misc"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modRestoreFactoryDefaults"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "sysAdminStatus"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "sysDateTime"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "macAddr"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ipAddr"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "subnetmask"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "gateway"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "readCommunity"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "writeCommunity"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "mychassnum"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "mmname"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "traphost1"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "traphost2"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "traphost3"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "traphost4"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "traphost5"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "traphost6"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "traphost7"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "traphost8"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "sysloc"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "syscon"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "serialpass"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "telnetpass"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ftppasswrd"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "keepAliveInterval"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "vlanIdOst"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "nmmCfgSerialBaudrate"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "enabledFunctions"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "enableSNMPFunction"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "nmmCfgState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "nmmSecureMode"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "nmmSecureConnState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "nmmIpProtocolState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "nmmIpDisabled"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "vlanPri"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "enableSNMPWrites"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "cpuVoltageIn"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "cpuVoltageOut"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "cpuTemperature"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "nmmSecureSlaveSlot"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "dhcpIpAddr"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "dhcpSubnetmask"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "dhcpGateway"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "nmmOAMmgmtMode"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "customertag"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "servicetag"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "cnodeControl"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "cnodeCIR"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "enableSNMPv3Function"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "slaveWrite"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "snmpTrapType"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "capsMask"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "slaveTraps"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "slaveTrapsForward"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "coreStatusOnly"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ingressPolicingType"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "vlanservicetag"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "defaultForwardingMap"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modFpgaRev"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modExpPartNumber"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modExpSoftwareRev"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modExpLedStatus"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modHwRev"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modPcbRev"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ipAddr2"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "subnetmask2"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "gateway2"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ipaddrEVCassociation"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ipaddr2EVCassociation"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "bootpEnable"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "tftpEnable"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "tftpServerIpAddress"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "dhcptftpServerIpAddress"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "tftpFileName"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "modeType"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "dhcpPortNumber"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "dhcpTagVid"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "trapSrcIpSelect"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "muxGroupDefaults"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portFwdCpu"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portFwdCpuList"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portEgressRate"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portpriority"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portcanonicalformatIndicator"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portvlanidentifier"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portmlistcriteria"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portingresssecurity"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portegresspolicy"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portIngressRate"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSpeed"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portUnidirectionalAhOamEnable"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portIngressRateDropOrPause"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portIngressRateCBS"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portL2CPmgntProcessing"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portEgressQosPolicy"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portAccessType"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portStatsClear"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portLinkState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portDuplex"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portMacAddress"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txOctets"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txDropPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txBroadcastPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txMulticastPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txUnicastPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txGoodPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txErrorPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txPausePkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txCollisions"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txSingleCollision"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txMultipleCollision"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txDeferedTransmit"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txLateCollision"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txExcessiveCollision"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txDroppedEvents"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxOctets"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxDropPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxBroadcastPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxMulticastPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxUnicastPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxGoodPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxTotalPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxErrorPkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxPausePkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxUndersizePkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxOversizePkts"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxFragments"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxJabbers"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxAlignmentErrors"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxFCSErrors"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxSymbolErrors"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxCRCAlignErrors"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxPackets64"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxPackets65to127"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxPackets128to255"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxPackets256to511"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxPackets512to1023"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxPackets1024to1518"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "txOctets64"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "rxOctets64"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "validityflag"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "vlanidentifier"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "port1Membership"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "port2Membership"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "port3Membership"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "port4Membership"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "port5Membership"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "port6Membership"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahEnabled"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahLpbkMode"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahLocalMode"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahRemoteMode"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahLocalMuxState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahRemoteMuxState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahLocalParserState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahRemoteParserState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahLocalSupportVar"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahLocalLinkFlags"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahLocalLpbkTimeout"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahRemoteSupportVar"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahRemoteLinkFlags"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahRemoteLpbkTimeout"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahLocalOUI"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahRemoteOUI"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahErroredSymbolPeriodWindow"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahErroredSymbolPeriodThreshold"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahErroredFrameWindow"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahErroredFrameThreshold"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahErroredFramePeriodWindow"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahErroredFramePeriodThreshold"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahErroredFrameSecondsWindow"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahErroredFrameSecondsThreshold"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahRemoteLinkPort"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahSymbolErrorRunningTotal"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahSymbolErrorEventTotal"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahFrameErrorRunningTotal"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahFrameErrorEventTotal"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahFramePeriodRunningTotal"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahFramePeriodEventTotal"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahFrameSecondsSummaryRunningTotal"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahFrameSecondsSummaryEventTotal"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahClearStatistics"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahTransmissionRate"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahCriticalEventMode"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ahCriticalEventTrapList"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "snmpv3UserName"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "snmpv3SecurityLevel"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "snmpv3AuthPassword"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "snmpv3PrivPassword"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "snmpv3UserType"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostProtocolStatusType"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostProtocolStatusState"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostProtocoManagementPort"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostProtocolStatusIpAddress"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostProtocolStatusSessionOpenLockTime"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalPs1Status"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalPs1VoltageIn"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalPs1VoltageOut"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalPs1CurrentOut"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalPs2Status"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalPs2VoltageIn"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalPs2VoltageOut"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalPs2CurrentOut"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalTemperature"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalFan1Status"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalFan1Speed"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalFan2Status"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalFan2Speed"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalFan3Status"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "ostEnvironmentalFan3Speed"
+      }
+    ],
+    "status": "current"
+  },
+  "omnitronSFPGroup": {
+    "name": "omnitronSFPGroup",
+    "oid": "1.3.6.1.4.1.7342.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSFPstatus"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSFPpageA0"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSFPpageA2"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpBitRate"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpVendorName"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpVendorPartNumber"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpVendorSerialNumber"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpDateCode"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpTemperature"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpVcc"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpBiasCurrent"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpTxPower"
+      },
+      {
+        "module": "OMNITRON-MIB",
+        "object": "portSfpRxPower"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OMNITRON-MIB"
+  }
+}

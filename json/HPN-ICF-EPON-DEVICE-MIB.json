@@ -1,0 +1,1720 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfEpon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Gauge32",
+      "zeroDotZero",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfEponDeviceMIB": {
+    "name": "hpnicfEponDeviceMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-21 00:00",
+        "description": "Initial version, published as RFC XXXX."
+      }
+    ]
+  },
+  "hpnicfEponDeviceObjectMIB": {
+    "name": "hpnicfEponDeviceObjectMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEponDeviceObjects": {
+    "name": "hpnicfEponDeviceObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEponDeviceConformance": {
+    "name": "hpnicfEponDeviceConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfEponDeviceControlObjects": {
+    "name": "hpnicfEponDeviceControlObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEponDeviceStatObjects": {
+    "name": "hpnicfEponDeviceStatObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfEponDeviceEventObjects": {
+    "name": "hpnicfEponDeviceEventObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfEponDeviceControlTable": {
+    "name": "hpnicfEponDeviceControlTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEponDeviceControlEntry": {
+    "name": "hpnicfEponDeviceControlEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceObjectReset": {
+    "name": "hpnicfEponDeviceObjectReset",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "reset": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceObjectModes": {
+    "name": "hpnicfEponDeviceObjectModes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "olt": 1,
+          "onu": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceObjectFecEnabled": {
+    "name": "hpnicfEponDeviceObjectFecEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFecEnabled": 1,
+          "fecTxEnabled": 2,
+          "fecRxEnabled": 3,
+          "fecTxRxEnabled": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceObjectOamMode": {
+    "name": "hpnicfEponDeviceObjectOamMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOam": 1,
+          "oamServer": 2,
+          "oamclient": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceObjectDeviceReadyMode": {
+    "name": "hpnicfEponDeviceObjectDeviceReadyMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notReady": 1,
+          "inProcess": 2,
+          "ready": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceObjectPowerDown": {
+    "name": "hpnicfEponDeviceObjectPowerDown",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceObjectNumberOfLLIDs": {
+    "name": "hpnicfEponDeviceObjectNumberOfLLIDs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceObjectReportThreshold": {
+    "name": "hpnicfEponDeviceObjectReportThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TQ (16nsec)",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRemoteMACAddressLLIDControl": {
+    "name": "hpnicfEponDeviceRemoteMACAddressLLIDControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "resetLog": 2,
+          "useDefaultReporting": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRemoteMACAddressLLIDTable": {
+    "name": "hpnicfEponDeviceRemoteMACAddressLLIDTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRemoteMACAddressLLIDEntry": {
+    "name": "hpnicfEponDeviceRemoteMACAddressLLIDEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceRemoteMACAddressLLIDName": {
+    "name": "hpnicfEponDeviceRemoteMACAddressLLIDName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRMadlLLID": {
+    "name": "hpnicfEponDeviceRMadlLLID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRMadlLogID": {
+    "name": "hpnicfEponDeviceRMadlLogID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRMadlRemoteAddress": {
+    "name": "hpnicfEponDeviceRMadlRemoteAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRMadlType": {
+    "name": "hpnicfEponDeviceRMadlType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRegister": 1,
+          "registered": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRMadlAction": {
+    "name": "hpnicfEponDeviceRMadlAction",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "register": 2,
+          "deregister": 3,
+          "reregister": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceRMadlEntryStatus": {
+    "name": "hpnicfEponDeviceRMadlEntryStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTable": {
+    "name": "hpnicfEponDeviceStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatEntry": {
+    "name": "hpnicfEponDeviceStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTxFramesQueue0": {
+    "name": "hpnicfEponDeviceStatTxFramesQueue0",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTxFramesQueue1": {
+    "name": "hpnicfEponDeviceStatTxFramesQueue1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTxFramesQueue2": {
+    "name": "hpnicfEponDeviceStatTxFramesQueue2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTxFramesQueue3": {
+    "name": "hpnicfEponDeviceStatTxFramesQueue3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTxFramesQueue4": {
+    "name": "hpnicfEponDeviceStatTxFramesQueue4",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTxFramesQueue5": {
+    "name": "hpnicfEponDeviceStatTxFramesQueue5",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTxFramesQueue6": {
+    "name": "hpnicfEponDeviceStatTxFramesQueue6",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatTxFramesQueue7": {
+    "name": "hpnicfEponDeviceStatTxFramesQueue7",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatRxFramesQueue0": {
+    "name": "hpnicfEponDeviceStatRxFramesQueue0",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatRxFramesQueue1": {
+    "name": "hpnicfEponDeviceStatRxFramesQueue1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatRxFramesQueue2": {
+    "name": "hpnicfEponDeviceStatRxFramesQueue2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatRxFramesQueue3": {
+    "name": "hpnicfEponDeviceStatRxFramesQueue3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatRxFramesQueue4": {
+    "name": "hpnicfEponDeviceStatRxFramesQueue4",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatRxFramesQueue5": {
+    "name": "hpnicfEponDeviceStatRxFramesQueue5",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatRxFramesQueue6": {
+    "name": "hpnicfEponDeviceStatRxFramesQueue6",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatRxFramesQueue7": {
+    "name": "hpnicfEponDeviceStatRxFramesQueue7",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatDroppedFramesQueue0": {
+    "name": "hpnicfEponDeviceStatDroppedFramesQueue0",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatDroppedFramesQueue1": {
+    "name": "hpnicfEponDeviceStatDroppedFramesQueue1",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatDroppedFramesQueue2": {
+    "name": "hpnicfEponDeviceStatDroppedFramesQueue2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatDroppedFramesQueue3": {
+    "name": "hpnicfEponDeviceStatDroppedFramesQueue3",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatDroppedFramesQueue4": {
+    "name": "hpnicfEponDeviceStatDroppedFramesQueue4",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatDroppedFramesQueue5": {
+    "name": "hpnicfEponDeviceStatDroppedFramesQueue5",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatDroppedFramesQueue6": {
+    "name": "hpnicfEponDeviceStatDroppedFramesQueue6",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceStatDroppedFramesQueue7": {
+    "name": "hpnicfEponDeviceStatDroppedFramesQueue7",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventObjectTable": {
+    "name": "hpnicfEponDeviceEventObjectTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventObjectEntry": {
+    "name": "hpnicfEponDeviceEventObjectEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceSampleMinimum": {
+    "name": "hpnicfEponDeviceSampleMinimum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceDyingGaspAlarmState": {
+    "name": "hpnicfEponDeviceDyingGaspAlarmState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceDyingGaspAlarmEnabled": {
+    "name": "hpnicfEponDeviceDyingGaspAlarmEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceCriticalEventState": {
+    "name": "hpnicfEponDeviceCriticalEventState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceCriticalEventEnabled": {
+    "name": "hpnicfEponDeviceCriticalEventEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceLocalLinkFaultAlarmState": {
+    "name": "hpnicfEponDeviceLocalLinkFaultAlarmState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceLocalLinkFaultAlarmEnabled": {
+    "name": "hpnicfEponDeviceLocalLinkFaultAlarmEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceTemperatureEventIndicationState": {
+    "name": "hpnicfEponDeviceTemperatureEventIndicationState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceTemperatureEventIndicationEnabled": {
+    "name": "hpnicfEponDeviceTemperatureEventIndicationEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDevicePowerVoltageEventIndicationState": {
+    "name": "hpnicfEponDevicePowerVoltageEventIndicationState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDevicePowerVoltageEventIndicationEnabled": {
+    "name": "hpnicfEponDevicePowerVoltageEventIndicationEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceGlobalEventState": {
+    "name": "hpnicfEponDeviceGlobalEventState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceGlobalEventEnabled": {
+    "name": "hpnicfEponDeviceGlobalEventEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceErroredSymbolPeriodEventState": {
+    "name": "hpnicfEponDeviceErroredSymbolPeriodEventState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceErroredSymbolPeriodEventEnabled": {
+    "name": "hpnicfEponDeviceErroredSymbolPeriodEventEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceErroredFrameEventState": {
+    "name": "hpnicfEponDeviceErroredFrameEventState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceErroredFrameEventEnabled": {
+    "name": "hpnicfEponDeviceErroredFrameEventEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceErroredFramePeriodEventState": {
+    "name": "hpnicfEponDeviceErroredFramePeriodEventState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceErroredFramePeriodEventEnabled": {
+    "name": "hpnicfEponDeviceErroredFramePeriodEventEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceErroredFrameSecondsSummaryEventState": {
+    "name": "hpnicfEponDeviceErroredFrameSecondsSummaryEventState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceErroredFrameSecondsSummaryEventEnabled": {
+    "name": "hpnicfEponDeviceErroredFrameSecondsSummaryEventEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceOrganizationSpecificEventState": {
+    "name": "hpnicfEponDeviceOrganizationSpecificEventState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceOrganizationSpecificEventEnabled": {
+    "name": "hpnicfEponDeviceOrganizationSpecificEventEnabled",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventControl": {
+    "name": "hpnicfEponDeviceEventControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "resetLog": 2,
+          "useDefaultReporting": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogTable": {
+    "name": "hpnicfEponDeviceEventsLogTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogEntry": {
+    "name": "hpnicfEponDeviceEventsLogEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventsLogName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventsLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogName": {
+    "name": "hpnicfEponDeviceEventsLogName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogIndex": {
+    "name": "hpnicfEponDeviceEventsLogIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogID": {
+    "name": "hpnicfEponDeviceEventsLogID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogFirstTime": {
+    "name": "hpnicfEponDeviceEventsLogFirstTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogLastTime": {
+    "name": "hpnicfEponDeviceEventsLogLastTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogCounts": {
+    "name": "hpnicfEponDeviceEventsLogCounts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogType": {
+    "name": "hpnicfEponDeviceEventsLogType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hpnicfEponDeviceDyingGaspAlarmState": 1,
+          "hpnicfEponDeviceCriticalEventState": 2,
+          "hpnicfEponDeviceLocalLinkFaultAlarmState": 3,
+          "hpnicfEponDeviceTemperatureEventIndicationState": 4,
+          "hpnicfEponDevicePowerVoltageEventIndicationState": 5,
+          "hpnicfEponDeviceGlobalEventState": 6,
+          "hpnicfEponDeviceErroredSymbolPeriodEventState": 7,
+          "hpnicfEponDeviceErroredFrameEventState": 8,
+          "hpnicfEponDeviceErroredFramePeriodEventState": 9,
+          "hpnicfEponDeviceErroredFrameSecondsSummaryEventState": 10,
+          "hpnicfEponDeviceOrganizationSpecificEventState": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEponDeviceEventsLogEntryStatus": {
+    "name": "hpnicfEponDeviceEventsLogEntryStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEponDeviceGroups": {
+    "name": "hpnicfEponDeviceGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEponDeviceGroupControl": {
+    "name": "hpnicfEponDeviceGroupControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceObjectReset"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceObjectModes"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceObjectFecEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceObjectOamMode"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceObjectDeviceReadyMode"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceObjectPowerDown"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceObjectNumberOfLLIDs"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceObjectReportThreshold"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceRemoteMACAddressLLIDControl"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceGroupRMadLTable": {
+    "name": "hpnicfEponDeviceGroupRMadLTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceRMadlLLID"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceRMadlLogID"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceRMadlRemoteAddress"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceRMadlType"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceRMadlAction"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceRMadlEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceGroupStat": {
+    "name": "hpnicfEponDeviceGroupStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatTxFramesQueue0"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatTxFramesQueue1"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatTxFramesQueue2"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatTxFramesQueue3"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatTxFramesQueue4"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatTxFramesQueue5"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatTxFramesQueue6"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatTxFramesQueue7"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatRxFramesQueue0"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatRxFramesQueue1"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatRxFramesQueue2"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatRxFramesQueue3"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatRxFramesQueue4"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatRxFramesQueue5"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatRxFramesQueue6"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatRxFramesQueue7"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatDroppedFramesQueue0"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatDroppedFramesQueue1"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatDroppedFramesQueue2"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatDroppedFramesQueue3"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatDroppedFramesQueue4"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatDroppedFramesQueue5"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatDroppedFramesQueue6"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceStatDroppedFramesQueue7"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceGroupEvent": {
+    "name": "hpnicfEponDeviceGroupEvent",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceSampleMinimum"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceDyingGaspAlarmState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceDyingGaspAlarmEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceCriticalEventState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceCriticalEventEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceLocalLinkFaultAlarmState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceLocalLinkFaultAlarmEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceTemperatureEventIndicationState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceTemperatureEventIndicationEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDevicePowerVoltageEventIndicationState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDevicePowerVoltageEventIndicationEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceGlobalEventState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceGlobalEventEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceErroredSymbolPeriodEventState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceErroredSymbolPeriodEventEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceErroredFrameEventState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceErroredFrameEventEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceErroredFramePeriodEventState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceErroredFramePeriodEventEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceErroredFrameSecondsSummaryEventState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceErroredFrameSecondsSummaryEventEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceOrganizationSpecificEventState"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceOrganizationSpecificEventEnabled"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventControl"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceGroupEventLog": {
+    "name": "hpnicfEponDeviceGroupEventLog",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventsLogID"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventsLogFirstTime"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventsLogLastTime"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventsLogCounts"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventsLogType"
+      },
+      {
+        "module": "HPN-ICF-EPON-DEVICE-MIB",
+        "object": "hpnicfEponDeviceEventsLogEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEponDeviceCompliances": {
+    "name": "hpnicfEponDeviceCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2.2",
+    "class": "objectidentity"
+  },
+  "hpnicfEponDeviceCompliance": {
+    "name": "hpnicfEponDeviceCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.42.4.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfEponDeviceGroupControl",
+        "module": "HPN-ICF-EPON-DEVICE-MIB"
+      },
+      {
+        "object": "hpnicfEponDeviceGroupRMadLTable",
+        "module": "HPN-ICF-EPON-DEVICE-MIB"
+      },
+      {
+        "object": "hpnicfEponDeviceGroupStat",
+        "module": "HPN-ICF-EPON-DEVICE-MIB"
+      },
+      {
+        "object": "hpnicfEponDeviceGroupEvent",
+        "module": "HPN-ICF-EPON-DEVICE-MIB"
+      },
+      {
+        "object": "hpnicfEponDeviceGroupEventLog",
+        "module": "HPN-ICF-EPON-DEVICE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-EPON-DEVICE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-EPON-DEVICE-MIB"
+  }
+}

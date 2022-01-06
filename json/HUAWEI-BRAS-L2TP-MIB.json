@@ -1,0 +1,2010 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwBRASL2tp": {
+    "name": "hwBRASL2tp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3",
+    "class": "moduleidentity"
+  },
+  "hwL2tpMibObjects": {
+    "name": "hwL2tpMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1",
+    "class": "objectidentity"
+  },
+  "hwL2tpConfigTable": {
+    "name": "hwL2tpConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1",
+    "class": "objectidentity"
+  },
+  "hwL2tpEnableStatus": {
+    "name": "hwL2tpEnableStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpTunnelClearLocalID": {
+    "name": "hwL2tpTunnelClearLocalID",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpTunnelClearRemoteName": {
+    "name": "hwL2tpTunnelClearRemoteName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpTunnelClearSlotID": {
+    "name": "hwL2tpTunnelClearSlotID",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpAging": {
+    "name": "hwL2tpAging",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupConfigTable": {
+    "name": "hwL2tpGroupConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2tpGroupConfigEntry": {
+    "name": "hwL2tpGroupConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpGroupindex": {
+    "name": "hwL2tpGroupindex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2tpGroupAuthentication": {
+    "name": "hwL2tpGroupAuthentication",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupAvpHidden": {
+    "name": "hwL2tpGroupAvpHidden",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLoadShare": {
+    "name": "hwL2tpGroupLoadShare",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpTunnelName": {
+    "name": "hwL2tpTunnelName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupRetransmit": {
+    "name": "hwL2tpGroupRetransmit",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupTimeout": {
+    "name": "hwL2tpGroupTimeout",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupTimer": {
+    "name": "hwL2tpGroupTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord": {
+    "name": "hwL2tpGroupPassWord",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsIP1": {
+    "name": "hwL2tpGroupLnsIP1",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsWeight1": {
+    "name": "hwL2tpGroupLnsWeight1",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsIP2": {
+    "name": "hwL2tpGroupLnsIP2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsWeight2": {
+    "name": "hwL2tpGroupLnsWeight2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsIP3": {
+    "name": "hwL2tpGroupLnsIP3",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsWeight3": {
+    "name": "hwL2tpGroupLnsWeight3",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsIP4": {
+    "name": "hwL2tpGroupLnsIP4",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsWeight4": {
+    "name": "hwL2tpGroupLnsWeight4",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsIP5": {
+    "name": "hwL2tpGroupLnsIP5",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsWeight5": {
+    "name": "hwL2tpGroupLnsWeight5",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupRowStatus": {
+    "name": "hwL2tpGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupName": {
+    "name": "hwL2tpGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupRadiusAuth": {
+    "name": "hwL2tpGroupRadiusAuth",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupAging": {
+    "name": "hwL2tpGroupAging",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hwL2tpGroupRemoteName": {
+    "name": "hwL2tpGroupRemoteName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupForceChap": {
+    "name": "hwL2tpGroupForceChap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupForceLcp": {
+    "name": "hwL2tpGroupForceLcp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupVt": {
+    "name": "hwL2tpGroupVt",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupaaaAuthentication": {
+    "name": "hwL2tpGroupaaaAuthentication",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpIdleCutTimer": {
+    "name": "hwL2tpIdleCutTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupTunnelStartLnsIP1": {
+    "name": "hwL2tpGroupTunnelStartLnsIP1",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hwL2tpGroupTunnelStartLnsIP2": {
+    "name": "hwL2tpGroupTunnelStartLnsIP2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hwL2tpGroupTunnelStartLnsIP3": {
+    "name": "hwL2tpGroupTunnelStartLnsIP3",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hwL2tpGroupTunnelStartLnsIP4": {
+    "name": "hwL2tpGroupTunnelStartLnsIP4",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hwL2tpGroupTunnelStartLnsIP5": {
+    "name": "hwL2tpGroupTunnelStartLnsIP5",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hwL2tpGroupFlag": {
+    "name": "hwL2tpGroupFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsIP6": {
+    "name": "hwL2tpGroupLnsIP6",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsWeight6": {
+    "name": "hwL2tpGroupLnsWeight6",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsIP7": {
+    "name": "hwL2tpGroupLnsIP7",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsWeight7": {
+    "name": "hwL2tpGroupLnsWeight7",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsIP8": {
+    "name": "hwL2tpGroupLnsIP8",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupLnsWeight8": {
+    "name": "hwL2tpGroupLnsWeight8",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpAvp46": {
+    "name": "hwL2tpAvp46",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupDefaultDomain": {
+    "name": "hwL2tpGroupDefaultDomain",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord1": {
+    "name": "hwL2tpGroupPassWord1",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord2": {
+    "name": "hwL2tpGroupPassWord2",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord3": {
+    "name": "hwL2tpGroupPassWord3",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord4": {
+    "name": "hwL2tpGroupPassWord4",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord5": {
+    "name": "hwL2tpGroupPassWord5",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord6": {
+    "name": "hwL2tpGroupPassWord6",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord7": {
+    "name": "hwL2tpGroupPassWord7",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupPassWord8": {
+    "name": "hwL2tpGroupPassWord8",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupDomainAuthMode": {
+    "name": "hwL2tpGroupDomainAuthMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "force": 2,
+          "replace": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupDescription": {
+    "name": "hwL2tpGroupDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpTunnelAlarmEnable": {
+    "name": "hwL2tpTunnelAlarmEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupQosProfileIn": {
+    "name": "hwL2tpGroupQosProfileIn",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupQosProfileOut": {
+    "name": "hwL2tpGroupQosProfileOut",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpGroupQosMode": {
+    "name": "hwL2tpGroupQosMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel": 1,
+          "session": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tunnel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupConfigTable": {
+    "name": "hwL2tpLnsGroupConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupConfigEntry": {
+    "name": "hwL2tpLnsGroupConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpLnsGroupName": {
+    "name": "hwL2tpLnsGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopBack": {
+    "name": "hwL2tpLnsGroupLoopBack",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupMasterSlot": {
+    "name": "hwL2tpLnsGroupMasterSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupBindSlot": {
+    "name": "hwL2tpLnsGroupBindSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupRowStatus": {
+    "name": "hwL2tpLnsGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopbackTable": {
+    "name": "hwL2tpLnsGroupLoopbackTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopbackEntry": {
+    "name": "hwL2tpLnsGroupLoopbackEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopbackIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopbackIndex": {
+    "name": "hwL2tpLnsGroupLoopbackIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopbackInterface": {
+    "name": "hwL2tpLnsGroupLoopbackInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopbackRowStatus": {
+    "name": "hwL2tpLnsGroupLoopbackRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwL2tpMibTrap": {
+    "name": "hwL2tpMibTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2",
+    "class": "objectidentity"
+  },
+  "hwL2tpTrapOid": {
+    "name": "hwL2tpTrapOid",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1",
+    "class": "objectidentity"
+  },
+  "hwL2tpTunnelID": {
+    "name": "hwL2tpTunnelID",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL2tpPeerName": {
+    "name": "hwL2tpPeerName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL2tpPeerIp": {
+    "name": "hwL2tpPeerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL2tpTunnelStatus": {
+    "name": "hwL2tpTunnelStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL2tpTrapsDefine": {
+    "name": "hwL2tpTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.2",
+    "class": "objectidentity"
+  },
+  "hwL2tpTraps": {
+    "name": "hwL2tpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.2.0",
+    "class": "objectidentity"
+  },
+  "hwL2tpTunnelUpOrDown": {
+    "name": "hwL2tpTunnelUpOrDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelID"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpPeerName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpPeerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpConformance": {
+    "name": "hwL2tpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3",
+    "class": "objectidentity"
+  },
+  "hwL2tpCompliances": {
+    "name": "hwL2tpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.1",
+    "class": "objectidentity"
+  },
+  "hwL2tpCompliance": {
+    "name": "hwL2tpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwL2tpConfigGroup",
+        "module": "HUAWEI-BRAS-L2TP-MIB"
+      },
+      {
+        "object": "hwL2tpGroupConfigGroup",
+        "module": "HUAWEI-BRAS-L2TP-MIB"
+      },
+      {
+        "object": "hwL2tpLnsGroupConfigGroup",
+        "module": "HUAWEI-BRAS-L2TP-MIB"
+      },
+      {
+        "object": "hwL2tpTrapOidGroup",
+        "module": "HUAWEI-BRAS-L2TP-MIB"
+      },
+      {
+        "object": "hwL2tpObsoleteGroup",
+        "module": "HUAWEI-BRAS-L2TP-MIB"
+      },
+      {
+        "object": "hwL2tpTrapNotificationsGroup",
+        "module": "HUAWEI-BRAS-L2TP-MIB"
+      },
+      {
+        "object": "hwL2tpLnsGroupLoopbackGroup",
+        "module": "HUAWEI-BRAS-L2TP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpObjectGroups": {
+    "name": "hwL2tpObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2",
+    "class": "objectidentity"
+  },
+  "hwL2tpConfigGroup": {
+    "name": "hwL2tpConfigGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpEnableStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelClearLocalID"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelClearRemoteName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelClearSlotID"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpAging"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpGroupConfigGroup": {
+    "name": "hwL2tpGroupConfigGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupindex"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupAuthentication"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupAvpHidden"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLoadShare"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupRetransmit"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTimer"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP1"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight1"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP2"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight2"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP3"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight3"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP4"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight4"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP5"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight5"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupRadiusAuth"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupRemoteName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupForceChap"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupForceLcp"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupVt"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupaaaAuthentication"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpIdleCutTimer"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupFlag"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP6"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight6"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP7"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight7"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP8"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight8"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpAvp46"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupDefaultDomain"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord1"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord2"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord3"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord4"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord5"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord6"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord7"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord8"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupDomainAuthMode"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupDescription"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupQosProfileIn"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupQosProfileOut"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupQosMode"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpLnsGroupConfigGroup": {
+    "name": "hwL2tpLnsGroupConfigGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopBack"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupMasterSlot"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupBindSlot"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpTrapOidGroup": {
+    "name": "hwL2tpTrapOidGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelID"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpPeerName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpPeerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpObsoleteGroup": {
+    "name": "hwL2tpObsoleteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupAging"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP1"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP2"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP3"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP4"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP5"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwL2tpTrapNotificationsGroup": {
+    "name": "hwL2tpTrapNotificationsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelUpOrDown"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopbackGroup": {
+    "name": "hwL2tpLnsGroupLoopbackGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopbackInterface"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopbackRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-L2TP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BRAS-L2TP-MIB"
+  }
+}

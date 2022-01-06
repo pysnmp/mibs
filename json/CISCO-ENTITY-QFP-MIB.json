@@ -1,0 +1,1352 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoEntityQfpMIB": {
+    "name": "ciscoEntityQfpMIB",
+    "oid": "1.3.6.1.4.1.9.9.715",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-18 00:00",
+        "description": "Added the following objects to the MIB. ceqfpThroughputLicensedBW, ceqfpThroughputLevel, ceqfpThroughputInterval, ceqfpThroughputThreshold, ceqfpThroughputAvgRate to ceqfpThroughputTable. Added ceqfpThroughputNotifEnabled to ciscoEntityQfpNotif group. Added ceqfpThroughputNotif as a new notification to the MIB. Added a new MIB conform group, ceqfpThroughputGroup for the new objects. Also modified the ciscoEntityQfpMIBComplianceRev2 to add the new group ceqfpThroughputGroup."
+      },
+      {
+        "revision": "2012-06-06 00:00",
+        "description": "Added the following new objects to the ceqfpMemoryResourceTable. ceqfpMemoryResTotalOvrflw, ceqfpMemoryHCResTotal, ceqfpMemoryResInUseOvrflw, ceqfpMemoryHCResInUse, ceqfpMemoryResFreeOvrflw,ceqfpMemoryHCResFree, ceqfpMemoryResLowFreeWatermarkOvrflw, ceqfpMemoryHCResLowFreeWatermark. Added following new compliance groups. ciscoEntityQfpMemoryResourceOvrflwGroup, ciscoEntityQfpMemoryHCResourceGroup. Added new compliance ciscoEntityQfpMIBComplianceRev2 which deprecates ciscoEntityQfpMIBComplianceRev1."
+      },
+      {
+        "revision": "2009-12-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CiscoQfpPacketRate": {
+    "name": "CiscoQfpPacketRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CiscoQfpBitRate": {
+    "name": "CiscoQfpBitRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CiscoQfpTimeInterval": {
+    "name": "CiscoQfpTimeInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiveSeconds": 1,
+          "oneMinute": 2,
+          "fiveMinutes": 3,
+          "sixtyMinutes": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoQfpMemoryResource": {
+    "name": "CiscoQfpMemoryResource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dram": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoEntityQfpMIBNotifs": {
+    "name": "ciscoEntityQfpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.715.0",
+    "class": "objectidentity"
+  },
+  "ciscoEntityQfpMIBObjects": {
+    "name": "ciscoEntityQfpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.715.1",
+    "class": "objectidentity"
+  },
+  "ciscoEntityQfpMIBConform": {
+    "name": "ciscoEntityQfpMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.715.2",
+    "class": "objectidentity"
+  },
+  "ciscoEntityQfp": {
+    "name": "ciscoEntityQfp",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoEntityQfpNotif": {
+    "name": "ciscoEntityQfpNotif",
+    "oid": "1.3.6.1.4.1.9.9.715.1.2",
+    "class": "objectidentity"
+  },
+  "ceqfpSystemTable": {
+    "name": "ceqfpSystemTable",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceqfpSystemEntry": {
+    "name": "ceqfpSystemEntry",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceqfpSystemTrafficDirection": {
+    "name": "ceqfpSystemTrafficDirection",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ingress": 2,
+          "egress": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpSystemState": {
+    "name": "ceqfpSystemState",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "reset": 2,
+          "init": 3,
+          "active": 4,
+          "activeSolo": 5,
+          "standby": 6,
+          "hotStandby": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpNumberSystemLoads": {
+    "name": "ceqfpNumberSystemLoads",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpSystemLastLoadTime": {
+    "name": "ceqfpSystemLastLoadTime",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpFiveSecondUtilAlgo": {
+    "name": "ceqfpFiveSecondUtilAlgo",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fiveSecSample": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpOneMinuteUtilAlgo": {
+    "name": "ceqfpOneMinuteUtilAlgo",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fiveSecSMA": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpFiveMinutesUtilAlgo": {
+    "name": "ceqfpFiveMinutesUtilAlgo",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fiveSecSMA": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpSixtyMinutesUtilAlgo": {
+    "name": "ceqfpSixtyMinutesUtilAlgo",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fiveSecSMA": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilizationTable": {
+    "name": "ceqfpUtilizationTable",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceqfpUtilizationEntry": {
+    "name": "ceqfpUtilizationEntry",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilTimeInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceqfpUtilTimeInterval": {
+    "name": "ceqfpUtilTimeInterval",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceqfpUtilInputPriorityPktRate": {
+    "name": "ceqfpUtilInputPriorityPktRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpPacketRate",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilInputPriorityBitRate": {
+    "name": "ceqfpUtilInputPriorityBitRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpBitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilInputNonPriorityPktRate": {
+    "name": "ceqfpUtilInputNonPriorityPktRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpPacketRate",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilInputNonPriorityBitRate": {
+    "name": "ceqfpUtilInputNonPriorityBitRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpBitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilInputTotalPktRate": {
+    "name": "ceqfpUtilInputTotalPktRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpPacketRate",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilInputTotalBitRate": {
+    "name": "ceqfpUtilInputTotalBitRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpBitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilOutputPriorityPktRate": {
+    "name": "ceqfpUtilOutputPriorityPktRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpPacketRate",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilOutputPriorityBitRate": {
+    "name": "ceqfpUtilOutputPriorityBitRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpBitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilOutputNonPriorityPktRate": {
+    "name": "ceqfpUtilOutputNonPriorityPktRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpPacketRate",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilOutputNonPriorityBitRate": {
+    "name": "ceqfpUtilOutputNonPriorityBitRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpBitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilOutputTotalPktRate": {
+    "name": "ceqfpUtilOutputTotalPktRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpPacketRate",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilOutputTotalBitRate": {
+    "name": "ceqfpUtilOutputTotalBitRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpBitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpUtilProcessingLoad": {
+    "name": "ceqfpUtilProcessingLoad",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResourceTable": {
+    "name": "ceqfpMemoryResourceTable",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceqfpMemoryResourceEntry": {
+    "name": "ceqfpMemoryResourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceqfpMemoryResType": {
+    "name": "ceqfpMemoryResType",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoQfpMemoryResource",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceqfpMemoryResTotal": {
+    "name": "ceqfpMemoryResTotal",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResInUse": {
+    "name": "ceqfpMemoryResInUse",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResFree": {
+    "name": "ceqfpMemoryResFree",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResLowFreeWatermark": {
+    "name": "ceqfpMemoryResLowFreeWatermark",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResRisingThreshold": {
+    "name": "ceqfpMemoryResRisingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceqfpMemoryResFallingThreshold": {
+    "name": "ceqfpMemoryResFallingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 85,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceqfpMemoryResTotalOvrflw": {
+    "name": "ceqfpMemoryResTotalOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryHCResTotal": {
+    "name": "ceqfpMemoryHCResTotal",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResInUseOvrflw": {
+    "name": "ceqfpMemoryResInUseOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryHCResInUse": {
+    "name": "ceqfpMemoryHCResInUse",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResFreeOvrflw": {
+    "name": "ceqfpMemoryResFreeOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryHCResFree": {
+    "name": "ceqfpMemoryHCResFree",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResLowFreeWatermarkOvrflw": {
+    "name": "ceqfpMemoryResLowFreeWatermarkOvrflw",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryHCResLowFreeWatermark": {
+    "name": "ceqfpMemoryHCResLowFreeWatermark",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpThroughputTable": {
+    "name": "ceqfpThroughputTable",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceqfpThroughputEntry": {
+    "name": "ceqfpThroughputEntry",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceqfpThroughputLicensedBW": {
+    "name": "ceqfpThroughputLicensedBW",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpThroughputLevel": {
+    "name": "ceqfpThroughputLevel",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "exceed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpThroughputInterval": {
+    "name": "ceqfpThroughputInterval",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceqfpThroughputThreshold": {
+    "name": "ceqfpThroughputThreshold",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 75,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceqfpThroughputAvgRate": {
+    "name": "ceqfpThroughputAvgRate",
+    "oid": "1.3.6.1.4.1.9.9.715.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceqfpMemoryResThreshNotifEnabled": {
+    "name": "ceqfpMemoryResThreshNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.715.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceqfpMemoryResCurrentRisingThresh": {
+    "name": "ceqfpMemoryResCurrentRisingThresh",
+    "oid": "1.3.6.1.4.1.9.9.715.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ceqfpMemoryResCurrentFallingThresh": {
+    "name": "ceqfpMemoryResCurrentFallingThresh",
+    "oid": "1.3.6.1.4.1.9.9.715.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ceqfpThroughputNotifEnabled": {
+    "name": "ceqfpThroughputNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.715.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoEntityQfpMIBCompliances": {
+    "name": "ciscoEntityQfpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.715.2.1",
+    "class": "objectidentity"
+  },
+  "ceqfpMemoryResRisingThreshNotif": {
+    "name": "ceqfpMemoryResRisingThreshNotif",
+    "oid": "1.3.6.1.4.1.9.9.715.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResInUse"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResCurrentRisingThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "ceqfpMemoryResFallingThreshNotif": {
+    "name": "ceqfpMemoryResFallingThreshNotif",
+    "oid": "1.3.6.1.4.1.9.9.715.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResInUse"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResCurrentFallingThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "ceqfpThroughputNotif": {
+    "name": "ceqfpThroughputNotif",
+    "oid": "1.3.6.1.4.1.9.9.715.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputLicensedBW"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputLevel"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputAvgRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpMIBGroups": {
+    "name": "ciscoEntityQfpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoEntityQfpMIBComplianceRev1": {
+    "name": "ciscoEntityQfpMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.715.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoEntityQfpSystemGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpUtilizationGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpUtilizationAlgoGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpMemoryResourceGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpMemoryResNotifGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpNotifGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityQfpMIBComplianceRev2": {
+    "name": "ciscoEntityQfpMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.715.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoEntityQfpSystemGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpUtilizationGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpUtilizationAlgoGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpMemoryResourceGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpMemoryResourceOvrflwGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpMemoryHCResourceGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpMemoryResNotifGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ciscoEntityQfpNotifGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      },
+      {
+        "object": "ceqfpThroughputGroup",
+        "module": "CISCO-ENTITY-QFP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpSystemGroup": {
+    "name": "ciscoEntityQfpSystemGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpSystemTrafficDirection"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpSystemState"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpNumberSystemLoads"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpSystemLastLoadTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpUtilizationAlgoGroup": {
+    "name": "ciscoEntityQfpUtilizationAlgoGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpFiveSecondUtilAlgo"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpOneMinuteUtilAlgo"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpFiveMinutesUtilAlgo"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpSixtyMinutesUtilAlgo"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpUtilizationGroup": {
+    "name": "ciscoEntityQfpUtilizationGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilInputPriorityPktRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilInputPriorityBitRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilInputNonPriorityPktRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilInputNonPriorityBitRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilInputTotalPktRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilInputTotalBitRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilOutputPriorityPktRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilOutputPriorityBitRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilOutputNonPriorityPktRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilOutputNonPriorityBitRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilOutputTotalPktRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilOutputTotalBitRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpUtilProcessingLoad"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpMemoryResourceGroup": {
+    "name": "ciscoEntityQfpMemoryResourceGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResTotal"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResInUse"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResFree"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResLowFreeWatermark"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResRisingThreshold"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResFallingThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpNotifGroup": {
+    "name": "ciscoEntityQfpNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResRisingThreshNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResFallingThreshNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpMemoryResNotifGroup": {
+    "name": "ciscoEntityQfpMemoryResNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResThreshNotifEnabled"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResCurrentRisingThresh"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResCurrentFallingThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpMemoryResourceOvrflwGroup": {
+    "name": "ciscoEntityQfpMemoryResourceOvrflwGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResTotalOvrflw"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResInUseOvrflw"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResFreeOvrflw"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryResLowFreeWatermarkOvrflw"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityQfpMemoryHCResourceGroup": {
+    "name": "ciscoEntityQfpMemoryHCResourceGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryHCResTotal"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryHCResInUse"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryHCResFree"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpMemoryHCResLowFreeWatermark"
+      }
+    ],
+    "status": "current"
+  },
+  "ceqfpThroughputGroup": {
+    "name": "ceqfpThroughputGroup",
+    "oid": "1.3.6.1.4.1.9.9.715.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputLicensedBW"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputLevel"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputInterval"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputThreshold"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputAvgRate"
+      },
+      {
+        "module": "CISCO-ENTITY-QFP-MIB",
+        "object": "ceqfpThroughputNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-QFP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENTITY-QFP-MIB"
+  }
+}

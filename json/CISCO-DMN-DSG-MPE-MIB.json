@@ -1,0 +1,476 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DMN-DSG-ROOT-MIB": [
+      "ciscoDSGUtilities"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDSGMPE": {
+    "name": "ciscoDSGMPE",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-30 11:00",
+        "description": "V01.00.03 2010-08-30 Updated for adherence to SNMPv2 format."
+      },
+      {
+        "revision": "2010-05-07 06:30",
+        "description": "V01.00.02 2010-05-07 Added saticMulticastTable."
+      },
+      {
+        "revision": "2010-05-03 11:00",
+        "description": "V01.00.01 2010-05-03 mpeConfigForwarding item options - correction."
+      },
+      {
+        "revision": "2010-04-12 06:00",
+        "description": "V01.00.00 2010-04-12 Initial Revision."
+      }
+    ]
+  },
+  "mpeTable": {
+    "name": "mpeTable",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2",
+    "class": "objectidentity"
+  },
+  "mpeConfigTable": {
+    "name": "mpeConfigTable",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpeConfigEntry": {
+    "name": "mpeConfigEntry",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "mpeConfigPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpeConfigPortID": {
+    "name": "mpeConfigPortID",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpeConfigForwarding": {
+    "name": "mpeConfigForwarding",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwardNone": 1,
+          "forwardAll": 2,
+          "forwardFilteredList": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mpeConfigIGMP": {
+    "name": "mpeConfigIGMP",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mpeConfigRIP": {
+    "name": "mpeConfigRIP",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mpeMultipacket": {
+    "name": "mpeMultipacket",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowerJitter": 1,
+          "higherBitRate": 24
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unicastTable": {
+    "name": "unicastTable",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "unicastEntry": {
+    "name": "unicastEntry",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "unicastIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "unicastIdx": {
+    "name": "unicastIdx",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "unicastRoute": {
+    "name": "unicastRoute",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "unicastMask": {
+    "name": "unicastMask",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "unicastOutputPortID": {
+    "name": "unicastOutputPortID",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "unicastGatewayAddr": {
+    "name": "unicastGatewayAddr",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "unicastRowStatus": {
+    "name": "unicastRowStatus",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "staticMulticastTable": {
+    "name": "staticMulticastTable",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "staticMulticastEntry": {
+    "name": "staticMulticastEntry",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "staticMulticastIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "staticMulticastIdx": {
+    "name": "staticMulticastIdx",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "staticMulticastGroupAddress": {
+    "name": "staticMulticastGroupAddress",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "staticMulticastRowstatus": {
+    "name": "staticMulticastRowstatus",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mpeMIBConformance": {
+    "name": "mpeMIBConformance",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.3",
+    "class": "objectidentity"
+  },
+  "mpeMIBCompliances": {
+    "name": "mpeMIBCompliances",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.3.1",
+    "class": "objectidentity"
+  },
+  "mpeMIBGroups": {
+    "name": "mpeMIBGroups",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.3.2",
+    "class": "objectidentity"
+  },
+  "mpeCompliance": {
+    "name": "mpeCompliance",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mpeConfigGroup",
+        "module": "CISCO-DMN-DSG-MPE-MIB"
+      },
+      {
+        "object": "unicastGroup",
+        "module": "CISCO-DMN-DSG-MPE-MIB"
+      },
+      {
+        "object": "staticMulticastGroup",
+        "module": "CISCO-DMN-DSG-MPE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mpeConfigGroup": {
+    "name": "mpeConfigGroup",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "mpeConfigForwarding"
+      },
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "mpeConfigIGMP"
+      },
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "mpeConfigRIP"
+      },
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "mpeMultipacket"
+      }
+    ],
+    "status": "current"
+  },
+  "unicastGroup": {
+    "name": "unicastGroup",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "unicastRoute"
+      },
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "unicastMask"
+      },
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "unicastOutputPortID"
+      },
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "unicastGatewayAddr"
+      },
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "unicastRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "staticMulticastGroup": {
+    "name": "staticMulticastGroup",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.26.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "staticMulticastGroupAddress"
+      },
+      {
+        "module": "CISCO-DMN-DSG-MPE-MIB",
+        "object": "staticMulticastRowstatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DMN-DSG-MPE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DMN-DSG-MPE-MIB"
+  }
+}

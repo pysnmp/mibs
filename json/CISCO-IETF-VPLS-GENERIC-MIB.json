@@ -1,0 +1,808 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IETF-PW-TC-MIB": [
+      "CpwVcIndexType"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "VPN-TC-STD-MIB": [
+      "VPNIdOrZero"
+    ]
+  },
+  "cvplsGenericMIB": {
+    "name": "cvplsGenericMIB",
+    "oid": "1.3.6.1.4.1.9.10.138",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-22 12:00",
+        "description": "Initial version of this MIB"
+      }
+    ]
+  },
+  "cvplsNotifications": {
+    "name": "cvplsNotifications",
+    "oid": "1.3.6.1.4.1.9.10.138.0",
+    "class": "objectidentity"
+  },
+  "cvplsObjects": {
+    "name": "cvplsObjects",
+    "oid": "1.3.6.1.4.1.9.10.138.1",
+    "class": "objectidentity"
+  },
+  "cvplsConformance": {
+    "name": "cvplsConformance",
+    "oid": "1.3.6.1.4.1.9.10.138.2",
+    "class": "objectidentity"
+  },
+  "cvplsConfigIndexNext": {
+    "name": "cvplsConfigIndexNext",
+    "oid": "1.3.6.1.4.1.9.10.138.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvplsConfigTable": {
+    "name": "cvplsConfigTable",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvplsConfigEntry": {
+    "name": "cvplsConfigEntry",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsConfigIndex": {
+    "name": "cvplsConfigIndex",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvplsConfigName": {
+    "name": "cvplsConfigName",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigDescr": {
+    "name": "cvplsConfigDescr",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigAdminStatus": {
+    "name": "cvplsConfigAdminStatus",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigMacLearning": {
+    "name": "cvplsConfigMacLearning",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigDiscardUnknownDest": {
+    "name": "cvplsConfigDiscardUnknownDest",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigMacAging": {
+    "name": "cvplsConfigMacAging",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigFwdFullHighWatermark": {
+    "name": "cvplsConfigFwdFullHighWatermark",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 95,
+        "format": "decimal"
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigFwdFullLowWatermark": {
+    "name": "cvplsConfigFwdFullLowWatermark",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigRowStatus": {
+    "name": "cvplsConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigMtu": {
+    "name": "cvplsConfigMtu",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1518
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1518,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigVpnId": {
+    "name": "cvplsConfigVpnId",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VPNIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvplsConfigServiceType": {
+    "name": "cvplsConfigServiceType",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "ethernet": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "vlan",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsConfigStorageType": {
+    "name": "cvplsConfigStorageType",
+    "oid": "1.3.6.1.4.1.9.10.138.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsStatusTable": {
+    "name": "cvplsStatusTable",
+    "oid": "1.3.6.1.4.1.9.10.138.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvplsStatusEntry": {
+    "name": "cvplsStatusEntry",
+    "oid": "1.3.6.1.4.1.9.10.138.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsStatusOperStatus": {
+    "name": "cvplsStatusOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.138.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvplsStatusPeerCount": {
+    "name": "cvplsStatusPeerCount",
+    "oid": "1.3.6.1.4.1.9.10.138.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvplsPwBindTable": {
+    "name": "cvplsPwBindTable",
+    "oid": "1.3.6.1.4.1.9.10.138.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvplsPwBindEntry": {
+    "name": "cvplsPwBindEntry",
+    "oid": "1.3.6.1.4.1.9.10.138.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsPwBindIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsPwBindIndex": {
+    "name": "cvplsPwBindIndex",
+    "oid": "1.3.6.1.4.1.9.10.138.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvplsPwBindConfigType": {
+    "name": "cvplsPwBindConfigType",
+    "oid": "1.3.6.1.4.1.9.10.138.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "autodiscovery": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsPwBindType": {
+    "name": "cvplsPwBindType",
+    "oid": "1.3.6.1.4.1.9.10.138.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mesh": 1,
+          "spoke": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsPwBindRowStatus": {
+    "name": "cvplsPwBindRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.138.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsPwBindStorageType": {
+    "name": "cvplsPwBindStorageType",
+    "oid": "1.3.6.1.4.1.9.10.138.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvplsStatusNotifEnable": {
+    "name": "cvplsStatusNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.138.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvplsNotificationMaxRate": {
+    "name": "cvplsNotificationMaxRate",
+    "oid": "1.3.6.1.4.1.9.10.138.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvplsStatusChanged": {
+    "name": "cvplsStatusChanged",
+    "oid": "1.3.6.1.4.1.9.10.138.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigVpnId"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsStatusOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsFwdFullAlarmRaised": {
+    "name": "cvplsFwdFullAlarmRaised",
+    "oid": "1.3.6.1.4.1.9.10.138.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigVpnId"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigFwdFullHighWatermark"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigFwdFullLowWatermark"
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsFwdFullAlarmCleared": {
+    "name": "cvplsFwdFullAlarmCleared",
+    "oid": "1.3.6.1.4.1.9.10.138.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigVpnId"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigFwdFullHighWatermark"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigFwdFullLowWatermark"
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsCompliances": {
+    "name": "cvplsCompliances",
+    "oid": "1.3.6.1.4.1.9.10.138.2.1",
+    "class": "objectidentity"
+  },
+  "cvplsModuleFullCompliance": {
+    "name": "cvplsModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.9.10.138.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvplsGroup",
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB"
+      },
+      {
+        "object": "cvplsPwBindGroup",
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB"
+      },
+      {
+        "object": "cvplsNotificationGroup",
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsModuleReadOnlyCompliance": {
+    "name": "cvplsModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.9.10.138.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvplsGroup",
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB"
+      },
+      {
+        "object": "cvplsPwBindGroup",
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB"
+      },
+      {
+        "object": "cvplsNotificationGroup",
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsGroups": {
+    "name": "cvplsGroups",
+    "oid": "1.3.6.1.4.1.9.10.138.2.2",
+    "class": "objectidentity"
+  },
+  "cvplsGroup": {
+    "name": "cvplsGroup",
+    "oid": "1.3.6.1.4.1.9.10.138.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigName"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigDescr"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigMacLearning"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigDiscardUnknownDest"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigMacAging"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigVpnId"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigFwdFullHighWatermark"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigFwdFullLowWatermark"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigIndexNext"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigMtu"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigServiceType"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsConfigStorageType"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsStatusOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsStatusPeerCount"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsStatusNotifEnable"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsNotificationMaxRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsPwBindGroup": {
+    "name": "cvplsPwBindGroup",
+    "oid": "1.3.6.1.4.1.9.10.138.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsPwBindConfigType"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsPwBindType"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsPwBindRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsPwBindStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cvplsNotificationGroup": {
+    "name": "cvplsNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.138.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsStatusChanged"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsFwdFullAlarmRaised"
+      },
+      {
+        "module": "CISCO-IETF-VPLS-GENERIC-MIB",
+        "object": "cvplsFwdFullAlarmCleared"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-VPLS-GENERIC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-VPLS-GENERIC-MIB"
+  }
+}

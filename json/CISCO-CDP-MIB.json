@@ -1,0 +1,1398 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoNetworkProtocol",
+      "CiscoNetworkAddress"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCdpMIB": {
+    "name": "ciscoCdpMIB",
+    "oid": "1.3.6.1.4.1.9.9.23",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-21 00:00",
+        "description": "Added the following object: cdpInterfaceName."
+      },
+      {
+        "revision": "2005-03-14 00:00",
+        "description": "Added cdpCtAddressTable which contains the following objects: cdpCtAddressIndex, cdpCtAddressType, cdpCtAddress."
+      },
+      {
+        "revision": "2001-11-23 00:00",
+        "description": "Added cdpInterfaceExtTable which contains the following objects: cdpInterfaceExtendedTrust, cdpInterfaceCosForUntrustedPort."
+      },
+      {
+        "revision": "2001-04-23 00:00",
+        "description": "Added the following objects: cdpGlobalDeviceIdFormatCpb, cdpGlobalDeviceIdFormat."
+      },
+      {
+        "revision": "2000-11-22 00:00",
+        "description": "Added the following objects: cdpCacheApplianceID, cdpCacheVlanID, cdpCachePowerConsumption, cdpCacheMTU, cdpCachePrimaryMgmtAddrType, cdpCachePrimaryMgmtAddr, cdpCacheSecondaryMgmtAddrType, cdpCacheSecondaryMgmtAddr, cdpCacheLastChange, cdpCachePhysLocation, cdpCacheSysName, cdpCacheSysObjectID, cdpGlobalLastChange"
+      },
+      {
+        "revision": "1998-12-10 00:00",
+        "description": "Added cdpGlobalDeviceId object."
+      },
+      {
+        "revision": "1998-09-16 00:00",
+        "description": "added these objects to cdpCacheTable: cdpCacheVTPMgmtDomain, cdpCacheNativeVLAN, cdpCacheDuplex. "
+      },
+      {
+        "revision": "1996-07-08 00:00",
+        "description": "Obsolete cdpInterfaceMessageInterval and newly define cdpGlobal object."
+      },
+      {
+        "revision": "1995-08-15 00:00",
+        "description": "Specify a correct (non-negative) range for several index objects."
+      },
+      {
+        "revision": "1995-07-27 00:00",
+        "description": "Correct range of cdpInterfaceMessageInterval."
+      },
+      {
+        "revision": "1995-01-25 00:00",
+        "description": "Move from ciscoExperiment to ciscoMgmt oid subtree."
+      }
+    ]
+  },
+  "ciscoCdpMIBObjects": {
+    "name": "ciscoCdpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.23.1",
+    "class": "objectidentity"
+  },
+  "cdpInterface": {
+    "name": "cdpInterface",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1",
+    "class": "objectidentity"
+  },
+  "cdpCache": {
+    "name": "cdpCache",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2",
+    "class": "objectidentity"
+  },
+  "cdpGlobal": {
+    "name": "cdpGlobal",
+    "oid": "1.3.6.1.4.1.9.9.23.1.3",
+    "class": "objectidentity"
+  },
+  "cdpInterfaceTable": {
+    "name": "cdpInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpInterfaceEntry": {
+    "name": "cdpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdpInterfaceIfIndex": {
+    "name": "cdpInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpInterfaceEnable": {
+    "name": "cdpInterfaceEnable",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpInterfaceMessageInterval": {
+    "name": "cdpInterfaceMessageInterval",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "cdpInterfaceGroup": {
+    "name": "cdpInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpInterfacePort": {
+    "name": "cdpInterfacePort",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpInterfaceName": {
+    "name": "cdpInterfaceName",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpInterfaceExtTable": {
+    "name": "cdpInterfaceExtTable",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpInterfaceExtEntry": {
+    "name": "cdpInterfaceExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdpInterfaceExtendedTrust": {
+    "name": "cdpInterfaceExtendedTrust",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trusted": 1,
+          "noTrust": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpInterfaceCosForUntrustedPort": {
+    "name": "cdpInterfaceCosForUntrustedPort",
+    "oid": "1.3.6.1.4.1.9.9.23.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpCacheTable": {
+    "name": "cdpCacheTable",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpCacheEntry": {
+    "name": "cdpCacheEntry",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdpCacheIfIndex": {
+    "name": "cdpCacheIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpCacheDeviceIndex": {
+    "name": "cdpCacheDeviceIndex",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpCacheAddressType": {
+    "name": "cdpCacheAddressType",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheAddress": {
+    "name": "cdpCacheAddress",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheVersion": {
+    "name": "cdpCacheVersion",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheDeviceId": {
+    "name": "cdpCacheDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheDevicePort": {
+    "name": "cdpCacheDevicePort",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCachePlatform": {
+    "name": "cdpCachePlatform",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheCapabilities": {
+    "name": "cdpCacheCapabilities",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheVTPMgmtDomain": {
+    "name": "cdpCacheVTPMgmtDomain",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheNativeVLAN": {
+    "name": "cdpCacheNativeVLAN",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheDuplex": {
+    "name": "cdpCacheDuplex",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "halfduplex": 2,
+          "fullduplex": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheApplianceID": {
+    "name": "cdpCacheApplianceID",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheVlanID": {
+    "name": "cdpCacheVlanID",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCachePowerConsumption": {
+    "name": "cdpCachePowerConsumption",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheMTU": {
+    "name": "cdpCacheMTU",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheSysName": {
+    "name": "cdpCacheSysName",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheSysObjectID": {
+    "name": "cdpCacheSysObjectID",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCachePrimaryMgmtAddrType": {
+    "name": "cdpCachePrimaryMgmtAddrType",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCachePrimaryMgmtAddr": {
+    "name": "cdpCachePrimaryMgmtAddr",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheSecondaryMgmtAddrType": {
+    "name": "cdpCacheSecondaryMgmtAddrType",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheSecondaryMgmtAddr": {
+    "name": "cdpCacheSecondaryMgmtAddr",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCachePhysLocation": {
+    "name": "cdpCachePhysLocation",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCacheLastChange": {
+    "name": "cdpCacheLastChange",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCtAddressTable": {
+    "name": "cdpCtAddressTable",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpCtAddressEntry": {
+    "name": "cdpCtAddressEntry",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCtAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdpCtAddressIndex": {
+    "name": "cdpCtAddressIndex",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdpCtAddressType": {
+    "name": "cdpCtAddressType",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpCtAddress": {
+    "name": "cdpCtAddress",
+    "oid": "1.3.6.1.4.1.9.9.23.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpGlobalRun": {
+    "name": "cdpGlobalRun",
+    "oid": "1.3.6.1.4.1.9.9.23.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpGlobalMessageInterval": {
+    "name": "cdpGlobalMessageInterval",
+    "oid": "1.3.6.1.4.1.9.9.23.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpGlobalHoldTime": {
+    "name": "cdpGlobalHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.23.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdpGlobalDeviceId": {
+    "name": "cdpGlobalDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.23.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpGlobalLastChange": {
+    "name": "cdpGlobalLastChange",
+    "oid": "1.3.6.1.4.1.9.9.23.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpGlobalDeviceIdFormatCpb": {
+    "name": "cdpGlobalDeviceIdFormatCpb",
+    "oid": "1.3.6.1.4.1.9.9.23.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "serialNumber": 0,
+        "macAddress": 1,
+        "other": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdpGlobalDeviceIdFormat": {
+    "name": "cdpGlobalDeviceIdFormat",
+    "oid": "1.3.6.1.4.1.9.9.23.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serialNumber": 1,
+          "macAddress": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoCdpMIBConformance": {
+    "name": "ciscoCdpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.23.2",
+    "class": "objectidentity"
+  },
+  "ciscoCdpMIBCompliances": {
+    "name": "ciscoCdpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.23.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdpMIBGroups": {
+    "name": "ciscoCdpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCdpMIBCompliance": {
+    "name": "ciscoCdpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.23.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdpMIBGroup",
+        "module": "CISCO-CDP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCdpMIBComplianceV11R01": {
+    "name": "ciscoCdpMIBComplianceV11R01",
+    "oid": "1.3.6.1.4.1.9.9.23.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdpMIBGroupV11R01",
+        "module": "CISCO-CDP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCdpMIBComplianceV11R02": {
+    "name": "ciscoCdpMIBComplianceV11R02",
+    "oid": "1.3.6.1.4.1.9.9.23.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdpMIBGroupV11R02",
+        "module": "CISCO-CDP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCdpMIBComplianceV12R02": {
+    "name": "ciscoCdpMIBComplianceV12R02",
+    "oid": "1.3.6.1.4.1.9.9.23.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdpMIBGroupV12R02",
+        "module": "CISCO-CDP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCdpMIBCompliance5": {
+    "name": "ciscoCdpMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.23.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdpMIBGroupV12R02",
+        "module": "CISCO-CDP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCdpMIBComplianceV12R03": {
+    "name": "ciscoCdpMIBComplianceV12R03",
+    "oid": "1.3.6.1.4.1.9.9.23.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdpMIBGroupV12R03",
+        "module": "CISCO-CDP-MIB"
+      },
+      {
+        "object": "ciscoCdpCtAddressGroup",
+        "module": "CISCO-CDP-MIB"
+      },
+      {
+        "object": "ciscoCdpV2MIBGroup",
+        "module": "CISCO-CDP-MIB"
+      },
+      {
+        "object": "ciscoCdpV2IfExtGroup",
+        "module": "CISCO-CDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpMIBGroup": {
+    "name": "ciscoCdpMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceEnable"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceMessageInterval"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddressType"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddress"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheVersion"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceId"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDevicePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheCapabilities"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePlatform"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCdpMIBGroupV11R01": {
+    "name": "ciscoCdpMIBGroupV11R01",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceEnable"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceMessageInterval"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceGroup"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfacePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddressType"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddress"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheVersion"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceId"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDevicePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheCapabilities"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePlatform"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCdpMIBGroupV11R02": {
+    "name": "ciscoCdpMIBGroupV11R02",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceEnable"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceGroup"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfacePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddressType"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddress"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheVersion"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceId"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDevicePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheCapabilities"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePlatform"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalRun"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalMessageInterval"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalHoldTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCdpMIBGroupV12R02": {
+    "name": "ciscoCdpMIBGroupV12R02",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceEnable"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceGroup"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfacePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddressType"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddress"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheVersion"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceId"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDevicePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheCapabilities"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePlatform"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheVTPMgmtDomain"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheNativeVLAN"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDuplex"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalRun"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalMessageInterval"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalHoldTime"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalDeviceId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCdpV2MIBGroup": {
+    "name": "ciscoCdpV2MIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheApplianceID"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheVlanID"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePowerConsumption"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheMTU"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheSysName"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheSysObjectID"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheLastChange"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePhysLocation"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePrimaryMgmtAddrType"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePrimaryMgmtAddr"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheSecondaryMgmtAddrType"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheSecondaryMgmtAddr"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalLastChange"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalDeviceIdFormatCpb"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalDeviceIdFormat"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpV2IfExtGroup": {
+    "name": "ciscoCdpV2IfExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceExtendedTrust"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceCosForUntrustedPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpCtAddressGroup": {
+    "name": "ciscoCdpCtAddressGroup",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCtAddressType"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCtAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdpMIBGroupV12R03": {
+    "name": "ciscoCdpMIBGroupV12R03",
+    "oid": "1.3.6.1.4.1.9.9.23.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceEnable"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceGroup"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfacePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpInterfaceName"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddressType"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheAddress"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheVersion"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceId"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDevicePort"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheCapabilities"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCachePlatform"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheVTPMgmtDomain"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheNativeVLAN"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDuplex"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalRun"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalMessageInterval"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalHoldTime"
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpGlobalDeviceId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CDP-MIB"
+  }
+}

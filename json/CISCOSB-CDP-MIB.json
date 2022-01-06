@@ -1,0 +1,1598 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CDP-MIB": [
+      "cdpCacheIfIndex",
+      "cdpCacheDeviceIndex",
+      "cdpCacheEntry"
+    ],
+    "CISCO-TC": [
+      "CiscoNetworkProtocol",
+      "CiscoNetworkAddress"
+    ],
+    "CISCOSB-DEVICEPARAMS-MIB": [
+      "rndErrorDesc",
+      "rndErrorSeverity"
+    ],
+    "CISCOSB-MIB": [
+      "switch001",
+      "rndNotifications"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlCdp": {
+    "name": "rlCdp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-09-14 00:00",
+        "description": "Initial revision."
+      },
+      {
+        "revision": "2010-08-11 00:00",
+        "description": "Added rlCdpLogMismatchVoiceVlanEnable, rlCdpLogMismatchNativeVlanEnable"
+      },
+      {
+        "revision": "2010-10-25 00:00",
+        "description": "Added rlCdpSecondaryCacheTable. Added maxNeighborsExceededInSecondaryCache. Renamed maxNeighborsExceeded to maxNeighborsExceededInMainCache."
+      },
+      {
+        "revision": "2010-11-10 00:00",
+        "description": "Added rlCdpGlobalLogMismatchDuplexEnable. Added rlCdpGlobalLogMismatchVoiceVlanEnable. Added rlCdpGlobalLogMismatchNativeVlanEnable."
+      },
+      {
+        "revision": "2010-11-14 00:00",
+        "description": "Added rlCdpTlvTable. Added rlCdpAdvertiseApplianceTlv."
+      },
+      {
+        "revision": "2011-01-09 00:00",
+        "description": "Added rlCdpValidateMandatoryTlvs."
+      },
+      {
+        "revision": "2011-02-15 00:00",
+        "description": "Added rlCdpLogMismatchDuplexTrap. Added rlCdpLogMismatchVoiceVlanTrap. Added rlCdpLogMismatchNativeVlanTrap."
+      },
+      {
+        "revision": "2012-02-14 00:00",
+        "description": "Added rlCdpTlvSysName to rlCdpTlvTable."
+      },
+      {
+        "revision": "2015-03-04 00:00",
+        "description": "Added rlCdpTlvPowerRequestTable. Added rlCdpSecondaryCacheAddressTable. Added rlCdpSecondaryCacheRequestedPowerTable. Added rlCdpTlvPowerConsumption, rlCdpTlvPowerRequestedRequestId, rlCdpTlvPowerRequestedPowerManagementId, rlCdpTlvSparePairPoECapabilities to rlCdpTlvEntry. Added rlCdpSecondaryCachePowerAvailable, rlCdpSecondaryCachePowerConsumption, rlCdpSecondaryCacheSparePairPoECapabilities, rlCdpSecondaryCacheDeviceId, rlCdpSecondaryCachePortId to rlCdpSecondaryCacheEntry."
+      },
+      {
+        "revision": "2016-03-30 00:00",
+        "description": "Added rlCdpSecondaryCachePowerAvailableManagementPowerLevel, rlCdpSecondaryCachePowerAvailableRequestId, rlCdpSecondaryCachePowerAvailablePowerManagementId, rlCdpSecondaryCachePowerRequestedPowerManagementId, rlCdpSecondaryCachePowerRequestedRequestId."
+      }
+    ]
+  },
+  "RlCdpVersionTypes": {
+    "name": "RlCdpVersionTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version-v1": 1,
+          "version-v2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlCdpCounterTypes": {
+    "name": "RlCdpCounterTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "totalInputPackets": 1,
+          "v1InputPackets": 2,
+          "v2InputPackets": 3,
+          "totalOutputPackets": 4,
+          "v1OutputPackets": 5,
+          "v2OutputPackets": 6,
+          "illegalChksum": 7,
+          "errorPackets": 8,
+          "maxNeighborsExceededInMainCache": 9,
+          "maxNeighborsExceededInSecondaryCache": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlCdpPduActionTypes": {
+    "name": "RlCdpPduActionTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "filtering": 1,
+          "bridging": 2,
+          "flooding": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlCdpVersionAdvertised": {
+    "name": "rlCdpVersionAdvertised",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCdpVersionTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpSourceInterface": {
+    "name": "rlCdpSourceInterface",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpLogMismatchDuplexEnable": {
+    "name": "rlCdpLogMismatchDuplexEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpCountersTable": {
+    "name": "rlCdpCountersTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpCountersEntry": {
+    "name": "rlCdpCountersEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-CDP-MIB",
+        "object": "rlCdpCountersName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpCountersName": {
+    "name": "rlCdpCountersName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCdpCounterTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpCountersValue": {
+    "name": "rlCdpCountersValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpCountersClear": {
+    "name": "rlCdpCountersClear",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpCacheClear": {
+    "name": "rlCdpCacheClear",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpVoiceVlanId": {
+    "name": "rlCdpVoiceVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "rlCdpCacheTable": {
+    "name": "rlCdpCacheTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpCacheEntry": {
+    "name": "rlCdpCacheEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlCdpCacheEntry",
+      "module": "CISCOSB-CDP-MIB",
+      "object": "cdpCacheEntry"
+    },
+    "status": "current"
+  },
+  "rlCdpCacheVersionExt": {
+    "name": "rlCdpCacheVersionExt",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpCacheTimeToLive": {
+    "name": "rlCdpCacheTimeToLive",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpCacheCdpVersion": {
+    "name": "rlCdpCacheCdpVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCdpVersionTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpPduAction": {
+    "name": "rlCdpPduAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCdpPduActionTypes",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "bridging",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpLogMismatchVoiceVlanEnable": {
+    "name": "rlCdpLogMismatchVoiceVlanEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpLogMismatchNativeVlanEnable": {
+    "name": "rlCdpLogMismatchNativeVlanEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheTable": {
+    "name": "rlCdpSecondaryCacheTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheEntry": {
+    "name": "rlCdpSecondaryCacheEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheMacAddress": {
+    "name": "rlCdpSecondaryCacheMacAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePlatform": {
+    "name": "rlCdpSecondaryCachePlatform",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheCapabilities": {
+    "name": "rlCdpSecondaryCacheCapabilities",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheVoiceVlanID": {
+    "name": "rlCdpSecondaryCacheVoiceVlanID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheTimeToLive": {
+    "name": "rlCdpSecondaryCacheTimeToLive",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePowerAvailable": {
+    "name": "rlCdpSecondaryCachePowerAvailable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePowerConsumption": {
+    "name": "rlCdpSecondaryCachePowerConsumption",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheSparePairPoECapabilities": {
+    "name": "rlCdpSecondaryCacheSparePairPoECapabilities",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "supported": 0,
+        "detectionClassificationRequired": 1,
+        "desiredState": 2,
+        "operationalState": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheDeviceId": {
+    "name": "rlCdpSecondaryCacheDeviceId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePortId": {
+    "name": "rlCdpSecondaryCachePortId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePowerAvailableManagementPowerLevel": {
+    "name": "rlCdpSecondaryCachePowerAvailableManagementPowerLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePowerAvailableRequestId": {
+    "name": "rlCdpSecondaryCachePowerAvailableRequestId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePowerAvailablePowerManagementId": {
+    "name": "rlCdpSecondaryCachePowerAvailablePowerManagementId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePowerRequestedPowerManagementId": {
+    "name": "rlCdpSecondaryCachePowerRequestedPowerManagementId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCachePowerRequestedRequestId": {
+    "name": "rlCdpSecondaryCachePowerRequestedRequestId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpGlobalLogMismatchDuplexEnable": {
+    "name": "rlCdpGlobalLogMismatchDuplexEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpGlobalLogMismatchVoiceVlanEnable": {
+    "name": "rlCdpGlobalLogMismatchVoiceVlanEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpGlobalLogMismatchNativeVlanEnable": {
+    "name": "rlCdpGlobalLogMismatchNativeVlanEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpTlvTable": {
+    "name": "rlCdpTlvTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpTlvEntry": {
+    "name": "rlCdpTlvEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-CDP-MIB",
+        "object": "rlCdpTlvIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpTlvIfIndex": {
+    "name": "rlCdpTlvIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpTlvDeviceIdFormat": {
+    "name": "rlCdpTlvDeviceIdFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serialNumber": 1,
+          "macAddress": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvDeviceId": {
+    "name": "rlCdpTlvDeviceId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvAddress1Type": {
+    "name": "rlCdpTlvAddress1Type",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvAddress1": {
+    "name": "rlCdpTlvAddress1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvAddress2Type": {
+    "name": "rlCdpTlvAddress2Type",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvAddress2": {
+    "name": "rlCdpTlvAddress2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvAddress3Type": {
+    "name": "rlCdpTlvAddress3Type",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvAddress3": {
+    "name": "rlCdpTlvAddress3",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPortId": {
+    "name": "rlCdpTlvPortId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvCapabilities": {
+    "name": "rlCdpTlvCapabilities",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvVersion": {
+    "name": "rlCdpTlvVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPlatform": {
+    "name": "rlCdpTlvPlatform",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvNativeVLAN": {
+    "name": "rlCdpTlvNativeVLAN",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvDuplex": {
+    "name": "rlCdpTlvDuplex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "halfduplex": 2,
+          "fullduplex": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvApplianceID": {
+    "name": "rlCdpTlvApplianceID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvApplianceVlanID": {
+    "name": "rlCdpTlvApplianceVlanID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvExtendedTrust": {
+    "name": "rlCdpTlvExtendedTrust",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untrusted": 0,
+          "trusted": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvCosForUntrustedPorts": {
+    "name": "rlCdpTlvCosForUntrustedPorts",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPowerAvailableRequestId": {
+    "name": "rlCdpTlvPowerAvailableRequestId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPowerAvailablePowerManagementId": {
+    "name": "rlCdpTlvPowerAvailablePowerManagementId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPowerAvailable": {
+    "name": "rlCdpTlvPowerAvailable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPowerAvailableManagementPowerLevel": {
+    "name": "rlCdpTlvPowerAvailableManagementPowerLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvSysName": {
+    "name": "rlCdpTlvSysName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPowerConsumption": {
+    "name": "rlCdpTlvPowerConsumption",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPowerRequestedRequestId": {
+    "name": "rlCdpTlvPowerRequestedRequestId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPowerRequestedPowerManagementId": {
+    "name": "rlCdpTlvPowerRequestedPowerManagementId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvSparePairPoECapabilities": {
+    "name": "rlCdpTlvSparePairPoECapabilities",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.16.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "supported": 0,
+        "detectionClassificationRequired": 1,
+        "desiredState": 2,
+        "operationalState": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpTlvPowerRequestTable": {
+    "name": "rlCdpTlvPowerRequestTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpTlvPowerRequestEntry": {
+    "name": "rlCdpTlvPowerRequestEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-CDP-MIB",
+        "object": "rlCdpTlvIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-CDP-MIB",
+        "object": "rlCdpTlvPowerRequestPowerLevelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpTlvPowerRequestPowerLevelIndex": {
+    "name": "rlCdpTlvPowerRequestPowerLevelIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpTlvPowerRequestPowerLevel": {
+    "name": "rlCdpTlvPowerRequestPowerLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheAddressTable": {
+    "name": "rlCdpSecondaryCacheAddressTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheAddressEntry": {
+    "name": "rlCdpSecondaryCacheAddressEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-CDP-MIB",
+        "object": "rlCdpSecondaryCacheAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheAddressIndex": {
+    "name": "rlCdpSecondaryCacheAddressIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheAddressType": {
+    "name": "rlCdpSecondaryCacheAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheAddress": {
+    "name": "rlCdpSecondaryCacheAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNetworkAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheRequestedPowerTable": {
+    "name": "rlCdpSecondaryCacheRequestedPowerTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheRequestedPowerEntry": {
+    "name": "rlCdpSecondaryCacheRequestedPowerEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CDP-MIB",
+        "object": "cdpCacheDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-CDP-MIB",
+        "object": "rlCdpSecondaryCacheRequestedPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheRequestedPowerIndex": {
+    "name": "rlCdpSecondaryCacheRequestedPowerIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpSecondaryCacheRequestedPowerLevel": {
+    "name": "rlCdpSecondaryCacheRequestedPowerLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpAdvertiseApplianceTlv": {
+    "name": "rlCdpAdvertiseApplianceTlv",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpValidateMandatoryTlvs": {
+    "name": "rlCdpValidateMandatoryTlvs",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpInterfaceCountersTable": {
+    "name": "rlCdpInterfaceCountersTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpInterfaceCountersEntry": {
+    "name": "rlCdpInterfaceCountersEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-CDP-MIB",
+        "object": "rlCdpInterfaceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpInterfaceId": {
+    "name": "rlCdpInterfaceId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCdpInterfaceTotalInputPackets": {
+    "name": "rlCdpInterfaceTotalInputPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceV1InputPackets": {
+    "name": "rlCdpInterfaceV1InputPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceV2InputPackets": {
+    "name": "rlCdpInterfaceV2InputPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceTotalOutputPackets": {
+    "name": "rlCdpInterfaceTotalOutputPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceV1OutputPackets": {
+    "name": "rlCdpInterfaceV1OutputPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceV2OutputPackets": {
+    "name": "rlCdpInterfaceV2OutputPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceIllegalChksum": {
+    "name": "rlCdpInterfaceIllegalChksum",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceErrorPackets": {
+    "name": "rlCdpInterfaceErrorPackets",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceMaxNeighborsExceededInMainCache": {
+    "name": "rlCdpInterfaceMaxNeighborsExceededInMainCache",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceMaxNeighborsExceededInSecondaryCache": {
+    "name": "rlCdpInterfaceMaxNeighborsExceededInSecondaryCache",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.19.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCdpInterfaceCountersClear": {
+    "name": "rlCdpInterfaceCountersClear",
+    "oid": "1.3.6.1.4.1.9.6.1.101.137.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCdpLogMismatchDuplexTrap": {
+    "name": "rlCdpLogMismatchDuplexTrap",
+    "oid": "1.3.6.1.4.1.9.6.1.101.0.224",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCOSB-DEVICEPARAMS-MIB",
+        "object": "rndErrorDesc"
+      },
+      {
+        "module": "CISCOSB-DEVICEPARAMS-MIB",
+        "object": "rndErrorSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpLogMismatchVoiceVlanTrap": {
+    "name": "rlCdpLogMismatchVoiceVlanTrap",
+    "oid": "1.3.6.1.4.1.9.6.1.101.0.225",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCOSB-DEVICEPARAMS-MIB",
+        "object": "rndErrorDesc"
+      },
+      {
+        "module": "CISCOSB-DEVICEPARAMS-MIB",
+        "object": "rndErrorSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "rlCdpLogMismatchNativeVlanTrap": {
+    "name": "rlCdpLogMismatchNativeVlanTrap",
+    "oid": "1.3.6.1.4.1.9.6.1.101.0.226",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCOSB-DEVICEPARAMS-MIB",
+        "object": "rndErrorDesc"
+      },
+      {
+        "module": "CISCOSB-DEVICEPARAMS-MIB",
+        "object": "rndErrorSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-CDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-CDP-MIB"
+  }
+}

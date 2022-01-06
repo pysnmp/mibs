@@ -1,0 +1,1776 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "dasan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleMibConfig": {
+    "name": "sleMibConfig",
+    "oid": "1.3.6.1.4.1.6296.100.1",
+    "class": "moduleidentity"
+  },
+  "SleVersionType": {
+    "name": "SleVersionType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undef": 0,
+          "one": 1,
+          "two": 2,
+          "three": 3,
+          "four": 4,
+          "five": 5,
+          "six": 6,
+          "seven": 7
+        }
+      }
+    }
+  },
+  "sleConfigMgmt": {
+    "name": "sleConfigMgmt",
+    "oid": "1.3.6.1.4.1.6296.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sleMibConfInfo": {
+    "name": "sleMibConfInfo",
+    "oid": "1.3.6.1.4.1.6296.100.1.1",
+    "class": "objectidentity"
+  },
+  "sleMibConfInfoTable": {
+    "name": "sleMibConfInfoTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMibConfInfoEntry": {
+    "name": "sleMibConfInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMibConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMibConfIndex": {
+    "name": "sleMibConfIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "systemManagement": 1,
+          "device": 2,
+          "bridge": 3,
+          "faultManagement": 4,
+          "performanceManagement": 5,
+          "dhcp": 6,
+          "security": 7,
+          "snmp": 8,
+          "rmon": 9,
+          "qos": 10,
+          "network": 11,
+          "multicast": 12,
+          "dhcpSnooping": 13,
+          "mvQos": 14,
+          "epon": 20,
+          "sFlow": 21,
+          "red": 22,
+          "debug": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMibConfVersion": {
+    "name": "sleMibConfVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMibConfDescription": {
+    "name": "sleMibConfDescription",
+    "oid": "1.3.6.1.4.1.6296.100.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMibConfDirectory": {
+    "name": "sleMibConfDirectory",
+    "oid": "1.3.6.1.4.1.6296.100.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleModuleInfo": {
+    "name": "sleModuleInfo",
+    "oid": "1.3.6.1.4.1.6296.100.1.2",
+    "class": "objectidentity"
+  },
+  "sleSystemModuleTable": {
+    "name": "sleSystemModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSystemModuleEntry": {
+    "name": "sleSystemModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSystemModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSystemModuleIndex": {
+    "name": "sleSystemModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "login": 11,
+          "process": 12,
+          "backup": 21,
+          "syslogConf": 31,
+          "syslogHistVol": 32,
+          "syslogHistNVol": 33,
+          "dnsServer": 41,
+          "ntpServer": 42,
+          "sshRemote": 43,
+          "autoCLI": 51,
+          "autoCliScript": 52,
+          "autoCliSchedule": 53,
+          "autoCliProfile": 54,
+          "autoCliProfileServer": 55,
+          "autoCliOutputMemory": 56,
+          "autoResetPing": 61,
+          "autoResetMemoryleak": 62,
+          "coreDump": 71,
+          "sysService": 81,
+          "sysUser": 82,
+          "parameter": 91,
+          "watchDog": 101
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSystemModuleVersion": {
+    "name": "sleSystemModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSystemModuleObjectId": {
+    "name": "sleSystemModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDeviceModuleTable": {
+    "name": "sleDeviceModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleDeviceModuleEntry": {
+    "name": "sleDeviceModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDeviceModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleDeviceModuleIndex": {
+    "name": "sleDeviceModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "ethernetPort": 11,
+          "power": 21,
+          "fanModule": 22,
+          "fanUnit": 23,
+          "temperature": 24,
+          "battery": 31,
+          "door": 41,
+          "cpu": 51
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDeviceModuleVersion": {
+    "name": "sleDeviceModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDeviceModuleObjectId": {
+    "name": "sleDeviceModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleBridgeModuleTable": {
+    "name": "sleBridgeModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleBridgeModuleEntry": {
+    "name": "sleBridgeModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleBridgeModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleBridgeModuleIndex": {
+    "name": "sleBridgeModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "bridgePort": 11,
+          "vlan": 21,
+          "vlanMap": 22,
+          "subnetBasedVlan": 23,
+          "protocolBasedVlan": 24,
+          "fdb": 31,
+          "mfdb": 32,
+          "stackDevice": 41,
+          "stp": 51,
+          "stpInstance": 52,
+          "stpInstancePort": 53,
+          "lag": 61,
+          "lagLacp": 62,
+          "lagLacpPort": 63,
+          "erpDomain": 71,
+          "lldpPort": 81,
+          "lldpRemote": 82,
+          "lldpStatistics": 83,
+          "igmpSnoopConf": 91,
+          "igmpSnoopGroup": 92,
+          "portSecurity": 101,
+          "portSecurityFdb": 102,
+          "floodGuard": 111,
+          "vlanTranslation": 121
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleBridgeModuleVersion": {
+    "name": "sleBridgeModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleBridgeModuleObjectId": {
+    "name": "sleBridgeModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleFaultMgmtModuleTable": {
+    "name": "sleFaultMgmtModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleFaultMgmtModuleEntry": {
+    "name": "sleFaultMgmtModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleFaultMgmtModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleFaultMgmtModuleIndex": {
+    "name": "sleFaultMgmtModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "alarmSeverity": 11,
+          "alarmReport": 12,
+          "alarmHistory": 13,
+          "efmOam": 21,
+          "advaSystem": 31,
+          "advaGeneral": 32,
+          "advaModule": 33,
+          "advaOptical": 34,
+          "advaOam": 35
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleFaultMgmtModuleVersion": {
+    "name": "sleFaultMgmtModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleFaultMgmtModuleObjectId": {
+    "name": "sleFaultMgmtModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePerfMgmtModuleTable": {
+    "name": "slePerfMgmtModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slePerfMgmtModuleEntry": {
+    "name": "slePerfMgmtModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "slePerfMgmtModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slePerfMgmtModuleIndex": {
+    "name": "slePerfMgmtModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "portThreshold": 11,
+          "portRate": 12,
+          "portStatistics": 13,
+          "cpuStatistics": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePerfMgmtModuleVersion": {
+    "name": "slePerfMgmtModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slePerfMgmtModuleObjectId": {
+    "name": "slePerfMgmtModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDhcpModuleTable": {
+    "name": "sleDhcpModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleDhcpModuleEntry": {
+    "name": "sleDhcpModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDhcpModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleDhcpModuleIndex": {
+    "name": "sleDhcpModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "pool": 11,
+          "network": 12,
+          "range": 13,
+          "fixedAddress": 14,
+          "dnsOption": 15,
+          "defaultGwOption": 16,
+          "serverOptions": 17,
+          "dhcp4Logs": 18,
+          "dhcp4Ntp": 19,
+          "dhcp4PE": 20,
+          "option82Port": 31,
+          "option82Remote": 32,
+          "option82Circuit": 33,
+          "option82Class": 34,
+          "option82ClassMap": 35,
+          "option82ClassRange": 36,
+          "filterPort": 41,
+          "filterAddress": 42,
+          "illegal": 43,
+          "packetStats": 51,
+          "leased": 52,
+          "packetStatsPort": 53,
+          "snopping": 61,
+          "snoopVlan": 62,
+          "snoopPort": 63,
+          "snoopBindings": 64,
+          "relayInterface": 71,
+          "relayHelper": 72,
+          "clientInterface": 81,
+          "clientOptions": 82,
+          "dhcp4PortLease": 91
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDhcpModuleVersion": {
+    "name": "sleDhcpModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDhcpModuleObjectId": {
+    "name": "sleDhcpModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSecurityModuleTable": {
+    "name": "sleSecurityModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSecurityModuleEntry": {
+    "name": "sleSecurityModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSecurityModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSecurityModuleIndex": {
+    "name": "sleSecurityModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "aaa": 11,
+          "radiusServer": 12,
+          "tacacsServer": 13,
+          "acl": 21,
+          "dot1xPort": 31,
+          "dot1xStatistics": 32,
+          "arpInspection": 41
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSecurityModuleVersion": {
+    "name": "sleSecurityModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSecurityModuleObjectId": {
+    "name": "sleSecurityModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSnmpModuleTable": {
+    "name": "sleSnmpModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSnmpModuleEntry": {
+    "name": "sleSnmpModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSnmpModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSnmpModuleIndex": {
+    "name": "sleSnmpModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "com2Sec": 11,
+          "trapHost": 12,
+          "community": 13,
+          "viewTreeFamily": 14,
+          "access": 15,
+          "securityToGroup": 16,
+          "user": 17,
+          "agent": 18,
+          "snmpSeesion": 19,
+          "snmpTrap": 20,
+          "snmpTrapSource": 21
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSnmpModuleVersion": {
+    "name": "sleSnmpModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSnmpModuleObjectId": {
+    "name": "sleSnmpModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonModuleTable": {
+    "name": "sleRmonModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRmonModuleEntry": {
+    "name": "sleRmonModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleRmonModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRmonModuleIndex": {
+    "name": "sleRmonModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "event": 11,
+          "alarm": 12,
+          "history": 13,
+          "etherStats": 21
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonModuleVersion": {
+    "name": "sleRmonModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRmonModuleObjectId": {
+    "name": "sleRmonModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleQosModuleTable": {
+    "name": "sleQosModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleQosModuleEntry": {
+    "name": "sleQosModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleQosModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleQosModuleIndex": {
+    "name": "sleQosModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "baseV4": 2,
+          "baseV6": 3,
+          "trafficeProfile": 11,
+          "portSchedule": 12,
+          "queue": 13,
+          "counter": 14,
+          "colorMarking": 15,
+          "userflow": 21,
+          "flow": 31,
+          "flowClassMap": 32,
+          "flowPolicyMap": 33,
+          "class": 41,
+          "classFlowMap": 42,
+          "classPolicyMap": 43,
+          "policer": 51,
+          "policy": 61,
+          "policyFCMap": 62,
+          "remark": 71,
+          "remarkL3": 72,
+          "remarkL2": 73,
+          "redProfile": 81,
+          "portRed": 82
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleQosModuleVersion": {
+    "name": "sleQosModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleQosModuleObjectId": {
+    "name": "sleQosModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleNetworkModuleTable": {
+    "name": "sleNetworkModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleNetworkModuleEntry": {
+    "name": "sleNetworkModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleNetworkModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleNetworkModuleIndex": {
+    "name": "sleNetworkModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "interface": 11,
+          "ipAddress": 12,
+          "arp": 13,
+          "routing": 21,
+          "dhcpClient": 31
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleNetworkModuleVersion": {
+    "name": "sleNetworkModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleNetworkModuleObjectId": {
+    "name": "sleNetworkModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMulticastModuleTable": {
+    "name": "sleMulticastModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMulticastModuleEntry": {
+    "name": "sleMulticastModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMulticastModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMulticastModuleIndex": {
+    "name": "sleMulticastModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "mrouteBase": 11,
+          "mroute": 12,
+          "mrouteNextHop": 13,
+          "mrouteInterface": 14,
+          "igmpBase": 21,
+          "igmpSsmMapping": 22,
+          "igmpHelperVlan": 31,
+          "igmpHelperGroup": 32,
+          "igmpInterface": 41,
+          "igmpCache": 42,
+          "igmpSource": 43,
+          "igmpGroupState": 44,
+          "igmpSnoopVlan": 51,
+          "igmpSnoopGroup": 52,
+          "igmpSnoopSource": 53,
+          "igmpSnoopReport": 54,
+          "igmpSnoopPort": 55,
+          "igmpSnoopPortStats": 56,
+          "igmpProfile": 61,
+          "igmpProfileRange": 62,
+          "igmpFilterPort": 63,
+          "mvrPort": 71,
+          "mvrGroup": 72,
+          "pimBase": 81,
+          "pimSnoopVlan": 91,
+          "pimAgent": 101,
+          "igmpProxyBase": 111,
+          "igmpProxyInterface": 121
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMulticastModuleVersion": {
+    "name": "sleMulticastModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMulticastModuleObjectId": {
+    "name": "sleMulticastModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDhcpSnoopModuleTable": {
+    "name": "sleDhcpSnoopModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleDhcpSnoopModuleEntry": {
+    "name": "sleDhcpSnoopModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDhcpSnoopModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleDhcpSnoopModuleIndex": {
+    "name": "sleDhcpSnoopModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "portSrcGuardConf": 11,
+          "portSrcGuardAddress": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDhcpSnoopModuleVersion": {
+    "name": "sleDhcpSnoopModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDhcpSnoopModuleObjectId": {
+    "name": "sleDhcpSnoopModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMvQosModuleTable": {
+    "name": "sleMvQosModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMvQosModuleEntry": {
+    "name": "sleMvQosModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMvQosModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMvQosModuleIndex": {
+    "name": "sleMvQosModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "baseV4": 2,
+          "baseV6": 3,
+          "bridgePort2Tc": 11,
+          "bridgeProtocol2Tc": 12,
+          "bridgeSubnet2Tc": 13,
+          "bridgeMac2Tc": 14,
+          "bridgeUp2TcEnable": 15,
+          "bridgeUp2Tc": 16,
+          "bridgeTc2Up": 17,
+          "bridgeUp2Dp": 18,
+          "inLifMark": 21,
+          "routerMark": 31
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMvQosModuleVersion": {
+    "name": "sleMvQosModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMvQosModuleObjectId": {
+    "name": "sleMvQosModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEponModuleTable": {
+    "name": "sleEponModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleEponModuleEntry": {
+    "name": "sleEponModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleEponModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleEponModuleIndex": {
+    "name": "sleEponModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "olt": 11,
+          "onu": 21,
+          "vlan": 31,
+          "profile": 41,
+          "profileQueue": 42,
+          "alarm": 51,
+          "oltStatistics": 61,
+          "onuStatistics": 62
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEponModuleVersion": {
+    "name": "sleEponModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleEponModuleObjectId": {
+    "name": "sleEponModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowModuleTable": {
+    "name": "sleSFlowModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleSFlowModuleEntry": {
+    "name": "sleSFlowModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSFlowModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleSFlowModuleIndex": {
+    "name": "sleSFlowModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1,
+          "receiver": 11,
+          "flowSampler": 12,
+          "counterPoller": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowModuleVersion": {
+    "name": "sleSFlowModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleSFlowModuleObjectId": {
+    "name": "sleSFlowModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRedModuleTable": {
+    "name": "sleRedModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRedModuleEntry": {
+    "name": "sleRedModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleRedModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRedModuleIndex": {
+    "name": "sleRedModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "base": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRedModuleVersion": {
+    "name": "sleRedModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRedModuleObjectId": {
+    "name": "sleRedModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugModuleTable": {
+    "name": "sleDebugModuleTable",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.99",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleDebugModuleEntry": {
+    "name": "sleDebugModuleEntry",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.99.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSFlowModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleDebugModuleIndex": {
+    "name": "sleDebugModuleIndex",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.99.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "debugBase": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugModuleVersion": {
+    "name": "sleDebugModuleVersion",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.99.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleDebugModuleObjectId": {
+    "name": "sleDebugModuleObjectId",
+    "oid": "1.3.6.1.4.1.6296.100.1.2.99.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMibConfGroup": {
+    "name": "sleMibConfGroup",
+    "oid": "1.3.6.1.4.1.6296.100.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMibConfIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMibConfVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMibConfDescription"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMibConfDirectory"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSystemModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSystemModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSystemModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDeviceModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDeviceModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDeviceModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleBridgeModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleBridgeModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleBridgeModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleFaultMgmtModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleFaultMgmtModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleFaultMgmtModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "slePerfMgmtModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "slePerfMgmtModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "slePerfMgmtModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDhcpModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDhcpModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDhcpModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSecurityModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSecurityModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSecurityModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSnmpModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSnmpModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSnmpModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleRmonModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleRmonModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleRmonModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleQosModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleQosModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleQosModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleNetworkModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleNetworkModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleNetworkModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMulticastModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMulticastModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMulticastModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDhcpSnoopModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDhcpSnoopModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDhcpSnoopModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSFlowModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSFlowModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDebugModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDebugModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleDebugModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleRedModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleRedModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleRedModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleSFlowModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMvQosModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMvQosModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleMvQosModuleObjectId"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleEponModuleIndex"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleEponModuleVersion"
+      },
+      {
+        "module": "SLE-CONFIG-MIB",
+        "object": "sleEponModuleObjectId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-CONFIG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-CONFIG-MIB"
+  }
+}

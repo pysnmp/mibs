@@ -1,0 +1,445 @@
+{
+  "imports": {
+    "class": "imports",
+    "BLUECOAT-MIB": [
+      "blueCoatMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "bluecoatSGICAPMIB": {
+    "name": "bluecoatSGICAPMIB",
+    "oid": "1.3.6.1.4.1.3417.2.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-02-08 14:00",
+        "description": "Initial revision of this MIB."
+      }
+    ]
+  },
+  "bluecoatSgICAPMIBObjects": {
+    "name": "bluecoatSgICAPMIBObjects",
+    "oid": "1.3.6.1.4.1.3417.2.14.1",
+    "class": "objectidentity"
+  },
+  "bluecoatSgICAPMIBNotifications": {
+    "name": "bluecoatSgICAPMIBNotifications",
+    "oid": "1.3.6.1.4.1.3417.2.14.2",
+    "class": "objectidentity"
+  },
+  "sgICAPMIBNotificationsPrefix": {
+    "name": "sgICAPMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.3417.2.14.2.0",
+    "class": "objectidentity"
+  },
+  "bluecoatSgICAPMIBConformance": {
+    "name": "bluecoatSgICAPMIBConformance",
+    "oid": "1.3.6.1.4.1.3417.2.14.3",
+    "class": "objectidentity"
+  },
+  "ICAPServiceEntityType": {
+    "name": "ICAPServiceEntityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "service": 1,
+          "servivceGroup": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ICAPServiceNotificationType": {
+    "name": "ICAPServiceNotificationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "queuedRequestsAboveThreshold": 1,
+          "queuedRequestsBelowThreshold": 2,
+          "deferredRequestsAboveThreshold": 3,
+          "deferredRequestsBelowThreshold": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "bluecoatSgICAPValues": {
+    "name": "bluecoatSgICAPValues",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1",
+    "class": "objectidentity"
+  },
+  "icapService": {
+    "name": "icapService",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1",
+    "class": "objectidentity"
+  },
+  "icapServiceStatsTable": {
+    "name": "icapServiceStatsTable",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icapServiceStatsTableEntry": {
+    "name": "icapServiceStatsTableEntry",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "icapServiceStatsIndex": {
+    "name": "icapServiceStatsIndex",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icapServiceStatsName": {
+    "name": "icapServiceStatsName",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsEntityType": {
+    "name": "icapServiceStatsEntityType",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ICAPServiceEntityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsPlainConns": {
+    "name": "icapServiceStatsPlainConns",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsSecuredConns": {
+    "name": "icapServiceStatsSecuredConns",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsPlainActvReqs": {
+    "name": "icapServiceStatsPlainActvReqs",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsSecureActvReqs": {
+    "name": "icapServiceStatsSecureActvReqs",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsQueuedReqs": {
+    "name": "icapServiceStatsQueuedReqs",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsDeferredReqs": {
+    "name": "icapServiceStatsDeferredReqs",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsRcvdBytes": {
+    "name": "icapServiceStatsRcvdBytes",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsSentBytes": {
+    "name": "icapServiceStatsSentBytes",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsFailedReqs": {
+    "name": "icapServiceStatsFailedReqs",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icapServiceStatsSuccessfullReqs": {
+    "name": "icapServiceStatsSuccessfullReqs",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sgICAPNotification": {
+    "name": "sgICAPNotification",
+    "oid": "1.3.6.1.4.1.3417.2.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ICAPServiceNotificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sgICAPTrap": {
+    "name": "sgICAPTrap",
+    "oid": "1.3.6.1.4.1.3417.2.14.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "sgICAPNotification"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsName"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsDeferredReqs"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsQueuedReqs"
+      }
+    ],
+    "status": "current"
+  },
+  "bluecoatSgICAPMIBCompliances": {
+    "name": "bluecoatSgICAPMIBCompliances",
+    "oid": "1.3.6.1.4.1.3417.2.14.3.1",
+    "class": "objectidentity"
+  },
+  "bluecoatSgICAPMIBGroups": {
+    "name": "bluecoatSgICAPMIBGroups",
+    "oid": "1.3.6.1.4.1.3417.2.14.3.2",
+    "class": "objectidentity"
+  },
+  "bluecoatSgICAPMIBNotifGroups": {
+    "name": "bluecoatSgICAPMIBNotifGroups",
+    "oid": "1.3.6.1.4.1.3417.2.14.3.3",
+    "class": "objectidentity"
+  },
+  "bluecoatSgICAPMIBCompliance": {
+    "name": "bluecoatSgICAPMIBCompliance",
+    "oid": "1.3.6.1.4.1.3417.2.14.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bluecoatSgICAPMIBGroup",
+        "module": "BLUECOAT-SG-ICAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bluecoatSgICAPMIBGroup": {
+    "name": "bluecoatSgICAPMIBGroup",
+    "oid": "1.3.6.1.4.1.3417.2.14.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsName"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsEntityType"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsPlainConns"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsSecuredConns"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsPlainActvReqs"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsSecureActvReqs"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsQueuedReqs"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsDeferredReqs"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsRcvdBytes"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsSentBytes"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsFailedReqs"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "icapServiceStatsSuccessfullReqs"
+      },
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "sgICAPNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "bluecoatSgICAPMIBNotifGroup": {
+    "name": "bluecoatSgICAPMIBNotifGroup",
+    "oid": "1.3.6.1.4.1.3417.2.14.3.3.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BLUECOAT-SG-ICAP-MIB",
+        "object": "sgICAPTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-ICAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:45 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BLUECOAT-SG-ICAP-MIB"
+  }
+}

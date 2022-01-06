@@ -1,0 +1,1182 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "DELL-NETWORKING-TC": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "dellNetLinkAggMib": {
+    "name": "dellNetLinkAggMib",
+    "oid": "1.3.6.1.4.1.6027.3.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "linkBundleType updated."
+      },
+      {
+        "revision": "2012-11-26 00:00",
+        "description": "link bundle notificatins added."
+      },
+      {
+        "revision": "2011-07-04 00:00",
+        "description": "Added support for LACP state monitoring and state change traps. 1. Added dot3aAggCfgLacpSupported, dot3aAggCfgOperStatus to dot3aAggConfigTable. 2. Added a new table dot3adAggPortTable for monitoring LACP state information per port. 3. Added textual convention DellNetLacpState for lacp state information and DellNetLacpKey for lacp key maintained at every physical port. 4. Added a notification dot3adAggLacpStateChange. 5. Modified alignment and description of some objects. 6. Deprecated dellNetLinkAggMibCompliance and added a new compliance statement dellNetLinkAggMibComplianceRev1. 7. Deprecated dellNetLinkAggCommonGroup and added a new object group dellNetLinkAggCommonGroupRev1. 8. Added two new object groups- - dellNetLinkAggPortGroup for the aggregator port table and - dellNetLinkAggNotificationGroup for the notification of lacp state change."
+      },
+      {
+        "revision": "2003-08-01 00:00",
+        "description": "Dell Networking OS Link Aggregation MIB version 1.3. - Add FDB common table for configured or negotiated link aggregation. 1. Move textual conventions to the Textual-Convention MIB dellNet-tc.mib. 2. Rename dot3aClearCurAggFdb to dot3aClearFdb."
+      },
+      {
+        "revision": "2002-03-12 00:00",
+        "description": "Dell Networking OS Link Aggregation MIB version 1.1. Deprecated dot3aAggStaticTable & dot3aAggFdbTable Added dot3aCurAggStaticTable & dot3aCurAggFdbTable because of indexing changes"
+      },
+      {
+        "revision": "2001-03-01 00:00",
+        "description": "First revision of Dell Networking OS link aggregation mib."
+      },
+      {
+        "revision": "2000-11-21 00:00",
+        "description": "Dell Networking OS Link Aggregation MIB version 1.0."
+      }
+    ]
+  },
+  "DellNetLacpKey": {
+    "name": "DellNetLacpKey",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "DellNetLacpState": {
+    "name": "DellNetLacpState",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "lacpActivity": 0,
+        "lacpTimeout": 1,
+        "aggregation": 2,
+        "synchronization": 3,
+        "collecting": 4,
+        "distributing": 5,
+        "defaulted": 6,
+        "expired": 7
+      }
+    },
+    "status": "current"
+  },
+  "dellNetLinkAggObjects": {
+    "name": "dellNetLinkAggObjects",
+    "oid": "1.3.6.1.4.1.6027.3.2.1",
+    "class": "objectidentity"
+  },
+  "dellNetLinkAggAlarms": {
+    "name": "dellNetLinkAggAlarms",
+    "oid": "1.3.6.1.4.1.6027.3.2.2",
+    "class": "objectidentity"
+  },
+  "dellNetdot3dAgg": {
+    "name": "dellNetdot3dAgg",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1",
+    "class": "objectidentity"
+  },
+  "dellNetLinkAggMgmt": {
+    "name": "dellNetLinkAggMgmt",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.2",
+    "class": "objectidentity"
+  },
+  "dot3aAggConfigTable": {
+    "name": "dot3aAggConfigTable",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aAggConfigEntry": {
+    "name": "dot3aAggConfigEntry",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3aAggCfgId": {
+    "name": "dot3aAggCfgId",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aAggCfgMacAddr": {
+    "name": "dot3aAggCfgMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aAggCfgIfIndex": {
+    "name": "dot3aAggCfgIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aAggCfgNumPorts": {
+    "name": "dot3aAggCfgNumPorts",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aAggCfgPortList": {
+    "name": "dot3aAggCfgPortList",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dot3aAggCfgPortListString": {
+    "name": "dot3aAggCfgPortListString",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aAggCfgLacpSupported": {
+    "name": "dot3aAggCfgLacpSupported",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aAggCfgOperStatus": {
+    "name": "dot3aAggCfgOperStatus",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aAggStaticTable": {
+    "name": "dot3aAggStaticTable",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aAggStaticEntry": {
+    "name": "dot3aAggStaticEntry",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggVlanId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dot3aAggIndex": {
+    "name": "dot3aAggIndex",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dot3aAggVlanId": {
+    "name": "dot3aAggVlanId",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dot3aAggMacAddr": {
+    "name": "dot3aAggMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dot3aAggStatus": {
+    "name": "dot3aAggStatus",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dot3aAggDistributedPort": {
+    "name": "dot3aAggDistributedPort",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dot3aAggFdbTable": {
+    "name": "dot3aAggFdbTable",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aAggFdbEntry": {
+    "name": "dot3aAggFdbEntry",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggFdbIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggFdbVlanId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggFdbMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dot3aAggFdbIndex": {
+    "name": "dot3aAggFdbIndex",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dot3aAggFdbVlanId": {
+    "name": "dot3aAggFdbVlanId",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dot3aAggFdbMacAddr": {
+    "name": "dot3aAggFdbMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dot3aAggFdbStatus": {
+    "name": "dot3aAggFdbStatus",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dot3aAggFdbDistributedPort": {
+    "name": "dot3aAggFdbDistributedPort",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dot3aCurAggStaticTable": {
+    "name": "dot3aCurAggStaticTable",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCurAggStaticEntry": {
+    "name": "dot3aCurAggStaticEntry",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggVlanId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3aCurAggVlanId": {
+    "name": "dot3aCurAggVlanId",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCurAggMacAddr": {
+    "name": "dot3aCurAggMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCurAggIndex": {
+    "name": "dot3aCurAggIndex",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCurAggStatus": {
+    "name": "dot3aCurAggStatus",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aCurAggFdbTable": {
+    "name": "dot3aCurAggFdbTable",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCurAggFdbEntry": {
+    "name": "dot3aCurAggFdbEntry",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggFdbVlanId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggFdbMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggFdbIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3aCurAggFdbVlanId": {
+    "name": "dot3aCurAggFdbVlanId",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCurAggFdbMacAddr": {
+    "name": "dot3aCurAggFdbMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCurAggFdbIndex": {
+    "name": "dot3aCurAggFdbIndex",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCurAggFdbStatus": {
+    "name": "dot3aCurAggFdbStatus",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aCommonAggFdbTable": {
+    "name": "dot3aCommonAggFdbTable",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCommonAggFdbEntry": {
+    "name": "dot3aCommonAggFdbEntry",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCommonAggFdbIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCommonAggFdbVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3aCommonAggFdbIndex": {
+    "name": "dot3aCommonAggFdbIndex",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCommonAggFdbVlanId": {
+    "name": "dot3aCommonAggFdbVlanId",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3aCommonAggFdbTagConfig": {
+    "name": "dot3aCommonAggFdbTagConfig",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tagged": 1,
+          "untagged": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aCommonAggFdbStatus": {
+    "name": "dot3aCommonAggFdbStatus",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortTable": {
+    "name": "dot3adAggPortTable",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggPortEntry": {
+    "name": "dot3adAggPortEntry",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot3adAggPortIndex": {
+    "name": "dot3adAggPortIndex",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot3adAggPortActorOperKey": {
+    "name": "dot3adAggPortActorOperKey",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetLacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerOperKey": {
+    "name": "dot3adAggPortPartnerOperKey",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetLacpKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortActorAdminState": {
+    "name": "dot3adAggPortActorAdminState",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetLacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortActorOperState": {
+    "name": "dot3adAggPortActorOperState",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetLacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerAdminState": {
+    "name": "dot3adAggPortPartnerAdminState",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetLacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3adAggPortPartnerOperState": {
+    "name": "dot3adAggPortPartnerOperState",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetLacpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot3aClearFdb": {
+    "name": "dot3aClearFdb",
+    "oid": "1.3.6.1.4.1.6027.3.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetDot3adAggNotifications": {
+    "name": "dellNetDot3adAggNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.2.2.0",
+    "class": "objectidentity"
+  },
+  "dot3adAggLacpStateChange": {
+    "name": "dot3adAggLacpStateChange",
+    "oid": "1.3.6.1.4.1.6027.3.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortActorOperState"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortPartnerOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetLinkBundleNotifications": {
+    "name": "dellNetLinkBundleNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.2.2.1",
+    "class": "objectidentity"
+  },
+  "linkBundleType": {
+    "name": "linkBundleType",
+    "oid": "1.3.6.1.4.1.6027.3.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ecmpBundle": 1,
+          "lagBundle": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "linkBundleNumber": {
+    "name": "linkBundleNumber",
+    "oid": "1.3.6.1.4.1.6027.3.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "linkBundleImbalance": {
+    "name": "linkBundleImbalance",
+    "oid": "1.3.6.1.4.1.6027.3.2.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "linkBundleType"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "linkBundleNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "linkBundleImbalanceClear": {
+    "name": "linkBundleImbalanceClear",
+    "oid": "1.3.6.1.4.1.6027.3.2.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "linkBundleType"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "linkBundleNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetLinkAggMibConformance": {
+    "name": "dellNetLinkAggMibConformance",
+    "oid": "1.3.6.1.4.1.6027.3.2.3",
+    "class": "objectidentity"
+  },
+  "dellNetLinkAggMibCompliances": {
+    "name": "dellNetLinkAggMibCompliances",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.1",
+    "class": "objectidentity"
+  },
+  "dellNetLinkAggMibGroups": {
+    "name": "dellNetLinkAggMibGroups",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.2",
+    "class": "objectidentity"
+  },
+  "dellNetLinkAggMibCompliance": {
+    "name": "dellNetLinkAggMibCompliance",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dellNetLinkAggCommonGroup",
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetLinkAggMibComplianceRev1": {
+    "name": "dellNetLinkAggMibComplianceRev1",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dellNetLinkAggCommonGroupRev1",
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB"
+      },
+      {
+        "object": "dellNetLinkAggPortGroup",
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB"
+      },
+      {
+        "object": "dellNetLinkAggNotificationGroup",
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetLinkAggCommonGroup": {
+    "name": "dellNetLinkAggCommonGroup",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgMacAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgIfIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgNumPorts"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgPortListString"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgLacpSupported"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgOperStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggFdbStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCommonAggFdbTagConfig"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCommonAggFdbStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aClearFdb"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgPortList"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggDistributedPort"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggFdbStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggFdbDistributedPort"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dellNetLinkAggCommonGroupRev1": {
+    "name": "dellNetLinkAggCommonGroupRev1",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgMacAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgIfIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgNumPorts"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgPortListString"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgLacpSupported"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aAggCfgOperStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCurAggFdbStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCommonAggFdbTagConfig"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aCommonAggFdbStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3aClearFdb"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetLinkAggPortGroup": {
+    "name": "dellNetLinkAggPortGroup",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortActorOperKey"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortPartnerOperKey"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortActorAdminState"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortActorOperState"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortPartnerAdminState"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggPortPartnerOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetLinkAggNotificationGroup": {
+    "name": "dellNetLinkAggNotificationGroup",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "dot3adAggLacpStateChange"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "linkBundleImbalance"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "linkBundleImbalanceClear"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetLinkAggAlarmObjectGroup": {
+    "name": "dellNetLinkAggAlarmObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.2.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "linkBundleType"
+      },
+      {
+        "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB",
+        "object": "linkBundleNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-LINK-AGGREGATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-NETWORKING-LINK-AGGREGATION-MIB"
+  }
+}

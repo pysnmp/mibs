@@ -1,0 +1,714 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressIPv4",
+      "InetAddressType"
+    ],
+    "PRVT-CR-LDP-MIB": [
+      "mpls"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "prvtLmgr": {
+    "name": "prvtLmgr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-11 00:00",
+        "description": "Initial"
+      }
+    ]
+  },
+  "prvtLmgrObjects": {
+    "name": "prvtLmgrObjects",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1",
+    "class": "objectidentity"
+  },
+  "PrvtLmgrAdminStatus": {
+    "name": "PrvtLmgrAdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtLmgrOperStatus": {
+    "name": "PrvtLmgrOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "goingUp": 3,
+          "goingDown": 4,
+          "actFailed": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtLmgrPartnerStatus": {
+    "name": "PrvtLmgrPartnerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 0,
+          "activating": 1,
+          "active": 2,
+          "deactivating": 3,
+          "failedOver": 4,
+          "failed": 5,
+          "unavailable": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtLmgrIndex": {
+    "name": "PrvtLmgrIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PrvtLmgrControlModes": {
+    "name": "PrvtLmgrControlModes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ordered": 1,
+          "independent": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtLsrId": {
+    "name": "prvtLsrId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityTable": {
+    "name": "prvtLmgrLsrEntityTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityEntry": {
+    "name": "prvtLmgrLsrEntityEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtlmgrLsrEntityLsrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtlmgrLsrEntityLsrIndex": {
+    "name": "prvtlmgrLsrEntityLsrIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtLmgrIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityAdminStatus": {
+    "name": "prvtLmgrLsrEntityAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtLmgrAdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityOperStatus": {
+    "name": "prvtLmgrLsrEntityOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtLmgrOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityRowStatus": {
+    "name": "prvtLmgrLsrEntityRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityMinLsiBuffers": {
+    "name": "prvtLmgrLsrEntityMinLsiBuffers",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityMaxLsiBuffers": {
+    "name": "prvtLmgrLsrEntityMaxLsiBuffers",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLscStatus": {
+    "name": "prvtLmgrLscStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtLmgrPartnerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrLdbCount": {
+    "name": "prvtLmgrLdbCount",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityLsrId": {
+    "name": "prvtLmgrLsrEntityLsrId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityTranAddrType": {
+    "name": "prvtLmgrLsrEntityTranAddrType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityTranAddrLen": {
+    "name": "prvtLmgrLsrEntityTranAddrLen",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityTranAddr": {
+    "name": "prvtLmgrLsrEntityTranAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityControlMode": {
+    "name": "prvtLmgrLsrEntityControlMode",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtLmgrControlModes",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityMergeLsps": {
+    "name": "prvtLmgrLsrEntityMergeLsps",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityLoopDetection": {
+    "name": "prvtLmgrLsrEntityLoopDetection",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityPerformGrouping": {
+    "name": "prvtLmgrLsrEntityPerformGrouping",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrAutoStaticLsps": {
+    "name": "prvtLmgrLsrAutoStaticLsps",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrDisplayPhpXCs": {
+    "name": "prvtLmgrLsrDisplayPhpXCs",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrEntityIpv6TranAddr": {
+    "name": "prvtLmgrLsrEntityIpv6TranAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspXcTable": {
+    "name": "prvtLmgrLsrLspXcTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspXcEntry": {
+    "name": "prvtLmgrLsrLspXcEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtlmgrLsrEntityLsrIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrLspXcIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrLspInSegLabel",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrLspOutSegIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtLmgrLsrLspXcIndex": {
+    "name": "prvtLmgrLsrLspXcIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspInSegIndex": {
+    "name": "prvtLmgrLsrLspInSegIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspInSegIfIndex": {
+    "name": "prvtLmgrLsrLspInSegIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspInSegLabel": {
+    "name": "prvtLmgrLsrLspInSegLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspOutSegIndex": {
+    "name": "prvtLmgrLsrLspOutSegIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspOutSegIfIndex": {
+    "name": "prvtLmgrLsrLspOutSegIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspOutSegLabel": {
+    "name": "prvtLmgrLsrLspOutSegLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrLsrLspOutSegNextHopAddr": {
+    "name": "prvtLmgrLsrLspOutSegNextHopAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtLmgrConformance": {
+    "name": "prvtLmgrConformance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.2",
+    "class": "objectidentity"
+  },
+  "prvtLmgrCompliances": {
+    "name": "prvtLmgrCompliances",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.2.1",
+    "class": "objectidentity"
+  },
+  "prvtLmgrGroups": {
+    "name": "prvtLmgrGroups",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.2.2",
+    "class": "objectidentity"
+  },
+  "prvtLmgrCompliance": {
+    "name": "prvtLmgrCompliance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtLmgrEntityGroup",
+        "module": "PRVT-LMGR-MIB"
+      },
+      {
+        "object": "prvtLmgrMiscGroup",
+        "module": "PRVT-LMGR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtLmgrEntityGroup": {
+    "name": "prvtLmgrEntityGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityAdminStatus"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityOperStatus"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityRowStatus"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityMinLsiBuffers"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityMaxLsiBuffers"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityLsrId"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityTranAddrType"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityTranAddrLen"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityTranAddr"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityControlMode"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityMergeLsps"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityLoopDetection"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityPerformGrouping"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtLmgrMiscGroup": {
+    "name": "prvtLmgrMiscGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.4.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLscStatus"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLdbCount"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrAutoStaticLsps"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrDisplayPhpXCs"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrLspInSegIfIndex"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrLspInSegLabel"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrLspOutSegIfIndex"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrLspOutSegLabel"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrLspOutSegNextHopAddr"
+      },
+      {
+        "module": "PRVT-LMGR-MIB",
+        "object": "prvtLmgrLsrEntityIpv6TranAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-LMGR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-LMGR-MIB"
+  }
+}

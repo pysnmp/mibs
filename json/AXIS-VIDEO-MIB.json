@@ -1,0 +1,938 @@
+{
+  "imports": {
+    "class": "imports",
+    "AXIS-ROOT-MIB": [
+      "products",
+      "axis"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "video": {
+    "name": "video",
+    "oid": "1.3.6.1.4.1.368.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-09-23 12:18",
+        "description": "Updates in the compliance statement. Video products do not support all objects in general."
+      },
+      {
+        "revision": "2012-12-12 12:02",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "videoBased": {
+    "name": "videoBased",
+    "oid": "1.3.6.1.4.1.368.1.1",
+    "class": "objectidentity"
+  },
+  "videoObjects": {
+    "name": "videoObjects",
+    "oid": "1.3.6.1.4.1.368.4.1",
+    "class": "objectidentity"
+  },
+  "powerSupplyTable": {
+    "name": "powerSupplyTable",
+    "oid": "1.3.6.1.4.1.368.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "powerSupplyEntry": {
+    "name": "powerSupplyEntry",
+    "oid": "1.3.6.1.4.1.368.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "powerSupplyType",
+        "implied": 0
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "powerSupplyId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "powerSupplyType": {
+    "name": "powerSupplyType",
+    "oid": "1.3.6.1.4.1.368.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 1,
+          "internal": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "powerSupplyId": {
+    "name": "powerSupplyId",
+    "oid": "1.3.6.1.4.1.368.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "powerSupplyStatus": {
+    "name": "powerSupplyStatus",
+    "oid": "1.3.6.1.4.1.368.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "failure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanTable": {
+    "name": "fanTable",
+    "oid": "1.3.6.1.4.1.368.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanEntry": {
+    "name": "fanEntry",
+    "oid": "1.3.6.1.4.1.368.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "fanType",
+        "implied": 0
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "fanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fanType": {
+    "name": "fanType",
+    "oid": "1.3.6.1.4.1.368.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 1,
+          "housing": 2,
+          "rack": 3,
+          "cpu": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanId": {
+    "name": "fanId",
+    "oid": "1.3.6.1.4.1.368.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanStatus": {
+    "name": "fanStatus",
+    "oid": "1.3.6.1.4.1.368.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "failure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorTable": {
+    "name": "tempSensorTable",
+    "oid": "1.3.6.1.4.1.368.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempSensorEntry": {
+    "name": "tempSensorEntry",
+    "oid": "1.3.6.1.4.1.368.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "tempSensorType",
+        "implied": 0
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "tempSensorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorType": {
+    "name": "tempSensorType",
+    "oid": "1.3.6.1.4.1.368.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 1,
+          "housing": 2,
+          "rack": 3,
+          "cpu": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempSensorId": {
+    "name": "tempSensorId",
+    "oid": "1.3.6.1.4.1.368.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempSensorStatus": {
+    "name": "tempSensorStatus",
+    "oid": "1.3.6.1.4.1.368.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "failure": 2,
+          "outOfBoundary": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempSensorValue": {
+    "name": "tempSensorValue",
+    "oid": "1.3.6.1.4.1.368.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -176,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "videoChannelTable": {
+    "name": "videoChannelTable",
+    "oid": "1.3.6.1.4.1.368.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "videoChannelEntry": {
+    "name": "videoChannelEntry",
+    "oid": "1.3.6.1.4.1.368.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "videoChannelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "videoChannelId": {
+    "name": "videoChannelId",
+    "oid": "1.3.6.1.4.1.368.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "videoSignalStatus": {
+    "name": "videoSignalStatus",
+    "oid": "1.3.6.1.4.1.368.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signalOk": 1,
+          "noSignal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioChannelTable": {
+    "name": "audioChannelTable",
+    "oid": "1.3.6.1.4.1.368.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioChannelEntry": {
+    "name": "audioChannelEntry",
+    "oid": "1.3.6.1.4.1.368.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "audioChannelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioChannelId": {
+    "name": "audioChannelId",
+    "oid": "1.3.6.1.4.1.368.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioSignalStatus": {
+    "name": "audioSignalStatus",
+    "oid": "1.3.6.1.4.1.368.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signalOk": 1,
+          "noSignal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casingTable": {
+    "name": "casingTable",
+    "oid": "1.3.6.1.4.1.368.4.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casingEntry": {
+    "name": "casingEntry",
+    "oid": "1.3.6.1.4.1.368.4.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "casingId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "casingId": {
+    "name": "casingId",
+    "oid": "1.3.6.1.4.1.368.4.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "casingName": {
+    "name": "casingName",
+    "oid": "1.3.6.1.4.1.368.4.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "casingStatus": {
+    "name": "casingStatus",
+    "oid": "1.3.6.1.4.1.368.4.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "open": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "storageTable": {
+    "name": "storageTable",
+    "oid": "1.3.6.1.4.1.368.4.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "storageEntry": {
+    "name": "storageEntry",
+    "oid": "1.3.6.1.4.1.368.4.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "storageId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "storageId": {
+    "name": "storageId",
+    "oid": "1.3.6.1.4.1.368.4.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "storageName": {
+    "name": "storageName",
+    "oid": "1.3.6.1.4.1.368.4.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "storageDisruptionDetected": {
+    "name": "storageDisruptionDetected",
+    "oid": "1.3.6.1.4.1.368.4.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "videoNotifications": {
+    "name": "videoNotifications",
+    "oid": "1.3.6.1.4.1.368.4.2",
+    "class": "objectidentity"
+  },
+  "videoNotificationPrefix": {
+    "name": "videoNotificationPrefix",
+    "oid": "1.3.6.1.4.1.368.4.2.0",
+    "class": "objectidentity"
+  },
+  "alarmID": {
+    "name": "alarmID",
+    "oid": "1.3.6.1.4.1.368.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alarmName": {
+    "name": "alarmName",
+    "oid": "1.3.6.1.4.1.368.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alarmText": {
+    "name": "alarmText",
+    "oid": "1.3.6.1.4.1.368.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "videoConformance": {
+    "name": "videoConformance",
+    "oid": "1.3.6.1.4.1.368.4.3",
+    "class": "objectidentity"
+  },
+  "videoGroups": {
+    "name": "videoGroups",
+    "oid": "1.3.6.1.4.1.368.4.3.1",
+    "class": "objectidentity"
+  },
+  "videoCompliances": {
+    "name": "videoCompliances",
+    "oid": "1.3.6.1.4.1.368.4.3.2",
+    "class": "objectidentity"
+  },
+  "alarmNew": {
+    "name": "alarmNew",
+    "oid": "1.3.6.1.4.1.368.4.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmID"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmName"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmText"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmCleared": {
+    "name": "alarmCleared",
+    "oid": "1.3.6.1.4.1.368.4.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmID"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmName"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmText"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmSingle": {
+    "name": "alarmSingle",
+    "oid": "1.3.6.1.4.1.368.4.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmID"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmName"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmText"
+      }
+    ],
+    "status": "current"
+  },
+  "videoObjectGroup": {
+    "name": "videoObjectGroup",
+    "oid": "1.3.6.1.4.1.368.4.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "powerSupplyStatus"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "fanStatus"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "tempSensorStatus"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "tempSensorValue"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "videoSignalStatus"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "audioSignalStatus"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "casingName"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "casingStatus"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "storageDisruptionDetected"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "storageName"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmID"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmName"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmText"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "videoNotificationGroup": {
+    "name": "videoNotificationGroup",
+    "oid": "1.3.6.1.4.1.368.4.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmNew"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmCleared"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "alarmSingle"
+      }
+    ],
+    "status": "current"
+  },
+  "tempSensorGroup": {
+    "name": "tempSensorGroup",
+    "oid": "1.3.6.1.4.1.368.4.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "tempSensorStatus"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "tempSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "casingGroup": {
+    "name": "casingGroup",
+    "oid": "1.3.6.1.4.1.368.4.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "casingName"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "casingStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "storageGroup": {
+    "name": "storageGroup",
+    "oid": "1.3.6.1.4.1.368.4.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "storageDisruptionDetected"
+      },
+      {
+        "module": "AXIS-VIDEO-MIB",
+        "object": "storageName"
+      }
+    ],
+    "status": "current"
+  },
+  "videoComplianceRev2": {
+    "name": "videoComplianceRev2",
+    "oid": "1.3.6.1.4.1.368.4.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "videoNotificationGroup",
+        "module": "AXIS-VIDEO-MIB"
+      },
+      {
+        "object": "powerSupplyStatus",
+        "module": "AXIS-VIDEO-MIB"
+      },
+      {
+        "object": "fanStatus",
+        "module": "AXIS-VIDEO-MIB"
+      },
+      {
+        "object": "tempSensorGroup",
+        "module": "AXIS-VIDEO-MIB"
+      },
+      {
+        "object": "videoSignalStatus",
+        "module": "AXIS-VIDEO-MIB"
+      },
+      {
+        "object": "audioSignalStatus",
+        "module": "AXIS-VIDEO-MIB"
+      },
+      {
+        "object": "casingGroup",
+        "module": "AXIS-VIDEO-MIB"
+      },
+      {
+        "object": "storageGroup",
+        "module": "AXIS-VIDEO-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "videoCompliance": {
+    "name": "videoCompliance",
+    "oid": "1.3.6.1.4.1.368.4.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "videoObjectGroup",
+        "module": "AXIS-VIDEO-MIB"
+      },
+      {
+        "object": "videoNotificationGroup",
+        "module": "AXIS-VIDEO-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/axis/AXIS-VIDEO-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AXIS-VIDEO-MIB"
+  }
+}

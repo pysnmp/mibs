@@ -1,0 +1,2520 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "pcePcepMIB": {
+    "name": "pcePcepMIB",
+    "oid": "1.3.6.1.2.1.227",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-12-17 12:00",
+        "description": "Initial version, published as RFC 7420."
+      }
+    ]
+  },
+  "pcePcepNotifications": {
+    "name": "pcePcepNotifications",
+    "oid": "1.3.6.1.2.1.227.0",
+    "class": "objectidentity"
+  },
+  "pcePcepObjects": {
+    "name": "pcePcepObjects",
+    "oid": "1.3.6.1.2.1.227.1",
+    "class": "objectidentity"
+  },
+  "pcePcepConformance": {
+    "name": "pcePcepConformance",
+    "oid": "1.3.6.1.2.1.227.2",
+    "class": "objectidentity"
+  },
+  "pcePcepEntityTable": {
+    "name": "pcePcepEntityTable",
+    "oid": "1.3.6.1.2.1.227.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcePcepEntityEntry": {
+    "name": "pcePcepEntityEntry",
+    "oid": "1.3.6.1.2.1.227.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepEntityIndex": {
+    "name": "pcePcepEntityIndex",
+    "oid": "1.3.6.1.2.1.227.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcePcepEntityAdminStatus": {
+    "name": "pcePcepEntityAdminStatus",
+    "oid": "1.3.6.1.2.1.227.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminStatusUp": 1,
+          "adminStatusDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityOperStatus": {
+    "name": "pcePcepEntityOperStatus",
+    "oid": "1.3.6.1.2.1.227.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operStatusUp": 1,
+          "operStatusDown": 2,
+          "operStatusGoingUp": 3,
+          "operStatusGoingDown": 4,
+          "operStatusFailed": 5,
+          "operStatusFailedPerm": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityAddrType": {
+    "name": "pcePcepEntityAddrType",
+    "oid": "1.3.6.1.2.1.227.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityAddr": {
+    "name": "pcePcepEntityAddr",
+    "oid": "1.3.6.1.2.1.227.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityConnectTimer": {
+    "name": "pcePcepEntityConnectTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityConnectMaxRetry": {
+    "name": "pcePcepEntityConnectMaxRetry",
+    "oid": "1.3.6.1.2.1.227.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityInitBackoffTimer": {
+    "name": "pcePcepEntityInitBackoffTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityMaxBackoffTimer": {
+    "name": "pcePcepEntityMaxBackoffTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityOpenWaitTimer": {
+    "name": "pcePcepEntityOpenWaitTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityKeepWaitTimer": {
+    "name": "pcePcepEntityKeepWaitTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityKeepAliveTimer": {
+    "name": "pcePcepEntityKeepAliveTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityDeadTimer": {
+    "name": "pcePcepEntityDeadTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityAllowNegotiation": {
+    "name": "pcePcepEntityAllowNegotiation",
+    "oid": "1.3.6.1.2.1.227.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityMaxKeepAliveTimer": {
+    "name": "pcePcepEntityMaxKeepAliveTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityMaxDeadTimer": {
+    "name": "pcePcepEntityMaxDeadTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityMinKeepAliveTimer": {
+    "name": "pcePcepEntityMinKeepAliveTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityMinDeadTimer": {
+    "name": "pcePcepEntityMinDeadTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntitySyncTimer": {
+    "name": "pcePcepEntitySyncTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityRequestTimer": {
+    "name": "pcePcepEntityRequestTimer",
+    "oid": "1.3.6.1.2.1.227.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityMaxSessions": {
+    "name": "pcePcepEntityMaxSessions",
+    "oid": "1.3.6.1.2.1.227.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityMaxUnknownReqs": {
+    "name": "pcePcepEntityMaxUnknownReqs",
+    "oid": "1.3.6.1.2.1.227.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepEntityMaxUnknownMsgs": {
+    "name": "pcePcepEntityMaxUnknownMsgs",
+    "oid": "1.3.6.1.2.1.227.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerTable": {
+    "name": "pcePcepPeerTable",
+    "oid": "1.3.6.1.2.1.227.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcePcepPeerEntry": {
+    "name": "pcePcepPeerEntry",
+    "oid": "1.3.6.1.2.1.227.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepPeerAddrType": {
+    "name": "pcePcepPeerAddrType",
+    "oid": "1.3.6.1.2.1.227.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcePcepPeerAddr": {
+    "name": "pcePcepPeerAddr",
+    "oid": "1.3.6.1.2.1.227.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcePcepPeerRole": {
+    "name": "pcePcepPeerRole",
+    "oid": "1.3.6.1.2.1.227.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "pcc": 1,
+          "pce": 2,
+          "pccAndPce": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerDiscontinuityTime": {
+    "name": "pcePcepPeerDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.227.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerInitiateSession": {
+    "name": "pcePcepPeerInitiateSession",
+    "oid": "1.3.6.1.2.1.227.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerSessionExists": {
+    "name": "pcePcepPeerSessionExists",
+    "oid": "1.3.6.1.2.1.227.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumSessSetupOK": {
+    "name": "pcePcepPeerNumSessSetupOK",
+    "oid": "1.3.6.1.2.1.227.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumSessSetupFail": {
+    "name": "pcePcepPeerNumSessSetupFail",
+    "oid": "1.3.6.1.2.1.227.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerSessionUpTime": {
+    "name": "pcePcepPeerSessionUpTime",
+    "oid": "1.3.6.1.2.1.227.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerSessionFailTime": {
+    "name": "pcePcepPeerSessionFailTime",
+    "oid": "1.3.6.1.2.1.227.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerSessionFailUpTime": {
+    "name": "pcePcepPeerSessionFailUpTime",
+    "oid": "1.3.6.1.2.1.227.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerAvgRspTime": {
+    "name": "pcePcepPeerAvgRspTime",
+    "oid": "1.3.6.1.2.1.227.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerLWMRspTime": {
+    "name": "pcePcepPeerLWMRspTime",
+    "oid": "1.3.6.1.2.1.227.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerHWMRspTime": {
+    "name": "pcePcepPeerHWMRspTime",
+    "oid": "1.3.6.1.2.1.227.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumPCReqSent": {
+    "name": "pcePcepPeerNumPCReqSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumPCReqRcvd": {
+    "name": "pcePcepPeerNumPCReqRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumPCRepSent": {
+    "name": "pcePcepPeerNumPCRepSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumPCRepRcvd": {
+    "name": "pcePcepPeerNumPCRepRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumPCErrSent": {
+    "name": "pcePcepPeerNumPCErrSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumPCErrRcvd": {
+    "name": "pcePcepPeerNumPCErrRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumPCNtfSent": {
+    "name": "pcePcepPeerNumPCNtfSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumPCNtfRcvd": {
+    "name": "pcePcepPeerNumPCNtfRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumKeepaliveSent": {
+    "name": "pcePcepPeerNumKeepaliveSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumKeepaliveRcvd": {
+    "name": "pcePcepPeerNumKeepaliveRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumUnknownRcvd": {
+    "name": "pcePcepPeerNumUnknownRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumCorruptRcvd": {
+    "name": "pcePcepPeerNumCorruptRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSent": {
+    "name": "pcePcepPeerNumReqSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumSvecSent": {
+    "name": "pcePcepPeerNumSvecSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumSvecReqSent": {
+    "name": "pcePcepPeerNumSvecReqSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSentPendRep": {
+    "name": "pcePcepPeerNumReqSentPendRep",
+    "oid": "1.3.6.1.2.1.227.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSentEroRcvd": {
+    "name": "pcePcepPeerNumReqSentEroRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSentNoPathRcvd": {
+    "name": "pcePcepPeerNumReqSentNoPathRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSentCancelRcvd": {
+    "name": "pcePcepPeerNumReqSentCancelRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSentErrorRcvd": {
+    "name": "pcePcepPeerNumReqSentErrorRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSentTimeout": {
+    "name": "pcePcepPeerNumReqSentTimeout",
+    "oid": "1.3.6.1.2.1.227.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSentCancelSent": {
+    "name": "pcePcepPeerNumReqSentCancelSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqSentClosed": {
+    "name": "pcePcepPeerNumReqSentClosed",
+    "oid": "1.3.6.1.2.1.227.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvd": {
+    "name": "pcePcepPeerNumReqRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumSvecRcvd": {
+    "name": "pcePcepPeerNumSvecRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumSvecReqRcvd": {
+    "name": "pcePcepPeerNumSvecReqRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvdPendRep": {
+    "name": "pcePcepPeerNumReqRcvdPendRep",
+    "oid": "1.3.6.1.2.1.227.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvdEroSent": {
+    "name": "pcePcepPeerNumReqRcvdEroSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvdNoPathSent": {
+    "name": "pcePcepPeerNumReqRcvdNoPathSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvdCancelSent": {
+    "name": "pcePcepPeerNumReqRcvdCancelSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvdErrorSent": {
+    "name": "pcePcepPeerNumReqRcvdErrorSent",
+    "oid": "1.3.6.1.2.1.227.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvdCancelRcvd": {
+    "name": "pcePcepPeerNumReqRcvdCancelRcvd",
+    "oid": "1.3.6.1.2.1.227.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvdClosed": {
+    "name": "pcePcepPeerNumReqRcvdClosed",
+    "oid": "1.3.6.1.2.1.227.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumRepRcvdUnknown": {
+    "name": "pcePcepPeerNumRepRcvdUnknown",
+    "oid": "1.3.6.1.2.1.227.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepPeerNumReqRcvdUnknown": {
+    "name": "pcePcepPeerNumReqRcvdUnknown",
+    "oid": "1.3.6.1.2.1.227.1.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessTable": {
+    "name": "pcePcepSessTable",
+    "oid": "1.3.6.1.2.1.227.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcePcepSessEntry": {
+    "name": "pcePcepSessEntry",
+    "oid": "1.3.6.1.2.1.227.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerAddr",
+        "implied": 0
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessInitiator",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepSessInitiator": {
+    "name": "pcePcepSessInitiator",
+    "oid": "1.3.6.1.2.1.227.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcePcepSessStateLastChange": {
+    "name": "pcePcepSessStateLastChange",
+    "oid": "1.3.6.1.2.1.227.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessState": {
+    "name": "pcePcepSessState",
+    "oid": "1.3.6.1.2.1.227.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcpPending": 1,
+          "openWait": 2,
+          "keepWait": 3,
+          "sessionUp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessConnectRetry": {
+    "name": "pcePcepSessConnectRetry",
+    "oid": "1.3.6.1.2.1.227.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessLocalID": {
+    "name": "pcePcepSessLocalID",
+    "oid": "1.3.6.1.2.1.227.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessRemoteID": {
+    "name": "pcePcepSessRemoteID",
+    "oid": "1.3.6.1.2.1.227.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessKeepaliveTimer": {
+    "name": "pcePcepSessKeepaliveTimer",
+    "oid": "1.3.6.1.2.1.227.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessPeerKeepaliveTimer": {
+    "name": "pcePcepSessPeerKeepaliveTimer",
+    "oid": "1.3.6.1.2.1.227.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessDeadTimer": {
+    "name": "pcePcepSessDeadTimer",
+    "oid": "1.3.6.1.2.1.227.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessPeerDeadTimer": {
+    "name": "pcePcepSessPeerDeadTimer",
+    "oid": "1.3.6.1.2.1.227.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessKAHoldTimeRem": {
+    "name": "pcePcepSessKAHoldTimeRem",
+    "oid": "1.3.6.1.2.1.227.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessOverloaded": {
+    "name": "pcePcepSessOverloaded",
+    "oid": "1.3.6.1.2.1.227.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessOverloadTime": {
+    "name": "pcePcepSessOverloadTime",
+    "oid": "1.3.6.1.2.1.227.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessPeerOverloaded": {
+    "name": "pcePcepSessPeerOverloaded",
+    "oid": "1.3.6.1.2.1.227.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessPeerOverloadTime": {
+    "name": "pcePcepSessPeerOverloadTime",
+    "oid": "1.3.6.1.2.1.227.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessDiscontinuityTime": {
+    "name": "pcePcepSessDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.227.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessAvgRspTime": {
+    "name": "pcePcepSessAvgRspTime",
+    "oid": "1.3.6.1.2.1.227.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessLWMRspTime": {
+    "name": "pcePcepSessLWMRspTime",
+    "oid": "1.3.6.1.2.1.227.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessHWMRspTime": {
+    "name": "pcePcepSessHWMRspTime",
+    "oid": "1.3.6.1.2.1.227.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumPCReqSent": {
+    "name": "pcePcepSessNumPCReqSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumPCReqRcvd": {
+    "name": "pcePcepSessNumPCReqRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumPCRepSent": {
+    "name": "pcePcepSessNumPCRepSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumPCRepRcvd": {
+    "name": "pcePcepSessNumPCRepRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumPCErrSent": {
+    "name": "pcePcepSessNumPCErrSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumPCErrRcvd": {
+    "name": "pcePcepSessNumPCErrRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumPCNtfSent": {
+    "name": "pcePcepSessNumPCNtfSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumPCNtfRcvd": {
+    "name": "pcePcepSessNumPCNtfRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumKeepaliveSent": {
+    "name": "pcePcepSessNumKeepaliveSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumKeepaliveRcvd": {
+    "name": "pcePcepSessNumKeepaliveRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumUnknownRcvd": {
+    "name": "pcePcepSessNumUnknownRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumCorruptRcvd": {
+    "name": "pcePcepSessNumCorruptRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqSent": {
+    "name": "pcePcepSessNumReqSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumSvecSent": {
+    "name": "pcePcepSessNumSvecSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumSvecReqSent": {
+    "name": "pcePcepSessNumSvecReqSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqSentPendRep": {
+    "name": "pcePcepSessNumReqSentPendRep",
+    "oid": "1.3.6.1.2.1.227.1.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqSentEroRcvd": {
+    "name": "pcePcepSessNumReqSentEroRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqSentNoPathRcvd": {
+    "name": "pcePcepSessNumReqSentNoPathRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqSentCancelRcvd": {
+    "name": "pcePcepSessNumReqSentCancelRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqSentErrorRcvd": {
+    "name": "pcePcepSessNumReqSentErrorRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqSentTimeout": {
+    "name": "pcePcepSessNumReqSentTimeout",
+    "oid": "1.3.6.1.2.1.227.1.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqSentCancelSent": {
+    "name": "pcePcepSessNumReqSentCancelSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqRcvd": {
+    "name": "pcePcepSessNumReqRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumSvecRcvd": {
+    "name": "pcePcepSessNumSvecRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumSvecReqRcvd": {
+    "name": "pcePcepSessNumSvecReqRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqRcvdPendRep": {
+    "name": "pcePcepSessNumReqRcvdPendRep",
+    "oid": "1.3.6.1.2.1.227.1.3.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqRcvdEroSent": {
+    "name": "pcePcepSessNumReqRcvdEroSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqRcvdNoPathSent": {
+    "name": "pcePcepSessNumReqRcvdNoPathSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqRcvdCancelSent": {
+    "name": "pcePcepSessNumReqRcvdCancelSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqRcvdErrorSent": {
+    "name": "pcePcepSessNumReqRcvdErrorSent",
+    "oid": "1.3.6.1.2.1.227.1.3.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqRcvdCancelRcvd": {
+    "name": "pcePcepSessNumReqRcvdCancelRcvd",
+    "oid": "1.3.6.1.2.1.227.1.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumRepRcvdUnknown": {
+    "name": "pcePcepSessNumRepRcvdUnknown",
+    "oid": "1.3.6.1.2.1.227.1.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepSessNumReqRcvdUnknown": {
+    "name": "pcePcepSessNumReqRcvdUnknown",
+    "oid": "1.3.6.1.2.1.227.1.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcePcepNotificationsMaxRate": {
+    "name": "pcePcepNotificationsMaxRate",
+    "oid": "1.3.6.1.2.1.227.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pcePcepSessUp": {
+    "name": "pcePcepSessUp",
+    "oid": "1.3.6.1.2.1.227.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessState"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessStateLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepSessDown": {
+    "name": "pcePcepSessDown",
+    "oid": "1.3.6.1.2.1.227.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessState"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessStateLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepSessLocalOverload": {
+    "name": "pcePcepSessLocalOverload",
+    "oid": "1.3.6.1.2.1.227.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessOverloaded"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessOverloadTime"
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepSessLocalOverloadClear": {
+    "name": "pcePcepSessLocalOverloadClear",
+    "oid": "1.3.6.1.2.1.227.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessOverloaded"
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepSessPeerOverload": {
+    "name": "pcePcepSessPeerOverload",
+    "oid": "1.3.6.1.2.1.227.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerOverloaded"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerOverloadTime"
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepSessPeerOverloadClear": {
+    "name": "pcePcepSessPeerOverloadClear",
+    "oid": "1.3.6.1.2.1.227.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerOverloaded"
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepCompliances": {
+    "name": "pcePcepCompliances",
+    "oid": "1.3.6.1.2.1.227.2.1",
+    "class": "objectidentity"
+  },
+  "pcePcepGroups": {
+    "name": "pcePcepGroups",
+    "oid": "1.3.6.1.2.1.227.2.2",
+    "class": "objectidentity"
+  },
+  "pcePcepModuleReadOnlyCompliance": {
+    "name": "pcePcepModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.2.1.227.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pcePcepGeneralGroup",
+        "module": "PCE-PCEP-MIB"
+      },
+      {
+        "object": "pcePcepNotificationsGroup",
+        "module": "PCE-PCEP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepGeneralGroup": {
+    "name": "pcePcepGeneralGroup",
+    "oid": "1.3.6.1.2.1.227.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityAdminStatus"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityOperStatus"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityAddrType"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityAddr"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityConnectTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityConnectMaxRetry"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityInitBackoffTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityMaxBackoffTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityOpenWaitTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityKeepWaitTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityKeepAliveTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityDeadTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityAllowNegotiation"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityMaxKeepAliveTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityMaxDeadTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityMinKeepAliveTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityMinDeadTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntitySyncTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityRequestTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityMaxSessions"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityMaxUnknownReqs"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepEntityMaxUnknownMsgs"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerRole"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerDiscontinuityTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerInitiateSession"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerSessionExists"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumSessSetupOK"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumSessSetupFail"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerSessionUpTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerSessionFailTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerSessionFailUpTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerAvgRspTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerLWMRspTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerHWMRspTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumPCReqSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumPCReqRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumPCRepSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumPCRepRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumPCErrSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumPCErrRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumPCNtfSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumPCNtfRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumKeepaliveSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumKeepaliveRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumUnknownRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumCorruptRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumSvecSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumSvecReqSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSentPendRep"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSentEroRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSentNoPathRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSentCancelRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSentErrorRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSentTimeout"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSentCancelSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqSentClosed"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumSvecRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumSvecReqRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvdPendRep"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvdEroSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvdNoPathSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvdCancelSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvdErrorSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvdCancelRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvdClosed"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumRepRcvdUnknown"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepPeerNumReqRcvdUnknown"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessStateLastChange"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessState"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessConnectRetry"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessLocalID"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessRemoteID"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessKeepaliveTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerKeepaliveTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessDeadTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerDeadTimer"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessKAHoldTimeRem"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessOverloaded"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessOverloadTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerOverloaded"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerOverloadTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessDiscontinuityTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessAvgRspTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessLWMRspTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessHWMRspTime"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumPCReqSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumPCReqRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumPCRepSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumPCRepRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumPCErrSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumPCErrRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumPCNtfSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumPCNtfRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumKeepaliveSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumKeepaliveRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumUnknownRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumCorruptRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumSvecSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumSvecReqSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqSentPendRep"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqSentEroRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqSentNoPathRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqSentCancelRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqSentErrorRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqSentTimeout"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqSentCancelSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumSvecRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumSvecReqRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqRcvdPendRep"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqRcvdEroSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqRcvdNoPathSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqRcvdCancelSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqRcvdErrorSent"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqRcvdCancelRcvd"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumRepRcvdUnknown"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessNumReqRcvdUnknown"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepNotificationsMaxRate"
+      }
+    ],
+    "status": "current"
+  },
+  "pcePcepNotificationsGroup": {
+    "name": "pcePcepNotificationsGroup",
+    "oid": "1.3.6.1.2.1.227.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessUp"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessDown"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessLocalOverload"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessLocalOverloadClear"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerOverload"
+      },
+      {
+        "module": "PCE-PCEP-MIB",
+        "object": "pcePcepSessPeerOverloadClear"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/PCE-PCEP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PCE-PCEP-MIB"
+  }
+}

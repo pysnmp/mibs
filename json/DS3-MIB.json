@@ -1,0 +1,1954 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfTotalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "transmission",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ds3": {
+    "name": "ds3",
+    "oid": "1.3.6.1.2.1.10.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-08 00:00",
+        "description": "The RFC 3896 </rfcs/rfc3896.html> version of this MIB module. The key changes made to this MIB module since its publication in RFC 2496 </rfcs/rfc2496.html> are as follows: (1) The dsx3FracIfIndex SYNTAX matches the description range. (2) Reference was added to Circuit Identifier object. (3) Usage of ifStackTable section was updated. (4) Align the DESCRIPTION clauses of few statistic objects with thenear end definition, the far end definition and with RFC 3593 </rfcs/rfc3593.html>. (5) Add new value, dsx3M13, to dsx3LineType."
+      },
+      {
+        "revision": "1998-08-01 21:30",
+        "description": "The RFC 2496 </rfcs/rfc2496.html> version of this MIB module. The key changes made to this MIB module since its publication in RFC 1407 </rfcs/rfc1407.html> are as follows: (1) The Fractional Table has been deprecated. (2) This document uses SMIv2. (3) Values are given for ifTable and ifXTable. (4) Example usage of ifStackTable is included. (5) dsx3IfIndex has been deprecated. (6) The definition of valid intervals has been clarified for the case where the agent proxied for other devices. In particular, the treatment of missing intervals has been clarified. (7) An inward loopback has been added. (8) Additional lineStatus bits have been added for Near End in Unavailable Signal State, Carrier Equipment Out of Service. (9) A read-write line Length object has been added. (10) Added a lineStatus last change, trap and enabler. (11) Textual Conventions for statistics objects have been used. (12) A new object, dsx3LoopbackStatus, has been introduced to reflect the loopbacks established on a DS3/E3 interface and the source to the requests. dsx3LoopbackConfig continues to be the desired loopback state while dsx3LoopbackStatus reflects the actual state. (13) A dual loopback has been added to allow the setting of an inward loopback and a line loopback at the same time. (14) An object has been added to indicated whether or not this is a channelized DS3/E3. (15) A new object has been added to indicate which DS1 is to set for remote loopback."
+      },
+      {
+        "revision": "1993-01-25 20:28",
+        "description": "Initial version, published as RFC 1407 </rfcs/rfc1407.html>."
+      }
+    ]
+  },
+  "dsx3ConfigTable": {
+    "name": "dsx3ConfigTable",
+    "oid": "1.3.6.1.2.1.10.30.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx3ConfigEntry": {
+    "name": "dsx3ConfigEntry",
+    "oid": "1.3.6.1.2.1.10.30.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx3LineIndex": {
+    "name": "dsx3LineIndex",
+    "oid": "1.3.6.1.2.1.10.30.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IfIndex": {
+    "name": "dsx3IfIndex",
+    "oid": "1.3.6.1.2.1.10.30.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dsx3TimeElapsed": {
+    "name": "dsx3TimeElapsed",
+    "oid": "1.3.6.1.2.1.10.30.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3ValidIntervals": {
+    "name": "dsx3ValidIntervals",
+    "oid": "1.3.6.1.2.1.10.30.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3LineType": {
+    "name": "dsx3LineType",
+    "oid": "1.3.6.1.2.1.10.30.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx3other": 1,
+          "dsx3M23": 2,
+          "dsx3SYNTRAN": 3,
+          "dsx3CbitParity": 4,
+          "dsx3ClearChannel": 5,
+          "e3other": 6,
+          "e3Framed": 7,
+          "e3Plcp": 8,
+          "dsx3M13": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3LineCoding": {
+    "name": "dsx3LineCoding",
+    "oid": "1.3.6.1.2.1.10.30.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx3Other": 1,
+          "dsx3B3ZS": 2,
+          "e3HDB3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3SendCode": {
+    "name": "dsx3SendCode",
+    "oid": "1.3.6.1.2.1.10.30.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx3SendNoCode": 1,
+          "dsx3SendLineCode": 2,
+          "dsx3SendPayloadCode": 3,
+          "dsx3SendResetCode": 4,
+          "dsx3SendDS1LoopCode": 5,
+          "dsx3SendTestPattern": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3CircuitIdentifier": {
+    "name": "dsx3CircuitIdentifier",
+    "oid": "1.3.6.1.2.1.10.30.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3LoopbackConfig": {
+    "name": "dsx3LoopbackConfig",
+    "oid": "1.3.6.1.2.1.10.30.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx3NoLoop": 1,
+          "dsx3PayloadLoop": 2,
+          "dsx3LineLoop": 3,
+          "dsx3OtherLoop": 4,
+          "dsx3InwardLoop": 5,
+          "dsx3DualLoop": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3LineStatus": {
+    "name": "dsx3LineStatus",
+    "oid": "1.3.6.1.2.1.10.30.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TransmitClockSource": {
+    "name": "dsx3TransmitClockSource",
+    "oid": "1.3.6.1.2.1.10.30.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopTiming": 1,
+          "localTiming": 2,
+          "throughTiming": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3InvalidIntervals": {
+    "name": "dsx3InvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.30.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3LineLength": {
+    "name": "dsx3LineLength",
+    "oid": "1.3.6.1.2.1.10.30.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64000
+          }
+        ]
+      }
+    },
+    "units": "meters",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3LineStatusLastChange": {
+    "name": "dsx3LineStatusLastChange",
+    "oid": "1.3.6.1.2.1.10.30.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3LineStatusChangeTrapEnable": {
+    "name": "dsx3LineStatusChangeTrapEnable",
+    "oid": "1.3.6.1.2.1.10.30.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3LoopbackStatus": {
+    "name": "dsx3LoopbackStatus",
+    "oid": "1.3.6.1.2.1.10.30.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3Channelization": {
+    "name": "dsx3Channelization",
+    "oid": "1.3.6.1.2.1.10.30.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabledDs1": 2,
+          "enabledDs2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3Ds1ForRemoteLoop": {
+    "name": "dsx3Ds1ForRemoteLoop",
+    "oid": "1.3.6.1.2.1.10.30.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3CurrentTable": {
+    "name": "dsx3CurrentTable",
+    "oid": "1.3.6.1.2.1.10.30.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx3CurrentEntry": {
+    "name": "dsx3CurrentEntry",
+    "oid": "1.3.6.1.2.1.10.30.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx3CurrentIndex": {
+    "name": "dsx3CurrentIndex",
+    "oid": "1.3.6.1.2.1.10.30.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentPESs": {
+    "name": "dsx3CurrentPESs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentPSESs": {
+    "name": "dsx3CurrentPSESs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentSEFSs": {
+    "name": "dsx3CurrentSEFSs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentUASs": {
+    "name": "dsx3CurrentUASs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentLCVs": {
+    "name": "dsx3CurrentLCVs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentPCVs": {
+    "name": "dsx3CurrentPCVs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentLESs": {
+    "name": "dsx3CurrentLESs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentCCVs": {
+    "name": "dsx3CurrentCCVs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentCESs": {
+    "name": "dsx3CurrentCESs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3CurrentCSESs": {
+    "name": "dsx3CurrentCSESs",
+    "oid": "1.3.6.1.2.1.10.30.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalTable": {
+    "name": "dsx3IntervalTable",
+    "oid": "1.3.6.1.2.1.10.30.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx3IntervalEntry": {
+    "name": "dsx3IntervalEntry",
+    "oid": "1.3.6.1.2.1.10.30.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalIndex",
+        "implied": 0
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx3IntervalIndex": {
+    "name": "dsx3IntervalIndex",
+    "oid": "1.3.6.1.2.1.10.30.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalNumber": {
+    "name": "dsx3IntervalNumber",
+    "oid": "1.3.6.1.2.1.10.30.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalPESs": {
+    "name": "dsx3IntervalPESs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalPSESs": {
+    "name": "dsx3IntervalPSESs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalSEFSs": {
+    "name": "dsx3IntervalSEFSs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalUASs": {
+    "name": "dsx3IntervalUASs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalLCVs": {
+    "name": "dsx3IntervalLCVs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalPCVs": {
+    "name": "dsx3IntervalPCVs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalLESs": {
+    "name": "dsx3IntervalLESs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalCCVs": {
+    "name": "dsx3IntervalCCVs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalCESs": {
+    "name": "dsx3IntervalCESs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalCSESs": {
+    "name": "dsx3IntervalCSESs",
+    "oid": "1.3.6.1.2.1.10.30.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3IntervalValidData": {
+    "name": "dsx3IntervalValidData",
+    "oid": "1.3.6.1.2.1.10.30.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalTable": {
+    "name": "dsx3TotalTable",
+    "oid": "1.3.6.1.2.1.10.30.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx3TotalEntry": {
+    "name": "dsx3TotalEntry",
+    "oid": "1.3.6.1.2.1.10.30.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx3TotalIndex": {
+    "name": "dsx3TotalIndex",
+    "oid": "1.3.6.1.2.1.10.30.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalPESs": {
+    "name": "dsx3TotalPESs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalPSESs": {
+    "name": "dsx3TotalPSESs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalSEFSs": {
+    "name": "dsx3TotalSEFSs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalUASs": {
+    "name": "dsx3TotalUASs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalLCVs": {
+    "name": "dsx3TotalLCVs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalPCVs": {
+    "name": "dsx3TotalPCVs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalLESs": {
+    "name": "dsx3TotalLESs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalCCVs": {
+    "name": "dsx3TotalCCVs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalCESs": {
+    "name": "dsx3TotalCESs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3TotalCSESs": {
+    "name": "dsx3TotalCSESs",
+    "oid": "1.3.6.1.2.1.10.30.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndConfigTable": {
+    "name": "dsx3FarEndConfigTable",
+    "oid": "1.3.6.1.2.1.10.30.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx3FarEndConfigEntry": {
+    "name": "dsx3FarEndConfigEntry",
+    "oid": "1.3.6.1.2.1.10.30.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx3FarEndLineIndex": {
+    "name": "dsx3FarEndLineIndex",
+    "oid": "1.3.6.1.2.1.10.30.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndEquipCode": {
+    "name": "dsx3FarEndEquipCode",
+    "oid": "1.3.6.1.2.1.10.30.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3FarEndLocationIDCode": {
+    "name": "dsx3FarEndLocationIDCode",
+    "oid": "1.3.6.1.2.1.10.30.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3FarEndFrameIDCode": {
+    "name": "dsx3FarEndFrameIDCode",
+    "oid": "1.3.6.1.2.1.10.30.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3FarEndUnitCode": {
+    "name": "dsx3FarEndUnitCode",
+    "oid": "1.3.6.1.2.1.10.30.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3FarEndFacilityIDCode": {
+    "name": "dsx3FarEndFacilityIDCode",
+    "oid": "1.3.6.1.2.1.10.30.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx3FarEndCurrentTable": {
+    "name": "dsx3FarEndCurrentTable",
+    "oid": "1.3.6.1.2.1.10.30.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx3FarEndCurrentEntry": {
+    "name": "dsx3FarEndCurrentEntry",
+    "oid": "1.3.6.1.2.1.10.30.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndCurrentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx3FarEndCurrentIndex": {
+    "name": "dsx3FarEndCurrentIndex",
+    "oid": "1.3.6.1.2.1.10.30.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndTimeElapsed": {
+    "name": "dsx3FarEndTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.30.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndValidIntervals": {
+    "name": "dsx3FarEndValidIntervals",
+    "oid": "1.3.6.1.2.1.10.30.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndCurrentCESs": {
+    "name": "dsx3FarEndCurrentCESs",
+    "oid": "1.3.6.1.2.1.10.30.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndCurrentCSESs": {
+    "name": "dsx3FarEndCurrentCSESs",
+    "oid": "1.3.6.1.2.1.10.30.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndCurrentCCVs": {
+    "name": "dsx3FarEndCurrentCCVs",
+    "oid": "1.3.6.1.2.1.10.30.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndCurrentUASs": {
+    "name": "dsx3FarEndCurrentUASs",
+    "oid": "1.3.6.1.2.1.10.30.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndInvalidIntervals": {
+    "name": "dsx3FarEndInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.30.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndIntervalTable": {
+    "name": "dsx3FarEndIntervalTable",
+    "oid": "1.3.6.1.2.1.10.30.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx3FarEndIntervalEntry": {
+    "name": "dsx3FarEndIntervalEntry",
+    "oid": "1.3.6.1.2.1.10.30.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalIndex",
+        "implied": 0
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx3FarEndIntervalIndex": {
+    "name": "dsx3FarEndIntervalIndex",
+    "oid": "1.3.6.1.2.1.10.30.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndIntervalNumber": {
+    "name": "dsx3FarEndIntervalNumber",
+    "oid": "1.3.6.1.2.1.10.30.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndIntervalCESs": {
+    "name": "dsx3FarEndIntervalCESs",
+    "oid": "1.3.6.1.2.1.10.30.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndIntervalCSESs": {
+    "name": "dsx3FarEndIntervalCSESs",
+    "oid": "1.3.6.1.2.1.10.30.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndIntervalCCVs": {
+    "name": "dsx3FarEndIntervalCCVs",
+    "oid": "1.3.6.1.2.1.10.30.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndIntervalUASs": {
+    "name": "dsx3FarEndIntervalUASs",
+    "oid": "1.3.6.1.2.1.10.30.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndIntervalValidData": {
+    "name": "dsx3FarEndIntervalValidData",
+    "oid": "1.3.6.1.2.1.10.30.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndTotalTable": {
+    "name": "dsx3FarEndTotalTable",
+    "oid": "1.3.6.1.2.1.10.30.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx3FarEndTotalEntry": {
+    "name": "dsx3FarEndTotalEntry",
+    "oid": "1.3.6.1.2.1.10.30.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndTotalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx3FarEndTotalIndex": {
+    "name": "dsx3FarEndTotalIndex",
+    "oid": "1.3.6.1.2.1.10.30.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndTotalCESs": {
+    "name": "dsx3FarEndTotalCESs",
+    "oid": "1.3.6.1.2.1.10.30.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndTotalCSESs": {
+    "name": "dsx3FarEndTotalCSESs",
+    "oid": "1.3.6.1.2.1.10.30.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndTotalCCVs": {
+    "name": "dsx3FarEndTotalCCVs",
+    "oid": "1.3.6.1.2.1.10.30.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FarEndTotalUASs": {
+    "name": "dsx3FarEndTotalUASs",
+    "oid": "1.3.6.1.2.1.10.30.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx3FracTable": {
+    "name": "dsx3FracTable",
+    "oid": "1.3.6.1.2.1.10.30.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dsx3FracEntry": {
+    "name": "dsx3FracEntry",
+    "oid": "1.3.6.1.2.1.10.30.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FracIndex",
+        "implied": 0
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FracNumber",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dsx3FracIndex": {
+    "name": "dsx3FracIndex",
+    "oid": "1.3.6.1.2.1.10.30.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dsx3FracNumber": {
+    "name": "dsx3FracNumber",
+    "oid": "1.3.6.1.2.1.10.30.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dsx3FracIfIndex": {
+    "name": "dsx3FracIfIndex",
+    "oid": "1.3.6.1.2.1.10.30.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ds3Traps": {
+    "name": "ds3Traps",
+    "oid": "1.3.6.1.2.1.10.30.15",
+    "class": "objectidentity"
+  },
+  "dsx3LineStatusChange": {
+    "name": "dsx3LineStatusChange",
+    "oid": "1.3.6.1.2.1.10.30.15.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineStatus"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineStatusLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ds3Conformance": {
+    "name": "ds3Conformance",
+    "oid": "1.3.6.1.2.1.10.30.14",
+    "class": "objectidentity"
+  },
+  "ds3Groups": {
+    "name": "ds3Groups",
+    "oid": "1.3.6.1.2.1.10.30.14.1",
+    "class": "objectidentity"
+  },
+  "ds3Compliances": {
+    "name": "ds3Compliances",
+    "oid": "1.3.6.1.2.1.10.30.14.2",
+    "class": "objectidentity"
+  },
+  "ds3Compliance": {
+    "name": "ds3Compliance",
+    "oid": "1.3.6.1.2.1.10.30.14.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ds3NearEndConfigGroup",
+        "module": "DS3-MIB"
+      },
+      {
+        "object": "ds3NearEndStatisticsGroup",
+        "module": "DS3-MIB"
+      },
+      {
+        "object": "ds3FarEndGroup",
+        "module": "DS3-MIB"
+      },
+      {
+        "object": "ds3NearEndOptionalTrapGroup",
+        "module": "DS3-MIB"
+      },
+      {
+        "object": "ds3NearEndOptionalConfigGroup",
+        "module": "DS3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ds3NearEndConfigGroup": {
+    "name": "ds3NearEndConfigGroup",
+    "oid": "1.3.6.1.2.1.10.30.14.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TimeElapsed"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3ValidIntervals"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineType"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineCoding"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3SendCode"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CircuitIdentifier"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LoopbackConfig"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineStatus"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TransmitClockSource"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3InvalidIntervals"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineLength"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LoopbackStatus"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3Channelization"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3Ds1ForRemoteLoop"
+      }
+    ],
+    "status": "current"
+  },
+  "ds3NearEndStatisticsGroup": {
+    "name": "ds3NearEndStatisticsGroup",
+    "oid": "1.3.6.1.2.1.10.30.14.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentPESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentPSESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentSEFSs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentUASs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentLCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentPCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentLESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentCCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentCESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3CurrentCSESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalNumber"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalPESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalPSESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalSEFSs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalUASs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalLCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalPCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalLESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalCCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalCESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalCSESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IntervalValidData"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalPESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalPSESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalSEFSs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalUASs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalLCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalPCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalLESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalCCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalCESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3TotalCSESs"
+      }
+    ],
+    "status": "current"
+  },
+  "ds3FarEndGroup": {
+    "name": "ds3FarEndGroup",
+    "oid": "1.3.6.1.2.1.10.30.14.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndLineIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndEquipCode"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndLocationIDCode"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndFrameIDCode"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndUnitCode"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndFacilityIDCode"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndCurrentIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndTimeElapsed"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndValidIntervals"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndCurrentCESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndCurrentCSESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndCurrentCCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndCurrentUASs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndInvalidIntervals"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalNumber"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalCESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalCSESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalCCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalUASs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndIntervalValidData"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndTotalIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndTotalCESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndTotalCSESs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndTotalCCVs"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FarEndTotalUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ds3DeprecatedGroup": {
+    "name": "ds3DeprecatedGroup",
+    "oid": "1.3.6.1.2.1.10.30.14.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3IfIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FracIndex"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FracNumber"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3FracIfIndex"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ds3NearEndOptionalConfigGroup": {
+    "name": "ds3NearEndOptionalConfigGroup",
+    "oid": "1.3.6.1.2.1.10.30.14.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineStatusLastChange"
+      },
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineStatusChangeTrapEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ds3NearEndOptionalTrapGroup": {
+    "name": "ds3NearEndOptionalTrapGroup",
+    "oid": "1.3.6.1.2.1.10.30.14.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DS3-MIB",
+        "object": "dsx3LineStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DS3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DS3-MIB"
+  }
+}

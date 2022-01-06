@@ -1,0 +1,2659 @@
+{
+  "imports": {
+    "class": "imports",
+    "BKTEL-HFC862-BASE-MIB": [
+      "DisplayString",
+      "PerceivedSeverityValue",
+      "TruthValue",
+      "modules",
+      "NESlotValue",
+      "ModuleWidthValue"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "experimental",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
+      "enterprises",
+      "Counter32",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ovtx": {
+    "name": "ovtx",
+    "oid": "1.3.6.1.4.1.7501.1.2.101",
+    "class": "objectidentity"
+  },
+  "ovtxCommon": {
+    "name": "ovtxCommon",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1",
+    "class": "objectidentity"
+  },
+  "ovtxStates": {
+    "name": "ovtxStates",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2",
+    "class": "objectidentity"
+  },
+  "ovtxConfiguration": {
+    "name": "ovtxConfiguration",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3",
+    "class": "objectidentity"
+  },
+  "ovtxControl": {
+    "name": "ovtxControl",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.4",
+    "class": "objectidentity"
+  },
+  "ovtxMeasuringValues": {
+    "name": "ovtxMeasuringValues",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5",
+    "class": "objectidentity"
+  },
+  "ovtxDisplay": {
+    "name": "ovtxDisplay",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6",
+    "class": "objectidentity"
+  },
+  "AGCmode": {
+    "name": "AGCmode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeAgcOff": 1,
+          "modeUnmodulatedAgcOn": 2,
+          "modeModulatedAgcOn": 3
+        }
+      }
+    }
+  },
+  "SatAGCmode": {
+    "name": "SatAGCmode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "satAgcOff": 1,
+          "satAgcOn": 2
+        }
+      }
+    }
+  },
+  "RedundancyMode": {
+    "name": "RedundancyMode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeActiveLowOutput": 1,
+          "modeActiveHighOutput": 2,
+          "modeNominalMasterIrreversible": 3,
+          "modeNominalMasterFallback": 4,
+          "modeRedundantSlave": 5
+        }
+      }
+    }
+  },
+  "RedundancyMask": {
+    "name": "RedundancyMask",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "maskAlarmsOnly": 1,
+          "maskAlarmsAndWarnings": 2,
+          "maskSpecialAdjusted": 3
+        }
+      }
+    }
+  },
+  "LaserOutputMode": {
+    "name": "LaserOutputMode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "laserShutdown": 1,
+          "laserActive": 2,
+          "laserShutdownOnMaskedError": 3
+        }
+      }
+    }
+  },
+  "CsoRegulationMode": {
+    "name": "CsoRegulationMode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "csoRegModeChannelControlled": 1,
+          "csoRegModePilotControlled": 2
+        }
+      }
+    }
+  },
+  "RegulationState": {
+    "name": "RegulationState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regulationStateUnknownOrNotSupported": 1,
+          "regulationStateOutputpowerBased": 2,
+          "regulationStateCsoBasedRough": 3,
+          "regulationStateCsoBasedFine": 4,
+          "regulationStatePilotBased": 5
+        }
+      }
+    }
+  },
+  "RfInputCapabilities": {
+    "name": "RfInputCapabilities",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfInputCatvOnlySupported": 1,
+          "rfInputSatOnlySupported": 2,
+          "rfInputCatvAndSatSupported": 3
+        }
+      }
+    }
+  },
+  "RfInputAlarmMode": {
+    "name": "RfInputAlarmMode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmEnableAll": 1,
+          "alarmCatvEnableSatDisable": 2,
+          "alarmSatEnableCatvDisable": 3
+        }
+      }
+    }
+  },
+  "LnbSupplyValue": {
+    "name": "LnbSupplyValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lnbSupplyOff": 1,
+          "lnbSupply14V": 2,
+          "lnbSupply18V": 3,
+          "lnbSupply14V_22kHz": 4,
+          "lnbSupply18V_22kHz": 5
+        }
+      }
+    }
+  },
+  "LnbSupplySupportedValue": {
+    "name": "LnbSupplySupportedValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "lnbSupply14V18VSwitchSupported": 2,
+          "lnbSupply14V18VAnd22kHzSwitchSupported": 3
+        }
+      }
+    }
+  },
+  "SbsSuppressionModeValue": {
+    "name": "SbsSuppressionModeValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeStandard": 1,
+          "modeCatvOnly": 2
+        }
+      }
+    }
+  },
+  "SbsFiberTypeValue": {
+    "name": "SbsFiberTypeValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "typeStandardFiber": 1,
+          "typeSbsOptimizedFiber": 2
+        }
+      }
+    }
+  },
+  "SbsFiberLengthValue": {
+    "name": "SbsFiberLengthValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "length10km": 1,
+          "length25km": 2,
+          "length40km": 3,
+          "length65km": 4
+        }
+      }
+    }
+  },
+  "NESlotWriteValue": {
+    "name": "NESlotWriteValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99
+          }
+        ]
+      }
+    }
+  },
+  "ovtxCommonNumberOfModules": {
+    "name": "ovtxCommonNumberOfModules",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxCommonTable": {
+    "name": "ovtxCommonTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ovtxCommonEntry": {
+    "name": "ovtxCommonEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OVTX-V11-MIB",
+        "object": "ovtxNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ovtxNESlot": {
+    "name": "ovtxNESlot",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NESlotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxCommonType": {
+    "name": "ovtxCommonType",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxCommonDescr": {
+    "name": "ovtxCommonDescr",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxCommonFirmwareId": {
+    "name": "ovtxCommonFirmwareId",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxCommonModuleWidth": {
+    "name": "ovtxCommonModuleWidth",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleWidthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "ovtxMeasuringValuesTable": {
+    "name": "ovtxMeasuringValuesTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ovtxMeasuringValuesEntry": {
+    "name": "ovtxMeasuringValuesEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OVTX-V11-MIB",
+        "object": "ovtxNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ovtxOmiMeasuredLoLo": {
+    "name": "ovtxOmiMeasuredLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxOmiMeasuredLo": {
+    "name": "ovtxOmiMeasuredLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxOmiMeasuredValue": {
+    "name": "ovtxOmiMeasuredValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxOmiMeasuredHi": {
+    "name": "ovtxOmiMeasuredHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxOmiMeasuredHiHi": {
+    "name": "ovtxOmiMeasuredHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxRfGainMeasuredLoLo": {
+    "name": "ovtxRfGainMeasuredLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxRfGainMeasuredLo": {
+    "name": "ovtxRfGainMeasuredLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxRfGainMeasuredValue": {
+    "name": "ovtxRfGainMeasuredValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxRfGainMeasuredHi": {
+    "name": "ovtxRfGainMeasuredHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxRfGainMeasuredHiHi": {
+    "name": "ovtxRfGainMeasuredHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxLaserCurrentRelLoLo": {
+    "name": "ovtxLaserCurrentRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxLaserCurrentRelLo": {
+    "name": "ovtxLaserCurrentRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxLaserCurrentRelValue": {
+    "name": "ovtxLaserCurrentRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxLaserCurrentRelHi": {
+    "name": "ovtxLaserCurrentRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxLaserCurrentRelHiHi": {
+    "name": "ovtxLaserCurrentRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTecCurrentRelLoLo": {
+    "name": "ovtxTecCurrentRelLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTecCurrentRelLo": {
+    "name": "ovtxTecCurrentRelLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTecCurrentRelValue": {
+    "name": "ovtxTecCurrentRelValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTecCurrentRelHi": {
+    "name": "ovtxTecCurrentRelHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTecCurrentRelHiHi": {
+    "name": "ovtxTecCurrentRelHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxOutputPowerLoLo": {
+    "name": "ovtxOutputPowerLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxOutputPowerLo": {
+    "name": "ovtxOutputPowerLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxOutputPowerValue": {
+    "name": "ovtxOutputPowerValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxOutputPowerHi": {
+    "name": "ovtxOutputPowerHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxOutputPowerHiHi": {
+    "name": "ovtxOutputPowerHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxPlus3p3VLoLo": {
+    "name": "ovtxPlus3p3VLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus3p3VLo": {
+    "name": "ovtxPlus3p3VLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus3p3VValue": {
+    "name": "ovtxPlus3p3VValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus3p3VHi": {
+    "name": "ovtxPlus3p3VHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus3p3VHiHi": {
+    "name": "ovtxPlus3p3VHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus5VLoLo": {
+    "name": "ovtxPlus5VLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus5VLo": {
+    "name": "ovtxPlus5VLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus5VValue": {
+    "name": "ovtxPlus5VValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus5VHi": {
+    "name": "ovtxPlus5VHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus5VHiHi": {
+    "name": "ovtxPlus5VHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus12VLoLo": {
+    "name": "ovtxPlus12VLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus12VLo": {
+    "name": "ovtxPlus12VLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus12VValue": {
+    "name": "ovtxPlus12VValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus12VHi": {
+    "name": "ovtxPlus12VHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus12VHiHi": {
+    "name": "ovtxPlus12VHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus24VLoLo": {
+    "name": "ovtxPlus24VLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus24VLo": {
+    "name": "ovtxPlus24VLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus24VValue": {
+    "name": "ovtxPlus24VValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus24VHi": {
+    "name": "ovtxPlus24VHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxPlus24VHiHi": {
+    "name": "ovtxPlus24VHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus5VLoLo": {
+    "name": "ovtxMinus5VLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus5VLo": {
+    "name": "ovtxMinus5VLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus5VValue": {
+    "name": "ovtxMinus5VValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus5VHi": {
+    "name": "ovtxMinus5VHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus5VHiHi": {
+    "name": "ovtxMinus5VHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus12VLoLo": {
+    "name": "ovtxMinus12VLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus12VLo": {
+    "name": "ovtxMinus12VLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus12VValue": {
+    "name": "ovtxMinus12VValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus12VHi": {
+    "name": "ovtxMinus12VHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxMinus12VHiHi": {
+    "name": "ovtxMinus12VHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTemperatureLoLo": {
+    "name": "ovtxTemperatureLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTemperatureLo": {
+    "name": "ovtxTemperatureLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTemperatureValue": {
+    "name": "ovtxTemperatureValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTemperatureHi": {
+    "name": "ovtxTemperatureHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxTemperatureHiHi": {
+    "name": "ovtxTemperatureHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxRfInputLoLo": {
+    "name": "ovtxRfInputLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxRfInputLo": {
+    "name": "ovtxRfInputLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxRfInputValue": {
+    "name": "ovtxRfInputValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxRfInputHi": {
+    "name": "ovtxRfInputHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxRfInputHiHi": {
+    "name": "ovtxRfInputHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatRfInputLoLo": {
+    "name": "ovtxSatRfInputLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatRfInputLo": {
+    "name": "ovtxSatRfInputLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatRfInputValue": {
+    "name": "ovtxSatRfInputValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxSatRfInputHi": {
+    "name": "ovtxSatRfInputHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatRfInputHiHi": {
+    "name": "ovtxSatRfInputHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatOmiMeasuredLoLo": {
+    "name": "ovtxSatOmiMeasuredLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatOmiMeasuredLo": {
+    "name": "ovtxSatOmiMeasuredLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatOmiMeasuredValue": {
+    "name": "ovtxSatOmiMeasuredValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxSatOmiMeasuredHi": {
+    "name": "ovtxSatOmiMeasuredHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatOmiMeasuredHiHi": {
+    "name": "ovtxSatOmiMeasuredHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatRfGainMeasuredLoLo": {
+    "name": "ovtxSatRfGainMeasuredLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatRfGainMeasuredLo": {
+    "name": "ovtxSatRfGainMeasuredLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatRfGainMeasuredValue": {
+    "name": "ovtxSatRfGainMeasuredValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxSatRfGainMeasuredHi": {
+    "name": "ovtxSatRfGainMeasuredHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxSatRfGainMeasuredHiHi": {
+    "name": "ovtxSatRfGainMeasuredHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.5.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxStatesTable": {
+    "name": "ovtxStatesTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ovtxStatesEntry": {
+    "name": "ovtxStatesEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OVTX-V11-MIB",
+        "object": "ovtxNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ovtxStatesOutputLow": {
+    "name": "ovtxStatesOutputLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesOutputHigh": {
+    "name": "ovtxStatesOutputHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesInputLow": {
+    "name": "ovtxStatesInputLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesLaserAging": {
+    "name": "ovtxStatesLaserAging",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesTecHigh": {
+    "name": "ovtxStatesTecHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesLaserTempLow": {
+    "name": "ovtxStatesLaserTempLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesLaserTempHigh": {
+    "name": "ovtxStatesLaserTempHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesOmiOrRfgainLow": {
+    "name": "ovtxStatesOmiOrRfgainLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesOmiOrRfgainHigh": {
+    "name": "ovtxStatesOmiOrRfgainHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPowerSupplyLeft": {
+    "name": "ovtxStatesPowerSupplyLeft",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPowerSupplyRight": {
+    "name": "ovtxStatesPowerSupplyRight",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesFanLeft": {
+    "name": "ovtxStatesFanLeft",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesFanRight": {
+    "name": "ovtxStatesFanRight",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesTemperatureLow": {
+    "name": "ovtxStatesTemperatureLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesTemperatureHigh": {
+    "name": "ovtxStatesTemperatureHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPlus3p3VLow": {
+    "name": "ovtxStatesPlus3p3VLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPlus3p3VHigh": {
+    "name": "ovtxStatesPlus3p3VHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPlus5VLow": {
+    "name": "ovtxStatesPlus5VLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPlus5VHigh": {
+    "name": "ovtxStatesPlus5VHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPlus12VLow": {
+    "name": "ovtxStatesPlus12VLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPlus12VHigh": {
+    "name": "ovtxStatesPlus12VHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPlus24VLow": {
+    "name": "ovtxStatesPlus24VLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesPlus24VHigh": {
+    "name": "ovtxStatesPlus24VHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesMinus5VLow": {
+    "name": "ovtxStatesMinus5VLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesMinus5VHigh": {
+    "name": "ovtxStatesMinus5VHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesMinus12VLow": {
+    "name": "ovtxStatesMinus12VLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesMinus12VHigh": {
+    "name": "ovtxStatesMinus12VHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesLaserShutdown": {
+    "name": "ovtxStatesLaserShutdown",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesInitializing": {
+    "name": "ovtxStatesInitializing",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesBootloader": {
+    "name": "ovtxStatesBootloader",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesCommLoss": {
+    "name": "ovtxStatesCommLoss",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesInputHigh": {
+    "name": "ovtxStatesInputHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesRedundancySwitch": {
+    "name": "ovtxStatesRedundancySwitch",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSatInputLow": {
+    "name": "ovtxStatesSatInputLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSatInputHigh": {
+    "name": "ovtxStatesSatInputHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSatOmiOrRfgainLow": {
+    "name": "ovtxStatesSatOmiOrRfgainLow",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSatOmiOrRfgainHigh": {
+    "name": "ovtxStatesSatOmiOrRfgainHigh",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSatLnbShortCircuit": {
+    "name": "ovtxStatesSatLnbShortCircuit",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSbs1Level": {
+    "name": "ovtxStatesSbs1Level",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSbs2Level": {
+    "name": "ovtxStatesSbs2Level",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSbs1PllNotLocked": {
+    "name": "ovtxStatesSbs1PllNotLocked",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesSbs2PllNotLocked": {
+    "name": "ovtxStatesSbs2PllNotLocked",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxStatesInternalAlarm": {
+    "name": "ovtxStatesInternalAlarm",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerceivedSeverityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxControlTable": {
+    "name": "ovtxControlTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ovtxControlEntry": {
+    "name": "ovtxControlEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OVTX-V11-MIB",
+        "object": "ovtxNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ovtxControlLaserOutputMode": {
+    "name": "ovtxControlLaserOutputMode",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LaserOutputMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxControlReset": {
+    "name": "ovtxControlReset",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxControlModuleLedBlink": {
+    "name": "ovtxControlModuleLedBlink",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationTable": {
+    "name": "ovtxConfigurationTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationEntry": {
+    "name": "ovtxConfigurationEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OVTX-V11-MIB",
+        "object": "ovtxNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ovtxConfigurationNESlotWrite": {
+    "name": "ovtxConfigurationNESlotWrite",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NESlotWriteValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "ovtxConfigurationModeAGC": {
+    "name": "ovtxConfigurationModeAGC",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AGCmode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOmi": {
+    "name": "ovtxConfigurationOmi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfGain": {
+    "name": "ovtxConfigurationRfGain",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSbsSuppression": {
+    "name": "ovtxConfigurationSbsSuppression",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationChannelDistance": {
+    "name": "ovtxConfigurationChannelDistance",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationLaserFrequency": {
+    "name": "ovtxConfigurationLaserFrequency",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfInputLimitLoLo": {
+    "name": "ovtxConfigurationRfInputLimitLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfInputLimitLo": {
+    "name": "ovtxConfigurationRfInputLimitLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfInputLimitHi": {
+    "name": "ovtxConfigurationRfInputLimitHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfInputLimitHiHi": {
+    "name": "ovtxConfigurationRfInputLimitHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfGainMeasuredLimitLoLo": {
+    "name": "ovtxConfigurationRfGainMeasuredLimitLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfGainMeasuredLimitLo": {
+    "name": "ovtxConfigurationRfGainMeasuredLimitLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfGainMeasuredLimitHi": {
+    "name": "ovtxConfigurationRfGainMeasuredLimitHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfGainMeasuredLimitHiHi": {
+    "name": "ovtxConfigurationRfGainMeasuredLimitHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOmiMeasuredLimitLoLo": {
+    "name": "ovtxConfigurationOmiMeasuredLimitLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOmiMeasuredLimitLo": {
+    "name": "ovtxConfigurationOmiMeasuredLimitLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOmiMeasuredLimitHi": {
+    "name": "ovtxConfigurationOmiMeasuredLimitHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOmiMeasuredLimitHiHi": {
+    "name": "ovtxConfigurationOmiMeasuredLimitHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOutputPwrLimitLoLo": {
+    "name": "ovtxConfigurationOutputPwrLimitLoLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOutputPwrLimitLo": {
+    "name": "ovtxConfigurationOutputPwrLimitLo",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOutputPwrLimitHi": {
+    "name": "ovtxConfigurationOutputPwrLimitHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationOutputPwrLimitHiHi": {
+    "name": "ovtxConfigurationOutputPwrLimitHiHi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRedundancyMode": {
+    "name": "ovtxConfigurationRedundancyMode",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RedundancyMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRedundancyMask": {
+    "name": "ovtxConfigurationRedundancyMask",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RedundancyMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationCsoRegulationMode": {
+    "name": "ovtxConfigurationCsoRegulationMode",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsoRegulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSlope": {
+    "name": "ovtxConfigurationSlope",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationFiberLength": {
+    "name": "ovtxConfigurationFiberLength",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSatModeAGC": {
+    "name": "ovtxConfigurationSatModeAGC",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SatAGCmode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSatOmi": {
+    "name": "ovtxConfigurationSatOmi",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSatRfGain": {
+    "name": "ovtxConfigurationSatRfGain",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSatSlope": {
+    "name": "ovtxConfigurationSatSlope",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationRfInputAlarmMode": {
+    "name": "ovtxConfigurationRfInputAlarmMode",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfInputAlarmMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSatLnbSupply": {
+    "name": "ovtxConfigurationSatLnbSupply",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LnbSupplyValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSbsSuppressionMode": {
+    "name": "ovtxConfigurationSbsSuppressionMode",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SbsSuppressionModeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSbsFiberType": {
+    "name": "ovtxConfigurationSbsFiberType",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SbsFiberTypeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxConfigurationSbsFiberLength": {
+    "name": "ovtxConfigurationSbsFiberLength",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SbsFiberLengthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ovtxDisplayTable": {
+    "name": "ovtxDisplayTable",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ovtxDisplayEntry": {
+    "name": "ovtxDisplayEntry",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BKTEL-HFC862-OVTX-V11-MIB",
+        "object": "ovtxNESlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ovtxDisplayRfInputValue": {
+    "name": "ovtxDisplayRfInputValue",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplayLaserFrequencyMin": {
+    "name": "ovtxDisplayLaserFrequencyMin",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplayLaserFrequencyMax": {
+    "name": "ovtxDisplayLaserFrequencyMax",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplayLaserFrequencyStep": {
+    "name": "ovtxDisplayLaserFrequencyStep",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplayOmiNominal": {
+    "name": "ovtxDisplayOmiNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplaySatOmiNominal": {
+    "name": "ovtxDisplaySatOmiNominal",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplayRegulationState": {
+    "name": "ovtxDisplayRegulationState",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RegulationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplayExtendedCapabilities": {
+    "name": "ovtxDisplayExtendedCapabilities",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplayRfInputCapabilities": {
+    "name": "ovtxDisplayRfInputCapabilities",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RfInputCapabilities",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplaySatLnbSupplySupported": {
+    "name": "ovtxDisplaySatLnbSupplySupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LnbSupplySupportedValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplaySbsExtensionsSupported": {
+    "name": "ovtxDisplaySbsExtensionsSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplaySbsSuppressionModeSupported": {
+    "name": "ovtxDisplaySbsSuppressionModeSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ovtxDisplaySbsFiberParametersSupported": {
+    "name": "ovtxDisplaySbsFiberParametersSupported",
+    "oid": "1.3.6.1.4.1.7501.1.2.101.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bktel/BKTEL-HFC862-OVTX-V11-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BKTEL-HFC862-OVTX-V11-MIB"
+  }
+}

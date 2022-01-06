@@ -1,0 +1,656 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rip2": {
+    "name": "rip2",
+    "oid": "1.3.6.1.2.1.23",
+    "class": "moduleidentity"
+  },
+  "RouteTag": {
+    "name": "RouteTag",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "rip2Globals": {
+    "name": "rip2Globals",
+    "oid": "1.3.6.1.2.1.23.1",
+    "class": "objectidentity"
+  },
+  "rip2GlobalRouteChanges": {
+    "name": "rip2GlobalRouteChanges",
+    "oid": "1.3.6.1.2.1.23.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2GlobalQueries": {
+    "name": "rip2GlobalQueries",
+    "oid": "1.3.6.1.2.1.23.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2IfStatTable": {
+    "name": "rip2IfStatTable",
+    "oid": "1.3.6.1.2.1.23.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rip2IfStatEntry": {
+    "name": "rip2IfStatEntry",
+    "oid": "1.3.6.1.2.1.23.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfStatAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rip2IfStatAddress": {
+    "name": "rip2IfStatAddress",
+    "oid": "1.3.6.1.2.1.23.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2IfStatRcvBadPackets": {
+    "name": "rip2IfStatRcvBadPackets",
+    "oid": "1.3.6.1.2.1.23.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2IfStatRcvBadRoutes": {
+    "name": "rip2IfStatRcvBadRoutes",
+    "oid": "1.3.6.1.2.1.23.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2IfStatSentUpdates": {
+    "name": "rip2IfStatSentUpdates",
+    "oid": "1.3.6.1.2.1.23.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2IfStatStatus": {
+    "name": "rip2IfStatStatus",
+    "oid": "1.3.6.1.2.1.23.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rip2IfConfTable": {
+    "name": "rip2IfConfTable",
+    "oid": "1.3.6.1.2.1.23.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rip2IfConfEntry": {
+    "name": "rip2IfConfEntry",
+    "oid": "1.3.6.1.2.1.23.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rip2IfConfAddress": {
+    "name": "rip2IfConfAddress",
+    "oid": "1.3.6.1.2.1.23.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2IfConfDomain": {
+    "name": "rip2IfConfDomain",
+    "oid": "1.3.6.1.2.1.23.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouteTag",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "rip2IfConfAuthType": {
+    "name": "rip2IfConfAuthType",
+    "oid": "1.3.6.1.2.1.23.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuthentication": 1,
+          "simplePassword": 2,
+          "md5": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAuthentication",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rip2IfConfAuthKey": {
+    "name": "rip2IfConfAuthKey",
+    "oid": "1.3.6.1.2.1.23.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rip2IfConfSend": {
+    "name": "rip2IfConfSend",
+    "oid": "1.3.6.1.2.1.23.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNotSend": 1,
+          "ripVersion1": 2,
+          "rip1Compatible": 3,
+          "ripVersion2": 4,
+          "ripV1Demand": 5,
+          "ripV2Demand": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rip1Compatible",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rip2IfConfReceive": {
+    "name": "rip2IfConfReceive",
+    "oid": "1.3.6.1.2.1.23.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rip1": 1,
+          "rip2": 2,
+          "rip1OrRip2": 3,
+          "doNotRecieve": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rip1OrRip2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rip2IfConfDefaultMetric": {
+    "name": "rip2IfConfDefaultMetric",
+    "oid": "1.3.6.1.2.1.23.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rip2IfConfStatus": {
+    "name": "rip2IfConfStatus",
+    "oid": "1.3.6.1.2.1.23.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rip2IfConfSrcAddress": {
+    "name": "rip2IfConfSrcAddress",
+    "oid": "1.3.6.1.2.1.23.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rip2PeerTable": {
+    "name": "rip2PeerTable",
+    "oid": "1.3.6.1.2.1.23.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rip2PeerEntry": {
+    "name": "rip2PeerEntry",
+    "oid": "1.3.6.1.2.1.23.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2PeerAddress",
+        "implied": 0
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2PeerDomain",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rip2PeerAddress": {
+    "name": "rip2PeerAddress",
+    "oid": "1.3.6.1.2.1.23.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2PeerDomain": {
+    "name": "rip2PeerDomain",
+    "oid": "1.3.6.1.2.1.23.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouteTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2PeerLastUpdate": {
+    "name": "rip2PeerLastUpdate",
+    "oid": "1.3.6.1.2.1.23.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2PeerVersion": {
+    "name": "rip2PeerVersion",
+    "oid": "1.3.6.1.2.1.23.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2PeerRcvBadPackets": {
+    "name": "rip2PeerRcvBadPackets",
+    "oid": "1.3.6.1.2.1.23.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2PeerRcvBadRoutes": {
+    "name": "rip2PeerRcvBadRoutes",
+    "oid": "1.3.6.1.2.1.23.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rip2Conformance": {
+    "name": "rip2Conformance",
+    "oid": "1.3.6.1.2.1.23.5",
+    "class": "objectidentity"
+  },
+  "rip2Groups": {
+    "name": "rip2Groups",
+    "oid": "1.3.6.1.2.1.23.5.1",
+    "class": "objectidentity"
+  },
+  "rip2Compliances": {
+    "name": "rip2Compliances",
+    "oid": "1.3.6.1.2.1.23.5.2",
+    "class": "objectidentity"
+  },
+  "rip2Compliance": {
+    "name": "rip2Compliance",
+    "oid": "1.3.6.1.2.1.23.5.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rip2GlobalGroup",
+        "module": "RIPv2-MIB"
+      },
+      {
+        "object": "rip2IfStatGroup",
+        "module": "RIPv2-MIB"
+      },
+      {
+        "object": "rip2IfConfGroup",
+        "module": "RIPv2-MIB"
+      },
+      {
+        "object": "rip2PeerGroup",
+        "module": "RIPv2-MIB"
+      },
+      {
+        "object": "rip2GlobalGroup",
+        "module": "RIPv2-MIB"
+      },
+      {
+        "object": "rip2IfStatGroup",
+        "module": "RIPv2-MIB"
+      },
+      {
+        "object": "rip2IfConfGroup",
+        "module": "RIPv2-MIB"
+      },
+      {
+        "object": "rip2PeerGroup",
+        "module": "RIPv2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rip2GlobalGroup": {
+    "name": "rip2GlobalGroup",
+    "oid": "1.3.6.1.2.1.23.5.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2GlobalRouteChanges"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2GlobalQueries"
+      }
+    ],
+    "status": "current"
+  },
+  "rip2IfStatGroup": {
+    "name": "rip2IfStatGroup",
+    "oid": "1.3.6.1.2.1.23.5.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfStatAddress"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfStatRcvBadPackets"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfStatRcvBadRoutes"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfStatSentUpdates"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfStatStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rip2IfConfGroup": {
+    "name": "rip2IfConfGroup",
+    "oid": "1.3.6.1.2.1.23.5.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfAddress"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfAuthType"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfAuthKey"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfSend"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfReceive"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfDefaultMetric"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfStatus"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2IfConfSrcAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "rip2PeerGroup": {
+    "name": "rip2PeerGroup",
+    "oid": "1.3.6.1.2.1.23.5.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2PeerAddress"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2PeerDomain"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2PeerLastUpdate"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2PeerVersion"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2PeerRcvBadPackets"
+      },
+      {
+        "module": "RIPv2-MIB",
+        "object": "rip2PeerRcvBadRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RIPv2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RIPv2-MIB"
+  }
+}

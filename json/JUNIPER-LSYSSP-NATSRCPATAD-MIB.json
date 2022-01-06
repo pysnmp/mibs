@@ -1,0 +1,255 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-LSYS-SECURITYPROFILE-MIB": [
+      "jnxLsysSpNATsrcpatad"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxLsysSpNATsrcpatadMIB": {
+    "name": "jnxLsysSpNATsrcpatadMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1",
+    "class": "moduleidentity"
+  },
+  "jnxLsysSpNATsrcpatadObjects": {
+    "name": "jnxLsysSpNATsrcpatadObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.1",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATsrcpatadSummary": {
+    "name": "jnxLsysSpNATsrcpatadSummary",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.2",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpNATsrcpatadTable": {
+    "name": "jnxLsysSpNATsrcpatadTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadEntry": {
+    "name": "jnxLsysSpNATsrcpatadEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-LSYSSP-NATSRCPATAD-MIB",
+        "object": "jnxLsysSpNATsrcpatadLsysName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadLsysName": {
+    "name": "jnxLsysSpNATsrcpatadLsysName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadProfileName": {
+    "name": "jnxLsysSpNATsrcpatadProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadUsage": {
+    "name": "jnxLsysSpNATsrcpatadUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadReserved": {
+    "name": "jnxLsysSpNATsrcpatadReserved",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadMaximum": {
+    "name": "jnxLsysSpNATsrcpatadMaximum",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadUsedAmount": {
+    "name": "jnxLsysSpNATsrcpatadUsedAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadMaxQuota": {
+    "name": "jnxLsysSpNATsrcpatadMaxQuota",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadAvailableAmount": {
+    "name": "jnxLsysSpNATsrcpatadAvailableAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadHeaviestUsage": {
+    "name": "jnxLsysSpNATsrcpatadHeaviestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadHeaviestUser": {
+    "name": "jnxLsysSpNATsrcpatadHeaviestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadLightestUsage": {
+    "name": "jnxLsysSpNATsrcpatadLightestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpNATsrcpatadLightestUser": {
+    "name": "jnxLsysSpNATsrcpatadLightestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.10.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-LSYSSP-NATSRCPATAD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-LSYSSP-NATSRCPATAD-MIB"
+  }
+}

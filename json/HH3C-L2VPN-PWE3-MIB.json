@@ -1,0 +1,431 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cL2VpnPwe3": {
+    "name": "hh3cL2VpnPwe3",
+    "oid": "1.3.6.1.4.1.25506.2.78",
+    "class": "moduleidentity"
+  },
+  "Hh3cL2VpnVcEncapsType": {
+    "name": "Hh3cL2VpnVcEncapsType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameRelayDlciMartini": 1,
+          "atmAal5SduVccTransport": 2,
+          "atmTransparentCellTransport": 3,
+          "ethernetTagged": 4,
+          "ethernet": 5,
+          "hdlc": 6,
+          "ppp": 7,
+          "cem": 8,
+          "atmN2OneVccCellTransport": 9,
+          "atmN2OneVpcCellTransport": 10,
+          "ipLayer2Transport": 11,
+          "atmOne2OneVccCellMode": 12,
+          "atmOne2OneVpcCellMode": 13,
+          "atmAal5PduVccTransport": 14,
+          "frameRelayPortMode": 15,
+          "cep": 16,
+          "saE1oP": 17,
+          "saT1oP": 18,
+          "saE3oP": 19,
+          "saT3oP": 20,
+          "cESoPsnBasicMode": 21,
+          "tDMoIPbasicMode": 22,
+          "l2VpnCESoPSNTDMwithCAS": 23,
+          "l2VpnTDMoIPTDMwithCAS": 24,
+          "frameRelayDlci": 25,
+          "ipInterworking": 64,
+          "unknown": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cL2VpnPwe3ScalarGroup": {
+    "name": "hh3cL2VpnPwe3ScalarGroup",
+    "oid": "1.3.6.1.4.1.25506.2.78.1",
+    "class": "objectidentity"
+  },
+  "hh3cPwVcTrapOpen": {
+    "name": "hh3cPwVcTrapOpen",
+    "oid": "1.3.6.1.4.1.25506.2.78.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cL2VpnPwe3Table": {
+    "name": "hh3cL2VpnPwe3Table",
+    "oid": "1.3.6.1.4.1.25506.2.78.2",
+    "class": "objectidentity"
+  },
+  "hh3cPwVcTable": {
+    "name": "hh3cPwVcTable",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPwVcEntry": {
+    "name": "hh3cPwVcEntry",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPwVcIndex": {
+    "name": "hh3cPwVcIndex",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cPwVcID": {
+    "name": "hh3cPwVcID",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPwVcType": {
+    "name": "hh3cPwVcType",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cL2VpnVcEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPwVcPeerAddr": {
+    "name": "hh3cPwVcPeerAddr",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPwVcMtu": {
+    "name": "hh3cPwVcMtu",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPwVcCfgType": {
+    "name": "hh3cPwVcCfgType",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "backup": 2,
+          "multiPort": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPwVcInboundLabel": {
+    "name": "hh3cPwVcInboundLabel",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPwVcOutboundLabel": {
+    "name": "hh3cPwVcOutboundLabel",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPwVcIfIndex": {
+    "name": "hh3cPwVcIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cPwVcAcStatus": {
+    "name": "hh3cPwVcAcStatus",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPwVcStatus": {
+    "name": "hh3cPwVcStatus",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPwVcRowStatus": {
+    "name": "hh3cPwVcRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.78.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cL2VpnPwe3Notifications": {
+    "name": "hh3cL2VpnPwe3Notifications",
+    "oid": "1.3.6.1.4.1.25506.2.78.3",
+    "class": "objectidentity"
+  },
+  "hh3cPwVcSwitchWtoP": {
+    "name": "hh3cPwVcSwitchWtoP",
+    "oid": "1.3.6.1.4.1.25506.2.78.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcID"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcType"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcPeerAddr"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcID"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcType"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPwVcSwitchPtoW": {
+    "name": "hh3cPwVcSwitchPtoW",
+    "oid": "1.3.6.1.4.1.25506.2.78.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcID"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcType"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcPeerAddr"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcID"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcType"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPwVcDown": {
+    "name": "hh3cPwVcDown",
+    "oid": "1.3.6.1.4.1.25506.2.78.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcID"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcType"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPwVcUp": {
+    "name": "hh3cPwVcUp",
+    "oid": "1.3.6.1.4.1.25506.2.78.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcID"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcType"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPwVcDeleted": {
+    "name": "hh3cPwVcDeleted",
+    "oid": "1.3.6.1.4.1.25506.2.78.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcID"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcType"
+      },
+      {
+        "module": "HH3C-L2VPN-PWE3-MIB",
+        "object": "hh3cPwVcPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-L2VPN-PWE3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-L2VPN-PWE3-MIB"
+  }
+}

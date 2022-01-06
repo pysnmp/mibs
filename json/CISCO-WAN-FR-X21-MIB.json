@@ -1,0 +1,1240 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "x21",
+      "frPortCnfX21PortGrp"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanFrX21MIB": {
+    "name": "ciscoWanFrX21MIB",
+    "oid": "1.3.6.1.4.1.351.150.49",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-19 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB."
+      }
+    ]
+  },
+  "x21CnfGrp": {
+    "name": "x21CnfGrp",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1",
+    "class": "objectidentity"
+  },
+  "x21AlmCnfGrp": {
+    "name": "x21AlmCnfGrp",
+    "oid": "1.3.6.1.4.1.351.110.4.5.2",
+    "class": "objectidentity"
+  },
+  "x21AlmGrp": {
+    "name": "x21AlmGrp",
+    "oid": "1.3.6.1.4.1.351.110.4.5.3",
+    "class": "objectidentity"
+  },
+  "x21CnfGrpTable": {
+    "name": "x21CnfGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "x21CnfGrpEntry": {
+    "name": "x21CnfGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "x21LineNum": {
+    "name": "x21LineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21LineEnable": {
+    "name": "x21LineEnable",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2,
+          "modify": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21LineType": {
+    "name": "x21LineType",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte": 1,
+          "dce": 2,
+          "dteST": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21LineRate": {
+    "name": "x21LineRate",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "r48Kbps": 1,
+          "r56Kbps": 2,
+          "r64Kbps": 3,
+          "r112Kbps": 4,
+          "r128Kbps": 5,
+          "r168Kbps": 6,
+          "r192Kbps": 7,
+          "r224Kbps": 8,
+          "r256Kbps": 9,
+          "r280Kbps": 10,
+          "r320Kbps": 11,
+          "r336Kbps": 12,
+          "r384Kbps": 13,
+          "r392Kbps": 14,
+          "r448Kbps": 15,
+          "r512Kbps": 16,
+          "r768Kbps": 17,
+          "r1024Kbps": 18,
+          "r1536Kbps": 19,
+          "r1544Kbps": 20,
+          "r1792Kbps": 21,
+          "r1920Kbps": 22,
+          "r1984Kbps": 23,
+          "r2048Kbps": 24,
+          "r3097Kbps": 25,
+          "r3157Kbps": 26,
+          "r4096Kbps": 27,
+          "r4645Kbps": 28,
+          "r4736Kbps": 29,
+          "r6195Kbps": 30,
+          "r6315Kbps": 31,
+          "r7744Kbps": 32,
+          "r7899Kbps": 33,
+          "r8192Kbps": 34,
+          "r9289Kbps": 35,
+          "r9472Kbps": 36,
+          "r10240Kbps": 37,
+          "r10890Kbps": 38,
+          "r11060Kbps": 39,
+          "r12390Kbps": 40,
+          "r12630Kbps": 41,
+          "r13900Kbps": 42,
+          "r14220Kbps": 43,
+          "r14340Kbps": 44,
+          "r15490Kbps": 45,
+          "r15800Kbps": 46,
+          "r16380Kbps": 47,
+          "r20030Kbps": 48,
+          "r24990Kbps": 49,
+          "r52Mbps": 50,
+          "r17370Kbps": 51,
+          "r18950Kbps": 52,
+          "r20530Kbps": 53,
+          "r22100Kbps": 54,
+          "r23680Kbps": 55,
+          "r3088Kbps": 56,
+          "r4632Kbps": 57,
+          "r6176Kbps": 58,
+          "r7720Kbps": 59,
+          "r9264Kbps": 60,
+          "r10808Kbps": 61,
+          "r12352Kbps": 62,
+          "r13896Kbps": 63,
+          "r15440Kbps": 64,
+          "r16984Kbps": 65,
+          "r18528Kbps": 66,
+          "r20072Kbps": 67,
+          "r21616Kbps": 68,
+          "r23160Kbps": 69,
+          "r24704Kbps": 70,
+          "r26248Kbps": 71,
+          "r27792Kbps": 72,
+          "r29336Kbps": 73,
+          "r30880Kbps": 74,
+          "r32424Kbps": 75,
+          "r33968Kbps": 76,
+          "r35512Kbps": 77,
+          "r37056Kbps": 78,
+          "r38600Kbps": 79,
+          "r40144Kbps": 80,
+          "r41688Kbps": 81,
+          "r43232Kbps": 82,
+          "r44776Kbps": 83,
+          "r46320Kbps": 84,
+          "r47864Kbps": 85,
+          "r49408Kbps": 86,
+          "r50952Kbps": 87,
+          "r6144Kbps": 88,
+          "r12288Kbps": 89,
+          "r14336Kbps": 90,
+          "r16384Kbps": 91,
+          "r18432Kbps": 92,
+          "r20480Kbps": 93,
+          "r22528Kbps": 94,
+          "r24576Kbps": 95,
+          "r26624Kbps": 96,
+          "r28672Kbps": 97,
+          "r30720Kbps": 98,
+          "r32768Kbps": 99,
+          "r34816Kbps": 100,
+          "r36864Kbps": 101,
+          "r38912Kbps": 102,
+          "r40960Kbps": 103,
+          "r43008Kbps": 104,
+          "r45056Kbps": 105,
+          "r47104Kbps": 106,
+          "r49152Kbps": 107,
+          "r51200Kbps": 108
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21LineLoopbackCommand": {
+    "name": "x21LineLoopbackCommand",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "x21NoLoop": 1,
+          "x21DiagnosticMetallicLoop": 2,
+          "x21DiagnosticFrontcardLoop": 3,
+          "x21RemoteLoop": 4,
+          "v35MetallicLoop": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21LineSendCode": {
+    "name": "x21LineSendCode",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "x21NoCode": 1,
+          "x21SendLoopACode": 2,
+          "x21SendLoopBCode": 3,
+          "x21SendLocalLoopCode": 4,
+          "x21SendRemoteLoopCode": 5,
+          "x21SendUnLoopCode": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21LineLoopbackCodeDetection": {
+    "name": "x21LineLoopbackCodeDetection",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "codeDetectDisabled": 1,
+          "codeDetectEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21ConnectorType": {
+    "name": "x21ConnectorType",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "x21Backcard": 1,
+          "hssiBackcard": 2,
+          "v35Backcard": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21InvertClock": {
+    "name": "x21InvertClock",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonInvertedAndNotLooped": 1,
+          "invertedAndNotLooped": 2,
+          "nonInvertedAndLooped": 3,
+          "invertedAndLooped": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21LineInterfaceType": {
+    "name": "x21LineInterfaceType",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hssi": 1,
+          "x21": 2,
+          "v35": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21ClkFrequencyThreshold": {
+    "name": "x21ClkFrequencyThreshold",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "serialLineRate": {
+    "name": "serialLineRate",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 48000,
+            "max": 51840000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "serialLineRateVariation": {
+    "name": "serialLineRateVariation",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21LineNumofValidEntries": {
+    "name": "x21LineNumofValidEntries",
+    "oid": "1.3.6.1.4.1.351.110.4.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPortCnfX21PortGrpTable": {
+    "name": "frPortCnfX21PortGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPortCnfX21PortGrpEntry": {
+    "name": "frPortCnfX21PortGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "x21portNum": {
+    "name": "x21portNum",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21portLineNum": {
+    "name": "x21portLineNum",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portRowStatus": {
+    "name": "x21portRowStatus",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "del": 2,
+          "mod": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portFlagsBetweenFrames": {
+    "name": "x21portFlagsBetweenFrames",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portEqueueServiceRatio": {
+    "name": "x21portEqueueServiceRatio",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portSpeed": {
+    "name": "x21portSpeed",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21portAdmin": {
+    "name": "x21portAdmin",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "write-Only": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portType": {
+    "name": "x21portType",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frame-relay": 1,
+          "frFUNI": 2,
+          "frame-forward": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portSvcStatus": {
+    "name": "x21portSvcStatus",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portSvcInUse": {
+    "name": "x21portSvcInUse",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-use": 1,
+          "in-use": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portSvcShareLcn": {
+    "name": "x21portSvcShareLcn",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port-based": 1,
+          "card-based": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21portSvcLcnLow": {
+    "name": "x21portSvcLcnLow",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 271
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21portSvcLcnHigh": {
+    "name": "x21portSvcLcnHigh",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 271
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21portSvcDlciLow": {
+    "name": "x21portSvcDlciLow",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21portSvcDlciHigh": {
+    "name": "x21portSvcDlciHigh",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21portDeleteSvcs": {
+    "name": "x21portDeleteSvcs",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 1,
+          "other": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21portIngrSvcBandW": {
+    "name": "x21portIngrSvcBandW",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21portEgrSvcBandW": {
+    "name": "x21portEgrSvcBandW",
+    "oid": "1.3.6.1.4.1.351.110.5.1.1.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21AlmCnfGrpTable": {
+    "name": "x21AlmCnfGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.4.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "x21AlmCnfGrpEntry": {
+    "name": "x21AlmCnfGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21AlmCnfLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "x21AlmCnfLineNum": {
+    "name": "x21AlmCnfLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21Severity": {
+    "name": "x21Severity",
+    "oid": "1.3.6.1.4.1.351.110.4.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2,
+          "dontcare": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "x21AlmGrpTable": {
+    "name": "x21AlmGrpTable",
+    "oid": "1.3.6.1.4.1.351.110.4.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "x21AlmGrpEntry": {
+    "name": "x21AlmGrpEntry",
+    "oid": "1.3.6.1.4.1.351.110.4.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21AlmLineNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "x21AlmLineNum": {
+    "name": "x21AlmLineNum",
+    "oid": "1.3.6.1.4.1.351.110.4.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21LineAlarmState": {
+    "name": "x21LineAlarmState",
+    "oid": "1.3.6.1.4.1.351.110.4.5.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21LineEIAStatus": {
+    "name": "x21LineEIAStatus",
+    "oid": "1.3.6.1.4.1.351.110.4.5.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "x21AlarmClrButton": {
+    "name": "x21AlarmClrButton",
+    "oid": "1.3.6.1.4.1.351.110.4.5.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwfX21MIBConformance": {
+    "name": "cwfX21MIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.49.2",
+    "class": "objectidentity"
+  },
+  "cwfX21MIBGroups": {
+    "name": "cwfX21MIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.49.2.1",
+    "class": "objectidentity"
+  },
+  "cwfX21MIBCompliances": {
+    "name": "cwfX21MIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.49.2.2",
+    "class": "objectidentity"
+  },
+  "cwfX21Compliance": {
+    "name": "cwfX21Compliance",
+    "oid": "1.3.6.1.4.1.351.150.49.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWanFrX21LineGroup",
+        "module": "CISCO-WAN-FR-X21-MIB"
+      },
+      {
+        "object": "ciscoWanFrX21PortGroup",
+        "module": "CISCO-WAN-FR-X21-MIB"
+      },
+      {
+        "object": "ciscoWanFrX21AlarmConfGroup",
+        "module": "CISCO-WAN-FR-X21-MIB"
+      },
+      {
+        "object": "ciscoWanFrX21AlarmGroup",
+        "module": "CISCO-WAN-FR-X21-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanFrX21PortGroup": {
+    "name": "ciscoWanFrX21PortGroup",
+    "oid": "1.3.6.1.4.1.351.150.49.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portNum"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portLineNum"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portFlagsBetweenFrames"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portEqueueServiceRatio"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portSpeed"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portAdmin"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portType"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portSvcStatus"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portSvcInUse"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portSvcShareLcn"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portSvcLcnLow"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portSvcLcnHigh"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portSvcDlciLow"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portSvcDlciHigh"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portDeleteSvcs"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portIngrSvcBandW"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21portEgrSvcBandW"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanFrX21LineGroup": {
+    "name": "ciscoWanFrX21LineGroup",
+    "oid": "1.3.6.1.4.1.351.150.49.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineNum"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineEnable"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineType"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineRate"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineLoopbackCommand"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineSendCode"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineLoopbackCodeDetection"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21ConnectorType"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21InvertClock"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineInterfaceType"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21ClkFrequencyThreshold"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "serialLineRate"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "serialLineRateVariation"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineNumofValidEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanFrX21AlarmConfGroup": {
+    "name": "ciscoWanFrX21AlarmConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.49.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21AlmCnfLineNum"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21Severity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanFrX21AlarmGroup": {
+    "name": "ciscoWanFrX21AlarmGroup",
+    "oid": "1.3.6.1.4.1.351.150.49.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21AlmLineNum"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineAlarmState"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21LineEIAStatus"
+      },
+      {
+        "module": "CISCO-WAN-FR-X21-MIB",
+        "object": "x21AlarmClrButton"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-FR-X21-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-FR-X21-MIB"
+  }
+}

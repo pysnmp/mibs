@@ -1,0 +1,517 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Cisco2KVlanList"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoFlexLinksMIB": {
+    "name": "ciscoFlexLinksMIB",
+    "oid": "1.3.6.1.4.1.9.9.471",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-02-04 00:00",
+        "description": "Added the followings groups: ciscoFlexLinksMmuPrimaryVlanGroup, ciscoFlexLinksPreemptionGroup, ciscoFlexLinksPreferVlanGroup. Added enumeration 'vlbAll', 'vlbConfig' and 'vlbPreempt' to cflIfStatus."
+      },
+      {
+        "revision": "2005-04-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFlexLinksMIBNotifs": {
+    "name": "ciscoFlexLinksMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.471.0",
+    "class": "objectidentity"
+  },
+  "ciscoFlexLinksMIBObjects": {
+    "name": "ciscoFlexLinksMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.471.1",
+    "class": "objectidentity"
+  },
+  "ciscoFlexLinksMIBConformance": {
+    "name": "ciscoFlexLinksMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.471.2",
+    "class": "objectidentity"
+  },
+  "cflConfig": {
+    "name": "cflConfig",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1",
+    "class": "objectidentity"
+  },
+  "cflStatus": {
+    "name": "cflStatus",
+    "oid": "1.3.6.1.4.1.9.9.471.1.2",
+    "class": "objectidentity"
+  },
+  "cflIfConfigTable": {
+    "name": "cflIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cflIfConfigEntry": {
+    "name": "cflIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigPrimary",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cflIfConfigPrimary": {
+    "name": "cflIfConfigPrimary",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cflIfConfigBackUp": {
+    "name": "cflIfConfigBackUp",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cflIfConfigStorageType": {
+    "name": "cflIfConfigStorageType",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cflIfConfigStatus": {
+    "name": "cflIfConfigStatus",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cflEnableStatusChangeNotif": {
+    "name": "cflEnableStatusChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cflIfConfigExtTable": {
+    "name": "cflIfConfigExtTable",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cflIfConfigExtEntry": {
+    "name": "cflIfConfigExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigPrimary",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cflIfConfigMmuPrimaryVlan": {
+    "name": "cflIfConfigMmuPrimaryVlan",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cflIfConfigPreemptionMode": {
+    "name": "cflIfConfigPreemptionMode",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "forced": 2,
+          "bandwidth": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cflIfConfigPreemptionDelay": {
+    "name": "cflIfConfigPreemptionDelay",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cflIfConfigPrefer2kVlan": {
+    "name": "cflIfConfigPrefer2kVlan",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cisco2KVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cflIfConfigPrefer4kVlan": {
+    "name": "cflIfConfigPrefer4kVlan",
+    "oid": "1.3.6.1.4.1.9.9.471.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cisco2KVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cflIfStatusTable": {
+    "name": "cflIfStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.471.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cflIfStatusEntry": {
+    "name": "cflIfStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.471.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cflIfIndex": {
+    "name": "cflIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.471.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cflIfStatus": {
+    "name": "cflIfStatus",
+    "oid": "1.3.6.1.4.1.9.9.471.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 1,
+          "blocking": 2,
+          "down": 3,
+          "waitingToSync": 4,
+          "waitingForPeerStrate": 5,
+          "unknown": 6,
+          "vlbAll": 7,
+          "vlbConfig": 8,
+          "vlbPreempt": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cflIfStatusChangeNotif": {
+    "name": "cflIfStatusChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.471.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlexLinksMIBCompliances": {
+    "name": "ciscoFlexLinksMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.471.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoFlexLinksMIBGroups": {
+    "name": "ciscoFlexLinksMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.471.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoFlexLinksMIBCompliance": {
+    "name": "ciscoFlexLinksMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.471.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlexLinksIfConfigGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksIfStatusGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksEnableNotifGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksNotifGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlexLinksMIBCompliance2": {
+    "name": "ciscoFlexLinksMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.471.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlexLinksIfConfigGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksIfStatusGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksEnableNotifGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksNotifGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksMmuPrimaryVlanGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksPreemptionGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      },
+      {
+        "object": "ciscoFlexLinksPreferVlanGroup",
+        "module": "CISCO-FLEX-LINKS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlexLinksIfConfigGroup": {
+    "name": "ciscoFlexLinksIfConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.471.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigBackUp"
+      },
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigStorageType"
+      },
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlexLinksIfStatusGroup": {
+    "name": "ciscoFlexLinksIfStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.471.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlexLinksEnableNotifGroup": {
+    "name": "ciscoFlexLinksEnableNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.471.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflEnableStatusChangeNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlexLinksNotifGroup": {
+    "name": "ciscoFlexLinksNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.471.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfStatusChangeNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlexLinksMmuPrimaryVlanGroup": {
+    "name": "ciscoFlexLinksMmuPrimaryVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.471.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigMmuPrimaryVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlexLinksPreemptionGroup": {
+    "name": "ciscoFlexLinksPreemptionGroup",
+    "oid": "1.3.6.1.4.1.9.9.471.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigPreemptionMode"
+      },
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigPreemptionDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlexLinksPreferVlanGroup": {
+    "name": "ciscoFlexLinksPreferVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.471.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigPrefer2kVlan"
+      },
+      {
+        "module": "CISCO-FLEX-LINKS-MIB",
+        "object": "cflIfConfigPrefer4kVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FLEX-LINKS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FLEX-LINKS-MIB"
+  }
+}

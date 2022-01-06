@@ -1,0 +1,2145 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString"
+    ]
+  },
+  "hwConfig": {
+    "name": "hwConfig",
+    "oid": "1.3.6.1.4.1.2011.6.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-02 17:27",
+        "description": "modified trap node value hwCfgAppDataInconsistent and hwCfgAppDataInconsistentResume."
+      },
+      {
+        "revision": "2016-05-26 19:25",
+        "description": "modified trap node value hwCfgRestoreErrCode ."
+      },
+      {
+        "revision": "2016-03-25 10:10",
+        "description": "modified trap node name hwConfigInconsistentResume."
+      },
+      {
+        "revision": "2016-02-22 10:10",
+        "description": "modified trap node hwConfigInconsistent and hwConfigConsistent."
+      },
+      {
+        "revision": "2015-04-27 14:02",
+        "description": "add trap node hwConfigInconsistent and hwConfigConsistent."
+      },
+      {
+        "revision": "2015-04-13 11:19",
+        "description": "modified trap node hwCfgRestoreFail, and MIB node hwCfgRestoreErrCode for hwCfgRestoreFail."
+      },
+      {
+        "revision": "2015-02-02 23:00",
+        "description": "Add new trap node hwCfgRestoreFail, and new MIB node hwCfgRestoreErrCode for hwCfgRestoreFail."
+      },
+      {
+        "revision": "2014-09-18 22:00",
+        "description": "Modify the length and description of hwCfgBackupPassword."
+      },
+      {
+        "revision": "2014-09-16 10:20",
+        "description": "Modify the description of hwCfgOperateFileName."
+      },
+      {
+        "revision": "2014-08-21 16:02",
+        "description": "Modify the length and description of hwCfgBackupPassword."
+      },
+      {
+        "revision": "2014-05-29 22:30",
+        "description": "Modify the length range of hwCfgLogTerminalUser."
+      },
+      {
+        "revision": "2014-05-26 22:30",
+        "description": "Modify the length range of hwCfgLogTerminalUser."
+      },
+      {
+        "revision": "2013-09-03 22:30",
+        "description": "Add new mib node hwCfgOperateVpnInstance of hwCfgOperateEntry."
+      },
+      {
+        "revision": "2013-08-30 22:30",
+        "description": "Add new mib node hwCfgOperateServerAddressType and hwCfgOperateServerAddressNet of hwCfgOperateEntry."
+      },
+      {
+        "revision": "2006-08-22 22:30",
+        "description": "Add new mib node hwCfgBackupVpnInstance of table HwCfgBackup2ServerEntry."
+      },
+      {
+        "revision": "2006-08-22 22:30",
+        "description": "Modify the description of hwCfgBackupProtocol."
+      },
+      {
+        "revision": "2006-08-22 22:30",
+        "description": "Modify the description of hwCfgBackupPassword And hwCfgOperateUserPassword."
+      },
+      {
+        "revision": "2006-08-22 22:30",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "ConfigOperationType": {
+    "name": "ConfigOperationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running2Startup": 1,
+          "startup2Running": 2,
+          "running2Net": 3,
+          "net2Running": 4,
+          "net2Startup": 5,
+          "startup2Net": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwConfigManObjects": {
+    "name": "hwConfigManObjects",
+    "oid": "1.3.6.1.4.1.2011.6.10.1",
+    "class": "objectidentity"
+  },
+  "hwCfgLog": {
+    "name": "hwCfgLog",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1",
+    "class": "objectidentity"
+  },
+  "hwCfgRunModifiedLast": {
+    "name": "hwCfgRunModifiedLast",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgRunSavedLast": {
+    "name": "hwCfgRunSavedLast",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgStartModifiedLast": {
+    "name": "hwCfgStartModifiedLast",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogLimitedEntries": {
+    "name": "hwCfgLogLimitedEntries",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogDeletedEntries": {
+    "name": "hwCfgLogDeletedEntries",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogWantBackup": {
+    "name": "hwCfgLogWantBackup",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfgLogTable": {
+    "name": "hwCfgLogTable",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgLogEntry": {
+    "name": "hwCfgLogEntry",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgLogIndex": {
+    "name": "hwCfgLogIndex",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgLogTime": {
+    "name": "hwCfgLogTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogSrcCmd": {
+    "name": "hwCfgLogSrcCmd",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cmdLine": 1,
+          "snmp": 2,
+          "netconf": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogSrcData": {
+    "name": "hwCfgLogSrcData",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "erase": 1,
+          "runningData": 2,
+          "commandSource": 3,
+          "startupData": 4,
+          "local": 5,
+          "netFtp": 6,
+          "hotPlugging": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogDesData": {
+    "name": "hwCfgLogDesData",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "runningData": 2,
+          "commandSource": 3,
+          "startupData": 4,
+          "local": 5,
+          "netkFtp": 6,
+          "hotPlugging": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogTerminalType": {
+    "name": "hwCfgLogTerminalType",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "unknown": 2,
+          "console": 3,
+          "terminal": 4,
+          "virtual": 5,
+          "auxiliary": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogTerminalUser": {
+    "name": "hwCfgLogTerminalUser",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogTerminalNum": {
+    "name": "hwCfgLogTerminalNum",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogTerminalLocation": {
+    "name": "hwCfgLogTerminalLocation",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogCmdSrcAddress": {
+    "name": "hwCfgLogCmdSrcAddress",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogVirHost": {
+    "name": "hwCfgLogVirHost",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogUserName": {
+    "name": "hwCfgLogUserName",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogServerAddress": {
+    "name": "hwCfgLogServerAddress",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogFile": {
+    "name": "hwCfgLogFile",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgLogConfigChangeId": {
+    "name": "hwCfgLogConfigChangeId",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967294
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hwCfgLogCfgBaselineTime": {
+    "name": "hwCfgLogCfgBaselineTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hwCfgOperate": {
+    "name": "hwCfgOperate",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2",
+    "class": "objectidentity"
+  },
+  "hwCfgOperateGlobalEntryLimit": {
+    "name": "hwCfgOperateGlobalEntryLimit",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateEntryAgeOutTime": {
+    "name": "hwCfgOperateEntryAgeOutTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfgOperateResultGlobalEntryLimit": {
+    "name": "hwCfgOperateResultGlobalEntryLimit",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfgOperateTable": {
+    "name": "hwCfgOperateTable",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgOperateEntry": {
+    "name": "hwCfgOperateEntry",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgOperateIndex": {
+    "name": "hwCfgOperateIndex",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgOperateType": {
+    "name": "hwCfgOperateType",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateProtocol": {
+    "name": "hwCfgOperateProtocol",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "tftp": 2,
+          "sftp": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateFileName": {
+    "name": "hwCfgOperateFileName",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateServerAddress": {
+    "name": "hwCfgOperateServerAddress",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateUserName": {
+    "name": "hwCfgOperateUserName",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateUserPassword": {
+    "name": "hwCfgOperateUserPassword",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateEndNotificationSwitch": {
+    "name": "hwCfgOperateEndNotificationSwitch",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateRowStatus": {
+    "name": "hwCfgOperateRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateServerPort": {
+    "name": "hwCfgOperateServerPort",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateSourceAddress": {
+    "name": "hwCfgOperateSourceAddress",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateSourceInterface": {
+    "name": "hwCfgOperateSourceInterface",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateOnError": {
+    "name": "hwCfgOperateOnError",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "continueOnError": 1,
+          "stopOnError": 2,
+          "rollbackOnError": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateServerAddressType": {
+    "name": "hwCfgOperateServerAddressType",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateServerAddressNet": {
+    "name": "hwCfgOperateServerAddressNet",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateVpnInstance": {
+    "name": "hwCfgOperateVpnInstance",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgOperateResultTable": {
+    "name": "hwCfgOperateResultTable",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgOperateResultEntry": {
+    "name": "hwCfgOperateResultEntry",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgOperateResultIndex": {
+    "name": "hwCfgOperateResultIndex",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgOperateResultOptIndex": {
+    "name": "hwCfgOperateResultOptIndex",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateResultOpType": {
+    "name": "hwCfgOperateResultOpType",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateState": {
+    "name": "hwCfgOperateState",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccess": 2,
+          "opInvalidOperation": 3,
+          "opInvalidProtocol": 4,
+          "opInvalidSourceName": 5,
+          "opInvalidDestName": 6,
+          "opInvalidServerAddress": 7,
+          "opDeviceBusy": 8,
+          "opDeviceOpenError": 9,
+          "opDeviceError": 10,
+          "opDeviceNotProgrammable": 11,
+          "opDeviceFull": 12,
+          "opFileOpenError": 13,
+          "opFileTransferError": 14,
+          "opFileChecksumError": 15,
+          "opNoMemory": 16,
+          "opAuthFail": 17,
+          "opTimeOut": 18,
+          "opUnknownFailure": 19,
+          "opAbort": 20,
+          "opInvalidSourceAddress": 21,
+          "opInvalidSourceInterface": 22,
+          "opCmdExecuteFail": 23
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateTime": {
+    "name": "hwCfgOperateTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateEndTime": {
+    "name": "hwCfgOperateEndTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateTransferProgress": {
+    "name": "hwCfgOperateTransferProgress",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateErrorReason": {
+    "name": "hwCfgOperateErrorReason",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgModuleChangeTimeTable": {
+    "name": "hwCfgModuleChangeTimeTable",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgModuleChangeTimeEntry": {
+    "name": "hwCfgModuleChangeTimeEntry",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgModuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgModuleId": {
+    "name": "hwCfgModuleId",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgModuleChangeTime": {
+    "name": "hwCfgModuleChangeTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateCompareConfig": {
+    "name": "hwCfgOperateCompareConfig",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 0,
+          "same": 1,
+          "different": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfgRestoreErrCode": {
+    "name": "hwCfgRestoreErrCode",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "warning": 1,
+          "fileOpenFail": 2,
+          "fileNotExist": 3,
+          "fileVerifyFail": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCfgSave": {
+    "name": "hwCfgSave",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3",
+    "class": "objectidentity"
+  },
+  "hwCfgSaveAutoInterval": {
+    "name": "hwCfgSaveAutoInterval",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 43200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfgSaveAutoTime": {
+    "name": "hwCfgSaveAutoTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgSaveManualTime": {
+    "name": "hwCfgSaveManualTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgSaveAutoCpuLimit": {
+    "name": "hwCfgSaveAutoCpuLimit",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfgSaveAutoNoCfgInterval": {
+    "name": "hwCfgSaveAutoNoCfgInterval",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 43200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hwCfgSaveAutoDelay": {
+    "name": "hwCfgSaveAutoDelay",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfgBackup2ServerTable": {
+    "name": "hwCfgBackup2ServerTable",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgBackup2ServerEntry": {
+    "name": "hwCfgBackup2ServerEntry",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgBackupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgBackupIndex": {
+    "name": "hwCfgBackupIndex",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCfgBackupServerIp": {
+    "name": "hwCfgBackupServerIp",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgBackupProtocol": {
+    "name": "hwCfgBackupProtocol",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "tftp": 2,
+          "sftp": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgBackupUser": {
+    "name": "hwCfgBackupUser",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgBackupPassword": {
+    "name": "hwCfgBackupPassword",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgBackupServerPath": {
+    "name": "hwCfgBackupServerPath",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgBackupRowStatus": {
+    "name": "hwCfgBackupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgBackupResult": {
+    "name": "hwCfgBackupResult",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgBackupVpnInstance": {
+    "name": "hwCfgBackupVpnInstance",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwCfgLock": {
+    "name": "hwCfgLock",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4",
+    "class": "objectidentity"
+  },
+  "hwCfgOperateLockConfigDataStore": {
+    "name": "hwCfgOperateLockConfigDataStore",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersTable": {
+    "name": "hwCfgOperateLevelUsersTable",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersEntry": {
+    "name": "hwCfgOperateLevelUsersEntry",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersSessionID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersSessionID": {
+    "name": "hwCfgOperateLevelUsersSessionID",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersSessionDesc": {
+    "name": "hwCfgOperateLevelUsersSessionDesc",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersName": {
+    "name": "hwCfgOperateLevelUsersName",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersLockedTime": {
+    "name": "hwCfgOperateLevelUsersLockedTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersIPAddr": {
+    "name": "hwCfgOperateLevelUsersIPAddr",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersLastCfgTime": {
+    "name": "hwCfgOperateLevelUsersLastCfgTime",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersTimeout": {
+    "name": "hwCfgOperateLevelUsersTimeout",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwConfigManNotifications": {
+    "name": "hwConfigManNotifications",
+    "oid": "1.3.6.1.4.1.2011.6.10.2",
+    "class": "objectidentity"
+  },
+  "hwCfgManEventlog": {
+    "name": "hwCfgManEventlog",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogSrcCmd"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogSrcData"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogDesData"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalUser"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogCmdSrcAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogConfigChangeId"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogCfgBaselineTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgOperateCompletion": {
+    "name": "hwCfgOperateCompletion",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateState"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateEndTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgInconsistent": {
+    "name": "hwCfgInconsistent",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.3",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "hwCfgInconsistentResume": {
+    "name": "hwCfgInconsistentResume",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.4",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "hwCfgB2STransferFail": {
+    "name": "hwCfgB2STransferFail",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgBackupIndex"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgBackupServerIp"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgBackupProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgB2SOperate": {
+    "name": "hwCfgB2SOperate",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCfgRestoreFail": {
+    "name": "hwCfgRestoreFail",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRestoreErrCode"
+      }
+    ],
+    "status": "current"
+  },
+  "hwConfigInconsistent": {
+    "name": "hwConfigInconsistent",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwConfigInconsistentResume": {
+    "name": "hwConfigInconsistentResume",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCfgAppDataInconsistent": {
+    "name": "hwCfgAppDataInconsistent",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwCfgAppDataInconsistentResume": {
+    "name": "hwCfgAppDataInconsistentResume",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwConfigManConformance": {
+    "name": "hwConfigManConformance",
+    "oid": "1.3.6.1.4.1.2011.6.10.3",
+    "class": "objectidentity"
+  },
+  "hwConfigManCompliances": {
+    "name": "hwConfigManCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.1",
+    "class": "objectidentity"
+  },
+  "hwConfigManCompliance": {
+    "name": "hwConfigManCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwCfgManLogGroup",
+        "module": "HUAWEI-CONFIG-MAN-MIB"
+      },
+      {
+        "object": "hwCfgOperateGroup",
+        "module": "HUAWEI-CONFIG-MAN-MIB"
+      },
+      {
+        "object": "hwCfgManNotificationGroup",
+        "module": "HUAWEI-CONFIG-MAN-MIB"
+      },
+      {
+        "object": "hwCfgSaveGroup",
+        "module": "HUAWEI-CONFIG-MAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwConfigManGroups": {
+    "name": "hwConfigManGroups",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2",
+    "class": "objectidentity"
+  },
+  "hwCfgManLogGroup": {
+    "name": "hwCfgManLogGroup",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRunModifiedLast"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRunSavedLast"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgStartModifiedLast"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogLimitedEntries"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogDeletedEntries"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogSrcCmd"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalNum"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalUser"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalLocation"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogCmdSrcAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogVirHost"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogServerAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogFile"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogUserName"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogWantBackup"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogSrcData"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogDesData"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogConfigChangeId"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogCfgBaselineTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgOperateGroup": {
+    "name": "hwCfgOperateGroup",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateGlobalEntryLimit"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateEntryAgeOutTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateProtocol"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateFileName"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateServerAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateUserName"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateUserPassword"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateEndNotificationSwitch"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateResultGlobalEntryLimit"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateState"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateRowStatus"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateServerPort"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateSourceAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateSourceInterface"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateOnError"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateServerAddressType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateServerAddressNet"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateVpnInstance"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateResultOptIndex"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateResultOpType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateEndTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateTransferProgress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateErrorReason"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgModuleChangeTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLockConfigDataStore"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersSessionID"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersSessionDesc"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersName"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersLockedTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersIPAddr"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersLastCfgTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersTimeout"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateCompareConfig"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgManNotificationGroup": {
+    "name": "hwCfgManNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgManEventlog"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateCompletion"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgInconsistent"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgInconsistentResume"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgB2STransferFail"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgB2SOperate"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRestoreFail"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwConfigInconsistent"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwConfigInconsistentResume"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgAppDataInconsistent"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgAppDataInconsistentResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCfgSaveGroup": {
+    "name": "hwCfgSaveGroup",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoInterval"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveManualTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoCpuLimit"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoNoCfgInterval"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoDelay"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRestoreErrCode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-CONFIG-MAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-CONFIG-MAN-MIB"
+  }
+}

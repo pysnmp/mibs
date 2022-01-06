@@ -1,0 +1,1401 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "jnxGdoiMIB": {
+    "name": "jnxGdoiMIB",
+    "oid": "1.3.6.1.4.1.2636.3.759",
+    "class": "moduleidentity"
+  },
+  "JnxGdoiIdentificationType": {
+    "name": "JnxGdoiIdentificationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4Address": 1,
+          "domainName": 2,
+          "userName": 3,
+          "ipv4Subnet": 4,
+          "ipv6Address": 5,
+          "ipv6Subnet": 6,
+          "ipv4Range": 7,
+          "ipv6Range": 8,
+          "caDistinguishedName": 9,
+          "caGeneralName": 10,
+          "groupNumber": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiIdentificationValue": {
+    "name": "JnxGdoiIdentificationValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "displayhint": "255d",
+    "status": "current"
+  },
+  "JnxGdoiKekSPI": {
+    "name": "JnxGdoiKekSPI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "16x",
+    "status": "current"
+  },
+  "JnxGdoiIpProtocolId": {
+    "name": "JnxGdoiIpProtocolId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipProtocolUnknown": 0,
+          "ipProtocolTCP": 1,
+          "ipProtocolUDP": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiKeyManagementAlgorithm": {
+    "name": "JnxGdoiKeyManagementAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyMgmtNone": 0,
+          "keyMgmtLkh": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiEncryptionAlgorithm": {
+    "name": "JnxGdoiEncryptionAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encrAlgNone": 0,
+          "encrAlgDes64": 1,
+          "encrAlgDes": 2,
+          "encrAlg3Des": 3,
+          "encrAlgRc5": 4,
+          "encrAlgIdea": 5,
+          "encrAlgCast": 6,
+          "encrAlgBlowfish": 7,
+          "encrAlg3Idea": 8,
+          "encrAlgDes32": 9,
+          "encrAlgRc4": 10,
+          "encrAlgNull": 11,
+          "encrAlgAesCbc": 12,
+          "encrAlgAesCtr": 13,
+          "encrAlgAesCcm8": 14,
+          "encrAlgAesCcm12": 15,
+          "encrAlgAesCcm16": 16,
+          "encrAlgAesGcm8": 18,
+          "encrAlgAesGcm12": 19,
+          "encrAlgAesGcm16": 20,
+          "encrAlgNullAuthAesGmac": 21,
+          "encrAlgCamelliaCbc": 23,
+          "encrAlgCamelliaCtr": 24,
+          "encrAlgCamelliaCcm8": 25,
+          "encrAlgCamelliaCcm12": 26,
+          "encrAlgCamelliaCcm1": 27,
+          "encrAlgSeedCbc": 28
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiPseudoRandomFunction": {
+    "name": "JnxGdoiPseudoRandomFunction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prfNone": 0,
+          "prfMd5Hmac": 1,
+          "prfSha1Hmac": 2,
+          "prfTigerHmac": 3,
+          "prfAes128Xcbc": 4,
+          "prfSha2Hmac256": 5,
+          "prfSha2Hmac384": 6,
+          "prfSha2Hmac512": 7,
+          "prfAes128Cmac": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiIntegrityAlgorithm": {
+    "name": "JnxGdoiIntegrityAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authAlgNone": 0,
+          "authAlgMd5Hmac96": 1,
+          "authAlgSha1Hmac96": 2,
+          "authAlgDesMac": 3,
+          "authAlgMd5Kpdk": 4,
+          "authAlgAesXcbc96": 5,
+          "authAlgMd5Hmac128": 6,
+          "authAlgSha1Hmac160": 7,
+          "authAlgAesCmac96": 8,
+          "authAlgAes128Gmac": 9,
+          "authAlgAes192Gmac": 10,
+          "authAlgAes256Gmac": 11,
+          "authAlgSha2Hmac256to128": 12,
+          "authAlgSha2Hmac384to192": 13,
+          "authAlgSha2Hmac512to256": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiSignatureMethod": {
+    "name": "JnxGdoiSignatureMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sigNone": 0,
+          "sigRsa": 1,
+          "sigSharedKey": 2,
+          "sigDss": 3,
+          "sigEncryptRsa": 4,
+          "sigRevEncryptRsa": 5,
+          "sigEcdsa256": 9,
+          "sigEcdsa384": 10,
+          "sigEcdsa512": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiDiffieHellmanGroup": {
+    "name": "JnxGdoiDiffieHellmanGroup",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhNone": 0,
+          "dhGroup1": 1,
+          "dhGroup2": 2,
+          "dhEc2nGp155": 3,
+          "dhEc2nGp185": 4,
+          "dh1536Modp": 5,
+          "dh2048Modp": 14,
+          "dh3072Modp": 15,
+          "dh4096Modp": 16,
+          "dh6144Modp": 17,
+          "dh8192Modp": 18,
+          "dhEcp256": 19,
+          "dhEcp84": 20,
+          "dhEcp521": 21,
+          "dh1024Modp160": 22,
+          "dh2048Modp224": 23,
+          "dh2048Modp256": 24,
+          "dhEcp192": 25,
+          "dhEcp224": 26
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiEncapsulationMode": {
+    "name": "JnxGdoiEncapsulationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encapUnknown": 0,
+          "encapTunnel": 1,
+          "encapTransport": 2,
+          "encapUdpTunnel": 3,
+          "encapUdpTransport": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiSecurityProtocol": {
+    "name": "JnxGdoiSecurityProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secProtocolUnknown": 0,
+          "secProtocolIpsecEsp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiTekSPI": {
+    "name": "JnxGdoiTekSPI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "4x",
+    "status": "current"
+  },
+  "JnxGdoiKekStatus": {
+    "name": "JnxGdoiKekStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inUse": 1,
+          "new": 2,
+          "old": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiTekStatus": {
+    "name": "JnxGdoiTekStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "biDirectional": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxGdoiUnsigned16": {
+    "name": "JnxGdoiUnsigned16",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "2d",
+    "status": "current"
+  },
+  "JnxGdoiPolicyMismatchAction": {
+    "name": "JnxGdoiPolicyMismatchAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "forward": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxGdoiMIBNotifications": {
+    "name": "jnxGdoiMIBNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.759.0",
+    "class": "objectidentity"
+  },
+  "jnxGdoiMIBObjects": {
+    "name": "jnxGdoiMIBObjects",
+    "oid": "1.3.6.1.4.1.2636.3.759.1",
+    "class": "objectidentity"
+  },
+  "jnxGdoiGmRegister": {
+    "name": "jnxGdoiGmRegister",
+    "oid": "1.3.6.1.4.1.2636.3.759.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGmRegistrationComplete": {
+    "name": "jnxGdoiGmRegistrationComplete",
+    "oid": "1.3.6.1.4.1.2636.3.759.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGmReRegister": {
+    "name": "jnxGdoiGmReRegister",
+    "oid": "1.3.6.1.4.1.2636.3.759.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGmRekeyReceived": {
+    "name": "jnxGdoiGmRekeyReceived",
+    "oid": "1.3.6.1.4.1.2636.3.759.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdValue"
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRekeysReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGmRekeyFailure": {
+    "name": "jnxGdoiGmRekeyFailure",
+    "oid": "1.3.6.1.4.1.2636.3.759.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdType"
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRegKeyServerIdValue"
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmRekeysReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGroupTable": {
+    "name": "jnxGdoiGroupTable",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGroupEntry": {
+    "name": "jnxGdoiGroupEntry",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGroupIdType": {
+    "name": "jnxGdoiGroupIdType",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGroupIdLength": {
+    "name": "jnxGdoiGroupIdLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGroupIdValue": {
+    "name": "jnxGdoiGroupIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGroupName": {
+    "name": "jnxGdoiGroupName",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiPeers": {
+    "name": "jnxGdoiPeers",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2",
+    "class": "objectidentity"
+  },
+  "jnxGdoiSecAssociations": {
+    "name": "jnxGdoiSecAssociations",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3",
+    "class": "objectidentity"
+  },
+  "jnxGdoiGmTable": {
+    "name": "jnxGdoiGmTable",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmEntry": {
+    "name": "jnxGdoiGmEntry",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmIdValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGmIdType": {
+    "name": "jnxGdoiGmIdType",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmIdLength": {
+    "name": "jnxGdoiGmIdLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmIdValue": {
+    "name": "jnxGdoiGmIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmRegKeyServerIdType": {
+    "name": "jnxGdoiGmRegKeyServerIdType",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmRegKeyServerIdLength": {
+    "name": "jnxGdoiGmRegKeyServerIdLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmRegKeyServerIdValue": {
+    "name": "jnxGdoiGmRegKeyServerIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmActiveKEK": {
+    "name": "jnxGdoiGmActiveKEK",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiKekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmRekeysReceived": {
+    "name": "jnxGdoiGmRekeysReceived",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "GROUPKEY-PUSH Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmActiveTEKNum": {
+    "name": "jnxGdoiGmActiveTEKNum",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Number of traffic encryption keys",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekTable": {
+    "name": "jnxGdoiGmKekTable",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmKekEntry": {
+    "name": "jnxGdoiGmKekEntry",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmKekIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGmKekIndex": {
+    "name": "jnxGdoiGmKekIndex",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmKekSPI": {
+    "name": "jnxGdoiGmKekSPI",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiKekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekSrcIdType": {
+    "name": "jnxGdoiGmKekSrcIdType",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekSrcIdLength": {
+    "name": "jnxGdoiGmKekSrcIdLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekSrcIdValue": {
+    "name": "jnxGdoiGmKekSrcIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekSrcIdPort": {
+    "name": "jnxGdoiGmKekSrcIdPort",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekDstIdType": {
+    "name": "jnxGdoiGmKekDstIdType",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekDstIdLength": {
+    "name": "jnxGdoiGmKekDstIdLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekDstIdValue": {
+    "name": "jnxGdoiGmKekDstIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekDstIdPort": {
+    "name": "jnxGdoiGmKekDstIdPort",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekIpProtocol": {
+    "name": "jnxGdoiGmKekIpProtocol",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIpProtocolId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekMgmtAlg": {
+    "name": "jnxGdoiGmKekMgmtAlg",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiKeyManagementAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekEncryptAlg": {
+    "name": "jnxGdoiGmKekEncryptAlg",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiEncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekEncryptKeyLength": {
+    "name": "jnxGdoiGmKekEncryptKeyLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekSigHashAlg": {
+    "name": "jnxGdoiGmKekSigHashAlg",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiPseudoRandomFunction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekSigAlg": {
+    "name": "jnxGdoiGmKekSigAlg",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiSignatureMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekSigKeyLength": {
+    "name": "jnxGdoiGmKekSigKeyLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekOakleyGroup": {
+    "name": "jnxGdoiGmKekOakleyGroup",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiDiffieHellmanGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekOriginalLifetime": {
+    "name": "jnxGdoiGmKekOriginalLifetime",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekRemainingLifetime": {
+    "name": "jnxGdoiGmKekRemainingLifetime",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmKekStatus": {
+    "name": "jnxGdoiGmKekStatus",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiKekStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekSelectorTable": {
+    "name": "jnxGdoiGmTekSelectorTable",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmTekSelectorEntry": {
+    "name": "jnxGdoiGmTekSelectorEntry",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmTekSelectorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGmTekSelectorIndex": {
+    "name": "jnxGdoiGmTekSelectorIndex",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmTekSrcIdType": {
+    "name": "jnxGdoiGmTekSrcIdType",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekSrcIdLength": {
+    "name": "jnxGdoiGmTekSrcIdLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekSrcIdValue": {
+    "name": "jnxGdoiGmTekSrcIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekSrcIdPort": {
+    "name": "jnxGdoiGmTekSrcIdPort",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekDstIdType": {
+    "name": "jnxGdoiGmTekDstIdType",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekDstIdLength": {
+    "name": "jnxGdoiGmTekDstIdLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekDstIdValue": {
+    "name": "jnxGdoiGmTekDstIdValue",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIdentificationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekDstIdPort": {
+    "name": "jnxGdoiGmTekDstIdPort",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiUnsigned16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekSecurityProtocol": {
+    "name": "jnxGdoiGmTekSecurityProtocol",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiSecurityProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekPolicyMismatchAction": {
+    "name": "jnxGdoiGmTekPolicyMismatchAction",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiPolicyMismatchAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekPolicyTable": {
+    "name": "jnxGdoiGmTekPolicyTable",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmTekPolicyEntry": {
+    "name": "jnxGdoiGmTekPolicyEntry",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGroupIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmIdType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmIdValue",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmTekSelectorIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-GDOI-MIB",
+        "object": "jnxGdoiGmTekPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxGdoiGmTekPolicyIndex": {
+    "name": "jnxGdoiGmTekPolicyIndex",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxGdoiGmTekSPI": {
+    "name": "jnxGdoiGmTekSPI",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiTekSPI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekEncapsulationMode": {
+    "name": "jnxGdoiGmTekEncapsulationMode",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekEncryptionAlgorithm": {
+    "name": "jnxGdoiGmTekEncryptionAlgorithm",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiEncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekEncryptionKeyLength": {
+    "name": "jnxGdoiGmTekEncryptionKeyLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekIntegrityAlgorithm": {
+    "name": "jnxGdoiGmTekIntegrityAlgorithm",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiIntegrityAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekIntegrityKeyLength": {
+    "name": "jnxGdoiGmTekIntegrityKeyLength",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekWindowSize": {
+    "name": "jnxGdoiGmTekWindowSize",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "GROUPKEY-PUSH Messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekOriginalLifetime": {
+    "name": "jnxGdoiGmTekOriginalLifetime",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekRemainingLifetime": {
+    "name": "jnxGdoiGmTekRemainingLifetime",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxGdoiGmTekStatus": {
+    "name": "jnxGdoiGmTekStatus",
+    "oid": "1.3.6.1.4.1.2636.3.759.1.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxGdoiTekStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JNX-GDOI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JNX-GDOI-MIB"
+  }
+}

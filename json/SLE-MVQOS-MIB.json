@@ -1,0 +1,1136 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleMVQoS": {
+    "name": "sleMVQoS",
+    "oid": "1.3.6.1.4.1.6296.101.14",
+    "class": "moduleidentity"
+  },
+  "IntQueue": {
+    "name": "IntQueue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    }
+  },
+  "IntQueueIndex": {
+    "name": "IntQueueIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "IntEtherType": {
+    "name": "IntEtherType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "IntEtherTypeIndex": {
+    "name": "IntEtherTypeIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "IntIpAddressMask": {
+    "name": "IntIpAddressMask",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    }
+  },
+  "IntQueueDirection": {
+    "name": "IntQueueDirection",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": -1,
+          "source": 1,
+          "destination": 2
+        }
+      }
+    }
+  },
+  "IntCoS": {
+    "name": "IntCoS",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    }
+  },
+  "IntCoSIndex": {
+    "name": "IntCoSIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "IntDp": {
+    "name": "IntDp",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    }
+  },
+  "IntDSCP": {
+    "name": "IntDSCP",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    }
+  },
+  "sleMVQoSBase": {
+    "name": "sleMVQoSBase",
+    "oid": "1.3.6.1.4.1.6296.101.14.1",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4": {
+    "name": "sleMVQoS4",
+    "oid": "1.3.6.1.4.1.6296.101.14.2",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4Base": {
+    "name": "sleMVQoS4Base",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.1",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4BridgeBase": {
+    "name": "sleMVQoS4BridgeBase",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4BridgePort2TCMark": {
+    "name": "sleMVQoS4BridgePort2TCMark",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4BridgePort2TCMarkTable": {
+    "name": "sleMVQoS4BridgePort2TCMarkTable",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkEntry": {
+    "name": "sleMVQoS4BridgePort2TCMarkEntry",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkPortIndex": {
+    "name": "sleMVQoS4BridgePort2TCMarkPortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkQueue": {
+    "name": "sleMVQoS4BridgePort2TCMarkQueue",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntQueue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkControl": {
+    "name": "sleMVQoS4BridgePort2TCMarkControl",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4BridgePort2TCMarkControlRequest": {
+    "name": "sleMVQoS4BridgePort2TCMarkControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setBridgePort2TCMark": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkControlStatus": {
+    "name": "sleMVQoS4BridgePort2TCMarkControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkControlTimer": {
+    "name": "sleMVQoS4BridgePort2TCMarkControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkControlTmeStamp": {
+    "name": "sleMVQoS4BridgePort2TCMarkControlTmeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkControlReqResult": {
+    "name": "sleMVQoS4BridgePort2TCMarkControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkControlPortIndex": {
+    "name": "sleMVQoS4BridgePort2TCMarkControlPortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkControlQueue": {
+    "name": "sleMVQoS4BridgePort2TCMarkControlQueue",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntQueue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4BridgePort2TCMarkNotification": {
+    "name": "sleMVQoS4BridgePort2TCMarkNotification",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.3",
+    "class": "objectidentity"
+  },
+  "sleBridgePort2TCMarkChanged": {
+    "name": "sleBridgePort2TCMarkChanged",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.2.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlTmeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkQueue"
+      }
+    ],
+    "status": "current"
+  },
+  "sleMVQoS4InLIF": {
+    "name": "sleMVQoS4InLIF",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4InLIFMark": {
+    "name": "sleMVQoS4InLIFMark",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4InLIFMarkTable": {
+    "name": "sleMVQoS4InLIFMarkTable",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkEntry": {
+    "name": "sleMVQoS4InLIFMarkEntry",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkPortIndex": {
+    "name": "sleMVQoS4InLIFMarkPortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkCoS": {
+    "name": "sleMVQoS4InLIFMarkCoS",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntCoS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkDSCP": {
+    "name": "sleMVQoS4InLIFMarkDSCP",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntDSCP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkControl": {
+    "name": "sleMVQoS4InLIFMarkControl",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4InLIFMarkControlRequest": {
+    "name": "sleMVQoS4InLIFMarkControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setInLIFUp": 1,
+          "setInLIFDscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkControlStatus": {
+    "name": "sleMVQoS4InLIFMarkControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkControlTimer": {
+    "name": "sleMVQoS4InLIFMarkControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkControlTimeStamp": {
+    "name": "sleMVQoS4InLIFMarkControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkControlReqResult": {
+    "name": "sleMVQoS4InLIFMarkControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkControlPortIndex": {
+    "name": "sleMVQoS4InLIFMarkControlPortIndex",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkControlCoS": {
+    "name": "sleMVQoS4InLIFMarkControlCoS",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntCoS",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkControlDSCP": {
+    "name": "sleMVQoS4InLIFMarkControlDSCP",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntDSCP",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4InLIFMarkNotification": {
+    "name": "sleMVQoS4InLIFMarkNotification",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.3",
+    "class": "objectidentity"
+  },
+  "sleInLIFMarkUpChanged": {
+    "name": "sleInLIFMarkUpChanged",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlTimeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkCoS"
+      }
+    ],
+    "status": "current"
+  },
+  "sleInLIFMarkDscpChanged": {
+    "name": "sleInLIFMarkDscpChanged",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.3.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlTimeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkDSCP"
+      }
+    ],
+    "status": "current"
+  },
+  "sleMVQoS4Router": {
+    "name": "sleMVQoS4Router",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4RouterMark": {
+    "name": "sleMVQoS4RouterMark",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4RouterMarkTable": {
+    "name": "sleMVQoS4RouterMarkTable",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkEntry": {
+    "name": "sleMVQoS4RouterMarkEntry",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkNextHop": {
+    "name": "sleMVQoS4RouterMarkNextHop",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkQueue": {
+    "name": "sleMVQoS4RouterMarkQueue",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntQueue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkDp": {
+    "name": "sleMVQoS4RouterMarkDp",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntDp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkCoS": {
+    "name": "sleMVQoS4RouterMarkCoS",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntCoS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControl": {
+    "name": "sleMVQoS4RouterMarkControl",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2",
+    "class": "objectidentity"
+  },
+  "sleMVQoS4RouterMarkControlRequest": {
+    "name": "sleMVQoS4RouterMarkControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRouterMarkEntry": 1,
+          "setRouterMarkEntry": 2,
+          "destroyRouterMarkEntry": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControlStatus": {
+    "name": "sleMVQoS4RouterMarkControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControlTimer": {
+    "name": "sleMVQoS4RouterMarkControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControlTimeStamp": {
+    "name": "sleMVQoS4RouterMarkControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControlReqResult": {
+    "name": "sleMVQoS4RouterMarkControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControlNextHop": {
+    "name": "sleMVQoS4RouterMarkControlNextHop",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControlQueue": {
+    "name": "sleMVQoS4RouterMarkControlQueue",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntQueue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControlDp": {
+    "name": "sleMVQoS4RouterMarkControlDp",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntDp",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkControlCoS": {
+    "name": "sleMVQoS4RouterMarkControlCoS",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntCoS",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMVQoS4RouterMarkNotification": {
+    "name": "sleMVQoS4RouterMarkNotification",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.3",
+    "class": "objectidentity"
+  },
+  "sleRouterMarkEntryCreated": {
+    "name": "sleRouterMarkEntryCreated",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlTimeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkQueue"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkDp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkCoS"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRouterMarkEntryChanged": {
+    "name": "sleRouterMarkEntryChanged",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlTimeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkQueue"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkDp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkCoS"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRouterMarkEntryDestroyed": {
+    "name": "sleRouterMarkEntryDestroyed",
+    "oid": "1.3.6.1.4.1.6296.101.14.2.4.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlTimeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlNextHop"
+      }
+    ],
+    "status": "current"
+  },
+  "sleMVQoS6": {
+    "name": "sleMVQoS6",
+    "oid": "1.3.6.1.4.1.6296.101.14.3",
+    "class": "objectidentity"
+  },
+  "sleMVQoSGroup": {
+    "name": "sleMVQoSGroup",
+    "oid": "1.3.6.1.4.1.6296.101.14.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkPortIndex"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkQueue"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkPortIndex"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkCoS"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkDSCP"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkNextHop"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkQueue"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkDp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkCoS"
+      }
+    ],
+    "status": "current"
+  },
+  "sleMVQoSControlGroup": {
+    "name": "sleMVQoSControlGroup",
+    "oid": "1.3.6.1.4.1.6296.101.14.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlStatus"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlTimer"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlTmeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlPortIndex"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4BridgePort2TCMarkControlQueue"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlStatus"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlTimer"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlTimeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlNextHop"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlQueue"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlDp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4RouterMarkControlCoS"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlRequest"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlStatus"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlTimer"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlTimeStamp"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlReqResult"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlPortIndex"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlCoS"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleMVQoS4InLIFMarkControlDSCP"
+      }
+    ],
+    "status": "current"
+  },
+  "sleMVQoSNotificationGroup": {
+    "name": "sleMVQoSNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.14.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleBridgePort2TCMarkChanged"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleInLIFMarkUpChanged"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleInLIFMarkDscpChanged"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleRouterMarkEntryDestroyed"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleRouterMarkEntryCreated"
+      },
+      {
+        "module": "SLE-MVQOS-MIB",
+        "object": "sleRouterMarkEntryChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MVQOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-MVQOS-MIB"
+  }
+}

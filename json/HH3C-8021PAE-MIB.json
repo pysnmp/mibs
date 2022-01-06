@@ -1,0 +1,463 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cRhw"
+    ],
+    "IEEE8021-PAE-MIB": [
+      "dot1xPaePortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hh3cpaeExtMib": {
+    "name": "hh3cpaeExtMib",
+    "oid": "1.3.6.1.4.1.25506.8.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-06-29 00:00",
+        "description": ""
+      }
+    ]
+  },
+  "hh3cpaeExtMibObjects": {
+    "name": "hh3cpaeExtMibObjects",
+    "oid": "1.3.6.1.4.1.25506.8.6.1",
+    "class": "objectidentity"
+  },
+  "hh3cdot1xPaeSystem": {
+    "name": "hh3cdot1xPaeSystem",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cdot1xPaeAuthenticator": {
+    "name": "hh3cdot1xPaeAuthenticator",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cdot1xAuthQuietPeriod": {
+    "name": "hh3cdot1xAuthQuietPeriod",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xAuthTxPeriod": {
+    "name": "hh3cdot1xAuthTxPeriod",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xAuthSuppTimeout": {
+    "name": "hh3cdot1xAuthSuppTimeout",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xAuthServerTimeout": {
+    "name": "hh3cdot1xAuthServerTimeout",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xAuthMaxReq": {
+    "name": "hh3cdot1xAuthMaxReq",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xAuthReAuthPeriod": {
+    "name": "hh3cdot1xAuthReAuthPeriod",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xAuthMethod": {
+    "name": "hh3cdot1xAuthMethod",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chap": 1,
+          "pap": 2,
+          "eap": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xAuthConfigExtTable": {
+    "name": "hh3cdot1xAuthConfigExtTable",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cdot1xAuthConfigExtEntry": {
+    "name": "hh3cdot1xAuthConfigExtEntry",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cdot1xpaeportAuthAdminStatus": {
+    "name": "hh3cdot1xpaeportAuthAdminStatus",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xpaeportControlledType": {
+    "name": "hh3cdot1xpaeportControlledType",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "mac": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xpaeportMaxUserNum": {
+    "name": "hh3cdot1xpaeportMaxUserNum",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xpaeportUserNumNow": {
+    "name": "hh3cdot1xpaeportUserNumNow",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cdot1xpaeportClearStatistics": {
+    "name": "hh3cdot1xpaeportClearStatistics",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xpaeportMcastTrigStatus": {
+    "name": "hh3cdot1xpaeportMcastTrigStatus",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xpaeportHandshakeStatus": {
+    "name": "hh3cdot1xpaeportHandshakeStatus",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cdot1xPaeTraps": {
+    "name": "hh3cdot1xPaeTraps",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.0",
+    "class": "objectidentity"
+  },
+  "hh3csupplicantproxycheck": {
+    "name": "hh3csupplicantproxycheck",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-8021PAE-MIB",
+        "object": "hh3cproxycheckVlanId"
+      },
+      {
+        "module": "HH3C-8021PAE-MIB",
+        "object": "hh3cproxycheckPortName"
+      },
+      {
+        "module": "HH3C-8021PAE-MIB",
+        "object": "hh3cproxycheckMacAddr"
+      },
+      {
+        "module": "HH3C-8021PAE-MIB",
+        "object": "hh3cproxycheckIpaddr"
+      },
+      {
+        "module": "HH3C-8021PAE-MIB",
+        "object": "hh3cproxycheckUsrName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cproxycheckVlanId": {
+    "name": "hh3cproxycheckVlanId",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cproxycheckPortName": {
+    "name": "hh3cproxycheckPortName",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.0.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cproxycheckMacAddr": {
+    "name": "hh3cproxycheckMacAddr",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.0.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cproxycheckIpaddr": {
+    "name": "hh3cproxycheckIpaddr",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.0.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cproxycheckUsrName": {
+    "name": "hh3cproxycheckUsrName",
+    "oid": "1.3.6.1.4.1.25506.8.6.1.0.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-8021X-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-8021PAE-MIB"
+  }
+}
